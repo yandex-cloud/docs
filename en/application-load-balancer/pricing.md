@@ -32,6 +32,8 @@ The load balancer usage is billed hourly. You are charged for the maximum number
 
 ### Cost calculation example {#example}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 A load balancer operates within a single availability zone. We use the default auto-scaling settings with the minimum of two resource units per zone and no limit on the maximum total number of units.
 
 The load balancer has been running for an hour. The inbound traffic reached these peak values at various timestamps:

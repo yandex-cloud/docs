@@ -69,6 +69,8 @@ The price is calculated based on the amount of resources consumed over the curre
 
 Calculating the support fee (5% of the cost of consumed resources) includes your adjustments, subscriptions, and a committed volume of services under the billing account linked to your organization and paying for support services. When calculating the support fee (5% of the cost of consumed resources), the cost of {{ marketplace-name }} products is excluded. See [this example of cost calculation](#business-example-one-ba-cvos).
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 #### Example of calculating the cost for an organization whose resources are paid from a single billing account {#business-example-one-ba}
 
 
@@ -85,7 +87,6 @@ If an organization with an activated support service plan uses resources paid fr
 
 
 {% include [usd-support-two-ba](../_pricing_examples/support/usd-two-ba.md) %}
-
 
 
 #### Example of calculating the cost for an organization whose resources are paid from a single billing account, with a committed volume of services included {#business-example-one-ba-cvos}

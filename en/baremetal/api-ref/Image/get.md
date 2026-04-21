@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             ID of the Image resource to return.
             To get the image ID, use a [ImageService.List](/docs/baremetal/api-ref/Image/list#List) request.
+            Value must match the regular expression ` [a-z][a-z0-9]* `.
           pattern: '[a-z][a-z0-9]*'
           type: string
       additionalProperties: false
@@ -22,7 +23,6 @@ apiPlayground:
 # BareMetal API, REST: Image.Get
 
 Returns the specific Image resource.
-
 To get the list of available Image resources, make a [List](/docs/baremetal/api-ref/Image/list#List) request.
 
 ## HTTP request
@@ -38,8 +38,9 @@ GET https://baremetal.{{ api-host }}/baremetal/v1alpha/images/{imageId}
 || imageId | **string**
 
 Required field. ID of the Image resource to return.
+To get the image ID, use a [ImageService.List](/docs/baremetal/api-ref/Image/list#List) request.
 
-To get the image ID, use a [ImageService.List](/docs/baremetal/api-ref/Image/list#List) request. ||
+Value must match the regular expression ` [a-z][a-z0-9]* `. ||
 |#
 
 ## Response {#yandex.cloud.baremetal.v1alpha.Image}
@@ -83,7 +84,6 @@ MD5 checksum of the image. ||
 
 Status of the image.
 
-- `STATUS_UNSPECIFIED`: Unspecified image status.
 - `CREATING`: Image is being created.
 - `READY`: Image is ready to use.
 - `ERROR`: Image encountered an error.

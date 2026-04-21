@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             ID of the Configuration resource to return.
             To get the configuration ID, use a [ConfigurationService.List](/docs/baremetal/api-ref/Configuration/list#List) request.
+            Value must match the regular expression ` [a-z][a-z0-9]* `.
           pattern: '[a-z][a-z0-9]*'
           type: string
       additionalProperties: false
@@ -22,6 +23,7 @@ apiPlayground:
             **string**
             ID of the folder to return a Configuration resource for.
             To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50. Value must match the regular expression ` [a-z][a-z0-9.-]* `.
           pattern: '[a-z][a-z0-9.-]*'
           type: string
       additionalProperties: false
@@ -32,7 +34,6 @@ apiPlayground:
 # BareMetal API, REST: Configuration.Get
 
 Returns the specific Configuration resource.
-
 To get the list of available Configuration resources, make a [List](/docs/baremetal/api-ref/Configuration/list#List) request.
 
 ## HTTP request
@@ -48,8 +49,9 @@ GET https://baremetal.{{ api-host }}/baremetal/v1alpha/configurations/{configura
 || configurationId | **string**
 
 Required field. ID of the Configuration resource to return.
+To get the configuration ID, use a [ConfigurationService.List](/docs/baremetal/api-ref/Configuration/list#List) request.
 
-To get the configuration ID, use a [ConfigurationService.List](/docs/baremetal/api-ref/Configuration/list#List) request. ||
+Value must match the regular expression ` [a-z][a-z0-9]* `. ||
 |#
 
 ## Query parameters {#yandex.cloud.baremetal.v1alpha.GetConfigurationRequest}
@@ -59,8 +61,9 @@ To get the configuration ID, use a [ConfigurationService.List](/docs/baremetal/a
 || folderId | **string**
 
 ID of the folder to return a Configuration resource for.
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
 
-To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+The maximum string length in characters is 50. Value must match the regular expression ` [a-z][a-z0-9.-]* `. ||
 |#
 
 ## Response {#yandex.cloud.baremetal.v1alpha.Configuration}
@@ -136,7 +139,9 @@ Vendor of the CPU. ||
 Number of physical cores per CPU (socket). ||
 || frequencyMhz | **string** (int64)
 
-Frequency of the CPU in megahertz (MHz). ||
+Frequency of the CPU in megahertz (MHz).
+
+Value must be greater than 0. ||
 |#
 
 ## DiskDriveConfiguration {#yandex.cloud.baremetal.v1alpha.DiskDriveConfiguration}
@@ -147,7 +152,6 @@ Frequency of the CPU in megahertz (MHz). ||
 
 Type of the disk drive.
 
-- `DISK_DRIVE_TYPE_UNSPECIFIED`: Unspecified disk drive type.
 - `HDD`: Hard disk drive (magnetic storage).
 - `SSD`: Solid state drive with SATA/SAS interface.
 - `NVME`: Solid state drive with NVMe interface. ||

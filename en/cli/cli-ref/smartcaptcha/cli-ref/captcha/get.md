@@ -19,6 +19,9 @@ Syntax:
 || `--captcha-id` | `string`
 
 ID of the Captcha resource to return. ||
+|| `--name` | `string`
+
+Resolve captcha-id by resource name within the current scope. ||
 |#
 
 #### Global Flags

@@ -50,6 +50,8 @@ You are only charged for the container invocations that have caused your applica
 
 ### Cost calculation examples {#example}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 Example of calculating the cost of a container with the following properties:
 
 * **Amount of memory specified when creating a revision**: 2 GB.

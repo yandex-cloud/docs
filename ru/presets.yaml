@@ -3483,14 +3483,6 @@ default:
       128k:
         12h|number: 0.0012
         12h|string: "0,0012\_$"
-    v1:
-      serverless:
-        requests|pricingRate:
-          1|string: "0,192419969\_$"
-        requests|string: Не тарифицируется
-        storage|pricingRate:
-          720|string: "0,00026725\_$"
-        storage|string: Не тарифицируется
   sku|USD|yt:
     compute-nodes:
       cpu:
@@ -3922,12 +3914,16 @@ default:
           label_subject: Пользователь
       baremetal:
         addDiskButton: Добавить
+        allTemplates: Все шаблоны
         amount: Количество
+        assemblyDiscountLabel: Дешевле со сборкой
         cpuTitle: Процессор
         CustomConfiguration: Своя конфигурация
         disks: Диски
+        goToAssembly: Перейти к сборке
         networkLabel: Сеть
         poolFilter: Пул
+        prefillWithTemplate: Предзаполнить шаблоном
         ramLabel: Оперативная память
         size: Размер
         StockConfigurations: Готовые конфигурации

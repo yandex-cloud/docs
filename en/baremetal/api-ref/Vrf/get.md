@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             ID of the VRF to return.
             To get the VRF ID, use a [VrfService.List](/docs/baremetal/api-ref/Vrf/list#List) request.
+            Value must match the regular expression ` [a-z][a-z0-9]* `.
           pattern: '[a-z][a-z0-9]*'
           type: string
       additionalProperties: false
@@ -22,7 +23,6 @@ apiPlayground:
 # BareMetal API, REST: Vrf.Get
 
 Returns the specific VRF resource.
-
 To get the list of available VRFs, make a [List](/docs/baremetal/api-ref/Vrf/list#List) request.
 
 ## HTTP request
@@ -38,8 +38,9 @@ GET https://baremetal.{{ api-host }}/baremetal/v1alpha/vrfs/{vrfId}
 || vrfId | **string**
 
 Required field. ID of the VRF to return.
+To get the VRF ID, use a [VrfService.List](/docs/baremetal/api-ref/Vrf/list#List) request.
 
-To get the VRF ID, use a [VrfService.List](/docs/baremetal/api-ref/Vrf/list#List) request. ||
+Value must match the regular expression ` [a-z][a-z0-9]* `. ||
 |#
 
 ## Response {#yandex.cloud.baremetal.v1alpha.Vrf}
@@ -53,6 +54,14 @@ To get the VRF ID, use a [VrfService.List](/docs/baremetal/api-ref/Vrf/list#List
   "folderId": "string",
   "name": "string",
   "description": "string",
+  "status": "string",
+  "staticRoutes": [
+    {
+      "destinationCidr": "string",
+      "nextHopIpAddress": "string",
+      "redistributionType": "string"
+    }
+  ],
   "createdAt": "string",
   "labels": "object"
 }
@@ -76,6 +85,15 @@ The name is unique within the folder. ||
 || description | **string**
 
 Optional description of the VRF. ||
+|| status | **enum** (Status)
+
+Status of the VRF.
+
+- `ACTIVE`: VRF is ready to use.
+- `UPDATING`: VRF is being updated. ||
+|| staticRoutes[] | **[StaticRoute](#yandex.cloud.baremetal.v1alpha.StaticRoute)**
+
+Static routes. ||
 || createdAt | **string** (date-time)
 
 Creation timestamp.
@@ -89,4 +107,22 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
+|#
+
+## StaticRoute {#yandex.cloud.baremetal.v1alpha.StaticRoute}
+
+#|
+||Field | Description ||
+|| destinationCidr | **string**
+
+Destination network CIDR block. ||
+|| nextHopIpAddress | **string**
+
+Next hop host IP address. ||
+|| redistributionType | **enum** (RedistributionType)
+
+Redistribution type.
+
+- `DISABLED`: Static route announcements outside BareMetal VRF disabled.
+- `ENABLED`: Static route announcements outside BareMetal VRF enabled. ||
 |#

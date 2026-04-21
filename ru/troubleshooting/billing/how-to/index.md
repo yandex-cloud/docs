@@ -3,7 +3,6 @@
 * [Как работают гранты и промокоды в {{ billing-name }}](promocodes-and-grants-features-in-billing.md)
 * [Как изменить информацию, указанную в свойствах платежного аккаунта](change-payer-info-or-requisites.md)
 * [Как сменить тип платежного аккаунта](changing-billing-account-type.md)
-* [Как подключиться к ЭДО](edi-system-connection.md)
 * [Как изменить форму и данные в выставляемых счетах на оплату](edit-invoice-template-or-content.md)
 * [Как восстановить доступ к платежному аккаунту, созданному на основе упрощенной регистрации в Яндекс ID](recover-access-to-billing-account-via-lite-account.md)
 * [Как сформировать счет на оплату](generating-invoice.md)

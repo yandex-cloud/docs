@@ -21,6 +21,14 @@ description: Следуя данной инструкции, вы сможете
   1. {% include [server-lease-step2](../../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
   1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-server }}** и в открывшемся окне выберите вариант `{{ ui-key.yacloud_components.baremetal.CustomConfiguration }}`. В открывшемся окне настройте конфигурацию сервера:
 
+      {% note tip %}
+
+      Вы можете создать свою конфигурацию не с нуля, а на основе [шаблона](../../concepts/server-custom-configurations.md#templates) конфигурации {{ baremetal-full-name }}, изменив в нем нужные вам аппаратные характеристики арендуемого сервера.
+
+      Чтобы создать свою конфигурацию на основе шаблона, в блоке **{{ ui-key.yacloud_components.baremetal.prefillWithTemplate }}** выберите подходящий шаблон, используя кнопки навигации ![chevron-left](../../../_assets/console-icons/chevron-left.svg) и ![chevron-right](../../../_assets/console-icons/chevron-right.svg). Чтобы быстрее найти подходящий вариант, нажмите **{{ ui-key.yacloud_components.baremetal.allTemplates }}** и в открывшемся списке выберите нужный шаблон, при необходимости воспользовавшись фильтром.
+
+      {% endnote %}
+
       1. В блоке **{{ ui-key.yacloud_components.baremetal.cpuTitle }}** выберите устраивающий вас CPU.
 
           При необходимости воспользуйтесь фильтром по производителю, количеству ядер и тактовой частоте доступных процессоров.

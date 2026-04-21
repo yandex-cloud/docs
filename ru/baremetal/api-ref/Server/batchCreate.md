@@ -13,6 +13,7 @@ apiPlayground:
             **string**
             ID of the folder to list images in.
             To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50. Value must match the regular expression ` [a-z][a-z0-9.-]* `.
           pattern: '[a-z][a-z0-9.-]*'
           type: string
         name:
@@ -20,31 +21,37 @@ apiPlayground:
             **string**
             Name of the server.
             The name must be unique within the folder.
+            The string length in characters must be 2-56. Value must match the regular expression ` [a-z]([-a-z0-9]*[a-z0-9])? `.
           pattern: '[a-z]([-a-z0-9]*[a-z0-9])?'
           type: string
         description:
           description: |-
             **string**
             Description of the server.
+            The maximum string length in characters is 1024.
           type: string
         hardwarePoolId:
           description: |-
             **string**
-            ID of the hardware pool that the server belongs to.
+            Required field. ID of the hardware pool that the server belongs to.
             To get the hardware pool ID, use a [HardwarePoolService.List](/docs/baremetal/api-ref/HardwarePool/list#List) request.
+            The maximum string length in characters is 20.
           type: string
         configurationId:
           description: |-
             **string**
             ID of the configuration to use for the server.
             To get the configuration ID, use a [ConfigurationService.List](/docs/baremetal/api-ref/Configuration/list#List) request.
-          pattern: '[a-z][a-z0-9]*'
+            Value must match the regular expression ` ([a-z][a-z0-9]{19})| `.
+          deprecated: true
+          pattern: ([a-z][a-z0-9]{19})|
           type: string
         rentalPeriodId:
           description: |-
             **string**
             A period of time for which the server is rented.
             To get the rental period ID, use a [RentalPeriodService.List](/docs/baremetal/api-ref/RentalPeriod/list#List) request.
+            The maximum string length in characters is 20.
           type: string
         networkInterfaces:
           description: |-
@@ -53,6 +60,7 @@ apiPlayground:
             to interact with other servers on the internal network and on the internet.
             Currently up to 2 network interfaces are supported: required private network interface and
             optional public network interface.
+            The maximum number of elements is 2.
           type: array
           items:
             $ref: '#/definitions/NetworkInterfaceSpec'
@@ -66,6 +74,7 @@ apiPlayground:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
+            The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource.
           type: object
           additionalProperties:
             type: string
@@ -81,8 +90,11 @@ apiPlayground:
           description: |-
             **string** (int64)
             Number of servers to create.
+            Acceptable values are 1 to 100, inclusive.
           type: string
           format: int64
+      required:
+        - hardwarePoolId
       additionalProperties: false
     definitions:
       PrivateSubnetNetworkInterface:
@@ -102,145 +114,173 @@ apiPlayground:
               ID of the public subnet.
               A new ephemeral public subnet will be created if not specified.
             type: string
+      VLANSubinterface:
+        type: object
+        properties:
+          taggedSubnetId:
+            description: |-
+              **string**
+              ID of the private subnet which is used as tagged subnet for interface.
+            type: string
+          ipAddress:
+            description: |-
+              **string**
+              IPv4 address that is assigned to the VLAN subinterface.
+              Read only field.
+            type: string
+          macLimit:
+            description: |-
+              **string** (int64)
+              Limit of MAC addresses in the tagged subnet.
+              Read only field.
+            type: string
+            format: int64
+      PrivateNetworkInterface:
+        type: object
+        properties:
+          nativeSubnetId:
+            description: |-
+              **string**
+              ID of the private subnet which is used as native subnet for interface.
+            type: string
+          ipAddress:
+            description: |-
+              **string**
+              IPv4 address that is assigned to the server for this network interface.
+              Read only field.
+            type: string
+          macLimit:
+            description: |-
+              **string** (int64)
+              Limit of MAC addresses in the native subnet.
+              Read only field.
+            type: string
+            format: int64
+          vlanSubinterfaces:
+            description: |-
+              **[VLANSubinterface](#yandex.cloud.baremetal.v1alpha.VLANSubinterface)**
+              Array of VLAN subinterfaces. Additional tagged subnets for the interface.
+            type: array
+            items:
+              $ref: '#/definitions/VLANSubinterface'
+      NativeSubnet:
+        type: object
+        properties:
+          subnetId:
+            description: |-
+              **string**
+              ID of the existing public subnet.
+            type: string
+      NewNativeSubnet:
+        type: object
+        properties:
+          addressingType:
+            description: |-
+              **enum** (AddressingType)
+              Addressing type (DHCP | Static).
+              - `DHCP`: DHCP addressing.
+              - `STATIC`: Static addressing.
+            type: string
+            enum:
+              - ADDRESSING_TYPE_UNSPECIFIED
+              - DHCP
+              - STATIC
+      PublicNetworkInterface:
+        type: object
+        properties:
+          nativeSubnet:
+            description: |-
+              **[NativeSubnet](#yandex.cloud.baremetal.v1alpha.PublicNetworkInterface.NativeSubnet)**
+              Use existing native subnet.
+              Input only field.
+              Includes only one of the fields `nativeSubnet`, `newNativeSubnet`.
+              Native subnet configuration.
+              Input only field.
+            $ref: '#/definitions/NativeSubnet'
+          newNativeSubnet:
+            description: |-
+              **[NewNativeSubnet](#yandex.cloud.baremetal.v1alpha.PublicNetworkInterface.NewNativeSubnet)**
+              Create new native subnet.
+              Input only field.
+              Includes only one of the fields `nativeSubnet`, `newNativeSubnet`.
+              Native subnet configuration.
+              Input only field.
+            $ref: '#/definitions/NewNativeSubnet'
+          ipAddress:
+            description: |-
+              **string**
+              IPv4 address that is assigned to the server for this network interface.
+              Read only field.
+            type: string
+          nativeSubnetId:
+            description: |-
+              **string**
+              ID of the public subnet which is used as native subnet for interface.
+              Read only field.
+            type: string
+          macLimit:
+            description: |-
+              **string** (int64)
+              Limit of MAC addresses in the native subnet.
+              Read only field.
+            type: string
+            format: int64
+        oneOf:
+          - required:
+              - nativeSubnet
+          - required:
+              - newNativeSubnet
       NetworkInterfaceSpec:
         type: object
         properties:
-          id:
-            description: |-
-              **string**
-              ID of the network interface. Should not be specified when creating a server.
-            pattern: ([a-z][a-z0-9]*)?
-            type: string
           privateSubnet:
             description: |-
               **[PrivateSubnetNetworkInterface](#yandex.cloud.baremetal.v1alpha.PrivateSubnetNetworkInterface)**
-              Private subnet.
+              @deprecated Private subnet.
               Includes only one of the fields `privateSubnet`, `publicSubnet`.
-              Subnet that the network interface belongs to.
+              @deprecated. Use `interface` instead.
+              Subnet specific interface params.
+            deprecated: true
             $ref: '#/definitions/PrivateSubnetNetworkInterface'
           publicSubnet:
             description: |-
               **[PublicSubnetNetworkInterface](#yandex.cloud.baremetal.v1alpha.PublicSubnetNetworkInterface)**
-              Public subnet.
+              @deprecated Public subnet.
               Includes only one of the fields `privateSubnet`, `publicSubnet`.
-              Subnet that the network interface belongs to.
+              @deprecated. Use `interface` instead.
+              Subnet specific interface params.
+            deprecated: true
             $ref: '#/definitions/PublicSubnetNetworkInterface'
-        oneOf:
-          - required:
-              - privateSubnet
-          - required:
-              - publicSubnet
-      StoragePartition:
-        type: object
-        properties:
-          type:
+          privateInterface:
             description: |-
-              **enum** (StoragePartitionType)
-              Partition type.
-              - `STORAGE_PARTITION_TYPE_UNSPECIFIED`: Unspecified storage partition type.
-              - `EXT4`: ext4 file system partition type.
-              - `SWAP`: Swap partition type.
-              - `EXT3`: ext3 file system partition type.
-              - `XFS`: XFS file system partition type.
-            type: string
-            enum:
-              - STORAGE_PARTITION_TYPE_UNSPECIFIED
-              - EXT4
-              - SWAP
-              - EXT3
-              - XFS
-          sizeGib:
+              **[PrivateNetworkInterface](#yandex.cloud.baremetal.v1alpha.PrivateNetworkInterface)**
+              Private interface.
+              Includes only one of the fields `privateInterface`, `publicInterface`.
+            $ref: '#/definitions/PrivateNetworkInterface'
+          publicInterface:
             description: |-
-              **string** (int64)
-              Size of the storage partition in gibibytes (2^30 bytes).
-            type: string
-            format: int64
-          mountPoint:
-            description: |-
-              **string**
-              Storage mount point.
-            type: string
-      Disk:
-        type: object
-        properties:
+              **[PublicNetworkInterface](#yandex.cloud.baremetal.v1alpha.PublicNetworkInterface)**
+              Public interface.
+              Includes only one of the fields `privateInterface`, `publicInterface`.
+            $ref: '#/definitions/PublicNetworkInterface'
           id:
             description: |-
               **string**
-              ID of the disk.
+              ID of the network interface. Should not be specified when creating a server.
+              The maximum string length in characters is 20. Value must match the regular expression ` ([a-z][a-z0-9]*)? `.
+            pattern: ([a-z][a-z0-9]*)?
             type: string
-          type:
-            description: |-
-              **enum** (DiskDriveType)
-              Type of the disk drive.
-              - `DISK_DRIVE_TYPE_UNSPECIFIED`: Unspecified disk drive type.
-              - `HDD`: Hard disk drive (magnetic storage).
-              - `SSD`: Solid state drive with SATA/SAS interface.
-              - `NVME`: Solid state drive with NVMe interface.
-            type: string
-            enum:
-              - DISK_DRIVE_TYPE_UNSPECIFIED
-              - HDD
-              - SSD
-              - NVME
-          sizeGib:
-            description: |-
-              **string** (int64)
-              Size of the disk in gibibytes (2^30 bytes).
-            type: string
-            format: int64
-      Raid:
-        type: object
-        properties:
-          type:
-            description: |-
-              **enum** (RaidType)
-              RAID type.
-              - `RAID_TYPE_UNSPECIFIED`: Unspecified RAID configuration.
-              - `RAID0`: RAID0 configuration.
-              - `RAID1`: RAID1 configuration.
-              - `RAID10`: RAID10 configuration.
-            type: string
-            enum:
-              - RAID_TYPE_UNSPECIFIED
-              - RAID0
-              - RAID1
-              - RAID10
-          disks:
-            description: |-
-              **[Disk](#yandex.cloud.baremetal.v1alpha.Disk)**
-              Array of disks in the RAID configuration.
-            type: array
-            items:
-              $ref: '#/definitions/Disk'
-      Storage:
-        type: object
-        properties:
-          partitions:
-            description: |-
-              **[StoragePartition](#yandex.cloud.baremetal.v1alpha.StoragePartition)**
-              Array of partitions created on the storage.
-            type: array
-            items:
-              $ref: '#/definitions/StoragePartition'
-          disk:
-            description: |-
-              **[Disk](#yandex.cloud.baremetal.v1alpha.Disk)**
-              Disk storage.
-              Includes only one of the fields `disk`, `raid`.
-              Storage type.
-            $ref: '#/definitions/Disk'
-          raid:
-            description: |-
-              **[Raid](#yandex.cloud.baremetal.v1alpha.Raid)**
-              RAID storage.
-              Includes only one of the fields `disk`, `raid`.
-              Storage type.
-            $ref: '#/definitions/Raid'
-        oneOf:
-          - required:
-              - disk
-          - required:
-              - raid
+        allOf:
+          - oneOf:
+              - required:
+                  - privateSubnet
+              - required:
+                  - publicSubnet
+          - oneOf:
+              - required:
+                  - privateInterface
+              - required:
+                  - publicInterface
       LockboxSecret:
         type: object
         properties:
@@ -263,27 +303,122 @@ apiPlayground:
         required:
           - secretId
           - key
+      Disk:
+        type: object
+        properties:
+          id:
+            description: |-
+              **string**
+              ID of the disk.
+            type: string
+          type:
+            description: |-
+              **enum** (DiskDriveType)
+              Type of the disk drive.
+              - `HDD`: Hard disk drive (magnetic storage).
+              - `SSD`: Solid state drive with SATA/SAS interface.
+              - `NVME`: Solid state drive with NVMe interface.
+            type: string
+            enum:
+              - DISK_DRIVE_TYPE_UNSPECIFIED
+              - HDD
+              - SSD
+              - NVME
+          sizeGib:
+            description: |-
+              **string** (int64)
+              Size of the disk in gibibytes (2^30 bytes).
+            type: string
+            format: int64
+      Raid:
+        type: object
+        properties:
+          type:
+            description: |-
+              **enum** (RaidType)
+              RAID type.
+              - `RAID0`: RAID0 configuration.
+              - `RAID1`: RAID1 configuration.
+              - `RAID10`: RAID10 configuration.
+            type: string
+            enum:
+              - RAID_TYPE_UNSPECIFIED
+              - RAID0
+              - RAID1
+              - RAID10
+          disks:
+            description: |-
+              **[Disk](#yandex.cloud.baremetal.v1alpha.Disk)**
+              Array of disks in the RAID configuration.
+            type: array
+            items:
+              $ref: '#/definitions/Disk'
+      StoragePartition:
+        type: object
+        properties:
+          type:
+            description: |-
+              **enum** (StoragePartitionType)
+              Partition type.
+              - `EXT4`: ext4 file system partition type.
+              - `SWAP`: Swap partition type.
+              - `EXT3`: ext3 file system partition type.
+              - `XFS`: XFS file system partition type.
+            type: string
+            enum:
+              - STORAGE_PARTITION_TYPE_UNSPECIFIED
+              - EXT4
+              - SWAP
+              - EXT3
+              - XFS
+          sizeGib:
+            description: |-
+              **string** (int64)
+              Size of the storage partition in gibibytes (2^30 bytes).
+            type: string
+            format: int64
+          mountPoint:
+            description: |-
+              **string**
+              Storage mount point.
+            type: string
+      Storage:
+        type: object
+        properties:
+          disk:
+            description: |-
+              **[Disk](#yandex.cloud.baremetal.v1alpha.Disk)**
+              Disk storage.
+              Includes only one of the fields `disk`, `raid`.
+              Storage type.
+            $ref: '#/definitions/Disk'
+          raid:
+            description: |-
+              **[Raid](#yandex.cloud.baremetal.v1alpha.Raid)**
+              RAID storage.
+              Includes only one of the fields `disk`, `raid`.
+              Storage type.
+            $ref: '#/definitions/Raid'
+          partitions:
+            description: |-
+              **[StoragePartition](#yandex.cloud.baremetal.v1alpha.StoragePartition)**
+              Array of partitions created on the storage.
+            type: array
+            items:
+              $ref: '#/definitions/StoragePartition'
+        oneOf:
+          - required:
+              - disk
+          - required:
+              - raid
       OsSettingsSpec:
         type: object
         properties:
-          imageId:
-            description: |-
-              **string**
-              ID of the image that the server was created from.
-            pattern: '[a-z][a-z0-9]*'
-            type: string
-          storages:
-            description: |-
-              **[Storage](#yandex.cloud.baremetal.v1alpha.Storage)**
-              List of storages to be created on the server. If not specified, the default value based on the
-              selected configuration will be used as the field value.
-            type: array
-            items:
-              $ref: '#/definitions/Storage'
           sshPublicKey:
             description: |-
               **string**
               Public SSH key for the server.
+              The maximum string length in characters is 20000.
               Includes only one of the fields `sshPublicKey`, `userSshId`.
               Root user SSH key.
             type: string
@@ -292,6 +427,7 @@ apiPlayground:
               **string**
               ID of the user SSH key to use for the server.
               To get the user SSH key ID, use a [yandex.cloud.organizationmanager.v1.UserSshKeyService.List](/docs/organization/api-ref/UserSshKey/list#List) request.
+              The maximum string length in characters is 50.
               Includes only one of the fields `sshPublicKey`, `userSshId`.
               Root user SSH key.
             type: string
@@ -299,6 +435,7 @@ apiPlayground:
             description: |-
               **string**
               Raw password.
+              The minimum string length in characters is 6.
               Includes only one of the fields `passwordPlainText`, `passwordLockboxSecret`.
               Password for the server.
             type: string
@@ -309,6 +446,21 @@ apiPlayground:
               Includes only one of the fields `passwordPlainText`, `passwordLockboxSecret`.
               Password for the server.
             $ref: '#/definitions/LockboxSecret'
+          imageId:
+            description: |-
+              **string**
+              ID of the image that the server was created from.
+              The maximum string length in characters is 20. Value must match the regular expression ` [a-z][a-z0-9]* `.
+            pattern: '[a-z][a-z0-9]*'
+            type: string
+          storages:
+            description: |-
+              **[Storage](#yandex.cloud.baremetal.v1alpha.Storage)**
+              List of storages to be created on the server. If not specified, the default value based on the
+              selected configuration will be used as the field value.
+            type: array
+            items:
+              $ref: '#/definitions/Storage'
         allOf:
           - oneOf:
               - required:
@@ -344,28 +496,60 @@ POST https://baremetal.{{ api-host }}/baremetal/v1alpha/servers:batchCreate
   "rentalPeriodId": "string",
   "networkInterfaces": [
     {
-      "id": "string",
       // Includes only one of the fields `privateSubnet`, `publicSubnet`
       "privateSubnet": {
         "privateSubnetId": "string"
       },
       "publicSubnet": {
         "publicSubnetId": "string"
-      }
+      },
       // end of the list of possible fields
+      // Includes only one of the fields `privateInterface`, `publicInterface`
+      "privateInterface": {
+        "nativeSubnetId": "string",
+        "ipAddress": "string",
+        "macLimit": "string",
+        "vlanSubinterfaces": [
+          {
+            "taggedSubnetId": "string",
+            "ipAddress": "string",
+            "macLimit": "string"
+          }
+        ]
+      },
+      "publicInterface": {
+        // Includes only one of the fields `nativeSubnet`, `newNativeSubnet`
+        "nativeSubnet": {
+          "subnetId": "string"
+        },
+        "newNativeSubnet": {
+          "addressingType": "string"
+        },
+        // end of the list of possible fields
+        "ipAddress": "string",
+        "nativeSubnetId": "string",
+        "macLimit": "string"
+      },
+      // end of the list of possible fields
+      "id": "string"
     }
   ],
   "osSettingsSpec": {
+    // Includes only one of the fields `sshPublicKey`, `userSshId`
+    "sshPublicKey": "string",
+    "userSshId": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `passwordPlainText`, `passwordLockboxSecret`
+    "passwordPlainText": "string",
+    "passwordLockboxSecret": {
+      "secretId": "string",
+      "versionId": "string",
+      "key": "string"
+    },
+    // end of the list of possible fields
     "imageId": "string",
     "storages": [
       {
-        "partitions": [
-          {
-            "type": "string",
-            "sizeGib": "string",
-            "mountPoint": "string"
-          }
-        ],
         // Includes only one of the fields `disk`, `raid`
         "disk": {
           "id": "string",
@@ -381,22 +565,17 @@ POST https://baremetal.{{ api-host }}/baremetal/v1alpha/servers:batchCreate
               "sizeGib": "string"
             }
           ]
-        }
+        },
         // end of the list of possible fields
+        "partitions": [
+          {
+            "type": "string",
+            "sizeGib": "string",
+            "mountPoint": "string"
+          }
+        ]
       }
-    ],
-    // Includes only one of the fields `sshPublicKey`, `userSshId`
-    "sshPublicKey": "string",
-    "userSshId": "string",
-    // end of the list of possible fields
-    // Includes only one of the fields `passwordPlainText`, `passwordLockboxSecret`
-    "passwordPlainText": "string",
-    "passwordLockboxSecret": {
-      "secretId": "string",
-      "versionId": "string",
-      "key": "string"
-    }
-    // end of the list of possible fields
+    ]
   },
   "labels": "object",
   "count": "string"
@@ -408,69 +587,100 @@ POST https://baremetal.{{ api-host }}/baremetal/v1alpha/servers:batchCreate
 || folderId | **string**
 
 ID of the folder to list images in.
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
 
-To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+The maximum string length in characters is 50. Value must match the regular expression ` [a-z][a-z0-9.-]* `. ||
 || name | **string**
 
 Name of the server.
-The name must be unique within the folder. ||
+The name must be unique within the folder.
+
+The string length in characters must be 2-56. Value must match the regular expression ` [a-z]([-a-z0-9]*[a-z0-9])? `. ||
 || description | **string**
 
-Description of the server. ||
+Description of the server.
+
+The maximum string length in characters is 1024. ||
 || hardwarePoolId | **string**
 
-ID of the hardware pool that the server belongs to.
+Required field. ID of the hardware pool that the server belongs to.
+To get the hardware pool ID, use a [HardwarePoolService.List](/docs/baremetal/api-ref/HardwarePool/list#List) request.
 
-To get the hardware pool ID, use a [HardwarePoolService.List](/docs/baremetal/api-ref/HardwarePool/list#List) request. ||
+The maximum string length in characters is 20. ||
 || configurationId | **string**
 
 ID of the configuration to use for the server.
+To get the configuration ID, use a [ConfigurationService.List](/docs/baremetal/api-ref/Configuration/list#List) request.
 
-To get the configuration ID, use a [ConfigurationService.List](/docs/baremetal/api-ref/Configuration/list#List) request. ||
+Value must match the regular expression ``` ([a-z][a-z0-9]{19})| ```. ||
 || rentalPeriodId | **string**
 
 A period of time for which the server is rented.
+To get the rental period ID, use a [RentalPeriodService.List](/docs/baremetal/api-ref/RentalPeriod/list#List) request.
 
-To get the rental period ID, use a [RentalPeriodService.List](/docs/baremetal/api-ref/RentalPeriod/list#List) request. ||
+The maximum string length in characters is 20. ||
 || networkInterfaces[] | **[NetworkInterfaceSpec](#yandex.cloud.baremetal.v1alpha.NetworkInterfaceSpec)**
 
 Network configuration for the server. Specifies how the network interface is configured
 to interact with other servers on the internal network and on the internet.
 Currently up to 2 network interfaces are supported: required private network interface and
-optional public network interface. ||
+optional public network interface.
+
+The maximum number of elements is 2. ||
 || osSettingsSpec | **[OsSettingsSpec](#yandex.cloud.baremetal.v1alpha.OsSettingsSpec)**
 
 Operating system specific settings for provisioning the server. Optional, if omitted, the
 server will be created without an operating system. ||
 || labels | **object** (map<**string**, **string**>)
 
-Resource labels as `key:value` pairs. ||
+Resource labels as `key:value` pairs.
+
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
 || count | **string** (int64)
 
-Number of servers to create. ||
+Number of servers to create.
+
+Acceptable values are 1 to 100, inclusive. ||
 |#
 
 ## NetworkInterfaceSpec {#yandex.cloud.baremetal.v1alpha.NetworkInterfaceSpec}
 
+(-- api-linter: yc::1704::file-separation=disabled
+Required for backward compatibility with old clients. --)
+
 #|
 ||Field | Description ||
-|| id | **string**
-
-ID of the network interface. Should not be specified when creating a server. ||
 || privateSubnet | **[PrivateSubnetNetworkInterface](#yandex.cloud.baremetal.v1alpha.PrivateSubnetNetworkInterface)**
 
-Private subnet.
+@deprecated Private subnet.
 
 Includes only one of the fields `privateSubnet`, `publicSubnet`.
 
-Subnet that the network interface belongs to. ||
+@deprecated. Use `interface` instead.
+Subnet specific interface params. ||
 || publicSubnet | **[PublicSubnetNetworkInterface](#yandex.cloud.baremetal.v1alpha.PublicSubnetNetworkInterface)**
 
-Public subnet.
+@deprecated Public subnet.
 
 Includes only one of the fields `privateSubnet`, `publicSubnet`.
 
-Subnet that the network interface belongs to. ||
+@deprecated. Use `interface` instead.
+Subnet specific interface params. ||
+|| privateInterface | **[PrivateNetworkInterface](#yandex.cloud.baremetal.v1alpha.PrivateNetworkInterface)**
+
+Private interface.
+
+Includes only one of the fields `privateInterface`, `publicInterface`. ||
+|| publicInterface | **[PublicNetworkInterface](#yandex.cloud.baremetal.v1alpha.PublicNetworkInterface)**
+
+Public interface.
+
+Includes only one of the fields `privateInterface`, `publicInterface`. ||
+|| id | **string**
+
+ID of the network interface. Should not be specified when creating a server.
+
+The maximum string length in characters is 20. Value must match the regular expression ` ([a-z][a-z0-9]*)? `. ||
 |#
 
 ## PrivateSubnetNetworkInterface {#yandex.cloud.baremetal.v1alpha.PrivateSubnetNetworkInterface}
@@ -489,24 +699,116 @@ ID of the private subnet. ||
 || publicSubnetId | **string**
 
 ID of the public subnet.
-
 A new ephemeral public subnet will be created if not specified. ||
+|#
+
+## PrivateNetworkInterface {#yandex.cloud.baremetal.v1alpha.PrivateNetworkInterface}
+
+#|
+||Field | Description ||
+|| nativeSubnetId | **string**
+
+ID of the private subnet which is used as native subnet for interface. ||
+|| ipAddress | **string**
+
+IPv4 address that is assigned to the server for this network interface.
+Read only field. ||
+|| macLimit | **string** (int64)
+
+Limit of MAC addresses in the native subnet.
+Read only field. ||
+|| vlanSubinterfaces[] | **[VLANSubinterface](#yandex.cloud.baremetal.v1alpha.VLANSubinterface)**
+
+Array of VLAN subinterfaces. Additional tagged subnets for the interface. ||
+|#
+
+## VLANSubinterface {#yandex.cloud.baremetal.v1alpha.VLANSubinterface}
+
+#|
+||Field | Description ||
+|| taggedSubnetId | **string**
+
+ID of the private subnet which is used as tagged subnet for interface. ||
+|| ipAddress | **string**
+
+IPv4 address that is assigned to the VLAN subinterface.
+Read only field. ||
+|| macLimit | **string** (int64)
+
+Limit of MAC addresses in the tagged subnet.
+Read only field. ||
+|#
+
+## PublicNetworkInterface {#yandex.cloud.baremetal.v1alpha.PublicNetworkInterface}
+
+#|
+||Field | Description ||
+|| nativeSubnet | **[NativeSubnet](#yandex.cloud.baremetal.v1alpha.PublicNetworkInterface.NativeSubnet)**
+
+Use existing native subnet.
+Input only field.
+
+Includes only one of the fields `nativeSubnet`, `newNativeSubnet`.
+
+Native subnet configuration.
+Input only field. ||
+|| newNativeSubnet | **[NewNativeSubnet](#yandex.cloud.baremetal.v1alpha.PublicNetworkInterface.NewNativeSubnet)**
+
+Create new native subnet.
+Input only field.
+
+Includes only one of the fields `nativeSubnet`, `newNativeSubnet`.
+
+Native subnet configuration.
+Input only field. ||
+|| ipAddress | **string**
+
+IPv4 address that is assigned to the server for this network interface.
+Read only field. ||
+|| nativeSubnetId | **string**
+
+ID of the public subnet which is used as native subnet for interface.
+Read only field. ||
+|| macLimit | **string** (int64)
+
+Limit of MAC addresses in the native subnet.
+Read only field. ||
+|#
+
+## NativeSubnet {#yandex.cloud.baremetal.v1alpha.PublicNetworkInterface.NativeSubnet}
+
+Configuration for using existing native subnet.
+
+#|
+||Field | Description ||
+|| subnetId | **string**
+
+ID of the existing public subnet. ||
+|#
+
+## NewNativeSubnet {#yandex.cloud.baremetal.v1alpha.PublicNetworkInterface.NewNativeSubnet}
+
+Configuration for creating new native subnet.
+
+#|
+||Field | Description ||
+|| addressingType | **enum** (AddressingType)
+
+Addressing type (DHCP \| Static).
+
+- `DHCP`: DHCP addressing.
+- `STATIC`: Static addressing. ||
 |#
 
 ## OsSettingsSpec {#yandex.cloud.baremetal.v1alpha.OsSettingsSpec}
 
 #|
 ||Field | Description ||
-|| imageId | **string**
-
-ID of the image that the server was created from. ||
-|| storages[] | **[Storage](#yandex.cloud.baremetal.v1alpha.Storage)**
-
-List of storages to be created on the server. If not specified, the default value based on the
-selected configuration will be used as the field value. ||
 || sshPublicKey | **string**
 
 Public SSH key for the server.
+
+The maximum string length in characters is 20000.
 
 Includes only one of the fields `sshPublicKey`, `userSshId`.
 
@@ -514,8 +816,9 @@ Root user SSH key. ||
 || userSshId | **string**
 
 ID of the user SSH key to use for the server.
-
 To get the user SSH key ID, use a [yandex.cloud.organizationmanager.v1.UserSshKeyService.List](/docs/organization/api-ref/UserSshKey/list#List) request.
+
+The maximum string length in characters is 50.
 
 Includes only one of the fields `sshPublicKey`, `userSshId`.
 
@@ -523,6 +826,8 @@ Root user SSH key. ||
 || passwordPlainText | **string**
 
 Raw password.
+
+The minimum string length in characters is 6.
 
 Includes only one of the fields `passwordPlainText`, `passwordLockboxSecret`.
 
@@ -534,94 +839,15 @@ Reference to the Lockbox secret used to obtain the password.
 Includes only one of the fields `passwordPlainText`, `passwordLockboxSecret`.
 
 Password for the server. ||
-|#
+|| imageId | **string**
 
-## Storage {#yandex.cloud.baremetal.v1alpha.Storage}
+ID of the image that the server was created from.
 
-Storage, a OS-level storage entity used for creating partitions. For example, this could
-represent a plain disk or a software RAID of disks.
+The maximum string length in characters is 20. Value must match the regular expression ` [a-z][a-z0-9]* `. ||
+|| storages[] | **[Storage](#yandex.cloud.baremetal.v1alpha.Storage)**
 
-#|
-||Field | Description ||
-|| partitions[] | **[StoragePartition](#yandex.cloud.baremetal.v1alpha.StoragePartition)**
-
-Array of partitions created on the storage. ||
-|| disk | **[Disk](#yandex.cloud.baremetal.v1alpha.Disk)**
-
-Disk storage.
-
-Includes only one of the fields `disk`, `raid`.
-
-Storage type. ||
-|| raid | **[Raid](#yandex.cloud.baremetal.v1alpha.Raid)**
-
-RAID storage.
-
-Includes only one of the fields `disk`, `raid`.
-
-Storage type. ||
-|#
-
-## StoragePartition {#yandex.cloud.baremetal.v1alpha.StoragePartition}
-
-#|
-||Field | Description ||
-|| type | **enum** (StoragePartitionType)
-
-Partition type.
-
-- `STORAGE_PARTITION_TYPE_UNSPECIFIED`: Unspecified storage partition type.
-- `EXT4`: ext4 file system partition type.
-- `SWAP`: Swap partition type.
-- `EXT3`: ext3 file system partition type.
-- `XFS`: XFS file system partition type. ||
-|| sizeGib | **string** (int64)
-
-Size of the storage partition in gibibytes (2^30 bytes). ||
-|| mountPoint | **string**
-
-Storage mount point. ||
-|#
-
-## Disk {#yandex.cloud.baremetal.v1alpha.Disk}
-
-Disk.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the disk. ||
-|| type | **enum** (DiskDriveType)
-
-Type of the disk drive.
-
-- `DISK_DRIVE_TYPE_UNSPECIFIED`: Unspecified disk drive type.
-- `HDD`: Hard disk drive (magnetic storage).
-- `SSD`: Solid state drive with SATA/SAS interface.
-- `NVME`: Solid state drive with NVMe interface. ||
-|| sizeGib | **string** (int64)
-
-Size of the disk in gibibytes (2^30 bytes). ||
-|#
-
-## Raid {#yandex.cloud.baremetal.v1alpha.Raid}
-
-RAID storage.
-
-#|
-||Field | Description ||
-|| type | **enum** (RaidType)
-
-RAID type.
-
-- `RAID_TYPE_UNSPECIFIED`: Unspecified RAID configuration.
-- `RAID0`: RAID0 configuration.
-- `RAID1`: RAID1 configuration.
-- `RAID10`: RAID10 configuration. ||
-|| disks[] | **[Disk](#yandex.cloud.baremetal.v1alpha.Disk)**
-
-Array of disks in the RAID configuration. ||
+List of storages to be created on the server. If not specified, the default value based on the
+selected configuration will be used as the field value. ||
 |#
 
 ## LockboxSecret {#yandex.cloud.baremetal.v1alpha.LockboxSecret}
@@ -640,6 +866,91 @@ If omitted, the current version of the secret will be used. ||
 Required field. The key used to access a specific secret entry. ||
 |#
 
+## Storage {#yandex.cloud.baremetal.v1alpha.Storage}
+
+Storage, a OS-level storage entity used for creating partitions. For example, this could
+represent a plain disk or a software RAID of disks.
+
+#|
+||Field | Description ||
+|| disk | **[Disk](#yandex.cloud.baremetal.v1alpha.Disk)**
+
+Disk storage.
+
+Includes only one of the fields `disk`, `raid`.
+
+Storage type. ||
+|| raid | **[Raid](#yandex.cloud.baremetal.v1alpha.Raid)**
+
+RAID storage.
+
+Includes only one of the fields `disk`, `raid`.
+
+Storage type. ||
+|| partitions[] | **[StoragePartition](#yandex.cloud.baremetal.v1alpha.StoragePartition)**
+
+Array of partitions created on the storage. ||
+|#
+
+## Disk {#yandex.cloud.baremetal.v1alpha.Disk}
+
+Disk.
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the disk. ||
+|| type | **enum** (DiskDriveType)
+
+Type of the disk drive.
+
+- `HDD`: Hard disk drive (magnetic storage).
+- `SSD`: Solid state drive with SATA/SAS interface.
+- `NVME`: Solid state drive with NVMe interface. ||
+|| sizeGib | **string** (int64)
+
+Size of the disk in gibibytes (2^30 bytes). ||
+|#
+
+## Raid {#yandex.cloud.baremetal.v1alpha.Raid}
+
+RAID storage.
+
+#|
+||Field | Description ||
+|| type | **enum** (RaidType)
+
+RAID type.
+
+- `RAID0`: RAID0 configuration.
+- `RAID1`: RAID1 configuration.
+- `RAID10`: RAID10 configuration. ||
+|| disks[] | **[Disk](#yandex.cloud.baremetal.v1alpha.Disk)**
+
+Array of disks in the RAID configuration. ||
+|#
+
+## StoragePartition {#yandex.cloud.baremetal.v1alpha.StoragePartition}
+
+#|
+||Field | Description ||
+|| type | **enum** (StoragePartitionType)
+
+Partition type.
+
+- `EXT4`: ext4 file system partition type.
+- `SWAP`: Swap partition type.
+- `EXT3`: ext3 file system partition type.
+- `XFS`: XFS file system partition type. ||
+|| sizeGib | **string** (int64)
+
+Size of the storage partition in gibibytes (2^30 bytes). ||
+|| mountPoint | **string**
+
+Storage mount point. ||
+|#
+
 ## Response {#yandex.cloud.operation.Operation}
 
 **HTTP Code: 200 - OK**
@@ -652,11 +963,7 @@ Required field. The key used to access a specific secret entry. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "serverIds": [
-      "string"
-    ]
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -665,77 +972,7 @@ Required field. The key used to access a specific secret entry. ||
       "object"
     ]
   },
-  "response": {
-    "servers": [
-      {
-        "id": "string",
-        "cloudId": "string",
-        "folderId": "string",
-        "name": "string",
-        "description": "string",
-        "zoneId": "string",
-        "hardwarePoolId": "string",
-        "status": "string",
-        "osSettings": {
-          "imageId": "string",
-          "sshPublicKey": "string",
-          "storages": [
-            {
-              "partitions": [
-                {
-                  "type": "string",
-                  "sizeGib": "string",
-                  "mountPoint": "string"
-                }
-              ],
-              // Includes only one of the fields `disk`, `raid`
-              "disk": {
-                "id": "string",
-                "type": "string",
-                "sizeGib": "string"
-              },
-              "raid": {
-                "type": "string",
-                "disks": [
-                  {
-                    "id": "string",
-                    "type": "string",
-                    "sizeGib": "string"
-                  }
-                ]
-              }
-              // end of the list of possible fields
-            }
-          ]
-        },
-        "networkInterfaces": [
-          {
-            "id": "string",
-            "macAddress": "string",
-            "ipAddress": "string",
-            // Includes only one of the fields `privateSubnet`, `publicSubnet`
-            "privateSubnet": {
-              "privateSubnetId": "string"
-            },
-            "publicSubnet": {
-              "publicSubnetId": "string"
-            }
-            // end of the list of possible fields
-          }
-        ],
-        "configurationId": "string",
-        "disks": [
-          {
-            "id": "string",
-            "type": "string",
-            "sizeGib": "string"
-          }
-        ],
-        "createdAt": "string",
-        "labels": "object"
-      }
-    ]
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -777,7 +1014,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[BatchCreateServersMetadata](#yandex.cloud.baremetal.v1alpha.BatchCreateServersMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -792,7 +1029,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[BatchCreateServersResponse](#yandex.cloud.baremetal.v1alpha.BatchCreateServersResponse)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -807,15 +1044,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## BatchCreateServersMetadata {#yandex.cloud.baremetal.v1alpha.BatchCreateServersMetadata}
-
-#|
-||Field | Description ||
-|| serverIds[] | **string**
-
-IDs of the servers that were created. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -833,237 +1061,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## BatchCreateServersResponse {#yandex.cloud.baremetal.v1alpha.BatchCreateServersResponse}
-
-#|
-||Field | Description ||
-|| servers[] | **[Server](#yandex.cloud.baremetal.v1alpha.Server)**
-
-List of Server resources that were created. ||
-|#
-
-## Server {#yandex.cloud.baremetal.v1alpha.Server}
-
-A Server resource.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the server. ||
-|| cloudId | **string**
-
-ID of the cloud that the server belongs to. ||
-|| folderId | **string**
-
-ID of the folder that the server belongs to. ||
-|| name | **string**
-
-Name of the server.
-The name is unique within the folder. ||
-|| description | **string**
-
-Description of the server. ||
-|| zoneId | **string**
-
-ID of the availability zone where the server is resides. ||
-|| hardwarePoolId | **string**
-
-ID of the hardware pool that the server belongs to. ||
-|| status | **enum** (Status)
-
-Status of the server.
-
-- `STATUS_UNSPECIFIED`: Unspecified server status.
-- `PROVISIONING`: Server is waiting for to be allocated from the hardware pool.
-- `STOPPING`: Server is being stopped.
-- `STOPPED`: Server has been stopped.
-- `STARTING`: Server is being started.
-- `RESTARTING`: Server is being restarted.
-- `ERROR`: Server encountered a problem and cannot operate.
-- `DELETING`: Server is being deleted.
-- `REINSTALLING`: Server operating system is being reinstalled.
-- `UPDATING`: Server is being updated.
-- `QUARANTINED`: Server has been quarantined
-- `RUNNING`: Server is running normaly ||
-|| osSettings | **[OsSettings](#yandex.cloud.baremetal.v1alpha.OsSettings)**
-
-Operating system specific settings of the server. Optional, will be empty if the server is
-provisioned without an operating system. ||
-|| networkInterfaces[] | **[NetworkInterface](#yandex.cloud.baremetal.v1alpha.NetworkInterface)**
-
-Array of network interfaces that are attached to the instance. ||
-|| configurationId | **string**
-
-ID of the configuration that was used to create the server. ||
-|| disks[] | **[Disk](#yandex.cloud.baremetal.v1alpha.Disk2)**
-
-Array of disks that are attached to the server. ||
-|| createdAt | **string** (date-time)
-
-Creation timestamp.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| labels | **object** (map<**string**, **string**>)
-
-Resource labels as `key:value` pairs. ||
-|#
-
-## OsSettings {#yandex.cloud.baremetal.v1alpha.OsSettings}
-
-#|
-||Field | Description ||
-|| imageId | **string**
-
-ID of the image that the server was created from. ||
-|| sshPublicKey | **string**
-
-Public SSH key of the server. ||
-|| storages[] | **[Storage](#yandex.cloud.baremetal.v1alpha.Storage2)**
-
-List of storages. ||
-|#
-
-## Storage {#yandex.cloud.baremetal.v1alpha.Storage2}
-
-Storage, a OS-level storage entity used for creating partitions. For example, this could
-represent a plain disk or a software RAID of disks.
-
-#|
-||Field | Description ||
-|| partitions[] | **[StoragePartition](#yandex.cloud.baremetal.v1alpha.StoragePartition2)**
-
-Array of partitions created on the storage. ||
-|| disk | **[Disk](#yandex.cloud.baremetal.v1alpha.Disk2)**
-
-Disk storage.
-
-Includes only one of the fields `disk`, `raid`.
-
-Storage type. ||
-|| raid | **[Raid](#yandex.cloud.baremetal.v1alpha.Raid2)**
-
-RAID storage.
-
-Includes only one of the fields `disk`, `raid`.
-
-Storage type. ||
-|#
-
-## StoragePartition {#yandex.cloud.baremetal.v1alpha.StoragePartition2}
-
-#|
-||Field | Description ||
-|| type | **enum** (StoragePartitionType)
-
-Partition type.
-
-- `STORAGE_PARTITION_TYPE_UNSPECIFIED`: Unspecified storage partition type.
-- `EXT4`: ext4 file system partition type.
-- `SWAP`: Swap partition type.
-- `EXT3`: ext3 file system partition type.
-- `XFS`: XFS file system partition type. ||
-|| sizeGib | **string** (int64)
-
-Size of the storage partition in gibibytes (2^30 bytes). ||
-|| mountPoint | **string**
-
-Storage mount point. ||
-|#
-
-## Disk {#yandex.cloud.baremetal.v1alpha.Disk2}
-
-Disk.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the disk. ||
-|| type | **enum** (DiskDriveType)
-
-Type of the disk drive.
-
-- `DISK_DRIVE_TYPE_UNSPECIFIED`: Unspecified disk drive type.
-- `HDD`: Hard disk drive (magnetic storage).
-- `SSD`: Solid state drive with SATA/SAS interface.
-- `NVME`: Solid state drive with NVMe interface. ||
-|| sizeGib | **string** (int64)
-
-Size of the disk in gibibytes (2^30 bytes). ||
-|#
-
-## Raid {#yandex.cloud.baremetal.v1alpha.Raid2}
-
-RAID storage.
-
-#|
-||Field | Description ||
-|| type | **enum** (RaidType)
-
-RAID type.
-
-- `RAID_TYPE_UNSPECIFIED`: Unspecified RAID configuration.
-- `RAID0`: RAID0 configuration.
-- `RAID1`: RAID1 configuration.
-- `RAID10`: RAID10 configuration. ||
-|| disks[] | **[Disk](#yandex.cloud.baremetal.v1alpha.Disk2)**
-
-Array of disks in the RAID configuration. ||
-|#
-
-## NetworkInterface {#yandex.cloud.baremetal.v1alpha.NetworkInterface}
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the network interface. ||
-|| macAddress | **string**
-
-MAC address that is assigned to the network interface. ||
-|| ipAddress | **string**
-
-IPv4 address that is assigned to the server for this network interface. ||
-|| privateSubnet | **[PrivateSubnetNetworkInterface](#yandex.cloud.baremetal.v1alpha.PrivateSubnetNetworkInterface2)**
-
-Private subnet.
-
-Includes only one of the fields `privateSubnet`, `publicSubnet`.
-
-Subnet that the network interface belongs to. ||
-|| publicSubnet | **[PublicSubnetNetworkInterface](#yandex.cloud.baremetal.v1alpha.PublicSubnetNetworkInterface2)**
-
-Public subnet.
-
-Includes only one of the fields `privateSubnet`, `publicSubnet`.
-
-Subnet that the network interface belongs to. ||
-|#
-
-## PrivateSubnetNetworkInterface {#yandex.cloud.baremetal.v1alpha.PrivateSubnetNetworkInterface2}
-
-#|
-||Field | Description ||
-|| privateSubnetId | **string**
-
-ID of the private subnet. ||
-|#
-
-## PublicSubnetNetworkInterface {#yandex.cloud.baremetal.v1alpha.PublicSubnetNetworkInterface2}
-
-#|
-||Field | Description ||
-|| publicSubnetId | **string**
-
-ID of the public subnet.
-
-A new ephemeral public subnet will be created if not specified. ||
 |#

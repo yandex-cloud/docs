@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             ID of the PrivateSubnet resource to return.
             To get the private subnet ID use a [PrivateSubnetService.List](/docs/baremetal/api-ref/PrivateSubnet/list#List) request.
+            Value must match the regular expression ` [a-z][a-z0-9]* `.
           pattern: '[a-z][a-z0-9]*'
           type: string
       additionalProperties: false
@@ -22,7 +23,6 @@ apiPlayground:
 # BareMetal API, REST: PrivateSubnet.Get
 
 Returns the specific PrivateSubnet resource.
-
 To get the list of available PrivateSubnet resources, make a [List](/docs/baremetal/api-ref/PrivateSubnet/list#List) request.
 
 ## HTTP request
@@ -38,8 +38,9 @@ GET https://baremetal.{{ api-host }}/baremetal/v1alpha/privateSubnets/{privateSu
 || privateSubnetId | **string**
 
 Required field. ID of the PrivateSubnet resource to return.
+To get the private subnet ID use a [PrivateSubnetService.List](/docs/baremetal/api-ref/PrivateSubnet/list#List) request.
 
-To get the private subnet ID use a [PrivateSubnetService.List](/docs/baremetal/api-ref/PrivateSubnet/list#List) request. ||
+Value must match the regular expression ` [a-z][a-z0-9]* `. ||
 |#
 
 ## Response {#yandex.cloud.baremetal.v1alpha.PrivateSubnet}
@@ -94,7 +95,6 @@ Optional description of the private subnet. ||
 
 Status of the private subnet.
 
-- `STATUS_UNSPECIFIED`: Unspecified private subnet status.
 - `CREATING`: Private subnet is being created.
 - `READY`: Private subnet is ready to use.
 - `UPDATING`: Private subnet is being updated.

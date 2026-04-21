@@ -66,6 +66,8 @@ You do not pay for:
 
 The cost of public DNS requests is based on usage.
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 For example, the cost of 50,000 authoritative requests to your public DNS zone per month will be:
 
 

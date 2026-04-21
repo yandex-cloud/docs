@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             ID of the VRF to update.
             To get the VRF ID, use a [VrfService.List](/docs/baremetal/api-ref/Vrf/list#List) request.
+            Value must match the regular expression ` [a-z][a-z0-9]* `.
           pattern: '[a-z][a-z0-9]*'
           type: string
       additionalProperties: false
@@ -35,18 +36,28 @@ apiPlayground:
             **string**
             Name of the VRF.
             The name must be unique within the folder.
+            The string length in characters must be 2-63. Value must match the regular expression ` [a-z]([-a-z0-9]*[a-z0-9])? `.
           pattern: '[a-z]([-a-z0-9]*[a-z0-9])?'
           type: string
         description:
           description: |-
             **string**
             Description of the VRF.
+            The maximum string length in characters is 1024.
           type: string
+        staticRoutes:
+          description: |-
+            **[StaticRoute](#yandex.cloud.baremetal.v1alpha.StaticRoute)**
+            VRF static routes.
+          type: array
+          items:
+            $ref: '#/definitions/StaticRoute'
         labels:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
             Existing set of labels is completely replaced by the provided set.
+            The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource.
           type: object
           additionalProperties:
             type: string
@@ -59,7 +70,31 @@ apiPlayground:
             minLength: 1
           maxProperties: 64
       additionalProperties: false
-    definitions: null
+    definitions:
+      StaticRoute:
+        type: object
+        properties:
+          destinationCidr:
+            description: |-
+              **string**
+              Destination network CIDR block.
+            type: string
+          nextHopIpAddress:
+            description: |-
+              **string**
+              Next hop host IP address.
+            type: string
+          redistributionType:
+            description: |-
+              **enum** (RedistributionType)
+              Redistribution type.
+              - `DISABLED`: Static route announcements outside BareMetal VRF disabled.
+              - `ENABLED`: Static route announcements outside BareMetal VRF enabled.
+            type: string
+            enum:
+              - REDISTRIBUTION_TYPE_UNSPECIFIED
+              - DISABLED
+              - ENABLED
 ---
 
 # BareMetal API, REST: Vrf.Update
@@ -79,8 +114,9 @@ PATCH https://baremetal.{{ api-host }}/baremetal/v1alpha/vrfs/{vrfId}
 || vrfId | **string**
 
 Required field. ID of the VRF to update.
+To get the VRF ID, use a [VrfService.List](/docs/baremetal/api-ref/Vrf/list#List) request.
 
-To get the VRF ID, use a [VrfService.List](/docs/baremetal/api-ref/Vrf/list#List) request. ||
+Value must match the regular expression ` [a-z][a-z0-9]* `. ||
 |#
 
 ## Body parameters {#yandex.cloud.baremetal.v1alpha.UpdateVrfRequest}
@@ -90,6 +126,13 @@ To get the VRF ID, use a [VrfService.List](/docs/baremetal/api-ref/Vrf/list#List
   "updateMask": "string",
   "name": "string",
   "description": "string",
+  "staticRoutes": [
+    {
+      "destinationCidr": "string",
+      "nextHopIpAddress": "string",
+      "redistributionType": "string"
+    }
+  ],
   "labels": "object"
 }
 ```
@@ -109,15 +152,41 @@ The rest of the fields will be reset to the default. ||
 || name | **string**
 
 Name of the VRF.
-The name must be unique within the folder. ||
+The name must be unique within the folder.
+
+The string length in characters must be 2-63. Value must match the regular expression ` [a-z]([-a-z0-9]*[a-z0-9])? `. ||
 || description | **string**
 
-Description of the VRF. ||
+Description of the VRF.
+
+The maximum string length in characters is 1024. ||
+|| staticRoutes[] | **[StaticRoute](#yandex.cloud.baremetal.v1alpha.StaticRoute)**
+
+VRF static routes. ||
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs.
+Existing set of labels is completely replaced by the provided set.
 
-Existing set of labels is completely replaced by the provided set. ||
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
+|#
+
+## StaticRoute {#yandex.cloud.baremetal.v1alpha.StaticRoute}
+
+#|
+||Field | Description ||
+|| destinationCidr | **string**
+
+Destination network CIDR block. ||
+|| nextHopIpAddress | **string**
+
+Next hop host IP address. ||
+|| redistributionType | **enum** (RedistributionType)
+
+Redistribution type.
+
+- `DISABLED`: Static route announcements outside BareMetal VRF disabled.
+- `ENABLED`: Static route announcements outside BareMetal VRF enabled. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -132,9 +201,7 @@ Existing set of labels is completely replaced by the provided set. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "vrfId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -143,15 +210,7 @@ Existing set of labels is completely replaced by the provided set. ||
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "cloudId": "string",
-    "folderId": "string",
-    "name": "string",
-    "description": "string",
-    "createdAt": "string",
-    "labels": "object"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -193,7 +252,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateVrfMetadata](#yandex.cloud.baremetal.v1alpha.UpdateVrfMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -208,7 +267,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Vrf](#yandex.cloud.baremetal.v1alpha.Vrf)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -223,15 +282,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateVrfMetadata {#yandex.cloud.baremetal.v1alpha.UpdateVrfMetadata}
-
-#|
-||Field | Description ||
-|| vrfId | **string**
-
-ID of the VRF that is being updated. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -249,39 +299,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## Vrf {#yandex.cloud.baremetal.v1alpha.Vrf}
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the VRF. ||
-|| cloudId | **string**
-
-ID of the cloud that the private subnet belongs to. ||
-|| folderId | **string**
-
-ID of the folder that the private subnet belongs to. ||
-|| name | **string**
-
-Name of the VRF.
-The name is unique within the folder. ||
-|| description | **string**
-
-Optional description of the VRF. ||
-|| createdAt | **string** (date-time)
-
-Creation timestamp.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| labels | **object** (map<**string**, **string**>)
-
-Resource labels as `key:value` pairs. ||
 |#

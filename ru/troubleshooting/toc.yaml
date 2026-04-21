@@ -100,8 +100,6 @@ items:
         hidden: true
       - name: Как изменить тип платежного аккаунта
         href: billing/how-to/changing-billing-account-type.md
-      - name: Как подключиться к ЭДО
-        href: billing/how-to/edi-system-connection.md
       - name: Как сформировать счет на оплату
         href: billing/how-to/generating-invoice.md
       - name: Как вернуть деньги

@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             ID of the server to reinstall.
             To get the server ID, use a [ServerService.List](/docs/baremetal/api-ref/Server/list#List) request.
+            Value must match the regular expression ` [a-z][a-z0-9]* `.
           pattern: '[a-z][a-z0-9]*'
           type: string
       additionalProperties: false
@@ -25,117 +26,6 @@ apiPlayground:
           $ref: '#/definitions/OsSettingsSpec'
       additionalProperties: false
     definitions:
-      StoragePartition:
-        type: object
-        properties:
-          type:
-            description: |-
-              **enum** (StoragePartitionType)
-              Partition type.
-              - `STORAGE_PARTITION_TYPE_UNSPECIFIED`: Unspecified storage partition type.
-              - `EXT4`: ext4 file system partition type.
-              - `SWAP`: Swap partition type.
-              - `EXT3`: ext3 file system partition type.
-              - `XFS`: XFS file system partition type.
-            type: string
-            enum:
-              - STORAGE_PARTITION_TYPE_UNSPECIFIED
-              - EXT4
-              - SWAP
-              - EXT3
-              - XFS
-          sizeGib:
-            description: |-
-              **string** (int64)
-              Size of the storage partition in gibibytes (2^30 bytes).
-            type: string
-            format: int64
-          mountPoint:
-            description: |-
-              **string**
-              Storage mount point.
-            type: string
-      Disk:
-        type: object
-        properties:
-          id:
-            description: |-
-              **string**
-              ID of the disk.
-            type: string
-          type:
-            description: |-
-              **enum** (DiskDriveType)
-              Type of the disk drive.
-              - `DISK_DRIVE_TYPE_UNSPECIFIED`: Unspecified disk drive type.
-              - `HDD`: Hard disk drive (magnetic storage).
-              - `SSD`: Solid state drive with SATA/SAS interface.
-              - `NVME`: Solid state drive with NVMe interface.
-            type: string
-            enum:
-              - DISK_DRIVE_TYPE_UNSPECIFIED
-              - HDD
-              - SSD
-              - NVME
-          sizeGib:
-            description: |-
-              **string** (int64)
-              Size of the disk in gibibytes (2^30 bytes).
-            type: string
-            format: int64
-      Raid:
-        type: object
-        properties:
-          type:
-            description: |-
-              **enum** (RaidType)
-              RAID type.
-              - `RAID_TYPE_UNSPECIFIED`: Unspecified RAID configuration.
-              - `RAID0`: RAID0 configuration.
-              - `RAID1`: RAID1 configuration.
-              - `RAID10`: RAID10 configuration.
-            type: string
-            enum:
-              - RAID_TYPE_UNSPECIFIED
-              - RAID0
-              - RAID1
-              - RAID10
-          disks:
-            description: |-
-              **[Disk](#yandex.cloud.baremetal.v1alpha.Disk)**
-              Array of disks in the RAID configuration.
-            type: array
-            items:
-              $ref: '#/definitions/Disk'
-      Storage:
-        type: object
-        properties:
-          partitions:
-            description: |-
-              **[StoragePartition](#yandex.cloud.baremetal.v1alpha.StoragePartition)**
-              Array of partitions created on the storage.
-            type: array
-            items:
-              $ref: '#/definitions/StoragePartition'
-          disk:
-            description: |-
-              **[Disk](#yandex.cloud.baremetal.v1alpha.Disk)**
-              Disk storage.
-              Includes only one of the fields `disk`, `raid`.
-              Storage type.
-            $ref: '#/definitions/Disk'
-          raid:
-            description: |-
-              **[Raid](#yandex.cloud.baremetal.v1alpha.Raid)**
-              RAID storage.
-              Includes only one of the fields `disk`, `raid`.
-              Storage type.
-            $ref: '#/definitions/Raid'
-        oneOf:
-          - required:
-              - disk
-          - required:
-              - raid
       LockboxSecret:
         type: object
         properties:
@@ -158,27 +48,122 @@ apiPlayground:
         required:
           - secretId
           - key
+      Disk:
+        type: object
+        properties:
+          id:
+            description: |-
+              **string**
+              ID of the disk.
+            type: string
+          type:
+            description: |-
+              **enum** (DiskDriveType)
+              Type of the disk drive.
+              - `HDD`: Hard disk drive (magnetic storage).
+              - `SSD`: Solid state drive with SATA/SAS interface.
+              - `NVME`: Solid state drive with NVMe interface.
+            type: string
+            enum:
+              - DISK_DRIVE_TYPE_UNSPECIFIED
+              - HDD
+              - SSD
+              - NVME
+          sizeGib:
+            description: |-
+              **string** (int64)
+              Size of the disk in gibibytes (2^30 bytes).
+            type: string
+            format: int64
+      Raid:
+        type: object
+        properties:
+          type:
+            description: |-
+              **enum** (RaidType)
+              RAID type.
+              - `RAID0`: RAID0 configuration.
+              - `RAID1`: RAID1 configuration.
+              - `RAID10`: RAID10 configuration.
+            type: string
+            enum:
+              - RAID_TYPE_UNSPECIFIED
+              - RAID0
+              - RAID1
+              - RAID10
+          disks:
+            description: |-
+              **[Disk](#yandex.cloud.baremetal.v1alpha.Disk)**
+              Array of disks in the RAID configuration.
+            type: array
+            items:
+              $ref: '#/definitions/Disk'
+      StoragePartition:
+        type: object
+        properties:
+          type:
+            description: |-
+              **enum** (StoragePartitionType)
+              Partition type.
+              - `EXT4`: ext4 file system partition type.
+              - `SWAP`: Swap partition type.
+              - `EXT3`: ext3 file system partition type.
+              - `XFS`: XFS file system partition type.
+            type: string
+            enum:
+              - STORAGE_PARTITION_TYPE_UNSPECIFIED
+              - EXT4
+              - SWAP
+              - EXT3
+              - XFS
+          sizeGib:
+            description: |-
+              **string** (int64)
+              Size of the storage partition in gibibytes (2^30 bytes).
+            type: string
+            format: int64
+          mountPoint:
+            description: |-
+              **string**
+              Storage mount point.
+            type: string
+      Storage:
+        type: object
+        properties:
+          disk:
+            description: |-
+              **[Disk](#yandex.cloud.baremetal.v1alpha.Disk)**
+              Disk storage.
+              Includes only one of the fields `disk`, `raid`.
+              Storage type.
+            $ref: '#/definitions/Disk'
+          raid:
+            description: |-
+              **[Raid](#yandex.cloud.baremetal.v1alpha.Raid)**
+              RAID storage.
+              Includes only one of the fields `disk`, `raid`.
+              Storage type.
+            $ref: '#/definitions/Raid'
+          partitions:
+            description: |-
+              **[StoragePartition](#yandex.cloud.baremetal.v1alpha.StoragePartition)**
+              Array of partitions created on the storage.
+            type: array
+            items:
+              $ref: '#/definitions/StoragePartition'
+        oneOf:
+          - required:
+              - disk
+          - required:
+              - raid
       OsSettingsSpec:
         type: object
         properties:
-          imageId:
-            description: |-
-              **string**
-              ID of the image that the server was created from.
-            pattern: '[a-z][a-z0-9]*'
-            type: string
-          storages:
-            description: |-
-              **[Storage](#yandex.cloud.baremetal.v1alpha.Storage)**
-              List of storages to be created on the server. If not specified, the default value based on the
-              selected configuration will be used as the field value.
-            type: array
-            items:
-              $ref: '#/definitions/Storage'
           sshPublicKey:
             description: |-
               **string**
               Public SSH key for the server.
+              The maximum string length in characters is 20000.
               Includes only one of the fields `sshPublicKey`, `userSshId`.
               Root user SSH key.
             type: string
@@ -187,6 +172,7 @@ apiPlayground:
               **string**
               ID of the user SSH key to use for the server.
               To get the user SSH key ID, use a [yandex.cloud.organizationmanager.v1.UserSshKeyService.List](/docs/organization/api-ref/UserSshKey/list#List) request.
+              The maximum string length in characters is 50.
               Includes only one of the fields `sshPublicKey`, `userSshId`.
               Root user SSH key.
             type: string
@@ -194,6 +180,7 @@ apiPlayground:
             description: |-
               **string**
               Raw password.
+              The minimum string length in characters is 6.
               Includes only one of the fields `passwordPlainText`, `passwordLockboxSecret`.
               Password for the server.
             type: string
@@ -204,6 +191,21 @@ apiPlayground:
               Includes only one of the fields `passwordPlainText`, `passwordLockboxSecret`.
               Password for the server.
             $ref: '#/definitions/LockboxSecret'
+          imageId:
+            description: |-
+              **string**
+              ID of the image that the server was created from.
+              The maximum string length in characters is 20. Value must match the regular expression ` [a-z][a-z0-9]* `.
+            pattern: '[a-z][a-z0-9]*'
+            type: string
+          storages:
+            description: |-
+              **[Storage](#yandex.cloud.baremetal.v1alpha.Storage)**
+              List of storages to be created on the server. If not specified, the default value based on the
+              selected configuration will be used as the field value.
+            type: array
+            items:
+              $ref: '#/definitions/Storage'
         allOf:
           - oneOf:
               - required:
@@ -219,6 +221,8 @@ apiPlayground:
 
 # BareMetal API, REST: Server.Reinstall
 
+(-- api-linter: yc::1702::method-verb-prefix=disabled
+Required for backward compatibility with old clients. --)
 Reinstalls the specified server.
 
 ## HTTP request
@@ -234,8 +238,9 @@ POST https://baremetal.{{ api-host }}/baremetal/v1alpha/servers/{serverId}:reins
 || serverId | **string**
 
 Required field. ID of the server to reinstall.
+To get the server ID, use a [ServerService.List](/docs/baremetal/api-ref/Server/list#List) request.
 
-To get the server ID, use a [ServerService.List](/docs/baremetal/api-ref/Server/list#List) request. ||
+Value must match the regular expression ` [a-z][a-z0-9]* `. ||
 |#
 
 ## Body parameters {#yandex.cloud.baremetal.v1alpha.ReinstallServerRequest}
@@ -243,16 +248,21 @@ To get the server ID, use a [ServerService.List](/docs/baremetal/api-ref/Server/
 ```json
 {
   "osSettingsSpec": {
+    // Includes only one of the fields `sshPublicKey`, `userSshId`
+    "sshPublicKey": "string",
+    "userSshId": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `passwordPlainText`, `passwordLockboxSecret`
+    "passwordPlainText": "string",
+    "passwordLockboxSecret": {
+      "secretId": "string",
+      "versionId": "string",
+      "key": "string"
+    },
+    // end of the list of possible fields
     "imageId": "string",
     "storages": [
       {
-        "partitions": [
-          {
-            "type": "string",
-            "sizeGib": "string",
-            "mountPoint": "string"
-          }
-        ],
         // Includes only one of the fields `disk`, `raid`
         "disk": {
           "id": "string",
@@ -268,22 +278,17 @@ To get the server ID, use a [ServerService.List](/docs/baremetal/api-ref/Server/
               "sizeGib": "string"
             }
           ]
-        }
+        },
         // end of the list of possible fields
+        "partitions": [
+          {
+            "type": "string",
+            "sizeGib": "string",
+            "mountPoint": "string"
+          }
+        ]
       }
-    ],
-    // Includes only one of the fields `sshPublicKey`, `userSshId`
-    "sshPublicKey": "string",
-    "userSshId": "string",
-    // end of the list of possible fields
-    // Includes only one of the fields `passwordPlainText`, `passwordLockboxSecret`
-    "passwordPlainText": "string",
-    "passwordLockboxSecret": {
-      "secretId": "string",
-      "versionId": "string",
-      "key": "string"
-    }
-    // end of the list of possible fields
+    ]
   }
 }
 ```
@@ -299,16 +304,11 @@ Operating system specific settings for provisioning the server. ||
 
 #|
 ||Field | Description ||
-|| imageId | **string**
-
-ID of the image that the server was created from. ||
-|| storages[] | **[Storage](#yandex.cloud.baremetal.v1alpha.Storage)**
-
-List of storages to be created on the server. If not specified, the default value based on the
-selected configuration will be used as the field value. ||
 || sshPublicKey | **string**
 
 Public SSH key for the server.
+
+The maximum string length in characters is 20000.
 
 Includes only one of the fields `sshPublicKey`, `userSshId`.
 
@@ -316,8 +316,9 @@ Root user SSH key. ||
 || userSshId | **string**
 
 ID of the user SSH key to use for the server.
-
 To get the user SSH key ID, use a [yandex.cloud.organizationmanager.v1.UserSshKeyService.List](/docs/organization/api-ref/UserSshKey/list#List) request.
+
+The maximum string length in characters is 50.
 
 Includes only one of the fields `sshPublicKey`, `userSshId`.
 
@@ -325,6 +326,8 @@ Root user SSH key. ||
 || passwordPlainText | **string**
 
 Raw password.
+
+The minimum string length in characters is 6.
 
 Includes only one of the fields `passwordPlainText`, `passwordLockboxSecret`.
 
@@ -336,94 +339,15 @@ Reference to the Lockbox secret used to obtain the password.
 Includes only one of the fields `passwordPlainText`, `passwordLockboxSecret`.
 
 Password for the server. ||
-|#
+|| imageId | **string**
 
-## Storage {#yandex.cloud.baremetal.v1alpha.Storage}
+ID of the image that the server was created from.
 
-Storage, a OS-level storage entity used for creating partitions. For example, this could
-represent a plain disk or a software RAID of disks.
+The maximum string length in characters is 20. Value must match the regular expression ` [a-z][a-z0-9]* `. ||
+|| storages[] | **[Storage](#yandex.cloud.baremetal.v1alpha.Storage)**
 
-#|
-||Field | Description ||
-|| partitions[] | **[StoragePartition](#yandex.cloud.baremetal.v1alpha.StoragePartition)**
-
-Array of partitions created on the storage. ||
-|| disk | **[Disk](#yandex.cloud.baremetal.v1alpha.Disk)**
-
-Disk storage.
-
-Includes only one of the fields `disk`, `raid`.
-
-Storage type. ||
-|| raid | **[Raid](#yandex.cloud.baremetal.v1alpha.Raid)**
-
-RAID storage.
-
-Includes only one of the fields `disk`, `raid`.
-
-Storage type. ||
-|#
-
-## StoragePartition {#yandex.cloud.baremetal.v1alpha.StoragePartition}
-
-#|
-||Field | Description ||
-|| type | **enum** (StoragePartitionType)
-
-Partition type.
-
-- `STORAGE_PARTITION_TYPE_UNSPECIFIED`: Unspecified storage partition type.
-- `EXT4`: ext4 file system partition type.
-- `SWAP`: Swap partition type.
-- `EXT3`: ext3 file system partition type.
-- `XFS`: XFS file system partition type. ||
-|| sizeGib | **string** (int64)
-
-Size of the storage partition in gibibytes (2^30 bytes). ||
-|| mountPoint | **string**
-
-Storage mount point. ||
-|#
-
-## Disk {#yandex.cloud.baremetal.v1alpha.Disk}
-
-Disk.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the disk. ||
-|| type | **enum** (DiskDriveType)
-
-Type of the disk drive.
-
-- `DISK_DRIVE_TYPE_UNSPECIFIED`: Unspecified disk drive type.
-- `HDD`: Hard disk drive (magnetic storage).
-- `SSD`: Solid state drive with SATA/SAS interface.
-- `NVME`: Solid state drive with NVMe interface. ||
-|| sizeGib | **string** (int64)
-
-Size of the disk in gibibytes (2^30 bytes). ||
-|#
-
-## Raid {#yandex.cloud.baremetal.v1alpha.Raid}
-
-RAID storage.
-
-#|
-||Field | Description ||
-|| type | **enum** (RaidType)
-
-RAID type.
-
-- `RAID_TYPE_UNSPECIFIED`: Unspecified RAID configuration.
-- `RAID0`: RAID0 configuration.
-- `RAID1`: RAID1 configuration.
-- `RAID10`: RAID10 configuration. ||
-|| disks[] | **[Disk](#yandex.cloud.baremetal.v1alpha.Disk)**
-
-Array of disks in the RAID configuration. ||
+List of storages to be created on the server. If not specified, the default value based on the
+selected configuration will be used as the field value. ||
 |#
 
 ## LockboxSecret {#yandex.cloud.baremetal.v1alpha.LockboxSecret}
@@ -442,6 +366,91 @@ If omitted, the current version of the secret will be used. ||
 Required field. The key used to access a specific secret entry. ||
 |#
 
+## Storage {#yandex.cloud.baremetal.v1alpha.Storage}
+
+Storage, a OS-level storage entity used for creating partitions. For example, this could
+represent a plain disk or a software RAID of disks.
+
+#|
+||Field | Description ||
+|| disk | **[Disk](#yandex.cloud.baremetal.v1alpha.Disk)**
+
+Disk storage.
+
+Includes only one of the fields `disk`, `raid`.
+
+Storage type. ||
+|| raid | **[Raid](#yandex.cloud.baremetal.v1alpha.Raid)**
+
+RAID storage.
+
+Includes only one of the fields `disk`, `raid`.
+
+Storage type. ||
+|| partitions[] | **[StoragePartition](#yandex.cloud.baremetal.v1alpha.StoragePartition)**
+
+Array of partitions created on the storage. ||
+|#
+
+## Disk {#yandex.cloud.baremetal.v1alpha.Disk}
+
+Disk.
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the disk. ||
+|| type | **enum** (DiskDriveType)
+
+Type of the disk drive.
+
+- `HDD`: Hard disk drive (magnetic storage).
+- `SSD`: Solid state drive with SATA/SAS interface.
+- `NVME`: Solid state drive with NVMe interface. ||
+|| sizeGib | **string** (int64)
+
+Size of the disk in gibibytes (2^30 bytes). ||
+|#
+
+## Raid {#yandex.cloud.baremetal.v1alpha.Raid}
+
+RAID storage.
+
+#|
+||Field | Description ||
+|| type | **enum** (RaidType)
+
+RAID type.
+
+- `RAID0`: RAID0 configuration.
+- `RAID1`: RAID1 configuration.
+- `RAID10`: RAID10 configuration. ||
+|| disks[] | **[Disk](#yandex.cloud.baremetal.v1alpha.Disk)**
+
+Array of disks in the RAID configuration. ||
+|#
+
+## StoragePartition {#yandex.cloud.baremetal.v1alpha.StoragePartition}
+
+#|
+||Field | Description ||
+|| type | **enum** (StoragePartitionType)
+
+Partition type.
+
+- `EXT4`: ext4 file system partition type.
+- `SWAP`: Swap partition type.
+- `EXT3`: ext3 file system partition type.
+- `XFS`: XFS file system partition type. ||
+|| sizeGib | **string** (int64)
+
+Size of the storage partition in gibibytes (2^30 bytes). ||
+|| mountPoint | **string**
+
+Storage mount point. ||
+|#
+
 ## Response {#yandex.cloud.operation.Operation}
 
 **HTTP Code: 200 - OK**
@@ -454,17 +463,16 @@ Required field. The key used to access a specific secret entry. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "serverId": "string"
-  },
-  // Includes only one of the fields `error`
+  "metadata": "object",
+  // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
     "message": "string",
     "details": [
       "object"
     ]
-  }
+  },
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -506,7 +514,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[ReinstallServerMetadata](#yandex.cloud.baremetal.v1alpha.ReinstallServerMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -515,21 +523,27 @@ Any method that returns a long-running operation should document the metadata ty
 
 The error result of the operation in case of failure or cancellation.
 
-Includes only one of the fields `error`.
+Includes only one of the fields `error`, `response`.
 
 The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
+|| response | **object**
 
-## ReinstallServerMetadata {#yandex.cloud.baremetal.v1alpha.ReinstallServerMetadata}
+The normal response of the operation in case of success.
+If the original method returns no data on success, such as Delete,
+the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty).
+If the original method is the standard Create/Update,
+the response should be the target resource of the operation.
+Any method that returns a long-running operation should document the response type, if any.
 
-#|
-||Field | Description ||
-|| serverId | **string**
+Includes only one of the fields `error`, `response`.
 
-ID of the Server resource that is being reinstalled. ||
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
 |#
 
 ## Status {#google.rpc.Status}

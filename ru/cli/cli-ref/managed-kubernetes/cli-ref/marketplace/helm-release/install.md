@@ -5,6 +5,7 @@ editable: false
 # yc managed-kubernetes marketplace helm-release install
 
 Install a Helm Release from Yandex Cloud Marketplace on the cluster.
+
 Use --value to pass scalar values in KEY=VALUE format.
 For complex types such as lists or objects, provide a YAML-encoded string as the value.
 Use --value-from-file to read the value from a file — especially convenient for multi-line YAML.

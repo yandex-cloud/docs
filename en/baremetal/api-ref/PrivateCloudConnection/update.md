@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             ID of the private cloud connection to update.
             To get the private cloud connection ID, use a [PrivateCloudConnectionService.List](/docs/baremetal/api-ref/PrivateCloudConnection/list#List) request.
+            The maximum string length in characters is 20. Value must match the regular expression ` [a-z][a-z0-9.-]* `.
           pattern: '[a-z][a-z0-9.-]*'
           type: string
       additionalProperties: false
@@ -56,8 +57,9 @@ PATCH https://baremetal.{{ api-host }}/baremetal/v1alpha/privateCloudConnections
 || privateCloudConnectionId | **string**
 
 Required field. ID of the private cloud connection to update.
+To get the private cloud connection ID, use a [PrivateCloudConnectionService.List](/docs/baremetal/api-ref/PrivateCloudConnection/list#List) request.
 
-To get the private cloud connection ID, use a [PrivateCloudConnectionService.List](/docs/baremetal/api-ref/PrivateCloudConnection/list#List) request. ||
+The maximum string length in characters is 20. Value must match the regular expression ` [a-z][a-z0-9.-]* `. ||
 |#
 
 ## Body parameters {#yandex.cloud.baremetal.v1alpha.UpdatePrivateCloudConnectionRequest}
@@ -98,9 +100,7 @@ ID of Cloud Router Routing Instance. ||
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "privateCloudConnectionId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -109,16 +109,7 @@ ID of Cloud Router Routing Instance. ||
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "folderId": "string",
-    "cloudId": "string",
-    "routingInstanceId": "string",
-    "vrfId": "string",
-    "status": "string",
-    "name": "string",
-    "createdAt": "string"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -160,7 +151,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdatePrivateCloudConnectionMetadata](#yandex.cloud.baremetal.v1alpha.UpdatePrivateCloudConnectionMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -175,7 +166,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[PrivateCloudConnection](#yandex.cloud.baremetal.v1alpha.PrivateCloudConnection)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -190,15 +181,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdatePrivateCloudConnectionMetadata {#yandex.cloud.baremetal.v1alpha.UpdatePrivateCloudConnectionMetadata}
-
-#|
-||Field | Description ||
-|| privateCloudConnectionId | **string**
-
-ID of the Private cloud connection resource that is being update. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -216,50 +198,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## PrivateCloudConnection {#yandex.cloud.baremetal.v1alpha.PrivateCloudConnection}
-
-A Private cloud connection resource.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the private cloud connection. ||
-|| folderId | **string**
-
-ID of the folder that the private cloud connection belongs to. ||
-|| cloudId | **string**
-
-ID of the cloud that the private cloud connection belongs to. ||
-|| routingInstanceId | **string**
-
-ID of Cloud Router Routing Instance. ||
-|| vrfId | **string**
-
-ID of VRF that is connected to routing Instance. ||
-|| status | **enum** (Status)
-
-Status of the private cloud connection.
-
-- `STATUS_UNSPECIFIED`: Unspecified private cloud connection status.
-- `CREATING`: Private cloud connection is waiting for network resources to be allocated.
-- `READY`: Private cloud connection is ready to use.
-- `ERROR`: Private cloud connection encountered a problem and cannot operate.
-- `DELETING`: Private cloud connection is being deleted.
-- `UPDATING`: Private cloud connection is being updated. ||
-|| name | **string**
-
-Name of the private cloud connection. ||
-|| createdAt | **string** (date-time)
-
-Creation timestamp.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 |#

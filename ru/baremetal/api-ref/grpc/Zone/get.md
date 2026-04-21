@@ -5,7 +5,6 @@ editable: false
 # BareMetal API, gRPC: ZoneService.Get
 
 Returns the specific Zone resource.
-
 To get the list of Zone resources, make a [List](/docs/baremetal/api-ref/grpc/Zone/list#List) request.
 
 ## gRPC request
@@ -25,8 +24,9 @@ To get the list of Zone resources, make a [List](/docs/baremetal/api-ref/grpc/Zo
 || zone_id | **string**
 
 ID of the Zone resource to return.
+To get the zone ID, use a [ZoneService.List](/docs/baremetal/api-ref/grpc/Zone/list#List) request.
 
-To get the zone ID, use a [ZoneService.List](/docs/baremetal/api-ref/grpc/Zone/list#List) request. ||
+The maximum string length in characters is 20. ||
 |#
 
 ## Zone {#yandex.cloud.baremetal.v1alpha.Zone}

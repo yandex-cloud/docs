@@ -13,18 +13,21 @@ apiPlayground:
             **string**
             Name of the private subnet.
             The name must be unique within the folder.
+            The string length in characters must be 2-63. Value must match the regular expression ` [a-z]([-a-z0-9]*[a-z0-9])? `.
           pattern: '[a-z]([-a-z0-9]*[a-z0-9])?'
           type: string
         description:
           description: |-
             **string**
             Description of the private subnet.
+            The maximum string length in characters is 1024.
           type: string
         hardwarePoolId:
           description: |-
             **string**
             ID of the hardware pool where the private subnet resides.
             To get a list of available hardware pools, use the [HardwarePoolService.List](/docs/baremetal/api-ref/HardwarePool/list#List) request.
+            The maximum string length in characters is 20.
           type: string
         vrfOptionsSpec:
           description: |-
@@ -36,12 +39,14 @@ apiPlayground:
             **string**
             ID of the folder to create a private subnet in.
             To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50. Value must match the regular expression ` [a-z][a-z0-9.-]* `.
           pattern: '[a-z][a-z0-9.-]*'
           type: string
         labels:
           description: |-
             **object** (map<**string**, **string**>)
             Resource labels as `key:value` pairs.
+            The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource.
           type: object
           additionalProperties:
             type: string
@@ -131,26 +136,34 @@ POST https://baremetal.{{ api-host }}/baremetal/v1alpha/privateSubnets
 || name | **string**
 
 Name of the private subnet.
-The name must be unique within the folder. ||
+The name must be unique within the folder.
+
+The string length in characters must be 2-63. Value must match the regular expression ` [a-z]([-a-z0-9]*[a-z0-9])? `. ||
 || description | **string**
 
-Description of the private subnet. ||
+Description of the private subnet.
+
+The maximum string length in characters is 1024. ||
 || hardwarePoolId | **string**
 
 ID of the hardware pool where the private subnet resides.
+To get a list of available hardware pools, use the [HardwarePoolService.List](/docs/baremetal/api-ref/HardwarePool/list#List) request.
 
-To get a list of available hardware pools, use the [HardwarePoolService.List](/docs/baremetal/api-ref/HardwarePool/list#List) request. ||
+The maximum string length in characters is 20. ||
 || vrfOptionsSpec | **[VrfOptionsSpec](#yandex.cloud.baremetal.v1alpha.VrfOptionsSpec)**
 
 VRF options. Optional. ||
 || folderId | **string**
 
 ID of the folder to create a private subnet in.
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
 
-To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+The maximum string length in characters is 50. Value must match the regular expression ` [a-z][a-z0-9.-]* `. ||
 || labels | **object** (map<**string**, **string**>)
 
-Resource labels as `key:value` pairs. ||
+Resource labels as `key:value` pairs.
+
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
 |#
 
 ## VrfOptionsSpec {#yandex.cloud.baremetal.v1alpha.VrfOptionsSpec}
@@ -160,7 +173,6 @@ Resource labels as `key:value` pairs. ||
 || vrfId | **string**
 
 ID of the VRF to create private subnet in.
-
 To get the VRF ID, use a [VrfService.List](/docs/baremetal/api-ref/Vrf/list#List) request. ||
 || cidr | **string**
 
@@ -205,9 +217,7 @@ The absence or null value indicates that calculation will be performed based on 
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "privateSubnetId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -216,27 +226,7 @@ The absence or null value indicates that calculation will be performed based on 
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "cloudId": "string",
-    "folderId": "string",
-    "name": "string",
-    "description": "string",
-    "status": "string",
-    "zoneId": "string",
-    "hardwarePoolId": "string",
-    "vrfOptions": {
-      "vrfId": "string",
-      "cidr": "string",
-      "dhcpOptions": {
-        "startIp": "string",
-        "endIp": "string"
-      },
-      "gatewayIp": "string"
-    },
-    "createdAt": "string",
-    "labels": "object"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -278,7 +268,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreatePrivateSubnetMetadata](#yandex.cloud.baremetal.v1alpha.CreatePrivateSubnetMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -293,7 +283,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[PrivateSubnet](#yandex.cloud.baremetal.v1alpha.PrivateSubnet)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -308,15 +298,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreatePrivateSubnetMetadata {#yandex.cloud.baremetal.v1alpha.CreatePrivateSubnetMetadata}
-
-#|
-||Field | Description ||
-|| privateSubnetId | **string**
-
-ID of the private subnet that is being created. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -334,96 +315,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## PrivateSubnet {#yandex.cloud.baremetal.v1alpha.PrivateSubnet}
-
-A PrivateSubnet resource.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the private subnet. ||
-|| cloudId | **string**
-
-ID of the cloud that the private subnet belongs to. ||
-|| folderId | **string**
-
-ID of the folder that the private subnet belongs to. ||
-|| name | **string**
-
-Name of the private subnet.
-The name is unique within the folder. ||
-|| description | **string**
-
-Optional description of the private subnet. ||
-|| status | **enum** (Status)
-
-Status of the private subnet.
-
-- `STATUS_UNSPECIFIED`: Unspecified private subnet status.
-- `CREATING`: Private subnet is being created.
-- `READY`: Private subnet is ready to use.
-- `UPDATING`: Private subnet is being updated.
-- `DELETING`: Private subnet is being deleted.
-- `ERROR`: Private subnet encountered a problem and cannot operate. ||
-|| zoneId | **string**
-
-ID of the availability zone where the server resides. ||
-|| hardwarePoolId | **string**
-
-ID of the hardware pool that the private subnet belongs to. ||
-|| vrfOptions | **[VrfOptions](#yandex.cloud.baremetal.v1alpha.PrivateSubnet.VrfOptions)**
-
-Optional VRF options for the private subnet. If missing, the private subnet will be unrouted,
-i.e. it will lack a DHCP server and routing capabilities between this subnet and other private
-subnets. ||
-|| createdAt | **string** (date-time)
-
-Creation timestamp.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| labels | **object** (map<**string**, **string**>)
-
-Resource labels as `key:value` pairs. ||
-|#
-
-## VrfOptions {#yandex.cloud.baremetal.v1alpha.PrivateSubnet.VrfOptions}
-
-VRF options for the private subnet.
-
-#|
-||Field | Description ||
-|| vrfId | **string**
-
-ID of the VRF. ||
-|| cidr | **string**
-
-CIDR block for the subnet. ||
-|| dhcpOptions | **[DhcpOptions](#yandex.cloud.baremetal.v1alpha.DhcpOptions)**
-
-DHCP options for the subnet. ||
-|| gatewayIp | **string**
-
-Gateway IP address for the subnet. ||
-|#
-
-## DhcpOptions {#yandex.cloud.baremetal.v1alpha.DhcpOptions}
-
-DHCP options for a subnet.
-
-#|
-||Field | Description ||
-|| startIp | **string**
-
-Start IP address of the DHCP range (inclusive). ||
-|| endIp | **string**
-
-End IP address of the DHCP range (inclusive). ||
 |#

@@ -92,7 +92,7 @@ Where:
 * `query_phases[].updates.rows`: Number of written data rows.
 * `query_phases[].updates.bytes`: Number of written data bytes.
 
-To estimate the CPU cost, the request's total CPU time is divided by 1.5 ms, `( 475 + 514 + 4062 + 870 ) / 1500 = 3.95`. The result is rounded down and converted to RUs:
+To estimate the CPU cost, the request's total CPU time is divided by 1.5 ms, `( 475 + 514 + 4,062 + 870 ) / 1,500 = 3.95`. The result is rounded down and converted to RUs:
 
 ```text
 3 × 1 RU = 3 RUs
@@ -101,12 +101,12 @@ To estimate the CPU cost, the request's total CPU time is divided by 1.5 ms, `( 
 To get the I/O cost:
 * The number of disk reads of rows and blocks is calculated, and the maximum is selected:
   * 2 rows read, the number of operations is 2.
-  * 16 bytes read, `16 / ( 4 × 1024 ) = 0.004`, the result is rounded up, the number of operations is 1.
+  * 16 bytes read, `16 / ( 4 × 1,024 ) = 0.004`, the result is rounded up, the number of operations is 1.
 
   The number of read operations is 2.
 * The number of disk writes for rows and blocks is calculated, and the maximum is selected:
   * 2 rows written, the number of operations is 2.
-  * 2,456 bytes read, `2456 / 1024 = 2.398`, the result is rounded up, the number of operations is 3.
+  * 2,456 bytes read, `2,456 / 1,024 = 2.398`, the result is rounded up, the number of operations is 3.
 
   The number of write operations is 3.
 

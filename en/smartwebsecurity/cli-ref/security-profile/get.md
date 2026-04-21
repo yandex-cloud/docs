@@ -19,6 +19,9 @@ Syntax:
 || `--security-profile-id` | `string`
 
 ID of the SecurityProfile resource to return. ||
+|| `--name` | `string`
+
+Resolve security-profile-id by resource name within the current scope. ||
 |#
 
 #### Global Flags
