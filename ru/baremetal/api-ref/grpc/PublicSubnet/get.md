@@ -5,7 +5,6 @@ editable: false
 # BareMetal API, gRPC: PublicSubnetService.Get
 
 Returns the specific PublicSubnet resource.
-
 To get the list of available PublicSubnet resources, make a [List](/docs/baremetal/api-ref/grpc/PublicSubnet/list#List) request.
 
 ## gRPC request
@@ -25,7 +24,6 @@ To get the list of available PublicSubnet resources, make a [List](/docs/baremet
 || public_subnet_id | **string**
 
 Required field. ID of the PublicSubnet resource to return.
-
 To get the public subnet ID use a [PublicSubnetService.List](/docs/baremetal/api-ref/grpc/PublicSubnet/list#List) request. ||
 |#
 
@@ -50,8 +48,10 @@ To get the public subnet ID use a [PublicSubnetService.List](/docs/baremetal/api
     "end_ip": "string"
   },
   "gateway_ip": "string",
+  "public_prefix_pool_id": "google.protobuf.StringValue",
   "created_at": "google.protobuf.Timestamp",
-  "labels": "map<string, string>"
+  "labels": "map<string, string>",
+  "deletion_unlocked_at": "google.protobuf.Timestamp"
 }
 ```
 
@@ -85,7 +85,6 @@ IDs of the hardware pool that the public subnet belongs to. ||
 
 Type of the public subnet (static or ephemeral).
 
-- `PUBLIC_SUBNET_TYPE_UNSPECIFIED`: Unspecified public subnet type.
 - `DEDICATED`: Dedicated public subnet.
 - `EPHEMERAL`: Ephemeral public subnet. ||
 || prefix_length | **int64**
@@ -100,12 +99,18 @@ DHCP options for the public subnet. ||
 || gateway_ip | **string**
 
 Gateway IP address for the public subnet. ||
+|| public_prefix_pool_id | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+ID of the public prefix pool that the public subnet belongs to. ||
 || created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Creation timestamp. ||
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
+|| deletion_unlocked_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Timestamp when deletion of the public subnet is allowed. ||
 |#
 
 ## DhcpOptions {#yandex.cloud.baremetal.v1alpha.DhcpOptions}

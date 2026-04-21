@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             ID of the Private cloud connection resource to return.
             To get the server ID, use a [PrivateCloudConnectionService.List](/docs/baremetal/api-ref/PrivateCloudConnection/list#List) request.
+            The maximum string length in characters is 20. Value must match the regular expression ` [a-z][a-z0-9.-]* `.
           pattern: '[a-z][a-z0-9.-]*'
           type: string
       additionalProperties: false
@@ -22,7 +23,6 @@ apiPlayground:
 # BareMetal API, REST: PrivateCloudConnection.Get
 
 Returns the specific Private cloud connection resource.
-
 To get the list of available Private cloud connection resources, make a [List](/docs/baremetal/api-ref/PrivateCloudConnection/list#List) request.
 
 ## HTTP request
@@ -38,8 +38,9 @@ GET https://baremetal.{{ api-host }}/baremetal/v1alpha/privateCloudConnections/{
 || privateCloudConnectionId | **string**
 
 Required field. ID of the Private cloud connection resource to return.
+To get the server ID, use a [PrivateCloudConnectionService.List](/docs/baremetal/api-ref/PrivateCloudConnection/list#List) request.
 
-To get the server ID, use a [PrivateCloudConnectionService.List](/docs/baremetal/api-ref/PrivateCloudConnection/list#List) request. ||
+The maximum string length in characters is 20. Value must match the regular expression ` [a-z][a-z0-9.-]* `. ||
 |#
 
 ## Response {#yandex.cloud.baremetal.v1alpha.PrivateCloudConnection}
@@ -82,7 +83,6 @@ ID of VRF that is connected to routing Instance. ||
 
 Status of the private cloud connection.
 
-- `STATUS_UNSPECIFIED`: Unspecified private cloud connection status.
 - `CREATING`: Private cloud connection is waiting for network resources to be allocated.
 - `READY`: Private cloud connection is ready to use.
 - `ERROR`: Private cloud connection encountered a problem and cannot operate.

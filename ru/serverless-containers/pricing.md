@@ -59,6 +59,8 @@ editable: false
 
 ### Примеры расчета стоимости {#example}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 Пример расчета стоимости контейнера, у которого:
 
 * **Объем памяти, указанный при создании ревизии**: 2 ГБ.

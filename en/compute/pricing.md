@@ -79,6 +79,8 @@ _{{ price-per-hour-count-per-second }}_
 
 #### Example of calculating the cost of computing resources {#instance-resources-example}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 Let's compare the cost of [Intel Ice Lake](concepts/vm-platforms.md) VMs of different [vCPU performance levels](concepts/performance-levels.md).
 
 Let’s assume you created two Linux VMs:
@@ -169,6 +171,8 @@ Use of additional resources, such as images from {{ marketplace-name }} or netwo
 _{{ price-per-hour-count-per-second }}_
 
 {% cut "Example of calculating the cost of a dedicated host" %}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 An `intel-6338-c108-m704-n3200x6` dedicated host running for an hour is charged as follows:
 

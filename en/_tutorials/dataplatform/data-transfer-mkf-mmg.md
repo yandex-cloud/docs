@@ -6,8 +6,8 @@ A {{ mmg-name }} cluster can ingest data from {{ KF }} topics in real time.
 To start data delivery:
 
 1. [Prepare your test data](#prepare-data).
-1. [Prepare and activate the transfer](#prepare-transfer).
-1. [Test the transfer](#verify-transfer).
+1. [Set up and activate the transfer](#prepare-transfer).
+1. [Test your transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -43,7 +43,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             * To connect to the cluster from the user's local machine instead of the {{ yandex-cloud }} cloud network, enable public access to the cluster hosts.
 
         
-        1. To connect to the cluster from the user's local machine, configure security groups:
+        1. To connect to the cluster from your local machine, configure the security groups as follows:
 
             * [{{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
             * [{{ mmg-name }}](../../storedoc/operations/connect/index.md#configuring-security-groups).
@@ -157,7 +157,7 @@ On your local machine, create a `sample.json` file with the following test data:
 
 {% endcut %}
 
-## Prepare and activate the transfer {#prepare-transfer}
+## Set up and activate the transfer {#prepare-transfer}
 
 1. [Create](../../data-transfer/operations/endpoint/index.md#create) an [`{{ KF }}` source endpoint](../../data-transfer/operations/endpoint/source/kafka.md):
 
@@ -253,12 +253,12 @@ On your local machine, create a `sample.json` file with the following test data:
 
     - Manually {#manual}
 
-        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**-type that will use the endpoints you created.
+        1. [Create](../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**-type transfer configured to use the previously created endpoints.
         1. [Activate the transfer](../../data-transfer/operations/transfer.md#activate) and wait for its status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
     - {{ TF }} {#tf}
 
-        1. In the `data-transfer-mkf-mmg.tf` file, specify the following variables:
+        1. In the `data-transfer-mkf-mmg.tf` file, specify these variables:
 
             * `source_endpoint_id`: Source endpoint ID.
             * `target_endpoint_id`: Target endpoint ID.

@@ -24,6 +24,8 @@ Syntax:
 
   - [yc cloud-registry artifact get](artifact/get.md) — Get information about the artifact
 
+  - [yc cloud-registry artifact get-by-path](artifact/get-by-path.md) — Get information about the artifact by path
+
   - [yc cloud-registry artifact list-access-bindings](artifact/list-access-bindings.md) — Lists access bindings for the specified artifact
 
   - [yc cloud-registry artifact remove-access-binding](artifact/remove-access-binding.md) — Remove access binding for the specified artifact

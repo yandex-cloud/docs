@@ -13,7 +13,7 @@ description: In this tutorial, you will learn how to view {{ mmg-name }} cluster
 
 {% include [alerts](../../_includes/mdb/alerts.md) %}
 
-## Cluster health state monitoring {#cluster}
+## Monitoring cluster health status {#cluster}
 
 To view detailed information on the health state of a {{ mmg-name }} cluster:
 
@@ -22,7 +22,7 @@ To view detailed information on the health state of a {{ mmg-name }} cluster:
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_monitoring }}** tab.
       
       The page that opens will display performance charts for the cluster.
@@ -124,14 +124,14 @@ To view detailed information on the health state of a {{ mmg-name }} cluster:
 
 ## Host state monitoring {#hosts}
 
-To view detailed information on the state of individual {{ mmg-name }} hosts:
+To view the detailed status of individual {{ mmg-name }} hosts:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. Open the [folder dashboard]({{ link-console-main }}).
-  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.mongodb.cluster.switch_monitoring }}** tab.
   1. Navigate to the **Hosts** tab and select the host.
 
@@ -305,8 +305,8 @@ Recommended threshold values for selected metrics:
 
 The `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds for the `disk.used_bytes` metric are specified exclusively in bytes. For example, recommended values for a 100 GB disk are as follows:
 
-* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96,636,764,160` bytes (90%)
-* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `75,161,927,680` bytes (70%)
+* `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96636764160` bytes (90%)
+* `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `75161927680` bytes (70%)
 
 You can check the current storage size in the [cluster details](cluster-list.md#get-cluster). For a complete list of supported metrics, see [this {{ monitoring-name }} guide](../../monitoring/metrics-ref/managed-mongodb-ref.md).
 
@@ -338,10 +338,10 @@ To track storage fill levels on the cluster hosts and receive notifications when
 
 {% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}
 
-To view the health state and status of a cluster:
+To check the cluster’s health and status:
 
 1. Open the [folder dashboard]({{ link-console-main }}).
-1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}**.
+1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mongodb }}** service.
 1. Locate the cluster you need in the list and hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column.
 
 ### Cluster health states {#cluster-health}

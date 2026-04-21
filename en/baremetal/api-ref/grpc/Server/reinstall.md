@@ -4,6 +4,8 @@ editable: false
 
 # BareMetal API, gRPC: ServerService.Reinstall
 
+(-- api-linter: yc::1702::method-verb-prefix=disabled
+Required for backward compatibility with old clients. --)
 Reinstalls the specified server.
 
 ## gRPC request
@@ -16,16 +18,21 @@ Reinstalls the specified server.
 {
   "server_id": "string",
   "os_settings_spec": {
+    // Includes only one of the fields `ssh_public_key`, `user_ssh_id`
+    "ssh_public_key": "string",
+    "user_ssh_id": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `password_plain_text`, `password_lockbox_secret`
+    "password_plain_text": "string",
+    "password_lockbox_secret": {
+      "secret_id": "string",
+      "version_id": "string",
+      "key": "string"
+    },
+    // end of the list of possible fields
     "image_id": "string",
     "storages": [
       {
-        "partitions": [
-          {
-            "type": "StoragePartitionType",
-            "size_gib": "int64",
-            "mount_point": "string"
-          }
-        ],
         // Includes only one of the fields `disk`, `raid`
         "disk": {
           "id": "string",
@@ -41,22 +48,17 @@ Reinstalls the specified server.
               "size_gib": "int64"
             }
           ]
-        }
+        },
         // end of the list of possible fields
+        "partitions": [
+          {
+            "type": "StoragePartitionType",
+            "size_gib": "int64",
+            "mount_point": "string"
+          }
+        ]
       }
-    ],
-    // Includes only one of the fields `ssh_public_key`, `user_ssh_id`
-    "ssh_public_key": "string",
-    "user_ssh_id": "string",
-    // end of the list of possible fields
-    // Includes only one of the fields `password_plain_text`, `password_lockbox_secret`
-    "password_plain_text": "string",
-    "password_lockbox_secret": {
-      "secret_id": "string",
-      "version_id": "string",
-      "key": "string"
-    }
-    // end of the list of possible fields
+    ]
   }
 }
 ```
@@ -66,8 +68,9 @@ Reinstalls the specified server.
 || server_id | **string**
 
 ID of the server to reinstall.
+To get the server ID, use a [ServerService.List](/docs/baremetal/api-ref/grpc/Server/list#List) request.
 
-To get the server ID, use a [ServerService.List](/docs/baremetal/api-ref/grpc/Server/list#List) request. ||
+Value must match the regular expression ` [a-z][a-z0-9]* `. ||
 || os_settings_spec | **[OsSettingsSpec](#yandex.cloud.baremetal.v1alpha.OsSettingsSpec)**
 
 Operating system specific settings for provisioning the server. ||
@@ -77,16 +80,11 @@ Operating system specific settings for provisioning the server. ||
 
 #|
 ||Field | Description ||
-|| image_id | **string**
-
-ID of the image that the server was created from. ||
-|| storages[] | **[Storage](#yandex.cloud.baremetal.v1alpha.Storage)**
-
-List of storages to be created on the server. If not specified, the default value based on the
-selected configuration will be used as the field value. ||
 || ssh_public_key | **string**
 
 Public SSH key for the server.
+
+The maximum string length in characters is 20000.
 
 Includes only one of the fields `ssh_public_key`, `user_ssh_id`.
 
@@ -94,8 +92,9 @@ Root user SSH key. ||
 || user_ssh_id | **string**
 
 ID of the user SSH key to use for the server.
-
 To get the user SSH key ID, use a [yandex.cloud.organizationmanager.v1.UserSshKeyService.List](/docs/organization/api-ref/grpc/UserSshKey/list#List) request.
+
+The maximum string length in characters is 50.
 
 Includes only one of the fields `ssh_public_key`, `user_ssh_id`.
 
@@ -103,6 +102,8 @@ Root user SSH key. ||
 || password_plain_text | **string**
 
 Raw password.
+
+The minimum string length in characters is 6.
 
 Includes only one of the fields `password_plain_text`, `password_lockbox_secret`.
 
@@ -114,94 +115,15 @@ Reference to the Lockbox secret used to obtain the password.
 Includes only one of the fields `password_plain_text`, `password_lockbox_secret`.
 
 Password for the server. ||
-|#
+|| image_id | **string**
 
-## Storage {#yandex.cloud.baremetal.v1alpha.Storage}
+ID of the image that the server was created from.
 
-Storage, a OS-level storage entity used for creating partitions. For example, this could
-represent a plain disk or a software RAID of disks.
+The maximum string length in characters is 20. Value must match the regular expression ` [a-z][a-z0-9]* `. ||
+|| storages[] | **[Storage](#yandex.cloud.baremetal.v1alpha.Storage)**
 
-#|
-||Field | Description ||
-|| partitions[] | **[StoragePartition](#yandex.cloud.baremetal.v1alpha.StoragePartition)**
-
-Array of partitions created on the storage. ||
-|| disk | **[Disk](#yandex.cloud.baremetal.v1alpha.Disk)**
-
-Disk storage.
-
-Includes only one of the fields `disk`, `raid`.
-
-Storage type. ||
-|| raid | **[Raid](#yandex.cloud.baremetal.v1alpha.Raid)**
-
-RAID storage.
-
-Includes only one of the fields `disk`, `raid`.
-
-Storage type. ||
-|#
-
-## StoragePartition {#yandex.cloud.baremetal.v1alpha.StoragePartition}
-
-#|
-||Field | Description ||
-|| type | enum **StoragePartitionType**
-
-Partition type.
-
-- `STORAGE_PARTITION_TYPE_UNSPECIFIED`: Unspecified storage partition type.
-- `EXT4`: ext4 file system partition type.
-- `SWAP`: Swap partition type.
-- `EXT3`: ext3 file system partition type.
-- `XFS`: XFS file system partition type. ||
-|| size_gib | **int64**
-
-Size of the storage partition in gibibytes (2^30 bytes). ||
-|| mount_point | **string**
-
-Storage mount point. ||
-|#
-
-## Disk {#yandex.cloud.baremetal.v1alpha.Disk}
-
-Disk.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the disk. ||
-|| type | enum **DiskDriveType**
-
-Type of the disk drive.
-
-- `DISK_DRIVE_TYPE_UNSPECIFIED`: Unspecified disk drive type.
-- `HDD`: Hard disk drive (magnetic storage).
-- `SSD`: Solid state drive with SATA/SAS interface.
-- `NVME`: Solid state drive with NVMe interface. ||
-|| size_gib | **int64**
-
-Size of the disk in gibibytes (2^30 bytes). ||
-|#
-
-## Raid {#yandex.cloud.baremetal.v1alpha.Raid}
-
-RAID storage.
-
-#|
-||Field | Description ||
-|| type | enum **RaidType**
-
-RAID type.
-
-- `RAID_TYPE_UNSPECIFIED`: Unspecified RAID configuration.
-- `RAID0`: RAID0 configuration.
-- `RAID1`: RAID1 configuration.
-- `RAID10`: RAID10 configuration. ||
-|| disks[] | **[Disk](#yandex.cloud.baremetal.v1alpha.Disk)**
-
-Array of disks in the RAID configuration. ||
+List of storages to be created on the server. If not specified, the default value based on the
+selected configuration will be used as the field value. ||
 |#
 
 ## LockboxSecret {#yandex.cloud.baremetal.v1alpha.LockboxSecret}
@@ -220,6 +142,91 @@ If omitted, the current version of the secret will be used. ||
 Required field. The key used to access a specific secret entry. ||
 |#
 
+## Storage {#yandex.cloud.baremetal.v1alpha.Storage}
+
+Storage, a OS-level storage entity used for creating partitions. For example, this could
+represent a plain disk or a software RAID of disks.
+
+#|
+||Field | Description ||
+|| disk | **[Disk](#yandex.cloud.baremetal.v1alpha.Disk)**
+
+Disk storage.
+
+Includes only one of the fields `disk`, `raid`.
+
+Storage type. ||
+|| raid | **[Raid](#yandex.cloud.baremetal.v1alpha.Raid)**
+
+RAID storage.
+
+Includes only one of the fields `disk`, `raid`.
+
+Storage type. ||
+|| partitions[] | **[StoragePartition](#yandex.cloud.baremetal.v1alpha.StoragePartition)**
+
+Array of partitions created on the storage. ||
+|#
+
+## Disk {#yandex.cloud.baremetal.v1alpha.Disk}
+
+Disk.
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the disk. ||
+|| type | enum **DiskDriveType**
+
+Type of the disk drive.
+
+- `HDD`: Hard disk drive (magnetic storage).
+- `SSD`: Solid state drive with SATA/SAS interface.
+- `NVME`: Solid state drive with NVMe interface. ||
+|| size_gib | **int64**
+
+Size of the disk in gibibytes (2^30 bytes). ||
+|#
+
+## Raid {#yandex.cloud.baremetal.v1alpha.Raid}
+
+RAID storage.
+
+#|
+||Field | Description ||
+|| type | enum **RaidType**
+
+RAID type.
+
+- `RAID0`: RAID0 configuration.
+- `RAID1`: RAID1 configuration.
+- `RAID10`: RAID10 configuration. ||
+|| disks[] | **[Disk](#yandex.cloud.baremetal.v1alpha.Disk)**
+
+Array of disks in the RAID configuration. ||
+|#
+
+## StoragePartition {#yandex.cloud.baremetal.v1alpha.StoragePartition}
+
+#|
+||Field | Description ||
+|| type | enum **StoragePartitionType**
+
+Partition type.
+
+- `EXT4`: ext4 file system partition type.
+- `SWAP`: Swap partition type.
+- `EXT3`: ext3 file system partition type.
+- `XFS`: XFS file system partition type. ||
+|| size_gib | **int64**
+
+Size of the storage partition in gibibytes (2^30 bytes). ||
+|| mount_point | **string**
+
+Storage mount point. ||
+|#
+
 ## operation.Operation {#yandex.cloud.operation.Operation}
 
 ```json
@@ -230,12 +237,10 @@ Required field. The key used to access a specific secret entry. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "server_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": "google.protobuf.Empty"
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -263,7 +268,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[ReinstallServerMetadata](#yandex.cloud.baremetal.v1alpha.ReinstallServerMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -278,7 +283,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -293,13 +298,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## ReinstallServerMetadata {#yandex.cloud.baremetal.v1alpha.ReinstallServerMetadata}
-
-#|
-||Field | Description ||
-|| server_id | **string**
-
-ID of the Server resource that is being reinstalled. ||
 |#

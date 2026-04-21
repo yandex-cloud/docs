@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             ID of the Server resource to list operations for.
+            Value must match the regular expression ` [a-z][a-z0-9]* `.
           pattern: '[a-z][a-z0-9]*'
           type: string
       additionalProperties: false
@@ -24,6 +25,7 @@ apiPlayground:
             the service returns a [ListServerOperationsResponse.nextPageToken](#yandex.cloud.baremetal.v1alpha.ListServerOperationsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value is 20.
+            The maximum value is 100.
           type: string
           format: int64
         pageToken:
@@ -53,7 +55,9 @@ GET https://baremetal.{{ api-host }}/baremetal/v1alpha/servers/{serverId}/operat
 ||Field | Description ||
 || serverId | **string**
 
-Required field. ID of the Server resource to list operations for. ||
+Required field. ID of the Server resource to list operations for.
+
+Value must match the regular expression ` [a-z][a-z0-9]* `. ||
 |#
 
 ## Query parameters {#yandex.cloud.baremetal.v1alpha.ListServerOperationsRequest}
@@ -66,7 +70,9 @@ The maximum number of results per page to return. If the number of available
 results is greater than `page_size`,
 the service returns a [ListServerOperationsResponse.nextPageToken](#yandex.cloud.baremetal.v1alpha.ListServerOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value is 20. ||
+Default value is 20.
+
+The maximum value is 100. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
@@ -114,7 +120,6 @@ List of operations for the specified Server resource. ||
 Token for getting the next page of the list. If the number of results is greater than
 [ListServerOperationsRequest.pageSize](#yandex.cloud.baremetal.v1alpha.ListServerOperationsRequest), use `next_page_token` as the value
 for the [ListServerOperationsRequest.pageToken](#yandex.cloud.baremetal.v1alpha.ListServerOperationsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 

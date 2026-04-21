@@ -14,6 +14,15 @@ Creates a public subnet in the specified folder.
 
 ```json
 {
+  // Includes only one of the fields `auto_allocation`, `manual_allocation`
+  "auto_allocation": {
+    "prefix_length": "int64"
+  },
+  "manual_allocation": {
+    "cidr": "string",
+    "public_prefix_pool_id": "string"
+  },
+  // end of the list of possible fields
   "folder_id": "string",
   "name": "string",
   "description": "string",
@@ -27,29 +36,78 @@ Creates a public subnet in the specified folder.
 
 #|
 ||Field | Description ||
+|| auto_allocation | **[AutoAllocation](#yandex.cloud.baremetal.v1alpha.CreatePublicSubnetRequest.AutoAllocation)**
+
+Automatic CIDR allocation from the system public prefix pool.
+
+Includes only one of the fields `auto_allocation`, `manual_allocation`.
+
+Method for allocating CIDR block to the public subnet. ||
+|| manual_allocation | **[ManualAllocation](#yandex.cloud.baremetal.v1alpha.CreatePublicSubnetRequest.ManualAllocation)**
+
+Manual CIDR allocation with explicit CIDR from user's own public prefix pool (BYOIP).
+
+Includes only one of the fields `auto_allocation`, `manual_allocation`.
+
+Method for allocating CIDR block to the public subnet. ||
 || folder_id | **string**
 
 ID of the folder to create a public subnet in.
-
 To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
 || name | **string**
 
 Name of the public subnet.
-The name must be unique within the folder. ||
+The name must be unique within the folder.
+
+The string length in characters must be 2-63. Value must match the regular expression ` [a-z]([-a-z0-9]*[a-z0-9])? `. ||
 || description | **string**
 
-Description of the public subnet. ||
+Description of the public subnet.
+
+The maximum string length in characters is 1024. ||
 || hardware_pool_ids[] | **string**
 
 IDs of the hardware pool that the public subnet belongs to.
-
 To get a list of available hardware pools, use the [HardwarePoolService.List](/docs/baremetal/api-ref/grpc/HardwarePool/list#List) request. ||
 || prefix_length | **int64**
 
-Prefix length of the public subnet CIDR block. ||
+@deprecated
+Prefix length of the public subnet CIDR block.
+
+Acceptable values are 1 to 31, inclusive. ||
 || labels | **object** (map<**string**, **string**>)
 
-Resource labels as `key:value` pairs. ||
+Resource labels as `key:value` pairs.
+
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
+|#
+
+## AutoAllocation {#yandex.cloud.baremetal.v1alpha.CreatePublicSubnetRequest.AutoAllocation}
+
+Automatic CIDR allocation configuration.
+
+#|
+||Field | Description ||
+|| prefix_length | **int64**
+
+Prefix length of the public subnet CIDR block.
+
+Acceptable values are 1 to 31, inclusive. ||
+|#
+
+## ManualAllocation {#yandex.cloud.baremetal.v1alpha.CreatePublicSubnetRequest.ManualAllocation}
+
+Manual CIDR allocation configuration.
+
+#|
+||Field | Description ||
+|| cidr | **string**
+
+CIDR block of the public subnet. Must be within the public prefix pool CIDR block. ||
+|| public_prefix_pool_id | **string**
+
+ID of the public prefix pool that the CIDR block belongs to.
+To get a list of available public prefix pools, use the [PublicPrefixPoolService.List](/docs/baremetal/api-ref/grpc/PublicPrefixPool/list#List) request. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -62,32 +120,10 @@ Resource labels as `key:value` pairs. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "public_subnet_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "cloud_id": "string",
-    "folder_id": "string",
-    "name": "string",
-    "description": "string",
-    "zone_id": "string",
-    "hardware_pool_ids": [
-      "string"
-    ],
-    "type": "PublicSubnetType",
-    "prefix_length": "int64",
-    "cidr": "string",
-    "dhcp_options": {
-      "start_ip": "string",
-      "end_ip": "string"
-    },
-    "gateway_ip": "string",
-    "created_at": "google.protobuf.Timestamp",
-    "labels": "map<string, string>"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -115,7 +151,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreatePublicSubnetMetadata](#yandex.cloud.baremetal.v1alpha.CreatePublicSubnetMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -130,7 +166,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[PublicSubnet](#yandex.cloud.baremetal.v1alpha.PublicSubnet)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -145,82 +181,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreatePublicSubnetMetadata {#yandex.cloud.baremetal.v1alpha.CreatePublicSubnetMetadata}
-
-#|
-||Field | Description ||
-|| public_subnet_id | **string**
-
-ID of the public subnet that is being created. ||
-|#
-
-## PublicSubnet {#yandex.cloud.baremetal.v1alpha.PublicSubnet}
-
-A PublicSubnet resource.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the public subnet. ||
-|| cloud_id | **string**
-
-ID of the cloud that the public subnet belongs to. ||
-|| folder_id | **string**
-
-ID of the folder that the public subnet belongs to. ||
-|| name | **string**
-
-Name of the public subnet.
-The name is unique within the folder. ||
-|| description | **string**
-
-Optional description of the public subnet. ||
-|| zone_id | **string**
-
-ID of the availability zone where the server resides. ||
-|| hardware_pool_ids[] | **string**
-
-IDs of the hardware pool that the public subnet belongs to. ||
-|| type | enum **PublicSubnetType**
-
-Type of the public subnet (static or ephemeral).
-
-- `PUBLIC_SUBNET_TYPE_UNSPECIFIED`: Unspecified public subnet type.
-- `DEDICATED`: Dedicated public subnet.
-- `EPHEMERAL`: Ephemeral public subnet. ||
-|| prefix_length | **int64**
-
-Prefix length of the public subnet CIDR block. ||
-|| cidr | **string**
-
-CIDR block for the public subnet. ||
-|| dhcp_options | **[DhcpOptions](#yandex.cloud.baremetal.v1alpha.DhcpOptions)**
-
-DHCP options for the public subnet. ||
-|| gateway_ip | **string**
-
-Gateway IP address for the public subnet. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Creation timestamp. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Resource labels as `key:value` pairs. ||
-|#
-
-## DhcpOptions {#yandex.cloud.baremetal.v1alpha.DhcpOptions}
-
-DHCP options for a subnet.
-
-#|
-||Field | Description ||
-|| start_ip | **string**
-
-Start IP address of the DHCP range (inclusive). ||
-|| end_ip | **string**
-
-End IP address of the DHCP range (inclusive). ||
 |#

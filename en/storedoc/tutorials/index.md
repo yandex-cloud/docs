@@ -1,6 +1,6 @@
 ---
 title: '{{ mmg-full-name }} use cases'
-description: Different use cases for {{ mmg-full-name }} in {{ yandex-cloud }}.
+description: Various use cases for {{ mmg-full-name }} in {{ yandex-cloud }}.
 ---
 
 # {{ mmg-name }} tutorials

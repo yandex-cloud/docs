@@ -14,7 +14,7 @@ description: С помощью сервиса {{ sf-name }} вы можете з
 | python37 | 3.7.13 | Ubuntu 18.04 | Нет | Нет |
 | python38 | 3.8.13 | Ubuntu 18.04 | Нет | Нет |
 | python39 | 3.9.11 | Ubuntu 18.04 | Нет | Нет |
-| python311 | 3.11.0 | Ubuntu 18.04 | Да | Нет |
+| python311 | 3.11.0 | Ubuntu 18.04 | Нет | Нет |
 | python312 | 3.12.0 | Ubuntu 22.04 LTS | Да | Да |
 | python314 | 3.14.0 | Ubuntu 22.04 LTS | Да | Да |
 

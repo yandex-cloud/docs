@@ -12,6 +12,7 @@ apiPlayground:
             **string**
             ID of the folder to list private subnets in.
             To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50. Value must match the regular expression ` [a-z][a-z0-9.-]* `.
           pattern: '[a-z][a-z0-9.-]*'
           type: string
         pageSize:
@@ -22,6 +23,7 @@ apiPlayground:
             the service returns a [ListConfigurationsResponse.nextPageToken](/docs/baremetal/api-ref/Configuration/list#yandex.cloud.baremetal.v1alpha.ListConfigurationsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value is 20.
+            The maximum value is 1000.
           type: string
           format: int64
         pageToken:
@@ -75,15 +77,18 @@ GET https://baremetal.{{ api-host }}/baremetal/v1alpha/privateSubnets
 || folderId | **string**
 
 ID of the folder to list private subnets in.
+To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
 
-To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+The maximum string length in characters is 50. Value must match the regular expression ` [a-z][a-z0-9.-]* `. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is greater than `page_size`,
 the service returns a [ListConfigurationsResponse.nextPageToken](/docs/baremetal/api-ref/Configuration/list#yandex.cloud.baremetal.v1alpha.ListConfigurationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value is 20. ||
+Default value is 20.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
@@ -98,7 +103,6 @@ Both snake_case and camelCase are supported for fields. ||
 
 A filter expression that filters resources listed in the response.
 The expression consists of one or more conditions united by `AND` operator: `<condition1> [AND <condition2> [<...> AND <conditionN>]]`.
-
 Each condition has the form `<field> <operator> <value>`, where:
 1. `<field>` is the field name. Currently you can use filtering only on the limited number of fields.
 2. `<operator>` is a logical operator, one of `=` (equal), `:` (substring).
@@ -153,7 +157,6 @@ List of PrivateSubnet resources. ||
 Token for getting the next page of the list. If the number of results is greater than
 [ListImagesRequest.pageSize](/docs/baremetal/api-ref/Image/list#yandex.cloud.baremetal.v1alpha.ListImagesRequest), use `next_page_token` as the value
 for the [ListImagesRequest.pageToken](/docs/baremetal/api-ref/Image/list#yandex.cloud.baremetal.v1alpha.ListImagesRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 
@@ -183,7 +186,6 @@ Optional description of the private subnet. ||
 
 Status of the private subnet.
 
-- `STATUS_UNSPECIFIED`: Unspecified private subnet status.
 - `CREATING`: Private subnet is being created.
 - `READY`: Private subnet is ready to use.
 - `UPDATING`: Private subnet is being updated.

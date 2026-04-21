@@ -5,7 +5,6 @@ editable: false
 # BareMetal API, gRPC: ConfigurationService.Get
 
 Returns the specific Configuration resource.
-
 To get the list of available Configuration resources, make a [List](/docs/baremetal/api-ref/grpc/Configuration/list#List) request.
 
 ## gRPC request
@@ -26,13 +25,15 @@ To get the list of available Configuration resources, make a [List](/docs/bareme
 || configuration_id | **string**
 
 ID of the Configuration resource to return.
+To get the configuration ID, use a [ConfigurationService.List](/docs/baremetal/api-ref/grpc/Configuration/list#List) request.
 
-To get the configuration ID, use a [ConfigurationService.List](/docs/baremetal/api-ref/grpc/Configuration/list#List) request. ||
+Value must match the regular expression ` [a-z][a-z0-9]* `. ||
 || folder_id | **string**
 
 ID of the folder to return a Configuration resource for.
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
 
-To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
+The maximum string length in characters is 50. Value must match the regular expression ` [a-z][a-z0-9.-]* `. ||
 |#
 
 ## Configuration {#yandex.cloud.baremetal.v1alpha.Configuration}
@@ -106,7 +107,9 @@ Vendor of the CPU. ||
 Number of physical cores per CPU (socket). ||
 || frequency_mhz | **int64**
 
-Frequency of the CPU in megahertz (MHz). ||
+Frequency of the CPU in megahertz (MHz).
+
+Value must be greater than 0. ||
 |#
 
 ## DiskDriveConfiguration {#yandex.cloud.baremetal.v1alpha.DiskDriveConfiguration}
@@ -117,7 +120,6 @@ Frequency of the CPU in megahertz (MHz). ||
 
 Type of the disk drive.
 
-- `DISK_DRIVE_TYPE_UNSPECIFIED`: Unspecified disk drive type.
 - `HDD`: Hard disk drive (magnetic storage).
 - `SSD`: Solid state drive with SATA/SAS interface.
 - `NVME`: Solid state drive with NVMe interface. ||

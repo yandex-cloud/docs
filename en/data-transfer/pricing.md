@@ -64,6 +64,8 @@ Data delivery for transfers that are at the Preview stage is free of charge. For
 
 ## Cost calculation examples {#price-example}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 When calculating the cost, keep in mind that one [worker](concepts/index.md#worker) can use the following computing resources:
 
 {% include [vm-computing-resources](../_includes/data-transfer/vm-computing-resources.md) %}

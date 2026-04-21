@@ -226,3 +226,9 @@ description: В данном разделе приведены описания 
 Имя сервиса — `websql`.
 
 {% include [websql-events-dp](../../_includes/audit-trails/events/websql-events-dp.md) %}
+
+## {{ ydb-full-name }} {#ydb}
+
+Имя сервиса — `ydb`.
+
+{% include [ydb-events-dp](../../_includes/audit-trails/events/ydb-events-dp.md) %}

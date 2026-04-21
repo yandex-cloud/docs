@@ -18,6 +18,7 @@
 * [{{ mpg-full-name }}](../../audit-trails/concepts/events-data-plane.md#mpg)
 * [{{ mspqr-full-name }}](../../audit-trails/concepts/events-data-plane.md#spqr)
 * [{{ mrd-full-name }}](../../audit-trails/concepts/events-data-plane.md#mrd)
+* [{{ ydb-full-name }}](../../audit-trails/concepts/events-data-plane.md#ydb)
 * [{{ objstorage-full-name }}](../../audit-trails/concepts/events-data-plane.md#objstorage)
 * [{{ sd-full-name }}](../../audit-trails/concepts/events-data-plane.md#security-deck)
 * [{{ speechkit-full-name }}](../../audit-trails/concepts/events-data-plane.md#speechkit)

@@ -30,7 +30,9 @@ The maximum number of results per page to return. If the number of available
 results is greater than `page_size`,
 the service returns a [ListConfigurationsResponse.next_page_token](#yandex.cloud.baremetal.v1alpha.ListConfigurationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value is 20. ||
+Default value is 20.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
@@ -45,7 +47,6 @@ Both snake_case and camelCase are supported for fields. ||
 
 A filter expression that filters resources listed in the response.
 The expression consists of one or more conditions united by `AND` operator: `<condition1> [AND <condition2> [<...> AND <conditionN>]]`.
-
 Each condition has the form `<field> <operator> <value>`, where:
 1. `<field>` is the field name. Currently you can use filtering only on the limited number of fields.
 2. `<operator>` is a logical operator, one of `=` (equal), `:` (substring).
@@ -58,8 +59,9 @@ Both snake_case and camelCase are supported for fields. ||
 || folder_id | **string**
 
 ID of the folder to return a Configuration resource for.
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
 
-To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
+The maximum string length in characters is 50. Value must match the regular expression ` [a-z][a-z0-9.-]* `. ||
 |#
 
 ## ListConfigurationsResponse {#yandex.cloud.baremetal.v1alpha.ListConfigurationsResponse}
@@ -103,7 +105,6 @@ List of Configuration resources. ||
 Token for getting the next page of the list. If the number of results is greater than
 [ListConfigurationsRequest.page_size](#yandex.cloud.baremetal.v1alpha.ListConfigurationsRequest), use `next_page_token` as the value
 for the [ListConfigurationsRequest.page_token](#yandex.cloud.baremetal.v1alpha.ListConfigurationsRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 
@@ -154,7 +155,9 @@ Vendor of the CPU. ||
 Number of physical cores per CPU (socket). ||
 || frequency_mhz | **int64**
 
-Frequency of the CPU in megahertz (MHz). ||
+Frequency of the CPU in megahertz (MHz).
+
+Value must be greater than 0. ||
 |#
 
 ## DiskDriveConfiguration {#yandex.cloud.baremetal.v1alpha.DiskDriveConfiguration}
@@ -165,7 +168,6 @@ Frequency of the CPU in megahertz (MHz). ||
 
 Type of the disk drive.
 
-- `DISK_DRIVE_TYPE_UNSPECIFIED`: Unspecified disk drive type.
 - `HDD`: Hard disk drive (magnetic storage).
 - `SSD`: Solid state drive with SATA/SAS interface.
 - `NVME`: Solid state drive with NVMe interface. ||

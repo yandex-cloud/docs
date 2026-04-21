@@ -3483,14 +3483,6 @@ default:
       128k:
         12h|number: 0.0012
         12h|string: $0.0012
-    v1:
-      serverless:
-        requests|pricingRate:
-          1|string: $0.192419969
-        requests|string: Free
-        storage|pricingRate:
-          720|string: $0.00026725
-        storage|string: Free
   sku|USD|yt:
     compute-nodes:
       cpu:
@@ -3922,12 +3914,16 @@ default:
           label_subject: User
       baremetal:
         addDiskButton: Add
+        allTemplates: All templates
         amount: Number
+        assemblyDiscountLabel: Cheaper with assembly
         cpuTitle: CPU
         CustomConfiguration: Custom configuration
         disks: Disks
+        goToAssembly: Go to assembly
         networkLabel: Network
         poolFilter: Pool
+        prefillWithTemplate: Prefill with template
         ramLabel: RAM
         size: Size
         StockConfigurations: Stock configurations

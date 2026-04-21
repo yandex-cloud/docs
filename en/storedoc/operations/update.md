@@ -314,7 +314,7 @@ We recommend changing the host class only when the cluster is idle.
              --mongocfg-disk-size <storage_size_in_GB>
           ```
 
-      If all the conditions are met, {{ mmg-short-name }} will start the storage reconfiguration operation.
+      If all the conditions are met, {{ mmg-short-name }} will start storage reconfiguration.
 
 
 - {{ TF }} {#tf}
@@ -391,7 +391,7 @@ We recommend changing the host class only when the cluster is idle.
       * `configSpec.mongodb.<Yandex_StoreDoc_host_type>.resources`: Storage settings:
 
           * `diskTypeId`: [Disk type](../concepts/storage.md).
-          * `diskSize`: New storage size, in bytes.
+          * `diskSize`: New storage size in bytes.
 
         The {{ SD }} host type depends on the [sharding type](../concepts/sharding.md). The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`. For a non-sharded cluster, use `mongod`.
 
@@ -447,7 +447,7 @@ We recommend changing the host class only when the cluster is idle.
       * `config_spec.mongodb.<Yandex_StoreDoc_host_type>.resources.disk_size`: Storage settings:
 
           * `disk_type_id`: [Disk type](../concepts/storage.md).
-          * `disk_size`: New storage size, in bytes.
+          * `disk_size`: New storage size in bytes.
 
         The {{ SD }} host type depends on the [sharding type](../concepts/sharding.md). The possible values are `mongod`, `mongocfg`, `mongos`, and `mongoinfra`. For a non-sharded cluster, use `mongod`.
 
@@ -663,7 +663,7 @@ You can change the DBMS settings for your cluster hosts.
 
       {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-    You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster’s name and ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
 
 - {{ TF }} {#tf}
@@ -933,7 +933,7 @@ You can change the DBMS settings for your cluster hosts.
            --destination-folder-name=<destination_folder_name>
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
 
 - {{ TF }} {#tf}

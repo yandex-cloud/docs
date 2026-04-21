@@ -12,6 +12,7 @@ apiPlayground:
             **string**
             ID of the folder to list private cloud connections in.
             To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
+            The maximum string length in characters is 50. Value must match the regular expression ` [a-z][a-z0-9.-]* `.
           pattern: '[a-z][a-z0-9.-]*'
           type: string
         pageSize:
@@ -22,6 +23,7 @@ apiPlayground:
             the service returns a [ListPrivateCloudConnectionResponse.nextPageToken](#yandex.cloud.baremetal.v1alpha.ListPrivateCloudConnectionResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value is 20.
+            The maximum value is 100.
           type: string
           format: int64
         pageToken:
@@ -75,15 +77,18 @@ GET https://baremetal.{{ api-host }}/baremetal/v1alpha/privateCloudConnections
 || folderId | **string**
 
 ID of the folder to list private cloud connections in.
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request.
 
-To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
+The maximum string length in characters is 50. Value must match the regular expression ` [a-z][a-z0-9.-]* `. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is greater than `page_size`,
 the service returns a [ListPrivateCloudConnectionResponse.nextPageToken](#yandex.cloud.baremetal.v1alpha.ListPrivateCloudConnectionResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value is 20. ||
+Default value is 20.
+
+The maximum value is 100. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
@@ -98,7 +103,6 @@ Both snake_case and camelCase are supported for fields. ||
 
 A filter expression that filters resources listed in the response.
 The expression consists of one or more conditions united by `AND` operator: `<condition1> [AND <condition2> [<...> AND <conditionN>]]`.
-
 Each condition has the form `<field> <operator> <value>`, where:
 1. `<field>` is the field name. Currently you can use filtering only on the limited number of fields.
 2. `<operator>` is a logical operator, one of `=` (equal), `:` (substring).
@@ -142,7 +146,6 @@ List of Private cloud connection resources. ||
 Token for getting the next page of the list. If the number of results is greater than
 [ListPrivateCloudConnectionRequest.pageSize](#yandex.cloud.baremetal.v1alpha.ListPrivateCloudConnectionRequest), use `next_page_token` as the value
 for the [ListPrivateCloudConnectionRequest.pageToken](#yandex.cloud.baremetal.v1alpha.ListPrivateCloudConnectionRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 
@@ -171,7 +174,6 @@ ID of VRF that is connected to routing Instance. ||
 
 Status of the private cloud connection.
 
-- `STATUS_UNSPECIFIED`: Unspecified private cloud connection status.
 - `CREATING`: Private cloud connection is waiting for network resources to be allocated.
 - `READY`: Private cloud connection is ready to use.
 - `ERROR`: Private cloud connection encountered a problem and cannot operate.

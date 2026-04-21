@@ -5,7 +5,6 @@ editable: false
 # BareMetal API, gRPC: ServerService.Get
 
 Returns the specific Server resource.
-
 To get the list of available Server resources, make a [List](/docs/baremetal/api-ref/grpc/Server/list#List) request.
 
 ## gRPC request
@@ -25,8 +24,9 @@ To get the list of available Server resources, make a [List](/docs/baremetal/api
 || server_id | **string**
 
 ID of the Server resource to return.
+To get the server ID, use a [ServerService.List](/docs/baremetal/api-ref/grpc/Server/list#List) request.
 
-To get the server ID, use a [ServerService.List](/docs/baremetal/api-ref/grpc/Server/list#List) request. ||
+Value must match the regular expression ` [a-z][a-z0-9]* `. ||
 |#
 
 ## Server {#yandex.cloud.baremetal.v1alpha.Server}
@@ -46,13 +46,6 @@ To get the server ID, use a [ServerService.List](/docs/baremetal/api-ref/grpc/Se
     "ssh_public_key": "string",
     "storages": [
       {
-        "partitions": [
-          {
-            "type": "StoragePartitionType",
-            "size_gib": "int64",
-            "mount_point": "string"
-          }
-        ],
         // Includes only one of the fields `disk`, `raid`
         "disk": {
           "id": "string",
@@ -68,24 +61,58 @@ To get the server ID, use a [ServerService.List](/docs/baremetal/api-ref/grpc/Se
               "size_gib": "int64"
             }
           ]
-        }
+        },
         // end of the list of possible fields
+        "partitions": [
+          {
+            "type": "StoragePartitionType",
+            "size_gib": "int64",
+            "mount_point": "string"
+          }
+        ]
       }
     ]
   },
   "network_interfaces": [
     {
-      "id": "string",
-      "mac_address": "string",
-      "ip_address": "string",
       // Includes only one of the fields `private_subnet`, `public_subnet`
       "private_subnet": {
         "private_subnet_id": "string"
       },
       "public_subnet": {
         "public_subnet_id": "string"
-      }
+      },
       // end of the list of possible fields
+      // Includes only one of the fields `private_interface`, `public_interface`
+      "private_interface": {
+        "native_subnet_id": "string",
+        "ip_address": "string",
+        "mac_limit": "int64",
+        "vlan_subinterfaces": [
+          {
+            "tagged_subnet_id": "string",
+            "ip_address": "string",
+            "mac_limit": "int64"
+          }
+        ]
+      },
+      "public_interface": {
+        // Includes only one of the fields `native_subnet`, `new_native_subnet`
+        "native_subnet": {
+          "subnet_id": "string"
+        },
+        "new_native_subnet": {
+          "addressing_type": "AddressingType"
+        },
+        // end of the list of possible fields
+        "ip_address": "string",
+        "native_subnet_id": "string",
+        "mac_limit": "int64"
+      },
+      // end of the list of possible fields
+      "id": "string",
+      "mac_address": "string",
+      "ip_address": "string"
     }
   ],
   "configuration_id": "string",
@@ -131,7 +158,6 @@ ID of the hardware pool that the server belongs to. ||
 
 Status of the server.
 
-- `STATUS_UNSPECIFIED`: Unspecified server status.
 - `PROVISIONING`: Server is waiting for to be allocated from the hardware pool.
 - `STOPPING`: Server is being stopped.
 - `STOPPED`: Server has been stopped.
@@ -186,9 +212,6 @@ represent a plain disk or a software RAID of disks.
 
 #|
 ||Field | Description ||
-|| partitions[] | **[StoragePartition](#yandex.cloud.baremetal.v1alpha.StoragePartition)**
-
-Array of partitions created on the storage. ||
 || disk | **[Disk](#yandex.cloud.baremetal.v1alpha.Disk)**
 
 Disk storage.
@@ -203,27 +226,9 @@ RAID storage.
 Includes only one of the fields `disk`, `raid`.
 
 Storage type. ||
-|#
+|| partitions[] | **[StoragePartition](#yandex.cloud.baremetal.v1alpha.StoragePartition)**
 
-## StoragePartition {#yandex.cloud.baremetal.v1alpha.StoragePartition}
-
-#|
-||Field | Description ||
-|| type | enum **StoragePartitionType**
-
-Partition type.
-
-- `STORAGE_PARTITION_TYPE_UNSPECIFIED`: Unspecified storage partition type.
-- `EXT4`: ext4 file system partition type.
-- `SWAP`: Swap partition type.
-- `EXT3`: ext3 file system partition type.
-- `XFS`: XFS file system partition type. ||
-|| size_gib | **int64**
-
-Size of the storage partition in gibibytes (2^30 bytes). ||
-|| mount_point | **string**
-
-Storage mount point. ||
+Array of partitions created on the storage. ||
 |#
 
 ## Disk {#yandex.cloud.baremetal.v1alpha.Disk}
@@ -239,7 +244,6 @@ ID of the disk. ||
 
 Type of the disk drive.
 
-- `DISK_DRIVE_TYPE_UNSPECIFIED`: Unspecified disk drive type.
 - `HDD`: Hard disk drive (magnetic storage).
 - `SSD`: Solid state drive with SATA/SAS interface.
 - `NVME`: Solid state drive with NVMe interface. ||
@@ -258,7 +262,6 @@ RAID storage.
 
 RAID type.
 
-- `RAID_TYPE_UNSPECIFIED`: Unspecified RAID configuration.
 - `RAID0`: RAID0 configuration.
 - `RAID1`: RAID1 configuration.
 - `RAID10`: RAID10 configuration. ||
@@ -267,33 +270,68 @@ RAID type.
 Array of disks in the RAID configuration. ||
 |#
 
+## StoragePartition {#yandex.cloud.baremetal.v1alpha.StoragePartition}
+
+#|
+||Field | Description ||
+|| type | enum **StoragePartitionType**
+
+Partition type.
+
+- `EXT4`: ext4 file system partition type.
+- `SWAP`: Swap partition type.
+- `EXT3`: ext3 file system partition type.
+- `XFS`: XFS file system partition type. ||
+|| size_gib | **int64**
+
+Size of the storage partition in gibibytes (2^30 bytes). ||
+|| mount_point | **string**
+
+Storage mount point. ||
+|#
+
 ## NetworkInterface {#yandex.cloud.baremetal.v1alpha.NetworkInterface}
 
 #|
 ||Field | Description ||
+|| private_subnet | **[PrivateSubnetNetworkInterface](#yandex.cloud.baremetal.v1alpha.PrivateSubnetNetworkInterface)**
+
+@deprecated Private subnet.
+
+Includes only one of the fields `private_subnet`, `public_subnet`.
+
+@deprecated. Use `interface` instead.
+Subnet that the network interface belongs to. ||
+|| public_subnet | **[PublicSubnetNetworkInterface](#yandex.cloud.baremetal.v1alpha.PublicSubnetNetworkInterface)**
+
+@deprecated Public subnet.
+
+Includes only one of the fields `private_subnet`, `public_subnet`.
+
+@deprecated. Use `interface` instead.
+Subnet that the network interface belongs to. ||
+|| private_interface | **[PrivateNetworkInterface](#yandex.cloud.baremetal.v1alpha.PrivateNetworkInterface)**
+
+Private interface.
+
+Includes only one of the fields `private_interface`, `public_interface`. ||
+|| public_interface | **[PublicNetworkInterface](#yandex.cloud.baremetal.v1alpha.PublicNetworkInterface)**
+
+Public interface.
+
+Includes only one of the fields `private_interface`, `public_interface`. ||
 || id | **string**
 
 ID of the network interface. ||
 || mac_address | **string**
 
-MAC address that is assigned to the network interface. ||
+MAC address that is assigned to the network interface.
+Read only field. ||
 || ip_address | **string**
 
-IPv4 address that is assigned to the server for this network interface. ||
-|| private_subnet | **[PrivateSubnetNetworkInterface](#yandex.cloud.baremetal.v1alpha.PrivateSubnetNetworkInterface)**
-
-Private subnet.
-
-Includes only one of the fields `private_subnet`, `public_subnet`.
-
-Subnet that the network interface belongs to. ||
-|| public_subnet | **[PublicSubnetNetworkInterface](#yandex.cloud.baremetal.v1alpha.PublicSubnetNetworkInterface)**
-
-Public subnet.
-
-Includes only one of the fields `private_subnet`, `public_subnet`.
-
-Subnet that the network interface belongs to. ||
+@deprecated. Use `interface.ipaddress` instead.
+IPv4 address that is assigned to the server for this network interface.
+Read only field. ||
 |#
 
 ## PrivateSubnetNetworkInterface {#yandex.cloud.baremetal.v1alpha.PrivateSubnetNetworkInterface}
@@ -312,6 +350,103 @@ ID of the private subnet. ||
 || public_subnet_id | **string**
 
 ID of the public subnet.
-
 A new ephemeral public subnet will be created if not specified. ||
+|#
+
+## PrivateNetworkInterface {#yandex.cloud.baremetal.v1alpha.PrivateNetworkInterface}
+
+#|
+||Field | Description ||
+|| native_subnet_id | **string**
+
+ID of the private subnet which is used as native subnet for interface. ||
+|| ip_address | **string**
+
+IPv4 address that is assigned to the server for this network interface.
+Read only field. ||
+|| mac_limit | **int64**
+
+Limit of MAC addresses in the native subnet.
+Read only field. ||
+|| vlan_subinterfaces[] | **[VLANSubinterface](#yandex.cloud.baremetal.v1alpha.VLANSubinterface)**
+
+Array of VLAN subinterfaces. Additional tagged subnets for the interface. ||
+|#
+
+## VLANSubinterface {#yandex.cloud.baremetal.v1alpha.VLANSubinterface}
+
+#|
+||Field | Description ||
+|| tagged_subnet_id | **string**
+
+ID of the private subnet which is used as tagged subnet for interface. ||
+|| ip_address | **string**
+
+IPv4 address that is assigned to the VLAN subinterface.
+Read only field. ||
+|| mac_limit | **int64**
+
+Limit of MAC addresses in the tagged subnet.
+Read only field. ||
+|#
+
+## PublicNetworkInterface {#yandex.cloud.baremetal.v1alpha.PublicNetworkInterface}
+
+#|
+||Field | Description ||
+|| native_subnet | **[NativeSubnet](#yandex.cloud.baremetal.v1alpha.PublicNetworkInterface.NativeSubnet)**
+
+Use existing native subnet.
+Input only field.
+
+Includes only one of the fields `native_subnet`, `new_native_subnet`.
+
+Native subnet configuration.
+Input only field. ||
+|| new_native_subnet | **[NewNativeSubnet](#yandex.cloud.baremetal.v1alpha.PublicNetworkInterface.NewNativeSubnet)**
+
+Create new native subnet.
+Input only field.
+
+Includes only one of the fields `native_subnet`, `new_native_subnet`.
+
+Native subnet configuration.
+Input only field. ||
+|| ip_address | **string**
+
+IPv4 address that is assigned to the server for this network interface.
+Read only field. ||
+|| native_subnet_id | **string**
+
+ID of the public subnet which is used as native subnet for interface.
+Read only field. ||
+|| mac_limit | **int64**
+
+Limit of MAC addresses in the native subnet.
+Read only field. ||
+|#
+
+## NativeSubnet {#yandex.cloud.baremetal.v1alpha.PublicNetworkInterface.NativeSubnet}
+
+Configuration for using existing native subnet.
+
+#|
+||Field | Description ||
+|| subnet_id | **string**
+
+ID of the existing public subnet. ||
+|#
+
+## NewNativeSubnet {#yandex.cloud.baremetal.v1alpha.PublicNetworkInterface.NewNativeSubnet}
+
+Configuration for creating new native subnet.
+
+#|
+||Field | Description ||
+|| addressing_type | enum **AddressingType**
+
+Addressing type (DHCP \| Static).
+
+- `DHCP`: DHCP addressing.
+- `STATIC`: Static addressing. ||
 |#

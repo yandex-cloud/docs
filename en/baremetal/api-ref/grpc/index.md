@@ -18,6 +18,7 @@ Actions are performed by making RPC calls. For more information about API archit
 || [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
 || [PrivateCloudConnection](PrivateCloudConnection/index.md) | A set of methods for managing Private cloud connection resources. ||
 || [PrivateSubnet](PrivateSubnet/index.md) | A set of methods for managing PrivateSubnet resources. ||
+|| [PublicPrefixPool](PublicPrefixPool/index.md) |  ||
 || [PublicSubnet](PublicSubnet/index.md) | A set of methods for managing PublicSubnet resources. ||
 || [RentalPeriod](RentalPeriod/index.md) | A set of methods to retrieve information about RentalPeriod resources. ||
 || [Server](Server/index.md) | A set of methods for managing Server resources. ||
