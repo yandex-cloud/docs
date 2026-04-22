@@ -154,14 +154,13 @@
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
 
+
+  
   {% include [iam-auth-note](iam-auth-note.md) %}
 
   **Создание бакета с использованием IAM-токена**
 
-  
   1. [Получите данные для аутентификации](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) и добавьте их в переменные окружения.
-
-
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
       ```hcl
@@ -176,17 +175,17 @@
       Где:
       * `bucket` — имя бакета. Обязательный параметр.
 
-        
         По умолчанию бакет с точкой в имени доступен только по протоколу HTTP. Чтобы поддержать для бакета протокол HTTPS, [загрузите собственный сертификат безопасности](../../storage/operations/hosting/certificate.md) в {{ objstorage-name }}.
-
       
-      * `folder_id` — идентификатор каталога
+      * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
 
-         Если вы используете IAM-токен учетной записи пользователя, то в ресурсе `yandex_storage_bucket` необходимо указывать идентификатор каталога `folder_id`.
+        {% note info %}
 
-         В случае использования IAM-токена сервисного аккаунта или статических ключей доступа, `folder_id` указывать необязательно — он потребуется только если вы хотите создать ресурс в каталоге, отличном от каталога сервисного аккаунта.
+        Если вы используете IAM-токен учетной записи пользователя, то в ресурсе `yandex_storage_bucket` необходимо указывать идентификатор каталога `folder_id`.
 
-         {% endnote %}
+        В случае использования IAM-токена сервисного аккаунта или статических ключей доступа, `folder_id` указывать необязательно — он потребуется только если вы хотите создать ресурс в каталоге, отличном от каталога сервисного аккаунта.
+
+        {% endnote %}
 
       Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
 
@@ -201,7 +200,7 @@
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
-      {% cut "Создание бакета с использованием ключа" %}
+      {% cut "Создание бакета с использованием статического ключа" %}
 
       ```hcl
       terraform {
@@ -216,9 +215,6 @@
       # Настройка провайдера
       
       provider "yandex" {
-        token     = "<IAM-_или_OAuth-токен>"
-        cloud_id  = "<идентификатор_облака>"
-        folder_id = "<идентификатор_каталога>"
         zone      = "{{ region-id }}-a"
       }
 
@@ -265,8 +261,6 @@
       }
       ```
 
-      {% endcut %}
-
       Где:
       * `yandex_iam_service_account` — описание [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), который создаст [бакет](../../storage/concepts/bucket.md) и будет работать с ним:
 
@@ -296,9 +290,11 @@
 
       Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
 
+      {% endcut %}
+
   1. Создайте ресурсы:
 
-       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
   {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 

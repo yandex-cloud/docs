@@ -52,6 +52,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
+
   1. Откройте файл конфигурации {{ TF }} и добавьте к описанию бакета блок `object_lock_configuration`:
 
       ```hcl
@@ -179,6 +180,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
+
   1. Откройте файл конфигурации {{ TF }} и  добавьте настройки блокировок по умолчанию в блок `object_lock_configuration`:
 
       ```
@@ -197,6 +199,8 @@ description: Следуя данной инструкции, вы сможете
       * `rule` — правило для блокировки версий объектов. Содержит в себе параметр `default_retention` с настройками хранения:
         * `mode` — тип блокировки. Может принимать значения `GOVERNANCE` или `COMPLIANCE`. Необязательный параметр.
         * `years` или `days` — время, на которое распространяется блокировка объекта. Указывается в виде числа. Необязательный параметр.
+
+     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
 
   1. Примените изменения:
 
@@ -265,6 +269,7 @@ description: Следуя данной инструкции, вы сможете
 - {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
 
   1. Откройте файл конфигурации {{ TF }} и удалите блок `object_lock_configuration`:
 

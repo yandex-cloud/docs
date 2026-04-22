@@ -175,13 +175,15 @@ You can add multiple constraints to a single tag. The constraints sum up as per 
 
 ### Exclusion phrases {#exclusion-phrases}
 
-To increase a dictionary tag's accuracy, add _exclusion phrases_ to it. If the dialog contains exclusion phrases, these will not trigger the tag.
+To increase a dictionary tag's accuracy, add _exclusion phrases_ to it. Exclusion phrases narrow the context of the key phrase. However, exclusion phrases must share some words with the key phrase; otherwise, they will not work as intended.
 
 You can add exclusion phrases manually or upload a phrase dictionary.
 
-> Let's say we create a tag called `Fire` and add the `flamed` keyword to it.
-> The tag will trigger on the phrase `The battle flamed up`; however, such a phrase does not indicate a fire. This is a false positive. To fix it, let's add the `battle flamed up` exclusion phrase.
-> Now the tag will not trigger on the phrase `The battle flamed up` but it will on `The stove flamed up`.
+> For example, let's create a tag `Fire` and add the `burn` keyword to it.
+> The tag will trigger on the phrase `You must exercise hard to burn calories` because of the word `burn`, yet this phrase does not indicate a fire. This is a false positive. To fix it, let's add an exclusion phrase. Let's look at different exclusion phrase options and see how they affect the result:
+> * `exercise hard`: Invalid phrase, because it does not contain the keyword `burn`. If you use it, the phrase `You must exercise hard to burn calories` will not be filtered out, as it includes the word `burn`.
+> * `hard to burn`: Invalid phrase. While it contains the keyword, it may also filter out some legitimate matches. An account of a real fire may mention materials that are hard to burn.
+> * `burn calories`: Valid phrase. It matches the keyword and successfully filters out false positives.
 
 To fine-tune the exclusion phrase:
 

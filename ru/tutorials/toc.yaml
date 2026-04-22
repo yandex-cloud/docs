@@ -278,6 +278,12 @@ items:
                 href: security/single-sign-on/vk-cloud/saml-vk-cloud.md
           - name: Sentry
             href: security/single-sign-on/saml-sentry.md
+          - name: Jenkins
+            items:
+              - name: SAML
+                href: security/single-sign-on/jenkins/saml-jenkins.md
+              - name: OpenID Connect
+                href: security/single-sign-on/jenkins/oidc-jenkins.md
           - name: Использование OAuth2 Proxy для приложений, не поддерживающих SSO
             href: security/single-sign-on/oidc-nginx-oauth2-proxy.md
       - name: Загрузка аудитных логов в {{ mos-name }}

@@ -7,7 +7,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [cli-install](../../../_includes/iam/refresh-tokens-add-note.md) %}
 
-Чтобы отозвать [refresh-токен](../../concepts/authorization/refresh-token.md) федеративного пользователя:
+Чтобы отозвать [refresh-токен](../../concepts/authorization/refresh-token.md) федеративного или локального пользователя:
 
 {% list tabs group=instructions %}
 
@@ -20,7 +20,7 @@ description: Следуя данной инструкции, вы сможете
   1. Рядом с нужным токеном нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![TrashBin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. Чтобы отозвать все токены, нажмите ![TrashBin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_org.my-account.refresh-tokens.action_remove_all }}**.
 
-  Отозвать свои refresh-токены также можно через портал [Мой аккаунт](../../../organization/concepts/my-account.md).
+  Отозвать свои refresh-токены также можно через портал [Мой аккаунт](../../../organization/concepts/my-account.md). Эта возможность доступна в том числе пользователям с аккаунтом на Яндексе.
 
 - CLI {#cli}
 

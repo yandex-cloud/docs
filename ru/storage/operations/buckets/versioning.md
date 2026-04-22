@@ -78,46 +78,55 @@ description: Следуя данной инструкции, вы научите
 
   {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
 
-  Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
-  ```hcl
-  resource "yandex_iam_service_account" "sa" {
-    name = "<имя_сервисного_аккаунта>"
-  }
+  1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
-  // Назначение роли сервисному аккаунту
-  resource "yandex_resourcemanager_folder_iam_member" "sa-admin" {
-    folder_id = "<идентификатор_каталога>"
-    role      = "storage.admin"
-    member    = "serviceAccount:${yandex_iam_service_account.sa.id}"
-  }
+     ```hcl
+     resource "yandex_iam_service_account" "sa" {
+       name = "<имя_сервисного_аккаунта>"
+     }
 
-  // Создание статического ключа доступа
-  resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
-    service_account_id = yandex_iam_service_account.sa.id
-    description        = "static access key for object storage"
-  }
+     // Назначение роли сервисному аккаунту
+     resource "yandex_resourcemanager_folder_iam_member" "sa-admin" {
+       folder_id = "<идентификатор_каталога>"
+       role      = "storage.admin"
+       member    = "serviceAccount:${yandex_iam_service_account.sa.id}"
+     }
 
-  resource "yandex_storage_bucket" "b" {
-    bucket     = "<имя_бакета>"
-    access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
-    secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
-    acl        = "private"
+     // Создание статического ключа доступа
+     resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
+       service_account_id = yandex_iam_service_account.sa.id
+       description        = "static access key for object storage"
+     }
 
-    versioning {
-      enabled = true
-    }
-  }
-  ```
+     resource "yandex_storage_bucket" "b" {
+       bucket     = "<имя_бакета>"
+       access_key = yandex_iam_service_account_static_access_key.sa-static-key.access_key
+       secret_key = yandex_iam_service_account_static_access_key.sa-static-key.secret_key
+       acl        = "private"
 
-  Где:
+       versioning {
+         enabled = true
+       }
+     }
+     ```
 
-  * `bucket` — имя бакета. Обязательный параметр.
-  * `access_key` — идентификатор статического ключа доступа.
-  * `secret_key` — значение секретного ключа доступа.
-  * `acl` — применяемая политика ACL. Значение по умолчанию `private`. Необязательный параметр.
-  * `versioning` — управление версионированием бакета:
-    * `enabled` — включает версионирование бакета. Необязательный параметр.
+     Где:
+
+     * `bucket` — имя бакета. Обязательный параметр.
+     * `access_key` — идентификатор статического ключа доступа.
+     * `secret_key` — значение секретного ключа доступа.
+     * `acl` — применяемая политика ACL. Значение по умолчанию `private`. Необязательный параметр.
+     * `versioning` — управление версионированием бакета:
+       * `enabled` — включает версионирование бакета. Необязательный параметр.
+
+     Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket).
+
+  1. Примените изменения:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     Проверить изменения можно в [консоли управления]({{ link-console-main }}).
 
 - API {#api}
 

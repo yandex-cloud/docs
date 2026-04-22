@@ -16,7 +16,7 @@ meta:
 links:
   - title: Начало работы
     description: Создайте первое расследование и выполните KQL-запрос
-    href: quickstart.md
+    href: quickstart
   - title: Концепции
     description: Узнайте о концепциях и ресурсах сервиса
     href: concepts/
@@ -25,7 +25,7 @@ links:
     href: operations/
   - title: Справочник KQL
     description: Описание синтаксиса языка запросов KQL
-    href: kql-reference.md
+    href: kql-reference
   - title: Управление доступом
     description: Настройте права доступа для работы с сервисом
     href: security/

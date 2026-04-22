@@ -55,7 +55,7 @@
 [Изменение основных настроек ресурса](../operations/resources/configure-basics.md) | `cdn.editor` на каталог с CDN-ресурсами
 [Отключение ресурса](../operations/resources/disable-resource.md) | `cdn.editor` на каталог с CDN-ресурсами
 [Настройка кеширования ресурса](../operations/resources/configure-caching.md) | `cdn.editor` на каталог с CDN-ресурсами
-[Предварительная загрузка файлов на CDN-серверы](../operations/resources/prefetch-files.md) | `cdn.editor` на каталог с CDN-ресурсами
+[Принудительная загрузка файлов в кеш CDN-серверов](../operations/resources/prefetch-files.md) | `cdn.editor` на каталог с CDN-ресурсами
 [Очистка кеша ресурса](../operations/resources/purge-cache.md) | `cdn.editor` на каталог с CDN-ресурсами
 [Настройка HTTP-заголовков запросов и ответов](../operations/resources/configure-headers.md) | `cdn.editor` на каталог с CDN-ресурсами
 [Настройка CORS при ответах клиентам](../operations/resources/configure-cors.md) | `cdn.editor` на каталог с CDN-ресурсами

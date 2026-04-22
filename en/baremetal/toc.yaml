@@ -99,9 +99,6 @@ items:
             href: concepts/dhcp.md
           - name: MC-LAG
             href: concepts/mc-lag.md
-          - name: Blocked network ports
-            hidden: true
-            href: concepts/traffic-restrictions.md
           - name: Restrictions in {{ baremetal-name }} networks
             href: concepts/network-restrictions.md
       - name: Setup and management

@@ -24,9 +24,9 @@ This section presents settings for connection to a {{ msp-full-name }} cluster v
 
 1. Install the `pyspark` package and [relevant dependencies](https://spark.apache.org/docs/3.5.6/api/python/getting_started/install.html#dependencies) in your environment using the [pip](https://pip.pypa.io/en/stable/) package manager.
 
-   {% note info %}
+   {% note warning %}
 
-   Currently, only connection with PySpark `3.5.6` is supported.
+   The PySpark version in your environment must match the {{ SPRK }} version in the cluster. Currently, connections are supported for PySpark versions `3.5.6` and `3.5.7`.
 
    {% endnote %}
 

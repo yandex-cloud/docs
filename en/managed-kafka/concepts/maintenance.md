@@ -21,13 +21,13 @@ You can set the maintenance window when [creating a cluster](../operations/clust
 
 {% note info %}
 
-Viewing information on maintenance tasks requires the `managed-kafka.maintenanceTask.viewer` [role](../security/index.md#managed-kafka-maintenanceTask-viewer) or higher.
+To view maintenance task information, you need the `managed-kafka.maintenanceTask.viewer` [role](../security/index.md#managed-kafka-maintenanceTask-viewer) or higher.
 
-Managing maintenance tasks requires the `managed-kafka.maintenanceTask.editor` [role](../security/index.md#managed-kafka-maintenanceTask-editor) or higher.
+To manage maintenance tasks, you need the `managed-kafka.maintenanceTask.editor` [role](../security/index.md#managed-kafka-maintenanceTask-editor) or higher.
 
 {% endnote %}
 
-## Maintenance procedure {#maintenance-order}
+## Maintenance workflow {#maintenance-order}
 
 In single-host {{ mkf-name }} clusters, a single [broker host](brokers.md) undergoes maintenance. This means, if you restart such a cluster during maintenance, it will become unavailable.
 
