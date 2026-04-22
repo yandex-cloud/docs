@@ -107,6 +107,8 @@ items:
             href: tutorials/single-sign-on/oidc-1c-enterprise.md
           - name: Настройка единого входа в Cloud.ru по стандарту OIDC
             href: tutorials/single-sign-on/oidc-cloud-ru.md
+          - name: Настройка единого входа в Jenkins по стандарту OIDC
+            href: tutorials/single-sign-on/oidc-jenkins.md
           - name: Настройка единого входа в Grafana Cloud по стандарту SAML
             href: tutorials/single-sign-on/saml-grafana.md
           - name: Настройка единого входа в {{ mgl-name }} по стандарту SAML
@@ -129,6 +131,8 @@ items:
             href: tutorials/single-sign-on/saml-vk-cloud.md
           - name: Настройка единого входа в Sentry по стандарту SAML
             href: tutorials/single-sign-on/saml-sentry.md
+          - name: Настройка единого входа в Jenkins по стандарту SAML
+            href: tutorials/single-sign-on/saml-jenkins.md
       - name: Сетевая безопасность
         items:
           - name: Организация виртуального хостинга

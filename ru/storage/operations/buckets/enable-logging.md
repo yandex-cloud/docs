@@ -88,6 +88,7 @@ description: Следуя данной инструкции, вы сможете
      {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
+
      Чтобы включить механизм логирования в бакете, который вы хотите отслеживать:
 
      1. Откройте файл конфигурации {{ TF }} и добавьте блок `logging` во фрагмент с описанием бакета.
@@ -122,6 +123,8 @@ description: Следуя данной инструкции, вы сможете
         * `target_prefix` — [префикс ключа](../../concepts/server-logs.md#key-prefix) для объектов с логами, например `logs/`.
 
         Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
+
+     1. Примените изменения:
 
         {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -193,6 +196,7 @@ description: Следуя данной инструкции, вы сможете
 
 - {{ TF }} {#tf}
 
+
   Чтобы получить настройки логирования в бакете, который вы хотите отслеживать:
 
      1. Откройте файл конфигурации {{ TF }} и найдите блок `logging` в фрагменте с описанием бакета.
@@ -224,6 +228,12 @@ description: Следуя данной инструкции, вы сможете
         * `target_prefix` — [префикс ключа](../../concepts/server-logs.md#key-prefix) для объектов с логами, например `logs/`.
 
         Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
+
+  1. Примените изменения:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     Проверить изменения можно в [консоли управления]({{ link-console-main }}).
 
 - API {#api}
 
@@ -304,6 +314,7 @@ description: Следуя данной инструкции, вы сможете
      Где `--bucket` — имя исходного бакета, для которого нужно выключить логирование действий.
 
 - {{ TF }} {#tf}
+
 
   Чтобы выключить механизм логирования:
 

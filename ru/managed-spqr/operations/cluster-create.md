@@ -11,6 +11,7 @@ keywords:
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
+
 ## Создать кластер {#create-cluster}
 
 {% list tabs group=instructions %}

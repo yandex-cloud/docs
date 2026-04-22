@@ -24,4 +24,7 @@ description: Настройка интеграции {{ org-full-name }} с вн
 * VK Cloud
    * [{#T}](./vk-cloud/saml-vk-cloud.md)
 * [Sentry](./saml-sentry.md)
+* Jenkins
+   * [{#T}](./jenkins/saml-jenkins.md)
+   * [{#T}](./jenkins/oidc-jenkins.md)
 * [Настройка единого входа в приложения, не поддерживающие SSO](./oidc-nginx-oauth2-proxy.md)
