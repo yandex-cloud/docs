@@ -30,164 +30,44 @@ The infrastructure support costs include:
 
 ## Set up your environment {#prepare}
 
-1. [Create](../../iam/operations/sa/create.md) a [service account](../../iam/concepts/users/service-accounts.md) for calling the function and [assign](../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-functions-invoker }}` and `{{ roles-lockbox-payloadviewer }}` [roles](../../iam/concepts/access-control/roles.md) to it.
+1. [Create](../../iam/operations/sa/create.md) a [service account](../../iam/concepts/users/service-accounts.md) for calling the function and [assign](../../iam/operations/sa/assign-role-for-sa.md) the `{{ roles-functions-invoker }}` and `{{ roles-compute-operator }}` [roles](../../iam/concepts/access-control/roles.md) to it.
 1. [Create](../../compute/operations/vm-create/create-preemptible-vm.md#create-preemptible) a preemptible VM.
-
-## Create a secret {#create-secret}
-
-Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) where you will keep an [OAuth token](../../iam/concepts/authorization/oauth-token.md).
-
-{% note info %}
-
-Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you cannot request an [IAM token](../../iam/concepts/authorization/iam-token.md) automatically. An IAM token gets updates more frequently and is therefore more secure.
-
-{% endnote %}
-
-{% list tabs group=instructions %}
-
-- Management console {#console}
-
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a secret.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
-  1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
-  1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret, e.g., `oauth-token`.
-  1. In the **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** field, select `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.
-  1. Under **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**:
-     * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, enter `key_token`.
-     * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, enter the [OAuth token]({{ link-cloud-oauth }}) value required for authenticating the function.
-  1. Click **{{ ui-key.yacloud.common.create }}**.
-
-- CLI {#cli}
-
-  {% include [cli-install](../../_includes/cli-install.md) %}
-
-  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-  To create a secret, run this command:
-
-  ```bash
-  yc lockbox secret create --name oauth-token \
-    --payload "[{'key': 'key_token', 'text_value': '<OAuth_token>'}]"
-  ```
-
-  Where `text_value` is the [OAuth token]({{ link-cloud-oauth }}) value required to authorize the function.
-
-  Result:
-
-  ```text
-  done (1s)
-  id: e6qu9ik259lb********
-  folder_id: b1g9d2k0itu4********
-  ...
-    status: ACTIVE
-    payload_entry_keys:
-      - key_token
-  ```
-
-- {{ TF }} {#tf}
-
-  1. In the configuration file, describe the secret parameters:
-
-     ```hcl
-     resource "yandex_lockbox_secret" "oauth-token" {
-       name = "oauth-token"
-     }
-
-     resource "yandex_lockbox_secret_version" "my_version" {
-       secret_id = yandex_lockbox_secret.my_secret.id
-       entries {
-         key        = "key_token"
-         text_value = "<OAuth_token>"
-       }
-     }
-     ```
-
-     Where:
-
-     * `name`: Secret name.
-     * `key`: Secret key.
-     * `text_value`: The [OAuth token]({{ link-cloud-oauth }}) value required for authenticating the function.
-
-     {% include [secret-version-tf-note](../../_includes/lockbox/secret-version-tf-note.md) %}
-
-     Learn more about the properties of {{ TF }} resources in the relevant provider guides:
-
-     * [yandex_lockbox_secret]({{ tf-provider-resources-link }}/lockbox_secret)
-     * [yandex_lockbox_secret_version]({{ tf-provider-resources-link }}/lockbox_secret_version)
-
-  1. Make sure the configuration files are correct.
-     1. In the command line, navigate to the directory where you created the configuration file.
-     1. Run a check using this command:
-
-        ```bash
-        terraform plan
-        ```
-
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
-  1. Deploy the cloud resources.
-     1. If the configuration does not contain any errors, run this command:
-
-        ```bash
-        terraform apply
-        ```
-
-     1. Confirm creating the secret creation by typing `yes` in the terminal and pressing **Enter**.
-
-- API {#api}
-
-  To create a secret, use the [create](../../lockbox/api-ref/Secret/create.md) REST API method for the [Secret](../../lockbox/api-ref/Secret/index.md) resource or the [SecretService/Create](../../lockbox/api-ref/grpc/Secret/create.md) gRPC API call.
-
-{% endlist %}
 
 ## Prepare a ZIP archive with the function code {#zip-archive}
 
 1. Save this code to a file named `index.js`:
 
-   ```javascript
-   import { serviceClients, Session, cloudApi } from '@yandex-cloud/nodejs-sdk';
+   ```javascript      import { Session } from '@yandex-cloud/nodejs-sdk';
+      import { instanceService, instance } from '@yandex-cloud/nodejs-sdk/compute-v1';
 
-   const {
-     compute: {
-       instance_service: {
-         ListInstancesRequest,
-         GetInstanceRequest,
-         StartInstanceRequest,
-       },
-       instance: {
-         IpVersion,
-       },
-     },
-   } = cloudApi;
+      const FOLDER_ID = process.env.FOLDER_ID;
+      const INSTANCE_ID = process.env.INSTANCE_ID;
 
-   const FOLDER_ID = process.env.FOLDER_ID;
-   const INSTANCE_ID = process.env.INSTANCE_ID;
-   const OAUTHTOKEN = process.env.OAUTHTOKEN;
+      export const handler = async function (event, context) {
+        const session = new Session({ iamToken: context.token.access_token });
+        const instanceClient = session.client(instanceService.InstanceServiceClient);
 
-   export const handler = async function (event, context) {
-     const session = new Session({ oauthToken: OAUTHTOKEN });
-     const instanceClient = session.client(serviceClients.InstanceServiceClient);
-     const list = await instanceClient.list(ListInstancesRequest.fromPartial({
-       folderId: FOLDER_ID,
-     }));
-     const state = await instanceClient.get(GetInstanceRequest.fromPartial({
-       instanceId: INSTANCE_ID,
-     }));
+        const list = await instanceClient.list(instanceService.ListInstancesRequest.fromPartial({
+          folderId: FOLDER_ID,
+        }));
 
-     var status = state.status
+        const state = await instanceClient.get(instanceService.GetInstanceRequest.fromPartial({
+          instanceId: INSTANCE_ID,
+        }));
 
-     if (status == 4){
-       const startcommand = await instanceClient.start(StartInstanceRequest.fromPartial({
-         instanceId: INSTANCE_ID,
-       }));
-     }
+        var status = state.status;
 
-     return {
-       statusCode: 200,
-       body: {
-         status
-       }
-     };
-   };
+        if (status == 4) {
+          await instanceClient.start(instanceService.StartInstanceRequest.fromPartial({
+            instanceId: INSTANCE_ID,
+          }));
+        }
+
+        return {
+          statusCode: 200,
+          body: { status },
+        };
+      };
    ```
 
 1. Save this code to a file named `package.json`:
@@ -229,11 +109,6 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
           * `FOLDER_ID`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where you want to start the stopped VMs.
           * `INSTANCE_ID`: [ID of the VM](../../compute/operations/vm-info/get-info.md#outside-instance) you want to start at interruption.
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}**:
-          * In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-env-key }}** field, specify `OAUTHTOKEN`.
-          * In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret-id }}** field, select the `oauth-token` secret you created earlier.
-          * In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-version-id }}** field, select the secret version.
-          * In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret-key }}** field, select `key_token` as the key name.
         * If you want to avoid logging and paying for {{ cloud-logging-name }}, disable logging by selecting `{{ ui-key.yacloud.serverless-functions.item.editor.option_queues-unset }}` in the **{{ ui-key.yacloud.logging.label_title }}** field under **{{ ui-key.yacloud.logging.label_destination }}**.
      1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
@@ -267,7 +142,6 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
        --entrypoint=index.handler \
        --service-account-id=<service_account_ID> \
        --environment FOLDER_ID=<folder_ID>,INSTANCE_ID=<VM_ID> \
-       --secret name=oauth-token,version-id=<secret_version_ID>,key=key_token,environment-variable=OAUTHTOKEN \
        --source-path=./function-js.zip \
        --no-logging
      ```
@@ -282,11 +156,6 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
      * `--environment`: Environment variables:
        * `FOLDER_ID`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) where you want to start the stopped VMs.
        * `INSTANCE_ID`: [ID of the VM](../../compute/operations/vm-info/get-info.md#outside-instance) you want to start at interruption.
-     * `--secret`: {{ lockbox-name }} secret data:
-       * `name`: Secret name.
-       * `version-id`: [Secret version](../../lockbox/concepts/secret.md#version) ID.
-       * `key`: Secret key.
-       * `environment-variable`: Environment variable where you will keep the secret.
      * `--source-path`: Path to the `function-js.zip` archive you created earlier.
      * Optionally, set the `--no-logging` flag to avoid logging and paying for {{ cloud-logging-name }}.
 
@@ -321,12 +190,6 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
          FOLDER_ID = "<folder_ID>"
          INSTANCE_ID = "<VM_ID>"
        }
-       secrets {
-         id = "<secret_ID>"
-         version_id = "<secret_version_ID>"
-         key = "key_token"
-         environment_variable = "OAUTHTOKEN"
-       }
        content {
          zip_filename = "./function-js.zip"
        }
@@ -345,11 +208,6 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
      * `environment`: Environment variables:
        * `FOLDER_ID`: ID of the folder where you want to start the stopped VMs.
        * `INSTANCE_ID`: [ID of the VM](../../compute/operations/vm-info/get-info.md#outside-instance) you want to start at interruption.
-     * `secrets`: {{ lockbox-name }} secret data:
-       * `id`: Secret ID.
-       * `version_id`: [Secret version](../../lockbox/concepts/secret.md#version) ID.
-       * `key`: Secret key.
-       * `environment_variable`: Environment variable where you will keep the secret.
      * `zip_filename`: Path to the `function-js.zip` archive you created earlier.
 
      For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
@@ -536,6 +394,5 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
 To stop paying for the resources you created:
 1. [Delete the trigger](../../functions/operations/trigger/trigger-delete.md).
 1. [Delete the function](../../functions/operations/function/function-delete.md).
-1. [Delete the secret](../../lockbox/operations/secret-delete.md).
 1. [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
 1. If you logged data to a log group, [delete it](../../logging/operations/delete-group.md).
