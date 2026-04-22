@@ -61,6 +61,7 @@ description: This page presents all the guides on how to use {{ speechsense-name
 * [{#T}](project/tag/create-dependent-tag.md)
 * [{#T}](project/tag/change-dictionary-tag.md)
 * [{#T}](project/tag/change-sense-tag.md)
+* [{#T}](project/tag/explain-apply-sense-tag.md)
 * [{#T}](project/tag/change-sense-pro-tag.md)
 * [{#T}](project/tag/test.md)
 * [{#T}](project/tag/delete.md)

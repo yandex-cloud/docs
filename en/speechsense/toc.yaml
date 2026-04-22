@@ -91,6 +91,8 @@ items:
             href: operations/project/tag/change-dictionary-tag.md
           - name: Changing a semantic tag
             href: operations/project/tag/change-sense-tag.md
+          - name: Explaining the use of a semantic tag
+            href: operations/project/tag/explain-apply-sense-tag.md
           - name: Changing a semantic Pro tag
             href: operations/project/tag/change-sense-pro-tag.md
           - name: Testing a tag

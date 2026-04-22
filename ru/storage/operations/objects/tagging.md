@@ -108,6 +108,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
+
   1. Откройте файл конфигурации {{ TF }} и добавьте блок `tags` во фрагмент с описанием объекта:
 
       ```hcl

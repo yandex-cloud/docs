@@ -85,6 +85,7 @@ description: Следуя данной инструкции, вы сможете
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
+
   Чтобы открыть публичный доступ к операциям с бакетом:
 
   1. Откройте файл конфигурации {{ TF }} и добавьте блок `anonymous_access_flags` во фрагмент с описанием бакета.
@@ -220,6 +221,7 @@ description: Следуя данной инструкции, вы сможете
 
   
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
 
 
   Чтобы закрыть публичный доступ к операциям с бакетом:

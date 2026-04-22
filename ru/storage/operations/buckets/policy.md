@@ -229,6 +229,7 @@ description: Следуя данной инструкции, вы научите
 
   {% include [iam-auth-note](../../../_includes/storage/iam-auth-note.md) %}
 
+
   Для редактирования политики бакета вы можете использовать ресурсы:
   * [yandex_storage_bucket_policy](#tf-storage-bucket-policy);
   * [yandex_storage_bucket](#tf-storage-bucket) (устаревший способ).
@@ -428,6 +429,7 @@ description: Следуя данной инструкции, вы научите
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   {% include [iam-auth-note](../../../_includes/storage/iam-auth-note.md) %}
+
 
   Политика доступа может быть задана ресурсами `yandex_storage_bucket_policy` и `yandex_storage_bucket` (устаревший способ).
 

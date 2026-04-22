@@ -5817,6 +5817,7 @@ default:
         value_source-type-bucket: Бакет
         value_source-type-url: Сервер
         value_stepper-additional: Дополнительно
+        value_stepper-main-settings: Основные настройки
       certificate-manager:
         action_import: Пользовательский сертификат
         action_request: Сертификат от Let's Encrypt

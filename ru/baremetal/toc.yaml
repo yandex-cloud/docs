@@ -105,9 +105,6 @@ items:
             href: concepts/dhcp.md
           - name: MC-LAG
             href: concepts/mc-lag.md
-          - name: Заблокированные сетевые порты
-            hidden: true
-            href: concepts/traffic-restrictions.md
           - name: Ограничения в сетях {{ baremetal-name }}
             href: concepts/network-restrictions.md
       - name: Настройка и управление

@@ -16,6 +16,7 @@
 
    ```hcl
    <настройки провайдера>
+
    resource "yandex_compute_disk" "boot-disk-1" {
      name     = "boot-disk-1"
      type     = "network-hdd"
@@ -50,7 +51,7 @@
      }
 
      metadata = {
-       ssh-keys = "ubuntu:${file("~/.ssh/id_ed25519.pub")}"
+       ssh-keys = "ubuntu:${file("<путь_к_публичной_части_SSH-ключа>")}"
      }
    }
 
