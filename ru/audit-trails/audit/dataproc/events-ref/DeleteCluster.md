@@ -320,7 +320,9 @@ A list of messages that carry the error details. ||
 
 #|
 ||Field | Description ||
-|| id | **string** ||
+|| id | **string**
+
+The maximum string length in characters is 50. ||
 || folderId | **string** ||
 || createdAt | **string** (date-time)
 

@@ -208,6 +208,10 @@ Aliases:
 
   - [yc managed-clickhouse user update-quota](user/update-quota.md) — Update ClickHouse user quota by interval.
 
+- [yc managed-clickhouse v0](v0/index.md) — Manage ClickHouse clusters, hosts, databases, backups, users and ml-models.
+
+
+
 - [yc managed-clickhouse version](version/index.md) — Manage available ClickHouse versions.
 
   - [yc managed-clickhouse version list](version/list.md) — List available ClickHouse versions.

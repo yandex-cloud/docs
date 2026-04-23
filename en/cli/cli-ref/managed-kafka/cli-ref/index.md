@@ -110,6 +110,10 @@ Aliases:
 
   - [yc managed-kafka user update](user/update.md) — Modify attributes of a Kafka user.
 
+- [yc managed-kafka v0](v0/index.md) — Manage Apache Kafka clusters, brokers, topics, users and connectors.
+
+
+
 #### Global Flags
 
 #|

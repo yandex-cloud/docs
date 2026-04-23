@@ -146,6 +146,10 @@ Syntax:
 
   - [yc container repository set-access-bindings](repository/set-access-bindings.md) — Set access bindings for the specified repository and delete all existing access bindings if there were any
 
+- [yc container v0](v0/index.md) — Manage Container resources.
+
+
+
 #### Global Flags
 
 #|

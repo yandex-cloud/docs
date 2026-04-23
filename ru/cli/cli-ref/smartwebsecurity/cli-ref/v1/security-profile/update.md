@@ -88,7 +88,7 @@ Labels as '' key:value '' pairs. Maximum of 64 per resource. ||
 || `--name` | `string`
 
 Name of the security profile. The name is unique within the folder. 1-50 characters long. ||
-|| `--security-profile-id` | `string`
+|| `--id` | `string`
 
 ID of the security profile to update. ||
 || `--security-rules` | `shorthand/json`

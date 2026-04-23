@@ -60,6 +60,10 @@ Aliases:
 
   - [yc managed-spark job log](job/log.md) — List logs for Spark job.
 
+- [yc managed-spark v0](v0/index.md) — Manage Spark clusters.
+
+
+
 #### Global Flags
 
 #|

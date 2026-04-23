@@ -130,7 +130,8 @@ editable: false
             },
             "allowHttp10": "boolean",
             // end of the list of possible fields
-            "rewriteRequestId": "boolean"
+            "rewriteRequestId": "boolean",
+            "preserveHttp1HeaderCasing": "boolean"
           },
           "redirects": {
             "httpToHttps": "boolean"
@@ -147,7 +148,8 @@ editable: false
               },
               "allowHttp10": "boolean",
               // end of the list of possible fields
-              "rewriteRequestId": "boolean"
+              "rewriteRequestId": "boolean",
+              "preserveHttp1HeaderCasing": "boolean"
             },
             "streamHandler": {
               "backendGroupId": "string",
@@ -180,7 +182,8 @@ editable: false
                   },
                   "allowHttp10": "boolean",
                   // end of the list of possible fields
-                  "rewriteRequestId": "boolean"
+                  "rewriteRequestId": "boolean",
+                  "preserveHttp1HeaderCasing": "boolean"
                 },
                 "streamHandler": {
                   "backendGroupId": "string",
@@ -530,6 +533,7 @@ Includes only one of the fields `http2Options`, `allowHttp10`. ||
 
 Includes only one of the fields `http2Options`, `allowHttp10`. ||
 || rewriteRequestId | **boolean** ||
+|| preserveHttp1HeaderCasing | **boolean** ||
 |#
 
 ## Http2Options {#yandex.cloud.apploadbalancer.v1.Http2Options}

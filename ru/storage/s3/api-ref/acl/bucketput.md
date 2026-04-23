@@ -1,4 +1,4 @@
-# Метод bucketPutAcl
+# Object Storage API, REST совместимый с Amazon S3: PutBucketAcl
 
 Загружает список управления доступом для бакета.
 

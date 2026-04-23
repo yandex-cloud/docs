@@ -1,4 +1,4 @@
-# Метод options
+# Object Storage API, REST совместимый с Amazon S3: options
 
 Проверяет возможность [CORS-запроса](../../../concepts/cors.md) к объекту.
 

@@ -98,4 +98,6 @@
 
 {% endlist %}
 
+После создания внешнего источника данных [создайте внешнюю таблицу](create-table.md).
+
 {% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}

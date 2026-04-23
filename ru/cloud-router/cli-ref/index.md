@@ -52,6 +52,10 @@ Syntax:
 
   - [yc cloudrouter routing-instance upsert-prefixes](routing-instance/upsert-prefixes.md) — Upsert announced VPC network prefixes to the routingInstance.
 
+- [yc cloudrouter v0](v0/index.md) — [PREVIEW] Manage Yandex Cloud Router resources
+
+
+
 #### Global Flags
 
 #|

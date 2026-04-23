@@ -1,4 +1,4 @@
-# Метод getObjectMeta
+# Object Storage API, REST совместимый с Amazon S3: HeadObject
 
 Возвращает метаданные объекта.
 

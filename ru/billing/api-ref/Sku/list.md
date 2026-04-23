@@ -32,6 +32,7 @@ apiPlayground:
             2. An `=` operator.
             3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
             E.g. `filter=serviceId="dn28hpu6268356q0j8mk"`.
+            The maximum string length in characters is 1000.
           type: string
         pageSize:
           description: |-
@@ -40,6 +41,7 @@ apiPlayground:
             results is larger than `pageSize`,
             the service returns a [ListSkusResponse.nextPageToken](#yandex.cloud.billing.v1.ListSkusResponse)
             that can be used to get the next page of results in subsequent list requests.
+            The maximum value is 1000.
           type: string
           format: int64
         pageToken:
@@ -48,6 +50,7 @@ apiPlayground:
             Page token. To get the next page of results,
             set `pageToken` to the [ListSkusResponse.nextPageToken](#yandex.cloud.billing.v1.ListSkusResponse)
             returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
       required:
         - currency
@@ -89,18 +92,24 @@ The expression must specify:
 1. The field name. Currently you can use filtering only on the [yandex.cloud.billing.v1.Sku.id](#yandex.cloud.billing.v1.Sku) and [yandex.cloud.billing.v1.Sku.serviceId](#yandex.cloud.billing.v1.Sku) field.
 2. An `=` operator.
 3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
-E.g. `filter=serviceId="dn28hpu6268356q0j8mk"`. ||
+E.g. `filter=serviceId="dn28hpu6268356q0j8mk"`.
+
+The maximum string length in characters is 1000. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListSkusResponse.nextPageToken](#yandex.cloud.billing.v1.ListSkusResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results,
 set `pageToken` to the [ListSkusResponse.nextPageToken](#yandex.cloud.billing.v1.ListSkusResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.billing.v1.ListSkusResponse}
@@ -191,7 +200,6 @@ Defines current and past prices for the sku.
 
 Type of the pricing version.
 
-- `PRICING_VERSION_TYPE_UNSPECIFIED`
 - `STREET_PRICE`: Regular price.
 - `CONTRACT_PRICE`: Price is overridden by a contract. Defined in the scope of a billing account. ||
 || effectiveTime | **string** (date-time)

@@ -82,6 +82,10 @@ Aliases:
 
   - [yc resource-manager folder update](folder/update.md) — Update the specified folder
 
+- [yc resource-manager v0](v0/index.md) — Manage Yandex Resource Manager resources
+
+
+
 #### Global Flags
 
 #|

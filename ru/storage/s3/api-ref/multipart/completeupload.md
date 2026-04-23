@@ -1,4 +1,4 @@
-# Метод completeUpload
+# Object Storage API, REST совместимый с Amazon S3: CompleteMultipartUpload
 
 Запрос завершает составную загрузку.
 

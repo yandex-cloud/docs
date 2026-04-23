@@ -114,6 +114,10 @@ Aliases:
 
   - [yc managed-redis user update](user/update.md) — Update the specified Redis user
 
+- [yc managed-redis v0](v0/index.md) — Manage Redis clusters, hosts, databases, backups and users.
+
+
+
 #### Global Flags
 
 #|

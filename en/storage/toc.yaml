@@ -588,6 +588,106 @@ items:
             href: cli-ref/s3api/upload-part.md
           - name: upload-part-copy
             href: cli-ref/s3api/upload-part-copy.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: bucket
+            items:
+              - name: Overview
+                href: cli-ref/v0/bucket/index.md
+              - name: create
+                href: cli-ref/v0/bucket/create.md
+              - name: create-inventory-configuration
+                href: cli-ref/v0/bucket/create-inventory-configuration.md
+              - name: delete
+                href: cli-ref/v0/bucket/delete.md
+              - name: delete-https
+                href: cli-ref/v0/bucket/delete-https.md
+              - name: delete-inventory-configuration
+                href: cli-ref/v0/bucket/delete-inventory-configuration.md
+              - name: get
+                href: cli-ref/v0/bucket/get.md
+              - name: get-https
+                href: cli-ref/v0/bucket/get-https.md
+              - name: get-inventory-configuration
+                href: cli-ref/v0/bucket/get-inventory-configuration.md
+              - name: list
+                href: cli-ref/v0/bucket/list.md
+              - name: list-inventory-configurations
+                href: cli-ref/v0/bucket/list-inventory-configurations.md
+              - name: set-https
+                href: cli-ref/v0/bucket/set-https.md
+              - name: stats
+                href: cli-ref/v0/bucket/stats.md
+              - name: update
+                href: cli-ref/v0/bucket/update.md
+          - name: s3
+            items:
+              - name: Overview
+                href: cli-ref/v0/s3/index.md
+              - name: cp
+                href: cli-ref/v0/s3/cp.md
+              - name: mv
+                href: cli-ref/v0/s3/mv.md
+              - name: presign
+                href: cli-ref/v0/s3/presign.md
+              - name: rm
+                href: cli-ref/v0/s3/rm.md
+          - name: s3api
+            items:
+              - name: Overview
+                href: cli-ref/v0/s3api/index.md
+              - name: abort-multipart-upload
+                href: cli-ref/v0/s3api/abort-multipart-upload.md
+              - name: complete-multipart-upload
+                href: cli-ref/v0/s3api/complete-multipart-upload.md
+              - name: copy-object
+                href: cli-ref/v0/s3api/copy-object.md
+              - name: create-multipart-upload
+                href: cli-ref/v0/s3api/create-multipart-upload.md
+              - name: delete-object
+                href: cli-ref/v0/s3api/delete-object.md
+              - name: delete-object-tagging
+                href: cli-ref/v0/s3api/delete-object-tagging.md
+              - name: delete-objects
+                href: cli-ref/v0/s3api/delete-objects.md
+              - name: get-bucket-acl
+                href: cli-ref/v0/s3api/get-bucket-acl.md
+              - name: get-object
+                href: cli-ref/v0/s3api/get-object.md
+              - name: get-object-acl
+                href: cli-ref/v0/s3api/get-object-acl.md
+              - name: get-object-legal-hold
+                href: cli-ref/v0/s3api/get-object-legal-hold.md
+              - name: get-object-retention
+                href: cli-ref/v0/s3api/get-object-retention.md
+              - name: get-object-tagging
+                href: cli-ref/v0/s3api/get-object-tagging.md
+              - name: head-object
+                href: cli-ref/v0/s3api/head-object.md
+              - name: list-multipart-uploads
+                href: cli-ref/v0/s3api/list-multipart-uploads.md
+              - name: list-objects
+                href: cli-ref/v0/s3api/list-objects.md
+              - name: list-parts
+                href: cli-ref/v0/s3api/list-parts.md
+              - name: put-bucket-acl
+                href: cli-ref/v0/s3api/put-bucket-acl.md
+              - name: put-object
+                href: cli-ref/v0/s3api/put-object.md
+              - name: put-object-acl
+                href: cli-ref/v0/s3api/put-object-acl.md
+              - name: put-object-legal-hold
+                href: cli-ref/v0/s3api/put-object-legal-hold.md
+              - name: put-object-retention
+                href: cli-ref/v0/s3api/put-object-retention.md
+              - name: put-object-tagging
+                href: cli-ref/v0/s3api/put-object-tagging.md
+              - name: upload-part
+                href: cli-ref/v0/s3api/upload-part.md
+              - name: upload-part-copy
+                href: cli-ref/v0/s3api/upload-part-copy.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference

@@ -48,6 +48,10 @@ Aliases:
 
   - [yc managed-metastore cluster update](cluster/update.md) — Update the specified Metastore cluster
 
+- [yc managed-metastore v0](v0/index.md) — Manage Metastore clusters.
+
+
+
 #### Global Flags
 
 #|

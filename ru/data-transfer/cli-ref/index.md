@@ -42,6 +42,10 @@ Aliases:
 
   - [yc datatransfer transfer update](transfer/update.md) — Update transfer
 
+- [yc datatransfer v0](v0/index.md) — Manage Data Transfer endpoints and transfers
+
+
+
 #### Global Flags
 
 #|

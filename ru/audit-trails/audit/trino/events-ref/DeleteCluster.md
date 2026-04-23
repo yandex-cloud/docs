@@ -494,11 +494,11 @@ editable: false
       "deletionProtection": "boolean",
       "serviceAccountId": "string",
       "logging": {
-        "enabled": "boolean",
         // Includes only one of the fields `folderId`, `logGroupId`
         "folderId": "string",
         "logGroupId": "string",
         // end of the list of possible fields
+        "enabled": "boolean",
         "minLevel": "string"
       },
       "coordinatorUrl": "string",
@@ -829,7 +829,7 @@ Acceptable values are 1 to 512, inclusive. ||
 || exchangeManager | **[ExchangeManagerConfig](#yandex.cloud.trino.v1.ExchangeManagerConfig)** ||
 || additionalProperties | **object** (map<**string**, **string**>)
 
-No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
+The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. No more than 256 per resource. ||
 |#
 
 ## ExchangeManagerConfig {#yandex.cloud.trino.v1.ExchangeManagerConfig}
@@ -838,7 +838,7 @@ No more than 256 per resource. The maximum string length in characters for each 
 ||Field | Description ||
 || additionalProperties | **object** (map<**string**, **string**>)
 
-No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
+The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. No more than 256 per resource. ||
 || storage | **[ExchangeManagerStorage](#yandex.cloud.trino.v1.ExchangeManagerStorage)** ||
 |#
 
@@ -871,10 +871,10 @@ Includes only one of the fields `serviceS3`. ||
 ||Field | Description ||
 || users[] | **string**
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. The maximum number of elements is 128. ||
 || groups[] | **string**
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. The maximum number of elements is 128. ||
 || catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)** ||
 || permission | **enum** (Permission)
 
@@ -909,7 +909,7 @@ Includes only one of the fields `nameRegexp`, `ids`, `names`. ||
 ||Field | Description ||
 || any[] | **string**
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. ||
+The maximum string length in characters for each value is 63. The maximum number of elements is 128. ||
 |#
 
 ## CatalogNames {#yandex.cloud.trino.v1.CatalogAccessRuleMatcher.CatalogNames}
@@ -918,7 +918,7 @@ The maximum number of elements is 128. The maximum string length in characters f
 ||Field | Description ||
 || any[] | **string**
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. ||
+The maximum string length in characters for each value is 63. The maximum number of elements is 128. ||
 |#
 
 ## SchemaAccessRule {#yandex.cloud.trino.v1.SchemaAccessRule}
@@ -927,10 +927,10 @@ The maximum number of elements is 128. The maximum string length in characters f
 ||Field | Description ||
 || users[] | **string**
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. The maximum number of elements is 128. ||
 || groups[] | **string**
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. The maximum number of elements is 128. ||
 || catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)** ||
 || schema | **[SchemaAccessRuleMatcher](#yandex.cloud.trino.v1.SchemaAccessRuleMatcher)** ||
 || owner | **enum** (Owner)
@@ -962,7 +962,7 @@ Includes only one of the fields `nameRegexp`, `names`. ||
 ||Field | Description ||
 || any[] | **string**
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z0-9_-]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z0-9_-]+ `. The maximum number of elements is 128. ||
 |#
 
 ## TableAccessRule {#yandex.cloud.trino.v1.TableAccessRule}
@@ -971,10 +971,10 @@ The maximum number of elements is 128. The maximum string length in characters f
 ||Field | Description ||
 || users[] | **string**
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. The maximum number of elements is 128. ||
 || groups[] | **string**
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. The maximum number of elements is 128. ||
 || catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)** ||
 || schema | **[SchemaAccessRuleMatcher](#yandex.cloud.trino.v1.SchemaAccessRuleMatcher)** ||
 || table | **[TableAccessRuleMatcher](#yandex.cloud.trino.v1.TableAccessRuleMatcher)** ||
@@ -1015,7 +1015,7 @@ Includes only one of the fields `nameRegexp`, `names`. ||
 ||Field | Description ||
 || any[] | **string**
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z0-9_-]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z0-9_-]+ `. The maximum number of elements is 128. ||
 |#
 
 ## Column {#yandex.cloud.trino.v1.TableAccessRule.Column}
@@ -1040,10 +1040,10 @@ The maximum string length in characters is 128. ||
 ||Field | Description ||
 || users[] | **string**
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. The maximum number of elements is 128. ||
 || groups[] | **string**
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. The maximum number of elements is 128. ||
 || catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)** ||
 || schema | **[SchemaAccessRuleMatcher](#yandex.cloud.trino.v1.SchemaAccessRuleMatcher)** ||
 || function | **[FunctionAccessRuleMatcher](#yandex.cloud.trino.v1.FunctionAccessRuleMatcher)** ||
@@ -1077,7 +1077,7 @@ Includes only one of the fields `nameRegexp`, `names`. ||
 ||Field | Description ||
 || any[] | **string**
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z0-9_-]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z0-9_-]+ `. The maximum number of elements is 128. ||
 |#
 
 ## ProcedureAccessRule {#yandex.cloud.trino.v1.ProcedureAccessRule}
@@ -1086,10 +1086,10 @@ The maximum number of elements is 128. The maximum string length in characters f
 ||Field | Description ||
 || users[] | **string**
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. The maximum number of elements is 128. ||
 || groups[] | **string**
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. The maximum number of elements is 128. ||
 || catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)** ||
 || schema | **[SchemaAccessRuleMatcher](#yandex.cloud.trino.v1.SchemaAccessRuleMatcher)** ||
 || procedure | **[ProcedureAccessRuleMatcher](#yandex.cloud.trino.v1.ProcedureAccessRuleMatcher)** ||
@@ -1121,7 +1121,7 @@ Includes only one of the fields `nameRegexp`, `names`. ||
 ||Field | Description ||
 || any[] | **string**
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z0-9_-]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z0-9_-]+ `. The maximum number of elements is 128. ||
 |#
 
 ## QueryAccessRule {#yandex.cloud.trino.v1.QueryAccessRule}
@@ -1130,13 +1130,13 @@ The maximum number of elements is 128. The maximum string length in characters f
 ||Field | Description ||
 || users[] | **string**
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. The maximum number of elements is 128. ||
 || groups[] | **string**
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. The maximum number of elements is 128. ||
 || queryOwners[] | **string**
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. The maximum number of elements is 128. ||
 || privileges[] | **enum** (Privilege)
 
 - `VIEW`
@@ -1153,10 +1153,10 @@ The maximum string length in characters is 128. ||
 ||Field | Description ||
 || users[] | **string**
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. The maximum number of elements is 128. ||
 || groups[] | **string**
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. The maximum number of elements is 128. ||
 || property | **[PropertyAccessRuleMatcher](#yandex.cloud.trino.v1.PropertyAccessRuleMatcher)** ||
 || allow | **enum** (Allow)
 
@@ -1187,7 +1187,7 @@ Includes only one of the fields `nameRegexp`, `names`. ||
 ||Field | Description ||
 || any[] | **string**
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z_]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-z_]+ `. The maximum number of elements is 128. ||
 |#
 
 ## CatalogSessionPropertyAccessRule {#yandex.cloud.trino.v1.CatalogSessionPropertyAccessRule}
@@ -1196,10 +1196,10 @@ The maximum number of elements is 128. The maximum string length in characters f
 ||Field | Description ||
 || users[] | **string**
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. The maximum number of elements is 128. ||
 || groups[] | **string**
 
-The maximum number of elements is 128. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. ||
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]+ `. The maximum number of elements is 128. ||
 || catalog | **[CatalogAccessRuleMatcher](#yandex.cloud.trino.v1.CatalogAccessRuleMatcher)** ||
 || property | **[PropertyAccessRuleMatcher](#yandex.cloud.trino.v1.PropertyAccessRuleMatcher)** ||
 || allow | **enum** (Allow)
@@ -1293,7 +1293,7 @@ Value must be greater than 0. ||
 ||Field | Description ||
 || trustedCertificates[] | **string**
 
-The maximum number of elements is 8. The maximum string length in characters for each value is 8192. ||
+The maximum string length in characters for each value is 8192. The maximum number of elements is 8. ||
 |#
 
 ## NetworkConfig {#yandex.cloud.trino.v1.NetworkConfig}
@@ -1316,7 +1316,6 @@ The maximum number of elements is 8. The maximum string length in characters for
 
 #|
 ||Field | Description ||
-|| enabled | **boolean** ||
 || folderId | **string**
 
 Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
@@ -1327,6 +1326,7 @@ Includes only one of the fields `folderId`, `logGroupId`. ||
 Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `folderId`, `logGroupId`. ||
+|| enabled | **boolean** ||
 || minLevel | **enum** (Level)
 
 - `TRACE`

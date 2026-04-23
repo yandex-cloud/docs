@@ -117,6 +117,21 @@ editable: false
           {
             "name": "string"
           }
+        ],
+        "workloadNames": [
+          {
+            "name": "string"
+          }
+        ],
+        "workloadTypes": [
+          {
+            "type": "string"
+          }
+        ],
+        "workloadLabels": [
+          {
+            "label": "string"
+          }
         ]
       }
     },
@@ -384,6 +399,15 @@ Includes only one of the fields `organization`, `cloud`, `folder`, `cluster`. ||
 || namespaces[] | **[Namespace](#yandex.cloud.audit.securitydeck.kspm.Namespace)**
 
 The number of elements must be in the range 0-255. ||
+|| workloadNames[] | **[WorkloadName](#yandex.cloud.audit.securitydeck.kspm.WorkloadName)**
+
+The number of elements must be in the range 0-255. ||
+|| workloadTypes[] | **[WorkloadType](#yandex.cloud.audit.securitydeck.kspm.WorkloadType)**
+
+The number of elements must be in the range 0-255. ||
+|| workloadLabels[] | **[WorkloadLabel](#yandex.cloud.audit.securitydeck.kspm.WorkloadLabel)**
+
+The number of elements must be in the range 0-255. ||
 |#
 
 ## Namespace {#yandex.cloud.audit.securitydeck.kspm.Namespace}
@@ -393,6 +417,33 @@ The number of elements must be in the range 0-255. ||
 || name | **string**
 
 The maximum string length in characters is 63. ||
+|#
+
+## WorkloadName {#yandex.cloud.audit.securitydeck.kspm.WorkloadName}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+The maximum string length in characters is 63. ||
+|#
+
+## WorkloadType {#yandex.cloud.audit.securitydeck.kspm.WorkloadType}
+
+#|
+||Field | Description ||
+|| type | **string**
+
+The maximum string length in characters is 63. ||
+|#
+
+## WorkloadLabel {#yandex.cloud.audit.securitydeck.kspm.WorkloadLabel}
+
+#|
+||Field | Description ||
+|| label | **string**
+
+The maximum string length in characters is 127. ||
 |#
 
 ## Control {#yandex.cloud.audit.securitydeck.kspm.Control}

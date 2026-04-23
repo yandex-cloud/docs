@@ -70,6 +70,10 @@ Aliases:
 
   - [yc load-balancer target-group update](target-group/update.md) — Update the specified target group
 
+- [yc load-balancer v0](v0/index.md) — Manage Yandex Load Balancer resources
+
+
+
 #### Global Flags
 
 #|

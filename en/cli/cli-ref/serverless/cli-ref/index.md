@@ -202,6 +202,10 @@ Aliases:
 
   - [yc serverless trigger resume](trigger/resume.md) — Resume the specified trigger
 
+- [yc serverless v0](v0/index.md) — Manage Serverless resources.
+
+
+
 - [yc serverless workflow](workflow/index.md) — Manage workflows
 
   - [yc serverless workflow add-access-binding](workflow/add-access-binding.md) — Add access binding for the specified Workflow

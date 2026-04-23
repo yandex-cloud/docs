@@ -1,4 +1,4 @@
-# Метод listUploads
+# Object Storage API, REST совместимый с Amazon S3: ListMultipartUploads
 
 Возвращает список текущих составных загрузок.
 

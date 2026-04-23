@@ -5,6 +5,7 @@ description: Из этой инструкции вы узнаете, как уп
 
 # Управление выгрузкой метаданных объектов (S3 Inventory) в бакете
 
+
 В {{ objstorage-name }} вы можете [выгрузить метаданные объектов](../../concepts/s3-inventory.md) (S3 Inventory) из бакетов для дальнейшего анализа и каталогизации.
 
 {% include [s3-inventory-pricing](../../../_includes/storage/s3-inventory-pricing.md) %}

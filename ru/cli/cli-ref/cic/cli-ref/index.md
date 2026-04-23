@@ -80,6 +80,10 @@ Syntax:
 
   - [yc cic trunk-connection update](trunk-connection/update.md) — Modify configuration or attributes of a trunk connection.
 
+- [yc cic v0](v0/index.md) — [PREVIEW] Manage Yandex Cloud Interconnect resources
+
+
+
 #### Global Flags
 
 #|

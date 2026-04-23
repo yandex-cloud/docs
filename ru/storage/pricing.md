@@ -9,7 +9,7 @@ editable: false
 
 {% note warning %}
 
-С 20 апреля 2026 года начинает тарифицироваться функциональность [выгрузки метаданных объектов (S3 Inventory)](concepts/s3-inventory.md).
+С 20 апреля 2026 года функциональность [выгрузки метаданных объектов (S3 Inventory)](concepts/s3-inventory.md) тарифицируется.
 
 {% endnote %}
 

@@ -64,6 +64,10 @@ Syntax:
 
   - [yc cloud-registry registry update](registry/update.md) — Updates the specified registry
 
+- [yc cloud-registry v0](v0/index.md) — [PREVIEW] Manage CloudRegistry resources
+
+  - [yc cloud-registry v0 configure-docker](v0/configure-docker.md) — 
+
 #### Global Flags
 
 #|

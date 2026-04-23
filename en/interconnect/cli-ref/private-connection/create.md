@@ -25,9 +25,6 @@ Description of the privateConnection. ||
 || `--labels` | `key=value[,key=value...]`
 
 A list of privateConnection labels as key-value pairs. ||
-|| `--region` | `string`
-
-Region of the privateConnection. ||
 || `--trunk-id` | `string`
 
 Id of a trunk connection of the privateConnection. ||

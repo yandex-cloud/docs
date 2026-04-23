@@ -463,6 +463,228 @@ items:
             href: cli-ref/user/update.md
           - name: update-quota
             href: cli-ref/user/update-quota.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: backup
+            items:
+              - name: Overview
+                href: cli-ref/v0/backup/index.md
+              - name: delete
+                href: cli-ref/v0/backup/delete.md
+              - name: get
+                href: cli-ref/v0/backup/get.md
+              - name: list
+                href: cli-ref/v0/backup/list.md
+          - name: cluster
+            items:
+              - name: Overview
+                href: cli-ref/v0/cluster/index.md
+              - name: add-access-binding
+                href: cli-ref/v0/cluster/add-access-binding.md
+              - name: add-extension
+                href: cli-ref/v0/cluster/add-extension.md
+              - name: add-external-dictionary
+                href: cli-ref/v0/cluster/add-external-dictionary.md
+              - name: add-graphite-rollup
+                href: cli-ref/v0/cluster/add-graphite-rollup.md
+              - name: add-labels
+                href: cli-ref/v0/cluster/add-labels.md
+              - name: add-zookeeper
+                href: cli-ref/v0/cluster/add-zookeeper.md
+              - name: backup
+                href: cli-ref/v0/cluster/backup.md
+              - name: clear-compression
+                href: cli-ref/v0/cluster/clear-compression.md
+              - name: clear-query-masking-rules
+                href: cli-ref/v0/cluster/clear-query-masking-rules.md
+              - name: create
+                href: cli-ref/v0/cluster/create.md
+              - name: delete
+                href: cli-ref/v0/cluster/delete.md
+              - name: get
+                href: cli-ref/v0/cluster/get.md
+              - name: get-extension
+                href: cli-ref/v0/cluster/get-extension.md
+              - name: list
+                href: cli-ref/v0/cluster/list.md
+              - name: list-access-bindings
+                href: cli-ref/v0/cluster/list-access-bindings.md
+              - name: list-backups
+                href: cli-ref/v0/cluster/list-backups.md
+              - name: list-extensions
+                href: cli-ref/v0/cluster/list-extensions.md
+              - name: list-external-dictionaries
+                href: cli-ref/v0/cluster/list-external-dictionaries.md
+              - name: list-logs
+                href: cli-ref/v0/cluster/list-logs.md
+              - name: list-operations
+                href: cli-ref/v0/cluster/list-operations.md
+              - name: move
+                href: cli-ref/v0/cluster/move.md
+              - name: remove-access-binding
+                href: cli-ref/v0/cluster/remove-access-binding.md
+              - name: remove-extension
+                href: cli-ref/v0/cluster/remove-extension.md
+              - name: remove-external-dictionary
+                href: cli-ref/v0/cluster/remove-external-dictionary.md
+              - name: remove-graphite-rollup
+                href: cli-ref/v0/cluster/remove-graphite-rollup.md
+              - name: remove-labels
+                href: cli-ref/v0/cluster/remove-labels.md
+              - name: reschedule-maintenance
+                href: cli-ref/v0/cluster/reschedule-maintenance.md
+              - name: restore
+                href: cli-ref/v0/cluster/restore.md
+              - name: set-access-bindings
+                href: cli-ref/v0/cluster/set-access-bindings.md
+              - name: set-compression
+                href: cli-ref/v0/cluster/set-compression.md
+              - name: set-query-masking-rules
+                href: cli-ref/v0/cluster/set-query-masking-rules.md
+              - name: start
+                href: cli-ref/v0/cluster/start.md
+              - name: stop
+                href: cli-ref/v0/cluster/stop.md
+              - name: update
+                href: cli-ref/v0/cluster/update.md
+              - name: update-config
+                href: cli-ref/v0/cluster/update-config.md
+              - name: update-extension
+                href: cli-ref/v0/cluster/update-extension.md
+              - name: update-external-dictionary
+                href: cli-ref/v0/cluster/update-external-dictionary.md
+          - name: database
+            items:
+              - name: Overview
+                href: cli-ref/v0/database/index.md
+              - name: create
+                href: cli-ref/v0/database/create.md
+              - name: delete
+                href: cli-ref/v0/database/delete.md
+              - name: get
+                href: cli-ref/v0/database/get.md
+              - name: list
+                href: cli-ref/v0/database/list.md
+          - name: extension
+            items:
+              - name: Overview
+                href: cli-ref/v0/extension/index.md
+              - name: get
+                href: cli-ref/v0/extension/get.md
+              - name: list
+                href: cli-ref/v0/extension/list.md
+          - name: format-schema
+            items:
+              - name: Overview
+                href: cli-ref/v0/format-schema/index.md
+              - name: create
+                href: cli-ref/v0/format-schema/create.md
+              - name: delete
+                href: cli-ref/v0/format-schema/delete.md
+              - name: get
+                href: cli-ref/v0/format-schema/get.md
+              - name: list
+                href: cli-ref/v0/format-schema/list.md
+              - name: update
+                href: cli-ref/v0/format-schema/update.md
+          - name: hosts
+            items:
+              - name: Overview
+                href: cli-ref/v0/hosts/index.md
+              - name: add
+                href: cli-ref/v0/hosts/add.md
+              - name: delete
+                href: cli-ref/v0/hosts/delete.md
+              - name: list
+                href: cli-ref/v0/hosts/list.md
+              - name: restart
+                href: cli-ref/v0/hosts/restart.md
+              - name: update
+                href: cli-ref/v0/hosts/update.md
+          - name: ml-model
+            items:
+              - name: Overview
+                href: cli-ref/v0/ml-model/index.md
+              - name: create
+                href: cli-ref/v0/ml-model/create.md
+              - name: delete
+                href: cli-ref/v0/ml-model/delete.md
+              - name: get
+                href: cli-ref/v0/ml-model/get.md
+              - name: list
+                href: cli-ref/v0/ml-model/list.md
+              - name: update
+                href: cli-ref/v0/ml-model/update.md
+          - name: resource-preset
+            items:
+              - name: Overview
+                href: cli-ref/v0/resource-preset/index.md
+              - name: get
+                href: cli-ref/v0/resource-preset/get.md
+              - name: list
+                href: cli-ref/v0/resource-preset/list.md
+          - name: shard-groups
+            items:
+              - name: Overview
+                href: cli-ref/v0/shard-groups/index.md
+              - name: create
+                href: cli-ref/v0/shard-groups/create.md
+              - name: delete
+                href: cli-ref/v0/shard-groups/delete.md
+              - name: get
+                href: cli-ref/v0/shard-groups/get.md
+              - name: list
+                href: cli-ref/v0/shard-groups/list.md
+              - name: update
+                href: cli-ref/v0/shard-groups/update.md
+          - name: shards
+            items:
+              - name: Overview
+                href: cli-ref/v0/shards/index.md
+              - name: add
+                href: cli-ref/v0/shards/add.md
+              - name: delete
+                href: cli-ref/v0/shards/delete.md
+              - name: get
+                href: cli-ref/v0/shards/get.md
+              - name: list
+                href: cli-ref/v0/shards/list.md
+              - name: update
+                href: cli-ref/v0/shards/update.md
+              - name: update-config
+                href: cli-ref/v0/shards/update-config.md
+          - name: user
+            items:
+              - name: Overview
+                href: cli-ref/v0/user/index.md
+              - name: add-quota
+                href: cli-ref/v0/user/add-quota.md
+              - name: create
+                href: cli-ref/v0/user/create.md
+              - name: delete
+                href: cli-ref/v0/user/delete.md
+              - name: get
+                href: cli-ref/v0/user/get.md
+              - name: grant-permission
+                href: cli-ref/v0/user/grant-permission.md
+              - name: list
+                href: cli-ref/v0/user/list.md
+              - name: remove-quota
+                href: cli-ref/v0/user/remove-quota.md
+              - name: revoke-permission
+                href: cli-ref/v0/user/revoke-permission.md
+              - name: update
+                href: cli-ref/v0/user/update.md
+              - name: update-quota
+                href: cli-ref/v0/user/update-quota.md
+          - name: version
+            items:
+              - name: Overview
+                href: cli-ref/v0/version/index.md
+              - name: list
+                href: cli-ref/v0/version/list.md
       - name: version
         items:
           - name: Overview

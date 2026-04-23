@@ -25,19 +25,24 @@
 
 {% note info %}
 
-Создаваемый кластер {{ msp-full-name }} не использует S3-хранилище [{{ objstorage-name }}](../../../storage/concepts/index.md) и глобальный каталог [{{ metastore-name }}](../../../metadata-hub/concepts/metastore.md). В такой конфигурации кластер {{ msp-full-name }} может работать только с данными в памяти. Для работы с постоянными базами и таблицами, а также для долговременного хранения результатов подключите внешнее хранилище {{ objstorage-name }} и, при необходимости, кластер {{ metastore-name }} для управления метаданными. Подробнее см. в руководстве [{#T}](../../../managed-spark/tutorials/airflow-automation.md).
+Создаваемый кластер {{ msp-full-name }} не использует S3-хранилище [{{ objstorage-full-name }}](../../../storage/concepts/index.md) и глобальный каталог [{{ metastore-name }}](../../../metadata-hub/concepts/metastore.md). В такой конфигурации кластер {{ msp-full-name }} может работать только с данными в памяти. Для работы с постоянными базами и таблицами, а также для долговременного хранения результатов подключите внешнее хранилище {{ objstorage-name }} и, при необходимости, кластер {{ metastore-name }} для управления метаданными. Подробнее см. в руководстве [{#T}](../../../managed-spark/tutorials/airflow-automation.md).
 
 {% endnote %}
 
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входят:
+* Кластер {{ maf-name }}: вычислительные ресурсы компонентов кластера (см. [тарифы {{ maf-name }}](../../../managed-airflow/pricing.md)).
 
-* Плата за вычислительные ресурсы компонентов кластера {{ maf-name }} (см. [тарифы {{ maf-full-name }}](../../../managed-airflow/pricing.md)).
-* Плата за бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
-* Плата за сервис {{ cloud-logging-name }}: объем записываемых данных и время их хранения (см. [тарифы {{ cloud-logging-name }}](../../../logging/pricing.md)).
-* Плата за вычислительные ресурсы компонентов кластера {{ msp-full-name }} (см. [тарифы {{ msp-full-name }}](../../../managed-spark/pricing.md)).
+  {% note info %}
+
+  Использование {{ objstorage-name }} для хранения DAG-файлов оплачивается по [правилам тарификации {{ objstorage-name }}](../../../storage/pricing.md).
+
+  {% endnote %}
+
+* Кластер {{ msp-full-name }}: вычислительные ресурсы компонентов кластера (см. [тарифы {{ msp-full-name }}](../../../managed-spark/pricing.md)).
+* Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
+* Сервис {{ cloud-logging-full-name }}: объем записываемых данных и время их хранения (см. [тарифы {{ cloud-logging-name }}](../../../logging/pricing.md)).
 
 
 ## Подготовьте инфраструктуру {#infra}

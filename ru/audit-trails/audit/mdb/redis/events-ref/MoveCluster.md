@@ -479,13 +479,16 @@ editable: false
           "valkeySearch": {
             "enabled": "boolean",
             "readerThreads": "string",
-            "writerThreads": "string"
+            "writerThreads": "string",
+            "version": "string"
           },
           "valkeyJson": {
-            "enabled": "boolean"
+            "enabled": "boolean",
+            "version": "string"
           },
           "valkeyBloom": {
-            "enabled": "boolean"
+            "enabled": "boolean",
+            "version": "string"
           }
         },
         "fullVersion": "string"
@@ -1168,6 +1171,7 @@ The minimum value is 0. ||
 || writerThreads | **string** (int64)
 
 The minimum value is 0. ||
+|| version | **string** ||
 |#
 
 ## ValkeyJson {#yandex.cloud.mdb.redis.v1.ValkeyJson}
@@ -1175,6 +1179,7 @@ The minimum value is 0. ||
 #|
 ||Field | Description ||
 || enabled | **boolean** ||
+|| version | **string** ||
 |#
 
 ## ValkeyBloom {#yandex.cloud.mdb.redis.v1.ValkeyBloom}
@@ -1182,6 +1187,7 @@ The minimum value is 0. ||
 #|
 ||Field | Description ||
 || enabled | **boolean** ||
+|| version | **string** ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.redis.v1.MaintenanceWindow}

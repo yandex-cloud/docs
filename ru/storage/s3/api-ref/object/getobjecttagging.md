@@ -1,4 +1,4 @@
-# Метод getObjectTagging
+# Object Storage API, REST совместимый с Amazon S3: GetObjectTagging
 
 Возвращает [метки](../../../concepts/tags.md) объекта в бакете.
 

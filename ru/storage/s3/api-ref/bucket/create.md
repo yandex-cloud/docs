@@ -1,4 +1,4 @@
-# Метод create
+# Object Storage API, REST совместимый с Amazon S3: CreateBucket
 
 Создает бакет.
 

@@ -444,6 +444,10 @@ Syntax:
 
 
 
+- [yc compute v0](v0/index.md) — Manage Yandex Compute Cloud resources
+
+  - [yc compute v0 connect-to-serial-port](v0/connect-to-serial-port.md) — Connect to serial port
+
 - [yc compute zone](zone/index.md) — Show availability zones
 
   - [yc compute zone get](zone/get.md) — Show information about the specified availability zone.

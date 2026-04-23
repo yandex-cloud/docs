@@ -15,6 +15,7 @@ apiPlayground:
             1. The field name. Currently you can use filtering only on the [yandex.cloud.billing.v1.Service.id](#yandex.cloud.billing.v1.Service) field.
             2. An `=` operator.
             3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+            The maximum string length in characters is 1000.
           type: string
         pageSize:
           description: |-
@@ -23,6 +24,7 @@ apiPlayground:
             results is larger than `pageSize`,
             the service returns a [ListServicesResponse.nextPageToken](#yandex.cloud.billing.v1.ListServicesResponse)
             that can be used to get the next page of results in subsequent list requests.
+            The maximum value is 1000.
           type: string
           format: int64
         pageToken:
@@ -31,6 +33,7 @@ apiPlayground:
             Page token. To get the next page of results,
             set `pageToken` to the [ListServicesResponse.nextPageToken](#yandex.cloud.billing.v1.ListServicesResponse)
             returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
     body: null
@@ -57,18 +60,24 @@ A filter expression that filters resources listed in the response.
 The expression must specify:
 1. The field name. Currently you can use filtering only on the [yandex.cloud.billing.v1.Service.id](#yandex.cloud.billing.v1.Service) field.
 2. An `=` operator.
-3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`. ||
+3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+
+The maximum string length in characters is 1000. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListServicesResponse.nextPageToken](#yandex.cloud.billing.v1.ListServicesResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results,
 set `pageToken` to the [ListServicesResponse.nextPageToken](#yandex.cloud.billing.v1.ListServicesResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.billing.v1.ListServicesResponse}

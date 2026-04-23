@@ -98,6 +98,12 @@ Aliases:
 
   - [yc managed-kubernetes resource-preset list](resource-preset/list.md) — List available master resource presets.
 
+- [yc managed-kubernetes v0](v0/index.md) — Manage Kubernetes clusters.
+
+  - [yc managed-kubernetes v0 create-token](v0/create-token.md) — Create K8S token and print to STDOUT.
+
+  - [yc managed-kubernetes v0 list-versions](v0/list-versions.md) — List available kubernetes versions.
+
 #### Global Flags
 
 #|

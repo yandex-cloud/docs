@@ -1,4 +1,4 @@
-# Метод getMeta
+# Object Storage API, REST совместимый с Amazon S3: HeadBucket
 
 Возвращает метаданные бакета или ошибку.
 

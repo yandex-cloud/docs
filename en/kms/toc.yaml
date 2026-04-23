@@ -219,6 +219,122 @@ items:
             href: cli-ref/symmetric-key/set-primary-version.md
           - name: update
             href: cli-ref/symmetric-key/update.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: asymmetric-encryption-crypto
+            items:
+              - name: Overview
+                href: cli-ref/v0/asymmetric-encryption-crypto/index.md
+              - name: decrypt
+                href: cli-ref/v0/asymmetric-encryption-crypto/decrypt.md
+              - name: get-public-key
+                href: cli-ref/v0/asymmetric-encryption-crypto/get-public-key.md
+          - name: asymmetric-encryption-key
+            items:
+              - name: Overview
+                href: cli-ref/v0/asymmetric-encryption-key/index.md
+              - name: add-access-binding
+                href: cli-ref/v0/asymmetric-encryption-key/add-access-binding.md
+              - name: create
+                href: cli-ref/v0/asymmetric-encryption-key/create.md
+              - name: delete
+                href: cli-ref/v0/asymmetric-encryption-key/delete.md
+              - name: get
+                href: cli-ref/v0/asymmetric-encryption-key/get.md
+              - name: list
+                href: cli-ref/v0/asymmetric-encryption-key/list.md
+              - name: list-access-bindings
+                href: cli-ref/v0/asymmetric-encryption-key/list-access-bindings.md
+              - name: list-operations
+                href: cli-ref/v0/asymmetric-encryption-key/list-operations.md
+              - name: remove-access-binding
+                href: cli-ref/v0/asymmetric-encryption-key/remove-access-binding.md
+              - name: set-access-bindings
+                href: cli-ref/v0/asymmetric-encryption-key/set-access-bindings.md
+              - name: update
+                href: cli-ref/v0/asymmetric-encryption-key/update.md
+          - name: asymmetric-signature-crypto
+            items:
+              - name: Overview
+                href: cli-ref/v0/asymmetric-signature-crypto/index.md
+              - name: get-public-key
+                href: cli-ref/v0/asymmetric-signature-crypto/get-public-key.md
+              - name: sign
+                href: cli-ref/v0/asymmetric-signature-crypto/sign.md
+              - name: sign-hash
+                href: cli-ref/v0/asymmetric-signature-crypto/sign-hash.md
+          - name: asymmetric-signature-key
+            items:
+              - name: Overview
+                href: cli-ref/v0/asymmetric-signature-key/index.md
+              - name: add-access-binding
+                href: cli-ref/v0/asymmetric-signature-key/add-access-binding.md
+              - name: create
+                href: cli-ref/v0/asymmetric-signature-key/create.md
+              - name: delete
+                href: cli-ref/v0/asymmetric-signature-key/delete.md
+              - name: get
+                href: cli-ref/v0/asymmetric-signature-key/get.md
+              - name: list
+                href: cli-ref/v0/asymmetric-signature-key/list.md
+              - name: list-access-bindings
+                href: cli-ref/v0/asymmetric-signature-key/list-access-bindings.md
+              - name: list-operations
+                href: cli-ref/v0/asymmetric-signature-key/list-operations.md
+              - name: remove-access-binding
+                href: cli-ref/v0/asymmetric-signature-key/remove-access-binding.md
+              - name: set-access-bindings
+                href: cli-ref/v0/asymmetric-signature-key/set-access-bindings.md
+              - name: update
+                href: cli-ref/v0/asymmetric-signature-key/update.md
+          - name: symmetric-crypto
+            items:
+              - name: Overview
+                href: cli-ref/v0/symmetric-crypto/index.md
+              - name: decrypt
+                href: cli-ref/v0/symmetric-crypto/decrypt.md
+              - name: encrypt
+                href: cli-ref/v0/symmetric-crypto/encrypt.md
+              - name: generate-data-key
+                href: cli-ref/v0/symmetric-crypto/generate-data-key.md
+              - name: re-encrypt
+                href: cli-ref/v0/symmetric-crypto/re-encrypt.md
+          - name: symmetric-key
+            items:
+              - name: Overview
+                href: cli-ref/v0/symmetric-key/index.md
+              - name: add-access-binding
+                href: cli-ref/v0/symmetric-key/add-access-binding.md
+              - name: cancel-version-destruction
+                href: cli-ref/v0/symmetric-key/cancel-version-destruction.md
+              - name: create
+                href: cli-ref/v0/symmetric-key/create.md
+              - name: delete
+                href: cli-ref/v0/symmetric-key/delete.md
+              - name: get
+                href: cli-ref/v0/symmetric-key/get.md
+              - name: list
+                href: cli-ref/v0/symmetric-key/list.md
+              - name: list-access-bindings
+                href: cli-ref/v0/symmetric-key/list-access-bindings.md
+              - name: list-operations
+                href: cli-ref/v0/symmetric-key/list-operations.md
+              - name: list-versions
+                href: cli-ref/v0/symmetric-key/list-versions.md
+              - name: remove-access-binding
+                href: cli-ref/v0/symmetric-key/remove-access-binding.md
+              - name: rotate
+                href: cli-ref/v0/symmetric-key/rotate.md
+              - name: schedule-version-destruction
+                href: cli-ref/v0/symmetric-key/schedule-version-destruction.md
+              - name: set-access-bindings
+                href: cli-ref/v0/symmetric-key/set-access-bindings.md
+              - name: set-primary-version
+                href: cli-ref/v0/symmetric-key/set-primary-version.md
+              - name: update
+                href: cli-ref/v0/symmetric-key/update.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference

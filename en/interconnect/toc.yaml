@@ -176,6 +176,86 @@ items:
             href: cli-ref/trunk-connection/remove-labels.md
           - name: update
             href: cli-ref/trunk-connection/update.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: partner
+            items:
+              - name: Overview
+                href: cli-ref/v0/partner/index.md
+              - name: get
+                href: cli-ref/v0/partner/get.md
+              - name: list
+                href: cli-ref/v0/partner/list.md
+          - name: point-of-presence
+            items:
+              - name: Overview
+                href: cli-ref/v0/point-of-presence/index.md
+              - name: get
+                href: cli-ref/v0/point-of-presence/get.md
+              - name: list
+                href: cli-ref/v0/point-of-presence/list.md
+          - name: private-connection
+            items:
+              - name: Overview
+                href: cli-ref/v0/private-connection/index.md
+              - name: add-labels
+                href: cli-ref/v0/private-connection/add-labels.md
+              - name: create
+                href: cli-ref/v0/private-connection/create.md
+              - name: delete
+                href: cli-ref/v0/private-connection/delete.md
+              - name: get
+                href: cli-ref/v0/private-connection/get.md
+              - name: list
+                href: cli-ref/v0/private-connection/list.md
+              - name: list-operations
+                href: cli-ref/v0/private-connection/list-operations.md
+              - name: move
+                href: cli-ref/v0/private-connection/move.md
+              - name: remove-labels
+                href: cli-ref/v0/private-connection/remove-labels.md
+              - name: remove-static-routes
+                href: cli-ref/v0/private-connection/remove-static-routes.md
+              - name: update
+                href: cli-ref/v0/private-connection/update.md
+              - name: upsert-static-routes
+                href: cli-ref/v0/private-connection/upsert-static-routes.md
+          - name: public-connection
+            items:
+              - name: Overview
+                href: cli-ref/v0/public-connection/index.md
+              - name: get
+                href: cli-ref/v0/public-connection/get.md
+              - name: list
+                href: cli-ref/v0/public-connection/list.md
+              - name: move
+                href: cli-ref/v0/public-connection/move.md
+          - name: trunk-connection
+            items:
+              - name: Overview
+                href: cli-ref/v0/trunk-connection/index.md
+              - name: add-labels
+                href: cli-ref/v0/trunk-connection/add-labels.md
+              - name: delete
+                href: cli-ref/v0/trunk-connection/delete.md
+              - name: get
+                href: cli-ref/v0/trunk-connection/get.md
+              - name: list
+                href: cli-ref/v0/trunk-connection/list.md
+              - name: list-operations
+                href: cli-ref/v0/trunk-connection/list-operations.md
+              - name: list-private-connections
+                href: cli-ref/v0/trunk-connection/list-private-connections.md
+              - name: list-public-connections
+                href: cli-ref/v0/trunk-connection/list-public-connections.md
+              - name: move
+                href: cli-ref/v0/trunk-connection/move.md
+              - name: remove-labels
+                href: cli-ref/v0/trunk-connection/remove-labels.md
+              - name: update
+                href: cli-ref/v0/trunk-connection/update.md
   - name: API reference
     items:
       - name: API authentication

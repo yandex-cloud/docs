@@ -2248,6 +2248,12 @@ default:
         30000000|number: 0.051785683
         6000000|number: 0.088035701
         60000000|number: 0.036249968
+    reinit:
+      assistant:
+        v1|number: 0.77678575
+        v1|string: ₸0.77678575
+      tag:
+        v1|string: ₸0.061124125
   sku|KZT|storage:
     api:
       get:
@@ -2822,6 +2828,12 @@ default:
         30000000|number: 0.01016666
         6000000|number: 0.01728333
         60000000|number: 0.00711666
+    reinit:
+      assistant:
+        v1|number: 0.1525
+        v1|string: ₽0.1525
+      tag:
+        v1|string: ₽0.012
   sku|RUB|storage:
     api:
       get:
@@ -3378,6 +3390,12 @@ default:
         30000000|number: 0.000083333
         6000000|number: 0.000141667
         60000000|number: 0.000058333
+    reinit:
+      assistant:
+        v1|number: 0.00125
+        v1|string: $0.00125
+      tag:
+        v1|string: $0.000098361
   sku|USD|storage:
     api:
       get:
@@ -3826,6 +3844,7 @@ default:
             payment-type_label_card: Bank card
             payment-type_label_invoice: Wire transfer
             section_account-data: General information
+            section_contract: Information about the agreement
             usage-type_label_paid: Paid version
           reconciliation-reports:
             action_download-with-facsimile: Download signed report
@@ -3841,7 +3860,6 @@ default:
           switch_exports: Export details
           switch_history: Payment history
           switch_offers: Committed volume
-          switch_overview: Account info
           switch_users: Access management
           tab_acts-title: Closing documents
           tab_reconciliation-reports-title: Reconciliation reports
@@ -4382,6 +4400,8 @@ default:
         account:
           button_enable-edm-action: Enable EDM
           dashboard-info:
+            contract_label_general: General
+            contract_label_offer: Offer
             section_contract: Information about the agreement
             title_main: Account information
           detail:

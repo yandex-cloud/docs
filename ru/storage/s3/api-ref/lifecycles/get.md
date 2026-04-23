@@ -1,4 +1,4 @@
-# Метод get
+# Object Storage API, REST совместимый с Amazon S3: GetBucketLifecycleConfiguration
 
 Возвращает конфигурацию жизненных циклов объектов в бакете из {{ objstorage-name }}.
 
