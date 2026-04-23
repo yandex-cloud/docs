@@ -34,7 +34,7 @@ Depending on which company you signed the agreement with, you can find the agree
 
 ## Agreement number {#id}
 
-You can find the agreement number in {{ billing-name }} on the ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_billing.billing.account.switch_overview }}** page. 
+You can find the agreement number in {{ billing-name }} on the ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}** page.
 
 ## Agreement termination {#termination}
 

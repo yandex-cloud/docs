@@ -1,4 +1,4 @@
-# Метод delete
+# Object Storage API, REST совместимый с Amazon S3: DeleteBucketWebsite
 
 Удаляет конфигурацию хостинга статических сайтов для бакета.
 

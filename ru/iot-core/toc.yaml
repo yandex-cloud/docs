@@ -293,6 +293,154 @@ items:
                 href: cli-ref/registry/yds-export/delete.md
               - name: list
                 href: cli-ref/registry/yds-export/list.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: broker
+            items:
+              - name: Overview
+                href: cli-ref/v0/broker/index.md
+              - name: add-labels
+                href: cli-ref/v0/broker/add-labels.md
+              - name: certificate
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/broker/certificate/index.md
+                  - name: add
+                    href: cli-ref/v0/broker/certificate/add.md
+                  - name: delete
+                    href: cli-ref/v0/broker/certificate/delete.md
+                  - name: list
+                    href: cli-ref/v0/broker/certificate/list.md
+              - name: create
+                href: cli-ref/v0/broker/create.md
+              - name: delete
+                href: cli-ref/v0/broker/delete.md
+              - name: get
+                href: cli-ref/v0/broker/get.md
+              - name: list
+                href: cli-ref/v0/broker/list.md
+              - name: logs
+                href: cli-ref/v0/broker/logs.md
+              - name: password
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/broker/password/index.md
+                  - name: add
+                    href: cli-ref/v0/broker/password/add.md
+                  - name: delete
+                    href: cli-ref/v0/broker/password/delete.md
+                  - name: list
+                    href: cli-ref/v0/broker/password/list.md
+              - name: remove-labels
+                href: cli-ref/v0/broker/remove-labels.md
+              - name: update
+                href: cli-ref/v0/broker/update.md
+          - name: device
+            items:
+              - name: Overview
+                href: cli-ref/v0/device/index.md
+              - name: add-topic-aliases
+                href: cli-ref/v0/device/add-topic-aliases.md
+              - name: certificate
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/device/certificate/index.md
+                  - name: add
+                    href: cli-ref/v0/device/certificate/add.md
+                  - name: delete
+                    href: cli-ref/v0/device/certificate/delete.md
+                  - name: list
+                    href: cli-ref/v0/device/certificate/list.md
+              - name: create
+                href: cli-ref/v0/device/create.md
+              - name: delete
+                href: cli-ref/v0/device/delete.md
+              - name: get
+                href: cli-ref/v0/device/get.md
+              - name: list
+                href: cli-ref/v0/device/list.md
+              - name: logs
+                href: cli-ref/v0/device/logs.md
+              - name: password
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/device/password/index.md
+                  - name: add
+                    href: cli-ref/v0/device/password/add.md
+                  - name: delete
+                    href: cli-ref/v0/device/password/delete.md
+                  - name: list
+                    href: cli-ref/v0/device/password/list.md
+              - name: remove-topic-aliases
+                href: cli-ref/v0/device/remove-topic-aliases.md
+              - name: update
+                href: cli-ref/v0/device/update.md
+          - name: mqtt
+            items:
+              - name: Overview
+                href: cli-ref/v0/mqtt/index.md
+              - name: publish
+                href: cli-ref/v0/mqtt/publish.md
+              - name: subscribe
+                href: cli-ref/v0/mqtt/subscribe.md
+          - name: registry
+            items:
+              - name: Overview
+                href: cli-ref/v0/registry/index.md
+              - name: add-labels
+                href: cli-ref/v0/registry/add-labels.md
+              - name: certificate
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/registry/certificate/index.md
+                  - name: add
+                    href: cli-ref/v0/registry/certificate/add.md
+                  - name: delete
+                    href: cli-ref/v0/registry/certificate/delete.md
+                  - name: list
+                    href: cli-ref/v0/registry/certificate/list.md
+              - name: create
+                href: cli-ref/v0/registry/create.md
+              - name: delete
+                href: cli-ref/v0/registry/delete.md
+              - name: disable
+                href: cli-ref/v0/registry/disable.md
+              - name: enable
+                href: cli-ref/v0/registry/enable.md
+              - name: get
+                href: cli-ref/v0/registry/get.md
+              - name: list
+                href: cli-ref/v0/registry/list.md
+              - name: list-device-topic-aliases
+                href: cli-ref/v0/registry/list-device-topic-aliases.md
+              - name: logs
+                href: cli-ref/v0/registry/logs.md
+              - name: password
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/registry/password/index.md
+                  - name: add
+                    href: cli-ref/v0/registry/password/add.md
+                  - name: delete
+                    href: cli-ref/v0/registry/password/delete.md
+                  - name: list
+                    href: cli-ref/v0/registry/password/list.md
+              - name: remove-labels
+                href: cli-ref/v0/registry/remove-labels.md
+              - name: update
+                href: cli-ref/v0/registry/update.md
+              - name: yds-export
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/registry/yds-export/index.md
+                  - name: add
+                    href: cli-ref/v0/registry/yds-export/add.md
+                  - name: delete
+                    href: cli-ref/v0/registry/yds-export/delete.md
+                  - name: list
+                    href: cli-ref/v0/registry/yds-export/list.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API Devices

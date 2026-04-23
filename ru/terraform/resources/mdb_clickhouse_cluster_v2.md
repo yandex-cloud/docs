@@ -540,6 +540,10 @@ resource "yandex_vpc_subnet" "baz" {
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
 - `name` (**Required**)(String). Name of the ClickHouse cluster. Provided by the client when the cluster is created.
 - `network_id` (**Required**)(String). The `VPC Network ID` of subnets which resource attached to.
+- `restore` [Block]. The cluster will be created from the specified backup.
+  - `backup_id` (**Required**)(String). Backup ID. The cluster will be created from the specified backup.
+  - `exclude_patterns` (List Of String). Tables and databases to exclude from restore.
+  - `include_patterns` (List Of String). Tables and databases to include in restore.
 - `security_group_ids` (Set Of String). The list of security groups applied to resource or their components.
 - `service_account_id` (String). [Service account](https://yandex.cloud/docs/iam/concepts/users/service-accounts) which linked to the resource.
 - `shards` [Block]. A shards of the ClickHouse cluster.

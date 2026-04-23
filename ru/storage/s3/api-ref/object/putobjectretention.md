@@ -1,4 +1,4 @@
-# Метод putObjectRetention
+# Object Storage API, REST совместимый с Amazon S3: PutObjectRetention
 
 Устанавливает на версию объекта временную [блокировку](../../../concepts/object-lock.md) либо настраивает или снимает уже установленную блокировку.
 

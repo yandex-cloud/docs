@@ -335,6 +335,177 @@ items:
             href: cli-ref/repository/remove-access-binding.md
           - name: set-access-bindings
             href: cli-ref/repository/set-access-bindings.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: cluster
+            items:
+              - name: Overview
+                href: cli-ref/v0/cluster/index.md
+              - name: add-access-binding
+                href: cli-ref/v0/cluster/add-access-binding.md
+              - name: add-labels
+                href: cli-ref/v0/cluster/add-labels.md
+              - name: create
+                href: cli-ref/v0/cluster/create.md
+              - name: delete
+                href: cli-ref/v0/cluster/delete.md
+              - name: get
+                href: cli-ref/v0/cluster/get.md
+              - name: get-credentials
+                href: cli-ref/v0/cluster/get-credentials.md
+              - name: list
+                href: cli-ref/v0/cluster/list.md
+              - name: list-access-bindings
+                href: cli-ref/v0/cluster/list-access-bindings.md
+              - name: list-node-groups
+                href: cli-ref/v0/cluster/list-node-groups.md
+              - name: list-nodes
+                href: cli-ref/v0/cluster/list-nodes.md
+              - name: list-operations
+                href: cli-ref/v0/cluster/list-operations.md
+              - name: remove-access-binding
+                href: cli-ref/v0/cluster/remove-access-binding.md
+              - name: remove-labels
+                href: cli-ref/v0/cluster/remove-labels.md
+              - name: reschedule-maintenance
+                href: cli-ref/v0/cluster/reschedule-maintenance.md
+              - name: set-access-bindings
+                href: cli-ref/v0/cluster/set-access-bindings.md
+              - name: start
+                href: cli-ref/v0/cluster/start.md
+              - name: stop
+                href: cli-ref/v0/cluster/stop.md
+              - name: update
+                href: cli-ref/v0/cluster/update.md
+          - name: image
+            items:
+              - name: Overview
+                href: cli-ref/v0/image/index.md
+              - name: delete
+                href: cli-ref/v0/image/delete.md
+              - name: get
+                href: cli-ref/v0/image/get.md
+              - name: get-last-scan-result
+                href: cli-ref/v0/image/get-last-scan-result.md
+              - name: get-scan-result
+                href: cli-ref/v0/image/get-scan-result.md
+              - name: list
+                href: cli-ref/v0/image/list.md
+              - name: list-scan-results
+                href: cli-ref/v0/image/list-scan-results.md
+              - name: list-vulnerabilities
+                href: cli-ref/v0/image/list-vulnerabilities.md
+              - name: scan
+                href: cli-ref/v0/image/scan.md
+          - name: node-group
+            items:
+              - name: Overview
+                href: cli-ref/v0/node-group/index.md
+              - name: add-labels
+                href: cli-ref/v0/node-group/add-labels.md
+              - name: add-metadata
+                href: cli-ref/v0/node-group/add-metadata.md
+              - name: add-node-labels
+                href: cli-ref/v0/node-group/add-node-labels.md
+              - name: create
+                href: cli-ref/v0/node-group/create.md
+              - name: delete
+                href: cli-ref/v0/node-group/delete.md
+              - name: get
+                href: cli-ref/v0/node-group/get.md
+              - name: list
+                href: cli-ref/v0/node-group/list.md
+              - name: list-nodes
+                href: cli-ref/v0/node-group/list-nodes.md
+              - name: list-operations
+                href: cli-ref/v0/node-group/list-operations.md
+              - name: remove-labels
+                href: cli-ref/v0/node-group/remove-labels.md
+              - name: remove-metadata
+                href: cli-ref/v0/node-group/remove-metadata.md
+              - name: remove-node-labels
+                href: cli-ref/v0/node-group/remove-node-labels.md
+              - name: update
+                href: cli-ref/v0/node-group/update.md
+          - name: registry
+            items:
+              - name: Overview
+                href: cli-ref/v0/registry/index.md
+              - name: add-access-binding
+                href: cli-ref/v0/registry/add-access-binding.md
+              - name: add-ip-permissions
+                href: cli-ref/v0/registry/add-ip-permissions.md
+              - name: add-labels
+                href: cli-ref/v0/registry/add-labels.md
+              - name: configure-docker
+                href: cli-ref/v0/registry/configure-docker.md
+              - name: create
+                href: cli-ref/v0/registry/create.md
+              - name: delete
+                href: cli-ref/v0/registry/delete.md
+              - name: get
+                href: cli-ref/v0/registry/get.md
+              - name: list
+                href: cli-ref/v0/registry/list.md
+              - name: list-access-bindings
+                href: cli-ref/v0/registry/list-access-bindings.md
+              - name: list-ip-permissions
+                href: cli-ref/v0/registry/list-ip-permissions.md
+              - name: remove-access-binding
+                href: cli-ref/v0/registry/remove-access-binding.md
+              - name: remove-ip-permissions
+                href: cli-ref/v0/registry/remove-ip-permissions.md
+              - name: remove-labels
+                href: cli-ref/v0/registry/remove-labels.md
+              - name: set-access-bindings
+                href: cli-ref/v0/registry/set-access-bindings.md
+              - name: set-ip-permissions
+                href: cli-ref/v0/registry/set-ip-permissions.md
+              - name: update
+                href: cli-ref/v0/registry/update.md
+          - name: repository
+            items:
+              - name: Overview
+                href: cli-ref/v0/repository/index.md
+              - name: add-access-binding
+                href: cli-ref/v0/repository/add-access-binding.md
+              - name: get
+                href: cli-ref/v0/repository/get.md
+              - name: lifecycle-policy
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/repository/lifecycle-policy/index.md
+                  - name: create
+                    href: cli-ref/v0/repository/lifecycle-policy/create.md
+                  - name: delete
+                    href: cli-ref/v0/repository/lifecycle-policy/delete.md
+                  - name: dry-run
+                    href: cli-ref/v0/repository/lifecycle-policy/dry-run.md
+                  - name: get
+                    href: cli-ref/v0/repository/lifecycle-policy/get.md
+                  - name: get-dry-run-result
+                    href: >-
+                      cli-ref/v0/repository/lifecycle-policy/get-dry-run-result.md
+                  - name: list
+                    href: cli-ref/v0/repository/lifecycle-policy/list.md
+                  - name: list-dry-run-affected-images
+                    href: >-
+                      cli-ref/v0/repository/lifecycle-policy/list-dry-run-affected-images.md
+                  - name: list-dry-run-results
+                    href: >-
+                      cli-ref/v0/repository/lifecycle-policy/list-dry-run-results.md
+                  - name: update
+                    href: cli-ref/v0/repository/lifecycle-policy/update.md
+              - name: list
+                href: cli-ref/v0/repository/list.md
+              - name: list-access-bindings
+                href: cli-ref/v0/repository/list-access-bindings.md
+              - name: remove-access-binding
+                href: cli-ref/v0/repository/remove-access-binding.md
+              - name: set-access-bindings
+                href: cli-ref/v0/repository/set-access-bindings.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

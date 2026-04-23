@@ -480,6 +480,110 @@ items:
             href: cli-ref/resource-preset/get.md
           - name: list
             href: cli-ref/resource-preset/list.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: cluster
+            items:
+              - name: Overview
+                href: cli-ref/v0/cluster/index.md
+              - name: add-access-binding
+                href: cli-ref/v0/cluster/add-access-binding.md
+              - name: add-labels
+                href: cli-ref/v0/cluster/add-labels.md
+              - name: create
+                href: cli-ref/v0/cluster/create.md
+              - name: delete
+                href: cli-ref/v0/cluster/delete.md
+              - name: get
+                href: cli-ref/v0/cluster/get.md
+              - name: get-credentials
+                href: cli-ref/v0/cluster/get-credentials.md
+              - name: list
+                href: cli-ref/v0/cluster/list.md
+              - name: list-access-bindings
+                href: cli-ref/v0/cluster/list-access-bindings.md
+              - name: list-node-groups
+                href: cli-ref/v0/cluster/list-node-groups.md
+              - name: list-nodes
+                href: cli-ref/v0/cluster/list-nodes.md
+              - name: list-operations
+                href: cli-ref/v0/cluster/list-operations.md
+              - name: remove-access-binding
+                href: cli-ref/v0/cluster/remove-access-binding.md
+              - name: remove-labels
+                href: cli-ref/v0/cluster/remove-labels.md
+              - name: reschedule-maintenance
+                href: cli-ref/v0/cluster/reschedule-maintenance.md
+              - name: set-access-bindings
+                href: cli-ref/v0/cluster/set-access-bindings.md
+              - name: start
+                href: cli-ref/v0/cluster/start.md
+              - name: stop
+                href: cli-ref/v0/cluster/stop.md
+              - name: update
+                href: cli-ref/v0/cluster/update.md
+          - name: create-token
+            href: cli-ref/v0/create-token.md
+          - name: list-versions
+            href: cli-ref/v0/list-versions.md
+          - name: marketplace
+            items:
+              - name: Overview
+                href: cli-ref/v0/marketplace/index.md
+              - name: helm-release
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/marketplace/helm-release/index.md
+                  - name: get
+                    href: cli-ref/v0/marketplace/helm-release/get.md
+                  - name: install
+                    href: cli-ref/v0/marketplace/helm-release/install.md
+                  - name: list
+                    href: cli-ref/v0/marketplace/helm-release/list.md
+                  - name: uninstall
+                    href: cli-ref/v0/marketplace/helm-release/uninstall.md
+                  - name: update
+                    href: cli-ref/v0/marketplace/helm-release/update.md
+          - name: node-group
+            items:
+              - name: Overview
+                href: cli-ref/v0/node-group/index.md
+              - name: add-labels
+                href: cli-ref/v0/node-group/add-labels.md
+              - name: add-metadata
+                href: cli-ref/v0/node-group/add-metadata.md
+              - name: add-node-labels
+                href: cli-ref/v0/node-group/add-node-labels.md
+              - name: create
+                href: cli-ref/v0/node-group/create.md
+              - name: delete
+                href: cli-ref/v0/node-group/delete.md
+              - name: get
+                href: cli-ref/v0/node-group/get.md
+              - name: list
+                href: cli-ref/v0/node-group/list.md
+              - name: list-nodes
+                href: cli-ref/v0/node-group/list-nodes.md
+              - name: list-operations
+                href: cli-ref/v0/node-group/list-operations.md
+              - name: remove-labels
+                href: cli-ref/v0/node-group/remove-labels.md
+              - name: remove-metadata
+                href: cli-ref/v0/node-group/remove-metadata.md
+              - name: remove-node-labels
+                href: cli-ref/v0/node-group/remove-node-labels.md
+              - name: update
+                href: cli-ref/v0/node-group/update.md
+          - name: resource-preset
+            items:
+              - name: Overview
+                href: cli-ref/v0/resource-preset/index.md
+              - name: get
+                href: cli-ref/v0/resource-preset/get.md
+              - name: list
+                href: cli-ref/v0/resource-preset/list.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference

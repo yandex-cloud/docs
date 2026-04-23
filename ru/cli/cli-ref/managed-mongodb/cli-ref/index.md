@@ -132,6 +132,10 @@ Aliases:
 
   - [yc managed-mongodb user update](user/update.md) — Modify attributes of a MongoDB user.
 
+- [yc managed-mongodb v0](v0/index.md) — Manage MongoDB clusters, hosts, databases, backups and users.
+
+
+
 #### Global Flags
 
 #|

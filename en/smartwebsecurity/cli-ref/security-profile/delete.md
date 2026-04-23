@@ -33,12 +33,12 @@ Usage example:
 1. Generate template: yc compute instance create --example-yaml > request.yaml
 2. Edit the template: vim request.yaml
 3. Run with template: yc compute instance create -r request.yaml ||
-|| `--security-profile-id` | `string`
+|| `--id` | `string`
 
 ID of the security profile to delete. ||
 || `--name` | `string`
 
-Resolve security-profile-id by resource name within the current scope. ||
+Resolve id by resource name within the current scope. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 

@@ -114,6 +114,10 @@ Syntax:
 
   - [yc kms symmetric-key update](symmetric-key/update.md) — Update the specified symmetric key
 
+- [yc kms v0](v0/index.md) — Manage Yandex Key Management Service resources
+
+
+
 #### Global Flags
 
 #|

@@ -1,4 +1,4 @@
-# Метод upload
+# Object Storage API, REST совместимый с Amazon S3: PutBucketWebsite
 
 Загружает конфигурацию хостинга статического сайта для бакета.
 

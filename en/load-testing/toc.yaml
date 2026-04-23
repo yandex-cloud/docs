@@ -157,6 +157,52 @@ items:
             href: cli-ref/test-config/get.md
           - name: list
             href: cli-ref/test-config/list.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: agent
+            items:
+              - name: Overview
+                href: cli-ref/v0/agent/index.md
+              - name: create
+                href: cli-ref/v0/agent/create.md
+              - name: delete
+                href: cli-ref/v0/agent/delete.md
+              - name: get
+                href: cli-ref/v0/agent/get.md
+              - name: list
+                href: cli-ref/v0/agent/list.md
+          - name: test
+            items:
+              - name: Overview
+                href: cli-ref/v0/test/index.md
+              - name: check-regression
+                href: cli-ref/v0/test/check-regression.md
+              - name: create
+                href: cli-ref/v0/test/create.md
+              - name: delete
+                href: cli-ref/v0/test/delete.md
+              - name: get
+                href: cli-ref/v0/test/get.md
+              - name: get-report-table
+                href: cli-ref/v0/test/get-report-table.md
+              - name: list
+                href: cli-ref/v0/test/list.md
+              - name: stop
+                href: cli-ref/v0/test/stop.md
+              - name: wait
+                href: cli-ref/v0/test/wait.md
+          - name: test-config
+            items:
+              - name: Overview
+                href: cli-ref/v0/test-config/index.md
+              - name: create
+                href: cli-ref/v0/test-config/create.md
+              - name: get
+                href: cli-ref/v0/test-config/get.md
+              - name: list
+                href: cli-ref/v0/test-config/list.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference

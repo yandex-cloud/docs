@@ -52,6 +52,10 @@ Syntax:
 
   - [yc lockbox secret update](secret/update.md) — Update the specified secret
 
+- [yc lockbox v0](v0/index.md) — Manage Yandex Lockbox resources
+
+
+
 #### Global Flags
 
 #|

@@ -1389,6 +1389,8 @@ items:
         href: dataplatform/airflow-spark-min.md
       - name: Использование {{ objstorage-full-name }} в {{ msp-full-name }}
         href: dataplatform/spark-objstorage-integration.md
+      - name: Интеграция {{ msp-full-name }} и {{ ml-platform-name }}
+        href: dataplatform/spark-and-datasphere.md
       - name: >-
           Использование секрета {{ lockbox-name }} в PySpark-задании для
           подключения к {{ mpg-full-name }}
@@ -1890,6 +1892,8 @@ items:
             href: ml-ai/yq-postgre.md
           - name: Федеративные запросы к данным
             href: ml-ai/yq-federative-queries.md
+          - name: Использование сервиса {{ msp-name }}
+            href: dataplatform/spark-and-datasphere.md
       - name: Разработка с помощью {{ mgl-full-name }}
         items:
           - name: Управление жизненным циклом MLOps с помощью ML Registry

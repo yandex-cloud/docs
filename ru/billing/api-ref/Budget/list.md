@@ -12,6 +12,7 @@ apiPlayground:
             **string**
             Required field. ID of the billing account to list budgets corresponding to.
             To get the billing account ID, use [BillingAccountService.List](/docs/billing/api-ref/BillingAccount/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         pageSize:
           description: |-
@@ -20,6 +21,7 @@ apiPlayground:
             results is larger than `pageSize`,
             the service returns a [ListBudgetsResponse.nextPageToken](#yandex.cloud.billing.v1.ListBudgetsResponse)
             that can be used to get the next page of results in subsequent list requests.
+            The maximum value is 1000.
           type: string
           format: int64
         pageToken:
@@ -28,6 +30,7 @@ apiPlayground:
             Page token. To get the next page of results,
             set `pageToken` to the [ListBudgetsResponse.nextPageToken](#yandex.cloud.billing.v1.ListBudgetsResponse)
             returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
       required:
         - billingAccountId
@@ -53,18 +56,24 @@ GET https://billing.{{ api-host }}/billing/v1/budgets
 || billingAccountId | **string**
 
 Required field. ID of the billing account to list budgets corresponding to.
-To get the billing account ID, use [BillingAccountService.List](/docs/billing/api-ref/BillingAccount/list#List) request. ||
+To get the billing account ID, use [BillingAccountService.List](/docs/billing/api-ref/BillingAccount/list#List) request.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListBudgetsResponse.nextPageToken](#yandex.cloud.billing.v1.ListBudgetsResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results,
 set `pageToken` to the [ListBudgetsResponse.nextPageToken](#yandex.cloud.billing.v1.ListBudgetsResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.billing.v1.ListBudgetsResponse}
@@ -215,7 +224,6 @@ ID of the billing account that the budget belongs to. ||
 
 Status of the budget.
 
-- `BUDGET_STATUS_UNSPECIFIED`
 - `CREATING`: The budget is being created.
 - `ACTIVE`: The budget is active.
 - `FINISHED`: The budget is finished. ||
@@ -254,7 +262,9 @@ Required field. Max cost threshold of the budget. Amount currency is the same as
 || notificationUserAccountIds[] | **string**
 
 User account IDs.
-Specified users will be be notified if the budget exceeds. ||
+Specified users will be be notified if the budget exceeds.
+
+The minimum number of elements is 1. ||
 || thresholdRules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule)**
 
 List of the [ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule).
@@ -271,7 +281,6 @@ Includes only one of the fields `resetPeriod`, `startDate`.
 
 Start type of the budget.
 
-- `RESET_PERIOD_TYPE_UNSPECIFIED`
 - `MONTHLY`: Reset budget every month.
 - `QUARTER`: Reset budget every quarter.
 - `ANNUALLY`: Reset budget every year. ||
@@ -299,7 +308,6 @@ Rules that define intermediate cost thresholds of the budget.
 
 Required field. Type of the rule.
 
-- `THRESHOLD_TYPE_UNSPECIFIED`
 - `PERCENT`: Percent.
 - `AMOUNT`: The same as budget amount. ||
 || amount | **string**
@@ -360,7 +368,9 @@ Required field. Max expense threshold of the budget. Amount currency is the same
 || notificationUserAccountIds[] | **string**
 
 User account IDs.
-Specified users will be be notified if the budget exceeds. ||
+Specified users will be be notified if the budget exceeds.
+
+The minimum number of elements is 1. ||
 || thresholdRules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule)**
 
 List of the [ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule).
@@ -377,7 +387,6 @@ Includes only one of the fields `resetPeriod`, `startDate`.
 
 Start type of the budget.
 
-- `RESET_PERIOD_TYPE_UNSPECIFIED`
 - `MONTHLY`: Reset budget every month.
 - `QUARTER`: Reset budget every quarter.
 - `ANNUALLY`: Reset budget every year. ||
@@ -407,7 +416,9 @@ Required field. Max balance threshold of the budget. Amount currency is the same
 || notificationUserAccountIds[] | **string**
 
 User account IDs.
-Specified users will be be notified if the budget exceeds. ||
+Specified users will be be notified if the budget exceeds.
+
+The minimum number of elements is 1. ||
 || thresholdRules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule)**
 
 List of the [ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule).

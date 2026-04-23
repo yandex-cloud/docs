@@ -27,6 +27,9 @@ Required permissions:
 All methods in this service require one of the following permissions on the specified billing account:
 - `billing.accounts.getReport`
 
+Rate limits:
+This API is limited to 1 request per minute per IP address.
+
 ## Methods
 
 #|
@@ -38,4 +41,5 @@ All methods in this service require one of the following permissions on the spec
 || [GetSKUUsageReport](getSKUUsageReport.md) | Returns aggregated usage report by SKU (Stock Keeping Unit) ||
 || [GetResourceUsageReport](getResourceUsageReport.md) | Returns aggregated usage report by individual resource ||
 || [GetLabelKeyUsageReport](getLabelKeyUsageReport.md) | Returns aggregated usage report by label keys and values ||
+|| [GetServiceInstanceUsageReport](getServiceInstanceUsageReport.md) | Returns aggregated usage report for the specified service instances ||
 |#

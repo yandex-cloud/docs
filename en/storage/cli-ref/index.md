@@ -104,6 +104,10 @@ Syntax:
 
   - [yc storage s3api upload-part-copy](s3api/upload-part-copy.md) — Uploads a part by copying data from an existing object as data source
 
+- [yc storage v0](v0/index.md) — Manage Yandex Object Storage resources
+
+
+
 #### Global Flags
 
 #|

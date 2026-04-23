@@ -108,15 +108,15 @@ editable: false
           "size": "string"
         },
         "autoScale": {
-          "minSize": "string",
-          "maxSize": "string",
           // Includes only one of the fields `targetTracking`
           "targetTracking": {
             // Includes only one of the fields `cpuUtilizationPercent`
             "cpuUtilizationPercent": "string"
             // end of the list of possible fields
-          }
+          },
           // end of the list of possible fields
+          "minSize": "string",
+          "maxSize": "string"
         }
         // end of the list of possible fields
       },
@@ -124,10 +124,10 @@ editable: false
       "subnetIds": [
         "string"
       ],
-      "assignPublicIps": "boolean",
       "securityGroupIds": [
         "string"
-      ]
+      ],
+      "assignPublicIps": "boolean"
     },
     "serverlessDatabase": {
       "throttlingRcuLimit": "string",
@@ -155,15 +155,15 @@ editable: false
         "size": "string"
       },
       "autoScale": {
-        "minSize": "string",
-        "maxSize": "string",
         // Includes only one of the fields `targetTracking`
         "targetTracking": {
           // Includes only one of the fields `cpuUtilizationPercent`
           "cpuUtilizationPercent": "string"
           // end of the list of possible fields
-        }
+        },
         // end of the list of possible fields
+        "minSize": "string",
+        "maxSize": "string"
       }
       // end of the list of possible fields
     },
@@ -437,8 +437,8 @@ Includes only one of the fields `dedicatedDatabase`, `serverlessDatabase`. ||
 || scalePolicy | **[ScalePolicy](#yandex.cloud.ydb.v1.ScalePolicy)** ||
 || networkId | **string** ||
 || subnetIds[] | **string** ||
-|| assignPublicIps | **boolean** ||
 || securityGroupIds[] | **string** ||
+|| assignPublicIps | **boolean** ||
 |#
 
 ## StorageConfig {#yandex.cloud.ydb.v1.StorageConfig}
@@ -475,18 +475,24 @@ Includes only one of the fields `fixedScale`, `autoScale`. ||
 
 #|
 ||Field | Description ||
-|| size | **string** (int64) ||
+|| size | **string** (int64)
+
+The minimum value is 1. ||
 |#
 
 ## AutoScale {#yandex.cloud.ydb.v1.ScalePolicy.AutoScale}
 
 #|
 ||Field | Description ||
-|| minSize | **string** (int64) ||
-|| maxSize | **string** (int64) ||
 || targetTracking | **[TargetTracking](#yandex.cloud.ydb.v1.ScalePolicy.AutoScale.TargetTracking)**
 
 Includes only one of the fields `targetTracking`. ||
+|| minSize | **string** (int64)
+
+The minimum value is 1. ||
+|| maxSize | **string** (int64)
+
+The minimum value is 1. ||
 |#
 
 ## TargetTracking {#yandex.cloud.ydb.v1.ScalePolicy.AutoScale.TargetTracking}
@@ -494,6 +500,8 @@ Includes only one of the fields `targetTracking`. ||
 #|
 ||Field | Description ||
 || cpuUtilizationPercent | **string** (int64)
+
+Acceptable values are 10 to 90, inclusive.
 
 Includes only one of the fields `cpuUtilizationPercent`. ||
 |#

@@ -7,8 +7,8 @@ description: Из статьи вы узнаете, какие методы S3 A
 
 Метод | Описание
 ----- | -----
-[upload](cors/upload.md) | Загружает конфигурацию бакета для [CORS](../../concepts/cors.md) в {{ objstorage-name }}.
-[get](cors/get.md) | Возвращает конфигурацию бакета для CORS из {{ objstorage-name }}.
-[delete](cors/delete.md) | Удаляет конфигурацию бакета для CORS.
+[PutBucketCors](cors/upload.md) | Загружает конфигурацию бакета для [CORS](../../concepts/cors.md) в {{ objstorage-name }}.
+[GetBucketCors](cors/get.md) | Возвращает конфигурацию бакета для CORS из {{ objstorage-name }}.
+[DeleteBucketCors](cors/delete.md) | Удаляет конфигурацию бакета для CORS.
 
 {% include [the-s3-api-see-also-include](../../../_includes/storage/the-s3-api-see-also-include.md) %}

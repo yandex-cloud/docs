@@ -52,7 +52,7 @@ description: Следуя данной инструкции, вы сможете
 * Доступных облаках, сервисах, продуктах (SKU), ключах меток и диапазонах дат воспользуйтесь вызовом gRPC API [Metadata/GetUsage](../usage/api-ref/grpc/Metadata/getUsage.md).
 * Доступных ключах и значениях меток воспользуйтесь вызовом gRPC API [Metadata/GetLabel](../usage/api-ref/grpc/Metadata/getLabel.md).
 * Доступных каталогах для указанных облаков воспользуйтесь вызовом gRPC API [Metadata/GetCloud](../usage/api-ref/grpc/Metadata/getCloud.md).
-* Всех доступных идентификаторах ресурсов в диапазоне дат воспользуйтесь вызовом gRPC API [Metadata/GetResourceIDs](../usage/api-ref/grpc/Metadata/getResourceIDs.md).
+* Всех доступных идентификаторах ресурсов в диапазоне дат воспользуйтесь вызовом gRPC API [Metadata/GetResources](../usage/api-ref/grpc/Metadata/getResources.md).
 
 Подробнее см. в справочнике API [Metadata](../usage/api-ref/grpc/Metadata/index.md).
 

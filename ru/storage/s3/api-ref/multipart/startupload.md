@@ -1,4 +1,4 @@
-# Метод startUpload
+# Object Storage API, REST совместимый с Amazon S3: CreateMultipartUpload
 
 Возвращает идентификатор, который следует использовать во всех дальнейших операциях по загрузке объекта.
 

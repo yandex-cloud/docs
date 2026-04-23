@@ -8,11 +8,11 @@ description: Следуя данной инструкции, вы сможете
 В {{ mgp-name }} в качестве [внешнего источника данных](../../concepts/external-tables.md#pxf-data-sources) с типом подключения JDBC можно использовать:
 
 * {{ CH }};
-* HBase;
 * {{ MY }};
 * Oracle;
 * {{ PG }};
-* {{ MS }}.
+* {{ MS }};
+* {{ TR }}.
 
 В этот список входят управляемые БД {{ yandex-cloud }} и сторонние БД.
 
@@ -31,6 +31,8 @@ description: Следуя данной инструкции, вы сможете
     1. Укажите имя источника.
     1. Задайте хотя бы одну [опциональную настройку](../../concepts/settings-list.md#jdbc-settings).
     1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+
+    После создания внешнего источника данных [создайте внешнюю таблицу](create-table.md).
 
 - CLI {#cli}
 
@@ -73,6 +75,8 @@ description: Следуя данной инструкции, вы сможете
 
         Вы также можете указать [дополнительные настройки](../../concepts/settings-list.md#jdbc-settings).
 
+    После создания внешнего источника данных [создайте внешнюю таблицу](create-table.md).
+
 - REST API {#api}
 
     1. [Получите IAM-токен для аутентификации в API](../../api-ref/authentication.md) и поместите токен в переменную среды окружения:
@@ -109,6 +113,8 @@ description: Следуя данной инструкции, вы сможете
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
 
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/PXFDatasource/create.md#yandex.cloud.operation.Operation).
+
+    После создания внешнего источника данных [создайте внешнюю таблицу](create-table.md).
 
 - gRPC API {#grpc-api}
 
@@ -152,6 +158,43 @@ description: Следуя данной инструкции, вы сможете
         Идентификатор кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
 
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/grpc/PXFDatasource/create.md#yandex.cloud.operation.Operation).
+
+    После создания внешнего источника данных [создайте внешнюю таблицу](create-table.md).
+
+- SQL {#sql}
+
+  Этот способ подходит для {{ mgp-name }}, использующего [Apache Cloudberry™](https://cloudberry.apache.org).
+  
+  Чтобы создать внешний источник данных и внешнюю таблицу с помощью SQL, выполните следующие действия:
+
+  1. Создайте внешний источник данных: 
+
+      ```sql
+      CREATE SERVER pgserver
+        FOREIGN DATA WRAPPER jdbc_pxf_fdw
+        OPTIONS (
+          CONFIG 'default',
+          JDBC_DRIVER 'org.postgresql.Driver',
+          DB_URL 'jdbc:postgresql://host:5432/db',
+          USER '<имя_пользователя>',
+          PASS '<пароль>'
+        );
+      ```
+  
+  1. Создайте сопоставление локального пользователя с пользователем на внешнем источнике:
+  
+      ```sql
+      CREATE USER MAPPING FOR CURRENT_USER
+        SERVER "pgserver";
+      ```
+
+  1. Создайте внешнюю таблицу:
+
+      ```sql
+      CREATE FOREIGN TABLE <имя_таблицы>
+        (<имя_столбца> <тип_данных> [, ...])
+        SERVER "pgserver";
+      ```
 
 {% endlist %}
 

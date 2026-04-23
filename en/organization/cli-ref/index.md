@@ -122,6 +122,10 @@ Syntax:
 
   - [yc organization-manager user remove](user/remove.md) — Remove user accounts from the specified organization
 
+- [yc organization-manager v0](v0/index.md) — Manage Yandex Organization Manager resources
+
+
+
 #### Global Flags
 
 #|

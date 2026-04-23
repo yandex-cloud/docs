@@ -1,4 +1,4 @@
-# Метод patch
+# Object Storage API, REST совместимый с Amazon S3: patch
 
 [Частично изменяет и дозаписывает данные объекта](../../../concepts/object-patch.md) в {{ objstorage-full-name }}.
 

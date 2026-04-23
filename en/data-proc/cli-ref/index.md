@@ -84,6 +84,10 @@ Syntax:
 
   - [yc dataproc subcluster update](subcluster/update.md) — Modify configuration or attributes of a subcluster.
 
+- [yc dataproc v0](v0/index.md) — Manage data processing clusters.
+
+
+
 #### Global Flags
 
 #|

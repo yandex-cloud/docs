@@ -128,6 +128,10 @@ Aliases:
 
   - [yc managed-greenplum users update](users/update.md) — Update user for specified Greenplum cluster
 
+- [yc managed-greenplum v0](v0/index.md) — Manage Greenplum clusters and hosts.
+
+  - [yc managed-greenplum v0 connect](v0/connect.md) — Connect to Greenplum cluster with iam-auth
+
 #### Global Flags
 
 #|

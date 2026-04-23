@@ -16,12 +16,12 @@ Syntax:
 
 #|
 ||Flag | Description ||
-|| `--security-profile-id` | `string`
+|| `--id` | `string`
 
 ID of the SecurityProfile resource to return. ||
 || `--name` | `string`
 
-Resolve security-profile-id by resource name within the current scope. ||
+Resolve id by resource name within the current scope. ||
 |#
 
 #### Global Flags

@@ -1,4 +1,4 @@
-# Метод putObjectLegalHold
+# Object Storage API, REST совместимый с Amazon S3: PutObjectLegalHold
 
 Устанавливает на версию объекта бессрочную [блокировку](../../../concepts/object-lock.md) или снимает ее.
 

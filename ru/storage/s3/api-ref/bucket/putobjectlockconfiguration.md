@@ -1,4 +1,4 @@
-# Метод putObjectLockConfiguration
+# Object Storage API, REST совместимый с Amazon S3: PutObjectLockConfiguration
 
 Настраивает механизм [блокировок версий объектов](../../../concepts/object-lock.md) в [версионируемом](../../../concepts/versioning.md) бакете: включает или выключает механизм и настраивает блокировки по умолчанию.
 

@@ -44,6 +44,10 @@ Aliases:
 
   - [yc certificate-manager certificate update](certificate/update.md) — Update the specified certificate
 
+- [yc certificate-manager v0](v0/index.md) — Manage Certificate Manager resources
+
+
+
 #### Global Flags
 
 #|

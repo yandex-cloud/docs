@@ -14,6 +14,7 @@ apiPlayground:
             results is larger than `pageSize`,
             the service returns a [ListBillingAccountsResponse.nextPageToken](#yandex.cloud.billing.v1.ListBillingAccountsResponse)
             that can be used to get the next page of results in subsequent list requests.
+            The maximum value is 1000.
           type: string
           format: int64
         pageToken:
@@ -22,6 +23,7 @@ apiPlayground:
             Page token. To get the next page of results,
             set `pageToken` to the [ListBillingAccountsResponse.nextPageToken](#yandex.cloud.billing.v1.ListBillingAccountsResponse)
             returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
     body: null
@@ -47,12 +49,16 @@ GET https://billing.{{ api-host }}/billing/v1/billingAccounts
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListBillingAccountsResponse.nextPageToken](#yandex.cloud.billing.v1.ListBillingAccountsResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results,
 set `pageToken` to the [ListBillingAccountsResponse.nextPageToken](#yandex.cloud.billing.v1.ListBillingAccountsResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.billing.v1.ListBillingAccountsResponse}

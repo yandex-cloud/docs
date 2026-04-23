@@ -150,6 +150,78 @@ items:
             href: cli-ref/image/list.md
           - name: update
             href: cli-ref/image/update.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: desktop
+            items:
+              - name: Overview
+                href: cli-ref/v0/desktop/index.md
+              - name: create
+                href: cli-ref/v0/desktop/create.md
+              - name: delete
+                href: cli-ref/v0/desktop/delete.md
+              - name: get
+                href: cli-ref/v0/desktop/get.md
+              - name: get-rdp-file
+                href: cli-ref/v0/desktop/get-rdp-file.md
+              - name: list
+                href: cli-ref/v0/desktop/list.md
+              - name: list-operations
+                href: cli-ref/v0/desktop/list-operations.md
+              - name: reset-password
+                href: cli-ref/v0/desktop/reset-password.md
+              - name: restart
+                href: cli-ref/v0/desktop/restart.md
+              - name: start
+                href: cli-ref/v0/desktop/start.md
+              - name: stop
+                href: cli-ref/v0/desktop/stop.md
+              - name: update
+                href: cli-ref/v0/desktop/update.md
+              - name: update-properties
+                href: cli-ref/v0/desktop/update-properties.md
+          - name: group
+            items:
+              - name: Overview
+                href: cli-ref/v0/group/index.md
+              - name: add-access-bindings
+                href: cli-ref/v0/group/add-access-bindings.md
+              - name: create
+                href: cli-ref/v0/group/create.md
+              - name: delete
+                href: cli-ref/v0/group/delete.md
+              - name: get
+                href: cli-ref/v0/group/get.md
+              - name: list
+                href: cli-ref/v0/group/list.md
+              - name: list-access-bindings
+                href: cli-ref/v0/group/list-access-bindings.md
+              - name: list-desktops
+                href: cli-ref/v0/group/list-desktops.md
+              - name: list-operations
+                href: cli-ref/v0/group/list-operations.md
+              - name: remove-access-bindings
+                href: cli-ref/v0/group/remove-access-bindings.md
+              - name: set-access-bindings
+                href: cli-ref/v0/group/set-access-bindings.md
+              - name: update
+                href: cli-ref/v0/group/update.md
+          - name: image
+            items:
+              - name: Overview
+                href: cli-ref/v0/image/index.md
+              - name: copy
+                href: cli-ref/v0/image/copy.md
+              - name: delete
+                href: cli-ref/v0/image/delete.md
+              - name: get
+                href: cli-ref/v0/image/get.md
+              - name: list
+                href: cli-ref/v0/image/list.md
+              - name: update
+                href: cli-ref/v0/image/update.md
   - name: Справочник API
     items:
       - name: Аутентификация в API

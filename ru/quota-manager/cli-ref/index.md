@@ -34,6 +34,10 @@ Syntax:
 
   - [yc quota-manager quota-request list-operations](quota-request/list-operations.md) — List operations for the specified quota request
 
+- [yc quota-manager v0](v0/index.md) — Manage Yandex Quota Manager resources
+
+
+
 #### Global Flags
 
 #|

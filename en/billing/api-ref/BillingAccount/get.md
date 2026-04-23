@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the billing account to return.
             To get the billing account ID, use [BillingAccountService.List](/docs/billing/api-ref/BillingAccount/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - id
@@ -37,7 +38,9 @@ GET https://billing.{{ api-host }}/billing/v1/billingAccounts/{id}
 || id | **string**
 
 Required field. ID of the billing account to return.
-To get the billing account ID, use [BillingAccountService.List](/docs/billing/api-ref/BillingAccount/list#List) request. ||
+To get the billing account ID, use [BillingAccountService.List](/docs/billing/api-ref/BillingAccount/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.billing.v1.BillingAccount}

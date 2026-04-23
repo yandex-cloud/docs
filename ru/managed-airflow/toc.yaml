@@ -145,6 +145,38 @@ items:
             href: cli-ref/cluster/stop.md
           - name: update
             href: cli-ref/cluster/update.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: cluster
+            items:
+              - name: Overview
+                href: cli-ref/v0/cluster/index.md
+              - name: add-access-binding
+                href: cli-ref/v0/cluster/add-access-binding.md
+              - name: create
+                href: cli-ref/v0/cluster/create.md
+              - name: delete
+                href: cli-ref/v0/cluster/delete.md
+              - name: get
+                href: cli-ref/v0/cluster/get.md
+              - name: list
+                href: cli-ref/v0/cluster/list.md
+              - name: list-access-bindings
+                href: cli-ref/v0/cluster/list-access-bindings.md
+              - name: list-operations
+                href: cli-ref/v0/cluster/list-operations.md
+              - name: remove-access-binding
+                href: cli-ref/v0/cluster/remove-access-binding.md
+              - name: set-access-bindings
+                href: cli-ref/v0/cluster/set-access-bindings.md
+              - name: start
+                href: cli-ref/v0/cluster/start.md
+              - name: stop
+                href: cli-ref/v0/cluster/stop.md
+              - name: update
+                href: cli-ref/v0/cluster/update.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

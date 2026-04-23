@@ -25,9 +25,6 @@ Description of the routing-instance. ||
 || `--labels` | `key=value[,key=value...]`
 
 A list of routing-instance labels as key-value pairs. ||
-|| `--region` | `string`
-
-Region of the routing-instance. ||
 || `--cic-prc` | `value[,value]`
 
 CIC private connection ids of the routing-instance. ||

@@ -10,7 +10,7 @@ Follow this tutorial to set up payments for your organization's resources.
 ## Activate the paid version {#pay-activate}
 
 1. In [{{ billing-name }}]({{ link-console-billing }}) on the **{{ ui-key.yacloud_billing.billing.title_accounts }}** page, select the billing account.
-1. On the **{{ ui-key.yacloud_billing.billing.account.switch_overview }}** page, click **{{ ui-key.yacloud_billing.billing.account.button_billing-payment-action }}**.
+1. On the ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}** page, click **{{ ui-key.yacloud_billing.billing.account.button_billing-payment-action }}**.
 1. Confirm the action by clicking **{{ ui-key.yacloud_billing.billing.account.button_billing-payment-action }}** again.
 
 Upon activation of the paid version, your [personal account balance](../../billing/concepts/personal-account.md#balance) will be zero by default. We recommend that you keep track and [maintain a positive balance](../../billing/operations/pay-the-bill.md) at all times.

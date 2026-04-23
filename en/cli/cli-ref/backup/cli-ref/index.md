@@ -60,6 +60,10 @@ Syntax:
 
   - [yc backup provider activate](provider/activate.md) — Activate backup provider
 
+- [yc backup v0](v0/index.md) — Manage Yandex Cloud Backup resources
+
+
+
 - [yc backup vm](vm/index.md) — Manage resources
 
   - [yc backup vm delete](vm/delete.md) — Delete the resource

@@ -23,7 +23,9 @@ Returns the specified service.
 || id | **string**
 
 Required field. ID of the service to return.
-To get the service ID, use [ServiceService.List](/docs/billing/api-ref/grpc/Service/list#List) request. ||
+To get the service ID, use [ServiceService.List](/docs/billing/api-ref/grpc/Service/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Service {#yandex.cloud.billing.v1.Service}

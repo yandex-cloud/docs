@@ -120,12 +120,54 @@ editable: false
     "attributeMapping": {
       "nameId": {
         "format": "string",
-        "value": "string"
+        "value": "string",
+        "transformations": [
+          {
+            // Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`
+            "extractBefore": {
+              "value": "string"
+            },
+            "extractAfter": {
+              "value": "string"
+            },
+            "ifEmpty": {
+              // Includes only one of the fields `attributeName`, `constant`
+              "attributeName": "string",
+              "constant": "string"
+              // end of the list of possible fields
+            },
+            "constant": {
+              "value": "string"
+            }
+            // end of the list of possible fields
+          }
+        ]
       },
       "attributes": [
         {
           "name": "string",
-          "value": "string"
+          "value": "string",
+          "transformations": [
+            {
+              // Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`
+              "extractBefore": {
+                "value": "string"
+              },
+              "extractAfter": {
+                "value": "string"
+              },
+              "ifEmpty": {
+                // Includes only one of the fields `attributeName`, `constant`
+                "attributeName": "string",
+                "constant": "string"
+                // end of the list of possible fields
+              },
+              "constant": {
+                "value": "string"
+              }
+              // end of the list of possible fields
+            }
+          ]
         }
       ]
     }
@@ -395,6 +437,58 @@ A list of messages that carry the error details. ||
 - `PERSISTENT`
 - `EMAIL` ||
 || value | **string** ||
+|| transformations[] | **[Transformation](#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Transformation)** ||
+|#
+
+## Transformation {#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Transformation}
+
+#|
+||Field | Description ||
+|| extractBefore | **[ExtractBefore](#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Transformation.ExtractBefore)**
+
+Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`. ||
+|| extractAfter | **[ExtractAfter](#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Transformation.ExtractAfter)**
+
+Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`. ||
+|| ifEmpty | **[IfEmpty](#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Transformation.IfEmpty)**
+
+Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`. ||
+|| constant | **[Constant](#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Transformation.Constant)**
+
+Includes only one of the fields `extractBefore`, `extractAfter`, `ifEmpty`, `constant`. ||
+|#
+
+## ExtractBefore {#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Transformation.ExtractBefore}
+
+#|
+||Field | Description ||
+|| value | **string** ||
+|#
+
+## ExtractAfter {#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Transformation.ExtractAfter}
+
+#|
+||Field | Description ||
+|| value | **string** ||
+|#
+
+## IfEmpty {#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Transformation.IfEmpty}
+
+#|
+||Field | Description ||
+|| attributeName | **string**
+
+Includes only one of the fields `attributeName`, `constant`. ||
+|| constant | **string**
+
+Includes only one of the fields `attributeName`, `constant`. ||
+|#
+
+## Constant {#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Transformation.Constant}
+
+#|
+||Field | Description ||
+|| value | **string** ||
 |#
 
 ## Attribute {#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Attribute}
@@ -403,4 +497,5 @@ A list of messages that carry the error details. ||
 ||Field | Description ||
 || name | **string** ||
 || value | **string** ||
+|| transformations[] | **[Transformation](#yandex.cloud.audit.organizationmanager.application.saml.AttributeMappingDetails.Transformation)** ||
 |#

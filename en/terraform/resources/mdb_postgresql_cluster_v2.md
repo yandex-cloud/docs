@@ -67,6 +67,7 @@ resource "yandex_vpc_subnet" "foo" {
 - `hosts` [Block]. A host configuration of the PostgreSQL cluster.
   - `assign_public_ip` (Bool). Whether the host should get a public IP address.
   - `fqdn` (*Read-Only*) (String). The fully qualified domain name of the host.
+  - `priority` (Number). Host priority in HA group. Must be between 0 and 100.
   - `replication_source` (String). FQDN of the host that is used as a replication source.
   - `subnet_id` (String). ID of the subnet where the host is located.
   - `zone` (**Required**)(String). The availability zone where the host is located.

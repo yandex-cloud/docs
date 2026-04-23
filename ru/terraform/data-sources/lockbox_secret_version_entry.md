@@ -57,29 +57,14 @@ output "db_password" {
   sensitive = true
 }
 ```
-```terraform
-//
-// Get a binary entry from a Lockbox secret version by key.
-// The binary_value attribute contains the raw bytes encoded as a base64 string.
-//
-data "yandex_lockbox_secret_version_entry" "tls_cert" {
-  secret_id = "some-secret-id"
-  key       = "tls_cert"
-}
-
-output "tls_cert_b64" {
-  value     = data.yandex_lockbox_secret_version_entry.tls_cert.binary_value
-  sensitive = true
-}
-```
 
 ## Arguments & Attributes Reference
 
+- `binary_value` (*Read-Only*) (String). The binary value of the entry encoded as a base64 string. Populated when the entry holds binary data. Mutually exclusive with `text_value`.
 - `id` (String). 
 - `key` (**Required**)(String). The key of the entry to retrieve.
 - `secret_id` (**Required**)(String). The Yandex Cloud Lockbox secret ID.
+- `text_value` (*Read-Only*) (String). The text value of the entry. Populated when the entry holds a UTF-8 string. Mutually exclusive with `binary_value`.
 - `version_id` (String). The Yandex Cloud Lockbox secret version ID. If omitted, the current (latest) version is used.
-- `text_value` (*Read-Only*) (String, Sensitive). The text value of the entry. Populated when the entry holds a UTF-8 string. Mutually exclusive with `binary_value`.
-- `binary_value` (*Read-Only*) (String, Sensitive). The binary value of the entry encoded as a base64 string. Populated when the entry holds binary data. Mutually exclusive with `text_value`.
 
 

@@ -80,6 +80,10 @@ Syntax:
 
   - [yc iot registry update](registry/update.md) — Update specified registry
 
+- [yc iot v0](v0/index.md) — Manage Yandex IoT Core resources
+
+
+
 #### Global Flags
 
 #|

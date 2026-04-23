@@ -2248,6 +2248,12 @@ default:
         30000000|number: 0.051785683
         6000000|number: 0.088035701
         60000000|number: 0.036249968
+    reinit:
+      assistant:
+        v1|number: 0.77678575
+        v1|string: "0,77678575\_₸"
+      tag:
+        v1|string: "0,061124125\_₸"
   sku|KZT|storage:
     api:
       get:
@@ -2822,6 +2828,12 @@ default:
         30000000|number: 0.01016666
         6000000|number: 0.01728333
         60000000|number: 0.00711666
+    reinit:
+      assistant:
+        v1|number: 0.1525
+        v1|string: "0,1525\_₽"
+      tag:
+        v1|string: "0,012\_₽"
   sku|RUB|storage:
     api:
       get:
@@ -3378,6 +3390,12 @@ default:
         30000000|number: 0.000083333
         6000000|number: 0.000141667
         60000000|number: 0.000058333
+    reinit:
+      assistant:
+        v1|number: 0.00125
+        v1|string: "0,00125\_$"
+      tag:
+        v1|string: "0,000098361\_$"
   sku|USD|storage:
     api:
       get:
@@ -3826,6 +3844,7 @@ default:
             payment-type_label_card: Банковская карта
             payment-type_label_invoice: Банковский перевод
             section_account-data: Общие сведения
+            section_contract: Информация о договоре
             usage-type_label_paid: Платная версия
           reconciliation-reports:
             action_download-with-facsimile: Скачать подписанный акт
@@ -3841,7 +3860,6 @@ default:
           switch_exports: Экспорт детализации
           switch_history: История платежей
           switch_offers: Резервируемый объём
-          switch_overview: Данные аккаунта
           switch_users: Управление доступом
           tab_acts-title: Закрывающие документы
           tab_reconciliation-reports-title: Акты сверки
@@ -4382,6 +4400,8 @@ default:
         account:
           button_enable-edm-action: Подключить ЭДО
           dashboard-info:
+            contract_label_general: Прямой
+            contract_label_offer: Оферта
             section_contract: Информация о договоре
             title_main: Информация об аккаунте
           detail:

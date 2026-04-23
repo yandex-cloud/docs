@@ -1,4 +1,4 @@
-# Метод getBucketEncryption
+# Object Storage API, REST совместимый с Amazon S3: GetBucketEncryption
 
 Возвращает информацию о шифровании бакета. Подробнее о шифровании бакета читайте в разделе [{#T}](../../../concepts/encryption.md).
 

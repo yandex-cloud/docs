@@ -1,0 +1,111 @@
+---
+editable: false
+---
+
+# yc datatransfer v0 endpoint
+
+Manage endpoints
+
+#### Command Usage
+
+Syntax:
+
+`yc datatransfer endpoint <group|command>`
+
+#### Command Tree
+
+- [yc datatransfer v0 endpoint delete](delete.md) — Delete endpoint
+
+- [yc datatransfer v0 endpoint get](get.md) — Get endpoint
+
+- [yc datatransfer v0 endpoint list](list.md) — List endpoints in folder
+
+- [yc datatransfer v0 endpoint create](create/index.md) — Create endpoint
+
+  - [yc datatransfer v0 endpoint create clickhouse-source](create/clickhouse-source.md) — Create Clickhouse source
+
+  - [yc datatransfer v0 endpoint create clickhouse-target](create/clickhouse-target.md) — Create Clickhouse target
+
+  - [yc datatransfer v0 endpoint create mongo-source](create/mongo-source.md) — Create MongoDB source
+
+  - [yc datatransfer v0 endpoint create mongo-target](create/mongo-target.md) — Create MongoDB target
+
+  - [yc datatransfer v0 endpoint create mysql-source](create/mysql-source.md) — Create MySQL source
+
+  - [yc datatransfer v0 endpoint create mysql-target](create/mysql-target.md) — Create MySQL target
+
+  - [yc datatransfer v0 endpoint create postgres-source](create/postgres-source.md) — Create PostgreSQL source
+
+  - [yc datatransfer v0 endpoint create postgres-target](create/postgres-target.md) — Create PostgreSQL target
+
+  - [yc datatransfer v0 endpoint create yds-source](create/yds-source.md) — Create YDS source
+
+  - [yc datatransfer v0 endpoint create yds-target](create/yds-target.md) — Create YDS target
+
+- [yc datatransfer v0 endpoint update](update/index.md) — Update endpoint
+
+  - [yc datatransfer v0 endpoint update clickhouse-source](update/clickhouse-source.md) — Update Clickhouse source
+
+  - [yc datatransfer v0 endpoint update clickhouse-target](update/clickhouse-target.md) — Update Clickhouse target
+
+  - [yc datatransfer v0 endpoint update mongo-source](update/mongo-source.md) — Update MongoDB source
+
+  - [yc datatransfer v0 endpoint update mongo-target](update/mongo-target.md) — Update MongoDB target
+
+  - [yc datatransfer v0 endpoint update mysql-source](update/mysql-source.md) — Update MySQL source
+
+  - [yc datatransfer v0 endpoint update mysql-target](update/mysql-target.md) — Update MySQL target
+
+  - [yc datatransfer v0 endpoint update postgres-source](update/postgres-source.md) — Update PostgreSQL source
+
+  - [yc datatransfer v0 endpoint update postgres-target](update/postgres-target.md) — Update PostgreSQL target
+
+  - [yc datatransfer v0 endpoint update yds-source](update/yds-source.md) — Update YDS source
+
+  - [yc datatransfer v0 endpoint update yds-target](update/yds-target.md) — Update YDS target
+
+#### Global Flags
+
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom configuration file. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--syntax` | `string`
+
+CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
+|| `--token` | `string`
+
+Set the OAuth token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

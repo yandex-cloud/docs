@@ -1,4 +1,4 @@
-# Метод PutBucketPolicy
+# Object Storage API, REST совместимый с Amazon S3: PutBucketPolicy
 
 Применяет политику доступа к заданному бакету.
 

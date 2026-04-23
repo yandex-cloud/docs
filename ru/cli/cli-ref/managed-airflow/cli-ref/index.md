@@ -44,6 +44,10 @@ Aliases:
 
   - [yc managed-airflow cluster update](cluster/update.md) — Update the specified Airflow cluster
 
+- [yc managed-airflow v0](v0/index.md) — Manage Airflow clusters.
+
+
+
 #### Global Flags
 
 #|

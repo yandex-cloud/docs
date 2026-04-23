@@ -286,18 +286,23 @@ items:
                   - name: GetLabelKeyUsageReport
                     href: >-
                       usage/api-ref/grpc/ConsumptionCore/getLabelKeyUsageReport.md
+                  - name: GetServiceInstanceUsageReport
+                    href: >-
+                      usage/api-ref/grpc/ConsumptionCore/getServiceInstanceUsageReport.md
               - name: Metadata
                 items:
                   - name: Overview
                     href: usage/api-ref/grpc/Metadata/index.md
                   - name: GetUsage
                     href: usage/api-ref/grpc/Metadata/getUsage.md
+                  - name: GetServiceInstance
+                    href: usage/api-ref/grpc/Metadata/getServiceInstance.md
                   - name: GetLabel
                     href: usage/api-ref/grpc/Metadata/getLabel.md
                   - name: GetCloud
                     href: usage/api-ref/grpc/Metadata/getCloud.md
-                  - name: GetResourceIDs
-                    href: usage/api-ref/grpc/Metadata/getResourceIDs.md
+                  - name: GetResources
+                    href: usage/api-ref/grpc/Metadata/getResources.md
       - name: REST (англ.)
         items:
           - name: Billing

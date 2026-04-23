@@ -1,4 +1,4 @@
-# Метод GetBucketPolicy
+# Object Storage API, REST совместимый с Amazon S3: GetBucketPolicy
 
 Возвращает политику доступа для заданного бакета.
 

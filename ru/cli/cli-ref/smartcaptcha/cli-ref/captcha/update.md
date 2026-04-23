@@ -39,7 +39,7 @@ Usage example:
 || `--allowed-sites` | `[]string`
 
 List of allowed host names, see documentation. ||
-|| `--captcha-id` | `string`
+|| `--id` | `string`
 
 ID of the captcha to update. ||
 || `--challenge-type` | `enum`

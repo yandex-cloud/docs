@@ -7,6 +7,40 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.5.0 (23.04.26) {#v-1-5-0}
+
+#### Изменения в системных командах CLI {#v-1-5-0-yc}
+
+* В командах CLI появилось версионирование. Оно реализовано посервисно в виде дерева дочерних команд c номером версии, например `yc compute v0`.
+
+#### {{ interconnect-name }} {#v-1-5-0-cic-name}
+
+* Удален параметр `--region` в командах:
+  * `yc cic private-connection create`;
+  * `yc cic private-connection update`;
+  * `yc cic trunk-connection update`.
+
+* Удален параметр `--point_of_presence_id` в команде `yc cic trunk-connection update`.
+
+* Удалено значение `cloud-bgp-asn` параметра `--ipv4-peering` в командах:
+  * `yc cic private-connection create`;
+  * `yc cic private-connection update`.
+
+
+#### {{ cr-name }} {#v-1-5-0-cr-name}
+
+* Удален параметр `--region` в командах:
+  * `yc cloudrouter routing-instance create`;
+  * `yc cloudrouter routing-instance update`.
+
+#### {{ mkf-name }} {#v-1-5-0-mkf-name}
+
+* Добавлен параметр `--transactional-id-expiration-ms` в команды:
+  * `yc kafka cluster create`;
+  * `yc kafka cluster update`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.4.0 (20.04.26) {#v-1-4-0}
 
 #### {{ cloud-registry-name }} {#v-1-4-0-cloud-registry-name}
@@ -18,8 +52,6 @@ description: На странице представлены релизы CLI, а
   * `yc cloud-registry registry scan-policy get-by-registry`;
   * `yc cloud-registry registry scan-policy create`;
   * `yc cloud-registry registry scan-policy upd`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.3.0 (16.04.26) {#v-1-3-0}
 

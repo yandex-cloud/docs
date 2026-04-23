@@ -1,4 +1,4 @@
-# Метод getBucketVersioning
+# Object Storage API, REST совместимый с Amazon S3: GetBucketVersioning
 
 Возвращает состояние опции версионирования бакета.
 

@@ -32,9 +32,6 @@ New description for the routing-instance. ||
 || `--labels` | `key=value[,key=value...]`
 
 New set of labels for the routing-instance as key-value pairs. Existing set of labels will be completely overwritten. ||
-|| `--region` | `string`
-
-Region of the routing-instance. ||
 |#
 
 #### Global Flags

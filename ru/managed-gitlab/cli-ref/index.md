@@ -34,6 +34,10 @@ Aliases:
 
   - [yc managed-gitlab instance update](instance/update.md) — Update the specified Gitlab instance
 
+- [yc managed-gitlab v0](v0/index.md) — Manage Gitlab resources.
+
+
+
 #### Global Flags
 
 #|

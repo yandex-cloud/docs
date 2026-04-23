@@ -231,6 +231,64 @@ items:
             href: cli-ref/target-group/remove-targets.md
           - name: update
             href: cli-ref/target-group/update.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: network-load-balancer
+            items:
+              - name: Overview
+                href: cli-ref/v0/network-load-balancer/index.md
+              - name: add-listener
+                href: cli-ref/v0/network-load-balancer/add-listener.md
+              - name: attach-target-group
+                href: cli-ref/v0/network-load-balancer/attach-target-group.md
+              - name: create
+                href: cli-ref/v0/network-load-balancer/create.md
+              - name: delete
+                href: cli-ref/v0/network-load-balancer/delete.md
+              - name: detach-target-group
+                href: cli-ref/v0/network-load-balancer/detach-target-group.md
+              - name: disable-zones
+                href: cli-ref/v0/network-load-balancer/disable-zones.md
+              - name: enable-zones
+                href: cli-ref/v0/network-load-balancer/enable-zones.md
+              - name: get
+                href: cli-ref/v0/network-load-balancer/get.md
+              - name: list
+                href: cli-ref/v0/network-load-balancer/list.md
+              - name: list-operations
+                href: cli-ref/v0/network-load-balancer/list-operations.md
+              - name: remove-listener
+                href: cli-ref/v0/network-load-balancer/remove-listener.md
+              - name: start
+                href: cli-ref/v0/network-load-balancer/start.md
+              - name: stop
+                href: cli-ref/v0/network-load-balancer/stop.md
+              - name: target-states
+                href: cli-ref/v0/network-load-balancer/target-states.md
+              - name: update
+                href: cli-ref/v0/network-load-balancer/update.md
+          - name: target-group
+            items:
+              - name: Overview
+                href: cli-ref/v0/target-group/index.md
+              - name: add-targets
+                href: cli-ref/v0/target-group/add-targets.md
+              - name: create
+                href: cli-ref/v0/target-group/create.md
+              - name: delete
+                href: cli-ref/v0/target-group/delete.md
+              - name: get
+                href: cli-ref/v0/target-group/get.md
+              - name: list
+                href: cli-ref/v0/target-group/list.md
+              - name: list-operations
+                href: cli-ref/v0/target-group/list-operations.md
+              - name: remove-targets
+                href: cli-ref/v0/target-group/remove-targets.md
+              - name: update
+                href: cli-ref/v0/target-group/update.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

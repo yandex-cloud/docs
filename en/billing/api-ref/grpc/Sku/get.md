@@ -25,7 +25,9 @@ Returns the specified SKU.
 || id | **string**
 
 Required field. ID of the SKU to return.
-To get the SKU ID, use [SkuService.List](/docs/billing/api-ref/grpc/Sku/list#List) request. ||
+To get the SKU ID, use [SkuService.List](/docs/billing/api-ref/grpc/Sku/list#List) request.
+
+The maximum string length in characters is 50. ||
 || currency | **string**
 
 Required field. Currency of the SKU.
@@ -104,7 +106,6 @@ Defines current and past prices for the sku.
 
 Type of the pricing version.
 
-- `PRICING_VERSION_TYPE_UNSPECIFIED`
 - `STREET_PRICE`: Regular price.
 - `CONTRACT_PRICE`: Price is overridden by a contract. Defined in the scope of a billing account. ||
 || effective_time | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
