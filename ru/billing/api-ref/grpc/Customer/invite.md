@@ -34,7 +34,9 @@ Invites customer to the specified reseller.
 ||Field | Description ||
 || reseller_id | **string**
 
-Required field. Billing account ID of the reseller that the customer will be associated with. ||
+Required field. Billing account ID of the reseller that the customer will be associated with.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
 Required field. Name of the customer. ||

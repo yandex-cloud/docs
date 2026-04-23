@@ -138,7 +138,8 @@ editable: false
             "offsetsRetentionMinutes": "string",
             "saslEnabledMechanisms": [
               "string"
-            ]
+            ],
+            "transactionalIdExpirationMs": "string"
           },
           "kafkaConfig_3": {
             "compressionType": "string",
@@ -164,7 +165,8 @@ editable: false
             "offsetsRetentionMinutes": "string",
             "saslEnabledMechanisms": [
               "string"
-            ]
+            ],
+            "transactionalIdExpirationMs": "string"
           },
           "kafkaConfig_4": {
             "compressionType": "string",
@@ -189,7 +191,8 @@ editable: false
             "offsetsRetentionMinutes": "string",
             "saslEnabledMechanisms": [
               "string"
-            ]
+            ],
+            "transactionalIdExpirationMs": "string"
           }
           // end of the list of possible fields
         },
@@ -668,6 +671,7 @@ Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`, `kafkaConfig
 
 - `SASL_MECHANISM_SCRAM_SHA_256`
 - `SASL_MECHANISM_SCRAM_SHA_512` ||
+|| transactionalIdExpirationMs | **string** (int64) ||
 |#
 
 ## KafkaConfig3 {#yandex.cloud.mdb.kafka.v1.KafkaConfig3}
@@ -704,6 +708,7 @@ Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`, `kafkaConfig
 
 - `SASL_MECHANISM_SCRAM_SHA_256`
 - `SASL_MECHANISM_SCRAM_SHA_512` ||
+|| transactionalIdExpirationMs | **string** (int64) ||
 |#
 
 ## KafkaConfig4 {#yandex.cloud.mdb.kafka.v1.KafkaConfig4}
@@ -739,6 +744,7 @@ Includes only one of the fields `kafkaConfig_2_8`, `kafkaConfig_3`, `kafkaConfig
 
 - `SASL_MECHANISM_SCRAM_SHA_256`
 - `SASL_MECHANISM_SCRAM_SHA_512` ||
+|| transactionalIdExpirationMs | **string** (int64) ||
 |#
 
 ## Zookeeper {#yandex.cloud.mdb.kafka.v1.ConfigSpec.Zookeeper}

@@ -100,7 +100,7 @@ To specify a bank account for your billing account:
 
    1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
    1. Select a billing account.
-   1. Go to the **{{ ui-key.yacloud_billing.billing.account.switch_overview }}** page.
+   1. Go to the ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}** page.
    1. Click **{{ ui-key.yacloud_billing.billing.account.dashboard-info.company_label_edit_ru }}**.
       This will redirect you to [Yandex Balance](https://balance.yandex.ru/).
    1. Select a payer and click **{{ ui-key.yacloud.common.edit }}**.

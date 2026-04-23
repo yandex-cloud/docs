@@ -32,6 +32,10 @@ Aliases:
 
   - [yc managed-ytsaurus cluster stop](cluster/stop.md) — Stop the specified YTsaurus clusters.
 
+- [yc managed-ytsaurus v0](v0/index.md) — Manage YTsaurus clusters.
+
+
+
 #### Global Flags
 
 #|

@@ -1,4 +1,4 @@
-# Метод get
+# Object Storage API, REST совместимый с Amazon S3: GetBucketCors
 
 Возвращает конфигурацию CORS для бакета.
 

@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the billing account to bind billable object.
             To get the billing account ID, use [BillingAccountService.List](/docs/billing/api-ref/BillingAccount/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - billingAccountId
@@ -59,7 +60,9 @@ POST https://billing.{{ api-host }}/billing/v1/billingAccounts/{billingAccountId
 || billingAccountId | **string**
 
 Required field. ID of the billing account to bind billable object.
-To get the billing account ID, use [BillingAccountService.List](/docs/billing/api-ref/BillingAccount/list#List) request. ||
+To get the billing account ID, use [BillingAccountService.List](/docs/billing/api-ref/BillingAccount/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.billing.v1.BindBillableObjectRequest}

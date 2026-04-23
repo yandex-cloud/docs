@@ -76,6 +76,10 @@ Syntax:
 
   - [yc desktops image update](image/update.md) — Update the specified desktop image
 
+- [yc desktops v0](v0/index.md) — [PREVIEW] Manage Desktop resources
+
+
+
 #### Global Flags
 
 #|

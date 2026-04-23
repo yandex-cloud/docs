@@ -23,7 +23,9 @@ Returns the specified billing account.
 || id | **string**
 
 Required field. ID of the billing account to return.
-To get the billing account ID, use [BillingAccountService.List](/docs/billing/api-ref/grpc/BillingAccount/list#List) request. ||
+To get the billing account ID, use [BillingAccountService.List](/docs/billing/api-ref/grpc/BillingAccount/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## BillingAccount {#yandex.cloud.billing.v1.BillingAccount}

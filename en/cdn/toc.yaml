@@ -236,6 +236,70 @@ items:
             href: cli-ref/resource/list.md
           - name: update
             href: cli-ref/resource/update.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: cache
+            items:
+              - name: Overview
+                href: cli-ref/v0/cache/index.md
+              - name: prefetch
+                href: cli-ref/v0/cache/prefetch.md
+              - name: purge
+                href: cli-ref/v0/cache/purge.md
+          - name: origin
+            items:
+              - name: Overview
+                href: cli-ref/v0/origin/index.md
+              - name: create
+                href: cli-ref/v0/origin/create.md
+              - name: delete
+                href: cli-ref/v0/origin/delete.md
+              - name: get
+                href: cli-ref/v0/origin/get.md
+              - name: list
+                href: cli-ref/v0/origin/list.md
+              - name: update
+                href: cli-ref/v0/origin/update.md
+          - name: origin-group
+            items:
+              - name: Overview
+                href: cli-ref/v0/origin-group/index.md
+              - name: create
+                href: cli-ref/v0/origin-group/create.md
+              - name: delete
+                href: cli-ref/v0/origin-group/delete.md
+              - name: get
+                href: cli-ref/v0/origin-group/get.md
+              - name: list
+                href: cli-ref/v0/origin-group/list.md
+              - name: update
+                href: cli-ref/v0/origin-group/update.md
+          - name: provider
+            items:
+              - name: Overview
+                href: cli-ref/v0/provider/index.md
+              - name: activate
+                href: cli-ref/v0/provider/activate.md
+              - name: list-activated
+                href: cli-ref/v0/provider/list-activated.md
+          - name: resource
+            items:
+              - name: Overview
+                href: cli-ref/v0/resource/index.md
+              - name: create
+                href: cli-ref/v0/resource/create.md
+              - name: delete
+                href: cli-ref/v0/resource/delete.md
+              - name: get
+                href: cli-ref/v0/resource/get.md
+              - name: get-provider-cname
+                href: cli-ref/v0/resource/get-provider-cname.md
+              - name: list
+                href: cli-ref/v0/resource/list.md
+              - name: update
+                href: cli-ref/v0/resource/update.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference

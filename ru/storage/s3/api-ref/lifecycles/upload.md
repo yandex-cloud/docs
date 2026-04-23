@@ -1,4 +1,4 @@
-# Метод upload
+# Object Storage API, REST совместимый с Amazon S3: PutBucketLifecycleConfiguration
 
 Загружает конфигурацию жизненных циклов объектов в бакете в {{ objstorage-name }}.
 

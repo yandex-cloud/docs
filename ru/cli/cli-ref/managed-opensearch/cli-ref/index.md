@@ -90,6 +90,10 @@ Aliases:
 
   - [yc managed-opensearch plugin delete](plugin/delete.md) — Delete plugins from a managed OpenSearch cluster.
 
+- [yc managed-opensearch v0](v0/index.md) — Managed OpenSearch clusters, hosts, indexes and backups.
+
+
+
 #### Global Flags
 
 #|

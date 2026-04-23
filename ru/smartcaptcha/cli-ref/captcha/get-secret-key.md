@@ -16,12 +16,12 @@ Syntax:
 
 #|
 ||Flag | Description ||
-|| `--captcha-id` | `string`
+|| `--id` | `string`
 
 ID of the Captcha resource to return. ||
 || `--name` | `string`
 
-Resolve captcha-id by resource name within the current scope. ||
+Resolve id by resource name within the current scope. ||
 |#
 
 #### Global Flags

@@ -1,4 +1,4 @@
-# Метод objectPutAcl
+# Object Storage API, REST совместимый с Amazon S3: PutObjectAcl
 
 Загружает список управления доступом для объекта.
 

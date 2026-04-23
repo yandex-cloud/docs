@@ -7,34 +7,34 @@ description: Из статьи вы узнаете, какие методы S3 A
 
 #|
 || **Метод** | **Описание** ||
-|| [create](bucket/create.md) | Создает бакет. ||
-|| [getMeta](bucket/getmeta.md) | Проверяет существование бакета и доступ к нему. ||
-|| [listObjects](bucket/listobjects.md) | Возвращает список объектов в бакете. ||
-|| [listBuckets](bucket/list.md) | Возвращает список бакетов. ||
-|| [deleteBucket](bucket/delete.md) | Удаляет бакет. ||
+|| [CreateBucket](bucket/create.md) | Создает бакет. ||
+|| [HeadBucket](bucket/getmeta.md) | Проверяет существование бакета и доступ к нему. ||
+|| [ListObjects](bucket/listobjects.md) | Возвращает список объектов в бакете. ||
+|| [ListBuckets](bucket/list.md) | Возвращает список бакетов. ||
+|| [DeleteBucket](bucket/delete.md) | Удаляет бакет. ||
 
 
-|| [getBucketEncryption](bucket/getbucketencryption.md) | Проверяет наличие шифрования у бакета. ||
-|| [deleteBucketEncryption](bucket/deletebucketencryption.md) | Убирает шифрование бакета. ||
-|| [putBucketEncryption](bucket/putbucketencryption.md) | Добавляет шифрование бакету. ||
+|| [GetBucketEncryption](bucket/getbucketencryption.md) | Проверяет наличие шифрования у бакета. ||
+|| [DeleteBucketEncryption](bucket/deletebucketencryption.md) | Убирает шифрование бакета. ||
+|| [PutBucketEncryption](bucket/putbucketencryption.md) | Добавляет шифрование бакету. ||
 
 
-|| [putBucketVersioning](bucket/putBucketVersioning.md) | Включает или приостанавливает версионирование бакета. ||
-|| [getBucketVersioning](bucket/getBucketVersioning.md) | Возвращает состояние опции версионирования. ||
-|| [putBucketLogging](bucket/putBucketLogging.md) | Включает и выключает механизм логирования действий с бакетом.
-
-
-||
-|| [getBucketLogging](bucket/getBucketLogging.md) | Возвращает настройки логирования действий с бакетом.
+|| [PutBucketVersioning](bucket/putBucketVersioning.md) | Включает или приостанавливает версионирование бакета. ||
+|| [GetBucketVersioning](bucket/getBucketVersioning.md) | Возвращает состояние опции версионирования. ||
+|| [PutBucketLogging](bucket/putBucketLogging.md) | Включает и выключает механизм логирования действий с бакетом.
 
 
 ||
-|| [listObjectVersions](bucket/listObjectVersions.md) | Возвращает метаданные обо всех версиях объектов в бакете. ||
-|| [putObjectLockConfiguration](bucket/putobjectlockconfiguration.md) | Настраивает механизм [блокировок версий объектов](../../concepts/object-lock.md) в [версионируемом](../../concepts/versioning.md) бакете. ||
-|| [getObjectLockConfiguration](bucket/getobjectlockconfiguration.md) | Возвращает настройки механизма блокировок. ||
-|| [putBucketTagging](bucket/putbuckettagging.md) | Добавляет [метки](../../concepts/tags.md) бакету. ||
-|| [getBucketTagging](bucket/getbuckettagging.md) | Возвращает метки бакета. ||
-|| [deleteBucketTagging](bucket/deletebuckettagging.md) | Удаляет метки бакета. ||
+|| [GetBucketLogging](bucket/getBucketLogging.md) | Возвращает настройки логирования действий с бакетом.
+
+
+||
+|| [ListObjectVersions](bucket/listObjectVersions.md) | Возвращает метаданные обо всех версиях объектов в бакете. ||
+|| [PutObjectLockConfiguration](bucket/putobjectlockconfiguration.md) | Настраивает механизм [блокировок версий объектов](../../concepts/object-lock.md) в [версионируемом](../../concepts/versioning.md) бакете. ||
+|| [GetObjectLockConfiguration](bucket/getobjectlockconfiguration.md) | Возвращает настройки механизма блокировок. ||
+|| [PutBucketTagging](bucket/putbuckettagging.md) | Добавляет [метки](../../concepts/tags.md) бакету. ||
+|| [GetBucketTagging](bucket/getbuckettagging.md) | Возвращает метки бакета. ||
+|| [DeleteBucketTagging](bucket/deletebuckettagging.md) | Удаляет метки бакета. ||
 |#
 
 {% include [the-s3-api-see-also-include](../../../_includes/storage/the-s3-api-see-also-include.md) %}

@@ -324,9 +324,15 @@ The string length in characters must be 1-63. ||
 
 #|
 ||Field | Description ||
-|| resourcePresetId | **string** ||
-|| diskTypeId | **string** ||
-|| diskSize | **string** (int64) ||
+|| resourcePresetId | **string**
+
+The maximum string length in characters is 50. ||
+|| diskTypeId | **string**
+
+The maximum string length in characters is 50. ||
+|| diskSize | **string** (int64)
+
+The minimum value is 0. ||
 |#
 
 ## AutoscalingConfig {#yandex.cloud.dataproc.v1.AutoscalingConfig}

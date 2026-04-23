@@ -7,8 +7,8 @@ description: Из статьи вы узнаете, какие методы S3 A
 
 Метод | Описание
 ----- | -----
-[upload](hosting/upload.md) | Загружает конфигурацию бакета для хостинга статических сайтов в {{ objstorage-name }}.
-[get](hosting/get.md) | Возвращает конфигурацию бакета для хостинга статических сайтов из {{ objstorage-name }}.
-[delete](hosting/delete.md) | Удаляет конфигурацию бакета для хостинга статических сайтов.
+[PutBucketWebsite](hosting/upload.md) | Загружает конфигурацию бакета для хостинга статических сайтов в {{ objstorage-name }}.
+[GetBucketWebsite](hosting/get.md) | Возвращает конфигурацию бакета для хостинга статических сайтов из {{ objstorage-name }}.
+[DeleteBucketWebsite](hosting/delete.md) | Удаляет конфигурацию бакета для хостинга статических сайтов.
 
 {% include [the-s3-api-see-also-include](../../../_includes/storage/the-s3-api-see-also-include.md) %}

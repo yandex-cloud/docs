@@ -1,4 +1,4 @@
-# Метод listBuckets
+# Object Storage API, REST совместимый с Amazon S3: ListBuckets
 
 Возвращает перечень бакетов, доступных пользователю.
 

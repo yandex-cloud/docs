@@ -16,7 +16,7 @@ To upgrade to the paid version:
   
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Select a billing account.
-  1. On the ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_billing.billing.account.switch_overview }}** page, click **{{ ui-key.yacloud_billing.billing.account.button_billing-payment-action }}**.
+  1. On the ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}** page, click **{{ ui-key.yacloud_billing.billing.account.button_billing-payment-action }}**.
   1. Confirm the action by clicking **{{ ui-key.yacloud_billing.billing.account.button_billing-payment-action }}** again.
 
 {% endlist %}

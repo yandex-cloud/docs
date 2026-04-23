@@ -4,7 +4,7 @@ editable: false
 
 # Billing Usage API: gRPC reference
 
-Actions are performed by making RPC calls. For more information about API architecture, see [API Concepts]({{ api-url-prefix }}/api-design-guide/).
+This API reference is organized by resource. Actions are performed by making RPC calls. For more information about API architecture, see [API Concepts]({{ api-url-prefix }}/api-design-guide/).
 
 **Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/billing/usage_records/v1).
 
@@ -33,7 +33,10 @@ targeted insights into cloud resource usage.
 
 Required permissions:
 All methods in this service require one of the following permissions on the specified billing account:
-- `billing.accounts.getReport` ||
+- `billing.accounts.getReport`
+
+Rate limits:
+This API is limited to 1 request per minute per IP address. ||
 || [Metadata](Metadata/index.md) | MetadataService service for retrieving metadata related to usage records
 
 The MetadataService provides a set of methods for retrieving metadata and reference information
@@ -43,5 +46,8 @@ to understand the available entity structure before building detailed usage repo
 
 Required permissions:
 All methods in this service require one of the following permissions on the specified billing account:
-- `billing.accounts.getReport` ||
+- `billing.accounts.getReport`
+
+Rate limits:
+This API is limited to 1 request per minute per IP address. ||
 |#

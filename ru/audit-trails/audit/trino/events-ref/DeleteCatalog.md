@@ -529,7 +529,7 @@ Includes only one of the fields `hive`, `iceberg`, `deltaLake`, `postgresql`, `c
 || filesystem | **[FileSystem](#yandex.cloud.trino.v1.FileSystem)** ||
 || additionalProperties | **object** (map<**string**, **string**>)
 
-No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
+The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. No more than 256 per resource. ||
 |#
 
 ## Metastore {#yandex.cloud.trino.v1.Metastore}
@@ -568,7 +568,9 @@ Includes only one of the fields `s3`, `externalS3`. ||
 ||Field | Description ||
 || awsAccessKey | **string** ||
 || awsSecretKey | **string** ||
-|| awsEndpoint | **string** ||
+|| awsEndpoint | **string**
+
+Value must match the regular expression ` ^https?://.+$ `. ||
 || awsRegion | **string** ||
 |#
 
@@ -580,7 +582,7 @@ Includes only one of the fields `s3`, `externalS3`. ||
 || filesystem | **[FileSystem](#yandex.cloud.trino.v1.FileSystem)** ||
 || additionalProperties | **object** (map<**string**, **string**>)
 
-No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
+The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. No more than 256 per resource. ||
 |#
 
 ## DeltaLakeConnector {#yandex.cloud.trino.v1.DeltaLakeConnector}
@@ -591,7 +593,7 @@ No more than 256 per resource. The maximum string length in characters for each 
 || filesystem | **[FileSystem](#yandex.cloud.trino.v1.FileSystem)** ||
 || additionalProperties | **object** (map<**string**, **string**>)
 
-No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
+The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. No more than 256 per resource. ||
 |#
 
 ## PostgresqlConnector {#yandex.cloud.trino.v1.PostgresqlConnector}
@@ -601,7 +603,7 @@ No more than 256 per resource. The maximum string length in characters for each 
 || connection | **[PostgresqlConnection](#yandex.cloud.trino.v1.PostgresqlConnection)** ||
 || additionalProperties | **object** (map<**string**, **string**>)
 
-No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
+The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. No more than 256 per resource. ||
 |#
 
 ## PostgresqlConnection {#yandex.cloud.trino.v1.PostgresqlConnection}
@@ -643,7 +645,7 @@ The string length in characters must be 1-50. ||
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || connectionProperties | **object** (map<**string**, **string**>)
 
-No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-zA-Z]* `. ||
+The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-zA-Z]* `. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_]* `. No more than 256 per resource. ||
 |#
 
 ## ClickhouseConnector {#yandex.cloud.trino.v1.ClickhouseConnector}
@@ -653,7 +655,7 @@ No more than 256 per resource. The maximum string length in characters for each 
 || connection | **[ClickhouseConnection](#yandex.cloud.trino.v1.ClickhouseConnection)** ||
 || additionalProperties | **object** (map<**string**, **string**>)
 
-No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
+The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. No more than 256 per resource. ||
 |#
 
 ## ClickhouseConnection {#yandex.cloud.trino.v1.ClickhouseConnection}
@@ -695,7 +697,7 @@ The string length in characters must be 1-50. ||
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || connectionProperties | **object** (map<**string**, **string**>)
 
-No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-zA-Z_]* `. ||
+The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-zA-Z_]* `. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_]* `. No more than 256 per resource. ||
 |#
 
 ## TPCHConnector {#yandex.cloud.trino.v1.TPCHConnector}
@@ -704,7 +706,7 @@ No more than 256 per resource. The maximum string length in characters for each 
 ||Field | Description ||
 || additionalProperties | **object** (map<**string**, **string**>)
 
-No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
+The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. No more than 256 per resource. ||
 |#
 
 ## TPCDSConnector {#yandex.cloud.trino.v1.TPCDSConnector}
@@ -713,7 +715,7 @@ No more than 256 per resource. The maximum string length in characters for each 
 ||Field | Description ||
 || additionalProperties | **object** (map<**string**, **string**>)
 
-No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
+The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. No more than 256 per resource. ||
 |#
 
 ## OracleConnector {#yandex.cloud.trino.v1.OracleConnector}
@@ -723,7 +725,7 @@ No more than 256 per resource. The maximum string length in characters for each 
 || connection | **[OracleConnection](#yandex.cloud.trino.v1.OracleConnection)** ||
 || additionalProperties | **object** (map<**string**, **string**>)
 
-No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
+The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. No more than 256 per resource. ||
 |#
 
 ## OracleConnection {#yandex.cloud.trino.v1.OracleConnection}
@@ -757,7 +759,7 @@ The string length in characters must be 0-128. ||
 || connection | **[SQLServerConnection](#yandex.cloud.trino.v1.SQLServerConnection)** ||
 || additionalProperties | **object** (map<**string**, **string**>)
 
-No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
+The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. No more than 256 per resource. ||
 |#
 
 ## SQLServerConnection {#yandex.cloud.trino.v1.SQLServerConnection}
@@ -792,7 +794,7 @@ The string length in characters must be 0-128. ||
 || filesystem | **[FileSystem](#yandex.cloud.trino.v1.FileSystem)** ||
 || additionalProperties | **object** (map<**string**, **string**>)
 
-No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
+The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. No more than 256 per resource. ||
 |#
 
 ## MysqlConnector {#yandex.cloud.trino.v1.MysqlConnector}
@@ -802,7 +804,7 @@ No more than 256 per resource. The maximum string length in characters for each 
 || connection | **[MysqlConnection](#yandex.cloud.trino.v1.MysqlConnection)** ||
 || additionalProperties | **object** (map<**string**, **string**>)
 
-No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
+The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. No more than 256 per resource. ||
 |#
 
 ## MysqlConnection {#yandex.cloud.trino.v1.MysqlConnection}
@@ -841,7 +843,7 @@ The string length in characters must be 0-128. ||
 The string length in characters must be 1-50. ||
 || connectionProperties | **object** (map<**string**, **string**>)
 
-No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-zA-Z_]* `. ||
+The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-zA-Z_]* `. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_]* `. No more than 256 per resource. ||
 |#
 
 ## GreenplumConnector {#yandex.cloud.trino.v1.GreenplumConnector}
@@ -851,7 +853,7 @@ No more than 256 per resource. The maximum string length in characters for each 
 || connection | **[GreenplumConnection](#yandex.cloud.trino.v1.GreenplumConnection)** ||
 || additionalProperties | **object** (map<**string**, **string**>)
 
-No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. ||
+The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-z][-_0-9a-z.]* `. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_ *]* `. No more than 256 per resource. ||
 |#
 
 ## GreenplumConnection {#yandex.cloud.trino.v1.GreenplumConnection}
@@ -893,5 +895,5 @@ The string length in characters must be 1-50. ||
 The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || connectionProperties | **object** (map<**string**, **string**>)
 
-No more than 256 per resource. The maximum string length in characters for each value is 128. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_]* `. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-zA-Z]* `. ||
+The maximum string length in characters for each value is 128. The string length in characters for each key must be 1-128. Each key must match the regular expression ` [a-zA-Z]* `. Each value must match the regular expression ` [-_0-9a-zA-Z.,:\/_]* `. No more than 256 per resource. ||
 |#

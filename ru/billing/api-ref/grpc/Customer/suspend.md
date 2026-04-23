@@ -23,7 +23,9 @@ Suspend specified customer. After customer is suspended, he can't use resources 
 || customer_id | **string**
 
 Required field. ID of the customer.
-To get the customer ID, use [CustomerService.List](/docs/billing/api-ref/grpc/Customer/list#List) request. ||
+To get the customer ID, use [CustomerService.List](/docs/billing/api-ref/grpc/Customer/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

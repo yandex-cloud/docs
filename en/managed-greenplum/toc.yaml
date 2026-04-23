@@ -365,6 +365,170 @@ items:
             href: cli-ref/users/list.md
           - name: update
             href: cli-ref/users/update.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: backup
+            items:
+              - name: Overview
+                href: cli-ref/v0/backup/index.md
+              - name: delete
+                href: cli-ref/v0/backup/delete.md
+              - name: get
+                href: cli-ref/v0/backup/get.md
+              - name: list
+                href: cli-ref/v0/backup/list.md
+          - name: cluster
+            items:
+              - name: Overview
+                href: cli-ref/v0/cluster/index.md
+              - name: add-access-binding
+                href: cli-ref/v0/cluster/add-access-binding.md
+              - name: add-labels
+                href: cli-ref/v0/cluster/add-labels.md
+              - name: backup
+                href: cli-ref/v0/cluster/backup.md
+              - name: create
+                href: cli-ref/v0/cluster/create.md
+              - name: delete
+                href: cli-ref/v0/cluster/delete.md
+              - name: expand
+                href: cli-ref/v0/cluster/expand.md
+              - name: get
+                href: cli-ref/v0/cluster/get.md
+              - name: list
+                href: cli-ref/v0/cluster/list.md
+              - name: list-access-bindings
+                href: cli-ref/v0/cluster/list-access-bindings.md
+              - name: list-backups
+                href: cli-ref/v0/cluster/list-backups.md
+              - name: list-logs
+                href: cli-ref/v0/cluster/list-logs.md
+              - name: list-operations
+                href: cli-ref/v0/cluster/list-operations.md
+              - name: move
+                href: cli-ref/v0/cluster/move.md
+              - name: remove-access-binding
+                href: cli-ref/v0/cluster/remove-access-binding.md
+              - name: remove-labels
+                href: cli-ref/v0/cluster/remove-labels.md
+              - name: reschedule-maintenance
+                href: cli-ref/v0/cluster/reschedule-maintenance.md
+              - name: restore
+                href: cli-ref/v0/cluster/restore.md
+              - name: set-access-bindings
+                href: cli-ref/v0/cluster/set-access-bindings.md
+              - name: start
+                href: cli-ref/v0/cluster/start.md
+              - name: stop
+                href: cli-ref/v0/cluster/stop.md
+              - name: update
+                href: cli-ref/v0/cluster/update.md
+              - name: update-config
+                href: cli-ref/v0/cluster/update-config.md
+          - name: connect
+            href: cli-ref/v0/connect.md
+          - name: hba-rules
+            items:
+              - name: Overview
+                href: cli-ref/v0/hba-rules/index.md
+              - name: create
+                href: cli-ref/v0/hba-rules/create.md
+              - name: delete
+                href: cli-ref/v0/hba-rules/delete.md
+              - name: get
+                href: cli-ref/v0/hba-rules/get.md
+              - name: list
+                href: cli-ref/v0/hba-rules/list.md
+              - name: update
+                href: cli-ref/v0/hba-rules/update.md
+          - name: hosts
+            items:
+              - name: Overview
+                href: cli-ref/v0/hosts/index.md
+              - name: list
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/hosts/list/index.md
+                  - name: master
+                    href: cli-ref/v0/hosts/list/master.md
+                  - name: segment
+                    href: cli-ref/v0/hosts/list/segment.md
+          - name: pxf-datasource
+            items:
+              - name: Overview
+                href: cli-ref/v0/pxf-datasource/index.md
+              - name: create
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/pxf-datasource/create/index.md
+                  - name: jdbc
+                    href: cli-ref/v0/pxf-datasource/create/jdbc.md
+                  - name: s3
+                    href: cli-ref/v0/pxf-datasource/create/s3.md
+              - name: delete
+                href: cli-ref/v0/pxf-datasource/delete.md
+              - name: get
+                href: cli-ref/v0/pxf-datasource/get.md
+              - name: list
+                href: cli-ref/v0/pxf-datasource/list.md
+              - name: update
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/pxf-datasource/update/index.md
+                  - name: jdbc
+                    href: cli-ref/v0/pxf-datasource/update/jdbc.md
+                  - name: s3
+                    href: cli-ref/v0/pxf-datasource/update/s3.md
+          - name: resource-groups
+            items:
+              - name: Overview
+                href: cli-ref/v0/resource-groups/index.md
+              - name: create
+                href: cli-ref/v0/resource-groups/create.md
+              - name: delete
+                href: cli-ref/v0/resource-groups/delete.md
+              - name: get
+                href: cli-ref/v0/resource-groups/get.md
+              - name: list
+                href: cli-ref/v0/resource-groups/list.md
+              - name: update
+                href: cli-ref/v0/resource-groups/update.md
+          - name: resource-preset
+            items:
+              - name: Overview
+                href: cli-ref/v0/resource-preset/index.md
+              - name: get
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/resource-preset/get/index.md
+                  - name: master
+                    href: cli-ref/v0/resource-preset/get/master.md
+                  - name: segment
+                    href: cli-ref/v0/resource-preset/get/segment.md
+              - name: list
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/resource-preset/list/index.md
+                  - name: master
+                    href: cli-ref/v0/resource-preset/list/master.md
+                  - name: segment
+                    href: cli-ref/v0/resource-preset/list/segment.md
+          - name: users
+            items:
+              - name: Overview
+                href: cli-ref/v0/users/index.md
+              - name: create
+                href: cli-ref/v0/users/create.md
+              - name: delete
+                href: cli-ref/v0/users/delete.md
+              - name: get
+                href: cli-ref/v0/users/get.md
+              - name: list
+                href: cli-ref/v0/users/list.md
+              - name: update
+                href: cli-ref/v0/users/update.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference

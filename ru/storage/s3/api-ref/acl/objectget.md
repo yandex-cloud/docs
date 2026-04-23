@@ -1,4 +1,4 @@
-# Метод objectGetAcl
+# Object Storage API, REST совместимый с Amazon S3: GetObjectAcl
 
 Возвращает список управления доступом для объекта.
 

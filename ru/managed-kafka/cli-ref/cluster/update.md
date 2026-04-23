@@ -123,6 +123,9 @@ Allows to set Kafka cluster configuration property "replica.fetch.max.bytes". Bu
 || `--offsets-retention-minutes` | `int`
 
 Allows to set Kafka cluster configuration property "offsets.retention.minutes". Offset storage time after a consumer group loses all its consumers. Default value: 10080. ||
+|| `--transactional-id-expiration-ms` | `int`
+
+Allows to set Kafka cluster configuration property "transactional.id.expiration.ms". Default value: 604800000. ||
 || `--ssl-cipher-suites` | `value[,value]`
 
 Allows to set Kafka cluster configuration property "ssl.cipher.suites". List of all valid cipher suites for this cluster, separated by comma. ||

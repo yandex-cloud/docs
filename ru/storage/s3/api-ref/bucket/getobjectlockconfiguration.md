@@ -1,4 +1,4 @@
-# Метод getObjectLockConfiguration
+# Object Storage API, REST совместимый с Amazon S3: GetObjectLockConfiguration
 
 Возвращает настройки механизма [блокировок версий объектов](../../../concepts/object-lock.md) в [версионируемом](../../../concepts/versioning.md) бакете.
 

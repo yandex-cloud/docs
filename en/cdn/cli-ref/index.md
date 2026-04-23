@@ -64,6 +64,10 @@ Syntax:
 
   - [yc cdn resource update](resource/update.md) — Update resource
 
+- [yc cdn v0](v0/index.md) — Manage CDN resources
+
+
+
 #### Global Flags
 
 #|

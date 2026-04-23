@@ -1,4 +1,4 @@
-# Метод deleteMultipleObjects
+# Object Storage API, REST совместимый с Amazon S3: DeleteObjects
 
 Удаляет объекты по списку ключей, переданному в запросе.
 

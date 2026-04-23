@@ -1,4 +1,4 @@
-# Метод getObjectRetention
+# Object Storage API, REST совместимый с Amazon S3: GetObjectRetention
 
 Возвращает настройки временной [блокировки](../../../concepts/object-lock.md), установленной на версию объекта.
 

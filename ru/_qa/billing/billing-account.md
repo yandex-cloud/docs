@@ -117,7 +117,7 @@
 
    1. {% include [move-to-billing-step](../../billing/_includes/move-to-billing-step.md) %}
    1. Выберите платежный аккаунт.
-   1. Перейдите на страницу **{{ ui-key.yacloud_billing.billing.account.switch_overview }}**.
+   1. Перейдите на страницу ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}**.
    1. Нажмите ссылку **{{ ui-key.yacloud_billing.billing.account.dashboard-info.company_label_edit_ru }}**. 
       Вы будете перенаправлены в сервис [Яндекс Баланс](https://balance.yandex.ru/).
    1. Выберите плательщика и нажмите кнопку **{{ ui-key.yacloud.common.edit }}**.

@@ -136,6 +136,10 @@ Aliases:
 
   - [yc application-load-balancer target-group update](target-group/update.md) — Update the specified target group
 
+- [yc application-load-balancer v0](v0/index.md) — Manage Yandex Application Load Balancer resources
+
+
+
 - [yc application-load-balancer virtual-host](virtual-host/index.md) — Manage http router virtual host
 
   - [yc application-load-balancer virtual-host append-grpc-route](virtual-host/append-grpc-route.md) — Appends grpc route to the specified virtual host of the http router

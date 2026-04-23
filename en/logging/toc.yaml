@@ -157,6 +157,66 @@ items:
             href: cli-ref/sink/set-access-bindings.md
           - name: update
             href: cli-ref/sink/update.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: group
+            items:
+              - name: Overview
+                href: cli-ref/v0/group/index.md
+              - name: add-access-binding
+                href: cli-ref/v0/group/add-access-binding.md
+              - name: create
+                href: cli-ref/v0/group/create.md
+              - name: delete
+                href: cli-ref/v0/group/delete.md
+              - name: get
+                href: cli-ref/v0/group/get.md
+              - name: list
+                href: cli-ref/v0/group/list.md
+              - name: list-access-bindings
+                href: cli-ref/v0/group/list-access-bindings.md
+              - name: list-operations
+                href: cli-ref/v0/group/list-operations.md
+              - name: list-resources
+                href: cli-ref/v0/group/list-resources.md
+              - name: remove-access-binding
+                href: cli-ref/v0/group/remove-access-binding.md
+              - name: set-access-bindings
+                href: cli-ref/v0/group/set-access-bindings.md
+              - name: stats
+                href: cli-ref/v0/group/stats.md
+              - name: update
+                href: cli-ref/v0/group/update.md
+          - name: read
+            href: cli-ref/v0/read.md
+          - name: sink
+            items:
+              - name: Overview
+                href: cli-ref/v0/sink/index.md
+              - name: add-access-binding
+                href: cli-ref/v0/sink/add-access-binding.md
+              - name: create
+                href: cli-ref/v0/sink/create.md
+              - name: delete
+                href: cli-ref/v0/sink/delete.md
+              - name: get
+                href: cli-ref/v0/sink/get.md
+              - name: list
+                href: cli-ref/v0/sink/list.md
+              - name: list-access-bindings
+                href: cli-ref/v0/sink/list-access-bindings.md
+              - name: list-operations
+                href: cli-ref/v0/sink/list-operations.md
+              - name: remove-access-binding
+                href: cli-ref/v0/sink/remove-access-binding.md
+              - name: set-access-bindings
+                href: cli-ref/v0/sink/set-access-bindings.md
+              - name: update
+                href: cli-ref/v0/sink/update.md
+          - name: write
+            href: cli-ref/v0/write.md
       - name: write
         href: cli-ref/write.md
   - name: '{{ TF }} reference'

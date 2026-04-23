@@ -50,6 +50,10 @@ Syntax:
 
   - [yc loadtesting test-config list](test-config/list.md) — List load testing configs
 
+- [yc loadtesting v0](v0/index.md) — Manage Yandex Load Testing resources
+
+
+
 #### Global Flags
 
 #|

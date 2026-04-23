@@ -36,6 +36,10 @@ Syntax:
 
   - [yc audit-trails trail update](trail/update.md) — Update the specified trail
 
+- [yc audit-trails v0](v0/index.md) — Manage Audit Trails resources
+
+
+
 #### Global Flags
 
 #|

@@ -11,6 +11,8 @@ This method retrieves all available label values for a specified label key
 within the given date range. It supports filtering by label value substring
 and provides pagination for handling large result sets.
 
+This method can additionally filter label values by provided clouds and folders.
+
 The method can be used in several ways:
 - With label_key only: Returns all values for that key with pagination
 - With label_key and label_value: Returns array of matching labelValues with pagination
@@ -45,6 +47,12 @@ Required permissions:
   "billing_account_id": "string",
   "start_date": "google.protobuf.Timestamp",
   "end_date": "google.protobuf.Timestamp",
+  "cloud_ids": [
+    "string"
+  ],
+  "folder_ids": [
+    "string"
+  ],
   "label_key": "string",
   "label_value": "string",
   "label_value_filter": [
@@ -76,6 +84,20 @@ Required field. End date for data retrieval.
 The inclusive end of the date range for which to retrieve label metadata.
 Must be specified, cannot be empty, and must be greater than or equal to start_date.
 The time portion is ignored; the date is considered to end at 23:59:59. ||
+|| cloud_ids[] | **string**
+
+Optional. Cloud IDs filter.
+Additional filter that works alongside the billing_account_id and date range.
+When specified, includes labels where cloud_id matches any of the provided values.
+Acts as an OR condition (cloud_id IN cloud_ids).
+If empty, this filter is not applied. ||
+|| folder_ids[] | **string**
+
+Optional. Folder IDs filter.
+Additional filter that works alongside the billing_account_id and date range.
+When specified, includes labels where folder_id matches any of the provided values.
+Acts as an OR condition (folder_id IN folder_ids).
+If empty, this filter is not applied. ||
 || label_key | **string**
 
 Required field. Label key to filter values for. If specified, response will contain values
@@ -95,8 +117,8 @@ Returns in response as is if label_value is not provided, otherwise returns empt
 
 Optional. Page size for paginated results.
 Specifies the maximum number of label values to return per page.
-Lack of page size value means 0 page size (0 label values in response)
-Maximum allowed value: 10000. ||
+If not specified or set to 0, defaults to 10.
+If greater than 10000, will be coerced down to 10000. ||
 || page_token | **string**
 
 Optional. Page token for paginated results.

@@ -48,10 +48,14 @@ Error handling:
     "string"
   ],
   "labels": "map<string, LabelList>",
+  "labels_or_filter_logic": "bool",
   "resource_ids": [
     "string"
   ],
-  "aggregation_period": "TimeGrouping"
+  "aggregation_period": "TimeGrouping",
+  "service_instance_ids": [
+    "string"
+  ]
 }
 ```
 
@@ -125,9 +129,26 @@ use the following filter:
 
 Note: The filter logic is (value1 OR value2 OR ...) for each key,
 and (key1 AND key2 AND ...) between different keys. ||
+|| labels_or_filter_logic | **bool**
+
+Optional. Controls the logic for combining different label filters.
+When false (default): AND logic between different label keys - resources
+must match ALL specified label conditions. When true: OR logic between
+different label keys - resources must match ANY specified label condition.
+Example with labels_or_filter_logic = false (AND logic):
+labels = {"env": ["prod"], "team": ["finance"]}
+Returns resources that have BOTH env=prod AND team=finance
+
+Example with labels_or_filter_logic = true (OR logic):
+labels = {"env": ["prod"], "team": ["finance"]}
+Returns resources that have EITHER env=prod OR team=finance (or both)
+
+Note: Within each label key, multiple values are always combined with OR
+logic. For example: {"env": ["prod", "test"]} always means env=prod OR
+env=test ||
 || resource_ids[] | **string**
 
-Optional. List of resource IDs to filter the data.
+Optional for all requests except GetResourceUsageReport. List of resource IDs to filter the data.
 If specified, only usage data from these specific resources (e.g., individual VMs, disks) will be included.
 If omitted, data from all resources used by the billing account will be included.
 Filter is applied with OR logic (results include data matching any of the specified resource IDs). ||
@@ -144,12 +165,17 @@ in time series results. Available options include:
 This setting affects the time series data returned in the periodic field of each entity.
 If omitted, the service will typically use DAY as the default granularity.
 
-- `TIME_GROUPING_UNSPECIFIED`: Default unspecified value. Typically treated as DAY.
 - `DAY`: Group reports by day.
 - `WEEK`: Group reports by week.
 - `MONTH`: Group reports by month.
 - `QUARTER`: Group reports by quarter (3-month periods).
 - `YEAR`: Group reports by year. ||
+|| service_instance_ids[] | **string**
+
+Optional. List of service instance IDs to filter the data.
+If specified, only usage data from these specific service instances (e.g., cloud instances,
+DataLens instances, Tracker instances, Cloud Video instances) will be included.
+If omitted, data from all service instances used by the billing account will be included. ||
 |#
 
 ## LabelList {#yandex.cloud.billing.usage_records.v1.LabelList}
@@ -220,7 +246,8 @@ List of label values associated with a specific label key. ||
       },
       "cloud": {
         "id": "string",
-        "name": "string"
+        "name": "string",
+        "billing_account_id": "string"
       },
       "periodic": [
         {
@@ -271,7 +298,6 @@ The response includes:
 Currency code (e.g., "RUB", "USD") for all monetary values in the response.
 Determined by the billing account's settings.
 
-- `CURRENCY_UNSPECIFIED`: Unspecified or unknown currency.
 - `RUB`: Russian Ruble
 - `USD`: US Dollar
 - `KZT`: Kazakhstani Tenge
@@ -377,6 +403,9 @@ Unique identifier of the cloud entity. ||
 || name | **string**
 
 Human-readable display name of the cloud. ||
+|| billing_account_id | **string**
+
+Optional billing account identifier associated with this cloud. ||
 |#
 
 ## UsageReportPeriodicData {#yandex.cloud.billing.usage_records.v1.UsageReportPeriodicData}
@@ -404,5 +433,7 @@ This is the final billable amount after all credits have been applied.
 Formula: expense = cost + credit_details.credit ||
 || timestamp | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
-Timestamp indicating the beginning of the TimeGrouping period. ||
+Timestamp indicating the beginning of the TimeGrouping period.
+For aggregation by week/month/quarter/year
+returns the maximum between the start date and the usage date. ||
 |#

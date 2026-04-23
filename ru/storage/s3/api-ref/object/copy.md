@@ -1,4 +1,4 @@
-# Метод copy
+# Object Storage API, REST совместимый с Amazon S3: CopyObject
 
 Создает копию объекта, хранящегося в {{ objstorage-name }}. Объекты, размером до 5 ГБ можно скопировать одной операцией `copy`, если объект больше, чем 5 ГБ, то необходимо применять операцию [copyPart](../multipart/copypart.md).
 

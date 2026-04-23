@@ -1665,7 +1665,8 @@ editable: false
                 "excludeColumns": [
                   "string"
                 ]
-              }
+              },
+              "skipUtcConversion": "boolean"
             },
             "sharderTransformer": {
               // Includes only one of the fields `columns`, `random`
@@ -3006,6 +3007,7 @@ Includes only one of the fields `maskFunctionHash`. ||
 ||Field | Description ||
 || tables | **[TablesFilter](#yandex.cloud.datatransfer.v1.TablesFilter)** ||
 || columns | **[ColumnsFilter](#yandex.cloud.datatransfer.v1.ColumnsFilter)** ||
+|| skipUtcConversion | **boolean** ||
 |#
 
 ## SharderTransformer {#yandex.cloud.datatransfer.v1.SharderTransformer}

@@ -1,4 +1,4 @@
-# Метод getBucketTagging
+# Object Storage API, REST совместимый с Amazon S3: GetBucketTagging
 
 Возвращает [метки](../../../concepts/tags.md) бакета.
 

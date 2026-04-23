@@ -6,6 +6,17 @@ editable: false
 
 
 
+## 0.201.0 (April 23, 2026)
+##### FEATURES:
+* dns: add new resource and data-source `yandex_dns_firewall` and new resource `yandex_dns_firewall_iam_binding`
+* mdb_clickhouse: support cluster restore from backup
+* postgresql: add `priority` host attribute to mdb_postgresql_cluster_v2
+* postgresql: restore `priority` host attribute for mdb_postgresql_cluster
+* organizationmanager: add `organizationmanager_mfa_enforcement_excluded_audience` resource
+##### ENHANCEMENTS:
+* vpc: added optional address parameter for internal addresses to yandex_vpc_address
+* kafka: Add an option for setting managed kafka `transactional.id.expiration.ms` parameter
+
 ## 0.200.0 (April 20, 2026)
 ##### BUG FIXES:
 * mdb_clickhouse: fix creation of resource `mdb_clickhouse_cluster_v2` with `default_database`

@@ -125,11 +125,11 @@ editable: false
       },
       "serviceAccountId": "string",
       "logging": {
-        "enabled": "boolean",
         // Includes only one of the fields `folderId`, `logGroupId`
         "folderId": "string",
         "logGroupId": "string",
         // end of the list of possible fields
+        "enabled": "boolean",
         "minLevel": "string"
       },
       "network": {
@@ -428,7 +428,6 @@ Value must match the regular expression ` ([a-zA-Z0-9/][-a-zA-Z0-9_./]{0,512})? 
 
 #|
 ||Field | Description ||
-|| enabled | **boolean** ||
 || folderId | **string**
 
 Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
@@ -439,6 +438,7 @@ Includes only one of the fields `folderId`, `logGroupId`. ||
 Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `folderId`, `logGroupId`. ||
+|| enabled | **boolean** ||
 || minLevel | **enum** (Level)
 
 - `TRACE`

@@ -27,7 +27,9 @@ Binds billable object to the specified billing account.
 || billing_account_id | **string**
 
 Required field. ID of the billing account to bind billable object.
-To get the billing account ID, use [BillingAccountService.List](/docs/billing/api-ref/grpc/BillingAccount/list#List) request. ||
+To get the billing account ID, use [BillingAccountService.List](/docs/billing/api-ref/grpc/BillingAccount/list#List) request.
+
+The maximum string length in characters is 50. ||
 || billable_object | **[BillableObject](#yandex.cloud.billing.v1.BillableObject)**
 
 [yandex.cloud.billing.v1.BillableObject](#yandex.cloud.billing.v1.BillableObject) to bind with billing account. ||

@@ -86,6 +86,8 @@ _Инстанс_ {{ GL }} — основная сущность, которой 
 
 Настройка сетевого взаимодействия между {{ GL }} и управляемыми раннерами включает обязательные, рекомендуемые и опциональные настройки групп безопасности.
 
+![image](../../_assets/managed-gitlab/networking.svg)
+
 #### Правила для входящего трафика {#ingress-rules-runner}
 
 {% include [mr-ingress-rules](../../_includes/managed-gitlab/mr-ingress-rules.md) %}

@@ -59,7 +59,7 @@ Automatic recalculation of modified and newly created dictionary and semantic [t
 {% include [usd-model.md](../_pricing/speechsense/usd-model-assistant.md) %}
 
 
-### Cost of manual recalculation of pro-tags and assistants {#price-recalc}
+### Cost of manual recalculation of semantic pro tags and assistants {#price-recalc}
 
 
 

@@ -289,7 +289,7 @@ resource "yandex_vpc_subnet" "foo" {
   - `assign_public_ip` (Bool). Whether the host should get a public IP address.
   - `fqdn` (*Read-Only*) (String). The fully qualified domain name of the host.
   - `name` (String). Host state name. It should be set for all hosts or unset for all hosts. This field can be used by another host, to select which host will be its replication source. Please see `replication_source_name` parameter.
-  - `priority` (Number). Host priority in HA group. It works only when `name` is set.
+  - `priority` (Number). Host priority in HA group. It works only when `name` is set. Must be between 0 and 100.
   - `replication_source` (*Read-Only*) (String). Host replication source (fqdn), when replication_source is empty then host is in HA group.
   - `replication_source_name` (String). Host replication source name points to host's `name` from which this host should replicate. When not set then host in HA group. It works only when `name` is set.
   - `role` (*Read-Only*) (String). Host's role (replica|primary), computed by server.

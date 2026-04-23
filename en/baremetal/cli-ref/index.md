@@ -136,6 +136,10 @@ Syntax:
 
   - [yc baremetal server update](server/update.md) — Update the specified server
 
+- [yc baremetal v0](v0/index.md) — Manage  Baremetal resources
+
+
+
 - [yc baremetal vrf](vrf/index.md) — Manage vrf
 
   - [yc baremetal vrf add-labels](vrf/add-labels.md) — Add labels to specified vrf

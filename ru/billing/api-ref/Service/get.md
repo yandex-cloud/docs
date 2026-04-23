@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the service to return.
             To get the service ID, use [ServiceService.List](/docs/billing/api-ref/Service/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - id
@@ -37,7 +38,9 @@ GET https://billing.{{ api-host }}/billing/v1/services/{id}
 || id | **string**
 
 Required field. ID of the service to return.
-To get the service ID, use [ServiceService.List](/docs/billing/api-ref/Service/list#List) request. ||
+To get the service ID, use [ServiceService.List](/docs/billing/api-ref/Service/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.billing.v1.Service}

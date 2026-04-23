@@ -10,7 +10,7 @@ description: Из статьи вы узнаете, как пополнить с
 ## Активируйте платную версию {#pay-activate}
 
 1. В [сервисе {{ billing-name }}]({{ link-console-billing }}) на странице **{{ ui-key.yacloud_billing.billing.title_accounts }}** выберите платежный аккаунт.
-1. На странице **{{ ui-key.yacloud_billing.billing.account.switch_overview }}** нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.button_billing-payment-action }}**.
+1. На странице ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}** нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.button_billing-payment-action }}**.
 1. Подтвердите переход, для этого еще раз нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.button_billing-payment-action }}**.
 
 После активации платной версии [баланс лицевого счета](../../billing/concepts/personal-account.md#balance) по умолчанию равен нулю. Мы рекомендуем следить за балансом и [пополнять](../../billing/operations/pay-the-bill.md) его до положительного значения.

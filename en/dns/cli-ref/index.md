@@ -46,6 +46,10 @@ Syntax:
 
   - [yc dns firewall update](firewall/update.md) — Modify configuration or attributes of a dns firewall.
 
+- [yc dns v0](v0/index.md) — Manage Yandex DNS resources
+
+
+
 - [yc dns zone](zone/index.md) — Manage dns zones
 
   - [yc dns zone add-access-binding](zone/add-access-binding.md) — Add access binding to the specified dns zone

@@ -22,6 +22,10 @@ Aliases:
 
 
 
+- [yc metadata-hub v0](v0/index.md) — Manage Metadata Hub resources.
+
+
+
 #### Global Flags
 
 #|

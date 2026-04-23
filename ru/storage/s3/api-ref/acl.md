@@ -7,9 +7,9 @@ description: Из статьи вы узнаете, какие методы S3 A
 
 Метод | Описание
 ----- | -----
-[objectGetAcl](acl/objectget.md) | Возвращает список управления доступом для объекта.
-[objectPutAcl](acl/objectput.md) | Загружает список управления доступом для объекта.
-[bucketGetAcl](acl/bucketget.md) | Возвращает список управления доступом для бакета.
-[bucketPutAcl](acl/bucketput.md) | Загружает список управления доступом для бакета.
+[GetObjectAcl](acl/objectget.md) | Возвращает список управления доступом для объекта.
+[PutObjectAcl](acl/objectput.md) | Загружает список управления доступом для объекта.
+[GetBucketAcl](acl/bucketget.md) | Возвращает список управления доступом для бакета.
+[PutBucketAcl](acl/bucketput.md) | Загружает список управления доступом для бакета.
 
 {% include [the-s3-api-see-also-include](../../../_includes/storage/the-s3-api-see-also-include.md) %}
