@@ -13,8 +13,8 @@ The cost per document requested via the Document API is equal to the RU (request
 Request type | Unit cost | Block size
 --- | --- | ---
 Reading (`GetItem`, `BatchGetItem`, `Query`, `Scan`) | 1 RU | 4 KB
-Reading within a transaction (`TransactGetItems`) | 2 RUs | 4 KB
-Writing (`PutItem`, `BatchWriteItem`, `UpdateItem`) | 2 RUs | 1 KB
-Writing within a transaction (`TransactWriteItems`) | 4 RUs | 1 KB
-Deleting (`DeleteItem`) | 2 RUs | N/A
-Working with a DB schema (`CreateTable`, `DeleteTable`, `DescribeTable`, `ListTables`) | 0 RUs | N/A
+Reading within a transaction (`TransactGetItems`) | 2 RU | 4 KB
+Writing (`PutItem`, `BatchWriteItem`, `UpdateItem`) | 2 RU | 1 KB
+Writing within a transaction (`TransactWriteItems`) | 4 RU | 1 KB
+Deleting (`DeleteItem`) | 2 RU | N/A
+Working with a database schema (`CreateTable`, `DeleteTable`, `DescribeTable`, `ListTables`) | 0 RU | N/A

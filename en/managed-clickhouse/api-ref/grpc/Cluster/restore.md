@@ -407,7 +407,11 @@ Creates a new ClickHouse cluster using the specified backup.
     "sql_user_management": "google.protobuf.BoolValue",
     "admin_password": "string",
     "embedded_keeper": "google.protobuf.BoolValue",
-    "backup_retain_period_days": "google.protobuf.Int64Value"
+    "backup_retain_period_days": "google.protobuf.Int64Value",
+    "performance_diagnostics": {
+      "enabled": "google.protobuf.BoolValue",
+      "processes_refresh_interval": "google.protobuf.Duration"
+    }
   },
   "host_specs": [
     {
@@ -923,6 +927,9 @@ Whether cluster should use embedded Keeper instead of Zookeeper ||
 || backup_retain_period_days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Retain period of automatically created backup in days ||
+|| performance_diagnostics | **[PerformanceDiagnostics](#yandex.cloud.mdb.clickhouse.v1.PerformanceDiagnostics)**
+
+Configuration performance diagnostics ||
 |#
 
 ## Clickhouse {#yandex.cloud.mdb.clickhouse.v1.ConfigSpec.Clickhouse}
@@ -2896,6 +2903,18 @@ Acceptable values are 0 to 1, inclusive. ||
 || prefer_not_to_merge | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
 |#
 
+## PerformanceDiagnostics {#yandex.cloud.mdb.clickhouse.v1.PerformanceDiagnostics}
+
+#|
+||Field | Description ||
+|| enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Whether to use Performance Diagnostics service in cluster. ||
+|| processes_refresh_interval | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+
+Time interval to collect data from system.processes table. ||
+|#
+
 ## HostSpec {#yandex.cloud.mdb.clickhouse.v1.HostSpec}
 
 #|
@@ -4381,7 +4400,7 @@ Retain period of automatically created backup in days ||
 || full_version | **string**
 
 Full version ||
-|| performance_diagnostics | **[PerformanceDiagnostics](#yandex.cloud.mdb.clickhouse.v1.PerformanceDiagnostics)**
+|| performance_diagnostics | **[PerformanceDiagnostics](#yandex.cloud.mdb.clickhouse.v1.PerformanceDiagnostics2)**
 
 Configuration performance diagnostics ||
 |#
@@ -6371,7 +6390,7 @@ Acceptable values are 0 to 1, inclusive. ||
 || prefer_not_to_merge | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
 |#
 
-## PerformanceDiagnostics {#yandex.cloud.mdb.clickhouse.v1.PerformanceDiagnostics}
+## PerformanceDiagnostics {#yandex.cloud.mdb.clickhouse.v1.PerformanceDiagnostics2}
 
 #|
 ||Field | Description ||

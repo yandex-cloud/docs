@@ -1,4 +1,5 @@
-The `storage.admin` role allows you to manage Object Storage.
+
+The `storage.admin` role allows you to manage {{ objstorage-name }}.
 
 {% cut "Users with this role can:" %}
 
@@ -8,7 +9,7 @@ The `storage.admin` role allows you to manage Object Storage.
 * View info on [access permissions](../../iam/concepts/access-control/index.md) assigned for buckets and objects inside them, modify access permissions for buckets and objects.
 * View bucket [access policy](../../storage/concepts/policy.md) info, create, modify, and delete bucket access policies.
 * Assign an [access control list](../../storage/concepts/acl.md) (ACL).
-* Set up access to a bucket via a [service connection](../../vpc/concepts/private-endpoint.md) from a Virtual Private Cloud.
+* Set up access to a bucket via a [service connection](../../vpc/concepts/private-endpoint.md) from a {{ vpc-name }}.
 * Upload objects into a bucket, delete objects and object versions.
 * View bucket [CORS](../../storage/concepts/cors.md) configuration info and modify the CORS configuration.
 * View bucket [static website hosting](../../storage/concepts/hosting.md) configuration info and modify the static website hosting configuration.
@@ -26,8 +27,8 @@ The `storage.admin` role allows you to manage Object Storage.
 * Bypass [governance-mode retention](../../storage/concepts/object-lock.md#types).
 * View object and object version [labels](../../storage/concepts/tags.md#object-tags), modify and delete such labels.
 * View info on current [multipart uploads](../../storage/concepts/multipart.md) of objects and their parts, delete partially uploaded objects.
-* View [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), and Object Storage statistics.
-* View info on Object Storage [quotas](../../storage/concepts/limits.md#storage-quotas).
+* View [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), and {{ objstorage-name }} statistics.
+* View info on {{ objstorage-name }} [quotas](../../storage/concepts/limits.md#storage-quotas).
 * View folder info.
 
 {% endcut %}

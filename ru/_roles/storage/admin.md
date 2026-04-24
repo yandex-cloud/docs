@@ -1,4 +1,5 @@
-Роль `storage.admin` позволяет управлять сервисом Object Storage.
+
+Роль `storage.admin` позволяет управлять сервисом {{ objstorage-name }}.
 
 {% cut "Пользователи с этой ролью могут:" %}
 
@@ -8,7 +9,7 @@
 * просматривать информацию о назначенных [правах доступа](../../iam/concepts/access-control/index.md) к бакетам и объектам в них, а также изменять назначенные права доступа к бакетам и объектам;
 * просматривать информацию о [политиках доступа](../../storage/concepts/policy.md) к бакетам, а также создавать, изменять и удалять такие политики;
 * назначать [список управления доступом](../../storage/concepts/acl.md) (ACL);
-* настраивать доступ к бакету через [сервисное подключение](../../vpc/concepts/private-endpoint.md) из Virtual Private Cloud;
+* настраивать доступ к бакету через [сервисное подключение](../../vpc/concepts/private-endpoint.md) из {{ vpc-name }};
 * загружать объекты в бакет, а также удалять объекты и версии объектов;
 * просматривать информацию о конфигурации [CORS](../../storage/concepts/cors.md) бакетов и изменять конфигурацию CORS;
 * просматривать информацию о конфигурации [хостинга статических сайтов](../../storage/concepts/hosting.md) бакетов и изменять конфигурацию хостинга статических сайтов;
@@ -26,8 +27,8 @@
 * обходить [временную управляемую блокировку](../../storage/concepts/object-lock.md#types) (governance-mode retention);
 * просматривать [метки](../../storage/concepts/tags.md#object-tags) объектов и версий объектов, а также изменять и удалять такие метки;
 * просматривать информацию о текущих [составных загрузках](../../storage/concepts/multipart.md) объектов и их частях, а также удалять частично загруженные объекты;
-* просматривать статистику [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) и сервиса Object Storage;
-* просматривать информацию о [квотах](../../storage/concepts/limits.md#storage-quotas) сервиса Object Storage;
+* просматривать статистику [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) и сервиса {{ objstorage-name }};
+* просматривать информацию о [квотах](../../storage/concepts/limits.md#storage-quotas) сервиса {{ objstorage-name }};
 * просматривать информацию о каталоге.
 
 {% endcut %}

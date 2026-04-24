@@ -1,4 +1,5 @@
-The `compute.operator` role allows you to start and stop instances and instance groups, as well as view information on Compute Cloud resources and resource operations, as well as on access permissions assigned to the resources and the amount of used resources and quotas.
+
+The `compute.operator` role allows you to start and stop instances and instance groups, as well as view information on {{ compute-name }} resources and resource operations, as well as on access permissions assigned to the resources and the amount of used resources and quotas.
 
 {% cut "Users with this role can:" %}
 
@@ -22,9 +23,9 @@ The `compute.operator` role allows you to start and stop instances and instance 
 * View information on [image families](../../compute/concepts/image.md#family), on images within families, on the latest family image, as well as on access permissions assigned to image families.
 * View a list of [disk snapshots](../../compute/concepts/snapshot.md), information on disk snapshots and on access permissions assigned to them.
 * View information on [disk snapshot schedules](../../compute/concepts/snapshot-schedule.md) and on access permissions assigned to them.
-* View information on Compute Cloud resource and [quota](../../compute/concepts/limits.md#compute-quotas) consumption and [disk limits](../../compute/concepts/limits.md#compute-limits-disks) in the management console.
-* View lists of resource operations for Compute Cloud, as well as information on these operations.
-* View information on the status of configuring access via [OS Login](../../organization/concepts/os-login.md) on instances.
+* View information on {{ compute-name }} resource and [quota](../../compute/concepts/limits.md#compute-quotas) consumption and [disk limits](../../compute/concepts/limits.md#compute-limits-disks) in the management console.
+* View lists of resource operations for {{ compute-name }}, as well as information on these operations.
+* View information on the status of configuring access via [{{ oslogin }}](../../organization/concepts/os-login.md) on instances.
 * View information on available [platforms](../../compute/concepts/vm-platforms.md).
 * View a list of [availability zones](../../overview/concepts/geo-scope.md), information on availability zones and on access permissions assigned to them.
 

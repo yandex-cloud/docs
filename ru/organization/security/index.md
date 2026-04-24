@@ -60,6 +60,58 @@
 
 ## Какие роли действуют в сервисе {#roles-list}
 
+На первой схеме показаны общие роли сервиса {{ org-full-name }} и несколько небольших групп ролей для управления отдельными функциями.
+
+С помощью сервисных ролей [организаций](#organization-manager-auditor) вы можете управлять доступом к настройками организации, федерациями удостоверений, пулами пользователей, SAML-приложениями, OIDC-приложениями, пользователями и их группами, а также правами доступа пользователей к организации и ресурсам в ней.
+
+С помощью сервисных ролей [{{ oslogin }}](#organization-manager-osLogins-viewer) вы можете управлять SSH-ключами, профилями {{ oslogin }} пользователей и сервисных аккаунтов и настройками режимов работы на уровне организации.
+
+С помощью сервисных ролей для управления использованием сервиса [{{ org-full-name }}](#organization-manager-idpInstances-billingViewer) вы можете управлять доступом к данным пользователей о подписке на платные возможности и статистике использования квот сервиса.
+
+{% include [organization-manager-common](../../_mermaid/roles/organization-manager-common.md) %}
+
+Ниже приведены схемы с ролями, сгруппированными по функциональности. Каждая схема содержит роли определенной группы и общие роли сервиса.
+
+{% cut "Роли для федераций удостоверений" %}
+
+С помощью сервисных ролей [федераций удостоверений](#organization-manager-federations-extGroupsViewer) вы можете управлять доступом пользователей к федерациям и их настройкам, а также к группам пользователей, привязанных к федерациям из внешних источников.
+
+{% include [organization-manager-federations](../../_mermaid/roles/organization-manager-federations.md) %}
+
+{% endcut %}
+
+{% cut "Роли для групп пользователей" %}
+
+С помощью сервисных ролей [групп пользователей](#organization-manager-groups-viewer) вы можете управлять доступом к группам и их настройкам, а также к действиям над пользователями и сервисными аккаунтами, входящими в группы.
+
+{% include [organization-manager-groups](../../_mermaid/roles/organization-manager-groups.md) %}
+
+{% endcut %}
+
+{% cut "Роли для OIDC-приложений" %}
+
+С помощью сервисных ролей [OIDC-приложений](#organization-manager-oauthApplications-auditor) вы можете управлять доступом к OIDC-приложениям, их настройкам и действиям со списком добавленных в приложения пользователей.
+
+{% include [organization-manager-oidcApplications](../../_mermaid/roles/organization-manager-oidcApplications.md) %}
+
+{% endcut %}
+
+{% cut "Роли для SAML-приложений" %}
+
+С помощью сервисных ролей [SAML-приложений](#organization-manager-samlApplications-auditor) вы можете управлять доступом к SAML-приложениям и их настройкам, а также к просмотру добавленных в них пользователей.
+
+{% include [organization-manager-samlApplications](../../_mermaid/roles/organization-manager-samlApplications.md) %}
+
+{% endcut %}
+
+{% cut "Роли для пулов пользователей" %}
+
+С помощью сервисных ролей [пулов пользователей](#organization-manager-userpools-extGroupsViewer) вы можете управлять доступом к пулам и их настройкам, действиям с входящими в них локальными пользователями, внешними группами и синхронизацией пользователей.
+
+{% include [organization-manager-userpools](../../_mermaid/roles/organization-manager-userpools.md) %}
+
+{% endcut %}
+
 ### Сервисные роли {#service-roles}
 
 #### organization-manager.auditor {#organization-manager-auditor}
@@ -532,3 +584,4 @@
 ## Какие роли назначены в организации {#list-access-bingings}
 
 {% include [org-list-access-bingings](../../_includes/organization/org-list-access-bingings.md) %}
+

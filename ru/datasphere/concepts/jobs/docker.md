@@ -15,7 +15,7 @@
 
   ```text
   env:
-    docker: <идентификатор_Docker-образа>  # Идентификатор вида b1gxxxxxxxxxxxxxxxxx
+    docker: <идентификатор_Docker-образа>  # Идентификатор вида bxxxxxxxxxxxxxxxxxxx
   ```
 
   {% note warning %}

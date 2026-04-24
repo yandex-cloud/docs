@@ -8,6 +8,13 @@ apiPlayground:
     body:
       type: object
       properties:
+        lockboxSecretSpec:
+          description: |-
+            **[LockboxSecretSpec](#yandex.cloud.connectionmanager.v1.LockboxSecretSpec)**
+            Specification for creating a new Lockbox secret.
+            Includes only one of the fields `lockboxSecretSpec`.
+            Secret specification for authentication.
+          $ref: '#/definitions/LockboxSecretSpec'
         folderId:
           description: |-
             **string**
@@ -35,15 +42,42 @@ apiPlayground:
             **[ConnectionParams](#yandex.cloud.connectionmanager.v1.ConnectionParams)**
             Connection parameters specific to the database or service type.
           $ref: '#/definitions/ConnectionParams'
-        lockboxSecretSpec:
-          description: |-
-            **[LockboxSecretSpec](#yandex.cloud.connectionmanager.v1.LockboxSecretSpec)**
-            Specification for creating a new Lockbox secret.
-            Includes only one of the fields `lockboxSecretSpec`.
-            Secret specification for authentication.
-          $ref: '#/definitions/LockboxSecretSpec'
       additionalProperties: false
     definitions:
+      LockboxSecretSpec:
+        type: object
+        properties:
+          folderId:
+            description: |-
+              **string**
+              ID of the folder where the Lockbox secret will be created. If omitted, the secret will be created in the connection's folder.
+            type: string
+      TLSConfig:
+        type: object
+        properties:
+          caCertificate:
+            description: '**string**'
+            type: string
+      TLSParams:
+        type: object
+        properties:
+          disabled:
+            description: |-
+              **undefined** (empty)
+              Empty JSON object `` {} ``.
+              Includes only one of the fields `tls`.
+            type: undefined
+            format: empty
+          tls:
+            description: |-
+              **[TLSConfig](#yandex.cloud.connectionmanager.v1.TLSConfig)**
+              Includes only one of the fields `tls`.
+            $ref: '#/definitions/TLSConfig'
+        oneOf:
+          - required:
+              - disabled
+          - required:
+              - tls
       Host:
         type: object
         properties:
@@ -76,43 +110,17 @@ apiPlayground:
               - ALIVE
               - DEAD
               - DEGRADED
-      TLSConfig:
-        type: object
-        properties:
-          caCertificate:
-            description: '**string**'
-            type: string
-      TLSParams:
-        type: object
-        properties:
-          disabled:
-            description: |-
-              **undefined** (empty)
-              Empty JSON object `` {} ``.
-              Includes only one of the fields `tls`.
-            type: undefined
-            format: empty
-          tls:
-            description: |-
-              **[TLSConfig](#yandex.cloud.connectionmanager.v1.TLSConfig)**
-              Includes only one of the fields `tls`.
-            $ref: '#/definitions/TLSConfig'
-        oneOf:
-          - required:
-              - disabled
-          - required:
-              - tls
       PostgreSQLCluster:
         type: object
         properties:
+          tlsParams:
+            description: '**[TLSParams](#yandex.cloud.connectionmanager.v1.TLSParams)**'
+            $ref: '#/definitions/TLSParams'
           hosts:
             description: '**[Host](#yandex.cloud.connectionmanager.v1.ClickHouseCluster.Host)**'
             type: array
             items:
               $ref: '#/definitions/Host'
-          tlsParams:
-            description: '**[TLSParams](#yandex.cloud.connectionmanager.v1.TLSParams)**'
-            $ref: '#/definitions/TLSParams'
       LockboxPasswordGenerationOptions:
         type: object
         properties:
@@ -158,6 +166,11 @@ apiPlayground:
       PasswordGenerationOptions:
         type: object
         properties:
+          lockboxPasswordGenerationOptions:
+            description: |-
+              **[LockboxPasswordGenerationOptions](#yandex.cloud.connectionmanager.v1.LockboxPasswordGenerationOptions)**
+              Includes only one of the fields `lockboxPasswordGenerationOptions`.
+            $ref: '#/definitions/LockboxPasswordGenerationOptions'
           cookie:
             description: |-
               **string**
@@ -167,17 +180,18 @@ apiPlayground:
               PasswordGenerationOptions, the password will be re-generated. If the
               same cookie is passed, the password will not change.
             type: string
-          lockboxPasswordGenerationOptions:
-            description: |-
-              **[LockboxPasswordGenerationOptions](#yandex.cloud.connectionmanager.v1.LockboxPasswordGenerationOptions)**
-              Includes only one of the fields `lockboxPasswordGenerationOptions`.
-            $ref: '#/definitions/LockboxPasswordGenerationOptions'
         oneOf:
           - required:
               - lockboxPasswordGenerationOptions
       Password:
         type: object
         properties:
+          lockboxSecretKey:
+            description: |-
+              **string**
+              Read-only. Do not fill this field in create/update requests.
+              Includes only one of the fields `lockboxSecretKey`.
+            type: string
           raw:
             description: |-
               **string**
@@ -194,12 +208,6 @@ apiPlayground:
               "password_generation_options" you have to explicitly clear the "raw"
               field.
             $ref: '#/definitions/PasswordGenerationOptions'
-          lockboxSecretKey:
-            description: |-
-              **string**
-              Read-only. Do not fill this field in create/update requests.
-              Includes only one of the fields `lockboxSecretKey`.
-            type: string
         oneOf:
           - required:
               - lockboxSecretKey
@@ -249,14 +257,14 @@ apiPlayground:
       MySQLCluster:
         type: object
         properties:
+          tlsParams:
+            description: '**[TLSParams](#yandex.cloud.connectionmanager.v1.TLSParams)**'
+            $ref: '#/definitions/TLSParams'
           hosts:
             description: '**[Host](#yandex.cloud.connectionmanager.v1.ClickHouseCluster.Host)**'
             type: array
             items:
               $ref: '#/definitions/Host'
-          tlsParams:
-            description: '**[TLSParams](#yandex.cloud.connectionmanager.v1.TLSParams)**'
-            $ref: '#/definitions/TLSParams'
       MySQLAuth:
         type: object
         properties:
@@ -838,14 +846,6 @@ apiPlayground:
               - greenplum
           - required:
               - storedoc
-      LockboxSecretSpec:
-        type: object
-        properties:
-          folderId:
-            description: |-
-              **string**
-              ID of the folder where the Lockbox secret will be created. If omitted, the secret will be created in the connection's folder.
-            type: string
 ---
 
 # Connection Manager API, REST: Connection.Create
@@ -862,6 +862,11 @@ POST https://connman.{{ api-host }}/v1/connection
 
 ```json
 {
+  // Includes only one of the fields `lockboxSecretSpec`
+  "lockboxSecretSpec": {
+    "folderId": "string"
+  },
+  // end of the list of possible fields
   "folderId": "string",
   "name": "string",
   "description": "string",
@@ -870,6 +875,13 @@ POST https://connman.{{ api-host }}/v1/connection
     // Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`
     "postgresql": {
       "cluster": {
+        "tlsParams": {
+          // Includes only one of the fields `tls`
+          "tls": {
+            "caCertificate": "string"
+          }
+          // end of the list of possible fields
+        },
         "hosts": [
           {
             "host": "string",
@@ -878,14 +890,7 @@ POST https://connman.{{ api-host }}/v1/connection
             "replicaType": "string",
             "health": "string"
           }
-        ],
-        "tlsParams": {
-          // Includes only one of the fields `tls`
-          "tls": {
-            "caCertificate": "string"
-          }
-          // end of the list of possible fields
-        }
+        ]
       },
       "managedClusterId": "string",
       "auth": {
@@ -893,9 +898,11 @@ POST https://connman.{{ api-host }}/v1/connection
         "userPassword": {
           "user": "string",
           "password": {
+            // Includes only one of the fields `lockboxSecretKey`
+            "lockboxSecretKey": "string",
+            // end of the list of possible fields
             "raw": "string",
             "passwordGenerationOptions": {
-              "cookie": "string",
               // Includes only one of the fields `lockboxPasswordGenerationOptions`
               "lockboxPasswordGenerationOptions": {
                 "length": "string",
@@ -905,12 +912,10 @@ POST https://connman.{{ api-host }}/v1/connection
                 "includePunctuation": "boolean",
                 "includedPunctuation": "string",
                 "excludedPunctuation": "string"
-              }
+              },
               // end of the list of possible fields
-            },
-            // Includes only one of the fields `lockboxSecretKey`
-            "lockboxSecretKey": "string"
-            // end of the list of possible fields
+              "cookie": "string"
+            }
           }
         }
         // end of the list of possible fields
@@ -921,6 +926,13 @@ POST https://connman.{{ api-host }}/v1/connection
     },
     "mysql": {
       "cluster": {
+        "tlsParams": {
+          // Includes only one of the fields `tls`
+          "tls": {
+            "caCertificate": "string"
+          }
+          // end of the list of possible fields
+        },
         "hosts": [
           {
             "host": "string",
@@ -928,14 +940,7 @@ POST https://connman.{{ api-host }}/v1/connection
             "role": "string",
             "health": "string"
           }
-        ],
-        "tlsParams": {
-          // Includes only one of the fields `tls`
-          "tls": {
-            "caCertificate": "string"
-          }
-          // end of the list of possible fields
-        }
+        ]
       },
       "managedClusterId": "string",
       "auth": {
@@ -943,9 +948,11 @@ POST https://connman.{{ api-host }}/v1/connection
         "userPassword": {
           "user": "string",
           "password": {
+            // Includes only one of the fields `lockboxSecretKey`
+            "lockboxSecretKey": "string",
+            // end of the list of possible fields
             "raw": "string",
             "passwordGenerationOptions": {
-              "cookie": "string",
               // Includes only one of the fields `lockboxPasswordGenerationOptions`
               "lockboxPasswordGenerationOptions": {
                 "length": "string",
@@ -955,12 +962,10 @@ POST https://connman.{{ api-host }}/v1/connection
                 "includePunctuation": "boolean",
                 "includedPunctuation": "string",
                 "excludedPunctuation": "string"
-              }
+              },
               // end of the list of possible fields
-            },
-            // Includes only one of the fields `lockboxSecretKey`
-            "lockboxSecretKey": "string"
-            // end of the list of possible fields
+              "cookie": "string"
+            }
           }
         }
         // end of the list of possible fields
@@ -994,9 +999,11 @@ POST https://connman.{{ api-host }}/v1/connection
         "userPassword": {
           "user": "string",
           "password": {
+            // Includes only one of the fields `lockboxSecretKey`
+            "lockboxSecretKey": "string",
+            // end of the list of possible fields
             "raw": "string",
             "passwordGenerationOptions": {
-              "cookie": "string",
               // Includes only one of the fields `lockboxPasswordGenerationOptions`
               "lockboxPasswordGenerationOptions": {
                 "length": "string",
@@ -1006,12 +1013,10 @@ POST https://connman.{{ api-host }}/v1/connection
                 "includePunctuation": "boolean",
                 "includedPunctuation": "string",
                 "excludedPunctuation": "string"
-              }
+              },
               // end of the list of possible fields
-            },
-            // Includes only one of the fields `lockboxSecretKey`
-            "lockboxSecretKey": "string"
-            // end of the list of possible fields
+              "cookie": "string"
+            }
           }
         },
         // end of the list of possible fields
@@ -1054,9 +1059,11 @@ POST https://connman.{{ api-host }}/v1/connection
         "userPassword": {
           "user": "string",
           "password": {
+            // Includes only one of the fields `lockboxSecretKey`
+            "lockboxSecretKey": "string",
+            // end of the list of possible fields
             "raw": "string",
             "passwordGenerationOptions": {
-              "cookie": "string",
               // Includes only one of the fields `lockboxPasswordGenerationOptions`
               "lockboxPasswordGenerationOptions": {
                 "length": "string",
@@ -1066,12 +1073,10 @@ POST https://connman.{{ api-host }}/v1/connection
                 "includePunctuation": "boolean",
                 "includedPunctuation": "string",
                 "excludedPunctuation": "string"
-              }
+              },
               // end of the list of possible fields
-            },
-            // Includes only one of the fields `lockboxSecretKey`
-            "lockboxSecretKey": "string"
-            // end of the list of possible fields
+              "cookie": "string"
+            }
           }
         }
         // end of the list of possible fields
@@ -1103,9 +1108,11 @@ POST https://connman.{{ api-host }}/v1/connection
         "sasl": {
           "user": "string",
           "password": {
+            // Includes only one of the fields `lockboxSecretKey`
+            "lockboxSecretKey": "string",
+            // end of the list of possible fields
             "raw": "string",
             "passwordGenerationOptions": {
-              "cookie": "string",
               // Includes only one of the fields `lockboxPasswordGenerationOptions`
               "lockboxPasswordGenerationOptions": {
                 "length": "string",
@@ -1115,12 +1122,10 @@ POST https://connman.{{ api-host }}/v1/connection
                 "includePunctuation": "boolean",
                 "includedPunctuation": "string",
                 "excludedPunctuation": "string"
-              }
+              },
               // end of the list of possible fields
-            },
-            // Includes only one of the fields `lockboxSecretKey`
-            "lockboxSecretKey": "string"
-            // end of the list of possible fields
+              "cookie": "string"
+            }
           },
           "supportedMechanisms": [
             "string"
@@ -1154,9 +1159,11 @@ POST https://connman.{{ api-host }}/v1/connection
         "userPassword": {
           "user": "string",
           "password": {
+            // Includes only one of the fields `lockboxSecretKey`
+            "lockboxSecretKey": "string",
+            // end of the list of possible fields
             "raw": "string",
             "passwordGenerationOptions": {
-              "cookie": "string",
               // Includes only one of the fields `lockboxPasswordGenerationOptions`
               "lockboxPasswordGenerationOptions": {
                 "length": "string",
@@ -1166,12 +1173,10 @@ POST https://connman.{{ api-host }}/v1/connection
                 "includePunctuation": "boolean",
                 "includedPunctuation": "string",
                 "excludedPunctuation": "string"
-              }
+              },
               // end of the list of possible fields
-            },
-            // Includes only one of the fields `lockboxSecretKey`
-            "lockboxSecretKey": "string"
-            // end of the list of possible fields
+              "cookie": "string"
+            }
           }
         }
         // end of the list of possible fields
@@ -1206,9 +1211,11 @@ POST https://connman.{{ api-host }}/v1/connection
         "userPassword": {
           "user": "string",
           "password": {
+            // Includes only one of the fields `lockboxSecretKey`
+            "lockboxSecretKey": "string",
+            // end of the list of possible fields
             "raw": "string",
             "passwordGenerationOptions": {
-              "cookie": "string",
               // Includes only one of the fields `lockboxPasswordGenerationOptions`
               "lockboxPasswordGenerationOptions": {
                 "length": "string",
@@ -1218,12 +1225,10 @@ POST https://connman.{{ api-host }}/v1/connection
                 "includePunctuation": "boolean",
                 "includedPunctuation": "string",
                 "excludedPunctuation": "string"
-              }
+              },
               // end of the list of possible fields
-            },
-            // Includes only one of the fields `lockboxSecretKey`
-            "lockboxSecretKey": "string"
-            // end of the list of possible fields
+              "cookie": "string"
+            }
           }
         }
         // end of the list of possible fields
@@ -1248,9 +1253,11 @@ POST https://connman.{{ api-host }}/v1/connection
         "userPassword": {
           "user": "string",
           "password": {
+            // Includes only one of the fields `lockboxSecretKey`
+            "lockboxSecretKey": "string",
+            // end of the list of possible fields
             "raw": "string",
             "passwordGenerationOptions": {
-              "cookie": "string",
               // Includes only one of the fields `lockboxPasswordGenerationOptions`
               "lockboxPasswordGenerationOptions": {
                 "length": "string",
@@ -1260,12 +1267,10 @@ POST https://connman.{{ api-host }}/v1/connection
                 "includePunctuation": "boolean",
                 "includedPunctuation": "string",
                 "excludedPunctuation": "string"
-              }
+              },
               // end of the list of possible fields
-            },
-            // Includes only one of the fields `lockboxSecretKey`
-            "lockboxSecretKey": "string"
-            // end of the list of possible fields
+              "cookie": "string"
+            }
           }
         }
         // end of the list of possible fields
@@ -1297,9 +1302,11 @@ POST https://connman.{{ api-host }}/v1/connection
         "userPassword": {
           "user": "string",
           "password": {
+            // Includes only one of the fields `lockboxSecretKey`
+            "lockboxSecretKey": "string",
+            // end of the list of possible fields
             "raw": "string",
             "passwordGenerationOptions": {
-              "cookie": "string",
               // Includes only one of the fields `lockboxPasswordGenerationOptions`
               "lockboxPasswordGenerationOptions": {
                 "length": "string",
@@ -1309,12 +1316,10 @@ POST https://connman.{{ api-host }}/v1/connection
                 "includePunctuation": "boolean",
                 "includedPunctuation": "string",
                 "excludedPunctuation": "string"
-              }
+              },
               // end of the list of possible fields
-            },
-            // Includes only one of the fields `lockboxSecretKey`
-            "lockboxSecretKey": "string"
-            // end of the list of possible fields
+              "cookie": "string"
+            }
           }
         }
         // end of the list of possible fields
@@ -1347,9 +1352,11 @@ POST https://connman.{{ api-host }}/v1/connection
         "userPassword": {
           "user": "string",
           "password": {
+            // Includes only one of the fields `lockboxSecretKey`
+            "lockboxSecretKey": "string",
+            // end of the list of possible fields
             "raw": "string",
             "passwordGenerationOptions": {
-              "cookie": "string",
               // Includes only one of the fields `lockboxPasswordGenerationOptions`
               "lockboxPasswordGenerationOptions": {
                 "length": "string",
@@ -1359,12 +1366,10 @@ POST https://connman.{{ api-host }}/v1/connection
                 "includePunctuation": "boolean",
                 "includedPunctuation": "string",
                 "excludedPunctuation": "string"
-              }
+              },
               // end of the list of possible fields
-            },
-            // Includes only one of the fields `lockboxSecretKey`
-            "lockboxSecretKey": "string"
-            // end of the list of possible fields
+              "cookie": "string"
+            }
           }
         }
         // end of the list of possible fields
@@ -1398,9 +1403,11 @@ POST https://connman.{{ api-host }}/v1/connection
         "userPassword": {
           "user": "string",
           "password": {
+            // Includes only one of the fields `lockboxSecretKey`
+            "lockboxSecretKey": "string",
+            // end of the list of possible fields
             "raw": "string",
             "passwordGenerationOptions": {
-              "cookie": "string",
               // Includes only one of the fields `lockboxPasswordGenerationOptions`
               "lockboxPasswordGenerationOptions": {
                 "length": "string",
@@ -1410,12 +1417,10 @@ POST https://connman.{{ api-host }}/v1/connection
                 "includePunctuation": "boolean",
                 "includedPunctuation": "string",
                 "excludedPunctuation": "string"
-              }
+              },
               // end of the list of possible fields
-            },
-            // Includes only one of the fields `lockboxSecretKey`
-            "lockboxSecretKey": "string"
-            // end of the list of possible fields
+              "cookie": "string"
+            }
           }
         },
         // end of the list of possible fields
@@ -1426,12 +1431,7 @@ POST https://connman.{{ api-host }}/v1/connection
       ]
     }
     // end of the list of possible fields
-  },
-  // Includes only one of the fields `lockboxSecretSpec`
-  "lockboxSecretSpec": {
-    "folderId": "string"
   }
-  // end of the list of possible fields
 }
 ```
 
@@ -1439,6 +1439,13 @@ Request message for creating a new connection.
 
 #|
 ||Field | Description ||
+|| lockboxSecretSpec | **[LockboxSecretSpec](#yandex.cloud.connectionmanager.v1.LockboxSecretSpec)**
+
+Specification for creating a new Lockbox secret.
+
+Includes only one of the fields `lockboxSecretSpec`.
+
+Secret specification for authentication. ||
 || folderId | **string**
 
 ID of the folder to create the connection in. ||
@@ -1454,13 +1461,17 @@ Connection labels as `key:value` pairs. ||
 || params | **[ConnectionParams](#yandex.cloud.connectionmanager.v1.ConnectionParams)**
 
 Connection parameters specific to the database or service type. ||
-|| lockboxSecretSpec | **[LockboxSecretSpec](#yandex.cloud.connectionmanager.v1.LockboxSecretSpec)**
+|#
+
+## LockboxSecretSpec {#yandex.cloud.connectionmanager.v1.LockboxSecretSpec}
 
 Specification for creating a new Lockbox secret.
 
-Includes only one of the fields `lockboxSecretSpec`.
+#|
+||Field | Description ||
+|| folderId | **string**
 
-Secret specification for authentication. ||
+ID of the folder where the Lockbox secret will be created. If omitted, the secret will be created in the connection's folder. ||
 |#
 
 ## ConnectionParams {#yandex.cloud.connectionmanager.v1.ConnectionParams}
@@ -1568,8 +1579,24 @@ mutually exclusive with "cluster". ||
 
 #|
 ||Field | Description ||
-|| hosts[] | **[Host](#yandex.cloud.connectionmanager.v1.PostgreSQLCluster.Host)** ||
 || tlsParams | **[TLSParams](#yandex.cloud.connectionmanager.v1.TLSParams)** ||
+|| hosts[] | **[Host](#yandex.cloud.connectionmanager.v1.PostgreSQLCluster.Host)** ||
+|#
+
+## TLSParams {#yandex.cloud.connectionmanager.v1.TLSParams}
+
+#|
+||Field | Description ||
+|| tls | **[TLSConfig](#yandex.cloud.connectionmanager.v1.TLSConfig)**
+
+Includes only one of the fields `tls`. ||
+|#
+
+## TLSConfig {#yandex.cloud.connectionmanager.v1.TLSConfig}
+
+#|
+||Field | Description ||
+|| caCertificate | **string** ||
 |#
 
 ## Host {#yandex.cloud.connectionmanager.v1.PostgreSQLCluster.Host}
@@ -1595,22 +1622,6 @@ mutually exclusive with "cluster". ||
 - `READONLY` ||
 |#
 
-## TLSParams {#yandex.cloud.connectionmanager.v1.TLSParams}
-
-#|
-||Field | Description ||
-|| tls | **[TLSConfig](#yandex.cloud.connectionmanager.v1.TLSConfig)**
-
-Includes only one of the fields `tls`. ||
-|#
-
-## TLSConfig {#yandex.cloud.connectionmanager.v1.TLSConfig}
-
-#|
-||Field | Description ||
-|| caCertificate | **string** ||
-|#
-
 ## PostgreSQLAuth {#yandex.cloud.connectionmanager.v1.PostgreSQLAuth}
 
 #|
@@ -1632,6 +1643,11 @@ Includes only one of the fields `userPassword`. ||
 
 #|
 ||Field | Description ||
+|| lockboxSecretKey | **string**
+
+Read-only. Do not fill this field in create/update requests.
+
+Includes only one of the fields `lockboxSecretKey`. ||
 || raw | **string**
 
 When creating/updating Password, the field "raw" is mutually exclusive
@@ -1644,17 +1660,15 @@ When creating/updating Password, the field "password_generation_options"
 is mutually exclusive with "raw". In order to switch to the
 "password_generation_options" you have to explicitly clear the "raw"
 field. ||
-|| lockboxSecretKey | **string**
-
-Read-only. Do not fill this field in create/update requests.
-
-Includes only one of the fields `lockboxSecretKey`. ||
 |#
 
 ## PasswordGenerationOptions {#yandex.cloud.connectionmanager.v1.PasswordGenerationOptions}
 
 #|
 ||Field | Description ||
+|| lockboxPasswordGenerationOptions | **[LockboxPasswordGenerationOptions](#yandex.cloud.connectionmanager.v1.LockboxPasswordGenerationOptions)**
+
+Includes only one of the fields `lockboxPasswordGenerationOptions`. ||
 || cookie | **string**
 
 Cookie is an arbitrary non-sensitive string that is saved with the
@@ -1662,9 +1676,6 @@ password. When updating PasswordGenerationOptions, if the cookie passed
 in the update request differs from the cookie in the current
 PasswordGenerationOptions, the password will be re-generated. If the
 same cookie is passed, the password will not change. ||
-|| lockboxPasswordGenerationOptions | **[LockboxPasswordGenerationOptions](#yandex.cloud.connectionmanager.v1.LockboxPasswordGenerationOptions)**
-
-Includes only one of the fields `lockboxPasswordGenerationOptions`. ||
 |#
 
 ## LockboxPasswordGenerationOptions {#yandex.cloud.connectionmanager.v1.LockboxPasswordGenerationOptions}
@@ -1717,8 +1728,8 @@ mutually exclusive with "cluster". ||
 
 #|
 ||Field | Description ||
-|| hosts[] | **[Host](#yandex.cloud.connectionmanager.v1.MySQLCluster.Host)** ||
 || tlsParams | **[TLSParams](#yandex.cloud.connectionmanager.v1.TLSParams)** ||
+|| hosts[] | **[Host](#yandex.cloud.connectionmanager.v1.MySQLCluster.Host)** ||
 |#
 
 ## Host {#yandex.cloud.connectionmanager.v1.MySQLCluster.Host}
@@ -2225,17 +2236,6 @@ Includes only one of the fields `userPassword`. ||
 || authSource | **string** ||
 |#
 
-## LockboxSecretSpec {#yandex.cloud.connectionmanager.v1.LockboxSecretSpec}
-
-Specification for creating a new Lockbox secret.
-
-#|
-||Field | Description ||
-|| folderId | **string**
-
-ID of the folder where the Lockbox secret will be created. If omitted, the secret will be created in the connection's folder. ||
-|#
-
 ## Response {#yandex.cloud.operation.Operation}
 
 **HTTP Code: 200 - OK**
@@ -2248,9 +2248,7 @@ ID of the folder where the Lockbox secret will be created. If omitted, the secre
   "createdBy": "string",
   "modifiedAt": "string",
   "done": "boolean",
-  "metadata": {
-    "connectionId": "string"
-  },
+  "metadata": "object",
   // Includes only one of the fields `error`, `response`
   "error": {
     "code": "integer",
@@ -2259,591 +2257,7 @@ ID of the folder where the Lockbox secret will be created. If omitted, the secre
       "object"
     ]
   },
-  "response": {
-    "id": "string",
-    "folderId": "string",
-    "createdAt": "string",
-    "updatedAt": "string",
-    "name": "string",
-    "description": "string",
-    "labels": "object",
-    "createdBy": "string",
-    "params": {
-      // Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`
-      "postgresql": {
-        "cluster": {
-          "hosts": [
-            {
-              "host": "string",
-              "port": "string",
-              "role": "string",
-              "replicaType": "string",
-              "health": "string"
-            }
-          ],
-          "tlsParams": {
-            // Includes only one of the fields `tls`
-            "tls": {
-              "caCertificate": "string"
-            }
-            // end of the list of possible fields
-          }
-        },
-        "managedClusterId": "string",
-        "auth": {
-          // Includes only one of the fields `userPassword`
-          "userPassword": {
-            "user": "string",
-            "password": {
-              "raw": "string",
-              "passwordGenerationOptions": {
-                "cookie": "string",
-                // Includes only one of the fields `lockboxPasswordGenerationOptions`
-                "lockboxPasswordGenerationOptions": {
-                  "length": "string",
-                  "includeUppercase": "boolean",
-                  "includeLowercase": "boolean",
-                  "includeDigits": "boolean",
-                  "includePunctuation": "boolean",
-                  "includedPunctuation": "string",
-                  "excludedPunctuation": "string"
-                }
-                // end of the list of possible fields
-              },
-              // Includes only one of the fields `lockboxSecretKey`
-              "lockboxSecretKey": "string"
-              // end of the list of possible fields
-            }
-          }
-          // end of the list of possible fields
-        },
-        "databases": [
-          "string"
-        ]
-      },
-      "mysql": {
-        "cluster": {
-          "hosts": [
-            {
-              "host": "string",
-              "port": "string",
-              "role": "string",
-              "health": "string"
-            }
-          ],
-          "tlsParams": {
-            // Includes only one of the fields `tls`
-            "tls": {
-              "caCertificate": "string"
-            }
-            // end of the list of possible fields
-          }
-        },
-        "managedClusterId": "string",
-        "auth": {
-          // Includes only one of the fields `userPassword`
-          "userPassword": {
-            "user": "string",
-            "password": {
-              "raw": "string",
-              "passwordGenerationOptions": {
-                "cookie": "string",
-                // Includes only one of the fields `lockboxPasswordGenerationOptions`
-                "lockboxPasswordGenerationOptions": {
-                  "length": "string",
-                  "includeUppercase": "boolean",
-                  "includeLowercase": "boolean",
-                  "includeDigits": "boolean",
-                  "includePunctuation": "boolean",
-                  "includedPunctuation": "string",
-                  "excludedPunctuation": "string"
-                }
-                // end of the list of possible fields
-              },
-              // Includes only one of the fields `lockboxSecretKey`
-              "lockboxSecretKey": "string"
-              // end of the list of possible fields
-            }
-          }
-          // end of the list of possible fields
-        },
-        "databases": [
-          "string"
-        ]
-      },
-      "mongodb": {
-        "cluster": {
-          "hosts": [
-            {
-              "host": "string",
-              "port": "string",
-              "role": "string",
-              "health": "string",
-              "type": "string"
-            }
-          ],
-          "tlsParams": {
-            // Includes only one of the fields `tls`
-            "tls": {
-              "caCertificate": "string"
-            }
-            // end of the list of possible fields
-          }
-        },
-        "managedClusterId": "string",
-        "auth": {
-          // Includes only one of the fields `userPassword`
-          "userPassword": {
-            "user": "string",
-            "password": {
-              "raw": "string",
-              "passwordGenerationOptions": {
-                "cookie": "string",
-                // Includes only one of the fields `lockboxPasswordGenerationOptions`
-                "lockboxPasswordGenerationOptions": {
-                  "length": "string",
-                  "includeUppercase": "boolean",
-                  "includeLowercase": "boolean",
-                  "includeDigits": "boolean",
-                  "includePunctuation": "boolean",
-                  "includedPunctuation": "string",
-                  "excludedPunctuation": "string"
-                }
-                // end of the list of possible fields
-              },
-              // Includes only one of the fields `lockboxSecretKey`
-              "lockboxSecretKey": "string"
-              // end of the list of possible fields
-            }
-          },
-          // end of the list of possible fields
-          "authSource": "string"
-        },
-        "databases": [
-          "string"
-        ]
-      },
-      "clickhouse": {
-        "cluster": {
-          "tlsParams": {
-            // Includes only one of the fields `tls`
-            "tls": {
-              "caCertificate": "string"
-            }
-            // end of the list of possible fields
-          },
-          "hosts": [
-            {
-              "host": "string",
-              "httpPort": "string",
-              "tcpPort": "string",
-              "shardName": "string",
-              "health": "string"
-            }
-          ],
-          "shardGroups": [
-            {
-              "name": "string",
-              "shardNames": [
-                "string"
-              ]
-            }
-          ]
-        },
-        "managedClusterId": "string",
-        "auth": {
-          // Includes only one of the fields `userPassword`
-          "userPassword": {
-            "user": "string",
-            "password": {
-              "raw": "string",
-              "passwordGenerationOptions": {
-                "cookie": "string",
-                // Includes only one of the fields `lockboxPasswordGenerationOptions`
-                "lockboxPasswordGenerationOptions": {
-                  "length": "string",
-                  "includeUppercase": "boolean",
-                  "includeLowercase": "boolean",
-                  "includeDigits": "boolean",
-                  "includePunctuation": "boolean",
-                  "includedPunctuation": "string",
-                  "excludedPunctuation": "string"
-                }
-                // end of the list of possible fields
-              },
-              // Includes only one of the fields `lockboxSecretKey`
-              "lockboxSecretKey": "string"
-              // end of the list of possible fields
-            }
-          }
-          // end of the list of possible fields
-        },
-        "databases": [
-          "string"
-        ]
-      },
-      "kafka": {
-        "cluster": {
-          "hosts": [
-            {
-              "host": "string",
-              "port": "string",
-              "health": "string"
-            }
-          ],
-          "tlsParams": {
-            // Includes only one of the fields `tls`
-            "tls": {
-              "caCertificate": "string"
-            }
-            // end of the list of possible fields
-          }
-        },
-        "managedClusterId": "string",
-        "auth": {
-          // Includes only one of the fields `sasl`
-          "sasl": {
-            "user": "string",
-            "password": {
-              "raw": "string",
-              "passwordGenerationOptions": {
-                "cookie": "string",
-                // Includes only one of the fields `lockboxPasswordGenerationOptions`
-                "lockboxPasswordGenerationOptions": {
-                  "length": "string",
-                  "includeUppercase": "boolean",
-                  "includeLowercase": "boolean",
-                  "includeDigits": "boolean",
-                  "includePunctuation": "boolean",
-                  "includedPunctuation": "string",
-                  "excludedPunctuation": "string"
-                }
-                // end of the list of possible fields
-              },
-              // Includes only one of the fields `lockboxSecretKey`
-              "lockboxSecretKey": "string"
-              // end of the list of possible fields
-            },
-            "supportedMechanisms": [
-              "string"
-            ]
-          }
-          // end of the list of possible fields
-        }
-      },
-      "redis": {
-        "cluster": {
-          "hosts": [
-            {
-              "host": "string",
-              "port": "string",
-              "role": "string",
-              "health": "string",
-              "shardName": "string"
-            }
-          ],
-          "sentinelPort": "string",
-          "tlsParams": {
-            // Includes only one of the fields `tls`
-            "tls": {
-              "caCertificate": "string"
-            }
-            // end of the list of possible fields
-          }
-        },
-        "auth": {
-          // Includes only one of the fields `userPassword`
-          "userPassword": {
-            "user": "string",
-            "password": {
-              "raw": "string",
-              "passwordGenerationOptions": {
-                "cookie": "string",
-                // Includes only one of the fields `lockboxPasswordGenerationOptions`
-                "lockboxPasswordGenerationOptions": {
-                  "length": "string",
-                  "includeUppercase": "boolean",
-                  "includeLowercase": "boolean",
-                  "includeDigits": "boolean",
-                  "includePunctuation": "boolean",
-                  "includedPunctuation": "string",
-                  "excludedPunctuation": "string"
-                }
-                // end of the list of possible fields
-              },
-              // Includes only one of the fields `lockboxSecretKey`
-              "lockboxSecretKey": "string"
-              // end of the list of possible fields
-            }
-          }
-          // end of the list of possible fields
-        },
-        "databases": [
-          "string"
-        ]
-      },
-      "opensearch": {
-        "cluster": {
-          "hosts": [
-            {
-              "host": "string",
-              "port": "string",
-              "health": "string",
-              "roles": [
-                "string"
-              ]
-            }
-          ],
-          "tlsParams": {
-            // Includes only one of the fields `tls`
-            "tls": {
-              "caCertificate": "string"
-            }
-            // end of the list of possible fields
-          }
-        },
-        "managedClusterId": "string",
-        "auth": {
-          // Includes only one of the fields `userPassword`
-          "userPassword": {
-            "user": "string",
-            "password": {
-              "raw": "string",
-              "passwordGenerationOptions": {
-                "cookie": "string",
-                // Includes only one of the fields `lockboxPasswordGenerationOptions`
-                "lockboxPasswordGenerationOptions": {
-                  "length": "string",
-                  "includeUppercase": "boolean",
-                  "includeLowercase": "boolean",
-                  "includeDigits": "boolean",
-                  "includePunctuation": "boolean",
-                  "includedPunctuation": "string",
-                  "excludedPunctuation": "string"
-                }
-                // end of the list of possible fields
-              },
-              // Includes only one of the fields `lockboxSecretKey`
-              "lockboxSecretKey": "string"
-              // end of the list of possible fields
-            }
-          }
-          // end of the list of possible fields
-        }
-      },
-      "trino": {
-        "cluster": {
-          "coordinator": {
-            "host": "string",
-            "port": "string"
-          },
-          "tlsParams": {
-            // Includes only one of the fields `tls`
-            "tls": {
-              "caCertificate": "string"
-            }
-            // end of the list of possible fields
-          }
-        },
-        "auth": {
-          // Includes only one of the fields `userPassword`
-          "userPassword": {
-            "user": "string",
-            "password": {
-              "raw": "string",
-              "passwordGenerationOptions": {
-                "cookie": "string",
-                // Includes only one of the fields `lockboxPasswordGenerationOptions`
-                "lockboxPasswordGenerationOptions": {
-                  "length": "string",
-                  "includeUppercase": "boolean",
-                  "includeLowercase": "boolean",
-                  "includeDigits": "boolean",
-                  "includePunctuation": "boolean",
-                  "includedPunctuation": "string",
-                  "excludedPunctuation": "string"
-                }
-                // end of the list of possible fields
-              },
-              // Includes only one of the fields `lockboxSecretKey`
-              "lockboxSecretKey": "string"
-              // end of the list of possible fields
-            }
-          }
-          // end of the list of possible fields
-        }
-      },
-      "valkey": {
-        "cluster": {
-          "hosts": [
-            {
-              "host": "string",
-              "port": "string",
-              "role": "string",
-              "health": "string",
-              "shardName": "string"
-            }
-          ],
-          "sentinelPort": "string",
-          "tlsParams": {
-            // Includes only one of the fields `tls`
-            "tls": {
-              "caCertificate": "string"
-            }
-            // end of the list of possible fields
-          }
-        },
-        "managedClusterId": "string",
-        "auth": {
-          // Includes only one of the fields `userPassword`
-          "userPassword": {
-            "user": "string",
-            "password": {
-              "raw": "string",
-              "passwordGenerationOptions": {
-                "cookie": "string",
-                // Includes only one of the fields `lockboxPasswordGenerationOptions`
-                "lockboxPasswordGenerationOptions": {
-                  "length": "string",
-                  "includeUppercase": "boolean",
-                  "includeLowercase": "boolean",
-                  "includeDigits": "boolean",
-                  "includePunctuation": "boolean",
-                  "includedPunctuation": "string",
-                  "excludedPunctuation": "string"
-                }
-                // end of the list of possible fields
-              },
-              // Includes only one of the fields `lockboxSecretKey`
-              "lockboxSecretKey": "string"
-              // end of the list of possible fields
-            }
-          }
-          // end of the list of possible fields
-        },
-        "databases": [
-          "string"
-        ]
-      },
-      "greenplum": {
-        "cluster": {
-          "coordinatorHosts": [
-            {
-              "host": "string",
-              "port": "string",
-              "role": "string",
-              "health": "string"
-            }
-          ],
-          "tlsParams": {
-            // Includes only one of the fields `tls`
-            "tls": {
-              "caCertificate": "string"
-            }
-            // end of the list of possible fields
-          }
-        },
-        "managedClusterId": "string",
-        "auth": {
-          // Includes only one of the fields `userPassword`
-          "userPassword": {
-            "user": "string",
-            "password": {
-              "raw": "string",
-              "passwordGenerationOptions": {
-                "cookie": "string",
-                // Includes only one of the fields `lockboxPasswordGenerationOptions`
-                "lockboxPasswordGenerationOptions": {
-                  "length": "string",
-                  "includeUppercase": "boolean",
-                  "includeLowercase": "boolean",
-                  "includeDigits": "boolean",
-                  "includePunctuation": "boolean",
-                  "includedPunctuation": "string",
-                  "excludedPunctuation": "string"
-                }
-                // end of the list of possible fields
-              },
-              // Includes only one of the fields `lockboxSecretKey`
-              "lockboxSecretKey": "string"
-              // end of the list of possible fields
-            }
-          }
-          // end of the list of possible fields
-        },
-        "databases": [
-          "string"
-        ]
-      },
-      "storedoc": {
-        "cluster": {
-          "hosts": [
-            {
-              "host": "string",
-              "port": "string",
-              "role": "string",
-              "health": "string",
-              "type": "string"
-            }
-          ],
-          "tlsParams": {
-            // Includes only one of the fields `tls`
-            "tls": {
-              "caCertificate": "string"
-            }
-            // end of the list of possible fields
-          }
-        },
-        "managedClusterId": "string",
-        "auth": {
-          // Includes only one of the fields `userPassword`
-          "userPassword": {
-            "user": "string",
-            "password": {
-              "raw": "string",
-              "passwordGenerationOptions": {
-                "cookie": "string",
-                // Includes only one of the fields `lockboxPasswordGenerationOptions`
-                "lockboxPasswordGenerationOptions": {
-                  "length": "string",
-                  "includeUppercase": "boolean",
-                  "includeLowercase": "boolean",
-                  "includeDigits": "boolean",
-                  "includePunctuation": "boolean",
-                  "includedPunctuation": "string",
-                  "excludedPunctuation": "string"
-                }
-                // end of the list of possible fields
-              },
-              // Includes only one of the fields `lockboxSecretKey`
-              "lockboxSecretKey": "string"
-              // end of the list of possible fields
-            }
-          },
-          // end of the list of possible fields
-          "authSource": "string"
-        },
-        "databases": [
-          "string"
-        ]
-      }
-      // end of the list of possible fields
-    },
-    // Includes only one of the fields `lockboxSecret`
-    "lockboxSecret": {
-      "id": "string",
-      "version": "string",
-      "newestVersion": "string"
-    },
-    // end of the list of possible fields
-    // Includes only one of the fields `lockboxSecretSpec`
-    "lockboxSecretSpec": {
-      "folderId": "string"
-    },
-    // end of the list of possible fields
-    "isManaged": "boolean",
-    "canUse": "boolean"
-  }
+  "response": "object"
   // end of the list of possible fields
 }
 ```
@@ -2885,7 +2299,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateConnectionMetadata](#yandex.cloud.connectionmanager.v1.CreateConnectionMetadata)**
+|| metadata | **object**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -2900,7 +2314,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Connection](#yandex.cloud.connectionmanager.v1.Connection)**
+|| response | **object**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -2915,17 +2329,6 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateConnectionMetadata {#yandex.cloud.connectionmanager.v1.CreateConnectionMetadata}
-
-Metadata for the connection creation operation.
-
-#|
-||Field | Description ||
-|| connectionId | **string**
-
-ID of the connection being created. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -2943,863 +2346,4 @@ An error message. ||
 || details[] | **object**
 
 A list of messages that carry the error details. ||
-|#
-
-## Connection {#yandex.cloud.connectionmanager.v1.Connection}
-
-A Connection resource represents a configured connection to a database or service.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the connection. Generated at creation time. ||
-|| folderId | **string**
-
-ID of the folder that the connection belongs to. ||
-|| createdAt | **string** (date-time)
-
-Creation timestamp.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| updatedAt | **string** (date-time)
-
-Last update timestamp.
-
-String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
-`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
-
-To work with values in this field, use the APIs described in the
-[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
-In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| name | **string**
-
-Name of the connection. ||
-|| description | **string**
-
-Description of the connection. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Connection labels as `key:value` pairs. ||
-|| createdBy | **string**
-
-ID of the subject which created the connection. ||
-|| params | **[ConnectionParams](#yandex.cloud.connectionmanager.v1.ConnectionParams2)**
-
-Connection parameters specific to the database or service type. ||
-|| lockboxSecret | **[LockboxSecret](#yandex.cloud.connectionmanager.v1.LockboxSecret)**
-
-Reference to the Lockbox secret containing connection credentials.
-
-Includes only one of the fields `lockboxSecret`.
-
-Secret configuration for authentication. ||
-|| lockboxSecretSpec | **[LockboxSecretSpec](#yandex.cloud.connectionmanager.v1.LockboxSecretSpec2)**
-
-Specification for creating a new Lockbox secret.
-
-Includes only one of the fields `lockboxSecretSpec`.
-
-Secret specification for creating a new secret. ||
-|| isManaged | **boolean**
-
-Whether this connection is managed by the system (e.g. an MDB cluster). ||
-|| canUse | **boolean**
-
-Whether the current user can use this connection. Filled only when `with_can_use` has been requested in ListConnectionRequest. ||
-|#
-
-## ConnectionParams {#yandex.cloud.connectionmanager.v1.ConnectionParams2}
-
-Connection parameters for various database and service types.
-
-#|
-||Field | Description ||
-|| postgresql | **[PostgreSQLConnection](#yandex.cloud.connectionmanager.v1.PostgreSQLConnection2)**
-
-PostgreSQL database connection parameters.
-
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
-
-Database or service connection configuration. ||
-|| mysql | **[MySQLConnection](#yandex.cloud.connectionmanager.v1.MySQLConnection2)**
-
-MySQL database connection parameters.
-
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
-
-Database or service connection configuration. ||
-|| mongodb | **[MongoDBConnection](#yandex.cloud.connectionmanager.v1.MongoDBConnection2)**
-
-MongoDB database connection parameters.
-
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
-
-Database or service connection configuration. ||
-|| clickhouse | **[ClickHouseConnection](#yandex.cloud.connectionmanager.v1.ClickHouseConnection2)**
-
-ClickHouse database connection parameters.
-
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
-
-Database or service connection configuration. ||
-|| kafka | **[KafkaConnection](#yandex.cloud.connectionmanager.v1.KafkaConnection2)**
-
-Apache Kafka message broker connection parameters.
-
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
-
-Database or service connection configuration. ||
-|| redis | **[RedisConnection](#yandex.cloud.connectionmanager.v1.RedisConnection2)**
-
-Redis in-memory data store connection parameters.
-
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
-
-Database or service connection configuration. ||
-|| opensearch | **[OpenSearchConnection](#yandex.cloud.connectionmanager.v1.OpenSearchConnection2)**
-
-OpenSearch search engine connection parameters.
-
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
-
-Database or service connection configuration. ||
-|| trino | **[TrinoConnection](#yandex.cloud.connectionmanager.v1.TrinoConnection2)**
-
-Trino distributed SQL query engine connection parameters.
-
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
-
-Database or service connection configuration. ||
-|| valkey | **[ValkeyConnection](#yandex.cloud.connectionmanager.v1.ValkeyConnection2)**
-
-Valkey in-memory data store connection parameters.
-
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
-
-Database or service connection configuration. ||
-|| greenplum | **[GreenplumConnection](#yandex.cloud.connectionmanager.v1.GreenplumConnection2)**
-
-Greenplum data warehouse connection parameters.
-
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
-
-Database or service connection configuration. ||
-|| storedoc | **[StoreDocConnection](#yandex.cloud.connectionmanager.v1.StoreDocConnection2)**
-
-StoreDoc document store connection parameters.
-
-Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`.
-
-Database or service connection configuration. ||
-|#
-
-## PostgreSQLConnection {#yandex.cloud.connectionmanager.v1.PostgreSQLConnection2}
-
-#|
-||Field | Description ||
-|| cluster | **[PostgreSQLCluster](#yandex.cloud.connectionmanager.v1.PostgreSQLCluster2)**
-
-When creating/updating Connection, the field "cluster" is mutually
-exclusive with "managed_cluster_id". ||
-|| managedClusterId | **string**
-
-When creating/updating Connection, the field "managed_cluster_id" is
-mutually exclusive with "cluster". ||
-|| auth | **[PostgreSQLAuth](#yandex.cloud.connectionmanager.v1.PostgreSQLAuth2)** ||
-|| databases[] | **string** ||
-|#
-
-## PostgreSQLCluster {#yandex.cloud.connectionmanager.v1.PostgreSQLCluster2}
-
-#|
-||Field | Description ||
-|| hosts[] | **[Host](#yandex.cloud.connectionmanager.v1.PostgreSQLCluster.Host2)** ||
-|| tlsParams | **[TLSParams](#yandex.cloud.connectionmanager.v1.TLSParams2)** ||
-|#
-
-## Host {#yandex.cloud.connectionmanager.v1.PostgreSQLCluster.Host2}
-
-#|
-||Field | Description ||
-|| host | **string** ||
-|| port | **string** (int64) ||
-|| role | **enum** (Role)
-
-- `MASTER`
-- `REPLICA` ||
-|| replicaType | **enum** (ReplicaType)
-
-- `ASYNC`
-- `SYNC`
-- `QUORUM` ||
-|| health | **enum** (Health)
-
-- `ALIVE`
-- `DEAD`
-- `DEGRADED`
-- `READONLY` ||
-|#
-
-## TLSParams {#yandex.cloud.connectionmanager.v1.TLSParams2}
-
-#|
-||Field | Description ||
-|| tls | **[TLSConfig](#yandex.cloud.connectionmanager.v1.TLSConfig2)**
-
-Includes only one of the fields `tls`. ||
-|#
-
-## TLSConfig {#yandex.cloud.connectionmanager.v1.TLSConfig2}
-
-#|
-||Field | Description ||
-|| caCertificate | **string** ||
-|#
-
-## PostgreSQLAuth {#yandex.cloud.connectionmanager.v1.PostgreSQLAuth2}
-
-#|
-||Field | Description ||
-|| userPassword | **[UserPasswordAuth](#yandex.cloud.connectionmanager.v1.UserPasswordAuth2)**
-
-Includes only one of the fields `userPassword`. ||
-|#
-
-## UserPasswordAuth {#yandex.cloud.connectionmanager.v1.UserPasswordAuth2}
-
-#|
-||Field | Description ||
-|| user | **string** ||
-|| password | **[Password](#yandex.cloud.connectionmanager.v1.Password2)** ||
-|#
-
-## Password {#yandex.cloud.connectionmanager.v1.Password2}
-
-#|
-||Field | Description ||
-|| raw | **string**
-
-When creating/updating Password, the field "raw" is mutually exclusive
-with "password_generation_options". In order to switch to the "raw"
-password you have to explicitly clear the "password_generation_options"
-field. ||
-|| passwordGenerationOptions | **[PasswordGenerationOptions](#yandex.cloud.connectionmanager.v1.PasswordGenerationOptions2)**
-
-When creating/updating Password, the field "password_generation_options"
-is mutually exclusive with "raw". In order to switch to the
-"password_generation_options" you have to explicitly clear the "raw"
-field. ||
-|| lockboxSecretKey | **string**
-
-Read-only. Do not fill this field in create/update requests.
-
-Includes only one of the fields `lockboxSecretKey`. ||
-|#
-
-## PasswordGenerationOptions {#yandex.cloud.connectionmanager.v1.PasswordGenerationOptions2}
-
-#|
-||Field | Description ||
-|| cookie | **string**
-
-Cookie is an arbitrary non-sensitive string that is saved with the
-password. When updating PasswordGenerationOptions, if the cookie passed
-in the update request differs from the cookie in the current
-PasswordGenerationOptions, the password will be re-generated. If the
-same cookie is passed, the password will not change. ||
-|| lockboxPasswordGenerationOptions | **[LockboxPasswordGenerationOptions](#yandex.cloud.connectionmanager.v1.LockboxPasswordGenerationOptions2)**
-
-Includes only one of the fields `lockboxPasswordGenerationOptions`. ||
-|#
-
-## LockboxPasswordGenerationOptions {#yandex.cloud.connectionmanager.v1.LockboxPasswordGenerationOptions2}
-
-#|
-||Field | Description ||
-|| length | **string** (int64)
-
-password length; by default, a reasonable length will be decided ||
-|| includeUppercase | **boolean**
-
-whether at least one A..Z character is included in the password, true by default ||
-|| includeLowercase | **boolean**
-
-whether at least one a..z character is included in the password, true by default ||
-|| includeDigits | **boolean**
-
-whether at least one 0..9 character is included in the password, true by default ||
-|| includePunctuation | **boolean**
-
-whether at least one punctuation character is included in the password, true by default
-punctuation characters by default: !"#$%&'()*+,-./:;&lt;=&gt;?@[\]^_`{\|}~
-to customize the punctuation characters, see included_punctuation and excluded_punctuation below ||
-|| includedPunctuation | **string**
-
-If include_punctuation is true, one of these two fields (not both) may be used optionally to customize the punctuation:
-a string of specific punctuation characters to use ||
-|| excludedPunctuation | **string**
-
-a string of punctuation characters to exclude from the default ||
-|#
-
-## MySQLConnection {#yandex.cloud.connectionmanager.v1.MySQLConnection2}
-
-#|
-||Field | Description ||
-|| cluster | **[MySQLCluster](#yandex.cloud.connectionmanager.v1.MySQLCluster2)**
-
-When creating/updating Connection, the field "cluster" is mutually
-exclusive with "managed_cluster_id". ||
-|| managedClusterId | **string**
-
-When creating/updating Connection, the field "managed_cluster_id" is
-mutually exclusive with "cluster". ||
-|| auth | **[MySQLAuth](#yandex.cloud.connectionmanager.v1.MySQLAuth2)** ||
-|| databases[] | **string** ||
-|#
-
-## MySQLCluster {#yandex.cloud.connectionmanager.v1.MySQLCluster2}
-
-#|
-||Field | Description ||
-|| hosts[] | **[Host](#yandex.cloud.connectionmanager.v1.MySQLCluster.Host2)** ||
-|| tlsParams | **[TLSParams](#yandex.cloud.connectionmanager.v1.TLSParams2)** ||
-|#
-
-## Host {#yandex.cloud.connectionmanager.v1.MySQLCluster.Host2}
-
-#|
-||Field | Description ||
-|| host | **string** ||
-|| port | **string** (int64) ||
-|| role | **enum** (Role)
-
-- `MASTER`
-- `REPLICA` ||
-|| health | **enum** (Health)
-
-- `ALIVE`
-- `DEAD`
-- `DEGRADED`
-- `READONLY` ||
-|#
-
-## MySQLAuth {#yandex.cloud.connectionmanager.v1.MySQLAuth2}
-
-#|
-||Field | Description ||
-|| userPassword | **[UserPasswordAuth](#yandex.cloud.connectionmanager.v1.UserPasswordAuth2)**
-
-Includes only one of the fields `userPassword`. ||
-|#
-
-## MongoDBConnection {#yandex.cloud.connectionmanager.v1.MongoDBConnection2}
-
-#|
-||Field | Description ||
-|| cluster | **[MongoDBCluster](#yandex.cloud.connectionmanager.v1.MongoDBCluster2)**
-
-When creating/updating Connection, the field "cluster" is mutually
-exclusive with "managed_cluster_id". ||
-|| managedClusterId | **string**
-
-When creating/updating Connection, the field "managed_cluster_id" is
-mutually exclusive with "cluster". ||
-|| auth | **[MongoDBAuth](#yandex.cloud.connectionmanager.v1.MongoDBAuth2)** ||
-|| databases[] | **string** ||
-|#
-
-## MongoDBCluster {#yandex.cloud.connectionmanager.v1.MongoDBCluster2}
-
-#|
-||Field | Description ||
-|| hosts[] | **[Host](#yandex.cloud.connectionmanager.v1.MongoDBCluster.Host2)** ||
-|| tlsParams | **[TLSParams](#yandex.cloud.connectionmanager.v1.TLSParams2)** ||
-|#
-
-## Host {#yandex.cloud.connectionmanager.v1.MongoDBCluster.Host2}
-
-#|
-||Field | Description ||
-|| host | **string** ||
-|| port | **string** (int64) ||
-|| role | **enum** (Role)
-
-- `PRIMARY`
-- `SECONDARY` ||
-|| health | **enum** (Health)
-
-- `ALIVE`
-- `DEAD`
-- `DEGRADED` ||
-|| type | **enum** (Type)
-
-- `MONGOD`
-- `MONGOS`
-- `MONGOINFRA` ||
-|#
-
-## MongoDBAuth {#yandex.cloud.connectionmanager.v1.MongoDBAuth2}
-
-#|
-||Field | Description ||
-|| userPassword | **[UserPasswordAuth](#yandex.cloud.connectionmanager.v1.UserPasswordAuth2)**
-
-Includes only one of the fields `userPassword`. ||
-|| authSource | **string** ||
-|#
-
-## ClickHouseConnection {#yandex.cloud.connectionmanager.v1.ClickHouseConnection2}
-
-#|
-||Field | Description ||
-|| cluster | **[ClickHouseCluster](#yandex.cloud.connectionmanager.v1.ClickHouseCluster2)**
-
-When creating/updating Connection, the field "cluster" is mutually
-exclusive with "managed_cluster_id". ||
-|| managedClusterId | **string**
-
-When creating/updating Connection, the field "managed_cluster_id" is
-mutually exclusive with "cluster". ||
-|| auth | **[ClickHouseAuth](#yandex.cloud.connectionmanager.v1.ClickHouseAuth2)** ||
-|| databases[] | **string** ||
-|#
-
-## ClickHouseCluster {#yandex.cloud.connectionmanager.v1.ClickHouseCluster2}
-
-#|
-||Field | Description ||
-|| tlsParams | **[TLSParams](#yandex.cloud.connectionmanager.v1.TLSParams2)** ||
-|| hosts[] | **[Host](#yandex.cloud.connectionmanager.v1.ClickHouseCluster.Host2)** ||
-|| shardGroups[] | **[ShardGroup](#yandex.cloud.connectionmanager.v1.ClickHouseCluster.ShardGroup2)** ||
-|#
-
-## Host {#yandex.cloud.connectionmanager.v1.ClickHouseCluster.Host2}
-
-#|
-||Field | Description ||
-|| host | **string** ||
-|| httpPort | **string** (int64)
-
-depends on tls params may vary as http or https ||
-|| tcpPort | **string** (int64) ||
-|| shardName | **string** ||
-|| health | **enum** (Health)
-
-- `HEALTH_UNKNOWN`
-- `ALIVE`
-- `DEAD`
-- `DEGRADED` ||
-|#
-
-## ShardGroup {#yandex.cloud.connectionmanager.v1.ClickHouseCluster.ShardGroup2}
-
-#|
-||Field | Description ||
-|| name | **string** ||
-|| shardNames[] | **string** ||
-|#
-
-## ClickHouseAuth {#yandex.cloud.connectionmanager.v1.ClickHouseAuth2}
-
-#|
-||Field | Description ||
-|| userPassword | **[UserPasswordAuth](#yandex.cloud.connectionmanager.v1.UserPasswordAuth2)**
-
-Includes only one of the fields `userPassword`. ||
-|#
-
-## KafkaConnection {#yandex.cloud.connectionmanager.v1.KafkaConnection2}
-
-#|
-||Field | Description ||
-|| cluster | **[KafkaCluster](#yandex.cloud.connectionmanager.v1.KafkaCluster2)**
-
-When creating/updating Connection, the field "cluster" is mutually
-exclusive with "managed_cluster_id". ||
-|| managedClusterId | **string**
-
-When creating/updating Connection, the field "managed_cluster_id" is
-mutually exclusive with "cluster". ||
-|| auth | **[KafkaAuth](#yandex.cloud.connectionmanager.v1.KafkaAuth2)** ||
-|#
-
-## KafkaCluster {#yandex.cloud.connectionmanager.v1.KafkaCluster2}
-
-#|
-||Field | Description ||
-|| hosts[] | **[Host](#yandex.cloud.connectionmanager.v1.KafkaCluster.Host2)** ||
-|| tlsParams | **[TLSParams](#yandex.cloud.connectionmanager.v1.TLSParams2)** ||
-|#
-
-## Host {#yandex.cloud.connectionmanager.v1.KafkaCluster.Host2}
-
-#|
-||Field | Description ||
-|| host | **string** ||
-|| port | **string** (int64) ||
-|| health | **enum** (Health)
-
-- `ALIVE`: Host is alive and well (all services are alive)
-- `DEAD`: Host is inoperable (it cannot perform any of its essential functions)
-- `DEGRADED`: Host is partially alive (it can perform some of its essential functions) ||
-|#
-
-## KafkaAuth {#yandex.cloud.connectionmanager.v1.KafkaAuth2}
-
-#|
-||Field | Description ||
-|| sasl | **[KafkaSaslSecurity](#yandex.cloud.connectionmanager.v1.KafkaSaslSecurity2)**
-
-Includes only one of the fields `sasl`. ||
-|#
-
-## KafkaSaslSecurity {#yandex.cloud.connectionmanager.v1.KafkaSaslSecurity2}
-
-#|
-||Field | Description ||
-|| user | **string** ||
-|| password | **[Password](#yandex.cloud.connectionmanager.v1.Password2)** ||
-|| supportedMechanisms[] | **enum** (Mechanism)
-
-- `PLAIN`
-- `SCRAM_SHA256`
-- `SCRAM_SHA512` ||
-|#
-
-## RedisConnection {#yandex.cloud.connectionmanager.v1.RedisConnection2}
-
-#|
-||Field | Description ||
-|| cluster | **[RedisCluster](#yandex.cloud.connectionmanager.v1.RedisCluster2)** ||
-|| auth | **[RedisAuth](#yandex.cloud.connectionmanager.v1.RedisAuth2)** ||
-|| databases[] | **string** (int64) ||
-|#
-
-## RedisCluster {#yandex.cloud.connectionmanager.v1.RedisCluster2}
-
-#|
-||Field | Description ||
-|| hosts[] | **[Host](#yandex.cloud.connectionmanager.v1.RedisCluster.Host2)** ||
-|| sentinelPort | **string** (int64) ||
-|| tlsParams | **[TLSParams](#yandex.cloud.connectionmanager.v1.TLSParams2)** ||
-|#
-
-## Host {#yandex.cloud.connectionmanager.v1.RedisCluster.Host2}
-
-#|
-||Field | Description ||
-|| host | **string** ||
-|| port | **string** (int64) ||
-|| role | **enum** (Role)
-
-- `MASTER`
-- `REPLICA` ||
-|| health | **enum** (Health)
-
-- `ALIVE`
-- `DEAD`
-- `DEGRADED` ||
-|| shardName | **string** ||
-|#
-
-## RedisAuth {#yandex.cloud.connectionmanager.v1.RedisAuth2}
-
-#|
-||Field | Description ||
-|| userPassword | **[UserPasswordAuth](#yandex.cloud.connectionmanager.v1.RedisAuth.UserPasswordAuth2)**
-
-Includes only one of the fields `userPassword`. ||
-|#
-
-## UserPasswordAuth {#yandex.cloud.connectionmanager.v1.RedisAuth.UserPasswordAuth2}
-
-#|
-||Field | Description ||
-|| user | **string** ||
-|| password | **[Password](#yandex.cloud.connectionmanager.v1.Password2)** ||
-|#
-
-## OpenSearchConnection {#yandex.cloud.connectionmanager.v1.OpenSearchConnection2}
-
-#|
-||Field | Description ||
-|| cluster | **[OpenSearchCluster](#yandex.cloud.connectionmanager.v1.OpenSearchCluster2)**
-
-When creating/updating Connection, the field "cluster" is mutually
-exclusive with "managed_cluster_id". ||
-|| managedClusterId | **string**
-
-When creating/updating Connection, the field "managed_cluster_id" is
-mutually exclusive with "cluster". ||
-|| auth | **[OpenSearchAuth](#yandex.cloud.connectionmanager.v1.OpenSearchAuth2)** ||
-|#
-
-## OpenSearchCluster {#yandex.cloud.connectionmanager.v1.OpenSearchCluster2}
-
-#|
-||Field | Description ||
-|| hosts[] | **[Host](#yandex.cloud.connectionmanager.v1.OpenSearchCluster.Host2)** ||
-|| tlsParams | **[TLSParams](#yandex.cloud.connectionmanager.v1.TLSParams2)** ||
-|#
-
-## Host {#yandex.cloud.connectionmanager.v1.OpenSearchCluster.Host2}
-
-#|
-||Field | Description ||
-|| host | **string** ||
-|| port | **string** (int64) ||
-|| health | **enum** (Health)
-
-- `ALIVE`
-- `DEAD`
-- `DEGRADED`
-- `READONLY` ||
-|| roles[] | **enum** (GroupRole)
-
-- `DATA`
-- `MANAGER` ||
-|#
-
-## OpenSearchAuth {#yandex.cloud.connectionmanager.v1.OpenSearchAuth2}
-
-#|
-||Field | Description ||
-|| userPassword | **[UserPasswordAuth](#yandex.cloud.connectionmanager.v1.UserPasswordAuth2)**
-
-Includes only one of the fields `userPassword`. ||
-|#
-
-## TrinoConnection {#yandex.cloud.connectionmanager.v1.TrinoConnection2}
-
-#|
-||Field | Description ||
-|| cluster | **[TrinoCluster](#yandex.cloud.connectionmanager.v1.TrinoCluster2)** ||
-|| auth | **[TrinoAuth](#yandex.cloud.connectionmanager.v1.TrinoAuth2)** ||
-|#
-
-## TrinoCluster {#yandex.cloud.connectionmanager.v1.TrinoCluster2}
-
-#|
-||Field | Description ||
-|| coordinator | **[Coordinator](#yandex.cloud.connectionmanager.v1.TrinoCluster.Coordinator2)** ||
-|| tlsParams | **[TLSParams](#yandex.cloud.connectionmanager.v1.TLSParams2)** ||
-|#
-
-## Coordinator {#yandex.cloud.connectionmanager.v1.TrinoCluster.Coordinator2}
-
-#|
-||Field | Description ||
-|| host | **string** ||
-|| port | **string** (int64) ||
-|#
-
-## TrinoAuth {#yandex.cloud.connectionmanager.v1.TrinoAuth2}
-
-#|
-||Field | Description ||
-|| userPassword | **[UserPasswordAuth](#yandex.cloud.connectionmanager.v1.UserPasswordAuth2)**
-
-Includes only one of the fields `userPassword`. ||
-|#
-
-## ValkeyConnection {#yandex.cloud.connectionmanager.v1.ValkeyConnection2}
-
-#|
-||Field | Description ||
-|| cluster | **[ValkeyCluster](#yandex.cloud.connectionmanager.v1.ValkeyCluster2)**
-
-When creating/updating Connection, the field "cluster" is mutually
-exclusive with "managed_cluster_id". ||
-|| managedClusterId | **string**
-
-When creating/updating Connection, the field "managed_cluster_id" is
-mutually exclusive with "cluster". ||
-|| auth | **[ValkeyAuth](#yandex.cloud.connectionmanager.v1.ValkeyAuth2)** ||
-|| databases[] | **string** (int64) ||
-|#
-
-## ValkeyCluster {#yandex.cloud.connectionmanager.v1.ValkeyCluster2}
-
-#|
-||Field | Description ||
-|| hosts[] | **[Host](#yandex.cloud.connectionmanager.v1.ValkeyCluster.Host2)** ||
-|| sentinelPort | **string** (int64) ||
-|| tlsParams | **[TLSParams](#yandex.cloud.connectionmanager.v1.TLSParams2)** ||
-|#
-
-## Host {#yandex.cloud.connectionmanager.v1.ValkeyCluster.Host2}
-
-#|
-||Field | Description ||
-|| host | **string** ||
-|| port | **string** (int64) ||
-|| role | **enum** (Role)
-
-- `MASTER`
-- `REPLICA` ||
-|| health | **enum** (Health)
-
-- `ALIVE`
-- `DEAD`
-- `DEGRADED` ||
-|| shardName | **string** ||
-|#
-
-## ValkeyAuth {#yandex.cloud.connectionmanager.v1.ValkeyAuth2}
-
-#|
-||Field | Description ||
-|| userPassword | **[UserPasswordAuth](#yandex.cloud.connectionmanager.v1.ValkeyAuth.UserPasswordAuth2)**
-
-Includes only one of the fields `userPassword`. ||
-|#
-
-## UserPasswordAuth {#yandex.cloud.connectionmanager.v1.ValkeyAuth.UserPasswordAuth2}
-
-#|
-||Field | Description ||
-|| user | **string** ||
-|| password | **[Password](#yandex.cloud.connectionmanager.v1.Password2)** ||
-|#
-
-## GreenplumConnection {#yandex.cloud.connectionmanager.v1.GreenplumConnection2}
-
-#|
-||Field | Description ||
-|| cluster | **[GreenplumCluster](#yandex.cloud.connectionmanager.v1.GreenplumCluster2)**
-
-When creating/updating Connection, the field "cluster" is mutually
-exclusive with "managed_cluster_id". ||
-|| managedClusterId | **string**
-
-When creating/updating Connection, the field "managed_cluster_id" is
-mutually exclusive with "cluster". ||
-|| auth | **[GreenplumAuth](#yandex.cloud.connectionmanager.v1.GreenplumAuth2)** ||
-|| databases[] | **string** ||
-|#
-
-## GreenplumCluster {#yandex.cloud.connectionmanager.v1.GreenplumCluster2}
-
-#|
-||Field | Description ||
-|| coordinatorHosts[] | **[Host](#yandex.cloud.connectionmanager.v1.GreenplumCluster.Host2)** ||
-|| tlsParams | **[TLSParams](#yandex.cloud.connectionmanager.v1.TLSParams2)** ||
-|#
-
-## Host {#yandex.cloud.connectionmanager.v1.GreenplumCluster.Host2}
-
-#|
-||Field | Description ||
-|| host | **string** ||
-|| port | **string** (int64) ||
-|| role | **enum** (Role)
-
-- `MASTER`
-- `REPLICA` ||
-|| health | **enum** (Health)
-
-- `ALIVE`
-- `DEAD`
-- `DEGRADED`
-- `UNBALANCED` ||
-|#
-
-## GreenplumAuth {#yandex.cloud.connectionmanager.v1.GreenplumAuth2}
-
-#|
-||Field | Description ||
-|| userPassword | **[UserPasswordAuth](#yandex.cloud.connectionmanager.v1.UserPasswordAuth2)**
-
-Includes only one of the fields `userPassword`. ||
-|#
-
-## StoreDocConnection {#yandex.cloud.connectionmanager.v1.StoreDocConnection2}
-
-#|
-||Field | Description ||
-|| cluster | **[StoreDocCluster](#yandex.cloud.connectionmanager.v1.StoreDocCluster2)**
-
-When creating/updating Connection, the field "cluster" is mutually
-exclusive with "managed_cluster_id". ||
-|| managedClusterId | **string**
-
-When creating/updating Connection, the field "managed_cluster_id" is mutually
-exclusive with "cluster". ||
-|| auth | **[StoreDocAuth](#yandex.cloud.connectionmanager.v1.StoreDocAuth2)** ||
-|| databases[] | **string** ||
-|#
-
-## StoreDocCluster {#yandex.cloud.connectionmanager.v1.StoreDocCluster2}
-
-#|
-||Field | Description ||
-|| hosts[] | **[Host](#yandex.cloud.connectionmanager.v1.StoreDocCluster.Host2)** ||
-|| tlsParams | **[TLSParams](#yandex.cloud.connectionmanager.v1.TLSParams2)** ||
-|#
-
-## Host {#yandex.cloud.connectionmanager.v1.StoreDocCluster.Host2}
-
-#|
-||Field | Description ||
-|| host | **string** ||
-|| port | **string** (int64) ||
-|| role | **enum** (Role)
-
-- `PRIMARY`
-- `SECONDARY` ||
-|| health | **enum** (Health)
-
-- `ALIVE`
-- `DEAD`
-- `DEGRADED` ||
-|| type | **enum** (Type)
-
-- `MONGOD`
-- `MONGOS`
-- `MONGOINFRA` ||
-|#
-
-## StoreDocAuth {#yandex.cloud.connectionmanager.v1.StoreDocAuth2}
-
-#|
-||Field | Description ||
-|| userPassword | **[UserPasswordAuth](#yandex.cloud.connectionmanager.v1.UserPasswordAuth2)**
-
-Includes only one of the fields `userPassword`. ||
-|| authSource | **string** ||
-|#
-
-## LockboxSecret {#yandex.cloud.connectionmanager.v1.LockboxSecret}
-
-Reference to a Lockbox secret.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the Lockbox secret. ||
-|| version | **string**
-
-Lockbox secret version. ||
-|| newestVersion | **string**
-
-The newest available version of the Lockbox secret. ||
-|#
-
-## LockboxSecretSpec {#yandex.cloud.connectionmanager.v1.LockboxSecretSpec2}
-
-Specification for creating a new Lockbox secret.
-
-#|
-||Field | Description ||
-|| folderId | **string**
-
-ID of the folder where the Lockbox secret will be created. If omitted, the secret will be created in the connection's folder. ||
 |#

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# AI Studio Audit Trails Events: CompleteContentCheck
+# AI Studio Guardrails Audit Trails Events: CompleteContentCheck
 
 ## Event JSON schema {#yandex.cloud.audit.ai.guardrails.CompleteContentCheck2-schema}
 

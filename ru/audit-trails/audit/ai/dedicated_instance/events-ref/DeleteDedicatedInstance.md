@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# AI Studio Audit Trails Events: DeleteDedicatedInstance
+# AI Studio Dedicated Instance Audit Trails Events: DeleteDedicatedInstance
 
 ## Event JSON schema {#yandex.cloud.audit.ai.dedicated_instance.DeleteDedicatedInstance2-schema}
 

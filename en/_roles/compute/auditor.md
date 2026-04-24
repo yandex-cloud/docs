@@ -1,4 +1,5 @@
-The `compute.auditor` role allows you to view information on Compute Cloud resources and relevant operations, as well as on the amount of used resources and quotas. It does not allow you to access the serial port or serial console of an instance.
+
+The `compute.auditor` role allows you to view information on {{ compute-name }} resources and relevant operations, as well as on the amount of used resources and quotas. It does not allow you to access the serial port or serial console of an instance.
 
 {% cut "Users with this role can:" %}
 
@@ -18,9 +19,9 @@ The `compute.auditor` role allows you to view information on Compute Cloud resou
 * View information on [image families](../../compute/concepts/image.md#family), on images within families, on the latest family image, as well as on [access permissions](../../iam/concepts/access-control/index.md) assigned to image families.
 * View a list of [disk snapshots](../../compute/concepts/snapshot.md) and information on them.
 * View information on disk snapshot [schedules](../../compute/concepts/snapshot-schedule.md).
-* View information on Compute Cloud resource and [quota](../../compute/concepts/limits.md#compute-quotas) consumption and [disk limits](../../compute/concepts/limits.md#compute-limits-disks) in the management console.
-* View lists of resource operations for Compute Cloud, as well as information on these operations.
-* View information on the status of configuring access via [OS Login](../../organization/concepts/os-login.md) on instances.
+* View information on {{ compute-name }} resource and [quota](../../compute/concepts/limits.md#compute-quotas) consumption and [disk limits](../../compute/concepts/limits.md#compute-limits-disks) in the management console.
+* View lists of resource operations for {{ compute-name }}, as well as information on these operations.
+* View information on the status of configuring access via [{{ oslogin }}](../../organization/concepts/os-login.md) on instances.
 * View information on available [platforms](../../compute/concepts/vm-platforms.md).
 * View a list of [availability zones](../../overview/concepts/geo-scope.md) and information on them.
 

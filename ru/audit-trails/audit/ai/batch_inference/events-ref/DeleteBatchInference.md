@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# AI Studio Audit Trails Events: DeleteBatchInference
+# AI Studio Batch Inference Audit Trails Events: DeleteBatchInference
 
 ## Event JSON schema {#yandex.cloud.audit.ai.batch_inference.DeleteBatchInference2-schema}
 

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# AI Studio Audit Trails Events: StartBatchInference
+# AI Studio Batch Inference Audit Trails Events: StartBatchInference
 
 ## Event JSON schema {#yandex.cloud.audit.ai.batch_inference.StartBatchInference2-schema}
 

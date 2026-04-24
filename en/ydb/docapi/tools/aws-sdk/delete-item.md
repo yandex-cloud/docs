@@ -11,7 +11,7 @@ To conditionally delete a record from the `Series` table:
 
 - Java {#java}
 
-   1. Create the `SeriesItemOps06` project:
+  1. Create the `SeriesItemOps06` project:
 
       ```bash
       mvn -B archetype:generate \
@@ -20,21 +20,21 @@ To conditionally delete a record from the `Series` table:
         -DartifactId=SeriesItemOps06
       ```
 
-      As a result of running the command, the `SeriesItemOps06` project folder is created in the current working folder with a structure of subfolders and the `pom.xml` project description file.
-
-   1. Go to the project folder:
+      This command will create the `SeriesItemOps06` project folder in the current working folder, with a subfolder structure and the `pom.xml` project description file.
+  
+  1. Go to the project folder:
 
       ```bash
       cd SeriesItemOps06
       ```
 
-   1. Edit the project description in the `pom.xml` file, for example, using the nano editor:
+  1. Edit the project description in the `pom.xml` file, e.g., using `nano`:
 
       ```bash
       nano pom.xml
       ```
 
-      Sample `pom.xml` file:
+      Example of the `pom.xml` file:
 
       ```xml
       <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -108,17 +108,17 @@ To conditionally delete a record from the `Series` table:
 
       Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
-   1. In the folder `src/main/java/com/mycompany/app/`, create the `SeriesItemOps06.java` file, for example, using the nano editor:
-
+  1. In the `src/main/java/com/mycompany/app/` folder, create the `SeriesItemOps06.java` file, e.g., using `nano`:
+  
       ```bash
       nano src/main/java/com/mycompany/app/SeriesItemOps06.java
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -162,24 +162,24 @@ To conditionally delete a record from the `Series` table:
                   System.err.println("Couldn't delete record: " + series_id + " " + title);
                   System.err.println(e.getMessage());
               }
-
+    
           }
       }
       ```
 
-      This code deletes a movie record if its rating is 5 or lower.
+      This code will delete a movie record if its rating is 5 or lower.
 
-      You can use the `deleteItem` method to delete a single record by specifying its primary key. You can additionally specify `ConditionExpression` to prevent the element from being deleted if this condition is not satisfied.
+      You can use the `deleteItem` method to delete a single record by specifying its primary key. You can additionally specify `ConditionExpression` to prevent the item from being deleted if this condition is not met.
 
-   1. Build a project:
+  1. Build the project:
 
       ```bash
       mvn package
       ```
 
-      As a result of running the command, the `SeriesItemOps06.jar` file is generated in the folder `target/release/`.
+      This command will create the `SeriesItemOps06.jar` file in the `target/release/` folder.
 
-   1. Run the application:
+  1. Run the application:
 
       ```bash
       java -jar target/release/SeriesItemOps06.jar
@@ -193,7 +193,7 @@ To conditionally delete a record from the `Series` table:
       Condition not satisfied (Service: AmazonDynamoDBv2; Status Code: 400; Error Code: ConditionalCheckFailedException; Request ID: null; Proxy: null)
       ```
 
-      Error completing operation: film rating is higher than 5.
+      Error completing operation: movie rating is higher than 5.
 
       Change the code by deleting the condition in `DeleteItemSpec`:
 
@@ -217,17 +217,17 @@ To conditionally delete a record from the `Series` table:
 
 - Python {#python}
 
-   1. Create the `SeriesItemOps06.py` file, for example, using the nano editor:
-
+  1. Create the `SeriesItemOps06.py` file, e.g., using `nano`:
+  
       ```bash
       nano SeriesItemOps06.py
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -269,11 +269,11 @@ To conditionally delete a record from the `Series` table:
               pprint(delete_response, sort_dicts = False)
       ```
 
-      The above code deletes a record if the series rating is 5 or lower.
+      The above code will delete a record if the series rating is 5 or lower.
 
-      To delete a record, use the `delete_item` method, that passes the primary key of the desired item. If necessary, you can set a condition for deleting a record by specifying the `ConditionExpression` parameter.
+      To delete a record, use the `delete_item` method and provide the primary key of the record in question. You can set a condition for deleting a record by specifying the `ConditionExpression` parameter.
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       python SeriesItemOps06.py
@@ -286,9 +286,9 @@ To conditionally delete a record from the `Series` table:
       Condition not satisfied
       ```
 
-      Error completing operation: film rating is higher than 5.
+      Error completing operation: movie rating is higher than 5.
 
-   1. Change the code by deleting the condition:
+  1. Change the code by deleting the condition:
 
       ```python
       response = table.delete_item(
@@ -299,7 +299,7 @@ To conditionally delete a record from the `Series` table:
       )
       ```
 
-   1. Run the program again. The delete operation should now be successful.
+  1. Run the program again. The delete operation should now be successful.
 
       Result:
 
@@ -317,17 +317,17 @@ To conditionally delete a record from the `Series` table:
 
 - PHP {#php}
 
-   1. Create the `SeriesItemOps06.php` file, for example, using the nano editor:
-
+  1. Create the `SeriesItemOps06.php` file, e.g., using `nano`:
+  
       ```bash
       nano SeriesItemOps06.php
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -387,11 +387,11 @@ To conditionally delete a record from the `Series` table:
       ?>
       ```
 
-      You can use the `deleteItem` method to delete a single record by specifying its primary key. You can additionally specify `ConditionExpression` to prevent the element from being deleted if this condition is not satisfied.
+      You can use the `deleteItem` method to delete a single record by specifying its primary key. You can additionally specify `ConditionExpression` to prevent the item from being deleted if this condition is not met.
 
-      This code deletes a movie record if its rating is 5 or lower.
+      This code will delete a movie record if its rating is 5 or lower.
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       php SeriesItemOps06.php
@@ -406,7 +406,7 @@ To conditionally delete a record from the `Series` table:
       ...
       ```
 
-      Error completing operation: film rating is higher than 5.
+      Error completing operation: movie rating is higher than 5.
 
       Change the code by deleting the condition:
 
@@ -425,17 +425,17 @@ To conditionally delete a record from the `Series` table:
 
 - Node.js {#node}
 
-   1. Create the `SeriesItemOps06.js` file, for example, using the nano editor:
+  1. Create the `SeriesItemOps06.js` file, e.g., using `nano`:
 
       ```bash
       nano SeriesItemOps06.js
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -477,9 +477,9 @@ To conditionally delete a record from the `Series` table:
           })
       ```
 
-      You can delete a single record by specifying its primary key using the `DeleteItemCommand` command. If necessary, you can specify the `ConditionExpression` to prevent the element from being deleted if this condition is not satisfied.
+      You can delete a single record with the `DeleteItemCommand` command by specifying its primary key. You can additionally specify `ConditionExpression` to prevent the item from being deleted if this condition is not met.
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       node SeriesItemOps06.js
@@ -499,7 +499,7 @@ To conditionally delete a record from the `Series` table:
       }
       ```
 
-      Error completing operation: film rating is lower than 10.
+      Error completing operation: movie rating is lower than 10.
 
       Change the code by deleting the condition:
 
@@ -522,17 +522,17 @@ To conditionally delete a record from the `Series` table:
 
 - Ruby {#ruby}
 
-   1. Create the `SeriesItemOps06.rb` file, for example, using the nano editor:
+  1. Create the `SeriesItemOps06.rb` file, e.g., using `nano`:
 
       ```bash
       nano SeriesItemOps06.rb
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -584,9 +584,9 @@ To conditionally delete a record from the `Series` table:
       run_me if $PROGRAM_NAME == __FILE__
       ```
 
-      You can delete a single record by specifying its primary key using the `delete` method. If necessary, you can specify the `ConditionExpression` to prevent the element from being deleted if this condition is not satisfied.
+      You can use the delete `delete` method to delete a single record by specifying its primary key. You can additionally specify `ConditionExpression` to prevent the item from being deleted if this condition is not met.
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       ruby SeriesItemOps06.rb
@@ -600,7 +600,7 @@ To conditionally delete a record from the `Series` table:
       Couldn't delete record.
       ```
 
-      Operation failed: film rating is 9.
+      Error completing operation: movie rating is 9.
 
       Change the code by deleting the condition:
 

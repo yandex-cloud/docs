@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# AI Studio Audit Trails Events: UpdateMcpGatewayAccessBindings
+# AI Studio MCP Hub Audit Trails Events: UpdateMcpGatewayAccessBindings
 
 ## Event JSON schema {#yandex.cloud.audit.ai.mcp_hub.UpdateMcpGatewayAccessBindings2-schema}
 

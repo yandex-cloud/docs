@@ -26,7 +26,7 @@ To add a new record to the `Series` table:
       cd SeriesItemOps01
       ```
 
-  1. Edit the project description in the `pom.xml` file, for example, using `nano`:
+  1. Edit the project description in the `pom.xml` file, e.g., using `nano`:
 
       ```bash
       nano pom.xml
@@ -106,17 +106,17 @@ To add a new record to the `Series` table:
 
       Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
-  1. In the `src/main/java/com/mycompany/app/` folder, create the `SeriesItemOps01.java` file, for example, using `nano`:
+  1. In the `src/main/java/com/mycompany/app/` folder, create the `SeriesItemOps01.java` file, e.g., using `nano`:
 
       ```bash
       nano src/main/java/com/mycompany/app/SeriesItemOps01.java
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -196,17 +196,17 @@ To add a new record to the `Series` table:
 
 - Python {#python}
 
-  1. Create the `SeriesItemOps01.py` file, for example, using `nano`:
+  1. Create the `SeriesItemOps01.py` file, e.g., using `nano`:
 
       ```bash
       nano SeriesItemOps01.py
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -260,17 +260,17 @@ To add a new record to the `Series` table:
 
 - PHP {#php}
 
-  1. Create the `SeriesItemOps01.php` file, for example, using `nano`:
+  1. Create the `SeriesItemOps01.php` file, e.g., using `nano`:
 
       ```bash
       nano SeriesItemOps01.php
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -327,7 +327,7 @@ To add a new record to the `Series` table:
       ?>
       ```
 
-      This code adds a record with a primary key (`series_id` and `title`) and the `info` attribute. The `info` attribute contains a JSON record with additional information about the movie. The primary key is required.
+      This code adds a record with a primary key (`series_id` and `title`) and the `info` attribute. The `info` attribute includes a JSON record with additional information about the movie. The primary key is required.
 
   1. Run the program:
 
@@ -343,17 +343,17 @@ To add a new record to the `Series` table:
 
 - Node.js {#node}
 
-  1. Create the `SeriesItemOps01.js` file, for example, using `nano`:
+  1. Create the `SeriesItemOps01.js` file, e.g., using `nano`:
 
       ```bash
       nano SeriesItemOps01.js
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -394,7 +394,7 @@ To add a new record to the `Series` table:
           })
       ```
 
-      The primary key is required. This code adds a record with a primary key (`series_id` and `title`) and attributes inside `info`. The `info` section stores JSON code with additional information about the series.
+      The primary key is required. This code adds a record with a primary key (`series_id` and `title`) and attributes under `info`. The `info` section includes a JSON record with additional information about the series.
 
   1. Run the program:
 
@@ -411,17 +411,17 @@ To add a new record to the `Series` table:
 
 - Ruby {#ruby}
 
-  1. Create the `SeriesItemOps01.rb` file, for example, using `nano`:
+  1. Create the `SeriesItemOps01.rb` file, e.g., using `nano`:
 
       ```bash
       nano SeriesItemOps01.rb
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 

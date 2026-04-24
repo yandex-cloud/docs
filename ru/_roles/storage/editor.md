@@ -21,8 +21,8 @@
 * просматривать информацию о [блокировках версий объектов](../../storage/concepts/object-lock.md) и настраивать такие блокировки;
 * просматривать [метки](../../storage/concepts/tags.md#object-tags) объектов и версий объектов, а также изменять и удалять такие метки;
 * просматривать информацию о текущих [составных загрузках](../../storage/concepts/multipart.md) объектов и их частях, а также удалять частично загруженные объекты;
-* просматривать статистику [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) и сервиса Object Storage;
-* просматривать информацию о [квотах](../../storage/concepts/limits.md#storage-quotas) сервиса Object Storage;
+* просматривать статистику [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) и сервиса {{ objstorage-name }};
+* просматривать информацию о [квотах](../../storage/concepts/limits.md#storage-quotas) сервиса {{ objstorage-name }};
 * просматривать информацию о каталоге.
 
 {% endcut %}

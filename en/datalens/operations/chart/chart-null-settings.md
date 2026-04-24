@@ -86,7 +86,7 @@ If a row is missing from the source data altogether, the **Null values** option 
 
 To display a zero value for a date missing from the table:
 
-1\. Add a row with this date and `null` for value to the source.
-2\. In the chart settings for the relevant indicator, select **Display as 0** for the **Null values** option.
+1. Add a row with this date and `null` for value to the source.
+1. In the chart settings for the relevant indicator, select **Display as 0** for the **Null values** option.
 
 {% endnote %}

@@ -1,5 +1,5 @@
 ---
-title: How to read a record from a {{ ydb-full-name }} table
+title: How to read a record from a table in {{ ydb-full-name }}
 description: Follow this guide to read a record from a table.
 sourcePath: overlay/quickstart/document-api/aws-sdk/read-item.md
 ---
@@ -11,7 +11,7 @@ To read a record from the `Series` table:
 
 - Java {#java}
 
-   1. Create the `SeriesItemOps02` project:
+  1. Create the `SeriesItemOps02` project:
 
       ```bash
       mvn -B archetype:generate \
@@ -20,21 +20,21 @@ To read a record from the `Series` table:
         -DartifactId=SeriesItemOps02
       ```
 
-      As a result of running the command, the `SeriesItemOps02` project folder is created in the current working folder with a structure of subfolders and the `pom.xml` project description file.
-
-   1. Go to the project folder:
+      This command will create the `SeriesItemOps02` project folder in the current working folder, with a subfolder structure and the `pom.xml` project description file.
+  
+  1. Go to the project folder:
 
       ```bash
       cd SeriesItemOps02
       ```
 
-   1. Edit the project description in the `pom.xml` file, for example, using the nano editor:
+  1. Edit the project description in the `pom.xml` file, e.g., using `nano`:
 
       ```bash
       nano pom.xml
       ```
 
-      Sample `pom.xml` file:
+      Example of the `pom.xml` file:
 
       ```xml
       <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -108,17 +108,17 @@ To read a record from the `Series` table:
 
       Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
-   1. In the folder `src/main/java/com/mycompany/app/`, create the `SeriesItemOps02.java` file, for example, using the nano editor:
-
+  1. In the `src/main/java/com/mycompany/app/` folder, create the `SeriesItemOps02.java` file, e.g., using `nano`:
+  
       ```bash
       nano src/main/java/com/mycompany/app/SeriesItemOps02.java
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -164,17 +164,17 @@ To read a record from the `Series` table:
       }
       ```
 
-      To read a record by its primary key, the `getItem` method is used.
+      To read a record by its primary key, use the `getItem` method.
 
-   1. Build a project:
+  1. Build the project:
 
       ```bash
       mvn package
       ```
 
-      As a result of running the command, the `SeriesItemOps02.jar` file is generated in the folder `target/release/`.
+      This command will create the `SeriesItemOps02.jar` file in the `target/release/` folder.
 
-   1. Run the application:
+  1. Run the application:
 
       ```bash
       java -jar target/release/SeriesItemOps02.jar
@@ -189,17 +189,17 @@ To read a record from the `Series` table:
 
 - Python {#python}
 
-   1. Create the `SeriesItemOps02.py` file, for example, using the nano editor:
+  1. Create the `SeriesItemOps02.py` file, e.g., using `nano`:
 
       ```bash
       nano SeriesItemOps02.py
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -227,9 +227,9 @@ To read a record from the `Series` table:
               pprint(serie, sort_dicts = False)
       ```
 
-      To read a record from the table, use the `get_item` method that passes the primary key of the desired item.
+      To read a record from the table, use the `get_item` method and provide the primary key of the record in question.
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       python SeriesItemOps02.py
@@ -248,17 +248,17 @@ To read a record from the `Series` table:
 
 - PHP {#php}
 
-   1. Create the `SeriesItemOps02.php` file, for example, using the nano editor:
+  1. Create the `SeriesItemOps02.php` file, e.g., using `nano`:
 
       ```bash
       nano SeriesItemOps02.php
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -310,9 +310,9 @@ To read a record from the `Series` table:
       ?>
       ```
 
-      To read a record by its primary key, the `getItem` method is used.
+      To read a record by its primary key, use the `getItem` method.
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       php SeriesItemOps02.php
@@ -343,17 +343,17 @@ To read a record from the `Series` table:
 
 - Node.js {#node}
 
-   1. Create the `SeriesItemOps02.js` file, for example, using the nano editor:
+  1. Create the `SeriesItemOps02.js` file, e.g., using `nano`:
 
       ```bash
       nano SeriesItemOps02.js
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -386,10 +386,10 @@ To read a record from the `Series` table:
           })
       ```
 
-      To read a record from the table, use the command `GetItemCommand`. By specifying the primary key values (`series_id` and `title`), you can read any record from the `Series` table.
-
-   1. Run the program:
-
+      To read a record from a table, use `GetItemCommand`. You can read any record from the `Series` table by specifying the primary key values (`series_id` and `title`).
+  
+  1. Run the program:
+  
       ```bash
       node SeriesItemOps02.js
       ```
@@ -411,23 +411,23 @@ To read a record from the `Series` table:
 
 - Ruby {#ruby}
 
-   1. Create the `SeriesItemOps02.rb` file, for example, using the nano editor:
+  1. Create the `SeriesItemOps02.rb` file, e.g., using `nano`:
 
       ```bash
       nano SeriesItemOps02.rb
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
       ```ruby
       require 'aws-sdk-dynamodb'
-
+      
       def get_item_from_table(dynamodb_client, table_item)
         result = dynamodb_client.get_item(table_item)
         puts "#{result.item['title']} (#{result.item['series_id'].to_i}):"
@@ -437,20 +437,20 @@ To read a record from the `Series` table:
         puts "Error retrieving series '#{table_item[:key][:title]} " \
               "(#{table_item[:key][:series_id]})': #{e.message}"
       end
-
+      
       def run_me
         region = '{{ region-id }}'
         table_name = 'Series'
         title = 'Supernatural'
         series_id = 3
-
+      
         Aws.config.update(
           endpoint: '<Document_API_endpoint>',
           region: region
         )
-
+      
         dynamodb_client = Aws::DynamoDB::Client.new
-
+      
         table_item = {
           table_name: table_name,
           key: {
@@ -458,18 +458,18 @@ To read a record from the `Series` table:
             title: title
           }
         }
-
+      
         puts "Retrieving data about '#{title} (#{series_id})' " \
           "from the table '#{table_name}'..."
         get_item_from_table(dynamodb_client, table_item)
       end
-
+      
       run_me if $PROGRAM_NAME == __FILE__
       ```
 
-      To read a record from a table, use the `get_item method`, in which you can specify the primary key value (`series_id` and `title`) to read any record from the `Series` table.
-
-   1. Run the program:
+      To read a record from a table, use the `get_item` method. Specify the primary key value (`series_id` and `title`) to read any record from the `Series` table.
+  
+  1. Run the program:
 
       ```bash
       ruby SeriesItemOps02.rb
