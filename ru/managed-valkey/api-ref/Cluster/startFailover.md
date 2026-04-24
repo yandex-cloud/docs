@@ -22,11 +22,22 @@ apiPlayground:
         hostNames:
           description: |-
             **string**
-            List of hostnames which should not be masters. Can be empty for sentinel clusters or can contain multiple hosts for sharded clusters.
+            List of hostnames. Can be empty for sentinel clusters or can contain multiple hosts for sharded clusters.
             The maximum string length in characters for each value is 253.
           type: array
           items:
             type: string
+        failoverType:
+          description: |-
+            **enum** (FailoverType)
+            The type of failover request.
+            - `SWITCH_TO_HOSTNAMES`
+            - `SWITCH_FROM_HOSTNAMES`
+          type: string
+          enum:
+            - FAILOVER_TYPE_UNSPECIFIED
+            - SWITCH_TO_HOSTNAMES
+            - SWITCH_FROM_HOSTNAMES
       additionalProperties: false
     definitions: null
 ---
@@ -58,7 +69,8 @@ The maximum string length in characters is 50. ||
 {
   "hostNames": [
     "string"
-  ]
+  ],
+  "failoverType": "string"
 }
 ```
 
@@ -66,9 +78,15 @@ The maximum string length in characters is 50. ||
 ||Field | Description ||
 || hostNames[] | **string**
 
-List of hostnames which should not be masters. Can be empty for sentinel clusters or can contain multiple hosts for sharded clusters.
+List of hostnames. Can be empty for sentinel clusters or can contain multiple hosts for sharded clusters.
 
 The maximum string length in characters for each value is 253. ||
+|| failoverType | **enum** (FailoverType)
+
+The type of failover request.
+
+- `SWITCH_TO_HOSTNAMES`
+- `SWITCH_FROM_HOSTNAMES` ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -487,13 +505,16 @@ The maximum string length in characters for each value is 253. ||
         "valkeySearch": {
           "enabled": "boolean",
           "readerThreads": "string",
-          "writerThreads": "string"
+          "writerThreads": "string",
+          "version": "string"
         },
         "valkeyJson": {
-          "enabled": "boolean"
+          "enabled": "boolean",
+          "version": "string"
         },
         "valkeyBloom": {
-          "enabled": "boolean"
+          "enabled": "boolean",
+          "version": "string"
         }
       },
       "fullVersion": "string"
@@ -1479,6 +1500,9 @@ The minimum value is 0. ||
 Controls the amount of threads processing index mutations
 
 The minimum value is 0. ||
+|| version | **string**
+
+Module version ||
 |#
 
 ## ValkeyJson {#yandex.cloud.mdb.redis.v1.ValkeyJson}
@@ -1488,6 +1512,9 @@ The minimum value is 0. ||
 || enabled | **boolean**
 
 Enable valkey-json module ||
+|| version | **string**
+
+Module version ||
 |#
 
 ## ValkeyBloom {#yandex.cloud.mdb.redis.v1.ValkeyBloom}
@@ -1497,6 +1524,9 @@ Enable valkey-json module ||
 || enabled | **boolean**
 
 Enable valkey-bloom module ||
+|| version | **string**
+
+Module version ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.redis.v1.MaintenanceWindow}

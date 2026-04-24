@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# AI Studio Audit Trails Events: StartTuning
+# AI Studio Tuning Audit Trails Events: StartTuning
 
 ## Event JSON schema {#yandex.cloud.audit.ai.tuning.StartTuning2-schema}
 

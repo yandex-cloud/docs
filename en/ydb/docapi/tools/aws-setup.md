@@ -1,11 +1,11 @@
 ---
 title: Setting up AWS tools in {{ ydb-full-name }}
-description: This page describes the AWS tools you can use to access the database via the Document API in the AWS DynamoDB compatibility mode.
+description: This page describes the AWS tools you can use to access a database via the Document API in the AWS DynamoDB compatibility mode.
 sourcePath: overlay/quickstart/document-api/aws-setup.md
 ---
 # Setting up AWS tools
 
-To access the database via the Document API in AWS DynamoDB-compatible mode, you can use AWS tools:
+To access a database via the Document API in the AWS DynamoDB compatibility mode, you can use these AWS tools:
 
 * [AWS CLI](https://aws.amazon.com/cli/): The command line interface from AWS.
 * [AWS SDK](https://aws.amazon.com/tools/#sdk): The software development kit.
@@ -14,9 +14,9 @@ To access the database via the Document API in AWS DynamoDB-compatible mode, you
 
 To use the AWS tools, follow these steps:
 
-1. Create a service account on behalf of which you are going to access the database.
+1. Create a service account you will use to access your database.
 
-    The service account must be created in the same folder with the database.
+    Create it in the folder with your database.
 
     {% list tabs group=instructions %}
 
@@ -28,7 +28,7 @@ To use the AWS tools, follow these steps:
 
       {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-      1. Check the description of the command for creating a service account:
+      1. View the description of the command for creating a service account:
 
           ```bash
           yc iam service-account create --help
@@ -40,7 +40,7 @@ To use the AWS tools, follow these steps:
           yc iam service-account create --name my-robot
           ```
 
-          Naming requirements for service accounts:
+          Follow these naming requirements:
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
@@ -54,15 +54,15 @@ To use the AWS tools, follow these steps:
 
     {% include [grant-role-for-sa](../../../_includes/iam/grant-role-for-sa.md) %}
 
-1. Get the key ID and access key of the created service account:
+1. Get the key ID and access key of the service account you created:
 
     {% list tabs group=instructions %}
 
     - Management console {#console}
 
-      1. Go to the folder that the service account belongs to.
+      1. Navigate to the folder the service account belongs to.
       1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-      1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and select the required service account.
+      1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and then select the required service account.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
       1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
       1. Enter a description of the key so that you can easily find it in the management console.
@@ -78,7 +78,7 @@ To use the AWS tools, follow these steps:
 
       {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-      1. See the description of the create static access key command:
+      1. View the description of the command for creating a static access key:
 
           ```bash
           yc iam access-key create --help
@@ -108,7 +108,7 @@ To use the AWS tools, follow these steps:
           secret: JyTRFdqw8t1kh2-OJNz4JX5ZTz9Dj1rI********
           ```
 
-      1. Save `key_id` and `secret`. You will not be able to get the secret key again.
+      1. Save the `key_id` and `secret` values. You will not be able to get the secret key again.
 
     - API {#api}
 
@@ -117,7 +117,7 @@ To use the AWS tools, follow these steps:
     {% endlist %}
 
 1. Install the [AWS CLI](https://aws.amazon.com/cli/).
-1. Configure the AWS CLI environment: Run the `aws configure` command and enter the previously saved key ID and secret access key one by one. Use `{{ region-id }}` as the region:
+1. Configure the AWS CLI environment: Run the `aws configure` command and enter the previously saved key ID and secret key one by one. Use `{{ region-id }}` as the region:
 
     ```bash
     aws configure
@@ -128,7 +128,7 @@ To use the AWS tools, follow these steps:
     ```
 
     This will create the `~/.aws/credentials` and `~/.aws/config` files (`C:\Users\USERNAME\.aws\credentials` and `C:\Users\USERNAME\.aws\config` on Windows).
-1. Check that the settings are correct by running the table listing command against the [created](../../operations/manage-databases.md) DB. For `--endpoint`, specify the Document API endpoint available in the **{{ ui-key.yacloud.common.overview }}** tab of your database in the [management console]({{ link-console-main }}).
+1. Check that the settings are correct by running the table listing command against the database [you created](../../operations/manage-databases.md). For `--endpoint`, specify the Document API endpoint you can find in the **{{ ui-key.yacloud.common.overview }}** tab of your database in the [management console]({{ link-console-main }}).
 
     ```bash
     aws dynamodb list-tables \

@@ -5,7 +5,7 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/load-data.md
 ---
 # Uploading data to a table
 
-In this example, we will upload information about various TV series from a JSON file to a [pre-built table](./create-table.md). For each series, the `series_id` ID, `title`, and additional `info` are set. The structure of a JSON file with series information:
+In this example, we will upload information about various TV series from a JSON file to a [pre-built table](./create-table.md). For each series, the `series_id`, `title`, and additional `info` are specified. The JSON file with series information has the following structure:
 
 ```json
 [{
@@ -19,7 +19,7 @@ In this example, we will upload information about various TV series from a JSON 
 ]
 ```
 
-The `series_id` and `title` values are used as the primary key of the `Series` table.
+The `series_id` and `title` values are used as the primary key for the `Series` table.
 
 To upload data to the `Series` table:
 
@@ -36,7 +36,7 @@ To upload data to the `Series` table:
         -DartifactId=SeriesLoadData
       ```
 
-      As a result of running the command, the system will create the `SeriesLoadData` project folder in the current working folder, with a subfolder structure and the `pom.xml` project description file.
+      This command will create the `SeriesLoadData` project folder in the current working folder, with a subfolder structure and the `pom.xml` project description file.
 
   1. Go to the project folder:
 
@@ -44,13 +44,13 @@ To upload data to the `Series` table:
       cd SeriesLoadData
       ```
 
-  1. Edit the project description in the `pom.xml` file, for example, using the `nano` editor:
+  1. Edit the project description in the `pom.xml` file, e.g., using `nano`:
 
       ```bash
       nano pom.xml
       ```
 
-      Sample `pom.xml` file:
+      Example of the `pom.xml` file:
 
       ```xml
       <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -124,17 +124,17 @@ To upload data to the `Series` table:
 
       Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
-  1. In the `src/main/java/com/mycompany/app/` folder, create the `SeriesLoadData.java` file, for example, using the `nano` editor:
-
+  1. In the `src/main/java/com/mycompany/app/` folder, create the `SeriesLoadData.java` file, e.g., using `nano`:
+  
       ```bash
       nano src/main/java/com/mycompany/app/SeriesLoadData.java
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -198,15 +198,15 @@ To upload data to the `Series` table:
       }
       ```
 
-      The code uses Jackson, the open source JSON processing library. Jackson is included in the AWS SDK for Java.
+      The code uses Jackson, the open source JSON processing library. Jackson comes with the AWS SDK for Java.
 
-  1. Build a project:
+  1. Build the project:
 
       ```bash
       mvn package
       ```
 
-      As a result of running the command, the `SeriesLoadData.jar` file will be generated in the `target/release/` folder.
+      This command will create the `SeriesLoadData.jar` file in the `target/release/` folder.
 
   1. {% include [seriesdata](../../../_includes/seriesdata.md) %}
 
@@ -230,17 +230,17 @@ To upload data to the `Series` table:
 
 - Python {#python}
 
-  1. Create the `SeriesLoadData.py` file, for example, using the `nano` editor:
-
+  1. Create the `SeriesLoadData.py` file, e.g., using `nano`:
+  
       ```bash
       nano SeriesLoadData.py
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -287,17 +287,17 @@ To upload data to the `Series` table:
 
 - PHP {#php}
 
-  1. Create the `SeriesLoadData.php` file, for example, using the `nano` editor:
-
+  1. Create the `SeriesLoadData.php` file, e.g., using `nano`:
+  
       ```bash
       nano SeriesLoadData.php
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -379,17 +379,17 @@ To upload data to the `Series` table:
 
 - Node.js {#node}
 
-  1. Create the `SeriesLoadData.js` file, for example, using the `nano` editor:
-
+  1. Create the `SeriesLoadData.js` file, e.g., using `nano`:
+  
       ```bash
       nano SeriesLoadData.js
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -448,27 +448,27 @@ To upload data to the `Series` table:
 
 - Ruby {#ruby}
 
-  1. Create the `SeriesLoadData.rb` file, for example, using the `nano` editor:
-
+  1. Create the `SeriesLoadData.rb` file, e.g., using `nano`:
+  
       ```bash
       nano SeriesLoadData.rb
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      For `<Document_API_endpoint>`, provide the [prepared](index.md#before-you-begin) value.
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
       ```ruby
       require 'aws-sdk-dynamodb'
       require 'json'
-
+      
       $series_counter = 0
       $total_series = 0
-
+      
       def add_item_to_table(dynamodb_client, table_item)
         dynamodb_client.put_item(table_item)
         $series_counter += 1
@@ -481,25 +481,25 @@ To upload data to the `Series` table:
         puts 'Program stopped.'
         exit 1
       end
-
+      
       def run_me
         region = '{{ region-id }}'
         table_name = 'Series'
         data_file = 'seriesdata.json'
-
+      
         Aws.config.update(
           endpoint: '<Document_API_endpoint>',
           region: region
         )
-
+      
         dynamodb_client = Aws::DynamoDB::Client.new
         file = File.read(data_file)
         series = JSON.parse(file)
         $total_series = series.count
-
+      
         puts "#{$total_series} series from file '#{data_file}' will be uploaded" \
           "to table '#{table_name}'..."
-
+      
         series.each do |seria|
           table_item = {
             table_name: table_name,
@@ -507,10 +507,10 @@ To upload data to the `Series` table:
           }
           add_item_to_table(dynamodb_client, table_item)
         end
-
+      
         puts 'Uploading completed successfully.'
       end
-
+      
       run_me if $PROGRAM_NAME == __FILE__
       ```
 

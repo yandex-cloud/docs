@@ -11,7 +11,7 @@ To delete the `Series` table:
 
 - Java {#java}
 
-   1. Create the `SeriesDeleteTable` project:
+  1. Create the `SeriesDeleteTable` project:
 
       ```bash
       mvn -B archetype:generate \
@@ -20,21 +20,21 @@ To delete the `Series` table:
         -DartifactId=SeriesDeleteTable
       ```
 
-      As a result of running the command, the `SeriesDeleteTable` project folder is created in the current working folder with a structure of subfolders and the `pom.xml` project description file.
-
-   1. Go to the project folder:
+      This command will create the `SeriesDeleteTable` project folder in the current working folder, with a subfolder structure and the `pom.xml` project description file.
+  
+  1. Go to the project folder:
 
       ```bash
       cd SeriesDeleteTable
       ```
 
-   1. Edit the project description in the `pom.xml` file, for example, using the nano editor:
+  1. Edit the project description in the `pom.xml` file, e.g., using `nano`:
 
       ```bash
       nano pom.xml
       ```
 
-      Sample `pom.xml` file:
+      Example of the `pom.xml` file:
 
       ```xml
       <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -108,17 +108,17 @@ To delete the `Series` table:
 
       Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
-   1. In the folder `src/main/java/com/mycompany/app/`, create the `SeriesDeleteTable.java` file, for example, using the nano editor:
-
+  1. In the `src/main/java/com/mycompany/app/` folder, create the `SeriesDeleteTable.java` file, e.g., using `nano`:
+  
       ```bash
       nano src/main/java/com/mycompany/app/SeriesDeleteTable.java
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -159,15 +159,15 @@ To delete the `Series` table:
       }
       ```
 
-   1. Build a project:
+  1. Build the project:
 
       ```bash
       mvn package
       ```
 
-      As a result of running the command, the `SeriesDeleteTable.jar` file is generated in the folder `target/release/`.
+      This command will create the `SeriesDeleteTable.jar` file in the `target/release/` folder.
 
-   1. Run the application:
+  1. Run the application:
 
       ```bash
       java -jar target/release/SeriesDeleteTable.jar
@@ -182,17 +182,17 @@ To delete the `Series` table:
 
 - Python {#python}
 
-   1. Create the `SeriesDeleteTable.py` file, for example, using the nano editor:
-
+  1. Create the `SeriesDeleteTable.py` file, e.g., using `nano`:
+  
       ```bash
       nano SeriesDeleteTable.py
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -210,7 +210,7 @@ To delete the `Series` table:
           print("Table Series deleted")
       ```
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       python SeriesDeleteTable.py
@@ -224,17 +224,17 @@ To delete the `Series` table:
 
 - PHP {#php}
 
-   1. Create the `SeriesDeleteTable.php` file, for example, using the nano editor:
-
+  1. Create the `SeriesDeleteTable.php` file, e.g., using `nano`:
+  
       ```bash
       nano SeriesDeleteTable.php
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -271,7 +271,7 @@ To delete the `Series` table:
       ?>
       ```
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       php SeriesDeleteTable.php
@@ -285,17 +285,17 @@ To delete the `Series` table:
 
 - Node.js {#node}
 
-   1. Create the `SeriesDeleteTable.js` file, for example, using the nano editor:
-
+  1. Create the `SeriesDeleteTable.js` file, e.g., using `nano`:
+  
       ```bash
       nano SeriesDeleteTable.js
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -318,8 +318,8 @@ To delete the `Series` table:
               console.log("Table deleted. Description of JSON table:", JSON.stringify(data, null, 2));
           })
       ```
-
-   1. Run the program:
+  
+  1. Run the program:
 
       ```bash
       node SeriesDeleteTable.js
@@ -361,17 +361,17 @@ To delete the `Series` table:
 
 - Ruby {#ruby}
 
-   1. Create the `SeriesDeleteTable.rb` file, for example, using the nano editor:
-
+  1. Create the `SeriesDeleteTable.rb` file, e.g., using `nano`:
+  
       ```bash
       nano SeriesDeleteTable.rb
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -409,17 +409,17 @@ To delete the `Series` table:
       run_me if $PROGRAM_NAME == __FILE__
       ```
 
-   1. Run the program:
+  1. Run the program:
 
-      ```bash
-      ruby SeriesDeleteTable.rb
-      ```
+     ```bash
+     ruby SeriesDeleteTable.rb
+     ```
 
-      Result:
+     Result:
 
-      ```text
-      Deleting table 'Series'...
-      Table deleted.
-      ```
+     ```text
+     Deleting table 'Series'...
+     Table deleted.
+     ```
 
 {% endlist %}

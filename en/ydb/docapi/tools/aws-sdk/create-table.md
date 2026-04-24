@@ -5,13 +5,13 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/create-table.md
 ---
 # Creating a table in the AWS SDK
 
-To create a table named `Series` with the `series_id` partition key and the `title` sort key:
+To create a table named `Series` with the `series_id` partition key and `title` sort key:
 
 {% list tabs group=programming_language %}
 
 - Java {#java}
 
-   1. Create the `SeriesCreateTable` project:
+  1. Create the `SeriesCreateTable` project:
 
       ```bash
       mvn -B archetype:generate \
@@ -20,21 +20,21 @@ To create a table named `Series` with the `series_id` partition key and the `tit
         -DartifactId=SeriesCreateTable
       ```
 
-      As a result of running the command, the `SeriesCreateTable` project folder is created in the current working folder with a structure of subfolders and the `pom.xml` project description file.
+      This command will create the `SeriesCreateTable` project folder in the current working folder, with a subfolder structure and the `pom.xml` project description file.
 
-   1. Go to the project folder:
+  1. Go to the project folder:
 
       ```bash
       cd SeriesCreateTable
       ```
 
-   1. Edit the project description in the `pom.xml` file, for example, using the nano editor:
+  1. Edit the project description in the `pom.xml` file, e.g., using `nano`:
 
       ```bash
       nano pom.xml
       ```
 
-      Sample `pom.xml` file:
+      Example of the `pom.xml` file:
 
       ```xml
       <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -108,17 +108,17 @@ To create a table named `Series` with the `series_id` partition key and the `tit
 
       Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
-   1. In the folder `src/main/java/com/mycompany/app/`, create the `SeriesCreateTable.java` file, for example, using the nano editor:
-
+  1. In the `src/main/java/com/mycompany/app/` folder, create the `SeriesCreateTable.java` file, e.g., using `nano`:
+  
       ```bash
       nano src/main/java/com/mycompany/app/SeriesCreateTable.java
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -173,15 +173,15 @@ To create a table named `Series` with the `series_id` partition key and the `tit
       }
       ```
 
-   1. Build a project:
+  1. Build the project:
 
       ```bash
       mvn package
       ```
 
-      As a result of running the command, the `SeriesCreateTable.jar` file is generated in the folder `target/release/`.
+      This command will create the `SeriesCreateTable.jar` file in the `target/release/` folder.
 
-   1. Run the application:
+  1. Run the application:
 
       ```bash
       java -jar target/release/SeriesCreateTable.jar
@@ -196,19 +196,19 @@ To create a table named `Series` with the `series_id` partition key and the `tit
 
 - Python {#python}
 
-   The code below uses the `print` function from Python 3. To use this function in Python 2.6 or higher, add the `from __future__ import print_function` line at the beginning of the file.
+  The code below uses the Python 3 `print` function. To use this function in Python 2.6 or older, add the `from __future__ import print_function` line at the beginning of the file.
 
-   1. Create the `SeriesCreateTable.py` file, for example, using the nano editor:
+  1. Create the `SeriesCreateTable.py` file, e.g., using `nano`:
 
       ```bash
       nano SeriesCreateTable.py
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -249,7 +249,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
           print("Table status:", series_table.table_status)
       ```
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       python SeriesCreateTable.py
@@ -263,17 +263,17 @@ To create a table named `Series` with the `series_id` partition key and the `tit
 
 - PHP {#php}
 
-   1. Create the `SeriesCreateTable.php` file, for example, using the nano editor:
+  1. Create the `SeriesCreateTable.php` file, e.g., using `nano`:
 
       ```bash
       nano SeriesCreateTable.php
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -331,7 +331,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
       ?>
       ```
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       php SeriesCreateTable.php
@@ -345,29 +345,29 @@ To create a table named `Series` with the `series_id` partition key and the `tit
 
 - Node.js {#node}
 
-   1. Create the `SeriesCreateTable.js` file, for example, using the nano editor:
+  1. Create the `SeriesCreateTable.js` file, e.g., using `nano`:
 
       ```bash
       nano SeriesCreateTable.js
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
       ```javascript
       const AWS = require("@aws-sdk/client-dynamodb");
-
+      
       // Credentials should be defined via environment variables AWS_SECRET_ACCESS_KEY and AWS_ACCESS_KEY_ID
       const dynamodb = new AWS.DynamoDBClient({
           region: "{{ region-id }}",
           endpoint: "<Document_API_endpoint>",
       });
-
+      
       dynamodb.send(new AWS.CreateTableCommand({
           TableName : "Series",
           KeySchema: [
@@ -387,7 +387,7 @@ To create a table named `Series` with the `series_id` partition key and the `tit
           })
       ```
 
-   1. Run the program:
+  1. Run the program:
 
       ```bash
       node SeriesCreateTable.js
@@ -429,23 +429,23 @@ To create a table named `Series` with the `series_id` partition key and the `tit
 
 - Ruby {#ruby}
 
-   1. Create the `SeriesCreateTable.rb` file, for example, using the nano editor:
+  1. Create the `SeriesCreateTable.rb` file, e.g., using `nano`:
 
       ```bash
       nano SeriesCreateTable.rb
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the [prepared](index.md#before-you-begin) value.
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
-
+  
       ```ruby
       require 'aws-sdk-dynamodb'
-
+      
       def create_table(dynamodb_client, table_definition)
         response = dynamodb_client.create_table(table_definition)
         response.table_description.table_status
@@ -453,17 +453,17 @@ To create a table named `Series` with the `series_id` partition key and the `tit
         puts "Error creating table: #{e.message}"
         'Error'
       end
-
+      
       def run_me
         region = '{{ region-id }}'
-
+      
         Aws.config.update(
           endpoint: '<Document_API_endpoint>',
           region: region
         )
-
+      
         dynamodb_client = Aws::DynamoDB::Client.new
-
+      
         table_definition = {
           table_name: 'Series',
           key_schema: [
@@ -487,21 +487,21 @@ To create a table named `Series` with the `series_id` partition key and the `tit
             }
           ]
         }
-
+      
         puts "Creating a table 'Series'..."
         create_table_result = create_table(dynamodb_client, table_definition)
-
+      
         if create_table_result == 'Error'
           puts 'Couldn't create table.'
         else
           puts "Table created. Status: '#{create_table_result}'."
         end
       end
-
+      
       run_me if $PROGRAM_NAME == __FILE__
       ```
-
-   1. Run the program:
+  
+  1. Run the program:
 
       ```bash
       ruby SeriesCreateTable.rb

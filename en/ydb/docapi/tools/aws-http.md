@@ -1,34 +1,34 @@
 ---
 sourcePath: overlay/quickstart/document-api/aws-http.md
 ---
-# Working with data through the HTTP interface
+# Data operations through the HTTP interface
 
-In this section, you will learn how to create a table, add data to it, and then read it using the Document API HTTP interface.
+In this section, you will learn how to create a table, populate it with data, and then read this data using the Document API HTTP interface.
 
-For HTTP queries, the examples in the section use the [cURL](https://curl.se/) utility.
+In our examples below, we will be using [cURL](https://curl.se/) to run HTTP requests.
 
 {% include [doc-tables-only.md](../../_includes/doc-tables-only.md) %}
 
 ## Getting started {#before-you-begin}
 
-1. If you do not have the {{ yandex-cloud }} CLI installed yet, [install and initialize it](../../../cli/quickstart.md#install).
-1. Prepare the Document API endpoint of the [created database](../../operations/manage-databases.md).
+1. If you do not have the {{ yandex-cloud }} CLI yet, [install and initialize it](../../../cli/quickstart.md#install).
+1. Prepare the Document API endpoint of [your database](../../operations/manage-databases.md).
 
-    {% cut "How do I find out the Document API endpoint of a database?" %}
+    {% cut "Where to find the Document API endpoint of a database" %}
 
     1. Navigate to the [management console]({{ link-console-main }}).
     1. Select the folder and go to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
     1. Select the database you want to query.
     1. In the menu on the left, go to the **{{ ui-key.yacloud.common.overview }}** section.
-    1. The endpoint value is in the **{{ ui-key.yacloud.ydb.overview.label_document-endpoint }}** line.
+    1. The **{{ ui-key.yacloud.ydb.overview.label_document-endpoint }}** line shows the endpoint value.
 
-        Example of an `{{ ydb.aws-ep }}` endpoint value.
+        Here is an example of an endpoint value: `{{ ydb.aws-ep }}`.
 
     {% endcut %}
 
     {% note info %}
 
-    For the Amazon DynamoDB-compatible mode, use a serverless database configuration.
+    For the Amazon DynamoDB compatibility mode, use a serverless database configuration.
 
     {% endnote %}
 
@@ -44,7 +44,7 @@ For HTTP queries, the examples in the section use the [cURL](https://curl.se/) u
 
 - HTTP interface
 
-  Set the table configuration in the `create.json` file:
+  Specify the table configuration in the `create.json` file:
 
     ```json
     {
@@ -74,7 +74,7 @@ For HTTP queries, the examples in the section use the [cURL](https://curl.se/) u
     }
     ```
 
-  Create a document table in the database using the command:
+  Create a document table in the database using this command:
 
     ```bash
     curl \
@@ -94,7 +94,7 @@ For HTTP queries, the examples in the section use the [cURL](https://curl.se/) u
 
 - HTTP interface
 
-  Prepare data to save to the document table by creating a file named `put.json`:
+  Prepare the data to save to the document table by creating a file named `put.json`:
 
     ```json
     {
@@ -109,7 +109,7 @@ For HTTP queries, the examples in the section use the [cURL](https://curl.se/) u
     }
     ```
 
-  Add the data to the table using the command:
+  Add the data to the table using this command:
 
     ```bash
     curl \
@@ -129,7 +129,7 @@ For HTTP queries, the examples in the section use the [cURL](https://curl.se/) u
 
 - HTTP interface
 
-  To read the data from the document table, run the command:
+  To read data from a document table, run this command:
 
     ```bash
     curl \

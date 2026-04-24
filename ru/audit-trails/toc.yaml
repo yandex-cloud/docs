@@ -246,6 +246,18 @@ items:
             href: audit/accesstransparency/events-ref/ComputeNodeAccess.md
           - name: MDBClusterAccess
             href: audit/accesstransparency/events-ref/MDBClusterAccess.md
+      - name: ai.assistants.searchindex
+        items:
+          - name: CreateSearchIndex
+            href: audit/ai/assistants/searchindex/events-ref/CreateSearchIndex.md
+          - name: DeleteFilesFromSearchIndex
+            href: >-
+              audit/ai/assistants/searchindex/events-ref/DeleteFilesFromSearchIndex.md
+          - name: DeleteSearchIndex
+            href: audit/ai/assistants/searchindex/events-ref/DeleteSearchIndex.md
+          - name: UploadFilesToSearchIndex
+            href: >-
+              audit/ai/assistants/searchindex/events-ref/UploadFilesToSearchIndex.md
       - name: ai.assistants
         items:
           - name: CreateSearchIndex
@@ -352,16 +364,18 @@ items:
             href: audit/ai/responses/events-ref/McpToolList.md
           - name: WebSearchToolSearch
             href: audit/ai/responses/events-ref/WebSearchToolSearch.md
-      - name: ai.speechkit
+      - name: ai.speechkit.stt
         items:
           - name: GetRecognition
-            href: audit/ai/speechkit/events-ref/GetRecognition.md
+            href: audit/ai/speechkit/stt/events-ref/GetRecognition.md
           - name: RecognizeSpeechAsync
-            href: audit/ai/speechkit/events-ref/RecognizeSpeechAsync.md
+            href: audit/ai/speechkit/stt/events-ref/RecognizeSpeechAsync.md
           - name: RecognizeSpeechStream
-            href: audit/ai/speechkit/events-ref/RecognizeSpeechStream.md
+            href: audit/ai/speechkit/stt/events-ref/RecognizeSpeechStream.md
+      - name: ai.speechkit.tts
+        items:
           - name: UtteranceSynthesis
-            href: audit/ai/speechkit/events-ref/UtteranceSynthesis.md
+            href: audit/ai/speechkit/tts/events-ref/UtteranceSynthesis.md
       - name: ai.translate
         items:
           - name: TranslateText
@@ -1992,6 +2006,8 @@ items:
             href: audit/mdb/mongodb/events-ref/RestoreCluster.md
           - name: RevokeUserPermission
             href: audit/mdb/mongodb/events-ref/RevokeUserPermission.md
+          - name: SetClusterAccessBindings
+            href: audit/mdb/mongodb/events-ref/SetClusterAccessBindings.md
           - name: StartCluster
             href: audit/mdb/mongodb/events-ref/StartCluster.md
           - name: StepdownHosts
@@ -2000,6 +2016,8 @@ items:
             href: audit/mdb/mongodb/events-ref/StopCluster.md
           - name: UpdateCluster
             href: audit/mdb/mongodb/events-ref/UpdateCluster.md
+          - name: UpdateClusterAccessBindings
+            href: audit/mdb/mongodb/events-ref/UpdateClusterAccessBindings.md
           - name: UpdateClusterHosts
             href: audit/mdb/mongodb/events-ref/UpdateClusterHosts.md
           - name: UpdateUser
@@ -2571,74 +2589,82 @@ items:
           - name: UpdateFolderAccessPolicyBindingParameters
             href: >-
               audit/resourcemanager/events-ref/UpdateFolderAccessPolicyBindingParameters.md
-      - name: securitydeck
+      - name: securitydeck.alerts
+        items:
+          - name: CreateAlert
+            href: audit/securitydeck/alerts/events-ref/CreateAlert.md
+          - name: CreateAlertSink
+            href: audit/securitydeck/alerts/events-ref/CreateAlertSink.md
+          - name: DeleteAlertSink
+            href: audit/securitydeck/alerts/events-ref/DeleteAlertSink.md
+          - name: UpdateAlertSink
+            href: audit/securitydeck/alerts/events-ref/UpdateAlertSink.md
+      - name: securitydeck.cspm
         items:
           - name: AssetFailedRuleCheck
-            href: audit/securitydeck/events-ref/AssetFailedRuleCheck.md
+            href: audit/securitydeck/cspm/events-ref/AssetFailedRuleCheck.md
           - name: AssetPassedRuleCheck
-            href: audit/securitydeck/events-ref/AssetPassedRuleCheck.md
+            href: audit/securitydeck/cspm/events-ref/AssetPassedRuleCheck.md
           - name: AssetRuleCheckCouldNotBeExecuted
-            href: audit/securitydeck/events-ref/AssetRuleCheckCouldNotBeExecuted.md
+            href: >-
+              audit/securitydeck/cspm/events-ref/AssetRuleCheckCouldNotBeExecuted.md
           - name: AssetRuleCheckNoLongerInScope
-            href: audit/securitydeck/events-ref/AssetRuleCheckNoLongerInScope.md
-          - name: CreateAlert
-            href: audit/securitydeck/events-ref/CreateAlert.md
-          - name: CreateAlertSink
-            href: audit/securitydeck/events-ref/CreateAlertSink.md
-          - name: CreateConnector
-            href: audit/securitydeck/events-ref/CreateConnector.md
-          - name: CreateException
-            href: audit/securitydeck/events-ref/CreateException.md
-          - name: CreateProject
-            href: audit/securitydeck/events-ref/CreateProject.md
+            href: >-
+              audit/securitydeck/cspm/events-ref/AssetRuleCheckNoLongerInScope.md
           - name: CreateScanJob
-            href: audit/securitydeck/events-ref/CreateScanJob.md
-          - name: CreateScope
-            href: audit/securitydeck/events-ref/CreateScope.md
+            href: audit/securitydeck/cspm/events-ref/CreateScanJob.md
           - name: CreateScopeFilter
-            href: audit/securitydeck/events-ref/CreateScopeFilter.md
-          - name: CreateWorkspace
-            href: audit/securitydeck/events-ref/CreateWorkspace.md
-          - name: DeleteAlertSink
-            href: audit/securitydeck/events-ref/DeleteAlertSink.md
-          - name: DeleteConnector
-            href: audit/securitydeck/events-ref/DeleteConnector.md
-          - name: DeleteException
-            href: audit/securitydeck/events-ref/DeleteException.md
-          - name: DeleteProject
-            href: audit/securitydeck/events-ref/DeleteProject.md
+            href: audit/securitydeck/cspm/events-ref/CreateScopeFilter.md
           - name: DeleteScanJob
-            href: audit/securitydeck/events-ref/DeleteScanJob.md
-          - name: DeleteScope
-            href: audit/securitydeck/events-ref/DeleteScope.md
+            href: audit/securitydeck/cspm/events-ref/DeleteScanJob.md
           - name: DeleteScopeFilter
-            href: audit/securitydeck/events-ref/DeleteScopeFilter.md
-          - name: DeleteWorkspace
-            href: audit/securitydeck/events-ref/DeleteWorkspace.md
-          - name: EnableProject
-            href: audit/securitydeck/events-ref/EnableProject.md
-          - name: TriggerAdmissionControl
-            href: audit/securitydeck/events-ref/TriggerAdmissionControl.md
-          - name: TriggerRuntimeControl
-            href: audit/securitydeck/events-ref/TriggerRuntimeControl.md
-          - name: TriggerRuntimeProcessInfo
-            href: audit/securitydeck/events-ref/TriggerRuntimeProcessInfo.md
-          - name: UpdateAlertSink
-            href: audit/securitydeck/events-ref/UpdateAlertSink.md
-          - name: UpdateConnector
-            href: audit/securitydeck/events-ref/UpdateConnector.md
-          - name: UpdateException
-            href: audit/securitydeck/events-ref/UpdateException.md
-          - name: UpdateProject
-            href: audit/securitydeck/events-ref/UpdateProject.md
+            href: audit/securitydeck/cspm/events-ref/DeleteScopeFilter.md
           - name: UpdateScanJob
-            href: audit/securitydeck/events-ref/UpdateScanJob.md
-          - name: UpdateScope
-            href: audit/securitydeck/events-ref/UpdateScope.md
+            href: audit/securitydeck/cspm/events-ref/UpdateScanJob.md
           - name: UpdateScopeFilter
-            href: audit/securitydeck/events-ref/UpdateScopeFilter.md
+            href: audit/securitydeck/cspm/events-ref/UpdateScopeFilter.md
+      - name: securitydeck.kspm
+        items:
+          - name: CreateException
+            href: audit/securitydeck/kspm/events-ref/CreateException.md
+          - name: CreateProject
+            href: audit/securitydeck/kspm/events-ref/CreateProject.md
+          - name: DeleteException
+            href: audit/securitydeck/kspm/events-ref/DeleteException.md
+          - name: DeleteProject
+            href: audit/securitydeck/kspm/events-ref/DeleteProject.md
+          - name: EnableProject
+            href: audit/securitydeck/kspm/events-ref/EnableProject.md
+          - name: TriggerAdmissionControl
+            href: audit/securitydeck/kspm/events-ref/TriggerAdmissionControl.md
+          - name: TriggerRuntimeControl
+            href: audit/securitydeck/kspm/events-ref/TriggerRuntimeControl.md
+          - name: TriggerRuntimeProcessInfo
+            href: audit/securitydeck/kspm/events-ref/TriggerRuntimeProcessInfo.md
+          - name: UpdateException
+            href: audit/securitydeck/kspm/events-ref/UpdateException.md
+          - name: UpdateProject
+            href: audit/securitydeck/kspm/events-ref/UpdateProject.md
+      - name: securitydeck.orchestrator
+        items:
+          - name: CreateConnector
+            href: audit/securitydeck/orchestrator/events-ref/CreateConnector.md
+          - name: CreateScope
+            href: audit/securitydeck/orchestrator/events-ref/CreateScope.md
+          - name: CreateWorkspace
+            href: audit/securitydeck/orchestrator/events-ref/CreateWorkspace.md
+          - name: DeleteConnector
+            href: audit/securitydeck/orchestrator/events-ref/DeleteConnector.md
+          - name: DeleteScope
+            href: audit/securitydeck/orchestrator/events-ref/DeleteScope.md
+          - name: DeleteWorkspace
+            href: audit/securitydeck/orchestrator/events-ref/DeleteWorkspace.md
+          - name: UpdateConnector
+            href: audit/securitydeck/orchestrator/events-ref/UpdateConnector.md
+          - name: UpdateScope
+            href: audit/securitydeck/orchestrator/events-ref/UpdateScope.md
           - name: UpdateWorkspace
-            href: audit/securitydeck/events-ref/UpdateWorkspace.md
+            href: audit/securitydeck/orchestrator/events-ref/UpdateWorkspace.md
       - name: serverless
         items:
           - name: AddDomain

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# AI Studio Audit Trails Events: BlockContentByClassifier
+# AI Studio Guardrails Audit Trails Events: BlockContentByClassifier
 
 ## Event JSON schema {#yandex.cloud.audit.ai.guardrails.BlockContentByClassifier2-schema}
 
