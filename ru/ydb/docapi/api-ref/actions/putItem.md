@@ -146,4 +146,4 @@ sourcePath: overlay/docapi/api-ref/actions/putItem.md
 `ResourceNotFoundException` | Указанная таблица не существует.<br/><br/>**Код состояния HTTP**: 400
 `TransactionConflictException` | Операция отклонена, так как для элемента выполняется другая транзакция.<br/><br/>**Код состояния HTTP**: 400
 
-Также могут возникать [Общие ошибки](../common-errors), одинаковые для всех методов.
+Также могут возникать [Общие ошибки](../../common-errors.md), одинаковые для всех методов.

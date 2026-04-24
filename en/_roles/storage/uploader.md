@@ -1,4 +1,5 @@
-The `storage.uploader` role allows you to upload objects into buckets with or without overwriting the previously uploaded ones, read data in buckets, view info on buckets and objects inside them, as well as info on the Object Storage folder and quotas. The role does not allow you to delete objects or configure buckets.
+
+The `storage.uploader` role allows you to upload objects into buckets with or without overwriting the previously uploaded ones, read data in buckets, view info on buckets and objects inside them, as well as info on the {{ objstorage-name }} folder and quotas. The role does not allow you to delete objects or configure buckets.
 
 {% cut "Users with this role can:" %}
 
@@ -20,8 +21,8 @@ The `storage.uploader` role allows you to upload objects into buckets with or wi
 * View info on [object version locks](../../storage/concepts/object-lock.md) and set up such locks.
 * View object and object version [labels](../../storage/concepts/tags.md#object-tags), modify such labels.
 * View info on current [multipart uploads](../../storage/concepts/multipart.md) of objects and their parts, delete partially uploaded objects.
-* View [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), and Object Storage statistics.
-* View info on Object Storage [quotas](../../storage/concepts/limits.md#storage-quotas).
+* View [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), and {{ objstorage-name }} statistics.
+* View info on {{ objstorage-name }} [quotas](../../storage/concepts/limits.md#storage-quotas).
 * View folder info.
 
 {% endcut %}

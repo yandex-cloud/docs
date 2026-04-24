@@ -124,15 +124,7 @@ keywords:
 
      * **Git** — укажите адрес репозитория, рабочую ветку, путь к каталогу с DAG-файлами и содержимое закрытого SSH-ключа доступа к репозиторию.
 
-        {% note warning %}
-
-        * Адрес репозитория должен разрешать подключения по протоколу SSH.
-
-        * Закрытый ключ не должен быть защищен паролем.
-
-        * Для использования Git-репозитория укажите в блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** сеть с настроенным [NAT-шлюзом](../../vpc/operations/create-nat-gateway.md). Во время настройки привяжите таблицу маршрутизации с NAT-шлюзом ко всем подсетям кластера {{ maf-name }}.
-
-        {% endnote %}
+       {% include [warn-git](../../_includes/mdb/maf/note-git-sync.md) %}
 
   1. (Опционально) В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
 

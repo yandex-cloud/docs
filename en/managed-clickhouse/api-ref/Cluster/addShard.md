@@ -542,46 +542,15 @@ apiPlayground:
               **enum** (Type)
               Required field. Layout type.
               For details, see [ClickHouse documentation](https://clickhouse.com/docs/sql-reference/dictionaries#ways-to-store-dictionaries-in-memory).
-              - `FLAT`: The dictionary is completely stored in memory in the form of flat arrays.
-              Applicable only for dictionaries with numeric keys of the UInt64 type.
-              - `HASHED`: The dictionary is completely stored in memory in the form of a hash table.
-              Applicable only for dictionaries with numeric keys of the UInt64 type.
-              - `COMPLEX_KEY_HASHED`: The dictionary is completely stored in memory in the form of a hash table.
-              Applicable for dictionaries with composite keys of arbitrary type.
-              - `RANGE_HASHED`: The dictionary is stored in memory in the form of a hash table with an ordered array of ranges and their corresponding values.
-              Applicable only for dictionaries with numeric keys of the UInt64 type.
-              - `CACHE`: The dictionary is stored in a cache that has a fixed number of cells. These cells contain frequently used elements.
-              Applicable only for dictionaries with numeric keys of the UInt64 type.
-              - `COMPLEX_KEY_CACHE`: The dictionary is stored in a cache that has a fixed number of cells. These cells contain frequently used elements.
-              Applicable for dictionaries with composite keys of arbitrary type.
-              - `SPARSE_HASHED`: The dictionary is completely stored in memory in the form of a hash table.
-              It's similar to HASHED layout type but uses less memory in favor of more CPU usage.
-              Applicable only for dictionaries with numeric keys of the UInt64 type.
-              - `COMPLEX_KEY_SPARSE_HASHED`: The dictionary is completely stored in memory in the form of a hash table.
-              It's similar to COMPLEX_KEY_HASHED layout type but uses less memory in favor of more CPU usage.
-              Applicable for dictionaries with composite keys of arbitrary type.
-              - `COMPLEX_KEY_RANGE_HASHED`: The dictionary is stored in memory in the form of a hash table with an ordered array of ranges and their corresponding values.
-              Applicable for dictionaries with composite keys of arbitrary type.
-              - `DIRECT`: The dictionary is not stored in memory and directly goes to the source during the processing of a request.
-              Applicable only for dictionaries with numeric keys of the UInt64 type.
-              - `COMPLEX_KEY_DIRECT`: The dictionary is not stored in memory and directly goes to the source during the processing of a request.
-              Applicable for dictionaries with composite keys of arbitrary type.
-              - `IP_TRIE`: The specialized layout type for mapping network prefixes (IP addresses) to metadata such as ASN.
+              - `CLICKHOUSE`: ClickHouse host.
+              - `ZOOKEEPER`: ZooKeeper host.
+              - `KEEPER`: ClickHouse Keeper host.
             type: string
             enum:
               - TYPE_UNSPECIFIED
-              - FLAT
-              - HASHED
-              - COMPLEX_KEY_HASHED
-              - RANGE_HASHED
-              - CACHE
-              - COMPLEX_KEY_CACHE
-              - SPARSE_HASHED
-              - COMPLEX_KEY_SPARSE_HASHED
-              - COMPLEX_KEY_RANGE_HASHED
-              - DIRECT
-              - COMPLEX_KEY_DIRECT
-              - IP_TRIE
+              - CLICKHOUSE
+              - ZOOKEEPER
+              - KEEPER
           sizeInCells:
             description: |-
               **string** (int64)

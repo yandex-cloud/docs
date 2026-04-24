@@ -1,13 +1,13 @@
 ---
 sourcePath: overlay/_includes/seriesdata.md
 ---
-Create a file named `seriesdata.json` with the uploaded data, for example, in the nano editor:
+Create a file named `seriesdata.json` with the data to upload, e.g., using `nano`:
 
 ```bash
 nano seriesdata.json
 ```
 
-Copy the following code to the created file:
+Paste the following code into this file:
 
 ```json
 [{

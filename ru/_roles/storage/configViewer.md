@@ -18,7 +18,7 @@
 * просматривать [метки](../../storage/concepts/tags.md) бакетов;
 * просматривать информацию о конфигурации [жизненных циклов](../../storage/concepts/lifecycles.md) объектов;
 * просматривать информацию о текущих [составных загрузках](../../storage/concepts/multipart.md) объектов и их частях;
-* просматривать статистику [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) и сервиса Object Storage;
+* просматривать статистику [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) и сервиса {{ objstorage-name }};
 * просматривать информацию о каталоге.
 
 {% endcut %}

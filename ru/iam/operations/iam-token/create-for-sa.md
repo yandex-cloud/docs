@@ -851,9 +851,8 @@ description: Следуя данной инструкции, вы сможете
 
       ```js
       const serviceAccountJson = require('<JSON-файл_c_ключами>')
-      const {
-          serviceClients, Session, cloudApi, waitForOperation, decodeMessage,
-      } = require('@yandex-cloud/nodejs-sdk');
+      const { Session } = require('@yandex-cloud/nodejs-sdk');
+      const { iamTokenService } = require('@yandex-cloud/nodejs-sdk/iam-v1');
 
       const {
           id: accessKeyId,
@@ -861,27 +860,37 @@ description: Следуя данной инструкции, вы сможете
           private_key: privateKey
       } = serviceAccountJson
 
-      const {
-          iam: {
-              iam_token_service: {
-                  CreateIamTokenRequest,
-              }
-          }
-      } = cloudApi;
+      const jose = require('node-jose');
 
-      async function createIamToken()
-      {
+      const createJWT = () => {
+          const now = Math.floor(new Date().getTime() / 1000)
+          const payload = {
+              iss: serviceAccountId,
+              iat: now,
+              exp: now + 3600,
+              aud: "https://iam.api.cloud.yandex.net/iam/v1/tokens"
+          }
+          
+          return jose.JWK.asKey(privateKey, 'pem', { kid: accessKeyId, alg: 'PS256' })
+              .then(function (result) {
+                  return jose.JWS.createSign({ format: 'compact' }, result)
+                      .update(JSON.stringify(payload))
+                      .final();
+              });
+      }
+
+      async function createIamToken() {
           const session = new Session({
               serviceAccountJson: {
                   accessKeyId,
                   serviceAccountId,
                   privateKey,
               }
-          })
-          const tokenClient = session.client(serviceClients.IamTokenServiceClient)
-          const jwt = await createJWT()
-          const tokenRequest = CreateIamTokenRequest.fromPartial({ jwt })
-          const { iamToken } = await tokenClient.create(tokenRequest)
+          });
+          const tokenClient = session.client(iamTokenService.IamTokenServiceClient);
+          const jwt = await createJWT();
+          const response = await tokenClient.create({ jwt });
+          const iamToken = response.iamToken;
 
           console.log("Your iam token:")
           console.log(iamToken)

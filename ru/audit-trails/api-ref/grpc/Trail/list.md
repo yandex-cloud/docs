@@ -46,7 +46,6 @@ The maximum string length in characters is 100. ||
 || filter | **string**
 
 A filter expression that filters subscription locks listed in the response.
-
 The expression must specify:
 1. The field name. Currently you can use filtering on [Trail.name, Trail.created_at] fields.
 2. An operator. Can be either `=` or `!=` for single values, `IN` or `NOT IN` for lists of values.
@@ -164,7 +163,6 @@ format is "&lt;field&gt; desc\|acs" ||
         },
         "data_events_filters": [
           {
-            "service": "string",
             // Includes only one of the fields `included_events`, `excluded_events`
             "included_events": {
               "event_types": [
@@ -182,6 +180,7 @@ format is "&lt;field&gt; desc\|acs" ||
               "include_nonrecursive_queries": "bool"
             },
             // end of the list of possible fields
+            "service": "string",
             "resource_scopes": [
               {
                 "id": "string",
@@ -245,7 +244,7 @@ The maximum string length in characters is 1024. ||
 
 Custom labels of the trail as `key:value` pairs. Maximum 64 per key
 
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+The maximum string length in characters for each value is 63. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
 || destination | **[Destination](#yandex.cloud.audittrails.v1.Trail.Destination)**
 
 Required field. Destination configuration of the trail ||
@@ -286,7 +285,6 @@ Describes which groups of events will be sent and which resources will be monito
 || object_storage | **[ObjectStorage](#yandex.cloud.audittrails.v1.Trail.ObjectStorage)**
 
 Configuration for event delivery to Object Storage
-
 Uploaded objects will have prefix &lt;trail_id&gt;/ by default
 
 Includes only one of the fields `object_storage`, `cloud_logging`, `data_stream`, `eventrouter`. ||
@@ -525,9 +523,6 @@ Policy for gathering data events
 
 #|
 ||Field | Description ||
-|| service | **string**
-
-Required field. Name of the service whose events will be delivered ||
 || included_events | **[EventTypes](#yandex.cloud.audittrails.v1.Trail.EventTypes)**
 
 Explicitly included events of specified service
@@ -545,6 +540,9 @@ Includes only one of the fields `included_events`, `excluded_events`. ||
 Filter is allowed only if service = dns
 
 Includes only one of the fields `dns_filter`. ||
+|| service | **string**
+
+Required field. Name of the service whose events will be delivered ||
 || resource_scopes[] | **[Resource](#yandex.cloud.audittrails.v1.Trail.Resource)**
 
 A list of resources which will be monitored by the trail

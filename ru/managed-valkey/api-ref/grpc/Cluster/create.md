@@ -155,13 +155,16 @@ Creates a Redis cluster in the specified folder.
       "valkey_search": {
         "enabled": "bool",
         "reader_threads": "google.protobuf.Int64Value",
-        "writer_threads": "google.protobuf.Int64Value"
+        "writer_threads": "google.protobuf.Int64Value",
+        "version": "string"
       },
       "valkey_json": {
-        "enabled": "bool"
+        "enabled": "bool",
+        "version": "string"
       },
       "valkey_bloom": {
-        "enabled": "bool"
+        "enabled": "bool",
+        "version": "string"
       }
     }
   },
@@ -304,20 +307,28 @@ ID of the key to encrypt cluster disks. ||
 Version of Redis used in the cluster. ||
 || redis_config_5_0 | **[RedisConfig5_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0)**
 
+Configuration of a Redis 5.0 server.
+
 Includes only one of the fields `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_2`, `redis_config_7_0`.
 
 Configuration of a Redis cluster. ||
 || redis_config_6_0 | **[RedisConfig6_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_0)**
+
+Configuration of a Redis 6.0 server.
 
 Includes only one of the fields `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_2`, `redis_config_7_0`.
 
 Configuration of a Redis cluster. ||
 || redis_config_6_2 | **[RedisConfig6_2](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_2)**
 
+Configuration of a Redis 6.2 server.
+
 Includes only one of the fields `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_2`, `redis_config_7_0`.
 
 Configuration of a Redis cluster. ||
 || redis_config_7_0 | **[RedisConfig7_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_0)**
+
+Configuration of a Redis 7.0 server.
 
 Includes only one of the fields `redis_config_5_0`, `redis_config_6_0`, `redis_config_6_2`, `redis_config_7_0`.
 
@@ -911,6 +922,9 @@ The minimum value is 0. ||
 Controls the amount of threads processing index mutations
 
 The minimum value is 0. ||
+|| version | **string**
+
+Module version ||
 |#
 
 ## ValkeyJson {#yandex.cloud.mdb.redis.v1.ValkeyJson}
@@ -920,6 +934,9 @@ The minimum value is 0. ||
 || enabled | **bool**
 
 Enable valkey-json module ||
+|| version | **string**
+
+Module version ||
 |#
 
 ## ValkeyBloom {#yandex.cloud.mdb.redis.v1.ValkeyBloom}
@@ -929,6 +946,9 @@ Enable valkey-json module ||
 || enabled | **bool**
 
 Enable valkey-bloom module ||
+|| version | **string**
+
+Module version ||
 |#
 
 ## HostSpec {#yandex.cloud.mdb.redis.v1.HostSpec}
@@ -1460,13 +1480,16 @@ SanitizePayload parameter. ||
         "valkey_search": {
           "enabled": "bool",
           "reader_threads": "google.protobuf.Int64Value",
-          "writer_threads": "google.protobuf.Int64Value"
+          "writer_threads": "google.protobuf.Int64Value",
+          "version": "string"
         },
         "valkey_json": {
-          "enabled": "bool"
+          "enabled": "bool",
+          "version": "string"
         },
         "valkey_bloom": {
-          "enabled": "bool"
+          "enabled": "bool",
+          "version": "string"
         }
       },
       "full_version": "string"
@@ -2387,6 +2410,9 @@ The minimum value is 0. ||
 Controls the amount of threads processing index mutations
 
 The minimum value is 0. ||
+|| version | **string**
+
+Module version ||
 |#
 
 ## ValkeyJson {#yandex.cloud.mdb.redis.v1.ValkeyJson2}
@@ -2396,6 +2422,9 @@ The minimum value is 0. ||
 || enabled | **bool**
 
 Enable valkey-json module ||
+|| version | **string**
+
+Module version ||
 |#
 
 ## ValkeyBloom {#yandex.cloud.mdb.redis.v1.ValkeyBloom2}
@@ -2405,6 +2434,9 @@ Enable valkey-json module ||
 || enabled | **bool**
 
 Enable valkey-bloom module ||
+|| version | **string**
+
+Module version ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.redis.v1.MaintenanceWindow2}

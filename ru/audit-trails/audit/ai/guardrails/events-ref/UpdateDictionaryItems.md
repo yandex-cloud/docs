@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# AI Studio Audit Trails Events: UpdateDictionaryItems
+# AI Studio Guardrails Audit Trails Events: UpdateDictionaryItems
 
 ## Event JSON schema {#yandex.cloud.audit.ai.guardrails.UpdateDictionaryItems2-schema}
 

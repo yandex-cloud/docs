@@ -3,11 +3,11 @@ sourcePath: overlay/quickstart/document-api/aws-sdk/update-item.md
 ---
 # Updating a record
 
-Read this guide to learn how to make changes to an existing record in the table.
+Follow this guide to learn how to edit an existing record in the table.
 
 ## Unconditional update {#update-item}
 
-In the example below, we will update the value of the existing `release_date` and add the new `rating` attribute.
+In the example below, we will update the value of the existing `release_date` attribute and add the new `rating` attribute.
 
 To update a movie record in the `Series` table:
 
@@ -24,7 +24,7 @@ To update a movie record in the `Series` table:
         -DartifactId=SeriesItemOps03
       ```
 
-      As a result of running the command, the system will create the `SeriesItemOps03` project folder in the current working folder, with a subfolder structure and the `pom.xml` project description file.
+      This command will create the `SeriesItemOps03` project folder in the current working folder, with a subfolder structure and the `pom.xml` project description file.
 
   1. Go to the project folder:
 
@@ -32,7 +32,7 @@ To update a movie record in the `Series` table:
       cd SeriesItemOps03
       ```
 
-  1. Edit the project description in the `pom.xml` file, for example, using the `nano` editor:
+  1. Edit the project description in the `pom.xml` file, e.g., using `nano`:
 
       ```bash
       nano pom.xml
@@ -112,17 +112,17 @@ To update a movie record in the `Series` table:
 
       Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
-  1. In the `src/main/java/com/mycompany/app/` folder, create the `SeriesItemOps03.java` file, for example, using the `nano` editor:
-
+  1. In the `src/main/java/com/mycompany/app/` folder, create the `SeriesItemOps03.java` file, e.g., using `nano`:
+  
       ```bash
       nano src/main/java/com/mycompany/app/SeriesItemOps03.java
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -177,7 +177,7 @@ To update a movie record in the `Series` table:
 
       You can add, update, or delete attributes for an existing record using the `updateItem` method.
 
-      This code uses `UpdateExpression` to describe the updates one needs to perform for the specified record.
+      This code uses `UpdateExpression` to describe the updates to perform for the specified record.
 
       The `ReturnValues` parameter instructs {{ ydb-short-name }} to return only updated attributes (`UPDATED_NEW`).
 
@@ -211,17 +211,17 @@ To update a movie record in the `Series` table:
 
 - Python {#python}
 
-  1. Create the `SeriesItemOps03.py` file, for example, using the `nano` editor:
-
+  1. Create the `SeriesItemOps03.py` file, e.g., using `nano`:
+  
       ```bash
       nano SeriesItemOps03.py
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -288,17 +288,17 @@ To update a movie record in the `Series` table:
 
 - PHP {#php}
 
-  1. Create the `SeriesItemOps03.php` file, for example, using the `nano` editor:
-
+  1. Create the `SeriesItemOps03.php` file, e.g., using `nano`:
+  
       ```bash
       nano SeriesItemOps03.php
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -363,7 +363,7 @@ To update a movie record in the `Series` table:
       ?>
       ```
 
-      This code uses `UpdateExpression` to describe the updates one needs to perform for the specified record.
+      This code uses `UpdateExpression` to describe the updates to perform for the specified record.
 
       The `ReturnValues` parameter instructs {{ ydb-short-name }} to return only updated attributes (`UPDATED_NEW`).
 
@@ -396,17 +396,17 @@ To update a movie record in the `Series` table:
 
 - Node.js {#node}
 
-  1. Create the `SeriesItemOps03.js` file, for example, using the `nano` editor:
-
+  1. Create the `SeriesItemOps03.js` file, e.g., using `nano`:
+  
       ```bash
       nano SeriesItemOps03.js
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -446,8 +446,8 @@ To update a movie record in the `Series` table:
               console.error("Couldn't update record. JSON error:", JSON.stringify(err, null, 2));
           });
       ```
-
-      To update the attributes of an existing record, use the `UpdateItemCommand` command. The `UpdateExpression` expression describes all the updates you want to perform for the specified element.
+  
+      To update the attributes of an existing record, use `UpdateItemCommand`. `UpdateExpression` describes all the updates you want to perform for the specified item.
 
       The `ReturnValues` parameter instructs {{ ydb-short-name }} to return only updated attributes (`UPDATED_NEW`).
 
@@ -474,17 +474,17 @@ To update a movie record in the `Series` table:
 
 - Ruby {#ruby}
 
-  1. Create the `SeriesItemOps03.rb` file, for example, using the `nano` editor:
-
+  1. Create the `SeriesItemOps03.rb` file, e.g., using `nano`:
+  
       ```bash
       nano SeriesItemOps03.rb
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -546,11 +546,11 @@ To update a movie record in the `Series` table:
 
       run_me if $PROGRAM_NAME == __FILE__
       ```
-
-      This program uses the `update_expression` expression to describe all the updates that you want to perform for the specified element.
+  
+      This program uses `update_expression` to describe all the updates you want to perform for the specified item.
 
       The `return_values` parameter instructs {{ ydb-short-name }} to return only updated attributes (`UPDATED_NEW`).
-
+  
   1. Run the program:
 
       ```bash
@@ -560,7 +560,7 @@ To update a movie record in the `Series` table:
       Result:
 
       ```text
-      Updating the 'Series' table with information about 'Supernatural (3)'...
+      Updating 'Series' table with information about 'Supernatural (3)'...
       Record updated with 'info' attributes:
       series_info: Supernatural is an American television series created by Eric Kripke
       rating: 8.0
@@ -570,11 +570,11 @@ To update a movie record in the `Series` table:
 
 {% endlist %}
 
-## Increasing an atomic counter {#increment-ac}
+## Incrementing an atomic counter {#increment-ac}
 
 {{ ydb-short-name }} supports atomic counters.
 
-To increase the `rating` atomic counter for a series:
+To increment the `rating` atomic counter for a series:
 
 {% list tabs group=programming_language %}
 
@@ -589,15 +589,15 @@ To increase the `rating` atomic counter for a series:
         -DartifactId=SeriesItemOps04
       ```
 
-      As a result of running the command, the system will create the `SeriesItemOps04` project folder in the current working folder, with a subfolder structure and the `pom.xml` project description file.
-
+      This command will create the `SeriesItemOps04` project folder in the current working folder, with a subfolder structure and the `pom.xml` project description file.
+  
   1. Go to the project folder:
 
       ```bash
       cd SeriesItemOps04
       ```
 
-  1. Edit the project description in the `pom.xml` file, for example, using `nano`:
+  1. Edit the project description in the `pom.xml` file, e.g., using `nano`:
 
       ```bash
       nano pom.xml
@@ -677,17 +677,17 @@ To increase the `rating` atomic counter for a series:
 
       Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
-  1. In the `src/main/java/com/mycompany/app/` folder, create the `SeriesItemOps04.java` file, for example, using the `nano` editor:
-
+  1. In the `src/main/java/com/mycompany/app/` folder, create the `SeriesItemOps04.java` file, e.g., using `nano`:
+  
       ```bash
       nano src/main/java/com/mycompany/app/SeriesItemOps04.java
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -724,7 +724,7 @@ To increase the `rating` atomic counter for a series:
                   .withValueMap(new ValueMap().withNumber(":val", 1)).withReturnValues(ReturnValue.UPDATED_NEW);
 
               try {
-                  System.out.println("Increasing atomic counter...”);
+                  System.out.println("Increasing atomic counter...");
                   UpdateItemOutcome outcome = table.updateItem(updateItemSpec);
                   System.out.println("Series data updated:\n" + outcome.getItem().toJSONPretty());
 
@@ -770,17 +770,17 @@ To increase the `rating` atomic counter for a series:
 
 - Python {#python}
 
-  1. Create the `SeriesItemOps04.py` file, for example, using the `nano` editor:
-
+  1. Create the `SeriesItemOps04.py` file, e.g., using `nano`:
+  
       ```bash
       nano SeriesItemOps04.py
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -813,9 +813,9 @@ To increase the `rating` atomic counter for a series:
           pprint(update_response, sort_dicts = False)
       ```
 
-      Use the `update_item` method to increase or decrease the value of an existing attribute. In this case, all write requests are applied in the order they arrive.
+      Use the `update_item` method to increase or decrease the value of an existing attribute. In this case, all write requests are applied in the order they are received.
 
-      Each time the program is started, the value of the `rating` attribute increases by one.
+      Each time you run the program, the value of the `rating` attribute increases by one.
 
   1. Run the program:
 
@@ -843,17 +843,17 @@ To increase the `rating` atomic counter for a series:
 
 - PHP {#php}
 
-  1. Create the `SeriesItemOps04.php` file, for example, using the `nano` editor:
-
+  1. Create the `SeriesItemOps04.php` file, e.g., using `nano`:
+  
       ```bash
       nano SeriesItemOps04.php
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -915,7 +915,7 @@ To increase the `rating` atomic counter for a series:
       ?>
       ```
 
-      Each time the above code is run, the `rating` value increases by one.
+      Each time you run the above code, the `rating` value increases by one.
 
   1. Run the program:
 
@@ -946,17 +946,17 @@ To increase the `rating` atomic counter for a series:
 
 - Node.js {#node}
 
-  1. Create the `SeriesItemOps04.js` file, for example, using the `nano` editor:
+  1. Create the `SeriesItemOps04.js` file, e.g., using `nano`:
 
       ```bash
       nano SeriesItemOps04.js
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -999,7 +999,7 @@ To increase the `rating` atomic counter for a series:
       });
       ```
 
-      Each time the above code is run, the `rating` value increases by one.
+      Each time you run the above code, the `rating` value increases by one.
 
   1. Run the program:
 
@@ -1024,17 +1024,17 @@ To increase the `rating` atomic counter for a series:
 
 - Ruby {#ruby}
 
-  1. Create the `SeriesItemOps04.rb` file, for example, using the `nano` editor:
+  1. Create the `SeriesItemOps04.rb` file, e.g., using `nano`:
 
       ```bash
       nano SeriesItemOps04.rb
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -1096,7 +1096,7 @@ To increase the `rating` atomic counter for a series:
       run_me if $PROGRAM_NAME == __FILE__
       ```
 
-      Each time the above code is run, the `rating` value increases by one.
+      Each time you run the above code, the `rating` value increases by one.
 
   1. Run the program:
 
@@ -1134,15 +1134,15 @@ To update a record in the `Series` table when the condition is met:
         -DartifactId=SeriesItemOps05
       ```
 
-      As a result of running the command, the system will create the `SeriesItemOps05` project folder in the current working folder, with a subfolder structure and the `pom.xml` project description file.
-
+      This command will create the `SeriesItemOps05` project folder in the current working folder, with a subfolder structure and the `pom.xml` project description file.
+  
   1. Go to the project folder:
 
       ```bash
       cd SeriesItemOps05
       ```
 
-  1. Edit the project description in the `pom.xml` file, for example, using `nano`:
+  1. Edit the project description in the `pom.xml` file, e.g., using `nano`:
 
       ```bash
       nano pom.xml
@@ -1222,17 +1222,17 @@ To update a record in the `Series` table when the condition is met:
 
       Check the current versions of [junit](https://mvnrepository.com/artifact/junit/junit) and [aws-java-sdk-dynamodb](https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-dynamodb).
 
-  1. In the `src/main/java/com/mycompany/app/` folder, create the `SeriesItemOps05.java` file, for example, using the `nano` editor:
-
+  1. In the `src/main/java/com/mycompany/app/` folder, create the `SeriesItemOps05.java` file, e.g., using `nano`:
+  
       ```bash
       nano src/main/java/com/mycompany/app/SeriesItemOps05.java
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -1287,9 +1287,9 @@ To update a record in the `Series` table when the condition is met:
 
       This code shows an example of using the `UpdateItem` condition. If the condition is `true`, the update is successful; otherwise, the update is not performed.
 
-      In this case, a recommendation about viewing with a rating of more than 9 is added to the record.
+      In this case, a watching recommendation is added to the record if the rating is higher than 9.
 
-  1. Build a project:
+  1. Build the project:
 
       ```bash
       mvn package
@@ -1313,7 +1313,7 @@ To update a record in the `Series` table when the condition is met:
 
       Error completing the operation: the movie's rating is 9 and the condition checks the rating higher than 9.
 
-      Modify the code so that the condition is 9 or higher:
+      Edit the code so that the condition requires 9 or higher:
 
       ```java
       .withConditionExpression("info.rating >= :num")
@@ -1342,17 +1342,17 @@ To update a record in the `Series` table when the condition is met:
 
 - Python {#python}
 
-  1. Create the `SeriesItemOps05.py` file, for example, using the `nano` editor:
-
+  1. Create the `SeriesItemOps05.py` file, e.g., using `nano`:
+  
       ```bash
       nano SeriesItemOps05.py
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -1399,7 +1399,7 @@ To update a record in the `Series` table when the condition is met:
 
       This code shows an example of using the `update_item` condition. If the condition is `true`, the update is successful; otherwise, the update is not performed.
 
-      In this case, a recommendation about viewing with a rating of more than 9 is added to the record.
+      In this case, a watching recommendation is added to the record if the rating is higher than 9.
 
   1. Run the program:
 
@@ -1416,7 +1416,7 @@ To update a record in the `Series` table when the condition is met:
 
       The update failed because the series rating is 9 and the condition for update is a rating value higher than 9.
 
-  1. Modify the code so that the condition for the update is a rating of 9 or higher. In this case, the `ConditionExpression` parameter will look like as follows:
+  1. Edit the code so that the condition for the update requires the rating of 9 or higher. In this case, the `ConditionExpression` parameter will be as follows:
 
       ```python
       ConditionExpression = "info.rating >= :num",
@@ -1446,17 +1446,17 @@ To update a record in the `Series` table when the condition is met:
 
 - PHP {#php}
 
-  1. Create the `SeriesItemOps05.php` file, for example, using the `nano` editor:
-
+  1. Create the `SeriesItemOps05.php` file, e.g., using `nano`:
+  
       ```bash
       nano SeriesItemOps05.php
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -1522,7 +1522,7 @@ To update a record in the `Series` table when the condition is met:
 
       This code shows an example of using the `UpdateItem` condition. If the condition is `true`, the update is successful; otherwise, the update is not performed.
 
-      In this case, a recommendation about viewing with a rating of more than 9 is added to the record.
+      In this case, a watching recommendation is added to the record if the rating is higher than 9.
 
   1. Run the program:
 
@@ -1539,9 +1539,9 @@ To update a record in the `Series` table when the condition is met:
       ...
       ```
 
-      Error completing the operation: the movie's rating is 9 and the condition checks the rating higher than 9.
+      Error completing operation: movie rating is 9 and the condition requires the rating higher than 9.
 
-      Modify the code so that the condition is 9 or higher:
+      Edit the code so that the condition requires 9 or higher:
 
       ```php
       'ConditionExpression' => 'info.rating >= :num',
@@ -1573,17 +1573,17 @@ To update a record in the `Series` table when the condition is met:
 
 - Node.js {#node}
 
-  1. Create the `SeriesItemOps05.js` file, for example, using the `nano` editor:
+  1. Create the `SeriesItemOps05.js` file, e.g., using `nano`:
 
       ```bash
       nano SeriesItemOps05.js
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -1630,7 +1630,7 @@ To update a record in the `Series` table when the condition is met:
 
       This code shows an example of using the `UpdateItem` condition. If the condition is `true`, the update is successful; otherwise, the update is not performed.
 
-      In this case, a recommendation about viewing with a rating of more than 9 is added to the record.
+      In this case, a watching recommendation is added to the record if the rating is higher than 9.
 
   1. Run the program:
 
@@ -1652,9 +1652,9 @@ To update a record in the `Series` table when the condition is met:
       }
       ```
 
-      Error completing the operation: the movie's rating is 9 and the condition checks the rating higher than 9.
+      Error completing operation: movie rating is 9 and the condition requires the rating higher than 9.
 
-      Modify the code so that the condition is 9 or higher:
+      Edit the code so that the condition requires 9 or higher:
 
       ```javascript
       ConditionExpression: "info.rating >= :num",
@@ -1678,17 +1678,17 @@ To update a record in the `Series` table when the condition is met:
 
 - Ruby {#ruby}
 
-  1. Create the `SeriesItemOps05.rb` file, for example, using the `nano` editor:
+  1. Create the `SeriesItemOps05.rb` file, e.g., using `nano`:
 
       ```bash
       nano SeriesItemOps05.rb
       ```
 
-      Copy the following code to the created file:
+      Paste the following code into this file:
 
       {% note warning %}
 
-      Instead of `<Document_API_endpoint>`, specify the value you [prepared earlier](index.md#before-you-begin).
+      Specify the value you [prepared earlier](index.md#before-you-begin) instead of `<Document_API_endpoint>`.
 
       {% endnote %}
 
@@ -1754,7 +1754,7 @@ To update a record in the `Series` table when the condition is met:
 
       This code shows an example of using the `update_item` condition. If the condition is `true`, the update is successful; otherwise, the update is not performed.
 
-      In this case, a recommendation about viewing with a rating of more than 9 is added to the record.
+      In this case, a watching recommendation is added to the record if the rating is higher than 9.
 
   1. Run the program:
 
@@ -1770,9 +1770,9 @@ To update a record in the `Series` table when the condition is met:
       Couldn't update table.
       ```
 
-      Error completing the operation: the movie's rating is 9 and the condition checks the rating higher than 9.
+      Error completing operation: movie rating is 9 and the condition requires the rating higher than 9.
 
-      Modify the code so that the condition is 9 or higher:
+      Edit the code so that the condition is 9 or higher:
 
       ```ruby
       condition_expression: 'info.rating >= :num',

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# AI Studio Audit Trails Events: SetBinding
+# AI Studio Guardrails Audit Trails Events: SetBinding
 
 ## Event JSON schema {#yandex.cloud.audit.ai.guardrails.SetBinding2-schema}
 

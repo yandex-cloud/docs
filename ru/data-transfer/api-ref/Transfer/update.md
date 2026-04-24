@@ -380,6 +380,11 @@ apiPlayground:
               **[ColumnsFilter](#yandex.cloud.datatransfer.v1.ColumnsFilter)**
               List of included and excluded columns
             $ref: '#/definitions/ColumnsFilter'
+          skipUtcConversion:
+            description: |-
+              **boolean**
+              When true, time values keep their original timezone, otherwise time values converts (normalizes) to UTC.
+            type: boolean
       SharderTransformerTypeRandom:
         type: object
         properties: {}
@@ -706,7 +711,8 @@ Required field. Identifier of the transfer to be updated. ||
             "excludeColumns": [
               "string"
             ]
-          }
+          },
+          "skipUtcConversion": "boolean"
         },
         "sharderTransformer": {
           // Includes only one of the fields `columns`, `random`
@@ -1156,6 +1162,9 @@ List of included and excluded tables ||
 || columns | **[ColumnsFilter](#yandex.cloud.datatransfer.v1.ColumnsFilter)**
 
 List of included and excluded columns ||
+|| skipUtcConversion | **boolean**
+
+When true, time values keep their original timezone, otherwise time values converts (normalizes) to UTC. ||
 |#
 
 ## SharderTransformer {#yandex.cloud.datatransfer.v1.SharderTransformer}

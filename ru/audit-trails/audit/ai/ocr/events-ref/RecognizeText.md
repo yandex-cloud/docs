@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# AI Studio Audit Trails Events: RecognizeText
+# AI Vision OCR Audit Trails Events: RecognizeText
 
 ## Event JSON schema {#yandex.cloud.audit.ai.ocr.RecognizeText2-schema}
 

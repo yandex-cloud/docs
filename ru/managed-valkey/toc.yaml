@@ -117,6 +117,8 @@ items:
         href: concepts/maintenance.md
       - name: Настройки {{ VLK }}
         href: concepts/settings-list.md
+      - name: Политика поддержки версий {{ VLK }}
+        href: concepts/update-policy.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации

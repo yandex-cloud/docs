@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# AI Studio Audit Trails Events: CreateMcpGateway
+# AI Studio MCP Hub Audit Trails Events: CreateMcpGateway
 
 ## Event JSON schema {#yandex.cloud.audit.ai.mcp_hub.CreateMcpGateway2-schema}
 

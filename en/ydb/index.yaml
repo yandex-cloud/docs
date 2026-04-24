@@ -5,12 +5,12 @@ description:
     databases in the Yandex Cloud infrastructure.
   - >-
     <a href="https://ydb.tech/en">YDB</a> is a distributed fault-tolerant SQL
-    DBMS. YDB provides high availability, horizontal scalability, strict
-    consistency, and ACID transaction support. Queries are made using an SQL
-    dialect (<a href="https://ydb.tech/docs/en/yql/reference/">YQL</a>).
+    DBMS. YDB ensures high availability, horizontal scalability, strong
+    consistency, and support for ACID transactions. It uses an SQL dialect (<a
+    href="https://ydb.tech/docs/en/yql/reference/">YQL</a>) for queries.
   - >-
     This guide describes the features of using YDB in the Yandex Cloud
-    infrastructure. For the main YDB documentation, see <a
+    infrastructure. For the main YDB guides, see <a
     href="https://ydb.tech/docs/">https://ydb.tech/docs/</a>.
   - >-
     The Yandex Cloud infrastructure is <a
@@ -38,8 +38,8 @@ links:
   - title: Step-by-step guides
     description: How to perform routine operations
     href: operations/
-  - title: Concepts
-    description: Learn about basic concepts and how the service works
+  - title: Basic concepts
+    description: Learn about the basic concepts and how this service works
     href: concepts/
   - title: Document API
     description: Learn how to use databases via the Amazon DynamoDB-compatible Document API
@@ -54,5 +54,5 @@ links:
     description: Configure access permissions to use this service
     href: security/
   - title: Pricing policy
-    description: Service pricing and cost calculation
+    description: Pricing and cost calculations
     href: pricing/

@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# AI Studio Audit Trails Events: BlockContentByDictionary
+# AI Studio Guardrails Audit Trails Events: BlockContentByDictionary
 
 ## Event JSON schema {#yandex.cloud.audit.ai.guardrails.BlockContentByDictionary2-schema}
 

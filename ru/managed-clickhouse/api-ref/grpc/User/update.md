@@ -237,8 +237,12 @@ The string length in characters must be 8-128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.clickhouse.v1.Permission)**
 
 New set of permissions for the user. ||
-|| settings | **[UserSettings](#yandex.cloud.mdb.clickhouse.v1.UserSettings)** ||
-|| quotas[] | **[UserQuota](#yandex.cloud.mdb.clickhouse.v1.UserQuota)** ||
+|| settings | **[UserSettings](#yandex.cloud.mdb.clickhouse.v1.UserSettings)**
+
+New user settings. ||
+|| quotas[] | **[UserQuota](#yandex.cloud.mdb.clickhouse.v1.UserQuota)**
+
+New user quotas. ||
 || generate_password | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Generate password using Connection Manager. ||

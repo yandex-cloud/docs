@@ -435,13 +435,16 @@ The maximum string length in characters is 50. ||
         "valkey_search": {
           "enabled": "bool",
           "reader_threads": "google.protobuf.Int64Value",
-          "writer_threads": "google.protobuf.Int64Value"
+          "writer_threads": "google.protobuf.Int64Value",
+          "version": "string"
         },
         "valkey_json": {
-          "enabled": "bool"
+          "enabled": "bool",
+          "version": "string"
         },
         "valkey_bloom": {
-          "enabled": "bool"
+          "enabled": "bool",
+          "version": "string"
         }
       },
       "full_version": "string"
@@ -1368,6 +1371,9 @@ The minimum value is 0. ||
 Controls the amount of threads processing index mutations
 
 The minimum value is 0. ||
+|| version | **string**
+
+Module version ||
 |#
 
 ## ValkeyJson {#yandex.cloud.mdb.redis.v1.ValkeyJson}
@@ -1377,6 +1383,9 @@ The minimum value is 0. ||
 || enabled | **bool**
 
 Enable valkey-json module ||
+|| version | **string**
+
+Module version ||
 |#
 
 ## ValkeyBloom {#yandex.cloud.mdb.redis.v1.ValkeyBloom}
@@ -1386,6 +1395,9 @@ Enable valkey-json module ||
 || enabled | **bool**
 
 Enable valkey-bloom module ||
+|| version | **string**
+
+Module version ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.redis.v1.MaintenanceWindow}

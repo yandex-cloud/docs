@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# AI Studio Audit Trails Events: GetRecognition
+# AI Vision OCR Audit Trails Events: GetRecognition
 
 ## Event JSON schema {#yandex.cloud.audit.ai.ocr.GetRecognition2-schema}
 

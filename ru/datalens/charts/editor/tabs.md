@@ -604,7 +604,6 @@ description: Из статьи вы узнаете, за что отвечают
 * На вкладке **Activities** доступен ограниченный набор источников данных для отправки запросов: запросы к датасетам, стандартным подключениям и подключениям API Connector.
 * Функциональность на текущий момент доступна для следующих типов чартов: [Селектор](./widgets/controls.md), [Таблица](./widgets/table.md) и [График (Gravity UI Charts)](./widgets/chart.md).
 
-
 #### См. также {#see-also-activities}
 
 * [Пример использования вкладки Activities в Editor](../../tutorials/create-editor-activities.md)

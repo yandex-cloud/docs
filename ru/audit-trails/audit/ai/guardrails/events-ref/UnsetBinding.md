@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# AI Studio Audit Trails Events: UnsetBinding
+# AI Studio Guardrails Audit Trails Events: UnsetBinding
 
 ## Event JSON schema {#yandex.cloud.audit.ai.guardrails.UnsetBinding2-schema}
 

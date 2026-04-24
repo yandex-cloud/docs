@@ -108,7 +108,6 @@ Creates a trail in the specified folder.
     },
     "data_events_filters": [
       {
-        "service": "string",
         // Includes only one of the fields `included_events`, `excluded_events`
         "included_events": {
           "event_types": [
@@ -126,6 +125,7 @@ Creates a trail in the specified folder.
           "include_nonrecursive_queries": "bool"
         },
         // end of the list of possible fields
+        "service": "string",
         "resource_scopes": [
           {
             "id": "string",
@@ -160,7 +160,7 @@ The maximum string length in characters is 1024. ||
 Custom labels for the secret as `key:value` pairs. Maximum 64 per key.
 For example, `"type": "critical"` or `"source": "dictionary"`.
 
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+The maximum string length in characters for each value is 63. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
 || destination | **[Destination](#yandex.cloud.audittrails.v1.Trail.Destination)**
 
 Required field. Destination configuration for the trail ||
@@ -185,7 +185,6 @@ Event filtering policy of the trail ||
 || object_storage | **[ObjectStorage](#yandex.cloud.audittrails.v1.Trail.ObjectStorage)**
 
 Configuration for event delivery to Object Storage
-
 Uploaded objects will have prefix &lt;trail_id&gt;/ by default
 
 Includes only one of the fields `object_storage`, `cloud_logging`, `data_stream`, `eventrouter`. ||
@@ -424,9 +423,6 @@ Policy for gathering data events
 
 #|
 ||Field | Description ||
-|| service | **string**
-
-Required field. Name of the service whose events will be delivered ||
 || included_events | **[EventTypes](#yandex.cloud.audittrails.v1.Trail.EventTypes)**
 
 Explicitly included events of specified service
@@ -444,6 +440,9 @@ Includes only one of the fields `included_events`, `excluded_events`. ||
 Filter is allowed only if service = dns
 
 Includes only one of the fields `dns_filter`. ||
+|| service | **string**
+
+Required field. Name of the service whose events will be delivered ||
 || resource_scopes[] | **[Resource](#yandex.cloud.audittrails.v1.Trail.Resource)**
 
 A list of resources which will be monitored by the trail
@@ -481,140 +480,10 @@ Not only recursive queries will be delivered ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "trail_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "folder_id": "string",
-    "created_at": "google.protobuf.Timestamp",
-    "updated_at": "google.protobuf.Timestamp",
-    "name": "string",
-    "description": "string",
-    "labels": "map<string, string>",
-    "destination": {
-      // Includes only one of the fields `object_storage`, `cloud_logging`, `data_stream`, `eventrouter`
-      "object_storage": {
-        "bucket_id": "string",
-        "object_prefix": "string"
-      },
-      "cloud_logging": {
-        // Includes only one of the fields `log_group_id`
-        "log_group_id": "string"
-        // end of the list of possible fields
-      },
-      "data_stream": {
-        "database_id": "string",
-        "stream_name": "string",
-        "codec": "Codec"
-      },
-      "eventrouter": {
-        "eventrouter_connector_id": "string"
-      }
-      // end of the list of possible fields
-    },
-    "service_account_id": "string",
-    "status": "Status",
-    "filter": {
-      "path_filter": {
-        "root": {
-          // Includes only one of the fields `any_filter`, `some_filter`
-          "any_filter": {
-            "resource": {
-              "id": "string",
-              "type": "string"
-            }
-          },
-          "some_filter": {
-            "resource": {
-              "id": "string",
-              "type": "string"
-            },
-            "filters": [
-              "PathFilterElement"
-            ]
-          }
-          // end of the list of possible fields
-        }
-      },
-      "event_filter": {
-        "filters": [
-          {
-            "service": "string",
-            "categories": [
-              {
-                "plane": "EventCategoryFilter",
-                "type": "EventAccessTypeFilter"
-              }
-            ],
-            "path_filter": {
-              "root": {
-                // Includes only one of the fields `any_filter`, `some_filter`
-                "any_filter": {
-                  "resource": {
-                    "id": "string",
-                    "type": "string"
-                  }
-                },
-                "some_filter": {
-                  "resource": {
-                    "id": "string",
-                    "type": "string"
-                  },
-                  "filters": [
-                    "PathFilterElement"
-                  ]
-                }
-                // end of the list of possible fields
-              }
-            }
-          }
-        ]
-      }
-    },
-    "status_error_message": "string",
-    "cloud_id": "string",
-    "filtering_policy": {
-      "management_events_filter": {
-        "resource_scopes": [
-          {
-            "id": "string",
-            "type": "string"
-          }
-        ]
-      },
-      "data_events_filters": [
-        {
-          "service": "string",
-          // Includes only one of the fields `included_events`, `excluded_events`
-          "included_events": {
-            "event_types": [
-              "string"
-            ]
-          },
-          "excluded_events": {
-            "event_types": [
-              "string"
-            ]
-          },
-          // end of the list of possible fields
-          // Includes only one of the fields `dns_filter`
-          "dns_filter": {
-            "include_nonrecursive_queries": "bool"
-          },
-          // end of the list of possible fields
-          "resource_scopes": [
-            {
-              "id": "string",
-              "type": "string"
-            }
-          ]
-        }
-      ]
-    }
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -642,7 +511,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreateTrailMetadata](#yandex.cloud.audittrails.v1.CreateTrailMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -657,7 +526,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Trail](#yandex.cloud.audittrails.v1.Trail)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -672,374 +541,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreateTrailMetadata {#yandex.cloud.audittrails.v1.CreateTrailMetadata}
-
-#|
-||Field | Description ||
-|| trail_id | **string**
-
-ID of the trail that is being created ||
-|#
-
-## Trail {#yandex.cloud.audittrails.v1.Trail}
-
-Trail describes the filtering and destination configuration of the process of sending Audit events
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the trail ||
-|| folder_id | **string**
-
-Required field. ID of the folder that the trail belongs to
-
-The maximum string length in characters is 50. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Required field. The timestamp for the creation operation ||
-|| updated_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Required field. The timestamp of the last update operation ||
-|| name | **string**
-
-Name of the trail
-
-Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
-|| description | **string**
-
-Description of the trail
-
-The maximum string length in characters is 1024. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Custom labels of the trail as `key:value` pairs. Maximum 64 per key
-
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
-|| destination | **[Destination](#yandex.cloud.audittrails.v1.Trail.Destination2)**
-
-Required field. Destination configuration of the trail ||
-|| service_account_id | **string**
-
-Service account ID of the trail
-
-The maximum string length in characters is 50. ||
-|| status | enum **Status**
-
-Required field. Status of the trail
-
-- `ACTIVE`: The trail is active and Audit events are processed
-- `ERROR`: The trail configuration has issues that are preventing Audit Trails from delivering events
-- `DELETED`: The trail is being deleted ||
-|| filter | **[Filter](#yandex.cloud.audittrails.v1.Trail.Filter2)**
-
-Filtering configuration of the trail
-deprecated: use filtering_policy instead ||
-|| status_error_message | **string**
-
-Current error message of the trail. Empty in case if the trail is active ||
-|| cloud_id | **string**
-
-Required field. ID of the cloud that the trail belongs to
-
-The maximum string length in characters is 50. ||
-|| filtering_policy | **[FilteringPolicy](#yandex.cloud.audittrails.v1.Trail.FilteringPolicy2)**
-
-Event filtering policy
-Describes which groups of events will be sent and which resources will be monitored ||
-|#
-
-## Destination {#yandex.cloud.audittrails.v1.Trail.Destination2}
-
-#|
-||Field | Description ||
-|| object_storage | **[ObjectStorage](#yandex.cloud.audittrails.v1.Trail.ObjectStorage2)**
-
-Configuration for event delivery to Object Storage
-
-Uploaded objects will have prefix &lt;trail_id&gt;/ by default
-
-Includes only one of the fields `object_storage`, `cloud_logging`, `data_stream`, `eventrouter`. ||
-|| cloud_logging | **[CloudLogging](#yandex.cloud.audittrails.v1.Trail.CloudLogging2)**
-
-Configuration for event delivery to Cloud Logging
-
-Includes only one of the fields `object_storage`, `cloud_logging`, `data_stream`, `eventrouter`. ||
-|| data_stream | **[DataStream](#yandex.cloud.audittrails.v1.Trail.DataStream2)**
-
-Configuration for event delivery to YDS
-
-Includes only one of the fields `object_storage`, `cloud_logging`, `data_stream`, `eventrouter`. ||
-|| eventrouter | **[EventRouter](#yandex.cloud.audittrails.v1.Trail.EventRouter2)**
-
-Configuration for event delivery to EventRouter
-
-Includes only one of the fields `object_storage`, `cloud_logging`, `data_stream`, `eventrouter`. ||
-|#
-
-## ObjectStorage {#yandex.cloud.audittrails.v1.Trail.ObjectStorage2}
-
-#|
-||Field | Description ||
-|| bucket_id | **string**
-
-Name of the destination bucket
-
-The string length in characters must be 3-63. ||
-|| object_prefix | **string**
-
-Prefix for exported objects. Optional
-If specified, uploaded objects will have prefix &lt;object_prefix&gt;/&lt;trail_id&gt;/ ||
-|#
-
-## CloudLogging {#yandex.cloud.audittrails.v1.Trail.CloudLogging2}
-
-#|
-||Field | Description ||
-|| log_group_id | **string**
-
-ID of the Cloud Logging destination group
-
-The maximum string length in characters is 64.
-
-Includes only one of the fields `log_group_id`. ||
-|#
-
-## DataStream {#yandex.cloud.audittrails.v1.Trail.DataStream2}
-
-#|
-||Field | Description ||
-|| database_id | **string**
-
-ID of the database hosting the destination YDS ||
-|| stream_name | **string**
-
-Name of the destination YDS ||
-|| codec | enum **Codec**
-
-Codec for compressing events
-
-- `RAW`
-- `GZIP`
-- `ZSTD` ||
-|#
-
-## EventRouter {#yandex.cloud.audittrails.v1.Trail.EventRouter2}
-
-#|
-||Field | Description ||
-|| eventrouter_connector_id | **string**
-
-ID of the EventRouter Connector
-
-The maximum string length in characters is 64. ||
-|#
-
-## Filter {#yandex.cloud.audittrails.v1.Trail.Filter2}
-
-#|
-||Field | Description ||
-|| path_filter | **[PathFilter](#yandex.cloud.audittrails.v1.Trail.PathFilter2)**
-
-Configuration of default events gathering for the trail
-If not specified, default events won't be gathered for the trail ||
-|| event_filter | **[EventFilter](#yandex.cloud.audittrails.v1.Trail.EventFilter2)**
-
-Required field. Configuration of additional events gathering from specific services ||
-|#
-
-## PathFilter {#yandex.cloud.audittrails.v1.Trail.PathFilter2}
-
-#|
-||Field | Description ||
-|| root | **[PathFilterElement](#yandex.cloud.audittrails.v1.Trail.PathFilterElement2)**
-
-Required field. Root element of the resource path filter for the trail
-Resource described in that filter node must contain the trail itself ||
-|#
-
-## PathFilterElement {#yandex.cloud.audittrails.v1.Trail.PathFilterElement2}
-
-#|
-||Field | Description ||
-|| any_filter | **[PathFilterElementAny](#yandex.cloud.audittrails.v1.Trail.PathFilterElementAny2)**
-
-Filter element with ANY type. If used, configures the trail to gather any events from the resource
-
-Includes only one of the fields `any_filter`, `some_filter`. ||
-|| some_filter | **[PathFilterElementSome](#yandex.cloud.audittrails.v1.Trail.PathFilterElementSome2)**
-
-Filter element with SOME type. If used, configures the trail to gather some of the events from the resource
-
-Includes only one of the fields `any_filter`, `some_filter`. ||
-|#
-
-## PathFilterElementAny {#yandex.cloud.audittrails.v1.Trail.PathFilterElementAny2}
-
-#|
-||Field | Description ||
-|| resource | **[Resource](#yandex.cloud.audittrails.v1.Trail.Resource2)**
-
-Required field. Resource definition ||
-|#
-
-## Resource {#yandex.cloud.audittrails.v1.Trail.Resource2}
-
-#|
-||Field | Description ||
-|| id | **string**
-
-Required field. ID of the resource
-
-The maximum string length in characters is 64. ||
-|| type | **string**
-
-Required field. Type of the resource
-
-The maximum string length in characters is 50. ||
-|#
-
-## PathFilterElementSome {#yandex.cloud.audittrails.v1.Trail.PathFilterElementSome2}
-
-#|
-||Field | Description ||
-|| resource | **[Resource](#yandex.cloud.audittrails.v1.Trail.Resource2)**
-
-Required field. Definition of the resource that contains nested resources ||
-|| filters[] | **[PathFilterElement](#yandex.cloud.audittrails.v1.Trail.PathFilterElement2)**
-
-Filters for the resources contained in the parent resource
-
-The number of elements must be greater than 0. ||
-|#
-
-## EventFilter {#yandex.cloud.audittrails.v1.Trail.EventFilter2}
-
-#|
-||Field | Description ||
-|| filters[] | **[EventFilterElement](#yandex.cloud.audittrails.v1.Trail.EventFilterElement2)**
-
-List of filters for services
-
-The minimum number of elements is 0. ||
-|#
-
-## EventFilterElement {#yandex.cloud.audittrails.v1.Trail.EventFilterElement2}
-
-#|
-||Field | Description ||
-|| service | **string**
-
-Required field. Service ID of the gathered events ||
-|| categories[] | **[EventFilterElementCategory](#yandex.cloud.audittrails.v1.Trail.EventFilterElementCategory2)**
-
-List of the event categories gathered for a specified service
-
-The number of elements must be greater than 0. ||
-|| path_filter | **[PathFilter](#yandex.cloud.audittrails.v1.Trail.PathFilter2)**
-
-Required field. Resource path filter for a specified service ||
-|#
-
-## EventFilterElementCategory {#yandex.cloud.audittrails.v1.Trail.EventFilterElementCategory2}
-
-#|
-||Field | Description ||
-|| plane | enum **EventCategoryFilter**
-
-Required field. Plane of the gathered category
-
-- `CONTROL_PLANE`: The events that are generated during the interaction with the service's resources
-- `DATA_PLANE`: Events that are generated during interaction with data within the service's resources ||
-|| type | enum **EventAccessTypeFilter**
-
-Required field. Type of the gathered category
-
-- `WRITE`: Events for operations that do perform some modification
-- `READ`: Events for operations that do not perform any modifications ||
-|#
-
-## FilteringPolicy {#yandex.cloud.audittrails.v1.Trail.FilteringPolicy2}
-
-Combination of policies describing event filtering process of the trail
-At least one filed must be filled
-
-#|
-||Field | Description ||
-|| management_events_filter | **[ManagementEventsFiltering](#yandex.cloud.audittrails.v1.Trail.ManagementEventsFiltering2)**
-
-Singular filter describing gathering management events ||
-|| data_events_filters[] | **[DataEventsFiltering](#yandex.cloud.audittrails.v1.Trail.DataEventsFiltering2)**
-
-List of filters describing gathering data events
-
-The number of elements must be less than 128. ||
-|#
-
-## ManagementEventsFiltering {#yandex.cloud.audittrails.v1.Trail.ManagementEventsFiltering2}
-
-Policy for gathering management events
-
-#|
-||Field | Description ||
-|| resource_scopes[] | **[Resource](#yandex.cloud.audittrails.v1.Trail.Resource2)**
-
-A list of resources which will be monitored by the trail
-
-The number of elements must be in the range 1-1024. ||
-|#
-
-## DataEventsFiltering {#yandex.cloud.audittrails.v1.Trail.DataEventsFiltering2}
-
-Policy for gathering data events
-
-#|
-||Field | Description ||
-|| service | **string**
-
-Required field. Name of the service whose events will be delivered ||
-|| included_events | **[EventTypes](#yandex.cloud.audittrails.v1.Trail.EventTypes2)**
-
-Explicitly included events of specified service
-New events of the service won't be delivered by default
-
-Includes only one of the fields `included_events`, `excluded_events`. ||
-|| excluded_events | **[EventTypes](#yandex.cloud.audittrails.v1.Trail.EventTypes2)**
-
-Explicitly excluded events of specified service
-New events of the service will be delivered by default
-
-Includes only one of the fields `included_events`, `excluded_events`. ||
-|| dns_filter | **[DnsDataEventsFilter](#yandex.cloud.audittrails.v1.Trail.DnsDataEventsFilter2)**
-
-Filter is allowed only if service = dns
-
-Includes only one of the fields `dns_filter`. ||
-|| resource_scopes[] | **[Resource](#yandex.cloud.audittrails.v1.Trail.Resource2)**
-
-A list of resources which will be monitored by the trail
-
-The number of elements must be in the range 1-1024. ||
-|#
-
-## EventTypes {#yandex.cloud.audittrails.v1.Trail.EventTypes2}
-
-Policy with explicitly specified event group
-
-#|
-||Field | Description ||
-|| event_types[] | **string**
-
-The number of elements must be in the range 1-1024. ||
-|#
-
-## DnsDataEventsFilter {#yandex.cloud.audittrails.v1.Trail.DnsDataEventsFilter2}
-
-#|
-||Field | Description ||
-|| include_nonrecursive_queries | **bool**
-
-Not only recursive queries will be delivered ||
 |#

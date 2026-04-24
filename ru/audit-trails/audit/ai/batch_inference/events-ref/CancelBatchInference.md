@@ -2,7 +2,7 @@
 editable: false
 ---
 
-# AI Studio Audit Trails Events: CancelBatchInference
+# AI Studio Batch Inference Audit Trails Events: CancelBatchInference
 
 ## Event JSON schema {#yandex.cloud.audit.ai.batch_inference.CancelBatchInference2-schema}
 

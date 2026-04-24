@@ -1,4 +1,5 @@
-Роль `storage.viewer` позволяет читать данные в бакетах, просматривать информацию о бакетах и объектах в них, а также о каталоге и квотах сервиса Object Storage.
+
+Роль `storage.viewer` позволяет читать данные в бакетах, просматривать информацию о бакетах и объектах в них, а также о каталоге и квотах сервиса {{ objstorage-name }}.
 
 {% cut "Пользователи с этой ролью могут:" %}
 
@@ -19,8 +20,8 @@
 * просматривать информацию о [блокировках версий объектов](../../storage/concepts/object-lock.md);
 * просматривать [метки](../../storage/concepts/tags.md#object-tags) объектов и версий объектов;
 * просматривать информацию о текущих [составных загрузках](../../storage/concepts/multipart.md) объектов и их частях;
-* просматривать статистику [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) и сервиса Object Storage;
-* просматривать информацию о [квотах](../../storage/concepts/limits.md#storage-quotas) сервиса Object Storage;
+* просматривать статистику [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud), [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) и сервиса {{ objstorage-name }};
+* просматривать информацию о [квотах](../../storage/concepts/limits.md#storage-quotas) сервиса {{ objstorage-name }};
 * просматривать информацию о каталоге.
 
 {% endcut %}

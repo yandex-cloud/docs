@@ -1,7 +1,7 @@
 ---
 editable: false
 apiPlayground:
-  - url: https://connman.{{ api-host }}/v1/connection/{connectionId}:resolve
+  - url: https://connman.{{ api-host }}/v1/connection/resolveCluster/{connectionId}
     method: get
     path:
       type: object
@@ -28,7 +28,7 @@ Requires `connection-manager.connections.resolveCluster` permission.
 ## HTTP request
 
 ```
-GET https://connman.{{ api-host }}/v1/connection/{connectionId}:resolve
+GET https://connman.{{ api-host }}/v1/connection/resolveCluster/{connectionId}
 ```
 
 ## Path parameters
@@ -48,6 +48,18 @@ Required field. ID of the connection to resolve cluster topology for. ||
 
 ```json
 {
+  // Includes only one of the fields `lockboxSecret`
+  "lockboxSecret": {
+    "id": "string",
+    "version": "string",
+    "newestVersion": "string"
+  },
+  // end of the list of possible fields
+  // Includes only one of the fields `lockboxSecretSpec`
+  "lockboxSecretSpec": {
+    "folderId": "string"
+  },
+  // end of the list of possible fields
   "id": "string",
   "folderId": "string",
   "createdAt": "string",
@@ -60,6 +72,13 @@ Required field. ID of the connection to resolve cluster topology for. ||
     // Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`
     "postgresql": {
       "cluster": {
+        "tlsParams": {
+          // Includes only one of the fields `tls`
+          "tls": {
+            "caCertificate": "string"
+          }
+          // end of the list of possible fields
+        },
         "hosts": [
           {
             "host": "string",
@@ -68,14 +87,7 @@ Required field. ID of the connection to resolve cluster topology for. ||
             "replicaType": "string",
             "health": "string"
           }
-        ],
-        "tlsParams": {
-          // Includes only one of the fields `tls`
-          "tls": {
-            "caCertificate": "string"
-          }
-          // end of the list of possible fields
-        }
+        ]
       },
       "managedClusterId": "string",
       "auth": {
@@ -83,9 +95,11 @@ Required field. ID of the connection to resolve cluster topology for. ||
         "userPassword": {
           "user": "string",
           "password": {
+            // Includes only one of the fields `lockboxSecretKey`
+            "lockboxSecretKey": "string",
+            // end of the list of possible fields
             "raw": "string",
             "passwordGenerationOptions": {
-              "cookie": "string",
               // Includes only one of the fields `lockboxPasswordGenerationOptions`
               "lockboxPasswordGenerationOptions": {
                 "length": "string",
@@ -95,12 +109,10 @@ Required field. ID of the connection to resolve cluster topology for. ||
                 "includePunctuation": "boolean",
                 "includedPunctuation": "string",
                 "excludedPunctuation": "string"
-              }
+              },
               // end of the list of possible fields
-            },
-            // Includes only one of the fields `lockboxSecretKey`
-            "lockboxSecretKey": "string"
-            // end of the list of possible fields
+              "cookie": "string"
+            }
           }
         }
         // end of the list of possible fields
@@ -111,6 +123,13 @@ Required field. ID of the connection to resolve cluster topology for. ||
     },
     "mysql": {
       "cluster": {
+        "tlsParams": {
+          // Includes only one of the fields `tls`
+          "tls": {
+            "caCertificate": "string"
+          }
+          // end of the list of possible fields
+        },
         "hosts": [
           {
             "host": "string",
@@ -118,14 +137,7 @@ Required field. ID of the connection to resolve cluster topology for. ||
             "role": "string",
             "health": "string"
           }
-        ],
-        "tlsParams": {
-          // Includes only one of the fields `tls`
-          "tls": {
-            "caCertificate": "string"
-          }
-          // end of the list of possible fields
-        }
+        ]
       },
       "managedClusterId": "string",
       "auth": {
@@ -133,9 +145,11 @@ Required field. ID of the connection to resolve cluster topology for. ||
         "userPassword": {
           "user": "string",
           "password": {
+            // Includes only one of the fields `lockboxSecretKey`
+            "lockboxSecretKey": "string",
+            // end of the list of possible fields
             "raw": "string",
             "passwordGenerationOptions": {
-              "cookie": "string",
               // Includes only one of the fields `lockboxPasswordGenerationOptions`
               "lockboxPasswordGenerationOptions": {
                 "length": "string",
@@ -145,12 +159,10 @@ Required field. ID of the connection to resolve cluster topology for. ||
                 "includePunctuation": "boolean",
                 "includedPunctuation": "string",
                 "excludedPunctuation": "string"
-              }
+              },
               // end of the list of possible fields
-            },
-            // Includes only one of the fields `lockboxSecretKey`
-            "lockboxSecretKey": "string"
-            // end of the list of possible fields
+              "cookie": "string"
+            }
           }
         }
         // end of the list of possible fields
@@ -184,9 +196,11 @@ Required field. ID of the connection to resolve cluster topology for. ||
         "userPassword": {
           "user": "string",
           "password": {
+            // Includes only one of the fields `lockboxSecretKey`
+            "lockboxSecretKey": "string",
+            // end of the list of possible fields
             "raw": "string",
             "passwordGenerationOptions": {
-              "cookie": "string",
               // Includes only one of the fields `lockboxPasswordGenerationOptions`
               "lockboxPasswordGenerationOptions": {
                 "length": "string",
@@ -196,12 +210,10 @@ Required field. ID of the connection to resolve cluster topology for. ||
                 "includePunctuation": "boolean",
                 "includedPunctuation": "string",
                 "excludedPunctuation": "string"
-              }
+              },
               // end of the list of possible fields
-            },
-            // Includes only one of the fields `lockboxSecretKey`
-            "lockboxSecretKey": "string"
-            // end of the list of possible fields
+              "cookie": "string"
+            }
           }
         },
         // end of the list of possible fields
@@ -244,9 +256,11 @@ Required field. ID of the connection to resolve cluster topology for. ||
         "userPassword": {
           "user": "string",
           "password": {
+            // Includes only one of the fields `lockboxSecretKey`
+            "lockboxSecretKey": "string",
+            // end of the list of possible fields
             "raw": "string",
             "passwordGenerationOptions": {
-              "cookie": "string",
               // Includes only one of the fields `lockboxPasswordGenerationOptions`
               "lockboxPasswordGenerationOptions": {
                 "length": "string",
@@ -256,12 +270,10 @@ Required field. ID of the connection to resolve cluster topology for. ||
                 "includePunctuation": "boolean",
                 "includedPunctuation": "string",
                 "excludedPunctuation": "string"
-              }
+              },
               // end of the list of possible fields
-            },
-            // Includes only one of the fields `lockboxSecretKey`
-            "lockboxSecretKey": "string"
-            // end of the list of possible fields
+              "cookie": "string"
+            }
           }
         }
         // end of the list of possible fields
@@ -293,9 +305,11 @@ Required field. ID of the connection to resolve cluster topology for. ||
         "sasl": {
           "user": "string",
           "password": {
+            // Includes only one of the fields `lockboxSecretKey`
+            "lockboxSecretKey": "string",
+            // end of the list of possible fields
             "raw": "string",
             "passwordGenerationOptions": {
-              "cookie": "string",
               // Includes only one of the fields `lockboxPasswordGenerationOptions`
               "lockboxPasswordGenerationOptions": {
                 "length": "string",
@@ -305,12 +319,10 @@ Required field. ID of the connection to resolve cluster topology for. ||
                 "includePunctuation": "boolean",
                 "includedPunctuation": "string",
                 "excludedPunctuation": "string"
-              }
+              },
               // end of the list of possible fields
-            },
-            // Includes only one of the fields `lockboxSecretKey`
-            "lockboxSecretKey": "string"
-            // end of the list of possible fields
+              "cookie": "string"
+            }
           },
           "supportedMechanisms": [
             "string"
@@ -344,9 +356,11 @@ Required field. ID of the connection to resolve cluster topology for. ||
         "userPassword": {
           "user": "string",
           "password": {
+            // Includes only one of the fields `lockboxSecretKey`
+            "lockboxSecretKey": "string",
+            // end of the list of possible fields
             "raw": "string",
             "passwordGenerationOptions": {
-              "cookie": "string",
               // Includes only one of the fields `lockboxPasswordGenerationOptions`
               "lockboxPasswordGenerationOptions": {
                 "length": "string",
@@ -356,12 +370,10 @@ Required field. ID of the connection to resolve cluster topology for. ||
                 "includePunctuation": "boolean",
                 "includedPunctuation": "string",
                 "excludedPunctuation": "string"
-              }
+              },
               // end of the list of possible fields
-            },
-            // Includes only one of the fields `lockboxSecretKey`
-            "lockboxSecretKey": "string"
-            // end of the list of possible fields
+              "cookie": "string"
+            }
           }
         }
         // end of the list of possible fields
@@ -396,9 +408,11 @@ Required field. ID of the connection to resolve cluster topology for. ||
         "userPassword": {
           "user": "string",
           "password": {
+            // Includes only one of the fields `lockboxSecretKey`
+            "lockboxSecretKey": "string",
+            // end of the list of possible fields
             "raw": "string",
             "passwordGenerationOptions": {
-              "cookie": "string",
               // Includes only one of the fields `lockboxPasswordGenerationOptions`
               "lockboxPasswordGenerationOptions": {
                 "length": "string",
@@ -408,12 +422,10 @@ Required field. ID of the connection to resolve cluster topology for. ||
                 "includePunctuation": "boolean",
                 "includedPunctuation": "string",
                 "excludedPunctuation": "string"
-              }
+              },
               // end of the list of possible fields
-            },
-            // Includes only one of the fields `lockboxSecretKey`
-            "lockboxSecretKey": "string"
-            // end of the list of possible fields
+              "cookie": "string"
+            }
           }
         }
         // end of the list of possible fields
@@ -438,9 +450,11 @@ Required field. ID of the connection to resolve cluster topology for. ||
         "userPassword": {
           "user": "string",
           "password": {
+            // Includes only one of the fields `lockboxSecretKey`
+            "lockboxSecretKey": "string",
+            // end of the list of possible fields
             "raw": "string",
             "passwordGenerationOptions": {
-              "cookie": "string",
               // Includes only one of the fields `lockboxPasswordGenerationOptions`
               "lockboxPasswordGenerationOptions": {
                 "length": "string",
@@ -450,12 +464,10 @@ Required field. ID of the connection to resolve cluster topology for. ||
                 "includePunctuation": "boolean",
                 "includedPunctuation": "string",
                 "excludedPunctuation": "string"
-              }
+              },
               // end of the list of possible fields
-            },
-            // Includes only one of the fields `lockboxSecretKey`
-            "lockboxSecretKey": "string"
-            // end of the list of possible fields
+              "cookie": "string"
+            }
           }
         }
         // end of the list of possible fields
@@ -487,9 +499,11 @@ Required field. ID of the connection to resolve cluster topology for. ||
         "userPassword": {
           "user": "string",
           "password": {
+            // Includes only one of the fields `lockboxSecretKey`
+            "lockboxSecretKey": "string",
+            // end of the list of possible fields
             "raw": "string",
             "passwordGenerationOptions": {
-              "cookie": "string",
               // Includes only one of the fields `lockboxPasswordGenerationOptions`
               "lockboxPasswordGenerationOptions": {
                 "length": "string",
@@ -499,12 +513,10 @@ Required field. ID of the connection to resolve cluster topology for. ||
                 "includePunctuation": "boolean",
                 "includedPunctuation": "string",
                 "excludedPunctuation": "string"
-              }
+              },
               // end of the list of possible fields
-            },
-            // Includes only one of the fields `lockboxSecretKey`
-            "lockboxSecretKey": "string"
-            // end of the list of possible fields
+              "cookie": "string"
+            }
           }
         }
         // end of the list of possible fields
@@ -537,9 +549,11 @@ Required field. ID of the connection to resolve cluster topology for. ||
         "userPassword": {
           "user": "string",
           "password": {
+            // Includes only one of the fields `lockboxSecretKey`
+            "lockboxSecretKey": "string",
+            // end of the list of possible fields
             "raw": "string",
             "passwordGenerationOptions": {
-              "cookie": "string",
               // Includes only one of the fields `lockboxPasswordGenerationOptions`
               "lockboxPasswordGenerationOptions": {
                 "length": "string",
@@ -549,12 +563,10 @@ Required field. ID of the connection to resolve cluster topology for. ||
                 "includePunctuation": "boolean",
                 "includedPunctuation": "string",
                 "excludedPunctuation": "string"
-              }
+              },
               // end of the list of possible fields
-            },
-            // Includes only one of the fields `lockboxSecretKey`
-            "lockboxSecretKey": "string"
-            // end of the list of possible fields
+              "cookie": "string"
+            }
           }
         }
         // end of the list of possible fields
@@ -588,9 +600,11 @@ Required field. ID of the connection to resolve cluster topology for. ||
         "userPassword": {
           "user": "string",
           "password": {
+            // Includes only one of the fields `lockboxSecretKey`
+            "lockboxSecretKey": "string",
+            // end of the list of possible fields
             "raw": "string",
             "passwordGenerationOptions": {
-              "cookie": "string",
               // Includes only one of the fields `lockboxPasswordGenerationOptions`
               "lockboxPasswordGenerationOptions": {
                 "length": "string",
@@ -600,12 +614,10 @@ Required field. ID of the connection to resolve cluster topology for. ||
                 "includePunctuation": "boolean",
                 "includedPunctuation": "string",
                 "excludedPunctuation": "string"
-              }
+              },
               // end of the list of possible fields
-            },
-            // Includes only one of the fields `lockboxSecretKey`
-            "lockboxSecretKey": "string"
-            // end of the list of possible fields
+              "cookie": "string"
+            }
           }
         },
         // end of the list of possible fields
@@ -617,18 +629,6 @@ Required field. ID of the connection to resolve cluster topology for. ||
     }
     // end of the list of possible fields
   },
-  // Includes only one of the fields `lockboxSecret`
-  "lockboxSecret": {
-    "id": "string",
-    "version": "string",
-    "newestVersion": "string"
-  },
-  // end of the list of possible fields
-  // Includes only one of the fields `lockboxSecretSpec`
-  "lockboxSecretSpec": {
-    "folderId": "string"
-  },
-  // end of the list of possible fields
   "isManaged": "boolean",
   "canUse": "boolean"
 }
@@ -638,6 +638,20 @@ A Connection resource represents a configured connection to a database or servic
 
 #|
 ||Field | Description ||
+|| lockboxSecret | **[LockboxSecret](#yandex.cloud.connectionmanager.v1.LockboxSecret)**
+
+Reference to the Lockbox secret containing connection credentials.
+
+Includes only one of the fields `lockboxSecret`.
+
+Secret configuration for authentication. ||
+|| lockboxSecretSpec | **[LockboxSecretSpec](#yandex.cloud.connectionmanager.v1.LockboxSecretSpec)**
+
+Specification for creating a new Lockbox secret.
+
+Includes only one of the fields `lockboxSecretSpec`.
+
+Secret specification for creating a new secret. ||
 || id | **string**
 
 ID of the connection. Generated at creation time. ||
@@ -679,26 +693,40 @@ ID of the subject which created the connection. ||
 || params | **[ConnectionParams](#yandex.cloud.connectionmanager.v1.ConnectionParams)**
 
 Connection parameters specific to the database or service type. ||
-|| lockboxSecret | **[LockboxSecret](#yandex.cloud.connectionmanager.v1.LockboxSecret)**
-
-Reference to the Lockbox secret containing connection credentials.
-
-Includes only one of the fields `lockboxSecret`.
-
-Secret configuration for authentication. ||
-|| lockboxSecretSpec | **[LockboxSecretSpec](#yandex.cloud.connectionmanager.v1.LockboxSecretSpec)**
-
-Specification for creating a new Lockbox secret.
-
-Includes only one of the fields `lockboxSecretSpec`.
-
-Secret specification for creating a new secret. ||
 || isManaged | **boolean**
 
 Whether this connection is managed by the system (e.g. an MDB cluster). ||
 || canUse | **boolean**
 
 Whether the current user can use this connection. Filled only when `with_can_use` has been requested in ListConnectionRequest. ||
+|#
+
+## LockboxSecret {#yandex.cloud.connectionmanager.v1.LockboxSecret}
+
+Reference to a Lockbox secret.
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the Lockbox secret. ||
+|| version | **string**
+
+Lockbox secret version. ||
+|| newestVersion | **string**
+
+The newest available version of the Lockbox secret. ||
+|#
+
+## LockboxSecretSpec {#yandex.cloud.connectionmanager.v1.LockboxSecretSpec}
+
+Specification for creating a new Lockbox secret.
+
+#|
+||Field | Description ||
+|| folderId | **string**
+
+ID of the folder where the Lockbox secret will be created. If omitted, the secret will be created in the connection's folder. ||
 |#
 
 ## ConnectionParams {#yandex.cloud.connectionmanager.v1.ConnectionParams}
@@ -806,8 +834,24 @@ mutually exclusive with "cluster". ||
 
 #|
 ||Field | Description ||
-|| hosts[] | **[Host](#yandex.cloud.connectionmanager.v1.PostgreSQLCluster.Host)** ||
 || tlsParams | **[TLSParams](#yandex.cloud.connectionmanager.v1.TLSParams)** ||
+|| hosts[] | **[Host](#yandex.cloud.connectionmanager.v1.PostgreSQLCluster.Host)** ||
+|#
+
+## TLSParams {#yandex.cloud.connectionmanager.v1.TLSParams}
+
+#|
+||Field | Description ||
+|| tls | **[TLSConfig](#yandex.cloud.connectionmanager.v1.TLSConfig)**
+
+Includes only one of the fields `tls`. ||
+|#
+
+## TLSConfig {#yandex.cloud.connectionmanager.v1.TLSConfig}
+
+#|
+||Field | Description ||
+|| caCertificate | **string** ||
 |#
 
 ## Host {#yandex.cloud.connectionmanager.v1.PostgreSQLCluster.Host}
@@ -833,22 +877,6 @@ mutually exclusive with "cluster". ||
 - `READONLY` ||
 |#
 
-## TLSParams {#yandex.cloud.connectionmanager.v1.TLSParams}
-
-#|
-||Field | Description ||
-|| tls | **[TLSConfig](#yandex.cloud.connectionmanager.v1.TLSConfig)**
-
-Includes only one of the fields `tls`. ||
-|#
-
-## TLSConfig {#yandex.cloud.connectionmanager.v1.TLSConfig}
-
-#|
-||Field | Description ||
-|| caCertificate | **string** ||
-|#
-
 ## PostgreSQLAuth {#yandex.cloud.connectionmanager.v1.PostgreSQLAuth}
 
 #|
@@ -870,6 +898,11 @@ Includes only one of the fields `userPassword`. ||
 
 #|
 ||Field | Description ||
+|| lockboxSecretKey | **string**
+
+Read-only. Do not fill this field in create/update requests.
+
+Includes only one of the fields `lockboxSecretKey`. ||
 || raw | **string**
 
 When creating/updating Password, the field "raw" is mutually exclusive
@@ -882,17 +915,15 @@ When creating/updating Password, the field "password_generation_options"
 is mutually exclusive with "raw". In order to switch to the
 "password_generation_options" you have to explicitly clear the "raw"
 field. ||
-|| lockboxSecretKey | **string**
-
-Read-only. Do not fill this field in create/update requests.
-
-Includes only one of the fields `lockboxSecretKey`. ||
 |#
 
 ## PasswordGenerationOptions {#yandex.cloud.connectionmanager.v1.PasswordGenerationOptions}
 
 #|
 ||Field | Description ||
+|| lockboxPasswordGenerationOptions | **[LockboxPasswordGenerationOptions](#yandex.cloud.connectionmanager.v1.LockboxPasswordGenerationOptions)**
+
+Includes only one of the fields `lockboxPasswordGenerationOptions`. ||
 || cookie | **string**
 
 Cookie is an arbitrary non-sensitive string that is saved with the
@@ -900,9 +931,6 @@ password. When updating PasswordGenerationOptions, if the cookie passed
 in the update request differs from the cookie in the current
 PasswordGenerationOptions, the password will be re-generated. If the
 same cookie is passed, the password will not change. ||
-|| lockboxPasswordGenerationOptions | **[LockboxPasswordGenerationOptions](#yandex.cloud.connectionmanager.v1.LockboxPasswordGenerationOptions)**
-
-Includes only one of the fields `lockboxPasswordGenerationOptions`. ||
 |#
 
 ## LockboxPasswordGenerationOptions {#yandex.cloud.connectionmanager.v1.LockboxPasswordGenerationOptions}
@@ -955,8 +983,8 @@ mutually exclusive with "cluster". ||
 
 #|
 ||Field | Description ||
-|| hosts[] | **[Host](#yandex.cloud.connectionmanager.v1.MySQLCluster.Host)** ||
 || tlsParams | **[TLSParams](#yandex.cloud.connectionmanager.v1.TLSParams)** ||
+|| hosts[] | **[Host](#yandex.cloud.connectionmanager.v1.MySQLCluster.Host)** ||
 |#
 
 ## Host {#yandex.cloud.connectionmanager.v1.MySQLCluster.Host}
@@ -1461,32 +1489,4 @@ exclusive with "cluster". ||
 
 Includes only one of the fields `userPassword`. ||
 || authSource | **string** ||
-|#
-
-## LockboxSecret {#yandex.cloud.connectionmanager.v1.LockboxSecret}
-
-Reference to a Lockbox secret.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the Lockbox secret. ||
-|| version | **string**
-
-Lockbox secret version. ||
-|| newestVersion | **string**
-
-The newest available version of the Lockbox secret. ||
-|#
-
-## LockboxSecretSpec {#yandex.cloud.connectionmanager.v1.LockboxSecretSpec}
-
-Specification for creating a new Lockbox secret.
-
-#|
-||Field | Description ||
-|| folderId | **string**
-
-ID of the folder where the Lockbox secret will be created. If omitted, the secret will be created in the connection's folder. ||
 |#
