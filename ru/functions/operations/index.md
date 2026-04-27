@@ -48,6 +48,7 @@ description: Из статьи вы узнаете, как работать с {
 * [Выделить память для директории /tmp](function/allocate-memory-tmp.md)
 * [Смонтировать бакеты](function/mount-bucket.md)
 * [Смонтировать эфемерный диск](function/mount-ephemeral-disk.md)
+* [{#T}](function/concurrency.md)
 * [Добавить тег](function/tag-add.md)
 * [Удалить тег](function/tag-delete.md)
 * [Добавить метку](function/label-add.md)

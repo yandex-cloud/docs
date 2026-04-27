@@ -26,7 +26,7 @@
 
    1. {% include [create-ba-choose-ul-step](../../billing/_includes/create-ba-choose-ul-step.md) %}
    1. {% include [create-ba-choose-payment-method-step](../../billing/_includes/create-ba-choose-payment-method-step.md) %}
-   1. Нажмите кнопку **{{ ui-key.yacloud_billing_account.cloud-billing-account.label_wizard-next }}**.
+   1. Нажмите кнопку **Вперед**.
    1. {% include [create-ba-import-egrul-step](../../billing/_includes/create-ba-import-egrul-step.md) %}
 
       {% include [billing-note](../../_includes/marketplace/billing-note.md) %}

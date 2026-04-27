@@ -5,11 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Настройка выделенной IP-адресации CDN-ресурсов
 
-{% note warning %}
-
-За услугу выделенной IP-адресации взимается плата согласно [правилам тарификации {{ cdn-full-name }}](../../pricing.md).
-
-{% endnote %}
+{% include [dedicated-ip-condition.md](../../../_includes/cdn/dedicated-ip-condition.md) %}
 
 Чтобы получить [выделенный IP-адрес](../../concepts/dedicated-ip-addressing.md), закрепленный только за [CDN-ресурсами](../../concepts/resource.md) из конкретного каталога:
 1. Убедитесь, что в каталоге, для которого запрашивается выделенная IP-адресация, уже есть как минимум один CDN-ресурс.
@@ -81,3 +77,4 @@ description: Следуя данной инструкции, вы сможете
 ### См. также {#see-also}
 
 * [{#T}](../../concepts/dedicated-ip-addressing.md)
+* [{#T}](../../concepts/limits.md)

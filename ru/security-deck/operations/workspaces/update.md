@@ -70,6 +70,7 @@ description: Из этой инструкции вы узнаете, как из
           {% include [workspace-sec-standard-list](../../../_includes/security-deck/workspace-sec-standard-list.md) %}
       
           Вы можете выбрать одновременно несколько стандартов. При этом в блоке **{{ ui-key.yacloud_org.security.workspaces.title_security-modules_8MdQg }}** будут добавляться модули {{ sd-name }}, которые будут активированы в создаваемом окружении для проверки ресурсов на соответствие выбранным стандартам.
+      1. {% include [workspace-create-step3-additional-modules](../../../_includes/security-deck/workspace-create-step3-additional-modules.md) %}
       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**, чтобы сохранить внесенные изменения.
   1. (Опционально) Перейдите на вкладку **Контроль Kubernetes®**, чтобы изменить настройки контроля безопасности использования кластеров {{ k8s }}.
 

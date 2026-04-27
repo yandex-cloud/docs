@@ -3704,22 +3704,17 @@ default:
           title_ticket_table: Tickets
     yacloud_billing_account:
       billing-account-detail:
-        button_move-to-datalens: Usage details in DataLens
+        filter_label-labels-all: All labels
+        filter_label-products-all: All products
+        value_empty_clouds: All clouds and folders
       cloud-billing-account:
-        base_label_payer: Payer
         label_card-add: Add card
-        label_wizard-next: Next
-      create-account-wizard:
-        field_country-code: Country
-        field_name: Account name
-        field_organization: Organization
-        field_payment-type: Payment type
-        field_person-type: Account type
-        label_step-payment_title: Payment details
       create-account:
         label_option_card: Manual top-up
         label_payment_invoice: Bank transfer
         section_account_type: Account type
+        section_country: Country
+        section_organization: Organization
         section_payment_method: Payment method
     yacloud_billing:
       alb:
@@ -4407,16 +4402,20 @@ default:
           detail:
             button_create-periodic-export: Periodic export
             button_download-details: Export usage details
+            button_move-to-datalens-header: Usage details in DataLens
             popup-export_button_download: Download
           entities:
             label_title: Clouds and services
             label_type: Type
           exports:
+            button_force-reexport: Additional export
             column_service_account: Service account
             field_date: Start from
             field_period: Export historical data
             locale_value_en-lang: English
             locale_value_ru-lang: Русский
+          force-reexport:
+            field_range: Period
           proposals_page:
             type_Error: Application error
           proposals:
@@ -4918,6 +4917,7 @@ default:
           title_alert_overview: Overview
           title_alert_recommendations: Recommendations
         dspm:
+          label_dspm: DSPM
           scan_results-title: Results
           scan-issues-title: Messages and errors
           title_data-sources: Data sources
@@ -4932,6 +4932,11 @@ default:
         label_dspm: DSPM
         label_kspm: KSPM
         label_settings: Security Deck parameters
+        onboarding:
+          label_select-default-folder: Choose your default folder
+        settings:
+          general:
+            section_default-storage_label: Default storage
       security:
         alerts:
           comment_form:
@@ -4998,12 +5003,30 @@ default:
             field_type_exclude_cigcD: Do not scan resource
             field_type_kCG8J: Exception type
             field_type_manual_mbKxp: Resource scanned
+        discovery:
+          header_resource_kDJFW: Resource
+          more_details_button_aPdgv: More details
         dspm:
+          action_button-export_pMSM8: Export
+          AnalyticsPage:
+            buckets_jwots: Buckets
+            label_download-analytics_8mgG8: Download results by file
+            label_export_s4obE: Export
+            label_export-analytics_7ASg9: Export results to bucket
+            mediaTypes_r8ro5: Formats
+            public_2C56E: Public
+            scannable_jWMD6: Scannable
+            searchResource_cGkdQ: Search by resource name
           data-sources:
             bXXxQ: Resources selected
           dataSourceTypes:
             object_storage_meF3x: Object Storage
             yandex_360_1TUsr: Yandex 360
+          DiscoveryPageLayout:
+            header_button_text_hefvE: Configure DSPM
+          DspmPageLayout:
+            settings_wHmWK: Settings
+            title_analytics_vaYT5: Data analytics
           field_bucket-path_5qRqM: Path to bucket
           field_file-name_kWRPK: File name
           field_service-account_rTeXv: Service account
@@ -5090,6 +5113,8 @@ default:
             labelNameField: Name
             labelServiceAccountField: Service account
           label_rule-kind_3PswX: Rule type
+          module_dspm_xxxxx: |
+            Data Security Posture Management (DSPM)
           module-cspm_gozhj: Configuration Monitoring (CSPM)
           namespace-checkbox_85krx: Namespaces
           section-title_9BLTm: Objects (optional)
@@ -5814,7 +5839,7 @@ default:
             field_static-response-type_5KyYv: Response type
             option_static-response_data_rLo9U: Set response content
             option_static-response_redirect_o58we: Configure redirect
-            section_static-response_hGcUL: Response settings
+            section_static-response_v3GRn: Response settings
         value_active: Active
         value_backup: Backup
         value_certificate-custom: Use from Certificate Manager
@@ -6087,6 +6112,7 @@ default:
         overview: Overview
         password: Password
         remove: Delete
+        reset: Reset
         resource-acl:
           button_cloud-info: Cloud details
           button_configure-access: Configure access
@@ -6254,8 +6280,8 @@ default:
           label_all-services_6sGQy: All services
         BalancerAllocationDialog:
           AllocationForm:
+            disable_block_after_bqnjE: Disable block after
             form_disable_traffic_3z2cs: Block
-            form_timezone_0_6LoEf: Disable block through
         CloudActions:
           button_action-delete-cloud_3simi: Delete cloud
         FolderActions:
@@ -8084,7 +8110,7 @@ default:
         button_create-configuration-set: Create configuration
         button_create-identity: Create address
         button_run-verification: Run verification
-        field_secure-connection: Deliver emails only over a secure connection
+        field_secure-connection: Deliver emails only via secure connection
         label_address: Domain
         label_allowed-senders: Allowed senders
         label_configuration-set: Configuration
@@ -8095,7 +8121,7 @@ default:
         label_dns-record-value: Value
         label_event-destinations: Subscriptions
         label_identities: Addresses
-        label_mail-statuses: Mail statuses
+        label_mail-statuses: Email statuses
         label_name: Name
         label_private-key: Private key
         label_restrict-senders: Restrict sender list
@@ -8164,6 +8190,7 @@ default:
         label_environment: Environment variables
         label_gce_http_endpoint: Access metadata using the Google Compute Engine format
         label_image-url: Image URL
+        label_min-instances: Number of prepared instances
         label_public-container: Public container
         label_runtime-http-server: HTTP server
         label_runtime-task-execution: Command running
@@ -8171,6 +8198,8 @@ default:
         label_timeout: Timeout
         label_url: Link to invoke
         label_working-directory: Working directory
+        label_zone-instances-limit: Number of container instances in availability zone
+        label_zone-requests-limit: Number of concurrent container invocations in availability zone
         popup-confirm-edit-active-revision_button_confirm: Confirm
         section_async: Asynchronous call
         section_general: General information
@@ -8226,6 +8255,7 @@ default:
             create-form-file-path: Name
             field_bucket: Bucket
             field_code-source: Code source
+            field_concurrency-enable: Enable
             field_entry: Entry point
             field_environment-variables: Environment variables
             field_file: File
@@ -8239,6 +8269,7 @@ default:
             label_aws_v1_http_endpoint: Access metadata using the AWS format (IMDSv1)
             label_bucket: Bucket
             label_bucket-prefix: Directory
+            label_concurrency: Concurrent function instance calls
             label_ephemeral-storage-size: Disk size
             label_failed-sa: Destination for unsuccessful result
             label_gce_http_endpoint: Access metadata using the Google Compute Engine format
@@ -9761,6 +9792,8 @@ default:
                           region:
                             title: Region
                       ObjectStorageReaderFormat:
+                        block_size:
+                          title: Block size
                         Csv:
                           additional_options:
                             title: Additional reader options
@@ -9785,8 +9818,15 @@ default:
                             title: Unexpected field behavior
                         jsonl:
                           title: JSON Lines
+                        Nginx:
+                          format:
+                            title: Pattern (log_format)
+                        nginx:
+                          title: Nginx logs
                         parquet:
                           title: Parquet
+                        proto:
+                          title: Proto
                       path_pattern:
                         title: Path pattern
                       path_prefix:

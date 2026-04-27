@@ -9,7 +9,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором находится зона DNS.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Выберите нужную зону.
   1. Перейдите на панель ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}** для выбранной зоны.
 

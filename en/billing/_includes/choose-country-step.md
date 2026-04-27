@@ -1,1 +1,1 @@
-In the **{{ ui-key.yacloud_billing_account.create-account-wizard.field_country-code }}** field, select the country the [payer](../concepts/glossary.md#payer) is a resident of.
+In the **{{ ui-key.yacloud_billing_account.create-account.section_country }}** field, select the country the [payer](../concepts/glossary.md#payer) is a resident of.

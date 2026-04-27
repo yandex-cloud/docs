@@ -245,3 +245,5 @@ To set up a [password policy](../../concepts/password-policy.md):
   Use the [update](../../idp/api-ref/Userpool/update.md) REST API method for the [Userpool](../../idp/api-ref/Userpool/index.md) resource or the [UserpoolService/Update](../../idp/api-ref/grpc/Userpool/update.md) gRPC API call.
 
 {% endlist %}
+
+{% include [password-policy-note](../../../_includes/organization/password-policy-note.md) %}

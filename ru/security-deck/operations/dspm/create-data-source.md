@@ -5,16 +5,18 @@ description: Следуя данной инструкции, вы узнаете
 
 # Создать источник данных {{ dspm-name }}
 
-[Источник данных](../../concepts/dspm.md#data-source) содержит информацию о хранилищах, в которых будет выполняться сканирование, а также дополнительные настройки. В качестве хранилищ доступны [бакеты](../../../storage/concepts/bucket.md) {{ objstorage-full-name }} и [Яндекс Дисков]({{ link-yandex }}/support/yandex-360/business/disk/web/{{ lang }}/index.html) в {{ yandex-360 }}. В одном источнике данных нельзя одновременно использовать хранилища [{{ objstorage-name }}](../../../storage/) и [{{ yandex-360 }}]({{ link-yandex }}/support/yandex-360/business/admin/{{ lang }}/).
+[Источник данных](../../concepts/dspm.md#data-source) содержит информацию о хранилищах, в которых будет выполняться сканирование, а также дополнительные настройки. В качестве хранилищ доступны [бакеты](../../../storage/concepts/bucket.md) {{ objstorage-full-name }} и [диски]({{ link-yandex }}/support/yandex-360/business/disk/web/{{ lang }}/index.html) в {{ yandex-360 }}. В одном источнике данных нельзя одновременно использовать хранилища [{{ objstorage-name }}](../../../storage/) и [{{ yandex-360 }}]({{ link-yandex }}/support/yandex-360/business/admin/{{ lang }}/).
 
-Прежде чем начать работать с {{ dspm-name }}, [настройте](../../quickstart-overview.md#configure-sd) каталог по умолчанию для хранения данных сервиса {{ sd-name }}.
+## Перед началом работы {#before-begin}
 
+{% include [dspm-before-begin-section](../../../_includes/security-deck/dspm-before-begin-section.md) %}
 
 ## Создать источник данных для {{ objstorage-name }} {#object-storage}
 
+
 {% list tabs group=instructions %}
 
-- Интерфейс {{ sd-name }} {#cloud-sd}
+- Интерфейс {{ sd-name }} {#console}
 
   1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
   1. На панели слева выберите ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}** и перейдите на вкладку **{{ ui-key.yacloud_org.security-center.dspm.title_data-sources }}**.
@@ -55,7 +57,7 @@ description: Следуя данной инструкции, вы узнаете
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ sd-name }} {#cloud-sd}
+- Интерфейс {{ sd-name }} {#console}
 
   1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
   1. На панели слева выберите ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}** и перейдите на вкладку **{{ ui-key.yacloud_org.security-center.dspm.title_data-sources }}**.

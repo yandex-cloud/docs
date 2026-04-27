@@ -76,18 +76,18 @@ To assign a role for a resource:
 
   1. Make sure the configuration files are correct.
 
-     1. In the command line, navigate to the directory where you created the configuration file.
-     1. Run a check using this command:
+     1. In the terminal, navigate to the directory where you created your configuration file.
+     1. Run a check using the following command:
 
         ```
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
+     If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors.
 
   1. Deploy the cloud resources.
 
-     1. If the configuration does not contain any errors, run this command:
+     1. If the configuration is correct, run this command:
 
         ```
         terraform apply
@@ -240,8 +240,8 @@ To grant a service account permissions to access an organization, you need the `
 
   1. Make sure the configuration files are correct.
     
-     1. In the command line, navigate to the directory where you created the configuration file.
-     1. Run a check using this command:
+     1. In the terminal, navigate to the directory where you created your configuration file.
+     1. Run a check using the following command:
  
         ```
         terraform plan
@@ -251,13 +251,13 @@ To grant a service account permissions to access an organization, you need the `
  
   1. Deploy the cloud resources.
   
-     1. If the configuration does not contain any errors, run this command:
+     1. If the configuration is correct, run this command:
 
         ```
         terraform apply
         ```
 
-     1. Confirm creating the resources: type `yes` and press **Enter**.
+     1. To confirm resource creation, type `yes` and press **Enter**.
 	 
      This will create the required resources in the specified organization. You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 

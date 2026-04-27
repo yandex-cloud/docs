@@ -1,3 +1,5 @@
 [Модуль контроля данных]({{ link-sd-main }}dspm/) или {{ dspm-name }} ({{ dspm-full-name }}) — это инструмент, помогающий оперативно обнаруживать чувствительную информацию, сохраненную в [бакетах](../../storage/concepts/bucket.md) {{ objstorage-full-name }} и [Яндекс Дисках]({{ link-yandex }}/support/yandex-360/business/disk/web/{{ lang }}/index.html) в {{ yandex-360 }}, с тем чтобы своевременно принимать необходимые меры для ее защиты от несанкционированного доступа или утечки (настраивать [политики доступа](../../storage/concepts/policy.md), обезличивать данные и т. п.).
 
 {% include [about-discovery](./about-discovery.md) %}
+
+{% include [analysis-preview-mode](./analysis-preview-mode.md) %}

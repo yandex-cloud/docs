@@ -73,6 +73,14 @@ items:
             href: operations/activate-revision.md
           - name: Изменить режим работы контейнера
             href: operations/update-runtime.md
+          - name: Добавить переменные окружения
+            href: operations/environment-variables-add.md
+          - name: Передать секреты {{ lockbox-full-name }}
+            href: operations/lockbox-secret-transmit.md
+          - name: Указать облачную сеть
+            href: operations/network-add.md
+          - name: Задать количество одновременных вызовов экземпляра контейнера
+            href: operations/concurrency.md
           - name: Масштабировать контейнер
             items:
               - name: Посмотреть настройки масштабирования
@@ -81,12 +89,6 @@ items:
                 href: operations/scaling-settings-add.md
               - name: Удалить настройки масштабирования
                 href: operations/scaling-settings-delete.md
-          - name: Добавить переменные окружения
-            href: operations/environment-variables-add.md
-          - name: Указать облачную сеть
-            href: operations/network-add.md
-          - name: Передать секреты {{ lockbox-full-name }}
-            href: operations/lockbox-secret-transmit.md
           - name: Смонтировать внешние ресурсы на файловую систему контейнера
             items:
               - name: Смонтировать бакеты

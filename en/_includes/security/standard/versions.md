@@ -138,7 +138,7 @@ Publication date: 25/09/24.
     * 1.1.1 User group mapping is set up in an identity federation.
     * 1.24 Tracking the date of last access key use in {{ iam-full-name }}.
     * 3.11 {{ sts-full-name }} is used to get access keys to {{ objstorage-name }}.
-    * 3.12 Pre-signed URLs are generated for isolated cases of access to specific objects in {{ objstorage-name }} private buckets.
+    * 3.12 Pre-signed URLs are generated for one-off accesses to specific objects in {{ objstorage-name }} private buckets.
     * 3.32 {{ oslogin }} is used for connection to a VM or {{ k8s }} node.
     * 4.8 Encryption of disks and virtual machine snapshots is used.
     * 5.8 Data events are monitored.

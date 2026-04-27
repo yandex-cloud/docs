@@ -9,7 +9,7 @@ Before you start using {{ org-full-name }}, [log in]({{ link-passport-login }}) 
 
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   {% include [create-new-org](../../_includes/organization/create-new-org.md) %}
 

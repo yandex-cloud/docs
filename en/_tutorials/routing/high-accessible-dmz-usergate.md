@@ -126,7 +126,7 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
        1. On the management console [home page]({{ link-console-main }}), select your cloud.
        1. Navigate to the ![image](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
        1. Click ![image](../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
-       1. In the window that opens, click **{{ ui-key.yacloud_components.acl.label.service-accounts}}** and select the `sa-terraform` service account.
+       1. In the window that opens, click **{{ ui-key.yacloud_components.acl.label.service-accounts }}** and select the `sa-terraform` service account.
        1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the `admin` role.
        1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
@@ -322,7 +322,7 @@ Make sure you have sufficient cloud [quotas](../../overview/concepts/quotas-limi
          * `cloud-id`: [Cloud](../../resource-manager/operations/cloud/get-id.md) ID.
          * `folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
 
-      1. Add your credentials to the environment variables:
+      1. Add the credentials to the environment variables:
          
          ```bash
          export YC_TOKEN=$(yc iam create-token)
