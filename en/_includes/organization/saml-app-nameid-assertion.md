@@ -14,6 +14,9 @@ Possible attribute formats and values:
     * `SubjectClaims.sub`: Default value when switching to this format.
     * `SubjectClaims.external_id`: External user ID.
     * `SubjectClaims.employee_id`: Employee ID.
+* `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`: User ID is provided in the current user [session](../../organization/concepts/sessions.md) ID. The value of this ID changes depending on session and cannot be used to uniquely identify the user.
+
+    You cannot explicitly specify the `urn:oasis:names:tc:SAML:2.0:nameid-format:transient` format in the `NameID` attribute's settings: the user ID comes in the SAML response in this format only if this format was explicitly requested in the SAML request.
 
 {% note warning %}
 

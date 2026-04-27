@@ -160,6 +160,25 @@
 
 {% endlist %}
 
+### Довыгрузка данных в регулярный экспорт {#additional-export}
+
+Чтобы выгрузить данные за прошлые периоды, которых не было в ранее созданном экспорте:
+
+{% list tabs group=instructions %}
+
+- {{ billing-interface }} {#billing}
+
+  1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+  1. Выберите аккаунт, для которого хотите довыгрузить данные в регулярный экспорт.
+  1. На панели слева выберите ![image](../../_assets/console-icons/arrow-up-from-square.svg) **{{ ui-key.yacloud_billing.billing.account.switch_exports }}**.
+  1. Напротив нужного регулярного экспорта нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_org.billing.account.exports.button_force-reexport }}**.
+  1. В поле **{{ ui-key.yacloud_org.billing.account.force-reexport.field_range }}** укажите необходимый диапазон дат и нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. Дождитесь сообщения о применении довыгрузки к регулярному экспорту.
+
+  Данные будут выгружены при следующем обновлении регулярного экспорта.
+
+{% endlist %}
+
 ## Формат файла с детализацией расходов {#format}
 
 Выгружаемый файл с детализацией — это таблица в CSV-формате (столбцы разделены запятой). Каждая строка отражает потребление продукта за день для указанного каталога.

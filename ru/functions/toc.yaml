@@ -109,6 +109,8 @@ items:
                 href: operations/function/mount-bucket.md
               - name: Смонтировать эфемерный диск
                 href: operations/function/mount-ephemeral-disk.md
+          - name: Задать количество одновременных вызовов экземпляра функции
+            href: operations/function/concurrency.md
           - name: Управлять тегами
             items:
               - name: Добавить тег

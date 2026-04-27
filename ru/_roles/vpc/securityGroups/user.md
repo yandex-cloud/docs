@@ -10,9 +10,9 @@
 * получать список [групп безопасности](../../../vpc/concepts/security-groups.md) и просматривать информацию о них;
 * просматривать информацию о [NAT-шлюзах](../../../vpc/concepts/gateways.md);
 * просматривать информацию об использованных IP-адресах в подсетях;
-* просматривать информацию о [квотах](../../../vpc/concepts/limits.md#vpc-quotas) сервиса Virtual Private Cloud;
-* просматривать информацию об операциях с ресурсами сервиса Virtual Private Cloud;
-* просматривать информацию об операциях с ресурсами сервиса Compute Cloud;
+* просматривать информацию о [квотах](../../../vpc/concepts/limits.md#vpc-quotas) сервиса {{ vpc-name }};
+* просматривать информацию об операциях с ресурсами сервиса {{ vpc-name }};
+* просматривать информацию об операциях с ресурсами сервиса {{ compute-name }};
 * просматривать информацию об [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud);
 * просматривать информацию о [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder).
 

@@ -143,19 +143,19 @@ apiPlayground:
             description: |-
               **enum** (Level)
               Minimum log entry level.
-              See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
+              See [LogLevel.Level](/docs/logging/api-ref/Export/get#yandex.cloud.logging.v1.LogLevel.Level) for details.
               - `TRACE`: Trace log level.
-                Possible use case: verbose logging of some business logic.
+              Possible use case: verbose logging of some business logic.
               - `DEBUG`: Debug log level.
-                Possible use case: debugging special cases in application logic.
+              Possible use case: debugging special cases in application logic.
               - `INFO`: Info log level.
-                Mostly used for information messages.
+              Mostly used for information messages.
               - `WARN`: Warn log level.
-                May be used to alert about significant events.
+              May be used to alert about significant events.
               - `ERROR`: Error log level.
-                May be used to alert about errors in infrastructure, logic, etc.
+              May be used to alert about errors in infrastructure, logic, etc.
               - `FATAL`: Fatal log level.
-                May be used to alert about unrecoverable failures and events.
+              May be used to alert about unrecoverable failures and events.
             type: string
             enum:
               - LEVEL_UNSPECIFIED
@@ -378,26 +378,20 @@ Log entries destination. ||
 
 Minimum log entry level.
 
-See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
+See [LogLevel.Level](/docs/logging/api-ref/Export/get#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
 - `TRACE`: Trace log level.
-
-  Possible use case: verbose logging of some business logic.
+Possible use case: verbose logging of some business logic.
 - `DEBUG`: Debug log level.
-
-  Possible use case: debugging special cases in application logic.
+Possible use case: debugging special cases in application logic.
 - `INFO`: Info log level.
-
-  Mostly used for information messages.
+Mostly used for information messages.
 - `WARN`: Warn log level.
-
-  May be used to alert about significant events.
+May be used to alert about significant events.
 - `ERROR`: Error log level.
-
-  May be used to alert about errors in infrastructure, logic, etc.
+May be used to alert about errors in infrastructure, logic, etc.
 - `FATAL`: Fatal log level.
-
-  May be used to alert about unrecoverable failures and events. ||
+May be used to alert about unrecoverable failures and events. ||
 |#
 
 ## VariableInput {#yandex.cloud.serverless.apigateway.v1.VariableInput}
@@ -727,26 +721,20 @@ Log entries destination. ||
 
 Minimum log entry level.
 
-See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
+See [LogLevel.Level](/docs/logging/api-ref/Export/get#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
 - `TRACE`: Trace log level.
-
-  Possible use case: verbose logging of some business logic.
+Possible use case: verbose logging of some business logic.
 - `DEBUG`: Debug log level.
-
-  Possible use case: debugging special cases in application logic.
+Possible use case: debugging special cases in application logic.
 - `INFO`: Info log level.
-
-  Mostly used for information messages.
+Mostly used for information messages.
 - `WARN`: Warn log level.
-
-  May be used to alert about significant events.
+May be used to alert about significant events.
 - `ERROR`: Error log level.
-
-  May be used to alert about errors in infrastructure, logic, etc.
+May be used to alert about errors in infrastructure, logic, etc.
 - `FATAL`: Fatal log level.
-
-  May be used to alert about unrecoverable failures and events. ||
+May be used to alert about unrecoverable failures and events. ||
 |#
 
 ## VariableInput {#yandex.cloud.serverless.apigateway.v1.VariableInput2}

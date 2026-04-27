@@ -12,7 +12,7 @@ description: This section contains the {{ iam-name }} release notes.
 
 * Added the following [roles](roles-reference.md):
 
-   {% cut "{{ foundation-models-full-name }}" %}
+   {% cut "{{ ai-studio-full-name }}" %}
 
      User role | Description
      --- | ---

@@ -1,6 +1,6 @@
 # Using an OIDC app and OAuth2 Proxy to set up single sign-on for applications that do not support SSO
 
-Some applications have no built-in support for [single sign-on](https://en.wikipedia.org/wiki/Single_sign-on) (SSO). However, you may sometimes need to configure user authentication in such applications using {{ org-full-name }}.
+Some applications have no built-in support for single sign-on (SSO). However, you may sometimes need to configure user authentication in such applications using {{ org-full-name }}.
 
 In this guide, you will use the [OAuth2 Proxy](https://oauth2-proxy.github.io/oauth2-proxy/) utility combined with a reverse proxy to integrate a simple application with {{ org-full-name }} and restrict access to it exclusively to specified {{ org-full-name }} users via [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC)-based single sign-on.
 
@@ -301,7 +301,7 @@ Also, in your cloud network, [create](../../../vpc/operations/security-group-cre
   ```
 
   Where:
-  * `--name`: VM name. Follow these naming requirements:
+  * `--name`: VM name. The naming requirements are as follows:
 
     {% include [name-format](../../../_includes/name-format.md) %}
 

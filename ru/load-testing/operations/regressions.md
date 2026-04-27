@@ -24,7 +24,8 @@
 
 ## Создайте дашборд {#create-dashboard}
 
-1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором вы хотите создать дашборд.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
 1. На панели слева выберите ![image](../../_assets/load-testing/regressions.svg) **{{ ui-key.yacloud.load-testing.label_regressions-title }}**.
 1. Создайте свой первый дашборд, нажав кнопку **{{ ui-key.yacloud.load-testing.button_create-regression-dashboard }}**.
 1. В открывшемся диалоге введите имя дашборда и описание (опционально). Нажмите **{{ ui-key.yc-ui-datasphere.common.apply }}**.

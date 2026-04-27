@@ -6,7 +6,7 @@ description: In {{ org-full-name }}, you can authenticate {{ yandex-cloud }} use
 # Applications in {{ org-full-name }}
 
 
-Your [organization's](./organization.md) users can authenticate in external applications using [single sign-on](https://en.wikipedia.org/wiki/Single_sign-on) (SSO). With this in mind, {{ org-full-name }} allows creating _applications_, i.e., {{ yandex-cloud }} [resources](../../overview/roles-and-resources.md#resources) containing integration settings for {{ org-full-name }} as an _identity provider_ (IdP) on the one hand and a third-party _service provider_ (SP) on the other.
+Your [organization's](./organization.md) users can authenticate in external applications via single sign-on (SSO). With this in mind, {{ org-full-name }} allows creating _applications_, i.e., {{ yandex-cloud }} [resources](../../overview/roles-and-resources.md#resources) containing integration settings for {{ org-full-name }} as an _identity provider_ (IdP) on the one hand and a third-party _service provider_ (SP) on the other.
 
 {{ org-full-name }} supports the [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) and [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC) single sign-on standards.
 

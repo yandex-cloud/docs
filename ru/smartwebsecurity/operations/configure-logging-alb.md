@@ -5,45 +5,18 @@ description: Следуя данной инструкции, вы сможете
 
 # Настроить логирование через {{ alb-name }}
 
-Записывать логи можно с помощью двух сервисов: [{{ cloud-logging-full-name }}](../../logging/) и [{{ at-full-name }}](../../audit-trails/). Для {{ cloud-logging-name }} доступно два варианта сбора логов: через {{ sws-name }} и через L7-балансировщик {{ alb-name }}, к которому подключен профиль безопасности.
+{% include [logging-services](../../_includes/smartwebsecurity/logging-services.md) %}
 
-Информация в этом разделе относится к сбору логов через {{ alb-name }}. О логировании через {{ sws-name }} см. в разделе [{#T}](configure-logging.md).
-
-Анализ логов {{ sws-full-name }} позволяет:
-
-* Тестировать работу правил безопасности, WAF и ARL в режиме **Только логирование** (dry run).
-
-  В этом режиме запросы пользователей не блокируются, но в логи записывается информация о срабатывании правил.
-
-* Посмотреть количество заблокированных и пропущенных запросов, оценить и скорректировать работу правил.
-* Посмотреть подробную информацию о запросе, выявить ложноположительные срабатывания.
-* Расследовать инциденты безопасности.
-
-Особенности сервисов для сбора логов:
-
-* {{ cloud-logging-short-name }} — позволяет собирать базовые логи по трафику и сработавшим правилам профилей безопасности, WAF и ARL.
-
-   Логи {{ sws-name }} передаются через [L7-балансировщик](../../application-load-balancer/concepts/application-load-balancer.md), к которому подключен профиль безопасности, и записываются в [лог-группу](../../logging/concepts/log-group.md).
-
-* {{ at-name }} — специализируется на записи событий безопасности и позволяет собирать более детальные аудитные логи по правилам WAF и ARL.
-
-   В {{ at-name }} события передаются не через L7-балансировщик, а напрямую от сервиса {{ sws-name }}. В {{ at-name }} есть два типа событий:
-
-   * [Уровня конфигурации](../at-ref.md#control-plane-events) — действия, связанные с конфигурированием ресурсов {{ yandex-cloud }}. Например, создание или удаление профиля безопасности.
-   * [Уровня сервисов](../at-ref.md#data-plane-events) — действия, которые происходят с ресурсами внутри сервисов {{ yandex-cloud }}. Например, срабатывание правила из профиля WAF.
-
-   Записывать события {{ at-name }} можно в бакет {{ objstorage-name }}, лог-группу {{ cloud-logging-name }} или поток данных {{ yds-name }}.
-
-Чтобы начать работать с логами {{ sws-name }}:
-
-1. [Включите и настройте запись логов](#enable-logging).
-1. [Посмотрите и отфильтруйте логи](#view-logs).
-
-## Включить логирование {#enable-logging}
+### Включить логирование {#enable-logging}
 
 {% note info %}
 
-Чтобы включать или отключать [логирование](../../smartwebsecurity/concepts/logging.md) в балансировщике нагрузки, необходима [роль](../../application-load-balancer/security/index.md#alb-editor) `alb.editor` или выше на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создается или находится балансировщик, а также [роль](../../logging/security/index.md#logging-writer) `logging.writer` или выше на [лог-группу](../../logging/concepts/log-group.md), в которую передаются логи.
+Для управления [логированием](../concepts/logging.md) в L7-балансировщике нужны роли:
+
+- [alb.editor](../../application-load-balancer/security/index.md#alb-editor) на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится профиль безопасности;
+- [logging.writer](../../logging/security/index.md#logging-writer) на [лог-группу](../../logging/concepts/log-group.md), в которую передаются логи.
+
+Для просмотра логов нужна роль [logging.viewer](../../logging/security/index.md#logging-viewer) на лог-группу.
 
 {% endnote %}
 
@@ -65,7 +38,7 @@ description: Следуя данной инструкции, вы сможете
 
 - {{ at-name }} {#at}
 
-  События {{ at-name }} можно записывать в бакет {{ objstorage-name }}, лог-группу {{ cloud-logging-name }}, поток данных {{ yds-name }} или шину {{ er-name }}. В этой инструкции настроим запись событий в лог-группу.
+  События {{ at-name }} можно записывать в бакет {{ objstorage-name }}, лог-группу {{ cloud-logging-name }}, поток данных {{ yds-name }} или шину {{ er-name }}. В этой инструкции настроим запись аудитных событий в лог-группу.
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится профиль {{ sws-name }}.
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
@@ -84,7 +57,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-## Просмотреть логи {#view-logs}
+### Просмотреть логи {#view-logs}
 
 {% list tabs group=instructions %}
 
@@ -175,7 +148,7 @@ description: Следуя данной инструкции, вы сможете
   1. Выберите количество сообщений на одной странице и период: 1 час, 3 часа, 1 день, 1 неделя, 2 недели.
   1. В строке **Запрос** укажите запрос на [языке фильтрующих выражений](../../logging/concepts/filter.md) и нажмите кнопку **Выполнить**.
 
-     Логи {{ at-name }} записываются в формате JSON. Чтобы найти определенное [событие](../at-ref.md#data-plane-events), укажите его имя в формате:
+     События {{ at-name }} записываются в формате JSON. Чтобы найти определенное [событие](../at-ref.md#data-plane-events), укажите его имя в формате:
 
      ```
      yandex.cloud.audit.smartwebsecurity.<имя_события>

@@ -20,7 +20,7 @@ description: Follow this guide to disable/enable a zonal shift and test traffic 
   1. Select your L7 load balancer.
   1. On the **{{ ui-key.yacloud.common.overview }}** page, under **{{ ui-key.yacloud.alb.section_allocation-settings }}**, click **{{ ui-key.yacloud.alb.section_allocation-settings_button }}**.
   1. Enable a zonal shift for one or more zones.
-  1. Optionally, to set auto-off time for the zonal shift, activate **{{ ui-key.yacloud.components.BalancerAllocationDialog.AllocationForm.form_timezone_0_6LoEf }}** and specify a value from `1m` to `72h`. If no time is set, the zonal shift will be on until you disable it manually.
+  1. Optionally, to set auto-off time for the zonal shift, activate **{{ ui-key.yacloud.components.BalancerAllocationDialog.AllocationForm.disable_block_after_bqnjE }}** and specify a value from `1m` to `72h`. If no time is set, the zonal shift will be on until you disable it manually.
 
   1. Click **{{ ui-key.yacloud.common.save }}**.
 

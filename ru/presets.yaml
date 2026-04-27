@@ -3704,22 +3704,17 @@ default:
           title_ticket_table: Обращения
     yacloud_billing_account:
       billing-account-detail:
-        button_move-to-datalens: Детализация в DataLens
+        filter_label-labels-all: Все метки
+        filter_label-products-all: Все продукты
+        value_empty_clouds: Все облака и каталоги
       cloud-billing-account:
-        base_label_payer: Плательщик
         label_card-add: Добавить карту
-        label_wizard-next: Вперед
-      create-account-wizard:
-        field_country-code: Страна
-        field_name: Имя аккаунта
-        field_organization: Организация
-        field_payment-type: Способ оплаты
-        field_person-type: Тип аккаунта
-        label_step-payment_title: Платёжные данные
       create-account:
         label_option_card: Пополнение вручную
         label_payment_invoice: Банковский перевод
         section_account_type: Тип аккаунта
+        section_country: Страна
+        section_organization: Организация
         section_payment_method: Способ оплаты
     yacloud_billing:
       alb:
@@ -4407,16 +4402,20 @@ default:
           detail:
             button_create-periodic-export: Регулярный экспорт
             button_download-details: Выгрузить детализацию
+            button_move-to-datalens-header: Детализация в DataLens
             popup-export_button_download: Скачать
           entities:
             label_title: Облака и сервисы
             label_type: Тип
           exports:
+            button_force-reexport: Довыгрузка данных
             column_service_account: Сервисный аккаунт
             field_date: Загрузить отчёты начиная с
             field_period: Экспорт данных за предыдущий период
             locale_value_en-lang: English
             locale_value_ru-lang: Русский
+          force-reexport:
+            field_range: Период
           proposals_page:
             type_Error: Ошибка применения
           proposals:
@@ -4918,6 +4917,7 @@ default:
           title_alert_overview: Обзор
           title_alert_recommendations: Рекомендации
         dspm:
+          label_dspm: Контроль данных
           scan_results-title: Результаты
           scan-issues-title: Сообщения и ошибки
           title_data-sources: Источники данных
@@ -4932,6 +4932,11 @@ default:
         label_dspm: Контроль данных
         label_kspm: Контроль Kubernetes{trademark}
         label_settings: Параметры Security Deck
+        onboarding:
+          label_select-default-folder: Выберите каталог по умолчанию
+        settings:
+          general:
+            section_default-storage_label: Хранилище по умолчанию
       security:
         alerts:
           comment_form:
@@ -4997,12 +5002,30 @@ default:
             field_type_exclude_cigcD: Не проверять ресурс
             field_type_kCG8J: Тип исключения
             field_type_manual_mbKxp: Ресурс проверен
+        discovery:
+          header_resource_kDJFW: Ресурс
+          more_details_button_aPdgv: Больше деталей
         dspm:
+          action_button-export_pMSM8: Выгрузить
+          AnalyticsPage:
+            buckets_jwots: Бакеты
+            label_download-analytics_8mgG8: Скачать результаты в файл
+            label_export_s4obE: Экспорт
+            label_export-analytics_7ASg9: Выгрузить результаты в бакет
+            mediaTypes_r8ro5: Форматы
+            public_2C56E: Публичные
+            scannable_jWMD6: Доступные для сканирования
+            searchResource_cGkdQ: Поиск по имени ресурса
           data-sources:
             bXXxQ: Выбранные ресурсы
           dataSourceTypes:
             object_storage_meF3x: Object Storage
             yandex_360_1TUsr: Яндекс 360
+          DiscoveryPageLayout:
+            header_button_text_hefvE: Настроить контроль
+          DspmPageLayout:
+            settings_wHmWK: Параметры
+            title_analytics_vaYT5: Анализ данных
           field_bucket-path_5qRqM: Путь в бакете
           field_file-name_kWRPK: Имя файла
           field_service-account_rTeXv: Сервисный аккаунт
@@ -5089,6 +5112,7 @@ default:
             labelNameField: Имя
             labelServiceAccountField: Сервисный аккаунт
           label_rule-kind_3PswX: Тип правила
+          module_dspm_xxxxx: Контроль данных (DSPM)
           module-cspm_gozhj: Контроль конфигурации (CSPM)
           namespace-checkbox_85krx: Пространства имен
           section-title_9BLTm: Объекты (опционально)
@@ -5817,7 +5841,7 @@ default:
             field_static-response-type_5KyYv: Тип ответа
             option_static-response_data_rLo9U: Задать содержимое ответа
             option_static-response_redirect_o58we: Настроить перенаправление
-            section_static-response_hGcUL: Настройки ответа
+            section_static-response_v3GRn: Настройки ответа
         value_active: Основной
         value_backup: Резервный
         value_certificate-custom: Сертификат из Certificate Manager
@@ -6090,6 +6114,7 @@ default:
         overview: Обзор
         password: Пароль
         remove: Удалить
+        reset: Сбросить
         resource-acl:
           button_cloud-info: Информация об облаке
           button_configure-access: Настроить доступ
@@ -6257,8 +6282,8 @@ default:
           label_all-services_6sGQy: Все сервисы
         BalancerAllocationDialog:
           AllocationForm:
+            disable_block_after_bqnjE: Отключить блокировку через
             form_disable_traffic_3z2cs: Блокировка
-            form_timezone_0_6LoEf: Отключить блокировку через
         CloudActions:
           button_action-delete-cloud_3simi: Удалить облако
         FolderActions:
@@ -8089,7 +8114,7 @@ default:
         button_create-configuration-set: Создать конфигурацию
         button_create-identity: Создать адрес
         button_run-verification: Запустить проверку
-        field_secure-connection: Доставлять письмо только по защищенному соединению
+        field_secure-connection: Доставлять письмо только по защищённому соединению
         label_address: Домен
         label_allowed-senders: Разрешённые отправители
         label_configuration-set: Конфигурация
@@ -8169,6 +8194,7 @@ default:
         label_environment: Переменные окружения
         label_gce_http_endpoint: Доступ к метаданным с использованием формата Google Compute Engine
         label_image-url: URL образа
+        label_min-instances: Количество подготовленных экземпляров
         label_public-container: Публичный контейнер
         label_runtime-http-server: HTTP-сервер
         label_runtime-task-execution: Выполнение команд
@@ -8176,6 +8202,10 @@ default:
         label_timeout: Таймаут
         label_url: Ссылка для вызова
         label_working-directory: Рабочая директория
+        label_zone-instances-limit: Количество экземпляров контейнера в зоне доступности
+        label_zone-requests-limit: >-
+          Количество одновременно выполняемых вызовов контейнера в зоне
+          доступности
         popup-confirm-edit-active-revision_button_confirm: Подтвердить
         section_async: Асинхронный вызов
         section_general: Базовые параметры
@@ -8231,6 +8261,7 @@ default:
             create-form-file-path: Имя
             field_bucket: Бакет
             field_code-source: Источник кода
+            field_concurrency-enable: Включить
             field_entry: Точка входа
             field_environment-variables: Переменные окружения
             field_file: Файл
@@ -8244,6 +8275,7 @@ default:
             label_aws_v1_http_endpoint: Доступ к метаданным с использованием формата AWS (IMDSv1)
             label_bucket: Бакет
             label_bucket-prefix: Папка
+            label_concurrency: Одновременные вызовы экземпляра функции
             label_ephemeral-storage-size: Размер диска
             label_failed-sa: Назначение для неуспешного результата
             label_gce_http_endpoint: Доступ к метаданным с использованием формата Google Compute Engine
@@ -9768,6 +9800,8 @@ default:
                           region:
                             title: Регион
                       ObjectStorageReaderFormat:
+                        block_size:
+                          title: Размер блока
                         Csv:
                           additional_options:
                             title: Дополнительные возможности чтения
@@ -9792,8 +9826,15 @@ default:
                             title: Неожиданное поведение поля
                         jsonl:
                           title: JSON Lines
+                        Nginx:
+                          format:
+                            title: Шаблон (log_format)
+                        nginx:
+                          title: Nginx logs
                         parquet:
                           title: Parquet
+                        proto:
+                          title: Proto
                       path_pattern:
                         title: Шаблон пути
                       path_prefix:

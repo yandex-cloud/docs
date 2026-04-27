@@ -432,7 +432,7 @@ The infrastructure support cost includes:
    {% endlist %}
 
 1. Monitor the `ping` output. As `NAT-A` recovers, you may not see any packet loss. 
-1. Make sure `test-vm` now uses the `nat-a` public IP address to access the internet by stopping `ping` and running this command in the serial console:
+1. Make sure `test-vm` now uses the `nat-a` public IP address to access the internet by running this command in the serial console:
 
    ```bash
    curl ifconfig.co

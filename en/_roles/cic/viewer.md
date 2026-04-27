@@ -1,5 +1,5 @@
-The `cic.viewer` role enables viewing info on Cloud Interconnect resources.
 
+The `cic.viewer` role enables viewing info on {{ interconnect-name }} resources.
 
 {% cut "Users with this role can:" %}
 
@@ -8,7 +8,7 @@ The `cic.viewer` role enables viewing info on Cloud Interconnect resources.
 * View info on [trunk links](../../interconnect/concepts/trunk.md).
 * View info on [private connections](../../interconnect/concepts/priv-con.md).
 * View info on [public connections](../../interconnect/concepts/pub-con.md).
-* View info on Cloud Interconnect [quotas](../../interconnect/concepts/limits.md#interconnect-quotas).
+* View info on {{ interconnect-name }} [quotas](../../interconnect/concepts/limits.md#interconnect-quotas).
 * View info on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud).
 * View information on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 

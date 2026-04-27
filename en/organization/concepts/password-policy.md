@@ -10,6 +10,8 @@ A _password policy_ brings together rules on creating and updating passwords for
 
 ## Password policy settings {#settings}
 
+{% include [password-policy-note](../../_includes/organization/password-policy-note.md) %}
+
 Users with an administrator or organization owner account have access to [password policy settings](../operations/user-pools/set-password-policy.md).
 
 ### Password complexity {#complexity}

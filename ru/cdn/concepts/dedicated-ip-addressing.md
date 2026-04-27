@@ -5,6 +5,8 @@ description: В данном разделе описана выделенная 
 
 # Выделенная IP-адресация CDN-ресурсов
 
+{% include [dedicated-ip-condition.md](../../_includes/cdn/dedicated-ip-condition.md) %}
+
 По умолчанию один и тот же публичный IP-адрес может одновременно обслуживать трафик разных клиентов.
 
 По запросу вы можете [получить](../operations/resources/dedicated-ip-addressing.md) выделенный публичный IP-адрес, который будет использоваться исключительно для ваших [CDN-ресурсов](resource.md) в {{ cdn-full-name }}. При этом контент будет доставляться через все [точки присутствия](points-of-presence.md).

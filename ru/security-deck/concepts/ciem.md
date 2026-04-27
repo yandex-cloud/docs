@@ -30,12 +30,6 @@ description: В данном разделе описан модуль диагн
 * по идентификатору выданной роли;
 * по способу назначения: `{{ ui-key.yacloud_org.iam-bindings.subject.value_role-source-filter_direct }}` или `{{ ui-key.yacloud_org.iam-bindings.subject.value_role-source-filter_group }}`.
 
-{% note warning %}
-
-В настоящее время диагностика доступов не отображает права доступа субъектов к [платежным аккаунтам](../../billing/concepts/billing-account.md) и ресурсам сервиса [{{ datalens-full-name }}](../../datalens/index.yaml).
-
-{% endnote %}
-
 ## Отзыв доступов {#revoking-permissions}
 
 Диагностика доступов позволяет при необходимости [отзывать](../operations/ciem/revoke-permissions.md) у индивидуальных субъектов и групп лишние доступы, а также исключать индивидуальных субъектов из групп пользователей.

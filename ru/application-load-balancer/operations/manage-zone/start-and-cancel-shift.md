@@ -20,7 +20,7 @@ description: Следуя данной инструкции, вы сможете
   1. Выберите L7-балансировщик.
   1. На странице **{{ ui-key.yacloud.common.overview }}** в блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** нажмите кнопку **{{ ui-key.yacloud.alb.section_allocation-settings_button }}**.
   1. Включите блокировку для одной или нескольких зон.
-  1. (Опционально) Чтобы задать время автоматического отключения блокировки, активируйте опцию **{{ ui-key.yacloud.components.BalancerAllocationDialog.AllocationForm.form_timezone_0_6LoEf }}** и укажите время от `1m` до `72h`. Если время не указано, зона останется заблокированной до ручного включения.
+  1. (Опционально) Чтобы задать время автоматического отключения блокировки, активируйте опцию **{{ ui-key.yacloud.components.BalancerAllocationDialog.AllocationForm.disable_block_after_bqnjE }}** и укажите время от `1m` до `72h`. Если время не указано, зона останется заблокированной до ручного включения.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 

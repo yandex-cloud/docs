@@ -18,7 +18,7 @@ To create an MFA policy:
   1. Navigate to the **{{ ui-key.yacloud_org.organization.security-settings.SecuritySettingsPageLayout.tab_mfa_policies_m8oE3 }}** tab.
   1. In the top-right corner, click ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.organization.security-settings.mfa-policies-create-policy-action }}** and in the window that opens:
 
-      1. In the **{{ ui-key.yacloud_org.forms.field.display-name }}** field, enter a name for the new policy. Follow these naming requirements:
+      1. In the **{{ ui-key.yacloud_org.forms.field.display-name }}** field, enter a name for the new policy. The naming requirements are as follows:
 
           {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
       1. {% include [mfa-create-policy-step2](../../../_includes/organization/mfa-create-policy-step2.md) %}
@@ -64,9 +64,9 @@ To create an MFA policy:
      * {% include [mfa-acr-id-cli-flag-legend](../../../_includes/organization/mfa-acr-id-cli-flag-legend.md) %}
      * `--ttl`: Credential validity period in days.
      * `--status`: Policy status, active (`status-active`) or inactive (`status-inactive`).
-     * `--apply-at`: Time after which the policy will become active. This is an optional parameter.
+     * `--apply-at`: Time after which the policy will become active. This is an optional setting.
      * `--enroll-window`: Period in days during which the user must add a second authentication factor after registration.
-     * `--description`: Policy description. This is an optional parameter.
+     * `--description`: Policy description. This is an optional setting.
 
   1. Optionally, run the following command to activate an inactive MFA policy:
 
@@ -109,6 +109,7 @@ To create an MFA policy:
 
 * [{#T}](./update-policy.md)
 * [{#T}](./add-users.md)
+* [{#T}](./excluded-audience.md)
 * [{#T}](./deactivate-reactivate-policy.md)
 * [{#T}](./delete-policy.md)
 * [{#T}](./manage-verification.md)

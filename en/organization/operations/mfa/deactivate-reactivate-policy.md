@@ -61,7 +61,7 @@ To activate an inactive [MFA policy](../../concepts/mfa.md#mfa-policies):
      }
      ```
 
-     Where `status` is the policy status: `MFA_ENFORCEMENT_STATUS_ACTIVE` to activate the policy. This is an optional parameter.
+     Where `status` is the policy status: `MFA_ENFORCEMENT_STATUS_ACTIVE` to activate the policy. This is an optional setting.
 
      For more information about `yandex_organizationmanager_mfa_enforcement` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_mfa_enforcement).
 
@@ -135,7 +135,7 @@ To temporarily deactivate an [MFA policy](../../concepts/mfa.md#mfa-policies):
      }
      ```
 
-     Where `status` is the policy status: `MFA_ENFORCEMENT_STATUS_INACTIVE` to deactivate the policy. This is an optional parameter.
+     Where `status` is the policy status: `MFA_ENFORCEMENT_STATUS_INACTIVE` to deactivate the policy. This is an optional setting.
 
      For more information about `yandex_organizationmanager_mfa_enforcement` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_mfa_enforcement).
 
@@ -162,6 +162,7 @@ As a result, the MFA policy will be deactivated and switch to the `Inactive` sta
 * [{#T}](./create-policy.md)
 * [{#T}](./update-policy.md)
 * [{#T}](./add-users.md)
+* [{#T}](./excluded-audience.md)
 * [{#T}](./delete-policy.md)
 * [{#T}](./manage-verification.md)
 * [{#T}](../../concepts/mfa.md)

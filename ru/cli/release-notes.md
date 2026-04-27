@@ -7,6 +7,18 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.6.0 (27.04.26) {#v-1-6-0}
+
+#### {{ cloud-registry-name }} {#v-1-6-0-cloud-registry-name}
+
+* Добавлена команда `yc cloud-registry registry lifecycle-policy dry-run` для симуляции выполнения политики жизненного цикла.
+
+#### {{ iam-name }} {#v-1-6-0-iam-name}
+
+* В вывод команды `yc iam api-key list` добавлено поле `MASKED KEY`, содержащее последние 6 символов секретной части ключа.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.5.0 (23.04.26) {#v-1-5-0}
 
 #### Изменения в системных командах CLI {#v-1-5-0-yc}
@@ -38,8 +50,6 @@ description: На странице представлены релизы CLI, а
 * Добавлен параметр `--transactional-id-expiration-ms` в команды:
   * `yc kafka cluster create`;
   * `yc kafka cluster update`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.4.0 (20.04.26) {#v-1-4-0}
 

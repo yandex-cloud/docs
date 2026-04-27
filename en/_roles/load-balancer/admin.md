@@ -11,9 +11,9 @@ Users with this role can:
 * View the list of [security groups](../../vpc/concepts/security-groups.md) and the info on them.
 * View information on [NAT gateways](../../vpc/concepts/gateways.md).
 * View the info on the used IP addresses, create [private](../../vpc/concepts/address.md#internal-addresses) and [public](../../vpc/concepts/address.md#public-addresses) addresses, and use them.
-* View the info on operations with the Virtual Private Cloud and Compute Cloud resources.
-* View the list of operations with the Network Load Balancer resources.
+* View the info on operations with the {{ vpc-name }} and {{ compute-name }} resources.
+* View the list of operations with the {{ network-load-balancer-name }} resources.
 * View information on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
-* View info on [Network Load Balancer](../../network-load-balancer/concepts/limits.md#load-balancer-quotas) and [Virtual Private Cloud](../../vpc/concepts/limits.md#vpc-quotas) quotas.
+* View info on [{{ network-load-balancer-name }}](../../network-load-balancer/concepts/limits.md#load-balancer-quotas) and [{{ vpc-name }}](../../vpc/concepts/limits.md#vpc-quotas) quotas.
 
 This role includes the `load-balancer.editor` permissions.
