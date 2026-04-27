@@ -35,9 +35,9 @@ Additionally, when creating an API key, you can limit its validity period. You c
 Available scopes are listed below:
 
 
-* `yc.ai.foundationModels.execute`: To send requests to [Image Generation API]({{ link-docs-ai }}ai-studio/image-generation/api-ref/index), [Text Generation API]({{ link-docs-ai }}ai-studio/text-generation/api-ref/index), [{{ speechkit-name }}]({{ link-docs-ai }}speechkit/concepts/api) API, [{{ translate-full-name }}]({{ link-docs-ai }}translate/concepts/api) API, and [{{ vision-name }} API]({{ link-docs-ai }}vision/ocr/api-ref/index).
-* `yc.ai.imageGeneration.execute`: To send requests to image generation models in {{ ai-studio-full-name }} via the [Image Generation API]({{ link-docs-ai }}ai-studio/image-generation/api-ref/index).
-* `yc.ai.languageModels.execute`: To send requests to text generation models in {{ ai-studio-full-name }} via the [Text Generation API]({{ link-docs-ai }}ai-studio/text-generation/api-ref/index).
+* `yc.ai.foundationModels.execute`: For requests to the [Image Generation API]({{ link-docs-ai }}ai-studio/image-generation/api-ref/index), [Text Generation API]({{ link-docs-ai }}ai-studio/text-generation/api-ref/index), [{{ speechkit-name }} API]({{ link-docs-ai }}speechkit/concepts/api), [{{ translate-full-name }} API]({{ link-docs-ai }}translate/concepts/api), and [{{ vision-name }} API]({{ link-docs-ai }}vision/ocr/api-ref/index).
+* `yc.ai.imageGeneration.execute`: For requests to image generation models in {{ ai-studio-full-name }} via the [Image Generation API]({{ link-docs-ai }}ai-studio/image-generation/api-ref/index).
+* `yc.ai.languageModels.execute`: For requests to text generation models in {{ ai-studio-full-name }} via the [Text Generation API]({{ link-docs-ai }}ai-studio/text-generation/api-ref/index).
 * `yc.ai.speechkitStt.execute`: To [recognize speech]({{ link-docs-ai }}speechkit/stt/index) via the [{{ speechkit-name }} API]({{ link-docs-ai }}speechkit/concepts/api).
 * `yc.ai.speechkitTts.execute`: To [synthesize speech]({{ link-docs-ai }}speechkit/tts/index) via the [{{ speechkit-name }} API]({{ link-docs-ai }}speechkit/concepts/api).
 * `yc.ai.translate.execute`: To translate text via the [{{ translate-full-name }} API]({{ link-docs-ai }}translate/concepts/api).

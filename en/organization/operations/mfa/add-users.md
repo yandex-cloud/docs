@@ -77,8 +77,8 @@ For an [MFA policy](../../concepts/mfa.md#mfa-policies) to apply to user account
 
      Where:
 
-     * `mfa_enforcement_id`: ID of the MFA policy to which you want to add a user or group. This is a required parameter.
-     * `subject-id`: ID of the user or group you need to add to the MFA policy. This is a required parameter.
+     * `mfa_enforcement_id`: ID of the MFA policy to which you want to add a user or group. This is a required setting.
+     * `subject-id`: ID of the user or group you need to add to the MFA policy. This is a required setting.
 
      To add multiple users or groups, create a separate `yandex_organizationmanager_mfa_enforcement_audience` resource for each one.
 
@@ -102,10 +102,13 @@ For an [MFA policy](../../concepts/mfa.md#mfa-policies) to apply to user account
 
 {% endlist %}
 
+If you remove a user or group from an MFA policy and re-add them later, you will have to set up authentication for them again. To avoid this, add the user or group to the [policy exceptions](./excluded-audience.md).
+
 {% include [mfa-policy-applications-acc-type-notice](../../../_includes/organization/mfa-policy-applications-acc-type-notice.md) %}
 
 #### See also {#see-also}
 
+* [{#T}](./excluded-audience.md)
 * [{#T}](./create-policy.md)
 * [{#T}](./update-policy.md)
 * [{#T}](./deactivate-reactivate-policy.md)

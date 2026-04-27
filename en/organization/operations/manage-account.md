@@ -12,8 +12,10 @@ What you can do on the [_My account_](../concepts/my-account.md) portal depends 
 [Viewing attributes](#view-profile) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) |
 [Updating attributes](#edit-profile) | ![alt](../../_assets/common/no.svg) | ![alt](../../_assets/common/no.svg) | ![alt](../../_assets/common/yes.svg) |
 [Changing a password](#edit-password) | ![alt](../../_assets/common/no.svg) | ![alt](../../_assets/common/no.svg) | ![alt](../../_assets/common/yes.svg) |
-[Deleting refresh tokens](#delete-refresh-token) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) |
 [Managing login authentication methods](#manage-mfa) | ![alt](../../_assets/common/no.svg) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) |
+[Viewing sessions](#view-sessions) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) |
+[Terminating sessions](#end-sessions) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) |
+[Deleting refresh tokens](#delete-refresh-token) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) |
 [Viewing groups](#view-groups) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg)
 [Viewing logs](#view-logs) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg) | ![alt](../../_assets/common/yes.svg)
 
@@ -69,21 +71,6 @@ Changing a password requires permission from the pool administrator.
 
 {% endlist %}
 
-## Deleting refresh tokens {#delete-refresh-token}
-
-{% list tabs group=instructions %}
-
-- {{ cloud-center }} UI {#cloud-center}
-
-  1. Go to the [My account]({{ link-my-account }}) portal.
-  1. In the left-hand panel, select ![alt](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.security_7zQ3g }}**.
-  1. Navigate to the **{{ ui-key.yacloud_org.my-account.SecurityPageLayout.refresh_breadcrumb }}** tab.
-  1. You will see all the applications you added [refresh tokens](../../iam/concepts/authorization/refresh-token.md) for.
-  1. Click ![alt](../../_assets/console-icons/trash-bin.svg) next to the application whose refresh token you want to delete.
-  1. To delete all refresh tokens, click ![alt](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_org.my-account.refresh-tokens.action_remove_all }}**. 
-
-{% endlist %}
-
 ## Managing login authentication methods {#manage-mfa}
 
 To manage login authentication methods, a user must be added to the [MFA policy](../concepts/mfa.md).
@@ -117,6 +104,71 @@ Before using WebAuthn for login authentication, make sure your browser and OS ar
   1. In the left-hand panel, select ![alt](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.security_7zQ3g }}**.
   1. Under **{{ ui-key.yacloud_org.my-account.security.login-confirmation.header }}**, you will see your login authentication methods and their last use dates.
   1. Click ![alt](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_org.myaccount.security.LoginConfirmationTable.delete-action }}** next to the relevant login authentication method.
+
+{% endlist %}
+
+## Viewing sessions {#view-sessions}
+
+{% list tabs group=instructions %}
+
+- {{ cloud-center }} UI {#cloud-center}
+
+  1. Go to the [My account]({{ link-my-account }}) portal.
+  1. In the left-hand panel, select ![alt](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.security_7zQ3g }}**.
+  1. Navigate to the **{{ ui-key.yacloud_org.my-account.security.SecurityPageLayout.devices_breadcrumb_feYd2 }}** tab.
+
+      This will open a list of [sessions](../concepts/sessions.md) with the following information about the applications and devices used to sign in to the {{ org-full-name }} account:
+
+      * [User-Agent](https://en.wikipedia.org/wiki/User_agent) ID of the device used to sign in to the account.
+      * Last sign-in time.
+      * IP address of last sign-in.
+
+{% endlist %}
+
+## Terminating sessions {#end-sessions}
+
+{% list tabs group=instructions %}
+
+- {{ cloud-center }} UI {#cloud-center}
+
+  1. Go to the [My account]({{ link-my-account }}) portal.
+  1. In the left-hand panel, select ![alt](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.security_7zQ3g }}**.
+  1. Navigate to the **{{ ui-key.yacloud_org.my-account.security.SecurityPageLayout.devices_breadcrumb_feYd2 }}** tab.
+
+      This will open a list of [sessions](../concepts/sessions.md) with information about the applications and devices used to sign in to the {{ org-full-name }} account.
+  1. To terminate a session:
+
+      In the row with the session you want to terminate, click ![arrow-right-from-square](../../_assets/console-icons/arrow-right-from-square.svg) **{{ ui-key.yacloud_org.my-account.security.action_logout_p3aMC }}** and confirm this action in the window that opens.
+
+      As a result, the user will cease to have access to services that use {{ org-full-name }} as an identity provider from the selected device. To resume access, the user will have to re-authenticate in {{ org-full-name }}.
+  1. To terminate all sessions:
+
+      1. In the top-right corner, click ![arrow-right-from-square](../../_assets/console-icons/arrow-right-from-square.svg) **{{ ui-key.yacloud_org.my-account.security.SecurityDevicesPage.action_logout_everywhere_xqkwM }}**.
+      1. In the window that opens:
+
+          * Select `{{ ui-key.yacloud_org.my-account.security.option_keep_current_iaFpd }}` and click **{{ ui-key.yacloud_org.my-account.security.action_logout_p3aMC }}** to terminate all sessions except the current one.
+
+              As a result, the user will cease to have access to services that use {{ org-full-name }} as an identity provider from all devices except the current one.
+          * Select `{{ ui-key.yacloud_org.my-account.security.option_all_devices_n3iAA }}` and click **{{ ui-key.yacloud_org.my-account.security.action_logout_p3aMC }}** to terminate all sessions including the current one.
+
+              As a result, the user will cease to have access to services that use {{ org-full-name }} as an identity provider from all devices including the current one.
+
+      To resume access, the user will have to re-authenticate in {{ org-full-name }}.
+
+{% endlist %}
+
+## Deleting refresh tokens {#delete-refresh-token}
+
+{% list tabs group=instructions %}
+
+- {{ cloud-center }} UI {#cloud-center}
+
+  1. Go to the [My account]({{ link-my-account }}) portal.
+  1. In the left-hand panel, select ![alt](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.security_7zQ3g }}**.
+  1. Navigate to the **{{ ui-key.yacloud_org.my-account.SecurityPageLayout.refresh_breadcrumb }}** tab.
+  1. You will see all the applications you added [refresh tokens](../../iam/concepts/authorization/refresh-token.md) for.
+  1. Click ![alt](../../_assets/console-icons/trash-bin.svg) next to the application whose refresh token you want to delete.
+  1. To delete all refresh tokens, click ![alt](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_org.my-account.refresh-tokens.action_remove_all }}**. 
 
 {% endlist %}
 

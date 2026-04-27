@@ -55,6 +55,8 @@ items:
             href: operations/user-pools/deactivate-user.md
           - name: Viewing user logs
             href: operations/user-pools/user-get-logs.md
+          - name: Managing user sessions
+            href: operations/manage-sessions.md
           - name: Deleting a user account
             href: operations/edit-account.md
           - name: Leaving an organization
@@ -103,6 +105,8 @@ items:
             href: operations/renew-yc-certificate.md
           - name: Setting up a domain in an identity federation
             href: operations/manage-domain-in-federation.md
+          - name: Deleting an identity federation
+            href: operations/delete-federation.md
       - name: Managing user pools
         items:
           - name: Creating a user pool
@@ -177,6 +181,8 @@ items:
                 href: operations/mfa/create-policy.md
               - name: Applying an MFA policy to users
                 href: operations/mfa/add-users.md
+              - name: Managing exceptions to MFA policies
+                href: operations/mfa/excluded-audience.md
               - name: Updating an MFA policy
                 href: operations/mfa/update-policy.md
               - name: Activating or deactivating an MFA policy
@@ -317,11 +323,13 @@ items:
         href: concepts/my-account.md
       - name: Audit logs and login logs
         href: concepts/logs.md
+      - name: Sessions
+        href: concepts/sessions.md
       - name: Syncing with {{ microsoft-idp.ad-short }}
         href: concepts/ad-sync.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: Troubleshooting
+  - name: Error diagnostics
     items:
       - name: Common federation errors
         href: diagnostics.md

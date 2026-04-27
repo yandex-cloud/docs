@@ -130,7 +130,7 @@ To follow the steps in this section, you will need:​
               http://<host>:8080/auth/realms/master
               ```
 
-              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. Here is an example:
+              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
 
               ```
               {{ link-keycloak-example-old }}
@@ -144,7 +144,7 @@ To follow the steps in this section, you will need:​
               http://<host>:8080/realms/master/protocol/saml
               ```
 
-              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. Here is an example:
+              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
 
               ```
               {{ link-keycloak-example }}/protocol/saml
@@ -156,7 +156,7 @@ To follow the steps in this section, you will need:​
               http://<host>:8080/auth/realms/master/protocol/saml
               ```
 
-              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. Here is an example:
+              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
 
               ```
               {{ link-keycloak-example-old }}/protocol/saml
@@ -255,7 +255,7 @@ To follow the steps in this section, you will need:​
             http://<host>:8080/auth/realms/master
             ```
 
-            If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. Here is an example:
+            If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
 
             ```
             {{ link-keycloak-example-old }}
@@ -269,7 +269,7 @@ To follow the steps in this section, you will need:​
               http://<host>:8080/realms/master/protocol/saml
               ```
 
-              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. Here is an example:
+              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
 
               ```
               {{ link-keycloak-example }}/protocol/saml
@@ -281,7 +281,7 @@ To follow the steps in this section, you will need:​
               http://<host>:8080/auth/realms/master/protocol/saml
               ```
 
-              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. Here is an example:
+              If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
 
               ```
               {{ link-keycloak-example-old }}/protocol/saml
@@ -368,7 +368,7 @@ To follow the steps in this section, you will need:​
 
             If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. 
 
-            Here is an example:
+            For example:
 
             ```
             {{ link-keycloak-example-old }}
@@ -382,7 +382,7 @@ To follow the steps in this section, you will need:​
             http://<host>:8080/realms/master/protocol/saml
             ```
 
-            If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. Here is an example:
+            If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
 
             ```
             {{ link-keycloak-example }}/protocol/saml
@@ -394,7 +394,7 @@ To follow the steps in this section, you will need:​
             http://<host>:8080/auth/realms/master/protocol/saml
             ```
 
-            If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. Here is an example:
+            If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. For example:
 
             ```
             {{ link-keycloak-example-old }}/protocol/saml
@@ -466,7 +466,7 @@ To follow the steps in this section, you will need:​
           http://<host>:8080/realms/master
           ```
 
-          If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its ID. Here is an example:
+          If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its ID. For example:
 
           ```
           {{ link-keycloak-example }}
@@ -478,7 +478,7 @@ To follow the steps in this section, you will need:​
           http://<host>:8080/auth/realms/master
           ```
 
-          If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its ID. Here is an example:
+          If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its ID. For example:
 
           ```
           {{ link-keycloak-example-old }}
@@ -495,7 +495,7 @@ To follow the steps in this section, you will need:​
 
           If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. 
 
-          Here is an example:
+          For example:
 
           ```
           {{ link-keycloak-example }}/protocol/saml
@@ -509,7 +509,7 @@ To follow the steps in this section, you will need:​
 
           If you set up a [public address](https://www.keycloak.org/server/hostname) for the IdP server, specify its URL. 
 
-          Here is an example:
+          For example:
 
           ```
           {{ link-keycloak-example-old }}/protocol/saml
@@ -532,20 +532,20 @@ To follow the steps in this section, you will need:​
 
       {% include [organizationmanager_saml_federation-tf](../../_includes/organization/organizationmanager_saml_federation-tf.md) %}
 
-  1. Make sure the configuration files are correct.
+  1. Validate your configuration files.
 
-      1. In the command line, navigate to the directory where you created the configuration file.
-      1. Run a check using this command:
+      1. In the terminal, navigate to the directory where you created your configuration file.
+      1. Run a check using the following command:
 
           ```bash
           terraform plan
           ```
 
-          If the configuration is described correctly, the terminal displays the federation parameters. {{ TF }} will show any errors in the configuration. 
+          If the configuration is described correctly, the terminal displays the federation parameters. Otherwise, {{ TF }} will show any detected errors. 
 
   1. Create a federation.
 
-      1. If the configuration does not contain any errors, run this command:
+      1. If the configuration is correct, run this command:
 
           ```bash
           terraform apply

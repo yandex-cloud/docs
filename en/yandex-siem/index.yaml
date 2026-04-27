@@ -1,0 +1,31 @@
+title: '{{ yandex-siem-full-name }}'
+description:
+  - >-
+    {{ yandex-siem-full-name }} is {{ yandex-cloud }}'s proprietary SIEM system
+    for monitoring and analyzing security events in a cloud infrastructure. {{
+    yandex-siem-full-name }} collects data from the cloud infrastructure to
+    detect anomalies. When {{ yandex-siem-full-name }} detects an anomaly, it
+    creates an <a
+    href="https://yandex.cloud/ru/docs/security-deck/concepts/alerts">alert</a>
+    indicating a potential incident.
+meta:
+  title: '{{ yandex-siem-full-name }}'
+  description: >-
+    {{ yandex-siem-full-name }} is {{ yandex-cloud }}'s proprietary SIEM system
+    for monitoring and analyzing security events in a cloud infrastructure.
+links:
+  - title: Getting started
+    description: Create your first investigation and run a KQL query
+    href: quickstart.md
+  - title: Concepts
+    description: Learn about its concepts and resources
+    href: concepts/
+  - title: Step-by-step guides
+    description: How to create investigations and work with queries
+    href: operations/
+  - title: KQL reference
+    description: KQL (Kusto Query Language) syntax description
+    href: kql-reference.md
+  - title: Access management
+    description: Configure access permissions for the service
+    href: security/

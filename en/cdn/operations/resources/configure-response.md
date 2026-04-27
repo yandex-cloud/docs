@@ -20,7 +20,7 @@ HTTP responses can be set up either globally or for a particular URI in [locatio
   1. Click the resource name.
   1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-http-headers }}** tab.
   1. In the top-right corner, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-  1. Under **{{ ui-key.yacloud.cdn.sections.StaticResponseSection.section_static-response_hGcUL }}**, enable **{{ ui-key.yacloud.cdn.sections.StaticResponseSection.field_static-response-enabled_sPsQU }}**.
+  1. Under **{{ ui-key.yacloud.cdn.sections.StaticResponseSection.section_static-response_v3GRn }}**, enable **{{ ui-key.yacloud.cdn.sections.StaticResponseSection.field_static-response-enabled_sPsQU }}**.
   1. In the **{{ ui-key.yacloud.cdn.sections.StaticResponseSection.field_static-response-type_5KyYv }}** field, select `{{ ui-key.yacloud.cdn.sections.StaticResponseSection.option_static-response_redirect_o58we }}`.
   1. Specify a response code.
 
@@ -93,7 +93,7 @@ HTTP responses can be set up either globally or for a particular URI in [locatio
   1. Click the resource name.
   1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-http-headers }}** tab.
   1. In the top-right corner, click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-  1. Under **{{ ui-key.yacloud.cdn.sections.StaticResponseSection.section_static-response_hGcUL }}**, enable **{{ ui-key.yacloud.cdn.sections.StaticResponseSection.field_static-response-enabled_sPsQU }}**.
+  1. Under **{{ ui-key.yacloud.cdn.sections.StaticResponseSection.section_static-response_v3GRn }}**, enable **{{ ui-key.yacloud.cdn.sections.StaticResponseSection.field_static-response-enabled_sPsQU }}**.
   1. In the **{{ ui-key.yacloud.cdn.sections.StaticResponseSection.field_static-response-type_5KyYv }}** field, select `{{ ui-key.yacloud.cdn.sections.StaticResponseSection.option_static-response_data_rLo9U }}`.
   1. Specify a response code.
 

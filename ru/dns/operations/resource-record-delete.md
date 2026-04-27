@@ -12,7 +12,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, где находится зона DNS из которой требуется удалить запись.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Выберите зону из списка.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке записи, которую требуется удалить.
   1. В открывшемся меню нажмите кнопку **{{ ui-key.yacloud.common.delete }}**.

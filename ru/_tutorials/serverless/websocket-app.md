@@ -2,9 +2,16 @@
 
 
 
-В этом руководстве вы развернете онлайн-игру, реализованную на Node.js с использованием WebSocket. 
+В этом руководстве вы развернете макет многопользовательской онлайн-игры, реализованной на Node.js с использованием WebSocket.
 
-Статические ресурсы игры будут храниться в бакете {{ objstorage-name }}, данные игры — в базах данных {{ ydb-name }}. Данные будут передаваться в потоке {{ yds-name }} и обрабатываться функциями {{ sf-name }}. Для передачи сообщений между компонентами приложения используется очередь {{ message-queue-name }}. Секреты безопасно доставляются в приложение с помощью сервиса {{ lockbox-name }}. API-шлюз {{ api-gw-name }} будет принимать запросы от пользователей и перенаправлять их в функции {{ sf-name }}.
+Для этого вам понадобятся следующие ресурсы:
+* [бакет](../../storage/concepts/bucket.md) {{ objstorage-name }} для хранения статических ресурсов игры;
+* [базы данных](../../ydb/concepts/index.md) {{ ydb-name }} для хранения данных игры;
+* [поток](../../data-streams/concepts/glossary.md#stream-concepts) {{ yds-name }} для передачи данных;
+* [функции](../../functions/concepts/function.md) {{ sf-name }} для обработки данных;
+* [очередь](../../message-queue/concepts/queue.md) {{ message-queue-name }} для передачи сообщений между компонентами приложения;
+* [секреты](../../lockbox/concepts/secret.md) {{ lockbox-name }} для безопасного хранения и доставки чувствительных данных в приложение;
+* [API-шлюз](../../api-gateway/concepts/index.md) {{ api-gw-name }} для приема и перенаправления запросов от пользователей в функции {{ sf-name }}.
 
 Для авторизации пользователей игры используется интеграция с Telegram.
 
@@ -822,10 +829,11 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-game.git
 ## Как удалить созданные ресурсы {#clear-out}
 
 Чтобы перестать платить за созданные ресурсы:
-* [удалите](../../ydb/operations/manage-databases.md#delete-db) базы данных {{ ydb-name }};
-* [удалите](../../data-streams/operations/manage-streams.md#delete-data-stream) поток данных {{ yds-name }};
-* [удалите](../../lockbox/operations/secret-delete.md) секрет {{ lockbox-name }};
-* [удалите все объекты из бакета](../../storage/operations/objects/delete.md) и [удалите пустой бакет](../../storage/operations/buckets/delete.md) {{ objstorage-name }};
-* [удалите](../../api-gateway/operations/api-gw-delete.md) API-шлюз {{ api-gw-name }};
-* [удалите](../../functions/operations/function/function-delete.md) функции {{ sf-name }}.
-* [удалите](../../message-queue/operations/message-queue-delete-queue.md) очередь {{ message-queue-name }}.
+1. [Удалите](../../ydb/operations/manage-databases.md#delete-db) базы данных {{ ydb-name }}.
+1. [Удалите](../../data-streams/operations/manage-streams.md#delete-data-stream) поток данных {{ yds-name }}.
+1. [Удалите](../../lockbox/operations/secret-delete.md) секрет {{ lockbox-name }}.
+1. [Удалите](../../storage/operations/objects/delete.md) все объекты из бакета {{ objstorage-name }}.
+1. [Удалите](../../storage/operations/buckets/delete.md) пустой бакет {{ objstorage-name }}.
+1. [Удалите](../../api-gateway/operations/api-gw-delete.md) API-шлюз {{ api-gw-name }}.
+1. [Удалите](../../functions/operations/function/function-delete.md) функции {{ sf-name }}.
+1. [Удалите](../../message-queue/operations/message-queue-delete-queue.md) очередь {{ message-queue-name }}.

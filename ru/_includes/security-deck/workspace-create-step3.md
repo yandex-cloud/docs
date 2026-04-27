@@ -5,4 +5,5 @@
     {% include [workspace-sec-standard-list](./workspace-sec-standard-list.md) %}
 
     Вы можете выбрать одновременно несколько стандартов. При этом в блоке **{{ ui-key.yacloud_org.security.workspaces.title_security-modules_8MdQg }}** будут отображаться модули {{ sd-name }}, которые будут активированы в создаваемом окружении для проверки ресурсов на соответствие выбранным стандартам и нормативным актам.
+1. {% include [workspace-create-step3-additional-modules](./workspace-create-step3-additional-modules.md) %}
 1. Нажмите кнопку **{{ ui-key.yacloud_org.security.workspaces.WorkspaceOnboardingForm.saveAndContinue_9xKZY }}**.

@@ -22,6 +22,7 @@ description: Из статьи вы узнаете, как работать с {
 
 * [{#T}](./dspm/create-data-source.md).
 * [{#T}](./dspm/create-scan.md).
+* [{#T}](./dspm/discovery-mode.md).
 
 ## Модуль контроля {{ k8s }}® ({{ kspm-name }}) {#k8s}
 
