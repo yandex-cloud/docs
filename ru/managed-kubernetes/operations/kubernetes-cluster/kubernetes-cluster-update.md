@@ -94,9 +94,13 @@ description: Следуя данной инструкции, вы сможете
 
        {% include [security-groups-alert](../../../_includes/managed-kubernetes/security-groups-alert.md) %}
 
-     * `--master-logging` — отправка логов в {{ cloud-logging-name }}:
+     * `--master-logging` — отправка логов в [{{ cloud-logging-full-name }}](../../../logging/):
 
        {% include [master-logging-cli-description.md](../../../_includes/managed-kubernetes/master-logging-cli-description.md) %}
+
+       {% include [note-master-logging-sa](../../../_includes/managed-kubernetes/note-master-logging-sa.md) %}
+
+       {% include [note-master-logging-log-group](../../../_includes/managed-kubernetes/note-master-logging-log-group.md) %}
 
      * `--version` — версию {{ k8s }}.
      * `--latest-revision` — получить все доступные обновления для текущей версии [мастера {{ managed-k8s-name }}](../../concepts/index.md#master).
@@ -116,13 +120,17 @@ description: Следуя данной инструкции, вы сможете
      О том, как создать такой файл, см. в разделе [{#T}](kubernetes-cluster-create.md).
   1. Измените нужные параметры в описании кластера {{ managed-k8s-name }}.
 
-     Чтобы изменить настройки отправки логов в {{ cloud-logging-name }}, измените значения параметров в блоке `master_logging`. Если такого блока нет — создайте его.
+     Чтобы изменить настройки отправки логов в [{{ cloud-logging-full-name }}](../../../logging/), измените значения параметров в блоке `master_logging`. Если такого блока нет — создайте его.
 
      {% include [master-logging-tf.md](../../../_includes/managed-kubernetes/master-logging-tf.md) %}
 
      Где:
 
      {% include [master-logging-tf-description.md](../../../_includes/managed-kubernetes/master-logging-tf-description.md) %}
+
+       {% include [note-master-logging-sa](../../../_includes/managed-kubernetes/note-master-logging-sa.md) %}
+
+       {% include [note-master-logging-log-group](../../../_includes/managed-kubernetes/note-master-logging-log-group.md) %}
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -141,6 +149,8 @@ description: Следуя данной инструкции, вы сможете
   Чтобы изменить параметры кластера {{ managed-k8s-name }}, воспользуйтесь методом REST API [update](../../managed-kubernetes/api-ref/Cluster/update.md) для ресурса [Cluster](../../managed-kubernetes/api-ref/Cluster/) или вызовом gRPC API [ClusterService/Update](../../managed-kubernetes/api-ref/grpc/Cluster/update.md).
 
   Чтобы изменить настройки отправки логов в {{ cloud-logging-name }}, измените их значения в параметре `masterSpec.masterLogging` для REST API или `master_spec.master_logging` для gRPC API.
+
+  {% include [note-master-logging-sa](../../../_includes/managed-kubernetes/note-master-logging-sa.md) %}
 
 {% endlist %}
 

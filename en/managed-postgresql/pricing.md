@@ -8,9 +8,6 @@ editable: false
 # {{ mpg-name }} pricing policy
 
 
-{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
-
-
 In this section, you can find the {{ mpg-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources.
 
 {% note tip %}
@@ -81,7 +78,7 @@ You are billed for the following:
 
     * Adding hosts increases the cluster's total storage size and, consequently, the free amount of backups.
 
-The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
+The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
 
 
 ### Cluster cost calculation example {#example}

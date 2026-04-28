@@ -162,6 +162,8 @@ items:
             href: operations/node-group/node-group-list.md
           - name: Creating a node group
             href: operations/node-group/node-group-create.md
+          - name: Creating a group with nodes from a reserved instance pool
+            href: operations/node-group/node-group-create-in-instance-pool.md
           - name: Connecting to a node over SSH
             href: operations/node-connect-ssh.md
           - name: Connecting to a node via {{ oslogin }}
@@ -358,6 +360,10 @@ items:
             href: concepts/node-group/allocatable-resources.md
           - name: Node groups with GPUs
             href: concepts/node-group/node-group-gpu.md
+          - name: Reserved instance pools for node groups
+            href: concepts/node-group/reserved-pools.md
+          - name: Variables in a node template
+            href: concepts/node-group/variables-in-the-template.md
       - name: Networking in {{ managed-k8s-name }}
         href: concepts/network.md
       - name: Network settings and cluster policies

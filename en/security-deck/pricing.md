@@ -62,8 +62,6 @@ The price does not depend on the number of days in the calendar month.
 {% include notitle [usd.md](../_pricing/security-deck/access-transparency/usd.md) %}
 
 
-The monthly price is based on 720 hours per month.
-
 ### {{ dspm-full-name }} ({{ dspm-name }}) {#dspm-pricing}
 
 
@@ -77,8 +75,6 @@ The monthly price is based on 720 hours per month.
   />
 </MDX>
 
-
-The monthly price is based on 720 hours per month.
 
 
 #### Cost calculation example {#amount-example}
@@ -96,8 +92,6 @@ Let’s assume you set up scanning a bucket with 50 text files, their overall si
 
 {% include notitle [usd.md](../_pricing/security-deck/kspm/usd.md) %}
 
-
-The monthly price is based on 720 hours per month.
 
 ### {{ cspm-full-name }} ({{ cspm-name }}) {#cspm-pricing}
 

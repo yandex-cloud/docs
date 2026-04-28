@@ -57,7 +57,7 @@ Pricing features:
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-For metrics, the minimum billing unit is one metric value. Billing for logs and traces is based on the size of data written to Monium Logs and Monium Traces. The minimum billing unit is 1 MB. The prices are provided for 1 GB. The cost is rounded to the nearest ₽0.01, ₸0.01, or $0.01.
+The minimum billing unit is one metric value. Billing for logs and traces is based on the size of data written to {{ monium-logs-name }} and {{ traces-name }}. The minimum billing unit is 1 MB. The prices are provided for 1 GB. The cost is rounded to the nearest ₽0.01, ₸0.01, or $0.01.
 
 
 
@@ -77,11 +77,11 @@ For metrics, the minimum billing unit is one metric value. Billing for logs and 
 
 {% note warning %}
 
-The prices are effective from April 24, 2026.
+The prices are valid as of April 24, 2026.
 
 {% endnote %}
 
-Phone calls and SMS sent as part of [alerts](concepts/alerting/alert.md) and [escalation policies](concepts/alerting/escalations.md) are billed. The prices are for one call and one SMS.
+You pay for calls and SMS messages triggered by [alerts](concepts/alerting/alert.md) and [escalation policies](concepts/alerting/escalations.md). The prices below are per call and per SMS.
 
 
 

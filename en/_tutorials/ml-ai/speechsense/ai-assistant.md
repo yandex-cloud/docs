@@ -24,7 +24,7 @@ The user must [have](../../../billing/security/index.md#set-role) the `billing.a
 ### Required paid resources {#paid-resources}
 
 * {{ speechsense-name }}: Number of characters in each text conversation (see [{{ speechsense-name }} pricing](../../../speechsense/pricing.md)).
-* AI assistant: Text generation (see [{{ ai-studio-full-name }} pricing]({{ link-docs-ai }}ai-studio/pricing)). Once the assistant is activated, you start paying for it.
+* AI assistant: Text generation (see [{{ ai-studio-full-name }} pricing]({{ link-docs-ai }}ai-studio/pricing)). You start paying for the assistant as soon as you activate it.
 
 ## Set up your infrastructure {#infrastructure-prepare}
 
@@ -357,7 +357,7 @@ Below the dialog line, you will see a line indicating the `Guided Tours` subject
           "model_id": "YGPT_LITE",
           "name": "Dialog subject",
           "description": "",
-          "prompt": "You are analyzing a conversation between a call center agent and customer. Pay close attention when generating a response. \nDetermine the subject of the customer’s inquiry by selecting one from this list: Visa, Country, Guided Tours. \nIf nothing of the above is suitable, put "Other"."
+          "prompt": "You are analyzing a conversation between a call center agent and customer. Pay close attention when generating a response. \nDetermine the subject of the customer’s inquiry by selecting one from this list: Visa, Country, Guided Tours. \nIf nothing of the above is suitable, specify "Other".",
           "fields": [
             {
               "id": "eagldsqk9fp4********",
@@ -405,7 +405,7 @@ Below the dialog line, you will see a line indicating the `Guided Tours` subject
           "projectId": "eags34o1skdi********",
           "modelId": "YGPT_LITE",
           "name": "Dialog subject",
-          "prompt": "You are analyzing a conversation between a call center agent and customer. Pay close attention when generating a response. \nDetermine the subject of the customer’s inquiry by selecting one from this list: Visa, Country, Guided Tours. \nIf nothing of the above is suitable, put "Other"."
+          "prompt": "You are analyzing a conversation between a call center agent and customer. Pay close attention when generating a response. \nDetermine the subject of the customer’s inquiry by selecting one from this list: Visa, Country, Guided Tours. \nIf nothing of the above is suitable, specify "Other".",
           "fields": [
             {
               "id": "eagldsqk9fp4********",

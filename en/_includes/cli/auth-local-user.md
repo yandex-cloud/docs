@@ -1,14 +1,37 @@
-To get authenticated using a [user pool](../../organization/concepts/user-pools.md), do the following:
+To authenticate using a [local user account](../../iam/concepts/users/accounts.md#local):
 
-1. Get your user pool ID from your administrator.
 1. Launch the profile creation wizard:
 
-      
-   ```bash
-   yc init --federation-id=<user_pool_ID>
-   ```
+   {% list tabs %}
+
+   - User pool
+   
+     1. Get your user pool ID from your administrator.
+     1. Launch the profile creation wizard:
+
+                  
+         ```bash
+         yc init --userpool-id=<user_pool_ID>
+         ```
 
 
+
+   - Email
+
+      1. Get your email address:
+         1. Go to the [My account]({{ link-my-account }}) portal.
+         1. In the left-hand panel, select ![alt](../../_assets/console-icons/passport.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.profile_8kyBA }}**.
+         1. Copy the email address from the **{{ ui-key.yacloud_org.my-account.ProfilePage.contacts_subheader }}** section.
+      1. Launch the profile creation wizard:
+
+                  
+         ```bash
+         yc init --username=<email_address>
+         ```
+
+
+
+   {% endlist %}
 
 1. Select the profile you want to set up authentication for or create a new one.
 
@@ -22,8 +45,8 @@ To get authenticated using a [user pool](../../organization/concepts/user-pools.
 1. The CLI prompts you to continue authentication in the browser. Press **Enter** to continue.
 
    ```text
-   You are going to be authenticated via federation-id 'aje1f0hsgds3a********'.
-   Your federation authentication web site will be opened.
+   You are going to be authenticated via userpool-id 'ek0auknfc0mh********'.
+   Your userpool authentication web site will be opened.
    After your successful authentication, you will be redirected to cloud console.
 
    Press 'enter' to continue...
@@ -63,13 +86,31 @@ To get authenticated using a [user pool](../../organization/concepts/user-pools.
    ```
 
    Result:
-
    
-   ```bash
-   federation-id: aje1f0hs6oja********
-   cloud-id: b1g159pa15cd********
-   folder-id: b1g8o9jbt58********
-   compute-default-zone: {{ region-id }}-b
-   ```
+   {% list tabs %}
+
+   - User pool
+   
+      
+      ```bash
+      userpool-id: ek0auknfc0mh********
+      subject-id: ek00cd1m8hdd8********
+      cloud-id: b1g159pa15cd********
+      folder-id: b1g8o9jbt58********
+      compute-default-zone: {{ region-id }}-b
+      ```
 
 
+
+   - Email
+      
+      ```bash
+      subject-id: b1g159pa15cd********
+      username: <email_address>
+      folder-id: b1g8o9jbt58********
+      compute-default-zone: {{ region-id }}-b
+      ```
+
+
+
+   {% endlist %}

@@ -1,5 +1,8 @@
 # Creating and configuring a regression dashboard
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 Follow this guide to create a [regression](../concepts/load-test-regressions.md) dashboard and configure metric chart widgets.
 If you do not have any completed [load tests](../concepts/index.md) yet, create one and run it several times in a row. You can find examples of load test scenarios in **Tutorials**. 
 

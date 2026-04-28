@@ -1,6 +1,6 @@
-### No new tables are added {#no-new-tables}
+### New tables cannot be added {#no-new-tables}
 
-No new tables are added to _{{ dt-type-copy-repl }}_ transfers.
+​No new tables are added to _{{ dt-type-copy-repl }}_ transfers.
 
 **Solution**:
 

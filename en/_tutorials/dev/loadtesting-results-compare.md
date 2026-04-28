@@ -1,5 +1,7 @@
 # Comparing load test results
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
 In this tutorial, you will set up a load testing environment, run the tests, and compare their results.
 
 The tutorial uses the [Pandora](../../load-testing/concepts/load-generator.md#pandora) [load generator](../../load-testing/concepts/load-generator.md) and a simple web service as the test target.
@@ -271,7 +273,7 @@ To compare the results:
 
 ## How to delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete the agent](../../compute/operations/vm-control/vm-delete.md).
 1. [Delete the route table](../../vpc/operations/delete-route-table.md).

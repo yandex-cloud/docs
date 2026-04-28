@@ -52,6 +52,8 @@ Syntax:
 
   - [yc cloud-registry v0 registry lifecycle-policy delete](lifecycle-policy/delete.md) — Deletes the specified lifecycle policy
 
+  - [yc cloud-registry v0 registry lifecycle-policy dry-run](lifecycle-policy/dry-run.md) — Simulate the lifecycle policy execution and show the number of artifacts to be deleted
+
   - [yc cloud-registry v0 registry lifecycle-policy get](lifecycle-policy/get.md) — Get information about a lifecycle policy.
 
   - [yc cloud-registry v0 registry lifecycle-policy list](lifecycle-policy/list.md) — List lifecycle policies.

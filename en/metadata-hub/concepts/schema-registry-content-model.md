@@ -6,7 +6,7 @@
 
 To maintain compatibility during JSON schema evolution, compatibility checks are employed, with their rules defined by [special policies](compatibility-check-policy.md). {{ schema-registry-name }} supports the following policies for JSON schemas:
 
-* _Confluent_ does not allow adding or removing optional properties in `object` fields. In certain cases, e.g., when working with queues, this limitation may be excessive.
+* _Confluent_ does not allow adding or removing optional properties in `object` fields. In certain cases, such as when working with queues, this limitation may be excessive.
 
 * _Optional friendly_ allows adding or removing optional properties in `object` fields while maintaining full transitive compatibility.
 
@@ -183,7 +183,7 @@ In this scenario, only the producer data schema is registered. The consumer sche
 
 {{ schema-registry-name }} supports schema compatibility checks by converting an open consumer schema to a closed one. To enable this, in the JSON schema [namespace](schema-registry.md#namespace), set the `Optional-friendly` [compatibility check policy](compatibility-check-policy.md). You can [set a policy](../operations/create-name-space.md) for a new namespace or [modify it](../operations/update-name-space.md) for an existing one. For the `Optional-friendly` policy to work correctly, the namespace schemas must use the [closed content model](#closed-model).
 
-You can also use this solution to maintain JSON schema compatibility when delivering data to [{{ mkf-full-name }}](../../managed-kafka) via [{{ data-transfer-full-name }}](../../data-transfer/) [{{ yds-full-name}}](../../data-streams/). For more information about the required {{ data-transfer-name }} endpoint settings, see [this guide](../../data-transfer/operations/endpoint/target/kafka.md#serializer).
+You can also use this solution to maintain JSON schema compatibility when delivering data to [{{ mkf-full-name }}](../../managed-kafka) via [{{ yds-full-name }}](../../data-streams/) [{{ data-transfer-full-name }}](../../data-transfer/). For more information about the required {{ data-transfer-name }} endpoint settings, see [this guide](../../data-transfer/operations/endpoint/target/kafka.md#serializer).
 
 ## See also {#see-also}
 

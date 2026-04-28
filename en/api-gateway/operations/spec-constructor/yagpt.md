@@ -3,7 +3,7 @@ title: Adding the {{ ai-studio-full-name }} extension
 description: Follow this guide to add the {{ ai-studio-full-name }} extension using the specification constructor.
 ---
 
-# Adding the x-yc-apigateway-integration:http extension for integration with the {{ ai-studio-full-name }} text generation API
+# Adding the `x-yc-apigateway-integration:http` extension for integration with the {{ ai-studio-full-name }} text generation API
 
 {% list tabs %}
 
@@ -13,7 +13,7 @@ description: Follow this guide to add the {{ ai-studio-full-name }} extension us
     1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Select an API gateway or click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}** to create a new one.
     1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** field, click ![image](../../../_assets/api-gateway/spec-constructor/cloud-yagpt.svg).
-    1. In the field, specify the following:
+    1. Specify the following:
 
         {% include [common-spec-constructor](../../../_includes/api-gateway/common-spec-constructor.md) %}
 

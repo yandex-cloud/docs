@@ -68,6 +68,77 @@ To access a {{ k8s }} cluster, use the `ID` or `NAME` parameters from the [previ
     service_ipv4_cidr_block: 10.14.0.0/16
   ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  To get information about a {{ managed-k8s-name }} cluster:
+
+  1. {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Create a {{ TF }} configuration file with a description of the `yandex_kubernetes_cluster` data source in the `data` section and the requested parameters in the `output` sections (one per section). For example:
+
+      ```hcl
+      data "yandex_kubernetes_cluster" "my_cluster" {
+        cluster_id = "<cluster_ID>"
+      }
+
+      output "external_v4_endpoint" {
+        value = data.yandex_kubernetes_cluster.my_cluster.master.0.external_v4_endpoint
+      }
+      ```
+
+      Where:
+
+      * `external_v4_endpoint`: Name of the variable whose value will appear in the result.
+      * `data.yandex_kubernetes_cluster.my_cluster.master.0.external_v4_endpoint`: Requested parameter. In our case, it is the cluster’s public IP address.
+
+      For the list of cluster parameters you can request this way, see [this {{ TF }} provider guide]({{ tf-provider-datasources-link }}/kubernetes_cluster).
+
+      {% note tip %}
+
+      To request all available information about a cluster, add the following `output` section to the file:
+
+      ```hcl
+      output "kubernetes_cluster" {
+        value = data.yandex_kubernetes_cluster.my_cluster
+      }
+      ```
+
+      {% endnote %}
+
+  1. Make sure the configuration files are correct:
+
+      1. In the command line, navigate to the folder containing the current {{ TF }} configuration files.
+
+      1. Run this command:
+
+          ```bash
+          terraform validate
+          ```
+
+          {{ TF }} will display any configuration errors detected in your files.
+
+  1. Run this command:
+
+      ```bash
+      terraform apply
+      ```
+
+      {{ TF }} will display output variables in the terminal.
+
+  1. To check the result, run the following command by specifying the required variable, e.g.:
+
+      ```bash
+      terraform output external_v4_endpoint
+      ```
+
+      Result:
+
+      ```text
+      "https://158.1**.***.***"
+      ```
+
 - API {#api}
 
   To get detailed information about a {{ k8s }} cluster, use the [get](../../managed-kubernetes/api-ref/Cluster/get.md) REST API method for the [Cluster](../../managed-kubernetes/api-ref/Cluster/) resource or the [ClusterService/Get](../../managed-kubernetes/api-ref/grpc/Cluster/get.md) gRPC API call.

@@ -66,11 +66,7 @@ description: Follow this guide to configure access to a secret.
       resource "yandex_lockbox_secret_iam_member" "secret-viewer" {
         secret_id = "<secret_ID>"
         role      = "<role>"
-
-        members = [
-          "serviceAccount:<service_account_1_ID>",
-          "serviceAccount:<service_account_2_ID>"
-        ]
+        member    = "<subject_type>:<subject_ID>"
       }
       ```
 
@@ -78,7 +74,7 @@ description: Follow this guide to configure access to a secret.
 
       * `secret_id`: Secret ID.
       * `role`: [Role](../security/index.md#roles-list) to assign.
-      * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `member`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
       For more information about `yandex_lockbox_secret_iam_member` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/lockbox_secret_iam_member).
 

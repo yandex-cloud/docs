@@ -5,6 +5,9 @@ description: Follow this guide to export your reports to static formats.
 
 # Exporting test reports
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 In {{ load-testing-name }}, you can export test results to a [{{ objstorage-full-name }}](../../storage/) bucket as static format files, such as HTML, PDF, or CSV. Once generated, you can download a report from the bucket either via a link or directly. 
 
 ## Exporting a report to {{ objstorage-full-name }} {#export-report}

@@ -5,6 +5,9 @@ description: Follow this guide to delete a regression dashboard in {{ load-testi
 
 # Deleting a dashboard
 
+{% include [loadtesting-sunset-warning](../../../_includes/load-testing/sunset-warning.md) %}
+
+
 If you no longer need a dashboard, delete it.
 
 {% list tabs group=instructions %}

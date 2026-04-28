@@ -27,9 +27,9 @@ Field name | Type | Required | Default value | [Templating](../../templating.md)
 `maxTokens` | `integer` | Yes | `5.0` | No | Maximum number of tokens to generate. Allows limiting the model's response if needed.
 `json` | `string` | No | `""` | Yes | Context for the model, as a JSON string. For more information, see the `messages` field description in the [{{ foundation-models-name }}]({{ link-docs-ai }}ai-studio/operations/generation/create-prompt#request) documentation.
 `messages` | [FoundationModelsGenerate.Messages[]](#FoundationModelsGenerateMessages) | No | `[]` | No | Context for the model, as a list of input messages.
-`reasoningOptions` | [FoundationModelsGenerate.ReasoningOptions](#FoundationModelsGenerateReasoningOptions) | No | No  | No | Reasoning mode. For more information, see [this {{ foundation-models-name }} article]({{ link-docs-ai }}ai-studio/concepts/generation/chain-of-thought).
+`reasoningOptions` | [FoundationModelsGenerate.ReasoningOptions](#FoundationModelsGenerateReasoningOptions) | No | No  | No | Reasoning mode. For more information, see [this {{ foundation-models-name }} guide]({{ link-docs-ai }}ai-studio/concepts/generation/chain-of-thought).
 `jsonSchema` | `string` | No | No | Yes | Model's JSON-formatted response
-`jsonObject` | `boolean` | No | No | No | If `true`, the model returns a response as a JSON object. Otherwise, the response is formatted using Markdown. For more information, see [this {{ foundation-models-name }} article]({{ link-docs-ai }}ai-studio/concepts/generation/structured-output).
+`jsonObject` | `boolean` | No | No | No | If `true`, the model returns a response as a JSON object. Otherwise, the response is formatted using Markdown. For more information, see [this {{ foundation-models-name }} guide]({{ link-docs-ai }}ai-studio/concepts/generation/structured-output).
 
 ## FoundationModelsGenerate.Messages object {#FoundationModelsGenerateMessages}
 

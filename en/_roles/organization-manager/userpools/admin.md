@@ -2,7 +2,7 @@ The `organization-manager.userpools.admin` role enables managing user pools and 
 
 Users with this role can:
 * View info on [user pools](../../../organization/concepts/user-pools.md) and create, modify, and delete them.
-* View info on [access permissions](../../../iam/concepts/access-control/index.md) granted for the relevant user pools and modify such permissions.
+* View info on [access permissions](../../../iam/concepts/access-control/index.md) granted for user pools and modify such permissions.
 * View info on [domains](../../../organization/concepts/domains.md) associated with user pools, as well as add, confirm, and remove domains.
 * View the list of the organization's [users](../../../organization/concepts/mfa.md), info on them (including their phone number), their latest authentication date, as well as the latest verification date for federated and local accounts via [two-factor authentication](../../../organization/concepts/mfa.md).
 * Create, delete, activate, and deactivate users belonging to user pools.
@@ -15,5 +15,6 @@ Users with this role can:
 * View the list of and info on Identity Hub user groups associated with user pools through synchronization with user groups in Active Directory or another external source.
 * Associate user groups with user pools through synchronization with user groups in Active Directory or another external source, as well as disassociate them.
 * View the attributes of federated and local users.
+* View and terminate federated and local users' [sessions](../../../organization/concepts/sessions.md).
 
 This role includes the `organization-manager.userpools.editor`, `organization-manager.userpools.extGroupsManager`, and `organization-manager.userpools.extGroupsCleaner` permissions.

@@ -453,7 +453,7 @@ description: Следуя данной инструкции, вы сможете
        Пример структуры конфигурационного файла, в котором описывается кластер из трех хостов {{ CH }}:
 
        ```hcl
-       resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+       resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
          name                = "<имя_кластера>"
          environment         = "<окружение>"
          network_id          = yandex_vpc_network.<имя_сети_в_{{ TF }}>.id
@@ -461,47 +461,54 @@ description: Следуя данной инструкции, вы сможете
          embedded_keeper     = true
          deletion_protection = <защита_кластера_от_удаления>
 
-         clickhouse {
-           resources {
+         clickhouse = {
+           resources = {
              resource_preset_id = "<класс_хоста>"
              disk_type_id       = "<тип_диска>"
              disk_size          = <размер_хранилища_ГБ>
            }
          }
 
-         host {
-           type             = "CLICKHOUSE"
-           zone             = "<зона_доступности>"
-           subnet_id        = yandex_vpc_subnet.<имя_подсети_в_{{ TF }}>.id
-           assign_public_ip = <публичный_доступ_к_хосту>
+         shards = {
+           "<имя_шарда>" = {
+             weight = <вес_шарда>
+           }
          }
 
-         host {
-           type             = "CLICKHOUSE"
-           zone             = "<зона_доступности>"
-           subnet_id        = yandex_vpc_subnet.<имя_подсети_в_{{ TF }}>.id
-           assign_public_ip = <публичный_доступ_к_хосту>
-         }
+         hosts = {
+           "<имя_хоста_1>" = {
+             type             = "CLICKHOUSE"
+             zone             = "<зона_доступности>"
+             subnet_id        = yandex_vpc_subnet.<имя_подсети_в_{{ TF }}>.id
+             assign_public_ip = <публичный_доступ_к_хосту>
+             shard_name       = "<имя_шарда>"
+           }
 
-         host {
-           type             = "CLICKHOUSE"
-           zone             = "<зона_доступности>"
-           subnet_id        = yandex_vpc_subnet.<имя_подсети_в_{{ TF }}>.id
-           assign_public_ip = <публичный_доступ_к_хосту>
-         }
+           "<имя_хоста_2>" = {
+             type             = "CLICKHOUSE"
+             zone             = "<зона_доступности>"
+             subnet_id        = yandex_vpc_subnet.<имя_подсети_в_{{ TF }}>.id
+             assign_public_ip = <публичный_доступ_к_хосту>
+             shard_name       = "<имя_шарда>"
+           }
 
-         lifecycle {
-           ignore_changes = [database, user]
+           "<имя_хоста_3>" = {
+             type             = "CLICKHOUSE"
+             zone             = "<зона_доступности>"
+             subnet_id        = yandex_vpc_subnet.<имя_подсети_в_{{ TF }}>.id
+             assign_public_ip = <публичный_доступ_к_хосту>
+             shard_name       = "<имя_шарда>"
+           }
          }
        }
 
        resource "yandex_mdb_clickhouse_database" "<имя_БД>" {
-         cluster_id = yandex_mdb_clickhouse_cluster.<имя_кластера>.id
+         cluster_id = yandex_mdb_clickhouse_cluster_v2.<имя_кластера>.id
          name       = "<имя_БД>"
        }
 
        resource "yandex_mdb_clickhouse_user" "<имя_пользователя>" {
-         cluster_id = yandex_mdb_clickhouse_cluster.<имя_кластера>.id
+         cluster_id = yandex_mdb_clickhouse_cluster_v2.<имя_кластера>.id
          name       = "<имя_пользователя>"
          password   = "<пароль_пользователя>"
          permission {
@@ -523,15 +530,20 @@ description: Следуя данной инструкции, вы сможете
 
        * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
-       * `host` — описание хоста `CLICKHOUSE`.
-       
+       * `shards` — [шарды](../concepts/sharding.md) кластера в виде ассоциативного массива элементов. Ключ задает имя шарда, а значение включает параметр `weight` — вес шарда. 
+
+       * `hosts` — хосты кластера в виде ассоциативного массива элементов. Ключ задает имя хоста, а значение — параметры хоста. Каждый элемент имеет следующую структуру:
+
+          * `type` — тип хоста: `CLICKHOUSE`.
+          * `zone` — [зона доступности](../../overview/concepts/geo-scope.md).
+          * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet).
           * `assign_public_ip` — публичный доступ к хосту {{ CH }}: `true` или `false`.
 
             {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
           
+          * `shard_name` — имя шарда.
+          
           {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
-
-       * `lifecycle.ignore_changes` — устраняет конфликты ресурсов при операциях с пользователями и базами данных, созданными с помощью отдельных ресурсов.
 
        Для пользователя указываются:
 
@@ -558,9 +570,9 @@ description: Следуя данной инструкции, вы сможете
        1. Чтобы разрешить доступ из других сервисов и [выполнение SQL-запросов из консоли управления](web-sql-query.md) с помощью {{ websql-full-name }}, добавьте блок `access` с нужными вам настройками:
 
           ```hcl
-          resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+          resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
             ...
-            access {
+            access = {
               data_lens    = <доступ_из_{{ datalens-name }}>
               metrika      = <доступ_из_Метрики_и_AppMetrika>
               serverless   = <доступ_из_Cloud_Functions>
@@ -590,7 +602,7 @@ description: Следуя данной инструкции, вы сможете
        1. Чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md), добавьте параметр `disk_encryption_key_id`:
 
           ```hcl
-          resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+          resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
             ...
             disk_encryption_key_id = <идентификатор_ключа_KMS>
             ...
@@ -1420,73 +1432,79 @@ description: Следуя данной инструкции, вы сможете
        Пример структуры конфигурационного файла, в котором описывается кластер из двух хостов {{ CH }} и трех хостов {{ ZK }}:
 
        ```hcl
-       resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+       resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
          name                = "<имя_кластера>"
          environment         = "<окружение>"
          network_id          = yandex_vpc_network.<имя_сети_в_{{ TF }}>.id
          security_group_ids  = ["<список_идентификаторов_групп_безопасности>"]
          deletion_protection = <защита_кластера_от_удаления>
 
-         clickhouse {
-           resources {
+         clickhouse = {
+           resources = {
              resource_preset_id = "<класс_хоста>"
              disk_type_id       = "<тип_диска>"
              disk_size          = <размер_хранилища_ГБ>
            }
          }
 
-         zookeeper {
-           resources {
+         zookeeper = {
+           resources = {
              resource_preset_id = "<класс_хоста>"
              disk_type_id       = "<тип_диска>"
              disk_size          = <размер_хранилища_ГБ>
            }
          }
 
-         host {
-           type             = "CLICKHOUSE"
-           zone             = "<зона_доступности>"
-           subnet_id        = yandex_vpc_subnet.<имя_подсети_в_{{ TF }}>.id
-           assign_public_ip = <публичный_доступ_к_хосту>
+         shards = {
+           "<имя_шарда>" = {
+             weight = <вес_шарда>
+           }
          }
 
-         host {
-           type             = "CLICKHOUSE"
-           zone             = "<зона_доступности>"
-           subnet_id        = yandex_vpc_subnet.<имя_подсети_в_{{ TF }}>.id
-           assign_public_ip = <публичный_доступ_к_хосту>
-         }
+         hosts = {
+           "<имя_хоста_1>" = {
+             type             = "CLICKHOUSE"
+             zone             = "<зона_доступности>"
+             subnet_id        = yandex_vpc_subnet.<имя_подсети_в_{{ TF }}>.id
+             assign_public_ip = <публичный_доступ_к_хосту>
+             shard_name       = "<имя_шарда>"
+           }
 
-         host {
-           type      = "ZOOKEEPER"
-           zone      = "<зона_доступности>"
-           subnet_id = yandex_vpc_subnet.<имя_подсети_в_{{ TF }}>.id
-         }
+           "<имя_хоста_2>" = {
+             type             = "CLICKHOUSE"
+             zone             = "<зона_доступности>"
+             subnet_id        = yandex_vpc_subnet.<имя_подсети_в_{{ TF }}>.id
+             assign_public_ip = <публичный_доступ_к_хосту>
+             shard_name       = "<имя_шарда>"
+           }
 
-         host {
-           type      = "ZOOKEEPER"
-           zone      = "<зона_доступности>"
-           subnet_id = yandex_vpc_subnet.<имя_подсети_в_{{ TF }}>.id
-         }
+           "<имя_хоста_3>" = {
+             type             = "ZOOKEEPER"
+             zone             = "<зона_доступности>"
+             subnet_id        = yandex_vpc_subnet.<имя_подсети_в_{{ TF }}>.id
+           }
 
-         host {
-           type      = "ZOOKEEPER"
-           zone      = "<зона_доступности>"
-           subnet_id = yandex_vpc_subnet.<имя_подсети_в_{{ TF }}>.id
-         }
+           "<имя_хоста_4>" = {
+             type             = "ZOOKEEPER"
+             zone             = "<зона_доступности>"
+             subnet_id        = yandex_vpc_subnet.<имя_подсети_в_{{ TF }}>.id
+           }
 
-         lifecycle {
-           ignore_changes = [database, user]
+           "<имя_хоста_5>" = {
+             type             = "ZOOKEEPER"
+             zone             = "<зона_доступности>"
+             subnet_id        = yandex_vpc_subnet.<имя_подсети_в_{{ TF }}>.id
+           }
          }
        }
 
        resource "yandex_mdb_clickhouse_database" "<имя_БД>" {
-         cluster_id = yandex_mdb_clickhouse_cluster.<имя_кластера>.id
+         cluster_id = yandex_mdb_clickhouse_cluster_v2.<имя_кластера>.id
          name       = "<имя_БД>"
        }
 
        resource "yandex_mdb_clickhouse_user" "<имя_пользователя>" {
-         cluster_id = yandex_mdb_clickhouse_cluster.<имя_кластера>.id
+         cluster_id = yandex_mdb_clickhouse_cluster_v2.<имя_кластера>.id
          name       = "<имя_пользователя>"
          password   = "<пароль_пользователя>"
          permission {
@@ -1504,15 +1522,20 @@ description: Следуя данной инструкции, вы сможете
 
        * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
         
-       * `host` — описание хоста `CLICKHOUSE` или `ZOOKEEPER`.
-       
+       * `shards` — [шарды](../concepts/sharding.md) кластера в виде ассоциативного массива элементов. Ключ задает имя шарда, а значение включает параметр `weight` — вес шарда. 
+
+       * `hosts` — хосты кластера в виде ассоциативного массива элементов. Ключ задает имя хоста, а значение — параметры хоста. Каждый элемент имеет следующую структуру:
+
+          * `type` — тип хоста: `CLICKHOUSE` или `ZOOKEEPER`.
+          * `zone` — [зона доступности](../../overview/concepts/geo-scope.md).
+          * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet).
           * `assign_public_ip` — публичный доступ к хосту {{ CH }}: `true` или `false`. Эта настройка имеет смысл только для хостов типа `CLICKHOUSE`.
 
             {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
           
+          * `shard_name` — имя шарда. Эта настройка имеет смысл только для хостов типа `CLICKHOUSE`.
+          
           {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
-
-       * `lifecycle.ignore_changes` — устраняет конфликты ресурсов при операциях с пользователями и базами данных, созданными с помощью отдельных ресурсов.
 
        Для пользователя указываются:
 
@@ -1539,9 +1562,9 @@ description: Следуя данной инструкции, вы сможете
        1. Чтобы разрешить доступ из других сервисов и [выполнение SQL-запросов из консоли управления](web-sql-query.md) с помощью {{ websql-full-name }}, добавьте блок `access` с нужными вам настройками:
 
           ```hcl
-          resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+          resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
             ...
-            access {
+            access = {
               data_lens    = <доступ_из_{{ datalens-name }}>
               metrika      = <доступ_из_Метрики_и_AppMetrika>
               serverless   = <доступ_из_Cloud_Functions>
@@ -1571,7 +1594,7 @@ description: Следуя данной инструкции, вы сможете
        1. Чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md), добавьте параметр `disk_encryption_key_id`:
 
           ```hcl
-          resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+          resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
             ...
             disk_encryption_key_id = <идентификатор_ключа_KMS>
             ...
@@ -2071,7 +2094,7 @@ description: Следуя данной инструкции, вы сможете
     1. В той же рабочей директории разместите файл с расширением `.tf` и содержимым:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "old" { }
+        resource "yandex_mdb_clickhouse_cluster_v2" "old" { }
         ```
 
     1. Запишите идентификатор первоначального кластера {{ CH }} в переменную окружения:
@@ -2085,7 +2108,7 @@ description: Следуя данной инструкции, вы сможете
     1. Импортируйте настройки первоначального кластера {{ CH }} в конфигурацию {{ TF }}:
 
         ```bash
-        terraform import yandex_mdb_clickhouse_cluster.old ${CLICKHOUSE_CLUSTER_ID}
+        terraform import yandex_mdb_clickhouse_cluster_v2.old ${CLICKHOUSE_CLUSTER_ID}
         ```
 
     1. Получите импортированную конфигурацию:
@@ -2099,8 +2122,8 @@ description: Следуя данной инструкции, вы сможете
     1. Измените скопированную конфигурацию так, чтобы из нее можно было создать новый кластер:
 
         * Укажите новое имя кластера в строке `resource` и параметре `name`.
-        * Удалите параметры `created_at`, `health`, `id` и `status`.
-        * В блоках `host` удалите параметры `fqdn`.
+        * Удалите параметры `created_at`, `cluster_id` и `id`.
+        * В описании хостов удалите параметры `fqdn`.
         * Если в блоке `clickhouse.config.merge_tree` для параметров `max_bytes_to_merge_at_max_space_in_pool`, `max_parts_in_total`, `number_of_free_entries_in_pool_to_execute_mutation` указано значение `0`, удалите эти параметры.
         * В блоке `clickhouse.config.kafka` задайте значение параметра `sasl_password` или удалите этот параметр.
         * В блоке `clickhouse.config.rabbitmq` задайте значение параметра `password` или удалите этот параметр.
@@ -2185,7 +2208,9 @@ description: Следуя данной инструкции, вы сможете
   * Каталог с идентификатором `{{ tf-folder-id }}`.
   * Новая облачная сеть `cluster-net`.
   * Новая [группа безопасности по умолчанию](connect/index.md#configuring-security-groups) `cluster-sg` (в сети `cluster-net`), разрешающая подключение к любому хосту кластера из любой сети (в том числе из интернета) по портам `8443`, `9440`.
-  * Один хост класса `{{ host-class }}` в новой подсети `cluster-subnet-{{ region-id }}-a`.
+  
+  * Один шард `shard1`.
+  * Один хост класса `{{ host-class }}` в шарде `shard1`. Хост размещен в новой подсети `cluster-subnet-{{ region-id }}-a`.
 
     Параметры подсети:
     * диапазон адресов — `172.16.1.0/24`;
@@ -2195,6 +2220,7 @@ description: Следуя данной инструкции, вы сможете
   * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) размером 32 ГБ.
   * Имя базы данных `db1`.
   * Пользователь `user1` с паролем `user1user1`.
+  * Техническое обслуживание проводится в любое время.
 
   Конфигурационные файлы для такого кластера выглядят так:
 
@@ -2288,9 +2314,11 @@ description: Следуя данной инструкции, вы сможете
   * Каталог с идентификатором `{{ tf-folder-id }}`.
   * Новая облачная сеть `cluster-net`.
 
+  * Один шард `shard1`, в котором будут размещены все хосты {{ CH }}.
   * Три хоста {{ CH }} класса `{{ host-class }}` и три хоста {{ ZK }} класса `{{ zk-host-class }}` (для обеспечения работы [репликации](../concepts/replication.md)).
 
-    По одному хосту каждого класса будет размещено в новых подсетях:
+    По одному хосту {{ CH }} и {{ ZK }} будет размещено в новых подсетях:
+
     * `cluster-subnet-{{ region-id }}-a`: `172.16.1.0/24`, зона доступности `{{ region-id }}-a`.
     * `cluster-subnet-{{ region-id }}-b`: `172.16.2.0/24`, зона доступности `{{ region-id }}-b`.
     * `cluster-subnet-{{ region-id }}-d`: `172.16.3.0/24`, зона доступности `{{ region-id }}-d`.
@@ -2302,6 +2330,7 @@ description: Следуя данной инструкции, вы сможете
   * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) размером 10 ГБ для каждого {{ ZK }}-хоста кластера.
   * Имя базы данных `db1`.
   * Пользователь `user1` с паролем `user1user1`.
+  * Техническое обслуживание проводится в любое время.
 
   Конфигурационные файлы для такого кластера выглядят так:
 

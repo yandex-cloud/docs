@@ -208,6 +208,7 @@ description: Следуя данной инструкции, вы научите
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -217,7 +218,7 @@ description: Следуя данной инструкции, вы научите
     1. Добавьте к описанию кластера {{ mch-name }} блок `format_schema`:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
           ...
           format_schema {
             name = "<имя_схемы>"
@@ -240,6 +241,7 @@ description: Следуя данной инструкции, вы научите
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -347,6 +349,7 @@ description: Следуя данной инструкции, вы научите
 
     Имя схемы можно запросить со [списком схем формата данных в кластере](#list-format-schemas); имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -356,7 +359,7 @@ description: Следуя данной инструкции, вы научите
     1. Измените в описании кластера {{ mch-name }} значение параметра `uri` в блоке `format_schema`:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
           ...
           format_schema {
             name = "<имя_схемы>"
@@ -377,6 +380,7 @@ description: Следуя данной инструкции, вы научите
         Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
         {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -491,6 +495,7 @@ description: Следуя данной инструкции, вы научите
 
   Имя схемы можно запросить со [списком схем формата данных в кластере](#list-format-schemas); имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -510,6 +515,7 @@ description: Следуя данной инструкции, вы научите
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 

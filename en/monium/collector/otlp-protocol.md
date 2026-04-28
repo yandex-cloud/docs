@@ -1,10 +1,10 @@
 # OTLP in {{ monium-name }}
 
-{{ monium-name }} can receive metrics via [OTLP](https://opentelemetry.io/docs/specs/otlp/) (OpenTelemetry Protocol), which allows you to send telemetry directly from applications using the OpenTelemetry SDK or through the OpenTelemetry Collector.
+{{ monium-name }} can receive telemetry via [OTLP](https://opentelemetry.io/docs/specs/otlp/) (OpenTelemetry Protocol), which allows you to send data directly from applications using the OpenTelemetry SDK or through OpenTelemetry Collector.
 
 ## Endpoints {#endpoints}
 
-{{ monium-name }} provides the following endpoints for receiving metrics in OTLP format:
+{{ monium-name }} provides the following endpoints to receive telemetry in OTLP format:
 
 #|
 || **Protocol** | **Endpoint** | **Description** ||

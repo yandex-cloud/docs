@@ -162,11 +162,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
     curl --header "Authorization: Bearer $(yc iam create-token)" <invocation_link>
     ```
 
-1. Go to the **{{ ui-key.yacloud.common.logs}}**section and make sure the container logs contain information about the {{ PG }} version.
+1. Go to the **{{ ui-key.yacloud.common.logs }}**section and make sure the container logs contain information about the {{ PG }} version.
 
 ## Delete the resources you created {#clear-out}
 
-To stop paying for the resources you created:
+To stop incurring charges for the resources you created:
 
 1. [Delete the {{ serverless-containers-name }} container](../../serverless-containers/operations/delete.md).
 1. [Delete the Docker images from the registry](../../container-registry/operations/docker-image/docker-image-delete.md).

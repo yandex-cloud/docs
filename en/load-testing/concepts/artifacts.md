@@ -1,5 +1,8 @@
 # Test artifacts
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 Test artifacts are objects created on an [agent](agent.md) during load testing.
 
 Test artifacts are used to generate [reports](reports.md).

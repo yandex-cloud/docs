@@ -87,8 +87,6 @@ items:
         href: billing/known-issues/cloud-stuck-in-creating-status.md
       - name: Документы перестали поступать в систему ЭДО
         href: billing/known-issues/no-new-incoming-documents-in-edi.md
-      - name: Устранение ошибки `message Unauthorized; description Unauthorized`
-        href: billing/known-issues/error-unauthorized.md
       - name: Устранение ошибки `PROHIBITED_BILLING_ACCOUNT_USAGE_STATUS`
         href: billing/known-issues/error-prohibited-user-account-usage-status.md
       - name: >-

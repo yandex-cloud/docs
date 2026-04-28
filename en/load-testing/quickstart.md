@@ -1,5 +1,8 @@
 # Getting started with {{ load-testing-full-name }}
 
+{% include [loadtesting-sunset-warning](../_includes/load-testing/sunset-warning.md) %}
+
+
 Using this guide, you will create a test agent in your cloud, configure a simple load test, and view its results.
 
 ## Getting started {#before-you-begin}

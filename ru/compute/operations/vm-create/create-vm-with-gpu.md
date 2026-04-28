@@ -226,3 +226,4 @@ description: Следуя данной инструкции, вы сможете
 #### См. также {#see-also}
 
 * Узнайте, как [изменить конфигурацию ВМ](../vm-control/vm-update-resources.md).
+* [Вопросы про GPU](../../../compute/qa/gpu.md).

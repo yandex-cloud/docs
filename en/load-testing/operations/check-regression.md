@@ -1,5 +1,8 @@
 # Checking regression metrics for exceeded thresholds using the CLI
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 For each metric (line) on the [regression dashboard](./regressions.md) charts, you can add a threshold value to flag abnormality when exceeded. In addition to graphical display of areas with exceeded thresholds, you can get regression info using a [CLI command](../../cli/cli-ref/loadtesting/cli-ref/test/check-regression.md). 
 
 This page describes the main use cases for the `yc loadtesting test check-regression` command to check if thresholds are exceeded in regression charts.

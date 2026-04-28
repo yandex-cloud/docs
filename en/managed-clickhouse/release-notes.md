@@ -24,6 +24,14 @@ Meet {{ CK }}! It will help you coordinate and distribute queries among hosts in
 
 # {{ mch-full-name }} release notes
 
+## March 2026 {#mar-2026}
+
+* Now you can use self-signed certificates. To enable the feature, contact support.
+* Creating a [backup](./concepts/backup.md) via the management console now requires additional confirmation in a pop-up window.
+* Added an ability to change the [disk type](./concepts/storage.md#storage-type-selection). Data is preserved for replicated tables and clusters compliant with the [service level agreement (SLA)](https://yandex.com/legal/cloud_sla_mdb/en/). When changing the disk type, {{ TF }} now includes a `allow host recreation` warning flag, and the management console displays a warning dashboard listing non-replicated tables.
+* Added support for partial recovery of databases or individual tables from a backup to a new cluster. The feature allows you to quickly restore only the data you need.
+* Added separate [roles](./security.md) to view and edit (reschedule) [maintenance](./concepts/maintenance.md) without access to the cluster.
+
 ## February 2026 {#feb-2026}
 
 * Added the **Performance diagnostics** tool for real-time cluster performance analysis via the GUI. This feature is currently in [Preview](../overview/concepts/launch-stages.md). To participate in testing, contact [support]({{ link-console-support }}).

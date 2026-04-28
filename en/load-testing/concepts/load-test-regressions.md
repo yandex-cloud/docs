@@ -1,5 +1,8 @@
 # Load test regressions
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 You can specify integral metrics for each test in {{ load-testing-name }}. Use them to quickly assess the quality of the test or the service you are testing.
 
 Employ the visualization tools on the page ![image](../../_assets/load-testing/regressions.svg) **{{ ui-key.yacloud.load-testing.label_regressions-title }}** to build integral indicator versus time graphs for the tests you performed.

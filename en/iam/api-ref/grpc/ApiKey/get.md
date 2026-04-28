@@ -43,7 +43,8 @@ The maximum string length in characters is 50. ||
   "scopes": [
     "string"
   ],
-  "expires_at": "google.protobuf.Timestamp"
+  "expires_at": "google.protobuf.Timestamp",
+  "masked_secret": "string"
 }
 ```
 
@@ -72,4 +73,7 @@ Scopes of the API key. 0-256 characters long. ||
 || expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 API key expiration timestamp. ||
+|| masked_secret | **string**
+
+Masked value of the API key's secret part: `\*{4}[a-zA-Z0-9_]{6}` ||
 |#

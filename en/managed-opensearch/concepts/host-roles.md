@@ -39,6 +39,8 @@ If you are using hosts with the `MANAGER` role, a group containing three such ho
 
 If no hosts with the `MANAGER` role are used, make sure to assign this role to the hosts with the `DATA` role. However, having dedicated hosts with the `MANAGER` role allows you to increase the overall cluster reliability and reduce the load on hosts with the `DATA` role.
 
+{% include [note-host-manager](../../_includes/mdb/mos/note-host-group-manager.md) %}
+
 ## Hosts with the DASHBOARDS role {#dashboards}
 
 Hosts with this role run {{ OS }} Dashboards, a data visualization tool to use in such scenarios as real-time application monitoring, threat detection, incident management, or personalized search.

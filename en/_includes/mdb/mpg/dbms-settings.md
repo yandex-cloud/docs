@@ -329,9 +329,9 @@
 
   It controls the use of parallel queries for testing purposes:
 
-  * `off` (`DEBUG_PARALLEL_QUERY_OFF` for {{ TF }} and API): Use parallel mode only when improved performance is expected.
+  * `off` (`DEBUG_PARALLEL_QUERY_OFF` for {{ TF }} and API): Parallel mode is used only when it is expected to improve performance.
   * `on` (`DEBUG_PARALLEL_QUERY_ON` for {{ TF }} and API): Forcibly use parallel mode for all queries where it is safe to do so.
-  * `regress` (`DEBUG_PARALLEL_QUERY_REGRESS` for {{ TF }} and API): Similar to `on`, but with some modifications that facilitate automatic regression testing. For example, Gather nodes are hidden from the `EXPLAIN` command output.
+  * `regress` (`DEBUG_PARALLEL_QUERY_REGRESS` for {{ TF }} and API): Works similarly to `on`, but with certain differences that facilitate automatic regression testing. For example, Gather nodes are hidden from the `EXPLAIN` command output.
 
   The default value is `off`.
 
@@ -443,7 +443,7 @@
 
   This setting is enabled by default, and the planner attempts to create an optimized plan.
 
-  If the setting is disabled, the query planner will create a plan where the order of keys under `GROUP BY` matches the order of clauses from the `ORDER BY` section if it is provided. If there is no `ORDER BY` section, keys in the `GROUP BY` section are not sorted (the order from `GROUP BY` is used).
+  If the setting is disabled, the query planner will create a plan where the order of keys under `GROUP BY` matches the order of clauses from the `ORDER BY` section if it is provided. In case there is no `ORDER BY` section, keys in the `GROUP BY` section are not sorted (the order from `GROUP BY` is used).
 
   For more information, see the `enable_group_by_reordering` setting description in [this {{ PG }} article]({{ pg.docs.org }}/current/runtime-config-query.html#GUC-ENABLE-GROUPBY-REORDERING).
 
@@ -1181,10 +1181,10 @@
 
   Enables the use of the `hint_plan.hints` table containing hints for the `pg_hint_plan` module that you can use when you cannot modify queries. This table has the following columns:
 
-  - `id`: Unique _hint_ row ID. This column is populated automatically.
-  - `norm_query_string`: Pattern for selecting queries targeted by the _hint_. Replace constants with the `?` character. Whitespaces in the pattern are meaningful.
-  - `application_name`: Initiating application for the sessions where the _hint_ applies.
-  - `hint`: _Hints_ not wrapped in comment markers.
+  - `id`: Unique hint row ID. This column is populated automatically.
+  - `norm_query_string`: Pattern for selecting queries targeted by the hint. Replace constants with the `?` character. Whitespace characters are treated as part of the pattern and affect matching.
+  - `application_name`: Initiating application for the sessions where the hint applies.
+  - `hint`: Hints not wrapped in comment markers.
 
   This setting is disabled by default.
 

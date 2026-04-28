@@ -163,4 +163,4 @@ Hello!
 
 ## What's next {#whats-next}
 
-* Read about [service concepts](../concepts/invoke.md).
+* Read about the [service concepts](../concepts/invoke.md).

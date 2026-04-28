@@ -18,8 +18,6 @@ editable: false
 
 {{ cloud-logging-name }} charges you for the amount of written data and the time over which the data is stored.
 
-The monthly prices are based on 720 hours per month.
-
 
 ## Prices for the Russia region {#prices}
 

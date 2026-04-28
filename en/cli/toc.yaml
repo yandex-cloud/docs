@@ -13,16 +13,6 @@ items:
         href: operations/update-cli.md
       - name: Uninstalling the CLI
         href: operations/remove-cli.md
-      - name: Authentication
-        items:
-          - name: Authenticating as a user
-            href: operations/authentication/user.md
-          - name: Authenticating as a service account
-            href: operations/authentication/service-account.md
-          - name: Authenticating as a federated user
-            href: operations/authentication/federated-user.md
-          - name: Authenticating as a local user
-            href: operations/authentication/local-user.md
       - name: Profile management
         items:
           - name: Creating a profile
@@ -35,6 +25,16 @@ items:
             href: operations/profile/profile-activate.md
           - name: Deleting a profile
             href: operations/profile/profile-delete.md
+      - name: Authentication
+        items:
+          - name: Authenticating as a user
+            href: operations/authentication/user.md
+          - name: Authenticating as a service account
+            href: operations/authentication/service-account.md
+          - name: Authenticating as a federated user
+            href: operations/authentication/federated-user.md
+          - name: Authenticating as a local user
+            href: operations/authentication/local-user.md
   - name: Concepts
     items:
       - name: Running commands
@@ -1515,6 +1515,9 @@ items:
                   - name: delete
                     href: >-
                       cli-ref/cloud-registry/cli-ref/registry/lifecycle-policy/delete.md
+                  - name: dry-run
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/registry/lifecycle-policy/dry-run.md
                   - name: get
                     href: >-
                       cli-ref/cloud-registry/cli-ref/registry/lifecycle-policy/get.md
@@ -1605,6 +1608,9 @@ items:
                       - name: delete
                         href: >-
                           cli-ref/cloud-registry/cli-ref/v0/registry/lifecycle-policy/delete.md
+                      - name: dry-run
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v0/registry/lifecycle-policy/dry-run.md
                       - name: get
                         href: >-
                           cli-ref/cloud-registry/cli-ref/v0/registry/lifecycle-policy/get.md

@@ -1,5 +1,7 @@
 # Load testing using multiple agents
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
 
 You can use {{ load-testing-name }} to test your service with multiple [agents](../../load-testing/concepts/agent.md).
 
@@ -90,11 +92,11 @@ In this example, an external service named `example.myservice.ru` will be loaded
         * If you can use security groups, select a preset agent security group.
      1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, specify the agent access credentials:
         * Select the `sa-loadtest` service account.
-        * Under **{{ ui-key.yacloud.compute.instances.create.field_user }}**, enter the username.
+        * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username.
 
           {% note alert %}
 
-          Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
+          Do not use `root` or other OS-reserved usernames. For operations requiring root privileges, use the `sudo` command.
 
           {% endnote %}
 

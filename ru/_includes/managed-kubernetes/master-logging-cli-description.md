@@ -5,5 +5,3 @@
 * `cluster-autoscaler-enabled` — флаг отправки логов `cluster-autoscaler`: `true` или `false`.
 * `events-enabled` — флаг отправки событий {{ k8s }}: `true` или `false`.
 * `audit-enabled` — флаг отправки событий аудита: `true` или `false`.
-
-Если отправка логов включена, но не указаны ни `log-group-id`, ни `folder-id`, логи будут отправляться в каталог, где находится [кластер {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster), в лог-группу по умолчанию. Указывать одновременно `log-group-id` и `folder-id` нельзя.

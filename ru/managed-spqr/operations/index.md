@@ -21,6 +21,7 @@ keywords:
 * [Управление резервными копиями](cluster-backups.md)
 * [Техническое обслуживание](cluster-maintenance.md)
 * [Просмотр логов кластера](cluster-logs.md)
+* [Мониторинг состояния кластера и хостов](monitoring.md)
 * [Удаление кластера](cluster-delete.md)
 * [Управление доступом к кластеру](cluster-access.md)
 * [Управление пользователями](cluster-users.md)

@@ -40,7 +40,7 @@ Retention periods and legal holds are independent. This means you can place a re
 
 The table below lists the minimum roles required for specific actions based on the lock type. An empty cell indicates the action is unavailable; no role grants the permissions to perform it.
 
-| Action | Governance-mode <br>retention | Compliance-mode <br>retention | Legal hold<br> |
+| Action | Governance mode<br>(governance) | Strict<br>(compliance) | Unlimited<br>(legal hold) |
 | --- | --- | --- | --- |
 | Set a lock | `storage.uploader` | `storage.uploader` | `storage.uploader` |
 | Delete or overwrite a locked object version | `storage.admin` | — | — |

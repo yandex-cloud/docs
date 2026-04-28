@@ -11,8 +11,8 @@ dateTime <field_name> must be between 1900-01-01 00:00:00 and 2262-04-11 23:47:1
 
 Supported date ranges in {{ CH }}:
 
-* For the `DateTime64` type fields: 1900-01-01 to 2299-12-31. For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/data-types/datetime64).
-* For the `DateTime` type fields: 1970-01-01 to 2106-02-07. For more information, see the [{{ CH }} documentation]({{ ch.docs }}/sql-reference/data-types/datetime).
+* For the `DateTime64` type fields: 1900-01-01 to 2299-12-31. For more information, see [this {{ CH }} guide]({{ ch.docs }}/sql-reference/data-types/datetime64).
+* For the `DateTime` type fields: 1970-01-01 to 2106-02-07. For more information, see [this {{ CH }} guide]({{ ch.docs }}/sql-reference/data-types/datetime).
 
 **Solution**: use one of the following options:
 

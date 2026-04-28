@@ -4,7 +4,10 @@ description: In this article, you will learn about quotas and limits in {{ load-
 editable: false
 ---
 
-# Quotas and limits in {{ load-testing-name }}
+# {{ load-testing-name }} quotas and limits
+
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
 
 There are no active quotas in {{ load-testing-name }}.
 

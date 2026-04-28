@@ -8,6 +8,8 @@ keywords:
 
 # Виртуальные машины
 
+{% include [minitoc](minitoc/vm.md) %}
+
 ### Технические характеристики {#technical-parameters}
 
 #### Какую конфигурацию ВМ (память, процессор) я могу использовать? {#configure-vm}
@@ -18,11 +20,13 @@ keywords:
 
 #### Как изменить объем памяти и количество ядер, выделенных ВМ? {#update-type}
 
+Для внесения изменений остановите ВМ и перейдите к редактированию. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** выберите платформу, укажите количество vCPU и объем RAM.
+
 Подробнее читайте в разделе [{#T}](../../compute/operations/vm-control/vm-update-resources.md).
 
 #### Как создать мультиинтерфейсную ВМ? {#multi-interface}
 
-Добавить сетевой интерфейс можно только при [создании ВМ](../../compute/operations/index.md#vm-create). На текущий момент создание нескольких интерфейсов доступно только на сетевых образах из [{{ marketplace-full-name }}](/marketplace?categories=network). 
+Добавить сетевой интерфейс можно только при [создании ВМ](../../compute/operations/index.md#vm-create). На текущий момент создание нескольких интерфейсов доступно только на сетевых образах из [{{ marketplace-full-name }}](/marketplace?categories=network).
 
 Также вы можете создать [NAT-инстанс](../../vpc/tutorials/nat-instance), чтобы использовать несколько сетевых интерфейсов.
 

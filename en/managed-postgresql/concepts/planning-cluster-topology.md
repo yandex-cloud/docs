@@ -81,7 +81,7 @@ Compared to two-host clusters, a cluster with three or more hosts offers the fol
 
 * [{#T}](../tutorials/1c-postgresql.md)
 
-### Cluster availability under different topologies {#cluster-availability}
+### Cluster availability under different topologies {#cluster-availability-diff-topology}
 
 The number of hosts listed in the tables includes the master host and replica hosts subject to automatic replication. Replica hosts with [specified replication sources](./replication.md#replication-manual) are not counted.
 

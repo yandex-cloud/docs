@@ -87,7 +87,7 @@ description: Follow this guide to encrypt a disk in {{ compute-short-name }}.
       ```
 
       Where:
-      * `--name`: Name of the image you are creating.
+      * `--name`: Image name.
       * `--source-disk-name`: Name of the unencrypted disk you are creating the image for.
 
       Result:
@@ -202,7 +202,7 @@ description: Follow this guide to encrypt a disk in {{ compute-short-name }}.
       resource "yandex_compute_disk" "empty-disk" {
         name       = "<encrypted_disk_name>"
         type       = "network-hdd"
-        zone       = "{{ region-id}}-a"
+        zone       = "{{ region-id }}-a"
         size       = 20
         block_size = 4096
         image_id   = yandex_compute_image.image-1.id
@@ -215,7 +215,7 @@ description: Follow this guide to encrypt a disk in {{ compute-short-name }}.
       * `source_disk`: Unencrypted disk ID.
       * `name`: Name of the encrypted disk you are creating.
 
-     For more information about `yandex_compute_disk` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_disk).
+     For more information about `yandex_compute_disk` properties, see [this provider guide]({{ tf-provider-resources-link }}/compute_disk).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}

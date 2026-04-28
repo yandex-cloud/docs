@@ -26,7 +26,7 @@ Each cluster has 16,348 *hash slots* evenly distributed across the shards. Slots
 
 All hosts in the cluster use service connections to exchange data about slots and regularly request statuses from each other.
 
-If the majority of master hosts fails to get a response from the host being polled, the host is considered to be down. If it is the master host that is down, one of its replicas becomes master. If all replicas fail or none of them can become master, the shard stops receiving queries. In a cluster with two or more shards, if a single shard is down, the {{ VLK }} Cluster itself will continue to work. The remaining shards will still be available for reading and writing data.
+If, during polling, the majority of master hosts fail to get a response from the host being polled, the host is considered to be down. If the master host fails, one of its replicas takes its place. If all replicas fail or none of them can become master, the shard stops receiving queries. In a cluster with two or more shards, if a single shard is down, the {{ VLK }} Cluster itself will continue to work. The remaining shards will still be available for reading and writing data.
 
 To make sure your cluster is stable, create at least one master host with a single replica. Masters and their replicas must reside in different availability zones, regardless of their number.
 

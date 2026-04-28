@@ -87,6 +87,8 @@ items:
         items:
           - name: Viewing cluster logs
             href: operations/cluster-logs.md
+          - name: Performance diagnostics
+            href: operations/performance-diagnostics.md
           - name: Cluster and host state monitoring
             href: operations/monitoring.md
           - name: Connecting from {{ datalens-name }}

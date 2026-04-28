@@ -208,6 +208,7 @@ description: Из статьи вы узнаете, как управлять п
 
   См. также: [пример создания пользователя с правами «только чтение»](#example-create-readonly-user).
 
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -246,13 +247,13 @@ description: Из статьи вы узнаете, как управлять п
 
         ```hcl
 
-        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
           name = "<имя_кластера>"
           ...
         }
 
         resource "yandex_mdb_clickhouse_user" "<имя_пользователя>" {
-          cluster_id = yandex_mdb_clickhouse_cluster.<имя_кластера>.id
+          cluster_id = yandex_mdb_clickhouse_cluster_v2.<имя_кластера>.id
           name       = "<имя_пользователя>"
           ...
         }
@@ -267,6 +268,7 @@ description: Из статьи вы узнаете, как управлять п
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
+
 
 - REST API {#api}
 
@@ -481,6 +483,7 @@ description: Из статьи вы узнаете, как управлять п
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -523,6 +526,7 @@ description: Из статьи вы узнаете, как управлять п
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
+
 
 - REST API {#api}
 
@@ -671,6 +675,7 @@ description: Из статьи вы узнаете, как управлять п
 
     {% endnote %}
 
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -680,7 +685,7 @@ description: Из статьи вы узнаете, как управлять п
     1. Измените значение поля `admin_password`:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
           ...
           admin_password = "<пароль_пользователя_admin>"
           ...
@@ -698,6 +703,7 @@ description: Из статьи вы узнаете, как управлять п
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
+
 
 - REST API {#api}
 
@@ -867,6 +873,7 @@ description: Из статьи вы узнаете, как управлять п
 
      С помощью этой команды невозможно удалить сделанную настройку, допустимо только явно присвоить ей значение по умолчанию (оно указано для [каждой настройки](#clickhouse-settings)).
 
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -937,6 +944,7 @@ description: Из статьи вы узнаете, как управлять п
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
+
 
 - REST API {#api}
 
@@ -1114,6 +1122,7 @@ description: Из статьи вы узнаете, как управлять п
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -1131,6 +1140,7 @@ description: Из статьи вы узнаете, как управлять п
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
+
 
 - REST API {#api}
 
@@ -1241,6 +1251,7 @@ description: Из статьи вы узнаете, как управлять п
        DB::Exception: Cannot modify 'readonly' setting in readonly mode.
        ```
 
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -1270,6 +1281,7 @@ description: Из статьи вы узнаете, как управлять п
     1. Подтвердите изменение ресурсов.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 
 - REST API {#api}
 

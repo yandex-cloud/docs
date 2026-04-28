@@ -284,6 +284,7 @@ description: Следуя данной инструкции, вы сможете
 
         Имя и идентификатор кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -303,6 +304,7 @@ description: Следуя данной инструкции, вы сможете
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
         {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 

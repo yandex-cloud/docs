@@ -150,7 +150,7 @@ The possible causes include:
 * If a bucket policy with no rules is applied to the bucket, access is denied to all users. To disable request verification for a bucket policy, [delete](operations/buckets/policy.md#delete-policy) it.
 
 
-* If a [{{ metastore-full-name }}](../metadata-hub/concepts/metastore.md) or [{{ maf-full-name}}](../managed-airflow/concepts/index.md) cluster uses a bucket with the bucket policy configured, the cluster will not be able to write or read to/from the bucket without a service account with the appropriate role. For more information, see these guides for [{{ metastore-name }}](../metadata-hub/operations/metastore/s3-policy-connect.md) and [{{ maf-name }}](../managed-airflow/operations/s3-policy-connect.md).
+* If a [{{ metastore-full-name }}](../metadata-hub/concepts/metastore.md) or [{{ maf-full-name }}](../managed-airflow/concepts/index.md) cluster uses a bucket with the bucket policy configured, the cluster will not be able to write or read to/from the bucket without a service account with the appropriate role. For more information, see these guides for [{{ metastore-name }}](../metadata-hub/operations/metastore/s3-policy-connect.md) and [{{ maf-name }}](../managed-airflow/operations/s3-policy-connect.md).
 
 
 #### How do I get access to {{ objstorage-name }} from a {{ vpc-name }} cloud network? {#qa-from-vpc}

@@ -42,7 +42,7 @@ You can add and remove users, as well as manage their settings.
           --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>/users'
       ```
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/User/list.md#yandex.cloud.mdb.mysql.v1.ListUsersResponse) to make sure your request was successful.
 
@@ -69,9 +69,41 @@ You can add and remove users, as well as manage their settings.
           yandex.cloud.mdb.mysql.v1.UserService.List
       ```
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. Check the [server response](../api-ref/grpc/User/list.md#yandex.cloud.mdb.mysql.v1.ListUsersResponse) to make sure your request was successful.
+  1. View the [server response](../api-ref/grpc/User/list.md#yandex.cloud.mdb.mysql.v1.ListUsersResponse) to make sure your request was successful.
+
+- SQL {#sql}
+
+  To get a list of all users in a {{ MY }} cluster:
+
+  1. [Grant](grant.md) the `mdb_admin` permissions to the user on whose behalf you will be connecting to the cluster database.
+
+  1. [Connect to the database](connect/clients.md).
+
+  1. Get a list of all users:
+
+      ```sql
+      SELECT user FROM mysql.v_user;
+      ```
+
+      Result example:
+
+      ```sql
+      +-------+
+      | user  |
+      +-------+
+      | user1 |
+      | user2 |
+      | user3 |
+      +-------+
+      ```
+
+      To get more detailed information about users, run this query:
+
+      ```sql
+      SELECT * FROM mysql.v_user;
+      ```
 
 {% endlist %}
 
@@ -260,13 +292,13 @@ You can add and remove users, as well as manage their settings.
           --data "@body.json"
       ```
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/User/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -312,7 +344,7 @@ You can add and remove users, as well as manage their settings.
 
           In the `permissions` array, add a separate element with permission settings for each database.
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Call the [UserService/Create](../api-ref/grpc/User/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 

@@ -94,8 +94,9 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
        ```hcl
        resource "yandex_kms_asymmetric_encryption_key_iam_member" "key-viewers" {
          asymmetric_encryption_key_id = "<key_pair_ID>"
-         role                         = "<role_1>"
-         members                      = ["<subject_type>:<subject_ID>"]
+
+         role   = "<role_1>"
+         member = "<subject_type>:<subject_ID>"
        }
        ```
 
@@ -103,7 +104,7 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
 
        * `asymmetric_encryption_key_id`: ID of the asymmetric encryption key pair.
        * `role`: [Role](../security/index.md#roles-list) to assign.
-       * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+       * `member`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
        For more information about `yandex_kms_asymmetric_encryption_key_iam_member` resource properties, see this [provider guide]({{ tf-provider-resources-link }}/kms_asymmetric_encryption_key_iam_member).
 
@@ -231,15 +232,17 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
        # Role 1
        resource "yandex_kms_asymmetric_encryption_key_iam_member" "key-viewers" {
          asymmetric_encryption_key_id = "<key_pair_ID>"
-         role                         = "<role_1>"
-         members                      = ["<subject_type>:<subject_ID>"]
+
+         role   = "<role_1>"
+         member = "<subject_type>:<subject_ID>"
        }
 
        # Role 2
        resource "yandex_kms_asymmetric_encryption_key_iam_member" "key-editors" {
          asymmetric_encryption_key_id = "<key_pair_ID>"
-         role                         = "<role_2>"
-         members                      = ["<subject_type>:<subject_ID>"]
+
+         role   = "<role_2>"
+         member = "<subject_type>:<subject_ID>"
        }
        ```
 
@@ -247,7 +250,7 @@ You can grant access to an [asymmetric encryption key pair](../concepts/asymmetr
 
        * `asymmetric_encryption_key_id`: ID of the asymmetric encryption key pair.
        * `role`: [Role](../security/index.md#roles-list) to assign.
-       * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+       * `member`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
        For more information about `yandex_kms_asymmetric_encryption_key_iam_member` resource properties, see this [provider guide]({{ tf-provider-resources-link }}/kms_asymmetric_encryption_key_iam_member).
 

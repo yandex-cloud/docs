@@ -1,5 +1,8 @@
 # URI
 
+{% include [loadtesting-sunset-warning](../../../_includes/load-testing/sunset-warning.md) %}
+
+
 Type of test data used to describe HTTP `GET` requests. Allows you to set different headers for different requests and specify request tags. Used in Pandora and Phantom load generators.
 
 The test data type is specified when [creating a test](../../operations/create-test-bucket.md#create-test).

@@ -5,6 +5,9 @@ description: Follow this guide to save test artifacts to {{ objstorage-name }}.
 
 # Saving test artifacts to {{ objstorage-name }}
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 Configure the saving of test artifacts to {{ objstorage-full-name }}. You can use artifacts to analyze test results and identify issues during testing.
 
 {% note info %}
@@ -13,7 +16,7 @@ You can only configure how to save your artifacts prior to testing.
 
 {% endnote %}
 
-## Setting up your infrastructure {#infrastructure-prepare}
+## Setting up the infrastructure {#infrastructure-prepare}
 
 1. Create a [bucket](../../storage/concepts/bucket.md) in the folder with the [test agent](../concepts/agent.md).
 1. [Assign](../../iam/operations/sa/assign-role-for-sa.md) the `storage.uploader` role to the service account used to [create the test agent](create-agent.md).

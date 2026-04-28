@@ -1,5 +1,8 @@
 # Load testing a gRPC service
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 
 You can use {{ load-testing-name }} for service load testing via [gRPC](https://grpc.io/docs/) with the [Pandora](../../load-testing/concepts/load-generator.md#pandora) [load generator](../../load-testing/concepts/load-generator.md).
 
@@ -189,7 +192,7 @@ For a service whose subnet and security group is different from the agent's ones
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete the agent](../../compute/operations/vm-control/vm-delete.md).
 1. [Delete the route table](../../vpc/operations/delete-route-table.md).

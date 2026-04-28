@@ -1,5 +1,8 @@
 # Agent
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 An _agent_ is a VM that provides computing resources to generate load on the target application. This load comes as preset test data, such as requests, parameters, or scripts.
 
 Note that, during load generation, you need to monitor the agent system resources, such as vCPUs, memory, disks, and network. If you run out of any resource, you will not be able to generate load and measure responses in an appropriate way. 

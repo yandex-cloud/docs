@@ -19,6 +19,7 @@ description: Из этой статьи вы узнаете, как выполн
 
 {% list tabs group=auth_keys %}
 
+
 - Аутентификация с помощью IAM-токена {#iam-token}
 
   {% include [s3-api-auth-intro-iam-token](../../_includes/storage/s3-api-auth-intro-iam-token.md) %}
@@ -57,6 +58,7 @@ description: Из этой статьи вы узнаете, как выполн
 
 {% list tabs group=auth_keys %}
 
+
 - Аутентификация с помощью IAM-токена {#iam-token}
 
   1. Задайте переменные, содержащие необходимые данные:
@@ -94,6 +96,7 @@ description: Из этой статьи вы узнаете, как выполн
       <
       * Connection #0 to host {{ s3-storage-host }} left intact
       ```
+
 
 - Аутентификация с помощью статического ключа {#static-key}
 
@@ -198,6 +201,7 @@ description: Из этой статьи вы узнаете, как выполн
 
 {% list tabs group=auth_keys %}
 
+
 - Аутентификация с помощью IAM-токена {#iam-token}
 
   1. Задайте переменные, содержащие необходимые данные:
@@ -240,6 +244,7 @@ description: Из этой статьи вы узнаете, как выполн
       <
       * Connection #0 to host {{ s3-storage-host }} left intact
       ```
+
 
 - Аутентификация с помощью статического ключа {#static-key}
 
@@ -354,6 +359,7 @@ description: Из этой статьи вы узнаете, как выполн
 
 {% list tabs group=auth_keys %}
 
+
 - Аутентификация с помощью IAM-токена {#iam-token}
 
   1. Задайте переменные, содержащие необходимые данные:
@@ -412,6 +418,7 @@ description: Из этой статьи вы узнаете, как выполн
           </Contents>
       </ListBucketResult>
       ```
+
 
 - Аутентификация с помощью статического ключа {#static-key}
 
@@ -558,6 +565,7 @@ description: Из этой статьи вы узнаете, как выполн
 
 {% list tabs group=auth_keys %}
 
+
 - Аутентификация с помощью IAM-токена {#iam-token}
 
   1. Задайте переменные, содержащие необходимые данные:
@@ -605,6 +613,7 @@ description: Из этой статьи вы узнаете, как выполн
       100    13  100    13    0     0     69      0 --:--:-- --:--:-- --:--:--    69
       * Connection #0 to host {{ s3-storage-host }} left intact
       ```
+
 
 - Аутентификация с помощью статического ключа {#static-key}
 
@@ -731,6 +740,7 @@ description: Из этой статьи вы узнаете, как выполн
 
 {% list tabs group=auth_keys %}
 
+
 - Аутентификация с помощью IAM-токена {#iam-token}
 
   1. Задайте переменные, содержащие необходимые данные:
@@ -768,6 +778,7 @@ description: Из этой статьи вы узнаете, как выполн
       <
       * Connection #0 to host {{ s3-storage-host }} left intact
       ```
+
 
 - Аутентификация с помощью статического ключа {#static-key}
 
@@ -872,6 +883,7 @@ description: Из этой статьи вы узнаете, как выполн
 
 {% list tabs group=auth_keys %}
 
+
 - Аутентификация с помощью IAM-токена {#iam-token}
 
   1. Задайте переменные, содержащие необходимые данные:
@@ -907,6 +919,7 @@ description: Из этой статьи вы узнаете, как выполн
       <
       * Connection #0 to host {{ s3-storage-host }} left intact
       ```
+
 
 - Аутентификация с помощью статического ключа {#static-key}
 

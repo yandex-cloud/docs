@@ -139,8 +139,6 @@ A CVoS discount is only available for certain types of resources. For unsupporte
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-{% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
-
 You cannot order {{ ZK }} host resources via CVoS.
 
 

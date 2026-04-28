@@ -70,3 +70,7 @@ description: Следуя данной инструкции, вы сможете
    # Out of bounds values : 0 OK
    # Avg bus bandwidth    : 121.467
    ```
+
+#### См. также {#see-also}
+
+* [Вопросы про GPU](../../../compute/qa/gpu.md).

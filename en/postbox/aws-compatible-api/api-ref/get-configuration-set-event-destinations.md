@@ -49,15 +49,15 @@ Array of subscriptions. ||
 Subscription name. ||
 || `Enabled` | **Type**: Boolean.
 
-Subscription state: `true` for enabled, `false` for disabled. If the subscription is enabled, email delivery notifications are sent to the specified stream. ||
+Subscription status: `true` for enabled and `false` for disabled. If the subscription is enabled, email delivery notifications are sent to the specified stream. ||
 || `KinesisFirehoseDestination` | **Type**: Object.
 
 Object that specifies the destination for notifications. ||
 || `DeliveryStreamArn` | **Type**: String.
 
-{{ yds-full-name }} data stream notifications will go to.
+Data stream in {{ yds-full-name }} notifications are sent to.
 
-Format: `arn:yc:yds:<region>::<endpoint>:<stream name>`.
+Format: `arn:yc:yds:<region>::<endpoint>:<stream_name>`.
 
 {% cut "Example" %}
 
@@ -72,7 +72,7 @@ The `200 OK` response may contain additional parameters. Its format may vary sli
 
 {% include [api-errors](../../../_includes/postbox/api-errors.md) %}
 
-Possible errors:
+The possible errors include:
 
 #|
 || **Error code** | **Description** ||

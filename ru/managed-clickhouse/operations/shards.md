@@ -89,27 +89,33 @@
 
           {% include [warning-schema-copy](../../_includes/managed-clickhouse/warning-schema-copy.md) %}
 
+
 - {{ TF }} {#tf}
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-  1. Добавьте к описанию кластера {{ mch-name }} один или несколько блоков `shard` и блоков `host` типа `CLICKHOUSE` с заполненным полем `shard_name`:
+  1. В описании кластера {{ mch-name }} добавьте в блок `shards` новый шард, а в блок `hosts` — хост {{ CH }} на этом шарде:
 
      ```hcl
-     resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+     resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
        ...
-       shard {
-         name   = "<имя_шарда>"
-         weight = <вес_шарда>
+       shards = {
+         ...
+         "<имя_шарда>" = {
+           weight = <вес_шарда>
+         }
        }
 
-       host {
-         type       = "CLICKHOUSE"
-         zone       = "<зона_доступности>"
-         subnet_id  = yandex_vpc_subnet.<подсеть_в_зоне_доступности>.id
-         shard_name = "<имя_шарда>"
+       hosts = {
+         ...
+         <имя_хоста> = {
+           type       = "CLICKHOUSE"
+           zone       = "<зона_доступности>"
+           subnet_id  = yandex_vpc_subnet.<подсеть_в_зоне_доступности>.id
+           shard_name = "<имя_шарда>"
+         }
        }
      }
      ```
@@ -129,6 +135,7 @@
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -607,13 +614,14 @@
 
   Имена шардов можно запросить со [списком шардов в кластере](#list-shards), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-  1. Удалите из описания кластера {{ mch-name }} нужные блоки `shard` и `host`.
+  1. В описании кластера {{ mch-name }} удалите шард из блока `shards`, а из блока `hosts` — все хосты {{ CH }} на этом шарде.
   1. Проверьте корректность настроек.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -625,6 +633,7 @@
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 

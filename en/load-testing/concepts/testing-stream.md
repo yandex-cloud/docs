@@ -1,5 +1,8 @@
 # Testing threads
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 A [load generator](load-generator.md) creates parallel _testing threads_. Operations within threads are performed sequentially, that is, after a request is created, a response is awaited. The thread where a response is awaited is unavailable for new requests. To ensure the required load, a generator uses the following threads.
 
 You can track thread utilization on a chart in the [report](reports.md).

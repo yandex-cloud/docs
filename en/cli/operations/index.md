@@ -9,13 +9,6 @@ description: In this article, you will learn how to work with the command line i
 - [{#T}](update-cli.md)
 - [{#T}](remove-cli.md)
 
-## Authentication {#auth}
-
-- [{#T}](authentication/user.md)
-- [{#T}](authentication/service-account.md)
-- [{#T}](authentication/federated-user.md)
-- [{#T}](authentication/local-user.md)
-
 ## Managing a profile {#profile}
 
 - [{#T}](profile/profile-create.md)
@@ -23,3 +16,10 @@ description: In this article, you will learn how to work with the command line i
 - [{#T}](profile/profile-list.md)
 - [{#T}](profile/profile-activate.md)
 - [{#T}](profile/profile-delete.md)
+
+## Authentication {#auth}
+
+- [{#T}](authentication/user.md)
+- [{#T}](authentication/service-account.md)
+- [{#T}](authentication/federated-user.md)
+- [{#T}](authentication/local-user.md)

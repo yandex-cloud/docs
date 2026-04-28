@@ -2,7 +2,7 @@ For example, Julia works with multiple teams and belongs to their communities wi
 
 * In the <q>Cat lovers</q> community: `Admin` (the `{{ roles-datasphere-communities-admin }}` role).
 * In the <q>Counting fences</q> community: `Developer` (the `{{ roles-datasphere-communities-developer }}` role).
-* In the <q>Top secret</q> community: `Viewer` (the `{{ roles-datasphere-communities-viewer}}` role), but with the `Editor` permissions in <q>Project_111</q> of this community (the `{{ roles-datasphere-project-editor }}` role).
+* In the <q>Top secret</q> community: `Viewer` (the `{{ roles-datasphere-communities-viewer }}` role), but with the `Editor` permissions in <q>Project_111</q> of this community (the `{{ roles-datasphere-project-editor }}` role).
 
 Julia can:
 

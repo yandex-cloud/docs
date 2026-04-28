@@ -8,7 +8,7 @@ Users are not transferred automatically to a {{ mpg-name }} cluster. You need to
 
 {% endnote %}
 
-Performing migration with {{ data-transfer-name }} allows you to:
+Using {{ data-transfer-name }} for migration allows you to:
 
 * Eliminate the need for an intermediate VM or public internet access to your {{ mpg-name }} target cluster.
 * Minimize the DB downtime when migrating data.
@@ -135,7 +135,7 @@ This migration method provides:
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**.
 
-1. To reduce the consumption of resources you do not need, delete them:
+1. To minimize resource consumption, delete the resources you no longer need:
 
     1. [Delete the {{ mpg-name }} cluster](../../managed-postgresql/operations/cluster-delete.md) if you transferred data from it.
     1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).

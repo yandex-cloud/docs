@@ -134,7 +134,7 @@ To push a Helm chart:
   1. Push the Helm chart to {{ cloud-registry-name }}:
 
      ```bash
-     helm push my-chart-3.11.2.tgz oci://{{ cloud-registry}}/<registry_ID>
+     helm push my-chart-3.11.2.tgz oci://{{ cloud-registry }}/<registry_ID>
      ```
 
      Result:

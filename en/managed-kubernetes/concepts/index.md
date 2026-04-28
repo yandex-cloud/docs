@@ -141,6 +141,8 @@ For a node group, you can specify the following settings:
 * [Node group cloud labels](../../resource-manager/concepts/labels.md)
 * [Scaling parameters](./node-group/cluster-autoscaler.md)
 * [Deployment policy](./node-group/deploy-policy.md)
+* [Reserved instance pools](./node-group/reserved-pools.md)
+* [Variables in a node template](./node-group/variables-in-the-template.md)
 * [{#T}](#config)
 * [{#T}](#taints-tolerations)
 * [{#T}](#node-labels)

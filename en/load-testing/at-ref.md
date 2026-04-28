@@ -1,13 +1,16 @@
 ---
 title: '{{ load-testing-full-name }} event reference in {{ at-full-name }}'
-description: This page gives a reference for {{ load-testing-name }} events tracked in {{ at-name }}.
+description: This page lists {{ load-testing-name }} events that can be tracked in {{ at-name }}.
 ---
 
 # {{ at-full-name }} event reference
 
+{% include [loadtesting-sunset-warning](../_includes/load-testing/sunset-warning.md) %}
+
+
 {{ at-name }} supports tracking control plane events for {{ load-testing-full-name }}. For more information, see [{#T}](../audit-trails/concepts/format.md).
 
-The `event_type` value follows this general format:
+The general format of the `event_type` value is as follows:
 
 ```text
 {{ at-event-prefix }}.audit.loadtesting.<event_name>

@@ -12,12 +12,12 @@ items:
             href: program/var.md
           - name: Инструменты
             href: program/var-tools.md
-      - name: Специализации
-        items:
-          - name: Обзор
-            href: specializations/index.md
-          - name: Условия получения
-            href: specializations/conditions.md
+          - name: Партнерские статусы {{ yandex-cloud }}
+            items:
+              - name: Обзор
+                href: specializations/index.md
+              - name: Условия получения
+                href: specializations/conditions.md
       - name: Реферальная программа
         href: program/referral.md
   - name: Партнерский портал

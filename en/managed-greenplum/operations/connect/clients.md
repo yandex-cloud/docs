@@ -124,7 +124,7 @@ Set up your {{ mgp-name }} cluster for connection:
   1. Assign a role to the user account connecting to the database:
      1. Select the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
      1. Enter the user account’s email.
-     1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role}}** and select the `managed-greenplum.clusters.connector` role.
+     1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the `managed-greenplum.clusters.connector` role.
      1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
   1. Create a {{ GP }} user and grant them access to the database:

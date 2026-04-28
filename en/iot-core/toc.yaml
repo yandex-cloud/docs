@@ -93,7 +93,7 @@ items:
     items:
       - name: Authentication
         href: concepts/authorization.md
-      - name: Service resource interdependencies
+      - name: Resource relationships
         href: concepts/index.md
       - name: MQTT server connection parameters
         href: concepts/mqtt-properties.md
@@ -131,9 +131,9 @@ items:
         href: tutorials/c-sharp.md
       - name: Working with Yandex IoT Core in Java
         href: tutorials/java.md
-      - name: Writing data from a device into a database
+      - name: Writing device data to a database
         href: tutorials/data-recording.md
-      - name: Status monitoring of geographically distributed devices
+      - name: Monitoring the status of geographically distributed devices
         href: tutorials/datalens.md
       - name: Sensor reading monitoring and event notifications
         href: tutorials/monitoring.md

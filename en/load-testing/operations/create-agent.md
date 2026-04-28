@@ -5,6 +5,9 @@ description: In this guide, you will learn how to create a test agent.
 
 # Creating a test agent
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 ## Setting up the infrastructure {#infrastructure-prepare}
 
 1. Create a service account for your test agent:

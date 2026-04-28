@@ -1,5 +1,8 @@
 # Comparing load test results
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 You can compare the results of multiple tests on the **Comparison** page.
 The **{{ ui-key.yacloud.load-testing.label_results-comparison-section-title }}** tab provides a graph overlay visualization of the following dependencies:
 

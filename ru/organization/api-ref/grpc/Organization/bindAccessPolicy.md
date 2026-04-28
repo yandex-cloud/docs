@@ -43,7 +43,7 @@ Required field. Access policy binding. For more information, see [Access Binding
 
 Required field. ID of the access policy template being applied.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 64. ||
 || parameters | **object** (map<**string**, **string**>)
 
 A list of access policy binding parameter KEY=VALUE pairs.
@@ -150,7 +150,7 @@ Access policy binding. For more information, see [Access Bindings](/docs/iam/con
 
 Required field. ID of the access policy template being applied.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 64. ||
 || parameters | **object** (map<**string**, **string**>)
 
 A list of access policy binding parameter KEY=VALUE pairs.

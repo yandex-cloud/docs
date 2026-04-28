@@ -1,5 +1,8 @@
 # GRPC_JSON
 
+{% include [loadtesting-sunset-warning](../../../_includes/load-testing/sunset-warning.md) %}
+
+
 Type of test data for the Pandora load generator. It supports gRPC requests.
 
 The test data type is specified when [creating a test](../../operations/create-test-bucket.md#create-test).

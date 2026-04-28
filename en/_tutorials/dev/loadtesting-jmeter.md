@@ -1,5 +1,7 @@
 # JMeter load testing
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
 
 You can use {{ load-testing-name }} to run fixed-load tests of a service over HTTPS using the [JMeter](../../load-testing/concepts/load-generator.md#jmeter) [load generator](../../load-testing/concepts/load-generator.md).
 
@@ -170,7 +172,7 @@ To see the testing progress, select the new test and go to the **{{ ui-key.yaclo
 
 ## How to delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete the agent](../../compute/operations/vm-control/vm-delete.md).
 1. [Delete the route table](../../vpc/operations/delete-route-table.md).
