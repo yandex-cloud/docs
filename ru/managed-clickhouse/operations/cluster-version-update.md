@@ -122,6 +122,7 @@ description: Следуя данной инструкции, вы сможете
 
     После того как обновление запущено, кластер переходит в статус **UPDATING**. Дождитесь окончания операции и затем проверьте версию кластера.
 
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -131,7 +132,7 @@ description: Следуя данной инструкции, вы сможете
     1. Добавьте к описанию кластера {{ mch-name }} поле `version` или измените его значение, если оно уже существует:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
           ...
           version = "<версия_{{ CH }}>"
         }
@@ -150,6 +151,7 @@ description: Следуя данной инструкции, вы сможете
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 

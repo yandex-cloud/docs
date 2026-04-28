@@ -5,6 +5,9 @@ description: '{{ load-testing-name }} reports aggregate data collected during lo
 
 # Reports
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 A report is aggregate data that was collected during load testing.
 
 ## Viewing a report

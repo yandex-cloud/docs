@@ -10,13 +10,13 @@ description: Follow this guide to learn how to use the command line interface.
 The _{{ yandex-cloud }} command line interface (CLI)_ is downloadable software you can use to manage your cloud resources via the command line.
 
 
-## Installing {#install}
+## Installation {#install}
 
 {% include [interactive-install-cli-intro](../_includes/cli/interactive-install-cli-intro.md) %}
 
 {% note tip %}
 
-To manually set up the CLI installation directory, autocompletion, shell startup script, and add the CLI to the `PATH` environment variable, use the [non-interactive CLI installation script](./operations/install-cli.md#non-interactive).
+To manually set up the CLI installation directory, autocompletion, and shell startup script, and add the CLI to the `PATH` environment variable, use the [non-interactive CLI installation script](./operations/install-cli.md#non-interactive).
 
 
 You can also manually download and install the executable with the latest stable CLI version. For more information, see [{#T}](./operations/install-cli.md#bin).
@@ -31,19 +31,23 @@ You can also manually download and install the executable with the latest stable
 {% list tabs group=authentication %}
 
 - Yandex account {#yandex-account}
-
-  {% include [include](../_includes/cli/create-profile.md) %}
-
+  
+  {% include [include](../_includes/cli/passport-profile-create.md) %}
+  
 - Federated account {#federated-account}
 
   {% include [include](../_includes/cli/auth-federated-user.md) %}
+
+- Local user account {#local-account}
+
+  {% include [include](../_includes/cli/auth-local-user.md) %}
 
 {% endlist %}
 
 
 ## Examples of commands {#example}
 
-The following steps describe how to create a [cloud network](../vpc/concepts/network.md#network), [subnet](../vpc/concepts/network.md#subnet), and [virtual machine](../compute/concepts/vm.md) that is connected to this subnet.
+See below for how to create a [cloud network](../vpc/concepts/network.md#network), a [subnet](../vpc/concepts/network.md#subnet), and a [VM](../compute/concepts/vm.md) connected to that subnet.
 1. View the description of the CLI commands for working with cloud networks:
 
    ```bash
@@ -131,7 +135,7 @@ The following steps describe how to create a [cloud network](../vpc/concepts/net
 
       Where `ssh-key` is the path to a public key for SSH access. The VM will automatically create the `yc-user` user with the specified public key.
 1. Connect to the VM over SSH:
-   1. Find out the VM's [public IP address](../vpc/concepts/address.md#public-addresses). To do this, view detailed information about your VM:
+   1. Learn the [public IP address](../vpc/concepts/address.md#public-addresses) of the VM. To do this, view detailed information about your VM:
 
       ```bash
       yc compute instance get my-yc-instance

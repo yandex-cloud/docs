@@ -75,6 +75,77 @@ To access a node group, use the `ID` or `NAME` parameter from the [previous](nod
   node_version: 1.13.3
   ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  To get information about a {{ managed-k8s-name }} node group:
+
+  1. {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Create a {{ TF }} configuration file with a description of the `yandex_kubernetes_node_group` data source in the `data` section and the requested parameters in the `output` sections (one per section). For example:
+
+      ```hcl
+      data "yandex_kubernetes_node_group" "my_node_group" {
+        node_group_id = "<node_group_ID>"
+      }
+
+      output "node_group_status" {
+        value = data.yandex_kubernetes_node_group.my_node_group.status
+      }
+      ```
+
+      Where:
+
+      * `node_group_status`: Name of the variable whose value will appear in the result.
+      * `data.yandex_kubernetes_node_group.my_node_group.status`: Requested parameter. In our case, it is the node group status.
+
+      For the list of node group parameters you can request this way, see [this {{ TF }} provider guide]({{ tf-provider-datasources-link }}/kubernetes_node_group).
+
+      {% note tip %}
+
+      To request all available information about a node group, add the following `output` section to the file:
+
+      ```hcl
+      output "node_group" {
+        value = data.yandex_kubernetes_node_group.my_node_group
+      }
+      ```
+
+      {% endnote %}
+
+  1. Make sure the configuration files are correct:
+
+      1. In the command line, navigate to the folder containing the current {{ TF }} configuration files.
+
+      1. Run this command:
+
+          ```bash
+          terraform validate
+          ```
+
+          {{ TF }} will display any configuration errors detected in your files.
+
+  1. Run this command:
+
+      ```bash
+      terraform apply
+      ```
+
+      {{ TF }} will display output variables in the terminal.
+
+  1. To check the result, run the following command by specifying the required variable, e.g.:
+
+      ```bash
+      terraform output node_group_status
+      ```
+
+      Result:
+
+      ```text
+      "running"
+      ```
+
 - API {#api}
 
   To get detailed information about a node group, use the [get](../../managed-kubernetes/api-ref/NodeGroup/get.md) REST API method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/) resource or the [NodeGroupService/Get](../../managed-kubernetes/api-ref/grpc/NodeGroup/get.md) gRPC API call.

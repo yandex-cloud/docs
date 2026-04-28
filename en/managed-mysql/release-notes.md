@@ -5,6 +5,10 @@ description: This section contains the {{ mmy-name }} release notes.
 
 # {{ mmy-full-name }} release notes
 
+## March 2026 {#mar-2026}
+
+* Added separate [roles](./security/index.md) enabling you to view and edit (reschedule) maintenance without cluster access.
+
 ## February 2026 {#feb-2026}
 
 * New {{ MY }} minor versions are out: [8.4.7](https://docs.percona.com/percona-server/8.4/release-notes/8.4.7-7.html), [8.0.43](https://docs.percona.com/percona-server/8.0/release-notes/8.0.43-34.html), and [5.7.44-54](https://docs.percona.com/percona-server/5.7/release-notes/5.7.44-54.html). Cluster updates scheduled.

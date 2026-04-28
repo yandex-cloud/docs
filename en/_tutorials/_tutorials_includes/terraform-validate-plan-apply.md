@@ -1,12 +1,11 @@
-1. In the terminal, go to the directory where you edited the configuration file.
-
-1. Make sure the configuration file is correct using this command:
+1. In the terminal, navigate to the configuration file directory.
+1. Make sure the configuration is correct using this command:
 
    ```bash
    terraform validate
    ```
 
-   If the configuration is correct, you will get this message:
+   If the configuration is valid, you will get this message:
 
    ```bash
    Success! The configuration is valid.
@@ -18,8 +17,8 @@
    terraform plan
    ```
 
-   You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
-1. Apply the changes:
+   You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
+1. Apply the configuration changes:
 
    ```bash
    terraform apply

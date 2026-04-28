@@ -16,11 +16,13 @@ description: Для выполнения операций через API в ма
 
 {% list tabs group=auth_keys %}
 
+
 - Аутентификация с помощью IAM-токена {#iam-token}
 
   {% include [s3-api-auth-intro-iam-token](../../_includes/storage/s3-api-auth-intro-iam-token.md) %}
 
   Если для аутентификации в [API](../../glossary/rest-api.md) вы используете IAM-токен, то дополнительно [подписывать](../s3/signing-requests.md) HTTP-запросы не требуется.
+
 
 - Аутентификация с помощью статического ключа {#static-key}
 
@@ -51,6 +53,7 @@ description: Для выполнения операций через API в ма
 Ниже приведены примеры запросов для загрузки объекта в бакет:
 
 {% list tabs group=auth_keys %}
+
 
 - Аутентификация с помощью IAM-токена {#iam-token}
 
@@ -92,6 +95,7 @@ description: Для выполнения операций через API в ма
   ```
 
   Где `DIRECTORY_PATH` — путь к директории, которую вы хотите заархивировать.
+
 
 - Аутентификация с помощью статического ключа {#static-key}
 
@@ -196,7 +200,6 @@ description: Для выполнения операций через API в ма
 
 Полный перечень вызовов и методов {{ yandex-cloud }} API смотрите в справочниках [gRPC API](../api-ref/grpc/) и [REST API](../api-ref/).
 
-
 ### Пример использования {{ yandex-cloud }} API {#example}
 
 В примере создается бакет со стандартным классом хранилища и размером 50 ГБ.
@@ -220,8 +223,8 @@ description: Для выполнения операций через API в ма
         "configRead": false
       }]
     }' \
-    storage.{{ api-host }}:443 \
-    {{ at-event-prefix }}.storage.v1.BucketService/Create
+    {{ api-host-storage-grpc }} \
+    yandex.cloud.storage.v1.BucketService/Create
   ```
 
   Где:
@@ -250,6 +253,7 @@ description: Для выполнения операций через API в ма
     "response": {"@type":"type.googleapis.com/{{ at-event-prefix }}.storage.v1.Bucket","acl":{},"anonymousAccessFlags":{"read":false,"list":false},"createdAt":"2023-08-10T06:32:17.557756Z","defaultStorageClass":"STANDARD","folderId":"b1gmit33ngp3********","maxSize":"53687091200","name":"<имя_бакета>","versioning":"VERSIONING_DISABLED"}
   }
   ```
+
 
 - REST API {#api}
 
@@ -315,6 +319,7 @@ description: Для выполнения операций через API в ма
   "modifiedAt": "2023-08-08T12:54:32.111022Z"
   }
   ```
+
 
 {% endlist %}
 

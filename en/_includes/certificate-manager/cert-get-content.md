@@ -12,7 +12,7 @@ To get the contents of a certificate:
 
        You can only export certificates with the `Issued` status.
     1. Select one of the export options. The `certificate.pem` file will contain the following data in Base64 encoded text format:
-       * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_full }}**: Certificate chain (root and target certificate) and private key with standard framing:
+       * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_full }}**: Certificate chain (end-user and intermediate certificate) and private key with standard framing:
           ```text
           -----BEGIN CERTIFICATE-----
           MIIE5zCCA8+gAwI...
@@ -25,7 +25,7 @@ To get the contents of a certificate:
           -----END PRIVATE KEY-----
           ```
 
-       * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_no_private_key }}**: Certificate chain (root and target certificate):
+       * **{{ ui-key.yacloud.certificate-manager.overview.certificate_content_select_no_private_key }}**: Certificate chain (end-user and intermediate certificate):
          ```text
           -----BEGIN CERTIFICATE-----
           MIIE5zCCA8+gAwI...
@@ -101,7 +101,7 @@ To get the contents of a certificate:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. To check the results, run these commands:
+     {{ TF }} will create all the required resources. To check the result, run these commands:
      * Get a certificate chain:
 
        ```bash
@@ -119,6 +119,8 @@ To get the contents of a certificate:
   To get the certificate contents, use the [get](../../certificate-manager/api-ref/CertificateContent/get.md) REST API method for the [CertificateContent](../../certificate-manager/api-ref/CertificateContent/) resource or the [CertificateContentService/Get](../../certificate-manager/api-ref/grpc/CertificateContent/get.md) gRPC API call.
 
 {% endlist %}
+
+For Let's Encrypt certificates, the exported chain contains your domain's end-user certificate and intermediate certificate. The root certificate is not included because it is already built into the trusted stores of operating systems and browsers. This chain is sufficient to configure web servers, such as Nginx or Apache. If you need the full chain with the root certificate, you can download it from the [Let's Encrypt](https://letsencrypt.org/certificates/) website.
 
 {% note info %}
 

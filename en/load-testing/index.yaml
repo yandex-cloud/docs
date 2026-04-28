@@ -1,15 +1,13 @@
 title: Yandex Load Testing
 description:
+  - "Starting July\_1, 2026, {{ load-testing-name }} will be discontinued."
   - >-
-    Yandex Load Testing helps analyze the performance of your services and
-    applications.
-  - |-
-    Use this service to: <ul>
-      <li>Create a pre-configured <a href="/docs/load-testing/concepts/agent">load generator</a> in your cloud.
-      <li>Set up a test in the interface and generate the load from the new generator.</li>
-      <li>View test reports.</li>
-      <li>Store and manage data on earlier tests.</li>
-    </ul> You can manage this service using the management console.
+    For more information on the timing and procedure, see <a
+    href="/docs/load-testing/sunset">Service shutdown</a>.
+  - >-
+    To migrate load testing scenarios to k6, use <a
+    href="/docs/load-testing/tutorials/loadtesting-migration-to-k6">this
+    migration guide</a>.
 meta:
   title: Yandex Load Testing
   description: >-
@@ -33,6 +31,9 @@ meta:
     - keyword: '{{ load-testing-full-name }} agent'
     - keyword: testing {{ load-testing-full-name }}
 links:
+  - title: Service shutdown
+    description: Shutdown timeline and procedure, migration recommendations
+    href: sunset
   - title: Getting started
     description: Getting started with Yandex Load Testing
     href: quickstart

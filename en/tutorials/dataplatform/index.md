@@ -119,6 +119,7 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](postgresql-to-opensearch.md)
 * [{#T}](opensearch-saml-keycloak.md)
 * [{#T}](opensearch-yandex-lemmer.md)
+* [{#T}](opensearch-email-notifications.md)
 
 ## {{ PG }} {#postgresql}
 

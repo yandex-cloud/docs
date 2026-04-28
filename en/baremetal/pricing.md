@@ -18,8 +18,6 @@ In {{ baremetal-name }}, you pay for renting a server of a [certain configuratio
 
 You can look up how many servers of particular configurations are available in the [calculator](https://yandex.cloud/en/prices) on the {{ yandex-cloud }} website and in the [management console]({{ link-console-main }}) when selecting a server.
 
-The monthly prices are based on 720 hours per month.
-
 ## Prices for the Russia region {#prices}
 
 All prices are per month.
@@ -632,7 +630,7 @@ To request a bandwidth package of 100 TB, contact [support]({{ link-console-supp
 </MDX>
 
 
-### PI prefix announcement (BYOIP) {#byoip}
+### Announcing a PI prefix (BYOIP) {#byoip}
 
 
 

@@ -83,6 +83,7 @@
 
         Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -92,16 +93,16 @@
     1. Добавьте в настройки кластера {{ mch-name }} параметр `geobase_uri` со ссылкой на архив с подключаемой геобазой в {{ objstorage-full-name }}:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
           ...
-          clickhouse {
-            config {
+          clickhouse = {
+            config = {
               geobase_uri = "<ссылка_на_архив_с_геобазой_в_Object_Storage>"
               ...
             }
           ...
           }
-        ...
+          ...
         }
         ```
 
@@ -116,6 +117,7 @@
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 

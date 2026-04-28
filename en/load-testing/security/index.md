@@ -1,11 +1,14 @@
 # Access management in {{ load-testing-name }}
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 {{ load-testing-name }} uses [roles](../../iam/concepts/access-control/roles.md) to manage access permissions.
 
-In this section, you will learn:
+In this section, you will learn about the following:
 * [Resources you can assign a role for](#resources).
-* [What roles this service has](#roles-list).
-* [What roles are required](#required-roles) for specific actions.
+* [Roles this service has](#roles-list).
+* [Roles required](#required-roles) for specific actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 

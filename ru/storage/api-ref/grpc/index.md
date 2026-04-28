@@ -8,7 +8,7 @@ Actions are performed by making RPC calls. For more information about API archit
 
 **Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/storage/v1).
 
-**Service URL**: `https://storage.{{ api-host }}`
+**Service URL**: `{{ api-host-storage-grpc }}`
 
 #|
 ||Service | Description ||

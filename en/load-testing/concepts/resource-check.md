@@ -1,5 +1,8 @@
 # Resource Check
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 _Resource Check_ is a plugin you configure when creating a test. It monitors if the test agent has free system resources.
 
 Resource Check controls the amount of available RAM and disk space before and during testing. If there is not enough RAM or disk space to run a new test, it will not start.

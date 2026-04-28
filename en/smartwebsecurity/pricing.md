@@ -89,7 +89,9 @@ To use additional protection against DDoS attacks at OSI layers 3 and 4, enable 
 
 When using domains, you pay for the actual usage of the computing resources of each active proxy server and for traffic protection from DDoS attacks at levels L3–L4.
 
-The amount of proxy server resources used is measured by the number of [resource units](../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling), i.e., internal VMs provisioned for the proxy server in each one of its availability zones.
+When domain protection is activated, a minimum amount of proxy server resources is automatically reserved: 6 [resource units](../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling), 2 per availability zone. Their billing starts immediately, whether or not the domain is receiving traffic.
+
+A resource unit is an internal VM created for the purpose of operating a proxy server in the availability zone.
 
 One resource unit delivers the following maximum performance (autoscaling thresholds):
 
@@ -100,7 +102,7 @@ One resource unit delivers the following maximum performance (autoscaling thresh
 
 The system autoscales the resource unit group based on external load on the proxy server nodes. It calculates the group size to keep load per resource unit below the specified thresholds.
 
-The default minimum number of resource units per proxy server is 6 (2 in each availability zone). If you need more proxy server resource units, you can submit a request to increase their number.
+The default minimum number of resource units is 6; you can increase this number upon request.
 
 The proxy server fee is per hour. You are charged for the minimum number of resource units that were running for an hour.
 

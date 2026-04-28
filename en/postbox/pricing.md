@@ -63,7 +63,7 @@ Calculating cost of 65,500 emails per month:
 
 {% note info %}
 
-If you want to send over 10,000,000 emails per month, contact [support]({{ link-console-support }}) or your account manager for special terms.
+If you want to send over 100,000,000 emails per month, contact [support]({{ link-console-support }}) or your account manager for special terms.
 
 {% endnote %}
 

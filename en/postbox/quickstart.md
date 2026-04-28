@@ -12,11 +12,6 @@ Use this guide to create your address and send a verification email.
 1. Create a key for the service account:
    * To send an email using the AWS CLI, [create](../iam/operations/authentication/manage-access-keys.md#create-access-key) a static access key. Save the ID and secret key to a secure location. You will not be able to view the secret key parameters again after you close the window.
    * To send an email via SMTP, [create](../iam/operations/authentication/manage-api-keys.md#create-api-key) an API key. When creating an API key, set the scope for `yc.postbox.send`. Save the secret key you got in a secure location. You will not be able to view the secret key parameters again after you close the window.
-1. Generate a key to create a DKIM signature:
-
-    ```
-    openssl genrsa -out privatekey.pem 2048
-    ```
 
 ## Create an address {#create-address}
 
@@ -34,9 +29,21 @@ Use this guide to create your address and send a verification email.
 
 {% endlist %}
 
-## Pass domain ownership verification {#verify-domain}
+## Pass a domain ownership check {#verify-domain}
 
-{% include [check-domain](../_includes/postbox/check-domain.md) %}
+{% include [check-domain-intro](../_includes/postbox/check-domain-intro.md) %}
+
+**Example of creating resource records in {{ dns-full-name }}**
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+    {% include [check-domain-simple](../_includes/postbox/check-domain-simple.md) %}
+
+    DNS server responses are cached, so you may experience delays when updating resource records. If the verification status does not change within 24 hours, click **{{ ui-key.yacloud.postbox.button_run-verification }}**.
+
+{% endlist %}
 
 ## Send a verification email {#send-test-email}
 

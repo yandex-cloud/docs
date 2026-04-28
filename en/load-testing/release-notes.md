@@ -1,9 +1,12 @@
 ---
 title: '{{ load-testing-full-name }} release notes'
-description: This section contains {{ load-testing-name }} release notes.
+description: This section contains the {{ load-testing-name }} release notes.
 ---
 
 # {{ load-testing-full-name }} release notes
+
+{% include [loadtesting-sunset-warning](../_includes/load-testing/sunset-warning.md) %}
+
 
 ## Q1 2025 {#q1-2025}
 

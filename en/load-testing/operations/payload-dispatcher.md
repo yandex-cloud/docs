@@ -5,6 +5,9 @@ description: Follow this guide to collect user requests and use this data as pay
 
 # Getting payload ready with Dispatcher
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 The `dispatcher` tool collects user requests and saves them to payload files which are then used in load testing.
 
 It operates as a proxy, redirecting HTTP requests to the target server and returning the server's responses back to the client. If a proxied request completes successfully with a 2xx HTTP status code, it is written to [payload](../concepts/payload.md) files which are then used for load testing. `dispatcher` allows configuring the rules and size of payload data using special flags.

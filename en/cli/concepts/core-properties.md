@@ -22,4 +22,4 @@ Global parameters are available to any command, but not all commands can process
 | `--no-user-output` | — | Exclude the output intended for the user from the `stderr` error output stream. |
 | `--profile` | — | The name of the profile whose parameters will be used when executing the command. |
 | — | `service-account-key`| The authorized key of a [service account](../../iam/concepts/users/service-accounts.md) in {{ yandex-cloud }}. It is set from the file where the key is stored. When this profile parameter is set, the `token` parameter is reset to zero. |
-| `--token` | `token` | The OAuth token that is used for authentication in {{ yandex-cloud }}. When this profile parameter is set, the `service-account-key` parameter is reset to zero. |
+| `--token` | `token` | Token used for authentication in {{ yandex-cloud }}. When this profile parameter is set, the `service-account-key` parameter is reset to zero. |

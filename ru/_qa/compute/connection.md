@@ -1,5 +1,7 @@
 # Подключение
 
+{% include [minitoc](minitoc/connection.md) %}
+
 #### Как подключиться к ВМ с Linux {#conn-vm-linux}
 
 Воспользуйтесь инструкцией: [{#T}](../../compute/operations/vm-connect/ssh.md). Если на компьютере, с которого вы подключаетесь, старая версия Windows (7, 8 и первые выпуски 10) и нет встроенного консольного [SSH-клиента](../../glossary/ssh-keygen.md), используйте [PuTTY](https://www.putty.org/).

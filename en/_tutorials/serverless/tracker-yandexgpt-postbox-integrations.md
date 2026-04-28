@@ -225,7 +225,7 @@ For the workflow to be able to send emails, create a {{ postbox-name }} [address
         1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}** and select the address.
         1. Click **{{ ui-key.yacloud.postbox.button_run-verification }}**. If the TXT record is created correctly, the verification status on the address page will change to `Success`.
 
-            DNS server responses are cached, so delays may occur when updating a resource record.
+            DNS server responses are cached, so you may experience delays when updating the resource record.
 
     {% endlist %}
 
@@ -522,7 +522,7 @@ For the workflow to be able to send emails, create a {{ postbox-name }} [address
         1. In the top-right corner, click **{{ ui-key.yacloud.serverless-workflows.button_create-workflow }}** and do the following in the window that opens:
 
             1. In the **{{ ui-key.yacloud.serverless-workflows.spec-editor-type_label_text-editor }}** field, add the previously selected specification.
-            1. Expand the **{{ ui-key.yacloud.serverless-workflows.label_additional-parameters }}** section.
+            1. Expand **{{ ui-key.yacloud.serverless-workflows.label_additional-parameters }}**.
             1. In the **{{ ui-key.yacloud.common.name }}** field, enter the workflow name: `my-tracker-workflow`.
             1. In the **{{ ui-key.yacloud.serverless-workflows.label_service-account }}** field, select the previously created service account named `workflow-sa`.
         1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -554,7 +554,7 @@ As a result of the workflow, a comment with a summary of the analyzed test issue
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources you created:
+To stop incurring charges for the resources you created:
 1. Delete your workflow:
 
     {% list tabs group=instructions %}

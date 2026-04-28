@@ -5,7 +5,7 @@ description: Follow this guide to uninstall the {{ yandex-cloud }} CLI.
 
 # Uninstalling the CLI
 
-To fully uninstall the CLI, delete the installation folder, user settings, and environment variables.
+To fully uninstall the CLI, delete the installation directory, user settings, and environment variables.
 
 {% list tabs group=operating_system %}
 
@@ -14,10 +14,10 @@ To fully uninstall the CLI, delete the installation folder, user settings, and e
   1. Remove the CLI:
 
       ```bash
-      rm -rf <installation_folder_path>
+      rm -rf <installation_directory_path>
       ```
 
-      By default, the the installation folder path is `~/yandex-cloud`.
+      By default, the installation directory path is `~/yandex-cloud`.
 
       ```bash
       rm -rf ~/yandex-cloud

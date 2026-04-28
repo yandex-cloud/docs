@@ -1,9 +1,12 @@
 ---
-title: Test data in {{ load-testing-full-name }}
-description: In this tutorial, you will learn about the types of test data in {{ load-testing-full-name }} and where you can store them.
+title: Payloads in {{ load-testing-full-name }}
+description: In this tutorial, you will learn about the types of payloads in {{ load-testing-full-name }} and where you can store them.
 ---
 
 # Payload
+
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
 
 _Payloads_ are used by load generators for testing applications. A payload can be any relevant data that can be used to test your application. For example:
 

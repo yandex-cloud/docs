@@ -20,6 +20,5 @@
 * [Resolving the `ILLEGAL_REQUEST_CONTRACT` error when generating a payment invoice](illegal-request-contract.md)
 * [{{ kms-short-name }} you are still billed for your deleted keys](kms-keys-are-charged-in-billing-after-deletion.md)
 * [Billing account has the `PAYMENT_NOT_CONFIRMED` status](payment-not-confirmed-issue.md)
-* [Resolving the error: `message: Unauthorized; description: Unauthorized`](error-unauthorized.md)
 * [Fixing the `PROHIBITED_BILLING_ACCOUNT_USAGE_STATUS` error](error-prohibited-user-account-usage-status.md)
 * [Fixing the `Webpage is temporarily unavailable` error when paying with a Sber card](unable-to-pay-with-sber-card.md)

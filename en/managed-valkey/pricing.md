@@ -64,7 +64,7 @@ You are billed for the following:
     * Backups are stored free of charge as long as the total size of the database and all its backups is smaller than the selected storage size.
     * The requested storage size is allocated for each host, so the number of hosts in the cluster does not affect the free backup size.
 
-The price covers one month of use, based on 720 hours per month. The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
+The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
 
 ### Cluster cost calculation example {#example}
 

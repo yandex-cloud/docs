@@ -43,8 +43,6 @@ The {{ compute-name }} usage cost includes:
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
-The monthly prices are based on 720 hours per month.
-
 ### Using reserved instance pools {#pool}
 
 {% include [reserved-pools-preview-notice](../_includes/compute/reserved-pools-preview-notice.md) %}

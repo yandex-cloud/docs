@@ -161,6 +161,8 @@ items:
                 href: cli-ref/registry/lifecycle-policy/create.md
               - name: delete
                 href: cli-ref/registry/lifecycle-policy/delete.md
+              - name: dry-run
+                href: cli-ref/registry/lifecycle-policy/dry-run.md
               - name: get
                 href: cli-ref/registry/lifecycle-policy/get.md
               - name: list
@@ -235,6 +237,8 @@ items:
                     href: cli-ref/v0/registry/lifecycle-policy/create.md
                   - name: delete
                     href: cli-ref/v0/registry/lifecycle-policy/delete.md
+                  - name: dry-run
+                    href: cli-ref/v0/registry/lifecycle-policy/dry-run.md
                   - name: get
                     href: cli-ref/v0/registry/lifecycle-policy/get.md
                   - name: list

@@ -71,6 +71,7 @@ A server can have one of the following statuses:
 * `QUARANTINING`: Server is being [quarantined](#quarantine).
 * `QUARANTINED`: Server is quarantined. Users cannot access quarantined servers over the network or through a KVM console.
 * `RETURNING_FROM_QUARANTINE`: Server is returning from quarantine, with access being restored over the network and through a KVM console.
+* `DELETING`: Server deletion is in progress. It may take several hours to completely delete the server and wipe all disks.
 * `ERROR`: Error has occurred, the KVM console is unavailable. Contact [support]({{ link-console-support }}).
 
 ## Quarantine {#quarantine}

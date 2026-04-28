@@ -84,10 +84,10 @@ Assign an appropriate [role](../../iam/concepts/access-control/roles.md) to a us
       Where:
 
       * `dns_zone_id`: DNS zone ID.
-      * `role`: [Role](../security/index.md#roles-list).
-      * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) assigned the role. Use the following format: `type:<ID>`, e.g., `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `role`: [Role](../security/index.md#roles-list) to assign.
+      * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) getting the role. Use the following format: `type:<ID>`, e.g., `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-       For more information about `yandex_dns_zone_iam_binding` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/dns_zone_iam_binding).
+       For more information about `yandex_dns_zone_iam_binding` resource properties, see this [provider guide]({{ tf-provider-resources-link }}/dns_zone_iam_binding).
 
   1. Create the resources:
 
@@ -146,9 +146,8 @@ Assign an appropriate [role](../../iam/concepts/access-control/roles.md) to a us
      Where:
 
      * `--access-binding`: Access permission settings:
-
-       * `role`: [Role](../security/index.md#roles-list).
-       * `subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
+         * `role`: [Role](../security/index.md#roles-list) to assign.
+         * `subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
      For example, you can assign the `dns.editor` role to multiple users and a service account:
 
@@ -185,10 +184,10 @@ Assign an appropriate [role](../../iam/concepts/access-control/roles.md) to a us
       Where:
 
       * `dns_zone_id`: DNS zone ID.
-      * `role`: [Role](../security/index.md#roles-list).
-      * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) assigned the role. Use the following format: `type:<ID>`, e.g., `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `role`: [Role](../security/index.md#roles-list) to assign.
+      * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) getting the role. Use the following format: `type:<ID>`, e.g., `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-      For more information about `yandex_dns_zone_iam_binding` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/dns_zone_iam_binding).
+      For more information about `yandex_dns_zone_iam_binding` resource properties, see this [provider guide]({{ tf-provider-resources-link }}/dns_zone_iam_binding).
 
   1. Create the resources:
 
@@ -266,7 +265,6 @@ Assign an appropriate [role](../../iam/concepts/access-control/roles.md) to a us
   1. Open the {{ TF }} configuration file and delete the fragment describing the role:
 
       ```hcl
-      ...
       resource "yandex_dns_zone_iam_binding" "sa-role" {
         dns_zone_id = "<zone_ID>"
         role        = "<role>"

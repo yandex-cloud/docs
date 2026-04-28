@@ -51,7 +51,7 @@ For more on {{ k8s-hpa }}, see [this {{ k8s }} guide](https://kubernetes.io/docs
 
 ## Vertical pod autoscaling {#vpa}
 
-{{ k8s}} uses the `limits` parameters to restrict resources allocated for each application. A pod exceeding the vCPU limit will trigger CPU throttling. A pod exceeding the RAM limit will be stopped.
+{{ k8s }} uses the `limits` parameters to restrict resources allocated for each application. A pod exceeding the vCPU limit will trigger CPU throttling. A pod exceeding the RAM limit will be stopped.
 
 If required, {{ k8s-vpa }} allocates additional vCPU and RAM resources to pods.
 

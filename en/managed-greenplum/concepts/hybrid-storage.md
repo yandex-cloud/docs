@@ -37,6 +37,8 @@ When data is stored in cluster storage, I/O request scheduling is performed by t
 
 When data is stored in cold storage, the operating system cannot schedule I/O requests to the {{ objstorage-name }} service bucket. Therefore, to avoid performance degradation, {{ mgp-name }} clusters use YProxy by {{ yandex-cloud }} to schedule such requests. Even if the table resides in a cold storage, the use of YProxy minimizes the impact on SQL query execution time.
 
+When accessing cold storage data, throughput is limited to 1 GB per second from a single segment host, regardless of the number of segments per host. For example, if you have 8 segment hosts in your cluster, the maximum throughput for cold storage data for the whole cluster will not exceed 8 GB per second.
+
 Learn more about hybrid storage architecture from [this Habr article](https://habr.com/en/companies/yandex_cloud_and_infra/articles/831780/). The article also provides performance tests for different types of storage.
 
 ## Use cases {#examples}

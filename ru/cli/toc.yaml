@@ -1515,6 +1515,9 @@ items:
                   - name: delete
                     href: >-
                       cli-ref/cloud-registry/cli-ref/registry/lifecycle-policy/delete.md
+                  - name: dry-run
+                    href: >-
+                      cli-ref/cloud-registry/cli-ref/registry/lifecycle-policy/dry-run.md
                   - name: get
                     href: >-
                       cli-ref/cloud-registry/cli-ref/registry/lifecycle-policy/get.md
@@ -1605,6 +1608,9 @@ items:
                       - name: delete
                         href: >-
                           cli-ref/cloud-registry/cli-ref/v0/registry/lifecycle-policy/delete.md
+                      - name: dry-run
+                        href: >-
+                          cli-ref/cloud-registry/cli-ref/v0/registry/lifecycle-policy/dry-run.md
                       - name: get
                         href: >-
                           cli-ref/cloud-registry/cli-ref/v0/registry/lifecycle-policy/get.md

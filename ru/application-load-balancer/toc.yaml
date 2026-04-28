@@ -259,6 +259,8 @@ items:
             href: tools/gwin/policies.md
           - name: Миграция приложений с ALB Ingress-контроллера на Gwin
             href: tools/gwin/ingress-gwin-migration.md
+          - name: Механизм Attachment для интеграции Gwin с {{ alb-name }}
+            href: tools/gwin/gwin-alb-attachment.md
           - name: Конфигурация ресурсов (англ.)
             items:
               - name: Gateway

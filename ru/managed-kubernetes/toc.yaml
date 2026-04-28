@@ -832,6 +832,8 @@ items:
             href: alb-ref/ingress-gwin-migration.md
           - name: Миграция приложений с Ingress NGINX на Gwin
             href: alb-ref/nginx-gwin-migration.md
+          - name: Механизм Attachment для интеграции Gwin с {{ alb-name }}
+            href: alb-ref/gwin-alb-attachment.md
           - name: Конфигурация ресурсов (англ.)
             items:
               - name: Gateway

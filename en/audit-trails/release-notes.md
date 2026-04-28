@@ -184,7 +184,7 @@ description: This section contains the {{ at-name }} release notes.
   `AssetRemovedFromScope` | {{ cspm-name }} object removed from scope report
   `AssetRuleCheckCouldNotBeExecuted` | {{ cspm-name }} object check error report
   `AssetRuleCheckNoLongerInScope` | {{ cspm-name }} report about excluding a rule from a scope
-  `TriggerRuntimeProcessInfo` | KSPM triggering when getting process information
+  `TriggerRuntimeProcessInfo` | Triggering of {{ kspm-name }} when getting process information
 
   {% endcut %}
 
@@ -1105,7 +1105,7 @@ Added new events for the services:
 
   Event | Description
   --- | ---
-  `BatchCreateServer` | Leasing several {{ baremetal-name }} [servers](../baremetal/concepts/servers.md) at the same time
+  `BatchCreateServer` | Renting several {{ baremetal-name }} [servers](../baremetal/concepts/servers.md) at the same time
   `CreateExternalConnection` | Creating a [private connection](../baremetal/concepts/private-network.md#private-connection-to-vpc) to subnets in a VPC or on-prem infrastructure
   `CreatePrivateSubnet` | Creating a [private subnet](../baremetal/concepts/private-network.md#private-subnet)
   `CreateServer` | {{ baremetal-name }} server rent

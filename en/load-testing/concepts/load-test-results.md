@@ -5,6 +5,9 @@ description: In this article, you will learn about the load test results, respon
 
 # Load test results
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 You can monitor load test results on the **Test results** page. It provides a graphic visualization of the following dependencies:
 
 1. [Response time quantiles](#quantiles)
@@ -30,7 +33,7 @@ The presence of a point where response times begin to spike as the load grows in
 ## Testing threads for the entire test {#test-streams}
 
 This chart shows how the number of [testing threads](testing-stream.md) depends on time.
-A testing thread is a separate instance of a load generator. It usually equals the number of connections established between the [agent](agent.md) and the service being tested.
+A testing thread is a separate instance of the load generator. It usually equals the number of connections established between the [agent](agent.md) and the service being tested.
 
 ## Network response codes {#network-codes}
 

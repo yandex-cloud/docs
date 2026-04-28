@@ -75,7 +75,8 @@ API key expiration timestamp, if not specified, then the API key doesn't expire 
     "scopes": [
       "string"
     ],
-    "expires_at": "google.protobuf.Timestamp"
+    "expires_at": "google.protobuf.Timestamp",
+    "masked_secret": "string"
   }
   // end of the list of possible fields
 }
@@ -172,4 +173,7 @@ Scopes of the API key. 0-256 characters long. ||
 || expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 API key expiration timestamp. ||
+|| masked_secret | **string**
+
+Masked value of the API key's secret part: `\*{4}[a-zA-Z0-9_]{6}` ||
 |#

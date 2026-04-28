@@ -14,5 +14,6 @@ Users with this role can:
 * View the list of [groups](../../../organization/concepts/groups.md) that users are members of.
 * View the list of and info on Identity Hub user groups associated with user pools through synchronization with user groups in Active Directory or another external source.
 * View the attributes of federated and local users.
+* View and terminate federated and local users' [sessions](../../../organization/concepts/sessions.md).
 
 This role includes the `organization-manager.userpools.userAdmin` and `organization-manager.userpools.viewer` permissions.

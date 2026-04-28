@@ -40,9 +40,9 @@ sudo apt update && sudo apt install --yes postgresql-client
             user=<username> \
             target_session_attrs=read-write"
       ```
-
+ 
       {% include [host lists](../../../_includes/managed-postgresql/host-list.md) %}    
-
+ 
       After you run this command, enter the user password to complete connecting to the database.
 
   1. To check the connection, run the following query:
@@ -59,7 +59,7 @@ sudo apt update && sudo apt install --yes postgresql-client
   
       {% include [host lists](../../../_includes/managed-postgresql/host-list.md) %}
 
-      After you run this command, enter the user password to complete connecting to the database.
+      After runing this command, enter the user password to complete your connection.
 
   1. To check the connection, run the following query:
 
@@ -95,7 +95,7 @@ Before connecting, install [{{ PG }} for Windows](https://www.postgresql.org/dow
 
      {% include [host lists](../../../_includes/managed-postgresql/host-list.md) %}
 
-     After you run this command, enter the user password to complete connecting to the database.
+     After runing this command, enter the user password to complete your connection.
 
   1. To check the connection, run the following query:
 
@@ -123,7 +123,7 @@ Before connecting, install [{{ PG }} for Windows](https://www.postgresql.org/dow
 
       {% include [host lists](../../../_includes/managed-postgresql/host-list.md) %}
 
-      After you run this command, enter the user password to complete connecting to the database.
+      After runing this command, enter the user password to complete your connection.
 
   1. To check the connection, run the following query:
 
@@ -150,7 +150,7 @@ Set up your {{ PG }} cluster for connection:
 
 - Management console {#console}
 
-  1. [Navigate to](../../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}** service.
+  1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click the cluster name.
   1. Enable public access for the cluster hosts:
      1. Select the **{{ ui-key.yacloud.postgresql.cluster.switch_hosts }}** tab.
@@ -160,7 +160,7 @@ Set up your {{ PG }} cluster for connection:
   1. Assign a role to the user account connecting to the database:
      1. Select the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
      1. Enter the user account’s email.
-     1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role}}** and select the `managed-postgresql.clusters.connector` role.
+     1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the `managed-postgresql.clusters.connector` role.
      1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
   1. Create a user named {{ PG }}:
      1. Select the **{{ ui-key.yacloud.postgresql.cluster.switch_users }}** tab.

@@ -1,5 +1,8 @@
 # Viewing operations with {{ load-testing-name }} resources
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 The system logs all actions with {{ load-testing-name }} resources as a list of operations. Each operation gets its own unique ID.
 
 ## Getting a list of operations {#get-operations}
@@ -12,7 +15,7 @@ The system logs all actions with {{ load-testing-name }} resources as a list of 
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
   1. In the left-hand panel, select ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
 
-  In the list that opens, you will also see operations with the resources that were deleted.
+  In the list that opens, you will also see operations for the deleted resources.
 
 {% endlist %}
 
@@ -20,7 +23,7 @@ The system logs all actions with {{ load-testing-name }} resources as a list of 
 
 1. [Get a list of operations](#get-operations) for the resource.
 1. Copy the operation ID.
-1. Get details of the operation:
+1. Get operation details:
 
     {% list tabs group=instructions %}
 

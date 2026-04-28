@@ -1,9 +1,12 @@
 ---
 title: '{{ load-testing-full-name }} use cases'
-description: Various {{ load-testing-full-name }} use cases in {{ yandex-cloud }}.
+description: Various use cases for {{ load-testing-full-name }} in {{ yandex-cloud }}.
 ---
 
 # {{ load-testing-name }} tutorials
+
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
 
 * [{#T}](loadtesting-grpc.md)
 * [{#T}](loadtesting-grpc-autoscaling.md)
@@ -15,3 +18,4 @@ description: Various {{ load-testing-full-name }} use cases in {{ yandex-cloud }
 * [{#T}](loadtesting-external-agent.md)
 * [{#T}](loadtesting-gitlab-ci.md)
 * [{#T}](loadtesting-results-compare.md)
+* [{#T}](loadtesting-migration-to-k6.md)

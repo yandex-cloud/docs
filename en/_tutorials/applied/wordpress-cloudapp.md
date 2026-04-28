@@ -53,7 +53,7 @@ Create a [public DNS zone](../../dns/concepts/dns-zone.md#public-zones) and dele
   1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the secret name: `db-password-secret`.
   1. In the **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** field, select `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.
-  1. In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, enter `db_password`.
+  1. In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, specify `db_password`.
   1. In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, paste the {{ mmy-full-name }} database password.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 

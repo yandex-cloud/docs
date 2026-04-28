@@ -1,0 +1,1 @@
+In {{ managed-k8s-name }}, you can use reserved instance pools for fixed-size [node groups](../../managed-kubernetes/concepts/index.md#node-group). This ensures resource availability for cluster nodes.

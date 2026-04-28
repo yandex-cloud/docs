@@ -313,6 +313,7 @@ To disable object locks:
   In the request body, provide the object lock parameter with an empty value:
 
   * `ObjectLockConfiguration`: For S3 API.
+   
   * `objectLock`: For REST API.
   * `object_lock`: For gRPC API.
 

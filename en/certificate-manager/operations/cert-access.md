@@ -74,6 +74,42 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
           * `--service-account-id`: [Service account ID](../../iam/operations/sa/get-id.md).
           * `--role`: Role to assign.
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  To assign a role for a certificate using {{ TF }}:
+
+  1. In the {{ TF }} configuration file, describe the resources you want to create:
+
+      ```hcl
+      resource "yandex_cm_certificate_iam_member" "mycert-roles" {
+        certificate_id = "<certificate_ID>"
+        role           = "<role>"
+        member         = "<subject_type>:<subject_ID>"
+      }
+      ```
+
+      Where:
+
+      * `certificate_id`: Certificate ID.
+      * `role`: [Role](../security/index.md#roles-list) to assign.
+      * `member`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+
+       For more information about `yandex_cm_certificate_iam_member` resource properties, see this [provider guide]({{ tf-provider-resources-link }}/cm_certificate_iam_member).
+
+  1. Create the resources:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} will create all the required resources. You can check the new resources using this [CLI](../../cli/) command:
+
+      ```bash
+      yc certificate-manager certificate list-access-bindings <certificate_ID>
+      ```
+
 - API {#api}
 
   Use the [updateAccessBindings](../api-ref/Certificate/updateAccessBindings.md) REST API method for the [Certificate](../api-ref/Certificate/) resource or the [CertificateService/UpdateAccessBindings](../api-ref/grpc/Certificate/updateAccessBindings.md) gRPC API call. In the request body, set the `action` property to `ADD` and specify the user type and ID under `subject`.
@@ -118,7 +154,6 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
       Where:
 
       * `--access-binding`: Role to assign:
-
           * `role`: ID of the role to assign.
           * `subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
@@ -131,12 +166,53 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
         --access-binding role=editor,subject=serviceAccount:ajel6l0jcb9s********
       ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  To assign multiple roles for a certificate using {{ TF }}:
+
+  1. In the {{ TF }} configuration file, describe the resources you want to create:
+
+      ```hcl
+      resource "yandex_cm_certificate_iam_member" "mycert-roles1" {
+        certificate_id = "<certificate_ID>"
+        role           = "<role_1>"
+        member         = "<subject_type>:<subject_ID>"
+      }
+
+      resource "yandex_cm_certificate_iam_member" "mycert-roles2" {
+        certificate_id = "<certificate_ID>"
+        role           = "<role_2>"
+        member         = "<subject_type>:<subject_ID>"
+      }
+      ```
+
+      Where:
+
+      * `certificate_id`: Certificate ID.
+      * `role`: [Role](../security/index.md#roles-list) to assign.
+      * `member`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+
+       For more information about `yandex_cm_certificate_iam_member` resource properties, see this [provider guide]({{ tf-provider-resources-link }}/cm_certificate_iam_member).
+
+  1. Create the resources:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      {{ TF }} will create all the required resources. You can check the new resources using this [CLI](../../cli/) command:
+
+      ```bash
+      yc certificate-manager certificate list-access-bindings <certificate_ID>
+      ```
+
 - API {#api}
 
   Use the [setAccessBindings](../api-ref/Certificate/setAccessBindings.md) REST API method for the [Certificate](../api-ref/Certificate/) resource or the [CertificateService/SetAccessBindings](../api-ref/grpc/Certificate/setAccessBindings.md) gRPC API call.
 
 {% endlist %}
-
 
 ## Revoking a role {#revoke-role}
 
@@ -180,6 +256,33 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
         --role viewer \
         --subject userAccount:ajel6l0jcb9s********
       ```
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  To revoke a role assigned for a certificate:
+
+  1. Open the {{ TF }} configuration file and delete the fragment describing the role:
+
+      ```hcl
+      resource "yandex_cm_certificate_iam_member" "mycert-roles" {
+        certificate_id = "<certificate_ID>"
+        role           = "<role>"
+        member         = "<subject_type>:<subject_ID>"
+      }
+      ```
+
+  1. Apply the changes:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+      You can verify the changes using this [CLI](../../cli/quickstart.md) command:
+      ```bash
+      yc certificate-manager certificate list-access-bindings <certificate_ID>
+      ``
 
 - API {#api}
 

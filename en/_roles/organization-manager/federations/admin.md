@@ -15,6 +15,7 @@ Users with this role can:
 * View the list of and info on Identity Hub user groups associated with identity federations through synchronization with user groups in Active Directory or another external source.
 * Associate user groups with identity federations through synchronization with user groups in Active Directory or another external source, as well as disassociate them.
 * View the [attributes](../../../organization/operations/setup-federation.md#claims-mapping) of federated and local users.
+* View and terminate federated and local users' [sessions](../../../organization/concepts/sessions.md).
 
 This role includes the `organization-manager.federations.editor`, `organization-manager.federations.extGroupsManager`, and `organization-manager.federations.extGroupsCleaner` permissions.
 

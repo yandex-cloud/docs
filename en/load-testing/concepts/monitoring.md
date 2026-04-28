@@ -1,5 +1,8 @@
 # Test agent monitoring
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 Monitoring enables you to collect data (metrics) related to the target and test agent state and visualize this data using charts. You can collect metrics using the [Telegraf](https://github.com/influxdata/telegraf) agent or YCMonitoring plugin. The monitoring charts are shown on the **{{ ui-key.yacloud.load-testing.label_monitoring-report }}** tab for the selected test.
 
 You can enable test agent monitoring in the settings when you [create a test](../operations/create-test-bucket.md#create-test):

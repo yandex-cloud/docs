@@ -51,6 +51,13 @@ New host classes are available for {{ PG }} clusters on AMD Zen 4 and AMD Zen 4 
 
 # {{ mpg-full-name }} release notes
 
+## March 2026 {#mar-2026}
+
+* Simplified adding and editing user access permissions for databases.
+* Introduced user notifications about diagnostic events: CPU shortage, RAM shortage, and OOM errors.
+* Published a {{ PG }} [versioning policy](./concepts/update-policy.md) for managed service and [version update](./concepts/upgrade.md) rules.
+* Added separate [roles](./security/index.md) to view and edit (reschedule) [maintenance](./concepts/maintenance.md) without access to the cluster.
+
 ## December 2025 {#dec-2025}
 
 * Added [detailed metrics](operations/monitoring.md#hosts) for disk usage on cluster hosts.
@@ -103,7 +110,7 @@ Now you can [upgrade clusters](operations/cluster-version-update.md) to {{ PG }}
 
 ## October 2024 {#oct-2024}
 
-* You can now [specify a retention period for your automatic backups](operations/cluster-backups.md#set-backup-retain).
+* Added support for [setting a retention period for automatic backups](operations/cluster-backups.md#set-backup-retain).
 
 ## September 2024 {#sep-2024}
 

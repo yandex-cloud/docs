@@ -138,9 +138,9 @@ GPU в виртуальных машинах предоставляется це
 
 Максимальный возможный размер кластера на платформе Gen2 — 20 ВМ с конфигурацией 8 GPU, 80 ГБ VRAM, 180 vCPU, 1440 ГБ RAM. Фактический максимальный размер кластера ограничен технической доступностью ресурсов.
 
-
 #### См. также {#see-also}
 
 * [{#T}](../operations/vm-create/create-vm-with-gpu.md).
 * Узнайте, как [добавить GPU к существующей ВМ](../operations/vm-control/vm-update-resources.md#add-gpu).
 * Узнайте, как [изменить количество GPU](../operations/vm-control/vm-update-resources.md#update-gpu).
+* [Вопросы про GPU](../../compute/qa/gpu.md).

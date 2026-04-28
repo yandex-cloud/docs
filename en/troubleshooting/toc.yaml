@@ -87,8 +87,6 @@ items:
           Cloud stuck in the `CREATING` status or it takes too long to create a
           cloud
         href: billing/known-issues/cloud-stuck-in-creating-status.md
-      - name: Fixing the `message Unauthorized; description Unauthorized` error
-        href: billing/known-issues/error-unauthorized.md
       - name: Fixing the `PROHIBITED_BILLING_ACCOUNT_USAGE_STATUS` error
         href: billing/known-issues/error-prohibited-user-account-usage-status.md
       - name: >-

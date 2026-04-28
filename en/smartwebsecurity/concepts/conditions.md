@@ -127,19 +127,7 @@ or regular expression of the PIRE library
 `csrftoken=u32t4o3tb`
 | _and_ ||
 
-|| `{{ ui-key.yacloud.component.condition-column.condition_name-body }}` |
-* Matches
-* Mismatches
-* Starts with
-* Does not start with
-* Matches regular expression
-* Does not match regular expression
-|
-String in the HTTP packet body or 
-regular expression of the PIRE library
-|
-`<br><input type='submit'>`
-| _or_ ||
+
 || `Bot name` |
 * Belongs to the list
 * Does not belong to the list
@@ -188,7 +176,7 @@ SSL/TLS connection's [JA3](https://github.com/salesforce/ja3) or [JA4](https://g
 
 ## Regular expression format {#regular-expressions}
 
-You can use regular expressions in such conditions as `{{ ui-key.yacloud.component.condition-column.condition_name-header }}`, `{{ ui-key.yacloud.component.condition-column.condition_name-requestUri }}`, `Query Match`, `{{ ui-key.yacloud.component.condition-column.condition_name-authority }}`, `{{ ui-key.yacloud.component.condition-column.condition_name-httpMethod }}`, `{{ ui-key.yacloud.component.condition-column.condition_name-cookie }}`, or `{{ ui-key.yacloud.component.condition-column.condition_name-body }}`. These conditions support the match types _Matches regular expression_ and _Does not match regular expression_.
+You can use regular expressions in such conditions as `{{ ui-key.yacloud.component.condition-column.condition_name-header }}`, `{{ ui-key.yacloud.component.condition-column.condition_name-requestUri }}`, `Query Match`, `{{ ui-key.yacloud.component.condition-column.condition_name-authority }}`, `{{ ui-key.yacloud.component.condition-column.condition_name-httpMethod }}`, `{{ ui-key.yacloud.component.condition-column.condition_name-cookie }}`. These conditions support the match types _Matches regular expression_ and _Does not match regular expression_.
 
 ### Regular expression operators {#regular-expressions-operators}
 

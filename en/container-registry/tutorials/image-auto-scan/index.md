@@ -12,9 +12,9 @@ You can enable auto [scans](../../concepts/vulnerability-scanner.md) of [Docker 
 
 {% endnote %}
 
-In this tutorial, you will create a {{ container-registry-name }} [registry](../../concepts/registry.md) to store a Docker image. You will also set up automatic scanning for vulnerabilities on push to the registry. A {{ sf-name}} trigger will track changes to the registry and invoke a function to start scanning when you push a Docker image to the registry.
+In this tutorial, you will create a {{ container-registry-name }} [registry](../../concepts/registry.md) to store a Docker image. You will also set up automatic scanning for vulnerabilities on push to the registry. A {{ sf-name }} trigger will track changes to the registry and invoke a function to start scanning when you push a Docker image to the registry.
 
 To set up and run Docker image vulnerability [scanning](../../concepts/vulnerability-scanner.md) on push to {{ container-registry-name }}, use the following tools:
 
-* [Management console, CLI, and API](console.md): Use the {{ yandex-cloud }} management console, CLI, or API to create your infrastructure step by step.
-* [{{ TF }}](terraform.md): Streamline creating and managing your resources using the _infrastructure as code_ (IaC) approach. Download a {{ TF }} configuration example from the GitHub repository and then deploy the infrastructure using the [{{ yandex-cloud }} {{ TF }} provider]({{ tf-docs-link }}).
+* [{{ yandex-cloud }} management console, CLI, and API](console.md): Use one of these methods to create your infrastructure step by step.
+* [{{ TF }}](terraform.md): Streamline creating and managing your resources using the _infrastructure as code_ (IaC) approach. Download a {{ TF }} configuration example from the GitHub repository and then deploy your infrastructure using the [{{ yandex-cloud }} {{ TF }} provider]({{ tf-docs-link }}).

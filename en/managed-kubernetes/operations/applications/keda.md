@@ -91,8 +91,8 @@ KEDA application:
          timeWindowOffset: "<time_window_indent>"
     
          logLevel: "<logging_level>"
-         logMetrics: "<allow_{{ monitoring-name}}_request_logging>"
-         logAggregation: "<enable_data_aggregation_logging>"
+         logMetrics: "<allow_{{ monitoring-name }}_request_logging>"
+         logAggregation: "<allow_data_aggregation_logging>"
    ```
 
    Required metadata in the `triggers` field:
@@ -110,7 +110,7 @@ KEDA application:
      * `PREVIOUS`: Returns the value from the previous data point.
    * `downsampling.maxPoints`: Maximum number of points to receive in a request response. The value of this parameter must be greater than `10`.
    * `downsampling.gridInterval`: Time window (grid) width in milliseconds. It is used for downsampling: points inside the window are merged into a single one using the aggregation function. The value of this parameter must be greater than `0`.
-   * `downsampling.disabled`: Disable data downsampling; The possible values are `true` or `false`.
+   * `downsampling.disabled`: Disable data downsampling. The possible values are `true` or `false`.
 
      {% note info %}
 

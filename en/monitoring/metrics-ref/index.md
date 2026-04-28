@@ -39,6 +39,7 @@ description: This page contains a list of references for {{ yandex-cloud }} metr
 * [{{ mtr-full-name }}](managed-trino-ref.md)
 * [{{ mrd-full-name }}](managed-valkey-ref.md)
 * [{{ ydb-full-name }}](ydb-ref.md)
+* [{{ myt-full-name }}](managed-ytsaurus-ref.md)
 * [{{ message-queue-full-name }}](message-queue-ref.md)
 * [{{ monitoring-full-name }}](monitoring-ref.md)
 * [{{ network-load-balancer-full-name }}](network-load-balancer-ref.md)

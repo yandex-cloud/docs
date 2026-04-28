@@ -35,7 +35,7 @@ apiPlayground:
             description: |-
               **string**
               Required field. ID of the access policy template being applied.
-              The maximum string length in characters is 50.
+              The maximum string length in characters is 64.
             type: string
           parameters:
             description: |-
@@ -103,7 +103,7 @@ Required field. Identity for which access policy binding is being updated. ||
 
 Required field. ID of the access policy template being applied.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 64. ||
 || parameters | **object** (map<**string**, **string**>)
 
 A list of access policy binding parameter KEY=VALUE pairs.
@@ -232,7 +232,7 @@ Identity for which access policy binding is being updated. ||
 
 Required field. ID of the access policy template being applied.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 64. ||
 || parameters | **object** (map<**string**, **string**>)
 
 A list of access policy binding parameter KEY=VALUE pairs.

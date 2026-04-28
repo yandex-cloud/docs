@@ -1,5 +1,8 @@
 # {{ load-testing-full-name }} overview
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 {{ load-testing-full-name }} enables you to load test your applications and services.
 
 

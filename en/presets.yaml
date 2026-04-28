@@ -50,6 +50,7 @@ default:
   api-host-quota-manager: quota-manager.api.cloud.yandex.net
   api-host-sk-tts: tts.api.cloud.yandex.net
   api-host-spark: spark.api.cloud.yandex.net
+  api-host-storage-grpc: storage.api.cloud.yandex.net:443
   api-host-trino: trino.api.cloud.yandex.net
   api-host-ytsaurus: ytsaurus.api.cloud.yandex.net
   api-url-prefix: /docs
@@ -395,6 +396,7 @@ default:
   metastore-name: Apache Hive™ Metastore
   metastore:
     integration-version: 3.1
+  metrics-name: Monium Metrics
   metrika: Yandex Metrica
   metrika-endpoint: Metrica
   metrika-link: https://metrika.yandex.com/
@@ -6188,7 +6190,6 @@ default:
           condition_and: and
           condition_full-trafic: All traffic
           condition_name-authority: Host
-          condition_name-body: HTTP body
           condition_name-cookie: Cookie
           condition_name-header: HTTP header
           condition_name-host: Host
@@ -11232,7 +11233,7 @@ default:
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3
-        tag: 0.43.4
+        tag: 0.43.6
     yc_external-secrets:
       helmChart:
         name: >-
@@ -11276,7 +11277,7 @@ default:
     yc_gwin:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gwin/gwin-chart
-        tag: v1.3.0
+        tag: v1.3.1
     yc_istio:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/istio/istio

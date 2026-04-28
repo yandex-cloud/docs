@@ -1,5 +1,8 @@
 # Load profile
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 To figure out the load to be generated on the server when [creating a test](../operations/create-test-bucket.md#create-test), a _load profile_ is used. The profile determines how the load will be modified and maintained.
 
 Most tools have their own formats for load profiles. When configuring a test via the UI, you can get the final profile by adding sections in the correct order.

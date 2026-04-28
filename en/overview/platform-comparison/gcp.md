@@ -34,7 +34,7 @@ description: This article establishes the equivalence between {{ yandex-cloud }}
 | Cloud Quotas | [{{ quota-manager-full-name }}](../../quota-manager/) |
 | Cloud Run | [{{ cos-full-name }}](../../cos/)<br/>[{{ serverless-containers-full-name }}](../../serverless-containers/) |
 | Cloud SDK | [{{ yandex-cloud }} CLI](../../cli/) |
-| Cloud Search | [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/concepts/index) |
+| Cloud Search | [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/concepts) |
 | Cloud Security Command Center | [{{ sd-full-name }}](../../security-deck/) |
 | Cloud Spanner | [{{ ydb-full-name }}](../../ydb/) |
 | Cloud Speech-to-Text,<br/>Cloud Text-to-Speech | [{{ speechkit-full-name }}]({{ link-docs-ai }}speechkit/overview) |

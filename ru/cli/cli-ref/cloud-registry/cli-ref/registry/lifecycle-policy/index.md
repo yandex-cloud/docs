@@ -26,6 +26,8 @@ Aliases:
 
 - [yc cloud-registry registry lifecycle-policy delete](delete.md) — Deletes the specified lifecycle policy
 
+- [yc cloud-registry registry lifecycle-policy dry-run](dry-run.md) — Simulate the lifecycle policy execution and show the number of artifacts to be deleted
+
 - [yc cloud-registry registry lifecycle-policy get](get.md) — Get information about a lifecycle policy.
 
 - [yc cloud-registry registry lifecycle-policy list](list.md) — List lifecycle policies.
