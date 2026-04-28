@@ -694,7 +694,7 @@ items:
     items:
       - name: API authentication
         href: api-ref/authentication.md
-      - name: REST (Amazon S3-compatible)
+      - name: AWS S3 REST
         items:
           - name: How to use the API
             href: s3/index.md
@@ -872,110 +872,108 @@ items:
                 href: s3/api-ref/common-response-headers.md
               - name: Responses
                 href: s3/api-ref/response-codes.md
-      - name: gRPC and REST
+      - name: '{{ yandex-cloud }} REST'
         items:
-          - name: gRPC
+          - name: Overview
+            href: api-ref/index.md
+          - name: Bucket
             items:
               - name: Overview
-                href: api-ref/grpc/index.md
-              - name: Bucket
-                items:
-                  - name: Overview
-                    href: api-ref/grpc/Bucket/index.md
-                  - name: List
-                    href: api-ref/grpc/Bucket/list.md
-                  - name: Get
-                    href: api-ref/grpc/Bucket/get.md
-                  - name: Create
-                    href: api-ref/grpc/Bucket/create.md
-                  - name: Update
-                    href: api-ref/grpc/Bucket/update.md
-                  - name: Delete
-                    href: api-ref/grpc/Bucket/delete.md
-                  - name: GetStats
-                    href: api-ref/grpc/Bucket/getStats.md
-                  - name: GetHTTPSConfig
-                    href: api-ref/grpc/Bucket/getHTTPSConfig.md
-                  - name: SetHTTPSConfig
-                    href: api-ref/grpc/Bucket/setHTTPSConfig.md
-                  - name: DeleteHTTPSConfig
-                    href: api-ref/grpc/Bucket/deleteHTTPSConfig.md
-                  - name: SetAccessBindings
-                    href: api-ref/grpc/Bucket/setAccessBindings.md
-                  - name: UpdateAccessBindings
-                    href: api-ref/grpc/Bucket/updateAccessBindings.md
-                  - name: ListAccessBindings
-                    href: api-ref/grpc/Bucket/listAccessBindings.md
-                  - name: CreateInventoryConfiguration
-                    href: api-ref/grpc/Bucket/createInventoryConfiguration.md
-                  - name: GetInventoryConfiguration
-                    href: api-ref/grpc/Bucket/getInventoryConfiguration.md
-                  - name: DeleteInventoryConfiguration
-                    href: api-ref/grpc/Bucket/deleteInventoryConfiguration.md
-                  - name: ListInventoryConfigurations
-                    href: api-ref/grpc/Bucket/listInventoryConfigurations.md
-              - name: Operation
-                items:
-                  - name: Overview
-                    href: api-ref/grpc/Operation/index.md
-                  - name: Get
-                    href: api-ref/grpc/Operation/get.md
-                  - name: Cancel
-                    href: api-ref/grpc/Operation/cancel.md
-              - name: Presign
-                items:
-                  - name: Overview
-                    href: api-ref/grpc/Presign/index.md
-                  - name: Create
-                    href: api-ref/grpc/Presign/create.md
-          - name: REST
+                href: api-ref/Bucket/index.md
+              - name: List
+                href: api-ref/Bucket/list.md
+              - name: Get
+                href: api-ref/Bucket/get.md
+              - name: Create
+                href: api-ref/Bucket/create.md
+              - name: Update
+                href: api-ref/Bucket/update.md
+              - name: Delete
+                href: api-ref/Bucket/delete.md
+              - name: GetStats
+                href: api-ref/Bucket/getStats.md
+              - name: GetHTTPSConfig
+                href: api-ref/Bucket/getHTTPSConfig.md
+              - name: SetHTTPSConfig
+                href: api-ref/Bucket/setHTTPSConfig.md
+              - name: DeleteHTTPSConfig
+                href: api-ref/Bucket/deleteHTTPSConfig.md
+              - name: SetAccessBindings
+                href: api-ref/Bucket/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/Bucket/updateAccessBindings.md
+              - name: ListAccessBindings
+                href: api-ref/Bucket/listAccessBindings.md
+              - name: CreateInventoryConfiguration
+                href: api-ref/Bucket/createInventoryConfiguration.md
+              - name: GetInventoryConfiguration
+                href: api-ref/Bucket/getInventoryConfiguration.md
+              - name: DeleteInventoryConfiguration
+                href: api-ref/Bucket/deleteInventoryConfiguration.md
+              - name: ListInventoryConfigurations
+                href: api-ref/Bucket/listInventoryConfigurations.md
+          - name: Operation
             items:
               - name: Overview
-                href: api-ref/index.md
-              - name: Bucket
-                items:
-                  - name: Overview
-                    href: api-ref/Bucket/index.md
-                  - name: List
-                    href: api-ref/Bucket/list.md
-                  - name: Get
-                    href: api-ref/Bucket/get.md
-                  - name: Create
-                    href: api-ref/Bucket/create.md
-                  - name: Update
-                    href: api-ref/Bucket/update.md
-                  - name: Delete
-                    href: api-ref/Bucket/delete.md
-                  - name: GetStats
-                    href: api-ref/Bucket/getStats.md
-                  - name: GetHTTPSConfig
-                    href: api-ref/Bucket/getHTTPSConfig.md
-                  - name: SetHTTPSConfig
-                    href: api-ref/Bucket/setHTTPSConfig.md
-                  - name: DeleteHTTPSConfig
-                    href: api-ref/Bucket/deleteHTTPSConfig.md
-                  - name: SetAccessBindings
-                    href: api-ref/Bucket/setAccessBindings.md
-                  - name: UpdateAccessBindings
-                    href: api-ref/Bucket/updateAccessBindings.md
-                  - name: ListAccessBindings
-                    href: api-ref/Bucket/listAccessBindings.md
-                  - name: CreateInventoryConfiguration
-                    href: api-ref/Bucket/createInventoryConfiguration.md
-                  - name: GetInventoryConfiguration
-                    href: api-ref/Bucket/getInventoryConfiguration.md
-                  - name: DeleteInventoryConfiguration
-                    href: api-ref/Bucket/deleteInventoryConfiguration.md
-                  - name: ListInventoryConfigurations
-                    href: api-ref/Bucket/listInventoryConfigurations.md
-              - name: Operation
-                items:
-                  - name: Overview
-                    href: api-ref/Operation/index.md
-                  - name: Get
-                    href: api-ref/Operation/get.md
-                  - name: Cancel
-                    href: api-ref/Operation/cancel.md
+                href: api-ref/Operation/index.md
+              - name: Get
+                href: api-ref/Operation/get.md
+              - name: Cancel
+                href: api-ref/Operation/cancel.md
+      - name: '{{ yandex-cloud }} gRPC'
+        items:
+          - name: Overview
+            href: api-ref/grpc/index.md
+          - name: Bucket
+            items:
+              - name: Overview
+                href: api-ref/grpc/Bucket/index.md
+              - name: List
+                href: api-ref/grpc/Bucket/list.md
+              - name: Get
+                href: api-ref/grpc/Bucket/get.md
+              - name: Create
+                href: api-ref/grpc/Bucket/create.md
+              - name: Update
+                href: api-ref/grpc/Bucket/update.md
+              - name: Delete
+                href: api-ref/grpc/Bucket/delete.md
+              - name: GetStats
+                href: api-ref/grpc/Bucket/getStats.md
+              - name: GetHTTPSConfig
+                href: api-ref/grpc/Bucket/getHTTPSConfig.md
+              - name: SetHTTPSConfig
+                href: api-ref/grpc/Bucket/setHTTPSConfig.md
+              - name: DeleteHTTPSConfig
+                href: api-ref/grpc/Bucket/deleteHTTPSConfig.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Bucket/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Bucket/updateAccessBindings.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Bucket/listAccessBindings.md
+              - name: CreateInventoryConfiguration
+                href: api-ref/grpc/Bucket/createInventoryConfiguration.md
+              - name: GetInventoryConfiguration
+                href: api-ref/grpc/Bucket/getInventoryConfiguration.md
+              - name: DeleteInventoryConfiguration
+                href: api-ref/grpc/Bucket/deleteInventoryConfiguration.md
+              - name: ListInventoryConfigurations
+                href: api-ref/grpc/Bucket/listInventoryConfigurations.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: api-ref/grpc/Operation/index.md
+              - name: Get
+                href: api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: api-ref/grpc/Operation/cancel.md
+          - name: Presign
+            items:
+              - name: Overview
+                href: api-ref/grpc/Presign/index.md
+              - name: Create
+                href: api-ref/grpc/Presign/create.md
   - name: '{{ monitoring-name }} metrics'
     href: metrics.md
   - name: '{{ at-name }} events'

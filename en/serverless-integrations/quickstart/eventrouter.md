@@ -126,7 +126,7 @@ To get started in {{ yandex-cloud }}:
         ```
         .httpMethod == "GET" and (.headers.Host | test("^d5dm"))
         ```
-    1. Under **{{ ui-key.yacloud.serverless-event-router.label_targets}}**, click **{{ ui-key.yacloud.common.add }}**.
+    1. Under **{{ ui-key.yacloud.serverless-event-router.label_targets }}**, click **{{ ui-key.yacloud.common.add }}**.
     1. In the **{{ ui-key.yacloud.serverless-event-router.label_target-type }}** field, select `{{ sw-full-name }}`.
     1. In the **Workflow** field, specify `sample-workflow`.
     1. In the **Service account** field, specify `sa-for-eventrouter`.

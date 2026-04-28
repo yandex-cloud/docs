@@ -1,5 +1,8 @@
 # Running external agents for load testing
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 
 You can use {{ load-testing-full-name }} for service load testing with external agents. 
 

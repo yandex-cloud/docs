@@ -5,6 +5,10 @@ description: This section contains the {{ mgp-name }} release notes.
 
 # {{ mgp-full-name }} release notes
 
+## March 2026 {#mar-2026}
+
+* Added separate [roles](./security/index.md) enabling you to view and edit (reschedule) maintenance without cluster access.
+
 ## December 2025 {#dec-2025}
 
 * Added [detailed metrics](operations/monitoring.md#hosts) for disk usage on cluster hosts.

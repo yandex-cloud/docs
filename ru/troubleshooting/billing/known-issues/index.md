@@ -21,6 +21,5 @@
 * [Устранение ошибки `ILLEGAL_REQUEST_CONTRACT` при формировании счета на оплату](illegal-request-contract.md)
 * [{{ kms-short-name }}-ключи продолжают тарифицироваться после удаления](kms-keys-are-charged-in-billing-after-deletion.md)
 * [Платежный аккаунт находится в статусе `PAYMENT_NOT_CONFIRMED`](payment-not-confirmed-issue.md)
-* [Устранение ошибки `message: Unauthorized; description: Unauthorized`](error-unauthorized.md)
 * [Устранение ошибки `PROHIBITED_BILLING_ACCOUNT_USAGE_STATUS`](error-prohibited-user-account-usage-status.md)
 * [Устранение ошибки `Веб-страница временно недоступна` при оплате картой Сбера](unable-to-pay-with-sber-card.md)

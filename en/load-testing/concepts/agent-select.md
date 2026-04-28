@@ -1,5 +1,8 @@
 # Agent selection
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 When [creating a test](../operations/create-test-bucket.md#create-test), you can either select a test agent from the list or create a temporary agent. The temporary test agent will be created for this specific test only and deleted after the test is complete. You can also configure selecting the first available agent. The agent selection option allows you to filter test agents by parameters you set.
 
 ## Creating a temporary test agent {#temporal}

@@ -21,7 +21,7 @@ After creating a cluster, you can:
 
 * [Set up automatic storage expansion](#disk-size-aut0scale).
 
-* [Configure](#change-valkey-config) {{ VLK }} servers as described in the [{{ VLK }}](https://redis.io/documentation) documentation. For a list of supported settings, see [{#T}](../concepts/settings-list.md) and the [API reference](../api-ref/Cluster/update.md).
+* [Configure](#change-valkey-config) {{ VLK }} servers as described in the [{{ VLK }}](https://valkey.io/docs) documentation. For a list of supported settings, see [{#T}](../concepts/settings-list.md) and the [API reference](../api-ref/Cluster/update.md).
 
 * [Change additional cluster settings](#change-additional-settings).
 
@@ -322,7 +322,7 @@ If the relevant setting is disabled (by default), {{ VLK }} uses IP addresses as
 
         * `announce_hostnames`: [Using FQDNs instead of IP addresses](../concepts/network.md#fqdn-ip-setting), `true` or `false`.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -433,7 +433,7 @@ For more information about data persistence and its settings, see [Persistence](
 
             {% include [persistence-modes](../../_includes/mdb/mvk/persistence-modes.md) %}
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -477,7 +477,7 @@ For more information about data persistence and its settings, see [Persistence](
 
            {% include [persistence-modes](../../_includes/mdb/mvk/persistence-modes.md) %}
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -978,7 +978,7 @@ For more information about storage and its autoscaling, see [Storage in {{ mrd-n
 
         {% include [autoscale-description](../../_includes/mdb/mvk/api/autoscaling-rest.md) %}
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1024,7 +1024,7 @@ For more information about storage and its autoscaling, see [Storage in {{ mrd-n
 
           {% include [autoscale-description](../../_includes/mdb/mvk/api/autoscaling-grpc.md) %}
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1377,7 +1377,7 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
 
             {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1454,7 +1454,7 @@ You can change the DBMS settings for your cluster hosts. You can find all the su
 
             {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1734,7 +1734,7 @@ You cannot disable sharding in a cluster where it is already enabled.
 
     To change the list of [security groups](../concepts/network.md#security-groups) for your cluster:
 
-    1. View the description of the CLI command for updating a cluster:
+    1. See the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-rd }} cluster update --help

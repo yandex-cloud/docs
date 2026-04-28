@@ -72,9 +72,11 @@ You pay for the storage allocated for database clusters.
     * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
 * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more broker hosts.
 
-The price covers one month of use, based on 720 hours per month. The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
+The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
 
 ### Cluster cost calculation example {#example}
+
+In the example given, the price per month of use is indicated for reference at the rate of 720 hours per month.
 
 {% include [prices-difference](../_includes/prices-difference.md) %}
 

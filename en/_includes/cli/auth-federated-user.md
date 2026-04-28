@@ -67,6 +67,7 @@ To authenticate using a [SAML-compatible identity federation](../../organization
    
    ```bash
    federation-id: aje1f0hs6oja********
+   subject-id: ajea53egl28l********
    cloud-id: b1g159pa15cd********
    folder-id: b1g8o9jbt58********
    compute-default-zone: {{ region-id }}-b

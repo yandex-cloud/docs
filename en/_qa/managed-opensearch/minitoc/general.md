@@ -29,3 +29,5 @@
 * [What is the role of {{ mos-short-name }} in database management and maintenance?](#services)
 
 * [What block size is used on the cluster disks?](#block-size)
+
+* [What restrictions apply when creating or deleting host groups?](#host-group-limits)

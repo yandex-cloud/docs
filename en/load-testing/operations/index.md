@@ -5,6 +5,9 @@ description: In this article, you will learn how to work with {{ load-testing-fu
 
 # Step-by-step guides for {{ load-testing-name }}
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 * [{#T}](create-agent.md)
 * [{#T}](security-groups-agent.md)
 * [{#T}](security-groups-target.md)

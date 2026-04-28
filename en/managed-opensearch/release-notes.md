@@ -5,6 +5,11 @@ description: This section contains the {{ mos-name }} release notes.
 
 # {{ mos-full-name }} release notes
 
+## March 2026 {#mar-2026}
+
+* Added CPU-optimized configurations. You can now select cluster resources with increased CPU to memory ratio.
+* Added separate [roles](./security/index.md) to view and edit (reschedule) [maintenance](./concepts/maintenance.md) without access to the cluster.
+
 ## February 2026 {#feb-2026}
 
 A new {{ OS }} version is out: [3.5](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-3.5.0.md).

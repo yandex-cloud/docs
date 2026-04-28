@@ -9,6 +9,7 @@ default:
   gateway-local-link2: ../../application-load-balancer/tools/k8s-gateway-api
   configuration-local-link: ../../../application-load-balancer/k8s-ref
   configuration-local-link2: ../../application-load-balancer/k8s-ref
+  configuration-gwin-local-link: ../../application-load-balancer/gwin-ref
   tutorial-local-link: ../../../application-load-balancer/tutorials
   tutorial-local-link2: ../../application-load-balancer/tutorials
   gateway-install-local-link: ../../../application-load-balancer/operations/k8s-gateway-api-install.md

@@ -5,6 +5,9 @@ description: Follow this guide to configure test agent security groups.
 
 # Configuring test agent security groups
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 {% note warning %}
 
 Make sure to set up security groups before creating the [agent](../concepts/agent.md). This way you can restrict the agent's access.
@@ -18,7 +21,7 @@ To assign another security group, [update](../../compute/operations/vm-control/v
 
 {% note info %}
 
-You can specify more granular rules for your security groups, such as allowing traffic only within specific subnets.
+You can specify more granular rules for your security groups, e.g., to allow traffic only in specific subnets.
 
 Make sure security groups are properly configured for all subnets that will host traffic-generating agents.
 

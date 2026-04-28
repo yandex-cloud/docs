@@ -1,5 +1,7 @@
 # Решение проблем в {{ compute-name }}
 
+{% include [minitoc](minitoc/troubleshooting.md) %}
+
 В этом разделе описаны типичные проблемы, которые могут возникнуть при работе {{ compute-name }}, и методы их решения.
 
 #### Не удается подключиться по SSH к вновь созданной ВМ с несколькими сетевыми интерфейсами {#unable-to-connect-to-new-multi-interface-vm}

@@ -45,8 +45,6 @@ editable: false
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
-Цены за месяц использования формируются из расчета 720 часов в месяц.
-
 ### Использование пулов резервов ВМ {#pool}
 
 {% include [reserved-pools-preview-notice](../_includes/compute/reserved-pools-preview-notice.md) %}

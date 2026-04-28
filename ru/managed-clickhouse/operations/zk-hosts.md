@@ -89,6 +89,7 @@ description: Следуя данной инструкции, вы сможете
 
      Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
@@ -99,7 +100,7 @@ description: Следуя данной инструкции, вы сможете
 
      О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
 
-  1. Убедитесь, что в конфигурационном файле описаны три подсети — по одной для каждой зоны доступности. При необходимости добавьте недостающие:
+  1. Добавьте в конфигурационный файл три подсети в разные зоны доступности:
 
      ```hcl
      resource "yandex_vpc_network" "<имя_сети>" {
@@ -127,40 +128,50 @@ description: Следуя данной инструкции, вы сможете
        v4_cidr_blocks = [ "<диапазон_адресов_подсети_в_зоне_{{ region-id }}-d>" ]
      }
      ```
-
-  1. Добавьте к описанию кластера {{ CH }} блок с конфигурацией {{ ZK }} и не менее трех блоков `host` с типом `ZOOKEEPER`.
-
+      
+  1. Добавьте к описанию кластера {{ CH }}:
+      
+     * блок `zookeeper` с конфигурацией {{ ZK }};
+     * не менее трех хостов {{ ZK }} в блок `hosts`.
+      
+     Три хоста {{ ZK }} должны быть размещены в разных зонах доступности.
+      
      Требования к хостам {{ ZK }}:
-     * В каждой зоне доступности должно быть минимум по одному хосту.
+
      * Минимальный класс хоста — `b1.medium`.
      * Тип диска — `{{ disk-type-example }}`.
      * Минимальный размер хранилища — 10 гигабайт.
 
+     Пример конфигурационного файла:
+
      ```hcl
-     resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+     resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
        ...
-       zookeeper {
-         resources {
+       zookeeper = {
+         resources = {
            resource_preset_id = "<класс_хостов>"
            disk_type_id       = "{{ disk-type-example }}"
            disk_size          = <размер_хранилища_ГБ>
          }
        }
-       ...
-       host {
-         type      = "ZOOKEEPER"
-         zone      = "{{ region-id }}-a"
-         subnet_id = yandex_vpc_subnet.<имя_подсети_в_зоне_{{ region-id }}-a>.id
-       }
-       host {
-         type      = "ZOOKEEPER"
-         zone      = "{{ region-id }}-b"
-         subnet_id = yandex_vpc_subnet.<имя_подсети_в_зоне_{{ region-id }}-b>.id
-       }
-       host {
-         type      = "ZOOKEEPER"
-         zone      = "{{ region-id }}-d"
-         subnet_id = yandex_vpc_subnet.<имя_подсети_в_зоне_{{ region-id }}-d>.id
+       
+       hosts = {
+         ...
+         <имя_хоста_1> = {
+           type      = "ZOOKEEPER"
+           zone      = "{{ region-id }}-a"
+           subnet_id = yandex_vpc_subnet.<имя_подсети_в_зоне_{{ region-id }}-a>.id
+         }
+         <имя_хоста_2> = {
+           type      = "ZOOKEEPER"
+           zone      = "{{ region-id }}-b"
+           subnet_id = yandex_vpc_subnet.<имя_подсети_в_зоне_{{ region-id }}-b>.id
+         }
+         <имя_хоста_3> = {
+           type      = "ZOOKEEPER"
+           zone      = "{{ region-id }}-d"
+           subnet_id = yandex_vpc_subnet.<имя_подсети_в_зоне_{{ region-id }}-d>.id
+         }
        }
      }
      ```
@@ -179,6 +190,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
+
 - REST API {#api}
 
   {% include [zk-hosts-rest](../../_includes/mdb/mch/api/zk-hosts-rest.md) %}
@@ -188,14 +200,6 @@ description: Следуя данной инструкции, вы сможете
   {% include [zk-hosts-grpc](../../_includes/mdb/mch/api/zk-hosts-grpc.md) %}
 
 {% endlist %}
-
-{% note info %}
-
-По умолчанию для хостов {{ ZK }} задаются следующие характеристики:
-* Класс хоста `b2.medium`.
-* [Хранилище](../concepts/storage.md) на сетевых SSD-дисках (`{{ disk-type-example }}`) размером 10 ГБ.
-
-{% endnote %}
 
 ## Изменить настройки хостов {{ ZK }} {#update-zk-settings}
 
@@ -263,6 +267,7 @@ description: Следуя данной инструкции, вы сможете
 
      Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
@@ -280,10 +285,10 @@ description: Следуя данной инструкции, вы сможете
      * Минимальный размер хранилища — 10 гигабайт.
 
      ```hcl
-     resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+     resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
        ...
-       zookeeper {
-         resources {
+       zookeeper = {
+         resources = {
            resource_preset_id = "<класс_хостов>"
            disk_type_id       = "<тип_диска>"
            disk_size          = <размер_хранилища_ГБ>
@@ -304,6 +309,7 @@ description: Следуя данной инструкции, вы сможете
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -490,6 +496,7 @@ description: Следуя данной инструкции, вы сможете
 
   Имя хоста можно запросить со [списком хостов в кластере](hosts.md#list-hosts), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
@@ -499,7 +506,8 @@ description: Следуя данной инструкции, вы сможете
    1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
 
       О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
-   1. Удалите из описания кластера {{ mch-name }} блок `host` с типом `ZOOKEEPER`.
+
+   1. Удалите хост с типом `{{ ZK }}` из блока `hosts`.
    1. Проверьте корректность настроек.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -511,6 +519,7 @@ description: Следуя данной инструкции, вы сможете
    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 

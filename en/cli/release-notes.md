@@ -7,6 +7,50 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
+### Version 1.2.0 (09/04/26) {#v-1-2-0}
+
+#### {{ mch-name }} {#v-1-2-0-mch}
+
+* The `--convert-tables-to-replicated` parameter in the `yc managed-clickhouse cluster add-zookeeper` command is enabled by default. 
+
+
+#### {{ mmy-name }} {#v-1-2-0-mmy}
+
+* Added a new `--daemon` proxy mode for `yc managed-mysql connect`.
+
+
+## Previous releases {#previous-release}
+
+### Version 1.1.0 (06/04/26) {#v-1-1-0}
+
+#### {{ sf-name }} {#v-1-1-0-sf-name}
+
+* Added the `--start-workflow-id`, `--start-workflow-name`, `--start-workflow-service-account-id`, and `--start-workflow-service-account-name` parameters to the `yc serverless trigger create` create command for running {{ sw-name }} on a trigger event:
+  * `yc serverless trigger create timer`
+  * `yc serverless trigger create message-queue`
+  * `yc serverless trigger create object-storage`
+  * `yc serverless trigger create conteiner-registry`
+  * `yc serverless trigger create logging`
+  * `yc serverless trigger create billing-budget`
+  * `yc serverless trigger create yds`
+  * `yc serverless trigger create mail`
+
+#### Managed database services {#v-1-1-0-managed-db}
+
+Added the `idle_session_timeout` configuration parameter.
+
+#### {{ managed-k8s-name }} {#v-1-1-0-managed-k8s-name}
+
+* Added the `--value` and `--value-from-file` parameters for providing Helm Release values to the `yc managed-kubernetes marketplace helm-release install` and `yc managed-kubernetes marketplace helm-release update` commands; the `--values` parameter is marked as deprecated:
+  * `yc managed-kubernetes marketplace helm-release install --value --value-from-file`
+  * `yc managed-kubernetes marketplace helm-release update --value --value-from-file`
+
+* Added the `--name` and `--namespace` parameters to the `yc managed-kubernetes marketplace helm-release install` command: `yc managed-kubernetes marketplace helm-release install --name --namespace`.
+
+* Added examples of providing complex values (lists, objects) via `--value` and `--value-from-file` to the `yc managed-kubernetes marketplace helm-release install` and `yc managed-kubernetes marketplace helm-release update` commands:
+  * `yc managed-kubernetes marketplace helm-release install`
+  * `yc managed-kubernetes marketplace helm-release update`
+
 ### Version 1.0.0 (02/04/26) {#version1.0.0}
 
 #### Changes to the CLI system commands {#yc-1.0.0}
@@ -52,8 +96,6 @@ Migrated the `yc smartcaptcha` commands to the new syntax. To use the old syntax
 Added the `--warehouse-bucket` and `--warehouse-path` parameters for configuring the {{ objstorage-name }} bucket intended as a Hive Metastore data storage (`warehouse`):
 * `yc managed-metastore cluster create --warehouse-bucket --warehouse-path`
 * `yc managed-metastore cluster update --warehouse-bucket --warehouse-path`
-
-## Previous releases {#previous-release}
 
 ### Version 0.204.0 (30/03/26) {#version0.204.0}
 
@@ -292,7 +334,7 @@ Added autoscaling and maintenance window settings for the `create` and `restore`
   * `yc managed-redis cluster restore --maintenance-window --disk-size-autoscaling`
 
 ##### {{ managed-k8s-name }}
-Added the `--reserved-instance-pool-id` and `--variables` parameters to the NodeGroup management methods, allowing you to specify VM reserve pools and custom variables, respectively:
+Added the `--reserved-instance-pool-id` and `--variables` parameters to the NodeGroup management methods for reserved instance pools and custom variables, respectively:
   * `yc managed-kubernetes node-group create`
   * `yc managed-kubernetes node-group update`
 
@@ -2709,7 +2751,7 @@ Added the `yc serverless network` command group to manage networks used in serve
 
 ##### {{ objstorage-name }}
 
-* Added the `AND` (`andOperation`) operator support to the `yc storage bucket update` command for the `--lifecycle-rules/` and `--lifecycle-rules-from-file` parameters to merge conditions in the object filter.
+* Added support for the `AND` (`andOperation`) logical operator to the `yc storage bucket update` command for the `--lifecycle-rules/` and `--lifecycle-rules-from-file` parameters to allow merging object filter conditions.
 * Added the `--encryption key-id=<key_ID>` parameter to the `yc storage bucket update` command to modify the encryption key currently in use and the `--remove-encryption` parameter which disables bucket encryption.
 
 ##### Managed database services {#managed-db}

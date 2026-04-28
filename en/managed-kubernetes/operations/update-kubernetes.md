@@ -132,7 +132,7 @@ Select auto update mode for your {{ managed-k8s-name }} cluster and set the upda
 
        ```hcl
        resource "yandex_kubernetes_cluster" "<cluster_name>" {
-         name = <cluster_name>
+         name = "<cluster_name>"
          ...
          maintenance_policy {
            auto_upgrade = true
@@ -153,7 +153,7 @@ Select auto update mode for your {{ managed-k8s-name }} cluster and set the upda
 
        ```hcl
        resource "yandex_kubernetes_cluster" "<cluster_name>" {
-         name = <cluster_name>
+         name = "<cluster_name>"
          ...
          maintenance_policy {
            auto_upgrade = true
@@ -194,7 +194,7 @@ Select auto update mode for your {{ managed-k8s-name }} cluster and set the upda
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -301,14 +301,17 @@ You can upgrade the {{ managed-k8s-name }} cluster version manually. In one step
 
   1. Open the current configuration file with the {{ managed-k8s-name }} cluster description.
 
-     For more information on how to create such a file, see [{#T}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md).
+     For more on how to create this file, see [{#T}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md).
   1. Change the version in the {{ managed-k8s-name }} cluster description:
 
      ```hcl
      resource "yandex_kubernetes_cluster" "<cluster_name>" {
-       name = <cluster_name>
+       name = "<cluster_name>"
        ...
-       version = "<new_version>"
+       master {
+         version = "<new_version>"
+         ...
+       }
      }
      ```
 
@@ -316,13 +319,13 @@ You can upgrade the {{ managed-k8s-name }} cluster version manually. In one step
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
      {% include [Terraform timeouts](../../_includes/managed-kubernetes/terraform-timeout-cluster.md) %}
 
-  For more information, see [this {{ TF }} provider guide]({{ tf-provider-k8s-cluster}}).
+  For more information, see [this {{ TF }} provider guide]({{ tf-provider-k8s-cluster }}).
 
 - API {#api}
 
@@ -432,7 +435,7 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
 
   1. Open the current configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more information on how to create such a file, see [{#T}](../../managed-kubernetes/operations/node-group/node-group-create.md).
+     For more on how to create this file, see [{#T}](../../managed-kubernetes/operations/node-group/node-group-create.md).
   1. Change auto update settings in the {{ managed-k8s-name }} node group description.
 
      {% note info %}
@@ -445,7 +448,7 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
 
        ```hcl
        resource "yandex_kubernetes_node_group" "<node_group_name>" {
-         name = <node_group_name>
+         name = "<node_group_name>"
          ...
          maintenance_policy {
            auto_upgrade = true
@@ -466,7 +469,7 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
 
        ```hcl
        resource "yandex_kubernetes_node_group" "<node_group_name>" {
-         name = <node_group_name>
+         name = "<node_group_name>"
          ...
          maintenance_policy {
            auto_upgrade = true
@@ -495,7 +498,7 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
 
        ```hcl
        resource "yandex_kubernetes_node_group" "<node_group_name>" {
-         name = <node_group_name>
+         name = "<node_group_name>"
          ...
          deploy_policy {
            max_expansion   = <expanding_group_during_update>
@@ -533,7 +536,7 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -665,12 +668,12 @@ Upgrade the {{ managed-k8s-name }} cluster version before updating the node grou
 
   1. Open the current configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more information on how to create such a file, see [{#T}](../../managed-kubernetes/operations/node-group/node-group-create.md).
+     For more on how to create this file, see [{#T}](../../managed-kubernetes/operations/node-group/node-group-create.md).
   1. Change the version in the {{ managed-k8s-name }} node group description:
 
      ```hcl
      resource "yandex_kubernetes_node_group" "<node_group_name>" {
-       name = <node_group_name>
+       name = "<node_group_name>"
        ...
        version = "<new_version>"
      }
@@ -680,7 +683,7 @@ Upgrade the {{ managed-k8s-name }} cluster version before updating the node grou
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -723,7 +726,7 @@ The {{ managed-k8s-name }} cluster and node groups will be updated if any of the
   1. Click the name of the {{ managed-k8s-name }} cluster.
   1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
   1. In the **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** field, select `Get the latest improvements and fixes for version...`
-  1. Click **{{ ui-key.yacloud.common.save}}**.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -762,7 +765,7 @@ The {{ managed-k8s-name }} cluster and node groups will be updated if any of the
   1. Select the {{ managed-k8s-name }} node group from the list.
   1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
   1. In the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** field, select `Get the latest improvements and fixes for version...`
-  1. Click **{{ ui-key.yacloud.common.save}}**.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 

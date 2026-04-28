@@ -84,8 +84,8 @@
 Опционально вы можете:
 
 
-* [Проверить физическое состояние кластера](../../compute/operations/gpu-cluster/gpu-cluster-test-physical-state.md);
-* [Запустить параллельные задачи в кластере](../../compute/operations/gpu-cluster/gpu-cluster-mpirun-parallel.md);
+* [Проверить физическое состояние кластера](../../compute/operations/gpu-cluster/gpu-cluster-test-physical-state.md).
+* [Запустить параллельные задачи в кластере](../../compute/operations/gpu-cluster/gpu-cluster-mpirun-parallel.md).
 * [Проверить пропускную способность InfiniBand](../../compute/operations/gpu-cluster/test-infiniband-bandwidth.md).
 
 
@@ -183,3 +183,7 @@
 Чтобы перестать платить за созданные ресурсы:
 1. В сервисе {{ compute-name }} [удалите](../../compute/operations/vm-control/vm-delete.md) созданные виртуальные машины.
 1. В сервисе {{ compute-name }} [удалите](../../compute/operations/gpu-cluster/gpu-cluster-delete.md) созданный кластер GPU.
+
+#### См. также {#see-also}
+
+* [Вопросы про GPU](../../compute/qa/gpu.md).

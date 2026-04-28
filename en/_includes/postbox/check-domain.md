@@ -1,11 +1,21 @@
-To send emails, confirm domain ownership. After creating an address, DKIM signature settings will be generated on its page. Specify them as the values of the resource record you need to add to your domain zone. You can add a record with your registrar or in [{{ dns-full-name }}](../../dns/) if you have delegated your {{ yandex-cloud }} domain.
+{% include [check-domain-intro](../../_includes/postbox/check-domain-intro.md) %}
 
-**Example of creating a resource record in {{ dns-full-name }}**
+{% list tabs group=dkim %}
 
-{% list tabs group=instructions %}
+- Simple setup {#easy}
 
-- Management console {#console}
+    With the simple setup, {{ postbox-name }} automatically generates DKIM keys. The two CNAME records you need to add to your DNS provider are displayed under **{{ ui-key.yacloud.postbox.section_dkim }}** on the address page.
 
+    **Example of creating resource records in {{ dns-full-name }}**
+
+    {% include [check-domain-simple](../../_includes/postbox/check-domain-simple.md) %}
+
+- Advanced setup {#advanced}
+
+    With the advanced setup, you need to manually [generate the key](../../postbox/operations/create-address.md) for the DKIM signature. The **{{ ui-key.yacloud.postbox.section_dkim }}** section on the address page displays a single TXT record you need to add to your DNS provider.
+
+    **Example of creating resource records in {{ dns-full-name }}**
+    
     1. In the [management console]({{ link-console-main }}), select the folder containing the address and your domain zone.
 
         If you do not have a [public DNS zone](../../dns/concepts/dns-zone.md#public-zones) yet, [create](../../dns/operations/zone-create-public.md) one:
@@ -27,12 +37,18 @@ To send emails, confirm domain ownership. After creating an address, DKIM signat
         "v=DKIM1;h=sha256;k=rsa;p=M1B...aCA8"
         ```
 
+        {% note info %}
+
+        Other DNS services may have different requirements for resource record formatting. For more information, refer to your DNS provider’s guides.
+
+        {% endnote %}
+
     1. In the **{{ ui-key.yacloud.dns.label_form-ttl }}** field, specify the record lifetime.
     1. Click **{{ ui-key.yacloud.common.create }}**.
     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
     1. Select the address you created.
     1. Wait for {{ postbox-name }} to verify the DKIM signature settings. If the record is correct, the verification status on the address page will change to `Success`.
 
-    DNS server responses are cached, so delays may occur when updating a resource record. If the verification status does not change within 24 hours, click **{{ ui-key.yacloud.postbox.button_run-verification }}**. 
-
 {% endlist %}
+
+DNS server responses are cached, so you may experience delays when updating the resource record. If the verification status does not change within 24 hours, click **{{ ui-key.yacloud.postbox.button_run-verification }}**.

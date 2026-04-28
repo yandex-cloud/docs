@@ -413,6 +413,8 @@ items:
         href: dev/self-hosted-worker-sourcecraft.md
       - name: Comparing load test results
         href: testing/loadtesting-results-compare.md
+      - name: Load testing migration to k6
+        href: testing/loadtesting-migration-to-k6.md
       - name: >-
           AI-powered review of GitHub pull requests with {{ sw-full-name }} and
           GitHub Actions
@@ -1201,6 +1203,8 @@ items:
         href: dataplatform/opensearch-saml-keycloak.md
       - name: Using the yandex-lemmer plugin in {{ mos-name }}
         href: dataplatform/opensearch-yandex-lemmer.md
+      - name: Sending email notifications in {{ mos-name }}
+        href: dataplatform/opensearch-email-notifications.md
       - name: Creating a {{ PG }} cluster for 1C:Enterprise
         href: dataplatform/1c-postgresql.md
       - name: Searching for the {{ mpg-name }} cluster performance issues
@@ -1636,8 +1640,8 @@ items:
           - name: Developing a Telegram bot
             href: serverless/telegram-bot-serverless.md
           - name: >-
-              Developing a Telegram bot for text recognition in images, audio
-              synthesis and recognition
+              Creating a Telegram bot for text recognition in images, speech
+              synthesis, and audio recognition
             href: serverless/recognizer-bot.md
       - name: Serverless-based ETL
         items:

@@ -2727,6 +2727,8 @@ items:
         href: qa/disks.md
       - name: Группы виртуальных машин
         href: qa/instance-groups.md
+      - name: Графические ускорители GPU
+        href: qa/gpu.md
       - name: Мониторинг
         href: qa/monitoring.md
       - name: Лицензирование

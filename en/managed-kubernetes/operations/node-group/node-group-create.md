@@ -60,7 +60,8 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
        --node-taints <taints> \
        --container-network-settings pod-mtu=<MTU_value_for_group_pods> \
        --max-expansion <node_group_expansion_limit> \
-       --max-unavailable <unavailable_nodes_limit>
+       --max-unavailable <unavailable_nodes_limit> \
+       --reserved-instance-pool-id <reserved_instance_pool_ID>
      ```
 
      Where:
@@ -127,6 +128,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
      * `--node-taints`: {{ k8s }} [taints](../../concepts/index.md#taints-tolerations). You can specify multiple values.
      * `--container-network-settings`: [MTU](https://en.wikipedia.org/wiki/Maximum_transmission_unit) value for network connections to group pods. This setting is not applicable for clusters with the Calico or Cilium network policy controllers.
+     * `--reserved-instance-pool-id`: Reserved instance pool [ID](../../../compute/cli-ref/reserved-instance-pool/list.md). For more information, see [{#T}](./node-group-create-in-instance-pool.md).
      * [Deployment policy](../../concepts/node-group/deploy-policy.md) parameters:
 
         {% include [deploy-policy-parameters-cli](../../../_includes/managed-kubernetes/deploy-policy/parameters-cli.md) %}
@@ -254,6 +256,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
        * `labels`: Node group [cloud labels](../../concepts/index.md#node-labels). You can specify multiple labels separated by commas.
        * `node_labels`: Node group [{{ k8s }} labels](../../concepts/index.md#node-labels).
+       * `reserved_instance_pool_id`: Reserved instance pool [ID](../../../compute/cli-ref/reserved-instance-pool/list.md). For more information, see [{#T}](./node-group-create-in-instance-pool.md).
        * `scale_policy`: Scaling settings.
 
          You cannot change the scaling type after creating a node group.
@@ -358,7 +361,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
        {% include [node-name](../../../_includes/managed-kubernetes/tf-node-name.md) %}
 
      For more information, see [this {{ TF }} provider guide]({{ tf-provider-k8s-nodegroup }}).
-  1. Make sure the configuration files are correct.
+  1. Validate your configuration files.
 
      {% include [terraform-create-cluster-step-2](../../../_includes/mdb/terraform-create-cluster-step-2.md) %}
 
@@ -382,6 +385,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
   * [containerd](https://containerd.io/) runtime environment in the `nodeTemplate.containerRuntimeSettings.type` parameter.
   * Node group [cloud labels](../../concepts/index.md#node-labels) in the `nodeTemplate.labels` parameter.
   * Node group [{{ k8s }} labels](../../concepts/index.md#node-labels) in the `nodeLabels` parameter.
+  * [Reserved instance pool](../../../compute/concepts/reserved-pools.md) ID in the `nodeTemplate.reservedInstancePoolId` parameter. For more information, see [{#T}](./node-group-create-in-instance-pool.md).
   * [Scaling settings](../../concepts/autoscale.md#ca) in the `scalePolicy` parameter.
   
     You cannot change the scaling type after creating a node group.
@@ -594,3 +598,8 @@ Create a node group for the {{ managed-k8s-name }} cluster with the following te
       {% include [terraform-create-cluster-step-3](../../../_includes/mdb/terraform-create-cluster-step-3.md) %}
 
 {% endlist %}
+
+### See also {#see-also}
+
+* [{#T}](./node-group-create-in-instance-pool.md)
+* [{#T}](../../concepts/index.md#node-group)

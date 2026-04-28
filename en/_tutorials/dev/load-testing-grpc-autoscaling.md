@@ -1,5 +1,7 @@
 # Deploying and load testing a scalable gRPC service in {{ managed-k8s-full-name }}
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
 
 Follow this tutorial to deploy an autoscalable gRPC service in a [{{ k8s }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) using an [{{ alb-full-name }}](../../application-load-balancer/) [ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md) to load test the service.
 

@@ -117,11 +117,17 @@ You can also use this method to deliver metrics from any custom applications tha
               plugin: metrics_pull
               config:
                 url: http://<VM_public_address>:8000/metrics
-                metric_name_label:  my_name  # optional, allows you to rename your application's name label, as this name is reserved by the agent.
+                metric_name_label: my_name  # optional, allows you to rename your application's name label, as this name is reserved by the agent.
                 format:
                   prometheus: {}
                 namespace: app
             channel:
+              pipe:
+                - filter:
+                    plugin: transform_metric_label
+                    config:
+                      label: name
+                      rename_to: my_new_name
               channel_ref:
                 name: cloud_monitoring
 
@@ -149,8 +155,8 @@ You can also use this method to deliver metrics from any custom applications tha
          label name 'name' is reserved
          ```
 
-       To avoid an error, specify any other unique name.
-
+       To avoid the error, specify any other unique name.
+       * `transform_metric_label`: [Filter](../../concepts/data-collection/unified-agent/filters.md#transform_metric_label_filter), which allows you to rename the metric label or add a prefix to it.
    1. Install {{ unified-agent-short-name }} by running the following command in your home directory:
 
       ```bash

@@ -11,7 +11,10 @@
     When [creating a cluster](cluster-create.md) or [updating its settings](update.md#change-additional-settings):
 
     1. Enable **{{ ui-key.yacloud.mdb.forms.field_diagnostics-enabled }}** (disabled by default).
-    1. Set the **{{ ui-key.yacloud.mdb.forms.field_diagnostics-sessions-interval }}** and **{{ ui-key.yacloud.mdb.forms.field_diagnostics-statements-interval }}**. The possible values range from `1` to `86400` seconds.
+    1. Set the **{{ ui-key.yacloud.mdb.forms.field_diagnostics-sessions-interval }}** and **{{ ui-key.yacloud.mdb.forms.field_diagnostics-statements-interval }}**. Valid values:
+        
+        * For sessions: From `5` to `86400` seconds.
+        * For queries: From `60` to `86400` seconds.
 
 - CLI {#cli}
 
@@ -30,7 +33,10 @@
         ...
     ```
 
-    For `sessions-sampling-interval` and `statements-sampling-interval`, the valid values range from `1` to `86400` seconds.
+    Allowed values:
+
+    * `sessions-sampling-interval`: From `5` to `86400` seconds.
+    * `statements-sampling-interval`: From `60` to `86400` seconds.
 
 - {{ TF }} {#tf}
 
@@ -52,7 +58,11 @@
         }
         ```
 
-        For `sessions_sampling_interval` and `statements_sampling_interval`, possible values range from `1` to `86400` seconds.
+        Where:
+        
+        * `enabled`: Enables statistics collection, `true` or `false`.
+        * `sessions_sampling_interval`: Session sampling interval, from `5` to `86400` seconds.
+        * `statements_sampling_interval`: Statement sampling interval, from `60` to `86400` seconds.
 
     1. Validate your configuration.
 
@@ -70,7 +80,7 @@
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. To enable statistics collection when creating a cluster:
+    1. To enable the collection of statistics when creating a cluster:
 
         1. Use the [Cluster.create](../api-ref/Cluster/create.md) method and add the `configSpec.performanceDiagnostics` parameter to the [cURL cluster creation command](cluster-create.md#create-cluster):
 
@@ -96,12 +106,12 @@
             Where `configSpec.performanceDiagnostics` is the statistics collection settings:
 
             * `enabled`: Enables statistics collection, `true` or `false`.
-            * `sessionsSamplingInterval`: Session sampling interval, from `1` to `86400` seconds.
+            * `sessionsSamplingInterval`: Session sampling interval, from `5` to `86400` seconds.
             * `statementsSamplingInterval`: Statement sampling interval, from `60` to `86400` seconds.
 
         1. Check the [server response](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
-    1. To enable statistics collection when updating an existing cluster:
+    1. To enable the collection of statistics when updating an existing cluster:
 
         1. Call the [Cluster.update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
@@ -128,7 +138,7 @@
             Where `configSpec.performanceDiagnostics` is the statistics collection settings:
 
             * `enabled`: Enables statistics collection, `true` or `false`.
-            * `sessionsSamplingInterval`: Session sampling interval, from `1` to `86400` seconds.
+            * `sessionsSamplingInterval`: Session sampling interval, from `5` to `86400` seconds.
             * `statementsSamplingInterval`: Statement sampling interval, from `60` to `86400` seconds.
 
         1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
@@ -140,7 +150,7 @@
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-    1. To enable statistics collection when creating a cluster:
+    1. To enable the collection of statistics when creating a cluster:
 
         1. Use the [ClusterService/Create](../api-ref/grpc/Cluster/create.md) method and add the `config_spec.performance_diagnostics` parameter to the [gRPCurl cluster creation command](cluster-create.md#grpc-api):
 
@@ -169,12 +179,12 @@
             Where `config_spec.performance_diagnostics` is the statistics collection settings:
 
             * `enabled`: Enables statistics collection, `true` or `false`.
-            * `sessions_sampling_interval`: Session sampling interval, from `1` to `86400` seconds.
+            * `sessions_sampling_interval`: Session sampling interval, from `5` to `86400` seconds.
             * `statements_sampling_interval`: Statement sampling interval, from `60` to `86400` seconds.
 
         1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
-    1. To enable statistics collection when updating an existing cluster:
+    1. To enable the collection of statistics when updating an existing cluster:
 
         1. Call the [ClusterService/Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
@@ -209,7 +219,7 @@
             Where `config_spec.performance_diagnostics` represents the statistics collection settings:
 
             * `enabled`: Enables statistics collection, `true` or `false`.
-            * `sessions_sampling_interval`: Session sampling interval, from `1` to `86400` seconds.
+            * `sessions_sampling_interval`: Session sampling interval, from `5` to `86400` seconds.
             * `statements_sampling_interval`: Statement sampling interval, from `60` to `86400` seconds.
 
         1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
@@ -218,7 +228,7 @@
 
 ## Getting session statistics {#get-sessions}
 
-1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 1. Click the name of your cluster and select **{{ ui-key.yacloud.mysql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_sessions }}**.
 
     To view session statistics or the history of queries run within a session, select the relevant tab.
@@ -246,7 +256,7 @@
 
 ## Getting query statistics {#get-queries}
 
-1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 1. Click the name of your cluster and select **{{ ui-key.yacloud.mysql.cluster.switch_diagnostics }}** → **{{ ui-key.yacloud.mdb.cluster.diagnostics.label_queries }}**.
 
     To view query statistics or compare them across two time intervals, select the relevant tab.

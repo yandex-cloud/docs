@@ -16,6 +16,12 @@
 
 Установить контроллер Gwin можно [по инструкции](../../../managed-kubernetes/alb-ref/gwin-quickstart.md).
 
+{% note tip %}
+
+Вы можете использовать существующую инфраструктуру {{ alb-name }} для ресурсов {{ k8s }} через Gwin с помощью механизма [Attachment](../../../managed-kubernetes/alb-ref/gwin-alb-attachment.md).
+
+{% endnote %}
+
 ## Примеры конфигурации
 
 Ниже приведены два примера конфигурации — с использованием ресурсов Gateway API и Ingress. В обоих случаях создается балансировщик {{ alb-name }}, который:
