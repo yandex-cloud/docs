@@ -4106,6 +4106,7 @@ default:
       channel:
         button_create: Создать
         button_new-channel: Создать канал
+        field_function_title: Облачная функция
         field_method: Метод
         field_name: Имя
         field_recipients: Получатели
@@ -5959,6 +5960,9 @@ default:
         PerformanceDiagnostics:
           ClusterDiagnosticsTabs:
             label_query-groups_w3anM: Группы запросов
+        RestoreCluster:
+          RestorePatternsField:
+            action_add-pattern_o12PG: Добавить
         switch_backups: Резервные копии
         switch_list: Кластеры
         switch_operations: Операции
@@ -8126,11 +8130,23 @@ default:
         label_event-destinations: Подписки
         label_identities: Адреса
         label_mail-statuses: Статусы писем
+        label_messages: Отправленные письма
         label_name: Название
         label_private-key: Приватный ключ
         label_restrict-senders: Ограничить список отправителей
         label_selector: Селектор
         label_signing-type-internal: Простая
+        label_statistics: Статистика
+        label_statistics_bounced-event: Не доставлено
+        label_statistics_clicks-event: Переходы
+        label_statistics_complaints-event: Жалобы
+        label_statistics_delivered-event: Доставлено
+        label_statistics_delivery-group-metrics: Доставка писем
+        label_statistics_interaction-group-metrics: Вовлечённость
+        label_statistics_negative-group-metrics: Негатив
+        label_statistics_opens-event: Открытия
+        label_statistics_sent-event: Отправлено
+        label_statistics_unsubscribes-event: Отписки
         section_dkim: Настройка подписи писем (DKIM)
       postgresql:
         cluster:

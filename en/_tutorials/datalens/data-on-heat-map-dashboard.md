@@ -131,11 +131,11 @@ To allow another user to open your dashboard, configure access to {{ datalens-fu
    1. In the **Add member** field, enter _All_ or the name of the user who needs extended permissions.
    1. Go to the **Current object** section and set the permissions for the dashboard:
 
-      * View: Read only is available.
-      * Edit: View and edit options are available.
-      * Administration: View, edit, and manage options are available.
+      * View: Viewing only.
+      * Edit: Viewing and editing.
+      * Administration: Viewing, editing, and management.
 
-   1. Enable the **Linked objects** option to grant permissions to other dashboard-related objects, such as connections, dashboards, and charts.
+   1. Enable the **Linked objects** option to grant permissions to other dashboard-related objects (connection, datasets, and charts).
 
 The user is granted access to your {{ datalens-short-name }} and objects with **All** permissions. You can assign this user individual permissions to objects.
 
@@ -168,7 +168,7 @@ Data in {{ datalens-short-name }} is only available to users of a specific insta
 
 ## 5. Add a chart or dashboard to your website {#add-dashboard-chart}
 
-You can embed the published charts into a website or app using the `iframe` element. To do this:
+You can embed the published charts into a website or app using the `iframe` element. Proceed as follows:
 
 1. Follow the public link to the chart.
 1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the top-right corner of the chart and select **Embed code**.

@@ -5,6 +5,16 @@ description: In this tutorial, you will learn about object access management in 
 
 # Object access permissions
 
+
+{% note info %}
+
+* If using the old folder navigation, in this section, you will find information about access permissions for objects and folders.
+
+* If using the new {{ datalens-short-name }} object model, which includes [workbooks and collections](../workbooks-collections/index.md), go to the page about the [roles](./roles.md).
+
+{% endnote %}
+
+
 Permission differentiation in {{ datalens-short-name }} is implemented at the directory and object level. The available operations depend on what access permissions were assigned.
 
 If you create or copy a directory or object, the permissions for them are inherited from the parent directory at the time of creation or copying. Note that access permissions do not change automatically when you move the objects later.

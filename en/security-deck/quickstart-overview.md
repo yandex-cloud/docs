@@ -69,7 +69,7 @@ For more information, see [{#T}](./concepts/dspm.md).
 
 ### {{ ciem-full-name }} ({{ ciem-name }}) {#ciem}
 
-{{ sd-name }} [{{ ciem-full-name }}]({{ link-sd-main }}iam-diagnostics/) provides a centralized [view](./operations/ciem/view-permissions.md) of the full list of accesses to the organization's [resources](../iam/concepts/access-control/resources-with-access-control.md) available to [subjects](../iam/concepts/access-control/index.md#subject): [users](../overview/roles-and-resources.md#users), [service accounts](../iam/concepts/users/service-accounts.md), [user groups](../organization/concepts/groups.md), [system groups](../iam/concepts/access-control/system-group.md), and [public groups](../iam/concepts/access-control/public-group.md). The tool also makes it easy to [revoke](./operations/ciem/revoke-permissions.md) excessive access permissions from subjects. To learn more, see [{#T}](./concepts/ciem.md).
+{{ sd-name }} [{{ ciem-full-name }}]({{ link-sd-main }}iam-diagnostics/) is a tool providing a centralized [view](./operations/ciem/view-permissions.md) of the full list of accesses to the organization's [resources](../iam/concepts/access-control/resources-with-access-control.md) available to [subjects](../iam/concepts/access-control/index.md#subject), i.e., [users](../overview/roles-and-resources.md#users), [service accounts](../iam/concepts/users/service-accounts.md), [user groups](../organization/concepts/groups.md), [system groups](../iam/concepts/access-control/system-group.md), and [public groups](../iam/concepts/access-control/public-group.md). The tool also makes it easy to [revoke](./operations/ciem/revoke-permissions.md) excessive access permissions from subjects. To learn more, see [{#T}](./concepts/ciem.md).
 
 To get started with the {{ ciem-name }} module, follow the guides for [viewing](./operations/ciem/view-permissions.md) and [revoking](./operations/ciem/revoke-permissions.md) accesses.
 
@@ -79,7 +79,7 @@ To get started with the {{ ciem-name }} module, follow the guides for [viewing](
 
 ### Managing vulnerabilities {#vulnerability-management}
 
-[{{ vuln-man-name }}]({{ link-sd-main }}vulnerability-management/) enables you to centrally manage container image vulnerability scanning and view resource scan results within your workspace. The module supports scanning images from {{ container-registry-name }} and {{ cloud-registry-name }}, as well as images run in {{ managed-k8s-name }} clusters.
+[{{ vuln-man-name }}]({{ link-sd-main }}vulnerability-management/) enables you to centrally manage container image vulnerability scanning and view resource scan results within your workspace. This module supports scanning images from {{ container-registry-name }} and {{ cloud-registry-name }}, and those running in {{ managed-k8s-name }} clusters.
 
 Scanning can start automatically when the image is pushed to the registry, on a schedule, or when the image is used in a {{ k8s }} cluster. The module is integrated with {{ kspm-name }} to detect active images and inform you which vulnerable images are used in the monitored workspace.
 

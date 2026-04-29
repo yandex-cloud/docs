@@ -4107,6 +4107,7 @@ default:
       channel:
         button_create: Create
         button_new-channel: Create channel
+        field_function_title: Cloud function
         field_method: Method
         field_name: Name
         field_recipients: Recipients
@@ -5958,6 +5959,9 @@ default:
         PerformanceDiagnostics:
           ClusterDiagnosticsTabs:
             label_query-groups_w3anM: Query groups
+        RestoreCluster:
+          RestorePatternsField:
+            action_add-pattern_o12PG: Add
         switch_backups: Backups
         switch_list: Clusters
         switch_operations: Operations
@@ -8123,11 +8127,23 @@ default:
         label_event-destinations: Subscriptions
         label_identities: Addresses
         label_mail-statuses: Email statuses
+        label_messages: Sent emails
         label_name: Name
         label_private-key: Private key
         label_restrict-senders: Restrict sender list
         label_selector: Selector
         label_signing-type-internal: Simple
+        label_statistics: Statistics
+        label_statistics_bounced-event: Not delivered
+        label_statistics_clicks-event: Clicks
+        label_statistics_complaints-event: Complaints
+        label_statistics_delivered-event: Delivered
+        label_statistics_delivery-group-metrics: Email delivery
+        label_statistics_interaction-group-metrics: Engagement
+        label_statistics_negative-group-metrics: Negative feedback
+        label_statistics_opens-event: Openings
+        label_statistics_sent-event: Sent
+        label_statistics_unsubscribes-event: Unsubscribes
         section_dkim: Email signature configuration (DKIM)
       postgresql:
         cluster:

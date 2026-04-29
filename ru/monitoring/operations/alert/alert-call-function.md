@@ -32,7 +32,7 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с ресурсами, которые надо отслеживать в {{ monitoring-name }}.
   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Введите имя сервисного аккаунта, например `sa-alert-webhook`.
+  1. Введите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** сервисного аккаунта, например `sa-alert-webhook`.
   1. Добавьте роли `{{ roles-functions-invoker }}` и `{{ roles-functions-viewer }}`.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -46,7 +46,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
-  1. Введите имя функции, например `alert-webhook`.
+  1. Введите **{{ ui-key.yacloud.common.name }}** функции, например `alert-webhook`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. Создайте [версию функции](../../../functions/concepts/function.md#version):
      1. Выберите среду выполнения **Python**, отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
@@ -111,7 +111,9 @@ description: Следуя данной инструкции, вы сможете
   1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** задайте параметры версии:
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.
       * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `sa-alert-webhook`.
-  1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-additional-parameters }}** включите **{{ ui-key.yacloud.serverless-functions.item.editor.label_async }}**.
+  1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-additional-parameters }}**:
+      1. Включите **{{ ui-key.yacloud.serverless-functions.item.editor.label_async }}**.
+      1. Выберите **{{ ui-key.yacloud.forms.label_service-account-select }}** `sa-alert-webhook`.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 {% endlist %}
@@ -124,11 +126,12 @@ description: Следуя данной инструкции, вы сможете
 
   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
   1. Выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.channels.title }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.channel.button_new-channel }}**.
-  1. Введите имя канала уведомлений, например `channel-function`.
-  1. В списке **{{ ui-key.yacloud_monitoring.channel.field_method }}** выберите **{{ sf-name }}**.
-  1. В списке **{{ ui-key.yacloud_monitoring.channel.field_service-account_title }}** выберите аккаунт, созданный при добавлении функции.
-  1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.channel.button_create }}**.
+  1. Введите **{{ ui-key.yacloud_monitoring.channel.field_name }}** канала уведомлений, например `channel-function`.
+  1. В списке **{{ ui-key.yacloud_monitoring.channel.field_method }}** выберите ![image](../../../_assets/console-icons/code.svg) **{{ sf-name }}**.
+  1. В списке **{{ ui-key.yacloud_monitoring.channel.field_function_title }}** выберите функцию `alert-webhook`.
+  1. В списке **{{ ui-key.yacloud_monitoring.channel.field_service-account_title }}** выберите аккаунт `sa-alert-webhook`.
+  1. Нажмите **{{ ui-key.yacloud_monitoring.channel.button_create }}**.
 
 {% endlist %}
 
@@ -139,14 +142,14 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В сервисе **{{ monitoring-name }}** выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
-  1. Введите имя алерта, например `alert-function`.
+  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.actions.common.create }}** ![image](../../../_assets/console-icons/chevron-down.svg) → **{{ ui-key.yacloud_monitoring.monitoring-alerts.button.create-custom-title }}**.
+  1. Введите **{{ ui-key.yacloud_monitoring.monitoring-alerts.list-table.name }}** алерта, например `alert-function`.
   1. Введите [запрос](../../concepts/alerting/alert.md#queries), по которому будут выбираться метрики для отслеживания.
   1. Настройте [условия срабатывания](../../concepts/alerting/alert.md#condition).
-  1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}** нажмите **Редактировать** и затем кнопку **{{ ui-key.yacloud.common.add }}**.
+  1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}** нажмите **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.edit-notify-methods }}** и затем кнопку **{{ ui-key.yacloud_monitoring.actions.common.add }}**.
   1. Выберите канал `channel-function`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.actions.common.add }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
 
 {% endlist %}
 
@@ -158,7 +161,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Выберите функцию `alert-webhook`.
-  1. Выберите вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
+  1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
   1. В качестве входных данных введите:
 
       ```json

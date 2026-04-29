@@ -25,6 +25,8 @@ items:
         href: operations/restrict-senders.md
       - name: Запись логов
         href: operations/logs-write.md
+      - name: Просмотр информации об отправленных письмах
+        href: operations/messages.md
   - name: Концепции
     items:
       - name: Обзор

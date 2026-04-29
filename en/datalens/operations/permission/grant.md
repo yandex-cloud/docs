@@ -64,7 +64,7 @@ Only a user with `{{ permission-admin }}` access to linked objects can assign ac
 
         The selected user or group is granted the specified access permissions to the current folder and all nested objects, including connections, datasets, and other folders and files.
 
-        {% include [folder-access-note](../../../_includes/datalens/datalens-folder-access-note.md) %}
+        A user with the `{{ permission-admin }}` access permission for the parent folder can grant access to the folder and its nested objects.
 
    {% endlist %}
 

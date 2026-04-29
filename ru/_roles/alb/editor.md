@@ -1,4 +1,5 @@
-Роль `alb.editor` позволяет управлять ресурсами сервиса Application Load Balancer и внутренними сетевыми балансировщиками нагрузки, а также просматривать информацию о них и об облачных сетях, подсетях, таблицах маршрутизации, шлюзах, группах безопасности и IP-адресах.
+
+Роль `alb.editor` позволяет управлять ресурсами сервиса {{ alb-name }} и внутренними сетевыми балансировщиками нагрузки, а также просматривать информацию о них и об облачных сетях, подсетях, таблицах маршрутизации, шлюзах, группах безопасности и IP-адресах.
 
 {% cut "Пользователи с этой ролью могут:" %}
 
@@ -15,10 +16,10 @@
 * просматривать список [групп безопасности](../../vpc/concepts/security-groups.md) и информацию о них, а также использовать группы безопасности;
 * просматривать информацию о [NAT-шлюзах](../../vpc/concepts/gateways.md) и подключать их к таблицам маршрутизации;
 * просматривать информацию об использованных IP-адресах в подсетях, а также создавать [внутренние адреса](../../vpc/concepts/address.md#internal-addresses);
-* просматривать информацию об операциях с ресурсами сервисов Virtual Private Cloud и Compute Cloud;
-* просматривать список операций с ресурсами сервиса Network Load Balancer;
+* просматривать информацию об операциях с ресурсами сервисов {{ vpc-name }} и {{ compute-name }};
+* просматривать список операций с ресурсами сервиса {{ network-load-balancer-name }};
 * просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder);
-* просматривать информацию о квотах сервисов [Application Load Balancer](../../application-load-balancer/concepts/limits.md#quotas), [Network Load Balancer](../../network-load-balancer/concepts/limits.md#load-balancer-quotas) и [Virtual Private Cloud](../../vpc/concepts/limits.md#vpc-quotas).
+* просматривать информацию о квотах сервисов [{{ alb-name }}](../../application-load-balancer/concepts/limits.md#quotas), [{{ network-load-balancer-name }}](../../network-load-balancer/concepts/limits.md#load-balancer-quotas) и [{{ vpc-name }}](../../vpc/concepts/limits.md#vpc-quotas).
 
 {% endcut %}
 

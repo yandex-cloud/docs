@@ -129,7 +129,7 @@ WITH
 
 ## Description of fields {#field_types}
 
-|Field name|Field description|Acceptable values|
+|Field name|Field description|Valid values|
 |----|----|----|
 |`projection.enabled`|Shows if partition projection is enabled| true, false|
 |`projection.<field_1_name>.type`|Field data type|integer, enum, date|
@@ -166,7 +166,7 @@ Used for columns whose values can be represented as a date.
 |`projection.<field_name>.min`|Yes|Defines the minimum allowed date. Values in `YYYY-MM-DD` format or as an expression with the special NOW macro substitution are allowed. Using the NOW macro substitution, you can perform arithmetic operations:  <br>NOW-3DAYS, <br> NOW+1MONTH, <br>NOW-6YEARS, <br>NOW+4HOURS, <br>NOW-5MINUTES, <br> NOW+6SECONDS. |2020-01-01<br/>NOW-5DAYS<br/>NOW+3HOURS|
 |`projection.<field_name>.max`|Yes|Defines the maximum allowed date. Values in `YYYY-MM-DD` format or as an expression with the special NOW macro substitution are allowed. Using the NOW macro substitution, you can perform arithmetic operations:  <br>NOW-3DAYS, <br> NOW+1MONTH, <br>NOW-6YEARS, <br>NOW+4HOURS, <br>NOW-5MINUTES, <br> NOW+6SECONDS. |2020-01-01<br/>NOW-5DAYS<br/>NOW+3HOURS|
 |`projection.<field_name>.format`|Yes|Date formatting string based on [strptime](https://cplusplus.com/reference/ctime/strftime/)|%Y-%m-%d<br/>%D|
-|`projection.<field_name>.unit`|No|Time interval units. Acceptable values: DAYS|DAYS|
+|`projection.<field_name>.unit`|No|Time interval units. Valid values: DAYS|DAYS|
 |`projection.<field_name>.interval`|No, defaults to `1`|Sets the step between the elements inside a value range for the unit set in `projection.<field_name>.unit`. For example, step 15 will produce the following values for the range 2021-02-02, 2021-03-05 with DAYS for unit: 2021-02-17, 2021-03-04|2<br/>6|
 
 ## Path templates {#storage_location_template}

@@ -1,13 +1,13 @@
 ---
-title: Managing exceptions to {{ kspm-full-name }} ({{ kspm-name }}) rules in {{ sd-full-name }}
-description: How to manage exceptions to security control rules in the {{ kspm-name }} module.
+title: Managing exceptions from {{ kspm-full-name }} ({{ kspm-name }}) security control rules in {{ sd-full-name }}
+description: Guide on how to manage exceptions from {{ kspm-name }} security control rules.
 ---
 
-# Managing exceptions to the {{ kspm-name }} module's security control rules
+# Managing exceptions from {{ kspm-name }} security control rules
 
 {% include [note-preview](../../../_includes/note-preview.md) %}
 
-{{ kspm-name }} exceptions allow you to exclude objects from checks for compliance with the selected [control rules](../../concepts/kspm.md): you can exclude all {{ k8s }} resources within an environment or target specific objects.
+You can use the {{ kspm-name }} module's exceptions to specify objects you want excluded from the [control rules](../../concepts/kspm.md) in place: all {{ k8s }} resources within the workspace or specific objects.
 
 ## Viewing the list of exceptions from the rules {#view-exceptions-list}
 

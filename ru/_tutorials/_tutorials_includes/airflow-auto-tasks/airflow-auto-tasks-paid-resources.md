@@ -1,5 +1,4 @@
-В стоимость поддержки создаваемой инфраструктуры входит:
-* плата за использование [бакета](../../../storage/concepts/bucket.md) (см. [тарифы {{ objstorage-full-name }}](../../../storage/pricing.md));
-* плата за использование [NAT-шлюза](../../../vpc/concepts/gateways.md#nat-gateway) (см. [тарифы {{ vpc-full-name }}](../../../vpc/pricing.md));
-* плата за объем считанных данных (см. [тарифы {{ yq-full-name }}](../../../query/pricing.md));
-* плата за использование кластера {{ maf-full-name }} (см. [тарифы {{ maf-name }}](../../../managed-airflow/pricing.md)).
+* Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
+* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик (см. [тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
+* Сервис {{ yq-name }}: объем считанных данных при исполнении запросов (см. [тарифы {{ yq-name }}](../../../query/pricing.md)).
+* Кластер {{ maf-name }}: вычислительные ресурсы компонентов кластера (см. [тарифы {{ maf-name }}](../../../managed-airflow/pricing.md)).

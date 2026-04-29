@@ -34,7 +34,7 @@
 * Первый сотрудник: сертификат [Yandex Cloud Certified DevOps Engineer](https://yandex.cloud/ru/certification/devops)
 * Второй сотрудник: сертификат [Yandex Cloud Certified DevOps Engineer](https://yandex.cloud/ru/certification/devops) ||
 || ^               |           | Пройдено собеседование с архитектором {{ yandex-cloud }}. ||
-|| **Data Platform** | Потребление на [сабаккаунтах](../terms.md#sub-account) и зарегистрированных [проектах](../program/var-tools.md#project-reg) сервисов Data Platform — не менее 2 000 000 рублей в год без НДС и без партнерского вознаграждения. | Потребление на [сабаккаунтах](../terms.md#sub-account) и зарегистрированных [проектах](../program/var-tools.md#project-reg) сервисов Data Platform — не менее 4 000 000 рублей в год без НДС и без партнерского вознаграждения. ||
+|| **Data Platform** | Потребление на [сабаккаунтах](../terms.md#sub-account) и зарегистрированных [проектах](../program/var-tools.md#project-reg) сервисов Data Platform — не менее 1 500 000 рублей в год без НДС и без партнерского вознаграждения. | Потребление на [сабаккаунтах](../terms.md#sub-account) и зарегистрированных [проектах](../program/var-tools.md#project-reg) сервисов Data Platform — не менее 3 000 000 рублей в год без НДС и без партнерского вознаграждения. ||
 || ^                |
 * Первый сотрудник: [Managed Service for ClickHouse®](https://yandex.cloud/ru/training/clickhouse)
 * Второй сотрудник: [Основы Managed Greenplum®](https://yandex.cloud/ru/training/greenplum) |

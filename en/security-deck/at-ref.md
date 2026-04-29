@@ -1,13 +1,13 @@
 ---
 title: '{{ sd-full-name }} event reference in {{ at-full-name }}'
-description: This page provides a reference for {{ sd-name }} events tracked in {{ at-name }}.
+description: This page lists {{ sd-name }} events that can be tracked in {{ at-name }}.
 ---
 
 # {{ at-full-name }} event reference
 
 {{ at-name }} supports monitoring of both [control plane](../audit-trails/concepts/format.md) (configuration level) and [data plane](../audit-trails/concepts/format-data-plane.md) (service level) events for {{ sd-full-name }}.
 
-The general format of the `event_type` field value is as follows:
+The general format of the `event_type` value is as follows:
 
 ```text
 {{ at-event-prefix }}.audit.securitydeck.<module_name><event_name>

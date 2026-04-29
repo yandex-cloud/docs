@@ -66,7 +66,7 @@ After that, follow these steps:
 
     Where:
     - `folder_id`: ID of the folder in which queries to {{ yq-full-name }} will be run.
-    - `path_to_auth_key_file.json`: Path to authorized key file.
+    - `path_to_auth_key_file.json`: Path to the authorized key file.
     - `useQueryService`: Connection mode. {{ yq-full-name }} only supports the `useQueryService=false` mode.
 
     ![](../../_assets/query/dbeaver-yandex-query-connection.png)

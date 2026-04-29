@@ -80,7 +80,7 @@ If you set other parameter values for such a chart on the dashboard or in the re
 
 You can get the values ​​of all current parameters on subsequent tabs using the [Editor.getParams()](./methods.md#get-params) method; you can also get the current value of any parameter by its name using [Editor.getParam(name)](./methods.md#get-param).
 
-You can override the parameters using the chart's URL. Here is an example:
+You can override the parameters using the chart's URL. For example:
 
 ```text
 &period=40&metric=2012&metric=2014
@@ -417,4 +417,194 @@ Available for [Chart](./widgets/chart.md), [Advanced chart](./widgets/advanced.m
 The declarative style describes the possible controls, i.e., the chart's control elements. Unlike [dashboard](../../concepts/dashboard.md) selectors and [report](../../reports/index.md) selectors, these control the current chart alone and are not saved after you refresh the page.
 
 Available for all [visualization types](./widgets/index.md). The tab format details depend on the type of [controls](./widgets/controls.md).
+
+
+## Activities {#activities}
+
+The tab allows you to configure [interactive actions](#run-activities) for dashboard elements, such as sending an HTTP request when a table row is clicked.
+
+Available for the following visualization types: [selector](./widgets/controls.md), [table](./widgets/table.md), and [chart (Gravity UI Charts)](./widgets/chart.md).
+
+{% list tabs %}
+
+- Format
+
+  ```js
+  module.exports = {
+      sources: ({params}) => { /* configuration of sources */ },
+      handleResponse: ({data}) => { /* response processing */ }
+  }
+  ```
+
+- Example
+
+  ```js
+  module.exports = {
+    sources: ({params}) => {
+        const ticketId = params.cells[0].value;
+        return {
+            todoList: {
+                apiConnectionId: Editor.getId('todoListConnection'),
+                path: `?ticketId=${ticketId}`,
+                method: "GET",
+            },
+        }; 
+    },
+    handleResponse: ({data}) => {
+        const ticket = data.todoList.data.body;
+        return {
+            action: 'popup',
+            title: ticket.title,
+            content: ticket.description,
+        };
+    }
+  };
+  ```
+
+{% endlist %}
+
+### Available methods {#activities-methods}
+
+* `sources()`: Function returning an object for connection to a data source. It is used to send requests. The format is identical to the [Sources](#sources) tab format:
+
+  ```js
+  sources: ({params}) => ({     
+      sourceKey: {         
+          apiConnectionId: Editor.getId("mySourceKeyName"),         
+          path: '/api/endpoint',         
+          method: 'POST',         
+          body: { /* request data */ }     
+      } 
+  })
+  ```
+
+  Where:
+  
+  * `params`: Object with parameters from the dashboard controls.
+  * `apiConnectionId`: ID of the [API Connector](../../operations/connection/create-api-connector.md) type connection described on the [Meta](#meta) tab and obtained using the [Editor.getId(arg)](./methods.md#get-id) method.
+  * `mySourceKeyName`: Alias name for the data source described on the Meta tab.
+  * `path`: API path after host.
+  * `method`: Request method.
+  * `body`: Request data.
+
+* `handleResponse()`: Function returning an object formatted for the specific [action](#activities-actions) type. It processes the server response and defines the interface action:
+
+  ```js
+      handleResponse: ({data}) => { /* response processing */ }
+  ```
+
+  Where `data` is an object with responses from data sources.
+
+### Available actions {#activities-actions}
+
+* `popup`: Pop-up notification:
+
+  {% list tabs %}
+
+  - Format
+
+    ```json
+    {
+        action: "toast",
+        title: "<string>",
+        content: "<string>",
+        type: "warning"|"success"|"normal"|"info"|"danger"|"utility",
+    }
+    ```
+
+    Where:
+
+    * `action`: Type of action to invoke after sending the request. The `toast` value shows the brief pop-up notification component in the lower right corner.
+    * `title`: Notification title.
+    * `content`: Notification content.
+
+  - Example
+
+    ```js
+    {
+        action: 'toast',
+        title: 'Title',
+        content: 'Notification text' 
+    }
+    ```
+
+  {% endlist %}
+
+* `popup`: Pop-up window:
+
+  {% list tabs %}
+
+  - Format
+
+    ```json
+    {
+        action: "popup",
+        title: "<string>",
+        /** text or markup in markdown format */
+        content: "<string>",
+    }
+    ```
+
+    Where:
+
+    * `action`: Type of action to invoke after sending the request. The `popup` value shows a pop-up window component in the center of the screen.
+    * `title`: Window title.
+    * `content`: Window content.
+
+  - Example
+
+    ```js
+    {
+        action: 'popup',
+        title: 'Title',
+        content: 'Window content' 
+    }
+    ```
+
+  {% endlist %}
+
+* `setParams`: Setting parameters:
+
+  {% list tabs %}
+
+  - Format
+
+    ```json
+    {
+        action: "setParams",
+        params: object,
+    }
+    ```
+
+    Where:
+
+    * `action`: Type of action to invoke after sending the request. The `setParams` value updates the parameter values ​​from the provided `params` field.
+    * `params`: Object with a list of keys and parameter values to set.
+
+  - Example
+
+    ```js
+    {
+        action: "setParams",
+        params: {p: ["1"]}
+    }
+    ```
+
+  {% endlist %}
+
+### Performing actions {#run-activities}
+
+To perform actions of the **Activities** tab, configure interface element events:
+
+* Selectors: On the **Controls** tab, set the button’s `onClick` event to the `runActivity` action.
+* **Gravity UI Charts** and **Tables**: Configure the `runActivity` action on the **Config** tab.
+
+### Limitations {#activities-restrictions}
+
+* The **Activities** tab supports limited data sources for requests: requests to datasets, standard connections, and API Connector connections.
+* This feature is currently available for the following chart types: [Selector](./widgets/controls.md), [Table](./widgets/table.md), and [Chart (Gravity UI Charts)](./widgets/chart.md).
+
+#### See also {#see-also-activities}
+
+* [Example of using the Activities tab in Editor](../../tutorials/create-editor-activities.md)
 

@@ -23,7 +23,7 @@ meta:
   keywords:
     - keyword: '{{ myt-name }}'
     - keyword: '{{ myt-full-name }}'
-    - keyword: service {{ myt-name }}
+    - keyword: '{{ myt-name }}'
 blocks:
   - type: card-layout-block
     title: Yandex Managed Service for YTsaurus
@@ -52,7 +52,7 @@ blocks:
           dark: assets/icons/rocket.svg
       - type: basic-card
         title: Step-by-step guides
-        text: How to perform routine operations
+        text: Follow our guides for routine operations
         urlTitle: Step-by-step guides for Managed Service for YTsaurus
         url: operations/index
         border: shadow
@@ -64,7 +64,7 @@ blocks:
       - type: basic-card
         title: Quotas and limits
         text: Technical and organizational limitations
-        urlTitle: Managed Service for YTsaurus quotas and limits
+        urlTitle: Quotas and limits
         url: concepts/limits
         border: shadow
         controlPosition: content
@@ -73,8 +73,8 @@ blocks:
           light: assets/icons/sliders.svg
           dark: assets/icons/sliders.svg
       - type: basic-card
-        title: Access management
-        text: Configure access permissions to use this service
+        title: Manage access
+        text: Configure access permissions for the service
         urlTitle: Access management in Managed Service for YTsaurus
         url: security/index
         border: shadow
@@ -85,7 +85,7 @@ blocks:
           dark: assets/icons/persons-lock.svg
       - type: basic-card
         title: Pricing policy
-        text: Service pricing and cost calculation
+        text: Service pricing and cost calculations
         urlTitle: Yandex Managed Service for YTsaurus pricing policy
         url: pricing
         border: shadow

@@ -1,6 +1,6 @@
 # Миграция данных из {{ mmy-full-name }} в {{ mgp-full-name }} с помощью {{ data-transfer-full-name }}
 
-Вы можете настроить перенос данных из базы {{ mmy-name }} в базу {{ GP }} в сервисе {{ mgp-name }} с помощью {{ data-transfer-name }}. Для этого:
+Вы можете настроить перенос данных из базы {{ mmy-full-name }} в базу {{ GP }} в сервисе {{ mgp-name }} с помощью {{ data-transfer-full-name }}. Для этого:
 
 1. [Подготовьте тестовые данные](#prepare-data).
 1. [Создайте базу данных в кластере-приемнике](#prepare-data).
@@ -12,9 +12,10 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер {{ mmy-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mmy-name }}](../../managed-mysql/pricing.md)).
-* Кластер {{ mgp-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mgp-name }}](../../managed-greenplum/pricing/index.md)).
-* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Кластер {{ mmy-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mmy-name }}](../../managed-mysql/pricing.md)).
+* Кластер {{ mgp-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mgp-name }}](../../managed-greenplum/pricing/index.md)).
+* Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы {{ data-transfer-name }}](../../data-transfer/pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -35,7 +36,7 @@
 
     1. [Выдайте административные привилегии](../../managed-mysql/operations/grant.md#grant-privilege) `REPLICATION CLIENT` и `REPLICATION SLAVE` пользователю `mmy_user`.
 
-        Подробнее об административных привилегиях см. в [описании настроек](../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges).
+        Подробнее об административных привилегиях читайте в [описании настроек](../../managed-mysql/concepts/settings-list.md#setting-administrative-privileges).
 
     1. В той же зоне доступности [создайте кластер-приемник {{ GP }}](../../managed-greenplum/operations/cluster-create.md#create-cluster) любой подходящей конфигурации с хостами в публичном доступе и следующими настройками:
 

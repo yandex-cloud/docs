@@ -1,9 +1,9 @@
 ---
-title: '{{ datalens-full-name }} release notes: January 2026'
-description: Check out {{ datalens-full-name }} release notes for January 2026.
+title: '{{ datalens-full-name }} release notes: March 2026'
+description: Check out {{ datalens-full-name }} release notes for March 2026.
 ---
 
-# {{ datalens-full-name }} release notes: January 2026
+# {{ datalens-full-name }} release notes: March 2026
 
 * [Changes in basic features](#base)
 * [Fixes and improvements](#fixes)
@@ -11,65 +11,110 @@ description: Check out {{ datalens-full-name }} release notes for January 2026.
 ## Changes in basic features {#base}
 
 
-* [Billing account](../settings/service-plan.md#billing-account) lists now include billing accounts associated with other [organizations](../concepts/organizations.md) if the user has been granted permissions for those organizations.
+* New works available in [{{ datalens-gallery }}]({{ link-datalens-main }}/gallery). For more information, see the [{{ datalens-short-name }} Telegram chat](https://t.me/YandexDataLens/28631/136577).
 
 
-* Released the first version of the [public API](../operations/api-start.md).
+* When you [copy](../operations/dashboard/add-selector.md#copy-paste) a selector from one tab and paste it into another tab of the current dashboard, you can now link it to the original selector or create a new independent selector.
+* Added the ability to customize [line width](../concepts/chart/settings.md#forms-settings) as well as line cap and junction style on [line charts](../visualization-ref/line-chart.md#wizard-sections).
 
+  This new line setup option allows you to:
+
+  * Focus on the main point.
+  * Build a visual hierarchy.
+  * Make the multi-line chart easier to read.
+  * Improve adaptability for the mobile version and other non-standard cases.
+
+* For [background data export from a chart](../concepts/chart/data-export.md#background-export), we added support for export in `XLSX` format:
   
-  {{ datalens-name }} provides a public API ([https://api.datalens.tech](https://api.datalens.tech)) to automate operations with dashboards, charts, datasets, and connections.
+  * You can use background export for [tables](../visualization-ref/table-chart.md) in the [wizard](../concepts/chart/dataset-based-charts.md).
+  * [Pagination](../concepts/chart/settings.md#common-settings) must be on in the table settings, and more than one page must be displayed.
+  * The maximum number of rows in the table is 1,000,000.
+  * The maximum file size is 1 GB.
 
-  [{{ datalens-name }} Public API](../operations/api-start.md) is a collection of methods similar to that used in the {{ datalens-name }} web interface. This API is described by the OpenAPI specification and authenticated via the Yandex Cloud IAM tokens.
-
-  To use the API, you need an [IAM token](../../iam/operations/iam-token/create.md) and an [organization ID](../settings/index.md#service-settings).
+  Learn more about background export [limitations](../concepts/chart/data-export.md#restrictions).
 
 
+* When [exporting and importing workbooks](../workbooks-collections/export-and-import.md), [{{ yq-full-name }}](../operations/connection/create-yandex-query.md) and [Yandex Monitoring](../operations/connection/create-monitoring.md) connections are now available.
+ 
 
+### Improvements in reports {#report-changes}
 
+* We added support for links in reports. In the [Text](../reports/report-operations.md#add-widget) widget, you can create a link:
+
+  * `#title` type: To a title in the current report.
+  * `#page-1` type: To a specific page in the current report.
+  * Absolute link: To go to a page on the internet.
+
+  {% cut "Link to page" %}
+
+  ![report-text-link](../../_assets/datalens/release-notes/report-text-link.png =532x264)
+
+  {% endcut %}
+
+  You can use created links in reports in [preview](../reports/report-operations.md#report-preview) mode or in [exported](../reports/report-operations.md#report-export) PDF files.
+
+* Added support for new formats in reports: `16:9 (Full HD)`, `16:9 (2K)`, and `16:9 (4K)`.
+
+  {% cut "Displaying the report in specific formats" %}
+
+  ![report-16-9](../../_assets/datalens/release-notes/report-16-9.png)
+
+  {% endcut %}
+     
 ## Fixes and improvements {#fixes}
 
 
-* In [Gallery]({{ link-datalens-main }}/gallery), the **Contact the author** form now opens in a dialog instead of a new tab.
-* Added support for [reassigning](../settings/seats.md#reassign) a seat about to expire.
-* Fixed errors with redefining the menu item background color when [customizing the UI](../settings/appearance.md#ui-customization) in some themes.
+* For [Gravity UI Charts](../charts/editor/widgets/chart.md) and [Advanced charts](../charts/editor/widgets/advanced.md), added the ability to follow a link by clicking an element in the chart using `window.open` in the [Editor.wrapFn](../charts/editor/methods.md#wrap) method.
 
 
-* In the [link settings](../dataset/create-dataset.md#links) window for datasets, added a tooltip and field name search. Previously, with many long and similar field names, finding and selecting the one you need was inconvenient.
-* In the formula editor for [creating calculated fields](../concepts/calculations/index.md#how-to-create-calculated-field) in datasets and charts, the description window now displays a helpful tip, links to user guides, and dashboard with examples when no function is selected in the list on the left.
-* Fixed an issue where text from the UI was unintentionally copied to the clipboard on certain pages.
 
-### Dashboard fixes {#dashboard-fixes}
+* In the Advanced chart, fixed the error of using args in the `Editor.wrapFn` method.
 
-
-* Now you can control which dashboard tabs display a [selector](../dashboard/selector.md). When switching between these tabs, the selector's value is preserved.
-
-  Use the **Show in tabs** setting to configure the selector display on the dashboard:
-
-  * `Current tab <tab_name>`: Display the selector on the specified tab. This is the default option for a single selector.
-  * `Selected tabs`: Select one or multiple tabs where you need to display the selector. By default, the current tab is selected.
-  * `All tabs`: The selector will be displayed on all tabs. This option is available for a single selector.
-  * `From group settings <group_value>`: Selector display will be based on the advanced settings of the selector group widget. This option is available only for a selector within a group.
-
-  For widgets with multiple selectors, you can configure visibility in the **Group settings** tab.
-
-  For more information, see [{#T}](../operations/dashboard/add-selector.md).
-
-* Implemented selector value persistence when switching tabs. Now, if you set a selector value, switch to another tab, and return, the selector retains the value.
+* Fixed the error where options used to create [aliases](../dashboard/link.md#alias) were not displayed in the link dialog for [JS selectors](../charts/editor/add-js-selector.md) built based on datasets.
+* In [background export](../concepts/chart/data-export.md#background-export) from a chart, fixed the issue where field renaming at the chart level was disregarded and the names were taken from the dataset.
+* The dataset-based selector now highlights the field if it was removed from the dataset.
+* Made [mermaid diagrams](../dashboard/markdown.md#mermaid) more secure: now most HTML elements get filtered out, and the diagram is displayed without them.
+* Sped up the `Editor.wrapFn` function and optimized the libraries provided in its arguments.
 
 
-* Dashboards now support [configuring links](../operations/dashboard/dashboard-links.md) for charts from unopened widget tabs:
 
-  * Select the chart at the top of the link settings window: the chart's data will load, allowing you to configure the link.
-  * In the link settings window, choose a selector, then, in the **Link type** column, click the relevant chart row in the widget list: the chart's data will load, allowing you to configure the link.
 
-* Fixed stable table rendering on initial dashboard loading.
-* Fixed an issue where the color of [Mermaid](../dashboard/markdown.md#mermaid) diagrams in dashboard text widgets in the visual editor was different from their actual color on the dashboard.
-* Fixed an error where, when setting up [aliases](../dashboard/link.md#alias) with certain QL charts, parameters configured in the QL chart UI did not appear in the parameter selection list.
-* In dashboard edit mode, added highlighting to the ![image](../../_assets/console-icons/gear.svg) button for selectors with group visibility set to `All tabs` or `Selected tabs`. 
+* Fixed the date in the sidebar [trial period](../pricing.md#trial) countdown indicator. Previously, the indication was one day up.
+* Fixed the alignment of icons in the workbook object list.
+* In {{ datalens-gallery }}, renamed the `Product management` category to `Product`.
 
+
+### Fixes in connections {#connection-fixes}
+
+* Connection settings now automatically expand the fields that have failed validation when attempting to create or save a connection.
+* Removed the **Edit** button from connections that are not editable.
+* Fixed some errors when connecting to a [file](../operations/connection/create-file.md).
+
+### Fixes in datasets {#dashboard-fixes}
+
+* When going to the [dataset creation](../dataset/create-dataset.md) page from the side navigation, an _unsaved changes_ warning will now be displayed if the user is already on this page and the form contains unsaved changes.
+* Now you cannot create or save a dataset if there are no tables in the workspace.
+* In the [dataset field](../dataset/create-dataset.md#setup-fields) color settings window, long elements in the left column are now correctly truncated with ellipses.
+* Fixed the selection of tables in the list after deleting them from the workspace.
+* The undo (**Ctrl** (**Cmd**) + **Z**) and redo (**Ctrl** (**Cmd**) + **Shift** + **Z**) hotkeys are now blocked if the settings window is open in the dataset.
 
 ### Fixes in charts {#chart-fixes}
 
-* In [line charts](../visualization-ref/line-chart.md), fixed an issue with line style configuration for multiple measures; previously, the line style was rendered correctly only for one measure.
-* In [maps](../visualization-ref/map-chart.md), fixed drag-and-drop functionality for adding fields to `Layer filters`.
-* Fixed auto-application of metric settings in [QL charts](../concepts/chart/ql-charts.md).
+* Fixed incorrect display of:
+
+  * Chart icons, which you could see from time to time in the [link settings](../operations/dashboard/dashboard-links.md) window.
+  * Modeling icons when adding trend and smoothing lines to a chart in Safari.
+
+
+  * Load indicator when entering values ​​in the chart's [filter](../concepts/chart/settings.md#filter) settings.
+
+* Fixed a chart execution error due to special data values ​​in the **Colors** section.
+
+
+* Fixed [saving chart as an image](../operations/chart/save-as-image.md) on mobile devices with screen resolution of 1600 x 720 pixels.
+
+### Dashboard changes {#dashboard-fixes}
+
+* Implemented a switch back from a newly added tab to the first existing one after you cancel the edit.
+* Full text of the chart title is now displayed on hover.
+

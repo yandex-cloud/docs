@@ -3,7 +3,7 @@
 * Selected standards (requirements) the controlled resources must comply with.
 * Percentage of the controlled resources’ compliance with the selected security standards.
 
-In addition to the cards, the dashboard includes widgets of {{ sd-name }} modules used in the workspace:
+In addition to the cards, the dashboard features widgets of {{ sd-name }} modules used in the workspace:
 
 * [{{ cspm-full-name }} ({{ cspm-name }})](../../security-deck/concepts/cspm.md) widget you can use to configure the module and view the following information:
 

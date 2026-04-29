@@ -74,7 +74,7 @@ editable: false
 
    * Хранилище на локальных SSD-дисках (`local-ssd`) можно заказывать только для кластеров с тремя хостами и более:
         * для платформ **Intel Broadwell** и **Intel Cascade Lake** — с шагом 100 ГБ;
-        * для платформы **Intel Ice Lake** — с шагом {{ local-ssd-v3-step }}.
+        * для платформ **Intel Ice Lake** и **AMD Zen 4** — с шагом {{ local-ssd-v3-step }}.
    * Хранилище на нереплицируемых SSD-дисках (`network-ssd-nonreplicated`) можно заказывать только для кластеров с тремя или более хостами, с шагом 93 ГБ.
 
 * Размер, занимаемый резервными копиями данных хранилища на [локальных](concepts/storage.md#local-storage-features) и [сетевых](concepts/storage.md) дисках:

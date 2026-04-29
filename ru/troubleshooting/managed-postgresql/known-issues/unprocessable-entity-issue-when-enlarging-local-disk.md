@@ -12,7 +12,7 @@
 
 Размер хранилища кластера не удается увеличить, потому что в кластере используются диски типа `local-ssd`.
 
-Рекомендуем увеличить размер кластера с шагом в 100 ГБ для платформ Intel Broadwell и Intel Cascade Lake или с шагом в 368 ГБ для платформы Intel Ice Lake, предварительно [создав резервную копию](../../../managed-postgresql/operations/cluster-backups.md#create-backup) данных.
+Рекомендуем увеличить размер кластера с шагом в 100 ГБ для платформ Intel Broadwell и Intel Cascade Lake или с шагом в 368 ГБ для платформ Intel Ice Lake и AMD Zen 4, предварительно [создав резервную копию](../../../managed-postgresql/operations/cluster-backups.md#create-backup) данных.
 
 Для кластеров с таким типом дискового хранилища лучше изменять класс хостов путем [создания](../../../managed-postgresql/operations/cluster-backups.md#create-backup) и последующего [восстановления резервной копии](../../../managed-postgresql/operations/cluster-backups.md#restore).
 

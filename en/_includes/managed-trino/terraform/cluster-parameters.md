@@ -6,6 +6,7 @@ resource "yandex_trino_cluster" "<cluster_name>" {
   service_account_id  = "<service_account_ID>"
   subnet_ids          = [yandex_vpc_subnet.<subnet_name>.id]
   security_group_ids  = [<list_of_security_group_IDs>]
+  private_access      = <enable_private_access_to_cluster>
   deletion_protection = <protect_cluster_from_deletion>
   version             = "<version>"
 
@@ -39,9 +40,10 @@ Where:
 * `service_account_id`: Service account ID.
 * `subnet_ids`: List of subnet IDs.
 * `security_group_ids`: List of security group IDs.
-* `deletion_protection`: Cluster protection from accidental deletion, `true` or `false`.
+* `private_access`: Private access to the cluster, `true` or `false`. Enable this parameter to make the cluster accessible only via a [service connection](../../../managed-trino/concepts/network.md#private-endpoint).
+* `deletion_protection`: Cluster deletion protection, `true` or `false`.
 
-    Even if it is enabled, one can still connect to the cluster manually and delete it.
+    Even with deletion protection on, one can still connect to the cluster manually and delete it.
 
 * `version`: {{ TR }} version.
     
