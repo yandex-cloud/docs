@@ -19,6 +19,8 @@ items:
         href: operations/cluster-stop.md
       - name: Deleting a cluster
         href: operations/cluster-delete.md
+      - name: Cluster state monitoring
+        href: operations/monitoring.md
   - name: Tutorials
     items:
       - name: Running a PySpark job
@@ -141,6 +143,8 @@ items:
                 href: api-ref/Operation/get.md
               - name: Cancel
                 href: api-ref/Operation/cancel.md
+  - name: '{{ monitoring-full-name }} metrics'
+    href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Release notes

@@ -42,7 +42,7 @@ items:
         items:
           - name: Overview
             href: operations/kspm/index.md
-          - name: Activating {{ kspm-name }}
+          - name: Activating the module {{ kspm-name }}
             href: operations/kspm/enable-kspm.md
           - name: Working with a dashboard
             href: operations/kspm/use-kspm.md
@@ -70,7 +70,7 @@ items:
             href: operations/cspm/check-compliance.md
           - name: Managing exceptions to control rules
             href: operations/cspm/manage-exceptions.md
-      - name: '{{ vuln-man-name }} (VM)'
+      - name: '{{ vuln-man-name }} ({{ vuln-man-short-name }})'
         items:
           - name: Overview
             href: operations/vulnerability-management/index.md
@@ -106,7 +106,7 @@ items:
         href: concepts/ciem.md
       - name: '{{ cspm-full-name }} ({{ cspm-name }})'
         href: concepts/cspm.md
-      - name: '{{ vuln-man-name }} (VM)'
+      - name: '{{ vuln-man-name }} ({{ vuln-man-short-name }})'
         href: concepts/vulnerability-management.md
       - name: '{{ atr-name }}'
         href: concepts/access-transparency.md
@@ -114,7 +114,7 @@ items:
         href: concepts/ai-assistant.md
       - name: Quotas and limits
         href: concepts/limits.md
-  - name: Troubleshooting
+  - name: Error diagnostics
     items:
       - name: Overview
         href: diagnostics/index.md

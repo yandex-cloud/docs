@@ -500,6 +500,14 @@ description: В статье приведен полный справочник 
 
 {% include [roles-dns-editor](../_roles/dns/editor.md) %}
 
+#### dns.firewallUser {#dns-firewallUser}
+
+{% include [dns.firewallUser](../_roles/dns/firewallUser.md) %}
+
+#### dns.firewallEditor {#dns-firewallEditor}
+
+{% include [dns.firewallEditor](../_roles/dns/firewallEditor.md) %}
+
 #### dns.admin {#dns-admin}
 
 {% include [roles-dns-admin](../_roles/dns/admin.md) %}

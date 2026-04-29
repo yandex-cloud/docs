@@ -9,6 +9,31 @@ description: Из статьи вы узнаете, как создавать и
 
 Если у вас еще нет сервисного аккаунта, [создайте его](../sa/create.md) и [назначьте ему роли](../sa/assign-role-for-sa.md).
 
+## Посмотреть список API-ключей {#list-api-keys}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, которому принадлежит сервисный аккаунт.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. На панели слева выберите ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** и выберите нужный сервисный аккаунт.
+  1. В блоке **{{ ui-key.yacloud.iam.folder.service-account.overview.section_api_keys }}** отобразится список API-ключей.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  {% include [list-api-keys](../../../_includes/iam/list-api-keys.md) %}
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [List](../../api-ref/ApiKey/list.md) для ресурса [ApiKey](../../api-ref/ApiKey/index.md) или вызовом gRPC API [ApiKeyService/List](../../api-ref/grpc/ApiKey/list.md).
+
+{% endlist %}
+
 ## Создать API-ключ {#create-api-key}
 
 {% include [access-control-sa-apikey-notice](../../../_includes/iam/access-control-sa-apikey-notice.md) %}
@@ -309,93 +334,76 @@ description: Из статьи вы узнаете, как создавать и
 
 - CLI {#cli}
 
-    {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    1. Получите список API-ключей для определенного сервисного аккаунта, указав его имя:
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-        ```bash
-        yc iam api-key list \
-          --service-account-name <имя_сервисного_аккаунта>
-        ```
+  1. {% include [list-api-keys](../../../_includes/iam/list-api-keys.md) %}
+  1. Удалите API-ключ, указав его идентификатор:
 
-        Результат:
-
-        ```text
-        +----------------------+---------------------+
-        |          ID          |     CREATED AT      |
-        +----------------------+---------------------+
-        | ajenhvftf77r******** | 2022-03-13 21:15:40 |
-        | ajeq610sgh05******** | 2022-03-13 21:14:43 |
-        +----------------------+---------------------+
-        ```
-
-        По умолчанию для поиска сервисного аккаунта используется каталог, указанный в профиле CLI. Вы можете указать другой каталог с помощью параметра `--folder-name` или `--folder-id`.
-
-    1. Удалите API-ключ, указав его идентификатор:
-
-        ```bash
-        yc iam api-key delete <идентификатор_API-ключа>
-        ```
+      ```bash
+      yc iam api-key delete <идентификатор_API-ключа>
+      ```
 
 - {{ TF }} {#tf}
 
-    {% include [terraform-install](../../../_includes/terraform-install.md) %}
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-    1. Откройте файл конфигурации {{ TF }} и удалите секцию с описанием API-ключа.
+  1. Откройте файл конфигурации {{ TF }} и удалите секцию с описанием API-ключа.
 
-        Пример описания API-ключа в конфигурации {{ TF }}:
+      Пример описания API-ключа в конфигурации {{ TF }}:
 
-        ```hcl
-        resource "yandex_iam_service_account_api_key" "sa-api-key" {
-          service_account_id = "<идентификатор_сервисного_аккаунта>"
-          description        = "<описание_ключа>"
-          pgp_key            = "<pgp-ключ>"
-        }
-        ```
+      ```hcl
+      resource "yandex_iam_service_account_api_key" "sa-api-key" {
+        service_account_id = "<идентификатор_сервисного_аккаунта>"
+        description        = "<описание_ключа>"
+        pgp_key            = "<pgp-ключ>"
+      }
+      ```
 
-        Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_api_key).
+      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/iam_service_account_api_key).
 
-    1. Проверьте корректность конфигурационных файлов.
+  1. Проверьте корректность конфигурационных файлов.
 
-        1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-        1. Выполните проверку с помощью команды:
+      1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
+      1. Выполните проверку с помощью команды:
 
-            ```bash
-            terraform plan
-            ```
+          ```bash
+          terraform plan
+          ```
 
-        Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
+      Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
 
-    1. Разверните облачные ресурсы.
+  1. Разверните облачные ресурсы.
 
-        1. Если в конфигурации нет ошибок, выполните команду:
+      1. Если в конфигурации нет ошибок, выполните команду:
 
-            ```bash
-            terraform apply
-            ```
+          ```bash
+          terraform apply
+          ```
 
-        1. Подтвердите создание или удаление ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
+      1. Подтвердите создание или удаление ресурсов: введите в терминал слово `yes` и нажмите **Enter**.
 
-        После этого в указанном каталоге будут созданы или удалены все требуемые ресурсы. Проверить появление ресурсов и их настройки или удаление ресурсов можно в [консоли управления]({{ link-console-main }}), а также с помощью команды CLI:
+      После этого в указанном каталоге будут созданы или удалены все требуемые ресурсы. Проверить появление ресурсов и их настройки или удаление ресурсов можно в [консоли управления]({{ link-console-main }}), а также с помощью команды CLI:
 
-        ```bash
-        yc iam api-key list --service-account-id <идентификатор_сервисного_аккаунта>
-        ```
+      ```bash
+      yc iam api-key list --service-account-id <идентификатор_сервисного_аккаунта>
+      ```
 
 - API {#api}
 
   Воспользуйтесь методом REST API [delete](../../api-ref/ApiKey/delete.md) для ресурса [ApiKey](../../api-ref/ApiKey/index.md):
 
-    ```bash
-    export APIKEY_ID=<идентификатор_API-ключа>
-    export IAM_TOKEN=<IAM-токен>
-    curl \
-        --request DELETE \
-        --header "Authorization: Bearer $IAM_TOKEN" \
-        https://iam.{{ api-host }}/iam/v1/apiKeys/$APIKEY_ID
-    ```
+  ```bash
+  export APIKEY_ID=<идентификатор_API-ключа>
+  export IAM_TOKEN=<IAM-токен>
+  curl \
+      --request DELETE \
+      --header "Authorization: Bearer $IAM_TOKEN" \
+      https://iam.{{ api-host }}/iam/v1/apiKeys/$APIKEY_ID
+  ```
 
-   Также API-ключ можно удалить вызовом gRPC API [ApiKeyService/Delete](../../api-ref/grpc/ApiKey/delete.md).
+  Также API-ключ можно удалить вызовом gRPC API [ApiKeyService/Delete](../../api-ref/grpc/ApiKey/delete.md).
 
 {% endlist %}
 

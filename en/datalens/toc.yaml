@@ -106,6 +106,8 @@ items:
             href: tutorials/data-from-ch-to-sql-chart.md
           - name: Examples of charts created in Editor
             href: tutorials/create-chart-editor.md
+          - name: Example of using the Activities tab in Editor
+            href: tutorials/create-editor-activities.md
   - name: Connections
     items:
       - name: Overview
@@ -866,7 +868,7 @@ items:
         href: dashboard/dashboard_parameters.md
       - name: Neuroanalyst on your dashboard
         href: dashboard/insights.md
-      - name: Trends and smoothings in charts on a dashboard
+      - name: Trend and smoothing lines in dashboard charts
         href: dashboard/trends-and-smoothing.md
       - name: Markdown
         href: dashboard/markdown.md
@@ -1118,8 +1120,10 @@ items:
     href: at-ref.md
   - name: Release notes
     items:
-      - name: February 2026
+      - name: March 2026
         href: release-notes/index.md
+      - name: February 2026
+        href: release-notes/2602.md
       - name: January 2026
         href: release-notes/2601.md
       - name: December 2025
@@ -1128,10 +1132,10 @@ items:
         href: release-notes/2511.md
       - name: October 2025
         href: release-notes/2510.md
-      - name: September 2025
-        href: release-notes/2509.md
       - name: Archive
         items:
+          - name: September 2025
+            href: release-notes/2509.md
           - name: August 2025
             href: release-notes/2508.md
           - name: July 2025
@@ -1281,6 +1285,10 @@ items:
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-AGG-INCONSISTENT.md
+      - name: Inconsistent aggregation status among SELECT items
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-INVALID_QUERY_STRUCTURE-INCONSISTENT_AGGREGATION.md
       - name: Internal server error
         hidden: true
         href: troubleshooting/errors/ERR-DS_API.md

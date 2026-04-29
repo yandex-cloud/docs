@@ -1,14 +1,29 @@
 ---
 title: '{{ mtr-full-name }} release notes'
-description: This section contains {{ mtr-name }} release notes.
+description: This section contains the {{ mtr-name }} release notes.
 ---
 
 # {{ mtr-full-name }} release notes
+
+## March 2026 {#march-2026}
+
+* Added separate roles to view and edit maintenance tasks: [managed-trino.maintenanceTask.viewer](security.md#managed-trino-maintenanceTask-viewer), [managed-trino.maintenanceTask.editor](security.md#managed-trino-maintenanceTask-editor).
+* Supported the `REST Catalog` type for the Iceberg connector. When using the Iceberg connector, the management console now offers the **Metastore type** connection setting: Hive Metastore and REST Metastore.
+* Updated the management console interface for selecting connections via {{ connection-manager-name }}.
+* Added the ability to configure resource groups via the management console.
+* Added additional setting options for connectors.
+* The Hudi connector now supports the `VIEW` management options of creating, editing, and deleting.
+
+## February 2026 {#february-2026}
+
+* Added the ability to [configure cluster access permissions](operations/cluster-access.md).
+* Added the ability to change query execution settings when [creating](operations/cluster-create.md) and [modifying](operations/cluster-update.md#change-query-params) a cluster.
 
 ## November 2025 {#november-2025}
 
 * [A new connector is now available](concepts/index.md#connector): {{ MY }}.
 * Now you can upload custom certificates (TLS parameters) when [creating](operations/cluster-create.md) or [updating](operations/cluster-update.md#change-version) a cluster.
+* A new {{ TR }} version is out: [476](https://trino.io/docs/current/release/release-476.html).
 
 ## October 2025 {#october-2025}
 

@@ -27,6 +27,7 @@
   Через [интерфейс {{ cloud-center }}]({{ link-org-cloud-center }}) вы можете назначить роли на следующие ресурсы:
 
   * [Организация](../operations/security.md)
+  * [Пул пользователей](../concepts/user-pools.md)
   * [Группа пользователей](../operations/access-manage-group.md)
 
 - CLI {#cli}

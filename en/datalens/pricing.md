@@ -18,7 +18,7 @@ editable: false
 
 ## {{ datalens-name }} service plan {#effective-rules}
 
-{{ datalens-full-name }} has a single service plan where access is free for individual users and teams are billed based on the number of [seats](#seats).
+{% include [datalens-pricing-effective-rules](../_includes/datalens/datalens-pricing-effective-rules.md) %}
 
 ### Seats {#seats}
 
@@ -70,7 +70,7 @@ There is no limit for regular queries made by users in the {{ datalens-name }} i
 New {{ datalens-name }} users can take advantage of a 30-day trial period during which teamwork is free. At the end of the trial period, you will need to link a billing account to start paying for seats or reduce your per-instance consumption to one seat.
 
 * If you do not link a billing account, all the seats in your instance will go inactive except for one. In which case the reduction will be automatically scheduled for the trial period expiry date, and you will not be able to change it until you link a billing account.
-* Once you link a billing account, after the trial period expires, automatic paid consumption will start based on the [number of seats](./settings/seats.md#number-of-seats), which you can find displayed in the settings. At the same time, the automatic reduction of per-instance consumption to one seat will be cancelled.
+* Once you link a billing account, after the trial period expires, automatic paid consumption will start based on the [number of seats](./settings/seats.md#number-of-seats), which you can find displayed in the settings. At the same time, the automatic reduction of per-instance consumption to one seat will be canceled.
 
 The countdown of days until the end of the trial period is shown on the side panel indicator.
 

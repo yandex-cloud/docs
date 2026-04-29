@@ -13,7 +13,7 @@ The {{ kspm-name }} configuration is set when you [create](../operations/workspa
 
 {% include [kspm-sec-standard-list](../../_includes/security-deck/kspm-sec-standard-list.md) %}
 
-The {{ kspm-name }} module allows you to flexibly select and customize security rules to meet your organization's specific requirements, as well as create rule exceptions.
+{{ kspm-name }} allows you to flexibly select and customize security rules to meet your organization's specific requirements and create exceptions from the rules.
 
 {% include [kspm-alerts](../../_includes/security-deck/kspm-alerts.md) %}
 
@@ -25,5 +25,5 @@ For more information, see [{#T}](../operations/kspm/enable-kspm.md).
 * [{#T}](cspm.md)
 * [{#T}](ai-assistant.md)
 * [{#T}](../quickstart-overview.md)
-* [{#T}](../operations/kspm/enable-kspm.md).
+* [{#T}](../operations/kspm/enable-kspm.md)
 * [{#T}](../security/kspm-roles.md)
