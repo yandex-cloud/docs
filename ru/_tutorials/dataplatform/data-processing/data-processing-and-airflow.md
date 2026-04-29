@@ -25,13 +25,11 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входят:
-
-* Плата за кластер {{ maf-name }}: вычислительные ресурсы компонентов кластера (см. [тарифы {{ AF }}](../../../managed-airflow/pricing.md)).
-* Плата за вычислительные ресурсы кластера {{ metastore-name }} (см. [тарифы {{ metadata-hub-full-name }}](../../../metadata-hub/pricing.md#metastore)).
-* Плата за NAT-шлюз (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
-* Плата за бакеты {{ objstorage-name }}: хранение данных и выполнение операций с ними (см. [тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
-* Плата за кластер {{ dataproc-name }}: использование вычислительных ресурсов ВМ и сетевых дисков {{ compute-name }}, а также сервиса {{ cloud-logging-name }} для работы с логами (см. [тарифы {{ dataproc-name }}](../../../data-proc/pricing.md)).
+* Кластер {{ maf-name }}: вычислительные ресурсы компонентов кластера (см. [тарифы {{ maf-name }}](../../../managed-airflow/pricing.md)).
+* Кластер {{ metastore-name }}: вычислительные ресурсы компонентов кластера (см. [тарифы {{ metadata-hub-full-name }}](../../../metadata-hub/pricing.md#metastore)).
+* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик (см. [тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
+* Бакеты {{ objstorage-full-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
+* Кластер {{ dataproc-name }}: использование вычислительных ресурсов с наценкой за сервис {{ dataproc-name }}, использование сетевых дисков, получение и хранение логов, объем исходящего трафика (см. [тарифы {{ dataproc-name }}](../../../data-proc/pricing.md)).
 
 
 ## Подготовьте инфраструктуру {#infra}
@@ -62,7 +60,7 @@
       || **Сервисный аккаунт** | **Его роли** ||
       || `airflow-agent` для кластера {{ AF }}. |
       * [dataproc.editor](../../../iam/roles-reference.md#dataproc-editor) — чтобы управлять кластером {{ dataproc-name }} из DAG;
-      * [{{ roles-vpc-user }}](../../../iam/roles-reference.md#vpc-user) — чтобы в кластере {{ AF }} использовать [подсеть {{ vpc-full-name }}](../../../vpc/concepts/network.md#subnet);
+      * [{{ roles-vpc-user }}](../../../iam/roles-reference.md#vpc-user) — чтобы в кластере {{ AF }} использовать [подсеть {{ vpc-name }}](../../../vpc/concepts/network.md#subnet);
       * [{{ roles.maf.integrationProvider }}](../../../iam/roles-reference.md#managed-airflow-integrationProvider) — чтобы кластер {{ AF }} мог [взаимодействовать с другими ресурсами](../../../managed-airflow/concepts/impersonation.md);
       * [iam.serviceAccounts.user](../../../iam/roles-reference.md#iam-serviceAccounts-user) — чтобы указать сервисный аккаунт `data-processing-agent` при создании кластера {{ dataproc-name }}. ||
       || `metastore-agent` для кластера {{ metastore-name }}. |

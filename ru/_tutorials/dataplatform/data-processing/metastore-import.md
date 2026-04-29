@@ -27,12 +27,10 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входит:
-
-* плата за вычислительные ресурсы кластера {{ dataproc-name }} и объем хранилища (см. [тарифы {{ dataproc-name }}](../../../data-proc/pricing.md));
-* плата за вычислительные ресурсы кластера {{ metastore-name }} (см. [тарифы {{ metadata-hub-full-name }}](../../../metadata-hub/pricing.md#metastore));
-* плата за хранение данных и операции с данными в бакете (см. [тарифы {{ objstorage-full-name }}](../../../storage/pricing.md));
-* плата за использование NAT-шлюза и исходящий через шлюз трафик (см. [тарифы {{ vpc-full-name }}](../../../vpc/pricing.md#nat-gateways)).
+* Кластер {{ dataproc-name }}: использование вычислительных ресурсов с наценкой за сервис {{ dataproc-name }}, использование сетевых дисков, получение и хранение логов, объем исходящего трафика (см. [тарифы {{ dataproc-name }}](../../../data-proc/pricing.md)).
+* Кластер {{ metastore-name }}: вычислительные ресурсы компонентов кластера (см. тарифы [{{ metadata-hub-name }}](../../../metadata-hub/pricing.md)).
+* Бакет {{ objstorage-full-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
+* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -43,7 +41,7 @@
 - Вручную {#manual}
 
     1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) `dataproc-s3-sa` и назначьте ему роли `dataproc.agent`, `dataproc.provisioner`, `managed-metastore.integrationProvider` и `storage.uploader`.
-    1. В {{ objstorage-full-name }} [создайте бакет](../../../storage/operations/buckets/create.md) `dataproc-bucket` и предоставьте сервисному аккаунту разрешение `READ и WRITE` для этого бакета.
+    1. В {{ objstorage-name }} [создайте бакет](../../../storage/operations/buckets/create.md) `dataproc-bucket` и предоставьте сервисному аккаунту разрешение `READ и WRITE` для этого бакета.
     1. [Создайте облачную сеть](../../../vpc/operations/network-create.md) `dataproc-network`.
     1. В этой сети [создайте подсеть](../../../vpc/operations/subnet-create.md) `dataproc-subnet`.
     1. [Настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md) для созданной подсети.

@@ -7,6 +7,12 @@ description: Из статьи вы узнаете, как в {{ yandex-cloud }}
 
 Ресурсы `Service` и `Ingress` в {{ k8s }} обеспечивают взаимодействие между подами и доступ к приложениям снаружи кластера. Консоль управления позволяет управлять этими ресурсами в {{ k8s }} без использования kubectl.
 
+{% note info %}
+
+Для просмотра ресурсов кластера в разделе {{ ui-key.yacloud.k8s.network.label_ingress }} нужна [роль](../../../application-load-balancer/security/index.md#alb-auditor) `alb.auditor` или выше.
+
+{% endnote %}
+
 ## Создание ресурса Service или Ingress {#create-service-ingress}
 
 В консоли управления можно создавать ресурсы `Service` и `Ingress` так же, как с помощью команды `kubectl apply -f <файл_манифеста.yaml> -n <имя_пространства_имен>`.

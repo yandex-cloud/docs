@@ -235,7 +235,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources you created:
+To stop incurring charges for the resources you created:
 * [Delete the {{ CH }} cluster](../../managed-clickhouse/operations/cluster-delete.md).
 * [Delete the function in {{ sf-name }}](../../functions/operations/function/function-delete.md).
 

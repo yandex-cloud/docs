@@ -9,6 +9,8 @@ keywords:
 
 This section presents settings for connection to the {{ mtr-name }} cluster using [command line tools](#cli-tools), from [graphical IDEs](#connection-ide) and [WebSQL](#websql). To learn how to connect from your application code, see [Connection string examples](#connection-strings).
 
+You can connect to a {{ mtr-name }} cluster with disabled [private access](../concepts/network.md#private-endpoint) only from the network the cluster resides in.
+
 {% note info %}
 
 If the connection requires a port, use port `{{ port-https }}`.
@@ -43,6 +45,9 @@ Before connecting:
      1. Enter a name for the data source.
      1. Specify the connection settings on the **General** tab:
         * **Host**: `c-<cluster_ID>.trino.yandexcloud.net`.
+
+            {% include [private-endpoint](../../_includes/managed-trino/private-endpoint.md) %}
+
         * **Port**: `{{ port-https }}`.
         * **User**: `iam`.
         * **Password**: Previously created IAM token.
@@ -51,12 +56,15 @@ Before connecting:
 
 - DBeaver {#dbeaver}
 
-  1. Create a new database connection:
+  1. Create a new DB connection:
      1. In the **Database** menu, select **New connection**.
      1. Select **{{ TR }}** from the list.
      1. Click **Next**.
      1. Specify the connection settings on the **Main** tab:
         * **Host**: `c-<cluster_ID>.trino.yandexcloud.net`.
+
+            {% include [private-endpoint](../../_includes/managed-trino/private-endpoint.md) %}
+
         * **Port**: `{{ port-https }}`.
         * Under **Authentication**, specify:
             * Username: `iam`.
@@ -129,7 +137,9 @@ Before connecting:
           get_version()
       ```
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+     {% include [private-endpoint](../../_includes/managed-trino/private-endpoint.md) %}
 
   1. Connecting:
 
@@ -274,7 +284,9 @@ Before connecting:
 
       ```
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+      {% include [private-endpoint](../../_includes/managed-trino/private-endpoint.md) %}
 
   1. Building and connecting:
 
@@ -324,7 +336,9 @@ Before connecting:
     get_version();
     ```
 
-    You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    {% include [private-endpoint](../../_includes/managed-trino/private-endpoint.md) %}
 
 {% endlist %}
 

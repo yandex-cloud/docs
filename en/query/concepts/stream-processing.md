@@ -29,7 +29,7 @@ If the size per search record is 1KB, 100,000 records will take up 100 MB of spa
 
 Now let's solve the same problem through streaming analysis.
 
-It processes records one by one while they're being transferred from the source to the target, that is, from the access.log file to the database, instead of handling the data previously accumulated in storage systems. In this case, only computation results are saved, while unnecessary data is discarded.
+It processes records one by one as they are being transferred from source to target, that is, from the access.log file to the database, instead of processing the data pre-accumulated in storage systems. In this case, only computation results are saved, while unnecessary data is discarded.
 
 ![](../../_assets/query/streaming-exp-2.png)
 

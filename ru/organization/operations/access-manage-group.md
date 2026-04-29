@@ -113,6 +113,53 @@ description: Следуя данной инструкции, вы сможете
         --access-binding role=<роль3>,service-account-id=<идентификатор_сервисного_аккаунта>
       ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  Чтобы назначить несколько ролей на группу пользователей:
+
+  1. Опишите в конфигурационном файле параметры назначаемых ролей:
+
+      ```hcl
+      resource "yandex_organizationmanager_group_iam_binding" "role1" {
+        group_id = "<идентификатор_группы>"
+        role     = "<роль1>"
+        members  = ["<тип_субъекта>:<идентификатор_субъекта>"]
+      }
+
+      resource "yandex_organizationmanager_group_iam_binding" "role2" {
+        group_id = "<идентификатор_группы>"
+        role     = "<роль2>"
+        members  = ["<тип_субъекта>:<идентификатор_субъекта>"]
+      }
+
+      resource "yandex_organizationmanager_group_iam_binding" "role3" {
+        group_id = "<идентификатор_группы>"
+        role     = "<роль3>"
+        members  = ["<тип_субъекта>:<идентификатор_субъекта>"]
+      }
+      ```
+
+      Где:
+
+      * `group_id` — [идентификатор группы пользователей](group-get-id.md).
+      * `role` — роль, которую хотите назначить. Для каждой роли можно использовать только один `yandex_organizationmanager_group_iam_binding`.
+      * `members` — массив идентификаторов пользователей, которым будет назначена роль:
+
+        * `userAccount:<идентификатор_пользователя>` — идентификатор аккаунта пользователя на Яндексе или локального пользователя.
+        * `federatedUser:<идентификатор_пользователя>` — идентификатор федеративного пользователя.
+        * `serviceAccount:<идентификатор_сервисного_аккаунта>` — идентификатор сервисного аккаунта.
+        * `group:<идентификатор_группы>` — идентификатор группы пользователей.
+
+      Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-link }}).
+
+  1. Создайте ресурсы:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+   
+  После этого указанному пользователю будут назначены несколько ролей на группу пользователей. Проверить появление ролей можно в [интерфейсе {{ cloud-center }}]({{ link-org-cloud-center }}).
+
 - API {#api}
 
    {% include [set-access-bindings-api](../../_includes/iam/set-access-bindings-api.md) %}

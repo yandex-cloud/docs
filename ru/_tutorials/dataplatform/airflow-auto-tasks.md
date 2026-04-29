@@ -9,7 +9,7 @@
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте сервисный аккаунт](#create-service-account).
 1. [Создайте облачную сеть и подсети](#create-network).
-1. [Подготовьте бакет в {{ objstorage-name }}](#bucket).
+1. [Подготовьте бакет в {{ objstorage-full-name }}](#bucket).
 1. [Настройте NAT для доступа в интернет](#nat-routing).
 1. [Создайте кластер {{ maf-name }}](#create-airflow-cluster).
 1. [Подготовьте DAG-файл и запустите граф](#dag).

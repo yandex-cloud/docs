@@ -5,6 +5,8 @@ description: With the compliance UI, you can view information about the complian
 
 # Compliance UI
 
+{% include [note-preview](../../../_includes/note-preview.md) %}
+
 In {{ sd-full-name }}, the [{{ cspm-name }}](../cspm.md) and [{{ kspm-name }}](../kspm.md) modules check your controlled infrastructure for compliance with security-related industry standards and regulations. For each standard and regulation, there is an individual set of [requirements](#security-rule-sets).
 
 {% note info %}

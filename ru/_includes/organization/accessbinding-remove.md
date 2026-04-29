@@ -63,6 +63,30 @@
          * `--service-account-id` — идентификатор сервисного аккаунта.
          * `--subject group` — идентификатор группы.
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-install](../terraform-install.md) %}
+
+  Чтобы отозвать роль у пользователя, сервисного аккаунта или группы пользователей:
+
+  1. Откройте конфигурационный файл {{ TF }} и удалите фрагмент с ресурсом `yandex_organizationmanager_group_iam_binding`, соответствующим роли, которую хотите отозвать.
+
+      ```hcl
+      resource "yandex_organizationmanager_group_iam_binding" "editor" {
+        group_id = "<идентификатор_группы>"
+        role     = "<идентификатор_роли>"
+        members  = [
+          "<тип_субъекта>:<идентификатор_субъекта>",
+        ]
+      }
+      ```
+
+  1. Примените изменения:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+   
+  После этого роль будет отозвана у указанного субъекта. Проверить отсутствие роли можно в [интерфейсе {{ cloud-center }}]({{ link-org-cloud-center }}).
+
 - API {#api}
 
    Воспользуйтесь методом [updateAccessBindings](../../organization/api-ref/Group/updateAccessBindings.md) для ресурса [Group](../../organization/api-ref/Group/index.md) или вызовом gRPC API [GroupService/UpdateAccessBindings](../../organization/api-ref/grpc/Group/updateAccessBindings.md) и передайте в запросе:

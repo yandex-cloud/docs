@@ -6,7 +6,7 @@
 С помощью кластера {{ maf-full-name }} можно автоматизировать работу с [сервисом {{ msp-full-name }}](../../../managed-spark/index.yaml), включая создание кластеров {{ msp-full-name }}, запуск заданий и другие операции. Для этого создайте DAG — [направленный ациклический граф задач](../../../managed-airflow/concepts/index.md) (DAG). Используя DAG, кластер {{ AF }} автоматически выполнит все необходимые действия по работе с {{ msp-full-name }}.
 
 В этом руководстве показан пример использования DAG, включающего в себя:
-1. Создание кластера {{ msp-full-name }}, подключенного к [{{ objstorage-name }}](../../../storage/concepts/index.md) и [{{ metastore-name }}](../../../metadata-hub/concepts/metastore.md).
+1. Создание кластера {{ msp-full-name }}, подключенного к [{{ objstorage-full-name }}](../../../storage/concepts/index.md) и [{{ metastore-full-name }}](../../../metadata-hub/concepts/metastore.md).
 1. Запуск PySpark-задания: создание таблицы в бакете {{ objstorage-name }}.
 1. Удаление кластера {{ msp-full-name }}.
 

@@ -186,6 +186,8 @@ kubectl describe clusterrole <роль_в_{{ k8s }}_RBAC>
 
 Комбинация ролей `k8s.cluster-api.cluster-admin`, `k8s.clusters.agent` и `monitoring.viewer` дает доступ к просмотру подробной информации о группах узлов и отдельных [узлах кластера](../operations/node-group/node-group-list.md#get-node). В консоли управления для каждого узла становятся доступны все вкладки, включая вкладку **{{ ui-key.yacloud.k8s.node.overview.label_monitoring }}**.
 
+Для просмотра ресурсов кластера [в разделе {{ ui-key.yacloud.k8s.network.label_ingress }}](../operations/kubernetes-console/network.md) нужна [роль](../../application-load-balancer/security/index.md#alb-auditor) `alb.auditor` или выше.
+
 Чтобы предоставить более гранулярный доступ к необходимым ресурсам, вы можете:
 * Настроить дополнительные права в {{ k8s }} RBAC для соответствующих пользователей.
 * Расширить роли `view` и `edit` в {{ k8s }} RBAC с помощью [агрегации ролей](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles). Например, вы можете разрешить всем пользователям с ролью `view` в {{ k8s }} API (в том числе пользователям с облачной ролью `k8s.cluster-api.viewer`) просмотр информации об узлах, добавив следующую роль в кластер {{ managed-k8s-name }}:

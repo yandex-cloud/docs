@@ -57,7 +57,7 @@ description: Вы можете создавать резервные копии 
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Cluster.Backup](../api-ref/Cluster/backup.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Backup](../api-ref/Cluster/backup.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -79,7 +79,7 @@ description: Вы можете создавать резервные копии 
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [ClusterService.Backup](../api-ref/grpc/Cluster/backup.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Backup](../api-ref/grpc/Cluster/backup.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -135,9 +135,20 @@ description: Вы можете создавать резервные копии 
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Если необходимо, измените настройки нового кластера. В списке **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** можно выбрать каталог для нового кластера.
 
-      Чтобы восстановить отдельный шард кластера, в блоке **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}** оставьте отмеченным только тот шард, который нужно восстановить. С остальных шардов снимите отметки.
+  1. (Опционально) Чтобы восстановить отдельные базы данных или таблицы:
 
-      Чтобы восстановить кластер целиком, в блоке **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}** оставьте отмеченными все шарды.
+      1. Включите в блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** опцию **Частичное восстановление**.
+      1. Сформируйте список для восстановления: введите имя базы данных, название таблицы или маску (например, `table*`).
+
+          Если вы хотите восстановить базу данных полностью, укажите в качестве маски `*`.
+
+      1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.clickhouse.RestoreCluster.RestorePatternsField.action_add-pattern_o12PG }}**.
+      1. Повторите действия для каждой восстанавливаемой базы данных или таблицы.
+
+  1. (Опционально) Если резервная копия создана для шардированного кластера, вы можете выбрать шарды для восстановления:
+
+      * Чтобы восстановить отдельный шард кластера, в блоке **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}** оставьте отмеченным только тот шард, который нужно восстановить. С остальных шардов снимите отметки.
+      * Чтобы восстановить кластер целиком, в блоке **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}** оставьте отмеченными все шарды.
 
       Для каждого восстанавливаемого шарда можно задать свою конфигурацию.
 
@@ -150,9 +161,20 @@ description: Вы можете создавать резервные копии 
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **{{ ui-key.yacloud.mdb.cluster.backups.button_restore }}**.
   1. Если необходимо, измените настройки нового кластера. В списке **{{ ui-key.yacloud.mdb.forms.base_field_folder }}** можно выбрать каталог для нового кластера.
 
-      Чтобы восстановить отдельный шард кластера, в блоке **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}** оставьте отмеченным только тот шард, который нужно восстановить. С остальных шардов снимите отметки.
+  1. (Опционально) Чтобы восстановить отдельные базы данных или таблицы:
 
-      Чтобы восстановить кластер целиком, в блоке **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}** оставьте отмеченными все шарды.
+      1. Включите в блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** опцию **Частичное восстановление**.
+      1. Сформируйте список для восстановления: введите имя базы данных, название таблицы или маску (например, `table*`).
+
+          Если вы хотите восстановить базу данных полностью, укажите в качестве маски `*`.
+
+      1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.clickhouse.RestoreCluster.RestorePatternsField.action_add-pattern_o12PG }}**.
+      1. Повторите действия для каждой восстанавливаемой базы данных или таблицы.
+
+  1. (Опционально) Если резервная копия создана для шардированного кластера, вы можете выбрать шарды для восстановления:
+
+      * Чтобы восстановить отдельный шард кластера, в блоке **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}** оставьте отмеченным только тот шард, который нужно восстановить. С остальных шардов снимите отметки.
+      * Чтобы восстановить кластер целиком, в блоке **{{ ui-key.yacloud.mdb.cluster.shards.label_title }}** оставьте отмеченными все шарды.
 
       Для каждого восстанавливаемого шарда можно задать свою конфигурацию.
 
@@ -207,7 +229,8 @@ description: Вы можете создавать резервные копии 
                    `weight=<вес_шарда> \
              --clickhouse-disk-size=<размер_хранилища_ГБ> \
              --clickhouse-disk-type=<тип_диска> \
-             --clickhouse-resource-preset=<класс_хоста>
+             --clickhouse-resource-preset=<класс_хоста> \
+             --include-patterns <список_баз_и_таблиц_для_восстановления>
           ```
 
 
@@ -248,6 +271,13 @@ description: Вы можете создавать резервные копии 
               * `network-ssd-io-m3`.
 
 
+          * `--include-patterns` и `--exclude-patterns` — настройки восстановления отдельных баз и таблиц:
+
+              * `--include-patterns` — список баз и таблиц для восстановления. Например: `db1.table1,db2.*,db3.table*`.
+              * `--exclude-patterns` — список баз и таблиц, исключаемых из восстановления. Например: `db1.table1,db2.*,db3.table*`. Будут восстановлены все базы и таблицы, кроме указанных в этом параметре.
+
+              В команде восстановления можно указать только один из параметров: `--include-patterns` или `--exclude-patterns`.
+
       * Если резервные копии создавались отдельно на каждый шард кластера ([устаревший вариант создания резервных копий](../concepts/backup.md#size)), чтобы восстановить весь кластер целиком, передайте идентификаторы резервных копий всех шардов кластера:
 
           ```bash
@@ -262,7 +292,7 @@ description: Вы можете создавать резервные копии 
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Cluster.Restore](../api-ref/Cluster/restore.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Restore](../api-ref/Cluster/restore.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
@@ -302,7 +332,11 @@ description: Вы можете создавать резервные копии 
               "securityGroupIds": [
                 <список_идентификаторов_групп_безопасности>
               ],
-              "deletionProtection": <защита_кластера_от_удаления>
+              "deletionProtection": <защита_кластера_от_удаления>,
+              "partialRestore": {
+                "includePatterns": [<список_баз_и_таблиц_для_восстановления>],
+                "excludePatterns": [<список_баз_и_таблиц_для_исключения_из_восстановления>]
+              }
             }
             ```
 
@@ -350,6 +384,13 @@ description: Вы можете создавать резервные копии 
 
                 {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
+            * `partialRestore` — настройки восстановления отдельных баз данных и таблиц:
+
+                * `includePatterns` — список баз и таблиц для восстановления. Например: `["db1.table1", "db2.*", "db3.table*"]`.
+                * `excludePatterns` — список баз и таблиц, исключаемых из восстановления. Например: `["db2.table*", "db3.table3"]`.
+
+                Если в параметре `includePatterns` указаны таблицы по маске, то в параметре `excludePatterns` можно указать исключения таблиц из маски. Так можно восстановить базу данных без какой-то таблицы, например: `includePatterns: dbname1.*`, `excludePatterns: dbname1.bad_table`.
+
             Идентификатор кластера и идентификатор резервной копии можно запросить со [списком резервных копий в каталоге](#list-backups).
 
         1. Выполните запрос:
@@ -373,7 +414,7 @@ description: Вы можете создавать резервные копии 
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
@@ -413,7 +454,11 @@ description: Вы можете создавать резервные копии 
               "security_group_ids": [
                 <список_идентификаторов_групп_безопасности>
               ],
-              "deletion_protection": <защита_кластера_от_удаления>
+              "deletion_protection": <защита_кластера_от_удаления>,
+              "partial_restore": {
+                "include_patterns": [<список_баз_и_таблиц_для_восстановления>],
+                "exclude_patterns": [<список_баз_и_таблиц_для_исключения_из_восстановления>]
+              }
             }
             ```
 
@@ -460,6 +505,13 @@ description: Вы можете создавать резервные копии 
             * `deletion_protection` — опция, которая управляет защитой кластера от непреднамеренного удаления.
 
                 {% include [Ограничения защиты от удаления](../../_includes/mdb/deletion-protection-limits-db.md) %}
+
+            * `partial_restore` — настройки восстановления отдельных баз данных и таблиц:
+
+                * `include_patterns` — список баз и таблиц для восстановления. Например: `["db1.table1", "db2.*", "db3.table*"]`.
+                * `exclude_patterns` — список баз и таблиц, исключаемых из восстановления. Например: `["db2.table*", "db3.table3"]`.
+
+                Если в параметре `include_patterns` указаны таблицы по маске, то в параметре `exclude_patterns` можно указать исключения таблиц из маски. Так можно восстановить базу данных без какой-либо таблицы, например: `include_patterns: dbname1.*`, `exclude_patterns: dbname1.bad_table`.
 
             Идентификатор кластера и идентификатор резервной копии можно запросить со [списком резервных копий в каталоге](#list-backups).
 
@@ -546,7 +598,7 @@ description: Вы можете создавать резервные копии 
 
     1. Чтобы получить список резервных копий кластера {{ CH }}:
 
-        1. Воспользуйтесь методом [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+        1. Воспользуйтесь методом [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
             ```bash
             curl \
@@ -561,7 +613,7 @@ description: Вы можете создавать резервные копии 
 
     1. Чтобы получить список резервных копий всех кластеров {{ CH }} в каталоге:
 
-        1. Воспользуйтесь методом [Backup.List](../api-ref/Backup/list.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+        1. Воспользуйтесь методом [Backup.List](../api-ref/Backup/list.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
             ```bash
             curl \
@@ -587,7 +639,7 @@ description: Вы можете создавать резервные копии 
 
     1. Чтобы получить список резервных копий кластера {{ CH }}:
 
-        1. Воспользуйтесь вызовом [ClusterService.ListBackups](../api-ref/grpc/Cluster/listBackups.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+        1. Воспользуйтесь вызовом [ClusterService.ListBackups](../api-ref/grpc/Cluster/listBackups.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
             ```bash
             grpcurl \
@@ -609,7 +661,7 @@ description: Вы можете создавать резервные копии 
 
     1. Чтобы получить список резервных копий всех кластеров {{ CH }} в каталоге:
 
-        1. Воспользуйтесь вызовом [BackupService.List](../api-ref/grpc/Backup/list.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+        1. Воспользуйтесь вызовом [BackupService.List](../api-ref/grpc/Backup/list.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
             ```bash
             grpcurl \
@@ -669,7 +721,7 @@ description: Вы можете создавать резервные копии 
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Backup.Get](../api-ref/Backup/get.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Backup.Get](../api-ref/Backup/get.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         ```bash
         curl \
@@ -690,7 +742,7 @@ description: Вы можете создавать резервные копии 
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [BackupService.Get](../api-ref/grpc/Backup/get.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [BackupService.Get](../api-ref/grpc/Backup/get.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         ```bash
         grpcurl \
@@ -741,7 +793,7 @@ description: Вы можете создавать резервные копии 
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+    1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -784,7 +836,7 @@ description: Вы можете создавать резервные копии 
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+    1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -858,7 +910,7 @@ description: Вы можете создавать резервные копии 
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
       {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -895,7 +947,7 @@ description: Вы можете создавать резервные копии 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -980,7 +1032,7 @@ description: Вы можете создавать резервные копии 
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Воспользуйтесь методом [Backup.Delete](../api-ref/Backup/delete.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Backup.Delete](../api-ref/Backup/delete.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
      ```bash
      curl \
@@ -1000,7 +1052,7 @@ description: Вы можете создавать резервные копии 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Воспользуйтесь вызовом [BackupService.Delete](../api-ref/grpc/Backup/delete.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [BackupService.Delete](../api-ref/grpc/Backup/delete.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
      ```bash
      grpcurl \
