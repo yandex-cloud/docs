@@ -1,5 +1,5 @@
 ---
-title: Как отправлять запросы на внешний API при срабатывании алерта в {{ monitoring-full-name }}
+title: Как отправлять запросы на внешний API при срабатывании алерта в {{ monium-name }}
 description: Следуя данной инструкции, вы сможете создать webhook с вызовом функции {{ sf-full-name }}.
 ---
 
@@ -111,7 +111,9 @@ description: Следуя данной инструкции, вы сможете
   1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** задайте параметры версии:
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.
       * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `sa-alert-webhook`.
-  1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-additional-parameters }}** включите **{{ ui-key.yacloud.serverless-functions.item.editor.label_async }}**.
+  1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-additional-parameters }}**:
+      1. Включите **{{ ui-key.yacloud.serverless-functions.item.editor.label_async }}**.
+      1. Выберите **{{ ui-key.yacloud.forms.label_service-account-select }}** `sa-alert-webhook`.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 {% endlist %}
@@ -120,13 +122,14 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс {{ monium-name }} {#console}
 
   1. [Перейдите](../../../console/operations/select-service.md#select-service) в **{{ monium-name }}** и слева выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.notification-methods.title }}**.
   1. Вверху справа нажмите **Создать** → **Канал уведомления**.
   1. Введите имя канала уведомлений, например `channel-function`.
-  1. В списке **{{ ui-key.yacloud_monitoring.channel.field_method }}** выберите **{{ sf-name }}**.
-  1. В списке **{{ ui-key.yacloud_monitoring.channel.field_service-account_title }}** выберите аккаунт, созданный при добавлении функции.
+  1. В списке **{{ ui-key.yacloud_monitoring.channel.field_method }}** выберите ![image](../../../_assets/console-icons/code.svg)  **{{ sf-name }}**.
+  1. В списке **{{ ui-key.yacloud_monitoring.channel.field_function_title }}** выберите функцию `alert-webhook`.
+  1. В списке **{{ ui-key.yacloud_monitoring.channel.field_service-account_title }}** выберите аккаунт `sa-alert-webhook`.
   1. Нажмите **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
 
 {% endlist %}
@@ -135,14 +138,14 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
-- Консоль управления {#console}
+- Интерфейс {{ monium-name }} {#console}
 
   1. В **{{ monium-name }}** выберите раздел **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. Введите имя алерта, например `alert-function`.
   1. Введите [запрос](../../concepts/alerting/alert.md#queries), по которому будут выбираться метрики для отслеживания.
   1. Настройте [условия срабатывания](../../concepts/alerting/alert.md#condition).
-  1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}** нажмите **Редактировать** и затем кнопку **{{ ui-key.yacloud.common.add }}**.
+  1. В блоке **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}** нажмите **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.edit-notify-methods }}** и затем кнопку **{{ ui-key.yacloud_monitoring.actions.common.add }}**.
   1. Выберите канал `channel-function`.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.

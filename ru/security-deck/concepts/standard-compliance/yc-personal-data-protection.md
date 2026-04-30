@@ -1,9 +1,9 @@
 ---
-title: Стандарт по защите персональных данных пользователей {{ yandex-cloud }}
-description: В этом разделе приведен набор правил помогает автоматизировать контроль соответствия требованиям законодательства по требованиям федерального закона от 27.07.2006 № 152-ФЗ в ресурсах {{ yandex-cloud }}.
+title: Требования федерального закона № 152-ФЗ «О персональных данных»
+description: Набор правил помогает автоматизировать контроль соответствия требованиям законодательства по защите персональных данных.
 ---
 
-# Стандарт по защите персональных данных пользователей {{ yandex-cloud }}
+# Требования федерального закона № 152-ФЗ «О персональных данных»
 
 {% include [note-preview](../../../_includes/note-preview.md) %}
 
@@ -18,7 +18,6 @@ description: В этом разделе приведен набор правил
 || ИАФ.4 | Управление средствами аутентификации, в том числе хранение, выдача, инициализация, блокирование средств аутентификации и принятие мер в случае утраты и (или) компрометации средств аутентификации |
 [cspm.crypto.secrets-lockbox](../../rules-reference/cspm.md#secrets-lockbox)
 [cspm.crypto.secrets-serverless](../../rules-reference/cspm.md#secrets-serverless)
-[cspm.crypto.secrets-coi](../../rules-reference/cspm.md#secrets-coi)
 [cspm.crypto.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation)
 [cspm.aws-token](../../rules-reference/cspm.md#aws-token)
 ||
@@ -65,7 +64,7 @@ description: В этом разделе приведен набор правил
 ||
 || ОПС.2 | Управление установкой (инсталляцией) компонентов программного обеспечения, в том числе определение компонентов, подлежащих установке, настройка параметров установки компонентов, контроль за установкой компонентов программного обеспечения |
 [cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry)
-[cspm.appsec.upload-policy](../../rules-reference/cspm.md#upload-policy)
+[cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry)
 ||
 || ОПС.3 | Установка (инсталляция) только разрешенного к использованию программного обеспечения и (или) его компонентов |
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
@@ -78,12 +77,10 @@ description: В этом разделе приведен набор правил
 ||
 || РСБ.2 | Определение состава и содержания информации о событиях безопасности, подлежащих регистрации |
 [cspm.o11y.data-plane-events](../../rules-reference/cspm.md#data-plane-events)
-[cspm.k8s.audit-logs](../../rules-reference/cspm.md#audit-logs)
 ||
 || РСБ.3 | Сбор, запись и хранение информации о событиях безопасности в течение установленного времени хранения |
 [cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails)
 [cspm.o11y.audit-trails-no-errors](../../rules-reference/cspm.md#o11y-audit-trails-no-errors)
-[cspm.k8s.audit-logs](../../rules-reference/cspm.md#audit-logs)
 ||
 || РСБ.4 | Реагирование на сбои при регистрации событий безопасности, в том числе аппаратные и программные ошибки, сбои в механизмах сбора информации и достижение предела или переполнения объема (емкости) памяти | [cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails) ||
 || РСБ.7 | Защита информации о событиях безопасности |
@@ -92,7 +89,7 @@ description: В этом разделе приведен набор правил
 ||
 || **Антивирусная защита** (АВЗ) {.cell-align-center} | > | > ||
 || АВЗ.1 | Реализация антивирусной защиты |
-[cspm.appsec.upload-policy](../../rules-reference/cspm.md#upload-policy)
+[cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry)
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
 ||
 || АВЗ.2 | Обновление базы данных признаков вредоносных компьютерных программ (вирусов) | [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan) ||
@@ -104,11 +101,9 @@ description: В этом разделе приведен набор правил
 || СОВ.2 | Обновление базы решающих правил | [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan) ||
 || **Контроль (анализ) защищенности персональных данных** (АНЗ) {.cell-align-center} | > | > ||
 || АНЗ.1 | Выявление, анализ и устранение уязвимостей информационной системы |
-[cspm.active.ip-vulnerability-scan](../../rules-reference/cspm.md#ip-vulnerability-scan)
-[cspm.appsec.upload-policy](../../rules-reference/cspm.md#upload-policy)
+[cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry)
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
 ||
-|| АНЗ.2 | Контроль установки обновлений программного обеспечения, включая программное обеспечение средств защиты информации | [cspm.k8s.version-update](../../rules-reference/cspm.md#version-update) ||
 || АНЗ.3 | Контроль работоспособности, параметров настройки и правильности функционирования программного обеспечения и средств защиты информации |
 [cspm.k8s.kubernetes-safe-config](../../rules-reference/cspm.md#kubernetes-safe-config)
 [cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry)
@@ -116,17 +111,14 @@ description: В этом разделе приведен набор правил
 || АНЗ.4 | Контроль состава технических средств, программного обеспечения и средств защиты информации | [cspm.o11y.labeled-resources](../../rules-reference/cspm.md#labeled-resources) ||
 || АНЗ.5 | Парольная политика | [cspm.access.min-privileges](../../rules-reference/cspm.md#min-privileges) ||
 || **Обеспечение целостности информационной системы и информации** (ОЦЛ) {.cell-align-center} | > | > ||
-|| ОЦЛ.1 | Контроль целостности программного обеспечения, включая программное обеспечение средств защиты информации | [cspm.runtime.vm-environment-integrity](../../rules-reference/cspm.md#vm-environment-integrity) ||
 || ОЦЛ.2 | Контроль целостности информации, содержащейся в базах данных информационной системы |
-[cspm.crypto.data.application-encryption](../../rules-reference/cspm.md#application-encryption)
 [cspm.data.object-storage-encryption](../../rules-reference/cspm.md#object-storage-encryption)
 [cspm.crypto.managed-vm-kms](../../rules-reference/cspm.md#managed-vm-kms)
 [cspm.crypto.keys-hsm](../../rules-reference/cspm.md#keys-hsm)
 [cspm.crypto.keys-rotation](../../rules-reference/cspm.md#keys-rotation)
 ||
 || ОЦЛ.3 | Обеспечение возможности восстановления программного обеспечения, включая программное обеспечение средств защиты информации, при возникновении нештатных ситуаций |
-[cspm.compute.snapshot](../../rules-reference/cspm.md#snapshot)
-[cspm.k8s.backup](../../rules-reference/cspm.md#backup)
+[cspm.backup.compute-disks](../../rules-reference/cspm.md#compute-disks)
 [cspm.backup.compute-disks](../../rules-reference/cspm.md#compute-disks)
 ||
 || ОЦЛ.4 | Обнаружение и реагирование на поступление в информационную систему незапрашиваемых электронных сообщений (писем, документов) и иной информации, не относящихся к функционированию информационной системы (защита от спама) |
@@ -140,12 +132,10 @@ description: В этом разделе приведен набор правил
 ||
 || **Обеспечение доступности персональных данных** (ОДТ) {.cell-align-center} | > | > ||
 || ОДТ.4 | Периодическое резервное копирование информации на резервные машинные носители информации |
-[cspm.compute.snapshot](../../rules-reference/cspm.md#snapshot)
-[cspm.k8s.backup](../../rules-reference/cspm.md#backup)
+[cspm.backup.compute-disks](../../rules-reference/cspm.md#compute-disks)
 ||
 || ОДТ.5 | Обеспечение возможности восстановления информации с резервных машинных носителей информации (резервных копий) в течение установленного временного интервала |
-[cspm.compute.snapshot](../../rules-reference/cspm.md#snapshot)
-[cspm.k8s.backup](../../rules-reference/cspm.md#backup)
+[cspm.backup.compute-disks](../../rules-reference/cspm.md#compute-disks)
 ||
 || **Защита технических средств** (ЗТС) / **Защита среды виртуализации** (ЗСВ) {.cell-align-center} | > | > ||
 || ЗСВ.1 | Идентификация и аутентификация субъектов доступа и объектов доступа в виртуальной инфраструктуре, в том числе администраторов управления средствами виртуализации |
@@ -156,14 +146,11 @@ description: В этом разделе приведен набор правил
 [cspm.k8s.kubernetes-safe-config](../../rules-reference/cspm.md#kubernetes-safe-config)
 [cspm.k8s.access](../../rules-reference/cspm.md#access)
 ||
-|| ЗСВ.3 | Регистрация событий безопасности в виртуальной инфраструктуре | [cspm.k8s.audit-logs](../../rules-reference/cspm.md#audit-logs) ||
 || ЗСВ.4 | Управление (фильтрация, маршрутизация, контроль соединения, однонаправленная передача) потоками информации между компонентами виртуальной инфраструктуры, а также по периметру виртуальной инфраструктуры | [cspm.network.firewall](../../rules-reference/cspm.md#firewall) ||
-|| ЗСВ.5 | Доверенная загрузка серверов виртуализации, виртуальной машины (контейнера), серверов управления виртуализацией | [cspm.runtime.vm-environment-integrity](../../rules-reference/cspm.md#vm-environment-integrity) ||
 || ЗСВ.6 | Управление перемещением виртуальных машин (контейнеров) и обрабатываемых на них данных | [cspm.k8s.kubernetes-safe-config](../../rules-reference/cspm.md#kubernetes-safe-config) ||
 || ЗСВ.7 | Контроль целостности виртуальной инфраструктуры и ее конфигураций | [cspm.k8s.kubernetes-safe-config](../../rules-reference/cspm.md#kubernetes-safe-config) ||
-|| ЗСВ.8 | Резервное копирование данных, резервирование технических средств, программного обеспечения виртуальной инфраструктуры, а также каналов связи внутри виртуальной инфраструктуры | [cspm.k8s.backup](../../rules-reference/cspm.md#backup) ||
 || ЗСВ.9 | Реализация антивирусной защиты в виртуальной инфраструктуре |
-[cspm.appsec.upload-policy](../../rules-reference/cspm.md#upload-policy)
+[cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry)
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
 [cspm.appsec.registry-recently-scan](../../rules-reference/cspm.md#registry-recently-scan)
 ||
@@ -195,11 +182,8 @@ description: В этом разделе приведен набор правил
 || **Выявление инцидентов и реагирование на них** (ИНЦ) {.cell-align-center} | > | > ||
 || ИНЦ.2 | Обнаружение, идентификация и регистрация инцидентов |
 [cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails)
-[cspm.k8s.audit-logs](../../rules-reference/cspm.md#audit-logs)
-[cspm.procedure.organization-contacts](../../rules-reference/cspm.md#organization-contacts)
 ||
 || ИНЦ.6 | Планирование и принятие мер по предотвращению повторного возникновения инцидентов |
-[cspm.k8s.version-update](../../rules-reference/cspm.md#version-update)
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
 ||
 || **Управление конфигурацией информационной системы и системы защиты персональных данных** (УКФ) {.cell-align-center} | > | > ||

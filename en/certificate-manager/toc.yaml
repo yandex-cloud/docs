@@ -7,13 +7,13 @@ items:
     items:
       - name: All guides
         href: operations/index.md
-      - name: Certificate from Let's Encrypt
+      - name: Let's Encrypt certificate
         items:
           - name: Adding a certificate
             href: operations/managed/cert-create.md
           - name: Getting the contents of a certificate
             href: operations/managed/cert-get-content.md
-          - name: Domain rights check procedure
+          - name: Passing a domain rights check
             href: operations/managed/cert-validate.md
           - name: Renewing a certificate
             href: operations/managed/cert-update.md
@@ -35,9 +35,9 @@ items:
             href: operations/import/cert-delete.md
       - name: Backups
         href: operations/cert-backup.md
-      - name: Adding alerts for certificates
+      - name: Adding an alert for a certificate
         href: operations/alert.md
-      - name: Configuring access to a certificate
+      - name: Configuring access permissions for a certificate
         href: operations/cert-access.md
       - name: Viewing operations with a certificate
         href: operations/operation-logs.md
@@ -63,13 +63,13 @@ items:
     items:
       - name: Overview
         href: concepts/index.md
-      - name: Certificate from Let's Encrypt
+      - name: Let's Encrypt certificate
         href: concepts/managed-certificate.md
       - name: Custom certificate
         href: concepts/imported-certificate.md
       - name: Domain rights check
         href: concepts/challenges.md
-      - name: Integration with {{ yandex-cloud }} services
+      - name: Integration with the {{ yandex-cloud }} services
         href: concepts/services.md
       - name: Quotas and limits
         href: concepts/limits.md
@@ -77,7 +77,7 @@ items:
         items:
           - name: Overview
             href: concepts/domains/index.md
-          - name: Integration with {{ yandex-cloud }} services
+          - name: Integration with the {{ yandex-cloud }} services
             href: concepts/domains/services.md
         hidden: true
   - name: Access management

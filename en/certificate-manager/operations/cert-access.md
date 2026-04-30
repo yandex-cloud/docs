@@ -5,7 +5,7 @@ description: Follow this guide to configure access permissions for a certificate
 
 # Configuring access permissions for a certificate
 
-To grant a user, group, or [service account](../../iam/concepts/users/service-accounts.md) access to a [certificate](../concepts/index.md#types), assign a [role](../../iam/concepts/access-control/roles.md) for it.
+To grant an individual user, user group, or [service account](../../iam/concepts/users/service-accounts.md) access to a [certificate](../concepts/index.md#types), assign a [role](../../iam/concepts/access-control/roles.md) for it.
 
 ## Assigning a role {#access-to-user}
 
@@ -17,13 +17,13 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command for assigning a role for a certificate:
+  1. View the description of the CLI command for assigning a role for a certificate:
 
       ```bash
       yc certificate-manager certificate add-access-binding --help
       ```
 
-  1. Get a list of certificates in the default [folder](../../resource-manager/concepts/resources-hierarchy.md#folder):
+  1. Get the list of certificates in the default [folder](../../resource-manager/concepts/resources-hierarchy.md#folder):
 
       ```bash
       yc certificate-manager certificate list
@@ -40,13 +40,13 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
       +----------------------+--------+-------------+---------------------+----------+---------+
       ```
 
-  1. Check what roles are currently assigned for the DNS zone you want to update:
+  1. Check what roles are currently assigned for the resource in question:
 
       ```bash
       yc certificate-manager certificate list-access-bindings <certificate_ID>
       ```
 
-  1. To assign the role, run the following command:
+  1. Assign the role using this command:
 
       * To a user:
 
@@ -98,7 +98,7 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
       * `role`: [Role](../security/index.md#roles-list) to assign.
       * `member`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-       For more information about `yandex_cm_certificate_iam_member` resource properties, see this [provider guide]({{ tf-provider-resources-link }}/cm_certificate_iam_member).
+       For more information about the `yandex_cm_certificate_iam_member` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/cm_certificate_iam_member).
 
   1. Create the resources:
 
@@ -138,13 +138,13 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
 
       If you need to save the roles, specify them in the command for assigning roles.
 
-  1. See the description of the CLI command for assigning roles for a certificate:
+  1. View the description of the CLI command for assigning roles for a certificate:
 
       ```bash
       yc certificate-manager certificate set-access-bindings --help
       ```
 
-  1. Assign roles:
+  1. Assign the roles:
 
       ```bash
       yc certificate-manager certificate set-access-bindings <certificate_ID> \
@@ -157,7 +157,7 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
           * `role`: ID of the role to assign.
           * `subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
-      For example, the following command will assign roles to multiple users and a single service account:
+      For example, this command will assign roles to multiple users and a single service account:
 
       ```bash
       yc certificate-manager certificate set-access-bindings my-certificate \
@@ -196,7 +196,7 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
       * `role`: [Role](../security/index.md#roles-list) to assign.
       * `member`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-       For more information about `yandex_cm_certificate_iam_member` resource properties, see this [provider guide]({{ tf-provider-resources-link }}/cm_certificate_iam_member).
+       For more information about the `yandex_cm_certificate_iam_member` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/cm_certificate_iam_member).
 
   1. Create the resources:
 
@@ -224,13 +224,13 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the CLI command for revoking a role for a certificate:
+  1. View the description of the CLI command for revoking a role for a certificate:
 
       ```bash
       yc certificate-manager certificate remove-access-binding --help
       ```
 
-  1. View the roles and assignees for the resource:
+  1. View the list of users and their roles for the resource:
 
       ```bash
       yc certificate-manager certificate list-access-bindings <certificate_ID>
@@ -249,7 +249,7 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
       * `--role`: ID of the role you want to revoke.
       * `--subject`: [Subject](../../iam/concepts/access-control/index.md#subject) to revoke the role from.
 
-      For example, to revoke the `{{ roles-viewer }}` role from a user with the `ajel6l0jcb9s********` ID:
+      For example, to revoke the `{{ roles-viewer }}` role from the user with the `ajel6l0jcb9s********` ID:
 
       ```bash
       yc certificate-manager certificate remove-access-binding my-certificate \
@@ -279,7 +279,7 @@ To grant a user, group, or [service account](../../iam/concepts/users/service-ac
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      You can verify the changes using this [CLI](../../cli/quickstart.md) command:
+      You can check the changes using this [CLI](../../cli/quickstart.md) command:
       ```bash
       yc certificate-manager certificate list-access-bindings <certificate_ID>
       ``
