@@ -75,48 +75,28 @@ items:
         href: metrics/quickstart.md
       - name: Обзор возможностей
         href: metrics/overview.md
-      - name: Пошаговые инструкции
+      - name: Поиск и анализ метрик
+        href: metrics/metric-explorer.md
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Поставка и экспорт метрик
         items:
-          - name: Все инструкции
-            href: operations/index.md
-          - name: Работа с метриками
-            items:
-              - name: Обзор метрик
-                href: operations/metric/metric-explorer.md
-              - name: Поставка системных метрик Linux
-                href: operations/unified-agent/linux_metrics.md
-              - name: Поставка метрик пользовательских приложений
-                href: operations/unified-agent/pull_prometheus.md
-              - name: Поставка метрик HAProxy и других сторонних приложений
-                href: operations/unified-agent/haproxy.md
-              - name: Поставка метрик с хостов вне {{ yandex-cloud }}
-                href: operations/unified-agent/non-yc.md
-              - name: Запись пользовательских метрик через API
-                href: operations/metric/add.md
-              - name: Получение списка метрик
-                href: operations/metric/list.md
-              - name: Выгрузка метрик
-                href: operations/metric/get.md
-              - name: Экспорт метрик в формате Prometheus
-                href: operations/metric/prometheusExport.md
-          - name: Работа с дашбордами
-            items:
-              - name: Создание и управление дашбордом
-                href: operations/dashboard/create.md
-              - name: Копирование дашборда
-                href: operations/dashboard/copy.md
-              - name: Добавление виджета на дашборд
-                href: operations/dashboard/add-widget.md
-              - name: Добавление параметра дашборда
-                href: operations/dashboard/add-parameters.md
-              - name: Управление виджетами
-                href: operations/dashboard/widget-management.md
-              - name: Удаление виджета с дашборда
-                href: operations/dashboard/delete-widget.md
-              - name: Удаление дашборда
-                href: operations/dashboard/delete-dashboard.md
-              - name: Примеры работы с gRPC API
-                href: operations/dashboard/api-examples.md
+          - name: Поставка системных метрик Linux
+            href: operations/unified-agent/linux_metrics.md
+          - name: Поставка метрик пользовательских приложений
+            href: operations/unified-agent/pull_prometheus.md
+          - name: Поставка метрик HAProxy и других сторонних приложений
+            href: operations/unified-agent/haproxy.md
+          - name: Поставка метрик с хостов вне {{ yandex-cloud }}
+            href: operations/unified-agent/non-yc.md
+          - name: Запись пользовательских метрик через API
+            href: operations/metric/add.md
+          - name: Получение списка метрик
+            href: operations/metric/list.md
+          - name: Выгрузка метрик
+            href: operations/metric/get.md
+          - name: Экспорт метрик в формате Prometheus
+            href: operations/metric/prometheusExport.md
       - name: Практические руководства
         items:
           - name: Все практические руководства

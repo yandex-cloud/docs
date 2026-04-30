@@ -16,7 +16,6 @@ description: В этом разделе приведен список прави
 #|
 || Идентификатор требования | Требование [стандарта безопасности](../../../security/standard/all.md) | Идентификаторы проверки в [модуле {{ cspm-name }}](../cspm.md) ||
 || **Аутентификация и управление доступом** {.cell-align-center} | > | > ||
-|| `IAM1` | [Настроена федерация удостоверений (Single Sign-On, SSO)](../../../security/standard/all.md#saml-federation) | [cspm.access.uses-federation](../../rules-reference/cspm.md#uses-federation) ||
 || `IAM2` | [Настроено сопоставление групп пользователей в федерации удостоверений](../../../security/standard/all.md#group-mapping) | [cspm.access.user-groups-mapping](../../rules-reference/cspm.md#access-user-groups-mapping) ||
 || `IAM4` | [Таймаут жизни cookie в федерации меньше 6 часов](../../../security/standard/all.md#cookie-timeout) | [cspm.cookie-timeout.organization](../../rules-reference/cspm.md#cookie-timeout-organization) ||
 || `IAM5` | [Только необходимые администраторы управляют членством в IAM-группах](../../../security/standard/all.md#iam-admins) | [cspm.access.user-groups-access](../../rules-reference/cspm.md#user-groups-access) ||
@@ -31,7 +30,6 @@ description: В этом разделе приведен список прави
 || `IAM16` | [На ВМ отключено получение токена через AWS IMDSv1](../../../security/standard/all.md#aws-token) | [cspm.aws-token](../../rules-reference/cspm.md#aws-token) ||
 || `IAM18` | [Привилегированные роли назначены только доверенным администраторам](../../../security/standard/all.md#privileged-users) | [cspm.access.check-privileged-roles](../../rules-reference/cspm.md#check-privileged-roles) ||
 || `IAM22` | [Для ресурсов в организации отсутствует публичный доступ](../../../security/standard/all.md#public-access) | [cspm.access.public-access](../../rules-reference/cspm.md#public-access) ||
-|| `IAM23` | [Контактные данные ответственного за организацию актуальны](../../../security/standard/all.md#org-contacts) | [cspm.procedure.organization-contacts](../../rules-reference/cspm.md#organization-contacts) ||
 || `IAM24` | [На ресурсах используются метки](../../../security/standard/all.md#labels) | [cspm.o11y.labeled-resources](../../rules-reference/cspm.md#labeled-resources) ||
 || `IAM27` | [Регулярно проводится аудит прав доступа пользователей и сервисных аккаунтов с использованием {{ sd-full-name }} {{ ciem-name }}](../../../security/standard/all.md#ciem-access-control) | [cspm.access.check-bindings](../../rules-reference/cspm.md#access-check-bindings) ||
 || **Сетевая безопасность** {.cell-align-center} | > | > ||
@@ -64,9 +62,8 @@ description: В этом разделе приведен список прави
 || `ENV28` | [Настроен ACL по IP-адресам для {{ container-registry-full-name }}](../../../security/standard/all.md#acl-container-registry) | [cspm.access.acl-container-registry](../../rules-reference/cspm.md#acl-container-registry) ||
 || `ENV29` | [Срок действия сертификата {{ certificate-manager-full-name }} составляет как минимум 30 дней](../../../security/standard/all.md#certificate-validity) | [cspm.crypto.certificate-validity](../../rules-reference/cspm.md#certificate-validity) ||
 || `ENV33` | [Для подключения к виртуальной машине или узлу {{ k8s }} используется {{ oslogin }}](../../../security/standard/all.md#os-login-onto-hosts) | [cspm.access.os-login-onto-hosts.vm](../../rules-reference/cspm.md#vm) ||
-|| `ENV34` | [Проводится сканирование уязвимостей на уровне облачных IP-адресов](../../../security/standard/all.md#ip-level) | [cspm.active.ip-vulnerability-scan](../../rules-reference/cspm.md#ip-vulnerability-scan) ||
 || `ENV37` | [Используется {{ backup-short-name }} или механизм snapshot по расписанию](../../../security/standard/all.md#snapshot) |
-[cspm.compute.snapshot](../../rules-reference/cspm.md#snapshot)
+[cspm.backup.compute-disks](../../rules-reference/cspm.md#compute-disks)
 [cspm.backup.compute-disks](../../rules-reference/cspm.md#compute-disks)
 ||
 || **Шифрование данных и управление ключами** {.cell-align-center} | > | > ||
@@ -75,7 +72,6 @@ description: В этом разделе приведен список прави
 || `CRYPT3` | [В {{ alb-full-name }} используется HTTPS](../../../security/standard/all.md#alb-https) | [cspm.appsec.alb-https](../../rules-reference/cspm.md#alb-https) ||
 || `CRYPT4` | [В {{ api-gw-full-name }} используется HTTPS и собственный домен](../../../security/standard/all.md#api-gateway-https) | [cspm.appsec.api-gateway-https](../../rules-reference/cspm.md#api-gateway-https) ||
 || `CRYPT5` | [В {{ cdn-full-name }} используется HTTPS и собственный SSL-сертификат](../../../security/standard/all.md#cdn-https) | [cspm.appsec.cdn-https](../../rules-reference/cspm.md#cdn-https) ||
-|| `CRYPT7` | [Используется шифрование данных на уровне приложения](../../../security/standard/all.md#self-data-app) | [cspm.data.application-encryption](../../rules-reference/cspm.md#application-encryption) ||
 || `CRYPT8` | [Используется шифрование дисков и снимков виртуальных машин](../../../security/standard/all.md#managed-vm-kms) | [cspm.crypto.managed-vm-kms](../../rules-reference/cspm.md#managed-vm-kms) ||
 || `CRYPT9` | [Ключи {{ kms-name }} хранятся в аппаратном модуле безопасности (HSM)](../../../security/standard/all.md#keys-hsm) | [cspm.crypto.keys-hsm](../../rules-reference/cspm.md#keys-hsm) ||
 || `CRYPT10` | [Права на управление ключами в {{ kms-short-name }} выданы контролируемым пользователям](../../../security/standard/all.md#keys-controlled-users) | [cspm.access.kms-keys-access](../../rules-reference/cspm.md#kms-keys-access) ||
@@ -88,7 +84,6 @@ description: В этом разделе приведен список прави
 [cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails)
 [cspm.o11y.audit-trails-no-errors](../../rules-reference/cspm.md#o11y-audit-trails-no-errors)
 ||
-|| `AUDIT5` | [Выполняется сбор аудит-логов с уровня ОС](../../../security/standard/all.md#os-level) | [cspm.o11y.os-logs-audited](../../rules-reference/cspm.md#os-logs-audited) ||
 || `AUDIT8` | [Отслеживаются события уровня сервисов](../../../security/standard/all.md#data-plane-events) | [cspm.o11y.data-plane-events](../../rules-reference/cspm.md#data-plane-events) ||
 || **Защита приложений** {.cell-align-center} | > | > ||
 || `APPSEC1` | [Используется {{ captcha-full-name }}](../../../security/standard/all.md#use-smartcaptcha) | [cspm.appsec.use-smartcaptcha](../../rules-reference/cspm.md#use-smartcaptcha) ||
@@ -102,7 +97,5 @@ description: В этом разделе приведен список прави
 || `K8S3` | [Нет доступа к API {{ k8s }}](../../../security/standard/all.md#api-security) | [cspm.k8s.api-security](../../rules-reference/cspm.md#api-security) ||
 || `K8S4` | [В {{ managed-k8s-name }} настроены аутентификация и управление доступом](../../../security/standard/all.md#kubernetes-auth) | [cspm.k8s.access](../../rules-reference/cspm.md#access) ||
 || `K8S5` | [В {{ managed-k8s-full-name }} используется безопасная конфигурация](../../../security/standard/all.md#kubernetes-safe-config) | [cspm.k8s.secure-configuration](../../rules-reference/cspm.md#secure-configuration) ||
-|| `K8S8` | [Используется одна из трех последних версий {{ k8s }} и ведется мониторинг обновлений](../../../security/standard/all.md#version-update) | [cspm.k8s.version-update](../../rules-reference/cspm.md#version-update) ||
 || `K8S11` | [Используется политика безопасности {{ k8s }}](../../../security/standard/all.md#security-standards) | [cspm.k8s.kspm](../../rules-reference/cspm.md#k8s-kspm) ||
-|| `K8S12` | [Настроен сбор аудитных логов для расследований инцидентов](../../../security/standard/all.md#audit-logs) | [cspm.k8s.audit-logs](../../rules-reference/cspm.md#audit-logs) ||
 |#

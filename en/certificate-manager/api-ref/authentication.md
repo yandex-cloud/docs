@@ -1,8 +1,8 @@
 ---
-title: Authentication in the {{ certificate-manager-full-name }} API
-description: To perform operations via the API in {{ certificate-manager-full-name }}, a service for issuing and updating TLS certificates from Let's Encrypt, get an IAM token for your account.
+title: '{{ certificate-manager-full-name }} API authentication'
+description: To perform operations via the API in {{ certificate-manager-full-name }}, a service for issuing and renewing Let's Encrypt TLS certificates, get an IAM token for your account.
 ---
 
-# Authentication in the {{ certificate-manager-name }} API
+# {{ certificate-manager-name }} API authentication
 
 {% include notitle [auth](../../_includes/authentication.md) %}

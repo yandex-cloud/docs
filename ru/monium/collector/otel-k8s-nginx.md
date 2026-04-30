@@ -207,7 +207,7 @@ description: Инструкция по установке веб-сервера 
 
 {% endlist %}
 
-Подробнее о [работе с метриками](../operations/metric/metric-explorer.md).
+Подробнее о [работе с метриками](../metrics/metric-explorer.md).
 
 Если данные не появились в {{ monium-name }}, см. раздел [{#T}](../collector/troubleshooting.md).
 

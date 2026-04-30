@@ -23,7 +23,7 @@
        
      {% endcut %}
 
-     Подробнее о [работе с метриками](../../monium/operations/metric/metric-explorer.md).
+     Подробнее о [работе с метриками](../../monium/metrics/metric-explorer.md).
 
      {% cut "Пример страницы с логами" %}
        

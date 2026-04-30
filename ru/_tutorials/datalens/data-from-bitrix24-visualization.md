@@ -26,6 +26,8 @@
 
 ## Создайте подключение к Битрикс24 {#create-connection-bitrix24}
 
+{% include [datalens-bitrix24-connection-note](../../_includes/datalens/operations/datalens-bitrix24-connection-note.md) %}
+
 1. В правом верхнем углу воркбука нажмите **Создать** → ![image](../../_assets/console-icons/thunderbolt.svg) **Подключение**.
 1. В разделе **Партнерские подключения** выберите подключение **Битрикс24**.
 1. Чтобы подключиться к демонстрационному источнику данных, укажите:

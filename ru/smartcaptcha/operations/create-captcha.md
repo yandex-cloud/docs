@@ -117,9 +117,9 @@ description: Следуя данной инструкции, вы сможете
        --name <имя_капчи> \
        --turn-off-hostname-check \
        --allowed-site <первый_хост>,<второй_хост> \
-       --style-json '<внешний_вид_капчи>' \
        --pre-check-type <тип_основного_задания> \
        --challenge-type <тип_дополнительного_задания> \
+       --style-json '{"light":"<объект_json>", "dark":"<объект_json>"}' \
        --complexity <сложность_задания> \
        --security-rules-file <путь_к_файлу_с_вариантами>.yaml \
        --override-variants-file <путь_к_файлу_с_правилами>.yaml
@@ -129,7 +129,6 @@ description: Следуя данной инструкции, вы сможете
      * `--name` — имя капчи.
      * `--turn-off-hostname-check` — [отключение проверки домена](../concepts/domain-validation.md). Необязательный параметр.
      * `--allowed-site` — список хостов в формате IP-адресов или доменных имен. Указывайте адрес без протокола и без `/` в конце, например, `example.com`. Капча будет работать и во всех поддоменах указанных доменных имен. Необязательный параметр.
-     * `--style-json` — внешний вид окна задания и других элементов в формате `JSON`. Подробнее смотрите в `JSON`, сгенерированном с помощью [консоли управления]({{ link-console-main }}). Необязательный параметр.
      * `--pre-check-type` — тип [основного задания](../concepts/tasks.md#main-task) по умолчанию, которое предлагается решить пользователю. Возможные значения:
        * `CHECKBOX` — чекбокс.
        * `SLIDER` — слайдер.
@@ -137,6 +136,7 @@ description: Следуя данной инструкции, вы сможете
        * `IMAGE_TEXT` — распознавание текста.
        * `SILHOUETTES` — силуэт.
        * `KALEIDOSCOPE` — калейдоскоп.
+     * `--style-json` — настройки цветовой темы в формате `JSON`. Чтобы настроить динамическую цветовую схему, используйте ключи `light` и `dark` со значениями в виде отдельных JSON-объектов. Цветовую схему обоих типов можно настроить в [консоли управления]({{ link-console-main }}) и скопировать в формате JSON на вкладке `JSON`. Необязательный параметр. Подробнее в [примере](#with-rules).
      * `--complexity` — [сложность](../concepts/tasks.md#task-difficulty) задания по умолчанию. Возможные значения:
        * `EASY` — простое задание.
        * `MEDIUM` — задание среднего уровня сложности.
@@ -225,8 +225,7 @@ description: Следуя данной инструкции, вы сможете
 
      Где:
      * `name` — имя капчи.
-     * `turn_off_hostname_check` — [отключение проверки домена](../concepts/domain-validation.md). Необязательный параметр.
-     * `style_json` — внешний вид окна задания и других элементов в формате `JSON`. Подробнее смотрите в `JSON`, сгенерированном с помощью [консоли управления]({{ link-console-main }}). Необязательный параметр.
+     * `turn_off_hostname_check` — [отключение проверки домена](../concepts/domain-validation.md). Необязательный параметр.     
      * `complexity` — [сложность](../concepts/tasks.md#task-difficulty) задания по умолчанию, которое увидит пользователь. Возможные значения:
        * `EASY` — простое задание.
        * `MEDIUM` — задание среднего уровня сложности.
@@ -242,6 +241,7 @@ description: Следуя данной инструкции, вы сможете
        * `IMAGE_TEXT` — распознавание текста.
        * `SILHOUETTES` — силуэт.
        * `KALEIDOSCOPE` — калейдоскоп.
+     * `style_json` — настройки цветовой темы в формате `JSON`. Чтобы настроить динамическую цветовую схему, используйте ключи `light` и `dark` со значениями в виде отдельных JSON-объектов. Цветовую схему обоих типов можно настроить в [консоли управления]({{ link-console-main }}) и скопировать в формате JSON на вкладке `JSON`. Необязательный параметр.
      * `allowed_sites` — список хостов в формате IP-адресов или доменных имен. Указывайте адрес без протокола и без `/` в конце, например, `example.com`. Капча будет работать и во всех поддоменах указанных доменных имен. Необязательный параметр.
      * `override_variant` — блок с описанием [варианта](../concepts/captcha-variants.md) задания. Необязательный параметр.
        * `uuid` — уникальный идентификатор варианта задания.
@@ -338,28 +338,47 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-### Создание капчи с правилами входящего трафика {#with-rules}
+### Создание капчи с правилами входящего трафика и настроенной цветовой схемой {#with-rules}
 
 Создайте капчу с правилами входящего трафика с тестовыми характеристиками:
 
 * Имя: `advanced-captcha`.
 * Проверка домена: отключена.
 * Внешний вид, описанный в файле `style.json`:
+
+  * Стандартная цветовая схема:
+
+    ```json
+    {
+        "text-color-primary": "#1e1f20",
+        "base-background-color": "#c7d0d6",
+        "popup-image-container-background-color": "#aab4ba",
+        "base-checkbox-background-color": "#5a7080",
+        "base-checkbox-background-color-checked": "#5a7080",
+        "base-checkbox-border": "2px solid #5a7080",
+        "base-checkbox-spin-color": "#5a7080",
+        "popup-textinput-background-color": "#c7d0d6",
+        "popup-action-button-background-color": "#5a7080",
+        "popup-action-button-background-color-hover": "#485863"
+    }
+    ```
+
+  * Динамическая цветовая схема:
   
-  ```json
-  {
-      "text-color-primary": "#1e1f20",
-      "base-background-color": "#c7d0d6",
-      "popup-image-container-background-color": "#aab4ba",
-      "base-checkbox-background-color": "#5a7080",
-      "base-checkbox-background-color-checked": "#5a7080",
-      "base-checkbox-border": "2px solid #5a7080",
-      "base-checkbox-spin-color": "#5a7080",
-      "popup-textinput-background-color": "#c7d0d6",
-      "popup-action-button-background-color": "#5a7080",
-      "popup-action-button-background-color-hover": "#485863"
-  }
-  ```
+    ```json
+    {
+      "light": {
+        "text-color-primary": "#1e1f20",
+        "base-background-color": "#c7d0d6",
+        "popup-image-container-background-color": "#aab4ba",
+      },
+      "dark": {
+        "text-color-primary": "#e6e8eb",
+        "base-background-color": "#2b2f34",
+        "popup-image-container-background-color": "#1f2328",
+      }
+    }
+    ```
 
 * Список хостов: `example.ru`, `example.kz`.
 * Параметры задания по умолчанию:

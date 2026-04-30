@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Создание подключения к Битрикс24
 
+{% include [datalens-bitrix24-connection-note](../../../_includes/datalens/operations/datalens-bitrix24-connection-note.md) %}
+
 Чтобы создать подключение к Битрикс24:
 
 1. Перейдите на [страницу создания нового подключения]({{ link-datalens-main }}/connections/new).

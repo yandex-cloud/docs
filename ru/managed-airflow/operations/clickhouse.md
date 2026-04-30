@@ -121,3 +121,8 @@ description: С помощью направленного ациклическо
   1. Убедитесь, что в логах есть строка `query result: [(1,)]`. Это значит, что запрос выполнен успешно.
 
 {% endlist %}
+
+## Решение возможных проблем {#troubleshooting}
+
+* [{#T}](../qa/index.md#airflow-clickhouse-ssl)
+* [{#T}](../qa/index.md#airflow-clickhouse-plugin)

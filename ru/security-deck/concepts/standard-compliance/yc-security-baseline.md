@@ -36,7 +36,5 @@ description: В этом разделе приведен список прави
 || APPSEC10 | [Используется Web Application Firewall](../../../security/standard/all.md#use-waf) | [cspm.appsec.use-waf](../../rules-reference/cspm.md#use-waf) ||
 || APPSEC11 | [Используется Advanced Rate Limiter](../../../security/standard/all.md#use-arl) | [cspm.appsec.use-arl](../../rules-reference/cspm.md#use-arl) ||
 || **Безопасность {{ k8s }}** (K8S) {.cell-align-center} | > | > ||
-|| K8S8 | [Используется одна из трех последних версий {{ k8s }} и ведется мониторинг обновлений](../../../security/standard/all.md#version-update) | [cspm.k8s.version-update](../../rules-reference/cspm.md#version-update) ||
 || K8S11 | [Используется политика безопасности {{ k8s }}](../../../security/standard/all.md#security-standards) | [cspm.k8s.kspm](../../rules-reference/cspm.md#k8s-kspm) ||
-|| K8S12 | [Настроен сбор аудитных логов для расследований инцидентов](../../../security/standard/all.md#audit-logs) | [cspm.k8s.audit-logs](../../rules-reference/cspm.md#audit-logs) ||
 |#

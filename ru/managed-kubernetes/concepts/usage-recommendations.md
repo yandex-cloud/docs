@@ -57,7 +57,7 @@ description: Используйте эти рекомендации, если в
 
 Используйте эти рекомендации, если нагрузка на ваш кластер {{ managed-k8s-name }} постоянно растет:
 * Для снижения нагрузки на {{ k8s }} DNS используйте [NodeLocal DNS](../tutorials/node-local-dns.md). Если кластер содержит более 50 узлов, используйте [автоматическое масштабирование DNS](../tutorials/dns-autoscaler.md).
-* Чтобы снизить горизонтальный трафик внутри кластера, используйте [сетевой балансировщик нагрузки](../operations/create-load-balancer.md) и [правило `externalTrafficPolicy:Local`](../operations/create-load-balancer.md#advanced), если это возможно.
+* Чтобы снизить горизонтальный трафик внутри кластера, используйте [сетевой балансировщик нагрузки](../operations/create-load-balancer.md) и [правило `externalTrafficPolicy:Local`](../operations/create-load-balancer.md#create-lb), если это возможно.
 * Заранее продумайте требования к хранилищам узлов:
   * Изучите [лимиты дисков](../../compute/concepts/limits.md) для {{ compute-full-name }}.
   * Проведите нагрузочное тестирование дисковой подсистемы в тестовом окружении.
