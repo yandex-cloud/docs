@@ -4125,6 +4125,8 @@ default:
             add: Добавить
             add-and-go: Добавить и перейти к дашборду
             copy-and-go: Копировать и перейти к дашборду
+          dash-picker:
+            new-dashboard: Новый дашборд
         entities-list:
           common-filter-placeholder: Поиск по вхождению
         juggler-modal:
@@ -4319,6 +4321,8 @@ default:
           sort-by: Сортировать по
         legend:
           copy-as-csv: Копировать CSV
+        one-graph-per-query:
+          label: Один график на запрос
         select:
           charts-count:
             label: Графиков в ряд

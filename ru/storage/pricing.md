@@ -12,9 +12,8 @@ blocks:
   - type: card-layout-block
     animated: false
     colSizes:
-      all: 4
+      all: 12
       sm: 4
-      md: 4
     children:
       - type: basic-card
         title: Калькулятор цен

@@ -10,4 +10,5 @@ flowchart BT
     om-gr-externalCreator["organization-manager.groups.externalCreator"] --> om-admin
     om-gr-externalManager["organization-manager.groups.externalManager"] --> om-admin
     organization-manager.groups.externalConverter
+    om-auditor --> om-viewer["organization-manager.viewer"] --> om-editor --> om-admin
 ```

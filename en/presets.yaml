@@ -4126,6 +4126,8 @@ default:
             add: Add
             add-and-go: Add and edit
             copy-and-go: Copy and edit
+          dash-picker:
+            new-dashboard: New dashboard
         entities-list:
           common-filter-placeholder: Search by entry
         juggler-modal:
@@ -4320,6 +4322,8 @@ default:
           sort-by: Sort by
         legend:
           copy-as-csv: Copy as CSV
+        one-graph-per-query:
+          label: One graph per query
         select:
           charts-count:
             label: Graphs in row

@@ -2,11 +2,15 @@
 ```hcl
 resource "yandex_smartcaptcha_captcha" "<имя_капчи>" {
   name                    = "<имя_капчи>"
-  turn_off_hostname_check = True
-  style_json              = "<внешний_вид_капчи>"
+  turn_off_hostname_check = True  
   complexity              = "<сложность_задания>"
   pre_check_type          = "<тип_основного_задания>"
   challenge_type          = "<тип_дополнительного_задания>"
+
+  style_json = jsonencode({
+    light    = jsonencode(<объект_json>)
+    dark = jsonencode(<объект_json>)
+  })
 
   allowed_sites = [
     "<первый_хост>",
