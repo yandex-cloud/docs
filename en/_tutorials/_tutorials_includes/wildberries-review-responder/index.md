@@ -14,7 +14,3 @@ Architecture:
 * **The Wildberries Feedbacks API** is the external source of input data and the destination for replies.
 
 You can deploy the service the following way:
-
-* [Management console](console.md) — a step-by-step scenario through the {{ yandex-cloud }} management console or a single command via the Serverless Framework.
-
-> To learn about the resources you will be billed for, see the [Required paid resources](console.md#paid-resources) section.
