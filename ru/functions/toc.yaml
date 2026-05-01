@@ -431,6 +431,12 @@ items:
                 href: tutorials/video-converting-queue/console.md
               - name: '{{ TF }}'
                 href: tutorials/video-converting-queue/terraform.md
+          - name: AI-автоответчик на отзывы Wildberries
+            items:
+              - name: Обзор
+                href: tutorials/wildberries-review-responder/index.md
+              - name: Консоль управления
+                href: tutorials/wildberries-review-responder/console.md
           - name: Разработка пользовательской интеграции
             href: tutorials/api-gw-integration.md
           - name: Сокращатель ссылок

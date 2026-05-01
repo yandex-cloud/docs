@@ -927,6 +927,12 @@ items:
                 href: serverless/video-converting-queue/console.md
               - name: '{{ TF }}'
                 href: serverless/video-converting-queue/terraform.md
+          - name: AI-автоответчик на отзывы Wildberries
+            items:
+              - name: Обзор
+                href: serverless/wildberries-review-responder/index.md
+              - name: Консоль управления
+                href: serverless/wildberries-review-responder/console.md
           - name: >-
               Настройка печати с {{ cloud-desktop-name }} на локальный принтер в
               Linux
@@ -1633,6 +1639,12 @@ items:
                 href: serverless/video-converting-queue/console.md
               - name: Terraform
                 href: serverless/video-converting-queue/terraform.md
+          - name: AI-автоответчик на отзывы Wildberries
+            items:
+              - name: Обзор
+                href: serverless/wildberries-review-responder/index.md
+              - name: Консоль управления
+                href: serverless/wildberries-review-responder/console.md
           - name: Разработка пользовательской интеграции в {{ api-gw-name }}
             href: serverless/api-gw-integration.md
           - name: Сокращатель ссылок
