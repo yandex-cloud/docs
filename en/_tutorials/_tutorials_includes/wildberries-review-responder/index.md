@@ -1,6 +1,6 @@
 # An AI service for auto-replying to Wildberries reviews
 
-This tutorial explains how to deploy a service to {{ sf-full-name }} that automatically replies to customer reviews in your Wildberries seller dashboard using a large language model — for example, [{{ yagpt-full-name }}]({{ yagpt-full-name }}).
+This tutorial explains how to deploy a service to {{ sf-full-name }} that automatically replies to customer reviews in your Wildberries seller dashboard using a large language model — for example, [{{ yagpt-full-name }}]({{ link-docs-ai }}ai-studio/concepts/generation/index).
 
 The service runs on a schedule via a [timer](../../../functions/concepts/trigger/timer.md): on every tick the function fetches a batch of unanswered reviews through the Wildberries Feedbacks API, generates an individual reply through an LLM, and posts it back to Wildberries.
 

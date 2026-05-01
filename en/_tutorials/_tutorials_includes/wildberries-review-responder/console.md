@@ -45,7 +45,7 @@ The repository already contains everything required for deployment:
 * `src/` — the application source code, organized as a hexagonal architecture.
 * `requirements.txt` — Python dependency list.
 * `settings.yaml` — default configuration: base URLs, review batch size, run interval, prompt template, and system instructions for the model.
-* `serverless.yml` — Serverless Framework manifest describing the function, the cron trigger, and both service accounts (`ai.languageModels.user` for the function and `{{ roles-functions-invoker }}` for the trigger).
+* `serverless.yml` — Serverless Framework manifest describing the function, the cron trigger, and both service accounts (`{{ roles-yagpt-user }}` for the function and `{{ roles-functions-invoker }}` for the trigger).
 
 The {{ sf-name }} entry point is `src.entrypoints.yandex_cloud_function.handler`. Inside the function:
 
@@ -65,7 +65,7 @@ Pick the deployment path that fits you.
 
 - Serverless Framework {#serverless}
 
-  This path provisions **all** resources — the function, the cron trigger, and both service accounts (`wb-responder-function-service-account` with the `ai.languageModels.user` role and `wb-responder-trigger-service-account` with the `{{ roles-functions-invoker }}` role) — with a single command, following the manifest in `serverless.yml`.
+  This path provisions **all** resources — the function, the cron trigger, and both service accounts (`wb-responder-function-service-account` with the `{{ roles-yagpt-user }}` role and `wb-responder-trigger-service-account` with the `{{ roles-functions-invoker }}` role) — with a single command, following the manifest in `serverless.yml`.
 
   Requires [Node.js 18+](https://nodejs.org) and [Serverless Framework 3](https://www.serverless.com/framework/docs/getting-started).
 
@@ -101,7 +101,7 @@ Pick the deployment path that fits you.
 
   **1. Create the service accounts.**
 
-  1. [Create](../../../iam/operations/sa/create.md) a service account named `wb-responder-function-sa` and [assign](../../../iam/operations/sa/assign-role-for-sa.md) it the `ai.languageModels.user` role — the function uses its IAM token to call {{ yagpt-name }}.
+  1. [Create](../../../iam/operations/sa/create.md) a service account named `wb-responder-function-sa` and [assign](../../../iam/operations/sa/assign-role-for-sa.md) it the `{{ roles-yagpt-user }}` role — the function uses its IAM token to call {{ yagpt-name }}.
   1. [Create](../../../iam/operations/sa/create.md) a second service account named `wb-responder-trigger-sa` and [assign](../../../iam/operations/sa/assign-role-for-sa.md) it the `{{ roles-functions-invoker }}` role — the cron trigger will use it to invoke the function.
 
   **2. Create the function.**
@@ -149,8 +149,9 @@ Pick the deployment path that fits you.
 ## Test the service {#test}
 
 1. In the Wildberries seller dashboard, make sure there is at least one unanswered review.
-1. In the [management console]({{ link-console-main }}), open the `wb-responder-function` function and click **{{ ui-key.yacloud.serverless-functions.item.test-action.button_test-version }}** — the function will run once without waiting for the trigger.
-1. Open the **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** tab and verify that the logs contain no errors and show entries for processed reviews.
+1. In the [management console]({{ link-console-main }}), open the `wb-responder-function` function and switch to the **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}** tab.
+1. Click **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}** — the function will run once without waiting for the trigger. The **{{ ui-key.yacloud.serverless-functions.item.testing.field_execution-result }}** field should show **{{ ui-key.yacloud.serverless-functions.item.testing.label_result-success }}**.
+1. Switch to the **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** tab and verify that the logs contain no errors and show entries for processed reviews.
 1. After a few minutes, return to the Wildberries seller dashboard and check that the processed reviews now have replies.
 
 If you see Wildberries authorization errors (`401 Unauthorized`) in the logs, make sure the `WILDBERRIES__API_TOKEN` environment variable contains a token with the **Reviews and questions** scope.

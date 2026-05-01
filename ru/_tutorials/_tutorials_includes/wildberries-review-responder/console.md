@@ -45,7 +45,7 @@ cd ai-wildberries-review-responder
 * `src/` — исходный код приложения, построенный по гексагональной архитектуре.
 * `requirements.txt` — список Python-зависимостей.
 * `settings.yaml` — конфигурация по умолчанию: базовые URL, размер пачки отзывов, период запуска, шаблон промпта и системные инструкции для модели.
-* `serverless.yml` — манифест Serverless Framework: описывает функцию, cron-триггер и оба сервисных аккаунта (`ai.languageModels.user` для функции и `{{ roles-functions-invoker }}` для триггера).
+* `serverless.yml` — манифест Serverless Framework: описывает функцию, cron-триггер и оба сервисных аккаунта (`{{ roles-yagpt-user }}` для функции и `{{ roles-functions-invoker }}` для триггера).
 
 Точка входа для {{ sf-name }} — `src.entrypoints.yandex_cloud_function.handler`. Внутри функции:
 
@@ -65,7 +65,7 @@ cd ai-wildberries-review-responder
 
 - Serverless Framework {#serverless}
 
-  Этот способ создаёт **все** ресурсы — функцию, cron-триггер и оба сервисных аккаунта (`wb-responder-function-service-account` с ролью `ai.languageModels.user` и `wb-responder-trigger-service-account` с ролью `{{ roles-functions-invoker }}`) — одной командой согласно манифесту `serverless.yml`.
+  Этот способ создаёт **все** ресурсы — функцию, cron-триггер и оба сервисных аккаунта (`wb-responder-function-service-account` с ролью `{{ roles-yagpt-user }}` и `wb-responder-trigger-service-account` с ролью `{{ roles-functions-invoker }}`) — одной командой согласно манифесту `serverless.yml`.
 
   Требуется установленный [Node.js 18+](https://nodejs.org) и [Serverless Framework 3](https://www.serverless.com/framework/docs/getting-started).
 
@@ -101,7 +101,7 @@ cd ai-wildberries-review-responder
 
   **1. Создайте сервисные аккаунты.**
 
-  1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт с именем `wb-responder-function-sa` и [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) ему роль `ai.languageModels.user` — функция использует его IAM-токен для обращения к {{ yagpt-name }}.
+  1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт с именем `wb-responder-function-sa` и [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) ему роль `{{ roles-yagpt-user }}` — функция использует его IAM-токен для обращения к {{ yagpt-name }}.
   1. [Создайте](../../../iam/operations/sa/create.md) второй сервисный аккаунт с именем `wb-responder-trigger-sa` и [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) ему роль `{{ roles-functions-invoker }}` — от его имени cron-триггер будет вызывать функцию.
 
   **2. Создайте функцию.**
@@ -149,8 +149,9 @@ cd ai-wildberries-review-responder
 ## Проверьте работу сервиса {#test}
 
 1. В кабинете продавца Wildberries убедитесь, что есть хотя бы один неотвеченный отзыв.
-1. В [консоли управления]({{ link-console-main }}) откройте функцию `wb-responder-function` и нажмите **{{ ui-key.yacloud.serverless-functions.item.test-action.button_test-version }}** — функция выполнится разово, без ожидания триггера.
-1. Откройте вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** и убедитесь, что в логах нет ошибок и видны записи о том, что отзывы обработаны.
+1. В [консоли управления]({{ link-console-main }}) откройте функцию `wb-responder-function` и перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
+1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.testing.button_run-test }}** — функция выполнится разово, без ожидания триггера. В поле **{{ ui-key.yacloud.serverless-functions.item.testing.field_execution-result }}** должен появиться статус **{{ ui-key.yacloud.serverless-functions.item.testing.label_result-success }}**.
+1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** и убедитесь, что в логах нет ошибок и видны записи о том, что отзывы обработаны.
 1. Через несколько минут вернитесь в кабинет продавца Wildberries и проверьте, что у обработанных отзывов появились ответы.
 
 Если в логах появляются ошибки авторизации Wildberries (`401 Unauthorized`), убедитесь, что переменная окружения `WILDBERRIES__API_TOKEN` содержит токен с областью **Отзывы и вопросы**.
