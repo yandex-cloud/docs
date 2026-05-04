@@ -8,8 +8,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где расположена подсеть.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, где расположена подсеть.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
   1. Нажмите на имя подсети.
   1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.subnetworks.switch_ip-addresses }}**.
@@ -55,3 +55,4 @@
    {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
 {% endlist %}
+

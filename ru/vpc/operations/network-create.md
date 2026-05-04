@@ -7,8 +7,8 @@
 - Консоль управления {#console}
 
   Чтобы создать [облачную сеть](../concepts/network.md):
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется создать облачную сеть.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется создать облачную сеть.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. В правом верхнем углу нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. В поле **{{ ui-key.yacloud.vpc.networks.create.field_name }}** укажите имя сети. Требования к имени:
 
@@ -207,3 +207,4 @@
         ```
 
 {% endlist %}
+

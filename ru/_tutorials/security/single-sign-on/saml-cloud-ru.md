@@ -92,11 +92,7 @@
 
 Чтобы пользователи вашей организации могли аутентифицироваться в Cloud.ru с помощью SAML‑приложения {{ org-full-name }}, необходимо явно добавить их учётные записи как в само приложение, так и в федерацию Cloud.ru.
 
-{% note info %}
-
-Управлять пользователями и группами, добавленными в SAML-приложение, может пользователь, которому назначена [роль](../../../organization/security/index.md#organization-manager-samlApplications-userAdmin) `organization-manager.samlApplications.userAdmin` или выше.
-
-{% endnote %}
+{% include [saml-manage-users](../../../_includes/organization/saml-manage-users.md) %}
 
 #### Добавьте пользователей в SAML-приложение {{ org-full-name }} {#add-app-users}
 

@@ -7,14 +7,14 @@
 || Абонентская плата за пакет AntiDDoS, ежемесячно. Пакет включает обработку запросов правилами [профиля безопасности](../../smartwebsecurity/concepts/profiles.md):
 * [базовыми](../../smartwebsecurity/concepts/rules.md#base-rules)
 * [Smart Protection](../../smartwebsecurity/concepts/rules.md#smart-protection-rules)
-| 258&nbsp;929&nbsp;₸ {.cell-align-center}
-| 818&nbsp;214&nbsp;₸ {.cell-align-center}
-| 1&nbsp;320&nbsp;536&nbsp;₸ {.cell-align-center}
+| 254&nbsp;165&nbsp;₸ {.cell-align-center}
+| 803&nbsp;165&nbsp;₸ {.cell-align-center}
+| 1&nbsp;296&nbsp;250&nbsp;₸ {.cell-align-center}
 | Рассчитывается индивидуально ||
 
 || Абонентская плата за пакет WAF, ежемесячно. Пакет включает анализ запросов [правилами WAF](../../smartwebsecurity/concepts/rules.md#waf-rules)
-| 207&nbsp;143&nbsp;₸ {.cell-align-center}
-| 388&nbsp;393&nbsp;₸ {.cell-align-center}
-| 776&nbsp;786&nbsp;₸ {.cell-align-center}
+| 203&nbsp;335&nbsp;₸ {.cell-align-center}
+| 381&nbsp;250&nbsp;₸ {.cell-align-center}
+| 762&nbsp;500&nbsp;₸ {.cell-align-center}
 | Рассчитывается индивидуально ||
 |#

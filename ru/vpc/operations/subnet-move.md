@@ -6,8 +6,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где находится подсеть.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, где находится подсеть.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
   1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной подсети и выберите **{{ ui-key.yacloud.common.move }}**.
   1. В открывшемся окне выберите каталог назначения.
@@ -139,4 +139,5 @@
 #### См. также {#see-also}
 
 * [{#T}](network-move.md)
+
 

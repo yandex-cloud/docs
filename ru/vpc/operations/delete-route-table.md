@@ -8,8 +8,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется отвязать таблицу маршрутизации.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется отвязать таблицу маршрутизации.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Перейдите в облачную сеть, в которой создана таблица маршрутизации.
 
      {% note info %}
@@ -153,8 +153,8 @@
 - Консоль управления {#console}
 
   Чтобы удалить таблицу маршрутизации:
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется удалить таблицу маршрутизации.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется удалить таблицу маршрутизации.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
   1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) в строке с именем нужной таблицы и выберите **Удалить**.
   1. В открывшемся окне нажмите кнопку **Удалить**.
@@ -267,3 +267,4 @@
     * `folder_id` для gRPC API.
 
 {% endlist %}
+

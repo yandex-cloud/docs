@@ -1,6 +1,6 @@
----
-title: Как посмотреть график сетевых соединений в {{ vpc-full-name }}
-description: Следуя данной инструкции, вы сможете посмотреть график сетевых соединений.
+﻿---
+title: "Как посмотреть график сетевых соединений в {{ vpc-full-name }}"
+description: "Следуя данной инструкции, вы сможете посмотреть график сетевых соединений." 
 ---
 
 # График сетевых соединений
@@ -11,8 +11,8 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с нужным ресурсом.
-  1. В списке сервисов выберите нужный сервис, например, **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** для виртуальной машины или **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** для кластера.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог с нужным ресурсом.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в нужный сервис, например, **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** для виртуальной машины или **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** для кластера.
   1. Выберите ресурс в списке.
   1. Перейдите на вкладку **{{ ui-key.yacloud.common.monitoring }}**.
   1. Найдите график **Connections quota utilization**.
@@ -22,3 +22,4 @@ description: Следуя данной инструкции, вы сможете
   {% include [conditions-for-deleting-records](../../_includes/vpc/conditions-for-deleting-records.md) %}
 
 {% endlist %}
+
