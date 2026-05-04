@@ -229,7 +229,7 @@ Cоздайте два [сервисных аккаунта](../../iam/concepts/
 
     **yawl-spec.yaml**
 
-    ```yml
+    ```yaml
     yawl: '0.1'
     start: GetDiff
     steps:

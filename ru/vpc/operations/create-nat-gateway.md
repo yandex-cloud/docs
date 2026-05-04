@@ -1,6 +1,6 @@
----
-title: Как создать и настроить NAT-шлюз в {{ vpc-full-name }}
-description: Следуя данной инструкции, вы сможете создать и настроить NAT-шлюз.
+﻿---
+title: "Как создать и настроить NAT-шлюз в {{ vpc-full-name }}"
+description: "Следуя данной инструкции, вы сможете создать и настроить NAT-шлюз." 
 ---
 
 # Настроить NAT-шлюз
@@ -14,8 +14,8 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется создать шлюз.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется создать шлюз.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите **{{ ui-key.yacloud.vpc.switch_gateways }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. Задайте имя шлюза. Требования к имени:
@@ -171,3 +171,4 @@ description: Следуя данной инструкции, вы сможете
       {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
+

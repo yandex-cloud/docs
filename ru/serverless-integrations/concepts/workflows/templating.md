@@ -68,7 +68,22 @@ keywords:
 
 ### Переменная $counter {#counter}
 
-Переменная `$counter` возвращает текущий индекс операции (индексация начинается с нуля). Переменную можно использовать внутри полей `input` и `condition` шага [While](yawl/management/while.md).
+Переменная `$counter` возвращает текущий индекс операции (индексация начинается с нуля). Переменную можно использовать внутри поля `condition` шага [While](yawl/management/while.md) и внутри полей `input` шагов, указанных в `do`, например:
+
+```yaml
+while:
+  max_iterations: 5
+  do:
+    start: my_step
+    steps:
+      my_step:
+        httpCall:
+          input: |-
+            {
+              "url": "\("my-url-iter-" + ($counter | tostring))"
+            }
+          url: \(.url)
+```
 
 ### {{ lockbox-full-name }} {#lockbox-extension}
 

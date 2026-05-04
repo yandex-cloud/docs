@@ -222,11 +222,7 @@
 
 Чтобы пользователи вашей организации могли аутентифицироваться в Zabbix с помощью SAML-приложения {{ org-full-name }}, необходимо явно добавить в ваше SAML-приложение нужных пользователей и/или [группы пользователей](../../../organization/concepts/groups.md).
 
-{% note info %}
-
-Управлять пользователями и группами, добавленными в SAML-приложение, может пользователь, которому назначена [роль](../../../organization/security/index.md#organization-manager-samlApplications-userAdmin) `organization-manager.samlApplications.userAdmin` или выше.
-
-{% endnote %}
+{% include [saml-manage-users](../../../_includes/organization/saml-manage-users.md) %}
 
 1. Если вы настроили автоматическую регистрацию пользователей на стороне Zabbix, [создайте](../../../organization/operations/create-group.md) необходимую [группу](../../../organization/concepts/groups.md):
 
