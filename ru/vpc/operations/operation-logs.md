@@ -12,8 +12,8 @@
 
   Можно получить список операций для конкретного ресурса. Ниже показано, как это сделать для облачной сети. Для других ресурсов сервиса последовательность действий такая же.
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где находится облачная сеть.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, где находится облачная сеть.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Выберите нужную сеть.
   1. Перейдите на панель ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
 
@@ -130,3 +130,4 @@
 #### См. также {#see-also}
 
 * [{#T}](../../api-design-guide/concepts/about-async.md)
+

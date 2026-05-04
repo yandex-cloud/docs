@@ -6,8 +6,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется изменить [облачную сеть](../concepts/network.md).
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется изменить [облачную сеть](../concepts/network.md).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Нажмите ![image](../../_assets/console-icons/ellipsis.svg) в строке нужной подсети и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. Внесите нужные изменения.
   1. Нажмите **{{ ui-key.yacloud.vpc.subnetworks.update.button_update }}**.
@@ -156,3 +156,4 @@
   ```
 
 {% endlist %}
+

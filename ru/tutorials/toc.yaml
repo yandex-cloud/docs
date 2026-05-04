@@ -252,6 +252,8 @@ items:
             href: security/single-sign-on/saml-zabbix.md
           - name: '{{ yandex-360 }}'
             href: security/single-sign-on/saml-yandex-360.md
+          - name: Яндекс Браузер для организаций
+            href: security/single-sign-on/saml-ya-browser-corporate.md
           - name: '{{ mos-name }}'
             href: security/single-sign-on/saml-opensearch.md
           - name: '{{ OS }}'
@@ -266,6 +268,8 @@ items:
             href: security/single-sign-on/saml-ovpn.md
           - name: MWS
             href: security/single-sign-on/oidc-mws.md
+          - name: Harbor
+            href: security/single-sign-on/oidc-harbor.md
           - name: Cloud.ru
             items:
               - name: SAML

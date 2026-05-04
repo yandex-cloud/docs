@@ -121,11 +121,7 @@
 
 Чтобы предоставить пользователям вашей организации доступ к аутентификации в VK Cloud через SAML-приложение в {{ org-full-name }}, добавьте их в приложение и настройте права доступа в VK Cloud.
 
-{% note info %}
-
-Управлять пользователями и группами, добавленными в SAML-приложение, может пользователь, которому назначена [роль](../../../organization/security/index.md#organization-manager-samlApplications-userAdmin) `organization-manager.samlApplications.userAdmin` или выше.
-
-{% endnote %}
+{% include [saml-manage-users](../../../_includes/organization/saml-manage-users.md) %}
 
 ### Добавьте пользователей в SAML-приложение {{ org-full-name }} {#add-app-users}
 

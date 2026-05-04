@@ -144,6 +144,8 @@ items:
             href: operations/connection/create-mssql-server.md
           - name: Создание подключения к Oracle Database
             href: operations/connection/create-oracle.md
+          - name: Создание подключения к {{ SR }}
+            href: operations/connection/create-starrocks.md
           - name: Создание подключения к {{ prometheus-name }}
             href: operations/connection/create-prometheus.md
           - name: Создание подключения к Snowflake

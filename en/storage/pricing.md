@@ -52,13 +52,17 @@ The {{ objstorage-name }} usage cost includes:
 
 Storage usage is measured in GB per month. The amount of data stored for a month is calculated as the average value based on granular per-second data. The minimum billing unit is **1 hour of storing 1 MB of data**.
 
-
 ### Data operations {#rules-operations}
 
-You pay for data operations according to the following policy:
-* The minimum billing unit for `PUT`, `POST`, `PATCH`, `LIST`, and `TRANSITION` operations is 10.
-* The minimum billing unit for `GET`, `HEAD`, and `OPTIONS` operations is 100.
-* You are not charged for deleting data (the `DELETE` operation).
+You pay for the actual number of operations.
+
+You are not charged for deleting data (DELETE operation).
+
+{% note warning %}
+
+If you delete an object from [ice storage](./concepts/storage-class.md) before it has been stored for 12 months, you will be [charged for the remaining storage cost](#ice-storage) after deletion.
+
+{% endnote %}
 
 
 

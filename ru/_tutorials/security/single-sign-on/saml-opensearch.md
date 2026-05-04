@@ -155,11 +155,7 @@ https://c-{{ cluster-id }}.rw.{{ dns-zone }}/
 
 Чтобы пользователи вашей организации могли аутентифицироваться в {{ OS }} Dashboards с помощью SAML-приложения {{ org-full-name }}, необходимо явно добавить в SAML-приложение нужных пользователей и группы пользователей.
 
-{% note info %}
-
-Управлять пользователями и группами, добавленными в SAML-приложение, может пользователь, которому назначена [роль](../../../organization/security/index.md#organization-manager-samlApplications-userAdmin) `organization-manager.samlApplications.userAdmin` или выше.
-
-{% endnote %}
+{% include [saml-manage-users](../../../_includes/organization/saml-manage-users.md) %}
 
 1. Если вы настроили сопоставление ролей на стороне {{ mos-name }}, [создайте](../../../organization/operations/create-group.md) нужные группы:
 

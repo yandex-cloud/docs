@@ -32,7 +32,7 @@ description: Вы узнаете, как управлять заданиями S
 
           {% include [jar-file-path-requirements](../../_includes/managed-spark/jar-file-path-requirements.md) %}
 
-        * В поле **{{ ui-key.yacloud.dataproc.jobs.field_properties }}** укажите свойства компонентов в виде пар `ключ-значение`.
+        * В поле **{{ ui-key.yacloud.dataproc.jobs.field_properties }}** укажите [свойства {{ SPRK }}](../concepts/spark-properties.md) в виде пар «ключ-значение».
         * Укажите координаты используемых и исключаемых Maven-пакетов, а также URL дополнительных репозиториев для поиска пакетов.
 
     1. Нажмите кнопку **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
@@ -63,7 +63,7 @@ description: Вы узнаете, как управлять заданиями S
           --packages <список_Maven-координат_пакетов> \
           --repositories <список_URL_репозиториев_для_поиска_пакетов>\
           --exclude-packages <список_Maven-координат_исключаемых_пакетов> \
-          --properties <список_свойств> 
+          --properties <список_свойств_Apache_Spark™> 
         ```
 
         Где:
@@ -82,7 +82,7 @@ description: Вы узнаете, как управлять заданиями S
         * `--packages` — список Maven-координат JAR-файлов в формате `groupId:artifactId:version`.
         * `--repositories` — список URL дополнительных репозиториев для поиска пакетов.
         * `--exclude-packages` — список Maven-координат пакетов, которые нужно исключить, в формате `groupId:artifactId`.
-        * `--properties` — список свойств компонентов в формате `ключ=значение`.
+        * `--properties` — список [свойств {{ SPRK }}](../concepts/spark-properties.md) в формате `ключ=значение`.
 
 - gRPC API {#grpc-api}
 
@@ -115,7 +115,7 @@ description: Вы узнаете, как управлять заданиями S
                 <список_путей_к_архивам>
               ],
               "properties": {
-                <список_свойств>
+                <список_свойств_Apache_Spark™>
               },
               "packages": [
                 <список_Maven-координат_пакетов>
@@ -147,7 +147,7 @@ description: Вы узнаете, как управлять заданиями S
 
             * `file_uris` — список путей к используемым файлам.
             * `archive_uris` — список путей к используемым архивам.
-            * `properties` — список свойств компонентов в формате `"ключ":"значение"`.
+            * `properties` — список [свойств {{ SPRK }}](../concepts/spark-properties.md) в формате `"ключ":"значение"`.
             * `packages` — список Maven-координат JAR-файлов в формате `groupId:artifactId:version`.
             * `repositories` — список URL дополнительных репозиториев для поиска пакетов.
             * `exclude_packages` — список Maven-координат пакетов, которые нужно исключить, в формате `groupId:artifactId`.

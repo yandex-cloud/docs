@@ -19,7 +19,7 @@
 Чтобы создать облачную сеть:
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создана облачная сеть.
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 1. Задайте имя сети, например, `test-network`.
 1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
@@ -47,7 +47,7 @@
 
 Чтобы зарезервировать IP-адрес:
 
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
 1. Перейдите в раздел **{{ ui-key.yacloud.vpc.switch_addresses }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
 1. В открывшемся окне выберите зону доступности, в которой вы создали подсеть на предыдущем шаге.
