@@ -7,19 +7,94 @@ description: This page presents a list of CLI releases and the updates of each.
 
 ## Current version {#latest-release}
 
-### Version 1.2.0 (09/04/26) {#v-1-2-0}
+### Version 1.3.0 (16/04/26) {#v-1-3-0}
+
+#### {{ mos-name }} {#v-1-3-0-mos-name}
+
+* Added plugin management commands:
+  * `yc managed-opensearch plugins add`
+  * `yc managed-opensearch plugins delete`
+
+#### {{ alb-name }} {#v-1-3-0-alb-name}
+
+* Added the `--preserve-http1-header-casing` parameter to the following commands to preserve the case of HTTP/1 headers for a specific handler:
+  * `yc application-load-balancer add-listener`
+  * `yc application-load-balancer add-http-listener`
+  * `yc application-load-balancer update-listener`
+  * `yc application-load-balancer update-http-listener`
+  * `yc application-load-balancer add-sni`
+  * `yc application-load-balancer add-http-sni`
+  * `yc application-load-balancer update-sni`
+  * `yc application-load-balancer update-http-sni`
+
+#### {{ quota-manager-name }} {#v-1-3-0-quota-manager-name}
+
+* Changed the output method to paginated loading in the `yc quota-manager quota-request list` command.
+
+#### {{ org-full-name }} {#v-1-3-0-org-name}
+
+* Changed the output method to paginated loading in the `yc organization-manager idp user list`, `yc organization-manager idp userpool list`, and `yc organization-manager idp userpool domain list` commands.
+* Added the `--password-blacklist-check-common` parameter to restrict the use of leaked passwords by the users to the following commands:
+  * `yc organization-manager idp userpool create`
+  * `yc organization-manager idp userpool update`
+
+#### {{ mmy-name }} {#v-1-3-0-mmy-name}
+
+* Added support for MySQL version 8.4 to the `yc managed-mysql cluster create` command.
+
+#### {{ dns-name }} {#v-1-3-0-Cloud DNS}
+
+* Added commands to work with DNS Firewall:
+  * `yc dns firewall get`
+  * `yc dns firewall list`
+  * `yc dns firewall create`
+  * `yc dns firewall move`
+  * `yc dns firewall update`
+  * `yc dns firewall delete`
+  * `yc dns firewall add-labels`
+  * `yc dns firewall remove-labels`
+  * `yc dns firewall list-access-bindings`
+  * `yc dns firewall set-access-bindings`
+  * `yc dns firewall add-access-binding`
+  * `yc dns firewall remove-access-binding`
+  * `yc dns firewall list-operations`
+
+#### {{ interconnect-name }} {#v-1-3-0-cic-name}
+
+* Deleted the `yc cic trunk-connection create` command.
+
+#### {{ mch-name }} {#v-1-3-0-mch-name}
+
+* Added the `--include-patterns` and `--exclude-patterns` parameters to the `yc managed-clickhouse cluster restore` command for partial cluster recovery.
+
+## Previous releases {#previous-release}
+
+### Version 1.2.0 (13/04/26) {#v-1-2-0}
+
+#### {{ mkf-name }} {#v-1-2-0-mkf-name}
+
+* Added management commands for the Iceberg Sink connector:
+  * `yc managed-kafka connector-iceberg-sink create`
+  * `yc managed-kafka connector-iceberg-sink update`
+
+#### {{ org-full-name }} {#v-1-2-0-org-name}
+
+* Added the following organization group label management commands:
+  * `yc organization-manager group add-labels`
+  * `yc organization-manager group remove-labels`
+* Added the `--labels` parameter to the `yc organization-manager group create` and `yc organization-manager group update` commands for organization group label management.
+
+#### {{ vpc-name }} {#v-1-2-0-vpc-name}
+
+* Removed the CIDR block length check in the `yc vpc security-group` command.
 
 #### {{ mch-name }} {#v-1-2-0-mch}
 
 * The `--convert-tables-to-replicated` parameter in the `yc managed-clickhouse cluster add-zookeeper` command is enabled by default. 
 
-
 #### {{ mmy-name }} {#v-1-2-0-mmy}
 
 * Added a new `--daemon` proxy mode for `yc managed-mysql connect`.
-
-
-## Previous releases {#previous-release}
 
 ### Version 1.1.0 (06/04/26) {#v-1-1-0}
 
@@ -651,21 +726,21 @@ Added the `--whitelist` and `--blacklist` parameters to the `yc managed-mongodb 
 
 ##### {{ org-full-name }}
 
-* Added commands for authorization policy management at the organization level:
+* Added commands for access policy management at the organization level:
   * `yc organization-manager organization list-access-policy-bindings`
   * `yc organization-manager organization bind-access-policy`
   * `yc organization-manager organization unbind-access-policy`
 
 ##### {{ resmgr-name }}
 
-* Added commands for authorization policy management at the cloud level:
+* Added commands for access policy management at the cloud level:
   * `yc resource-manager cloud list-access-policy-bindings`
   * `yc resource-manager cloud bind-access-policy`
   * `yc resource-manager cloud unbind-access-policy`
 
 ##### {{ resmgr-name }}
 
-* Added commands for authorization policy management at the folder level:
+* Added commands for access policy management at the folder level:
   * `yc resource-manager folder list-access-policy-bindings`
   * `yc resource-manager folder bind-access-policy`
   * `yc resource-manager folder unbind-access-policy`
@@ -1369,7 +1444,7 @@ Added the `--kafka-ui-enabled` flag to the `yc managed-kafka cluster create` and
 
 ##### {{ dataproc-name }}
 
-In the `yc dataproc cluster create` and `yc dataproc cluster update` commands, added parameters for specifying a service account to manage the VM group where the cluster hosts reside.
+In the `yc dataproc cluster create` and `yc dataproc cluster update` commands, added parameters for specifying a service account to manage the VM group the cluster hosts reside on:
 * `--autoscaling-service-account-id`
 * `--autoscaling-service-account-name`
 
@@ -1692,7 +1767,7 @@ Fixed the `--log-enabled` flag support for {{ cloud-logging-name }} in the `yc m
 
 * Added support for the `--user generate-password` argument in the `yc managed-clickhouse cluster create` command to automatically generate a password using {{ connection-manager-full-name }}.
 
-* The `yc managed-clickhouse cluster create` and `yc managed-clickhouse cluster restore` commands now support the `--shard` parameter you can use to specify one or more shards. Example: `yc managed-clickhouse cluster create ... --shard name=shard1,weight=100 --shard name=shard2,weight=200 ...`
+* The `yc managed-clickhouse cluster create` and `yc managed-clickhouse cluster restore` commands now support the `--shard` parameter you can use to specify one or more shards. Example: `yc managed-clickhouse cluster create ... --shard name=shard1,weight=100 --shard name=shard2,weight=200 ...`.
 
 * Added support for the `--shard` repeatable composite parameter in the `yc managed-clickhouse shard add` command.
   * The command will create as many shards as there are `--shard` parameters.

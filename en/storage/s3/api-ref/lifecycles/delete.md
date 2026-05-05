@@ -39,4 +39,10 @@ For a list of possible responses, see [{#T}](../response-codes.md).
 
 If there is no bucket object lifecycle configuration, {{ objstorage-name }} will return code 200.
 
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/lifecycles.md)
+
+* [{#T}](../../../operations/buckets/lifecycles.md)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

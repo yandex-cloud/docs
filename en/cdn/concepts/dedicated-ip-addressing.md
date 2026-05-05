@@ -11,7 +11,7 @@ On request, you can [get](../operations/resources/dedicated-ip-addressing.md) a 
 
 The dedicated IP address is associated with a folder. This means, within a single folder, dedicated IP addressing will apply to all CDN resources by default, and they will all have the same IP address.
 
-For balancing CDN resources with dedicated IP addressing, there are [BGP Anycast](https://{{ lang }}.wikipedia.org/wiki/Anycast) and GSLB DNS-based methods. These approaches differ from standard balancing used for resources without dedicated IP addresses. With BGP Anycast, the same IP address is announced from all CDN points of presence. This enables the system to seamlessly serve the entire network of PoPs even with a single IP address.
+The balancing of CDN resources with dedicated IP addressing is done using the DNS-based [BGP Anycast](https://{{ lang }}.wikipedia.org/wiki/Anycast) and GSLB methods. These approaches differ from standard balancing used for resources without dedicated IP addresses. With BGP Anycast, the same IP address is announced from all CDN points of presence. This enables the system to seamlessly serve the entire network of PoPs even with a single IP address.
 
 You may need to use dedicated IP addressing of CDN resources to:
 

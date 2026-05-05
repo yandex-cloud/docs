@@ -13,8 +13,12 @@ To add information to a message displayed when contacting support:
 
 1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need.
 1. In the top-right corner, click **Edit**.
-1. Click ![image](../../../_assets/console-icons/gear.svg) at the top of the screen.
-1. In **Other settings**, next to the **Window before contacting support** field, click **Configure**.
+
+
+1. Click ![image](../../../_assets/console-icons/gear.svg) at the top of the screen. The settings window will open on the right.
+1. In the **Other settings** section, next to the **Window before contacting support** field, click ![image](../../../_assets/console-icons/pencil.svg).
+
+
 1. Enter additional information and click **Save**.
 
    {% note info %}
@@ -23,9 +27,9 @@ To add information to a message displayed when contacting support:
 
    {% endnote %}
 
-1. In the **Settings** window, click **Save**.
+
 1. In the top-right corner, click **Save**.
 
-In this case, if the user clicks ![image](../../../_assets/console-icons/circle-question.svg) in the bottom-left corner and selects **Create request**, they will see an additional message in the **Information** window.
+Now, if the user clicks the ![image](../../../_assets/console-icons/circle-question.svg) icon in the bottom-left corner of the screen and selects **Create request**, an additional message will appear in the **Information** window.
 
 To remove the additional information to the message, save an empty description in the **Window when contacting support**.

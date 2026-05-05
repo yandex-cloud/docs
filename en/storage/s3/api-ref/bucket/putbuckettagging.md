@@ -61,4 +61,10 @@ For a list of possible responses, see [{#T}](../response-codes.md).
 
 A successful response does not contain any additional data.
 
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/bucket.md)
+
+* [Adding or changing bucket labels](../../../operations/buckets/tagging.md#add-edit-tag)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

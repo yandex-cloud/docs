@@ -195,6 +195,8 @@ To increase the maximum IOPS and bandwidth values and make throttling less likel
 For storage using the `network-hdd` disk type, we recommend switching to `network-ssd` or `network-ssd-nonreplicated` via a [cluster restore](../../managed-postgresql/operations/cluster-backups.md#restore) from backup.
 
 
+When using `local-ssd` storage, cluster hosts may experience a minor increase in CPU load due to the services required for disk operation.
+
 #### What block size is used on the cluster disks? {#block-size}
 
 {% include [disk-block-size](../../_includes/mdb/disk-block-size.md) %}

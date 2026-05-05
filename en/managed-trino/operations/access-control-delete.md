@@ -12,7 +12,7 @@ description: You can delete all access rules applied within the cluster in one s
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
   1. Click the cluster name.
   1. Go to the **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}** section.
   1. Click ![trash-bin](../../_assets/console-icons/trash-bin.svg) in the row of the rule you want to delete.
@@ -164,7 +164,7 @@ You can delete all access rules applied within the cluster in one step.
 
         {% note warning %}
 
-        When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
+        When you update a cluster, all parameters of the object you are modifying will be reset to their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `updateMask` parameter.
 
         {% endnote %}
 
@@ -233,7 +233,7 @@ You can delete all access rules applied within the cluster in one step.
 
           {% note warning %}
 
-          When you update a cluster, all parameters of the object you are modifying will take their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
+          When you update a cluster, all parameters of the object you are modifying will be reset to their defaults unless explicitly provided in the request. To avoid this, list the settings you want to change in the `update_mask` parameter.
 
           {% endnote %}
 

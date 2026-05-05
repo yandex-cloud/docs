@@ -9,7 +9,7 @@ description: '{{ cspm-full-name }} ({{ cspm-name }}) ensures that the cloud infr
 
 {% include [cspm-basic-intro](../../_includes/security-deck/cspm-basic-intro.md) %}
 
-The check resumes every 8 hours. Upon completion, the system updates the violation count, applies created exceptions, and sends alerts.
+The check resumes every eight hours. Upon completion, the system updates the violation count, applies created exceptions, and sends alerts.
 
 ## Standards {#standards}
 
@@ -35,19 +35,7 @@ Exceptions allow you to flexibly configure when and for which objects {{ cspm-na
 
 You can specify the following settings for an exception when [creating it](../operations/cspm/manage-exceptions.md#create-exception):
 
-* **{{ ui-key.yacloud_org.security.controls.ExceptionOverview.info_type_1dxbZ }}**: Action which the exception will trigger:
-
-    {% include [cspm-exception-types](../../_includes/security-deck/cspm-exception-types.md) %}
-
-* **{{ ui-key.yacloud_org.security.controls.ControlExceptionForm.scopeOfControl_aRkwB }}**: Resources you want to exclude when checking the security rules:
-
-    * `{{ ui-key.yacloud_org.security.controls.ControlExceptionForm.allResources_2ax5E }}`: To exclude all resources controlled in the [workspace](./workspace.md).
-    * `Selected resources`: To exclude only explicitly specified resources.
-* **{{ ui-key.yacloud_org.security.controls.ControlExceptionForm.ExceptionRulesSection.section-title }}**: {{ cspm-name }} rules to disregard when checking the selected resources:
-
-    * `{{ ui-key.yacloud_org.security.controls.ControlExceptionForm.ExceptionRulesSection.rules-select_option_all }}`: To disregard all security rules for the selected resources.
-    * `{{ ui-key.yacloud_org.security.controls.ControlExceptionForm.ExceptionRulesSection.rules-select_option_selected }}`: To disregard an explicitly specified set of rules when checking the selected resources for compliance.
-* **{{ ui-key.yacloud_org.security.controls.ControlExceptionForm.section-title_3YcSF }}**: Reason for the exception. Specify it as plain text in any form.
+{% include [manage-exceptions-instruction](../../_includes/security-deck/manage-exceptions-instruction.md) %}
 
 To cancel the limitations on rule compliance checks imposed by an exception, [delete](../operations/cspm/manage-exceptions.md#delete-exception) that exception.
 

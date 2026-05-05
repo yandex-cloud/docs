@@ -49,8 +49,6 @@ description: Follow this guide to get information about an OIDC app in {{ org-fu
      updated_at: "2025-10-22T11:53:21.689383Z"
      ```
 
-- API {#api}
-
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}

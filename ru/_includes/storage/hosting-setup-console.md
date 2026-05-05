@@ -12,6 +12,9 @@
       {% include [static-site-index-restriction](static-site-index-restriction.md) %}
 
     * (опционально) В поле **{{ ui-key.yacloud.storage.bucket.website.field_error }}** укажите абсолютный путь к файлу в бакете, который будет отображаться при ошибках 4xx, например `pages/error404.html`. По умолчанию {{ objstorage-name }} возвращает собственную страницу.
+
+      {% include [static-site-error-index](static-site-error-index.md) %}
+
 1. Нажмите кнопку **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
 Проверить хостинг можно, перейдя по ссылке в поле **{{ ui-key.yacloud.storage.bucket.website.field_link }}**.

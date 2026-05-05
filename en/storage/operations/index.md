@@ -26,6 +26,7 @@ description: In these guides, you will learn how to work with {{ objstorage-full
 * [{#T}](buckets/configure-object-lock.md)
 * [{#T}](buckets/manage-s3-inventory.md)
 * [{#T}](buckets/tagging.md)
+* [{#T}](buckets/get-list.md)
 * [{#T}](buckets/get-info.md)
 * [{#T}](buckets/get-stats.md)
 

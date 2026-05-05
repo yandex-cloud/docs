@@ -3,16 +3,16 @@ title: How to view service usage details in {{ billing-name }}
 description: Follow this guide to view service usage details.
 ---
 
-# View service usage details
+# Viewing service usage details
 
-You can view charts and tables with information about {{ yandex-cloud }} service usage. Proceed as follows:
+You can view charts and tables with information about {{ yandex-cloud }} service usage. Follow these steps:
 
 {% list tabs group=instructions %}
 
 - {{ billing-interface }} {#billing}
   
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
-  1. Select the account you want to get details for.
+  1. Select the account you want the details for.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/square-chart-column.svg) **{{ ui-key.yacloud_billing.billing.account.switch_detail }}**.
   1. Select the detail depth. 
 
@@ -78,14 +78,15 @@ You can configure the charts to display the following:
 {% include [currency](../_includes/currency.md) %}
 
 
-## Interpreting a chart {#graph}
+## Interpreting the chart {#graph}
 
 The chart shows how data changed over time.
 The number of details and their values depend on the selected detail depth, chart type, and filters:
-- **{{ ui-key.yacloud_billing.billing.account.detail.label_top-cost }}**: Shows the cost of services consumed before discount.
-- **{{ ui-key.yacloud_billing.billing.account.detail.label_top-total }}**: Shows the cost of services consumed after discount.
 
-Hover over a chart lines to bring up the tooltip. Each cloud, service, and product has its own color. See a description of measures below.
+* **{{ ui-key.yacloud_billing.billing.account.detail.value_cost }}**: Shows the cost of consumed services before discounts. For resources within a committed volume, this value reflects the base cost.
+* **{{ ui-key.yacloud_billing.billing.account.detail.label_top-total }}**: Shows the cost of consumed services after discounts. The discount for committed volume of services is applied as soon as you start consuming the resources.
+
+Hover over a chart line to bring up the tooltip. Each cloud, service, and product has its own color. See a description of measures below.
 
 Chart | Measures
 :-----: | -----
@@ -96,7 +97,7 @@ Chart | Measures
 ![image](../../_assets/billing/norm-diagram-icon.svg) |- Date for which the current point's value is valid.<br/>- Percentage (%) of services consumed within cloud/service/product versus total consumption.<br/>- Cost of services consumed within cloud/service/product.<br/>- Name of cloud/service/product.<br/>- Total cost of consumed services.<br/>- View type: diagram.
 
 
-## Interpret the table {#tab}
+## Interpreting the table {#tab}
 
 In the table, all data is presented as the total amount for the specified period (without splitting by date or cloud).
 
@@ -109,5 +110,15 @@ Field | Description
 {{ ui-key.yacloud_billing.billing.account.detail.column_product }} | Product name. <br/>Shown only if you select details by product.
 {{ ui-key.yacloud_billing.billing.account.detail.column_unit }} | Units and amount of resources consumed. <br/>Shown only if you select details by product.
 {{ ui-key.yacloud_billing.billing.account.detail.column_cost }} | Cost of consumed resources before discount. 
-{{ ui-key.yacloud_billing.billing.account.detail.column_credit }} | Discount amount in the contract currency (excluding VAT or other taxes and fees).
+{{ ui-key.yacloud_billing.billing.account.detail.column_credit }} | Discount amount in the contract currency (excluding VAT or other taxes and fees). The discount for a committed volume of services is applied and displayed as soon as you start consuming the resources.
 {{ ui-key.yacloud_billing.billing.account.detail.column_expense }} | Total cost of consumed resources after discount.
+
+
+## Displaying the committed volume of services {#cvos}
+
+When using the [committed volume of services](../concepts/cvos.md) (CVoS):
+
+* The CVoS discount is applied and displayed as soon as you start consuming the resources.
+* The CVoS cost is distributed among individual resources. The details show the base resource cost and the applied discount.
+* The remaining unused CVoS is displayed separately.
+* Final CVoS balances are calculated at the end of the month to make sure the reports indicate the correct amounts.

@@ -80,6 +80,8 @@ description: In this article, you will learn how to work with {{ org-full-name }
 
 * [{#T}](./applications/saml-create.md)
 * [{#T}](./applications/saml-update.md)
+* [{#T}](./applications/saml-set-access-bindings.md)
+* [{#T}](./applications/saml-get.md)
 * [{#T}](./applications/saml-deactivate-remove.md)
 
 ## Managing OIDC applications {#manage-oidc-applications}

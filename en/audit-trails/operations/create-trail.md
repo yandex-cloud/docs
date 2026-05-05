@@ -104,7 +104,7 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to host the trail.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
   1. Enter a trail name. It must be unique within the folder.
   1. (Optional) Enter a description for your trail.
@@ -145,6 +145,8 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
               Keep the default value (`{{ ui-key.yacloud.common.all }}`) to collect events from all folders in the cloud.
 
       To configure **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**:
+
+      {% include [events-by-default](../../_includes/audit-trails/events-by-default.md) %}
 
       1. Select one or more services to collect events from.
 

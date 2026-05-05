@@ -13,7 +13,7 @@ If you have lost a [{{ CH }}](../../concepts/components/clickhouse.md) cluster i
 
 List of backups: `kubectl get ClickhouseBackup -n <project_name>`.
 
-1. Create the `ClickhouseCluster` resource file, Here is an example: `touch clickhousecluster-from-backup.yaml`.
+1. Create the `ClickhouseCluster` resource file, e.g., `touch clickhousecluster-from-backup.yaml`.
 1. Open the file and paste the configuration for recovery:
 
     {% list tabs %}

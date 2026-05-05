@@ -1,3 +1,3 @@
 Event name | Description
 --- | ---
-`flowlogs.ExternalFlow` | Network traffic info
+`flowlogs.ExternalFlow` | Traffic flow from {{ baremetal-name }} servers to external networks

@@ -13,3 +13,5 @@
 * [How do I perform a manual failover?](#manual-failover)
 
 * [How do I restart a host?](#host-reboot)
+
+* [Why do I get an error when stopping the cluster?](#stop-cluster-error)

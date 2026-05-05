@@ -3805,7 +3805,6 @@ default:
             label_title: Детализация
             label_title-usage-short: Потребление за
             label_to: До
-            label_top-cost: Стоимость потребления
             label_top-total: К оплате
             tab_label: По меткам
             tab_product: По продуктам
@@ -5130,7 +5129,6 @@ default:
           title_security-requirements_8r7hd: Наборы требований
           WorkspaceEditPageLayout:
             tabGeneralParams_xc2v2: Основные параметры
-            tabKubernetes_rC2uU: Контроль Kubernetes{trademark}
             tabResources_vJuSN: Ресурсы
             tabStandards_wSeaW: Соответствие требованиям
           WorkspaceGeneralParamsForm:

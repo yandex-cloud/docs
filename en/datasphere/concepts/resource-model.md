@@ -12,6 +12,8 @@ _{{ ml-platform-name }} resources_ are objects that are created or used in proje
 
 ## {{ ml-platform-name }} resources {#resources}
 
+{% include [stop-create-dataset](../../_includes/datasphere/stop-create-datasets.md) %}
+
 You can use the following types of resources in {{ ml-platform-name }} projects:
 
 * [Datasets](dataset.md): Ways of storing information that provide quick access to large amounts of data within a project.

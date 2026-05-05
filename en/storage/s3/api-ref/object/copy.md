@@ -95,4 +95,10 @@ Element | Description
 `ETag` | `ETag` of the target object. Since metadata is not counted in when calculating `ETag`, the source and target object `ETag` values must be equal.<br/><br/>Path: `/CopyObjectResult/ETag`.
 `LastModified` | Date of the object's last modification.<br/><br/>Path: `/CopyObjectResult/LastModified`.
 
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/object.md)
+
+* [{#T}](../../../operations/objects/copy.md)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

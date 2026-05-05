@@ -89,7 +89,6 @@ To add a [selector](../../dashboard/selector.md) to a dashboard:
 
      * **Field or parameter**: Field name you can use to link the selector with other widgets in the [alias](../../dashboard/link.md#alias) configuration window. This is a required field.
 
-       ![image](../../../_assets/datalens/selector-settings/field-name.png)
 
 
      

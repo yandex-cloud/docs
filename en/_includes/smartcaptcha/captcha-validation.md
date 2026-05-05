@@ -2,8 +2,8 @@ After validating a request, {{ captcha-name }} assigns it an ID: a one-time toke
 
 {% note warning %}
 
-* The token remains valid for five minutes. After it expires, the user has to pass validation again.
-* The token can be used only once to request the validation result. If you try to validate the same token again, you will get the `"status": "failed"` response that says `Token invalid or expired`.
+* The token remains valid for five minutes. After this time expires, it becomes invalid and the user has to go through the validation process again.
+* The token can be used only once to request the validation result. If you try to validate the same token again, you will receive a `"status": "failed"` response saying `Invalid or expired Token`.
 
 {% endnote %}
 
@@ -79,13 +79,29 @@ In its response, the service will return a JSON object containing the `status` a
     ```json
     {
         "status": "failed",
-        "message": "Token invalid or expired."
+        "message": "Invalid or expired Token."
     }
     ```
 
+### Response processing {#response-handling}
+
+To process responses correctly, refer to their `status` field:
+
+* `ok`: Request processed successfully.
+* `failed`: An error occurred.
+
+There are two types of errors:
+
+* **This is a robot**: `"status": "failed"`, the `message` field is empty.
+* **Error in request**: `"status": "failed"`, the `message` field contains a description of the error.
+
+Errors in the request may be due to an invalid token or a missing server key. We recommend that you detect and fix such errors during the development and testing step.
+
+The `message` field is not for processing in code using conditions or comparisons. Use it for diagnostic purposes only.
+
 ## Request errors {#errors}
 
-If your request to `https://{{ captcha-domain }}/validate` is incorrect, the service will return an error. Here is an example:
+If your request to `https://{{ captcha-domain }}/validate` is incorrect, the service will return an error. For example:
 
 1. Request missing the server key:
 
@@ -101,7 +117,7 @@ If your request to `https://{{ captcha-domain }}/validate` is incorrect, the ser
     ```JSON
     {
         "status": "failed",
-        "message": "Token invalid or expired."
+        "message": "Invalid or expired Token."
     }
     ```
 

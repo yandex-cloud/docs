@@ -3,7 +3,7 @@ title: Monitoring the state of a {{ MY }} cluster and its hosts
 description: You can monitor the state of a {{ mmy-name }} cluster and its individual hosts using the monitoring tools in the management console. These tools display diagnostic information as charts.
 ---
 
-# Monitoring the state of a {{ MY }} cluster and its hosts
+# {{ MY }} cluster and host state monitoring
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
@@ -15,130 +15,171 @@ description: You can monitor the state of a {{ mmy-name }} cluster and its indiv
 
 ## Monitoring the cluster state {#monitoring-cluster}
 
-To view detailed information on the state of a {{ mmy-name }} cluster:
+To view detailed information on the health state of a {{ mmy-name }} cluster:
 
-1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-1. Click the cluster name and select the **{{ ui-key.yacloud.mysql.cluster.switch_monitoring }}** tab.
+{% list tabs group=instructions %}
 
-1. {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
+- Management console {#console}
 
-The tab displays the following charts:
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_monitoring }}** tab.
+      
+      The page that opens will display performance charts for the cluster.
+  
+      {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
-* **Average query time**: Average query time for each host, in milliseconds.
-* **Connections**: Number of connections for each host.
-* **Disk usage**: Disk space used for each host and the entire cluster, in bytes.
-* **Is Alive, [boolean]**: Shows the cluster availability as the sum of its hosts' states.
+  The following charts are displayed for a cluster:
 
-    Each **Alive** host increases the overall availability by 1. When one of the hosts fails, the overall availability is reduced by 1.
+  * **Queries per second**: Number of user queries per second for each cluster host.
+  * **Average query time**: Average query time for each cluster host.
+  * **Slow queries per second**: Number of queries per second that are longer than specified in [long_query_time](../concepts/settings-list.md#setting-long-query-time). The information is displayed for each cluster host.
+  * **Connections**: Number of connections for each cluster host.
+  * **Threads running**: Number of running threads for each cluster host.
+  * **Disk usage**: Disk space usage for each host and the entire cluster.
+  * **Is Primary, [boolean]**: Shows whether the host is the master.
+  * **Is Alive, [boolean]**: Shows the availability of each cluster host.
+  * **Replication lag**: Replica lag time behind the master.
+  * **Free space**: Free disk space for each host and the entire cluster.
+  * **OOM Count**: Number of out-of-memory events on each cluster host. 
 
-    To increase the cluster’s availability, [add more hosts](hosts.md#add).
+  The **Master overview** section shows the master details:
 
-* **Is Primary, [boolean]**: Shows which host is the master and for how long.
-* **Free space**: Free disk space broken down by host, in bytes.
-* **Queries per second**: Total number of queries per second for each host.
-* **Replication lag**: Replica's lag behind the master, in seconds.
-* **Slow queries per second**: Number of SQL queries per second that run longer than the specified [`long_query_time`](../concepts/settings-list.md#setting-long-query-time), for each host.
-* **Threads running**: Number of threads currently running on each host. This value increases rapidly as the cluster workload grows.
+  * **Query quantiles**: Query execution time, percentiles.
+  * **Threads**: Number of threads. The following is displayed separately:
+   
+    * **Threads cached**: Number of cached threads.
+    * **Threads connected**: Number of open DB connections.
 
-The **Master overview** section shows master details:
+      The maximum number of open connections is set in [max_connections](../concepts/settings-list.md#setting-max-connections).
 
-* **Disk usage**: Breakdown of used disk space, in bytes:
-   * **data**: Amount of space used by data.
-   * **default tablespace**: Amount of space used by data in the default tablespace.
-   * **innodb logs**: Amount of space used by InnoDB logs.
-   * **relaylogs**, **binlogs**: Amount of space used by {{ MY }} service logs. The {{ MY }} reference manual provides detailed info on [binlogs](https://dev.mysql.com/doc/refman/8.0/en/mysqlbinlog.html) and [relaylogs](https://dev.mysql.com/doc/refman/8.0/en/replica-logs-relaylog.html).
-   * **temp tablespace**: Amount of space used by data in the temporary tablespace.
-   * **undo tablespace**: Amount of space used by data in the [InnoDB undo tablespace](https://dev.mysql.com/doc/refman/8.0/en/innodb-undo-tablespaces.html).
-* **InnoDB locks**: Number of InnoDB table locks. For metric descriptions, see [this {{ MY }} article]({{ mysql-vars-uri }}).
-* **InnoDB rows operations**: Number of operations on InnoDB table rows. For metric descriptions, see [this {{ MY }} article]({{ mysql-vars-uri }}).
-* **Query quantiles**: Quantiles of average query execution time.
-* **Sorts and joins**: Proportions of sort and join operations in the total number of operations. For metric descriptions, see [this {{ MY }} article]({{ mysql-vars-uri }}).
-* **Table cache**: Details of cached tables. For metric descriptions, see [this {{ MY }} article]({{ mysql-vars-uri }}).
-* **Temp tables**: Number of temporary tables. For metric descriptions, see [this {{ MY }} article]({{ mysql-vars-uri }}).
-* **Thread states**: Number of threads in a given state started by the `mysqld` daemon. For state descriptions, see [this {{ MY }} article]({{ mysql-vars-uri }}).
-* **Threads**: Number of threads started by the `mysqld` daemon.
-   * **Threads cached**: Number of cached threads.
+    * **Threads running**: Number of running threads.
 
-      During normal cluster operation, `mysqld` caches most connections.
+  * **Thread states**: Number of threads in each state.
+  * **Disk usage**: Disk space usage. The following is displayed separately:
+   
+    * **data**: Amount of space used by data.
+    * **default tablespace**: Amount of space used by data in the tablespace.
+    * **innodb logs**: Amount of space used by InnoDB logs.
+    * **relaylogs**, **binlogs**: Amount of space used by {{ MY }} service logs.
+    * **temp tablespace**: Amount of space used by data in the temporary tablespace.
+    * **undo tablespace**: Amount of space used by data in the [InnoDB undo tablespace](https://dev.mysql.com/doc/refman/8.0/en/innodb-undo-tablespaces.html).
+  
+  * **InnoDB rows operation**: Number of InnoDB row operations.
+  * **InnoDB locks**: Row lock waits in InnoDB. The following is displayed separately:
+    
+    * **innodb_row_lock_current_waits**: Current number of row lock waits.
+    * **innodb_row_lock_waits**: Number of operations with row lock waits per second.
 
-   * **Threads connected**: Number of open threads.
+  * **Temp tables**: Number of temporary tables and files created per second.
+  * **Sorts and joins**: Number of sort and join operations per second.
+  * **Table cache**: Table caching. The following is displayed separately:
+   
+    * **open_tables**: Number of open tables.
+    * **opened_tables**: Number of open tables per second.
+    * **table_open_cache_hits**: Number of open table cache hits per second.
+    * **table_open_cache_misses**: Number of open table cache misses per second.
 
-       If the chart approaches the maximum value, it may signal that connections are staying active.
+{% endlist %}
 
-       The `max_connections` [setting](../concepts/settings-list.md#setting-max-connections) defines the maximum value.
-
-   * **Threads running**: Number of running threads.
-
-       This value increases rapidly as the cluster workload grows.
-
-## Monitoring the state of hosts {#monitoring-hosts}
+## Host state monitoring {#monitoring-hosts}
 
 To view detailed information on the state of individual {{ mmy-name }} hosts:
 
-1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-1. Click the cluster name and select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
-1. Go to the **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** page.
-1. Select the host you need from the drop-down list.
+{% list tabs group=instructions %}
 
-This page displays the charts showing workloads of individual cluster hosts:
+- Management console {#console}
 
-* **CPU usage**: Processor core workload. As the workload increases, the **idle** value goes down.
-* **Disk read/write bytes**: Speed of disk operations, in bytes per second.
-* **Disk IOPS**: Number of disk operations per second.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mysql.cluster.switch_monitoring }}** tab.
+  1. Navigate to the **Hosts** tab and select the host.
 
-    The **Disk read/write bytes** and **Disk IOPS** charts show the increase in the **Read** value during database read activity, and in **Write**, during database write activity.
+      The page that opens will display performance charts for the cluster hosts.
 
-* **Memory usage**: Amount of RAM used, in bytes. At high loads, the **Free** value decreases, while the other values increase.
-* **Network bytes**:Network data transfer rate, in bytes per second.
-* **Network packets**: Network packet rate, in packets per second.
+      {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
 
-   For **Replica** hosts, the **Received** value is normally greater than **Sent** on the **Network Bytes** and **Network Packets** charts.
+  The following charts are displayed for the hosts:
+ 
+  * **CPU usage**: CPU usage percentage by consumption type.
+  * **Memory usage**: RAM usage by consumption type.
+  * **Disk IOPS**: Number of read and write operations per second.
+  * **Network Packets**: Number of packets sent and received over the network per second.
+  * **Network Bytes**: Network data transmit and receive rate.
+  
+    For **Replica** hosts, the **Received** value is normally greater than **Sent** on the **Network Bytes** and **Network Packets** charts.
 
-The **MySQL overview** section shows detailed information about the DBMS state on the host:
+  The **MySQL overview** section shows detailed information about the DBMS state on the host:
 
-* **Disk usage**: Breakdown of used disk space, in bytes:
-   * **data**: Amount of space used by data.
-   * **default tablespace**: Amount of space used by data in the default tablespace.
-   * **innodb logs**: Amount of space used by InnoDB logs.
-   * **relaylogs**, **binlogs**: Amount of space used by {{ MY }} service logs. The {{ MY }} reference manual provides detailed info on [binlogs](https://dev.mysql.com/doc/refman/8.0/en/mysqlbinlog.html) and [relaylogs](https://dev.mysql.com/doc/refman/8.0/en/replica-logs-relaylog.html).
-   * **temp tablespace**: Amount of space used by data in the temporary tablespace.
-   * **undo tablespace**: Amount of space used by data in the [InnoDB undo tablespace](https://dev.mysql.com/doc/refman/8.0/en/innodb-undo-tablespaces.html).
-* **Inode usage**: Number of inodes used.
-* **File IO read bytes**: Data read rate, in bytes per second.
-* **File IO read operations**: Average number of file read operations per second. For more information about operations, see [this {{ MY }} article]({{ mysql-vars-uri }}).
-* **File IO write bytes**: Data write rate, in bytes per second.
-* **File IO write operations**: Average number of file write operations per second. For more information about operations, see [this {{ MY }} article]({{ mysql-vars-uri }}).
-* **Handlers**: Number of handlers for various operations. For more information, see [this {{ MY }} article]({{ mysql-vars-uri }}).
-* **InnoDB cache efficiency**: Measures of InnoDB buffer performance. For metric descriptions, see [this {{ MY }} article]({{ mysql-vars-uri }}).
-* **InnoDB data operations**: Number of InnoDB operations:
-   * **innodb data fsyncs**: `fsync()` operations when flushing data to disk.
-   * **innodb data reads**: Disk reads.
-   * **innodb data writes**: Disk writes.
-* **InnoDB lock time**: InnoDB table lock wait time, in seconds.
-* **InnoDB locks**: Number of InnoDB table locks. For metric descriptions, see [this {{ MY }} article]({{ mysql-vars-uri }}).
-* **InnoDB rows operation**: Number of operations on InnoDB table rows. For metric descriptions, see [this {{ MY }} article]({{ mysql-vars-uri }}).
-* **Queries per second**: Total number of queries per second.
-* **Query quantiles**: Quantiles of the average query execution time.
-* **Replication lag**: Replica's lag behind the master, in seconds.
-* **SemiSync latency**: Details of transaction commit latency in [semi-synchronous replication](https://dev.mysql.com/doc/refman/5.7/en/replication-semisync.html), in seconds. For metric descriptions, see [this {{ MY }} article]({{ mysql-vars-uri }}).
-* **Slow queries per second**: Number of SQL queries per second that run longer than the specified [`long_query_time`](../concepts/settings-list.md#setting-long-query-time).
-* **Sorts and joins**: Proportions of sort and join operations in the total number of operations. For metric descriptions, see [this {{ MY }} article]({{ mysql-vars-uri }}).
-* **Table cache**: Details of cached tables. For metric descriptions, see [this {{ MY }} article]({{ mysql-vars-uri }}).
-* **Temp tables**: Number of temporary tables. For metric descriptions, see [this {{ MY }} article]({{ mysql-vars-uri }}).
-* **Thread states**: Number of threads in a given state started by the `mysqld` daemon. For state descriptions, see [this {{ MY }} article]({{ mysql-vars-uri }}).
-* **Threads**: Number of threads started by the `mysqld` daemon.
-   * **Threads cached**: Number of cached threads.
+  * **Query quantiles**: Query execution time, percentiles.
+  * **Queries per second**: Number of user queries per second.
+  * **Slow queries per second**: Number of queries per second that are longer than specified in [long_query_time](../concepts/settings-list.md#setting-long-query-time).
+  * **Threads**: Number of threads. The following is displayed separately:
+   
+    * **Threads cached**: Number of cached threads.
+    * **Threads connected**: Number of open DB connections.
 
-      During normal host operation, `mysqld` caches most connections.
-   * **Threads connected**: Number of open threads.
+      The maximum number of open connections is set in [max_connections](../concepts/settings-list.md#setting-max-connections).
 
-       If the chart approaches the maximum value, it may signal that connections are staying active.
+    * **Threads running**: Number of running threads.
 
-       The `max_connections` [setting](../concepts/settings-list.md#setting-max-connections) defines the maximum value.
+  * **Thread states**: Number of threads in each state.
+  * **Handlers**: Number of operation handlers.
+  * **Replication lag**: Replica lag time behind the master.
+  * **File IO write bytes**: Data write rate by file type.
+  * **File IO read bytes**: Data read rate by file type.
+  * **Disk usage**: Disk space usage. The following is displayed separately:
+   
+    * **data**: Amount of space used by data.
+    * **default tablespace**: Amount of space used by data in the tablespace.
+    * **innodb logs**: Amount of space used by InnoDB logs.
+    * **relaylogs**, **binlogs**: Amount of space used by {{ MY }} service logs.
+    * **temp tablespace**: Amount of space used by data in the temporary tablespace.
+    * **undo tablespace**: Amount of space used by data in the [InnoDB undo tablespace](https://dev.mysql.com/doc/refman/8.0/en/innodb-undo-tablespaces.html).
 
-   * **Threads running**: Number of running threads.
+  * **File IO write operations**: Number of write operations per second by file type.
+  * **File IO read operations**: Number of read operations per second by file type.
+  * **Temp tables**: Number of temporary tables and files created per second.
+  * **Sorts and joins**: Number of sort and join operations per second.
+  * **Table cache**: Table caching. The following is displayed separately:
+   
+    * **open_tables**: Number of open tables.
+    * **opened_tables**: Number of open tables per second.
+    * **table_open_cache_hits**: Number of open table cache hits per second.
+    * **table_open_cache_misses**: Number of open table cache misses per second.
 
-       This value increases rapidly as the host workload grows.
+  * **InnoDB rows operation**: Number of InnoDB row operations.
+  * **InnoDB locks**: Row lock waits in InnoDB. The following is displayed separately:
+   
+    * **innodb_row_lock_current_waits**: Current number of row lock waits.
+    * **innodb_row_lock_waits**: Number of operations with row lock waits per second.
+
+  * **InnoDB lock time**: Maximum InnoDB row lock wait time.
+  * **InnoDB cache efficiency**: Efficiency of the InnoDB buffer. The following is displayed separately:
+   
+    * **innodb_buffer_pool_reads**: Number of read operations per second where InnoDB had to access the disk.
+    * **innodb_buffer_pool_read_requests**: Total number of read operations per second.
+
+  * **InnoDB data operations**: Number of InnoDB operations per second. The following is displayed separately:
+   
+    * **innodb data fsyncs**: Number of `fsync()` operations when flushing data to disk.
+    * **innodb data reads**: Number of disk reads.
+    * **innodb data writes**: Number of disk writes.
+
+  * **SemiSync latency**: Maximum transaction commit latency in [semi-synchronous replication](https://dev.mysql.com/doc/refman/5.7/en/replication-semisync.html).
+  * **Inode usage**: Inode usage as a percentage of the total.
+
+  Under **MySQL overview** → **Disk Metrics Details**:
+
+  * **Disk write latency (percentiles)**: Disk write latency, percentiles.
+  * **Disk write bytes**: Average and maximum disk write rate.
+  * **Disk write operations**: Average and maximum number of write operations per second.
+  * **Disk read latency (percentiles)**: Disk read latency, percentiles.
+  * **Disk read bytes**: Average and maximum disk read rate.
+  * **Disk read operations**: Average and maximum number of read operations per second.
+  * **Disk write throttler latency (percentiles)**: Write delay introduced by exceeding disk quota, percentiles.
+  * **Disk read throttler latency (percentiles)**: Read delay introduced by exceeding disk quota, percentiles.
+  * **Disk used quota**: Average and maximum quota used percentage for disk operations.
+
+{% endlist %}
 
 
 ## Setting up alerts in {{ monitoring-full-name }} {#monitoring-integration}
@@ -147,9 +188,9 @@ The **MySQL overview** section shows detailed information about the DBMS state o
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder containing the cluster for which you want to set up alerts.
+    1. In the [management console]({{ link-console-main }}), select the folder with the cluster for which you want to set up alerts.
 
-    1. [Go to](../../console/operations/select-service.md#select-service) ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}** service.
 
     1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select:
 
@@ -158,9 +199,9 @@ The **MySQL overview** section shows detailed information about the DBMS state o
 
     1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
-    1. If the chart shows multiple metrics, select the data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. You can learn more about the query language in [this {{ monitoring-full-name }} article](../../monitoring/concepts/querying.md).
+    1. If the chart displays multiple metrics, select the data query for the relevant metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. To learn more about the query language, see [this {{ monitoring-full-name }} article](../../monitoring/concepts/querying.md).
 
-    1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds to trigger the alert.
+    1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` alert thresholds.
 
     1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
@@ -168,7 +209,7 @@ The **MySQL overview** section shows detailed information about the DBMS state o
 
 {% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
-Below are the recommended thresholds for some metrics:
+Recommended threshold values for selected metrics:
 
 | Metric                             | Internal metric name               | `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`                   | `{{ ui-key.yacloud_monitoring.alert.status_warn }}`                 |
 |-------------------------------------|:-------------------------:|:-------------------------:|:-------------------------:|
@@ -178,7 +219,7 @@ Below are the recommended thresholds for some metrics:
 | Storage space used    | `disk.used_bytes`         | 90% of the storage size  | 80% of the storage size  |
 | CPU usage                      | `cpu.idle`                | `10`                      | `20`                      |
 
-For the `disk.used_bytes` metric, the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds are only set in bytes. For example, the recommended values for a 100 GB disk are as follows:
+The `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds for the `disk.used_bytes` metric are specified exclusively in bytes. For example, the recommended values for a 100 GB disk are as follows:
 
 * `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96,636,764,160` bytes (90%)
 * `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `85,899,345,920` bytes (80%)
@@ -190,12 +231,12 @@ You can check the current storage size in the [cluster details](cluster-list.md#
 
 {% include [health-and-status](../../_includes/mdb/monitoring-cluster-health-and-status.md) %}
 
-To check the cluster’s state and status:
+To view the health state and status of a cluster:
 
-1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
 1. In the cluster row, hover over the indicator in the **{{ ui-key.yacloud.mdb.clusters.column_availability }}** column.
 
-### Cluster states {#cluster-health}
+### Cluster health states {#cluster-health}
 
 {% include [monitoring-cluster-health](../../_includes/mdb/monitoring-cluster-health.md) %}
 

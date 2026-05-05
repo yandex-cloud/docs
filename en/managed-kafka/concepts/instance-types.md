@@ -24,11 +24,13 @@ Hosts in {{ mkf-name }} clusters are deployed on {{ compute-full-name }} VMs. Yo
 
 The full list of possible host configurations on each platform is provided below.
 
+
 {% note info %}
 
 For cluster hosts residing in the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md), you cannot use local SSD storage if you select Intel Cascade Lake.
 
 {% endnote %}
+
 
 {% include [instance-types-code](../../_includes/mdb/mkf-instance-types-code.md) %}
 

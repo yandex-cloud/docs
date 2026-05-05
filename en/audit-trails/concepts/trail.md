@@ -25,6 +25,39 @@ For [data events](./control-plane-vs-data-plane.md#data-plane-events), the colle
 
 You can disable collecting all management or data events for any single service or multiple services whenever you need to.
 
+## Pre-installed events {#default}
+
+When creating a trail in the [management console]({{ link-console-main }}), some [data events](./events-data-plane.md) are collected by default. This is done for security in line with the cloud infrastructure protection [standard](../../security/standard/audit-logs.md#audit-trails). If a service is not used, you can disable the events. Delivered events are billed as per the [pricing policy](../pricing.md).
+
+Services for which the sending of events is on by default:
+
+#|
+|| **Service** | **Events** ||
+|| [{{ certificate-manager-full-name }}](../../certificate-manager/at-ref.md#data-plane-events) | All events ||
+|| [{{ iam-full-name }}](../../iam/at-ref.md#data-plane-events) | All events ||
+|| [{{ kms-full-name }}](../../kms/at-ref.md#data-plane-events) | All events ||
+|| [{{ lockbox-full-name }}](../../lockbox/at-ref.md#data-plane-events) | All events ||
+|| [{{ mmy-full-name }}](../../managed-mysql/at-ref.md#data-plane-events) |
+* `yandex.cloud.audit.mdb.mysql.CreateDatabase`
+* `yandex.cloud.audit.mdb.mysql.CreateUser`
+* `yandex.cloud.audit.mdb.mysql.DeleteDatabase`
+* `yandex.cloud.audit.mdb.mysql.DeleteUser`
+* `yandex.cloud.audit.mdb.mysql.GrantUserPermission`
+* `yandex.cloud.audit.mdb.mysql.RevokeUserPermission`
+* `yandex.cloud.audit.mdb.mysql.UpdateUser`
+||
+|| [{{ mpg-full-name }}](../../managed-postgresql/at-ref.md#data-plane-events) |
+* `yandex.cloud.audit.mdb.postgresql.CreateDatabase`
+* `yandex.cloud.audit.mdb.postgresql.CreateUser`
+* `yandex.cloud.audit.mdb.postgresql.DeleteDatabase`
+* `yandex.cloud.audit.mdb.postgresql.DeleteUser`
+* `yandex.cloud.audit.mdb.postgresql.GrantUserPermission`
+* `yandex.cloud.audit.mdb.postgresql.RevokeUserPermission`
+* `yandex.cloud.audit.mdb.postgresql.UpdateDatabase`
+* `yandex.cloud.audit.mdb.postgresql.UpdateUser`
+||
+|#
+
 ## Destination object {#target}
 
 Each trail uploads audit logs only to a single destination object: bucket, log group, data stream, or bus.

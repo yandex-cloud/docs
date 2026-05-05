@@ -9,7 +9,14 @@ description: Следуя данной инструкции, вы сможете
 
 Чтобы поддержать собственный домен:
 
-1. [Создайте](../buckets/create.md) бакет. Назовите его так же, как домен, например `example.com`.
+1. [Создайте](../buckets/create.md) бакет. 
+
+    {% note warning %}
+
+    Имя бакета должно полностью совпадать с вашим доменом, например `example.com`.
+
+    {% endnote %}
+
 1. {% include [setup-bucket.md](../../../_includes/storage/setup-bucket.md) %}
 1. Создайте на [DNS-сервере](../../../glossary/dns.md#dns-server) публичную [зону DNS](../../../dns/concepts/dns-zone.md) и [ресурсную запись](../../../dns/concepts/resource-record.md), которая связывает ваше доменное имя и бакет.
 
@@ -104,3 +111,10 @@ description: Следуя данной инструкции, вы сможете
 
 
 {% include [objects-access.md](../../../_includes/storage/objects-access.md) %}
+
+### См. также {#see-also}
+
+* [{#T}](../../qa.md#qa-mime-type)
+* [{#T}](setup.md)
+* [{#T}](./multiple-domains/index.md)
+* [{#T}](certificate.md)

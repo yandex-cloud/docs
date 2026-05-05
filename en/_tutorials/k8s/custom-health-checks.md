@@ -337,7 +337,8 @@ To create resources:
 
    To follow the process and make sure it is error-free, open the logs of the pod it is run in:
 
-   1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+   1. In the [management console]({{ link-console-main }}), navigate to the folder page.
+   1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
    1. Click the cluster name and select **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** in the left-hand panel.
    1. Select the `yc-alb-ingress-controller-*` pod (not `yc-alb-ingress-controller-hc-*`) that is running the resource creation.
    1. Go to the **{{ ui-key.yacloud.k8s.workloads.label_tab-logs }}** tab on the pod page.
@@ -387,7 +388,8 @@ To create resources:
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+      1. In the [management console]({{ link-console-main }}), navigate to the folder page.
+      1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
       1. Click the load balancer name and select **{{ ui-key.yacloud.alb.label_healthchecks }}** in the left-hand panel.
       1. Check the target health. The `HEALTHY` status indicates the application is up and running.
 

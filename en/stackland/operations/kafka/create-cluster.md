@@ -1,4 +1,4 @@
-# Creating a cluster {{ KF }}
+# Creating a {{ KF }} cluster
 
 If you have a [project](../projects/create-project.md), you can create an [{{ KF }}](../../concepts/components/kafka.md) cluster in it.
 
@@ -31,7 +31,7 @@ If you have a [project](../projects/create-project.md), you can create an [{{ KF
       * **Storage**, where **Disk type** is the storage class (`stackland-nvme`, `stackland-ssd`, `stackland-hdd`, `stackland-other`). Learn more about storage classes in [Disk subsystem](../../concepts/components/disk-storage.md#storage-classes). You can also enable **Automatic storage expansion**.
       * **Number of replicas** of the coordination service.
       * **Computing resources**, where **Limits** is the upper limit and **Requests** is the lower limit.
-      * **Storage**, where **Disk type** is the storage class (`stackland-nvme`, `stackland-ssd`, `stackland-hdd`, `stackland-other`).
+      * **Storage**, where **Disk type** is the storage class (`stackland-nvme`, `stackland-ssd`, `stackland-hdd`, or `stackland-other`).
 
   1. Click **Create**.
 

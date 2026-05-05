@@ -17,7 +17,7 @@ To add a CAPTCHA to your HTML page:
 If having problems configuring {{ captcha-name }}:
 
 * For the Business and Premium [support plans](../support/pricing.md), contact [support]({{ link-console-support }}).
-* In other cases, contact your account manager to get you in touch with their support team.
+* In other cases, ask your account manager to contact the service’s support team.
 
 ## Getting started {#before-begin}
 
@@ -34,7 +34,7 @@ If having problems configuring {{ captcha-name }}:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select a folder.
-    1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
+    1. [Navigate](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
     1. Click **{{ ui-key.yacloud.smartcaptcha.button_captcha-settings-create }}**.
 
     1. Enter a name for the CAPTCHA, e.g., `sm-captcha`.
@@ -281,14 +281,16 @@ Example of the token validation function:
 
 In its response, the service will return a JSON object containing the following fields:
 
-* `status`: Validation result, `ok` or `failed`. If successful, the service adds the `host` field to the JSON object which represents the website where the check was.
-* `message`: Validation message, e.g., `Token invalid or expired`.
+* `status`: Validation result, `ok` or `failed`. If the validation is successful, the JSON object is updated with the `host` field indicating the website where validation took place.
+* `message`: Validation message, e.g., `Invalid or expired Token`.
+
+To process responses correctly, refer to their `status` field. Use the `message` field for diagnostic purposes only.
   
-For response examples, see [User validation](concepts/validation.md#service-response).
+For response examples and processing details, see [User validation](concepts/validation.md#service-response).
 
 ## FAQ {#faq}
 
-**How do I test CAPTCHA?**
+**How do I test a CAPTCHA?**
 
 Open the CAPTCHA page in incognito mode or use a VPN to increase the chance of getting a challenge.
 

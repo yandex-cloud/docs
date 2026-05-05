@@ -26,7 +26,7 @@ This [service account](../../iam/concepts/users/service-accounts.md) will be use
 
   1. Log in to the {{ yandex-cloud }} [management console]({{ link-console-main }}).
   1. On the left side of the screen, click the line with the name of the folder where you want to deploy a function from {{ sf-name }}.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Name the service account: `functions-cicd-sa`.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `{{ roles-functions-admin }}` [role](../../functions/security/index.md#functions-admin).
@@ -128,21 +128,15 @@ The repository will be created from the [yc-cloud-functions-template]({{ link-sr
         * Folder for which you have assigned a role to the service account.
         * Service account you created earlier.
 
-        {% note tip %}
-
-        To re-request the list of clouds, folders, and service accounts from {{ yandex-cloud }}, click ![image](../../_assets/console-icons/arrow-rotate-right.svg) **Synchronize**. This can be of use if alongside creating a service connection you also created a folder or service account.
-
-        {% endnote %}
+        {% include [service-connection-synchronization](../../_includes/sourcecraft/service-connection-synchronization.md) %}
 
   1. Click **{{ ui-key.sourcecraft.serviceConnections.button_create-connection_uyK29 }}**.
 
-      Wait for the operation to complete. The page that opens will display the service connection details.
-
-      A {{ iam-full-name }} [workload identity federation](../../iam/concepts/workload-identity.md) will be automatically created in {{ yandex-cloud }}.
-
-      To view the parameters of the new OIDC provider, click the federation name under ![image](../../_assets/console-icons/cpus.svg) **{{ ui-key.sourcecraft.serviceConnections.title_oidc-federation_eC6Jw }}**.
-
 {% endlist %}
+
+{% include [service-connection-details](../../_includes/sourcecraft/service-connection-details.md) %}
+
+{% include [service-connection-repository-level](../../_includes/sourcecraft/service-connection-repository-level.md) %}
 
 ## Edit the CI/CD configuration {#push-changes}
 
@@ -311,7 +305,7 @@ Make sure in {{ sf-name }} there is now a function with the name you specified i
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder where you previously created the service account.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. The list should now contain `test-function-nodejs`. Select it.
   1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-history }}**, you should now see the function's version with the same timestamp as the [CI/CD process execution](#check-ci-cd).
   1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.

@@ -147,6 +147,10 @@ items:
                 href: operations/applications/saml-create.md
               - name: Updating an app
                 href: operations/applications/saml-update.md
+              - name: Setting up access for app users
+                href: operations/applications/saml-set-access-bindings.md
+              - name: Getting app information
+                href: operations/applications/saml-get.md
               - name: Deactivating and deleting an app
                 href: operations/applications/saml-deactivate-remove.md
           - name: OIDC apps

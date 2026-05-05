@@ -13,11 +13,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* {{ mrd-name }} target cluster fee, which covers the use of computing resources allocated to hosts, and disk space (see [{{ VLK }} pricing](../../managed-valkey/pricing.md)).
-* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* VM fee, which covers the use of computing resources, storage, and public IP address (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* {{ mrd-name }} target cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ VLK }} pricing](../../managed-valkey/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* VM instance, which includes the use of computing resources, storage, public IP address, and OS (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -240,7 +238,7 @@ Delete the resources you no longer need to avoid paying for them:
 - Manually {#manual}
 
     * [Delete the {{ mrd-full-name }} cluster](../../managed-valkey/operations/cluster-delete.md).
-    * [Delete the virtual machine](../../compute/operations/vm-control/vm-delete.md).
+    * [Delete the VM](../../compute/operations/vm-control/vm-delete.md).
     * If you reserved public static IP addresses, release and [delete them](../../vpc/operations/address-delete.md).
 
 - {{ TF }} {#tf}

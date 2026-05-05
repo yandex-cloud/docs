@@ -203,7 +203,7 @@ After you add a selector, unlink it from other selectors in this dashboard tab.
       ![image](../../_assets/datalens/solution-parameters/add-selector.png)
 
    1. Select **Manual input** as the source type.
-   1. Under **Field or parameter name**, enter `scale`. The value from the selector will be passed to this dataset parameter.
+   1. Under **Field or parameter name**, enter `scale`. The selected selector value will be provided to this dataset parameter.
    1. Choose **List** as your selector type.
    1. Click the input field next to the **Default value** parameter and add the values:
 
@@ -234,7 +234,7 @@ After you add a selector, unlink it from other selectors in this dashboard tab.
    1. At the top of the page, click **Add**.
    1. Choose **Selector**.
    1. Select **Manual input** as the source type.
-   1. Under **Field or parameter name**, enter `dimension`. The value from the selector will be passed to this dataset parameter.
+   1. Under **Field or parameter name**, enter `dimension`. The selected selector value will be provided to this dataset parameter.
    1. Choose **List** as your selector type.
    1. Click the input field next to the **Default value** parameter and add the values:
 
@@ -250,7 +250,8 @@ After you add a selector, unlink it from other selectors in this dashboard tab.
    1. Place the selector on the dashboard above the **Chart with a configurable visualization dimension** chart.
    1. Unlink this selector with the **Grouping** selector:
 
-      1. At the top of the page, click **Links**.
+      1. Click ![image](../../_assets/console-icons/gear.svg) at the top of the screen. The settings window will open on the right.
+      1. In the settings window, click **Links** ![image](../../_assets/console-icons/sliders-vertical.svg).
       1. In the **Links** window, select **Dimensions**.
       1. Make sure that you selected the **Outgoing link** link type for the **Chart with a configurable visualization selection**. For the **Grouping** selector, specify the link type **Ignore**.
 

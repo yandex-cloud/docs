@@ -51,4 +51,10 @@ Responses can only contain [common headers](../common-response-headers.md).
 
 For a list of possible responses, see [{#T}](../response-codes.md).
 
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/acl.md)
+
+* [{#T}](../../../operations/objects/edit-acl.md)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

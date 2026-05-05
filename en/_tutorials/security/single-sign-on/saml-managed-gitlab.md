@@ -18,7 +18,7 @@ For the users of your organization to be able to access {{ mgl-name }}:
 - Management console {#console}
 
    1. In the management console, select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a [{{ GL }}](../../../managed-gitlab/concepts/index.md#instance) instance.
-   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+   1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
    1. Click **{{ ui-key.yacloud.gitlab.button_create-instance }}**.
    1. At the top of the page:
 
@@ -78,7 +78,7 @@ For the users of your organization to be able to access {{ mgl-name }}:
 To enable {{ GL }} authentication using OmniAuth, add an authentication provider:
 
 1. In the [management console]({{ link-console-main }}), select a folder.
-1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
 1. Click the instance you created and select the **{{ ui-key.yacloud.gitlab.title_omniauth }}** tab.
 1. Click **{{ ui-key.yacloud.gitlab.button_setup-omniauth }}**.
 1. To add an authentication provider, click **Add**.
@@ -90,11 +90,11 @@ To enable {{ GL }} authentication using OmniAuth, add an authentication provider
    * **IDP SSO target URL**: IdP URL. Use the **{{ ui-key.yacloud_org.application.overview.saml_field_login }}** field value.
    * **Issuer**: Unique ID of the application where user authentication will be performed, such as `https://example.gitlab.yandexcloud.net`.
    * **Name identifier format**: Name ID format. Set it to `Persistent`.
-   * **Allow single sign on**: Enables SSO. Set the `true` value. If set to `false`, only users who already have a {{ GL }} account will be able to authenticate.
-   * **Auto link users by email**: Maps the username in OmniAuth to that in {{ GL }} if both share the same email address. Set the `true` value.
-   * **Block auto-created users**: Automatically marks the created accounts as [Pending approval]({{ gl.docs }}/ee/administration/moderate_users.html#users-pending-approval) until approved by an administrator. Set the `false` value.
-   * **External provider**: Sets the _external_ attribute for the provider. Users authenticated through this provider will be treated as [external]({{ gl.docs }}/ee/user/admin_area/external_users.html) and will have no access to [internal projects]({{ gl.docs }}/ee/user/public_access.html#internal-projects-and-groups). Set the `false` value.
-   * **Auto link LDAP user**: Creates an LDAP entity for automatically created accounts. This setting only applies to instances with an LDAP provider. Set the `false` value.
+   * **Allow single sign on**: Enables SSO. Set it to `true`. If set to `false`, only users who already have a {{ GL }} account will be able to authenticate.
+   * **Auto link users by email**: Maps the username in OmniAuth to that in {{ GL }} if both share the same email address. Set it to `true`.
+   * **Block auto-created users**: Automatically marks the created accounts as [Pending approval]({{ gl.docs }}/ee/administration/moderate_users.html#users-pending-approval) until approved by an administrator. Set it to `false`.
+   * **External provider**: Sets the _external_ attribute for the provider. Users authenticated through this provider will be treated as [external]({{ gl.docs }}/ee/user/admin_area/external_users.html) and will have no access to [internal projects]({{ gl.docs }}/ee/user/public_access.html#internal-projects-and-groups). Set it to `false`.
+   * **Auto link LDAP user**: Creates an LDAP entity for automatically created accounts. This setting only applies to instances with an LDAP provider. Set it to `false`.
 
 1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -109,7 +109,7 @@ To enable {{ GL }} authentication using OmniAuth, add an authentication provider
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
   1. In the left-hand panel, select ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** and then, the SAML app.
   1. At the top right, click ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** and in the window that opens:  
-      1. In the {{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-entity-id_snAsX }} field, provide the endpoint URL you specified under **Issuer** when setting up OmniAuth.
+      1. In the **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-entity-id_snAsX }}** field, provide the endpoint URL you specified under **Issuer** when setting up OmniAuth.
       1. In the **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-acs-urls_eQcJr }}** field, provide the endpoint URL you specified under **Assertion consumer service URL** when setting up OmniAuth, e.g., `https://example.gitlab.yandexcloud.net/users/auth/saml/callback`.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -166,7 +166,7 @@ Users and groups added to a SAML application can be managed by a user with the `
 
 ## Make sure your application works correctly {#validate}
 
-To make sure both your SAML app and {{ GL }} integration work correctly, authenticate to {{ GL }} as one of the users you added to the app. Proceed as follows:
+To make sure both your SAML app and {{ GL }} integration work correctly, authenticate to {{ GL }} as one of the users you added to the app. Follow these steps:
 
 1. In your browser, open the URL of your {{ GL }} instance, e.g., `https://example.gitlab.yandexcloud.net`.
 1. If you are already authenticated in {{ GL }}, log out.

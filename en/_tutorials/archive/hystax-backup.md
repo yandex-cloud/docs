@@ -90,7 +90,7 @@ Auxiliary Hystax Cloud Agent VMs are created automatically in the default securi
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. On the bucket creation page:
       1. Enter a name for the bucket by following the [naming conventions](../../storage/concepts/bucket.md#naming).
@@ -121,8 +121,8 @@ To create a VM with a recommended configuration and a boot disk from the Hystax 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**:
 
@@ -209,7 +209,7 @@ VMs get a public dynamic IP address when created. Since a VM with Hystax Acura B
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), open the dashboard of the folder you are using.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Navigate to the **{{ ui-key.yacloud.vpc.switch_addresses }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the address of your Hystax Acura Backup VM.
   1. In the menu that opens, select **{{ ui-key.yacloud.vpc.addresses.button_action-static }}**.

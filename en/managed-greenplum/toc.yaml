@@ -157,6 +157,8 @@ items:
         href: concepts/index.md
       - name: Host classes
         href: concepts/instance-types.md
+      - name: High availability clusters
+        href: concepts/high-availability.md
       - name: Calculating the cluster configuration
         href: concepts/calculate-specs.md
       - name: Networking in {{ mgp-name }}

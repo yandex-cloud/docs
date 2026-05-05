@@ -344,12 +344,13 @@ This tutorial will use a gRPC service as a test target.
 
 1. Monitor the test:
 
-   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+   1. Navigate to the [management console]({{ link-console-main }}).
+   1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
    1. Select your {{ managed-k8s-name }} test cluster.
    1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** tab.
    1. Monitor the changes in the number of application pods as the load increases and decreases.
-   1. After the test is complete, in the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-   1. Select the created L7 load balancer.
+   1. Once the test is complete, [navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}** in the management console.
+   1. Select the L7 load balancer you created.
    1. Navigate to the **{{ ui-key.yacloud.common.monitoring }}** tab.
    1. View the test load charts.
 

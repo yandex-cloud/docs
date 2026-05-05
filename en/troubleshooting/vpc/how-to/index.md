@@ -3,8 +3,6 @@
 * [How to disable DDoS protection](disable-ddos-protection-on-external-ip.md)
 * [How to transfer an external static IP address to a different cloud](move-external-ip-between-cloud.md)
 * [How to view incoming or outgoing traffic logs for a VM](incoming-and-outcoming-traffic-logs.md)
-* [How to determine the speed of communication channels](connection-speed.md)
-* [Checking for restrictions on traffic, connection speed, and bandwidth](connection-speed-bandwidth-restriction.md)
 * [How to change the network or subnet for an MDB cluster](changing-net-or-subnet.md)
 * [How to read the `Connections quota utilization` chart](connections-quota-utilization.md)
 * [How to assign a fixed IP address to a NAT gateway](link-ip-address-to-nat-gateway.md)
@@ -15,6 +13,5 @@
 * [How to restore an IP address](restore-ip-address.md)
 * [How a NAT gateway is different from a NAT instance](difference-nat-gateway-and-nat-instance.md)
 * [How to re-assign an IP address to a different availability zone](transferring-ip-to-a-different-zone.md)
-* [How to enable advanced DDoS protection](enable-advanced-anti-ddos-protection.md)
 * [How to block an IP address](block-ip-address.md)
 * 

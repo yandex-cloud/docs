@@ -1,4 +1,4 @@
-## Create {{ k8s }} resources {#create-k8s-res}
+## Set up {{ k8s }} resources {#create-k8s-res}
 
 ### Create a {{ managed-k8s-name }} cluster {#create-cluster}
 
@@ -58,7 +58,7 @@ For more information, see [{#T}](../../managed-kubernetes/concepts/network.md#no
 
 1. Make sure the {{ managed-k8s-name }} cluster has been created successfully.
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you created the {{ managed-k8s-name }} cluster.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+   1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
    1. Make sure the {{ managed-k8s-name }} cluster has been created successfully:
       * The **{{ ui-key.yacloud.k8s.cluster.overview.label_status }}** column should state `Running`.
       * The **{{ ui-key.yacloud.k8s.cluster.overview.label_health }}** column should state `Healthy`.

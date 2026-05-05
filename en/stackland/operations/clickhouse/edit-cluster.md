@@ -74,7 +74,7 @@ If you have a [{{ CH }}](../../concepts/components/clickhouse.md) cluster in you
       * **Shard ID**: Shard ID.
       * **Shard weight**: Shard weight for data distribution (from 0 to 100).
       * **Number of replicas**: Number of replicas per shard (from 0 to 10).
-      * **Shard service type**: Service type for access to the shard. Available values: `Disabled` (no endpoint is created), `ClusterIP` (access only within the cluster), or`LoadBalancer` (access from outside).
+      * **Shard service type**: Service type for access to the shard. Valid values: `Disabled` (no endpoint is created), `ClusterIP` (access only within the cluster), or`LoadBalancer` (access from outside).
       * **Override**: Expanding section for overriding the settings of a particular shard:
         * **Storage**: Overriding the shard's storage class and size.
         * **Resources**: Overriding the shard’s computing resources (CPUs and RAM).

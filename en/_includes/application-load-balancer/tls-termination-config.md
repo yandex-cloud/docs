@@ -25,7 +25,7 @@ variable "private_key" {
   type = string
 }
 
-# Declaring other variables
+# Adding other variables
 
 locals {
   sa_name          = "ig-sa"
@@ -43,7 +43,7 @@ locals {
   alb_zone_name    = "alb-zone"
 }
 
-# Configuring a provider
+# Configuring the provider
 
 terraform {
   required_providers {
@@ -348,5 +348,6 @@ resource "yandex_dns_recordset" "alb-record" {
   ttl     = 600
   type    = "A"
   data    = [yandex_alb_load_balancer.alb.listener[0].endpoint[0].address[0].external_ipv4_address[0].address]
+  # description: Resource record description. This is an optional parameter.
 }
 ```

@@ -25,6 +25,8 @@ items:
             href: quickstart/create-function/java-function-quickstart.md
           - name: Kotlin
             href: quickstart/create-function/kotlin-function-quickstart.md
+          - name: .NET Core
+            href: quickstart/create-function/dotnet-function-quickstart.md
       - name: Creating a trigger
         items:
           - name: Overview
@@ -490,7 +492,7 @@ items:
               Automatically copying objects from one {{ objstorage-name }}
               bucket to another
             href: tutorials/bucket-to-bucket.md
-          - name: Running computations on a schedule in {{ ml-platform-name }}
+          - name: Running scheduled computations in {{ ml-platform-name }}
             href: tutorials/regular-launch-datasphere.md
           - name: >-
               Asynchronous recognition of audio files from {{ objstorage-name }}

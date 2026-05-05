@@ -45,4 +45,10 @@ For a list of other possible responses, see [{#T}](../response-codes.md).
 
 The structure of returned data is the same as the structure of data provided by the [upload](upload.md) method. The structure is described in [{#T}](xml-config.md).
 
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/lifecycles.md)
+
+* [{#T}](../../../operations/buckets/lifecycles.md)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

@@ -5,9 +5,21 @@ description: This section contains the {{ mkf-name }} release notes.
 
 # {{ mkf-full-name }} release notes
 
+
+## March 2026 {#march-2026}
+
+Added separate roles to view and edit maintenance tasks: [managed-kafka.maintenanceTask.viewer](security/index.md#managed-kafka-maintenanceTask-viewer), [managed-kafka.maintenanceTask.editor](security/index.md#managed-kafka-maintenanceTask-editor).
+
+
+## February 2026 {#february-2026}
+
+* Added the ability to [obtain the installed patch version of {{ KF }}](operations/cluster-patch-version.md) on the cluster.
+* Added the ability to [configure cluster access permissions](operations/cluster-access.md).
+
 ## December 2025 {#december-2025}
 
-Added support for the all-new {{ KF }} 4.0. This version is available in the `PRODUCTION` environment. For more information about the updates, see [this {{ KF }} guide](https://kafka.apache.org/community/downloads/#400).
+* Added support for the all-new {{ KF }} 4.0. This version is available in the `PRODUCTION` environment. For more information about the updates, see [this {{ KF }} guide](https://kafka.apache.org/community/downloads/#400).
+* Added [disk encryption](concepts/storage.md#disk-encryption) with a custom KMS key.
 
 ## November 2025 {#november-2025}
 
@@ -44,11 +56,11 @@ Added support for the all-new {{ KF }} 4.0. This version is available in the `PR
 
 ## May 2025 {#may-2025}
 
-Added the **{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}** section to the management console.
+Added the [**{{ ui-key.yacloud.mdb.maintenance.title_maintenance }}**](operations/cluster-maintenance.md) section to the management console.
 
 ## March 2025 {#mar-2025}
 
-* Added support for {{ KF }} 3.7, 3.8, and 3.9. These versions are available in the `PRODUCTION` environment. For more information about the updates, see [this {{ KF }} article](https://kafka.apache.org/community/downloads/).
+* Added support for {{ KF }} 3.7, 3.8, and 3.9. These versions are available in the `PRODUCTION` environment. For more information about the updates, see [this {{ KF }} guide](https://kafka.apache.org/community/downloads/).
 * Starting March 1, 2025, support for {{ KF }} 2.8, 3.0, 3.1, 3.2, and 3.3 is discontinued. You cannot create a cluster with these versions.
 
 ## July 2024 {#jul-2024}

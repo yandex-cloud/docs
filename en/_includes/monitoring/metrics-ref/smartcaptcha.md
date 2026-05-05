@@ -6,7 +6,6 @@ Labels shared by all {{ captcha-name }} metrics:
 | --- | --- |
 service | Service ID: `smartcaptcha`
 captcha | [Captcha](../../../smartcaptcha/concepts/validation.md) ID |
-host | [Domain](../../../smartcaptcha/concepts/domain-validation.md) name |
 
 Service metrics:
 

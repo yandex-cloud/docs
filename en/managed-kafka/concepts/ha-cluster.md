@@ -4,7 +4,7 @@
 
 ## Number and placement of cluster hosts {#hosts}
 
-The [Service Level Agreement (SLA)]({{ link-sla-kafka }}) defines a high-availability cluster as the one made up of three or more broker hosts residing in different [availability zones](../../overview/concepts/geo-scope.md).
+The [Service Level Agreement (SLA)]({{ link-sla-kafka }}) defines a high-availability cluster as one made up of three or more broker hosts residing in different [availability zones](../../overview/concepts/geo-scope.md).
 
 ### Single-host cluster {#one-host}
 
@@ -28,7 +28,7 @@ To ensure high availability of your cluster under the SLA, you can [increase the
 
 ### Cluster with three or more hosts {#three-or-more-hosts}
 
-A cluster with three or more hosts offers reliable storage and continuous data availability if each of the three availability zones has at least one broker host. Such a cluster meets the high availability criteria and is subject to the SLA.
+A cluster with three or more hosts will ensure reliable storage and continuous data availability if each of the three availability zones has at least one broker host. Such a cluster meets the high availability criteria and is subject to the SLA.
 
 To qualify for high availability under the SLA, your cluster topics must have the following parameters:
 

@@ -155,4 +155,10 @@ Tag | Description
 `Records` | Request result.<br/>Path: `/Payload/Records`.
 `Stats` | Statistics on the processed data. It is sent once at the end of the request.<br/>Path: `/Payload/Stats`.
 
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/object.md)
+
+* [{#T}](../../../concepts/s3-select-language.md)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}
