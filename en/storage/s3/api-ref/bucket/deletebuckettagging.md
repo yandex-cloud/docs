@@ -1,4 +1,4 @@
-# DeleteBucketTagging method
+# deleteBucketTagging method
 
 Deletes bucket [labels](../../../concepts/tags.md).
 
@@ -39,5 +39,11 @@ Responses can only contain [common headers](../common-response-headers.md).
 For a list of possible responses, see [{#T}](../response-codes.md).
 
 A successful response does not contain any additional data.
+
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/bucket.md)
+
+* [Deleting bucket labels](../../../operations/buckets/tagging.md#delete-tag)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

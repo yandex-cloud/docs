@@ -62,4 +62,10 @@ Element | Description
 `Key` | Label key.<br>Type: String.
 `Value` | Label value.<br>Type: String.
 
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/bucket.md)
+
+* [Viewing bucket labels](../../../operations/buckets/tagging.md#get-tag)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

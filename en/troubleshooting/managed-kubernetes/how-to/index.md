@@ -1,7 +1,5 @@
 ## Examples of {{ managed-k8s-name }} configurations and use cases {#configuration-examples}
 
-* [How to add and update Linux SSH keys on {{ managed-k8s-name }} node group hosts](adding-and-changing-ssh-keys-for-linux-users-on-node-groups.md)
-* [How to assign static external IP addresses to {{ managed-k8s-name }} cluster nodes](assign-static-ip-address-for-worker-nodes-mk8s.md)
 * [How to provide {{ k8s }} nodes with internet access](providing-internet-access-for-mk8s-nodes.md)
 * [How to create an internal Ingress controller](create-internal-ingress-balancer.md)
 * [How to set up autodeletion of old images from {{ managed-k8s-name }} nodes](configuring-automatic-image-deletion.md)

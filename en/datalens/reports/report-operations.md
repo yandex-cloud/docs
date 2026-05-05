@@ -261,10 +261,10 @@ To configure widget background:
 
 Report settings are valid for all its pages:
 
-1. At the top right, click ![icon](../../_assets/console-icons/gear.svg) **Report settings**.
+1. At the top right, click ![icon](../../_assets/console-icons/gear.svg) **Report settings**. The settings window will open on the right.
 1. Customize the appearance:
 
-   * **Theme**: Select a page design theme, ![icon](../../_assets/console-icons/sun.svg) light or ![icon](../../_assets/console-icons/moon.svg) dark.
+   * **Theme**: Select page theme, ![icon](../../_assets/console-icons/sun.svg) light or ![icon](../../_assets/console-icons/moon.svg) dark.
    * **Contrast**: Select standard (default) or high contrast.
    * **Background color**: Specify a color in hex format or select one from the color palette.
    
@@ -300,6 +300,12 @@ Report settings are valid for all its pages:
    * **First page footer**: Repeats the footer on the first page. By default, no footer is displayed on the first page.
    * **Page numbering**: Adds a page number to the footer.
 
+
+1. Other settings:
+
+   * Optionally, enable **Neuroanalyst** to unlock [its insights in reports](./insights.md).
+
+
 ## Configuring pages {#page-settings}
 
 You can use individual settings for each page, different from the general report settings. By default, all pages are subject to [report settings](#report-settings).
@@ -311,9 +317,9 @@ Page settings have a higher priority than the same report settings. If page sett
 {% endnote %}
 
 1. Select the report page you need to configure.
-1. At the top right, click ![icon](../../_assets/console-icons/gear.svg) **Page settings** and configure the settings as needed:
+1. At the top right, click ![icon](../../_assets/console-icons/gear.svg) and pick the settings in the window on the right:
 
-   * **Theme**: Page design theme, ![icon](../../_assets/console-icons/sun.svg) light or ![icon](../../_assets/console-icons/moon.svg) dark.
+   * **Theme**: Page theme, ![icon](../../_assets/console-icons/sun.svg) light or ![icon](../../_assets/console-icons/moon.svg) dark.
    * **Contrast**: Select standard (default) or high contrast.
    * **Background color**: Specify a color in hex format or select one from the color palette.
 
@@ -327,7 +333,6 @@ Page settings have a higher priority than the same report settings. If page sett
      {% endcut %}
 
 
-   * **Format**: `A4` or `A3`.
    * **Orientation**: `Album` or `Portrait`.
 
 1. In the top-right corner, click **Save**.
@@ -385,6 +390,8 @@ To export a report, click **Export**. The report will be exported to a `.pdf` fi
 
 All links created in [text](#text) widgets on report pages will be active in the exported file.
 
+
 ## Banning the use of Neuroanalyst {#report-neuroanalyst-off}
 
 {% include [datalens-report-neuroanalyst-off](../../_includes/datalens/operations/datalens-report-neuroanalyst-off.md) %}
+

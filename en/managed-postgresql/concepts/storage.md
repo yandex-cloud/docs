@@ -7,7 +7,7 @@ description: In this article, you will learn what storage is in {{ mpg-name }}, 
 
 
 
-{{ mpg-name }} allows you to use network and local storage drives for database clusters. Network disks are based on network blocks, i.e., virtual disks in the {{ yandex-cloud }} infrastructure. Local drives are physically located on the database host servers.
+{{ mpg-name }} allows you to use network and local storage drives for database clusters. Network drives are based on network blocks, i.e., virtual drives in the {{ yandex-cloud }} infrastructure. Local drives are physically located on the database host servers.
 
 {% include [storage-type-nrd](../../_includes/mdb/mpg/storage-type.md) %}
 
@@ -21,6 +21,8 @@ The number of hosts you can create together with a {{ PG }} cluster depends on t
     * Non-replicated SSDs (`network-ssd-nonreplicated`)
 
     Storage on local SSDs increases your cluster costs: you pay for the cluster even if it is stopped. For more information, see the [pricing policy](../pricing.md).
+
+    {% include [local-ssd-steal](../../_includes/mdb/mpg/note-local-ssd-disk.md) %}
 
 * You can add any number of hosts within the current quota when using the following disk types:
 

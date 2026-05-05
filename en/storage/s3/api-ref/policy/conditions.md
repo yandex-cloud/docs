@@ -194,4 +194,8 @@ You can append `IfExists` to any operator name (except [Null](#null)), e.g., `Bo
 
 The `Null` operator sets to `true` if a condition key is missing in the request at the time of authorization. If the key exists and its value is not null, the operator returns `false`.
 
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/policy.md)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

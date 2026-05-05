@@ -42,4 +42,10 @@ The structure of the returned data is described in [ACL XML schema](xml-config.m
 
 For a list of possible responses, see [{#T}](../response-codes.md).
 
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/acl.md)
+
+* [{#T}](../../../operations/objects/edit-acl.md)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

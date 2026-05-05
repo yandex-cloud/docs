@@ -67,4 +67,10 @@ For a list of possible responses, see [{#T}](../response-codes.md).
 
 A successful response does not contain any additional data.
 
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/object.md)
+
+* [{#T}](../../../operations/objects/tagging.md)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

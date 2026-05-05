@@ -33,7 +33,7 @@
 
 ## Создайте сервисный аккаунт с SSH-ключом в профиле {{ oslogin }} {#create-ssh-key}
 
-1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт `my-ansible-sa` и [назначьте](../../iam/operations/sa/assign-role-for-sa) ему [роль](../../compute/security/index.md#compute-oslogin) `compute.osLogin`.
+1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт `my-ansible-sa` и [назначьте](../../iam/operations/sa/assign-role-for-sa) ему [роль](../../compute/security/index.md#compute-oslogin) `compute.osLogin`.  Также необходима роль `resource-manager.auditor` или выше на каталог, в котором размещена виртуальная машина.
 1. [Создайте](../../organization/operations/os-login-profile-create.md) для сервисного аккаунта `my-ansible-sa` [профиль {{ oslogin }}](../../organization/concepts/os-login.md#os-login-profiles) с логином `my-ansible-sa-profile`.
 1. Создайте пару [SSH-ключей](../../glossary/ssh-keygen.md) типа `ed25519`, которые сервисный аккаунт будет использовать для подключения к виртуальным машинам:
 

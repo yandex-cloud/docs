@@ -1,5 +1,7 @@
 # Notebook code snippets
 
+{% include [stop-create-dataset](../../../_includes/datasphere/stop-create-datasets.md) %}
+
 The notebook contains code snippets for simple operations. Use them to extract files from a ZIP archive, create a dataset, or connect to file storages. Since the snippet library is updated regularly, the latest list of code snippets is available in the IDE.
 
 ## Getting started {#before-begin}

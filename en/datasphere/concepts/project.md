@@ -6,9 +6,11 @@ A _notebook_ is an `*.ipynb` file that you work with in the [{{ jlab }}Lab](http
 
 ## Project storage {#storage}
 
+{% include [stop-create-dataset](../../_includes/datasphere/stop-create-datasets.md) %}
+
 {{ ml-platform-name }} provides {{ ml-project-size }} of free storage for each project. You can increase the storage size, but this will result in additional charges. See the cost of expanding the main storage in [{#T}](../pricing.md).
 
-You can upload small amounts of data (up to 100 MB) to your {{ ml-platform-name }} project through the UI. If you want to upload larger amounts of data, use your network storage or databases. For large data volumes, you can also use [datasets](dataset.md).
+You can upload small amounts of data (up to 100 MB) to your {{ ml-platform-name }} project through the UI. If you want to upload larger amounts of data, use your network storage or databases. You can also use [datasets](dataset.md) to handle large data volumes.
 
 ## Configuring a project runtime environment {#environment}
 

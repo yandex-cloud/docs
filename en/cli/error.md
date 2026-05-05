@@ -51,3 +51,39 @@ In our example, it is:
     C:\Users\username\yandex-cloud\logs\yc_compute_instance_create-2019-02-18T12-26-39.897.txt
     ```
 1. Provide this information to the [technical support team]({{ link-console-support }}).
+
+## Resource not found when accessed by name {#name-not-found}
+
+If you get an error when accessing a resource by name:
+
+```
+ERROR: ... not found
+```
+
+or
+
+```
+ERROR: rpc error: code = NotFound ...
+```
+
+The resource is most likely not in the default folder of the current CLI profile.
+
+To fix this issue, explicitly specify the folder using the `--folder-id` or `--folder-name` parameter:
+
+```bash
+yc <service> <resource> get <resource_name> --folder-id <folder_ID>
+```
+
+Example for a VM:
+
+```bash
+yc compute instance get my-vm --folder-id b1g5bhjofg7o********
+```
+
+If you work with this folder regularly, make it your default folder.
+
+```bash
+yc config set folder-id <folder_ID>
+```
+
+If using the resource ID, there is no need to specify the folder because their IDs are unique.

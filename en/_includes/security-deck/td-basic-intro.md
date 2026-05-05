@@ -1,0 +1,5 @@
+The [{{ td-full-name }} ({{ td-name }})](../../security-deck/concepts/threat-detector.md) module is the first line of defense of the user's cloud infrastructure in {{ sd-full-name }}, which automatically detects suspicious activity and notifies the user about detected threats.
+
+{{ td-full-name }} analyzes the audit events found in the client's infrastructure and registered using [{{ at-full-name }}](../../audit-trails/index.yaml). The module does not require you to configure rules or involve security experts; it activates automatically when you set up your {{ sd-name }} [workspace](../../security-deck/concepts/workspace.md).
+
+Each time a [rule](../../security-deck/concepts/threat-detector.md#rules) is triggered by a potential security threat, {{ sd-name }} generates an [alert](../../security-deck/concepts/alerts.md) with detailed information about the event and recommendations for how to remove the threat. You can analyze the alert and find a solution with the help of the AI assistant, which will drill down on the problem and propose some remedies.

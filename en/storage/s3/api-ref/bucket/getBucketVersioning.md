@@ -50,4 +50,10 @@ Element | Description
 `VersioningConfiguration` | Root element.
 `Status` | Bucket versioning status.<br/><br/>Path: `/VersioningConfiguration/Status`.<br/>Type: String.<br/>The possible values are: `Enabled | Suspended`
 
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/bucket.md)
+
+* [{#T}](../../../operations/buckets/versioning.md)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

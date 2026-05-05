@@ -12,5 +12,3 @@ Method | Description
 [delete](cors/delete.md) | Deletes a bucket [CORS](../../concepts/cors.md) configuration.
 
 {% include [the-s3-api-see-also-include](../../../_includes/storage/the-s3-api-see-also-include.md) %}
-
-* [{#T}](../../operations/buckets/cors.md)

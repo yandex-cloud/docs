@@ -1,5 +1,7 @@
 # {{ ml-platform-name }} project resources
 
+{% include [stop-create-dataset](../../_includes/datasphere/stop-create-datasets.md) %}
+
 In {{ ml-platform-name }} projects, you can create resources, which are auxiliary objects that help speed up data operations, automate routine actions, and perform special operations.
 
 You can view resources that are created or available in a project on the project page under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**.

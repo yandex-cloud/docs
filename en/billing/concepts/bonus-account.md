@@ -17,7 +17,7 @@ You cannot use grants to top up [personal accounts](personal-account.md).
 
 - {{ billing-interface }} {#billing}
 
-  1. Go to [**{{ billing-name }}**]({{ link-console-billing }}).
+  1. Navigate to [**{{ billing-name }}**]({{ link-console-billing }}).
   1. Select the billing account from the list.
   1. On the ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}** page, under **{{ ui-key.yacloud_billing.billing.account.dashboard-grants.section_grants }}**, click ![image](../../_assets/console-icons/chevron-right.svg) **{{ ui-key.yacloud_billing.billing.account.dashboard-grants.action_show-all }}**.
   1. On the **{{ ui-key.yacloud_billing.billing.account.offers.label_title }}** page, the **{{ ui-key.yacloud_billing.billing.account.offers.value_grants }}** tab shows all grants you received.
@@ -33,12 +33,13 @@ For more information about the terms of use of initial grants, see [Getting star
 
 {% note info %}
 
-Each individual, sole proprietor, or business can be given only one initial grant.
+Each individual, sole proprietor, or business can be given only one initial grant. {{ yandex-cloud }} can revoke the grant without explanation.
 
 {% endnote %}
 
 
 ## Additional grants {#additional}
+
 Additional grants can be provided on {{ yandex-cloud }} manager's decision or under a content program, referral program, or [Yandex Cloud Boost program](../../../cloud-boost). You can view the amount of additional grants and their validity period in {{ billing-name }}.
 
 

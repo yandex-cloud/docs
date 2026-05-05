@@ -51,7 +51,7 @@ The infrastructure support costs include:
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Specify the service account name, e.g., `sa-live-debug`.
 
@@ -110,18 +110,18 @@ The infrastructure support costs include:
     
       1. Make sure the configuration files are correct.
 
-          1. In the command line, navigate to the directory where you created the configuration file.
-          1. Run a check using this command:
+          1. In the terminal, navigate to the directory where you created your configuration file.
+          1. Run a check using the following command:
 
               ```bash
               terraform plan
               ```
 
-          If the configuration description is correct, the terminal will display information about the service account. If the configuration contains any errors, {{ TF }} will show them. 
+          If you described the configuration correctly, the terminal will display information about the service account. {{ TF }} will show any errors in the configuration. 
 
       1. Deploy the cloud resources.
 
-          1. If the configuration does not contain any errors, run this command:
+          1. If the configuration is correct, run this command:
 
               ```bash
               terraform apply
@@ -181,20 +181,20 @@ The infrastructure support costs include:
 
           For more information about `yandex_resourcemanager_folder_iam_member` properties, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_iam_member).
 
-      1. Make sure the configuration files are correct.
+      1. Validate your configuration files.
 
-          1. In the command line, navigate to the directory where you created the configuration file.
-          1. Run a check using this command:
+          1. In the terminal, navigate to the directory where you created your configuration file.
+          1. Run a check using the following command:
 
               ```
                terraform plan
               ```
 
-              If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
+              If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors.
 
       1. Deploy the cloud resources.
 
-          1. If the configuration does not contain any errors, run this command:
+          1. If the configuration is correct, run this command:
 
               ```
               terraform apply

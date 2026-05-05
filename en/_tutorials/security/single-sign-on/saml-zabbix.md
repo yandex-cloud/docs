@@ -197,13 +197,13 @@ If users do not have the `login` attribute, add it:
     1. Navigate to the **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.attributes_to71e }}** tab.
     1. In the top-right corner, click ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.action_add_attribute }}** and in the window that opens:
 
-        1. In the **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** field, enter `login`.
+        1. In the **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** field, specify `login`.
         1. In the **{{ ui-key.yacloud_org.organization.apps.AttributeFormDialogNew.field_attribute_value_dgUAv }}** field, select `SubjectClaims.preferred_username`.
         1. Click **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}
 
-If you have configured automatic user creation in Zabbix, add the user group attribute. Proceed as follows:
+If you have configured automatic user creation in Zabbix, add the user group attribute. Follow these steps:
 
 {% list tabs group=instructions %}
 

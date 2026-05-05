@@ -11,7 +11,6 @@ To set up [filtering of charts by other charts](../../dashboard/chart-chart-filt
 1. In the top-right corner of the dashboard, click **Edit**.
 1. In the top-right corner of the chart to be filtered, click ![image](../../../_assets/console-icons/gear.svg).
 
-   ![screenshot](../../../_assets/datalens/dashboard/dashboard-chart-settings.png)
 
 1. Enable the **Filtering** option.
 1. Click **Save**.

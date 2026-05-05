@@ -1,5 +1,7 @@
 # Working with datasets
 
+{% include [stop-create-dataset](../../../_includes/datasphere/stop-create-datasets.md) %}
+
 Use [datasets](../../concepts/dataset.md) if you need to handle large data amounts in {{ ml-platform-name }}. For key operations with datasets, run `#pragma dataset` utility commands in code cells.
 
 ## Creating and initializing a dataset {#create}

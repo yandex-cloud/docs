@@ -5,6 +5,8 @@ description: Follow this guide to restrict the {{ ml-platform-name }} resources 
 
 # Managing community restrictions
 
+{% include [stop-create-dataset](../../../_includes/datasphere/stop-create-datasets.md) %}
+
 {% note info %}
 
 You can restrict the {{ ml-platform-name }} resources and features available across all your community projects only if you have the `{{ roles-datasphere-communities-admin }}` role in the community.
@@ -23,7 +25,7 @@ You can restrict the {{ ml-platform-name }} resources and features available acr
 
     * **{{ ui-key.yc-ui-datasphere.restrictions.CHANGING_DISK_SIZE }}**: Enables project storage resizing.
     * **{{ ui-key.yc-ui-datasphere.restrictions.NODES_AND_ALIASES }}**: Enables service deployment using [nodes](../../concepts/deploy/index.md#node) and [aliases](../../concepts/deploy/index.md#alias) in community projects.
-    * **{{ ui-key.yc-ui-datasphere.restrictions.DATAPROC_TEMPLATES }}**: Enables the use of [{{ dataproc-name }} templates](../../concepts/data-processing-template) in community projects.
-    * **{{ ui-key.yc-ui-datasphere.common.datasets }}**: Enables creating [datasets](../../concepts/dataset) in community projects.
+    * **{{ ui-key.yc-ui-datasphere.restrictions.DATAPROC_TEMPLATES }}**: Enables the use of [{{ dataproc-name }} templates](../../concepts/data-processing-template.md) in community projects.
+    * **{{ ui-key.yc-ui-datasphere.common.datasets }}**: Enables creating [datasets](../../concepts/dataset.md) in community projects.
 
 1. Under **{{ ui-key.yc-ui-datasphere.spaces-page.configurations }}**, you can select [computing resource configurations](../../concepts/configurations.md) that will be available across all your community projects.

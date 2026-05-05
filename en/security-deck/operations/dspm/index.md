@@ -7,3 +7,4 @@ description: This section contains step-by-step guides on how to use {{ dspm-nam
 
 * [{#T}](create-data-source.md).
 * [{#T}](create-scan.md).
+* [{#T}](work-with-results.md).

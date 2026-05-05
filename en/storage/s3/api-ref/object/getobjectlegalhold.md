@@ -51,4 +51,12 @@ Element | Description
 ----- | -----
 `Status` | <p>Legal hold status:</p><ul><li>`ON`: Enabled.</li><li>`OFF`: Disabled.</li></ul><p>Path: `LegalHold\Status`.</p>
 
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/object.md)
+
+* [{#T}](../../../concepts/object-lock.md)
+
+* [Configuring an object lock](../../../operations/objects/edit-object-lock.md)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

@@ -25,6 +25,18 @@ description: Следуя данной инструкции, вы сможете
 
      Дополнительную информацию смотрите в разделе [{#T}](../../s3/api-ref/lifecycles/xml-config.md).
 
+  {% note tip %}
+
+  Чтобы удалить правило или всю конфигурацию жизненных циклов:
+  1. На вкладке **{{ ui-key.yacloud.storage.bucket.switch_lifecycle }}** нажмите **{{ ui-key.yacloud.storage.bucket.lifecycle.button_lifecycle_empty-create }}**.
+  1. Напротив правила, которое вы хотите удалить, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+
+      Чтобы удалить всю конфигурацию жизненных циклов, выполните действие для каждого правила.
+
+  1. Нажмите **{{ ui-key.yacloud.storage.bucket.lifecycle.button_save }}**.
+
+  {% endnote %}
+
 - {{ yandex-cloud }} CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}

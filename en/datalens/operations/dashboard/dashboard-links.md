@@ -14,7 +14,11 @@ To configure [links](../../dashboard/link.md#alias) between widgets:
 
 1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need.
 1. In the upper-right corner, click **Edit**.
-1. In the top-right corner of the edit window, click **Links**.
+
+
+1. Click ![image](../../../_assets/console-icons/gear.svg) at the top of the screen. The settings window will open on the right.
+1. In the settings window, click **Links** ![image](../../../_assets/console-icons/sliders-vertical.svg).
+
 
    {% note info %}
 
@@ -37,7 +41,6 @@ To configure [links](../../dashboard/link.md#alias) between widgets:
       * `Charts`: All charts
       * `Selectors`: All selectors
 
-      ![image](../../../_assets/datalens/release-notes/dashboard-link.png)
 
    1. Click **Apply** below.
 

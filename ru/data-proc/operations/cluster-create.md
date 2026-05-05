@@ -12,6 +12,7 @@ description: Следуя данной инструкции, вы сможете
 * [dataproc.editor](../security/index.md#dataproc-editor) — чтобы создать кластер;
 * [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) — чтобы работать с [сетью](../../vpc/concepts/network.md#network) кластера;
 * [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) — чтобы привязать [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) к кластеру и создавать ресурсы от имени этого сервисного аккаунта.
+* [resource-manager.auditor](../../resource-manager/security/index.md#resource-manager-auditor) и выше на каталог, в котором, нужно создать кластер {{ dataproc-name }} — для подключения к кластеру с помощью [{{ oslogin }}](../../organization/concepts/os-login.md).
 
 Сервисному аккаунту кластера {{ dataproc-name }} должны быть назначены роли:
 

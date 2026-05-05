@@ -30,9 +30,9 @@ The cost of Telegram bot support includes:
 
 * Fee for the number of function calls, computing resources allocated to run the function, and outgoing traffic (see [{{ sf-full-name }} pricing](../../functions/pricing.md)).
 * Fee for the amount of stored data, number of data operations, and outbound traffic (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
-* Fee for the number of requests to the API gateway and outbound traffic (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
+* Fees based on the API gateway request count and outbound traffic (see [{{ api-gw-full-name }} pricing](../../api-gateway/pricing.md)).
 
-## Create resources {#create-resources}
+## Set up the required resources {#create-resources}
 
 1. Clone the [repository](https://sourcecraft.dev/yandex-cloud-examples/yc-telegram-bot-serverless) with the source code required to create the bot. Do it by running this [git](https://git-scm.com/) command in the terminal:
 
@@ -74,7 +74,7 @@ If you want your bot to respond to user messages with an image, create an {{ obj
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [bucket](../../storage/concepts/bucket.md).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. On the bucket creation page:
 
@@ -96,7 +96,7 @@ If you want your bot to respond to user messages with an image, create an {{ obj
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the created bucket.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket.
   1. Click **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
   1. In the window that opens, select `sayhello.png` from the saved archive. The management console will display the file selected for upload.
@@ -111,7 +111,7 @@ If you want your bot to respond to user messages with an image, create an {{ obj
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the created bucket.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket.
   1. Select `sayhello.png`.
   1. Click **{{ ui-key.yacloud.storage.file.button_generate }}**.
@@ -128,7 +128,7 @@ To enable your bot to work with a function, create and configure an [API gateway
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create an API gateway.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. Name the gateway: `for-serverless-hello-telegram-bot`.
   1. Clear the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** field and paste this code:
@@ -155,7 +155,7 @@ To enable your bot to work with a function, create and configure an [API gateway
       * `service_account_id`: [ID of the service account](../../iam/operations/sa/get-id.md) you created when [setting up the resources](#create-resources).
 
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
-  1. Select the created API gateway. Save the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** field value as you will need it to create the function.
+  1. Select the previously created API gateway. Save the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_domain }}** field value as you will need it to create the function.
 
 {% endlist %}
 
@@ -168,7 +168,7 @@ If you want your Telegram bot to respond to the `/start` and `/help` commands an
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
   1. Enter the function name: `fshtb-function`.
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -238,7 +238,7 @@ If you want your Telegram bot to respond to the `/start` and `/help` commands an
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select a folder.
-      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+      1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
       1. Select the `for-serverless-hello-telegram-bot` API gateway.
       1. Update the API gateway specification by adding the `fshtb-function` section at the end of the code:
 
@@ -331,7 +331,7 @@ If you want your Telegram bot to respond to the `/start` and `/help` commands an
 
 ## How to delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid [paying](#paid-resources) for them:
+To avoid [incurring charges](#paid-resources) for resources you no longer need, delete them:
 
 * [Delete the function](../../functions/operations/function/function-delete.md).
 * [Delete the API gateway](../../api-gateway/operations/api-gw-delete.md).

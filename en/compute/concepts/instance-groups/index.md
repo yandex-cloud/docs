@@ -43,6 +43,13 @@ When creating a group, you need to describe the following:
 
 An instance group created in a folder can be accessed by all VMs connected to the same cloud network. For more information about networking, see [this {{ vpc-name }} guide](../../../vpc/).
 
+{% note info %}
+
+You can use [reserved instance](../reserved-pools.md) pools to [create instance groups](../../operations/instance-groups/create-group-with-pool.md).
+
+{% endnote %}
+
+
 ## See also {#see-also}
 
 * [{#T}](../../operations/instance-groups/create-fixed-group.md)

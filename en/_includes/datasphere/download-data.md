@@ -1,4 +1,6 @@
-You can upload small data amounts (up to 100 MB) to your {{ ml-platform-name }} project through the {{ jlab }}Lab interface. For larger amounts of data, we recommend loading from network storage or databases. To handle large data amounts, you can also use [datasets](../../datasphere/concepts/dataset.md).
+{% include [stop-create-dataset](stop-create-datasets.md) %}
+
+You can upload small data amounts (up to 100 MB) to your {{ ml-platform-name }} project through the {{ jlab }}Lab interface. For larger amounts of data, we recommend loading from network storage or databases. You can also use [datasets](../../datasphere/concepts/dataset.md) to handle large data volumes.
 
 To upload data to your project via the {{ jlab }}Lab interface:
 

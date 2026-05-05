@@ -11,7 +11,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
   1. In the top panel, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. On the bucket creation page:
 
-      1. Enter a name for the bucket as per the [naming conventions](../../storage/concepts/bucket.md#naming).
+      1. Enter a name for the bucket by following the [naming conventions](../../storage/concepts/bucket.md#naming).
 
           
           By default, a bucket with a dot in the name is only available over HTTP. To provide HTTPS support for your bucket, [upload your own security certificate](../../storage/operations/hosting/certificate.md) to {{ objstorage-name }}.
@@ -162,7 +162,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
   1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) and add them to environment variables.
 
 
-  1. In the configuration file, describe the properties of resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
       ```hcl
       # Creating a bucket using an IAM token
@@ -194,12 +194,12 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
         {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  {{ TF }} will create all the required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+  {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 
   **Creating a bucket using a static key**
 
-  1. In the configuration file, describe the properties of resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
       {% cut "Creating a bucket using a key" %}
 
@@ -278,7 +278,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
 
         * `max_size`: Maximum bucket size, in bytes. The default value is `0`, unlimited. 
-        * `default_storage_class`: [Storage class](../../storage/concepts/storage-class.md). Possible values:
+        * `default_storage_class`: [Storage class](../../storage/concepts/storage-class.md). Available values:
 
           * `standard`: Standard storage. This is a default value.
           * `cold`: Cold storage.
@@ -300,7 +300,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
        {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  {{ TF }} will create all the required resources. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+  {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

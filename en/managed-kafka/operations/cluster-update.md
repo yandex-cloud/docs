@@ -188,7 +188,7 @@ Learn more about other cluster updates:
 You can increase the number of [broker hosts](../concepts/brokers.md) if the following conditions are met:
 
 * The cluster uses {{ KF }} with {{ ZK }}. You cannot change the number of broker hosts in {{ KF }} clusters that use the [{{ kraft-short-name }} protocol](../concepts/kraft.md).
-* The cluster includes at least two broker hosts in different availability zones.
+* The cluster contains at least two broker hosts in different availability zones.
 
 You cannot reduce the number of broker hosts. To comply with cluster [high availability conditions](../concepts/ha-cluster.md), at least three broker hosts are required.
 
@@ -424,6 +424,7 @@ We recommend changing broker host class only when your cluster has no active wor
 
 {% endlist %}
 
+
 ## Changing a {{ ZK }} host class {#change-zookeeper}
 
 {% list tabs group=instructions %}
@@ -548,7 +549,7 @@ We recommend changing broker host class only when your cluster has no active wor
                 Specify the relevant parameters:
                 * `configSpec.zookeeper.resources.resourcePresetId`: To change the {{ ZK }} host class.
 
-            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
+            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
 
         1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -621,6 +622,8 @@ We recommend changing broker host class only when your cluster has no active wor
         1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
+
+
 
 ## Changing a {{ kraft-short-name }} host class {#change-kraft}
 
@@ -752,7 +755,7 @@ The {{ kraft-short-name }} host class is only used in clusters with {{ KF }} 3.6
                 Specify the relevant parameters:
                 * `configSpec.kraft.resources.resourcePresetId`: To change the {{ kraft-short-name }} host class.
 
-            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
+            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
 
         1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -820,11 +823,12 @@ The {{ kraft-short-name }} host class is only used in clusters with {{ KF }} 3.6
                 Specify the relevant parameters:
                 * `config_spec.kraft.resources.resource_preset_id`: To change the {{ kraft-short-name }} host class.
 
-            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
+            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
 
         1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
+
 
 
 ## Changing security group and public access settings {#change-sg-set}
@@ -1194,7 +1198,7 @@ You may need to additionally [configure security groups](connect/index.md#config
 
             Even with cluster deletion protection enabled, one can still delete a user or topic or connect manually and delete the data.
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1274,7 +1278,7 @@ You may need to additionally [configure security groups](connect/index.md#config
 
             Even with cluster deletion protection enabled, one can still delete a user or topic or connect manually and delete the data.
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

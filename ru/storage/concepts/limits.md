@@ -12,4 +12,19 @@ editable: false
 
 {% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
 
+
+{% note tip %}
+
+В {{ objstorage-name }} есть нетарифицируемый порог использования сервиса, подробнее читайте в разделе [{#T}](../pricing.md#rules).
+
+{% endnote %}
+
+
 {% include [storage-limits.md](../../_includes/storage-limits.md) %}
+
+{% note info %}
+
+Максимальное количество объектов в бакете не ограничено.
+
+{% endnote %}
+

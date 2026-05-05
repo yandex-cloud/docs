@@ -25,6 +25,8 @@ items:
             href: collector/otel-clinic-example.md
           - name: Example of monitoring a microservice suite in {{ k8s }}
             href: collector/otel-k8s-example.md
+          - name: Example of Nginx monitoring in {{ k8s }}
+            href: collector/otel-k8s-nginx.md
           - name: Data delivery troubleshooting
             href: collector/troubleshooting.md
       - name: Fluent Bit

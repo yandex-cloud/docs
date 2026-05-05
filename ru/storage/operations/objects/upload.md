@@ -138,7 +138,7 @@ description: Следуя данной инструкции, вы сможете
 
       Более подробную информацию о параметрах ресурса `yandex_storage_object` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_object).
 
-1. Создайте ресурсы:
+  1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -147,6 +147,8 @@ description: Следуя данной инструкции, вы сможете
 - API {#api}
 
   Чтобы загрузить объект, воспользуйтесь методом S3 API [upload](../../s3/api-ref/object/upload.md).
+
+  Подробнее читайте на странице [{#T}](../../s3/s3-api-quickstart.md).
 
 {% endlist %}
 

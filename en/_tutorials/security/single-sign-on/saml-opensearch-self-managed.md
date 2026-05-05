@@ -216,7 +216,7 @@ To configure {{ OS }} integration with the SAML app you created in {{ org-full-n
 
 #### Add a user groups attribute {#group-attribute}
 
-To set up automatic user-to-role mapping upon {{ OS }} login, add the user group attribute. Proceed as follows:
+To set up automatic user-to-role mapping upon {{ OS }} login, add the user group attribute. Follow these steps:
 
 {% list tabs group=instructions %}
 
@@ -277,7 +277,7 @@ Users and groups added to a SAML application can be managed by a user with the `
 
 ## Make sure your application works correctly {#validate}
 
-To make sure both your SAML app and its integration with {{ OS }} work correctly, authenticate to {{ OS }} Dashboards as one of the users you added to the app. Proceed as follows:
+To make sure both your SAML app and its integration with {{ OS }} work correctly, authenticate to {{ OS }} Dashboards as one of the users you added to the app. Follow these steps:
 
 1. In your browser, navigate to the address of your {{ OS }} Dashboards instance.
 1. If logged in to {{ OS }} Dashboards, log out.

@@ -25,10 +25,10 @@ description: Следуя данной инструкции, вы сможете
 1. [Включите доступ через {{ oslogin }}](../../organization/operations/os-login-access.md) на уровне организации.
 1. [Включите доступ к узлам из интернета](./node-group/node-group-update.md#node-internet-access) для группы узлов, содержащей узел, к которому нужно подключиться.
 
-1. Убедитесь, что аккаунту, с которого вы подключаетесь к узлу, [назначена одна из ролей](../../iam/operations/roles/grant.md):
+1. Убедитесь, что аккаунту, с которого вы подключаетесь к узлу, [назначены необходимые роли](../../iam/operations/roles/grant.md):
 
-    * `compute.osLogin` — для доступа к узлу без прав sudo;
-    * `compute.osAdminLogin` — для доступа с правами sudo.
+    * [роль](../../compute/security/index.md#compute-oslogin) `compute.osLogin`для доступа к узлу без прав sudo или `compute.osAdminLogin` для доступа с правами sudo.
+    * [роль](../../resource-manager/security/index.md#resource-manager-auditor) `resource-manager.auditor` или выше на каталог, в котором размещен узел.
 
 ## Настройте узел {#configure-node}
 

@@ -157,7 +157,7 @@ To define federated users' access permissions in VK Cloud, configure mappings be
 
 To make sure your SAML app and its integration with VK Cloud work correctly, sign in to VK Cloud as one of the users you added to the app.
 
-Proceed as follows:
+Follow these steps:
 
 1. In your browser, open the federated user sign-in URL: `https://cloud.vk.com/v1/federation/saml/<federation_ID>/signin`, where `<federation_ID>` is the federation ID you copied when [creating the federation in VK Cloud](#setup-sp).
 1. Authenticate in {{ yandex-cloud }} under a user account from your organization.

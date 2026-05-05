@@ -2,7 +2,7 @@
 
 Aborts an upload and deletes all the saved object parts from {{ objstorage-name }}. If the abort upload request was received when uploading any part, no result is guaranteed.
 
-We recommend that you [get a list of parts](listparts.md) after aborting the upload and, if it is not empty, resend the request until the list of the parts becomes empty.
+We recommend that you [get a list of parts](listparts.md) after aborting the upload and, if it is not empty, resend the request. Abort requests should be sent until the list of the parts becomes empty.
 
 {% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
@@ -48,5 +48,10 @@ Error | Description | HTTP code
 ----- | ----- | -----
 `NoSuchUpload` | The specified upload does not exist. This may happen if you specify a wrong upload ID or the upload was completed or deleted. | 404 Not Found
 
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/multipart.md)
+
+* [{#T}](../../../operations/objects/deleting-multipart.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

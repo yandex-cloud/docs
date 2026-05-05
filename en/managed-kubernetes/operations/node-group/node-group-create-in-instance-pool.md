@@ -63,7 +63,7 @@ For more information, see [{#T}](../../concepts/node-group/reserved-pools.md) an
 
 ## Creating a node group in three availability zones with nodes from reserved instance pools in each zone {#multi-zone}
 
-1. [Create](../../../compute/operations/reserved-pools/create-reserved-pool.md) a reserved instance pool with a configuration you want to use for {{ managed-k8s-name }} cluster nodes.
+1. [Create](../../../compute/operations/reserved-pools/create-reserved-pool.md) reserved instance pools in three availability zones with a configuration you want to use for {{ managed-k8s-name }} cluster nodes.
 
     {% include [reserved-pools-mk8s-resources-warning](../../../_includes/managed-kubernetes/reserved-pools-mk8s-resources-warning.md) %}
 

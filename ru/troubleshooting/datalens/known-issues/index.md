@@ -5,7 +5,6 @@
 * [Устранение ошибки `ERR.DS_API.SOURCE_CONFIG.TABLE_NOT_CONFIGURED`](validation-error-in-dataset-preview-when-using-csv-or-gsheets-as-data-source.md)
 * [Устранение ошибки `ERR.DS_API.US Not correct folder_id`](err-ds-api-us-not-correct-folder-id.md)
 * [У табличных чартов {{ datalens-name }} не совпадают значения в полях `Итого` с аналогичными данными из Метрики](values-in-total-fields-dont-match-with-data-from-ymetrics.md)
-* [Устранение проблем использования связанных таблиц при подключении к Битрикс24](bitrix24-linking-talbes-issue.md)
 * [Устранение проблем при загрузке CSV-файла в датасет в качестве источника данных](csv-upload-issue.md)
 * [Устранение ошибки `ERR.DS_API.FORMULA.VALIDATION.AGG.INCONSISTENT`](error-ds-api-formula-validation-agg-inconsistent.md)
 * [Устранение ошибки `Validation error Request failed with status code 500` при сохранении дашборда](validation-error-request-failed-with-status-code-500.md)

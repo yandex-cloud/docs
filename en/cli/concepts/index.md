@@ -26,6 +26,33 @@ Use one of the following to set or change the values of the CLI configuration pa
 
 For a full list of available configuration parameters, see [CLI configuration](core-properties.md).
 
+### Accessing resources by name {#name-resolution}
+
+In most CLI commands, you can use either the resource ID or resource name. If you access a resource by its name, the search will be limited to the default folder.
+
+If the resource is in a different folder and you want to access it, specify the folder explicitly via a global parameter:
+
+```bash
+yc <command> <resource_name> --folder-id <folder_ID>
+yc <command> <resource_name> --folder-name <folder_name>
+
+# Examples
+yc compute instance get testvm --folder-id b1g2doq3bh19********
+yc lockbox payload get my-secret --folder-name testname
+```
+
+To find out the default folder:
+
+```bash
+yc config list
+```
+
+{% note tip %}
+
+If using the resource ID, there is no need to specify the folder because their IDs are unique.
+
+{% endnote %}
+
 ## Synchronous command execution {#sync-invoke}
 
 Some commands take a long time to execute. In this case, you can control the timing of command execution.

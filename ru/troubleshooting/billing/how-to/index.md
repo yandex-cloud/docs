@@ -13,7 +13,6 @@
 * [Как получить акт сверки](getting-reconcillation-report.md)
 * [Как получить закрывающие документы](getting-reporting-docs.md)
 * [Как изменить адрес электронной почты](change-email.md)
-* [В каких сервисах доступна тарификация по меткам](services-with-tags-available.md)
 * [Какой формат закрывающих документов в ЭДО](closing-documents-format.md)
 * [Какой лимит отрицательного баланса при оплате банковским переводом](overdraft-while-transferring.md)
 * [Как сменить владельца аккаунта для юридических лиц](changing-account-owner-for-legal-entities.md)

@@ -55,6 +55,8 @@ items:
             href: operations/buckets/manage-s3-inventory.md
           - name: Managing bucket labels
             href: operations/buckets/tagging.md
+          - name: Getting a list of buckets
+            href: operations/buckets/get-list.md
           - name: Getting bucket information and statistics
             href: operations/buckets/get-info.md
           - name: Viewing bucket metrics

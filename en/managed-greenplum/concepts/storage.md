@@ -7,7 +7,7 @@ description: In this article, you will learn about disk types in {{ mgp-name }} 
 
 
 
-{{ mgp-name }} allows you to use network and local storage drives for database clusters. Network disks are based on network blocks, i.e., virtual disks in the {{ yandex-cloud }} infrastructure. Local disks are physically located on the cluster servers.
+{{ mgp-name }} allows you to use network and local storage drives for database clusters. Network drives are based on network blocks, i.e., virtual drives in the {{ yandex-cloud }} infrastructure. Local disks are physically located on the cluster servers.
 
 {% include [storage-type](../../_includes/mdb/mgp/storage-type.md) %}
 
@@ -49,7 +49,7 @@ To monitor storage usage on cluster hosts, configure alerts in {{ monitoring-ful
 
             You can get the cluster ID from the [folder’s cluster list](../operations/cluster-list.md#list-clusters).
 
-        * `disk.free_bytes` label
+        * `disk.free` label
 
     1. **{{ ui-key.yacloud_monitoring.alert.label_trigger-condition }}**: Define the `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}` condition for disk usage percentage that will trigger the alert:
 

@@ -64,34 +64,38 @@ When creating a cluster with {{ ZK }}, do not specify the {{ kraft-short-name }}
      {% include [autoscale-settings](../../_includes/mdb/mkf/autoscale-settings.md) %}
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
-     1. Select one or more availability zones to place your {{ KF }} broker hosts in.
+     1. Select one or more availability zones for your {{ KF }} broker hosts.
 
+        
         {% include notitle [note-warning](../../_includes/mdb/mkf/create-cluster.md#note-warning) %}
 
-     1. Select the [network](../../vpc/concepts/network.md#network).
-     1. Select [subnets](../../vpc/concepts/network.md#subnet) in each availability zone for this network. To [create a new subnet](../../vpc/operations/subnet-create.md), click **{{ ui-key.yacloud.common.create }}** next to the availability zone in question.
 
+     1. Select the [network](../../vpc/concepts/network.md#network).
+     1. Select [subnets](../../vpc/concepts/network.md#subnet) in each availability zone for this network. To [create a new subnet](../../vpc/operations/subnet-create.md), click **{{ ui-key.yacloud.common.create }}** next to the availability zone.
+
+        
         {% note info %}
 
         For an {{ KF }} cluster with multiple broker hosts, specify subnets in each availability zone even if you plan to place broker hosts only in some of them. You need these subnets to deploy three [{{ ZK }} hosts](../concepts/index.md), one per availability zone. For more information, see [{#T}](../concepts/index.md).
 
         {% endnote %}
 
+
      1. Select [security groups](../../vpc/concepts/security-groups.md) for the {{ mkf-name }} cluster’s network traffic.
      1. To enable internet access to broker hosts, select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. In this case, you can only connect to them using SSL. For more information, see [{#T}](connect/clients.md).
 
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**:
-     1. Specify the number of {{ KF }} broker hosts to place in each of the selected availability zones.
+     1. Specify the number of {{ KF }} broker hosts to reside in each selected availability zone.
 
-        When selecting the number of hosts, consider the following:
-        * If you add more than one host to the cluster, the system automatically adds three {{ ZK }} hosts.
-        * You need at least two hosts to enable replication in a {{ mkf-name }} cluster.
+        When selecting the number of broker hosts, consider the following:
+        * If you add more than one broker host to the cluster, the system will automatically add three {{ ZK }} hosts.
+        * You need at least two broker hosts to enable replication in a {{ mkf-name }} cluster.
         * High availability of a {{ mkf-name }} cluster depends on certain [prerequisites](../concepts/ha-cluster.md).
     
      1. Select **{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-zookeeper_pN7ub }}** as the coordination service.
 
-  1. If you specified more than one broker host, under **{{ ui-key.yacloud.kafka.section_zookeeper-resources }}**, specify the properties of the [{{ ZK }} hosts](../concepts/index.md) to place in each of the selected availability zones.
+  1. If you specified more than one broker host, under **{{ ui-key.yacloud.kafka.section_zookeeper-resources }}**, specify the properties of the [{{ ZK }} hosts](../concepts/index.md) to reside in each selected availability zone.
   1. Specify additional {{ mkf-name }} cluster settings, if required:
 
      {% include [extra-settings](../../_includes/mdb/mkf/extra-settings.md) %}
@@ -731,18 +735,22 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
      {% include [autoscale-settings](../../_includes/mdb/mkf/autoscale-settings.md) %}
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
-     1. Select one or more availability zones to place your {{ KF }} broker hosts in.
-        
+     1. Select one or more availability zones for your {{ KF }} broker hosts.
+
+                
         {% include notitle [note-warning](../../_includes/mdb/mkf/create-cluster.md#note-warning) %}
 
-     1. Select the [network](../../vpc/concepts/network.md#network).
-     1. Select [subnets](../../vpc/concepts/network.md#subnet) in each availability zone for this network. To [create a new subnet](../../vpc/operations/subnet-create.md), click **{{ ui-key.yacloud.common.create }}** next to the availability zone in question.
 
+     1. Select the [network](../../vpc/concepts/network.md#network).
+     1. Select [subnets](../../vpc/concepts/network.md#subnet) in each availability zone for this network. To [create a new subnet](../../vpc/operations/subnet-create.md), click **{{ ui-key.yacloud.common.create }}** next to the availability zone.
+
+        
         {% note info %}
 
         For an {{ KF }} cluster with multiple broker hosts, specify subnets in each availability zone even if you plan to place broker hosts only in some of them. You need these subnets to deploy three [{{ kraft-short-name }} hosts](../concepts/index.md), one per availability zone. For more information, see [{#T}](../concepts/index.md).
 
         {% endnote %}
+
 
      1. Select [security groups](../../vpc/concepts/security-groups.md) for the {{ mkf-name }} cluster’s network traffic.
      1. To enable internet access to broker hosts, select **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. In this case, you can only connect to them using SSL. For more information, see [{#T}](connect/clients.md).
@@ -750,7 +758,7 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**:
 
-     1. Specify the number of {{ KF }} broker hosts to place in each of the selected availability zones.
+     1. Specify the number of {{ KF }} broker hosts to reside in each selected availability zone.
 
         When selecting the number of hosts, consider the following:
         * You cannot set the number of broker hosts manually if using [{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-combined-mode_c1zke }}](../concepts/kraft.md#cluster-topology) as the coordination service.
@@ -763,13 +771,16 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
         
         * **{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-combined-mode_c1zke }}**: One {{ KF }} host accommodates a broker and a {{ kraft-short-name }} metadata controller at the same time.
 
+
+          
           You can create a cluster either in one or in three [availability zones](../../overview/concepts/geo-scope.md):
             * One availability zone: Three broker hosts.
             * Three availability zones: One broker host in each availability zone.
 
+
           You cannot set the number of broker hosts manually.
 
-  1. If you specified more than one broker host, under **{{ ui-key.yacloud.kafka.section_kraft-resources }}**, specify the properties of the [{{ kraft-short-name }} hosts](../concepts/index.md) to place in each of the selected availability zones.
+  1. If you specified more than one broker host, under **{{ ui-key.yacloud.kafka.section_kraft-resources }}**, specify the properties of the [{{ kraft-short-name }} hosts](../concepts/index.md) to reside in each selected availability zone.
   1. Specify additional {{ mkf-name }} cluster settings, if required:
 
      {% include [extra-settings](../../_includes/mdb/mkf/extra-settings.md) %}
@@ -823,11 +834,14 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
          {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
     
      * `--zone-ids` and `--brokers-count`: Availability zones and number of broker hosts per zone. 
-     
+
+            
        If you are creating a cluster with [{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-combined-mode_c1zke }}](../concepts/kraft.md#cluster-topology), specify one of the available configurations:
 
        * `--zone-ids={{ region-id }}-a,{{ region-id }}-b,{{ region-id }}-d --brokers-count=1`: Three availability zones with one broker host per zone.
        * `--zone-ids=<one_availability_zone> --brokers-count=3`: One availability zone with three broker hosts.
+
+
 
      * `--resource-preset`: [Host class](../concepts/instance-types.md).
      * `--disk-type`: [Disk type](../concepts/storage.md).
@@ -936,10 +950,13 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
      * `version`: {{ KF }} version. Specify 3.6 or higher.
      * `zones` and `brokers_count`: Availability zones and number of broker hosts per zone.
 
+       
        If you are creating a cluster with [{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-combined-mode_c1zke }}](../concepts/kraft.md#cluster-topology), specify one of the available configurations:
 
        * `zones = ["{{ region-id }}-a","{{ region-id }}-b","{{ region-id }}-d"] brokers_count = 1`: Three availability zones with one broker host per zone.
        * `zones = ["<one_availability_zone>"] brokers_count = 3`: One availability zone with three broker hosts.
+
+
 
      * `deletion_protection`: Cluster deletion protection, `true` or `false`.
 
@@ -1122,10 +1139,13 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
                 * `zoneId` and `brokersCount`: Availability zones and number of broker hosts per zone.
 
+                  
                   If you are creating a cluster with [{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-combined-mode_c1zke }}](../concepts/kraft.md#cluster-topology), specify one of the available configurations:
 
                   * `"zoneId": ["{{ region-id }}-a","{{ region-id }}-b","{{ region-id }}-d"], "brokersCount": "1"`: Three availability zones with one broker host per zone.
-                  * `"zoneId": ["<one_availability_zone>"], "brokersCount": "3"`: One availability zone with three broker hosts.
+                  * `"zoneId": ["<one_availability_zone>"], "brokersCount": "3"`: One availability zone, three broker hosts.
+
+
 
                 
                 * `assignPublicIp`: Access to broker hosts from the internet, `true` or `false`.
@@ -1325,10 +1345,13 @@ When creating a cluster with {{ kraft-short-name }}, do not specify the {{ ZK }}
 
                 * `zone_id` and `brokers_count`: Availability zones and number of broker hosts (provided as an object with the `value` field) per zone.
 
+                  
                   If you are creating a cluster with [{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-combined-mode_c1zke }}](../concepts/kraft.md#cluster-topology), specify one of the available configurations:
 
                   * `"zone_id": ["{{ region-id }}-a","{{ region-id }}-b","{{ region-id }}-d"], "brokers_count": {"value":"1"}`: Three availability zones with one broker host per zone.
                   * `"zone_id": ["<one_availability_zone>"], "brokers_count": {"value":"3"}`: One availability zone with three broker hosts.
+
+
 
                 
                 * `assign_public_ip`: Access to broker hosts from the internet, `true` or `false`.
@@ -1589,6 +1612,7 @@ To create an {{ KF }} cluster copy:
 
 {% endlist %}
 
+
 ### Creating a cluster with {{ kraft-short-name }} in combined mode {#kafka-kraft}
 
 In our example, we use the [configuration](../concepts/kraft.md#cluster-topology) with three availability zones, each hosting a single broker.
@@ -1747,6 +1771,8 @@ In our example, we use the [configuration](../concepts/kraft.md#cluster-topology
 
 {% endlist %}  
 
+
+
 ### Creating a cluster with {{ kraft-short-name }} on separate hosts (multi-host cluster) {#kafka-kraft-mh}
 
 {% list tabs group=instructions %}
@@ -1904,6 +1930,8 @@ In our example, we use the [configuration](../concepts/kraft.md#cluster-topology
 
 {% endlist %}
 
+
+
 ### Creating a cluster with {{ ZK }} on separate hosts (multi-host cluster) {#kafka-zk-mh}
 
 {% list tabs group=instructions %}
@@ -2060,3 +2088,4 @@ In our example, we use the [configuration](../concepts/kraft.md#cluster-topology
 
 
 {% endlist %}  
+

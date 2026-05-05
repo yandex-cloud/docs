@@ -61,6 +61,19 @@ You can [create an export configuration](../operations/buckets/manage-s3-invento
 * Configuration status: enabled or disabled.
 * List of optional object metadata fields.
 
+### Reporting frequency {#schedule}
+
+Depending on the frequency you specify, export will begin:
+
+* `DAILY`: At 03:00 UTC every day.
+* `WEEKLY`: At 03:00 UTC every Sunday.
+
+For example, if you create a configuration with a daily export at 12:00 UTC, the first one will not start until 03:00 UTC the next day.
+
+{% include [s3-inventory-schedule-note](../../_includes/storage/s3-inventory-schedule-note.md) %}
+
+### Metadata types {#metadata-types}
+
 Each export report contains a list of source bucket objects and their metadata. The following fields are included by default:
 
 * `BUCKET_NAME`: Source bucket name.

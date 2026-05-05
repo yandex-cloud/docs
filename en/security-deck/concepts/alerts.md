@@ -14,7 +14,7 @@ description: '{{ alerts-name }} provides a single interface for information on s
 * [{{ cspm-full-name }} ({{ cspm-name }})](./cspm.md)
 * [{{ dspm-full-name }} ({{ dspm-name }})](./dspm.md)
 * [{{ kspm-full-name }} ({{ kspm-name }})](./kspm.md)
-* {{ td-full-name }} ({{ td-name }})
+* [{{ td-full-name }} ({{ td-name }})](./threat-detector.md)
 * [{{ vuln-man-name }} ({{ vuln-man-short-name }})](./vulnerability-management.md)
 * [{{ ycdr-name }}](../../ycdr/)
 

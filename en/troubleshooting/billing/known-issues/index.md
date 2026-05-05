@@ -1,7 +1,6 @@
 ## Solutions for known {{ billing-name }} issues {#known-issues-resolving}
 
 * [Billing account usage details started showing {{ cloud-logging-name }} consumption](cloud-logging-unexpectedly-charges-in-billing-account-details.md)
-* [Cannot purchase a committed volume of services for {{ compute-short-name }}](unable-to-issue-a-new-cvos-position.md)
 * [Troubleshooting issues with adding a credit/debit card to the billing account](couldnt-link-card.md)
 * [Resolving the `INVALID_PERSON_TYPE` error when registering a billing account](invalid-person-type.md)
 * [Troubleshooting payment issues](payment-problems.md)

@@ -1,0 +1,1 @@
+Reserved instance pools are incompatible with [dedicated hosts](../concepts/dedicated-host.md), [preemptible VMs](../concepts/preemptible-vm.md), and VMs with [vCPU performance levels](../concepts/performance-levels.md) below 100%. At present, reserved instance pools do not support [placement groups](../concepts/placement-groups.md).

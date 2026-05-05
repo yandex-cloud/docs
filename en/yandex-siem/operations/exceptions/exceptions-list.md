@@ -25,13 +25,13 @@ To view a list of exceptions:
   1. In the left-hand panel, select **{{ yandex-siem-full-name }}**.
   1. Navigate to **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.exceptions }}**.
 
-  You will see a list of all available exceptions and their statuses.
+  A list of all available exceptions with their statuses and deployment statuses will open.
 
 {% endlist %}
 
 ## Filtering exceptions {#filter}
 
-To filter exceptions based on specific criteria:
+To filter exceptions based on the parameters you need:
 
 {% list tabs group=instructions %}
 
@@ -42,15 +42,15 @@ To filter exceptions based on specific criteria:
   1. Navigate to **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.exceptions }}**.
   1. Use filters above the list:
      * **Status**: Filter exceptions by status: **Healthy**, **Unhealthy**, or **Inactive**.
-     * **Attached rule**: Filter by the correlation rule attached to the exception.
+     * **Bound rule**: Filter by the correlation rule the exception is bound to.
 
-  The list will refresh to show only exceptions that match the selected criteria.
+  The list refreshes to show only exceptions that match the selected criteria.
 
 {% endlist %}
 
-## Staging an exception for deployment {#mark-for-deploy}
+## Marking an exception for deployment {#mark-for-deploy}
 
-To apply changes to an exception, stage it for deployment:
+To apply changes to an exception, mark it for deployment:
 
 {% list tabs group=instructions %}
 
@@ -61,11 +61,11 @@ To apply changes to an exception, stage it for deployment:
   1. Navigate to **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.exceptions }}**.
   1. In the exception row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_org.security.siem.action_mark-for-deployment_sUf3V }}**.
 
-  The exception deployment status will switch to **{{ ui-key.yacloud_org.security.siem.detect-deployment_created_2GEyZ }}**. Once deployment is complete, the status will change to **{{ ui-key.yacloud_org.security.siem.detect-deployment_deployed_ejgvu }}**.
+  The exception deployment status will switch to **{{ ui-key.yacloud_org.security.siem.detect-deployment_created_2GEyZ }}**. Once deployment is complete, the status will switch to **{{ ui-key.yacloud_org.security.siem.detect-deployment_deployed_ejgvu }}**.
 
 {% endlist %}
 
-## Canceling exception deployment {#cancel-deploy}
+## Cancelling exception deployment {#cancel-deploy}
 
 To cancel a scheduled exception deployment:
 

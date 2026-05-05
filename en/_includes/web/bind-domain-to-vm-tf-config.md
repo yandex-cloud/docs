@@ -24,7 +24,7 @@ locals {
   domain_zone_name = "my-domain-zone"
 }
 
-# Configuring a provider 
+# Configuring the provider
 
 terraform {
   required_providers {
@@ -46,7 +46,7 @@ resource "yandex_vpc_network" "webserver-network" {
   name = local.network_name
 }
 
-# Create subnet
+# Creating a subnet
 
 resource "yandex_vpc_subnet" "webserver-subnet-b" {
   name           = local.subnet_name
@@ -104,7 +104,7 @@ resource "yandex_compute_disk" "boot-disk" {
   image_id = yandex_compute_image.osimage.id
 }
 
-# Creating a VM instance
+# Creating a VM
 
 resource "yandex_compute_instance" "mywebserver" {
   name        = local.vm_name
@@ -147,5 +147,6 @@ resource "yandex_dns_recordset" "rsA1" {
   type    = "A"
   ttl     = 600
   data    = ["${yandex_compute_instance.mywebserver.network_interface.0.nat_ip_address}"]
+  # description: Resource record description. This is an optional parameter.
 }
 ```

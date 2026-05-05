@@ -77,7 +77,6 @@ description: In this article, you will learn how to work with the managed servic
 * [{#T}](kubernetes-cluster/kubernetes-cluster-operation-logs.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-create.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-update.md)
-* [{#T}](kubernetes-cluster/kubernetes-cluster-namespace-create.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-access.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-wlif-integration.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-configuration-list.md)
@@ -107,3 +106,10 @@ description: In this article, you will learn how to work with the managed servic
 ## Working with {{ k8s }} objects from the management console {#kubernetes-console}
 
 * [{#T}](kubernetes-console/pod-terminal.md)
+* [{#T}](kubernetes-console/nodes.md)
+* [{#T}](kubernetes-console/workloads.md)
+* [{#T}](kubernetes-console/storage.md)
+* [{#T}](kubernetes-console/network.md)
+* [{#T}](kubernetes-console/configuration.md)
+* [{#T}](kubernetes-console/access.md)
+* [{#T}](kubernetes-cluster/kubernetes-cluster-namespace-create.md)

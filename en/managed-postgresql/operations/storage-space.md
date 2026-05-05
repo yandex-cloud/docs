@@ -76,7 +76,7 @@ To disable read-only mode:
 > COMMIT;
 > ```
 
-## Changing the disk type and increasing the storage size {#change-disk-size}
+## Changing the disk type and expanding the storage size {#change-disk-size}
 
 {% include [settings-dependence-on-storage](../../_includes/mdb/mpg/settings-dependence-on-storage.md) %}
 
@@ -84,19 +84,13 @@ To disable read-only mode:
 
 {% include [storage-resize-process](../../_includes/mdb/mpg/storage-resize-process.md) %}
 
-
-{% note warning %}
-
-You cannot reduce the storage size.
-
-{% endnote %}
-
+{% include [local-ssd-steal](../../_includes/mdb/mpg/note-local-ssd-disk.md) %}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    To change the disk type and increase the storage size for a cluster:
+    To change the disk type and expand the storage size for a cluster:
 
     1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
     1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
@@ -113,7 +107,7 @@ You cannot reduce the storage size.
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To change the disk type and increase the storage size for a cluster:
+    To change the disk type and expand the storage size for a cluster:
 
     1. View the description of the CLI command for updating a cluster:
 
@@ -131,7 +125,7 @@ You cannot reduce the storage size.
 
 - {{ TF }} {#tf}
 
-    To change the disk type and increase the storage size for a cluster:
+    To change the disk type and expand the storage size for a cluster:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
@@ -158,7 +152,7 @@ You cannot reduce the storage size.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -193,7 +187,7 @@ You cannot reduce the storage size.
 
      Where:
 
-     * `updateMask`: Comma-separated string of settings to update.
+     * `updateMask`: Comma-separated string of settings you want to update.
 
      * `configSpec.resources`: Storage settings:
 
@@ -250,7 +244,7 @@ You cannot reduce the storage size.
          * `disk_type_id`: [Disk type](../concepts/storage.md).
          * `disk_size`: New storage size in bytes.
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure your request was successful.
 
@@ -338,11 +332,11 @@ You cannot reduce the storage size.
     
     1. If you specified `planned_usage_threshold`, configure the [maintenance schedule](cluster-maintenance.md#set-maintenance-window).
     
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -394,16 +388,16 @@ You cannot reduce the storage size.
 
          Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled. The value of this setting must be greater than or equal to `plannedUsageThreshold`.
 
-       * `diskSizeLimit`: Maximum storage size, in bytes, that can be set if the usage percentage reaches one of the specified thresholds.
+       * `diskSizeLimit`: Maximum storage size, in bytes, to set when storage usage reaches one of the specified thresholds.
 
         To learn more about storage scaling rules, see [this section](../concepts/storage.md#auto-rescale).
 
-     * `maintenanceWindow`: Maintenance window schedule. This setting is required only if `plannedUsageThreshold` is set. Contains the following:
+     * `maintenanceWindow`: Maintenance window schedule. This setting is required only if `plannedUsageThreshold` is set. Contains the following parameters:
 
        * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
        * `hour`: Hour of day, in `HH` format, for scheduled maintenance. The possible values range from `1` to `24`.
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -463,12 +457,12 @@ You cannot reduce the storage size.
 
         To learn more about storage scaling rules, see [this section](../concepts/storage.md#auto-rescale).
 
-     * `maintenance_window`: Maintenance window schedule. This setting is required only if `planned_usage_threshold` is set. Contains the following:
+     * `maintenance_window`: Maintenance window schedule. This setting is required only if `planned_usage_threshold` is set. Contains the following parameters:
 
        * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
        * `hour`: Hour of day, in `HH` format, for scheduled maintenance. The possible values range from `1` to `24`.
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure your request was successful.
 

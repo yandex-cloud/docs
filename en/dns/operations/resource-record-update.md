@@ -15,7 +15,7 @@ You can update the value of a [resource record](../concepts/resource-record.md).
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Select the zone from the list.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the record you need and select ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-  1. Change the record TTL or value.
+  1. Edit the record TTL, value, or description.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -36,8 +36,16 @@ You can update the value of a [resource record](../concepts/resource-record.md).
 
      ```bash
      yc dns zone replace-records --name <zone_name> \
-     --record "<domain_name> 600 <record_type> <new_value>"
+     --record "<domain_name> 600 <record_type> <new_value>" \
+     --description "<description>"
      ```
+
+    Where:
+
+    * `--name`: Zone name. It must be unique within a folder.
+    * `--record`: DNS record containing the domain name, TTL, record type, and record value.
+    * `--description`: Description for the new records. If this flag is not set, the description will be empty. This is an optional setting.
+
 
 - {{ TF }} {#tf}
 
@@ -57,6 +65,7 @@ You can update the value of a [resource record](../concepts/resource-record.md).
        type    = "A"
        ttl     = 200
        data    = ["10.1.0.1"]
+       description = "Web server A record"
      }
      ...
      ```

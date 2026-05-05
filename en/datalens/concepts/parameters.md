@@ -76,7 +76,8 @@ Set up visualization of a sales chart on a dashboard by changing the detail leve
 
 1. Make sure a link between the selector and the chart on the dashboard is set up properly:
 
-   1. In dashboard edit mode, click **Links**.
+   1. In dashboard editing mode, click the ![image](../../_assets/console-icons/gear.svg) icon at the top of the screen. The settings window will open on the right.
+   1. In the settings window, click **Links** ![image](../../_assets/console-icons/sliders-vertical.svg).
    1. Select the added selector from the list. Check that it has an outgoing link to the appropriate chart by the `scale` field.
    1. [Add a link](../operations/dashboard/create-alias.md) between widgets if needed.
 

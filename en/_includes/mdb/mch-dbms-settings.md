@@ -191,14 +191,22 @@
 
     For more information, see [this {{ CH }} guide]({{ ch.docs }}/integrations/jdbc/jdbc-with-clickhouse).
 
-* **Kafka**{#setting-kafka} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
+* **Kafka**{#setting-kafka} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
     Global authentication settings for [integration with {{ KF }}]({{ ch.docs }}/engines/table-engines/integrations/kafka/):
 
     * **Auto offset reset**: Initial position from which a [consumer](../../managed-kafka/concepts/producers-consumers.md) starts reading messages. Starting from there, as the consumer reads incoming messages, it commits offsets for new ones. By default, no value is set (equivalent to `latest`). For more information, see [this Confluent guide](https://docs.confluent.io/platform/current/clients/consumer.html#offset-management).
+    * **Batch size**: Maximum total size of all messages in a batch (MessageSet), including protocol overhead.
+    
+      The possible values range from `1` to `2147483647` bytes. The default value is `1000000`.
+
     * **Debug**: Context for debugging purposes. By default, the value is not set. You can only specify one value for this setting. For the list of possible values, see the `librdkafka` library page on [GitHub](https://github.com/confluentinc/librdkafka/blob/master/CONFIGURATION.md).
     * **Enable ssl certificate verification**: Sets whether to verify SSL certificates. The default value is `false`.
     * **Max poll interval ms**: Maximum interval, in milliseconds, between polls to get messages for high-level consumers. If exceeded, the user is removed from the group and a rebalance starts. No value is set by default (equivalent to `300000`, 5 minutes).
+    * **Message max bytes**: Maximum size per message for {{ KF }} protocol requests.
+      
+      The possible values range from `1000` to `1000000000` bytes. The default value is `1000000`.
+    
     * **Sasl mechanism**: SASL authentication:
       * `GSSAPI` (default): Authentication [using Kerberos](https://kafka.apache.org/42/security/authentication-using-sasl/#authentication-using-saslkerberos).
       * `PLAIN`: Authentication [using an unencrypted username-password pair](https://kafka.apache.org/42/security/authentication-using-sasl/#authentication-using-saslplain).

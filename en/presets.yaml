@@ -3805,7 +3805,6 @@ default:
             label_title: Usage details
             label_title-usage-short: Consumption for
             label_to: To
-            label_top-cost: Consumption cost
             label_top-total: Due and payable
             tab_label: By labels
             tab_product: By product
@@ -5132,7 +5131,6 @@ default:
           title_security-requirements_8r7hd: Sets of requirements
           WorkspaceEditPageLayout:
             tabGeneralParams_xc2v2: Main parameters
-            tabKubernetes_rC2uU: KSPM
             tabResources_vJuSN: Resources
             tabStandards_wSeaW: Security compliance
           WorkspaceGeneralParamsForm:

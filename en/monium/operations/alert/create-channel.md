@@ -16,7 +16,7 @@ description: Follow this guide to create a notification channel and start sendin
 
         {% note info %}
 
-        {% include [notifications-requirements](../../../_includes/monitoring/notifications-requirements.md) %}
+        {% include [notifications-requirements](../../../_includes/monium/notifications-requirements.md) %}
 
         {% endnote %}
 
@@ -32,5 +32,17 @@ description: Follow this guide to create a notification channel and start sendin
         1. Paste the authorization code and click **{{ ui-key.yacloud_components.settings.button_submit }}**.
 
             When sending notifications via Telegram, alert statuses are additionally [color-coded](../../concepts/alerting/alert.md#alert-statuses).
+
+        To specify [{{ messenger-full-name }}](https://360.yandex.ru/business/messenger/):
+
+        1. In the management console [settings]({{ link-console-main }}/settings), next to **{{ ui-key.yacloud_monitoring.monitoring-alerts-channels.method.ya-chats }}**, click **Configure**.
+        1. Click **{{ ui-key.yacloud_components.settings.label_yandexMessenger-link }}**.
+        1. Add the **Yandex Cloud Notify** bot:
+
+            * To your contacts to send notifications in private messages.
+            * To your chat to send notifications in chats.
+
+        1. Run `/start` and copy the authorization code the bot generates in response.
+        1. In the management console settings, paste the authorization code and click **{{ ui-key.yacloud_components.settings.button_submit }}**.
 
 1. Click **{{ ui-key.yacloud_monitoring.actions.common.create }}**. The channel will appear in the list.
