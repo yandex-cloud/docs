@@ -137,9 +137,6 @@ items:
             href: operations/kubernetes-cluster/kubernetes-cluster-create.md
           - name: Updating a {{ k8s }} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-update.md
-          - name: Creating a namespace in a {{ k8s }} cluster
-            href: >-
-              operations/kubernetes-cluster/kubernetes-cluster-namespace-create.md
           - name: Managing access to a {{ k8s }} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-access.md
           - name: >-
@@ -192,6 +189,21 @@ items:
         items:
           - name: Connecting to the terminal of a running container
             href: operations/kubernetes-console/pod-terminal.md
+          - name: Managing pod allocation to nodes
+            href: operations/kubernetes-console/nodes.md
+          - name: Managing workloads
+            href: operations/kubernetes-console/workloads.md
+          - name: Managing storages
+            href: operations/kubernetes-console/storage.md
+          - name: Managing Service and Ingress resources
+            href: operations/kubernetes-console/network.md
+          - name: Managing ConfigMap and Secret resources
+            href: operations/kubernetes-console/configuration.md
+          - name: Managing {{ k8s }} service accounts
+            href: operations/kubernetes-console/access.md
+          - name: Managing namespaces
+            href: >-
+              operations/kubernetes-cluster/kubernetes-cluster-namespace-create.md
   - name: Tutorials
     items:
       - name: All tutorials
@@ -260,7 +272,7 @@ items:
               Scanning {{ container-registry-name }} for vulnerabilities during
               continuous deployment of applications using {{ GL }}
             href: tutorials/cr-scanner-with-k8s-and-gitlab.md
-          - name: Building a CI/CD pipeline in {{ GL }} with serverless products
+          - name: Building a CI/CD pipeline in {{ GL }} using serverless products
             href: tutorials/ci-cd-serverless.md
       - name: Working with DNS
         items:

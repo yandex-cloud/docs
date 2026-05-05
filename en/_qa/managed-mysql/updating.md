@@ -62,3 +62,15 @@ In a fault-tolerant multi-host cluster, you can switch the master role from the 
 #### How do I restart a host? {#host-reboot}
 
 You cannot restart a separate cluster host. To restart hosts, [stop and restart the cluster](../../managed-mysql/operations/cluster-stop.md).
+
+#### Why do I get an error when stopping the cluster? {#stop-cluster-error}
+
+Error message:
+
+```text
+cluster has no backups. If you want to stop the cluster, make a backup
+```
+
+The error occurs because you can stop an {{ mmy-name }} cluster only if there is at least one backup of the cluster.
+
+**Solution**: Wait until an automatic backup is created or [create a backup manually](../../managed-mysql/operations/cluster-backups.md#create-backup).

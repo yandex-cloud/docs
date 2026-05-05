@@ -29,6 +29,8 @@ description: Следуя данной инструкции, вы сможете
 
 ## Хостинг статического сайта {#hosting}
 
+{% include [static-site-all-redirection-exception](../../../_includes/storage/static-site-all-redirection-exception.md) %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
@@ -108,6 +110,8 @@ description: Следуя данной инструкции, вы сможете
 
        * `error_document` — абсолютный путь к файлу, который будет отображаться пользователю при ошибках 4xx. Необязательный параметр.
 
+        {% include [static-site-error-index](../../../_includes/storage/static-site-error-index.md) %}
+
   1. Создайте ресурсы:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -121,6 +125,10 @@ description: Следуя данной инструкции, вы сможете
 {% endlist %}
 
 ## Переадресация всех запросов {#redirects}
+
+{% include [redirects](../../../_includes/storage/redirects.md) %}
+
+{% include [static-site-all-redirection-exception](../../../_includes/storage/static-site-all-redirection-exception.md) %}
 
 {% list tabs group=instructions %}
 
@@ -431,8 +439,9 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [redirect-https](../../../_includes/storage/redirect-https.md) %}
 
-#### См. также {#see-also}
+### См. также {#see-also}
 
+* [{#T}](../../qa.md#qa-mime-type)
 * [{#T}](own-domain.md)
 * [{#T}](multiple-domains/index.md)
 * [{#T}](certificate.md)

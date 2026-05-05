@@ -46,6 +46,12 @@ When you cancel the lease of a server which has a dedicated public subnet assign
 
 In {{ baremetal-full-name }}, dedicated public subnets are [billable](../pricing.md). The minimum lease period for a dedicated public subnet is one month, so you cannot delete such a subnet during the first month after the order date.
 
+{% note info %}
+
+The default gateway in a dedicated public subnet remains inactive (does not respond to `ping` requests) until at least one server is connected to that public subnet.
+
+{% endnote %}
+
 ## IP address distribution in public subnets {#address-distribution}
 
 {% include [public-subnet-no-dhcp](../../_includes/baremetal/public-subnet-no-dhcp.md) %}
@@ -70,7 +76,7 @@ Within a dedicated public subnet range, IP addresses are distributed as follows:
   * Third to second-last addresses in the range are addresses available for assignment to network interfaces.
   * Last IP address in the range is the [broadcast](https://en.wikipedia.org/wiki/Broadcast_address) (`broadcast`) address.
 
-  Here is an example:
+  For example:
 
   * Subnet CIDR: `198.51.100.104/29`.
   * Network IP address: `198.51.100.104`.

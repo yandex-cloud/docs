@@ -375,7 +375,7 @@ Create test applications and Ingress resource:
      * `ingress.alb.yc.io/prefix-rewrite`: Replace the path with the specified value.
      * `ingress.alb.yc.io/upgrade-types`: Valid values of the `Upgrade` HTTP header, e.g., `websocket`.
      * `ingress.alb.yc.io/request-timeout`: Maximum connection request timeout.
-     * `ingress.alb.yc.io/idle-timeout`: Maximum connection idle timeout.
+     * `ingress.alb.yc.io/idle-timeout`: Maximum connection idle time.
 
        Make sure to provide the `request-timeout` and `idle-timeout` values with units of measurement, e.g., `300ms` or `1.5h`. Acceptable units of measurement include:
        * `ns`, nanoseconds
@@ -495,7 +495,8 @@ Create test applications and Ingress resource:
 
      To follow the process and make sure it is error-free, open the logs of the pod it is run in:
 
-     1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+     1. In the [management console]({{ link-console-main }}), navigate to the folder page.
+     1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
      1. Click the cluster name and select **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** in the left-hand panel.
      1. Select one of the `alb-demo-***` pods the load balancer's creation was run in.
      1. Go to the **{{ ui-key.yacloud.k8s.workloads.label_tab-logs }}** tab on the pod page.
@@ -714,7 +715,7 @@ Create test applications and Ingress resource:
      * `ingress.alb.yc.io/prefix-rewrite`: Replace the path with the specified value.
      * `ingress.alb.yc.io/upgrade-types`: Valid values of the `Upgrade` HTTP header, e.g., `websocket`.
      * `ingress.alb.yc.io/request-timeout`: Maximum connection request timeout.
-     * `ingress.alb.yc.io/idle-timeout`: Maximum connection idle timeout.
+     * `ingress.alb.yc.io/idle-timeout`: Maximum connection idle time.
 
        Make sure to provide the `request-timeout` and `idle-timeout` values with units of measurement, e.g., `300ms` or `1.5h`. Acceptable units of measurement include:
        * `ns`, nanoseconds
@@ -749,7 +750,8 @@ Create test applications and Ingress resource:
 
      To follow the process and make sure it is error-free, open the logs of the pod it is run in:
 
-     1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+     1. In the [management console]({{ link-console-main }}), navigate to the folder page.
+     1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
      1. Click the cluster name and select **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** in the left-hand panel.
      1. Select one of the `alb-demo-***` pods the load balancer's creation was run in.
      1. Go to the **{{ ui-key.yacloud.k8s.workloads.label_tab-logs }}** tab on the pod page.

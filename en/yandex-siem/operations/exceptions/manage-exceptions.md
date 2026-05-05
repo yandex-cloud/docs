@@ -46,7 +46,7 @@ To create an exception from the exceptions section:
   1. Navigate to **{{ ui-key.yacloud_org.security.siem.SiemPageLayout.exceptions }}**.
   1. Click **{{ ui-key.yacloud_org.security.siem.ExceptionsPage.create-exception }}**.
   1. From the list that opens, select the correlation rule you are creating the exception for.
-  1. Under **{{ ui-key.yacloud_org.security.siem.condition_title_gAfRm }}**, add one or more `key = value` pairs for events that should not trigger the rule.
+  1. Under **{{ ui-key.yacloud_org.security.siem.condition_title_gAfRm }}**, add one or more `key = value` pairs that define events which should not trigger the rule.
   1. Under **Parameters**, fill in the required **{{ ui-key.yacloud_org.security.siem.label_name_udzhS }}** field, and, optionally, the **{{ ui-key.yacloud_org.security.siem.label_description_4xXeP }}** field.
   1. Click **{{ ui-key.yacloud_org.siem.SearchActionButtonBlock.save }}**.
 

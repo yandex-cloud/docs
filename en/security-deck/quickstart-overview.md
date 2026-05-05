@@ -49,6 +49,7 @@ To create your first {{ sd-name }} workspace:
 * [{{ kspm-full-name }} ({{ kspm-name }})](#kspm)
 * [{{ ciem-full-name }} ({{ ciem-name }})](#ciem)
 * [{{ cspm-full-name }} ({{ cspm-name }})](#cspm)
+* [{{ td-full-name }} ({{ td-name }})](#td)
 * [{{ vuln-man-name }}](#vulnerability-management)
 * [{{ atr-name }}](#access-transparency)
 * [Compliance Portal](#compliance)
@@ -77,7 +78,11 @@ To get started with the {{ ciem-name }} module, follow the guides for [viewing](
 
 {% include [cspm-basic-intro](../_includes/security-deck/cspm-basic-intro.md) %}
 
-### Managing vulnerabilities {#vulnerability-management}
+### {{ td-full-name }} ({{ td-name }}) {#td}
+
+{% include [td-basic-intro](../_includes/security-deck/td-basic-intro.md) %}
+
+### {{ vuln-man-name }} {#vulnerability-management}
 
 [{{ vuln-man-name }}]({{ link-sd-main }}vulnerability-management/) enables you to centrally manage container image vulnerability scanning and view resource scan results within your workspace. This module supports scanning images from {{ container-registry-name }} and {{ cloud-registry-name }}, and those running in {{ managed-k8s-name }} clusters.
 

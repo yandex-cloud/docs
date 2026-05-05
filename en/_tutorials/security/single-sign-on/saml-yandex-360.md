@@ -74,9 +74,9 @@ Set user attributes for integration with {{ yandex-360 }}:
     1. Navigate to the **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.attributes_to71e }}** tab.
     1. Edit user attributes:
 
-        1. Replace the `emailaddress` attribute with `User.EmailAddress`. Proceed as follows:
+        1. Replace the `emailaddress` attribute with `User.EmailAddress`. Follow these steps:
             1. Click the row with the `emailaddress` attribute.
-            1. In the **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** field, enter `User.EmailAddress`.
+            1. In the **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** field, specify `User.EmailAddress`.
             1. In the **{{ ui-key.yacloud_org.organization.apps.AttributeFormDialogNew.field_attribute_value_dgUAv }}** field, leave `SubjectClaims.email`.
             1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -160,7 +160,7 @@ Add users to the application:
 
 ## Make sure your application works correctly {#validate}
 
-To make sure both your SAML app and {{ yandex-360 }} integration work correctly, authenticate to {{ yandex-360 }} as one of the users you added to the app. Proceed as follows:
+To make sure both your SAML app and {{ yandex-360 }} integration work correctly, authenticate to {{ yandex-360 }} as one of the users you added to the app. Follow these steps:
 
 1. In your browser, go to the {{ yandex-360 }} login page.
 1. If you were logged in to {{ yandex-360 }}, log out.

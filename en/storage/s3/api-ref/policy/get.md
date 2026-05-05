@@ -40,4 +40,10 @@ Data is transmitted in JSON format. For more information, see [{#T}](scheme.md).
 
 For a list of possible responses, see [{#T}](../response-codes.md).
 
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/policy.md)
+
+* [Viewing a policy](../../../operations/buckets/policy.md#view-policy)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

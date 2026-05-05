@@ -67,12 +67,17 @@ In {{ objstorage-name }}, you can [export metadata](../../concepts/s3-inventory.
       Where:
 
       * `--name`: Name of the bucket whose object metadata you want to export.
-      * `--configuration`: Export configuration options:      
+      * `--configuration`: Export configuration options:
         * `id`: Configuration ID. This is a required setting.
         * `is_enabled`: Flag to enable or disable the configuration.
         * `frequency`: Export frequency. This is a required setting. The possible values are:
-          * `DAILY`: Once a day.
-          * `WEEKLY`: Once a week.
+          * `DAILY`: Once a day. The export starts at 03:00 UTC every day.
+          * `WEEKLY`: Once a week. The export starts at 03:00 UTC every Sunday.
+          
+            For example, if you create a configuration with a daily export at 12:00 UTC, the first one will not start until 03:00 UTC the next day.
+          
+            {% include [s3-inventory-schedule-note](../../../_includes/storage/s3-inventory-schedule-note.md) %}
+          
         * `destination`: Information on where and how to publish export results:
           * `bucket`: Name of the bucket for metadata export. The source and target buckets must be in the same [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud). This is a required setting.
           * `format`: Export results format. Only `CSV` is supported. This is a required setting.
@@ -157,7 +162,7 @@ You will get results in multiple files:
     Where:
     
     * `<export_prefix>`: Prefix used for the export.
-    * `<source_bucket_name>`: Name of the source bucket for metadata export.
+    * `<source_bucket_name>`: Name of the bucket to export metadata from.
     * `<configuration_ID>`: Export configuration ID.
     * `<export_date>`: Export date in `YYYY-MM-DDThh:mmZ` format.
 

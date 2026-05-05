@@ -1,6 +1,6 @@
-# Creating backups
+# Create a backup
 
-You can create a backup for any [{{ PG }}](../../concepts/components/postgresql.md) cluster existing in your [project](../projects/create-project.md).
+If you have a [{{ PG }}](../../concepts/components/postgresql.md) cluster in your [project](../projects/create-project.md), you can create a backup for it.
 
 {% list tabs group=instructions %}
 

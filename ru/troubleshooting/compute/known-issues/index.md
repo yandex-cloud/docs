@@ -2,7 +2,6 @@
 
 * [Устранение ошибки `Permission denied` при подключении к виртуальной машине после ее создания средствами {{ TF }}](permission-denied-error-when-connected-as-user-created-from-terraform-manifest.md)
 * [Не поддерживается вложенная виртуализация](nested-virtualisation-is-not-supported.md)
-* [Не удается оформить резервируемое потребление для {{ compute-short-name }}](unable-to-issue-a-new-cvos-position.md)
 * [Нет доступа к ВМ по SSH и ping после обновления cloud-init](no-ssh-access-and-ping-after-cloud-init-update.md)
 * [Восстановление доступа к виртуальной машине с утерянным SSH-ключом](restore-access-to-vm.md)
 * [Устранение ошибки `Not enough resources` при запуске виртуальной машины](not-enough-resources.md)

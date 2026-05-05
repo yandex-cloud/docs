@@ -1,27 +1,27 @@
-# Updating a VM with a {{ coi }}
+# Updating a {{ coi }} VM
 
-Change the Docker container settings on the VM created from a [{{ coi }}](../../cos/concepts/index.md).
+Change the Docker container settings on the VM you created from a [{{ coi }}](../../cos/concepts/index.md).
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder the VM was created in.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-  1. Click the row with the VM to update.
-  1. Click **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}** in the top panel.
-  1. Change the parameters in the **{{ ui-key.yacloud.compute.instances.create.section_coi }}** section.
+  1. In the [management console]({{ link-console-main }}), select the folder where you created the VM.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. Click the row with the VM you want to update.
+  1. In the top panel, click **{{ ui-key.yacloud.compute.instance.overview.button_action-edit }}**
+  1. Modify the **{{ ui-key.yacloud.compute.instances.create.section_coi }}** section as required.
   1. Click **{{ ui-key.yacloud.compute.instance.edit.button_update }}**.
 
 - CLI {#cli}
 
-  1. View a description of the CLI command for updating VMs:
+  1. View the description of the CLI command for updating VMs:
 
      ```bash
      yc compute instance update-container --help
      ```
 
-  1. Get the unique ID of the VM. To do this, click the row with its name under **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** in the [management console]({{ link-console-main }}) or use this CLI command:
+  1. Get the unique VM ID. To do this, click the row with the VM name under **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** in the [management console]({{ link-console-main }}) or use this CLI command:
 
      ```bash
      yc compute instance list
@@ -39,12 +39,12 @@ Change the Docker container settings on the VM created from a [{{ coi }}](../../
 
   1. Update the VM.
 
-     Depending on how the VM was created, there are several ways to update it:
+     Depending on how you created the VM, there are several ways to update it:
 
-     Creation method | Update using<br>`--container-image` | Update using<br>`--docker-compose-file`
+     Creation method | Update the VM using<br>`--container-image` | Update the VM using<br>`--docker-compose-file`
      --- | --- | ---
-     Using the `--container-*` parameters | The old Docker container is deleted and a new one is created. | The old Docker container is deleted and new Docker containers are created (described in the docker-compose.yaml file).
-     Using the docker-compose.yaml file specification | The old Docker containers (described in docker-compose.yaml) are deleted and a new Docker container is created, described with the help of the `--container-*` parameters.| Only new Docker containers (those added to the docker-compose.yaml file) or modified Docker containers are created. The Docker containers missing from the new docker-compose.yaml file are deleted.
+     Using the `--container-*` parameters | The system deletes the old Docker container and creates a new one. | The system deletes the old Docker container  and creates new containers as per the docker-compose.yaml file.
+     Using the docker-compose.yaml file specification | The system deletes the old Docker containers as per `docker-compose.yaml` and creates a new container described using the `--container-*` parameters.| The system only creates either new Docker containers, i.e., those added to docker-compose.yaml, or modified containers. The system deletes the Docker containers missing from the new docker-compose.yaml file.
     
      * Update the VM by setting new parameters:
 
@@ -85,7 +85,7 @@ Change the Docker container settings on the VM created from a [{{ coi }}](../../
        yc compute instance update-container epdbf646ge5q******** --docker-compose-file=<path_to_file>
        ```
 
-       Where `--docker-compose-file` is the path to the file with the Docker container specification.
+       Where `--docker-compose-file` is the path to the Docker container spec file.
 
        Result:
 

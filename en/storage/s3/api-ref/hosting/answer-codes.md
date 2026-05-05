@@ -12,4 +12,8 @@ Code | Description
 `500 Service Error` | Internal error in {{ objstorage-name }}.
 `503 Service Unavailable` | The load on the service is too high. You need to reduce your request rate.
 
+#### Related articles {#related-articles}
+
+* [{#T}](../../../operations/hosting/setup.md)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

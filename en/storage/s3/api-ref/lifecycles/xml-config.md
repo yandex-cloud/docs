@@ -117,4 +117,8 @@ The rule below applies to all objects uploaded to the bucket as follows:
 </LifecycleConfiguration>
 ```
 
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/lifecycles.md)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

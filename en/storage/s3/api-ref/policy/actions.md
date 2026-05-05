@@ -36,4 +36,8 @@ Action | Description
 `s3:PutObjectAcl` | Gives the permission to set the specified object ACL.
 `s3:PutObjectVersionAcl` | Gives the permission to set the specified object version's ACL.
 
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/policy.md)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

@@ -1,8 +1,6 @@
 # Yandex Metrica: data export, post-processing, and visualization
 
 
-{% include [serverless-deprecation-note](../../_includes/datasphere/serverless-deprecation-note.md) %}
-
 In this tutorial, you will learn how to build conversion funnels, run cohort analysis, calculate the Retention rate for the user base in {{ ml-platform-full-name }}, and visualize the data in {{ datalens-full-name }}.
 
 Yandex Metrica data is used as the data source.
@@ -66,7 +64,7 @@ The cost of the infrastructure deployment includes:
 ### 1.1. Enable {{ CH }} {#ch-connection}
 
 1. In the [management console]({{ link-console-main }}), select a folder to create a {{ CH }} cluster in.
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 1. In the window that opens, click **{{ ui-key.yacloud.clickhouse.button_create-cluster }}**.
 1. Configure your {{ CH }} cluster:
    1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, specify a name for the cluster.
@@ -86,7 +84,6 @@ The cost of the infrastructure deployment includes:
         * **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}**
         * **Access from the management console**
         * **{{ ui-key.yacloud.mdb.forms.additional-field-metrika }}**
-        * **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}**
    1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 ### 1.2. Enable {{ ml-platform-short-name }} {#datasphere-connection}
@@ -95,7 +92,7 @@ The cost of the infrastructure deployment includes:
 1. In the left-hand panel, select ![image](../../_assets/console-icons/circles-concentric.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
 1. Select the community where you want to create a project.
 1. On the community page, click ![image](../../_assets/console-icons/folder-plus.svg) **{{ ui-key.yc-ui-datasphere.projects.create-project }}**.
-1. In the window that opens, enter a name for the project. You can also add a description as needed. Follow these naming requirements:
+1. In the window that opens, enter a name for the project. You can also add a description as needed. The naming requirements are as follows:
 
    {% include [name-format](../../_includes/name-format.md) %}
 

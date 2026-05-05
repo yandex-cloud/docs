@@ -16,7 +16,7 @@
 
 * [Why cannot I connect to cluster hosts?](#host-error)
 
-* [Why cannot I stop a cluster?](#stop-cluster)
+* [Why do I get an error when stopping the cluster?](#stop-cluster-error)
 
 * [Why do I get a `max_connections is less than sum of users connection limit` error when changing a cluster?](#max-connections-error)
 
@@ -36,4 +36,4 @@
 
 * [Why do I get an error when trying to install multiple extensions in the CLI?](#cli-extensions-errors)
 
-* [Why do I get the `could not open extension control file "<path_to_extension>/vector.control": No such file or directory` error when accessing the `vector` extension?](#vector-error)
+* [Why do I get the `could not open extension control file "<extension_path>/vector.control": No such file or directory` error when accessing the `vector` extension?](#vector-error)

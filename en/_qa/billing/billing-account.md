@@ -18,12 +18,20 @@ To get a billing account's ID:
 
 You cannot change your billing account [type](../../billing/concepts/billing-account.md#ba-types) once it is created, but you can [create a new account](../../billing/operations/create-new-account.md) of the type you need.
 
-#### I have created a new business billing account, but it is blocked. Why? {#blocked-account}
+#### I have created a new business billing account, but it is suspended. Why? {#blocked-account}
 
 Most likely, you had previously created a business billing account for which a trial period was activated. Your billing account gets the initial grant as part of the trial period. As the initial grant can only be issued to one billing account, you cannot use the trial period after you register a new account. As a result, your new billing account gets `SUSPENDED`.
-To unblock your new billing account, [upgrade to the paid version](../../billing/operations/activate-commercial.md) and [top up your personal account](../../billing/operations/pay-the-bill.md) to the minimum amount. You can check the minimum amount in the **{{ ui-key.yacloud_billing.billing.account.dashboard.button_refill }}** window.
+To reactivate your new billing account, [upgrade to the paid version](../../billing/operations/activate-commercial.md) and [top up your personal account](../../billing/operations/pay-the-bill.md) to the minimum amount. You can check the minimum amount in the **{{ ui-key.yacloud_billing.billing.account.dashboard.button_refill }}** window.
 
-#### I received no email with instructions on what to do after creating a billing account. Why? {#account-notification}
+#### How do I reactivate a billing account suspended due to suspicious activity? {#verification-payment}
+
+If your billing account was suspended due to suspicious activity, you need to make a verification payment. [Top up your personal account](../../billing/operations/pay-the-bill.md) to the minimum amount required for your {{ yandex-cloud }} billing currency.
+
+Once your [initial grant](../../billing/concepts/bonus-account.md#start) expires, you can use these funds to continue using your cloud resources. After you reactivate your account, [your personal account funds](../../billing/payment/index.md) will not be used for payment until the initial grant is fully spent or expires.
+
+To request a full or partial refund of any positive balance in your account, contact [support]({{ link-console-support }}) and specify the refund amount.
+
+#### I received no email with instructions on what to do after creating a billing account. Why?{#account-notification}
 
 If you select the **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_invoice }}** payment method or if the payer is a non-resident of Russia and Kazakhstan, further instructions will be emailed to you at the address specified in your Yandex or Yandex 360 account. You can also get that email after you select **{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_card }}** for payment method if your new billing account requires verification. Once your documents and credentials are verified, you can activate your billing account and start using {{ yandex-cloud }}.
 If you still get no email, inquire at [{{ billing-docs-email }}](mailto:{{ billing-docs-email }}).

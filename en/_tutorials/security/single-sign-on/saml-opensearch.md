@@ -66,7 +66,7 @@ To configure {{ mos-name }} integration with the SAML app you created in {{ org-
     To set up a {{ org-full-name }} authentication source:
 
     1. In the [management console]({{ link-console-main }}), select a folder.
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.opensearch.auth.section_auth }}** tab.
     1. Click **{{ ui-key.yacloud.opensearch.auth.button_settings }}**.
     1. Specify the required values for these settings:
@@ -136,7 +136,7 @@ To configure {{ mos-name }} integration with the SAML app you created in {{ org-
 
 #### Add a user groups attribute {#group-attribute}
 
-{{ OS }} users have to get one of the basic roles upon login. For this to work, the {{ org-full-name }} authentication source must provide in its SAML response a list of user groups that will have roles mapped in {{ OS }}. Proceed as follows:
+{{ OS }} users have to get one of the basic roles upon login. For this to work, the {{ org-full-name }} authentication source must provide in its SAML response a list of user groups that will have roles mapped in {{ OS }}. Follow these steps:
 
 {% list tabs group=instructions %}
 
@@ -197,7 +197,7 @@ Users and groups added to a SAML application can be managed by a user with the `
 
 ## Make sure your application works correctly {#validate}
 
-To make sure both your SAML app and {{ mos-name }} integration work correctly, authenticate to {{ OS }} Dashboards as one of the users you added to the app. Proceed as follows:
+To make sure both your SAML app and {{ mos-name }} integration work correctly, authenticate to {{ OS }} Dashboards as one of the users you added to the app. Follow these steps:
 
 1. In your browser, navigate to the address of your {{ OS }} Dashboards instance.
 1. If logged in to {{ OS }} Dashboards, log out.

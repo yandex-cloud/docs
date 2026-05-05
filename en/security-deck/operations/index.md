@@ -33,7 +33,13 @@ description: In this article, you will learn how to work with {{ sd-name }} in {
 ## {{ cspm-full-name }} ({{ cspm-name }}) {#cspm}
 
 * [{#T}](./cspm/view-rules.md).
+* [{#T}](./cspm/check-compliance.md).
 * [{#T}](./cspm/manage-exceptions.md).
+
+## {{ td-full-name }} ({{ td-name }}) {#td}
+
+* [{#T}](./td/view-rules.md).
+* [{#T}](./td/manage-exceptions.md).
 
 ## {{ ciem-full-name }} ({{ ciem-name }}) {#ciem}
 

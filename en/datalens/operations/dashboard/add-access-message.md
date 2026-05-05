@@ -13,8 +13,12 @@ To add a dashboard [access error message](../../dashboard/settings.md#message-se
 
 1. In the left-hand panel, click ![image](../../../_assets/console-icons/layout-cells-large.svg) **Dashboards** and select the dashboard you need. If you do not have a dashboard, [create one](../dashboard/create.md).
 1. In the top-right corner, click **Edit**.
-1. Click ![image](../../../_assets/console-icons/gear.svg) at the top of the screen.
-1. In **Other settings**, next to the **Access error message** field, click **Configure**.
+
+
+1. Click ![image](../../../_assets/console-icons/gear.svg) at the top of the screen. The settings window will open on the right.
+1. In the **Other settings** section, next to the **Access error message** field, click ![image](../../../_assets/console-icons/pencil.svg).
+
+
 1. Enter the message text and click **Save**.
 
    {% note info %}
@@ -23,7 +27,7 @@ To add a dashboard [access error message](../../dashboard/settings.md#message-se
 
    {% endnote %}
 
-1. In the **Settings** window, click **Save**.
+
 1. In the top-right corner, click **Save**.
 
 Now, if the user has no dashboard view permission, they will see the saved message.

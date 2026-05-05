@@ -56,6 +56,8 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
+       {% include [local-ssd-steal](../../_includes/mdb/mpg/note-local-ssd-disk.md) %}
+
      * Select the storage capacity for your data and backups. For more information on how backups take up storage space, see [Backups](../concepts/backup.md).
 
      
@@ -220,6 +222,8 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      * `environment`: Environment, `prestable` or `production`.
      * `disk-type`: Disk type.
+
+        {% include [local-ssd-steal](../../_includes/mdb/mpg/note-local-ssd-disk.md) %}
 
      
      * `assign-public-ip`: Allow access to the host from the internet, `true` or `false`.

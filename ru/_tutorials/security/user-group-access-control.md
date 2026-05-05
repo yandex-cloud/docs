@@ -8,7 +8,7 @@
 
 В рамках руководства вы создадите тестовую организацию, в которой будут созданы два [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud) — `production` и `testing`, соответствующие независимым друг от друга продуктовой и тестовой средам разработки. Этими облаками будут пользоваться три группы пользователей, созданные в организации: группа инженеров по информационной безопасности (`security`), группа инженеров DevOps (`devops`) и группа разработчиков (`developers`).
 
-Каждой из групп пользователей будет назначен свой набор [ролей](../../iam/concepts/access-control/roles.md), соответствующий объему задач, выполняемых пользователями-участниками этих групп. Так, инженерам по информационной безопасности во всей организации будут предоставлены права на получение информации обо всех ресурсах, настройку сбора и хранения [аудитных логов](../../audit-trails/concepts/trail.md) любых ресурсов, а также настройку и выполнение сканирования [Docker-образов](../../container-registry/concepts/docker-image.md) в [реестрах](../../container-registry/concepts/registry.md) {{ container-registry-full-name }}. 
+Каждой из групп пользователей будет назначен свой набор [ролей](../../iam/concepts/access-control/roles.md), соответствующий объему задач, выполняемых пользователями-участниками этих групп. Так, инженерам по информационной безопасности во всей организации будут предоставлены права на получение информации обо всех ресурсах, настройку сбора и хранения [аудитных логов](../../audit-trails/concepts/trail.md) любых ресурсов, а также настройку и выполнение сканирования [Docker-образов](../../container-registry/concepts/docker-image.md) в [реестрах](../../container-registry/concepts/registry.md) {{ container-registry-full-name }}.
 
 Кроме того, для группы инженеров по информационной безопасности в продуктовой среде будет создан отдельный [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder) `security`, в котором у участников этой группы будут права администратора и в котором они смогут управлять любыми необходимыми им ресурсами и доступом к ним.
 
@@ -16,7 +16,7 @@
 
 Группе разработчиков будут предоставлены следующие права доступа:
 * в продуктовой среде на скачивание Docker-образов из реестров {{ container-registry-name }}, просмотр информации о кластерах {{ k8s }}, подключение к виртуальным машинам {{ compute-name }} через [{{ oslogin }}](../../organization/concepts/os-login.md), а также на просмотр информации о ресурсах и [метриках](../../monitoring/concepts/data-model.md#metric) сервиса {{ monitoring-name }};
-* в тестовой среде на скачивание и загрузку Docker-образов в реестры {{ container-registry-name }}, управление кластерами {{ k8s }}, подключение к виртуальным машинам {{ compute-name }} через {{ oslogin }} от имени суперпользователя, а также на управление ресурсами сервиса {{ monitoring-name }}. 
+* в тестовой среде на скачивание и загрузку Docker-образов в реестры {{ container-registry-name }}, управление кластерами {{ k8s }}, подключение к виртуальным машинам {{ compute-name }} через {{ oslogin }} от имени суперпользователя, а также на управление ресурсами сервиса {{ monitoring-name }}.
 
 Чтобы настроить разграничение прав доступа к ресурсам организации с помощью групп пользователей:
 
@@ -239,8 +239,8 @@
 * скачивать и загружать Docker-образы в реестры {{ container-registry-name }} в тестовой среде ([роль](../../container-registry/security/index.md#container-registry-images-pusher) `container-registry.images.pusher` на облако `testing`);
 * просматривать информацию о кластерах {{ k8s }} в продуктовой среде ([роль](../../managed-kubernetes/security/index.md#k8s-viewer) `k8s.viewer` на облако `production`);
 * управлять кластерами {{ k8s }} в тестовой среде ([роль](../../managed-kubernetes/security/index.md#k8s-editor) `k8s.editor` и [роль](../../managed-kubernetes/security/index.md#k8s-cluster-api-editor) `k8s.cluster-api.editor` на облако `testing`);
-* подключаться к виртуальным машинам {{ compute-name }} через [{{ oslogin }}](../../organization/concepts/os-login.md) в продуктовой среде ([роль](../../compute/security/index.md#compute-oslogin) `compute.osLogin` на облако `production`);
-* подключаться к виртуальным машинам {{ compute-name }} через {{ oslogin }} от имени суперпользователя в тестовой среде ([роль](../../compute/security/index.md#compute-osadminlogin) `compute.osAdminLogin` на облако `testing`);
+* подключаться к виртуальным машинам {{ compute-name }} через [{{ oslogin }}](../../organization/concepts/os-login.md) в продуктовой среде ([роль](../../compute/security/index.md#compute-oslogin) `compute.osLogin`, [роль](../../resource-manager/security/index.md#resource-manager-auditor) `resource-manager.auditor` или выше на облако `production`);
+* подключаться к виртуальным машинам {{ compute-name }} через {{ oslogin }} от имени суперпользователя в тестовой среде ([роль](../../compute/security/index.md#compute-osadminlogin) `compute.osAdminLogin`, [роль](../../resource-manager/security/index.md#resource-manager-auditor) `resource-manager.auditor` или выше на облако `testing`);
 * просматривать информацию о ресурсах и [метриках](../../monitoring/concepts/data-model.md#metric) {{ monitoring-name }} в продуктовой среде ([роль](../../monitoring/security/index.md#monitoring-viewer) `monitoring.viewer` на облако `production`);
 * управлять ресурсами сервиса {{ monitoring-name }} в тестовой среде ([роль](../../monitoring/security/index.md#monitoring-editor) `monitoring.editor` на облако `testing`).
 
@@ -254,9 +254,9 @@
   1. В верхней части экрана перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**. В открывшемся окне:
 
       1. Перейдите на вкладку **{{ ui-key.yacloud_org.pages.groups }}** и выберите группу `developers`.
-      1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}**, найдите и выберите роли `container-registry.images.puller`, `k8s.viewer`, `compute.osLogin` и `monitoring.viewer`.
+      1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}**, найдите и выберите роли `container-registry.images.puller`, `k8s.viewer`, `compute.osLogin`, `monitoring.viewer` и `resource-manager.auditor`.
       1. Нажмите **{{ ui-key.yacloud.common.save }}**.
-  1. Аналогичным образом назначьте группе пользователей `developers` роли `container-registry.images.pusher`, `k8s.editor`, `k8s.cluster-api.editor`, `compute.osAdminLogin` и `monitoring.editor` на облако `testing`.
+  1. Аналогичным образом назначьте группе пользователей `developers` роли `container-registry.images.pusher`, `k8s.editor`, `k8s.cluster-api.editor`, `compute.osAdminLogin`, `monitoring.editor` и `resource-manager.auditor` на облако `testing`.
 
 {% endlist %}
 

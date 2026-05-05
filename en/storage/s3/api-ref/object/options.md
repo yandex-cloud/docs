@@ -50,4 +50,10 @@ The method returns the following:
 
 For a detailed description of response codes, see [{#T}](../response-codes.md).
 
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/object.md)
+
+* [{#T}](../../../operations/buckets/cors.md)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

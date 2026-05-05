@@ -64,9 +64,9 @@ Provide the list of keys to delete in XML format.
 
 Tag | Description
 ----- | -----
-`Delete` | It contains the response body.<br/><br/>Path: `/Delete`.
-`Quiet` | `<Quiet>true</Quiet>`enables <q>quiet</q> mode.<br/><br/>{{ objstorage-name }} will only include deletion errors in the response. If there are no errors, the request will not return the response body. If the specified object does not exist when requested, `Deleted` will be returned.<br/><br/>If the tag is not specified, the default value is `false`.<br/><br/>Path: `/Delete/Quiet`.
-`Object` | It contains object deletion parameters.<br/><br/>Path: `/Delete/Object`.
+`Delete` | Contains the response body.<br/><br/>Path: `/Delete`.
+`Quiet` | `<Quiet>true</Quiet>` enables <q>quiet</q> mode.<br/><br/>{{ objstorage-name }} will only include deletion errors in the response. If there are no errors, the request will not return the response body. If the specified object does not exist when requested, `Deleted` will be returned.<br/><br/>If the tag is not specified, the default values is `false`.<br/><br/>Path: `/Delete/Quiet`.
+`Object` | Contains object deletion parameters.<br/><br/>Path: `/Delete/Object`.
 `Key` | Object key.<br/><br/>Path: `/Delete/Object/Key`.
 
 
@@ -101,10 +101,16 @@ A successful response contains additional data in XML format with the schema des
 Tag | Description
 ----- | -----
 `DeleteResult` | Response body.<br/><br/>Path: `/DeleteResult`.
-`Deleted` | Successfully deleted object.<br/><br/>Teh tag is missing if the request was set to `<Quiet>true</Quiet>`.<br/><br/>Path: `/DeleteResult/Deleted`.
+`Deleted` | Successfully deleted object.<br/><br/>The tag is missing if the request was set to `<Quiet>true</Quiet>`.<br/><br/>Path: `/DeleteResult/Deleted`.
 `Key` | Object key.<br/><br/>Path: `/DeleteResult/Deleted/Key` or `/DeleteResult/Error/Key`.
-`Error` | Object deletion error.<br/><br/>Path: `/DeleteResult/Error`.
+`Error` | Error deleting an object.<br/><br/>Path: `/DeleteResult/Error`.
 `Code` | Error code.<br/>Path: `/DeleteResult/Error/Code`.
 `Message` | Error description.<br/>Path: `/DeleteResult/Error/Message`.
+
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/object.md)
+
+* [{#T}](../../../operations/objects/delete-all.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

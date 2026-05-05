@@ -21,6 +21,8 @@
 
     * `error` — абсолютный путь к файлу, который будет отображаться пользователю при ошибках 4xx.
 
+      {% include [static-site-error-index](static-site-error-index.md) %}
+
 1. Выполните следующую команду:
 
     ```bash

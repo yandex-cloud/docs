@@ -7,6 +7,7 @@ description: Следуя данной инструкции, вы сможете
 
 {{ objstorage-name }} позволяет управлять [конфигурацией CORS](../../concepts/cors.md) в бакете.
 
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

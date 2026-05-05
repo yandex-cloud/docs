@@ -56,4 +56,12 @@ Element | Description
 `Days` | <p>Default retention period in days since the object version upload. It must be a positive integer.</p><p>Path: `ObjectLockConfiguration\Rule\DefaultRetention\Days`.</p>
 `Years` | <p>Default retention period in years since the object version upload. It must be a positive integer.</p><p>Path: `ObjectLockConfiguration\Rule\DefaultRetention\Years`.</p>
 
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/bucket.md)
+
+* [Object lock](../../../concepts/object-lock.md)
+
+* [Managing object locks in a bucket](../../../operations/buckets/configure-object-lock.md)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

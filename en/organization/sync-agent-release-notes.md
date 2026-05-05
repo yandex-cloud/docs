@@ -7,11 +7,30 @@ description: This page presents a list of sync agent releases and the updates of
 
 ## Current version {#latest-release}
 
+### Version 0.42.0 (09/04/26) {#version0.42.0}
+
+#### Changes to {{ org-sync-agent-name }} {#changes-version0.42.0}
+
+* Added the `objectSid` property for matching in the `EmployeeId` field.
+
+{% cut "Checksums" %}
+
+| Platform   | Checksum (sha-256) |
+|-------------|-----------------------------|
+| `linux/amd64` | `6225fc50b5bbca21a6fdd76cd0f77cd781d8076ede647dc4ba98cca7e1e155bf` |
+| `linux/arm64` | `f4daf49e3d550d1b0440a1b5520e6421c6a0a54f13401d7782165d9fb348ec38` |
+| `darwin/amd64` | `222eabfa71abcd22799014985fb549597e78a026741e6ddc0a325b50ef3c3bb3` |
+| `darwin/arm64` | `e342b4f27f8a7e500aaa50e0c9b49969a59e3481ce459d76ce6bbff2bedeebe7` |
+| `windows/amd64` | `f0500c2d927a8f2effdb1d5368e87fee42f5d185d58251637050b60de9d5535c` |
+| `windows/arm64` | `48a1e396058ff6ce757fda9e0d1c65e34d64232c317067a0c9b161f6e90c55a9` |
+
+{% endcut %}
+
 ### Version 0.41.0 (13/03/26) {#version0.41.0}
 
 #### Changes to {{ org-sync-agent-name }} {#changes-version0.41.0}
 
-* During full synchronization, the list of group members covered by the filter is obtained via LDAP.
+* During full synchronization, the list of group members that fall under the filter is obtained via LDAP.
 
 {% cut "Checksums" %}
 

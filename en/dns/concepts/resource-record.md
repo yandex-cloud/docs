@@ -11,6 +11,7 @@ A resource record is the main unit of information in a DNS. Using resource recor
 * Type of writes.
 * Record time to live (TTL) in seconds before updating the record value.
 * Record value.
+* Record set description.
 
 {% note warning %}
 
@@ -129,7 +130,7 @@ Do not use an `ANAME` resource record with domain names for [{{ cdn-full-name }}
 
 A record consists of two parts:
 
-* `PREFERENCE`: 16-bit integer representing the host priority. The lower the value, the more preferred the host is.
+* `PREFERENCE`: 16-bit integer setting the host priority. A lower value means higher priority.
 * `EXCHANGE`: FQDN of the email processing host in the specified zone. This field value must point to an A or AAAA record.
 
 | Name          | Type | TTL | Value                   |
@@ -170,11 +171,11 @@ For more information about PTR records, see [RFC-1035](https://www.ietf.org/rfc/
 
 It consists of the following parts:
 
-* `MNAME`: Domain name of the server in charge of the zone. Default:
+* `MNAME`: Domain name of the server in charge of the zone. The default value is
     * `ns.internal.` for private zones.
     * `ns1.{{ dns-ns-host-sld }}.` for public zones.
 * `RNAME`: Domain name of the mail server in charge of the zone. The default value is `{{ dns-mx-host }}.`.
-* `SERIAL`: Unsigned 32-bit integer pointing to a zone copy number. When synchronizing data between DNS servers, the value in the `SERIAL` field is checked. The larger the value, the more recent the data. The default value is `1`.
+* `SERIAL`: Unsigned 32-bit integer pointing to a zone copy number. When synchronizing data between DNS servers, the value in the `SERIAL` field is checked. The higher the value, the more recent the data. The default value is `1`.
 
     {% note warning %}
 
@@ -201,7 +202,7 @@ For more information about SOA records, see [RFC-1035](https://www.ietf.org/rfc/
 
 It consists of the following parts:
 
-* `Priority`: 16-bit unsigned integer representing the host priority. The lower the value, the more preferred the host is.
+* `Priority`: 16-bit unsigned integer representing the host priority. A lower value means higher priority.
 * `Weight`: 16-bit unsigned integer representing the weight of hosts of the same priority. The closer the value is to 0, the less likely it is that this host will be selected. If the service operates on one host only, set the field to `0`.
 * `Port`: 16-bit unsigned integer for the port the service is using.
 * `Target`: FQDN of the host the service is on.
@@ -276,7 +277,7 @@ TXT record implementation in {{ dns-full-name }} has the following special featu
 
 * The service supports a single TXT record.
 
-* A TXT record may not exceed 1,024 characters in length.
+* TXT records have a maximum length of 1024 characters.
 
 * A TXT record can store multiple values. Enclose each one in double quotes (`""`) as needed.
 

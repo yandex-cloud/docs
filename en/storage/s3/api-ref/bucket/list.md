@@ -49,4 +49,10 @@ Element | Description
 `ListAllMyBucketsResult` | Root element of the response.<br/><br/>Path: `/ListAllMyBucketsResult`.
 `Name` | Bucket name.<br/><br/>Path: `/ListAllMyBucketsResult/Buckets/Bucket/Name`.
 
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/bucket.md)
+
+* [{#T}](../../../operations/buckets/get-list.md)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}
