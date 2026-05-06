@@ -4,4 +4,4 @@ To connect your [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/c
 
 Once it is installed, you can connect your [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) to a [{{ GL }} instance](../../managed-gitlab/concepts/index.md#instance).
 
-For more information about installing and running {{ GLA }}, see the [{{ GL }} documentation](https://docs.gitlab.com/ee/user/clusters/agent/).
+For more information about installing and running {{ GLA }}, see [this {{ GL }} article](https://docs.gitlab.com/ee/user/clusters/agent/).

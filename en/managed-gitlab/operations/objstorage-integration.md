@@ -1,6 +1,6 @@
 ---
 title: Integration with {{ objstorage-name }} in {{ mgl-full-name }}
-description: Follow this guide to turn on storing {{ GL }} data in {{ objstorage-name }}.
+description: Follow this guide to enable storing {{ GL }} data in {{ objstorage-name }}.
 ---
 
 # Integration with {{ objstorage-name }}
@@ -11,7 +11,7 @@ Integration with {{ objstorage-name }} allows you to reduce the amount of data o
 
 You can learn more about integration with {{ objstorage-name }} [here](../concepts/s3-integration.md).
 
-## Viewing the list of data stored in {{ objstorage-name }} {#objstorage-list}
+## Viewing a list of data stored in {{ objstorage-name }} {#objstorage-list}
 
 {% list tabs group=instructions %}
 
@@ -22,7 +22,7 @@ You can learn more about integration with {{ objstorage-name }} [here](../concep
 
 {% endlist %}
 
-## Turning on storing data in {{ objstorage-name }} {#enable-objstorage}
+## Enabling storing data in {{ objstorage-name }} {#enable-objstorage}
 
 {% include [objstorage-disable-note](../../_includes/managed-gitlab/objstorage-disable-note.md) %}
 

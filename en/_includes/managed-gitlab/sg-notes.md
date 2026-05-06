@@ -1,6 +1,6 @@
-If you do not specify a separate security group, the [default security group](../../vpc/concepts/security-groups.md#default-security-group) created in the instance network will be used.
+If you do not specify a separate security group, the [default security group](../../vpc/concepts/security-groups.md#default-security-group) created in the instance network will apply.
 
-[Configure](../../managed-gitlab/operations/configure-security-group.md) your security group so that the rules allow incoming and outgoing traffic from the relevant ports and IP addresses.
+[Configure](../../managed-gitlab/operations/configure-security-group.md) your security group so that its rules allow incoming and outgoing traffic on the specified ports and IP addresses.
       
 {% note warning %}
 

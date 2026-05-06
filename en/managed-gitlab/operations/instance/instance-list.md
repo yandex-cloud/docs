@@ -1,9 +1,9 @@
 ---
 title: How to get information about {{ mgl-full-name }} instances
-description: In this tutorial, you will learn how to get a list of {{ mgl-name }} instances and information about them.
+description: In this guide, you will learn how to get a list of {{ mgl-name }} instances and information about them.
 ---
 
-# Getting instance info
+# Getting information about instances
 
 You can get detailed information about each [{{ GL }} instance](../../concepts/index.md#instance) you created in {{ yandex-cloud }}.
 
@@ -67,7 +67,7 @@ Instance details include:
 
 - Management console {#console}
 
-  1. In the management console, select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the {{ GL }} instance is located.
+  1. In the management console, select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing your {{ GL }} instance.
   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. Click the instance name.
 
@@ -116,13 +116,13 @@ Instance details include:
     * `disk_size`: Disk size.
     * `status`: Instance status. Learn more about possible statuses [here](monitoring.md#statuses).
     * `admin_login`: Administrator login.
-    * `admin_email`: Administrator email.
+    * `admin_email`: Administrator email address.
     * `domain`: Instance address on the internet.
     * `subnet_id`: [Subnet](../../../vpc/concepts/network.md#subnet) ID.
-    * `backup_retain_period_days`: Backup retention in days.
+    * `backup_retain_period_days`: Backup retention period, in days.
     * `maintenance_delete_untagged`: Enables deletion of untagged images during maintenance. The possible values are `true` or `false`.
     * `deletion_protection`: Instance protection from accidental deletion by a user. The possible values are `true` or `false`.
-    * `approval_rules_id`: Approval rules. [Learn more about supported rule configurations](../../concepts/approval-rules.md#packages).
+    * `approval_rules_id`: Approval rules. Learn more about supported rule configurations [here](../../concepts/approval-rules.md#packages).
     * `gitlab_version`: {{ GL }} version.
 
     You can request the instance name and ID with the [list of instances in the folder](instance-list.md#list).
@@ -156,7 +156,7 @@ Instance details include:
       * `output "instance_domain"`: Output variable that contains information about the domain:
          * `value`: Return value.
 
-     You can replace `domain` with any other parameter to get the information you need. For more information about the `gitlab_instance` data source properties, see [this {{ TF }} provider article]({{ tf-provider-datasources-link }}/gitlab_instance).
+     You can replace `domain` with any other parameter to get the information you need. For more information about the `gitlab_instance` data source properties, see [this {{ TF }} provider guide]({{ tf-provider-datasources-link }}/gitlab_instance).
 
   1. Apply the configuration:
 
@@ -182,7 +182,7 @@ Instance details include:
 
 ## Viewing a list of operations in an instance {#list-operations}
 
-The list shows operations with instances and resources linked to them.
+The operation list shows operations with instances and related resources.
 
 All actions with {{ mgl-name }} instances are logged as a list of operations. Each operation gets its own unique ID.
 
@@ -192,7 +192,7 @@ All actions with {{ mgl-name }} instances are logged as a list of operations. Ea
 
   To get a list of operations for a specific instance:
 
-  1. In the [management console]({{ link-console-main }}), open the folder containing your cluster.
+  1. In the [management console]({{ link-console-main }}), open the folder containing the cluster.
   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.gitlab.switch_instances }}**.
   1. Select the instance you need.
@@ -204,7 +204,7 @@ All actions with {{ mgl-name }} instances are logged as a list of operations. Ea
 
 ## Getting operation details {#get-operation-info}
 
-1. [Get a list of operations](#list-operations) for an instance.
+1. [Get the list of operations](#list-operations) for the instance.
 1. Copy the ID of the operation you need.
 1. Get operation details:
 

@@ -1,6 +1,6 @@
 ---
 title: '{{ TF }} reference for {{ mgl-full-name }}'
-description: This page describes the {{ TF }} provider’s resources and data sources supported by {{ mgl-name }}.
+description: This page lists the {{ TF }} provider resources and data sources supported by {{ mgl-name }}.
 ---
 
 # {{ TF }} reference for {{ mgl-full-name }}
@@ -21,4 +21,4 @@ description: This page describes the {{ TF }} provider’s resources and data so
 
 | **{{ TF }} data source** | **Description** |
 | --- | --- |
-| [yandex_gitlab_instance]({{ tf-provider-datasources-link }}/gitlab_instance) | Information about the [{{ GL }} instance](./concepts/index.md#instance) |
+| [yandex_gitlab_instance]({{ tf-provider-datasources-link }}/gitlab_instance) | [{{ GL }} instance](./concepts/index.md#instance) information |

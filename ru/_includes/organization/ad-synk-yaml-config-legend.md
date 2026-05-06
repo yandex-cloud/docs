@@ -34,6 +34,10 @@
 
         Чтобы агент мог получать IAM-токены, он должен быть установлен на виртуальной машине {{ compute-full-name }}, к которой подключен сервисный аккаунт с [необходимыми](../../organization/concepts/ad-sync.md#yc-setup) правами доступа.
     * `false` — агент синхронизации не будет получать IAM-токены, а аутентификация в API {{ yandex-cloud }} будет выполняться с помощью авторизационного ключа, заданного в параметре `cloud_credentials_file_path`.
+* `dry_run` — настройки [тестового запуска](../../organization/concepts/ad-sync.md#dry-run) агента (dry run):
+
+    * `enabled: true` — активирован режим dry run. Агент не вносит изменения в данные пользователей и групп {{ org-full-name }}. Вместо этого он тестирует выполнение всех предусмотренных конфигурацией агента операций и сохраняет результаты этих тестов в [логах](../../organization/concepts/ad-sync.md#logging) его работы.
+    * `enabled: false` — агент функционирует в рабочем режиме, необходимые изменения вносятся в данные пользователей и групп {{ org-full-name }}.
 * `drsr` — настройки протокола [DRSR](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-drsr/) для аутентификации на стороне {{ microsoft-idp.ad-short }} [пользователя](#dc-setup) с назначенными правами на выполнение репликации данных в каталоге.
 * `ldap` — настройки протокола [LDAPS](https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/enable-ldap-over-ssl-3rd-certification-authority)/[LDAP](https://learn.microsoft.com/en-us/windows/win32/api/_ldap/) для аутентификации на стороне {{ microsoft-idp.ad-short }}:
 

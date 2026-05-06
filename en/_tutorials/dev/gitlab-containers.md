@@ -1,6 +1,6 @@
 
 
-[{{ GL }}](https://about.gitlab.com/) is a tool for Continuous integration (CI).
+[{{ GL }}](https://about.gitlab.com/) is a tool for continuous integration (CI).
 
 This tutorial describes:
 * Building an application into a Docker container.
@@ -311,7 +311,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
    - Manually {#manual}
 
      1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-     1. [Delete the {{ container-registry-name }} registry](../../container-registry/operations/registry/registry-delete.md).
+     1. [Delete the {{ container-registry-name }}](../../container-registry/operations/registry/registry-delete.md).
      1. [Delete the created subnets](../../vpc/operations/subnet-delete.md) and [networks](../../vpc/operations/network-delete.md).
      1. [Delete the created service accounts](../../iam/operations/sa/delete.md).
 

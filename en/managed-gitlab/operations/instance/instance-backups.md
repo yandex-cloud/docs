@@ -25,8 +25,8 @@ You can [back up](../../concepts/backup.md) your instances manually.
 
 {% endlist %}
 
-## Restoring instances from backups {#restore}
+## Restoring an instance from a backup {#restore}
 
-To restore an instance from a backup, contact [technical support]({{ link-console-support }}).
+To restore an instance from a backup, contact [support]({{ link-console-support }}).
 
-You can restore a deleted instance in the same way. When you delete one, the system automatically creates its [backup](../../concepts/backup.md) which is stored for two weeks.
+You can recover a deleted instance in the same way. When you delete an instance, the system automatically creates its [backup](../../concepts/backup.md) which is stored for two weeks.

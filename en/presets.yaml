@@ -4835,6 +4835,7 @@ default:
           title_password_policy: Password policy
           title_personal-info: Personal information
           title_userpool_members: Users
+          title_userpool_overview: Overview
           UserpoolOverviewPage:
             action_set_password_policy_aaDns: Set password policy
           UserpoolPageLayout:
@@ -5648,6 +5649,7 @@ default:
         action_reboot-server: Reboot
         action_reinstall-server-os: Re-install
         action_reinstall-server-os-menu: Re-install OS
+        action_server-prolongate-ended-rent: Recover
         action_stop-prolongation-server: Disable autorenewal
         action_stop-prolongation-server-dialog: Disable
         actions_add-partition: Add partition
@@ -5705,6 +5707,9 @@ default:
         label_subnetworks_uU4LH: Private subnets
         label_vrf-interconnect-direct-type: Connection ID
         label_vrf-interconnect-select-type: Setup method
+        message_confirm-server-prolongate-ended-rent: >-
+          The time spent by the server in quarantine is paid after the server is
+          restored from quarantine.
         private-subnets:
           fields:
             vlan_jew8J: VLAN

@@ -40,23 +40,23 @@
     ```
 
     Where:
-    * `--name`: Instance name, unique within {{ yandex-cloud }}. The naming requirements are as follows:
+    * `--name`: Instance name, unique within {{ yandex-cloud }}. Follow these naming requirements:
 
       {% include [name-format](../name-format.md) %}
 
-    * `--resource-preset-id`: Host class. Represents the configuration of the virtual machine to host the {{ GL }} instance. The possible values are:
+    * `--resource-preset-id`: Host class. It determines the configuration of the VM to host the {{ GL }} instance. The possible values are:
       * `s2.micro`: 2 vCPUs, 8 GB RAM
       * `s2.small`: 4 vCPUs, 16 GB RAM
       * `s2.medium`: 8 vCPUs, 32 GB RAM
       * `s2.large`: 16 vCPUs, 64 GB RAM
-    * `--disk-size`: Disk size in GB.
+    * `--disk-size`: Disk size, in GB.
     * `--admin-login`: {{ GL }} instance admin login.
     * `--admin-email`: Instance admin email address. This is the address to receive the email with a link to create a password.
     * `--domain-prefix`: [Instance domain name](../../compute/concepts/network.md#hostname). The system will automatically create the relevant DNS records for it in the `.gitlab.yandexcloud.net` domain.
 
       {% include [domain-name-format](domain-name-format.md) %}
 
-    * `--deletion-protection`: Instance protection against accidental deletion by the user.
+    * `--deletion-protection`: Instance protection against accidental deletion by users.
     * `--approval-rules`: [Approval rule](../../managed-gitlab/concepts/approval-rules.md) configuration. The possible values are:
       * `BASIC`
       * `STANDARD`

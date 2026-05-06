@@ -1,1 +1,1 @@
-The `managed-mysql.clusters.connector` enables Yandex Cloud [users](../../../iam/concepts/users/accounts.md) to connect to databases in [MySQL® clusters](../../../managed-mysql/concepts/index.md) via [Yandex Identity and Access Management](../../../iam/index.yaml).
+The `managed-mysql.clusters.connector` enables {{ yandex-cloud }} [users](../../../iam/concepts/users/accounts.md) to connect to databases in [{{ MY }} clusters](../../../managed-mysql/concepts/index.md) via [{{ iam-full-name }}](../../../iam/index.yaml).
