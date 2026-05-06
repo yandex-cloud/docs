@@ -23,18 +23,17 @@ Roles for a resource can be assigned by users who have one of the following role
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
+{% include [siem](../../_mermaid/roles/siem.md) %}
+
 ### Service roles {#service-roles}
 
-#### ycem.editor {#ycem-editor}
+#### ycem.inspector {#ycem-inspector}
 
-The `ycem.editor` role grants full access to the {{ yandex-siem-full-name }} features:
+{% include [ycem-inspector](../../_roles/ycem/inspector.md) %}
 
-* Viewing investigations and query results.
-* Creating, editing, and deleting investigations.
-* Creating and running queries.
-* Working with templates.
-* Managing access permissions.
-* Configuring a {{ yandex-siem-full-name }} instance.
+#### ycem.executor {#ycem-executor}
+
+{% include [ycem-executor](../../_roles/ycem/executor.md) %}
 
 ### Primitive roles {#primitive-roles}
 

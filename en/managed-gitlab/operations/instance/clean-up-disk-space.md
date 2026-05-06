@@ -1,16 +1,16 @@
 # Cleaning up full instance disk space
 
-A {{ GL }} instance can run out of disk space. This is indicated by the `500 Internal Server Error` HTTP status code. In which case you will not be able to access the {{ GL }} instance.
+A {{ GL }} instance can run out of disk space. This is indicated by the `500 Internal Server Error` HTTP status code. In this case, you will not be able to sign in to the {{ GL }} instance.
 
-You can [increase the instance disk space yourself](instance-update.md).
+You can [increase the instance disk space](instance-update.md) on your own.
 
-To reduce the probability of running out of disk space in future:
+To prevent disk space from filling up in the future:
 
-* Clean up the [instance disk space](#manual-cleanup) manually at regular intervals.
+* Regularly clean up the [instance disk space](#manual-cleanup) manually.
 * Periodically [delete irrelevant pipelines](#pipeline-cleanup).
 * [Configure disk space cleanup policies](#set-cleanup-policy).
 
-You can also set up alerts for the **Data disk** chart in [monitoring](./monitoring.md#monitoring-integration).
+You can also set up alerts for the **Data disk** chart in [Monitoring](./monitoring.md#monitoring-integration).
 
 ## Clean up the instance disk space {#manual-cleanup}
 
@@ -19,13 +19,13 @@ You can also set up alerts for the **Data disk** chart in [monitoring](./monitor
 
 ## Delete obsolete pipelines {#pipeline-cleanup}
 
-Pipelines create jobs, which in turn generate logs. The longer and more actively you use a {{ GL }} instance, the more disk space you need to store logs. To free up space, you can [delete unnecessary pipelines]({{ gl.docs }}/ci/pipelines/#delete-a-pipeline), thus also deleting jobs and their logs.
+Pipelines create jobs, which in turn generate logs. The longer and more actively you use a {{ GL }} instance, the more disk space you need to store logs. To free up space, you can [delete irrelevant pipelines]({{ gl.docs }}/ci/pipelines/#delete-a-pipeline), thus also deleting jobs with their logs.
 
-With the {{ GL }} web interface, you can only delete one pipeline at a time. To bulk delete unnecessary pipelines and their logs, use a script:
+In the {{ GL }} web UI, you can only delete one pipeline at a time. To bulk delete irrelevant pipelines and their logs, use the following script:
 
 {% note warning %}
 
-Once you run it, the script will immediately permanently bulk delete the pipelines and all associated data such as jobs, logs, artifacts, and triggers. You cannot undo this action.
+Once you run it, the script will immediately permanently bulk delete the pipelines and all associated data, such as jobs, logs, artifacts, and triggers. You cannot undo this action.
 
 {% endnote %}
 
@@ -55,8 +55,8 @@ done
 ```
 
 Where:
-* `TOKEN`: [{{ GL }} token]({{ gl.docs }}/user/profile/personal_access_tokens/) of the user with the Owner role in the project. 
-* `PER_PAGE`: Number of pipelines to delete per request. You can delete a maximum of 100 records at a time. If you have more, you will need to run the script several times.
+* `TOKEN`: [{{ GL }} token]({{ gl.docs }}/user/profile/personal_access_tokens/) of the user with the `Owner` role in the project. 
+* `PER_PAGE`: Number of pipelines to delete per request. You can delete a maximum of 100 pipelines at a time. If you have more, you will need to run the script several times.
 * `UPDATED_BEFORE`: Upper limit of the update date in `YYYY-MM-DD` format. The script will delete all pipelines updated prior to this date.
 * `GITLAB_URL`: {{ GL }} instance FQDN.
 
@@ -64,6 +64,6 @@ Where:
 
 You can use any of the following options:
 
-* [Set the expiration time for job artifacts]({{ gl.docs }}/ee/administration/settings/continuous_integration.html#default-artifacts-expiration) at the instance level. Its default value is 30 days.
-* [Create and enable a tag cleanup policy]({{ gl.docs }}/ee/user/packages/container_registry/reduce_container_registry_storage.html#create-a-cleanup-policy) for separate projects utilizing {{ GL }} Container Registry.
-* If you are using a [{{ container-registry-full-name }} integration](../../tutorials/image-storage.md), create and configure a [Docker image cleanup policy](../../../container-registry/concepts/lifecycle-policy.md) for {{ container-registry-full-name }}.
+* [Set the expiration time for build artifacts]({{ gl.docs }}/ee/administration/settings/continuous_integration.html#default-artifacts-expiration) at the instance level. By default, it is 30 days.
+* [Create and enable a tag cleanup policy]({{ gl.docs }}/ee/user/packages/container_registry/reduce_container_registry_storage.html#create-a-cleanup-policy) for individual projects using {{ GL }} Container Registry.
+* If you are using the [{{ container-registry-full-name }} integration](../../tutorials/image-storage.md), set up a [Docker image cleanup policy](../../../container-registry/concepts/lifecycle-policy.md) within {{ container-registry-full-name }}.

@@ -4835,6 +4835,7 @@ default:
           title_password_policy: Парольная политика
           title_personal-info: Персональная информация
           title_userpool_members: Пользователи
+          title_userpool_overview: Обзор
           UserpoolOverviewPage:
             action_set_password_policy_aaDns: Настроить политику
           UserpoolPageLayout:
@@ -5650,6 +5651,7 @@ default:
         action_reboot-server: Перезагрузить
         action_reinstall-server-os: Переустановить
         action_reinstall-server-os-menu: Переустановить ОС
+        action_server-prolongate-ended-rent: Восстановить
         action_stop-prolongation-server: Выключить автопродление
         action_stop-prolongation-server-dialog: Выключить
         actions_add-partition: Добавить раздел
@@ -5707,6 +5709,9 @@ default:
         label_subnetworks_uU4LH: Приватные подсети
         label_vrf-interconnect-direct-type: Идентификатор соединения
         label_vrf-interconnect-select-type: Способ настройки
+        message_confirm-server-prolongate-ended-rent: >-
+          Время нахождения сервера в карантине оплачивается после восстановления
+          сервера из карантина.
         private-subnets:
           fields:
             vlan_jew8J: VLAN

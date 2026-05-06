@@ -1,23 +1,23 @@
 ## Create a test application {#app-create}
 
 Create a test application that can be deployed in a [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster):
-1. Add a `Dockerfile` to the project:
+1. Add a `Dockerfile` to your project:
    1. Log in to {{ GL }}.
    1. Open the {{ GL }} project.
    1. Click ![image](../../_assets/console-icons/plus.svg) in the repository navigation bar and select **New file** from the drop-down menu.
-   1. Name the file as `Dockerfile` and add the following code to it:
+   1. Name the file `Dockerfile` and add the following code to it:
 
       ```Dockerfile
       FROM alpine:3.10
       CMD echo "Hello"
       ```
 
-   1. Add a comment to the commit in the **Commit message** field: `Dockerfile for test application`.
+   1. Add a comment in the **Commit message** field: `Dockerfile for test application`.
    1. Click **Commit changes**.
-1. Add the manifest for creating {{ managed-k8s-name }} cluster resources to the project:
+1. Add a manifest for creating {{ managed-k8s-name }} cluster resources to your project:
    1. Open the {{ GL }} project.
    1. Click ![image](../../_assets/console-icons/plus.svg) in the repository navigation bar and select **New file** from the drop-down menu.
-   1. Name the file as `k8s.yaml`:
+   1. Name your file `k8s.yaml`:
 
       {% cut "k8s.yaml" %}
 
@@ -51,5 +51,5 @@ Create a test application that can be deployed in a [{{ managed-k8s-full-name }}
 
       {% endcut %}
 
-   1. Add a comment to the commit in the **Commit message** field: `Docker image deployment config`.
+   1. Add a comment in the **Commit message** field: `Docker image deployment config`.
    1. Click **Commit changes**.

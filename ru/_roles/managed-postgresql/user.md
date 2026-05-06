@@ -1,1 +1,1 @@
-Роль `managed-postgresql.user` позволяет использовать [кластеры PostgreSQL](../../managed-postgresql/concepts/index.md).
+Роль `managed-postgresql.user` позволяет использовать [кластеры {{ PG }}](../../managed-postgresql/concepts/index.md).

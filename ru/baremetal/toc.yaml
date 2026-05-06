@@ -28,6 +28,8 @@ items:
             href: operations/servers/server-stop-and-start.md
           - name: Отказаться от аренды сервера
             href: operations/servers/server-lease-cancel.md
+          - name: Восстановить сервер из карантина
+            href: operations/servers/restore-from-quarantine.md
           - name: Загрузить свой образ ОС
             href: operations/image-upload.md
           - name: >-

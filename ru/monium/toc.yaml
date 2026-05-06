@@ -235,6 +235,8 @@ items:
             href: logs/concepts/ttl.md
       - name: Метрики логов
         href: logs/logs-metrics.md
+      - name: Ограничения
+        href: logs/limits.md
   - name: Трейсы
     items:
       - name: Начало работы

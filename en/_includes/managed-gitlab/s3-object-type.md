@@ -1,4 +1,4 @@
-* `Artifacts`: Archives of files and job folders.
+* `Artifacts`: Archives of job files and folders.
 * `External diff files`: Files with version diffs in merge requests.
 * `Attached files`: User files.
 * `Git LFS`: [Large file storage](https://git-lfs.com/).

@@ -1,7 +1,7 @@
 To add the load testing invocation from {{ GL }} CI:
 1. [Get your cloud ready](#before-begin).
 1. [Set up your infrastructure](#infrastructure-prepare).
-1. [Prepare a file with test data](#test-file).
+1. [Create a file with test data](#test-file).
 1. [Create {{ GL }} environment variables](#add-variables).
 1. [Add the load testing stage to the CI scenario configuration file](#add-loadtesting-ci).
 
@@ -36,9 +36,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 [Create and configure a NAT gateway](../../vpc/operations/create-nat-gateway.md) in the subnet hosting your test target and where the agent will reside. This will enable the agent to access {{ load-testing-name }}.
 
-### Configure the security group {#security-group-setup}
+### Set up a security group {#security-group-setup}
 
-Configure the test agent security group:
+Set up a test agent security group:
 
 {% include [security-groups-agent](../../_includes/load-testing/security-groups-agent.md) %}
 
@@ -46,7 +46,7 @@ Configure the test agent security group:
 
 In this tutorial, we will use an application with the `51.250.103.44` [public IP address](../../vpc/concepts/address#public-addresses) as the test target. For an example of building a CI/CD pipeline in {{ GL }}, see [this article](../../tutorials/serverless/ci-cd-serverless).
 
-## Prepare a file with test data {#test-file}
+## Create a file with test data {#test-file}
 
 1. Generate test data in [HTTP_JSON](../../load-testing/concepts/payloads/http-json.md) format:
 
@@ -58,10 +58,10 @@ In this tutorial, we will use an application with the `51.250.103.44` [public IP
    * `host`: `Host` header value.
    * `method`: HTTP request method.
    * `uri`: Request URI.
-   * `tag`: Request tag for use in reports.
+   * `tag`: Request tag to show in reports.
    * `headers`: Request headers.
 
-You can also use the [Dispatcher](../../load-testing/operations/payload-dispatcher) tool to prepare test data.
+You can also use [Dispatcher](../../load-testing/operations/payload-dispatcher) to prepare test data.
 
 1. Save the test data to a file named `httpjson.payload`.
 1. [Create](../../storage/operations/buckets/create.md) a bucket and [upload](../../storage/operations/objects/upload.md) the test data file into it.
@@ -76,23 +76,23 @@ You can also use the [Dispatcher](../../load-testing/operations/payload-dispatch
 
 ## Create {{ GL }} environment variables {#add-variables}
 
-1. In {{ GL }}, navigate to **Settings** in the left-hand panel and select **CI/CD** from the drop-down list.
+1. In {{ GL }}, navigate to **Settings** in the left-hand panel and select **CI/CD** from the pop-up list.
 1. Click **Expand** next to **Variables**.
 1. Add environment variables with the protection option disabled:
    * `SERVICE_ACCOUNT_ID`: `sa-loadtest` service account ID.
    * `SA_AUTHORIZED_KEY`: Contents of the authorized key for the `sa-loadtest` service account.
    * `SECURITY_GROUP_ID`: Test agent's `agent-sg` security group ID.
    * `SUBNET_ID`: ID of the subnet to host the test agent.
-   * `ZONE`: Availability zone to host the test agent, e.g.,`ru-central1-a`.
-   * `YC_FOLDER_ID`: ID of the folder to host the resources.
+   * `ZONE`: Availability zone where the test agent will reside, e.g.,`ru-central1-a`.
+   * `YC_FOLDER_ID`: ID of the folder for the resources.
 
    To add a variable:
    1. Click **Add variable**.
-   1. In the window that opens, specify the variable name in the **Key** field and its value in the **Value** field.
-   1. Disable the **Protect variable** option.
+   1. In the window that opens, specify a variable name in the **Key** field and its value in the **Value** field.
+   1. Disable **Protect variable**.
    1. Click **Add variable**.
 
-## Add the load testing stage to the CI scenario configuration file {#add-loadtesting-ci}
+## Add a load testing stage to the CI pipeline configuration file {#add-loadtesting-ci}
 
 1. Add the `test-config.yaml` load testing configuration file to your project repository in {{ GL }}:
 
@@ -132,12 +132,12 @@ You can also use the [Dispatcher](../../load-testing/operations/payload-dispatch
       enabled: true
       package: yandextank.plugins.Autostop
       autostop:
-         - limit(5m) # Required parameter
+         - limit(5m) # Required
          - quantile(50,100,5,)
    core: {}
    ```
 
-   In the `target` field, enter the address of your application. This testing configuration will generate a [linear load](../../load-testing/concepts/load-profile) from 0 to 500 requests per second for 60 seconds. The [autostop](../../load-testing/concepts/auto-stop) criterion is also configured. This criterion will stop the test if the 50th percentile exceeds 100 milliseconds for 5 seconds.
+   In the `target` field, enter the address of your application. This testing configuration will generate a [linear load](../../load-testing/concepts/load-profile) from 0 to 500 requests per second over 60 seconds. The [autostop](../../load-testing/concepts/auto-stop) criterion is also configured. This criterion will stop the test if the 50th percentile exceeds 100 milliseconds for 5 seconds.
 
 1. Add the load testing stage to the `.gitlab-ci.yml` file after deploying the application:
   
@@ -156,7 +156,7 @@ You can also use the [Dispatcher](../../load-testing/operations/payload-dispatch
          paths:
             - agent_id.txt
       before_script:
-         # Installing tools.
+         # Installing tools
          - sudo apt-get install -y jq
          - curl --fail --silent --location --remote-name https://storage.yandexcloud.net/yandexcloud-yc/install.sh
          - sudo bash install.sh -i /usr/local/yandex-cloud -n
@@ -203,13 +203,13 @@ You can also use the [Dispatcher](../../load-testing/operations/payload-dispatch
          - rm agent_id.txt
    ```
 
-   During the stage described here, the script will create a test agent, run the test, and check the test result. The result evaluation is based on the 50th percentile. If it exceeds 100 ms, the stage will terminate with an error.
+   At this stage, the script will create a test agent, run the test, and verify the test results. The result evaluation is based on the 50th percentile. If it exceeds 100 ms, the stage will terminate with an error.
 
-   After you save the `.gitlab-ci.yml` configuration file, the build scenario will start.
+   After you save the `.gitlab-ci.yml` configuration file, the build pipeline will start.
 
    You can view the test results in more detail in the management console:
       1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
-      1. In the left-hand panel, select ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**.
+      1. In the left-hand panel, select ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**.
       1. Select the test you created and navigate to the **{{ ui-key.yacloud.load-testing.label_test-report }}** tab.
 
    You can use any connection logic for this stage:
@@ -222,10 +222,10 @@ You can also use the [Dispatcher](../../load-testing/operations/payload-dispatch
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete the service accounts](../../iam/operations/sa/delete.md).
 1. [Delete the {{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md).
-1. Make sure that the test agent created by the script was deleted. You can [delete the agent](../../compute/operations/vm-control/vm-delete.md) manually.
+1. Make sure to delete the test agent created by the script. You can [delete the agent](../../compute/operations/vm-control/vm-delete.md) manually.
 1. [Delete the route table](../../vpc/operations/delete-route-table.md).
 1. [Delete the NAT gateway](../../vpc/operations/delete-nat-gateway.md).

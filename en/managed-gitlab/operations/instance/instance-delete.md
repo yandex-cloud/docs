@@ -11,7 +11,7 @@ If the instance has deletion protection enabled, [disable](instance-update.md) i
 
 - Management console {#console}
 
-  1. In the management console, select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to delete a [{{ GL }} instance](../../concepts/index.md#instance) from.
+  1. In the management console, select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to delete a [{{ GL }} instance](../../concepts/index.md#instance).
   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) for the instance and select **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
@@ -46,7 +46,7 @@ If the instance has deletion protection enabled, [disable](instance-update.md) i
 
   To delete a {{ GL }} instance created using {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and delete the fragment with the `yandex_gitlab_instance` resource description:
+  1. Open the {{ TF }} configuration file and delete the section describing the `yandex_gitlab_instance` resource:
 
      Example of a {{ GL }} instance description in the {{ TF }} configuration:
 
@@ -69,7 +69,7 @@ If the instance has deletion protection enabled, [disable](instance-update.md) i
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check the updates in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
+  You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
   ```bash
   {{ yc-mdb-gl }} instance list
@@ -81,4 +81,4 @@ If the instance has deletion protection enabled, [disable](instance-update.md) i
 
 {% endlist %}
 
-If you have deleted a {{ GL }} instance but want to restore it, contact [support]({{ link-console-support }}). When you delete an instance, the system automatically creates its [backup](../../concepts/backup.md) which is stored for two weeks.
+If you have deleted a {{ GL }} instance but want to recover it, contact [support]({{ link-console-support }}). When you delete an instance, the system automatically creates its [backup](../../concepts/backup.md) which is stored for two weeks.

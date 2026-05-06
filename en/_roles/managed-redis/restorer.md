@@ -1,15 +1,16 @@
-The `managed-redis.restorer` role enables restoring Valkey™ clusters from backups, viewing info on Valkey™ hosts, clusters, and their logs, as well as on quotas and resource operations.
+
+The `managed-redis.restorer` role enables restoring {{ VLK }} clusters from backups, viewing info on {{ VLK }} hosts, clusters, and their logs, as well as on quotas and resource operations.
 
 Users with this role can:
-* View info on Valkey™ cluster [backups](../../managed-valkey/concepts/backup.md) and restore [clusters](../../managed-valkey/concepts/index.md) from backups.
-* View info on Valkey™ clusters and [access permissions](../../iam/concepts/access-control/index.md) granted for them.
-* View info on [maintenance](../../managed-valkey/concepts/maintenance.md) tasks for Valkey™ clusters.
-* View info on Valkey™ cluster [hosts](../../managed-valkey/concepts/instance-types.md).
-* View info on Valkey™ cluster [shards](../../managed-valkey/concepts/sharding.md).
-* View [info](../../managed-valkey/operations/user-list.md) on Valkey™ users.
-* View info on Valkey™ alerts.
-* View Valkey™ cluster logs.
-* View info on [quotas](../../managed-valkey/concepts/limits.md#mrd-quotas) for Yandex Managed Service for Valkey™.
-* View info on resource operations for Yandex Managed Service for Valkey™.
+* View info on {{ VLK }} cluster [backups](../../managed-valkey/concepts/backup.md) and restore [clusters](../../managed-valkey/concepts/index.md) from backups.
+* View info on {{ VLK }} clusters and [access permissions](../../iam/concepts/access-control/index.md) granted for them.
+* View info on [maintenance](../../managed-valkey/concepts/maintenance.md) tasks for {{ VLK }} clusters.
+* View info on {{ VLK }} cluster [hosts](../../managed-valkey/concepts/instance-types.md).
+* View info on {{ VLK }} cluster [shards](../../managed-valkey/concepts/sharding.md).
+* View [info](../../managed-valkey/operations/user-list.md) on {{ VLK }} users.
+* View info on {{ VLK }} alerts.
+* View {{ VLK }} cluster logs.
+* View info on [quotas](../../managed-valkey/concepts/limits.md#mrd-quotas) for {{ mrd-full-name }}.
+* View info on resource operations for {{ mrd-full-name }}.
 
 This role includes the `managed-redis.viewer` permissions.
