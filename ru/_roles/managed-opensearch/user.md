@@ -1,1 +1,1 @@
-Роль `managed-opensearch.user` позволяет использовать [кластеры OpenSearch](../../managed-opensearch/concepts/index.md).
+Роль `managed-opensearch.user` позволяет использовать [кластеры {{ OS }}](../../managed-opensearch/concepts/index.md).

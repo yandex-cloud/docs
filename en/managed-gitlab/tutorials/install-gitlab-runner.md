@@ -1,6 +1,6 @@
 ---
-title: How to deploy {{ GLR }} on a {{ compute-full-name }} virtual machine
-description: In this tutorial, you will deploy {{ GLR }} on a {{ compute-name }} virtual machine.
+title: How to deploy a{{ GLR }} on a {{ compute-full-name }} virtual machine
+description: In this guide, you will deploy {{ GLR }} on a {{ compute-name }} virtual machine.
 canonical: '{{ link-docs }}/tutorials/dev/install-gitlab-runner'
 ---
 

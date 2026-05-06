@@ -1,8 +1,8 @@
 # Setting up OmniAuth
 
-With [OmniAuth](https://rubygems.org/gems/omniauth/), users can get authorized in {{ GL }} using credentials from other services.
+With [OmniAuth](https://rubygems.org/gems/omniauth/), users can sign in to {{ GL }} using credentials from other services.
 
-To integrate an authentication provider for {{ GL }} via OmniAuth, [add your authentication provider](#add-provider) and specify its [parameters](#params).
+To integrate an authentication provider for {{ GL }} via OmniAuth, [add your provider](#add-provider) and specify its [settings](#params).
 
 ## Adding an authentication provider {#add-provider}
 
@@ -10,22 +10,22 @@ To integrate an authentication provider for {{ GL }} via OmniAuth, [add your aut
 1. Click the instance name and select the **{{ ui-key.yacloud.gitlab.title_omniauth }}** tab.
 1. Click **{{ ui-key.yacloud.gitlab.button_setup-omniauth }}**.
 1. To add an authentication provider, click **Add**.
-1. Select a type and specify the [authentication provider parameters](#params).
+1. Select a type and specify the [authentication provider settings](#params).
 1. Click **{{ ui-key.yacloud.common.create }}**.
 
-For more information about working with OmniAuth in {{ GL }}, see the [{{ GL }} documentation]({{ gl.docs }}/ee/integration/omniauth.html).
+For more information about using OmniAuth in {{ GL }}, see [this {{ GL }} article]({{ gl.docs }}/ee/integration/omniauth.html).
 
-## Authentication provider parameters {#params}
+## Authentication provider settings {#params}
 
-Some parameters are common to all providers:
+Some settings are shared across all providers:
 
-* **Allow single sign on**: Allow using SSO. If set to `true`, when a user who has not singed up with {{ GL }} authenticates through OmniAuth, an account in {{ GL }} will be automatically created for them.
-* **Auto link users by email**: Map the username in OmniAuth to that in {{ GL }} if they have the same email address linked.
-* **Block auto-created users**: Automatically switch the created accounts to [Pending approval]({{ gl.docs }}/ee/administration/moderate_users.html#users-pending-approval) until they get approved by an administrator.
-* **External provider**: Set the _external_ attribute for the provider. Users authorized through this provider will be treated as [external]({{ gl.docs }}/ee/user/admin_area/external_users.html) and will have no access to [internal projects]({{ gl.docs }}/ee/user/public_access.html#internal-projects-and-groups).
-* **Auto link LDAP user**: Create an LDAP entity for automatically created accounts. This parameter only applies to instances with an LDAP provider connected.
+* **Allow single sign on**: Enables SSO. If you set it to `true`, {{ GL }} automatically creates an account for a user signing in through OmniAuth who does not yet have a {{ GL }} account.
+* **Auto link users by email**: Maps the username in OmniAuth to that in {{ GL }} if both share the same email address.
+* **Block auto-created users**: Automatically marks the created accounts as [Pending approval]({{ gl.docs }}/ee/administration/moderate_users.html#users-pending-approval) until approved by an administrator.
+* **External provider**: Sets the _external_ attribute for the provider. Users authenticated through this provider will be treated as [external]({{ gl.docs }}/ee/user/admin_area/external_users.html) and will have no access to [internal projects]({{ gl.docs }}/ee/user/public_access.html#internal-projects-and-groups).
+* **Auto link LDAP user**: Creates an LDAP entity for automatically created accounts. This setting only applies to instances with an LDAP provider.
 
-Other parameters depend on the selected provider type.
+Other settings depend on the provider type you select.
 
 ### Bitbucket Cloud {#bitbucket}
 
@@ -57,76 +57,76 @@ You can learn how to obtain an app ID and secret key in [this guide]({{ gl.docs 
 
 {% note info %}
 
-To work with {{ GL }}, the Keycloak server should use HTTPS.
+To work with {{ GL }}, make sure your Keycloak server uses HTTPS.
 
 {% endnote %}
 
-* **Label**: Name of the authentication provider. Specify any name.
-* **Issuer**: Authorization source URL, such as `https://keycloak.example.com/realms/myrealm`.
-* **Client ID**: Client ID received when setting up Keycloak.
-* **Client secret**: Client secret key received when setting up Keycloak.
+* **Label**: Name of the authentication provider. You can set any name.
+* **Issuer**: Authentication source URL, such as `https://keycloak.example.com/realms/myrealm`.
+* **Client ID**: Client ID obtained when configuring Keycloak.
+* **Client Secret**: Client secret key obtained when configuring Keycloak.
 * **Site**: Link to the {{ GL }} repository.
 
 ### LDAP {#ldap}
 
 {% note warning %}
 
-Before setting up LDAP integration, make sure the users on the LDAP server cannot:
+Before setting up LDAP integration, make sure users on the LDAP server cannot:
 
-* Change the `mail`, `email`, and `userPrincipalName` attributes. Users with privileges like this can potentially access any account on the {{ GL }} server.
+* Change the `mail`, `email`, and `userPrincipalName` attributes. Users with these privileges could potentially access any account on the {{ GL }} server.
 * Have a shared email address. LDAP users with a shared email address can use the same account in {{ GL }}.
 
 {% endnote %}
 
-* **Name**: Username displayed in LDAP. It may not include spaces or punctuation marks.
-* **Label**: LDAP server name. Specify any name.
-* **Host**: LDAP server IP or domain name.
-* **DB_PORT**: LDAP server connection port.
+* **Name**: Displayed user name in LDAP. It may not include spaces or punctuation marks.
+* **Label**: LDAP server name. You can set any name.
+* **Host**: LDAP server IP address or domain name.
+* **Port**: LDAP server connection port.
 * **Username ID**: User ID in LDAP.
 * **Encryption**: Traffic encryption method.
-* **Base**: Name of the LDAP folder that stores user accounts.
-* **Bind DN**: (Optional) Unique username (DN) in LDAP.
-* **User Filter**: (Optional) User filter in LDAP in [RFC-4515](https://www.rfc-editor.org/rfc/rfc4515.html) format.
+* **Base**: Name of the LDAP directory that stores user accounts.
+* **Bind DN**: Unique distinguished name (DN) of a user in LDAP. This is an optional setting.
+* **User Filter**: LDAP user filter in [RFC-4515](https://www.rfc-editor.org/rfc/rfc4515.html) format. This is an optional setting.
 
-Refer to the [{{ GL }}]({{ gl.docs }}/ee/administration/auth/ldap/#configure-ldap) documentation to learn how to configure the LDAP server to work with {{ GL }}.
+To learn how to configure an LDAP server to work with {{ GL }}, see [this {{ GL }} guide]({{ gl.docs }}/ee/administration/auth/ldap/#configure-ldap).
 
 ### {{ microsoft-idp.entra-id-full }} {#azure-ad}
 
-* **Label**: Name of the authentication provider. Specify any name.
-* **Client ID**: Client ID received when registering an application.
-* **Client Secret**: Client secret key received when registering an application.
-* **Tenant ID**: Tenant ID received when registering an application.
+* **Label**: Name of the authentication provider. You can set any name.
+* **Client ID**: Client ID obtained when registering the application.
+* **Client Secret**: Client secret key obtained when registering the application.
+* **Tenant ID**: Tenant ID obtained when registering the application.
 
-Refer to the [{{ GL }}]({{ gl.docs }}/ee/integration/azure.html#register-an-azure-application) documentation to learn how to register an application on the Azure side.
+To learn how to register an application on the Azure side, see [this {{ GL }} article]({{ gl.docs }}/ee/integration/azure.html#register-an-azure-application).
 
 ### Microsoft Azure OAuth 2 {#azure-oauth}
 
-* **Label**: Name of the authentication provider. Specify any name.
-* **Client ID**: Client ID received when registering an application.
-* **Client Secret**: Client secret key received when registering an application.
-* **Tenant ID**: Tenant ID received when registering an application.
+* **Label**: Name of the authentication provider. You can set any name.
+* **Client ID**: Client ID obtained when registering the application.
+* **Client Secret**: Client secret key obtained when registering the application.
+* **Tenant ID**: Tenant ID obtained when registering the application.
 
-Refer to the [{{ GL }}]({{ gl.docs }}/ee/integration/azure.html#register-an-azure-application) documentation to learn how to register an application on the Azure side.
+To learn how to register an application on the Azure side, see [this {{ GL }} article]({{ gl.docs }}/ee/integration/azure.html#register-an-azure-application).
 
 ### SAML {#saml}
 
-* **Label**: Name of the authentication provider. Specify any name.
+* **Label**: Name of the authentication provider. You can set any name.
 * **Assertion consumer service URL**: HTTPS endpoint of the {{ GL }} instance. To create this URL, add `/users/auth/saml/callback` to your {{ GL }} instance URL, such as `https://example.gitlab.yandexcloud.net/users/auth/saml/callback`.
-* **IDP certificate fingerprint**: SHA1 fingerprint of a public certificate key, e.g., `90:CC:16:F0:8D:...`. Issued when configuring the IdP.
-* **IDP SSO target URL**: URL of the IdP. Issued when configuring the IdP.
+* **IDP certificate fingerprint**: SHA1 fingerprint of a public certificate key, e.g., `90:CC:16:F0:8D:...`. It is issued when configuring the IdP.
+* **IDP SSO target URL**: IdP URL. It is issued when configuring the IdP.
 * **Issuer**: Unique ID of the application where user authentication will be performed, such as `https://example.gitlab.yandexcloud.net`.
-* **Name identifier format**: Format of the name identifier. Issued when configuring the IdP.
+* **Name identifier format**: Name ID format. It is issued when configuring the IdP.
 
-Refer to the [{{ GL }}]({{ gl.docs }}/ee/integration/saml.html#configure-saml-on-your-idp) documentation to learn how to configure SAML on the IdP side.
+To learn how to configure SAML on the IdP side, see [this {{ GL }} article]({{ gl.docs }}/ee/integration/saml.html#configure-saml-on-your-idp).
 
 ### Yandex ID {#yandex-id}
 
-* **Label**: Name of the authentication provider. Specify any name.
-* **Client ID**: Client ID received when registering an application.
-* **Client Secret**: Client secret key received when registering an application.
+* **Label**: Name of the authentication provider. You can set any name.
+* **Client ID**: Client ID obtained when registering the application.
+* **Client Secret**: Client secret key obtained when registering the application.
 * **Site**: Link to the {{ GL }} repository.
 
-Refer to the [{{ yandex-oauth }} documentation](https://yandex.ru/dev/id/doc/en/register-client) to learn how to register an application on the IdP side. When registering an app, permit access to the user's email address. If selecting web services as the platform, use the **Redirect URI** field to specify a URL in the following format:
+To learn how to register an application on the IdP side, see [this {{ yandex-oauth }} article](https://yandex.ru/dev/id/doc/en/register-client). When registering an app, allow access to the user's email address. If selecting web services as the platform, use the **Redirect URI** field to specify a URL in the following format:
 
 ```text
 https://<{{ GL }}_instance_address>/users/auth/Yandex/callback
@@ -140,7 +140,7 @@ https://my-domain.gitlab.yandexcloud.net/users/auth/Yandex/callback
 
 {% note warning %}
 
-When integrating with the Yandex ID service, any user with a Yandex account can log in to your instance. To prevent access by unauthorized users, [set](#params) the **Allow single sign on** and **Block auto-created users** parameters to **true**. This will allow you to automatically create new users in {{ GL }} but also block them at first log in.
+When integrating with Yandex ID, any user with a Yandex account can log in to your instance. To prevent access by unauthorized users, [set](#params) **Allow single sign on** and **Block auto-created users** to **true**. This allows {{ GL }} to automatically create new users, while blocking them on first sign-in.
 
 {% endnote %}
 
@@ -150,6 +150,6 @@ Yandex 360 uses [Yandex ID](#yandex-id) or [LDAP](#ldap) as authentication provi
 
 {% note warning %}
 
-If you use Yandex ID, the authentication process does not include checking users for membership in a Yandex 360 organization. Any user with a Yandex account can log into your {{ GL }} instance. To prevent access by unauthorized users, [set](#params) the **Allow single sign on** and **Block auto-created users** parameters to **true**. This will allow you to automatically create new users in {{ GL }} but also block them at first log in.
+When using Yandex ID, the user's membership in a Yandex 360 organization is not verified during authentication. Any user with a Yandex account can log in to your {{ GL }} instance. To prevent access by unauthorized users, [set](#params) **Allow single sign on** and **Block auto-created users** to **true**. This allows {{ GL }} to automatically create new users, while blocking them on first sign-in.
 
 {% endnote %}

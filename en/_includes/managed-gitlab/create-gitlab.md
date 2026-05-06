@@ -10,7 +10,7 @@ Create either a [{{ mgl-name }} instance](../../managed-gitlab/concepts/index.md
 
 - VM with a {{ GL }} image {#gl-image-vm}
 
-  Launch {{ GL }} on a VM with a [public IP](../../vpc/concepts/address.md#public-addresses).
+  Launch {{ GL }} on a VM with a [public IP address](../../vpc/concepts/address.md#public-addresses).
 
   {% include [create-gitlab](../../_includes/managed-gitlab/create.md) %}
 

@@ -2533,6 +2533,19 @@ Learn more in [Access management in {{ er-name }}](../serverless-integrations/se
 Learn more in [Access management in {{ sw-name }}](../serverless-integrations/security/workflows.md).
 
 
+## {{ yandex-siem-full-name }} {#yandex-siem-roles}
+
+#### ycem.inspector {#ycem-inspector}
+
+{% include [ycem.inspector](../_roles/ycem/inspector.md) %}
+
+#### ycem.executor {#ycem-executor}
+
+{% include [ycem.executor](../_roles/ycem/executor.md) %}
+
+For more information, see [{#T}](../yandex-siem/security/index.md).
+
+
 ## {{ captcha-full-name }} {#captcha-roles}
 
 #### smart-captcha.auditor {#smart-captcha-auditor}

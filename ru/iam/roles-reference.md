@@ -2539,6 +2539,19 @@ description: В статье приведен полный справочник 
 Подробнее см. [Управление доступом в {{ sw-name }}](../serverless-integrations/security/workflows.md).
 
 
+## {{ yandex-siem-full-name }} {#yandex-siem-roles}
+
+#### ycem.inspector {#ycem-inspector}
+
+{% include [ycem.inspector](../_roles/ycem/inspector.md) %}
+
+#### ycem.executor {#ycem-executor}
+
+{% include [ycem.executor](../_roles/ycem/executor.md) %}
+
+Подробнее см. [{#T}](../yandex-siem/security/index.md).
+
+
 ## {{ captcha-full-name }} {#captcha-roles}
 
 #### smart-captcha.auditor {#smart-captcha-auditor}

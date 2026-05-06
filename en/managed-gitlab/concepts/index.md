@@ -10,14 +10,14 @@ How {{ mgl-name }} works:
 
 ## {{ GL }} instance {#instance}
 
-A {{ GL }} _instance_ is the service's primary entity. It is a VM deployed in {{ yandex-cloud }}. {{ mgl-name }} takes care of its routine maintenance, such as storage fault tolerance, security updates, automated {{ GL }} version upgrades, and so on.
+A {{ GL }} _instance_ is the main entity in {{ mgl-name }}. It is a VM deployed in {{ yandex-cloud }}. {{ mgl-name }} takes care of its routine maintenance, such as ensuring storage fault tolerance, applying security patches, automatically upgrading the {{ GL }} version, and more.
 
 Users can mange instances from the [{{ yandex-cloud }} management console]({{ link-console-main }}), [CLI](../cli-ref/index.md), and [API](../api-ref/authentication.md).
 
 ## Instance configuration {#config}
 
 When creating an instance, you specify:
-* Instance type: [The number of vCPUs and the amount of RAM](../../compute/concepts/vm-platforms.md). Available instance types:
+* Instance type: [Number of vCPUs and RAM amount](../../compute/concepts/vm-platforms.md). Below are available instance types:
 
   | Type            | Computing resources |
   |----------------|------------------------|
@@ -26,7 +26,7 @@ When creating an instance, you specify:
   | s2.medium      | 8 vCPUs, 32 GB RAM      |
   | s2.large       | 16 vCPUs, 64 GB RAM     |
 
-  After you create an instance, you can [change its type](../operations/instance/instance-update.md) to a higher performing one.
+  After you create an instance, you can [upgrade its type](../operations/instance/instance-update.md) to a higher performing one.
 * [Subnet](../../vpc/concepts/network.md#subnet).
 
   {% include [GL CIDR Warning](../../_includes/managed-gitlab/cidr-note.md) %}
@@ -41,7 +41,7 @@ When creating an instance, you specify:
 
 ## {{ GLR }} {#runners}
 
-[{{ GLR }}](https://docs.gitlab.com/runner/) is an open-source application which executes {{ GL }} [CI/CD](https://en.wikipedia.org/wiki/CI/CD) pipeline jobs based on instructions from a special file named `.gitlab-ci.yml`. It helps run automated builds in [{{ managed-k8s-name }} clusters](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and on [{{ compute-name }} VMs](../../compute/concepts/vm.md).
+[{{ GLR }}](https://docs.gitlab.com/runner/) is an open-source application that runs {{ GL }} [CI/CD](https://en.wikipedia.org/wiki/CI/CD) pipeline jobs based on instructions from a special file named `.gitlab-ci.yml`. It helps run automated builds in [{{ managed-k8s-name }} clusters](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and on [{{ compute-name }} VMs](../../compute/concepts/vm.md).
 
 You can get started with {{ GLR }} in the following ways:
 
@@ -82,11 +82,11 @@ For more on managed runners, see these pages:
 
 ## {{ GL }} Pages {#pages}
 
-{{ GL }} Pages is a tool for publishing static websites composed of files residing in a {{ GL }} repository. Websites are deployed by {{ GL }} CI/CD jobs. {{ GL }} Pages works with static website generators and standard HTML, CSS, and JavaScript files.
+{{ GL }} Pages is a tool for publishing static websites composed of files residing in a {{ GL }} repository. Websites are deployed via {{ GL }} CI/CD jobs. {{ GL }} Pages works with static website generators and standard HTML, CSS, and JavaScript files.
 
 {{ GL }} Pages enables you to use your own domains and SSL/TLS certificates and to configure access to websites.
 
-[For more information, see the official {{ GL }} documentation](https://docs.gitlab.com/user/project/pages/).
+For more information, see [this {{ GL }} article](https://docs.gitlab.com/user/project/pages/).
 
 {% include [note-preview-by-request](../../_includes/note-preview-by-request.md) %}
 
