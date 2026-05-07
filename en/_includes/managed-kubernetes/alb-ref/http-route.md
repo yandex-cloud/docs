@@ -1,6 +1,8 @@
 # HTTPRoute resource fields
 
-The `HTTPRoute` resource sets traffic routing rules for {{ k8s }} services ([Service](../../../application-load-balancer/k8s-ref/service-for-gateway.md) resources) operating as backends or redirection rules. `HTTPRoute` receives incoming traffic from those [Gateway resources](../../../application-load-balancer/k8s-ref/gateway.md) whose requirements it meets.
+The `HTTPRoute` resource sets traffic routing rules for {{ k8s }} services ([Service]({{ configuration-local-link }}/service-for-gateway.md) resources) operating as backends or redirection rules. `HTTPRoute` receives incoming traffic from those [Gateway resources]({{ configuration-local-link }}/gateway.md) whose requirements it meets.
+
+{% include [Gwin-with-preset](../../application-load-balancer/ingress-to-gwin-tip-with-preset.md) %}
 
 `HTTPRoute` is designed for application developers. Cluster operators should use the `Gateway` resource.
 
@@ -78,7 +80,7 @@ Where:
 
     {% note info %}
 
-    You can define the [RoutePolicy](../../../application-load-balancer/k8s-ref/route-policy.md) resource instead of annotations. The `RoutePolicy` resource parameters and `HTTPRoute` annotations are equivalent.
+    You can define the [RoutePolicy]({{ configuration-local-link }}/route-policy.md) resource instead of annotations. The `RoutePolicy` resource parameters and `HTTPRoute` annotations are equivalent.
 
     {% endnote %}
 
@@ -283,9 +285,9 @@ Where:
 
 * `parentRefs` (`[]ParentReference`; this is a required field)
 
-  `Gateway` resources or their listeners specified in the `spec.listeners` field associated with `HTTPRoute`. For more information, see [this reference](../../../application-load-balancer/k8s-ref/gateway.md#spec).
+  `Gateway` resources or their listeners specified in the `spec.listeners` field associated with `HTTPRoute`. For more information, see [this reference]({{ configuration-local-link }}/gateway.md#spec).
 
-  The route must also comply with the rules described in the `Gateway` [configuration](../../../application-load-balancer/k8s-ref/gateway.md#spec) (`spec.listeners.allowedRoutes` field).
+  The route must also comply with the rules described in the `Gateway` [configuration]({{ configuration-local-link }}/gateway.md#spec) (`spec.listeners.allowedRoutes` field).
   
   * `namespace` (`string`)
     
@@ -359,7 +361,7 @@ Where:
 
     [{{ k8s }} services](../../../managed-kubernetes/concepts/index.md#service) for processing requests as backends.
 
-    You can specify either the [YCStorageBucket](../../../application-load-balancer/k8s-ref/yc-storage-bucket.md) resource ({{ objstorage-name }} bucket) or the [Service](../../../application-load-balancer/k8s-ref/service-for-gateway.md) resource.
+    You can specify either the [YCStorageBucket]({{ configuration-local-link }}/yc-storage-bucket.md) resource ({{ objstorage-name }} bucket) or the [Service]({{ configuration-local-link }}/service-for-gateway.md) resource.
   
      * `name` (`string`)
 
@@ -383,7 +385,7 @@ Where:
 
        Service port number. Only for the `Service` resource.
 
-       This number must match one of the port numbers specified in the `spec.ports.port` fields of the `Service` resource. For more information, see the [resource configuration](../../../application-load-balancer/k8s-ref/service-for-gateway.md).
+       This number must match one of the port numbers specified in the `spec.ports.port` fields of the `Service` resource. For more information, see the [resource configuration]({{ configuration-local-link }}/service-for-gateway.md).
 
        This field is designed for the Gateway API and does not match any of the {{ alb-name }} resource fields.
        

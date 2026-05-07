@@ -12,6 +12,7 @@ keywords:
 
 {% include [preview](../../_includes/note-service-preview.md) %}
 
+
 {{ SPQR }} is a system for horizontal {{ PG }} scaling through sharding. Essentialy, these are multiple {{ PG }} clusters merged into a single {{ SPQR }} cluster.
 
 A {{ mspqr-name }} cluster consists of _shards_, a _router_, and a _coordinator_ (which is optional). Routers and coordinators run on _hosts_, i.e., virtual machines with dedicated computing resources and reserved data storage.

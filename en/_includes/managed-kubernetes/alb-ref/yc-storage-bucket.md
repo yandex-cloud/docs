@@ -2,6 +2,8 @@
 
 The `YCStorageBucket` resource contains the {{ objstorage-name }} bucket parameters for setting up a backend in the `HTTPRoute` resource.
 
+{% include [Gwin-with-preset](../../application-load-balancer/ingress-to-gwin-tip-with-preset.md) %}
+
 ## YCStorageBucket {#yc-storage-bucket}
 
 ```yaml

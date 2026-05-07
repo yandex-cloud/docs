@@ -1,4 +1,4 @@
-# upload method
+# Object Storage API, Amazon S3-compatible REST: PutBucketCors
 
 Uploads a CORS configuration for a bucket. It replaces any existing configuration.
 
@@ -19,7 +19,7 @@ Parameter | Description
 `bucket` | Bucket name.
 
 
-### Request parameters {#request-params}
+### Query parameters {#request-params}
 
 Parameter | Description
 ----- | -----

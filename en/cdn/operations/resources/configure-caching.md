@@ -5,7 +5,11 @@ description: Follow this guide to configure resource caching.
 
 # Configuring resource caching
 
-To configure the [caching](../../concepts/caching.md) parameters of a [resource](../../concepts/resource.md):
+In the [CDN resource](../../concepts/resource.md) settings, you can [enable content caching](../../concepts/caching.md) to temporarily store the copies of files loaded from [origins](../../concepts/origins.md) on [CDN servers](../../concepts/points-of-presence.md).
+
+{% include [cdn-content-caching-prgrph](../../../_includes/cdn/cdn-content-caching-prgrph.md) %}
+
+To configure the caching parameters of a resource:
 
 {% list tabs group=instructions %}
 
@@ -180,7 +184,7 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
      terraform validate
      ```
 
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
 
      ```
      Success! The configuration is valid.
@@ -191,9 +195,9 @@ To configure the [caching](../../concepts/caching.md) parameters of a [resource]
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
-  1. Apply the changes:
+  1. Apply the configuration changes:
      ```
      terraform apply
      ```

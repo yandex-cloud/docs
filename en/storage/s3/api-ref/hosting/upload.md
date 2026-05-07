@@ -1,4 +1,4 @@
-# upload method
+# Object Storage API, Amazon S3-compatible REST: PutBucketWebsite
 
 Uploads a static website hosting configuration for a bucket.
 
@@ -16,7 +16,7 @@ Parameter | Description
 ----- | -----
 `bucket` | Bucket name.
 
-### Request parameters {#request-params}
+### Query parameters {#request-params}
 
 Parameter | Description
 ----- | -----

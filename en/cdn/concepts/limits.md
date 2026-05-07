@@ -1,12 +1,12 @@
 ---
-title: Quotas and limits in {{ cdn-full-name }}
-description: '{{ cdn-name }} has quotas and limits on the number of CDN resources per cloud, the number of cache purge requests per minute, the number of file paths per request for purging the cache of file prefetch requests per minute, and the number of paths to prefetched files per request. For more information about the service restrictions, read this article.'
+title: '{{ cdn-full-name }} quotas and limits'
+description: '{{ cdn-name }} has limits and quotas on the number of CDN resources per cloud, cache purge requests per minute, file paths per cache purge request, file prefetch requests per minute, and the number of paths to cached files per request. For more information about the service limitations, read this article.'
 editable: false
 ---
 
-# Quotas and limits in {{ cdn-name }}
+# {{ cdn-name }} quotas and limits
 
-{{ cdn-full-name }} has the following limits:
+{{ cdn-full-name }} has the following limitations:
 
 {% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
 

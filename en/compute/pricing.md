@@ -141,6 +141,8 @@ If you connect such a disk to a VM as additional storage, you will be charged fo
 
 #### Example of cost calculation for snapshot retention {#snapshot-example}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 Let’s calculate the cost of storing a 20 GB snapshot for 60 days.
 
 

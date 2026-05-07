@@ -856,36 +856,58 @@ items:
                 href: gwin-ref/ycstoragebucket.md
       - name: Ingress controller
         items:
-          - name: Ingress
-            href: alb-ref/ingress.md
-          - name: HttpBackendGroup
-            href: alb-ref/http-backend-group.md
-          - name: GrpcBackendGroup
-            href: alb-ref/grpc-backend-group.md
-          - name: IngressClass
-            href: alb-ref/ingress-class.md
-          - name: Ingress service
-            href: alb-ref/service-for-ingress.md
+          - name: Overview
+            href: alb-ref/ingress-controller/index.md
+          - name: How it works
+            href: alb-ref/ingress-controller/principles.md
+          - name: Installing an ingress controller
+            href: operations/applications/alb-ingress-controller.md
+          - name: Upgrading an ingress controller
+            href: operations/applications/upgrade-alb-ingress-controller.md
+          - name: Resource configuration
+            items:
+              - name: Ingress
+                href: alb-ref/ingress.md
+              - name: HttpBackendGroup
+                href: alb-ref/http-backend-group.md
+              - name: GrpcBackendGroup
+                href: alb-ref/grpc-backend-group.md
+              - name: IngressClass
+                href: alb-ref/ingress-class.md
+              - name: Ingress service
+                href: alb-ref/service-for-ingress.md
       - name: Gateway API
         items:
-          - name: Gateway
-            href: alb-ref/gateway.md
-          - name: GatewayPolicy
-            href: alb-ref/gateway-policy.md
-          - name: YCCertificate
-            href: alb-ref/yc-certificate.md
-          - name: HTTPRoute
-            href: alb-ref/http-route.md
-          - name: GRPCRoute
-            href: alb-ref/grpc-route.md
-          - name: RoutePolicy
-            href: alb-ref/route-policy.md
-          - name: YCStorageBucket
-            href: alb-ref/yc-storage-bucket.md
-          - name: TLSRoute
-            href: alb-ref/tls-route.md
-          - name: Gateway API service
-            href: alb-ref/service-for-gateway.md
+          - name: Overview
+            href: alb-ref/gateway-api/index.md
+          - name: Installing the Gateway API
+            href: operations/applications/gateway-api.md
+          - name: Resource configuration
+            items:
+              - name: Gateway
+                href: alb-ref/gateway.md
+              - name: GatewayPolicy
+                href: alb-ref/gateway-policy.md
+              - name: HTTPRoute
+                href: alb-ref/http-route.md
+              - name: GRPCRoute
+                href: alb-ref/grpc-route.md
+              - name: RoutePolicy
+                href: alb-ref/route-policy.md
+              - name: TLSRoute
+                href: alb-ref/tls-route.md
+              - name: Gateway API service
+                href: alb-ref/service-for-gateway.md
+              - name: YCCertificate
+                href: alb-ref/yc-certificate.md
+              - name: YCStorageBucket
+                href: alb-ref/yc-storage-bucket.md
+      - name: Configuring security groups
+        href: alb-ref/security-groups.md
+      - name: Working with service accounts
+        href: alb-ref/service-account.md
+      - name: Creating and updating resources via ingress controller configurations
+        href: alb-ref/k8s-ingress-controller-apply.md
   - name: '{{ network-load-balancer-name }} tools'
     items:
       - name: Overview

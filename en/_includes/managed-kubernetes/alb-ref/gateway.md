@@ -1,10 +1,12 @@
 # Gateway resource fields
 
-The `Gateway` resource defines the rules for accepting and routing ([HTTPRoute](../../../application-load-balancer/k8s-ref/http-route.md), [GRPCRoute](../../../application-load-balancer/k8s-ref/grpc-route.md), and [TLSRoute](../../../application-load-balancer/k8s-ref/tls-route.md) resources) incoming traffic. [{{ alb-name }} Gateway API](../../../application-load-balancer/tools/k8s-gateway-api/index.md) uses these rules to create:
+The `Gateway` resource defines the rules for accepting and routing ([HTTPRoute]({{ configuration-local-link }}/http-route.md), [GRPCRoute]({{ configuration-local-link }}/grpc-route.md), and [TLSRoute]({{ configuration-local-link }}/tls-route.md) resources) incoming traffic. [{{ alb-name }} Gateway API]({{ gateway-local-link }}/index.md) uses these rules to create:
 
 * [Load balancer](../../../application-load-balancer/concepts/application-load-balancer.md) and its listeners.
 * [Backend groups](../../../application-load-balancer/concepts/backend-group.md).
-* [HTTP routers](../../../application-load-balancer/concepts/http-router.md). They are only created if the [HTTPRoute](../../../application-load-balancer/k8s-ref/http-route.md) or [GRPCRoute](../../../application-load-balancer/k8s-ref/grpc-route.md) resources are used.
+* [HTTP routers](../../../application-load-balancer/concepts/http-router.md). They are only created if the [HTTPRoute]({{ configuration-local-link }}/http-route.md) or [GRPCRoute]({{ configuration-local-link }}/grpc-route.md) resources are used.
+
+{% include [Gwin-with-preset](../../application-load-balancer/ingress-to-gwin-tip-with-preset.md) %}
 
 The `Gateway` resource is designed for cluster operators. Application developers should use the `TLSRoute`, `HTTPRoute`, or `GRPCRoute` resources.
 
@@ -57,7 +59,7 @@ Where:
 
     {% note info %}
 
-    You can define the [GatewayPolicy](../../../application-load-balancer/k8s-ref/gateway-policy.md) resource instead of annotations. The `GatewayPolicy` resource parameters and `Gateway` annotations are equivalent.
+    You can define the [GatewayPolicy]({{ configuration-local-link }}/gateway-policy.md) resource instead of annotations. The `GatewayPolicy` resource parameters and `Gateway` annotations are equivalent.
 
     {% endnote %}
 
@@ -69,7 +71,7 @@ Where:
       gateway.alb.yc.io/security-groups: b0c2kotoidcoh6haf8cu,e2lnhhdj9a0aqmr78d36,e9bud5itjnl8mkjj7td1
       ```
 
-      For the proper load balancer and Gateway API operation, make sure to configure security groups as specified in [{#T}](../../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md).
+      For the proper load balancer and Gateway API operation, make sure to configure security groups as specified in [{#T}]({{ alb-local-link }}/security-groups.md).
 
     * `gateway.alb.yc.io/subnet-ids` (`string`)
 
@@ -179,7 +181,7 @@ Where:
 
     {% include [k8s-ingress-controller-hostnames-wildcard](../../application-load-balancer/k8s-ingress-controller-hostnames-wildcard.md) %}
   
-    The listener will only process routes, i.e., the [HTTPRoute](../../../application-load-balancer/k8s-ref/http-route.md), [GRPCRoute](../../../application-load-balancer/k8s-ref/grpc-route.md), and [TLSRoute](../../../application-load-balancer/k8s-ref/tls-route.md) resources, if their domain names, i.e., the `spec.hostnames` fields, match the value specified in this setting.
+    The listener will only process routes, i.e., the [HTTPRoute]({{ configuration-local-link }}/http-route.md), [GRPCRoute]({{ configuration-local-link }}/grpc-route.md), and [TLSRoute]({{ configuration-local-link }}/tls-route.md) resources, if their domain names, i.e., the `spec.hostnames` fields, match the value specified in this setting.
 
   * `port` (`int32`)
     
@@ -207,7 +209,7 @@ Where:
 
       The load balancer will only use the first certificate from the list while ignoring the others.
   
-      You can specify a certificate from {{ certificate-manager-name }} (the [YCCertificate](../../../application-load-balancer/k8s-ref/yc-certificate.md) resource) or add a certificate to a cluster as a secret (the `Secret` resource) in the {{ managed-k8s-name }} management console or using `kubectl`:
+      You can specify a certificate from {{ certificate-manager-name }} (the [YCCertificate]({{ configuration-local-link }}/yc-certificate.md) resource) or add a certificate to a cluster as a secret (the `Secret` resource) in the {{ managed-k8s-name }} management console or using `kubectl`:
   
       ```
       kubectl create secret tls <secret_name> \
@@ -238,7 +240,7 @@ Where:
 
   * `allowedRoutes` (`AllowedRoutes`)
 
-    Rules for selecting listener routes, i.e., the [HTTPRoute](../../../application-load-balancer/k8s-ref/http-route.md), [GRPCRoute](../../../application-load-balancer/k8s-ref/grpc-route.md), and [TLSRoute](../../../application-load-balancer/k8s-ref/tls-route.md) resources. To ensure route selection, these resources must have `Gateway` specified in their `spec.parentRefs` fields.
+    Rules for selecting listener routes, i.e., the [HTTPRoute]({{ configuration-local-link }}/http-route.md), [GRPCRoute]({{ configuration-local-link }}/grpc-route.md), and [TLSRoute]({{ configuration-local-link }}/tls-route.md) resources. To ensure route selection, these resources must have `Gateway` specified in their `spec.parentRefs` fields.
 
     The system will use these routes to create [backend groups](../../../application-load-balancer/concepts/backend-group.md) you can associate with the listener. If using `HTTPRoute` or `GRPCRoute`, the system will also create [HTTP routers](../../../application-load-balancer/concepts/http-router.md).
 

@@ -4,7 +4,7 @@ If you are after an optimal configuration with specific needs in mind, you can h
 
 ## GPU cards and RAID controllers {#gpu-and-raid}
 
-On request, we equip servers with GPU cards and RAID controllers.
+On-request servers can be equipped with GPU cards and [RAID controllers](./disks/raid.md#hardware-raid).
 
 For tasks requiring a substantial number of GPUs, we can hook up a JBOG (Just a Bunch of GPUs) module: an additional unit with multiple GPUs onboard. JBOG extends the server's computing capabilities beyond its built-in slots.
 

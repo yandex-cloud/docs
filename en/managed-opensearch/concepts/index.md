@@ -1,5 +1,6 @@
 # Resource relationships in {{ mos-name }}
 
+
 [{{ OS }}](https://opensearch.org/) is a distributed system for data search and analysis. It uses the document data model, in which a document is a logical counterpart of a row in relational databases. Each document stores key-value pairs, e.g., in [JSON](https://www.json.org/json-en.html) format.
 
 Document example:

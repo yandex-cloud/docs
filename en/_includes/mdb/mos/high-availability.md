@@ -1,4 +1,4 @@
-For a cluster to be highly available and covered by a [service level agreement (SLA)](https://yandex.com/legal/cloud_sla_mdb/), the following conditions must be met:
+For a cluster to be highly available and covered by a [Service Level Agreement (SLA)](https://yandex.com/legal/cloud_sla_mdb/), the following conditions must be met:
 
 
 1. The cluster must have two or more hosts with the `DATA` role.

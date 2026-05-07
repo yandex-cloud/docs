@@ -35,7 +35,7 @@ To apply or update a bucket policy:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select any folder.
   1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket to configure an access policy in.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}** and go to the **{{ ui-key.yacloud.storage.bucket.switch_policy }}** tab.
@@ -229,6 +229,7 @@ To apply or update a bucket policy:
 
   {% include [iam-auth-note](../../../_includes/storage/iam-auth-note.md) %}
 
+
   To edit a bucket policy, you can use these resources:
   * [yandex_storage_bucket_policy](#tf-storage-bucket-policy)
   * [yandex_storage_bucket](#tf-storage-bucket) (obsolete)
@@ -270,7 +271,7 @@ To apply or update a bucket policy:
 
      {% include [s3-policy-tf-params](../../../_includes/storage/s3-policy-tf-params.md) %}
 
-     For more information about `yandex_storage_bucket_policy` properties, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket_policy).
+     For more information about the `yandex_storage_bucket_policy` properties, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket_policy).
 
   1. Apply the changes:
 
@@ -315,7 +316,7 @@ To apply or update a bucket policy:
 
      {% include [s3-policy-tf-params](../../../_includes/storage/s3-policy-tf-params.md) %}
 
-     For more information about `yandex_storage_bucket` properties, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket).
+     For more information about the `yandex_storage_bucket` properties, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket).
 
   1. Apply the changes:
 
@@ -339,7 +340,7 @@ To delete a rule from an access policy:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select any folder.
   1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket to configure an access policy in.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}** and go to the **{{ ui-key.yacloud.storage.bucket.switch_policy }}** tab.
@@ -366,7 +367,7 @@ To view the bucket policy applied to a bucket:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select any folder.
   1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you need from the list.
   1. In the left-hand menu, select **{{ ui-key.yacloud.storage.bucket.switch_security }}** and go to the **{{ ui-key.yacloud.storage.bucket.switch_policy }}** tab.
@@ -407,7 +408,7 @@ To delete a bucket policy:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select any folder.
   1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you need from the list.
   1. In the left-hand menu, select **{{ ui-key.yacloud.storage.bucket.switch_security }}** and go to the **{{ ui-key.yacloud.storage.bucket.switch_policy }}** tab.
@@ -428,6 +429,7 @@ To delete a bucket policy:
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   {% include [iam-auth-note](../../../_includes/storage/iam-auth-note.md) %}
+
 
   You can use the `yandex_storage_bucket_policy` and `yandex_storage_bucket` resources to specify the policy (this method is deprecated).
 

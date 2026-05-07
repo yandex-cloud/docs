@@ -14,33 +14,33 @@ If you no longer need the resources you created, [delete them](#clear-out).
 {% include [paid-resources](../_tutorials_includes/nat-instance/paid-resources.md) %}
 
 
-## Create an infrastructure {#deploy}
+## Create your infrastructure {#deploy}
 
 {% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
-To create an infrastructure using {{ TF }}:
+To create an infrastructure with {{ TF }}:
 
-1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
-1. Prepare the infrastructure description file:
+1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the {{ yandex-cloud }} provider source (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), Step 1).
+1. Set up your infrastructure description file:
 
     {% list tabs group=infrastructure_description %}
 
     - Ready-made configuration {#ready}
 
-      1. Clone the repository with configuration files:
+      1. Clone the configuration file repository:
 
          ```bash
          git clone https://github.com/yandex-cloud-examples/yc-compute-nat-instance.git
          ```
 
-      1. Navigate to the repository directory. Make sure it contains the following files:
+      1. Navigate to the repository directory. It should now contain the following files:
          * `nat-instance.tf`: New infrastructure configuration.
          * `nat-instance.auto.tfvars`: User data.
 
     - Manually {#manual}
 
       1. Create a folder for the infrastructure description file.
-      1. Create a configuration file named `nat-instance.tf` in the folder:
+      1. In this folder, create the `nat-instance.tf` configuration file:
 
           {% cut "nat-instance.tf" %}
 
@@ -48,7 +48,7 @@ To create an infrastructure using {{ TF }}:
 
           {% endcut %}
 
-      1. In the folder, create a user data file named `nat-instance.auto.tfvars`:
+      1. Create the `nat-instance.auto.tfvars` user data file:
 
           {% cut "nat-instance.auto.tfvars" %}
 
@@ -58,7 +58,7 @@ To create an infrastructure using {{ TF }}:
 
     {% endlist %}
 
-    Learn more about the properties of {{ TF }} resources in the provider documentation:
+    For more information about {{ TF }} resource properties, see the relevant provider guides:
 
     * [Network](../../vpc/concepts/network.md#network): [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
     * [Subnets](../../vpc/concepts/network.md#subnet): [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet).
@@ -72,24 +72,25 @@ To create an infrastructure using {{ TF }}:
 
     * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
     * `vm_user`: VM user name.
-    * `vm_user_nat`: NAT instance user name.
-    * `ssh_key_path`: Path to the file with a public SSH key to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+    * `vm_user_nat`: NAT instance username.
+    * `ssh_key_path`: Path to the public SSH key to authenticate the user on the VM. For more information, see [{#T}](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
 
-1. Create resources:
+1. Create the required resources:
 
     {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
+After you create the infrastructure, [test the NAT instance](#test).
 
-## Test the NAT instance {#test}
+## Test the NAT gateway instance {#test}
 
 {% include [test](../_tutorials_includes/nat-instance/test.md) %}
 
 
 ## How to delete the resources you created {#clear-out}
 
-To shut down the NAT instance and stop paying for the created resources:
+To stop incurring charges for the resources you created:
 
-1. Open the `nat-instance.tf` configuration file and delete the description of the new infrastructure from it.
+1. Open the `nat-instance.tf` file and delete your infrastructure description from it.
 1. Apply the changes:
 
     {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}

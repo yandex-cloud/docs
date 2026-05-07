@@ -39,6 +39,10 @@ items:
             href: operations/resource-record-update.md
           - name: Удалить запись
             href: operations/resource-record-delete.md
+      - name: Фильтры
+        items:
+          - name: Создать фильтр
+            href: operations/filter-create.md
   - name: Концепции
     items:
       - name: Обзор
@@ -47,6 +51,10 @@ items:
         href: concepts/dns-zone.md
       - name: Ресурсные записи
         href: concepts/resource-record.md
+      - name: Фильтры DNS
+        href: concepts/dns-filter.md
+      - name: DNS-резолвер
+        href: concepts/dns-resolver.md
       - name: Интеграция с {{ compute-name }}
         href: concepts/compute-integration.md
       - name: Квоты и лимиты

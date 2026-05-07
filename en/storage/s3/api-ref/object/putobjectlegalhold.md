@@ -1,4 +1,4 @@
-# putObjectLegalHold method
+# Object Storage API, Amazon S3-compatible REST: PutObjectLegalHold
 
 Puts or removes [legal hold](../../../concepts/object-lock.md) for an object version.
 
@@ -21,7 +21,7 @@ Parameter | Description
 `bucket` | Bucket name.
 `key` | Object key.
 
-### Request parameters {#request-params}
+### Query parameters {#request-params}
 
 Parameter | Description
 ----- | -----

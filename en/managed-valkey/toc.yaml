@@ -117,6 +117,8 @@ items:
         href: concepts/maintenance.md
       - name: '{{ VLK }} settings'
         href: concepts/settings-list.md
+      - name: Versioning policy {{ VLK }}
+        href: concepts/update-policy.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy

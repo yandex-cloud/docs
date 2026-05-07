@@ -3,7 +3,7 @@ title: putBucketLogging method
 description: In this article, you will learn what the putBucketLogging method is, and what its request and response look like.
 ---
 
-# putBucketLogging method
+# Object Storage API, Amazon S3-compatible REST: PutBucketLogging
 
 
 Enables and disables [bucket logging](../../../concepts/server-logs.md).
@@ -22,7 +22,7 @@ Parameter | Description
 --- | ---
 `bucket` | [Bucket](../../../concepts/bucket.md) name.
 
-### Request parameters {#request-params}
+### Query parameters {#request-params}
 
 Parameter | Description
 --- | ---

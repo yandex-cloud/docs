@@ -1,8 +1,8 @@
 # Fields and annotations of the Service resource for the Ingress controller
 
-The `Service` resource represents a [{{ k8s }} service](../../../managed-kubernetes/concepts/index.md#service). For the [Ingress controller](../../../application-load-balancer/tools/k8s-ingress-controller/index.md), {{ alb-name }} services are backends across which incoming traffic is distributed within a {{ managed-k8s-name }} cluster. Services operating as {{ alb-name }} backends may be specified in the [Ingress](../../../managed-kubernetes/alb-ref/ingress.md) resource either directly or as part of [HttpBackendGroup](../../../managed-kubernetes/alb-ref/http-backend-group.md) groups.
+The `Service` resource represents a [{{ k8s }} service](../../../managed-kubernetes/concepts/index.md#service). For the [Ingress controller]({{ ingress-local-link }}/index.md), {{ alb-name }} services are backends across which incoming traffic is distributed within a {{ managed-k8s-name }} cluster. Services operating as {{ alb-name }} backends may be specified in the [Ingress]({{ configuration-local-link }}/ingress.md) resource either directly or as part of [HttpBackendGroup]({{ configuration-local-link }}/http-backend-group.md) groups.
 
-{% include [Gwin](../../application-load-balancer/ingress-to-gwin-tip.md) %}
+{% include [Gwin-with-preset](../../application-load-balancer/ingress-to-gwin-tip-with-preset.md) %}
 
 `Service` is a standard {{ k8s }} resource. Below, we describe its fields and annotations used by the {{ alb-name }} tools for {{ managed-k8s-name }}. For resource configuration details, see [this {{ k8s }} guide](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/service-v1/).
 

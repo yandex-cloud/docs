@@ -19,9 +19,9 @@ If your object already has a configured [ACL](../../concepts/acl.md), it will be
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. In the [management console]({{ link-console-main }}), select any folder.
     1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-    1. Select the bucket from the list.
+    1. Select the bucket you need from the list.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}** and find the object in the list.
     1. To edit the ACL, click ![image](../../../_assets/console-icons/ellipsis.svg) in the row with the object and select **{{ ui-key.yacloud.storage.bucket.button_action-permissions }}**.
 
@@ -203,6 +203,7 @@ If your object already has a configured [ACL](../../concepts/acl.md), it will be
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
+
   To edit an object ACL:
 
   1. Open the {{ TF }} configuration file and add the `acl` parameter to the object description:
@@ -228,37 +229,13 @@ If your object already has a configured [ACL](../../concepts/acl.md), it will be
      * `secret_key`: Secret access key value.
      * `acl`: Object's [predefined ACL](../../../storage/concepts/acl.md#predefined-acls). The default value is `private`: {{ yandex-cloud }} users get permissions according to their roles in {{ iam-short-name }}.
 
-     For more information about the `yandex_storage_object` resource parameters in {{ TF }}, see [this TF provider article]({{ tf-provider-resources-link }}/storage_object).
-
-  1. Check the configuration using this command:
-
-     ```bash
-     terraform validate
-     ```
-
-     If the configuration is correct, you will get this message:
-
-     ```bash
-     Success! The configuration is valid.
-     ```
-
-  1. Run this command:
-
-     ```bash
-     terraform plan
-     ```
-
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+     For more information about the `yandex_storage_object` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_object).
 
   1. Apply the changes:
 
-     ```bash
-     terraform apply
-     ```
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
-
-     You can check the security group update using the [management console]({{ link-console-main }}).
+     You can check the update using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

@@ -1,4 +1,4 @@
 Event name | Description
 --- | ---
-`LoadbalancerHTTPAccessLog` | HTTP request logging
-`LoadbalancerTCPAccessLog` | TCP request logging
+`LoadBalancerHTTPAccessLog` | HTTP request logging
+`LoadBalancerTCPAccessLog` | TCP request logging

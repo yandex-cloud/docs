@@ -51,3 +51,4 @@ description: Сервис {{ sd-name }} представляет собой CNAP
 * [Утечки данных: как бизнесу их обнаружить, предотвратить и избежать штрафов](https://yandex.cloud/ru/blog/data-leakage-fines)
 * [Что такое SOC: центр мониторинга кибербезопасности](https://yandex.cloud/ru/blog/soc-security-operations-center)
 * [Анализ киберугроз в облачных и гибридных инфраструктурах за первое полугодие 2025](https://yandex.cloud/ru/blog/reflected-attacks-h1-2025)
+

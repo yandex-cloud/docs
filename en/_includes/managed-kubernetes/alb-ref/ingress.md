@@ -1,8 +1,8 @@
 # Ingress resource fields and annotations
 
-The `Ingress` resource defines rules for incoming traffic distribution across {{ k8s }} services. The [{{ alb-name }} ingress controller](../../../application-load-balancer/tools/k8s-ingress-controller/index.md) uses these rules to create a [load balancer](../../../application-load-balancer/concepts/application-load-balancer.md), its listeners, and [HTTP routers](../../../application-load-balancer/concepts/http-router.md). You can specify {{ alb-name }} backend [services](../../../application-load-balancer/k8s-ref/service-for-ingress.md) in `Ingress` directly or as part of [`HttpBackendGroup` backend groups](../../../application-load-balancer/k8s-ref/http-backend-group.md).
+The `Ingress` resource defines rules for incoming traffic distribution across {{ k8s }} services. The [{{ alb-name }} ingress controller]({{ ingress-local-link }}/index.md) uses these rules to create a [load balancer](../../../application-load-balancer/concepts/application-load-balancer.md), its listeners, and [HTTP routers](../../../application-load-balancer/concepts/http-router.md). You can specify {{ alb-name }} backend [services]({{ configuration-local-link }}/service-for-ingress.md) in `Ingress` directly or as part of [`HttpBackendGroup` backend groups]({{ configuration-local-link }}/http-backend-group.md).
 
-{% include [Gwin](../../application-load-balancer/ingress-to-gwin-tip.md) %}
+{% include [Gwin-with-preset](../../application-load-balancer/ingress-to-gwin-tip-with-preset.md) %}
 
 `Ingress` is a standard {{ k8s }} resource. Below, we describe its fields and annotations used by the {{ alb-name }} ingress controller. For resource configuration details, see [this {{ k8s }} guide](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/ingress-v1/).
 
@@ -114,14 +114,14 @@ annotations:
 || **Field**      | **Value / Type** | **Description** ||
 || `name`        | `string`             | **This is a required field**.
                                           [Resource name](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
-                                          Do not mistake this name for the {{ alb-name }} load balancer name. ||
+                                          This is not the load balancer name in {{ alb-name }}. ||
 || `annotations` | `map[string]string`  | **This is a required field**.
                                           [Resource annotations](#annotations). ||
 |#
 
 ### Metadata.annotations {#annotations}
 
-Annotations are collections of `key:value` pairs for assigning metadata to objects. Annotation values have the `string` data type.
+Annotations are collections of `key:value` pairs for assigning metadata to objects. Annotation values always have the `string` data type.
 
 You can specify the annotation value as a comma-separated list of multiple `<key>=<value>` pairs:
 
@@ -155,11 +155,11 @@ You can add the following annotations to `ObjectMeta`:
 
   This field is required for at least one `Ingress` in a group, i.e., the [ingress.alb.yc.io/group-name](#annot-group-name) annotation, to create one load balancer. The load balancer will use all subnets specified in the relevant `Ingress` resources.
 
-  All subnets of a single load balancer must be in the same network. You cannot specify more than one network per [availability zone](../../../overview/concepts/geo-scope.md).
+  All load balancer’s subnets must all be in the same network. You cannot specify more than one network per [availability zone](../../../overview/concepts/geo-scope.md).
 
 * **ingress.alb.yc.io/security-groups** {#annot-security-groups}
 
-  List of {{ vpc-name }} [security groups](../../../vpc/concepts/security-groups.md) for a load balancer. This is a comma separated list of group IDs, e.g.:
+  List of load balancer's {{ vpc-name }} [security groups](../../../vpc/concepts/security-groups.md). This is a comma separated list of group IDs, e.g.:
 
   ```yaml
   ingress.alb.yc.io/security-groups: b0c2kotoidco********,e2lnhhdj9a0a********,e9bud5itjnl8********
@@ -167,7 +167,7 @@ You can add the following annotations to `ObjectMeta`:
 
   A load balancer created for a group of `Ingress` resources, i.e., the [ingress.alb.yc.io/group-name](#annot-group-name) annotation, uses all security groups specified in these resources.
 
-  For the proper load balancer and Ingress controller operation, make sure to configure security groups as specified in [{#T}](../../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md).
+  For the proper load balancer and Ingress controller operation, make sure to configure security groups as specified in [{#T}]({{ alb-local-link }}/security-groups.md).
 
 * **ingress.alb.yc.io/external-ipv4-address** {#annot-external-ipv4-address}
 
@@ -219,7 +219,7 @@ You can add the following annotations to `ObjectMeta`:
 
   {% note warning %}
 
-  In [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) version 0.2.0 or later, you can only use this annotation in the [Service](../../../application-load-balancer/k8s-ref/service-for-ingress.md#metadata) object.
+  In [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) version 0.2.0 or later, you can only use this annotation in the [Service]({{ configuration-local-link }}/service-for-ingress.md#metadata) object.
 
   Annotations specified in `Ingress` resources sharing a single service with the same backend group settings apply correctly. However, this feature is deprecated and will be discontinued.
 
@@ -231,7 +231,7 @@ You can add the following annotations to `ObjectMeta`:
 
   If this annotation is not specified, the load balancer will connect to the backends without encryption.
 
-  This annotation is ignored for grouped backends. To configure encryption for connections between the load balancer and grouped backends, use the `spec.backend.tls` field of the `HttpBackendGroup` resource. For more information, see [this article](../../../application-load-balancer/k8s-ref/http-backend-group.md).
+  This annotation is ignored for grouped backends. To configure encryption for connections between the load balancer and grouped backends, use the `spec.backend.tls` field of the `HttpBackendGroup` resource. For more information, see [this article]({{ configuration-local-link }}/http-backend-group.md).
 
 * **ingress.alb.yc.io/prefix-rewrite** {#annot-prefix-rewrite}
 
@@ -409,11 +409,11 @@ You can add the following annotations to `ObjectMeta`:
 
 * **ingress.alb.yc.io/balancing-locality-aware-routing** {#annot-locality}
 
-   Percentage of incoming traffic the load balancer forwards to its availability zone backends. The remaining traffic is evenly distributed across other availability zones.
+   Percentage of incoming traffic the load balancer forwards to its availability zone backends. The remaining traffic is split equally between the other zones.
 
    The default value is `0`.
 
-   For more information on locality-aware routing, see [this guide](../../../application-load-balancer/concepts/backend-group.md#locality).
+   [More on locality-aware routing](../../../application-load-balancer/concepts/backend-group.md#locality).
 
 * **ingress.alb.yc.io/autoscale-max-size** {#annot-autoscale-max-size}
 
@@ -458,7 +458,7 @@ You can add the following annotations to `ObjectMeta`:
 
 * **ingress.alb.yc.io/session-affinity-connection** {#annot-session-affinity-connection}
 
-  Indicator of using a client IP address for session affinity.
+  Indicator of using client IP address for session affinity.
 
   * `source-ip`: `true` or `false`.
 
@@ -479,9 +479,9 @@ defaultBackend:
 
 #|
 || **Field**           | **Value / Type** | **Description** ||
-|| `ingressClassName` | `string`             | Name of the [IngressClass](../../../application-load-balancer/k8s-ref/ingress-class.md) resource associated with the `Ingress` resource.
+|| `ingressClassName` | `string`             | Name of the [IngressClass]({{ configuration-local-link }}/ingress-class.md) resource the `Ingress` resource belongs to.
 
-When using multiple ingress controllers within a single application, the `IngressClass` determines which controller processes the requests. If you use multiple ingress controllers without specifying `ingressClassName` in your Ingress resources, you should create a default `IngressClass` resource. ||
+You need `IngressClass` to route traffic within a single application with the help of several ingress controllers. If using several ingress controllers without specifying `ingressClassName`, create a default `IngressClass` resource. ||
 || `tls`              | `[]IngressTLS`       | **This is a required field**.
 [Incoming HTTPS traffic settings](#tls), i.e., domain name collections and their associated TLS certificates.
 
@@ -538,7 +538,7 @@ In {{ certificate-manager-name }}, you can either [issue a Let's Encrypt<sup>®<
         backend: <IngressBackend>
 ```
 
-Pre-0.2.0 [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) versions map each backend group to a distinct combination of `host`, `http.paths.path`, and `http.paths.pathType` values. ALB Ingress Controller 0.2.0 and later maps backend groups directly to the `backend.service` configuration, i.e., [IngressBackend](#backend). This may cause collisions when upgrading the controller. To avoid them, check the [upgrade restrictions](../../../application-load-balancer/operations/k8s-ingress-controller-upgrade.md) for your infrastructure.
+Pre-0.2.0 [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) versions map each backend group to a distinct combination of `host`, `http.paths.path`, and `http.paths.pathType` values. ALB Ingress Controller 0.2.0 and later maps backend groups directly to the `backend.service` configuration, i.e., [IngressBackend](#backend). This may cause collisions when upgrading the controller. To avoid them, check the [upgrade restrictions]({{ ingress-upgrade-local-link }}) for your infrastructure.
 
 #|
 || **Field** | **Value / Type** | **Description** ||
@@ -584,7 +584,7 @@ Requested resource path type:
 * `Exact`: Request URI path or gRPC method name must _match_ the `rules.http.paths.path` field value.
 * `Prefix`: Request URI path or gRPC method name must _begin_ with the `rules.http.paths.path` field value.
 
-The selected path type will affect traffic distribution and the path replacement mechanism for backend requests if it is configured using the [ingress.alb.yc.io/prefix-rewrite](#annot-prefix-rewrite) annotation.
+The selected path type will affect traffic distribution and the path / call name replacement for backend requests if it is configured using the [ingress.alb.yc.io/prefix-rewrite](#annot-prefix-rewrite) annotation.
 
 ||
 
@@ -613,7 +613,7 @@ resource:
 || `service`    | `IngressServiceBackend`        | **This is a required field**.
 Reference to the [{{ k8s }} service](../../../managed-kubernetes/concepts/index.md#service) to process requests as a backend.
 
-The referred `Service` resource must be described per the [standard configuration](../../../application-load-balancer/k8s-ref/service-for-ingress.md).
+The referred `Service` resource must be described per the [standard configuration]({{ configuration-local-link }}/service-for-ingress.md).
 
 Each `spec.rules.http.paths` entry must be either a service backend or a backend group, i.e., `resource`, but not both.
 
@@ -624,14 +624,14 @@ Each `spec.rules.http.paths` entry must be either a service backend or a backend
 || `resource` | `TypedLocalObjectReference`  | **This is a required field**.
 Backend group for processing requests.
 
-The Ingress controller implements the `HttpBackendGroup` resource this field points to as a [custom resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/). The referenced resource must comply with the [standard configuration](../../../application-load-balancer/k8s-ref/http-backend-group.md) requirements.
+The Ingress controller implements the `HttpBackendGroup` resource this field refers to as a [custom resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/). The referenced resource must comply with the [standard configuration]({{ configuration-local-link }}/http-backend-group.md) requirements.
 
 Each `spec.rules.http.paths` entry must be either a backend group or a service backend, i.e., `service` resource, but not both.
 
 * `kind`: `HttpBackendGroup`
 * `name` (`string`): Backend group name
 
-    This name must match the `metadata.name` value of the `HttpBackendGroup` resource. For more information, see the [resource configuration](../../../application-load-balancer/k8s-ref/http-backend-group.md).
+    This name must match the `metadata.name` value of the `HttpBackendGroup` resource. For more information, see the [resource configuration]({{ configuration-local-link }}/http-backend-group.md).
 
 * `apiGroup`: `alb.yc.io`
 

@@ -1,7 +1,8 @@
 # GRPCRoute resource fields
 
-The `GRPCRoute` resource sets rules for routing between {{ k8s }} services operating as backends ([Service](../../../application-load-balancer/k8s-ref/service-for-gateway.md) resources) or for traffic redirection. `GRPCRoute` receives incoming traffic from those [`Gateway` resources](../../../application-load-balancer/k8s-ref/gateway.md) whose requirements it meets.
+The `GRPCRoute` resource sets rules for routing between {{ k8s }} services operating as backends ([Service]({{ configuration-local-link }}/service-for-gateway.md) resources) or for traffic redirection. `GRPCRoute` receives incoming traffic from those [`Gateway` resources]({{ configuration-local-link }}/gateway.md) whose requirements it meets.
 
+{% include [Gwin-with-preset](../../application-load-balancer/ingress-to-gwin-tip-with-preset.md) %}
 
 `GRPCRoute` is designed for application developers. Cluster operators should use the `Gateway` resource.
 
@@ -112,9 +113,9 @@ Where:
 
 * `parentRefs` (`[]ParentReference`; this is a required field)
 
-  `Gateway` resources or their listeners specified in the `spec.listeners` field associated with `GRPCRoute`. For more information, see [this reference](../../../application-load-balancer/k8s-ref/gateway.md#spec).
+  `Gateway` resources or their listeners specified in the `spec.listeners` field associated with `GRPCRoute`. For more information, see [this reference]({{ configuration-local-link }}/gateway.md#spec).
 
-  Routes must also comply with the [`Gateway` configuration](../../../application-load-balancer/k8s-ref/gateway.md#spec) rules specified in the `spec.listeners.allowedRoutes` field.
+  The route must also comply with the rules described in the [`Gateway` configuration]({{ configuration-local-link }}/gateway.md#spec) (`spec.listeners.allowedRoutes` field).
   
   * `namespace` (`string`)
     
@@ -124,7 +125,7 @@ Where:
 
   * `name` (`string`; this is a required field)
     
-    `Gateway` resource name specified in its `metadata.name` field.
+    Name of the `Gateway` resource (see the `metadata.name` field in its metadata).
 
   * `sectionName` (`string`)
   
@@ -224,7 +225,7 @@ Where:
       
      * `name` (`string`)
 
-       {{ k8s }} service name. The referred `Service` resource must be described per the [standard configuration](../../../application-load-balancer/k8s-ref/service-for-gateway.md). 
+       {{ k8s }} service name. The referred `Service` resource must be described per the [standard configuration]({{ configuration-local-link }}/service-for-gateway.md). 
 
      * `namespace` (`string`)
   
@@ -234,7 +235,7 @@ Where:
 
        Service port number.
 
-       This number must match one of the port numbers specified in the `spec.ports.port` fields of the `Service` resource. For more information, see the [resource configuration](../../../application-load-balancer/k8s-ref/service-for-gateway.md).
+       This number must match one of the port numbers specified in the `spec.ports.port` fields of the `Service` resource. For more information, see the [resource configuration]({{ configuration-local-link }}/service-for-gateway.md).
        
      * `weight` (`int32`)
 

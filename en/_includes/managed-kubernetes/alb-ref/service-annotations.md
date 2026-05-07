@@ -1,6 +1,6 @@
 # Annotations
 
-Annotations are collections of `key:value` pairs for assigning metadata to objects. Annotation values have the `string` data type. For more information on annotations, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).
+Annotations are collections of `key:value` pairs for assigning metadata to objects. Annotation values always have the `string` data type. For more information on annotations, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).
 
 In {{ alb-name }}, annotations are only used in `Service` resources to set up ingress controllers.
 
@@ -22,7 +22,7 @@ You can add the following annotations to `ObjectMeta`:
 
    If this annotation is not specified, the load balancer will connect to the backends without encryption.
 
-   This annotation is ignored for grouped backends. When encrypting a connection between a load balancer and grouped backends, configure the encryption via the `spec.backend.tls` field of the `HttpBackendGroup` resource (see the [resource configuration](../../../application-load-balancer/k8s-ref/http-backend-group.md)).
+   This annotation is ignored for grouped backends. When encrypting a connection between a load balancer and grouped backends, configure the encryption via the `spec.backend.tls` field of the `HttpBackendGroup` resource (see the [resource configuration]({{ configuration-local-link }}/http-backend-group.md)).
 
 * **ingress.alb.yc.io/health-checks** {#annot-health-checks}
 

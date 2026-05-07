@@ -1,28 +1,32 @@
 ---
-title: How to prefetch files to CDN servers in {{ cdn-full-name }}
-description: Use this guide to prefetch files to CDN servers.
+title: How to forcibly upload files to the CDN server cache in {{ cdn-full-name }}
+description: Follow this guide to forcibly upload content to the CDN server cache.
 ---
 
-# Prefetching files to CDN servers
+# Forced file upload to the CDN server cache
 
-To [prefetch content](../../concepts/caching.md#prefetch) from [origins](../../concepts/origins.md) to CDN servers:
+In the [CDN resource](../../concepts/resource.md) settings, you can [enable content caching](../../concepts/caching.md) to temporarily store the copies of files loaded from [origins](../../concepts/origins.md) on [CDN servers](../../concepts/points-of-presence.md).
+
+At the same time, you can [forcibly upload](../../concepts/caching.md#prefetch) files from origins to the CDN server cache. We recommend prefetching large files, i.e., those of 200 MB or more.
+
+To forcibly upload content from a CDN resource to the CDN server cache:
+
+{% note warning %}
+
+{% include [purge-before-prefetch-notice](../../../_includes/cdn/purge-before-prefetch-notice.md) %}
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where your [resource](../../concepts/resource.md) is located.
-
   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
-
   1. Click the resource name.
-
   1. Navigate to the **{{ ui-key.yacloud.cdn.label_resource-content }}** tab.
-
   1. In the top-right corner, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
-
   1. Enter the file names in the **{{ ui-key.yacloud.cdn.label_resource-content-prefetch-cache-paths }}** field.
-
   1. Click **{{ ui-key.yacloud.cdn.button_resource-content-prefetch-cache }}**.
 
 - CLI {#cli}
@@ -36,7 +40,6 @@ To [prefetch content](../../concepts/caching.md#prefetch) from [origins](../../c
       ```bash
       yc cdn resource update --help
       ```
-
   1. Get a list of all resources in the default folder:
 
       ```bash
@@ -83,8 +86,7 @@ To [prefetch content](../../concepts/caching.md#prefetch) from [origins](../../c
         type: DONT_USE
         status: READY
       ```
-
-  1. Specify the paths to the files you want to prefetch as a comma-separated list with no spaces:
+  1. Specify the paths to the files you want to upload to the CDN server cache as a comma-separated list with no spaces:
 
       ```bash
       yc cdn cache prefetch --resource-id <resource_ID> \
@@ -98,4 +100,3 @@ To [prefetch content](../../concepts/caching.md#prefetch) from [origins](../../c
   Use the [prefetch](../../api-ref/Cache/prefetch.md) REST API method for the [Cache](../../api-ref/Cache/index.md) resource or the [CacheService/Prefetch](../../api-ref/grpc/Cache/prefetch.md) gRPC API call.
 
 {% endlist %}
-  

@@ -1,6 +1,6 @@
 # Setting up the MTU when enabling DDoS protection
 
-We recommend always setting the MTU to `1450` bytes when [{{ ddos-protection-full-name }}](./enable-ddos-protection.md) protection is active.
+We recommend setting the MTU to `1450` bytes when [{{ ddos-protection-full-name }}](./enable-ddos-protection.md) protection is active.
 
 {% note alert %}
 
@@ -100,6 +100,49 @@ To learn more about the MTU and MSS in {{ yandex-cloud }}, see [{#T}](../concept
    ip link show eth0 | grep mtu
    ss -i | grep mss
    ```
+
+#### When using Cilium {#cilium}
+
+{% note info %}
+
+When using the [Cilium](https://cilium.io/) network plugin, additionally reduce the MTU in the [pods](../../managed-kubernetes/concepts/index.md#pod) to `1400` bytes; otherwise, the packet size in the pod will exceed the node's MTU, leading to data transfer errors.
+
+{% endnote %}
+
+1. Create the `CiliumNodeConfig` resource manifest:
+
+   ```yaml
+   apiVersion: cilium.io/v2alpha1
+   kind: CiliumNodeConfig
+   metadata:
+     namespace: kube-system
+     name: mtu-global
+   spec:
+     # To apply the setting to all nodes, leave nodeSelector empty:
+     nodeSelector: {}
+     # To target specific nodes, provide their labels:
+     # nodeSelector:
+     #   matchLabels:
+     #     <label_key>: <label_value>
+     defaults:
+       mtu: "1400"
+   ```
+
+   Save it to a file with any name, e.g., `cilium-mtu.yaml`.
+
+1. Apply the manifest in the {{ managed-k8s-name }} cluster:
+
+   ```bash
+   kubectl apply -f cilium-mtu.yaml
+   ```
+
+1. Restart DaemonSet Cilium for the changes to take effect:
+
+   ```bash
+   kubectl rollout restart daemonset/cilium -n kube-system
+   ```
+
+1. Recreate the relevant pods to apply the new MTU value.
 
 ### For a Windows Server VM {#windows-server}
 

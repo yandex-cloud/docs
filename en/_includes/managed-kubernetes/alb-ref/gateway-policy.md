@@ -2,6 +2,8 @@
 
 The `GatewayPolicy` resource specifies cloud policies applied to `Gateway` resources within a single {{ k8s }} namespace. You can apply a policy to specific resources with the help of references (`targetRefs`) or a selector (`selector`). If neither of these fields is set, the policy applies to all the resources within the namespace.
 
+{% include [Gwin-with-preset](../../application-load-balancer/ingress-to-gwin-tip-with-preset.md) %}
+
 `GatewayPolicy` is a Gateway API extension implemented in {{ alb-name }}. Below, we describe its fields and annotations used by the {{ alb-name }} Gateway API.
 
 {% note info %}
@@ -153,9 +155,9 @@ Where:
 
 * `securityGroups` (`[]string`)
 
-  List of {{ vpc-name }} [security groups](../../../vpc/concepts/security-groups.md) for a load balancer. This is a comma separated list of group IDs.
+  List of load balancer's {{ vpc-name }} [security groups](../../../vpc/concepts/security-groups.md). This is a comma separated list of group IDs.
 
-  For the proper load balancer and Gateway API operation, make sure to configure security groups as specified in [{#T}](../../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md).
+  For the proper load balancer and Gateway API operation, make sure to configure security groups as specified in [{#T}]({{ alb-local-link }}/security-groups.md).
 
 * `logs` (`LogOptions`)
 

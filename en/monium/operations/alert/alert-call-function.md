@@ -101,7 +101,7 @@ To send POST requests when an alert triggers:
 
                 # Output the call result to the log
                 if result["status"] == "OK":
-                    print(f"Succesffully invoked {result['url']}. Response: {result['response']}")
+                    print(f"Successfully invoked {result['url']}. Response: {result['response']}")
                 elif result["status"] == "ERROR":
                     print(f"ERROR invoking {result['url']}. Code {result['code']}, error message: {result['error']}")
                 else:

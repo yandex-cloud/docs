@@ -123,7 +123,7 @@
 
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
   1. Нажмите **{{ ui-key.yacloud.cloud-apps.button_empty-install-application }}**.
-  1. В открывшемся окне выберите приложение **Ghost CMS High Availability**.
+  1. Выберите приложение **Ghost CMS High Availability** и нажмите **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
   1. Задайте параметры приложения:
 
       #|

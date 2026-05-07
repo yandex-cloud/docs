@@ -107,7 +107,7 @@ You can also access aggregate bucket statistics [through the {{ yandex-cloud }} 
 
 ## Recommendations and limitations {#details-of-usage}
 
-- Updating bucket statistics may take up to 20 minutes. Therefore, sometimes the specified maximum bucket size may be exceeded (e.g., during fast sequential upload of multiple objects).  
+- Updating bucket information may take up to 20 minutes. Therefore, sometimes the specified maximum bucket size may be exceeded (e.g., during fast sequential upload of multiple objects).
 - In the management console, the information about the number of objects in the bucket and used up space is updated with a delay.
 - You cannot rename buckets.
 - The number of buckets does not affect the performance of {{ objstorage-name }}. How many buckets you use to store your data is up to you.

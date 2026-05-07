@@ -5,13 +5,13 @@ description: In this tutorial, you will learn how to replace a failed disk in a 
 
 # Replacing a disk in a RAID array
 
-If a disk in a {{ baremetal-name }} server’s RAID array fails, stop using it, [remove](#remove-from-raid) it from the array, [request](#request-swap) a replacement drive from support, and [add](#add-to-raid) the new disk to the array.
+If a [disk](../../concepts/disks/disk-types.md) in a {{ baremetal-name }} server's [RAID](../../concepts/disks/raid.md) array fails, stop using it, [remove](#remove-from-raid) it from the array, [request](#request-swap) a replacement drive from support, and [add](#add-to-raid) the new disk to the array.
 
 {% note info %}
 
 This guide does not apply to disk failures in `RAID 0` arrays. Such arrays are not fault-tolerant; a single disk failure results in complete data loss and requires full array reconstruction.
 
-This guide covers a standard RAID10 configuration with four HDDs under Ubuntu 24.04. If your setup differs from this standard configuration, adjust the following steps accordingly.
+This guide covers a standard `RAID 10` configuration with four [HDDs](../../concepts/disks/disk-types.md#hdd) under Ubuntu 24.04. If your setup differs from this standard configuration, adjust the following steps accordingly.
 
 {% endnote %}
 
@@ -104,7 +104,7 @@ This guide covers a standard RAID10 configuration with four HDDs under Ubuntu 24
     mdadm /dev/md3 --remove /dev/sdb4
     ```
 
-    The `mdadm` utility prevents disk removal from a RAID array if the disk is still operational or if removal can cause array failure, triggering a `Device busy` error:
+    The `mdadm` utility prevents disk removal from a RAID array if the disk is still operational or if removal can cause array failure. In this case, you will receive a notification that the device is busy:
 
     ```text
     mdadm: hot remove failed for /dev/sdb2: Device or resource busy
@@ -141,7 +141,7 @@ This guide covers a standard RAID10 configuration with four HDDs under Ubuntu 24
     ...
     ```
 
-    Save the `Disk identifier` value for your support ticket.
+    Save the defective disk's ID (`Disk identifier`): you will need it to report the problem to tech support.
 
 ## Request physical disk replacement {#request-swap}
 

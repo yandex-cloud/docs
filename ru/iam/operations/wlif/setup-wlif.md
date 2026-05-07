@@ -18,6 +18,9 @@ description: С помощью этой инструкции вы научите
 
 * [GitHub](../../tutorials/wlif-github-integration.md).
 * [{{ GL }}](../../tutorials/wlif-gitlab-integration.md).
+* [Пользовательская инсталляция {{ k8s }}](../../tutorials/wlif-k8s-integration.md).
+* [{{ managed-k8s-name }}](../../tutorials/wlif-managed-k8s-integration.md).
+* [Настройка CI/CD между {{ sf-name }} и GitHub](../../tutorials/ci-cd-github-functions.md).
 
 ## Подготовьте облако к работе {#prepare-cloud}
 

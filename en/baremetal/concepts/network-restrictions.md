@@ -77,39 +77,35 @@ Multicast | 100
 
 ## Blocked network ports {#blocked-ports}
 
-The routers connecting {{ baremetal-name }} servers to the internet limit the incoming internet traffic to public server addresses on some TCP and UDP ports as well as the outgoing SMTP traffic. By blocking these ports you can protect the {{ baremetal-full-name }} infrastructure against malicious networking traffic. 
+The routers connecting {{ baremetal-name }} servers to the internet limit the incoming internet traffic to public server addresses on some TCP and UDP ports as well as the outgoing SMTP traffic. By blocking these ports you can protect the {{ baremetal-full-name }} infrastructure against malicious networking traffic.
 
-Outgoing SMTP traffic is blocked to avoid unauthorized newsletters. We recommend using [{{ postbox-full-name }}](../../postbox/concepts/index.md) as an alternative for newsletters. If you need a public address from a range that allows outgoing SMTP traffic, contact [support]({{ link-console-support }}).
+Outgoing SMTP traffic is blocked to avoid unauthorized newsletters. We recommend using [{{ postbox-full-name }}](../../postbox/concepts/index.md) as an alternative for newsletters. If you need a public address from a range that allows outgoing SMTP traffic, contact [support]({{ link-console-support }}). Use such addresses in accordance with the [service's acceptable use policy]({{ link-cloud-aup }}). To obtain a PTR record for such an address, [contact support]({{ link-console-support }}).
 
-{% list tabs %}
+### Incoming traffic {#incoming-traffic}
 
-- Incoming traffic
+**Port** | **Application layer protocol** | **Transport protocol**
+--- | --- | ---
+`17` | QOTD | TCP, UDP
+`23` | Telnet | TCP
+`67–68` | DHCP | UDP
+`111` | SUNRPC | UDP
+`135–139` | NetBIOS | TCP, UDP
+`389` | LDAP | TCP, UDP
+`427` | SLP | TCP, UDP
+`445` | SMB | TCP, UDP
+`513` | rlogin | TCP
+`520` | RIP | UDP
+`631` | IPP | TCP, UDP
+`646` | LDP | TCP, UDP
+`750` | Kerberos-IV | UDP
+`1900` | SSDP | UDP
+`3702` | WSD | UDP
+`11211` | memcached | UDP
 
-  **Port** | **Application layer protocol** | **Transport protocol**
-  --- | --- | ---
-  `17` | QOTD | TCP, UDP
-  `23` | Telnet | TCP
-  `67–68` | DHCP | UDP
-  `111` | SUNRPC | UDP
-  `135–139` | NetBIOS | TCP, UDP
-  `389` | LDAP | TCP, UDP
-  `427` | SLP | TCP, UDP
-  `445` | SMB | TCP, UDP
-  `513` | rlogin | TCP
-  `520` | RIP | UDP
-  `631` | IPP | TCP, UDP
-  `646` | LDP | TCP, UDP
-  `750` | Kerberos-IV | UDP
-  `1900` | SSDP | UDP
-  `3702` | WSD | UDP
-  `11211` | memcached | UDP
+If the port you need is not in the table, use the [Nmap](https://en.wikipedia.org/wiki/Nmap) utility to check if it is available on the {{ baremetal-name }} server OS side.
 
-  If the port you need is not in the table, use the [Nmap](https://en.wikipedia.org/wiki/Nmap) utility to check if it is available on the {{ baremetal-name }} server OS side.
+### Outgoing traffic {#outgoing-traffic}
 
-- Outgoing traffic
-
-  **Port** | **Application layer protocol** | **Transport protocol**
-  --- | --- | ---
-  `25` | SMTP | TCP
-
-{% endlist %}
+**Port** | **Application layer protocol** | **Transport protocol**
+--- | --- | ---
+`25` | SMTP | TCP

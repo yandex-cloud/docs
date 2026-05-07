@@ -39,7 +39,7 @@ The cost depends on the service plan you choose, which covers your organization 
 
 {% note warning %}
 
-Starting May 1, 2026, the fixed part of the technical support payment will increase to $40.98.
+Starting May 1, 2026, the fixed part of the technical support cost will increase to $40.98.
 
 {% endnote %}
 
@@ -57,7 +57,10 @@ The basic service plan is provided to all {{ yandex-cloud }} users at no charge.
 ### Business {#business}
 
 This plan is good for business projects requiring 24/7 support.
-The price is calculated based on the amount of resources consumed over the current reporting period (calendar month). For a cost calculation, use [our calculator](/prices#calculator) or read about the calculation methods in the sections below.
+
+The cost is made up of the fixed and the percentage part. The percentage part is calculated several times per day based on the volume of consumed resources. For information on your consumption and charges, refer to {{ billing-name }} [usage details](../billing/operations/check-charges.md).
+
+The price is calculated based on the fixed part and your consumption in the current reporting period (calendar month). To calculate the fixed part, use [our calculator](/prices#calculator) or read about the calculation methods in the sections below.
 
 #### Service plan cost {#business-price}
 
@@ -76,6 +79,7 @@ Calculating the support fee (5% of the cost of consumed resources) includes your
 
 
 
+
 {% include [usd-support-one-ba](../_pricing_examples/support/usd-one-ba.md) %}
 
 
@@ -87,6 +91,7 @@ If an organization with an activated support service plan uses resources paid fr
 
 
 {% include [usd-support-two-ba](../_pricing_examples/support/usd-two-ba.md) %}
+
 
 
 #### Example of calculating the cost for an organization whose resources are paid from a single billing account, with a committed volume of services included {#business-example-one-ba-cvos}

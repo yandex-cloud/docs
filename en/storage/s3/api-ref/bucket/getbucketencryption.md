@@ -1,4 +1,4 @@
-# getBucketEncryption method
+# Object Storage API, Amazon S3-compatible REST: GetBucketEncryption
 
 Returns information about bucket encryption. For more information about bucket encryption, see [{#T}](../../../concepts/encryption.md).
 
