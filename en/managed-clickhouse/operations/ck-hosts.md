@@ -14,7 +14,7 @@ After creating a cluster with separate {{ CK }} hosts, you can:
 * [Convert non-replicated tables to replicated ones](#replicated-tables).
 * [Delete a {{ CK }} host](#delete-host).
 
-For more information about {{ CK }} hosts, see [{#T}](../concepts/replication.md#ck).
+For more information about {{ CK }} hosts, see [{#T}](../concepts/coordination-system.md#ck).
 
 ## Getting a list of cluster hosts {#list-hosts}
 
@@ -28,14 +28,14 @@ For more information about {{ CK }} hosts, see [{#T}](../concepts/replication.md
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+  1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.button_add-clickhouse-keeper }}** in the top-right corner of the page.
   1. Select the [availability zone](../../overview/concepts/geo-scope.md) and a subnet inside it.
   1. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
 {% endlist %}  
 
-## Updating {{ CK }} settings {#update-keeper-settings}
+## Changing {{ CK }} settings {#update-keeper-settings}
 
 {% include [note-change-disk-type-data-loss](../../_includes/mdb/mch/note-change-disk-type-data-loss.md) %}
 
@@ -72,7 +72,7 @@ You can delete only one {{ CK }} host at a time. However, there must be at least
 - Management console {#console}
 
   1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the cluster name and go to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+  1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
   1. In the host row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
   1. Confirm the deletion.
 
@@ -103,7 +103,7 @@ You can delete only one {{ CK }} host at a time. However, there must be at least
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
   
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
   
@@ -130,7 +130,7 @@ You can delete only one {{ CK }} host at a time. However, there must be at least
   
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
   
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
   

@@ -1,13 +1,39 @@
 ---
 title: Analysis of {{ baremetal-full-name }} server disk status
-description: If you encounter disk read/write errors, disk or RAID array failures while using a {{ baremetal-name }} server, you can run server diagnostics to identify the source of the problem and generate a report for support.
+description: If you encounter disk read/write errors, disk or RAID array failures while using a {{ baremetal-full-name }} server, you can run server diagnostics to identify the source of the problem and generate a report for support.
 ---
 
-# Analysis of {{ baremetal-name }} server disk status
+# Analysis of {{ baremetal-full-name }} server disk status
 
-If you encounter disk read/write errors, disk or [RAID](https://en.wikipedia.org/wiki/RAID) array failures while using a {{ baremetal-name }} [server](./servers.md), you can [run](../operations/servers/use-hwatcher.md) server diagnostics to identify the source of the problem and generate a report for support.
+[{{ baremetal-full-name }} servers](./servers.md) are equipped with [disks](./disks/disk-types.md) that can have some usage history. This is a normal practice for server hardware: disks are designed for years of continuous operation, and their performance does not decrease in the process. While long use itself does not constitute a reason for disk replacement, the actual disk state does.
 
-The disk error information analysis is based on the [SMART](https://en.wikipedia.org/wiki/Self-Monitoring,_Analysis_and_Reporting_Technology) disk self-diagnostics technology and uses the [HWCheck](../operations/servers/use-hwatcher.md) utility to collect and process the data and generate a report. You can only use `HWCheck` on [Linux](https://en.wikipedia.org/wiki/Linux) servers.
+Each disk added to the service undergoes a required load testing. Untested disks are never used.
+
+## Disk health diagnostics {#diagnostics}
+
+If you encounter disk read/write errors or disk or [RAID](./disks/raid.md) array failures and suspect a disk malfunction while working with a {{ baremetal-name }} server, you can check the disk health in several ways.
+
+{% note tip %}
+
+To ensure protection from data loss, [configure](../operations/backup-baremetal.md) backup creation on your server using [{{ backup-full-name }}](../../backup/index.yaml).
+
+{% endnote %}
+
+### SMART {#smart}
+
+[SMART](https://en.wikipedia.org/wiki/Self-Monitoring,_Analysis_and_Reporting_Technology) (self-monitoring, analysis, and reporting technology) is a built-in self-diagnostics system used in every modern disk: [HDD](./disks/disk-types.md#hdd), [SSD](./disks/disk-types.md#ssd), and [NVMe](./disks/disk-types.md#nvme). During its use, the disk continuously measures various indicators and collects statistics that you can read using external monitoring tools. To read these data, use standard utilities.
+
+The key principle of SMART data interpretation is that the counter's dynamics and its attribute switching to `FAILING_NOW` provides much more insight than any specific counter value. An attribute switch means that the disk itself sends signals that the built-in recovery mechanisms are depleted.
+
+For NVMe storages, `percentage_used` is another monitored attribute that stands for the degree of the disk's [NAND](https://en.wikipedia.org/wiki/Flash_memory#Distinction_between_NOR_and_NAND_flash) memory deterioration.
+
+### HWCheck {#hwcheck}
+
+_HWCheck_ is a utility for server hardware diagnostics. It automatically collects SMART metrics from all disks, analyzes them by internal criteria, and generates a disk health report in an easy-to-read format, so you do not need to interpret raw SMART data manually.
+
+You can [run](../operations/servers/use-hwatcher.md) server diagnostics to identify the source of the issue and generate a report for support.
+
+{% include [hwcheck-only-on-linux](../../_includes/baremetal/hwcheck-only-on-linux.md) %}
 
 Information on server disk status is saved in the report’s `drive` directory, and reports for each of the server’s disks are saved in separate files. A report on the disk’s SMART attribute values is formatted as a table:
 
@@ -105,7 +131,7 @@ Information on server disk status is saved in the report’s `drive` directory, 
       * `Unused_Rsvd_Blk_Cnt_Tot`: Total number of available flash memory blocks in the reserve area.
       * `Program_Fail_Cnt_Total`: Total number of failures when attempting to write data to a flash memory block.
       * `Erase_Fail_Count_Total`: Total number of failures when attempting to erase data from a flash memory block.
-      * `Runtime_Bad_Block`: Total number of flash memory blocks with unfixable errors detected during the disk’s operation time.
+      * `Runtime_Bad_Block`: Total number of flash memory blocks with unfixable errors detected over the entire disk operation time.
       * `End-to-End_Error`: Total number of errors caused by the mismatch in the host and disk parity data transferred though the cache.
       * `Reported_Uncorrect`: Total number of errors that could not be recovered using hardware error correction mechanisms.
       * `Airflow_Temperature_Cel`: Air temperature inside the disk case.
@@ -118,6 +144,30 @@ Information on server disk status is saved in the report’s `drive` directory, 
 
 {% endlist %}
 
+For more information on how to run `HWCheck`, see [this guide](../operations/servers/use-hwatcher.md).
+
+### Load testing {#load-testing}
+
+SMART reflects the disk health but does not always allow you to detect degradation in performance: a disk with satisfactory SMART metrics may work much slower than expected. Actual performance is checked by load testing, i.e., artificial loads on the disk with measuring actual speed and IOPS metrics. The [fio](https://fio.readthedocs.io/en/latest/fio_doc.html) utility is a convenient tool to run such tests.
+
+{% note info %}
+
+If the disk is part of a [RAID array](./disks/raid.md) or is under active load, the load testing results may be inaccurate.
+
+You can only use `fio` on Linux servers.
+
+{% endnote %}
+
+## Disk replacement {#disk-replacement}
+
+Data center engineers provide replacement for malfunctioning disks free of charge and 24/7.
+
+To learn more about disk replacement in {{ baremetal-name }} servers, see [Replacing a disk in a RAID array](../operations/servers/switch-raid-member.md#request-swap).
+
 #### See also {#see-also}
 
 * [{#T}](../operations/servers/use-hwatcher.md)
+* [{#T}](../operations/servers/switch-raid-member.md)
+* [{#T}](../operations/backup-baremetal.md)
+* [{#T}](./disks/disk-types.md)
+* [{#T}](./disks/raid.md)

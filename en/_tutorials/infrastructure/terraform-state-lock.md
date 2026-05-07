@@ -132,6 +132,7 @@ To save the {{ TF }} state in {{ objstorage-name }} and enable state locking:
 
 1. Add the provider and backend settings to the configuration file:
 
+   
    ```hcl
    terraform {
      required_providers {
@@ -163,6 +164,8 @@ To save the {{ TF }} state in {{ objstorage-name }} and enable state locking:
      zone = "<default_availability_zone>"
    }
    ```
+
+
 
    Where:
    * `bucket`: [Bucket](../../storage/concepts/bucket.md) name.

@@ -226,3 +226,9 @@ Service name: `wiki`.
 Service name: `websql`.
 
 {% include [websql-events-dp](../../_includes/audit-trails/events/websql-events-dp.md) %}
+
+## {{ ydb-full-name }} {#ydb}
+
+Service name: `ydb`.
+
+{% include [ydb-events-dp](../../_includes/audit-trails/events/ydb-events-dp.md) %}

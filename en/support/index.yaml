@@ -5,8 +5,9 @@ description:
     href="https://yandex.ru/legal/cloud_technicalregulations">Maintenance
     Regulations</a> in Russian and English.
   - >-
-    <a href="{{ link-console-support }}">Yandex Cloud Center</a> is the main
-    entry point for troubleshooting and answers to questions about YC services.
+    <a href="https://center.yandex.cloud/support">Yandex Cloud Center</a> is the
+    main entry point for troubleshooting and answers to questions about YC
+    services.
   - >-
     This document explains how to work with the Cloud Center to get support,
     details technical support levels and current service plans.
@@ -18,28 +19,121 @@ meta:
   keywords:
     - keyword: Contacting {{ yandex-cloud }} support
     - keyword: How {{ yandex-cloud }} support works
-    - keyword: How the {{ yandex-cloud }} Support Center works
+    - keyword: How the {{ yandex-cloud }} support center works
     - keyword: '{{ yandex-cloud }} support rules'
     - keyword: Working with {{ yandex-cloud }} Center
     - keyword: How to get help from {{ yandex-cloud }}
     - keyword: Troubleshooting in {{ yandex-cloud }}
     - keyword: Issue with {{ yandex-cloud }}
-links:
-  - title: Technical support procedure
-    description: How to contact technical support
-    href: overview
-  - title: Support in {{ support-center-name }}
-    description: Troubleshooting in {{ support-center-name }}
-    href: support-center
-  - title: Notifications from Yandex Cloud support
-    description: What events technical support notifies you about and how
-    href: notify
-  - title: Data requests
-    description: What data can be requested from technical support
-    href: request
-  - title: Pricing policy
-    description: Technical support pricing and cost calculations
-    href: pricing
-  - title: FAQ
-    description: Frequently asked questions about technical support
-    href: qa
+blocks:
+  - type: content
+    title: Yandex Cloud technical support description
+    colSizes:
+      all: 12
+      lg: 12
+      md: 12
+      sm: 12
+      xl: 12
+  - type: content
+    text: >-
+      Yandex Cloud provides technical support in accordance with the
+      [Maintenance
+      Regulations](https://yandex.ru/legal/cloud_technicalregulations) in
+      Russian and English.
+    textWidth: l
+    colSizes:
+      all: 12
+      lg: 12
+      md: 12
+      sm: 12
+      xl: 12
+  - type: content
+    text: >-
+      [Yandex Cloud Center](https://center.yandex.cloud/support) is the main
+      entry point for troubleshooting and answers to questions about YC
+      services. This document explains how to work with the Cloud Center to get
+      support, details technical support levels and current service plans.
+    indent:
+      top: m
+    textWidth: l
+    colSizes:
+      all: 12
+      lg: 12
+      md: 12
+      sm: 12
+      xl: 12
+  - type: card-layout-block
+    animated: false
+    indent:
+      top: m
+    colSizes:
+      all: 12
+      lg: 4
+      md: 6
+      sm: 12
+      xl: 4
+    children:
+      - type: basic-card
+        title: Technical support procedure
+        text: Find out what requests can be made to technical support
+        urlTitle: Technical support procedure
+        url: overview
+        icon: assets/console-icons/trapezoid-left-line-horizontal.svg
+        animated: false
+      - type: basic-card
+        title: Support in Cloud Center
+        text: Find a solution yourself or create a ticket
+        urlTitle: Support in Cloud Center
+        url: cloud-center
+        icon: assets/console-icons/layout-header-side-content.svg
+        animated: false
+      - type: basic-card
+        title: Notifications from Yandex Cloud support
+        text: Learn what events technical support notifies you about and how
+        urlTitle: Notifications from Yandex Cloud support
+        url: notify
+        icon: assets/console-icons/bell.svg
+        animated: false
+      - type: basic-card
+        title: Telegram chat
+        text: Start communicating with Yandex Cloud technical support in Telegram
+        urlTitle: Yandex Cloud support in Telegram
+        url: tg-chat
+        icon: assets/console-icons/logo-telegram.svg
+        animated: false
+      - type: basic-card
+        title: Data requests
+        text: See what data can be requested from technical support
+        urlTitle: Data requests
+        url: request
+        icon: assets/console-icons/database-magnifier.svg
+        animated: false
+      - type: basic-card
+        title: Copying errors from the browser console
+        text: Learn how to copy a message from the error console
+        urlTitle: Copying errors from the browser console
+        url: browser-console
+        icon: assets/console-icons/copy.svg
+        animated: false
+      - type: basic-card
+        title: Saving browser-server interactions to a HAR file
+        text: Learn how to save a HAR file
+        urlTitle: Saving browser-server interactions to a HAR file
+        url: create-har
+        icon: assets/console-icons/file-zipper.svg
+        animated: false
+      - type: basic-card
+        title: Pricing policy
+        text: Review technical support prices and service plans
+        urlTitle: Pricing policy
+        url: pricing
+        icon: assets/console-icons/calculator.svg
+        animated: false
+      - type: basic-card
+        title: FAQ
+        text: Find answers to frequently asked questions
+        urlTitle: FAQ
+        icon: assets/console-icons/circle-question.svg
+        url: qa
+        animated: false
+links: []

@@ -1,73 +1,20 @@
 ---
 title: Replication in {{ mch-full-name }}
-description: In this tutorial, you will learn how cluster host replication works in {{ mch-full-name }}.
+description: In this article, you will learn about cluster host replication in {{ mch-full-name }}.
 ---
 
 # Replication in {{ mch-name }}
 
-In {{ CH }}, replication is performed if the cluster meets all these conditions:
+In {{ CH }}, replication is enabled if the cluster meets all these conditions:
 
 * There is at least one shard with two or more hosts.
-* Host coordination tool is set up.
+* Host [coordination](coordination-system.md) is configured.
 
 A {{ mch-name }} cluster with replication is considered to be [highly available](high-availability.md). In such a cluster, you can create [replicated tables](#replicated-tables) and [replicated databases](#replicated-db).
 
-With {{ mch-name }}, you can use one of the following tools to coordinate hosts and distribute queries among them:
-
-* [{{ CK }}](#ck) (default)
-* [{{ ZK }}](#zk)
-
-## {{ CK }} {#ck}
-
-{{ CK }} is a service for coordination and distribution of queries among {{ CH }} hosts. {{ CK }} implements a [{{ ZK }}](#zk)-compatible client-server protocol, so you can use any standard {{ ZK }} client to work with it. However, migration from the {{ ZK }} coordination service to {{ CK }} is not supported.
-
-In {{ mch-name }}, the {{ CK }} coordination service is now available in the following modes:
-
-* **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-embedded-clickhouse-keeper }}**: {{ CK }} runs on {{ CH }} hosts. For replication, the {{ mch-name }} cluster must consist of three or more {{ CH }} hosts.
-* **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-separated-clickhouse-keeper }}**: {{ CK }} runs on separate hosts. For successful replication, the {{ mch-name }} cluster must have three or five {{ CK }} hosts.
-
-You can turn on the {{ CK }} coordination service:
-  
-* When [creating a cluster](../operations/cluster-create.md).
-* When [updating a cluster](../operations/update.md), if created without a coordination service.
-
-Once {{ CK }} is is turned on, you cannot turn it off.
-
-For more information about {{ CK }}, see [this {{ CH }} guide]({{ ch.docs }}/guides/sre/keeper/clickhouse-keeper).
-
-## {{ ZK }} {#zk}
-
-{{ ZK }} is a service for coordination and distribution of queries among {{ CH }} hosts. For replication, your {{ mch-name }} cluster must have [three or five {{ ZK }} hosts](../qa/cluster-settings.md#zookeeper-hosts-number).
-
-If your cluster consists of one {{ CH }} host or several single-host shards and does not support {{ CK }}, you must ensure its high availability before adding new hosts. Do it by [adding three or five {{ ZK }} hosts to the cluster](../operations/zk-hosts.md#add-zk). If the cluster already has {{ ZK }} hosts, you can [add {{ CH }} hosts](../operations/hosts.md#add-host) to any shards.
-
-
-If you are creating a cluster with two or more {{ CH }} hosts per shard, the system will automatically add three {{ ZK }} hosts to the cluster. At this point, you can only set up their configuration. Mind the following:
-
-* If a cluster in the [virtual network](../../vpc/concepts/network.md) has subnets in each [availability zone](../../overview/concepts/geo-scope.md), a {{ ZK }} host is automatically added to each subnet if you do not explicitly specify the settings for such hosts. You can explicitly specify three {{ ZK }} hosts and their settings when creating a cluster, if required.
-* If a cluster in the virtual network has subnets only in certain availability zones, you need to explicitly specify three {{ ZK }} hosts and their settings when creating a cluster.
-
-* If you did not specify any subnets for these hosts, {{ mch-short-name }} will automatically distribute them among the subnets of the network the {{ CH }} cluster is connected to.
-
-
-The minimum number of cores per {{ ZK }} host depends on the total number of cores on {{ CH }} hosts:
-
-| Total number of {{ CH }} host cores | Minimum number of cores per {{ ZK }} host |
-|-------------------------------------------|-------------------------------------------------------|
-| Less than 48                                  | 2                                                     |
-| 48 or higher                                | 4                                                     |
-
-You can change {{ ZK }} host class and storage size when [updating cluster settings](../operations/update.md#change-resource-preset). You cannot change {{ ZK }} settings or connect to such hosts.
-
-{% note warning %}
-
-{{ ZK }} hosts, if any, are counted in when calculating [resource usage]({{ link-console-quotas }}) and cluster cost.
-
-{% endnote %}
-
 ## Replicated tables {#replicated-tables}
 
-{{ CH }} supports automatic replication only for tables on [the ReplicatedMergeTree engine]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/). To enable replication, you can create the tables on each host separately or use a distributed DDL query.
+{{ CH }} only supports automatic replication for tables on [the ReplicatedMergeTree engine]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/). To enable replication, you can create such tables on each host separately or use a distributed DDL query.
 
 {% note warning %}
 
@@ -91,10 +38,10 @@ Where:
 
 * `db_01`: Database name.
 * `table_01`: Table name.
-* `/table_01`: Path to the table in {{ ZK }} or {{ CK }}, which must start with a forward slash `/`.
+* `/table_01`: Path to the table in {{ ZK }} or {{ CK }}, which must start with a forward slash, `/`.
 * `{replica}`: Host ID macro substitution.
 
-To create replicated tables on all cluster hosts, send [a distributed DDL request]({{ ch.docs }}/sql-reference/distributed-ddl/):
+To create replicated tables on all cluster hosts, run this [distributed DDL query]({{ ch.docs }}/sql-reference/distributed-ddl/):
 
 ```sql
 CREATE TABLE db_01.table_01 ON CLUSTER '{cluster}' (
@@ -112,7 +59,7 @@ To learn how to manage the interaction between replicated and distributed tables
 
 ## Replicated databases {#replicated-db}
 
-When [creating a database](../operations/databases.md#add-db) in {{ CH }}, you can select the Replicated engine. It supports table metadata replication across all database replicas. The set of tables and their schemas will be the same for all replicas.
+When [creating a database](../operations/databases.md#add-db) in {{ CH }}, you can select the **Replicated** engine that supports table metadata replication across all database replicas. The set of tables and their schemas will be the same for all replicas.
 
 You can only set the engine when creating a database and cannot change it later.
 

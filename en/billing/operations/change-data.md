@@ -37,7 +37,7 @@ You can use [Yandex Balance](https://balance.yandex.ru/) to update payer's conta
 
 ## Changing any details other than TIN {#change-details}
 
-[Write a request](../qa/common.md) to {{ yandex-cloud }} support. In the request, specify the details to modify and the number of the [contract](../concepts/contract.md) and attach a copy of the certificate verifying these changes (signed and stamped with the company's seal).
+[Write a request](../qa/common.md) to Yandex Cloud support {{ yandex-cloud }}. In the request, specify the details to modify and the number of the [contract](../concepts/contract.md) and attach a copy of the certificate verifying these changes (signed and stamped with the company's seal).
 
 ## Changing a business or TIN {#change-legal-entity}
 
@@ -48,6 +48,6 @@ You cannot change a business or TIN in the billing account settings. If these de
 
 ##### See also
 
-* [Link another bank card](pin-card.md)
+* [Link another card](pin-card.md)
 * [Changing the payment method](change-payment-method.md)
 * [Configuring notifications](budgets.md)

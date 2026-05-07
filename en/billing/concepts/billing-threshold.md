@@ -26,7 +26,7 @@ The billing threshold amount is calculated individually and depends on a combina
 - Amount for resources consumed.
 - Your financial standing.
 
-You can view the information on the billing threshold amount in [{{ billing-name }}]({{ link-console-billing }}), in the top-right section of the ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}** page, along with the current balance details.
+You can view [{{ billing-name }}]({{ link-console-billing }}) billing threshold info together with your current balance details in the top-right section of the ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}** page.
 
 ## Enabling a billing threshold {#enable}
 
@@ -50,7 +50,7 @@ If you are using a bank account to pay for {{ yandex-cloud }} resources, a billi
 
 - Individuals {#individuals}
 
-  You can track the [balance of your personal account](../concepts/personal-account.md#balance) in [{{ billing-name }}]({{ link-console-billing }}) on the ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}** page:
+  You can track [your personal account balance](../concepts/personal-account.md#balance) on the ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}** page in [{{ billing-name }}]({{ link-console-billing }}):
   * Your balance automatically reduces as you consume resources.
   * You can view your usage history on the [usage details](../operations/check-charges.md) page.
   * When you [credit funds](../payment/payment-methods-individual.md), your balance increases. The top-up record is logged to the [payment history](../operations/check-bill-history.md).

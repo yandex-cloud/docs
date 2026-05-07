@@ -19,9 +19,9 @@ We do not recommend creating a single-host cluster.
 
 {% endnote %}
 
-A cluster with two hosts located in different availability zones is considered highly available and is subject to the [SLA](https://yandex.com/legal/cloud_sla_mdb/en/). This option is suitable for medium-sized applications in a production environment. The default cluster configuration offered in the management console includes two hosts.
+A cluster with two hosts located in different availability zones is considered highly available and is subject to the [SLA](https://yandex.ru/legal/cloud_sla_mdb/). This option is suitable for medium-sized applications in a production environment. The default cluster configuration offered in the management console includes two hosts.
 
-A cluster with three or more hosts located in three different availability zones is considered highly available and is subject to the [SLA](https://yandex.com/legal/cloud_sla_mdb/en/). Such clusters are suitable for production environments subject to high availability and performance requirements.
+A cluster with three or more hosts located in three different availability zones is considered highly available and is subject to the [SLA](https://yandex.ru/legal/cloud_sla_mdb/). Such clusters are suitable for production environments subject to high availability and performance requirements.
 
 For more information, see [Planning cluster topology](planning-cluster-topology.md).
 

@@ -6,6 +6,8 @@
 
 {% include [note-payment](../../_includes/managed-gitlab/note-payment.md) %}
 
+{% include [mr-network-access](../../_includes/managed-gitlab/mr-network-access.md) %}
+
 ## Getting a GitLab Runner token {#gitlab-token}
 
 You can get a token when creating a {{ GLR }} in {{ GL }}. You specify this token when [creating a runner](#create) in your {{ mgl-name }} instance and use it to authenticate the runner in {{ GL }}.

@@ -8,6 +8,8 @@ You can also set policy parameters using `HTTPRoute` resource annotations. The `
 
 {% endnote %}
 
+{% include [Gwin-with-preset](../../application-load-balancer/ingress-to-gwin-tip-with-preset.md) %}
+
 Here is an example of the `RoutePolicy` resource definition (intended solely to demonstrate all the parameters):
 
 ```yaml

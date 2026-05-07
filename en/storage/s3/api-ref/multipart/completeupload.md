@@ -1,4 +1,4 @@
-# completeUpload method
+# Object Storage API, Amazon S3-compatible REST: CompleteMultipartUpload
 
 This request completes a multipart upload.
 
@@ -29,7 +29,7 @@ Parameter | Description
 `key` | Object key.
 
 
-### Request parameters {#request-parameters}
+### Query parameters {#request-parameters}
 
 Parameter | Description
 ----- | -----

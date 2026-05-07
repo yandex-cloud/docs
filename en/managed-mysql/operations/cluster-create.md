@@ -6,6 +6,7 @@ description: Follow this guide to create a {{ MY }} cluster with one or multiple
 # Creating a {{ MY }} cluster
 
 
+
 A {{ MY }} cluster consists of one or more database hosts. In multi-host clusters, [semi-synchronous replication](../concepts/replication.md) is configured automatically.
 
 For more information on the {{ mmy-name }} cluster structure, see [Resource relationships](../concepts/index.md).

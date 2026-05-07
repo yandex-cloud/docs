@@ -23,6 +23,8 @@ Incoming traffic is filtered with reverse proxying. All HTTP requests from websi
 
 Essentially, to implement protection of web applications or backends, you need to configure a proxy server and a domain and also add a certificate for decrypting and checking HTTPS traffic.
 
+Domain protection is subject to the [pricing policy](../pricing.md#requests).
+
 ### Proxy server {#proxy}
 
 The _proxy server_ acts as an intermediary for all user requests to your website or application. It has a dedicated [public IP address](../../vpc/concepts/address.md#public-addresses) for receiving requests, so your server's public IP address will be hidden from external users. The proxy server has a preconfigured load balancer, which ensures stable performance in case there are many external requests, and active basic [DDoS protection](../../vpc/ddos-protection/).

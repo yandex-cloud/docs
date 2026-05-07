@@ -1,11 +1,56 @@
----
-title: CLI releases
-description: This page presents a list of CLI releases and the updates of each.
+title: "List of CLI releases"
+description: "This page presents CLI releases and their updates."
 ---
 
 # CLI releases
 
 ## Current version {#latest-release}
+
+### Version 1.5.0 (23/04/26) {#v-1-5-0}
+
+#### Changes to the CLI system commands {#v-1-5-0-yc}
+
+CLI commands now support versioning. It is implemented on a per-service basis as a tree of child commands with a version number, e.g., `yc compute v0`.
+
+#### {{ interconnect-name }} {#v-1-5-0-cic-name}
+
+* Removed the `--region` parameter from these commands:
+  * `yc cic private-connection create`
+  * `yc cic private-connection update`
+  * `yc cic trunk-connection update`
+
+* Removed the `--point_of_presence_id` parameter from the `yc cic trunk-connection update` command.
+
+* Removed the `cloud-bgp-asn` parameter value from these commands:
+  * `yc cic private-connection create`
+  * `yc cic private-connection update`
+
+
+#### {{ cr-name }} {#v-1-5-0-cr-name}
+
+* Removed the `--region` parameter from these commands:
+  * `yc cloudrouter routing-instance create`
+  * `yc cloudrouter routing-instance update`
+
+#### {{ mkf-name }} {#v-1-5-0-mkf-name}
+
+* Added the `--transactional-id-expiration-ms` parameter to these commands:
+  * `yc kafka cluster create`
+  * `yc kafka cluster update`
+
+## Previous releases {#previous-release}
+
+### Version 1.4.0 (20/04/26) {#v-1-4-0}
+
+#### {{ cloud-registry-name }} {#v-1-4-0-cloud-registry-name}
+
+* Added the `yc cloud-registry artifact get-by-path` command for retrieving an artifact by its registry path.
+
+* Added the following commands for managing registry scan policies in {{ cloud-registry-name }}:
+  * `yc cloud-registry registry scan-policy get`
+  * `yc cloud-registry registry scan-policy get-by-registry`
+  * `yc cloud-registry registry scan-policy create`
+  * `yc cloud-registry registry scan-policy upd`
 
 ### Version 1.3.0 (16/04/26) {#v-1-3-0}
 
@@ -66,8 +111,6 @@ description: This page presents a list of CLI releases and the updates of each.
 #### {{ mch-name }} {#v-1-3-0-mch-name}
 
 * Added the `--include-patterns` and `--exclude-patterns` parameters to the `yc managed-clickhouse cluster restore` command for partial cluster recovery.
-
-## Previous releases {#previous-release}
 
 ### Version 1.2.0 (13/04/26) {#v-1-2-0}
 

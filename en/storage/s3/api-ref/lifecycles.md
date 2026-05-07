@@ -7,8 +7,8 @@ description: The Lifecycles service in the {{ objstorage-name }} HTTP API (S3) m
 
 Method | Description
 ----- | -----
-[upload](lifecycles/upload.md) | Uploads an object lifecycle configuration to {{ objstorage-name }}.
-[get](lifecycles/get.md) | Returns an object lifecycle configuration from {{ objstorage-name }}.
-[delete](lifecycles/delete.md) | Deletes an object lifecycle configuration from {{ objstorage-name }}.
+[PutBucketLifecycleConfiguration](lifecycles/upload.md) | Uploads an object lifecycle configuration to {{ objstorage-name }}.
+[GetBucketLifecycleConfiguration](lifecycles/get.md) | Returns an object lifecycle configuration from {{ objstorage-name }}.
+[DeleteBucketLifecycle](lifecycles/delete.md) | Deletes an object lifecycle configuration from {{ objstorage-name }}.
 
 {% include [the-s3-api-see-also-include](../../../_includes/storage/the-s3-api-see-also-include.md) %}

@@ -29,7 +29,7 @@ locals {
   route_table_name = "nat-instance-route"
 }
 
-# Configuring a provider
+# Configuring the provider
 
 terraform {
   required_providers {
@@ -77,6 +77,8 @@ resource "yandex_vpc_security_group" "nat-instance-sg" {
     protocol       = "ANY"
     description    = "any"
     v4_cidr_blocks = ["0.0.0.0/0"]
+    from_port      = 0
+    to_port        = 65535
   }
 
   ingress {
@@ -129,7 +131,7 @@ resource "yandex_compute_disk" "boot-disk-nat" {
   image_id = yandex_compute_image.nat-instance-ubuntu.id
 }
 
-# Creating a VM instance
+# Creating a VM
 
 resource "yandex_compute_instance" "test-vm" {
   name        = local.vm_test_name

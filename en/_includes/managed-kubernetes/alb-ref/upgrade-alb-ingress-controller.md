@@ -1,14 +1,14 @@
 # Upgrading an {{ alb-name }} Ingress controller for {{ managed-k8s-name }}
 
-{% include [Gwin](../../application-load-balancer/ingress-to-gwin-tip.md) %}
+{% include [Gwin-with-preset](../../application-load-balancer/ingress-to-gwin-tip-with-preset.md) %}
 
-[ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) versions 0.2.0 and newer are incompatible with any 0.1.x releases. This incompatibility causes [backend groups](../../../application-load-balancer/tools/k8s-ingress-controller/principles.md) limitations.
+[ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) versions 0.2.0 and newer are incompatible with any 0.1.x releases. This incompatibility causes [backend groups]({{ ingress-local-link }}/principles.md) limitations.
 
-One method for creating a backend group involves specifying [rules](../../../application-load-balancer/k8s-ref/ingress.md#rule) directly in the `Ingress` resource. Pre-0.2.0 ALB Ingress Controller versions map each backend group to a distinct combination of `host`, `http.paths.path`, and `http.paths.pathType` values. ALB Ingress Controllers v0.2.0 and later map backend groups to the `backend.service` setting of the `Ingress` resource. This setting specifies a [{{ k8s }} service](../../../managed-kubernetes/concepts/service.md). For more information about `Ingress` resource configuration and settings, see [this {{ k8s }} article](https://kubernetes.io/docs/concepts/services-networking/ingress/).
+One method for creating a backend group involves specifying [rules]({{ configuration-local-link }}/ingress.md#rule) directly in the `Ingress` resource. Pre-0.2.0 ALB Ingress Controller versions map each backend group to a distinct combination of `host`, `http.paths.path`, and `http.paths.pathType` values. ALB Ingress Controllers v0.2.0 and later map backend groups to the `backend.service` setting of the `Ingress` resource. This setting specifies a [{{ k8s }} service](../../../managed-kubernetes/concepts/service.md). For more information about `Ingress` resource configuration and settings, see [this {{ k8s }} article](https://kubernetes.io/docs/concepts/services-networking/ingress/).
 
 When upgrading your ALB Ingress Controller from version 0.1.x to 0.2.0 or later, check whether any of the following scenarios apply to your `Ingress` resource groups, i.e., `Ingress` resources with matching `ingress.alb.yc.io/group-name` values:
 
-* They are configured with the same `host`, `http.paths.path`, and `http.paths.pathType` combinations, but different `backend.service.name`, i.e., {{ k8s }} service, values. In this case, recreate your backend groups using the [HttpBackendGroup](../../../managed-kubernetes/tutorials/alb-ingress-controller.md#create-ingress-and-apps) objects.
+* They are configured with the same `host`, `http.paths.path`, and `http.paths.pathType` combinations, but different `backend.service.name`, i.e., {{ k8s }} service, values. In this case, recreate your backend groups using the [HttpBackendGroup]({{ configuration-local-link }}/http-backend-group.md) objects.
 
 * There is one {{ k8s }} service per multiple `host`, `http.paths.path`, and `http.paths.pathType` combinations. In this case, check whether their `backend` settings differ. For example, one `Ingress` resource group can establish gRPC connections, while another group, HTTP connections.
 

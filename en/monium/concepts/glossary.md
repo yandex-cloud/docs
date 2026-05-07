@@ -1,4 +1,4 @@
-# Basic terms in {{ monium-name }}
+# Basic {{ monium-name }} terms
 
 This section describes the terms used in {{ monium-name }} and its guides.
 
@@ -61,11 +61,11 @@ _Expression Language_ (or simply Expression) is a method to describe how to cal
 
 ### TTL (Time-to-Live) {#ttl}
 
-_TTL_ is a mechanism used to automatically delete obsolete metrics that have not been receiving new values for a given period of time.
+_TTL_ is a mechanism used to automatically delete obsolete data that has not been updated over a specified period of time.
 
-For example, a TTL of 7 means that metrics whose last point's timestamp is more than 7 days in the past will be automatically deleted.
+For example, a seven-day TTL for metrics means that they will be automatically deleted if the timestamp of their latest data point is older than seven days.
 
-For more information, see [{#T}](#ttl)
+For more information, see [{#T}](#ttl).
 
 ### Unified Agent {#unified-agent}
 
@@ -73,7 +73,7 @@ _Unified Agent_ is a program used to collect, store, transform, and deliver metr
 
 ## Logging terms {#logging-terms}
 
-{% include notitle [logging-terms](../logs/concepts/glossary.md) %}
+{% include [logs-terms](../../_includes/monium/logs-terms.md) %}
 
 ## Tracing terms {#tracing-terms}
 

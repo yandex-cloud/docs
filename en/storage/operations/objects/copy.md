@@ -102,7 +102,7 @@ You can copy either the [entire bucket contents](#copy-from-bucket-to-bucket) or
 
 {% endlist %}
 
-## Copying all bucket objects to a different bucket {#copy-from-bucket-to-bucket}
+## Copying multiple objects to another bucket {#copy-from-bucket-to-bucket}
 
 {% list tabs group=instructions %}
 
@@ -125,10 +125,17 @@ You can copy either the [entire bucket contents](#copy-from-bucket-to-bucket) or
       yc storage s3 cp \
         s3://<source_bucket>/ \
         s3://<target_bucket>/ \
-        --recursive
+        --recursive \
+        --exclude "*" \
+        --include "*.txt"
       ```
 
-      Where `--recursive` is the parameter for copying all objects.
+      Where:
+      * `--recursive`: Copies all objects.
+      * `--exclude`: Excludes objects that match the pattern from copying. In the example, it excludes all objects (`"*"`). This is an optional setting.
+      * `--include`: Adds objects that match the pattern to copying. In the example, it adds only `.txt` files. This is an optional setting.
+
+      {% include [s3-cp-filter-order](../../../_includes/storage/s3-cp-filter-order.md) %}
 
       Result:
 
@@ -148,18 +155,23 @@ You can copy either the [entire bucket contents](#copy-from-bucket-to-bucket) or
 
       ```bash
       aws --endpoint-url=https://{{ s3-storage-host }}/ \
-        s3 cp --recursive s3:<source_bucket>/ s3:<target_bucket>/
+        s3 cp --recursive \
+        --exclude "*" \
+        --include "*.txt" \
+        s3:<source_bucket>/ s3:<target_bucket>/
       ```
 
       Where:
 
       * `--endpoint-url`: {{ objstorage-name }} endpoint.
       * `s3 cp`: Command to copy objects.
-      * `--recursive`: Parameter for copying all objects from the source bucket.
+      * `--recursive`: Copies all objects.
+      * `--exclude`: Excludes objects that match the pattern from copying. In the example, it excludes all objects (`"*"`). This is an optional setting.
+      * `--include`: Adds objects that match the pattern to copying. In the example, it adds only `.txt` files. This is an optional setting.
+
+      {% include [s3-cp-filter-order](../../../_includes/storage/s3-cp-filter-order.md) %}
 
       For more information about the `aws s3 cp` command, see [AWS CLI Command Reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/cp.html).
-
-  All objects from the source bucket will now appear in the target bucket.
 
   {% note info %}
 

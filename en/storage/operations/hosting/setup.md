@@ -53,6 +53,7 @@ For more information, see [{#T}](../../security/overview.md).
 
   {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
 
+
   1. In the configuration file, describe the resources you want to create:
 
      ```hcl
@@ -107,28 +108,11 @@ For more information, see [{#T}](../../security/overview.md).
 
        * `error_document`: Absolute path to the file the user will see in case of 4xx errors. This is an optional setting.
 
-  1. Make sure the configuration files are correct.
+  1. Create the required resources:
 
-     1. In the command line, navigate to the directory you created the configuration file in.
-     1. Run a check using this command:
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-        ```
-        terraform plan
-        ```
-
-     If the configuration description is correct, the terminal will display a list of the resources and their settings. {{ TF }} will show any errors in the configuration. 
-
-  1. Deploy the cloud resources.
-
-     1. If the configuration does not contain any errors, run this command:
-
-     ```
-     terraform apply
-     ```
-   
-     1. Confirm creating the resources.
-
-     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+  {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
 - API {#api}
 
@@ -142,8 +126,8 @@ For more information, see [{#T}](../../security/overview.md).
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Navigate to](../../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** service.
+  1. In the [management console]({{ link-console-main }}), select any folder.
+  1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you want to redirect all requests for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
@@ -210,6 +194,7 @@ For more information, see [{#T}](../../security/overview.md).
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
+
   To set up a redirect for all requests:
 
   1. Open the {{ TF }} configuration file and add the `redirect_all_requests_to` property to the `yandex_storage_bucket` description:
@@ -244,35 +229,11 @@ For more information, see [{#T}](../../security/overview.md).
        * `error_document`: Absolute path to the file the user will see in case of 4xx errors. This is an optional setting.
        * `redirect_all_requests_to`: Domain name of the host to act as the redirect target for all requests to the current bucket. You can specify a protocol prefix (`http://` or `https://`). By default, the original request protocol is used.
 
-     For more information about `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
+     For more information about the `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
 
-  1. Check the configuration using this command:
+  1. Create the required resources:
 
-     ```bash
-     terraform validate
-     ```
-     
-     If the configuration is correct, you will get this message:
-     
-     ```bash
-     Success! The configuration is valid.
-     ```
-
-  1. Run this command:
-
-     ```bash
-     terraform plan
-     ```
-  
-     You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-
-  1. Apply the changes:
-
-     ```bash
-     terraform apply
-     ```
-     
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
      You can use the [management console]({{ link-console-main }}) to check the request redirect settings.
 
@@ -292,8 +253,8 @@ For more information, see [{#T}](../../security/overview.md).
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Navigate to](../../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** service.
+  1. In the [management console]({{ link-console-main }}), select any folder.
+  1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you want to configure conditional request redirects for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
@@ -403,6 +364,7 @@ For more information, see [{#T}](../../security/overview.md).
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
+
   To set up conditional request redirects:
 
   1. Open the {{ TF }} configuration file and add the `routing_rules` parameter to the bucket description:
@@ -454,38 +416,13 @@ For more information, see [{#T}](../../security/overview.md).
        * `error_document`: Absolute path to the file the user will see in case of 4xx errors. This is an optional setting.
        * `routing_rules`: Rules for redirecting requests in JSON format. Each rule's `Condition` and `Redirect` fields must contain at least one <q>key-value</q> pair. For more information about the supported fields, see the [data schema](../../s3/api-ref/hosting/upload.md#request-scheme) of the relevant API method (the **For conditionally redirecting requests** tab).
 
-     For more information about `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
+     For more information about the `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
+  1. Create the required resources:
 
-  1. Check the configuration using this command:
-
-     ```bash
-     terraform validate
-     ```
-     
-     If the configuration is correct, you will get this message:
-     
-     ```bash
-     Success! The configuration is valid.
-     ```
-
-  1. Run this command:
-
-     ```bash
-     terraform plan
-     ```
-  
-     You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
-
-  1. Apply the changes:
-
-     ```bash
-     terraform apply
-     ```
-     
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
      You can use the [management console]({{ link-console-main }}) to check the settings for conditionally redirecting requests.
-        
+
 - API {#api}
 
   To set up conditional redirects for bucket requests, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call, or the [upload](../../s3/api-ref/hosting/upload.md) S3 API method.

@@ -11,8 +11,8 @@
 
 | Type of limit | Value |
 | ----- | ----- |
-| Number of requests for [cache purging](../../cdn/concepts/caching.md#purge) per minute | 1 |
+| Number of [cache purging](../../cdn/concepts/caching.md#purge) requests per minute | 1 |
 | Number of file paths per cache purging request | 10 |
-| Number of requests for [preloading files](../../cdn/concepts/caching.md#prefetch) per minute | 1 |
-| Number of paths to preloaded files per request | 100 |
+| Number of [forced file caching](../../cdn/concepts/caching.md#prefetch) requests per minute | 1 |
+| Number of paths to files forcibly loaded into the cache per request | 100 |
 | Number of IP addresses (subnet prefixes) in the IP-based access policy [list](../../cdn/concepts/ip-address-acl.md#ip-list) | 100 |

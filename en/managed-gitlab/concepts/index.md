@@ -80,6 +80,22 @@ For more on managed runners, see these pages:
 * [{#T}](../operations/runner.md)
 * [{#T}](../tutorials/install-gitlab-runner.md)
 
+### Networking between {{ GL }} and managed runners {#networking-gl-mr}
+
+The subnet of the instance the managed runner is connected to must have internet access via a [NAT gateway](../../vpc/concepts/gateways.md) or [NAT instance](../../vpc/tutorials/nat-instance/index.md).
+
+To set up networking between {{ GL }} and managed runners, you need to configure required, recommended, and optional security group settings.
+
+![image](../../_assets/managed-gitlab/networking.svg)
+
+#### Rules for incoming traffic {#ingress-rules-runner}
+
+{% include [mr-ingress-rules](../../_includes/managed-gitlab/mr-ingress-rules.md) %}
+
+#### Rules for outgoing traffic {#egress-rules-runner}
+
+{% include [mr-egress-rules](../../_includes/managed-gitlab/mr-egress-rules.md) %}
+
 ## {{ GL }} Pages {#pages}
 
 {{ GL }} Pages is a tool for publishing static websites composed of files residing in a {{ GL }} repository. Websites are deployed via {{ GL }} CI/CD jobs. {{ GL }} Pages works with static website generators and standard HTML, CSS, and JavaScript files.

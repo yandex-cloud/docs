@@ -11,6 +11,10 @@ items:
     items:
       - name: Все руководства
         href: tutorials/index.md
+      - name: >-
+          Создание сайта на WordPress High Availability с помощью {{
+          cloud-apps-name }}
+        href: tutorials/wordpress-ha-cloudapp.md
       - name: Создание сайта на WordPress с помощью {{ cloud-apps-name }}
         href: tutorials/wordpress-cloudapp.md
       - name: >-

@@ -6,6 +6,7 @@ description: Follow this guide to create a {{ VLK }} cluster with one or multipl
 # Creating a {{ VLK }} cluster
 
 
+
 A {{ VLK }} cluster consists of one or more database hosts, with the option to configure replication between them. Replication is enabled by default in any cluster with more than one host: the master host accepts write requests and propagates the changes to its replicas.
 
 For more information on the {{ mrd-name }} cluster structure, see [Resource relationships](../concepts/index.md).
@@ -49,7 +50,7 @@ There are no restrictions for non-sharded clusters.
   To create a {{ mrd-name }} cluster:
 
   1. In the [management console]({{ link-console-main }}), go to the folder where you want to create your database cluster.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
@@ -1119,7 +1120,7 @@ To create a {{ VLK }} cluster copy:
       * `subnet-b` with the `10.2.0.0/24` range
       * `subnet-d` with the `10.3.0.0/24` range
     * Three `{{ mrd-host-class }}` class hosts, one in each subnet.
-    * New  security group `redis-sg` allowing connections via ports `{{ port-mrd }}` and `{{ port-mrd-sentinel }}` ([{{ VLK }} Sentinel](./connect/index.md)) from any subnet addresses.
+    * New security group `redis-sg` allowing connections via ports `{{ port-mrd }}` and `{{ port-mrd-sentinel }}` ([{{ VLK }} Sentinel](./connect/index.md)) from any subnet addresses.
     * Network SSD storage (`{{ disk-type-example }}`): 16 GB.
     * Password: `user1user1`.
     * Deletion protection: Enabled.

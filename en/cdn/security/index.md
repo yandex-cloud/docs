@@ -2,17 +2,17 @@
 
 {{ cdn-name }} uses [roles](../../iam/concepts/access-control/roles.md) to manage access permissions.
 
-In this section, you will learn:
+In this section, you will learn about the following:
 
-* [What resources support role assignment](#resources).
-* [What roles this service has](#roles-list).
-* [What roles are required](#required-roles) for specific actions.
+* [Resources you can assign a role for](#resources).
+* [Roles this service has](#roles-list).
+* [Roles required](#required-roles) for specific actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
 {% include [roles-assign](../../_includes/iam/roles-assign.md) %}
 
-## Resources supporting role assignment {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
@@ -42,20 +42,20 @@ In this section, you will learn:
 
 {% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
 
-## What roles do I need {#required-roles}
+## Required roles {#required-roles}
 
-The table below lists the roles required for specific actions. You can always assign a role with more permissions. For example, you can assign the `editor` role instead of `viewer`.
+The table below lists the roles required for specific actions. You can always assign a role with more permissions, e.g., `editor` instead of `viewer`.
 
 Action | Required roles
 -------- | --------
 **Viewing data** | 
-Viewing resource details | `cdn.viewer` for the resource
+Viewing resource details | `cdn.viewer` for this resource
 **Managing CDN resources** | 
 [Creating a resource](../operations/resources/create-resource.md) | `cdn.editor` for the folder to host new resources
 [Updating basic settings of a resource](../operations/resources/configure-basics.md) | `cdn.editor` for the folder with CDN resources
 [Disabling a resource](../operations/resources/disable-resource.md) | `cdn.editor` for the folder with CDN resources
 [Configuring resource caching](../operations/resources/configure-caching.md) | `cdn.editor` for the folder with CDN resources
-[Pre-loading files to CDN servers](../operations/resources/prefetch-files.md) | `cdn.editor` for the folder with CDN resources
+[Prefetching files to the CDN server cache](../operations/resources/prefetch-files.md) | `cdn.editor` for the folder with CDN resources
 [Purging resource cache](../operations/resources/purge-cache.md) | `cdn.editor` for the folder with CDN resources
 Configuring HTTP request and response headers | `cdn.editor` for the folder with CDN resources
 [Configuring CORS for responses to clients](../operations/resources/configure-cors.md) | `cdn.editor` for the folder with CDN resources
@@ -71,7 +71,7 @@ Configuring HTTP request and response headers | `cdn.editor` for the folder with
 Origin shielding | `cdn.editor` for the folder with CDN resources
 Log export | `cdn.editor` for the folder with CDN resources
 **Managing resource access** | 
-[Granting](../../iam/operations/roles/grant.md), [revoking](../../iam/operations/roles/revoke.md), and viewing roles for a resource | `admin` for the resource
+[Granting](../../iam/operations/roles/grant.md), [revoking](../../iam/operations/roles/revoke.md), and viewing roles for a resource | `admin` for this resource
 
 #### What's next
 

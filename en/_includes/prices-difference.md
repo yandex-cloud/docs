@@ -1,5 +1,5 @@
 {% note info %}
 
-The calculation examples use prices that may differ from the prices in effect.
+Prices in the cost calculation examples may differ from the current ones.
 
 {% endnote %}

@@ -244,6 +244,8 @@ items:
           }}
         href: tutorials/gatsby-static-website.md
       - name: Установка WordPress High Availability с помощью {{ cloud-apps-name }}
+        href: tutorials/wordpress-ha-cloudapp.md
+      - name: Установка WordPress с помощью {{ cloud-apps-name }}
         href: tutorials/wordpress-cloudapp.md
       - name: Установка Ghost CMS High Availability с помощью {{ cloud-apps-name }}
         href: tutorials/ghost-cms-cloudapp.md

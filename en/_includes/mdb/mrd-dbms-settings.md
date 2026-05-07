@@ -134,7 +134,7 @@
 
     Changes do not affect an already running script.
 
-    For more information, see [this {{ RD }} article](https://github.com/redis/redis/blob/6.0/redis.conf#L1203).
+    For more information, see [this {{ VLK }} article](https://github.com/valkey-io/valkey/blob/9.0/valkey.conf#L1732).
 
 * **Maxmemory percent**{#settings-maxmemory-percent} {{ tag-all }}
 

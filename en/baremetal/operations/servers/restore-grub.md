@@ -16,11 +16,11 @@ If your {{ baremetal-name }} legacy BIOS server experiences [GRUB](https://en.wi
 To restore the bootloader:
 
 1. {% include [rescue-chroot-to-server-fs1](../../../_includes/baremetal/instruction-steps/rescue-chroot-to-server-fs1.md) %}
-1. List server disks and their partitions:
+1. View information about the server's storage devices ([disks](../../concepts/disks/disk-types.md) and their partitions):
 
     {% include [fdisk-l-in-rescue](../../../_includes/baremetal/fdisk-l-in-rescue.md) %}
 
-    In the example above, the `fdisk` utility displayed information about the `/dev/sda` and `/dev/sdb` physical disks, their partitions, and the partitions of the server’s RAID array: `/dev/md127`, `/dev/md126`, and `/dev/md125`.
+    In the example above, `fdisk` displayed information about the `/dev/sda` and `/dev/sdb` physical disks, their partitions, and the [RAID](../../concepts/disks/raid.md) array built from them, which contains three partitions: `/dev/md127`, `/dev/md126`, and `/dev/md125`.
     
     The reference server uses the following partition scheme:
     * `/dev/md126`: `/boot` partition.

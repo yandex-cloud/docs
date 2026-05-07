@@ -5,6 +5,7 @@ description: In this guide, you will learn how to manage object metadata export 
 
 # Managing metadata export of bucket objects (S3 Inventory)
 
+
 In {{ objstorage-name }}, you can [export metadata](../../concepts/s3-inventory.md) of bucket objects (S3 Inventory) for further analysis and cataloging.
 
 {% include [s3-inventory-pricing](../../../_includes/storage/s3-inventory-pricing.md) %}

@@ -11,7 +11,7 @@ items:
         href: operations/instance/instance-list.md
       - name: Creating and activating an instance
         href: operations/instance/instance-create.md
-      - name: Setting up security groups and access restrictions for an instance
+      - name: Configuring security groups
         href: operations/configure-security-group.md
       - name: Stopping and starting an instance
         href: operations/instance/instance-stop.md
@@ -31,7 +31,7 @@ items:
         href: operations/create-user.md
       - name: Setting up approval rules
         href: operations/approval-rules.md
-      - name: Monitoring the instance status
+      - name: Instance state monitoring
         href: operations/instance/monitoring.md
       - name: Setting up OmniAuth
         href: operations/omniauth.md
@@ -77,7 +77,7 @@ items:
         href: concepts/index.md
       - name: Advantages over a custom {{ GL }} installation
         href: concepts/managed-gitlab-vs-custom-installation.md
-      - name: Running migration from a custom {{ GL }} installation
+      - name: Migration from a custom {{ GL }} installation
         href: concepts/migration.md
       - name: Approval rules
         href: concepts/approval-rules.md

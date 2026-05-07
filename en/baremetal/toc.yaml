@@ -54,8 +54,6 @@ items:
             href: operations/servers/add-new-ssh-key.md
           - name: Restoring the OS bootloader
             href: operations/servers/restore-grub.md
-          - name: Disk status analysis
-            href: concepts/smart-disk-analysis.md
           - name: Analyzing server status using HWCheck
             href: operations/servers/use-hwatcher.md
       - name: Network
@@ -86,6 +84,14 @@ items:
             href: concepts/server-custom-configurations.md
           - name: On-request server configuration
             href: concepts/server-individual-configurations.md
+          - name: Disks and RAID
+            items:
+              - name: Disk types
+                href: concepts/disks/disk-types.md
+              - name: Disk state assessment
+                href: concepts/smart-disk-analysis.md
+              - name: RAID
+                href: concepts/disks/raid.md
       - name: Network
         expanded: true
         items:

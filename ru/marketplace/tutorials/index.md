@@ -7,6 +7,7 @@ description: Различные сценарии использования пр
 
 * [{#T}](s2s-vpn.md)
 * [{#T}](ghost-cms-cloudapp.md)
+* [{#T}](wordpress-ha-cloudapp.md)
 * [{#T}](wordpress-cloudapp.md)
 
 ## Использование продуктов {{ marketplace-name }} в {{ managed-k8s-full-name }} {#marketplace-tutorials}

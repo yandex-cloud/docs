@@ -229,24 +229,24 @@ items:
         href: concepts/ttl.md
   - name: Logs
     items:
-      - name: Getting started
+      - name: Getting started with application logs
         href: logs/quickstart.md
-      - name: Overview
-        href: logs/index.md
-      - name: Data collection
+      - name: Getting started with {{ yandex-cloud }} resource logs
+        href: logs/quickstart-resources.md
+      - name: Data delivery
         items:
           - name: Data conversions
             href: logs/write/converting-data.md
           - name: Fluent Bit
             href: logs/write/fluent-bit.md
-      - name: View logs
+      - name: Log search and analysis
         href: logs/logs-explorer.md
-      - name: Query language
-        href: logs/query.md
       - name: Concepts
         items:
-          - name: Basic terms
+          - name: Overview and basic concepts
             href: logs/concepts/glossary.md
+          - name: Query language
+            href: logs/query.md
           - name: Log annotation recommendations
             href: logs/concepts/attributes-guide.md
           - name: Data retention period (TTL)

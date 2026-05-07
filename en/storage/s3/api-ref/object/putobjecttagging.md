@@ -1,4 +1,4 @@
-# putObjectTagging method
+# Object Storage API, Amazon S3-compatible REST: PutObjectTagging
 
 Adds [labels](../../../concepts/tags.md) to a bucket object. This overwrites any existing object labels.
 
@@ -19,7 +19,7 @@ Parameter | Description
 `bucket` | Bucket name.
 `key` | Object key.
 
-### Request parameters {#request-params}
+### Query parameters {#request-params}
 
 Parameter | Description
 --- | ---

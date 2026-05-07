@@ -1,4 +1,4 @@
-# putObjectLockConfiguration method
+# Object Storage API, Amazon S3-compatible REST: PutObjectLockConfiguration
 
 Sets up [object locks](../../../concepts/object-lock.md) in a [versioned bucket](../../../concepts/versioning.md): enables or disables object locks and configures default locks.
 

@@ -25,3 +25,7 @@ description: Пошаговые инструкции по работе с DNS-з
 - [{#T}](resource-record-create.md)
 - [{#T}](resource-record-update.md)
 - [{#T}](resource-record-delete.md)
+
+## Фильтры DNS {#dns-filter}
+
+- [{#T}](filter-create.md)

@@ -34,7 +34,7 @@ To log bucket access:
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select a folder.
+      1. In the [management console]({{ link-console-main }}), select any folder.
       1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Select the bucket you want to configure logging for.
       1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
@@ -88,6 +88,7 @@ To log bucket access:
      {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
+
      To enable logging for a bucket you want to track:
 
      1. Open the {{ TF }} configuration file and add the `logging` section to the bucket description.
@@ -121,7 +122,9 @@ To log bucket access:
         * `target_bucket`: Reference to the log storage bucket.
         * `target_prefix`: [Prefix of the key](../../concepts/server-logs.md#key-prefix) used for objects with logs, e.g., `logs/`.
 
-        For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see [this TF provider article]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
+        For more information about the `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
+
+     1. Apply the changes:
 
         {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -159,8 +162,8 @@ To get the target bucket name and the log object key prefix, follow these steps:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select a folder.
-   1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. In the [management console]({{ link-console-main }}), select any folder.
+   1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Select the original bucket.
    1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
    1. Select the **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}** tab.
@@ -193,6 +196,7 @@ To get the target bucket name and the log object key prefix, follow these steps:
 
 - {{ TF }} {#tf}
 
+
   To get the logging settings for the bucket you want to monitor:
 
      1. Open the {{ TF }} configuration file and find the `logging` section in the bucket description.
@@ -223,7 +227,13 @@ To get the target bucket name and the log object key prefix, follow these steps:
         * `target_bucket`: Reference to the log storage bucket.
         * `target_prefix`: [Prefix of the key](../../concepts/server-logs.md#key-prefix) used for objects with logs, e.g., `logs/`.
 
-        For more information about `yandex_storage_bucket` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
+        For more information about the `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#enable-logging).
+
+  1. Apply the changes:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     You can check the update using the [management console]({{ link-console-main }}).
 
 - API {#api}
 
@@ -252,10 +262,10 @@ To get logs, download the object prefixed with `logs/` from the target bucket:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. In the [management console]({{ link-console-main }}), select any folder.
+  1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the target bucket with logs.
-  1. Go to the `logs/` directory.
+  1. Go to the `logs/` folder.
   1. Next to the log object you want to download, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.bucket.button_download }}**.
   
   {% note info %}
@@ -282,8 +292,8 @@ To disable logging, follow these steps:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. In the [management console]({{ link-console-main }}), select any folder.
+  1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you want to disable logging for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_server-logs }}** tab.
@@ -304,6 +314,7 @@ To disable logging, follow these steps:
      Where `--bucket` is the name of the source bucket to disable logging for.
 
 - {{ TF }} {#tf}
+
 
   To disable logging:
 

@@ -1,4 +1,4 @@
-# get method
+# Object Storage API, Amazon S3-compatible REST: GetObject
 
 Returns an object from {{ objstorage-name }}.
 
@@ -18,7 +18,7 @@ Parameter | Description
 `key` | Object key.
 
 
-### Request parameters {#request-params}
+### Query parameters {#request-params}
 
 Parameter | Description
 ----- | -----

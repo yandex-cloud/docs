@@ -43,6 +43,24 @@ Use a new combination of endpoints to transfer data from {{ ydb-name }} to {{ PG
 
 ## 2026 {#2026}
 
+### March {#mar26}
+
+#### New features and improvements {#new-features-mar26}
+
+* Supported the nginx data format for the [{{ objstorage-name }}](../operations/endpoint/source/object-storage.md) data source.
+
+* Revised the name format for objects created in a [{{ objstorage-name }}](../operations/endpoint/target/object-storage.md) target: part-<timestamp>-<hash(partID)>.<counter>.<file_type>.
+
+  * <timestamp>: `timestamp` by operation ID.
+  * <hash(partID)>: `UUID` generated based on `partID`.
+  * <counter>: Incrementing counter.
+  * <file_type>: File extension (`csv`, `parquet`, `json`, `proto`, or `nginx`).
+
+* For {{ dt-type-copy }} transfers from [{{ PG }} sources](../operations/endpoint/source/postgresql.md), supported permanent data reads from a parent table provided it is included in the endpoint or transfer table list.
+
+* For {{ ydb-short-name }}, {{ KF }}, and {{ DS }} sources, supported a new data conversion type, `Raw-to-table`, which allows delivering raw data from a message queue.
+
+
 ### February {#feb26}
 
 #### New features {#new-features-feb26}

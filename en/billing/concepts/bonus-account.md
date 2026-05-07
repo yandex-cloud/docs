@@ -6,6 +6,8 @@ A grant is a discount on {{ yandex-cloud }} services provided to an individual e
 
 You cannot use grants to top up [personal accounts](personal-account.md).
 
+{{ yandex-cloud }} can revoke the grant without explanation.
+
 {% endnote %}
 
 {% include [currency](../_includes/currency.md) %}
@@ -33,7 +35,7 @@ For more information about the terms of use of initial grants, see [Getting star
 
 {% note info %}
 
-Each individual, sole proprietor, or business can be given only one initial grant. {{ yandex-cloud }} can revoke the grant without explanation.
+Each individual, sole proprietor, or business can be given only one initial grant.
 
 {% endnote %}
 

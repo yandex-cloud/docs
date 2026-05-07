@@ -5,6 +5,7 @@ description: The main entity {{ mch-name }} operates is a database cluster. Each
 
 # Resource relationships in {{ mch-name }}
 
+
 The main entity {{ mch-name }} operates is a database _cluster_.
 
 Each cluster consists of one or multiple _database hosts_, which are virtual machines with {{ CH }} DBMS servers deployed. Cluster hosts may reside in different availability zones and even different availability regions. You can learn more about the {{ yandex-cloud }} availability zones in [Platform overview](../../overview/concepts/geo-scope.md).

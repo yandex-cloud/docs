@@ -1,4 +1,4 @@
-# startUpload method
+# Object Storage API, Amazon S3-compatible REST: CreateMultipartUpload
 
 Returns the ID to use in all subsequent operations for uploading objects.
 
@@ -20,7 +20,7 @@ Parameter | Description
 `key` | Object key. The object will be saved in {{ objstorage-name }} with the specified name.
 
 
-### Request parameters {#request-parameters}
+### Query parameters {#request-parameters}
 
 Parameter | Description
 ----- | -----

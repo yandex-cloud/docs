@@ -43,4 +43,4 @@ Cloud DNS поддерживает любые доменные имена, в т
 1. В поле **{{ ui-key.yacloud.dns.label_form-ttl }}** укажите время жизни значения или выберите из предложенных.
 1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-Подробнее см. в инструкции [{#T}](../operations/resource-record-update.md)
+Подробнее см. в инструкции [{#T}](../operations/resource-record-update.md).

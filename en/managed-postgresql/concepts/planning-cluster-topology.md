@@ -48,7 +48,7 @@ Disadvantages:
 
 ### Two-host cluster {#two-hosts-cluster}
 
-A two-host cluster meets the high availability criteria and is subject to the [SLA](https://yandex.ru/legal/cloud_sla_mdb/). This option is sutable for medium-sized applications in a production environment.
+A two-host cluster meets the high availability criteria and is subject to the [SLA](https://yandex.ru/legal/cloud_sla_mdb/). This option is suitable for medium-sized applications in a production environment.
 
 Compared to a single-host cluster, a cluster with two hosts offers the following advantages:
 

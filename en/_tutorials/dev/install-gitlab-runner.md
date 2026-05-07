@@ -97,6 +97,8 @@ You can [install {{ GLR }} manually](#install) or [deploy a runner in the manage
 
 The feature of creating runners from the management console is only available for {{ mgl-name }} instances.
 
+{% include [mr-network-access](../../_includes/managed-gitlab/mr-network-access.md) %}
+
 {% include [runner-create](../../_includes/managed-gitlab/runner-create-console.md) %}
 
 #### Test the runner {#view-runner}
@@ -105,7 +107,7 @@ The feature of creating runners from the management console is only available fo
 
 - In {{ GL }}
 
-    * If {{ GLR }} was created for the whole {{ GL }} instance:
+    * If you created the {{ GLR }} for the whole {{ GL }} instance:
         1. In the bottom-left corner, click **Admin**.
         1. In the left-hand menu, select **CI/CD** → **Runners**.
         1. Make sure the new runner is now in the list.

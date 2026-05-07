@@ -1,4 +1,4 @@
-# delete method
+# Object Storage API, Amazon S3-compatible REST: DeleteBucketWebsite
 
 Deletes a static website hosting configuration for a bucket.
 
@@ -16,7 +16,7 @@ Parameter | Description
 ----- | -----
 `bucket` | Bucket name.
 
-### Request parameters {#parameters}
+### Query parameters {#parameters}
 
 Parameter | Description
 ----- | -----

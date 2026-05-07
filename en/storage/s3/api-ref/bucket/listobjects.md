@@ -1,4 +1,4 @@
-# listObjects method
+# Object Storage API, Amazon S3-compatible REST: ListObjects
 
 Returns a list of bucket objects.
 
@@ -32,7 +32,7 @@ Parameter | Description
 ----- | -----
 `bucket` | Bucket name.
 
-#### Request parameters {#parametersV2}
+#### Query parameters {#parametersV2}
 
 All parameters listed in the table are optional.
 
@@ -183,7 +183,7 @@ A successful response contains additional data in XML format with the schema des
 Element | Description
 ----- | -----
 `ListBucketResult` | Root element.
-`IsTruncated` | Flag showing whether or not the response contains all the results.<br/><br/>`True` for not all, `False` for all.<br/><br/>Path: `/ListBucketResult/IsTruncated`.
+`IsTruncated` | Flag showing whether or not the response contains all the results.<br/><br/>`True` stands for not all, `False` stands for all.<br/><br/>Path: `/ListBucketResult/IsTruncated`.
 `Marker` | Value of the `marker` query parameter.<br/><br/>Path: `/ListBucketResult/Marker`.
 `NextMarker` | Value to substitute to the `marker` query parameter to get the next part of the list, if the entire list does not fit into the current response.<br/><br/>Path: `/ListBucketResult/NextMarker`.
 `Contents` | Object description.<br/><br/>The response will contain as many `Contents` elements as there are keys that meet the request criteria.<br/><br/>Path: `/ListBucketResult/Contents`.

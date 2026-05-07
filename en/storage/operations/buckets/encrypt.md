@@ -27,8 +27,8 @@ In {{ objstorage-short-name }}, you can encrypt objects in a bucket using [{{ km
 - Management console {#console}
 
   To add a {{ kms-short-name }} key:
-  1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. In the [management console]({{ link-console-main }}), select any folder.
+  1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you want to configure encryption for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_encryption }}** tab.
@@ -46,7 +46,8 @@ In {{ objstorage-short-name }}, you can encrypt objects in a bucket using [{{ km
 
   Before you start, [get an IAM token](../../../iam/operations/iam-token/create-for-sa.md#via-cli) for your service account and save it to a file.
 
-  1. In the configuration file, describe the properties of resources you want to create:
+
+  1. In the configuration file, describe the resources you want to create:
 
      ```hcl
      provider "yandex" {
@@ -104,27 +105,13 @@ In {{ objstorage-short-name }}, you can encrypt objects in a bucket using [{{ km
        * `kms_master_key_id`: ID of the KMS master key used for encryption.
        * `sse_algorithm`: Encryption algorithm used on the server side. The only supported value is `aws:kms`.
 
-  1. Make sure the configuration files are correct.
+     For more information about the `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket).
 
-     1. In the command line, navigate to the directory where you created the configuration file.
-     1. Run a check using this command:
-        ```
-        terraform plan
-        ```
+  1. Apply the changes:
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  1. Deploy the cloud resources.
-
-     1. If the configuration does not contain any errors, run this command:
-
-     ```
-     terraform apply
-     ```
-
-     1. Confirm creating the resources.
-
-     This will create all the resources you need in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+     You can check the update using the [management console]({{ link-console-main }}).
 
 {% endlist %}
 
@@ -135,8 +122,8 @@ In {{ objstorage-short-name }}, you can encrypt objects in a bucket using [{{ km
 - Management console {#console}
 
   To remove encryption, delete the {{ kms-short-name }} key:
-  1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. In the [management console]({{ link-console-main }}), select any folder.
+  1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you want to remove encryption for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_encryption }}** tab.
@@ -149,6 +136,7 @@ In {{ objstorage-short-name }}, you can encrypt objects in a bucket using [{{ km
 
   
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
 
 
   To remove encryption for a bucket created using {{ TF }}:
@@ -177,35 +165,9 @@ In {{ objstorage-short-name }}, you can encrypt objects in a bucket using [{{ km
 
      {% endcut %}
 
-  1. In the command line, navigate to the directory with the {{ TF }} configuration file.
-
-  1. Check the configuration using this command:
-
-     ```bash
-     terraform validate
-     ```
-     
-     If the configuration is correct, you will get this message:
-     
-     ```bash
-     Success! The configuration is valid.
-     ```
-
-  1. Run this command:
-
-     ```bash
-     terraform plan
-     ```
-  
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
-
   1. Apply the changes:
 
-     ```bash
-     terraform apply
-     ```
-
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
      You can check the update using the [management console]({{ link-console-main }}).
 

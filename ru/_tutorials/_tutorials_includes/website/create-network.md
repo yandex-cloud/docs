@@ -14,7 +14,7 @@
   1. Оставьте включенной опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
   1. Нажмите **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
-- CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
   {% include [include](../../../_includes/cli-install.md) %}
 

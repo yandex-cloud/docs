@@ -1,6 +1,6 @@
 # Installing Gateway API
 
-{% include [ingress-to-gwin-tip](../application-load-balancer/ingress-to-gwin-tip.md) %}
+{% include [Gwin-with-preset](../application-load-balancer/ingress-to-gwin-tip-with-preset.md) %}
 
 [Gateway API](https://github.com/kubernetes-sigs/gateway-api) is a collection of API resources that model networking in a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster). These include `GatewayClass`, `Gateway`, `HTTPRoute`, etc.
 
@@ -34,19 +34,25 @@ In {{ managed-k8s-name }}, Gateway API launches [{{ alb-full-name }}](../../appl
 
 ## Installation from {{ marketplace-full-name }} {#marketplace-install}
 
-1. Go to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page.
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Click the name of the {{ managed-k8s-name }} cluster you need and select the ![Marketplace](../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
-1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Gateway API](/marketplace/products/yc/gateway-api) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
-1. Configure the application:
-   * **Namespace**: Create a new [namespace](../../managed-kubernetes/concepts/index.md#namespace), e.g., `gateway-api-space`. If you leave the default namespace, Gateway API may work incorrectly.
-   * **Application name**: Specify the application name.
-   * **Folder ID**: Select the folder where you want to create your load balancers.
-   * **Network ID**: Select the [cloud network](../../vpc/concepts/network.md#network) where your [load balancers](../../application-load-balancer/concepts/application-load-balancer.md#lb-location) will reside.
-   * **Subnet 1 ID**, **Subnet 2 ID**, **Subnet 3 ID**: Select [subnets](../../vpc/concepts/network.md#subnet) where your [load balancers](../../application-load-balancer/concepts/application-load-balancer.md#lb-location) will reside.
-   * **Service account key**: Paste the contents of the `sa-key.json` file or create a new [service account](../../iam/concepts/users/service-accounts.md) [key](../../iam/concepts/authorization/key.md).
-1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application status to change to `Deployed`.
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. Go to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Click the name of the {{ managed-k8s-name }} cluster you need and select the ![Marketplace](../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+  1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Gateway API](/marketplace/products/yc/gateway-api) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
+  1. Configure the application:
+     * **Namespace**: Create a new [namespace](../../managed-kubernetes/concepts/index.md#namespace), e.g., `gateway-api-space`. If you leave the default namespace, Gateway API may work incorrectly.
+     * **Application name**: Specify the application name.
+     * **Folder ID**: Select the folder where you want to create your load balancers.
+     * **Network ID**: Select the [cloud network](../../vpc/concepts/network.md#network) where your [load balancers](../../application-load-balancer/concepts/application-load-balancer.md#lb-location) will reside.
+     * **Subnet 1 ID**, **Subnet 2 ID**, **Subnet 3 ID**: Select [subnets](../../vpc/concepts/network.md#subnet) where your [load balancers](../../application-load-balancer/concepts/application-load-balancer.md#lb-location) will reside.
+     * **Service account key**: Paste the contents of the `sa-key.json` file or create a new [service account](../../iam/concepts/users/service-accounts.md) [key](../../iam/concepts/authorization/key.md).
+  1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
+  1. Wait for the application status to change to `Deployed`.
+
+{% endlist %}
 
 ## Installation using a Helm chart {#helm-install}
 
