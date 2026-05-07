@@ -1,4 +1,4 @@
-# deleteMultipleObjects method
+# Object Storage API, Amazon S3-compatible REST: DeleteObjects
 
 Deletes objects based on a list of keys provided in a request.
 
@@ -28,7 +28,7 @@ Parameter | Description
 `bucket` | Bucket name.
 
 
-### Request parameters {#request-parameters}
+### Query parameters {#request-parameters}
 
 Parameter | Description
 ----- | -----

@@ -6,7 +6,7 @@
 To create your first infrastructure in {{ yandex-cloud }} using {{ TF }}:
 1. [Get your cloud ready](#before-you-begin).
 1. [Install {{ TF }}](#install-terraform).
-1. [Get the authentication data](#get-credentials).
+1. [Get the authentication credentials](#get-credentials).
 1. [Create a {{ TF }} configuration file](#configure-terraform).
 1. [Configure your provider](#configure-provider).
 1. [Prepare an infrastructure plan](#prepare-plan).
@@ -23,7 +23,7 @@ If you no longer need the resources, [delete them](#delete-resources).
 
 The cost of support for the infrastructure deployed through {{ TF }} in this tutorial includes:
 * Fee for continuously running [VMs](../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for using dynamic [public IP addresses](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* Fee for using a dynamic [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Install {{ TF }} {#install-terraform}
 
@@ -132,7 +132,7 @@ resource "yandex_compute_instance" "vm-1" {
 
 You can check the deletion of the resources using the [management console]({{ link-console-main }}).
 
-## See also {#see-also}
+#### See also {#see-also}
 
 * [Uploading {{ TF }} states to {{ objstorage-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md).
 * [Locking {{ TF }} states using {{ ydb-name }}](../../tutorials/infrastructure-management/terraform-state-lock.md).

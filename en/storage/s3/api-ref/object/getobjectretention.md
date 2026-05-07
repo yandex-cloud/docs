@@ -1,4 +1,4 @@
-# getObjectRetention method
+# Object Storage API, Amazon S3-compatible REST: GetObjectRetention
 
 Returns the object version's [retention](../../../concepts/object-lock.md) settings.
 
@@ -17,7 +17,7 @@ Parameter | Description
 `bucket` | Bucket name.
 `key` | Object key.
 
-### Request parameters {#request-params}
+### Query parameters {#request-params}
 
 Parameter | Description
 ----- | -----

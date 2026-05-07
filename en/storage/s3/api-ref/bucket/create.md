@@ -1,4 +1,4 @@
-# create method
+# Object Storage API, Amazon S3-compatible REST: CreateBucket
 
 Creates a bucket.
 

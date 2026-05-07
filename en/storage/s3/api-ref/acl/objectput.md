@@ -1,4 +1,4 @@
-# objectPutAcl method
+# Object Storage API, Amazon S3-compatible REST: PutObjectAcl
 
 Uploads an access control list for an object.
 
@@ -23,7 +23,7 @@ Parameter | Description
 `bucket` | Bucket name.
 `key` | Object key. ID for saving the object in {{ objstorage-name }}.
 
-### Request parameters {#request-params}
+### Query parameters {#request-params}
 
 Parameter | Description
 ----- | -----

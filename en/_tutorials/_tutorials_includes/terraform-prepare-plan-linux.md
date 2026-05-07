@@ -16,6 +16,7 @@ According to the plan, the following resources are created:
 
    ```hcl
    <provider_settings>
+
    resource "yandex_compute_disk" "boot-disk-1" {
      name     = "boot-disk-1"
      type     = "network-hdd"
@@ -50,7 +51,7 @@ According to the plan, the following resources are created:
      }
 
      metadata = {
-       ssh-keys = "ubuntu:${file("~/.ssh/id_ed25519.pub")}"
+       ssh-keys = "ubuntu:${file("<path_to_public_part_of_SSH_key>")}"
      }
    }
 

@@ -7,9 +7,6 @@ editable: false
 # {{ mmg-name }} pricing policy
 
 
-{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
-
-
 
 
 This section describes the {{ mmg-name }} pricing [policy](#rules) and [current prices](#prices) for its resources.

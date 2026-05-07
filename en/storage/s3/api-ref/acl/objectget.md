@@ -1,4 +1,4 @@
-# objectGetAcl method
+# Object Storage API, Amazon S3-compatible REST: GetObjectAcl
 
 Returns an access control list for an object.
 
@@ -18,7 +18,7 @@ Parameter | Description
 `key` | Object key.
 
 
-### Request parameters {#request-params}
+### Query parameters {#request-params}
 
 Parameter | Description
 ----- | -----

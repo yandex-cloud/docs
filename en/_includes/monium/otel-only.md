@@ -1,1 +1,1 @@
-{{ monium-name }} currently only accepts [OpenTelemetry (OTLP)](https://opentelemetry.io/docs/) data.
+{{ monium-name }} accepts data in [OpenTelemetry (OTLP)](https://opentelemetry.io/docs/) format.

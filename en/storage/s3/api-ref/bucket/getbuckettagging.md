@@ -1,4 +1,4 @@
-# getBucketTagging method
+# Object Storage API, Amazon S3-compatible REST: GetBucketTagging
 
 Returns bucket [labels](../../../concepts/tags.md).
 
@@ -18,7 +18,7 @@ Parameter | Description
 --- | ---
 `bucket` | Bucket name.
 
-### Request parameters {#request-params}
+### Query parameters {#request-params}
 
 Parameter | Description
 --- | ---

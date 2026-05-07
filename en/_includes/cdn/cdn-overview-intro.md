@@ -1,0 +1,1 @@
+{{ cdn-full-name }} provides web service developers with a _Content Delivery Network_ (CDN) functionality. The _CDN servers_ located at [points of presence](../../cdn/concepts/points-of-presence.md) get content from your _origins_, cache the content, and deliver it to end clients on request. Thus you decrease the load on origins and reduce content waiting time for the end user.

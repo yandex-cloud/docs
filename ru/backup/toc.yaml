@@ -94,6 +94,8 @@ items:
         href: operations/limit-agent-memory-usage.md
       - name: Посмотреть статистику резервного копирования
         href: operations/get-stats.md
+      - name: Настроить алерты {{ monium-name }}
+        href: operations/configure-alerts.md
   - name: Практические руководства
     items:
       - name: Все руководства

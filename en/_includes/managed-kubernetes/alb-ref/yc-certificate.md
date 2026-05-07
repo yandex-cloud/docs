@@ -2,6 +2,8 @@
 
 The `YCCertificate` resource contains {{ certificate-manager-name }} certificate parameters for setting up TLS connections in the `Gateway` resource.
 
+{% include [Gwin-with-preset](../../application-load-balancer/ingress-to-gwin-tip-with-preset.md) %}
+
 ## YCCertificate {#yc-certificate}
 
 ```yaml

@@ -7,25 +7,48 @@ editable: false
 
 # {{ objstorage-name }} pricing policy
 
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 4
+      sm: 4
+      md: 4
+    children:
+      - type: basic-card
+        title: Price calculator
+        text: Calculate the cost of the service based on your needs
+        icon: _assets/icons/calculator.svg
+        urlTitle: Price calculator
+        url: https://yandex.cloud/en/prices?state=39504f78134a#calculator
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Price list
+        text: Current prices of all our services
+        icon: _assets/icons/circle-ruble.svg
+        urlTitle: Price list
+        url: https://yandex.cloud/en/price-list?services=dn2li5qddoc5cad2n6br
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+:::
+
+
 {% note warning %}
 
-Starting April 20, 2026, you are charged for using [S3 Inventory](concepts/s3-inventory.md) that allows you to export object metadata.
+Starting April 20, 2026, [object metadata export (S3 Inventory)](concepts/s3-inventory.md) will become a paid feature.
 
 {% endnote %}
 
-
-{% note tip %}
-
-
-
-
-
-For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=0791121652d3#calculator) on our website or check out the pricing below.
-
-
-{% endnote %}
-
-{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -52,17 +75,13 @@ The {{ objstorage-name }} usage cost includes:
 
 Storage usage is measured in GB per month. The amount of data stored for a month is calculated as the average value based on granular per-second data. The minimum billing unit is **1 hour of storing 1 MB of data**.
 
+
 ### Data operations {#rules-operations}
 
-You pay for the actual number of operations.
-
-You are not charged for deleting data (DELETE operation).
-
-{% note warning %}
-
-If you delete an object from [ice storage](./concepts/storage-class.md) before it has been stored for 12 months, you will be [charged for the remaining storage cost](#ice-storage) after deletion.
-
-{% endnote %}
+You pay for data operations according to the following policy:
+* The minimum billing unit for `PUT`, `POST`, `PATCH`, `LIST`, and `TRANSITION` operations is 10.
+* The minimum billing unit for `GET`, `HEAD`, and `OPTIONS` operations is 100.
+* You are not charged for deleting data (the `DELETE` operation).
 
 
 
@@ -95,7 +114,7 @@ If you delete an object from [ice storage](./concepts/storage-class.md) before i
 
 The daily cost of data storage is calculated as `Price_per_GB_per_month / number_of_days_in_month`. For shorter months, the price per day is higher. For longer months, it is lower.
 
-Here is a calculation example. Let's assume a user stores 15 GB of data for 11.5 hours during a 30-day month. The total cost of storage can be calculated using this formula:
+Here is an example of proportional calculation. Let's assume a user stores 15 GB of data for 11.5 hours during a 30-day month. The total cost of storage can be calculated using this formula:
 
 ```text
 Storage_price = Price_per_GB_per_month × 15 × 12 / 24 / 30

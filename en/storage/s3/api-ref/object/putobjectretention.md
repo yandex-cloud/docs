@@ -1,4 +1,4 @@
-# putObjectRetention method
+# Object Storage API, Amazon S3-compatible REST: PutObjectRetention
 
 Puts [retention](../../../concepts/object-lock.md) on the object version or configures/disables a previously set lock.
 
@@ -21,7 +21,7 @@ Parameter | Description
 `bucket` | Bucket name.
 `key` | Object key.
 
-### Request parameters {#request-params}
+### Query parameters {#request-params}
 
 Parameter | Description
 ----- | -----

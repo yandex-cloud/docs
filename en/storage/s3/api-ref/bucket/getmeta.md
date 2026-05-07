@@ -1,4 +1,4 @@
-# GetMeta method
+# Object Storage API, Amazon S3-compatible REST: HeadBucket
 
 Returns the bucket metadata or an error.
 
@@ -41,6 +41,8 @@ A successful response does not contain any additional data and means that the bu
 
 * [{#T}](../../../concepts/bucket.md)
 
+
 * [{#T}](../../../operations/buckets/get-info.md)
+
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

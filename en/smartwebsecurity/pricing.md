@@ -32,7 +32,7 @@ At the same time, there are things to consider about billing in the dry run mode
 
 Requests processed by ARL profile rules will not be counted for billing. Blocked requests will not be counted either, no matter when and which rule blocked them.
 
-When using [domains](concepts/domain-protect.md), in addition to the cost of processed requests, [you pay](#proxy-resources) for traffic passing through the proxy server and protection from DDoS attacks at levels L3–L4 of the [OSI model](https://wikipedia.org/wiki/OSI_model).
+When using [domains](concepts/domain-protect.md), in addition to the cost of processed requests, [you pay](#proxy-resources) for traffic passing through the proxy server and protection from DDoS attacks at levels L3–L4 of the [OSI model](https://wikipedia.org/wiki/OSI_model). Since domain protection is not included in the subscription, you can only enable it with request-count-based billing.
 
 ## Prices for the Russia region {#prices}
 

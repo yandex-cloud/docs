@@ -1,4 +1,4 @@
-# get method
+# Object Storage API, Amazon S3-compatible REST: GetBucketLifecycleConfiguration
 
 Returns the bucket object lifecycle configuration from {{ objstorage-name }}.
 
@@ -17,7 +17,7 @@ Parameter | Description
 `bucket` | Bucket name.
 
 
-### Request parameters {#request-params}
+### Query parameters {#request-params}
 
 Parameter | Description
 ----- | -----

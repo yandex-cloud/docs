@@ -789,6 +789,34 @@ items:
                 href: applied/cdn-hosting/console.md
               - name: '{{ TF }}'
                 href: applied/cdn-hosting/terraform.md
+          - name: Сайт на WordPress
+            items:
+              - name: Обзор
+                href: web/wordpress-overview.md
+              - name: >-
+                  Сайт на WordPress High Availability с помощью {{
+                  cloud-apps-name }}
+                href: web/wordpress-ha-cloudapp.md
+              - name: Сайт на WordPress с помощью {{ cloud-apps-name }}
+                href: web/wordpress-cloudapp.md
+              - name: Сайт на WordPress с помощью {{ marketplace-short-name }}
+                items:
+                  - name: Обзор
+                    href: web/wordpress/index.md
+                  - name: Консоль управления
+                    href: web/wordpress/console.md
+                  - name: '{{ TF }}'
+                    href: web/wordpress/terraform.md
+              - name: Сайт на WordPress с БД {{ MY }}
+                items:
+                  - name: Обзор
+                    href: web/wordpress-mysql/index.md
+                  - name: Консоль управления
+                    href: web/wordpress-mysql/console.md
+                  - name: '{{ TF }}'
+                    href: web/wordpress-mysql/terraform.md
+              - name: Перенос WordPress-сайта с хостинга в {{ yandex-cloud }}
+                href: web/wordpress-transfer.md
           - name: Сайт на LAMP- или LEMP-стеке
             items:
               - name: Обзор
@@ -805,26 +833,6 @@ items:
                 href: web/joomla-postgresql/console.md
               - name: '{{ TF }}'
                 href: web/joomla-postgresql/terraform.md
-          - name: Создание сайта на WordPress
-            items:
-              - name: Обзор
-                href: web/wordpress/index.md
-              - name: Консоль управления
-                href: web/wordpress/console.md
-              - name: '{{ TF }}'
-                href: web/wordpress/terraform.md
-          - name: Создание сайта на WordPress с помощью {{ cloud-apps-name }}
-            href: web/wordpress-cloudapp.md
-          - name: Сайт на WordPress с БД {{ MY }}
-            items:
-              - name: Обзор
-                href: web/wordpress-mysql/index.md
-              - name: Консоль управления
-                href: web/wordpress-mysql/console.md
-              - name: '{{ TF }}'
-                href: web/wordpress-mysql/terraform.md
-          - name: Перенос WordPress сайта с хостинга в {{ yandex-cloud }}
-            href: web/wordpress-transfer.md
           - name: Создание сайта на базе «1С-Битрикс»
             items:
               - name: Обзор

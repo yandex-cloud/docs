@@ -1,4 +1,4 @@
-# getObjectLockConfiguration method
+# Object Storage API, Amazon S3-compatible REST: GetObjectLockConfiguration
 
 Returns the settings of [object locks](../../../concepts/object-lock.md) for a [versioned bucket](../../../concepts/versioning.md).
 

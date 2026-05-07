@@ -51,6 +51,7 @@ The admin and production environments share these assets:
    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
 1. In the {{ managed-k8s-name }} cluster, create new [namespaces](../../concepts/index.md#namespace) for the admin and production environments, e.g., `bitrix-admin` and `bitrix-prod`.
+1. If you want to issue a Let's Encrypt certificate for a Bitrix website using [cert-manager](https://cert-manager.io/), follow [this guide](cert-manager-cloud-dns.md) to install cert-manager with the {{ dns-full-name }} ACME webhook plugin.
 1. If you want to use your own certificate for the Bitrix website, create a `Secret` resource in both environments’ namespaces as follows:
 
     ```yaml
@@ -65,6 +66,7 @@ The admin and production environments share these assets:
       tls.key: <Base64_encoded_certificate_private_key>
     ```
 
+1. [Install the csi-s3 application](./csi-s3.md). This is a requirement, because {{ objstorage-name }} is used to store shared data.
 1. [Create a bucket](../../../storage/operations/buckets/create.md) to house the shared project directories, `upload` and `backup`.
 1. [Create a service account](../../../iam/operations/sa/create.md) with the `storage.editor` [role](../../../iam/concepts/access-control/roles.md) for the folder where your bucket is located.
 1. [Create a static access key](../../../iam/operations/authentication/manage-access-keys.md) for the service account and save its ID and secret key.
@@ -112,7 +114,7 @@ The admin and production environments share these assets:
 
 ## Installation from {{ marketplace-name }} {#marketplace-install}
 
-1. In the [management console]({{ link-console-main }}), select a folder.
+1. In the [management console]({{ link-console-main }}), select any folder.
 1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Bitrix](/marketplace/products/yc/bitrix-env) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
@@ -153,7 +155,7 @@ The admin and production environments share these assets:
    * **S3 bucket**: Specify the name of the {{ objstorage-name }} bucket you [created previously](#before-you-begin).
    * **SMTP server**, **SMTP port**, **Mailbox user**, **Mailbox password**: Specify the mail server connection properties.
    * **{{ MY }} host**, **Database user**, **Database user password**, **Database**: Specify properties for connection to the {{ MY }} database in the {{ mmy-name }} MySQL cluster you [created previously](#before-you-begin).
-   * **PHP version**: Specify the PHP version for Bitrix. Available versions: `8.2.30`, `8.3.30`, and `8.4.18`.
+   * **PHP version**: Specify the PHP version for Bitrix. Available versions: `8.2.30`, `8.3.30`, and `8.4.19`.
    * **Use bitrixsetup.php**: Select to install Bitrix from scratch.
    * **Use restore.php**: Select to restore Bitrix from a backup.
 
@@ -224,7 +226,7 @@ The admin and production environments share these assets:
          docker pull {{ mkt-k8s-key.yc_bitrix-env.dockerImages.php.repository.name }}:<PHP_version>
          ```
 
-         The possible PHP version values are `8.2.30`, `8.3.30`, and `8.4.18`.
+         The possible PHP version values are `8.2.30`, `8.3.30`, and `8.4.19`.
 
       1. Tag the registry you [created earlier](#before-you-begin):
 

@@ -18,6 +18,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 To create an infrastructure for a static website in {{ objstorage-name }} using {{ TF }}:
 1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), Step 1).
+
+
 1. Set up your infrastructure description files:
 
    {% list tabs group=infrastructure_description %}

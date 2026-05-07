@@ -5,7 +5,7 @@ description: '{{ SD }} supports sharding to handle large volumes of data and inc
 
 # Sharding in {{ mmg-name }}
 
-_Sharding_ is a horizontal data scaling strategy that puts parts of {{ SD }} collections on different cluster hosts. A shard (set of hosts) is linked to a dataset with a _shard key_. {{ SD }} supports sharding to handle large volumes of data and increase DBMS throughput. Sharding is particularly useful when vertical scaling (upgrading server capacity) is either not cost-efficient or impossible.
+_Sharding_ is a horizontal data scaling strategy that spreads parts of {{ SD }} collections across different cluster hosts. A shard (set of hosts) is linked to a dataset with a _shard key_. {{ SD }} supports sharding to handle large volumes of data and increase DBMS throughput. Sharding is particularly useful when vertical scaling (upgrading server capacity) is either not cost-efficient or impossible.
 
 {{ mmg-name }} supports core data sharding strategies:
  
@@ -24,7 +24,7 @@ Horizontal scaling involves distributing datasets and workload between multiple 
 With sharding, you can:
 - Overcome technical limitations. {#restrictions}
 
-  When you need to handle large datasets, your data storage infrastructure might reach the maximum capacity of commercially available hardware, e.g., disk subsystem IOPS.
+  If you work with large datasets, your data storage infrastructure may hit the limits of commercially available hardware, e.g., disk subsystem IOPS.
 
   If your apps approach the performance limits, it might be handy to split data into shards and distribute read operations.
 
@@ -34,12 +34,6 @@ With sharding, you can:
   - Improve availability for regional users.
   - Comply with the local laws, for example, by storing your data in a particular country or region.
 
-- Improve fault tolerance. {#high-availability}
-  
-  Sharding allows you to isolate individual host or replica failures. If you do not use sharding, then, when one host fails, you lose access to the entire dataset it contains. Conversely, if one shard out of five fails, 80% of the collection data will still be available.
-
-  To reduce the risk of an entire shard going down, we recommend configuring shards as a group of three replicas. Furthermore, by distributing shard hosts across different {{ yandex-cloud }} availability zones, you can increase data availability.
-  
 - Improve query performance. {#processing-speed} 
 
   Query performance can degrade due to resource contention. This usually happens as the number of read operations or CPU time per query increases.
@@ -52,18 +46,18 @@ With sharding, you can:
 To split data into shards:
 1. [Enable sharding](../operations/shards.md#enable) at the {{ mmg-name }} cluster level.
 1. [Add](../operations/shards.md#add-shard) the required number of shards.
-1. [Enable sharding](../tutorials/sharding.md#enable) for the applicable collections.
+1. [Enable sharding](../tutorials/sharding.md#enable) for the applicable collections. 
 
 See also [Example of sharding](../tutorials/sharding.md#example).
 
 
-## Sharding management in {{ mmg-name }} {#shard-management}
+## Sharding specifics in {{ mmg-name }} {#shard-management}
 
 {{ mmg-name }} manages shards as follows:
 
 - Due to limited resources, clusters with **b1.medium** and **b2.medium** hosts are not sharded.
 
-- You can [create a sharded](../operations/cluster-create.md#creating-a-sharded-cluster) cluster or [enable sharding](../operations/shards.md#enable) later.
+- You can [create a sharded cluster](../operations/cluster-create.md#creating-a-sharded-cluster) or you can [enable sharding](../operations/shards.md#enable) later.
 
 - In {{ mmg-name }}, sharding is managed by the hosts with the `MONGOS` (routing user queries) and `MONGOCFG` (storing shard configuration) roles. For more information, see [Host types](../../managed-kafka/concepts/storage.md).
 

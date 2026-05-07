@@ -18,7 +18,7 @@ Each {{ mos-name }} cluster consists of one or more host groups of the `{{ OS }}
 Hosts with this role store one or more indexes and handle search, write, and analysis queries.
 
 
-For a cluster to be highly available and covered by a [service level agreement (SLA)](https://yandex.com/legal/cloud_sla_mdb/), it must have two or more hosts with the `DATA` role.
+For a cluster to be highly available and covered by a [service level agreement (SLA)](https://yandex.ru/legal/cloud_sla_mdb/), it must have two or more hosts with the `DATA` role.
 
 
 [More on high-availability of clusters](../../managed-opensearch/concepts/high-availability.md).

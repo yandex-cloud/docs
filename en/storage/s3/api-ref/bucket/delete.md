@@ -1,4 +1,4 @@
-# deleteBucket method
+# Object Storage API, Amazon S3-compatible REST: DeleteBucket
 
 Deletes an empty bucket. If the bucket is not empty, first delete all objects in the bucket.
 

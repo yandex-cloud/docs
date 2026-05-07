@@ -1,4 +1,4 @@
-# listBuckets method
+# Object Storage API, Amazon S3-compatible REST: ListBuckets
 
 Returns a list of buckets available to the user.
 
@@ -43,8 +43,8 @@ A successful response contains additional data in XML format with the schema des
 
 Element | Description
 ----- | -----
-`Bucket` | Contains the bucket description.<br/><br/>Path: `/ListAllMyBucketsResult/Buckets/Bucket`.
-`Buckets` | Contains the bucket list.<br/><br/>Path: `/ListAllMyBucketsResult/Buckets`.
+`Bucket` | Contains a bucket description.<br/><br/>Path: `/ListAllMyBucketsResult/Buckets/Bucket`.
+`Buckets` | Contains a list of buckets.<br/><br/>Path: `/ListAllMyBucketsResult/Buckets`.
 `CreationDate` | Bucket creation time in `yyyy-mm-ddThh:mm:ss.timezone` format.<br/><br/>Path: `/ListAllMyBucketsResult/Buckets/Bucket/CreationDate`.
 `ListAllMyBucketsResult` | Root element of the response.<br/><br/>Path: `/ListAllMyBucketsResult`.
 `Name` | Bucket name.<br/><br/>Path: `/ListAllMyBucketsResult/Buckets/Bucket/Name`.

@@ -109,8 +109,10 @@ items:
         href: concepts/storage.md
       - name: Backups
         href: concepts/backup.md
-      - name: Replication and fault tolerance
+      - name: Replication
         href: concepts/replication.md
+      - name: High availability clusters
+        href: concepts/high-availability.md
       - name: Sharding
         href: concepts/sharding.md
       - name: Host types

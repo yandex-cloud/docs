@@ -30,7 +30,7 @@ The cost may depend on the [rent period](../baremetal/concepts/servers.md#server
 
 The debiting procedure depends on the payment method:
 
-* If there is a credit/debit card linked to the billing account, money is debited **daily** regardless of the rent period. The month's total equals the cost of the selected rental period.
+* If there is a credit/debit card linked to the billing account, money is debited **daily** regardless of the rent period. The month's total equals the cost of the selected rent period.
 * For businesses operating on an invoicing basis, the invoice is generated **once a month** regardless of the rent period.
 
 

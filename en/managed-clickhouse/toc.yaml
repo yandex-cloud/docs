@@ -171,7 +171,7 @@ items:
         href: tutorials/data-from-appmetrica-yc-visualization.md
       - name: Loading data from {{ metrika }} to a {{ CH }} data mart
         href: tutorials/metrika-to-clickhouse.md
-      - name: '{{ tracker-full-name }}: data export and visualization'
+      - name: '{{ tracker-full-name }}: Data export and visualization'
         href: tutorials/data-from-tracker.md
       - name: Retail chain's dashboard based on a {{ CH }} database
         href: tutorials/data-from-ch-visualization.md
@@ -226,6 +226,8 @@ items:
         href: concepts/backup.md
       - name: Replication
         href: concepts/replication.md
+      - name: Coordination services
+        href: concepts/coordination-system.md
       - name: Dictionaries
         href: concepts/dictionaries.md
       - name: Sharding
