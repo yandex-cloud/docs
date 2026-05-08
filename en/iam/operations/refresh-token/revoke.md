@@ -7,7 +7,7 @@ description: Follow this guide to revoke refresh tokens.
 
 {% include [cli-install](../../../_includes/iam/refresh-tokens-add-note.md) %}
 
-To revoke a [refresh token](../../concepts/authorization/refresh-token.md) for a federated user:
+To revoke a [refresh token](../../concepts/authorization/refresh-token.md) for a federated or local user:
 
 {% list tabs group=instructions %}
 
@@ -20,7 +20,7 @@ To revoke a [refresh token](../../concepts/authorization/refresh-token.md) for a
   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the token and select ![TrashBin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. To revoke all tokens, click ![TrashBin](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_org.my-account.refresh-tokens.action_remove_all }}**.
 
-  You can also revoke your refresh tokens through the [My account](../../../organization/concepts/my-account.md) portal.
+  You can also revoke your refresh tokens through the [My account](../../../organization/concepts/my-account.md) portal. This feature is also available to Yandex account users.
 
 - CLI {#cli}
 

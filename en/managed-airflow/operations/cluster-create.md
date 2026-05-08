@@ -119,15 +119,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
      * **Git**: Specify the repository address, working branch, path to the folder with DAG files, and the contents of the private SSH access key.
 
-        {% note warning %}
-
-        * The repository address must allow connections via the SSH protocol.
-
-        * The private key must not be password-protected.
-
-        * To use the Git repository, specify the network with configured [NAT gateway](../../vpc/operations/create-nat-gateway.md) under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**. When configuring it, link a NAT gateway route table to all the {{ maf-name }} cluster subnets.
-
-        {% endnote %}
+       {% include [warn-git](../../_includes/mdb/maf/note-git-sync.md) %}
 
   1. Optionally, under **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
 
@@ -252,13 +244,13 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        This will create all the resources you need in the specified folder. You can check the new resources and their configuration using the [management console]({{ link-console-main }}).
+        This will create all the resources you need in the specified folder. You can check the new resources and their settings in the [management console]({{ link-console-main }}).
 
     For more information, see [this {{ TF }} provider guide]({{ tf-provider-maf }}).
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -430,7 +422,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         * `deletionProtection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
 
-            Even if it is enabled, one can still connect to the cluster manually and delete it.
+            Even with deletion protection on, one can still connect to the cluster manually and delete it.
 
         * `serviceAccountId`: Service account ID.
 
@@ -470,7 +462,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -644,7 +636,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         * `deletion_protection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
 
-            Even if it is enabled, one can still connect to the cluster manually and delete it.
+            Even with deletion protection on, one can still connect to the cluster manually and delete it.
 
         * `service_account_id`: Service account ID.
 

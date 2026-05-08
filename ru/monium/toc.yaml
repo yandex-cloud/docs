@@ -77,10 +77,10 @@ items:
         href: metrics/overview.md
       - name: Поиск и анализ метрик
         href: metrics/metric-explorer.md
-      - name: Все инструкции
-        href: operations/index.md
       - name: Поставка и экспорт метрик
         items:
+          - name: Все инструкции
+            href: operations/index.md
           - name: Поставка системных метрик Linux
             href: operations/unified-agent/linux_metrics.md
           - name: Поставка метрик пользовательских приложений

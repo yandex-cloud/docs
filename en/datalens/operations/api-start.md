@@ -5,6 +5,8 @@
 
 {{ datalens-name }} Public API is a collection of methods similar to that used in the {{ datalens-name }} web interface. This API is described by the OpenAPI specification and authenticated via the Yandex Cloud IAM tokens.
 
+When using the API, please be aware of the [limits](../concepts/limits.md#datalens-api-limits) in place.
+
 To use the API, you need an [IAM token](../../iam/operations/iam-token/create.md) and an [organization ID](../settings/index.md#service-settings).
 
 For example, substitute your `<IAM_TOKEN>`, `<ORG_ID>`, and `<ENTRY_ID>` values into the following request to get a list of all objects associated with the entity:

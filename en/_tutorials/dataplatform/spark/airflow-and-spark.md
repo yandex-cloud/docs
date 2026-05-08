@@ -28,12 +28,10 @@ Unlike the simple use case from [{#T}](../../../managed-spark/tutorials/airflow-
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
-
-* {{ AF }} cluster fee: computing resources of the cluster components (see [{{ maf-full-name }} pricing](../../../managed-airflow/pricing.md)).
-* Fee for computing resources in a {{ metastore-name }} cluster (see [{{ metadata-hub-full-name }} pricing](../../../metadata-hub/pricing.md#metastore)).
-* {{ objstorage-name }} bucket fee: Covers data storage and bucket operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
-* Fee for collecting and storing logs (see [{{ cloud-logging-name }} pricing](../../../logging/pricing.md)).
+* {{ maf-name }} cluster: computing resources of cluster components (see [{{ maf-name }} pricing](../../../managed-airflow/pricing.md)).
+* {{ metastore-name }} cluster: computing resources of cluster components (see [{{ metadata-hub-full-name }} pricing](../../../metadata-hub/pricing.md#metastore)).
+* {{ objstorage-name }} buckets: use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+* {{ cloud-logging-full-name }}: amount of written data and its retention time (see [{{ cloud-logging-name }} pricing](../../../logging/pricing.md)).
 
 
 ## Set up your infrastructure {#infra}
@@ -513,7 +511,7 @@ To prepare a DAG:
      { % endcut %}
 
   1. Upload the DAG to the {{ AF }} cluster: in `<bucket_for_jobs_and_data>`, create a folder named `dags` and upload the `dag.py` file to it.
-  1. Open the {{ AF }} web interface.
+  1. Open the {{ AF }} web UI.
   1. Make sure the new `example_spark` DAG has appeared in the **DAGs** section.
 
      It may take a few minutes to load a DAG file from the bucket.

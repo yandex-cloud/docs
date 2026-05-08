@@ -16,10 +16,12 @@ To solve this issue, you can [increase the disk storage size](../../managed-kafk
 
 You cannot move a {{ mkf-name }} cluster to different network.
 
+
 Here is an alternative solution:
 
 1. Create a new cluster with the same configuration in the target network.
 1. Use [MirrorMaker](../../managed-kafka/tutorials/kafka-connectors.md#kf-mirrormaker) to move the topics of your source cluster to the new cluster.
+
 
 #### How can I configure an alert for when disk usage reaches a certain percentage? {#disk-space-percentage}
 
@@ -53,7 +55,7 @@ Complete error message:
 curl: (35) schannel: next InitializeSecurityContext failed: Unknown error (0x80092012)
 The revocation function was unable to check revocation for the certificate
 ```
-This indicates that the verification of the website’s certificate against the revocation list failed during the connection attempt.
+This means that, when connecting to the website, the function was unable to check if its certificate was listed as revoked.
 
 To fix this error:
 

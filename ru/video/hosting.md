@@ -53,6 +53,7 @@ description: Следуя данной инструкции, вы сможете
      Если шаблон не выбран, к видео будут применен шаблон по умолчанию, который добавляется при создании канала.
 
 1. {% include [add-summarization-optional](../_includes/video/add-summarization-optional.md) %}
+1. {% include [turn-auto-proc-video-file-errors-optional](../_includes/video/turn-auto-proc-video-file-errors-optional.md) %}
 1. {% include [add-subtitles-optional](../_includes/video/add-subtitles-optional.md) %}
 1. {% include [add-translation-optional](../_includes/video/add-translation-optional.md) %}
 1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_accept }}**.

@@ -17,6 +17,7 @@ description: This article establishes the equivalence between {{ yandex-cloud }}
 | Azure Cosmos DB | [{{ mmg-full-name }}](../../storedoc/) |
 | Azure Database for MySQL | [{{ mmy-full-name }}](../../managed-mysql/) |
 | Azure Database for PostgreSQL | [{{ mpg-full-name }}](../../managed-postgresql/) |
+| Azure Database for PostgreSQL Elastic Clusters | [{{ mspqr-full-name }}](../../managed-spqr/) |
 | Azure Database Migration Service | [{{ data-transfer-full-name }}](../../data-transfer/) |
 | Azure Data Lake | [{{ myt-full-name }}](../../managed-ytsaurus/) |
 | Azure DDoS Protection | [{{ ddos-protection-full-name }}](../../vpc/ddos-protection/) |

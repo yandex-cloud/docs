@@ -53,14 +53,6 @@ items:
             href: operations/video/get-statistics.md
           - name: Удалить видео
             href: operations/video/delete.md
-      - name: Линии
-        items:
-          - name: Создать линию
-            href: operations/lines/create.md
-          - name: Изменить линию
-            href: operations/lines/update.md
-          - name: Удалить линию
-            href: operations/lines/delete.md
       - name: Трансляции
         items:
           - name: Создать трансляцию
@@ -77,6 +69,8 @@ items:
             href: operations/streams/start.md
           - name: Получить код вставки или ссылку
             href: operations/streams/get-link.md
+          - name: Отозвать доступ к трансляции
+            href: operations/streams/revoke-access.md
           - name: Добавить завершенную трансляцию в плейлист
             href: operations/streams/add-to-playlist.md
           - name: Удалить трансляцию
@@ -147,7 +141,47 @@ items:
               - name: События плеера
                 href: sdk/iframe/player-events.md
           - name: iOS
-            href: sdk/ios-sdk.md
+            items:
+              - name: Начало работы
+                href: sdk/ios-sdk.md
+              - name: CloudVideoPlayer
+                items:
+                  - href: sdk/CloudVideoPlayerSDK/Environment.md
+                    name: Environment
+                  - href: sdk/CloudVideoPlayerSDK/PictureInPictureController.md
+                    name: PictureInPictureController
+                  - href: sdk/CloudVideoPlayerSDK/VideoSurface.md
+                    name: VideoSurface
+                  - href: sdk/CloudVideoPlayerSDK/YaPlayer.md
+                    name: YaPlayer
+                  - items:
+                      - href: sdk/CloudVideoPlayerSDK/PlayerError.md
+                        name: PlayerError
+                      - href: sdk/CloudVideoPlayerSDK/Configuration.md
+                        name: Configuration
+                      - href: sdk/CloudVideoPlayerSDK/ClientUserId.md
+                        name: ClientUserId
+                      - href: sdk/CloudVideoPlayerSDK/ContentIdEndpoint.md
+                        name: ContentIdEndpoint
+                      - href: sdk/CloudVideoPlayerSDK/From.md
+                        name: From
+                      - href: sdk/CloudVideoPlayerSDK/PlaybackConfig.md
+                        name: PlaybackConfig
+                      - href: sdk/CloudVideoPlayerSDK/PlaybackSpeed.md
+                        name: PlaybackSpeed
+                      - href: sdk/CloudVideoPlayerSDK/PlayerStatus.md
+                        name: PlayerStatus
+                      - href: sdk/CloudVideoPlayerSDK/QuasiEndpoint.md
+                        name: QuasiEndpoint
+                      - href: sdk/CloudVideoPlayerSDK/Time.md
+                        name: Time
+                      - href: sdk/CloudVideoPlayerSDK/VideoType.md
+                        name: VideoType
+                    name: Structs
+              - name: CloudVideoPlayerUI
+                items:
+                  - href: sdk/CloudVideoPlayerSDKUI/VideoView.md
+                    name: VideoView
           - name: JavaScript
             items:
               - name: Начало работы

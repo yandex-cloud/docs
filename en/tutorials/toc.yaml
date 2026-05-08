@@ -143,7 +143,7 @@ items:
             href: security/search-events-audit-logs/examples.md
           - name: Configuring {{ yq-name }}
             href: security/search-events-audit-logs/query.md
-      - name: Adding an HTML page to work with {{ captcha-name }}
+      - name: Adding an HTML page for {{ captcha-name }}
         href: security/mobile-app/website.md
       - name: Creating an L7 load balancer with a security profile
         items:
@@ -270,6 +270,12 @@ items:
                 href: security/single-sign-on/vk-cloud/saml-vk-cloud.md
           - name: Sentry
             href: security/single-sign-on/saml-sentry.md
+          - name: Jenkins
+            items:
+              - name: SAML
+                href: security/single-sign-on/jenkins/saml-jenkins.md
+              - name: OpenID Connect
+                href: security/single-sign-on/jenkins/oidc-jenkins.md
           - name: Using OAuth2 Proxy for applications not supporting SSO
             href: security/single-sign-on/oidc-nginx-oauth2-proxy.md
       - name: Uploading audit logs to {{ mos-name }}
@@ -490,8 +496,8 @@ items:
           - name: Deploying a fault-tolerant architecture with preemptible VMs
             href: infrastructure/nodejs-cron-restart-vm.md
           - name: >-
-              Creating triggers that invoke a function to stop a VM and send a
-              Telegram notification
+              Creating triggers that invoke functions to stop VMs and send
+              Telegram notifications
             href: infrastructure-management/serverless-trigger-budget-queue-vm-tg.md
       - name: Tools
         items:
@@ -859,7 +865,7 @@ items:
             href: iot/java.md
           - name: Monitoring the status of geographically distributed devices
             href: iot/datalens.md
-          - name: Sensor reading monitoring and event notifications
+          - name: Monitoring sensor readings and event notifications
             href: iot/monitoring.md
           - name: Testing message delivery
             href: iot/message-delivery-check.md
@@ -1361,6 +1367,8 @@ items:
         href: dataplatform/airflow-spark-min.md
       - name: Using {{ objstorage-full-name }} in {{ msp-full-name }}
         href: dataplatform/spark-objstorage-integration.md
+      - name: '{{ msp-full-name }} integration with {{ ml-platform-name }}'
+        href: dataplatform/spark-and-datasphere.md
       - name: >-
           Using a {{ lockbox-name }} secret in a PySpark job to connect to {{
           mpg-full-name }}
@@ -1553,7 +1561,7 @@ items:
                 href: datalens/data-from-appmetrica-yc-visualization.md
               - name: 'Bitrix24: direct connection'
                 href: datalens/data-from-bitrix24-visualization.md
-              - name: '{{ tracker-name }}: data export and visualization'
+              - name: '{{ tracker-name }}: Data export and visualization'
                 href: datalens/data-from-tracker.md
               - name: Analyzing {{ objstorage-name }} logs using {{ datalens-name }}
                 href: datalens/storage-logs-analysis.md
@@ -1608,8 +1616,8 @@ items:
               function
             href: serverless/connect-from-cf.md
           - name: >-
-              Connecting to a {{ ydb-short-name }} database from a {{ sf-name }}
-              Node.js function
+              Connecting to a {{ ydb-short-name }} database from a Node.js
+              function in {{ sf-name }}
             href: serverless/connect-from-cf-nodejs.md
           - name: >-
               Setting up a {{ mpg-full-name }} connection from a container in {{
@@ -1662,7 +1670,7 @@ items:
               Streaming {{ postbox-name }} events to {{ yds-name }} and
               analyzing them using {{ datalens-name }}
             href: serverless/events-from-postbox-to-yds.md
-          - name: '{{ tracker-name }}: data export and visualization'
+          - name: '{{ tracker-name }}: Data export and visualization'
             href: serverless/data-from-tracker.md
           - name: >-
               Delivering {{ forms-full-name }} data to {{ datalens-full-name }}
@@ -1692,7 +1700,7 @@ items:
               Automatically copying objects from one {{ objstorage-name }}
               bucket to another
             href: serverless/bucket-to-bucket-copying.md
-          - name: Running computations on a schedule in {{ ml-platform-name }}
+          - name: Running scheduled computations in {{ ml-platform-name }}
             href: serverless/regular-launch.md
           - name: >-
               Recognizing audio files from {{ objstorage-name }} on a regular
@@ -1742,7 +1750,7 @@ items:
         items:
           - name: Monitoring the status of geographically distributed devices
             href: serverless/datalens.md
-          - name: Sensor reading monitoring and event notifications
+          - name: Monitoring sensor readings and event notifications
             href: serverless/monitoring.md
           - name: Emulating multiple IoT devices
             href: serverless/iot-emulation.md
@@ -1804,7 +1812,7 @@ items:
             href: ml-ai/data-processing-integration.md
           - name: Classification of images in video frames
             href: ml-ai/video-recognition.md
-          - name: Running computations on a schedule in {{ ml-platform-name }}
+          - name: Running scheduled computations in {{ ml-platform-name }}
             href: ml-ai/regular-launch.md
           - name: Running computations in {{ ml-platform-name }} using the API
             href: ml-ai/batch-code-execution.md
@@ -1842,6 +1850,8 @@ items:
             href: ml-ai/yq-postgre.md
           - name: Federated data queries
             href: ml-ai/yq-federative-queries.md
+          - name: Using the service {{ msp-name }}
+            href: dataplatform/spark-and-datasphere.md
       - name: Development with {{ mgl-full-name }}
         items:
           - name: Managing the MLOps lifecycle with ML Registry

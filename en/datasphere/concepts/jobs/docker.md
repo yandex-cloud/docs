@@ -15,7 +15,7 @@ You can also use a different Docker image to run jobs by specifying it under `en
 
   ```text
   env:
-    docker: <Docker_image_ID>  # ID expressed as b1gxxxxxxxxxxxxxxxxx
+    docker: <Docker_image_ID>  # ID expressed as bxxxxxxxxxxxxxxxxxxx
   ```
 
   {% note warning %}
@@ -32,7 +32,7 @@ You can also use a different Docker image to run jobs by specifying it under `en
   env:
     docker:
       image: <image_path>
-      username: <username>
+      username: <login>
       password:
         secret-id: <project_secret_ID>
   ```
@@ -40,7 +40,7 @@ You can also use a different Docker image to run jobs by specifying it under `en
   Where:
 
   * `<image_path>`: Full path to the image in a container registry, e.g., `{{ registry }}/b1g**********/myenv:0.1`.
-  * `<username>`: Username for accessing your registry. For {{ container-registry-full-name }} authentication, use a [service account](../../../iam/concepts/users/service-accounts.md) and an [authorized key](../../../iam/concepts/authorization/key.md).
+  * `<username>`: Username for access to your registry. For {{ container-registry-full-name }} authentication, use a [service account](../../../iam/concepts/users/service-accounts.md) and an [authorized key](../../../iam/concepts/authorization/key.md).
   * `<project_secret_ID>`: ID of the secret with a password. The secret must be [created](../../operations/data/secrets.md#create) in a {{ ml-platform-name }} project.
 
   If you are using a public image, you do not need to specify authentication credentials:

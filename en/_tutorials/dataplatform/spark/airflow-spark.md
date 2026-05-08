@@ -2,7 +2,7 @@
 
 {% include [af-restriction-version](../../../_includes/mdb/maf/af-restriction-version.md) %}
 
-With a {{ maf-full-name }} cluster, you can automate your [{{ msp-full-name }}](../../../managed-spark/index.yaml) work, including operations like creating {{ msp-full-name }} clusters, running jobs, etc. Do it by creating a [directed acyclic graph (DAG) for jobs](../../../managed-airflow/concepts/index.md). The {{ AF }} cluster will use this DAG to automatically perform all its {{ msp-full-name }}-related actions.
+Using the {{ maf-full-name }} cluster, you can automate work with [{{ msp-full-name }}](../../../managed-spark/index.yaml), including creating {{ msp-full-name }} clusters, running jobs, and other operations. Do it by creating a [directed acyclic graph (DAG) for jobs](../../../managed-airflow/concepts/index.md). The {{ AF }} cluster will use this DAG to automatically perform all its {{ msp-full-name }}-related actions.
 
 This approach allows you to:
 * Run jobs on a schedule to create reports and data snapshots, perform maintenance, metric updates, etc.
@@ -25,28 +25,33 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% note info %}
 
-The {{ msp-full-name }} cluster we create here does not use the S3 [{{ objstorage-name }}](../../../storage/concepts/index.md) or the [{{ metastore-name }}](../../../metadata-hub/concepts/metastore.md) global catalog. In this configuration, the {{ msp-full-name }} cluster can only work with in-memory data. To work with permanent databases and tables and for long-term storage of results, connect an external {{ objstorage-name }} and, if necessary, an {{ metastore-name }} cluster for metadata management. For more information, see [this tutorial](../../../managed-spark/tutorials/airflow-automation.md).
+The {{ msp-full-name }} cluster we create here does not use the S3 [{{ objstorage-full-name }}](../../../storage/concepts/index.md) or the [{{ metastore-name }}](../../../metadata-hub/concepts/metastore.md) global catalog. In this configuration, the {{ msp-full-name }} cluster can only work with in-memory data. To work with permanent databases and tables and for long-term storage of results, connect an external {{ objstorage-name }} and, if necessary, an {{ metastore-name }} cluster for metadata management. For more information, see [this tutorial](../../../managed-spark/tutorials/airflow-automation.md).
 
 {% endnote %}
 
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
+* {{ maf-name }} cluster: computing resources of cluster components (see [{{ maf-name }} pricing](../../../managed-airflow/pricing.md)).
 
-* Fee for the computing resources of {{ maf-name }} cluster components (see [{{ maf-full-name }} pricing](../../../managed-airflow/pricing.md)).
-* {{ objstorage-name }} bucket fee for storage and data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
-* {{ cloud-logging-name }} fee for the amount of data written and the time of its retention (see [{{ cloud-logging-name }} pricing](../../../logging/pricing.md)).
-* Fee for the computing resources of {{ msp-full-name }} cluster components (see [{{ msp-full-name }} pricing](../../../managed-spark/pricing.md)).
+  {% note info %}
+
+  Using {{ objstorage-name }} for storing DAG files is charged according to the [{{ objstorage-name }} pricing policy](../../../storage/pricing.md).
+
+  {% endnote %}
+
+* {{ msp-full-name }} cluster: computing resources of cluster components (see [{{ msp-full-name }} pricing](../../../managed-spark/pricing.md)).
+* {{ objstorage-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+* {{ cloud-logging-full-name }}: amount of written data and its retention time (see [{{ cloud-logging-name }} pricing](../../../logging/pricing.md)).
 
 
 ## Set up your infrastructure {#infra}
 
-In this tutorial uses a simplified infrastructure setup:
+This tutorial uses a simplified infrastructure setup:
 
-* A single service account with advanced privileges.
-* A single bucket for the whole data.
-* The default security group.
+* Single service account with advanced privileges.
+* Single bucket for the whole data.
+* Default security group.
 
 This setup is good for testing but does not ensure a sufficient security level for real-world scenarios. To make the solution more secure, adhere to the [principle of least privilege](../../../iam/best-practices/using-iam-securely.md#restrict-access).
 

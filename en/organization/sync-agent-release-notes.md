@@ -1,11 +1,52 @@
 ---
-title: '{{ org-sync-agent-name }} releases'
-description: This page presents a list of sync agent releases and the updates of each.
+title: List of {{ org-sync-agent-name }} releases
+description: This page presents sync agent releases and their updates.
 ---
 
 # {{ org-sync-agent-name }} releases
 
 ## Current version {#latest-release}
+
+### Version 0.44.0 (20/04/26) {#version0.44.0}
+
+#### Changes to {{ org-sync-agent-name }} {#changes-version0.44.0}
+
+* Fixed an error that caused freezing when synchronization completed.
+
+{% cut "Checksums" %}
+
+#|
+|| **Platform** | **Checksum (SHA-256)** ||
+|| `linux/amd64` | `6748905e77906357a4163d61dcb4e089e2965dcac79def759fd44372b19f3286` ||
+|| `linux/arm64` | `35d2fbc56f8c823332c0837d45e6700822732ed569f4f1ede1355143c0bc266c` ||
+|| `darwin/amd64` | `d3a9277277662c13b9f9415637638140d08912e31c66ac4e26567524cd2fa2be` ||
+|| `darwin/arm64` | `d3723b0ef1292f1d7abd119f2f9cd1bf32c2daaec0fced512fc62196a940a356` ||
+|| `windows/amd64` | `d2b8245f86bc32a3696c6bce30496e80370f21267471be8f7258e90d66a209ce` ||
+|| `windows/arm64` | `be2da0582f2600c2607536b8f9af6e8f8931041201ebc2c83c5e8afa77e35ad0` ||
+|#
+
+{% endcut %}
+
+### Version 0.43.0 (16/04/26) {#version0.43.0}
+
+#### Changes to {{ org-sync-agent-name }} {#changes-version0.43.0}
+
+* Added `dry-run` mode to view changes without applying them.
+* Users without a password now get a generated one when created.
+
+{% cut "Checksums" %}
+
+#|
+|| **Platform** | **Checksum (SHA-256)** ||
+|| `linux/amd64` | `d346d19a99660320cdb01ab4d42028de0f979e940b511a439d95b4774e5e07a8` ||
+|| `linux/arm64` | `c170be5d07d3b4cfc49b3132a6bf78cf41acb8f998e238ab3de488e613fe3f05` ||
+|| `darwin/amd64` | `4f7387234fc60145e65ff72c4486261360600e800f6000cff9c0813b020e7e0f` ||
+|| `darwin/arm64` | `f9579051f9d84afd4088bd13b111e6a2cb1c4bd468be27a478b73e142d19f2cb` ||
+|| `windows/amd64` | `49a0f39603c4f72d00b20efdbf2ca182394e528066a5f105170e53af4256c788` ||
+|| `windows/arm64` | `436ca30f586afeafef2856097e462b62ae6736947be89978d84f580d8b8de6ca` ||
+|#
+
+{% endcut %}
 
 ### Version 0.42.0 (09/04/26) {#version0.42.0}
 
