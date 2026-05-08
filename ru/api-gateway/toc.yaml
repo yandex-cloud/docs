@@ -122,7 +122,13 @@ items:
           - name: Разработка пользовательской интеграции
             href: tutorials/api-gw-integration.md
           - name: Сокращатель ссылок
-            href: tutorials/serverless-url-shortener.md
+            items:
+              - name: Обзор
+                href: tutorials/serverless-url-shortener/index.md
+              - name: Консоль управления
+                href: tutorials/serverless-url-shortener/console.md
+              - name: '{{ TF }}'
+                href: tutorials/serverless-url-shortener/terraform.md
           - name: Разработка CRUD API для сервиса фильмов
             href: tutorials/movies-database.md
           - name: >-

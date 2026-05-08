@@ -10,6 +10,7 @@ description: This article establishes the equivalence between {{ yandex-cloud }}
 |----|----|
 | Amazon API Gateway | [{{ si-full-name }}: {{ api-gw-name }}](../../api-gateway/) |
 | Amazon Athena | [{{ yq-full-name }}](../../query/) |
+| Amazon Aurora PostgreSQL Limitless Database | [{{ mspqr-full-name }}](../../managed-spqr/)
 | Amazon CloudFront | [{{ cdn-full-name }}](../../cdn/) |
 | Amazon CloudSearch | [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/concepts/index) |
 | Amazon CloudWatch | [{{ monitoring-full-name }}](../../monitoring/) |

@@ -7,8 +7,8 @@
   1. На вкладке ![image](../../_assets/console-icons/antenna-signal.svg) **{{ ui-key.yacloud_video.streams.title_streams }}** выберите нужную трансляцию.
   1. В открывшемся окне с параметрами трансляции скопируйте значения следующих полей:
 
-      * **{{ ui-key.yacloud_video.stream-lines.label_stream-key }}**;
-      * **{{ ui-key.yacloud_video.stream-lines.label_server-address }}**.
+      * **{{ ui-key.yacloud_video.stream-lines.label_server-address }}**;
+      * **{{ ui-key.yacloud_video.stream-lines.label_stream-key }}**.
 
 - API {#api}
 

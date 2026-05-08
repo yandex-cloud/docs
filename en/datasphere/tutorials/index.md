@@ -39,3 +39,4 @@ description: 'Various {{ ml-platform-full-name }} use cases: service deployment,
 * [{#T}](yq-clickhouse.md)
 * [{#T}](yq-postgre.md)
 * [{#T}](yq-federative-queries.md)
+* [{#T}](spark-and-datasphere.md)

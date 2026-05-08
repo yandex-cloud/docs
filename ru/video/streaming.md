@@ -3,13 +3,13 @@ title: Начало работы с видеотрансляциями {{ video-
 description: Чтобы запустить видеотрансляцию {{ video-name }}, создайте линию и настройте OBS.
 ---
 
-# Как начать работать c видеотрансляцией в {{ video-full-name }}
+# Как начать работать с видеотрансляцией в {{ video-full-name }}
 
 Чтобы провести [трансляцию](./concepts/index.md#streams) на [канале](./concepts/index.md#channels) сервиса:
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте канал](#create-channel).
-1. [Создайте линию](#create-line).
 1. [Создайте трансляцию](#create-stream).
+1. [Создайте эпизод](#create-episode).
 1. [Настройте OBS Studio](#configure-obs).
 1. [Запустите трансляцию](#start-stream).
 1. [Проверьте доступность трансляции](#test).
@@ -24,34 +24,29 @@ description: Чтобы запустить видеотрансляцию {{ vid
 
 {% include [create-channel](../_includes/video/create-channel.md) %}
 
-## Создайте линию {#create-line}
-
-1. На вкладке ![lines](../_assets/console-icons/branches-right-arrow-right.svg) **{{ ui-key.yacloud_video.stream-lines.title_lines }}** нажмите кнопку **{{ ui-key.yacloud_video.stream-lines.action_create-line }}**.
-1. Введите имя линии.
-1. В поле **{{ ui-key.yacloud_video.stream-lines.label_input-stream-protocol }}** выберите `RTMP`.
-1. В поле **{{ ui-key.yacloud_video.stream-lines.label_input-stream-type }}** выберите `Push`.
-1. В поле **{{ ui-key.yacloud_video.thumbnails.label_thumbnail }}** нажмите кнопку ![upload](../_assets/console-icons/cloud-arrow-up-in.svg) **Выберите файл** и выберите изображение для обложки.
-
-    {% include [image-characteristic](../_includes/video/image-characteristic.md) %}
-
-1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_create }}**.
-
-Подробнее о линиях см. в разделе [{#T}](./concepts/streams.md#lines).
-
 ## Создайте трансляцию {#create-stream}
 
 1. На вкладке ![streams](../_assets/console-icons/antenna-signal.svg) **{{ ui-key.yacloud_video.streams.title_streams }}** нажмите кнопку **{{ ui-key.yacloud_video.streams.action_create-stream }}**.
 1. Введите имя трансляции.
-1. Выберите линию, созданную ранее.
-1. В поле **{{ ui-key.yacloud_video.thumbnails.label_thumbnail }}** нажмите кнопку ![upload](../_assets/console-icons/cloud-arrow-up-in.svg) **Выберите файл** и выберите изображение для обложки.
-
-    {% include [image-characteristic](../_includes/video/image-characteristic.md) %}
-
-1. В поле **{{ ui-key.yacloud_video.streams.label_stream-type }}** выберите `{{ ui-key.yacloud_video.streams.label_type-on-demand }}`.
+1. В поле **{{ ui-key.yacloud_video.stream-lines.label_input-stream-protocol }}** выберите `RTMP`.
+1. В поле **{{ ui-key.yacloud_video.stream-lines.label_input-stream-type }}** выберите `Push`.
+1. Активируйте опцию **{{ ui-key.yacloud_video.streams.label_auto-publish-streams }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_create }}**.
-1. В открывшемся окне с параметрами трансляции скопируйте следующие данные:
-    * **{{ ui-key.yacloud_video.stream-lines.label_stream-key }}**;
-    * **{{ ui-key.yacloud_video.stream-lines.label_server-address }}**.
+
+## Создайте эпизод {#create-episode}
+
+1. В блоке **{{ ui-key.yacloud_video.streams.title_stream-episodes }}** нажмите кнопку ![image](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_video.streams.action_add-stream-episode }}**.
+1. В поле **{{ ui-key.yacloud_video.streams.label_episode-type }}** выберите режим **{{ ui-key.yacloud_video.streams.label_episode-type-live }}**.
+1. Введите имя эпизода.
+1. В списке **Доступ** выберите `Для всех пользователей`.
+1. В поле **{{ ui-key.yacloud_video.thumbnails.label_thumbnail }}** нажмите кнопку ![upload](../_assets/console-icons/cloud-arrow-up-in.svg) **Выберите файл** и выберите изображение для обложки.
+      
+   {% include [image-characteristic](../_includes/video/image-characteristic.md) %}
+
+1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_accept }}**.
+1. В открывшемся окне трансляции скопируйте следующие данные:
+    * **{{ ui-key.yacloud_video.stream-lines.label_server-address }}**;
+    * **{{ ui-key.yacloud_video.stream-lines.label_stream-key }}**.
 
 Подробнее о трансляциях см. в разделе [{#T}](./concepts/streams.md#streams).
 
@@ -86,7 +81,7 @@ description: Чтобы запустить видеотрансляцию {{ vid
     1. В блоке **Назначение**:
 
        * В поле **Служба** выберите **Настраиваемый...**.
-       * В поле **Сервер** укажите адрес сервера, [полученный](#create-stream) ранее.
+       * В поле **Сервер** укажите адрес сервера, [полученный](#create-episode) ранее.
        * В поле **Ключ потока** укажите ключ трансляции, полученный ранее.
     
     1. На панели слева в разделе **Вывод** → **Трансляция**:
@@ -106,8 +101,7 @@ description: Чтобы запустить видеотрансляцию {{ vid
        * В открывшемся окне задайте название источника и нажмите **ОК**.
        * Выберите устройство, с которого передавать видеопоток, например веб-камеру, и нажмите **ОК**.
     
-    1. В центральной части окна можете настроить размер и положение транслируемого видепотока.
-    1. Чтобы начать трансляцию, на панели справа снизу **Управление** нажмите **Начать трансляцию**.
+    1. В центральной части окна можете настроить размер и положение транслируемого видеопотока.
 
 Подробнее см. в разделе [{#T}](operations/streams/obs-config-help.md).
 
@@ -115,19 +109,19 @@ description: Чтобы запустить видеотрансляцию {{ vid
 
 1. Вернитесь на вкладку ![streams](../_assets/console-icons/antenna-signal.svg) **{{ ui-key.yacloud_video.streams.title_streams }}** сервиса {{ video-name }}.
 1. Выберите трансляцию, созданную ранее.
-1. Нажмите кнопку ![video](../_assets/console-icons/circle-play.svg) **{{ ui-key.yacloud_video.streams.action_start-stream }}**.
+1. Включите опцию **Принимать сигнал**.
+1. В OBS Studio на панели справа снизу **Управление** нажмите **Начать трансляцию**.
+1. Дождитесь начала трансляции.
 
 {% include [streams-limits-notice](../_includes/video/streams-limits-notice.md) %}
 
 ## Проверьте доступность трансляции {#test}
 
-1. На странице с параметрами трансляции, в блоке **{{ ui-key.yacloud_video.streams.title_stream-episodes }}**, нажмите кнопку ![code](../_assets/console-icons/code.svg) **{{ ui-key.yacloud_video.streams.title_past-code }}** и выберите вкладку `link`.
-1. Нажмите кнопку ![copy](../_assets/console-icons/copy.svg) **{{ ui-key.yacloud_video.streams.action_copy-code }}**.
-
-    {% include [iframe-settings](../_includes/video/iframe-settings.md) %}
-
+1. В блоке **{{ ui-key.yacloud_video.streams.title_stream-episodes }}** выберите эпизод, [созданный ранее](#create-episode).
+1. Выберите вкладку `link`.
+1. Нажмите кнопку ![image](../_assets/console-icons/copy.svg) **{{ ui-key.yacloud_video.streams.action_copy-code }}**.
 1. Откройте новую страницу браузера и вставьте в адресной строке полученную ссылку.
-1. Нажмите кнопку воспроизведения.
+1. Нажмите кнопку воспроизведения, чтобы убедиться, что трансляция доступна.
 
 #### См. также {#see-also}
 

@@ -67,6 +67,8 @@ items:
         href: tutorials/job-pyspark-secret-access.md
       - name: Automating operations using {{ maf-full-name }}
         href: tutorials/airflow-automation.md
+      - name: Integration with {{ ml-platform-name }}
+        href: tutorials/spark-and-datasphere.md
   - name: Concepts
     items:
       - name: Resource relationships

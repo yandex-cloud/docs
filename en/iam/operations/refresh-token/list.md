@@ -7,7 +7,7 @@ description: Follow this guide to get a list of user refresh tokens and their me
 
 {% include [cli-install](../../../_includes/iam/refresh-tokens-add-note.md) %}
 
-To get a list of [refresh tokens](../../concepts/authorization/refresh-token.md) for a federated user:
+To get a list of [refresh tokens](../../concepts/authorization/refresh-token.md) for a federated or local user:
 
 {% list tabs group=instructions %}
 
@@ -79,4 +79,4 @@ To get a list of [refresh tokens](../../concepts/authorization/refresh-token.md)
 
 {% endlist %}
 
-You can also view the list of your refresh tokens through the [My account](../../../organization/concepts/my-account.md) portal.
+You can also view the list of your refresh tokens through the [My account](../../../organization/concepts/my-account.md) portal. This feature is available to all user categories including Yandex account users.

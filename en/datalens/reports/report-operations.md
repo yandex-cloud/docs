@@ -267,8 +267,6 @@ Report settings are valid for all its pages:
    * **Theme**: Select page theme, ![icon](../../_assets/console-icons/sun.svg) light or ![icon](../../_assets/console-icons/moon.svg) dark.
    * **Contrast**: Select standard (default) or high contrast.
    * **Background color**: Specify a color in hex format or select one from the color palette.
-   
-   
    * **Format**: Select a format (`A4`, `A3`, `16:9 (Full HD)`, `16:9 (2K)`, or `16:9 (4K)`).
 
      {% cut "Displaying the report in specific formats" %}
@@ -276,7 +274,6 @@ Report settings are valid for all its pages:
      ![report-16-9](../../_assets/datalens/report/report-16-9.png)
 
      {% endcut %}
-
 
    * **Orientation**: `Album` or `Portrait`.
    * Optionally, enable the **Display grid** option for easy alignment of widgets in your report.
@@ -322,8 +319,6 @@ Page settings have a higher priority than the same report settings. If page sett
    * **Theme**: Page theme, ![icon](../../_assets/console-icons/sun.svg) light or ![icon](../../_assets/console-icons/moon.svg) dark.
    * **Contrast**: Select standard (default) or high contrast.
    * **Background color**: Specify a color in hex format or select one from the color palette.
-
-   
    * **Format**: Select a format (`A4`, `A3`, `16:9 (Full HD)`, `16:9 (2K)`, or `16:9 (4K)`).
 
      {% cut "Displaying the report in specific formats" %}
@@ -331,7 +326,6 @@ Page settings have a higher priority than the same report settings. If page sett
      ![report-16-9](../../_assets/datalens/report/report-16-9.png)
 
      {% endcut %}
-
 
    * **Orientation**: `Album` or `Portrait`.
 

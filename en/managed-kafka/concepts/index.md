@@ -5,6 +5,7 @@ description: '{{ KF }} is a distributed cross-application communication system t
 
 # Resource relationships in {{ mkf-name }}
 
+
 {{ KF }} is a distributed cross-application communication system that uses the _publication-subscription_ principle.
 
 {{ mkf-full-name }} helps you deploy and maintain clusters of {{ versions.console.str }} {{ KF }} servers in the {{ yandex-cloud }} infrastructure.

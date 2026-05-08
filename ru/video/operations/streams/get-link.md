@@ -12,13 +12,13 @@ description: Следуя данной инструкции, вы сможете
   1. Откройте [главную страницу]({{ link-video-main }}) {{ video-name }}.
   1. Выберите канал.
   1. На вкладке ![image](../../../_assets/console-icons/antenna-signal.svg) **{{ ui-key.yacloud_video.streams.title_streams }}** выберите нужную трансляцию.
-  1. В блоке **{{ ui-key.yacloud_video.streams.title_stream-episodes }}** нажмите кнопку **</> {{ ui-key.yacloud_video.streams.title_past-code }}**.
+  1. В блоке **{{ ui-key.yacloud_video.streams.title_stream-episodes }}** выберите эпизод.
 
-  1. Задайте необходимые параметры воспроизведения трансляции:
+  1. Задайте необходимые параметры воспроизведения эпизода трансляции:
 
       1. `{{ ui-key.yacloud_video.streams.label_episode-mute }}`;
       1. `{{ ui-key.yacloud_video.streams.label_episode-autoplay }}`;
-      1. `Показывать элементы управления в плеере`.
+      1. `{{ ui-key.yacloud_video.streams.label_episode-hidden }}`.
 
       {% include [iframe-settings](../../../_includes/video/iframe-settings.md) %}
 

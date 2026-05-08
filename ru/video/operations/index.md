@@ -27,12 +27,6 @@ description: Пошаговые инструкции по работе с сер
 * [{#T}](video/add-to-playlist.md)
 * [{#T}](video/delete.md)
 
-## Линии {#lines}
-
-* [{#T}](lines/create.md)
-* [{#T}](lines/update.md)
-* [{#T}](lines/delete.md)
-
 ## Трансляции {#streams}
 
 * [{#T}](streams/create.md)
@@ -41,6 +35,7 @@ description: Пошаговые инструкции по работе с сер
 * [{#T}](streams/get-key.md)
 * [{#T}](streams/start.md)
 * [{#T}](streams/get-link.md)
+* [{#T}](streams/revoke-access.md)
 * [{#T}](streams/add-to-playlist.md)
 * [{#T}](streams/delete.md)
 

@@ -58,7 +58,59 @@ You can also assign roles for individual resources within the service:
 
 {% endlist %}
 
-## Roles existing in this service {#roles-list}
+## Roles this service has {#roles-list}
+
+The first diagram shows the general {{ org-full-name }} roles and some minor role groups for managing individual features.
+
+With service roles for [organizations](#organization-manager-auditor), you can manage access to organization settings, identity federations, user pools, SAML applications, OIDC applications, users and user groups, and users' access permissions to the organization and its resources.
+
+With [{{ oslogin }}](#organization-manager-osLogins-viewer) service roles, you can manage SSH keys, {{ oslogin }} profiles of users and service accounts, and operating mode settings at the organization level.
+
+With service roles for [{{ org-full-name }}](#organization-manager-idpInstances-billingViewer) usage management, you can control access to user data related to paid feature subscriptions and quota usage statistics.
+
+{% include [organization-manager-common](../../_mermaid/roles/organization-manager-common.md) %}
+
+Below you will find diagrams of roles grouped by use cases. Each diagram shows both group-specific and general service roles.
+
+{% cut "Roles for identity federations" %}
+
+With service roles for [identity federations](#organization-manager-federations-extGroupsViewer), you can manage user access to federations, their settings, as well as user groups associated with federations from external sources.
+
+{% include [organization-manager-federations](../../_mermaid/roles/organization-manager-federations.md) %}
+
+{% endcut %}
+
+{% cut "Roles for user groups" %}
+
+With service roles for [user groups](#organization-manager-groups-viewer), you can manage access to groups, their settings, as well as actions on users and service accounts belonging to those groups.
+
+{% include [organization-manager-groups](../../_mermaid/roles/organization-manager-groups.md) %}
+
+{% endcut %}
+
+{% cut "Roles for OIDC apps" %}
+
+With service roles for [OIDC apps](#organization-manager-oauthApplications-auditor), you can manage access to OIDC apps, their settings, and actions on the list of users added to the apps.
+
+{% include [organization-manager-oidcApplications](../../_mermaid/roles/organization-manager-oidcApplications.md) %}
+
+{% endcut %}
+
+{% cut "Roles for SAML apps" %}
+
+With service roles for [SAML apps](#organization-manager-samlApplications-auditor), you can manage access to SAML apps, their settings, as well as permissions to view users added to the apps.
+
+{% include [organization-manager-samlApplications](../../_mermaid/roles/organization-manager-samlApplications.md) %}
+
+{% endcut %}
+
+{% cut "Roles for user pools" %}
+
+With service roles for [user pools](#organization-manager-userpools-extGroupsViewer), you can manage access to pools, their settings, as well as actions on local users included in the pools, external groups, and user synchronization.
+
+{% include [organization-manager-userpools](../../_mermaid/roles/organization-manager-userpools.md) %}
+
+{% endcut %}
 
 ### Service roles {#service-roles}
 
@@ -270,7 +322,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
   1. [Get the user ID](../operations/users-get.md).
 
-  1. To assign the role, run the following command:
+  1. Assign the role using this command:
 
       ```bash
       yc <service_name> <resource> add-access-binding <resource_name_or_ID> \
@@ -404,7 +456,7 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
 
   To revoke a role from a subject, delete access permissions for the appropriate resource:
 
-  1. View the roles and assignees for the resource:
+  1. View the list of users and their roles for the resource:
 
       ```bash
       yc <service_name> <resource> list-access-bindings <resource_name_or_ID>
@@ -532,3 +584,4 @@ In {{ org-full-name }}, you can assign a group a role for an organization, cloud
 ## What roles are assigned in an organization {#list-access-bingings}
 
 {% include [org-list-access-bingings](../../_includes/organization/org-list-access-bingings.md) %}
+
