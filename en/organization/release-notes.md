@@ -9,6 +9,7 @@ description: This section contains the {{ org-full-name }} release notes.
 ## March 2026 {#march-2026}
 
 * Added the `yc organization-manager organization leave` command for leaving an organization. {{ tag-cli }}
+* Added MFA policy exception [management](operations/mfa/excluded-audience.md) functions. {{ tag-center }} {{ tag-cli }} {{ tag-api }}
 
 
 

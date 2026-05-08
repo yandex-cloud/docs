@@ -1,6 +1,6 @@
 # High availability of a {{ mkf-name }} cluster
 
-[High availability](../../architecture/fault-tolerance.md#mdb-ha) of a {{ mkf-name }} cluster depends on the number and placement of its hosts, topic settings, and other cluster parameters.
+High availability of a {{ mkf-name }} cluster depends on the number and placement of its hosts, topic settings, and other cluster parameters.
 
 ## Number and placement of cluster hosts {#hosts}
 

@@ -10,7 +10,7 @@ description: В этом разделе собраны практические 
 * [{#T}](java-servlet-todo-list.md)
 * [{#T}](video-converting-queue/index.md)
 * [{#T}](api-gw-integration.md)
-* [{#T}](serverless-url-shortener.md)
+* [{#T}](serverless-url-shortener/index.md)
 * [{#T}](websocket-app.md)
 * [{#T}](nodejs-typescript.md)
 * [{#T}](connect-to-ydb.md)

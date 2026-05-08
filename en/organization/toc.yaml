@@ -295,6 +295,12 @@ items:
                 href: tutorials/single-sign-on/vk-cloud/saml-vk-cloud.md
           - name: Sentry
             href: tutorials/single-sign-on/saml-sentry.md
+          - name: Jenkins
+            items:
+              - name: SAML
+                href: tutorials/single-sign-on/jenkins/saml-jenkins.md
+              - name: OpenID Connect
+                href: tutorials/single-sign-on/jenkins/oidc-jenkins.md
           - name: Using OAuth2 Proxy for applications not supporting SSO
             href: tutorials/single-sign-on/oidc-nginx-oauth2-proxy.md
   - name: Concepts

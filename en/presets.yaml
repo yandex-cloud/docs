@@ -833,6 +833,7 @@ default:
   t4i-ice-lake: Intel Ice Lake with T4i
   tag-all: <code><b><small>All interfaces</small></b></code>
   tag-api: <code><b><small>API</small></b></code>
+  tag-center: <code><b><small>Cloud Center</small></b></code>
   tag-cli: <code><b><small>CLI</small></b></code>
   tag-con: <code><b><small>Management console</small></b></code>
   tag-preview: <code><b><small>Preview</small></b></code>
@@ -5293,6 +5294,8 @@ default:
       dashboard:
         action_add-user: Add a participant
         action_go-to-org: Go to organization
+      episodes:
+        label_allow-access: Allow access
       organization:
         action_open-cloud-video: Open Cloud Video
       playlists:
@@ -5326,9 +5329,19 @@ default:
         action_create-stream: Create a broadcast
         action_start-stream: Start
         action_stop-stream: Finish
+        label_auto-publish-streams: Auto-start broadcast
         label_episode-autoplay: Auto play video
         label_episode-hidden: Hide controls in player
         label_episode-mute: Play video without sound by default
+        label_episode-type: Episode type
+        label_episode-type-broadcast: Broadcast
+        label_episode-type-live: Live
+        label_player-template: Player template
+        label_rewind-buffer: Rewind buffer (sec)
+        label_start-broadcast: Publish broadcast
+        label_start-broadcast-auto: automatically
+        label_stream-episode-end: Episode end
+        label_stream-episode-start: Episode start
         label_stream-type: Stream type
         label_type-on-demand: On demand
         label_type-schedule: By schedule
@@ -5346,6 +5359,7 @@ default:
         action_create-video: Upload video
         action_generate-subtitles: Generate
         action_subtitles_upload_again: Upload again
+        field_enable-decode-errors-tolerance: Automatically process video file errors
         field_summarization: Summary
         label_access_rights-public: All users
         label_access_rights-sign-url-access: By temporary link

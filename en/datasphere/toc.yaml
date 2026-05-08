@@ -75,7 +75,7 @@ items:
             href: operations/projects/templates.md
       - name: Working with resources
         items:
-          - name: Using secrets
+          - name: Working with secrets
             href: operations/data/secrets.md
           - name: Working with {{ dataproc-name }} templates
             href: operations/data-processing-template.md
@@ -93,7 +93,7 @@ items:
             href: operations/data/filestores.md
       - name: Connecting to data sources
         items:
-          - name: Connecting to S3 using the boto3 library
+          - name: Connecting to S3 using boto3
             href: operations/data/connect-to-s3.md
           - name: Connecting to a {{ CH }} database
             href: operations/data/connect-to-clickhouse.md
@@ -289,6 +289,8 @@ items:
             href: tutorials/yq-postgre.md
           - name: Federated data queries
             href: tutorials/yq-federative-queries.md
+          - name: Using the service {{ msp-full-name }}
+            href: tutorials/spark-and-datasphere.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference

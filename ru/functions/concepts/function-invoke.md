@@ -419,7 +419,7 @@ Flags:
 
 * [{#T}](../tutorials/canary-release.md)
 * [{#T}](../tutorials/java-servlet-todo-list.md)
-* [{#T}](../tutorials/serverless-url-shortener.md)
+* [{#T}](../tutorials/serverless-url-shortener/index.md)
 * [{#T}](../tutorials/slack-bot-serverless.md)
 * [{#T}](../tutorials/telegram-bot-serverless.md)
 * [{#T}](../tutorials/websocket-app.md)

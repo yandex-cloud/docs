@@ -7,9 +7,6 @@ editable: false
 # {{ dataproc-name }} pricing policy
 
 
-{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
-
-
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -88,6 +85,8 @@ The cost is calculated as follows:
 ## Prices for the Russia region {#prices} 
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
+{% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
 
 

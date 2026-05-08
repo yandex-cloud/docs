@@ -9,7 +9,7 @@ description: Различные сценарии использования {{ a
 
 * [{#T}](java-servlet-todo-list.md)
 * [{#T}](api-gw-integration.md)
-* [{#T}](serverless-url-shortener.md)
+* [{#T}](serverless-url-shortener/index.md)
 * [{#T}](movies-database.md)
 * [{#T}](websocket-app.md)
 * [{#T}](api-gw-websocket.md)

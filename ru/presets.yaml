@@ -833,6 +833,7 @@ default:
   t4i-ice-lake: Intel Ice Lake with T4i
   tag-all: <code><b><small>Все интерфейсы</small></b></code>
   tag-api: <code><b><small>API</small></b></code>
+  tag-center: <code><b><small>Cloud Center</small></b></code>
   tag-cli: <code><b><small>CLI</small></b></code>
   tag-con: <code><b><small>Консоль управления</small></b></code>
   tag-preview: <code><b><small>Preview</small></b></code>
@@ -5291,6 +5292,8 @@ default:
       dashboard:
         action_add-user: Добавить участника
         action_go-to-org: Перейти в организацию
+      episodes:
+        label_allow-access: Разрешить доступ
       organization:
         action_open-cloud-video: Открыть Cloud Video
       playlists:
@@ -5324,9 +5327,19 @@ default:
         action_create-stream: Создать трансляцию
         action_start-stream: Начать
         action_stop-stream: Завершить
+        label_auto-publish-streams: Автозапуск трансляции
         label_episode-autoplay: Запускать видео автоматически
         label_episode-hidden: Скрывать элементы управления в плеере
         label_episode-mute: По умолчанию воспроизводить без звука
+        label_episode-type: Тип эпизода
+        label_episode-type-broadcast: Трансляция
+        label_episode-type-live: Прямой эфир
+        label_player-template: Шаблон плеера
+        label_rewind-buffer: Буфер перемотки (сек.)
+        label_start-broadcast: Опубликовать трансляцию
+        label_start-broadcast-auto: автоматически
+        label_stream-episode-end: Конец эпизода
+        label_stream-episode-start: Начало эпизода
         label_stream-type: Тип потока
         label_type-on-demand: По требованию
         label_type-schedule: По расписанию
@@ -5344,6 +5357,7 @@ default:
         action_create-video: Загрузить видео
         action_generate-subtitles: Сгенерировать
         action_subtitles_upload_again: Загрузить заново
+        field_enable-decode-errors-tolerance: Автоматически обрабатывать ошибки видеофайла
         field_summarization: Суммаризация
         label_access_rights-public: Для всех пользователей
         label_access_rights-sign-url-access: По временной ссылке
