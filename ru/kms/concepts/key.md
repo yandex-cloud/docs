@@ -50,4 +50,4 @@
 * [{#T}](../tutorials/terraform-key.md)
 * [{#T}](../tutorials/terraform-secret.md)
 * [{#T}](../tutorials/vault-secret.md)
-* [{#T}](../tutorials/secure-password-script.md)
+* [{#T}](../tutorials/secure-password-script/index.md)

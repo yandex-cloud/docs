@@ -25,7 +25,7 @@ description: С помощью инструкции вы сможете посм
 
 - Интерфейс {{ monium-name }} {#console}
 
-  1. На главной странице сервиса [{{ monium-name }}]({{ link-monium }}) слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.logs.title }}**.
+  1. На главной странице [{{ monium-name }}]({{ link-monium }}) слева выберите **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.logs.title }}**.
   1. Вверху задайте промежуток поиска данных одним из способов:
      * выберите варианты интервалов: `5m`, `30m` и так далее — будут показаны данные за последние 5, 30 минут;
      * введите интервал времени вручную;

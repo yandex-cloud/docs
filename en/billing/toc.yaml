@@ -10,7 +10,7 @@ items:
         href: operations/index.md
       - name: Working with documents
         items:
-          - name: Understanding your payment invoice
+          - name: Understanding your invoice
             href: operations/spell-out-bill.md
           - name: Downloading reporting documents
             href: operations/download-reporting-docs.md
@@ -128,7 +128,7 @@ items:
             items:
               - name: Payment procedure
                 href: payment/payment-methods-business.md
-              - name: Payment invoice
+              - name: Invoice
                 href: concepts/bill.md
           - name: Reporting documents
             items:

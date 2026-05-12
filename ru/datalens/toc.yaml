@@ -890,6 +890,8 @@ items:
             href: operations/dashboard/copying-widgets.md
           - name: Добавление информации о дашборде
             href: operations/dashboard/add-description.md
+          - name: Добавление рассылки для дашборда
+            href: operations/dashboard/add-maillists.md
           - name: Добавление сообщения при обращении в поддержку
             href: operations/dashboard/add-support-message.md
           - name: Добавление сообщения при ошибке доступа

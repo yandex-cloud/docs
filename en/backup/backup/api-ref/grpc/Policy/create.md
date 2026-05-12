@@ -5,6 +5,7 @@ editable: false
 # Cloud Backup API, gRPC: PolicyService.Create
 
 Create a new policy.
+
 For detailed information, please see [Creating a backup policy](/docs/backup/operations/policy-vm/create).
 
 ## gRPC request

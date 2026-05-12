@@ -637,6 +637,7 @@ apiPlayground:
 # Cloud Backup API, REST: Policy.Create
 
 Create a new policy.
+
 For detailed information, please see [Creating a backup policy](/docs/backup/operations/policy-vm/create).
 
 ## HTTP request

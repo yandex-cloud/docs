@@ -109,7 +109,7 @@ reclaimPolicy: <политика_переиспользования>
 Допустимые значения параметров:
 * `parameters`:
   * `type` — `network-hdd`, `network-ssd`, `network-ssd-nonreplicated` или `network-ssd-io-m3`.
-  * `csi.storage.k8s.io/fstype` — `ext2`, `ext3` или `ext4`.
+  * `csi.storage.k8s.io/fstype` — `ext2`, `ext3`, `ext4` или `btrfs`.
 * `reclaimPolicy` — `Retain` или `Delete`.
 * `allowVolumeExpansion` — `true` или `false`.
 
