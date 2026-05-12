@@ -119,6 +119,8 @@ items:
           Создание L7-балансировщика с профилем безопасности через
           Ingress-контроллер {{ alb-name }}
         href: tutorials/alb-ingress-with-sws-profile.md
+      - name: Управление источниками трафика
+        href: tutorials/traffic-sources-management.md
       - name: >-
           Создание L7-балансировщика с защитой от DDoS на уровне L3-L4 модели
           OSI

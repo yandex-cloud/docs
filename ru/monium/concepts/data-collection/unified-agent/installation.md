@@ -35,7 +35,6 @@ description: Из статьи вы узнаете, как установить 
    - Если агент установлен на виртуальную машину в {{ yandex-cloud }}, [привяжите созданный сервисный аккаунт](../../../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) к виртуальной машине. В этом случае агент будет автоматически получать IAM-токен сервисного аккаунта из сервиса метаданных.
    - Если агент установлен на хосте вне {{ yandex-cloud }}, [создайте авторизованный ключ](../../../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) для сервисного аккаунта. Подробнее про поставку метрик с хостов вне {{ yandex-cloud }} читайте в разделе [{#T}](../../../operations/unified-agent/non-yc.md).
 
-
 ## Установка {#setup}
 
 Установите {{ unified-agent-short-name }} одним из способов:
@@ -103,7 +102,6 @@ description: Из статьи вы узнаете, как установить 
 
 {% endlist %}
 
-
 ## Обновление {#update}
 
 Обновите {{ unified-agent-short-name }} одним из способов:
@@ -140,6 +138,141 @@ description: Из статьи вы узнаете, как установить 
 
 {% endlist %}
 
+## Пример установки и настройки {#example}
+
+В данном примере {{ unified-agent-short-name }} будет установлен из deb-пакета и настроен для сбора метрик.
+
+Чтобы установить и настроить {{ unified-agent-short-name }} на виртуальной машине, выполните следующие шаги:
+
+1. [Создайте сервисный аккаунт](../../../../iam/operations/sa/create.md) в каталоге, куда будут записываться метрики, и [назначьте ему роль](../../../../iam/operations/sa/assign-role-for-sa.md) `{{ roles-monitoring-editor }}`.
+
+1. [Создайте](../../../../compute/operations/vm-create/create-linux-vm.md) виртуальную машину, в блоке **{{ ui-key.yacloud.compute.instances.create.section_additional }}** выберите сервисный аккаунт, созданный на предыдущем шаге.
+
+1. [Подключитесь к ВМ по SSH](../../../../compute/operations/vm-connect/ssh.md).
+
+1. Установите {{ unified-agent-short-name }}:
+
+   1. Получите права суперпользователя:
+
+      ```bash
+      sudo -i
+      ```
+
+   1. Скачайте deb-пакет с последней версией {{ unified-agent-short-name }} для вашей ОС (например, `ubuntu-22.04-jammy`):
+
+      ```bash
+      ubuntu_name="ubuntu-22.04-jammy"
+      ua_version=$(curl -s https://{{ s3-storage-host }}/yc-unified-agent/latest-version) bash -c 'curl -s -O https://{{ s3-storage-host }}/yc-unified-agent/releases/${ua_version}/deb/${ubuntu_name}/yandex-unified-agent_${ua_version}_amd64.deb'
+      ```
+
+      Команда найдет последнюю версию {{ unified-agent-short-name }} и скачает deb-пакет на ВМ.
+
+   1. Установите версию {{ unified-agent-short-name }} из скачанного пакета (например, `24.07.02`):
+
+      ```bash
+      dpkg -i yandex-unified-agent_24.07.02_amd64.deb
+      ```
+
+   1. Проверьте статус {{ unified-agent-short-name }}:
+
+      ```bash
+      systemctl status unified-agent.service
+      ```
+
+      {% cut "Результат" %}
+
+      ```bash
+      unified-agent.service - Yandex Unified Agent service
+         Loaded: loaded (/usr/lib/systemd/system/unified-agent.service; enabled; preset: enabled)
+         Active: active (running) since Mon 2024-08-19 17:32:24 UTC; 1min 49s ago
+       Main PID: 7106 (unified_agent)
+          Tasks: 7 (limit: 2275)
+         Memory: 3.6M (peak: 3.9M)
+            CPU: 19ms
+         CGroup: /system.slice/unified-agent.service
+                 └─7106 /usr/bin/unified_agent --config /etc/yandex/unified_agent/config.yml --log-priority NOTICE
+                  CGroup: /system.slice/unified-agent.service
+      
+      Aug 19 17:32:24 ua-test-vm systemd[1]: Started unified-agent.service - Yandex Unified Agent service.
+      Aug 19 17:32:24 ua-test-vm unified_agent[7106]: 2024-08-19T17:32:24.815279Z 7106 15778840110569512124 NOTICE agent starting, revision [14433827]
+      Aug 19 17:32:24 ua-test-vm unified_agent[7106]: 2024-08-19T17:32:24.815307Z 7106  15778840110569512124 NOTICE agent monitoring service [:16300]
+      Aug 19 17:32:24 ua-test-vm unified_agent[7106]: 2024-08-19T17:32:24.815632Z 7106 15778840110569512124 NOTICE agent status service [localhost:16301]
+      Aug 19 17:32:24 ua-test-vm unified_agent[7106]: 2024-08-19T17:32:24.816002Z 7106  15778840110569512124 NOTICE agent started
+      ```
+
+      {% endcut %}
+
+1. Настройте {{ unified-agent-short-name }}:
+
+   1. Откройте конфигурационный файл {{ unified-agent-short-name }}:
+
+      ```bash
+      vim /etc/yandex/unified_agent/config.yml
+      ```
+
+   1. Добавьте в конфигурационный файл настройки для сбора метрик. Итоговый файл должен выглядеть следующим образом:
+
+      ```yaml
+      monitoring:
+        port: 16300
+
+      status:
+        port: 16301
+
+      channels:
+        - name: yc_metrics_channel
+          channel:
+            output:
+              plugin: yc_metrics
+              config:
+                folder_id: "a1bs81qpemb4********"
+                iam:
+                  cloud_meta: {}
+
+      routes:
+        - input:
+            id: linux_metrics_input
+            plugin: linux_metrics
+            config:
+              poll_period: 60s
+          channel:
+            channel_ref:
+              name: yc_metrics_channel
+
+      import:
+        - /etc/yandex/unified_agent/conf.d/*.yml
+      ```
+
+   1. Перезапустите {{ unified-agent-short-name }}:
+
+      ```bash
+      systemctl restart unified-agent.service
+      ```
+
+   1. Проверьте статус {{ unified-agent-short-name }}:
+
+      ```bash
+      systemctl status unified-agent.service
+      ```
+      
+Проверьте собираемые метрики:
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который собираются метрики.
+  1. [Перейдите](../../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_monium }}**.
+  1. На панели слева выберите ![image](../../../../_assets/console-icons/rectangle-pulse.svg) **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
+  1. В редакторе запроса в строке ![image](../../../../_assets/monitoring/chart.svg) с именем нужного облака и каталога выберите:
+     * `service` = `custom`;
+     * `cluster` = `default`;
+     * `name` = `memory.Active`;
+     * `host` = `<имя_ВМ>`.
+  1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}**.
+     На появившемся графике отобразятся метрики, которые собирает {{ unified-agent-short-name }}.
+
+{% endlist %}
 
 #### Что дальше {#what-is-next}
 

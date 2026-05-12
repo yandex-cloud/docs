@@ -1,21 +1,4 @@
 title: '{{ speechsense-full-name }}'
-description:
-  - >-
-    {{ speechsense-full-name }} — это сервис, который поможет вашему бизнесу
-    организовать аналитику контактных центров.
-  - >-
-    В основе {{ speechsense-full-name }} лежат ML-технологии Yandex Cloud. {{
-    speechkit-full-name }} распознает речь, соберет статистику диалога и
-    определит ключевые слова, а {{ gpt-pro }} поможет написать резюме.
-  - >-
-    Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
-    об уровне обслуживания</a>. Уровень обслуживания сервиса определен в
-    документе <a href="https://yandex.ru/legal/cloud_sla_speechsense/">Уровень
-    обслуживания {{ speechsense-full-name }}</a>.
-  - >-
-    Правила использования сервиса определены в документе <a href
-    ="https://yandex.ru/legal/cloud_terms_speechsense">Условия использования
-    сервиса {{ speechsense-full-name }}</a>.
 meta:
   title: Yandex SpeechSense
   description: >-
@@ -38,22 +21,118 @@ meta:
     - keyword: речевая аналитика для бизнеса
     - keyword: анализ разговоров и сообщений для бизнеса
     - keyword: анализ разговоров и сообщений из чатов
-links:
-  - title: Начало работы
-    description: Загрузите в сервис первую запись диалога оператора с клиентом
-    href: quickstart
-  - title: Пошаговые инструкции
-    description: Инструкции по выполнению рутинных операций
-    href: operations/index
-  - title: Концепции
-    description: Узнайте про концепции и общее устройство сервиса
-    href: concepts/resources-hierarchy
-  - title: Управление доступом
-    description: Настройте права доступа для работы с сервисом
-    href: security/
-  - title: Правила тарификации
-    description: Цены и правила расчета стоимости услуг сервиса
-    href: pricing
-  - title: История изменений
-    description: Перечень обновлений сервиса
-    href: release-notes/
+blocks:
+  - type: content-layout-block
+    textContent:
+      title: Yandex SpeechSense
+      text: >-
+        Yandex SpeechSense — это сервис, который поможет вашему бизнесу
+        организовать аналитику контактных центров.
+
+
+        В основе Yandex SpeechSense лежат ML-технологии Yandex Cloud. Yandex
+        SpeechKit распознает речь, соберет статистику диалога и определит
+        ключевые слова, а YandexGPT Pro поможет написать резюме.
+  - type: card-layout-block
+    title: ''
+    description: ''
+    colSizes:
+      all: 12
+      lg: 4
+      md: 6
+      sm: 12
+      xl: 4
+    children:
+      - type: basic-card
+        title: Начало работы
+        text: Загрузите в сервис первую запись диалога оператора с клиентом
+        urlTitle: Как начать работать с Yandex SpeechSense
+        url: quickstart
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/rocket.svg
+          dark: assets/icons/rocket.svg
+      - type: basic-card
+        title: Пошаговые инструкции
+        text: Следуйте инструкциям для выполнения рутинных операций
+        urlTitle: Пошаговые инструкции для сервиса Yandex SpeechSense
+        url: operations/index
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/list-ol.svg
+          dark: assets/icons/list-ol.svg
+      - type: basic-card
+        title: Концепции
+        text: Изучите основные термины и понятия, используемые в сервисе
+        urlTitle: Все понятия
+        url: concepts/resources-hierarchy
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/bookmark.svg
+          dark: assets/icons/bookmark.svg
+      - type: basic-card
+        title: Квоты и лимиты
+        text: Технические и организационные ограничения сервиса
+        urlTitle: Квоты и лимиты
+        url: concepts/limits
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/sliders.svg
+          dark: assets/icons/sliders.svg
+      - type: basic-card
+        title: Управление доступом
+        text: Настройте права доступа для работы с сервисом
+        urlTitle: Управление доступом в сервисе Yandex SpeechSense
+        url: security/index
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/persons-lock.svg
+          dark: assets/icons/persons-lock.svg
+      - type: basic-card
+        title: Правила тарификации
+        text: Цены и правила расчета стоимости услуг сервиса
+        urlTitle: Правила тарификации для Yandex SpeechSense
+        url: pricing
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/calculator.svg
+          dark: assets/icons/calculator.svg
+      - type: basic-card
+        title: История изменений
+        text: Обновления и изменения в сервисе
+        urlTitle: История изменений Yandex SpeechSense
+        url: release-notes/index
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/timeline.svg
+          dark: assets/icons/timeline.svg
+  - type: content-layout-block
+    textContent:
+      title: ''
+      text: >-
+        Для сервиса действует [соглашение об уровне
+        обслуживания](https://yandex.ru/legal/cloud_sla).
+
+
+        Уровень обслуживания сервиса определен в документе [Уровень обслуживания
+        Yandex SpeechSense](https://yandex.ru/legal/cloud_sla_).
+
+
+        Правила использования сервиса определены в документе [Условия
+        использования сервиса Yandex
+        SpeechSense](https://yandex.ru/legal/cloud_terms_speechsense).
+links: []

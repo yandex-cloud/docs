@@ -8,7 +8,13 @@ items:
       - name: Использование своей лицензии для продуктов Microsoft
         href: byol.md
       - name: Безопасная передача пароля в скрипт инициализации
-        href: tutorials/secure-password-script.md
+        items:
+          - name: Обзор
+            href: tutorials/secure-password-script/index.md
+          - name: Консоль управления, CLI, API
+            href: tutorials/secure-password-script/console.md
+          - name: '{{ TF }}'
+            href: tutorials/secure-password-script/terraform.md
       - name: Развертывание Active Directory
         href: tutorials/active-directory.md
       - name: Развертывание Microsoft Exchange

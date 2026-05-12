@@ -164,6 +164,39 @@ player.setMuted(false);
 player.setVolume(0.7);
 ```
 
+#### setTextTrack {#settexttrack}
+
+Переключает текстовую дорожку (субтитры).
+
+В качестве параметра передается значение `value` из объекта дорожки, полученного из [textTracks](./player-state.md#state-textTracks). 
+
+Для отключения субтитров передайте `null`.
+
+Пример включения субтитров:
+
+```javascript
+var tracks = player.getState().textTracks;
+if (tracks.length > 0) {
+    player.setTextTrack(tracks[0].value);
+}
+```
+
+Пример включения субтитров с начала воспроизведения:
+
+```javascript
+player.once('TextTracksChange', ({ textTracks }) => {
+    if (textTracks.length > 0) {
+        player.setTextTrack(textTracks[0].value);
+    }
+});
+```
+
+Пример отключения субтитров:
+
+```javascript
+player.setTextTrack(null);
+```
+
 #### setPlaybackSpeed {#setplaybackspeed}
 
 Устанавливает скорость воспроизведения видео.
@@ -215,7 +248,7 @@ player.on('StatusChange', ({ status }) => {
 
 Метод имеет сигнатуру `off(eventName, handler)`. Первым параметром передается название события, вторым — обработчик, который использовался ранее для подписки.
 
-Пример отписки от функции-обработчика с названием `handler` для события изменения статуса воспроизведения [StatusChange](./player-events.md#StatusChange):
+Пример отписки от функции-обработчика с названием `handler` для события изменения статуса воспроизведения [StatusChange](./player-events.md#statuschange):
 
 ```javascript
 player.off('StatusChange', handler);

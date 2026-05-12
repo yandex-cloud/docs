@@ -77,7 +77,13 @@ items:
           objstorage-name }} в другой
         href: tutorials/bucket-to-bucket-copying.md
       - name: Безопасная передача пароля в скрипт инициализации
-        href: tutorials/secure-password-script.md
+        items:
+          - name: Обзор
+            href: tutorials/secure-password-script/index.md
+          - name: Консоль управления, CLI, API
+            href: tutorials/secure-password-script/console.md
+          - name: '{{ TF }}'
+            href: tutorials/secure-password-script/terraform.md
       - name: >-
           Использование секрета в PySpark-задании для подключения к {{
           mpg-full-name }}

@@ -18,6 +18,8 @@
 
 #### См. также {#see-also}
 
+* [{{ src-name }} открывает библиотеку курсов и запускает лигу IT-преподавателей](https://yandex.cloud/ru/blog/sourcecraft-library)
+* [Академия {{ ai-studio-full-name }}: образовательный проект для тех, кто использует ИИ в бизнесе](https://yandex.cloud/ru/blog/ai-academy-ai-studio)
 * [Инвестируем в будущее IT: как и зачем мы создали учебник по облачным технологиям](https://yandex.cloud/ru/blog/cloud-schoolbook)
 * [От ИИ‑агентов до инженерных практик: как мы обучали передовым технологиям в 2025 году](https://yandex.cloud/ru/blog/training-review-2025)
 
