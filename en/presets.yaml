@@ -906,6 +906,7 @@ default:
   wiki-full-name: Yandex Wiki
   wiki-name: Wiki
   wiki-short-name: Wiki
+  wordstat-name: Wordstat
   ya-360: Yandex 360 for Business
   ya-oauth-url: https://oauth.yandex.com
   yagpt-full-name: YandexGPT API
@@ -4097,6 +4098,8 @@ default:
             title: Notification methods
           prometheus:
             title: Prometheus
+          services-map:
+            title: Services map
           shards:
             title: Shards
           slo:
@@ -7200,6 +7203,7 @@ default:
             label_message-queue: Message Queue
             label_metadata-hub: Yandex MetaData Hub
             label_monitoring: Monitoring
+            label_monium: Monium
             label_postbox: Cloud Postbox
             label_products: All services
             label_schema-registry: Schema Registry

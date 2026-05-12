@@ -67,4 +67,4 @@ description: Из статьи вы узнаете, что такое секре
 * [{#T}](../tutorials/websocket-app.md)
 * [{#T}](../tutorials/bucket-to-bucket-copying.md)
 * [{#T}](../tutorials/nodejs-cron-restart-vm.md)
-* [{#T}](../tutorials/secure-password-script.md)
+* [{#T}](../tutorials/secure-password-script/index.md)

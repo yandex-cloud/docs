@@ -21,7 +21,7 @@ player.on('SourceChange', ({ source }) => {
 });
 ```
 
-#### StatusChange {#StatusChange}
+#### StatusChange {#statuschange}
 
 Изменение [статуса воспроизведения](./player-state.md#state-status).
 
@@ -191,14 +191,28 @@ player.on('BufferedRangesChange', ({ bufferedRanges }) => {
 
 #### FullscreenStateChange {#fullscreenstatechange}
 
-Изменение состояния полноэкранного режима. 
+Изменение состояния полноэкранного режима.
 
-В объекте `{ isFullscreen }` в обработчик поступает новое значение [состояния полноразмерного режима](./player-state.md#state-isFullscreen).
+В объекте `{ isFullscreen }` в обработчик поступает новое значение [состояния полноэкранного режима](./player-state.md#state-isFullscreen).
 
 Пример:
 ```javascript
 player.on('FullscreenStateChange', ({ isFullscreen }) => {
     console.log(isFullscreen);
+});
+```
+
+#### TextTracksChange {#texttrackschange}
+
+Изменение списка доступных текстовых дорожек (субтитров).
+
+В объекте `{ textTracks }` в обработчик поступает новый массив [доступных дорожек](./player-state.md#state-textTracks).
+
+Пример:
+
+```javascript
+player.on('TextTracksChange', ({ textTracks }) => {
+    console.log(textTracks);
 });
 ```
 

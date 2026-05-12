@@ -12,7 +12,7 @@ description: This section contains the {{ cdn-name }} release notes.
 * Added support for the [WebSocket](https://en.wikipedia.org/wiki/WebSocket) protocol. To enable the feature, contact [support]({{ link-console-support }}).
 * Added new [points of presence](./concepts/points-of-presence.md).
 * Supported the [pricing calculator for {{ cdn-name }}](https://yandex.cloud/en/prices?state=cc0daabb430b#calculator).
-* Added an [{{ at-name }} management event](./at-ref.md), [ResourceDelete](./events-ref/ResourceDelete.md), for deleting a CDN resource.
+* Added an [{{ at-name }} management event](./at-ref.md), `ResourceDelete`, for deleting a CDN resource.
 
 ## Q3 2025 {#q3-2025}
 

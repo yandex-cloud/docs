@@ -265,6 +265,8 @@ items:
         items:
           - name: Поиск трейсов и спанов
             href: traces/operations/traces-explorer.md
+          - name: Карта сервисов
+            href: traces/operations/service-map.md
           - name: Просмотр и анализ трейса
             href: traces/operations/trace-view.md
           - name: Язык запросов

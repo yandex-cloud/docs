@@ -231,8 +231,16 @@ items:
           - name: Auto Unseal в HashiCorp Vault
             href: tutorials/data-encryption-and-key-management/vault-secret.md
           - name: Безопасная передача пароля в скрипт инициализации
-            href: >-
-              tutorials/data-encryption-and-key-management/secure-password-script.md
+            items:
+              - name: Обзор
+                href: >-
+                  tutorials/data-encryption-and-key-management/secure-password-script/index.md
+              - name: Консоль управления, CLI, API
+                href: >-
+                  tutorials/data-encryption-and-key-management/secure-password-script/console.md
+              - name: '{{ TF }}'
+                href: >-
+                  tutorials/data-encryption-and-key-management/secure-password-script/terraform.md
           - name: Терминирование TLS-соединений
             items:
               - name: Обзор
@@ -348,6 +356,8 @@ items:
                 href: tutorials/app-security/balancer-with-sws-profile/terraform.md
           - name: Защита {{ api-gw-name }} при помощи {{ sws-name }}
             href: tutorials/app-security/api-gw-sws-integration.md
+          - name: Управление источниками трафика
+            href: tutorials/app-security/traffic-sources-management.md
           - name: Добавление HTML-страницы для работы {{ captcha-name }}
             href: tutorials/app-security/website.md
           - name: '{{ captcha-name }} в приложении на Android'

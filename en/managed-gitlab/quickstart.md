@@ -68,7 +68,7 @@ For more information about the differences between {{ mgl-name }} and the custom
    * View issues and merge requests by group.
    * View group activity analytics.
 
-   For more information, see [this {{ GL }} article](https://docs.gitlab.com/ee/user/group/).
+   For more information, see [this {{ GL }} guide](https://docs.gitlab.com/ee/user/group/).
 
 1. [Create an empty project](https://docs.gitlab.com/ee/user/project/) to host the repository.
 1. [Create users and add](operations/create-user.md) them to a group or project with the `Maintainer` or `Owner` role.
@@ -189,7 +189,7 @@ To start working with a local copy of your repository using the account you crea
    ```
 
 1. Make changes to the repository files.
-1. [Index and apply the changes](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html#add-and-commit-local-changes) in the local repository:
+1. [Index and commit the changes](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html#add-and-commit-local-changes) in the local repository:
 
    ```bash
    git add . && git commit -m "<commit_name>"

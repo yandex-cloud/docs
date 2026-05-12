@@ -50,6 +50,8 @@ items:
         href: concepts/instance-types.md
       - name: Хранилище в {{ SPQR }}
         href: concepts/storage.md
+      - name: Резервные копии
+        href: concepts/backup.md
       - name: Квоты и лимиты
         href: concepts/limits.md
       - name: Настройки {{ SPQR }}

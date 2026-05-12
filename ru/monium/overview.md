@@ -134,3 +134,8 @@ description: '{{ monium-name }} — платформа для наблюдени
 * [{#T}](concepts/glossary.md)
 * [{#T}](concepts/data-model.md)
 * [{#T}](concepts/querying.md)
+
+
+#### См. также {#see-also}
+
+* [{{ monium-full-name }}: платформа для мониторинга и управления состоянием IT-систем](https://yandex.cloud/ru/blog/yandex-monium)
