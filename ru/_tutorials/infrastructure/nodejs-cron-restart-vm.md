@@ -277,7 +277,7 @@
      * `--entrypoint` — точка входа.
      * `--service-account-id` — [идентификатор](../../iam/operations/sa/get-id.md) сервисного аккаунта с правами на вызов функции.
      * `--environment` — переменные окружения:
-       * `FOLDER_ID` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором вы хотите запускать остановленные ВМ.
+       * `FOLDER_ID` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором вы хотите запускать остановленную ВМ.
        * `INSTANCE_ID` — [идентификатор ВМ](../../compute/operations/vm-info/get-info.md#outside-instance), которую вы хотите запускать при прерывании.
      * `--secret` — данные секрета {{ lockbox-name }}:
        * `name` — имя секрета.
@@ -340,7 +340,7 @@
      * `service_account_id` — [идентификатор](../../iam/operations/sa/get-id.md) сервисного аккаунта с правами на вызов функции.
      * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором вы создаете функцию.
      * `environment` — переменные окружения:
-       * `FOLDER_ID` — идентификатор каталога, в котором вы хотите запускать остановленные ВМ.
+       * `FOLDER_ID` — идентификатор каталога, в котором вы хотите запускать остановленную ВМ.
        * `INSTANCE_ID` — [идентификатор ВМ](../../compute/operations/vm-info/get-info.md#outside-instance), которую вы хотите запускать при прерывании.
      * `secrets` — данные секрета {{ lockbox-name }}:
        * `id` — идентификатор секрета.

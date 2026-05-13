@@ -15,6 +15,7 @@ description: Из статьи вы узнаете, как работать с {
 * [Подключение к кластеру](connect.md)
 * [Управление доступом к кластеру](cluster-access.md)
 * [Техническое обслуживание](cluster-maintenance.md)
+* [Управление ресурсными группами](manage-resource-groups.md)
 * [Удаление кластера](cluster-delete.md)
 
 ## Каталоги {{ TR }} {#catalogs}

@@ -125,6 +125,10 @@ Limit for cache for data on Yandex Object Storage. ||
 || `--backup-retain-period-days` | `int`
 
 Auto backups retain period in days. ||
+|| `--performance-diagnostics-enabled` | Whether to use Performance Diagnostics service in cluster. ||
+|| `--performance-diagnostics-processes-refresh-interval` | `duration`
+
+Time interval to collect data from system.processes table. ||
 || `--labels` | `key=value[,key=value...]`
 
 A list of ClickHouse cluster labels as key-value pairs. ||

@@ -32,7 +32,7 @@ Aliases:
 
   - [yc smartwebsecurity security-profile update](security-profile/update.md) — Updates the specified security profile.
 
-- [yc smartwebsecurity v1](v1/index.md) — Call commands using API version v1
+- [yc smartwebsecurity v1](v1/index.md) — Manage SmartWebSecurity resources
 
 
 
@@ -52,6 +52,7 @@ Set the region. ||
 || `--pager` | `string`
 
 Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
 || `--format` | `string`
 
 Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
@@ -76,5 +77,9 @@ Query to select values from the response using jq syntax ||
 || `--syntax` | `string`
 
 CLI syntax: this standalone binary only supports 2 (current). Use main yc for syntax 1. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#

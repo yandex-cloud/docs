@@ -10,7 +10,7 @@ Create a dns firewall in the specified folder.
 
 Syntax:
 
-`yc dns firewall create <DNS-FIREWALL-NAME> [Flags...] [Global Flags...]`
+`yc dns firewall create [Flags...] [Global Flags...]`
 
 #### Flags
 

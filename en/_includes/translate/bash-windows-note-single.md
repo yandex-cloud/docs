@@ -1,1 +1,1 @@
-The example below is for MacOS and Linux. To implement it in Windows, [see how to use Bash in Microsoft Windows]({{ link-docs }}/overview/concepts/console-syntax-guide).
+The example below is for MacOS and Linux. To run it on Windows, [check the details on working with Bash in Microsoft Windows]({{ link-docs }}/overview/concepts/console-syntax-guide).

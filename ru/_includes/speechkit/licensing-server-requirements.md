@@ -4,8 +4,6 @@
 
 | Тип GPU | RAM на 1&nbsp;карту, <br>ГБ | Физические ядра CPU<br>на 1&nbsp;карту, шт | Логические ядра (vCPU)<br>на 1&nbsp;карту, шт |
 |---|---|---|---|
-| NVIDIA® Tesla® T4 | 2 | 2 | 4 |
-| NVIDIA® Tesla® V100 | 4 | 4 | 8 |
 | NVIDIA® Tesla® L4 | 8 | 8 | 16 |
 | NVIDIA® Ampere® A100 | 10 | 10 | 20 |
 | NVIDIA® Tesla® H100 | 20 | 20 | 40 |

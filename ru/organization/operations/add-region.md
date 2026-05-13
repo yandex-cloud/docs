@@ -3,7 +3,13 @@ title: Как добавить управляемую организацию в 
 description: Из статьи вы узнаете, как привязать новый регион к организации в {{ org-full-name }}.
 ---
 
-# Подключить управляемую организацию
+# Создать управляемую организацию
+
+{% note info %}
+
+{% include [kz-region-role](../../_includes/organization/kz-region-role.md) %}
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
