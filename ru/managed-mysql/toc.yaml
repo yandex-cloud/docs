@@ -99,6 +99,8 @@ items:
         href: concepts/sql-limits.md
       - name: Сравнение {{ MY }} версий 5.7 и 8.0
         href: concepts/mysql-57-80-comparison.md
+      - name: Политика поддержки версий {{ MY }}
+        href: concepts/update-policy.md
   - name: Практические руководства
     items:
       - name: Все руководства

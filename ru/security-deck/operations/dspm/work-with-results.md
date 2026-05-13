@@ -30,6 +30,8 @@ description: Следуя данной инструкции, вы узнаете
      * `{{ ui-key.yacloud_org.dspm.scan.results_resource-name }}` — имя ресурса, в котором были найдены данные;
      * `{{ ui-key.yacloud_org.dspm.scan.scan-issue_object-path }}` — путь до файла, в котором были найдены данные.
 
+     Информацию о найденных чувствительных данных также можно получить, выбрав ![alerts](../../../_assets/security-deck/alerts.svg) **{{ ui-key.yacloud_org.security-center.label_alerts }}** на панели слева.
+
 {% endlist %}
 
 ## Скачать результаты сканирования {#download}
@@ -96,6 +98,8 @@ description: Следуя данной инструкции, вы узнаете
   1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
   1. На панели слева выберите ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}** и перейдите на вкладку **{{ ui-key.yacloud_org.security-center.dspm.title_scans }}**.
   1. Выберите сканирование и перейдите на вкладку **{{ ui-key.yacloud_org.security-center.dspm.scan-issues-title }}**.
+
+     Информацию об ошибках сканирования также можно получить, выбрав ![alerts](../../../_assets/security-deck/alerts.svg) **{{ ui-key.yacloud_org.security-center.label_alerts }}** на панели слева.
 
   Подробнее про ошибки сканирования см. на странице [{#T}](../../diagnostics/dspm-diagnostics.md).
 

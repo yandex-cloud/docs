@@ -38,7 +38,7 @@ default:
   api-host-iot-data: iot-data.api.cloud.yandex.net
   api-host-kms: kms.api.cloud.yandex.net
   api-host-kms-symcrypto: kms.yandex
-  api-host-llm: llm.api.cloud.yandex.net
+  api-host-llm: ai.api.cloud.yandex.net
   api-host-lockbox: lockbox.api.cloud.yandex.net
   api-host-lockbox-payload: payload.lockbox.api.cloud.yandex.net
   api-host-mdb: mdb.api.cloud.yandex.net
@@ -8853,7 +8853,27 @@ default:
           label_table-column-add_241Co: Add column
           label_table-columns_68mj2: Column access
           label_table-privileges_2ikK4: Privileges
+          ResourceGroupDialogContent:
+            field_hard-concurrency-limit_hjuBf: Hard concurrency limit
+            field_hard-cpu-limit_eeDrV: Hard CPU limit
+            field_max-queued_aj14k: Max queued
+            field_scheduling-policy_5vhLX: Scheduling policy
+            field_scheduling-weight_fP1ue: Scheduling weight
+            field_soft-concurrency-limit_j5KQC: Soft concurrency limit
+            field_soft-cpu-limit_aUwE5: Soft CPU limit
+            field_soft-memory-limit_1mATZ: Soft memory limit, %
+          ResourceGroupsTable:
+            button_add-group_m99qN: Add group
+          SelectorRulesTable:
+            button_add-rule_3Gide: Add rule
+            label_query-type_69gwq: Query type
+            label_resource-group_qjdHa: Resource group
+            label_source_5knZL: Source
+            label_user_3spf1: User
+            label_user-group_qRK1P: Group
+            label-client-tags_eyQNn: Tags
         ClusterView:
+          label_cpu-quota-period_tD5vD: CPU quota period
           RBACView:
             label_rbac-settings_o2F64: Access settings
         label_private-access: Private access
@@ -8881,6 +8901,7 @@ default:
         rbac-catalog-match-by-name: Name
         rbac-catalog-match-by-name-regexp: Name (regular expression)
         section_rbac: Access settings
+        section_resource-management: Resource management
         title_catalogs: Catalogs
       ui:
         metadata-hub:

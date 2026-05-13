@@ -25,6 +25,8 @@ items:
             href: operations/cluster-access.md
           - name: Техническое обслуживание
             href: operations/cluster-maintenance.md
+          - name: Управление ресурсными группами
+            href: operations/manage-resource-groups.md
           - name: Удаление кластера
             href: operations/cluster-delete.md
       - name: Каталоги
@@ -81,6 +83,8 @@ items:
         href: concepts/instance-types.md
       - name: Управление доступом
         href: concepts/access-control.md
+      - name: Ресурсные группы
+        href: concepts/resource-groups.md
       - name: Техническое обслуживание
         href: concepts/maintenance.md
   - name: Справочник CLI (англ.)

@@ -7,17 +7,115 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.7.0 (12.05.26) {#v-1-7-0}
+
+#### {{ baremetal-name }} {#v-1-7-0-baremetal-name}
+
+Добавлены параметры `--network-interface-id` и `--configuration-network-interface-id` в команды:
+* `yc baremetal server create`;
+* `yc baremetal server update`.
+
+#### {{ dns-name }} {#v-1-7-0-dns-name}
+
+Исправлено описание команд:
+* `yc dns zone create`;
+* `yc dns firewall create`.
+
+#### {{ cr-name }} {#v-1-7-0-cloudrouter-name}
+
+Команды сервиса `yc cloudrouter` доступны в новом синтаксисе. Для вызова используйте `yc --syntax=2 cloudrouter ...` либо задайте `default-syntax: 2` или `services.cloudrouter.syntax: 2` в профиле:
+  * `yc cloudrouter routing-instance add-private-connection`;
+  * `yc cloudrouter routing-instance create`;
+  * `yc cloudrouter routing-instance delete`;
+  * `yc cloudrouter routing-instance get`;
+  * `yc cloudrouter routing-instance get-by-cic-private-connection-id`;
+  * `yc cloudrouter routing-instance get-by-vpc-network-id`;
+  * `yc cloudrouter routing-instance list`;
+  * `yc cloudrouter routing-instance list-operations`;
+  * `yc cloudrouter routing-instance move`;
+  * `yc cloudrouter routing-instance move-prefix`;
+  * `yc cloudrouter routing-instance remove-prefixes`;
+  * `yc cloudrouter routing-instance remove-private-connection`;
+  * `yc cloudrouter routing-instance update`;
+  * `yc cloudrouter routing-instance update-networks`;
+  * `yc cloudrouter routing-instance update-prefix-mask`;
+  * `yc cloudrouter routing-instance upsert-prefixes`.
+
+#### {{ mgp-name }} {#v-1-7-0-mgp-name}
+
+В команде `yc managed-greenplum cluster create` удалена зависимость от версии {{ GP }}.
+
+#### {{ alb-name }} {#v-1-7-0-alb-name}
+
+Добавлен параметр `--external-address` в команды:
+  * `yc application-load-balancer target-group create`;
+  * `yc application-load-balancer target-group update`;
+  * `yc application-load-balancer target-group add-targets`.
+
+#### {{ mch-name }} {#v-1-7-0-mch-name}
+
+Добавлены параметры `--performance-diagnostics-enabled` и `--performance-diagnostics-processes-refresh-interval` в команды:
+  * `yc managed-clickhouse cluster create`;
+  * `yc managed-clickhouse cluster update`;
+  * `yc managed-clickhouse cluster restore`.
+
+#### {{ interconnect-name }} {#v-1-7-0-cic-name}
+
+* Добавлен параметр `--trunk-connection-id` в команды:
+  * `yc cic get`;
+  * `yc cic listoperations`.
+
+* Удален параметр `--private-connection-id` в командах:
+  * `yc cic get`;
+  * `yc cic listoperations`.
+
+* Удалено поле `cloud_bgp_asn` параметра `--ipv4-peering` в командах:
+  * `yc cic private-connection create`;
+  * `yc cic private-connection update`.
+
+* В вывод команд `yc cic point-of-presence get` и `yc cic point-of-presence list` добавлены поля `name`, `address` и `connection points` с дополнительной информацией о точках присутствия.
+
+* Изменен вывод команд:
+  * `yc cic get`;
+  * `yc cic list`.
+
+* Команды сервиса `yc cic` доступны в новом синтаксисе. Для вызова используйте `yc --syntax=2 cic ...` либо задайте `default-syntax: 2` или `services.cic.syntax: 2` в профиле:
+  * `yc cic partner get`;
+  * `yc cic partner list`;
+  * `yc cic point-of-presence get`;
+  * `yc cic point-of-presence list`;
+  * `yc cic private-connection create`;
+  * `yc cic private-connection delete`;
+  * `yc cic private-connection get`;
+  * `yc cic private-connection list`;
+  * `yc cic private-connection list-operations`;
+  * `yc cic private-connection move`;
+  * `yc cic private-connection remove-static-route`;
+  * `yc cic private-connection update`;
+  * `yc cic private-connection upsert-static-route`;
+  * `yc cic public-connection get`;
+  * `yc cic public-connection list`;
+  * `yc cic public-connection move`;
+  * `yc cic trunk-connection delete`;
+  * `yc cic trunk-connection get`;
+  * `yc cic trunk-connection list`;
+  * `yc cic trunk-connection list-operations`;
+  * `yc cic trunk-connection list-private-connections`;
+  * `yc cic trunk-connection list-public-connections`;
+  * `yc cic trunk-connection move`;
+  * `yc cic trunk-connection update`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.6.0 (27.04.26) {#v-1-6-0}
 
 #### {{ cloud-registry-name }} {#v-1-6-0-cloud-registry-name}
 
-* Добавлена команда `yc cloud-registry registry lifecycle-policy dry-run` для симуляции выполнения политики жизненного цикла.
+Добавлена команда `yc cloud-registry registry lifecycle-policy dry-run` для симуляции выполнения политики жизненного цикла.
 
 #### {{ iam-name }} {#v-1-6-0-iam-name}
 
-* В вывод команды `yc iam api-key list` добавлено поле `MASKED KEY`, содержащее последние 6 символов секретной части ключа.
-
-## Предыдущие релизы {#previous-release}
+В вывод команды `yc iam api-key list` добавлено поле `MASKED KEY`, содержащее последние 6 символов секретной части ключа.
 
 ### Версия 1.5.0 (23.04.26) {#v-1-5-0}
 

@@ -11,6 +11,7 @@
 | [yandex_trino_cluster]({{ tf-provider-resources-link }}/trino_cluster) | Кластер |
 | [yandex_trino_cluster_iam_binding]({{ tf-provider-resources-link }}/trino_cluster_iam_binding) | [Настройка](../iam/concepts/access-control/index.md#access-bindings) прав доступа к кластеру |
 | [yandex_trino_catalog]({{ tf-provider-resources-link }}/trino_catalog) | Каталог |
+| [yandex_trino_access_control]({{ tf-provider-resources-link }}/trino_access_control) | Настройка правил доступа к объектам |
 
 ## Источники данных {#data-sources}
 
@@ -20,3 +21,4 @@
 | --- | --- |
 | [yandex_trino_cluster]({{ tf-provider-datasources-link }}/trino_cluster) | Информация о [кластере {{ TR }}](./concepts/index.md#cluster-architecture) |
 | [yandex_trino_catalog]({{ tf-provider-datasources-link }}/trino_catalog) | Информация о [каталоге {{ TR }}](./concepts/index.md#catalog) |
+| [yandex_trino_access_control]({{ tf-provider-datasources-link }}/trino_access_control) | Информация о [правилах доступа к объектам в {{ TR }}](./concepts/access-control.md) |
