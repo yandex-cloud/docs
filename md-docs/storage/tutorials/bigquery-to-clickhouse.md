@@ -1,0 +1,281 @@
+# Миграция базы данных из Google BigQuery в Yandex Managed Service for ClickHouse®
+
+
+Вы можете перенести базу данных из Google BigQuery в Yandex Managed Service for ClickHouse® и затем проанализировать ее с помощью Yandex DataLens.
+
+Таблица переносится в сжатом виде в бакет Google Storage, а из него в бакет Yandex Object Storage. Затем данные импортируются в кластер Managed Service for ClickHouse®, где их можно проанализировать с помощью Yandex DataLens.
+
+Такой способ миграции обладает следующими преимуществами:
+
+* возможность задать формат выгрузки данных и степень сжатия;
+* значительное сокращение объема данных и времени на их миграцию, а значит и снижение стоимости миграции.
+
+Однако при таком способе данные переносятся «как есть», без трансформации или копирования обновившихся инкрементов.
+
+Чтобы перенести базу данных из Google BigQuery в Managed Service for ClickHouse®:
+
+1. [Перенесите данные из Google BigQuery в Yandex Object Storage](#migrate-data).
+1. [Настройте отображение данных из Yandex Object Storage в кластере Managed Service for ClickHouse®](#create-view).
+1. [Проанализируйте данные с помощью Yandex DataLens](#datalens).
+
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+
+
+## Необходимые платные ресурсы {#paid-resources}
+
+В стоимость поддержки описываемого решения входят:
+
+* Плата за кластер Managed Service for ClickHouse®: использование вычислительных ресурсов, выделенных хостам (в том числе хостам ZooKeeper), и дискового пространства (см. [тарифы Managed Service for ClickHouse®](../../managed-clickhouse/pricing.md)).
+* Плата за использование публичных IP-адресов, если для хостов кластера включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Плата за бакет Object Storage: хранение данных и выполнение операций с ними (см. [тарифы Object Storage](../pricing.md)).
+* Плата за использование сервиса Yandex DataLens (см. [тарифы DataLens](../../datalens/pricing.md)).
+
+
+## Перед началом работы {#before-you-begin}
+
+Для миграции базы данных необходимо создать ресурсы Google Cloud и ресурсы Yandex Cloud.
+
+### Создайте ресурсы Google Cloud {#create-google-res}
+
+1. [Создайте бакет Google Storage](https://cloud.google.com/storage/docs/creating-buckets).
+
+1. [Создайте сервисный аккаунт Google Cloud](https://cloud.google.com/iam/docs/creating-managing-service-accounts#creating) с ролями `BigQuery Data Editor` и `Storage Object Admin`.
+1. [Создайте ключ доступа для сервисного аккаунта](https://cloud.google.com/iam/docs/creating-managing-service-account-keys#creating) и сохраните его в виде файла `.json`.
+
+1. [Скачайте и установите утилиты CLI `google-cloud-sdk`](https://cloud.google.com/sdk/docs/install).
+1. [Выполните аутентификацию в gcloud CLI](https://cloud.google.com/sdk/docs/authorizing#authorizing_with_a_service_account).
+1. [Установите Google BigQuery Python SDK](https://github.com/googleapis/python-bigquery). Для работы этого пакета потребуется Python версии 3.7 или выше.
+1. Подготовьте набор данных (датасет) для Google BigQuery. В качестве примера использован [публичный датасет](https://cloud.google.com/bigquery/public-data) `google_trends` для Google BigQuery, содержащий таблицу `international_top_terms` со столбцами:
+
+    * `rank`
+    * `country_name`
+    * `country_code`
+    * `region_name`
+    * `week`
+    * `score`
+    * `region_code`
+    * `term`
+    * `refresh_date`
+
+### Создайте ресурсы Yandex Cloud {#create-yandex-res}
+
+
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md) с ролью `storage.uploader` для доступа к бакету Object Storage.
+
+1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key) для сервисного аккаунта. Сохраните идентификатор ключа и секретный ключ, они понадобятся далее.
+
+
+1. [Создайте кластер Managed Service for ClickHouse®](../../managed-clickhouse/operations/cluster-create.md) любой подходящей конфигурации. При создании кластера:
+
+    
+    * Укажите созданный ранее сервисный аккаунт.
+
+    
+    * Включите опцию **Доступ из DataLens**.
+    * [Добавьте хосты ZooKeeper](../../managed-clickhouse/operations/zk-hosts.md), чтобы обеспечить высокую доступность кластера.
+
+1. [Создайте бакет Object Storage](../operations/buckets/create.md). При создании [включите публичный доступ](../operations/buckets/bucket-availability.md) на чтение объектов и к списку объектов в бакете.
+
+## Перенесите данные из Google BigQuery в Yandex Object Storage {#migrate-data}
+
+1. Создайте файл `credentials.boto` с параметрами доступа к ресурсам Google Cloud и Yandex Cloud:
+
+    
+    ```boto
+    [Credentials]
+    gs_service_client_id  =<сервисный_аккаунт_Google_Cloud>
+    gs_service_key_file   =<абсолютный_путь_к_JSON-файлу>
+    aws_access_key_id     =<идентификатор_ключа_сервисного_аккаунта>
+    aws_secret_access_key =<секретный_ключ_сервисного_аккаунта>
+
+    [GSUtil]
+      default_project_id    =<идентификатор_проекта_Google_Cloud>
+
+    [s3]
+      calling_format=boto.s3.connection.OrdinaryCallingFormat
+      host=storage.yandexcloud.net
+    ```
+
+
+    Где:
+
+    * `gs_service_client_id` — имя [сервисного аккаунта Google Cloud](https://cloud.google.com/iam/docs/service-account-overview) вида `service-account-name@project-id.iam.gserviceaccount.com`.
+    * `gs_service_key_file` — абсолютный путь к JSON-файлу ключа доступа сервисного аккаунта Google Cloud.
+
+    
+    * `aws_access_key_id` — идентификатор ключа сервисного аккаунта Yandex Cloud.
+    * `aws_secret_access_key` — секретный ключ сервисного аккаунта Yandex Cloud.
+
+
+    * `default_project_id` — [идентификатор проекта Google Cloud](https://cloud.google.com/resource-manager/docs/creating-managing-projects#identifying_projects).
+
+1. Создайте файл скрипта `main.py`, который выполняет сжатие и миграцию данных:
+
+    {% cut "main.py" %}
+
+    ```python
+    from google.cloud import bigquery
+    import sys
+    import argparse
+    import time
+    import subprocess
+    import os
+    os.environ["GOOGLE_APPLICATION_CREDENTIALS"]="<абсолютный_путь_к_JSON-файлу_ключа_доступа_сервисного_аккаунта_Google_Cloud>"
+    os.environ["BOTO_CONFIG"]="<абсолютный_путь_к_файлу_credentials.boto>"
+
+    def parse_args():
+        parser = argparse.ArgumentParser(description='Export data from Google Big Query to Yandex Cloud object storage')
+        parser.add_argument('--bq_project', type=str, help='GBQ project ID')
+        parser.add_argument('--bq_location', type=str, help='GBQ table AND GS location')
+        parser.add_argument('--gs_bucket', type=str, help='GS export destination bucket')
+        parser.add_argument('--yc_bucket', type=str, help='YC copy destination bucket')
+        parser.add_argument('--gsutil_path', type=str, help='GSutil exec path', default='gsutil')
+        return parser.parse_args()
+
+    def select_from_list(message, elements):
+        print(message)
+        print("\t{}. {}".format(0, "Export all"))
+        for ind in range(len(elements)):
+            if isinstance(elements[ind].reference, bigquery.DatasetReference):
+                print("\t{}. {}".format(ind+1, elements[ind].reference.dataset_id))
+            elif isinstance(elements[ind].reference, bigquery.TableReference):
+                print("\t{}. {}".format(ind+1, elements[ind].reference.table_id))
+        try:
+            return int(input("(any letter for cancel) >> "))
+        except ValueError:
+            print("Exiting")
+            sys.exit()
+
+    if __name__ == '__main__':
+        args = parse_args()
+        client = bigquery.Client()
+
+        datasets = list(client.list_datasets(args.bq_project))
+        dataset_selector = select_from_list("Datasets in project {}".format(args.bq_project), datasets)
+        export_list = []
+        for i in range(len(datasets)):
+            dataset_ref = datasets[i].reference
+            if dataset_selector == 0:
+                export_list += list(client.list_tables(dataset_ref))
+            else:
+                if i == dataset_selector - 1:
+                    tables = list(client.list_tables(dataset_ref))
+                    table_selector = select_from_list("Tables in dataset {}".format(dataset_ref.dataset_id),
+                                                      tables)
+                    for j in range(len(tables)):
+                        if table_selector == 0 or j == table_selector - 1:
+                            export_list.append(tables[j])
+
+        print("Starting tables export")
+        for n in range(len(export_list)):
+            table_ref = export_list[n].reference
+
+            # Creating Extract Job config. Selecting compression level and data format.
+            job_config = bigquery.job.ExtractJobConfig()
+            job_config.compression = bigquery.Compression.GZIP
+            job_config.destination_format = bigquery.DestinationFormat.PARQUET
+
+            print("Exporting {} table".format(table_ref.table_id))
+            extract_job = client.extract_table(
+                source=table_ref,
+                destination_uris="gs://{}/{}".format(args.gs_bucket, "{}-*".format(table_ref.table_id)),
+                job_id="export-job-{}-{}".format(table_ref.table_id, round(time.time() * 1000)),
+                location=args.bq_location,
+                job_config=job_config)
+            extract_job.result()
+        print("Tables export done")
+
+        # Calling gsutil rsync to synchronize source and destination buckets.
+        source_uri = "gs://{}/".format(args.gs_bucket)
+        destination_uri = "s3://{}/".format(args.yc_bucket)
+        print("Synchronizing {} with {}...".format(source_uri, destination_uri))
+        proc = subprocess.Popen([args.gsutil_path, "-m", "rsync", source_uri, destination_uri],
+                                stdout=sys.stdout,
+                                stderr=sys.stderr)
+        proc.communicate()
+        print("Buckets synchronization done")
+    ```
+
+    {% endcut %}
+
+1. Выполните скрипт `main.py`, чтобы запустить миграцию данных из Google BigQuery в бакет Google Storage, а затем в бакет Yandex Object Storage:
+
+    ```bash
+    python main.py \
+        --bq_project=<идентификатор_проекта_Google_Cloud> \
+        --bq_location=US \
+        --gs_bucket=<имя_бакета_Google_Cloud_Storage> \
+        --yc_bucket=<имя_бакета_Object_Storage>
+    ```
+
+    Дождитесь окончания миграции данных.
+
+## Настройте отображение данных из Yandex Object Storage в кластере Managed Service for ClickHouse® {#create-view}
+
+1. Чтобы создать представление импортированных данных, [подключитесь к базе данных кластера Managed Service for ClickHouse®](../../managed-clickhouse/operations/connect/clients.md) и выполните SQL-запрос:
+
+    ```sql
+    CREATE view db1.v$google_top_rising_terms on cluster on cluster '{cluster}' AS
+    (SELECT
+    term,
+    score,
+    rank,
+    country_name,
+    country_code,
+    region_name,
+    region_code,
+    week,
+    refresh_date
+    FROM s3Cluster(
+      '<идентификатор_кластера>',
+      'https://storage.yandexcloud.net/<имя_бакета_Object_Storage>/top_terms-*',
+      'Parquet',
+      'rank Int32,
+      country_name String,
+      country_code String,
+      region_name String,
+      week Timestamp,
+      score Nullable(Int32),
+      region_code String,
+      term String,
+      refresh_date Timestamp')
+    )
+    ```
+
+    Где:
+
+    * `db1` — название базы данных в кластере Managed Service for ClickHouse®, в которой требуется создать представление.
+    * `v$google_top_rising_terms` — название представления для отображения импортированных данных.
+    * `<идентификатор_кластера>` — идентификатор кластера Managed Service for ClickHouse®. Его можно получить вместе со [списком кластеров в каталоге](../../managed-clickhouse/operations/cluster-list.md).
+    * `top_terms-*` — ключевая часть имени объектов бакета Object Storage. Например, если из Google Cloud вы перенесли таблицу, в которой есть строки с именем `top_terms`, то в бакете Object Storage они будут выглядеть как набор объектов с именами `top_terms-000000000001`, `top_terms-000000000002` и т. д. Тогда в SQL-запросе нужно указать `top_terms-*`, чтобы в представление попали все записи с таким именем из этой таблицы.
+
+1. Чтобы вывести первые 100 записей из созданного представления, выполните SQL-запрос (для примера используется представление `v$google_top_rising_terms` и базе данных `db1`):
+
+    ```sql
+    SELECT * FROM db1.v$google_top_rising_terms limit 100
+    ```
+
+## Проанализируйте данные с помощью Yandex DataLens {#datalens}
+
+1. [Подключите кластер Managed Service for ClickHouse® к DataLens](../../datalens/operations/connection/create-clickhouse.md).
+1. [Создайте датасет](../../datalens/dataset/create-dataset.md#create) из таблицы `db1.v$google_top_rising_terms`. Для поля `score` выберите агрегацию по среднему значению.
+1. [Создайте столбчатую диаграмму](../../datalens/visualization-ref/column-chart.md#create-diagram):
+
+    1. В секцию **X** перетащите поле `country_name`.
+    1. В секцию **Y** перетащите поле `score`.
+    1. В секцию **Фильтры** перетащите поле `term`. В открывшейся форме задайте параметры:
+        * **Операция** — **Принадлежит множеству**.
+        * **Доступны** — введите термин из списка доступных и нажмите кнопку **Применить фильтр**.
+    1. В секцию **Сортировка** перетащите поле `term`.
+
+Использование заданного запроса в поисковой системе будет проанализировано, результат будет выведен в виде столбчатой диаграммы по странам.
+
+## Удалите созданные ресурсы {#clear-out}
+
+Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
+
+1. [Удалите кластер Managed Service for ClickHouse®](../../managed-clickhouse/operations/cluster-delete.md).
+1. [Удалите все объекты бакета Object Storage](../operations/objects/delete-all.md) и затем [удалите сам бакет](../operations/buckets/delete.md).
+1. [Удалите бакет Google Storage](https://cloud.google.com/storage/docs/deleting-buckets).
+
+_ClickHouse® является зарегистрированным товарным знаком [ClickHouse, Inc](https://clickhouse.com)._

@@ -1,0 +1,60 @@
+# Удалить канал push-уведомлений
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором находится канал уведомлений.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud Notification Service**.
+  1. Напротив нужного канала уведомлений нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
+  1. В открывшемся окне нажмите **Удалить**.
+
+- AWS CLI {#aws-cli}
+
+  1. Если у вас еще нет AWS CLI, [установите и сконфигурируйте его](../../../storage/tools/aws-cli.md).
+  1. Выполните команду:
+
+      ```bash
+      aws sns delete-platform-application \
+        --platform-application-arn <ARN_канала_уведомлений>
+      ```
+
+      Где `--platform-application-arn` — идентификатор (ARN) канала уведомлений.
+
+      Подробнее о команде `aws sns delete-platform-application` см. в [документации AWS](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/delete-platform-application.html).
+
+- AWS SDK для Python {#python}
+
+  1. Если у вас еще нет AWS SDK для Python (boto3), [установите и настройте его](../../tools/sdk-python.md#aws-sdk).
+  1. Чтобы удалить канал push-уведомлений, используйте следующий код:
+
+      ```python
+      response = client.delete_platform_application(
+          PlatformApplicationArn="<ARN_канала_уведомлений>"
+      )
+      print("Platform application deleted successfully.")
+      ```
+
+      Где `PlatformApplicationArn` — идентификатор (ARN) канала уведомлений.
+
+- AWS SDK для PHP {#php}
+
+  1. Если у вас еще нет AWS SDK для PHP, [установите и настройте его](../../tools/sdk-php.md#aws-sdk).
+  1. Чтобы удалить канал push-уведомлений, используйте следующий код:
+
+      ```php
+      $response = $client->deletePlatformApplication([
+          'PlatformApplicationArn' => '<ARN_канала_уведомлений>',
+      ]);
+
+      echo "Platform application deleted successfully.\n";
+      ```
+
+      Где `PlatformApplicationArn` — идентификатор (ARN) канала уведомлений.
+
+
+- API {#api}
+
+  Воспользуйтесь методом HTTP API [delete](../../api-ref/delete-platform-application.md) для ресурса PlatformApplications сервиса Yandex Cloud Notification Service.
+
+{% endlist %}

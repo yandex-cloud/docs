@@ -1,0 +1,14 @@
+# Пошаговые инструкции для Managed Service for YTsaurus
+
+## Кластеры {#clusters}
+
+* [Информация об имеющихся кластерах](cluster-list.md)
+* [Создание кластера](cluster-create.md)
+* [Подключение к кластеру](connect.md)
+* [Изменение кластера](cluster-update.md)
+* [Остановка и запуск кластера](cluster-stop.md)
+* [Удаление кластера](cluster-delete.md)
+
+## Логи и мониторинг {#monitoring-and-logs}
+
+* [Мониторинг состояния кластера](monitoring.md)

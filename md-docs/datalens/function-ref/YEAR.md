@@ -1,0 +1,30 @@
+# YEAR
+
+
+
+#### Синтаксис {#syntax}
+
+
+```
+YEAR( datetime )
+```
+
+#### Описание {#description}
+Возвращает номер года в указанной дате `datetime`.
+
+**Типы аргументов:**
+- `datetime` — `Дата | Дата и время`
+
+
+**Возвращаемый тип**: `Целое число`
+
+#### Пример {#examples}
+
+```
+YEAR(#2019-01-23#) = 2019
+```
+
+
+#### Поддержка источников данных {#data-source-support}
+
+`ClickHouse 21.8`, `Файлы`, `Google Sheets`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.7`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `Trino`, `Яндекс Документы`, `YDB`.

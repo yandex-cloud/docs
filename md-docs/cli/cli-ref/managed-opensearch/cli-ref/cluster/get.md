@@ -1,0 +1,75 @@
+# yc managed-opensearch cluster get
+
+Get information about an OpenSearch cluster.
+
+#### Command Usage
+
+Syntax:
+
+`yc managed-opensearch cluster get <CLUSTER-NAME>|<CLUSTER-ID> [<CLUSTER-NAME>|<CLUSTER-ID>...] [Global Flags...]`
+
+#### Flags
+
+#|
+||Flag | Description ||
+|| `--id` | `string`
+
+ID of the OpenSearch cluster. ||
+|| `--name` | `string`
+
+Name of the OpenSearch cluster. ||
+|| `--full` | Show also default and effective OpenSearch configurations. ||
+|#
+
+#### Global Flags
+
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom configuration file. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--syntax` | `string`
+
+CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
+|| `--token` | `string`
+
+Set the OAuth token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#
+#### Examples
+
+ * [Получить детальную информацию о кластере](../../../../../managed-opensearch/operations/cluster-list.md#cli_2)
+ * [Обновить версию](../../../../../managed-opensearch/operations/cluster-version-update.md#cli_1)
+ * [Получить список групп хостов в кластере](../../../../../managed-opensearch/operations/host-groups.md#cli_1)
+ * [Состояние и статус кластера](../../../../../managed-opensearch/operations/monitoring.md#cli_1)
+ * [Получить список установленных плагинов](../../../../../managed-opensearch/operations/plugins.md#cli_1)
