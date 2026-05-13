@@ -1,0 +1,86 @@
+# Передача данных через Fluent Bit
+
+Fluent Bit — агент для сбора, обработки и экспорта логов и метрик. Вы можете использовать Fluent Bit для передачи телеметрии в Monium в формате [OpenTelemetry (OTLP)](https://opentelemetry.io/docs/).
+
+Fluent Bit оптимально подходит в следующих случаях:
+
+* Много разных форматов логов и нужны гибкие парсеры.
+* Приложение работает в кластере Kubernetes.
+* Требуется собирать логи централизованно с одного хоста (файлы, Docker, системные логи).
+* Логи уже поставляются через файлы или стандартные выходы приложений.
+
+В остальных случаях рекомендуется использовать [OTel Collector](opentelemetry.md).
+
+## Требования к версии {#version}
+
+Рекомендуется использовать Fluent Bit [версии 4.0](https://docs.fluentbit.io/fluent-bit/v/4.0/) и выше с выходом `opentelemetry`.
+
+## Ограничения при передаче метрик {#metrics-limitations}
+
+Fluent Bit отрезает поле `startTimestampNanos` у метрик. Не используйте Fluent Bit для передачи метрик, если в приложении сконфигурирована дельта темпоральность (задана переменная `OTEL_EXPORTER_OTLP_METRICS_TEMPORALITY_PREFERENCE="delta"`) — дельта-метрики без времени начала периода обрабатываются некорректно.
+
+## Настройка передачи телеметрии {#configure}
+
+1. [Установите](https://docs.fluentbit.io/fluent-bit/v/4.0/installation/getting-started-with-fluent-bit) Fluent Bit рядом с источником телеметрии (на сервере, в контейнере или в кластере Kubernetes).
+
+1. Создайте файл конфигурации (например, `fluent-bit.yaml`).
+
+    Ниже приведён минимальный пример конфигурации для отправки логов, метрик, трейсов в Monium. Настройте вход (inputs) под ваш источник данных.
+
+    **По gRPC**
+    
+    ```yaml
+    pipeline:
+      inputs:
+        - name: opentelemetry
+          listen: 127.0.0.1
+          port: 4318
+    
+      outputs:
+        - name: opentelemetry
+          match: "*"
+          host: ingest.monium.yandex.cloud
+          port: 443
+          tls: on
+          compress: zstd
+          grpc: on
+          header:
+            - Authorization Api-Key ${MONIUM_API_KEY}
+            - x-monium-project ${MONIUM_PROJECT}
+    ```
+    
+    **По HTTP**
+    
+    ```yaml
+    pipeline:
+      inputs:
+        - name: opentelemetry
+          listen: 127.0.0.1
+          port: 4318
+    
+      outputs:
+        - name: opentelemetry
+          match: "*"
+          host: ingest.monium.yandex.cloud
+          port: 443
+          tls: on
+          compress: zstd
+          logs_uri: /otlp/v1/logs
+          traces_uri: /otlp/v1/traces
+          metrics_uri: /otlp/v1/metrics
+          header:
+            - Authorization Api-Key ${MONIUM_API_KEY}
+            - x-monium-project ${MONIUM_PROJECT}
+    ```
+
+1. Установите переменные окружения:
+   * `MONIUM_PROJECT` — идентификатор проекта Monium.
+   * `MONIUM_API_KEY` — API-ключ с правом записи телеметрии.
+
+1. Запустите Fluent Bit с указанием конфигурации.
+
+1. Проверьте поступление логов в [Monium](https://monium.yandex.cloud).
+
+Простейший вариант использования Fluent Bit для отправки всех видов телеметрии из Java приложения в Monium см. в разделе [Пример для демо-приложения Java с Fluent Bit](otel-clinic-fluentbit-example.md).
+
+Подробные примеры конфигурации (Docker, Kubernetes, парсеры) см. в разделе [Отправка логов через Fluent Bit](../logs/write/fluent-bit.md).

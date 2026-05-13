@@ -1,0 +1,498 @@
+# Передача логов кластера Apache Hive™ Metastore в Yandex Cloud Logging
+
+Вы можете настроить регулярный сбор логов о работе кластера Apache Hive™ Metastore. Логи поставляются в [лог-группу](../../../logging/concepts/log-group.md) в сервисе Yandex Cloud Logging. Можно выбрать лог-группу одного из двух типов:
+
+* лог-группа, которая используется по умолчанию в каталоге кластера;
+* пользовательская лог-группа.
+
+## Перед началом работы {#before-you-begin}
+
+1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md) `metastore-logging-sa`.
+1. [Назначьте сервисному аккаунту роль](../../../iam/operations/sa/assign-role-for-sa.md) `managed-metastore.integrationProvider`.
+1. В подсети, к которой будет подключен кластер, [настройте NAT-шлюз](../../../vpc/operations/create-nat-gateway.md). Это нужно, чтобы кластер мог взаимодействовать с сервисами Yandex Cloud.
+1. [Настройте группу безопасности](configure-security-group.md).
+
+## Передача данных в лог-группу по умолчанию {#default}
+
+1. Создайте кластер Apache Hive™ Metastore:
+
+   {% list tabs group=instructions %}
+
+   - Консоль управления {#console}
+
+      1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
+      1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
+      1. На панели слева выберите ![image](../../../_assets/console-icons/database.svg) **Metastore-сервер**.
+      1. Нажмите кнопку **Создать кластер**.
+      1. Укажите имя кластера `metastore-cluster`.
+      1. В поле **Сервисный аккаунт** выберите `metastore-logging-sa`.
+      1. В блоке **Сетевые настройки** выберите сеть и подсеть с настроенным NAT-шлюзом. Укажите настроенную группу безопасности.
+      1. В блоке **Логирование**:
+
+         1. Включите опцию **Запись логов**.
+         1. Чтобы логи записывались в лог-группу по умолчанию, выберите значение **Каталог** в поле **Назначение**.
+         1. Укажите каталог, лог-группу которого нужно использовать.
+         1. Выберите минимальный уровень логирования.
+
+            В журнал выполнения записываются логи указанного уровня и выше. Доступные уровни — `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR` и `FATAL`. Уровень по умолчанию — `INFO`.
+
+      1. Нажмите кнопку **Создать**.
+
+   - CLI {#cli}
+
+      Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+
+      По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+      Выполните команду:
+
+      ```bash
+      yc managed-metastore cluster create \
+         --name metastore-cluster \
+         --service-account-id <идентификатор_сервисного_аккаунта> \
+         --version <версия_Apache Hive™ Metastore> \
+         --subnet-ids <идентификаторы_подсетей> \
+         --security-group-ids <идентификаторы_групп_безопасности> \
+         --resource-preset-id <идентификатор_вычислительных_ресурсов> \
+         --log-enabled \
+         --log-folder-id <идентификатор_каталога> \
+         --log-min-level <уровень_логирования>
+      ```
+
+      Где:
+
+      * `--service-account-id` — идентификатор созданного [ранее](#before-you-begin) сервисного аккаунта `metastore-logging-sa`.
+      * `--subnet-ids` — идентификатор подсети с настроенным NAT-шлюзом.
+      * `--security-group-ids` — идентификатор настроенной [ранее](#before-you-begin) группы безопасности.
+      * `--log-folder-id` — идентификатор каталога, лог-группу которого нужно использовать.
+      * `--log-min-level` — уровень логирования. В журнал выполнения записываются логи указанного уровня и выше. Доступные уровни — `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR` и `FATAL`. Уровень по умолчанию — `INFO`.
+
+      [Подробнее о создании кластера](cluster-create.md).
+
+   - REST API {#api}
+
+        1. [Получите IAM-токен для аутентификации в API](../../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+            ```bash
+            export IAM_TOKEN="<IAM-токен>"
+            ```
+
+        1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+            ```json
+            {
+              "folderId": "<идентификатор_каталога>",
+              "name": "metastore-cluster",
+              "version": "<версия_Apache Hive™ Metastore>",
+              "configSpec": {
+                "resources": {
+                "resourcePresetId": "<идентификатор_конфигурации_ресурсов>"
+                }
+              },
+              "serviceAccountId": "<идентификатор_сервисного_аккаунта>",
+              "logging": {
+                "enabled": true,
+                "folderId": "<идентификатор_каталога>",
+                "minLevel": "<уровень_логирования>"
+              },
+              "network": {
+                "subnetIds": [ "<список_идентификаторов_подсетей>" ],
+                "securityGroupIds": [ "<список_идентификаторов_групп_безопасности>" ]
+              },
+            }
+            ```
+
+            Где:
+
+            * `serviceAccountId` — идентификатор созданного [ранее](#before-you-begin) сервисного аккаунта `metastore-logging-sa`.
+            * `logging.folderId` — идентификатор каталога, лог-группу которого нужно использовать.
+            * `logging.minLevel` — уровень логирования. В журнал выполнения записываются логи указанного уровня и выше. Доступные уровни — `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR` и `FATAL`. Уровень по умолчанию — `INFO`.
+            * `network.subnetIds` — идентификатор подсети с настроенным NAT-шлюзом.
+            * `network.securityGroupIds` — идентификатор настроенной [ранее](#before-you-begin) группы безопасности.
+
+            [Подробнее о создании кластера](cluster-create.md).
+
+        1. Воспользуйтесь методом [Cluster.Create](../../api-ref/Cluster/create.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+
+            ```bash
+            curl \
+                --request POST \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --url 'https://metastore.api.cloud.yandex.net/managed-metastore/v1/clusters' \
+                --data '@body.json'
+            ```
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/Cluster/create.md#yandex.cloud.operation.Operation).
+
+   - gRPC API {#grpc-api}
+
+        1. [Получите IAM-токен для аутентификации в API](../../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+            ```bash
+            export IAM_TOKEN="<IAM-токен>"
+            ```
+
+        1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+           
+           ```bash
+           cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+           ```
+           
+           Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+
+        1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+            ```json
+            {
+              "folder_id": "<идентификатор_каталога>",
+              "name": "metastore-cluster",
+              "version": "<версия_Apache Hive™ Metastore>",
+              "config_spec": {
+                "resources": {
+                  "resource_preset_id": "<идентификатор_конфигурации_ресурсов>"
+                }
+              },
+              "service_account_id": "<идентификатор_сервисного_аккаунта>",
+              "logging": {
+                "enabled": true,
+                "folder_id": "<идентификатор_каталога>",
+                "min_level": "<уровень_логирования>"
+              },
+              "network": {
+                "subnet_ids": [ "<список_идентификаторов_подсетей>" ],
+                "security_group_ids": [ "<список_идентификаторов_групп_безопасности>" ]
+              },
+            }
+            ```
+
+            Где:
+
+            * `service_account_id` — идентификатор созданного [ранее](#before-you-begin) сервисного аккаунта `metastore-logging-sa`.
+            * `logging.folder_id` — идентификатор каталога, лог-группу которого нужно использовать.
+            * `logging.min_level` — уровень логирования. В журнал выполнения записываются логи указанного уровня и выше. Доступные уровни — `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR` и `FATAL`. Уровень по умолчанию — `INFO`.
+            * `network.subnet_ids` — идентификатор подсети с настроенным NAT-шлюзом.
+            * `network.security_group_ids` — идентификатор настроенной [ранее](#before-you-begin) группы безопасности.
+
+            [Подробнее о создании кластера](cluster-create.md).
+
+        1. Воспользуйтесь вызовом [ClusterService.Create](../../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/metastore/v1/cluster_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                -d @ \
+                metastore.api.cloud.yandex.net:443 \
+                yandex.cloud.metastore.v1.ClusterService.Create \
+                < body.json
+            ```
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+
+   {% endlist %}
+
+1. Проверьте передачу логов кластера в лог-группу:
+
+   {% list tabs group=instructions %}
+
+   - Консоль управления {#console}
+
+      1. В консоли управления перейдите в нужный каталог.
+      1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud Logging**.
+      1. Нажмите на строку с лог-группой `default`.
+
+      На открывшейся странице отобразятся записи.
+
+   - CLI {#cli}
+
+      Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+
+      По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+      Чтобы посмотреть записи в формате JSON, выполните команду:
+
+      ```bash
+      yc logging read --group-name=default --format=json
+      ```
+
+      Результат:
+
+      ```text
+      [
+        {
+          "uid": "23:6d******:3",
+          "resource": {
+            "type": "managed-metastore.cluster",
+            "id": "c9qcv46p3g3a********"
+          },
+          "timestamp": "2024-11-18T09:45:23.092484Z",
+          "ingested_at": "2024-11-18T09:45:24Z",
+          "saved_at": "2024-11-18T09:45:25.559195Z",
+          "level": "INFO",
+          "message": "ugi=metastore\tip=10.253.89.135\tcmd=Done cleaning up thread local RawStore\t",
+          "json_payload": {
+            "instance": "metastore-server-5f9c7ff***-*****",
+            "logger": "org.apache.hadoop.hive.metastore.HiveMetaStore.audit",
+            "resource_id": "c9qcv46p3g3a********",
+            "stream_name": "metastore-server",
+            "thread": "pool-6-thread-79"
+          },
+          "stream_name": "metastore-server"
+        }
+      ]
+      ```
+
+   - API {#api}
+
+      Чтобы посмотреть записи в лог-группе, воспользуйтесь вызовом gRPC API [LogReadingService.Read](../../../logging/api-ref/grpc/LogReading/read.md).
+
+   {% endlist %}
+
+   Подробнее см. в разделе [Чтение записей](../../../logging/operations/read-logs.md).
+
+## Передача данных в пользовательскую лог-группу {#custom}
+
+1. [Создайте лог-группу](../../../logging/operations/create-group.md) `metastore-log-group`.
+1. Создайте кластер Apache Hive™ Metastore:
+
+   {% list tabs group=instructions %}
+
+   - Консоль управления {#console}
+
+      1. В [консоли управления](https://console.yandex.cloud) выберите нужный каталог.
+      1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Yandex MetaData Hub**.
+      1. На панели слева выберите ![image](../../../_assets/console-icons/database.svg) **Metastore-сервер**.
+      1. Нажмите кнопку **Создать кластер**.
+      1. Укажите имя кластера `metastore-cluster`.
+      1. В поле **Сервисный аккаунт** выберите `metastore-logging-sa`.
+      1. В блоке **Сетевые настройки** выберите сеть и подсеть с настроенным NAT-шлюзом. Укажите настроенную группу безопасности.
+      1. В блоке **Логирование**:
+
+         1. Включите опцию **Запись логов**.
+         1. Чтобы логи записывались в пользовательскую лог-группу, выберите значение **Лог-группа** в поле **Назначение**.
+         1. Укажите лог-группу `metastore-log-group`.
+         1. Выберите минимальный уровень логирования.
+
+            В журнал выполнения записываются логи указанного уровня и выше. Доступные уровни — `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR` и `FATAL`. Уровень по умолчанию — `INFO`.
+
+      1. Нажмите кнопку **Создать**.
+
+   - CLI {#cli}
+
+      Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+
+      По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+      Выполните команду:
+
+      ```bash
+      yc managed-metastore cluster create \
+         --name metastore-cluster \
+         --service-account-id <идентификатор_сервисного_аккаунта> \
+         --version <версия_Apache Hive™ Metastore> \
+         --subnet-ids <идентификаторы_подсетей> \
+         --security-group-ids <идентификаторы_групп_безопасности> \
+         --resource-preset-id <идентификатор_вычислительных_ресурсов> \
+         --log-enabled \
+         --log-group-id <идентификатор_лог-группы> \
+         --log-min-level <уровень_логирования>
+      ```
+
+      Где:
+
+      * `--service-account-id` — идентификатор созданного [ранее](#before-you-begin) сервисного аккаунта `metastore-logging-sa`.
+      * `--subnet-ids` — идентификатор подсети с настроенным NAT-шлюзом.
+      * `--security-group-ids` — идентификатор настроенной [ранее](#before-you-begin) группы безопасности.
+      * `--log-group-id` — идентификатор лог-группы `metastore-log-group`.
+      * `--log-min-level` — уровень логирования. В журнал выполнения записываются логи указанного уровня и выше. Доступные уровни — `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR` и `FATAL`. Уровень по умолчанию — `INFO`.
+
+      [Подробнее о создании кластера](cluster-create.md).
+
+   - REST API {#api}
+
+        1. [Получите IAM-токен для аутентификации в API](../../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+            ```bash
+            export IAM_TOKEN="<IAM-токен>"
+            ```
+
+        1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+            ```json
+            {
+              "folderId": "<идентификатор_каталога>",
+              "name": "metastore-cluster",
+              "version": "<версия_Apache Hive™ Metastore>",
+              "configSpec": {
+                "resources": {
+                "resourcePresetId": "<идентификатор_конфигурации_ресурсов>"
+                }
+              },
+              "serviceAccountId": "<идентификатор_сервисного_аккаунта>",
+              "logging": {
+                "enabled": true,
+                "logGroupId": "<идентификатор_лог-группы>",
+                "minLevel": "<уровень_логирования>"
+              },
+              "network": {
+                "subnetIds": [ "<список_идентификаторов_подсетей>" ],
+                "securityGroupIds": [ "<список_идентификаторов_групп_безопасности>" ]
+              },
+            }
+            ```
+
+            Где:
+
+            * `serviceAccountId` — идентификатор созданного [ранее](#before-you-begin) сервисного аккаунта `metastore-logging-sa`.
+            * `logging.logGroupId` — идентификатор лог-группы `metastore-log-group`.
+            * `logging.minLevel` — уровень логирования. В журнал выполнения записываются логи указанного уровня и выше. Доступные уровни — `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR` и `FATAL`. Уровень по умолчанию — `INFO`.
+            * `network.subnetIds` — идентификатор подсети с настроенным NAT-шлюзом.
+            * `network.securityGroupIds` — идентификатор настроенной [ранее](#before-you-begin) группы безопасности.
+
+            [Подробнее о создании кластера](cluster-create.md).
+
+        1. Воспользуйтесь методом [Cluster.Create](../../api-ref/Cluster/create.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+
+            ```bash
+            curl \
+                --request POST \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --url 'https://metastore.api.cloud.yandex.net/managed-metastore/v1/clusters' \
+                --data '@body.json'
+            ```
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/Cluster/create.md#yandex.cloud.operation.Operation).
+
+   - gRPC API {#grpc-api}
+
+        1. [Получите IAM-токен для аутентификации в API](../../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+            ```bash
+            export IAM_TOKEN="<IAM-токен>"
+            ```
+
+        1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+           
+           ```bash
+           cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+           ```
+           
+           Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+
+        1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+            ```json
+            {
+              "folder_id": "<идентификатор_каталога>",
+              "name": "metastore-cluster",
+              "version": "<версия_Apache Hive™ Metastore>",
+              "config_spec": {
+                "resources": {
+                  "resource_preset_id": "<идентификатор_конфигурации_ресурсов>"
+                }
+              },
+              "service_account_id": "<идентификатор_сервисного_аккаунта>",
+              "logging": {
+                "enabled": true,
+                "log_group_id": "<идентификатор_лог-группы>",
+                "min_level": "<уровень_логирования>"
+              },
+              "network": {
+                "subnet_ids": [ "<список_идентификаторов_подсетей>" ],
+                "security_group_ids": [ "<список_идентификаторов_групп_безопасности>" ]
+              },
+            }
+            ```
+
+            Где:
+
+            * `service_account_id` — идентификатор созданного [ранее](#before-you-begin) сервисного аккаунта `metastore-logging-sa`.
+            * `logging.log_group_id` — идентификатор лог-группы `metastore-log-group`.
+            * `logging.min_level` — уровень логирования. В журнал выполнения записываются логи указанного уровня и выше. Доступные уровни — `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR` и `FATAL`. Уровень по умолчанию — `INFO`.
+            * `network.subnet_ids` — идентификатор подсети с настроенным NAT-шлюзом.
+            * `network.security_group_ids` — идентификатор настроенной [ранее](#before-you-begin) группы безопасности.
+
+            [Подробнее о создании кластера](cluster-create.md).
+
+        1. Воспользуйтесь вызовом [ClusterService.Create](../../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/metastore/v1/cluster_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                -d @ \
+                metastore.api.cloud.yandex.net:443 \
+                yandex.cloud.metastore.v1.ClusterService.Create \
+                < body.json
+            ```
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+
+   {% endlist %}
+
+1. Проверьте передачу логов кластера в лог-группу:
+
+   {% list tabs group=instructions %}
+
+   - Консоль управления {#console}
+
+      1. В консоли управления перейдите в нужный каталог.
+      1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Cloud Logging**.
+      1. Нажмите на строку с лог-группой `metastore-log-group`.
+
+      На открывшейся странице отобразятся записи.
+
+   - CLI {#cli}
+
+      Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+
+      По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+      Чтобы посмотреть записи в формате JSON, выполните команду:
+
+      ```bash
+      yc logging read --group-name=metastore-log-group --format=json
+      ```
+
+      Результат:
+
+      ```text
+      [
+        {
+          "uid": "23:6d******:3",
+          "resource": {
+            "type": "managed-metastore.cluster",
+            "id": "c9qcv46p3g3a********"
+          },
+          "timestamp": "2024-11-18T09:45:23.092484Z",
+          "ingested_at": "2024-11-18T09:45:24Z",
+          "saved_at": "2024-11-18T09:45:25.559195Z",
+          "level": "INFO",
+          "message": "ugi=metastore\tip=10.253.89.135\tcmd=Done cleaning up thread local RawStore\t",
+          "json_payload": {
+            "instance": "metastore-server-5f9c7ff***-*****",
+            "logger": "org.apache.hadoop.hive.metastore.HiveMetaStore.audit",
+            "resource_id": "c9qcv46p3g3a********",
+            "stream_name": "metastore-server",
+            "thread": "pool-6-thread-79"
+          },
+          "stream_name": "metastore-server"
+        }
+      ]
+      ```
+
+   - API {#api}
+
+      Чтобы посмотреть записи в лог-группе, воспользуйтесь вызовом gRPC API [LogReadingService.Read](../../../logging/api-ref/grpc/LogReading/read.md).
+
+   {% endlist %}
+
+   Подробнее см. в разделе [Чтение записей](../../../logging/operations/read-logs.md).
+
+_Apache® и [Apache Hive™](https://hive.apache.org/) являются зарегистрированными товарными знаками или товарными знаками Apache Software Foundation в США и/или других странах._

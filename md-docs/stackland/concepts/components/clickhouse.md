@@ -1,0 +1,182 @@
+# Managed Service for ClickHouse®
+
+Managed Service for ClickHouse® — это управляемый сервис для работы с открытой колоночной СУБД ClickHouse®. Сервис упрощает развертывание и обновление кластера баз данных, обеспечивает отказоустойчивость через репликацию и шардирование, а также предоставляет инструменты для резервного копирования и мониторинга.
+
+С помощью Managed Service for ClickHouse® можно:
+
+* создавать и восстанавливать кластеры с помощью кастомного ресурса `ClickhouseCluster`;
+* создавать разовые резервные копии с помощью кастомного ресурса `ClickhouseBackup`;
+* настраивать репликацию данных между хостами для обеспечения высокой доступности;
+* использовать шардирование для горизонтального масштабирования и распределения нагрузки.
+
+Управлять интеграцией с ClickHouse® можно с помощью параметров кастомного ресурса `ManagedClickhouseConfig`.
+
+## Конфигурация компонента {#managedclickhouseconfig}
+
+Параметры ресурса `ManagedClickhouseConfig` задают настройки компонента Managed Service for ClickHouse® в кластере (включение компонента, ресурсы операторов и значения по умолчанию для кластеров).
+
+Пример:
+
+```yaml
+apiVersion: stackland.yandex.cloud/v1alpha1
+kind: ManagedClickhouseConfig
+metadata:
+  name: main  # Required, must be main
+spec:
+  enabled: true
+  settings:
+    # Monitoring for ClickHouse
+    monitoring:
+      enabled: true
+    # stackland-clickhouse-operator
+    stackland-ch:
+      replicas: 1
+      resources:
+        requests:
+          cpu: "200m"
+          memory: "256Mi"
+        limits:
+          cpu: "1000m"
+          memory: "1Gi"
+    # altinity-clickhouse-operator
+    altinity-ch:
+      resources:
+        requests:
+          cpu: "100m"
+          memory: "256Mi"
+        limits:
+          cpu: "500m"
+          memory: "512Mi"
+    # altinity-clickhouse-operator.metrics
+    metrics:
+      resources:
+        requests:
+          cpu: "50m"
+          memory: "64Mi"
+        limits:
+          cpu: "200m"
+          memory: "128Mi"
+    # defaultClickHouseResources: {}
+    # defaultKeeperResources: {}
+```
+
+Параметры:
+
+* `enabled` — включает или отключает компонент.
+* `settings.monitoring.enabled` — включает или отключает мониторинг для ClickHouse®.
+* `settings.stackland-ch` — настройки оператора stackland-clickhouse-operator: `replicas` (число реплик пода оператора), `resources` (запросы и лимиты CPU/памяти).
+* `settings.altinity-ch` — ресурсы (`resources`) для пода оператора altinity-clickhouse-operator.
+* `settings.metrics` — ресурсы для компонента метрик.
+* `settings.defaultClickHouseResources` — ресурсы по умолчанию для подов ClickHouse, если не заданы в ресурсе `ClickhouseCluster`.
+* `settings.defaultKeeperResources` — ресурсы по умолчанию для Keeper, если не заданы в ресурсе `ClickhouseCluster`.
+
+## Создание кластера {#configuration}
+
+Пример минимальной конфигурации кластера:
+
+```yaml
+apiVersion: clickhouse.stackland.yandex.cloud/v1alpha1
+kind: ClickhouseCluster
+metadata:
+  labels:
+    app.kubernetes.io/name: ch-stackland-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: ch-sample-min
+spec:
+  clickhouse:
+    service: ClusterIP # тип сервиса для всего кластера (None, ClusterIP или LoadBalancer). По умолчанию ClusterIP
+    shards:
+      - id: shard-1
+        # service: None # тип сервиса для шарда (None, ClusterIP или LoadBalancer). По умолчанию None (не создается)
+    storage:
+      size: 1Gi
+    resources:
+      requests:
+        cpu: "500m"
+        memory: "1Gi"
+      limits:
+        cpu: "1"
+        memory: "2Gi"
+  keeper:
+    storage:
+      size: 1Gi
+```
+
+Где:
+
+* `shards` — топология кластера. В примере используется один шард с настройками по умолчанию.
+* `storage` — настройки дискового пространства для хранения данных.
+* `resources` — ограничивает ресурсы для пода c Managed Service for ClickHouse®.
+* `keeper` — конфигурация ClickHouse® Keeper.
+
+## Сетевой доступ к кластеру {#network-access}
+
+Managed Service for ClickHouse® позволяет настраивать сетевой доступ к кластеру ClickHouse® на двух уровнях:
+
+* **Эндпоинт на весь кластер** — единая точка входа для подключения ко всему кластеру. Запросы автоматически распределяются между всеми шардами.
+* **Эндпоинты на отдельные шарды** — прямое подключение к конкретному шарду кластера.
+
+### Типы сервисов {#service-types}
+
+Для каждого эндпоинта можно выбрать один из следующих типов сервиса:
+
+* `None` — эндпоинт не создается. Используется по умолчанию для шардов.
+* `ClusterIP` — эндпоинт доступен только внутри кластера Kubernetes. Используется по умолчанию для кластерного эндпоинта.
+* `LoadBalancer` — эндпоинт доступен как внутри кластера, так и извне через сетевой балансировщик.
+
+### Эндпоинт на весь кластер {#cluster-endpoint}
+
+Эндпоинт на весь кластер создается автоматически при создании кластера ClickHouse®. По умолчанию используется тип `ClusterIP`, что обеспечивает доступ к кластеру из других подов в Kubernetes.
+
+Чтобы сделать кластер доступным извне, укажите тип `LoadBalancer` в параметре `spec.clickhouse.service`:
+
+```yaml
+spec:
+  clickhouse:
+    service: LoadBalancer
+```
+
+### Эндпоинты на шарды {#shard-endpoints}
+
+По умолчанию эндпоинты на отдельные шарды не создаются (`service: None`). Это позволяет экономить ресурсы, когда прямой доступ к шардам не требуется.
+
+Чтобы создать эндпоинт для конкретного шарда, укажите тип сервиса в параметре `spec.clickhouse.shards[].service`:
+
+```yaml
+spec:
+  clickhouse:
+    shards:
+      - id: shard-1
+        service: ClusterIP  # доступ только внутри кластера
+      - id: shard-2
+        service: LoadBalancer  # доступ извне
+```
+
+При создании эндпоинта на шард создается один сервис на весь шард, а не отдельные сервисы для каждой реплики внутри шарда.
+
+### Получение адресов для подключения {#getting-connection-addresses}
+
+После создания кластера адреса для подключения доступны в статусе ресурса `ClickhouseCluster`:
+
+```bash
+kubectl get clickhousecluster <название_кластера> -n <название_проекта> -o jsonpath='{.status.clusterStatus.fqdns}'
+```
+
+Структура ответа:
+
+* `cluster.internal` — внутренний FQDN для подключения к кластеру из других подов.
+* `cluster.external` — внешний FQDN для подключения к кластеру извне (только для `LoadBalancer`).
+* `shards[].serviceFqdn.internal` — внутренний FQDN для подключения к конкретному шарду.
+* `shards[].serviceFqdn.external` — внешний FQDN для подключения к шарду извне (только для `LoadBalancer`).
+
+Внутренние FQDN имеют формат `<название_ресурса>.<название_проекта>.svc.<домен кластера>` и доступны только внутри кластера Kubernetes.
+
+Внешние FQDN создаются автоматически для сервисов типа `LoadBalancer` и доступны извне кластера. Подробнее о DNS см. в разделе [DNS](dns.md).
+
+## Защита от удаления {#deletion-protection}
+
+Параметр `spec.deletionProtection` в ресурсе `ClickhouseCluster` предотвращает случайное удаление кластера через API Kubernetes. При включённой защите (`spec.deletionProtection: true`) оператор отклоняет удаление ресурса кластера; команда `kubectl delete` и удаление через консоль управления не выполнятся, пока защита не будет отключена.
+
+* По умолчанию: `false` (защита выключена).
+* Включение и отключение: задаётся в `spec.deletionProtection` при создании или при [редактировании кластера](../../operations/clickhouse/edit-cluster.md).
+* Ограничение: защита распространяется только на ресурс `ClickhouseCluster`. Созданные оператором ресурсы (PVC, Secret, ConfigMap и др.) защитой не охватываются.

@@ -1,0 +1,333 @@
+# Начало работы с Packer
+
+
+[Packer](https://www.packer.io/) позволяет создавать [образы дисков виртуальных машин](../concepts/image.md) с заданными в конфигурационном файле параметрами. Руководство описывает создание образа диска в [Yandex Compute Cloud](../index.md) с помощью Packer.
+
+Packer создаст и запустит виртуальную машину с ОС [Debian 11](https://yandex.cloud/ru/marketplace/products/yc/debian-11) из Cloud Marketplace, на которую будет установлен веб-сервер [nginx](https://nginx.org/ru/). Затем ВМ будет удалена и будет создан образ ее загрузочного диска. После этого диск тоже будет удален.
+
+Чтобы создать образ:
+
+1. [Подготовьте облако к работе](#before-you-begin).
+1. [Установите Packer](#install-packer).
+1. [Подготовьте конфигурацию образа](#prepare-image-config).
+1. [Создайте образ](#create-image).
+1. [Проверьте образ](#check-image).
+
+Если созданный образ больше не нужен, [удалите его](#clear-out).
+
+
+## Подготовьте облако к работе {#before-you-begin}
+
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+
+[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+
+
+### Настройте окружение и инфраструктуру {#prepare-environment}
+
+1. [Создайте](../../vpc/quickstart.md) в вашем каталоге облачную сеть с одной подсетью.
+1. В зависимости от типа аккаунта, от имени которого вы работаете, получите:
+
+    * [OAuth-токен](https://oauth.yandex.ru/authorize?response_type=token&client_id=1a6990aa636648e9b2ef855fa7bec2fb) для [аккаунта на Яндексе](../../iam/concepts/users/accounts.md#passport).
+    * [IAM-токен](../../iam/concepts/authorization/iam-token.md) для [федеративного](../../iam/concepts/users/accounts.md#saml-federation), [локального](../../iam/concepts/users/accounts.md#local) или [сервисного](../../iam/concepts/users/accounts.md#sa) аккаунта.
+
+1. Убедитесь, что у вашего аккаунта достаточно прав для создания ресурсов в сервисе Compute Cloud. У вас должна быть минимальная [роль](../security/index.md#compute-editor) `compute.editor` на каталог.
+
+    Если вы работаете от имени сервисного аккаунта, [назначьте](../../iam/operations/roles/grant.md#cloud-or-folder) ему роль `compute.editor` на каталог.
+
+    Если вы хотите создавать ресурсы в других сервисах Yandex Cloud, например подсети в VPC, то также назначьте соответствующие [сервисные роли](../../iam/roles-reference.md).
+
+
+### Необходимые платные ресурсы {#paid-resources}
+
+В стоимость создания образа диска с помощью Packer входит:
+
+* плата за хранение созданных образов (см. [тарифы Yandex Compute Cloud](../pricing.md#prices-storage));
+* плата за вычислительные ресурсы ВМ (см. [тарифы Yandex Compute Cloud](../pricing.md#prices-instance-resources)).
+
+
+## Установите и настройте Packer {#install-packer}
+
+{% note warning %}
+
+Для работы с Yandex Cloud требуется Packer версии не ниже 1.5.
+
+Избегайте установки Packer с помощью популярных пакетных менеджеров, например Homebrew или APT. В их репозиториях могут быть размещены устаревшие версии.
+
+{% endnote %}
+
+Вы можете установить Packer [из зеркала](#from-y-mirror) или [с сайта HashiCorp](#from-hashicorp-site).
+
+
+### Из зеркала {#from-y-mirror}
+
+Установите дистрибутив Packer для вашей платформы из [зеркала](https://hashicorp-releases.yandexcloud.net/packer/):
+
+{% list tabs group=operating_system %}
+
+- Linux {#linux}
+
+  1. Скачайте дистрибутив Packer из [зеркала](https://hashicorp-releases.yandexcloud.net/packer/) и распакуйте в директорию `packer`:
+
+      ```bash
+      mkdir packer
+      wget https://hashicorp-releases.yandexcloud.net/packer/1.11.2/packer_1.11.2_linux_amd64.zip -P ~/packer
+      unzip ~/packer/packer_1.11.2_linux_amd64.zip -d ~/packer
+      ```
+
+      В примере указана версия `1.11.2`, актуальную версию Packer см. в [зеркале](https://hashicorp-releases.yandexcloud.net/packer/).
+
+  1. Добавьте Packer в переменную `PATH`: 
+
+      1. Добавьте в файл `.profile` строку:
+
+          ```bash
+          export PATH="$PATH:/home/<имя_пользователя>/packer"
+          ```
+
+      1. Сохраните изменения.
+
+      1. Перезапустите оболочку:
+
+          ```bash
+          exec -l $SHELL
+          ```
+
+  1. Убедитесь, что Packer установлен:
+
+      ```bash
+      packer --version
+      ```
+
+      Результат:
+      
+      ```text
+      Packer v1.11.2
+      ```
+
+
+- Windows {#windows}
+
+  1. Создайте папку `packer`.
+  1. Скачайте дистрибутив Packer из [зеркала](https://hashicorp-releases.yandexcloud.net/packer/) и распакуйте в папку `packer`.
+  1. Добавьте папку `packer` в переменную `PATH`:
+
+      1. Нажмите кнопку **Пуск** и в строке поиска Windows введите **Изменение системных переменных среды**.
+      1. Справа снизу нажмите кнопку **Переменные среды...**.
+      1. В открывшемся окне найдите параметр `PATH` и нажмите **Изменить**.
+      1. Добавьте путь к папке в список.
+      1. Нажмите кнопку **ОК**.
+
+  1. Запустите новую сессию командной строки и убедитесь, что Packer установлен:
+
+      ```bash
+      packer --version
+      ```
+
+      Результат:
+
+      ```text
+      Packer v1.11.2
+      ```
+
+- macOS {#macos}
+
+  1. Скачайте дистрибутив Packer из [зеркала](https://hashicorp-releases.yandexcloud.net/packer/) и распакуйте в директорию `packer`:
+
+      ```bash
+      mkdir packer
+      curl --location --output ~/packer/packer_1.11.2_darwin_amd64.zip https://hashicorp-releases.yandexcloud.net/packer/1.11.2/packer_1.11.2_darwin_amd64.zip
+      unzip ~/packer/packer_1.11.2_darwin_amd64.zip -d ~/packer
+      ```
+
+      В примере указана версия `1.11.2`, актуальную версию Packer см. в [зеркале](https://hashicorp-releases.yandexcloud.net/packer/).
+
+  1. Добавьте Packer в переменную `PATH`: 
+
+      ```bash
+      echo 'export PATH="$PATH:$HOME/packer"' >> ~/.bash_profile
+      source ~/.bash_profile
+      ```
+
+  1. Перезапустите оболочку:
+
+      ```bash
+      exec -l $SHELL
+      ```
+
+  1. Убедитесь, что Packer установлен:
+
+      ```bash
+      packer --version
+      ```
+
+      Результат:
+      
+      ```text
+      Packer v1.11.2
+      ```
+
+{% endlist %}
+
+
+### С сайта HashiCorp {#from-hashicorp-site}
+
+Скачайте и установите дистрибутив Packer по [инструкции на официальном сайте](https://www.packer.io/intro/getting-started/install.html#precompiled-binaries).
+
+
+### Настройте плагин Yandex Compute Builder {#configure-plugin}
+
+Чтобы настроить [плагин](https://developer.hashicorp.com/packer/plugins/builders/yandex):
+
+1. Создайте файл `config.pkr.hcl` со следующим содержанием:
+
+    ```hcl
+    packer {
+      required_plugins {
+        yandex = {
+          version = ">= 1.1.2"
+          source  = "github.com/hashicorp/yandex"
+        }
+      }
+    }
+    ```
+
+1. Установите плагин:
+
+    ```bash
+    packer init <путь_к_файлу_config.pkr.hcl>
+    ```
+
+    Результат:
+
+    ```text
+    Installed plugin github.com/hashicorp/yandex v1.1.2 in ...
+    ```
+
+## Подготовьте конфигурацию образа {#prepare-image-config}
+
+1. [Узнайте](../../resource-manager/operations/folder/get-id.md) идентификатор каталога.
+1. [Узнайте](../../vpc/operations/subnet-get-info.md) идентификатор подсети и [зону доступности](../../overview/concepts/geo-scope.md), в которой она расположена.
+1. Создайте JSON-файл с любым именем, например: `image.json`. Запишите туда следующую конфигурацию:
+
+    
+    ```json
+    {
+      "builders": [
+        {
+          "type":      "yandex",
+          "token":     "<OAuth-токен_или_IAM-токен>",
+          "folder_id": "<идентификатор_каталога>",
+          "zone":      "<зона_доступности>",
+
+          "image_name":        "debian-11-nginx-not_var{{isotime | clean_resource_name }}",
+          "image_family":      "debian-web-server",
+          "image_description": "my custom debian with nginx",
+
+          "source_image_family": "debian-11",
+          "subnet_id":           "<идентификатор_подсети>",
+          "use_ipv4_nat":        true,
+          "disk_type":           "network-ssd",
+          "ssh_username":        "debian"
+        }
+      ],
+      "provisioners": [
+        {
+          "type": "shell",
+          "inline": [
+            "echo 'updating APT'",
+            "sudo apt-get update -y",
+            "sudo apt-get install -y nginx",
+            "sudo su -",
+            "sudo systemctl enable nginx.service",
+            "curl localhost"
+          ]
+        }
+      ]
+    }
+    ```
+
+
+
+
+    Где:
+
+    * `token` — OAuth-токен для аккаунта на Яндексе или IAM-токен для федеративного или сервисного аккаунтов.
+    * `folder_id` — идентификатор каталога, в котором будет создана ВМ и ее образ.
+    * `zone` — зона доступности, в которой будет создана ВМ. Например: `ru-central1-d`.
+    * `subnet_id` — идентификатор подсети, в которой будет создана ВМ и ее образ.
+
+{% note warning %}
+
+В конфигурационном файле нельзя одновременно использовать параметры `provisioner "shell"` и `metadata`.
+
+{% endnote %}
+
+Подробнее о параметрах конфигурации образа см. в [документации Yandex Compute Builder](https://www.packer.io/docs/builders/yandex).
+
+
+## Создайте образ {#create-image}
+
+1. Запустите сборку образа с указанными в конфигурации параметрами:
+
+    ```bash
+    packer build image.json
+    ```
+
+1. Дождитесь завершения сборки:
+
+    ```bash
+    ...
+    ==> Wait completed after 2 minutes 43 seconds
+    ==> Builds finished. The artifacts of successful builds are:
+    --> yandex: A disk image was created: debian-11-nginx-2024-08-26t15-30-39z (id: fd82d63b9bgc********) with family name debian-web-server
+    ```
+
+
+## Проверьте созданный образ {#check-image}
+
+Убедитесь, что образ создан:
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. Перейдите в [консоль управления](https://console.yandex.cloud).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
+  1. Откройте раздел ![image](../../_assets/console-icons/layers.svg) **Образы**. Убедитесь, что там появился новый образ диска.
+
+- CLI {#cli}
+
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+
+  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+  Выполните команду:
+
+  ```bash
+  yc compute image list
+  ```
+
+  Результат:
+
+  ```text
+  +----------------------+--------------------------------------+-------------------+----------------------+--------+
+  |          ID          |                 NAME                 |      FAMILY       |     PRODUCT IDS      | STATUS |
+  +----------------------+--------------------------------------+-------------------+----------------------+--------+
+  | fd82d63b9bgc******** | debian-11-nginx-2024-08-26t15-30-39z | debian-web-server | f2eerqfup7lg******** | READY  |
+  +----------------------+--------------------------------------+-------------------+----------------------+--------+
+  ```
+
+{% endlist %}
+
+
+### Удалите созданные ресурсы {#clear-out}
+
+Чтобы перестать платить за созданные ресурсы:
+
+* [Удалите](../operations/image-control/delete.md) созданный образ.
+* Удалите [подсеть](../../vpc/operations/subnet-delete.md) и [облачную сеть](../../vpc/operations/network-delete.md), если вы их создавали специально для выполнения руководства.

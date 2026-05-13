@@ -1,0 +1,1 @@
+## Решения для известных проблем Managed Service for ClickHouse® {#known-issues-resolving}

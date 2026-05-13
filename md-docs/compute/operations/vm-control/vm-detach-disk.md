@@ -1,0 +1,141 @@
+# Отключить диск от виртуальной машины
+
+Отключить диск можно как от работающей, так и от остановленной виртуальной машины. 
+
+{% note info %}
+
+От ВМ нельзя отключить загрузочный диск. От ВМ на [выделенном хосте](../../concepts/dedicated-host.md) нельзя отключить локальный диск.
+
+{% endnote %}
+
+Чтобы диск был успешно отключен от работающей ВМ, операционная система машины должна быть готова принимать команды на отключение диска. Перед отключением диска убедитесь, что ОС загружена, или остановите виртуальную машину — иначе операция отключения диска завершится с ошибкой. При возникновении ошибки остановите ВМ и повторите операцию. 
+
+Чтобы отключить диск от виртуальной машины:
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит ВМ.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/hard-drive.svg) **Диски**.
+  1. Напротив нужного диска нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) → **Отсоединить**.
+  1. Нажмите кнопку **Отсоединить**.
+
+- CLI {#cli}
+  
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+  
+  По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+  
+  1. Посмотрите описание команды CLI для отключения дисков:
+  
+      ```
+      yc compute instance detach-disk --help
+      ```
+  
+  1. Получите список виртуальных машин в каталоге по умолчанию:
+  
+      ```bash
+      yc compute instance list
+      ```
+      
+      Результат:
+      ```text
+      +----------------------+-----------------+---------------+---------+----------------------+
+      |          ID          |       NAME      |    ZONE ID    | STATUS  |     DESCRIPTION      |
+      +----------------------+-----------------+---------------+---------+----------------------+
+      | fhm0b28lgfp4******** | first-instance  | ru-central1-a | RUNNING | my first vm via CLI  |
+      | fhm9gk85nj7g******** | second-instance | ru-central1-a | RUNNING | my second vm via CLI |
+      +----------------------+-----------------+---------------+---------+----------------------+
+      ```
+  
+  1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной машины, например `first-instance`.
+  
+  1. Получите список дисков, подключенных к виртуальной машине:
+  
+      ```
+      yc compute instance get --full first-instance
+      ```
+  
+  1. Выберите `disk_id` нужного диска, например `fhm4aq4hvq5g********`.
+  1. Отключите диск:
+  
+      ```
+      yc compute instance detach-disk first-instance \
+        --disk-id fhm4aq4hvq5g********
+      ```
+      
+      Если возникла ошибка, остановите виртуальную машину:
+      
+      ```
+      yc compute instance stop first-instance
+      ```
+      
+      Затем отключите диск повторно.
+  
+  1. Если виртуальная машина была остановлена, запустите ее заново:
+  
+      ```
+      yc compute instance start first-instance
+      ```
+
+- Terraform {#tf}
+
+  [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+  
+  Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+  
+  Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../../terraform/index.md).
+
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. В конфигурационном файле в описании ресурса `yandex_compute_instance` удалите блок `secondary_disk` и добавьте параметр `allow_stopping_for_update`:
+
+      ```hcl
+      resource "yandex_compute_instance" "vm-1" {
+        ...
+        allow_stopping_for_update = true
+        ...
+      }
+      ```
+
+      Где `allow_stopping_for_update` — параметр для разрешения остановки ВМ на время обновления.
+
+  1. Примените новую конфигурацию:
+
+     1. В терминале перейдите в директорию с конфигурационным файлом.
+     1. Проверьте корректность конфигурации с помощью команды:
+     
+        ```bash
+        terraform validate
+        ```
+     
+        Если конфигурация является корректной, появится сообщение:
+     
+        ```bash
+        Success! The configuration is valid.
+        ```
+     
+     1. Выполните команду:
+     
+        ```bash
+        terraform plan
+        ```
+     
+        В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+     1. Примените изменения конфигурации:
+     
+        ```bash
+        terraform apply
+        ```
+     
+     1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
+
+     Terraform обновит все требуемые ресурсы. Проверить изменения можно в [консоли управления](https://console.yandex.cloud).
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [detachDisk](../../api-ref/Instance/detachDisk.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/DetachDisk](../../api-ref/grpc/Instance/detachDisk.md).
+  
+{% endlist %}

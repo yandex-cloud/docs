@@ -1,0 +1,82 @@
+# Cloud Functions Service, gRPC: FunctionService.Get
+
+Returns the specified function.
+
+To get the list of all available functions, make a [List](list.md#List) request.
+
+## gRPC request
+
+**rpc Get ([GetFunctionRequest](#yandex.cloud.serverless.functions.v1.GetFunctionRequest)) returns ([Function](#yandex.cloud.serverless.functions.v1.Function))**
+
+## GetFunctionRequest {#yandex.cloud.serverless.functions.v1.GetFunctionRequest}
+
+```json
+{
+  "function_id": "string"
+}
+```
+
+#|
+||Field | Description ||
+|| function_id | **string**
+
+Required field. ID of the function to return.
+
+To get a function ID make a [FunctionService.List](list.md#List) request. ||
+|#
+
+## Function {#yandex.cloud.serverless.functions.v1.Function}
+
+```json
+{
+  "id": "string",
+  "folder_id": "string",
+  "created_at": "google.protobuf.Timestamp",
+  "name": "string",
+  "description": "string",
+  "labels": "map<string, string>",
+  "http_invoke_url": "string",
+  "status": "Status"
+}
+```
+
+A serverless function. For details about the concept, see [Functions](../../../../concepts/function.md).
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the function. Generated at creation time. ||
+|| folder_id | **string**
+
+ID of the folder that the function belongs to. ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Creation timestamp for the function. ||
+|| name | **string**
+
+Name of the function. The name is unique within the folder.
+
+The string length in characters must be 3-63. ||
+|| description | **string**
+
+Description of the function.
+
+The string length in characters must be 0-256. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Function labels as `key:value` pairs.
+
+No more than 64 per resource. ||
+|| http_invoke_url | **string**
+
+URL that needs to be requested to invoke the function. ||
+|| status | enum **Status**
+
+Status of the function.
+
+- `CREATING`: Function is being created.
+- `ACTIVE`: Function is ready to be invoked.
+- `DELETING`: Function is being deleted.
+- `ERROR`: Function failed. ||
+|#

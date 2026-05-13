@@ -1,0 +1,90 @@
+# Все ошибки в Yandex DataLens
+
+На странице приведены коды ошибок и их описание. Чтобы посмотреть подробную информацию об ошибке, перейдите по ссылке, нажав на код ошибки:
+
+Код ошибки | Описание |
+----- | ----- |
+[ERR.AUTH_API.UNEXPECTED_RESPONSE](ERR-AUTH_API-UNEXPECTED_RESPONSE.md) | Got an unexpected response from an external API |
+[ERR.CHARTS.RUNTIME_TIMEOUT](ERR-CHARTS-RUNTIME_TIMEOUT.md) | Response processing timeout |
+[ERR.CHARTS.REQUEST_SIZE_LIMIT_EXCEEDED](ERR-CHARTS-REQUEST_SIZE_LIMIT_EXCEEDED.md) | Request size limit exceeded |
+[ERR.CK.TOO_MANY_LINES](ERR-CK_TOO_MANY_LINES.md) | Too many series on the chart |
+[ERR.CLIENT.POPUP_BLOCKED](ERR-CLIENT-POPUP_BLOCKED.md) | Ошибка при блокировке всплывающего окна |
+[ERR.DS_API](ERR-DS_API.md) | Internal server error |
+[ERR.DS_API.ACTION_NOT_ALLOWED](ERR-DS_API-ACTION_NOT_ALLOWED.md) | Internal Server Error |
+[ERR.DS_API.AVATAR.NOT_FOUND](ERR-DS_API-AVATAR-NOT_FOUND.md) | Source avatar not found |
+[ERR.DS_API.AVATAR.NOT_FOUND.FIELD_REF](ERR-DS_API-AVATAR-NOT_FOUND-FIELD_REF.md) | Field references an unknown source avatar |
+[ERR.DS_API.AVATAR.TITLE.CONFLICT](ERR-DS_API-AVATAR-TITLE-CONFLICT.md) | Source avatar title conflicts with another avatar |
+[ERR.DS_API.BAD_CONN_TYPE](ERR-DS_API-BAD_CONN_TYPE.md) | Invalid connection type value |
+[ERR.DS_API.BLOCK.ITEM_COMPATIBILITY](ERR-DS_API-BLOCK-ITEM_COMPATIBILITY.md) | Got items with incompatible roles in block |
+[ERR.DS_API.BLOCK.MULTIPLE_ROOTS](ERR-DS_API-BLOCK-MULTIPLE_ROOTS.md) | Got more than one block with root placement |
+[ERR.DS_API.BLOCK.MULTIPLE_UNSUPPORTED](ERR-DS_API-BLOCK-MULTIPLE_UNSUPPORTED.md) | This API does not support multiple query blocks |
+[ERR.DS_API.BLOCK.NO_ROOT](ERR-DS_API-BLOCK-NO_ROOT.md) | Got no blocks with root placement |
+[ERR.DS_API.BLOCK.UNEVEN_COLUMN_COUNT](ERR-DS_API-BLOCK-UNEVEN_COLUMN_COUNT.md) | Blocks have different column count |
+[ERR.DS_API.COLUMN_SCHEMA_FAILED](ERR-DS_API-COLUMN_SCHEMA_FAILED.md) | Failed to load description of table columns |
+[ERR.DS_API.CONNECTION_CONFIG](ERR-DS_API-CONNECTION_CONFIG.md) | Internal server error |
+[ERR.DS_API.CONNECTION_CONFIG.DASHSQL_NOT_ALLOWED](ERR-DS_API-CONNECTION_CONFIG-DASHSQL_NOT_ALLOWED.md) | Использование QL-чартов запрещено на уровне подключения |
+[ERR.DS_API.CONNECTION_CONFIG.SUBSELECT_NOT_ALLOWED](ERR-DS_API-CONNECTION_CONFIG-SUBSELECT_NOT_ALLOWED.md) | Subquery source is disallowed in the connection settings |
+[ERR.DS_API.DASHSQL](ERR-DS_API-DASHSQL.md) | Internal server error |
+[ERR.DS_API.DASHSQL.PARAMETER](ERR-DS_API-DASHSQL-PARAMETER.md) | Internal server error |
+[ERR.DS_API.DATABASE_UNAVAILABLE](ERR-DS_API-DATABASE_UNAVAILABLE.md) | Data source is unavailable |
+[ERR.DS_API.DATASET_REVISION_MISMATCH](ERR-DS_API-DATASET_REVISION_MISMATCH.md) | Dataset version mismatch. Refresh the page to continue |
+[ERR.DS_API.DATASET.TOO_MANY_FIELDS](ERR-DS_API-DATASET-TOO_MANY_FIELDS.md) | There are too many fields in the dataset |
+[ERR.DS_API.DB](ERR-DS_API-DB.md) | Ошибка выполнения запроса в источнике данных |
+[ERR.DS_API.DB.AUTHENTICATION_FAILED](ERR-DS_API-DB-AUTHENTICATION_FAILED.md) | Database authentication failed |
+[ERR.DS_API.DB.CANNOT_PARSE](ERR-DS_API-DB-CANNOT_PARSE.md) | Cannot parse |
+[ERR.DS_API.DB.CANNOT_PARSE.DATETIME](ERR-DS_API-DB-CANNOT_PARSE-DATETIME.md) | Cannot parse datetime |
+[ERR.DS_API.DB.CANNOT_PARSE.NUMBER](ERR-DS_API-DB-CANNOT_PARSE-NUMBER.md) | Cannot parse number |
+[ERR.DS_API.DB.CHYT.AUTH_FAILED](ERR-DS_API-DB-CHYT-AUTH_FAILED.md) | Authentication failed |
+[ERR.DS_API.DB.CHYT.CLIQUE.INVALID_GUID](ERR-DS_API-DB-CHYT-CLIQUE-INVALID_GUID.md) | Не удалось распарсить название клики |
+[ERR.DS_API.DB.CHYT.CLIQUE.INVALID_SPECIFICATION](ERR-DS_API-DB-CHYT-CLIQUE-INVALID_SPECIFICATION.md) | Invalid clique specification. Probably, clique does not exists |
+[ERR.DS_API.DB.CHYT.INVALID_SORTED_JOIN.MORE_THAN_ONE_TABLE](ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-MORE_THAN_ONE_TABLE.md) | Cannot join a concatenation of tables with another table |
+[ERR.DS_API.DB.CHYT.INVALID_SORTED_JOIN.NOT_A_KEY_COLUMN](ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-NOT_A_KEY_COLUMN.md) | Column used in join expression is not a key column |
+[ERR.DS_API.DB.CHYT.INVALID_SORTED_JOIN.NOT_KEY_PREFIX_COLUMN](ERR-DS_API-DB-CHYT-INVALID_SORTED_JOIN-NOT_KEY_PREFIX_COLUMN.md) | Joined columns should form prefix of joined table key columns |
+[ERR.DS_API.DB.CHYT.SUBQ_WEIGHT_LIMIT_EXCEEDED](ERR-DS_API-DB-CHYT-SUBQ_WEIGHT_LIMIT_EXCEEDED.md) | Subquery exceeds data weight limit |
+[ERR.DS_API.DB.CHYT.TABLE_ACCESS_DENIED](ERR-DS_API-DB-CHYT-TABLE_ACCESS_DENIED.md) | Access to table was denied |
+[ERR.DS_API.DB.CHYT.TABLE_HAS_NO_SCHEMA](ERR-DS_API-DB-CHYT-TABLE_HAS_NO_SCHEMA.md) | YT table has no schema. Only schematized tables are supported |
+[ERR.DS_API.DB.COLUMN_DOES_NOT_EXIST](ERR-DS_API-DB-COLUMN_DOES_NOT_EXIST.md) | Requested database column does not exist |
+[ERR.DS_API.DB.DATA_PREPARATION_NOT_FINISHED](ERR-DS_API-DB-DATA_PREPARATION_NOT_FINISHED.md) | Подготовка данных еще не завершилась |
+[ERR.DS_API.DB.DB_OPERATIONAL_ERROR](ERR-DS_API-DB-DB_OPERATIONAL_ERROR.md) | Ошибка на стороне БД |
+[ERR.DS_API.DB.INVALID_FUNCTION.PG_DOUBLE_PRECISION_ROUND](ERR-DS_API-DB-INVALID_FUNCTION-PG_DOUBLE_PRECISION_ROUND.md) | ROUND with precision parameter is not supported for double precision data type in PostgreSQL
+[ERR.DS_API.DB.JOIN_COLUMN_TYPE_MISMATCH](ERR-DS_API-DB-JOIN_COLUMN_TYPE_MISMATCH.md) | Columns in JOIN have different types |
+[ERR.DS_API.DB.MATERIALIZATION_NOT_FINISHED](ERR-DS_API-DB-MATERIALIZATION_NOT_FINISHED.md) | Подготовка данных еще не завершилась |
+[ERR.DS_API.DB.MEMORY_LIMIT_EXCEEDED](ERR-DS_API-DB-MEMORY_LIMIT_EXCEEDED.md) | Memory limit has been exceeded during query execution |
+[ERR.DS_API.DB.SOURCE_CONNECT_ERROR](ERR-DS_API-DB-SOURCE_CONNECT_ERROR.md) | Data source refused connection |
+[ERR.DS_API.DB.SOURCE_DOES_NOT_EXIST](ERR-DS_API-DB-SOURCE_DOES_NOT_EXIST.md) | Data source (table) does not exist |
+[ERR.DS_API.DB.SOURCE_ERROR.TIMEOUT](ERR-DS_API-DB-SOURCE_ERROR-TIMEOUT.md) | Data source timed out |
+[ERR.DS_API.DB.ZERO_DIVISION](ERR-DS_API-DB-ZERO_DIVISION.md) | Division by zero |
+[ERR.DS_API.FIELD.NOT_FOUND](ERR-DS_API-FIELD-NOT_FOUND.md) | Unknown field |
+[ERR.DS_API.FIELD.TITLE.CONFLICT](ERR-DS_API-FIELD-TITLE-CONFLICT.md) | Field title conflicts with another field |
+[ERR.DS_API.FILTER.MEASURE_UNSUPPORTED](ERR-DS_API-FILTER-MEASURE_UNSUPPORTED.md) | Measure filter is unsupported for this type of query |
+[ERR.DS_API.FORMULA.PARSE.UNEXPECTED_TOKEN](ERR-DS_API-FORMULA-PARSE-UNEXPECTED_TOKEN.md) | Ошибка в синтаксисе формулы |
+[ERR.DS_API.FORMULA.UNKNOWN_FIELD_IN_FORMULA](ERR-DS_API-FORMULA-UNKNOWN_FIELD_IN_FORMULA.md) | Unknown field found in formula |
+[ERR.DS_API.FORMULA.UNKNOWN_SOURCE_COLUMN](ERR-DS_API-FORMULA-UNKNOWN_SOURCE_COLUMN.md) | Unknown referenced source column |
+[ERR.DS_API.FORMULA.UNKNOWN_WINDOW_DIMENSION](ERR-DS_API-FORMULA-UNKNOWN_WINDOW_DIMENSION.md) | Unknown dimension for window |
+[ERR.DS_API.FORMULA.VALIDATION.AGG.INCONSISTENT](ERR-DS_API-FORMULA-VALIDATION-AGG-INCONSISTENT.md) | Inconsistent aggregation among operands |
+[ERR.DS_API.FORMULA.VALIDATION.LOD.INCOMPATIBLE_DIMENSIONS](ERR-DS_API-FORMULA-VALIDATION-LOD-INCOMPATIBLE_DIMENSIONS.md) | Incompatible dimensions |
+[ERR.DS_API.FORMULA.VALIDATION.LOD.INVALID_TOPLEVEL_DIMENSIONS](ERR-DS_API-FORMULA-VALIDATION-LOD-INVALID_TOPLEVEL_DIMENSIONS.md) | Invalid top-level LOD dimension found in expression |
+[ERR.DS_API.FORMULA.VALIDATION.WIN_FUNC.BFB_UNSELECTED_DIMENSION](ERR-DS_API-FORMULA-VALIDATION-WIN_FUNC-BFB_UNSELECTED_DIMENSION.md) | Window function has unselected dimension |
+[ERR.DS_API.FORMULA.VALIDATION.WIN_FUNC.NO_AGG](ERR-DS_API-FORMULA-VALIDATION-WIN_FUNC-NO_AGG.md) | Window function has no aggregated expressions among its arguments |
+[ERR.DS_API.INVALID_GROUP_BY_CONFIGURATION](ERR-DS_API-INVALID_GROUP_BY_CONFIGURATION.md) | Invalid grouping configuration |
+[ERR.DS_API.INVALID_QUERY_STRUCTURE.INCONSISTENT_AGGREGATION](ERR-DS_API-INVALID_QUERY_STRUCTURE-INCONSISTENT_AGGREGATION.md) | Inconsistent aggregation status among SELECT items |
+[ERR.DS_API.REFERENCED_ENTRY_ACCESS_DENIED](ERR-DS_API-REFERENCED_ENTRY_ACCESS_DENIED.md) | Referenced connection <идентификатор_подключения> cannot be loaded: access denied |
+[ERR.DS_API.REFERENCED_ENTRY_NOT_FOUND](ERR-DS_API-REFERENCED_ENTRY_NOT_FOUND.md) | Обращение к несуществующему объекту |
+[ERR.DS_API.REQUEST_TIMEOUT](ERR-DS_API-REQUEST_TIMEOUT.md) | Backend app request timeout exceeded |
+[ERR.DS_API.ROW_COUNT_LIMIT](ERR-DS_API-ROW_COUNT_LIMIT.md) | Received too many result data rows |
+[ERR.DS_API.SOURCE_ACCESS_DENIED.INVALID_TOKEN](ERR-DS_API-SOURCE_ACCESS_DENIED-INVALID_TOKEN.md) | Invalid user token |
+[ERR.DS_API.SOURCE_CONFIG.TABLE_NOT_CONFIGURED](ERR-DS_API-SOURCE_CONFIG-TABLE_NOT_CONFIGURED.md) | Нарушена конфигурация таблицы |
+[ERR.DS_API.SOURCE.FILE.NO_DATA](ERR-DS_API-SOURCE-FILE-NO_DATA.md) | Empty document |
+[ERR.DS_API.US.ACCESS_DENIED](ERR-DS_API-US-ACCESS_DENIED.md) | Access denied |
+[ERR.DS_API.TYPE_CAST.FAILED](ERR-DS_API-TYPE_CAST-FAILED.md) | Ошибка преобразования типа данных |
+[ERR.DS_API.US.ACCESS_DENIED.CONNECTION](ERR-DS_API-US-ACCESS_DENIED-CONNECTION.md) | Access to the connection was denied |
+[ERR.DS_API.US.BAD_REQUEST](ERR-DS_API-US-BAD_REQUEST.md) | Ошибка в запросе к объекту |
+[ERR.DS_API.US.OBJ_NOT_FOUND.CONNECTION](ERR-DS_API-US-OBJ_NOT_FOUND-CONNECTION.md) | Connection not found |
+[ERR.DS_API.US.VALIDATION_FAILED](ERR-DS_API-US-VALIDATION_FAILED.md) | Invalid input data: validation failed |
+[ERR.DS_API.US.VALIDATION_FAILED.CONNECTION](ERR-DS_API-US-VALIDATION_FAILED-CONNECTION.md) | Invalid connection ID |
+[ERR.FILE.CANNOT_UPDATE_DATA](ERR-FILE-CANNOT_UPDATE_DATA.md) | Невозможно обновить данные |
+[ERR.FILE.INVALID_LINK.YADOCS_INVALID_PUBLIC_LINK_PREFIX](ERR-FILE-INVALID_LINK-YADOCS_INVALID_PUBLIC_LINK_PREFIX.md) | Неверный формат ссылки на Яндекс Документы |
+[ERR.FILE.PARSE_FAILED.INVALID_EXCEL](ERR-FILE-PARSE_FAILED-INVALID_EXCEL.md) | Неверный формат файла |
+[ERR.FILE.UNSUPPORTED_DOCUMENT](ERR-FILE-UNSUPPORTED_DOCUMENT.md) | File check failed |
+[ERR.US.BAD_REQUEST.ALREADY_EXISTS](ERR-US-BAD_REQUEST-ALREADY_EXISTS.md) | Не удалось создать <тип_объекта> |
+[SDK_REQUEST_ERROR](SDK_REQUEST_ERROR.md) | Ошибка при обработке ответа |

@@ -1,0 +1,9 @@
+# Диагностика ошибок при аутентификации с аккаунтом на Яндексе
+
+## Ошибка входа с учетной записью {#authentication-missed}
+
+Доступ к сервисам Yandex Cloud ограничен для вашего [аккаунта на Яндексе](../iam/concepts/users/accounts.md). Обратитесь в [поддержку Яндекс ID](https://id.yandex.ru/helpdesk).
+
+## Доступ к сервису ограничен {#service-access-missed}
+
+Доступ к указанному сервису ограничен для вашего [аккаунта на Яндексе](../iam/concepts/users/accounts.md). Обратитесь в [поддержку Яндекс ID](https://id.yandex.ru/helpdesk).

@@ -1,0 +1,18 @@
+# Посмотреть журнал выполнения в API Gateway
+
+Время в журнале выполнения указано по [UTC](https://ru.wikipedia.org/wiki/Всемирное_координированное_время).
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится API-шлюз.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **API Gateway**.
+    1. Выберите API-шлюз, журнал выполнения которого вы хотите посмотреть.
+    1. Перейдите на вкладку **Логи** и укажите период. По умолчанию задан период за 1 час.
+
+{% endlist %}
+
+Каждое событие в журнале содержит параметр `release` со значением `canary`, если запрос был обработан канареечным релизом, и `stable` — текущим.
+
+Подробнее о работе с логами в [документации Yandex Cloud Logging](../../logging/index.md).

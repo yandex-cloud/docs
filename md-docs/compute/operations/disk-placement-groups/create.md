@@ -1,0 +1,110 @@
+# Создать группу размещения дисков
+
+
+Чтобы создать [группу размещения](../../concepts/disk-placement-group.md) для [нереплицируемых дисков](../../concepts/disk.md#nr-disks):
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать группу размещения дисков.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/copy-transparent.svg) **Группы размещений**.
+  1. Перейдите на вкладку **Группы размещения нереплицируемых дисков**.
+  1. В правом верхнем углу нажмите кнопку **Создать** → **Группу размещения нереплицируемых дисков**.
+  1. Введите имя группы размещения дисков. Требования к имени:
+
+     * длина — от 3 до 63 символов;
+     * может содержать строчные буквы латинского алфавита, цифры и дефисы;
+     * первый символ — буква, последний — не дефис.
+
+  1. При необходимости добавьте произвольное описание группы размещения дисков.
+  1. Укажите [зону доступности](../../../overview/concepts/geo-scope.md).
+  1. Выберите стратегию: [распределенное размещение](../../concepts/disk-placement-group.md#spread) (spread) или [размещение разделами](../../concepts/disk-placement-group.md#partition) (partition).
+
+     Для размещения разделами укажите количество разделов для нереплицируемых дисков.
+  1. Нажмите кнопку **Создать**.
+
+- CLI {#cli}
+
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+
+  По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+  1. Посмотрите описание команды [CLI](../../../cli/index.md) для создания группы размещения дисков:
+
+     ```bash
+     yc compute disk-placement-group create --help
+     ```
+
+  1. Создайте группу размещения дисков в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder) по умолчанию с одной из стратегий размещения:
+     * [Распределенное размещение](../../concepts/disk-placement-group.md#spread) (spread):
+
+       ```bash
+       yc compute disk-placement-group create \
+         --name <имя_группы_размещения_дисков> \
+         --zone <зона_доступности> \
+         --strategy SPREAD
+       ```
+
+       Где:
+       * `--name` — имя группы размещения дисков.
+       * `--zone` — [зона доступности](../../../overview/concepts/geo-scope.md).
+       * `--strategy` — стратегия размещения.
+     * [Размещение разделами](../../concepts/disk-placement-group.md#partition) (partition):
+
+       ```bash
+       yc compute disk-placement-group create \
+         --name <имя_группы_размещения_дисков> \
+         --zone <зона_доступности> \
+         --strategy PARTITION \
+         --partition-count <количество_разделов>
+       ```
+
+       Где:
+       * `--name` — имя группы размещения дисков.
+       * `--zone` — зона доступности.
+       * `--strategy` — стратегия размещения.
+       * `--partition-count` — количество разделов от 2 до 5.
+  1. Получите список групп размещения дисков в каталоге по умолчанию:
+
+     ```bash
+     yc compute disk-placement-group list
+     ```
+
+     Результат:
+
+     ```text
+     +----------------------+---------------------+-------------------+--------+---------------+
+     |          ID          |        NAME         |       ZONE        | STATUS |   STRATEGY    |
+     +----------------------+---------------------+-------------------+--------+---------------+
+     | epd3oalmkmbp******** | drbasic-partition-1 | ru-central1-b | READY  | PARTITION [3] |
+     | epdn7r7co1v4******** | drbasic-spread-2    | ru-central1-b | READY  | SPREAD        |
+     +----------------------+---------------------+-------------------+--------+---------------+
+     ```
+
+  1. Получите информацию о созданной группе размещения дисков, указав ее имя:
+
+     ```bash
+     yc compute disk-placement-group get \
+       --name <имя_группы_размещения>
+     ```
+
+     Результат:
+
+     ```text
+     id: epd4sug6kesk********
+     folder_id: w3qrbj9swoty********
+     created_at: "2021-03-23T12:49:59Z"
+     name: first-group
+     zone_id: ru-central1-b
+     status: READY
+     spread_placement_strategy: {}
+     ```
+
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [create](../../api-ref/DiskPlacementGroup/create.md) для ресурса [DiskPlacementGroup](../../api-ref/DiskPlacementGroup/index.md) или вызовом gRPC API [DiskPlacementGroupService/Create](../../api-ref/grpc/DiskPlacementGroup/create.md).
+
+{% endlist %}

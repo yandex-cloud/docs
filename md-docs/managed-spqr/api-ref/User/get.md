@@ -1,0 +1,97 @@
+# Managed Service for SPQR API, REST: User.Get
+
+Returns the specified SPQR User resource.
+
+To get the list of available SPQR User resources, make a [List](list.md#List) request.
+
+## HTTP request
+
+```
+GET https://mdb.api.cloud.yandex.net/managed-spqr/v1/clusters/{clusterId}/users/{userName}
+```
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| clusterId | **string**
+
+Required field. ID of the SPQR cluster the user belongs to.
+To get the cluster ID, use a [ClusterService.List](../Cluster/list.md#List) request.
+
+The maximum string length in characters is 50. ||
+|| userName | **string**
+
+Required field. Name of the SPQR User resource to return.
+To get the name of the user, use a [UserService.List](list.md#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `. ||
+|#
+
+## Response {#yandex.cloud.mdb.spqr.v1.User}
+
+**HTTP Code: 200 - OK**
+
+```json
+{
+  "name": "string",
+  "clusterId": "string",
+  "permissions": [
+    {
+      "databaseName": "string"
+    }
+  ],
+  "settings": {
+    "connectionLimit": "string",
+    "connectionRetries": "string"
+  },
+  "grants": [
+    "string"
+  ],
+  "deletionProtection": "boolean"
+}
+```
+
+A SPQR User resource. For more information, see the
+[Developer's Guide](../../concepts/index.md).
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Name of the SPQR user. ||
+|| clusterId | **string**
+
+ID of the SPQR cluster the user belongs to. ||
+|| permissions[] | **[Permission](#yandex.cloud.mdb.spqr.v1.Permission)**
+
+Set of permissions granted to the user. ||
+|| settings | **[UserSettings](#yandex.cloud.mdb.spqr.v1.UserSettings)**
+
+SPQR Settings for this user ||
+|| grants[] | **string**
+
+User grants
+
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+|| deletionProtection | **boolean**
+
+Deletion Protection inhibits deletion of the user ||
+|#
+
+## Permission {#yandex.cloud.mdb.spqr.v1.Permission}
+
+#|
+||Field | Description ||
+|| databaseName | **string**
+
+Name of the database that the permission grants access to. ||
+|#
+
+## UserSettings {#yandex.cloud.mdb.spqr.v1.UserSettings}
+
+#|
+||Field | Description ||
+|| connectionLimit | **string** (int64) ||
+|| connectionRetries | **string** (int64) ||
+|#

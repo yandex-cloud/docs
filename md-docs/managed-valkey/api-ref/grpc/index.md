@@ -1,0 +1,16 @@
+# Managed Service for Redis API: gRPC reference
+
+Actions are performed by making RPC calls. For more information about API architecture, see [API Concepts](../../../api-design-guide/index.md).
+
+**Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/mdb/redis/v1).
+
+**Service URL**: `https://mdb.api.cloud.yandex.net`
+
+#|
+||Service | Description ||
+|| [Backup](Backup/index.md) | A set of methods for managing Redis backups. ||
+|| [Cluster](Cluster/index.md) | A set of methods for managing Redis clusters. ||
+|| [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
+|| [ResourcePreset](ResourcePreset/index.md) | A set of methods for working with resource presets. ||
+|| [User](User/index.md) | A set of methods for managing Redis User resources. ||
+|#

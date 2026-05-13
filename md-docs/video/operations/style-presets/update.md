@@ -1,0 +1,56 @@
+# Изменить или дублировать шаблон плеера
+
+## Изменить шаблон плеера {#update}
+
+Вы можете изменить предустановленные шаблоны плеера `Default Style Preset` и `Summarization Style Preset` или [создать](create.md) свой.
+
+{% list tabs group=instructions %}
+
+- Интерфейс Cloud Video {#console}
+
+  1. Откройте [главную страницу](https://video.yandex.cloud/) Cloud Video.
+  1. Выберите канал.
+  1. На вкладке ![image](../../../_assets/console-icons/gear-play.svg) **Шаблоны плеера** выберите нужный шаблон.
+  1. Измените название шаблона в поле **Имя шаблона**.
+  1. В блоке **Настройки виджетов**:
+     * Включите или выключите нужные виджеты.
+     * Измените их расположение в интерфейсе плеера.
+  1. В блоке **Настройка стилей**:
+     * Измените цветовую схему.
+     * Настройте размеры элементов.
+     * Задайте другие визуальные параметры.
+  1. (Опционально) Чтобы посмотреть, как будут выглядеть видео и плейлисты с выбранным шаблоном в отдельном окне, нажмите **Посмотреть шаблон в отдельном окне**.
+  1. Нажмите **Сохранить**.
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [update](../../api-ref/StylePreset/update.md) для ресурса [StylePreset](../../api-ref/StylePreset/index.md) или вызовом gRPC API [StylePresetService/Update](../../api-ref/grpc/StylePreset/update.md).
+
+{% endlist %}
+
+## Дублировать шаблон плеера {#duplicate}
+
+{% list tabs group=instructions %}
+
+- Интерфейс Cloud Video {#console}
+
+  1. Откройте [главную страницу](https://video.yandex.cloud/) Cloud Video.
+  1. Выберите канал.
+  1. На вкладке ![image](../../../_assets/console-icons/gear-play.svg) **Шаблоны плеера** в строке с нужным шаблоном нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Дублировать**.
+  1. В списке шаблонов появится дубликат. При необходимости измените настройки виджетов и стилей.
+  
+- API {#api}
+
+  Для дублирования шаблона:
+  
+  1. Получите информацию о существующем шаблоне с помощью метода REST API [get](../../api-ref/StylePreset/get.md) для ресурса [StylePreset](../../api-ref/StylePreset/index.md) или вызова gRPC API [StylePresetService/Get](../../api-ref/grpc/StylePreset/get.md).
+  1. Создайте новый шаблон с теми же параметрами, используя метод REST API [create](../../api-ref/StylePreset/create.md) для ресурса [StylePreset](../../api-ref/StylePreset/index.md) или вызов gRPC API [StylePresetService/Create](../../api-ref/grpc/StylePreset/create.md).
+
+{% endlist %}
+
+#### См. также {#see-also}
+
+* [Создать шаблон плеера](create.md)
+* [Удалить шаблон плеера](delete.md)
+* [Получить информацию о шаблоне плеера](get.md)
+* [Назначить шаблон плеера по умолчанию](set-default.md)

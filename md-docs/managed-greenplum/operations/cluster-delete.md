@@ -1,0 +1,148 @@
+# Удаление кластера Greenplum®
+
+## Перед удалением кластера {#before-you-delete}
+
+* [Отключите защиту от удаления](update.md#change-additional-settings) для кластера, если она включена.
+* [Сохраните идентификатор кластера](cluster-list.md#list-clusters).
+
+  Идентификатор кластера понадобится при восстановлении удаленного кластера из резервной копии.
+  
+  После удаления кластера баз данных его резервные копии сохраняются и могут быть использованы для восстановления в течение семи дней.
+
+## Удалить кластер {#delete}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. Перейдите [на страницу каталога](https://console.yandex.cloud).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Yandex MPP Analytics for&nbsp;PostgreSQL**.
+  1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужного кластера, выберите пункт **Удалить** и подтвердите удаление.
+
+- CLI {#cli}
+
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+
+    По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+    Чтобы удалить кластер, выполните команду:
+
+    ```bash
+    yc managed-greenplum cluster delete <имя_или_идентификатор_кластера>
+    ```
+
+    Идентификатор и имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- Terraform {#tf}
+
+    [Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+    
+    Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+    
+    Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
+    
+    
+    Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+    
+    
+    Чтобы удалить кластер, созданный с помощью Terraform:
+    1. В командной строке перейдите в каталог, в котором расположен актуальный конфигурационный файл Terraform с планом инфраструктуры.
+    1. Удалите ресурсы с помощью команды:
+    
+       ```bash
+       terraform destroy
+       ```
+    
+       {% note alert %}
+    
+       Terraform удалит все ресурсы, которые были созданы с его помощью: кластеры, сети, подсети, виртуальные машины и т. д.
+    
+       {% endnote %}
+    
+    1. Введите слово `yes` и нажмите **Enter**.
+
+    {% note warning "Ограничения по времени" %}
+    
+    Провайдер Terraform ограничивает время на выполнение всех операций с кластером Yandex MPP Analytics for PostgreSQL 120 минутами.
+    
+    Операции, длящиеся дольше указанного времени, прерываются.
+    
+    {% cut "Как изменить эти ограничения?" %}
+    
+    Добавьте к описанию кластера блок `timeouts`, например:
+    
+    ```hcl
+    resource "yandex_mdb_greenplum_cluster" "<имя кластера>" {
+      ...
+      timeouts {
+        create = "1h30m" # Полтора часа
+        update = "2h"    # 2 часа
+        delete = "30m"   # 30 минут
+      }
+    }
+    ```
+    
+    {% endcut %}
+    
+    {% endnote %}
+
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        ```bash
+        export IAM_TOKEN="<IAM-токен>"
+        ```
+
+    1. Воспользуйтесь методом [Cluster.Delete](../api-ref/Cluster/delete.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+
+        ```bash
+        curl \
+            --request DELETE \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://mdb.api.cloud.yandex.net/managed-greenplum/v1/clusters/<идентификатор_кластера>'
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/delete.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        ```bash
+        export IAM_TOKEN="<IAM-токен>"
+        ```
+
+    1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+       
+       ```bash
+       cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+       ```
+       
+       Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+
+    1. Воспользуйтесь вызовом [ClusterService.Delete](../api-ref/grpc/Cluster/delete.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/greenplum/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<идентификатор_кластера>"
+                }' \
+            mdb.api.cloud.yandex.net:443 \
+            yandex.cloud.mdb.greenplum.v1.ClusterService.Delete
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/delete.md#yandex.cloud.operation.Operation).
+
+{% endlist %}
+
+_Greenplum® и Greenplum Database® являются зарегистрированными товарными знаками или товарными знаками Broadcom Inc в США и/или других странах._

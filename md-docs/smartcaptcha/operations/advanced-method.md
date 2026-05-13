@@ -1,0 +1,83 @@
+# Добавить виджет SmartCaptcha
+
+## Добавить виджет SmartCaptcha расширенным методом {#advanced}
+
+Вы управляете загрузкой виджета через [объект](../concepts/widget-methods.md#methods) `window.smartCaptcha`. В инструкции для этого используется callback-функция `onloadFunction`:
+
+1. Подключите JS-скрипт к странице пользователя. Для этого разместите следующий код в любом месте страницы, например, внутри тега `<head>`:
+
+    ```html
+    <script
+        src="https://smartcaptcha.cloud.yandex.ru/captcha.js?render=onload&onload=onloadFunction"
+        defer
+    ></script>
+    ```
+
+1. Добавьте на страницу пустой контейнер, в который будет вставлен виджет:
+
+    ```html
+    <div id="<идентификатор_контейнера>"></div>
+    ```
+
+    Где `id` — произвольный идентификатор.
+
+1. Добавьте на страницу код callback-функции:
+
+    ```html
+    <script>
+        function onloadFunction() {
+        if (window.smartCaptcha) {
+            const container = document.getElementById('<идентификатор_контейнера>');
+
+            const widgetId = window.smartCaptcha.render(container, {
+                sitekey: '<ключ_клиента>',
+                hl: '<язык>',
+            });
+        }
+        }
+    </script>
+    ```
+
+    Где:
+
+    * `<идентификатор_контейнера>` — идентификатор, сгенерированный на предыдущем шаге;
+    * `sitekey` — [ключ клиентской части](../concepts/keys.md);
+    * `hl` — [язык](../concepts/widget-methods.md#render) виджета и задания.
+
+    В код callback-функции стоит добавить проверку существования объекта `window.smartCaptcha`, чтобы не вызвать ошибку в случае вызова функции до завершения загрузки JS-скрипта.
+
+    {% note info %}
+    
+    При загрузке виджет меняет высоту контейнера, в котором он находится, на `100px`. Это может привести к нежелательному «скачку» верстки на странице из-за изменения высоты. Чтобы избавиться от этого «скачка», вы можете задать до загрузки виджета высоту контейнера `100px`.
+    
+    ```html
+    <div ... style="height: 100px"></div>
+    ```
+    
+    {% endnote %}
+
+## Добавить виджет SmartCaptcha с загрузкой при необходимости {#dynamic}
+
+Чтобы добавить виджет и загружать капчу при необходимости, используйте следующий подход:
+
+```js
+window.onloadFunction = () => {
+  if (window.smartCaptcha) {
+    // Создание капчи
+  }
+}
+
+function handleScriptLoadingError() {
+  // Обработка ошибок
+}
+
+const scriptElement = document.createElement('script');
+scriptElement.src = 'https://smartcaptcha.cloud.yandex.ru/captcha.js?render=onload&onload=onloadFunction';
+scriptElement.onerror = handleScriptLoadingError;
+document.body.appendChild(scriptElement);
+```
+
+## Что дальше {#whats-next}
+
+* [Невидимая капча](../concepts/invisible-captcha.md).
+* [Подключение капчи в React](../concepts/react.md).

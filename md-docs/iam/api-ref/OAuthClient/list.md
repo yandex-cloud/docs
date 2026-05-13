@@ -1,0 +1,78 @@
+# Identity and Access Management API, REST: OAuthClient.List
+
+Retrieves the list of OAuthClient resources views in the specified folder
+
+## HTTP request
+
+```
+GET https://iam.api.cloud.yandex.net/iam/v1/oauthClients
+```
+
+## Query parameters {#yandex.cloud.iam.v1.ListOAuthClientsRequest}
+
+#|
+||Field | Description ||
+|| pageSize | **string** (int64)
+
+The maximum number of results per page to return. If the number of available
+results is larger than `pageSize`,
+the service returns a [ListOAuthClientsResponse.nextPageToken](#yandex.cloud.iam.v1.ListOAuthClientsResponse)
+that can be used to get the next page of results in subsequent list requests.
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| pageToken | **string**
+
+Page token. To get the next page of results, set `pageToken` to the
+[ListOAuthClientsResponse.nextPageToken](#yandex.cloud.iam.v1.ListOAuthClientsResponse) returned by a previous list request.
+
+The maximum string length in characters is 2000. ||
+|| folderId | **string**
+
+Required field. ID of the folder to list oauth clients for
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](../../../resource-manager/api-ref/Folder/list.md#List) request.
+
+The maximum string length in characters is 50. ||
+|#
+
+## Response {#yandex.cloud.iam.v1.ListOAuthClientsResponse}
+
+**HTTP Code: 200 - OK**
+
+```json
+{
+  "oauthClients": [
+    {
+      "id": "string",
+      "name": "string"
+    }
+  ],
+  "nextPageToken": "string"
+}
+```
+
+#|
+||Field | Description ||
+|| oauthClients[] | **[OAuthClientListView](#yandex.cloud.iam.v1.OAuthClientListView)**
+
+List of OAuthClient resource views ||
+|| nextPageToken | **string**
+
+This token allows you to get the next page of results for list requests. If the number of results
+is larger than [ListOAuthClientsRequest.pageSize](#yandex.cloud.iam.v1.ListOAuthClientsRequest), use
+the `nextPageToken` as the value
+for the [ListOAuthClientsRequest.pageToken](#yandex.cloud.iam.v1.ListOAuthClientsRequest) query parameter
+in the next list request. Each subsequent list request will have its own
+`nextPageToken` to continue paging through the results. ||
+|#
+
+## OAuthClientListView {#yandex.cloud.iam.v1.OAuthClientListView}
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the OAuthClient resource. ||
+|| name | **string**
+
+Name of the OAuthClient resource. ||
+|#

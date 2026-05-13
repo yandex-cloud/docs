@@ -1,0 +1,1 @@
+## Примеры конфигураций и сценариев Managed Service for ClickHouse® {#configuration-examples}

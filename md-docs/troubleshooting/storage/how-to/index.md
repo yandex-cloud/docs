@@ -1,0 +1,12 @@
+## Примеры конфигураций и сценариев Object Storage {#configuration-examples}
+
+* [Как ограничить доступ к бакету Object Storage диапазоном IP-адресов, принадлежащих Cloud CDN](permit-bucket-access-only-to-cdn-networks.md)
+* [Как перенести данные из бакета Object Storage в ледяное хранилище](moving-objects-to-glacier-storage-type.md)
+* [Как перенести содержимое бакета в другой бакет в пределах организации](moving-data-to-other-bucket-within-organisation.md)
+* [Как работать напрямую с API Object Storage без использования SDK](curl-api-request-example.md)
+* [Как просматривать и удалять незавершенные загрузки](incomplete-downloads.md)
+* [Как узнать скорость загрузки и скачивания данных](upload-download-speed.md)
+* [Как настроить заголовки кэширования `Cache-Control` для объектов в бакете при HTTP-запросах](configure-cache-headings-with-http-queries.md)
+* [Как ограничить доступ к бакету для пользователя](restrict-bucket-access.md)
+* [Как изменить класс хранения](change-storage-class.md)
+* [Как восстановить удаленные данные из бакета](recover-deleted-objects.md)

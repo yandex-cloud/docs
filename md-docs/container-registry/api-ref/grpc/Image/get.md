@@ -1,0 +1,114 @@
+# Container Registry API, gRPC: ImageService.Get
+
+Returns the specified Image resource.
+
+To get the list of available Image resources, make a [List](list.md#List) request.
+
+## gRPC request
+
+**rpc Get ([GetImageRequest](#yandex.cloud.containerregistry.v1.GetImageRequest)) returns ([Image](#yandex.cloud.containerregistry.v1.Image))**
+
+## GetImageRequest {#yandex.cloud.containerregistry.v1.GetImageRequest}
+
+```json
+{
+  "image_id": "string"
+}
+```
+
+#|
+||Field | Description ||
+|| image_id | **string**
+
+Required field. ID of the Docker image resource to return.
+
+To get the Docker image ID use a [ImageService.List](list.md#List) request.
+
+The maximum string length in characters is 50. ||
+|#
+
+## Image {#yandex.cloud.containerregistry.v1.Image}
+
+```json
+{
+  "id": "string",
+  "name": "string",
+  "digest": "string",
+  "compressed_size": "int64",
+  "config": {
+    "id": "string",
+    "digest": "string",
+    "size": "int64",
+    "urls": [
+      "string"
+    ]
+  },
+  "layers": [
+    {
+      "id": "string",
+      "digest": "string",
+      "size": "int64",
+      "urls": [
+        "string"
+      ]
+    }
+  ],
+  "tags": [
+    "string"
+  ],
+  "created_at": "google.protobuf.Timestamp"
+}
+```
+
+An Image resource. For more information, see [Docker image](../../../concepts/docker-image.md).
+
+#|
+||Field | Description ||
+|| id | **string**
+
+Output only. ID of the Docker image. ||
+|| name | **string**
+
+Name of the Docker image.
+The name is unique within the registry. ||
+|| digest | **string**
+
+Content-addressable identifier of the Docker image. ||
+|| compressed_size | **int64**
+
+Compressed size of the Docker image, specified in bytes. ||
+|| config | **[Blob](#yandex.cloud.containerregistry.v1.Blob)**
+
+Configuration of the Docker image. ||
+|| layers[] | **[Blob](#yandex.cloud.containerregistry.v1.Blob)**
+
+Layers of the Docker image. ||
+|| tags[] | **string**
+
+Tags of the Docker image.
+
+Each tag is unique within the repository. ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
+|#
+
+## Blob {#yandex.cloud.containerregistry.v1.Blob}
+
+A Blob resource.
+
+#|
+||Field | Description ||
+|| id | **string**
+
+Output only. ID of the blob. ||
+|| digest | **string**
+
+Content-addressable identifier of the blob. ||
+|| size | **int64**
+
+Size of the blob, specified in bytes. ||
+|| urls[] | **string**
+
+List of blob urls. ||
+|#

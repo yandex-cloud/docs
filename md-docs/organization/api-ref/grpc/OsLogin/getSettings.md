@@ -1,0 +1,59 @@
+# Identity Hub API, gRPC: OsLoginService.GetSettings
+
+OsLogin settings
+
+## gRPC request
+
+**rpc GetSettings ([GetOsLoginSettingsRequest](#yandex.cloud.organizationmanager.v1.GetOsLoginSettingsRequest)) returns ([OsLoginSettings](#yandex.cloud.organizationmanager.v1.OsLoginSettings))**
+
+## GetOsLoginSettingsRequest {#yandex.cloud.organizationmanager.v1.GetOsLoginSettingsRequest}
+
+```json
+{
+  "organization_id": "string"
+}
+```
+
+#|
+||Field | Description ||
+|| organization_id | **string**
+
+Required field.
+
+The maximum string length in characters is 50. ||
+|#
+
+## OsLoginSettings {#yandex.cloud.organizationmanager.v1.OsLoginSettings}
+
+```json
+{
+  "user_ssh_key_settings": {
+    "enabled": "bool",
+    "allow_manage_own_keys": "bool"
+  },
+  "ssh_certificate_settings": {
+    "enabled": "bool"
+  }
+}
+```
+
+#|
+||Field | Description ||
+|| user_ssh_key_settings | **[UserSshKeySettings](#yandex.cloud.organizationmanager.v1.UserSshKeySettings)** ||
+|| ssh_certificate_settings | **[SshCertificateSettings](#yandex.cloud.organizationmanager.v1.SshCertificateSettings)** ||
+|#
+
+## UserSshKeySettings {#yandex.cloud.organizationmanager.v1.UserSshKeySettings}
+
+#|
+||Field | Description ||
+|| enabled | **bool** ||
+|| allow_manage_own_keys | **bool** ||
+|#
+
+## SshCertificateSettings {#yandex.cloud.organizationmanager.v1.SshCertificateSettings}
+
+#|
+||Field | Description ||
+|| enabled | **bool** ||
+|#

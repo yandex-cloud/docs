@@ -1,0 +1,41 @@
+# Справочник аудитных логов Yandex Audit Trails
+
+В Audit Trails для Yandex Managed Service for Apache Kafka® поддерживается отслеживание [событий уровня конфигурации](../audit-trails/concepts/format.md) (Control Plane) и [событий уровня сервисов](../audit-trails/concepts/format-data-plane.md) (Data Plane).
+
+Общий вид значения поля `event_type` (_тип события_):
+
+```text
+yandex.cloud.audit.mdb.kafka.<имя_события>
+```
+
+## Справочник событий уровня конфигурации {#control-plane-events}
+
+Имя события | Описание
+--- | ---
+`CreateCluster` | Создание кластера
+`CreateConnector` | Создание коннектора
+`CreateTopic` | Создание топика
+`CreateUser` | Создание пользователя кластера
+`DeleteCluster` | Удаление кластера
+`DeleteConnector` | Удаление коннектора
+`DeleteTopic` | Удаление топика
+`DeleteUser` | Удаление пользователя кластера
+`GrantUserPermission` | Назначение прав пользователю кластера
+`MoveCluster` | Перемещение кластера
+`PauseConnector` | Приостановка коннектора
+`ResumeConnector` | Возобновление работы коннектора
+`RevokeUserPermission` | Отзыв прав у пользователя кластера
+`StartCluster` | Запуск кластера
+`StopCluster` | Остановка кластера
+`UpdateCluster` | Изменение кластера
+`UpdateConnector` | Изменение коннектора
+`UpdateTopic` | Изменение топика
+`UpdateUser` | Изменение пользователя кластера
+
+## Справочник событий уровня сервисов {#data-plane-events}
+
+Имя события | Описание
+--- | ---
+`AlterConfigAdminApi` | Изменение конфигурации Admin API
+`CreateTopicAdminApi` | Создание топика Admin API
+`DeleteTopicAdminApi` | Удаление топика Admin API

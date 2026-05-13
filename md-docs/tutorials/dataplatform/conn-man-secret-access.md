@@ -1,0 +1,167 @@
+# Настройка прав доступа к секрету, созданному Yandex Connection Manager, для пользователя Yandex Managed Service for PostgreSQL
+
+# Настройка прав доступа к секрету, созданному Yandex Connection Manager, для пользователя Yandex Managed Service for PostgreSQL
+
+Вы можете получить пароль пользователя [Yandex Managed Service for PostgreSQL](../../managed-postgresql/index.md) из [секрета Yandex Lockbox](../../lockbox/concepts/secret.md). Это можно сделать через [Yandex Cloud CLI](../../cli/index.md). Для этого [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), под которым вы авторизованы в Yandex Cloud CLI, нужно настроить права доступа к секрету пользователя. Информацию о секрете, необходимую для настройки прав, можно получить из подключения [Connection Manager](../../metadata-hub/concepts/connection-manager.md).
+
+Чтобы настроить права доступа к секрету пользователя:
+
+1. [Создайте необходимую инфраструктуру и настройте права доступа к секрету пользователя](#set-up-roles).
+1. [Получите пароль пользователя из секрета](#get-password).
+
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+
+## Перед началом работы {#before-you-begin}
+
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+
+[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+
+
+### Необходимые платные ресурсы {#paid-resources}
+
+* Кластер Managed Service for PostgreSQL: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы Yandex Virtual Private Cloud](../../vpc/pricing.md)).
+
+Использование Connection Manager, а также секретов Yandex Lockbox, созданных с его помощью, не тарифицируется.
+
+
+## Настройте права доступа к секрету пользователя Managed Service for PostgreSQL {#set-up-roles}
+
+{% list tabs group=instructions %}
+
+- Terraform {#tf}
+
+    1. Если у вас еще нет Terraform, [установите его](../infrastructure-management/terraform-quickstart.md#install-terraform).
+    1. [Получите данные для аутентификации](../infrastructure-management/terraform-quickstart.md#get-credentials). Вы можете добавить их в переменные окружения или указать далее в файле с настройками провайдера.
+    1. [Настройте и инициализируйте провайдер](../infrastructure-management/terraform-quickstart.md#configure-provider). Чтобы не создавать конфигурационный файл с настройками провайдера вручную, [скачайте его](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
+
+        {% note warning %}
+        
+        Требуется провайдер Yandex версии не ниже `0.160.0`. Если в конфигурации версия провайдера не указана явно, Terraform автоматически загрузит последнюю совместимую версию.
+
+        {% endnote %}
+
+    1. Поместите конфигурационный файл в отдельную рабочую директорию и [укажите значения параметров](../infrastructure-management/terraform-quickstart.md#configure-provider). Если данные для аутентификации не были добавлены в переменные окружения, укажите их в конфигурационном файле.
+
+    1. Скачайте в ту же рабочую директорию файл конфигурации [conn-man-secret-access.tf](https://github.com/yandex-cloud-examples/yc-connection-manager-secret-access/blob/main/conn-man-secret-access.tf).
+
+        В этом файле описаны:
+
+        * кластер Managed Service for PostgreSQL;
+        * настройка прав сервисного аккаунта для доступа к секрету пользователя Managed Service for PostgreSQL;
+        * получение идентификатора подключения и идентификатора секрета.     
+
+    1. Укажите в конфигурационном файле следующие параметры:
+        
+        * `network_id` — идентификатор [сети](../../vpc/concepts/network.md#network) для кластера;
+        * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet) в [зоне доступности](../../overview/concepts/geo-scope.md) `ru-central1-a` для кластера;
+        * `pg_cluster_version` — версия PostgreSQL;
+        * `pg_cluster_name` — имя кластера;
+        * `pg_cluster_db` — имя базы данных в кластере;
+        * `pg_cluster_username` — имя пользователя в кластере;
+        * `pg_cluster_password` — пароль пользователя;
+        * `lockbox_sa_id` — идентификатор сервисного аккаунта, для которого будет настроен доступ к секрету.
+
+    1. Проверьте корректность файлов конфигурации Terraform с помощью команды:
+
+        ```bash
+        terraform validate
+        ```
+
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+
+    1. Создайте необходимую инфраструктуру:
+
+        1. Выполните команду для просмотра планируемых изменений:
+        
+           ```bash
+           terraform plan
+           ```
+        
+           Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
+        
+        1. Если вас устраивают планируемые изменения, внесите их:
+           1. Выполните команду:
+        
+              ```bash
+              terraform apply
+              ```
+        
+           1. Подтвердите изменение ресурсов.
+           1. Дождитесь завершения операции.
+
+        В указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления](https://console.yandex.cloud).
+    
+    1. После применения конфигурации Terraform выведет идентификаторы подключения и секрета.
+
+        Пример вывода:
+        
+        > ```bash
+        > Outputs:
+        >
+        > connection_id = "a59v09bb8907********"
+        > connection_info = "e6q2rjghh9bc********"
+        > ```
+
+        Сохраните идентификатор секрета `connection_info`, он понадобится для [получения пароля пользователя](#get-password).
+
+{% endlist %}
+
+## Получите пароль пользователя из секрета Yandex Lockbox {#get-password}
+
+1. [Аутентифицируйтесь в Yandex Cloud CLI от имени сервисного аккаунта с помощью авторизованного ключа](../../cli/operations/authentication/service-account.md#auth-as-sa).
+
+1. Получите пароль пользователя из секрета и сохраните его в переменную `PASSWORD`: 
+
+    {% list tabs group=instructions %}
+
+    - CLI {#cli}
+
+      ```bash
+      PASSWORD=$(yc lockbox payload get <идентификатор_секрета> \
+        --format json \
+        | jq -r '.entries[] | select(.key=="postgresql_password") | .text_value')
+      ```
+
+    {% endlist %}
+
+1. Чтобы посмотреть сохраненный пароль, выполните команду:
+
+    ```bash
+    echo "$PASSWORD"
+    ```
+
+## Удалите созданные ресурсы {#clear-out}
+
+Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
+
+{% list tabs group=instructions %}
+
+- Terraform {#tf}
+
+    1. В терминале перейдите в директорию с планом инфраструктуры.
+    
+        {% note warning %}
+    
+        Убедитесь, что в директории нет Terraform-манифестов с ресурсами, которые вы хотите сохранить. Terraform удаляет все ресурсы, которые были созданы с помощью манифестов в текущей директории.
+    
+        {% endnote %}
+    
+    1. Удалите ресурсы:
+    
+        1. Выполните команду:
+    
+            ```bash
+            terraform destroy
+            ```
+    
+        1. Подтвердите удаление ресурсов и дождитесь завершения операции.
+    
+        Все ресурсы, которые были описаны в Terraform-манифестах, будут удалены.
+
+{% endlist %}

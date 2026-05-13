@@ -1,0 +1,77 @@
+# Просмотреть список доступов субъекта
+
+Вы можете централизованно просматривать полный список прав доступа индивидуальных [субъектов](../../iam/concepts/access-control/index.md#subject) и групп к [ресурсам](../../iam/concepts/access-control/resources-with-access-control.md) организации. Для этого можно использовать [модуль CIEM](../../security-deck/concepts/ciem.md) сервиса [Yandex Security Deck](https://center.yandex.cloud/security/) или [Yandex Cloud CLI](../../cli/index.md).
+
+Просматривать доступы в интерфейсе Security Deck могут [члены организации](../concepts/membership.md), которым на эту организацию назначена [роль](../security/index.md#organization-manager-viewer) `organization-manager.viewer` или выше.
+
+Диагностика доступов с помощью Yandex Cloud CLI доступна в релизе 0.171 и выше.
+
+Чтобы получить список доступов субъекта к ресурсам организации:
+
+{% list tabs group=instructions %}
+
+- Интерфейс Security Deck {#cloud-sd}
+
+  1. [Войдите в аккаунт](https://passport.yandex.ru/auth) пользователя организации с [ролью](../security/index.md#organization-manager-viewer) `organization-manager.viewer` или выше на эту организацию.
+  1. Перейдите в сервис [Yandex Security Deck](https://center.yandex.cloud/security/).
+  1. На панели слева выберите ![person-gear](../../_assets/console-icons/person-gear.svg) **Диагностика доступа**.
+  1. Нажмите кнопку ![person-plus](../../_assets/console-icons/person-plus.svg) **Выбрать субъект** и в открывшемся окне:
+  
+      1. Выберите нужного [пользователя](../../overview/roles-and-resources.md#users), [сервисный аккаунт](../../iam/concepts/users/accounts.md#sa), [группу пользователей](../concepts/groups.md), [системную группу](../../iam/concepts/access-control/system-group.md) или [публичную группу](../../iam/concepts/access-control/public-group.md).
+
+          При необходимости воспользуйтесь поиском.
+      1. Нажмите **Выбрать**.
+  
+  Откроется список доступов, назначенных выбранному субъекту. Для каждого доступа в списке указываются имя/идентификатор и тип ресурса, к которому выдан доступ, назначенная субъекту на этот ресурс [роль](../../iam/concepts/access-control/roles.md), а также информация о том, была ли эта роль назначена субъекту напрямую или была унаследована из группы, членом которой является этот субъект.
+  
+  Если у выбранного субъекта много доступов, отобразится только часть из них. Чтобы отобразить остальные доступы, нажмите кнопку **Загрузить ещё** внизу страницы.
+  
+  При необходимости воспользуйтесь фильтром по идентификатору ресурса, идентификатору роли или по способу назначения доступа: `Назначенные напрямую` или `Назначенные через группу`.
+
+- CLI {#cli}
+
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+
+  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+  1. Посмотрите описание команды CLI для получения списка доступов субъекта:
+
+     ```bash
+     yc iam access-analyzer list-subject-access-bindings --help
+     ```
+
+  1. Получите [идентификатор пользователя](users-get.md), [сервисного аккаунта](../../iam/operations/sa/get-id.md) или [группы пользователей](group-get-id.md) для просмотра списка доступов.
+
+  1. С помощью команды `yc iam access-analyzer list-subject-access-bindings` получите список доступов субъекта:
+
+     ```bash
+     yc iam access-analyzer list-subject-access-bindings \
+        --organization-id=<идентификатор_организации> \
+        --subject-id=<идентификатор_субъекта>
+     ```
+
+     Где:
+
+     * `--organization-id` — [идентификатор организации](organization-get-id.md).
+     * `--subject-id` — идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject): [пользователя](../../overview/roles-and-resources.md#users), [сервисного аккаунта](../../iam/concepts/users/accounts.md#sa), [группы пользователей](../concepts/groups.md), [системной группы](../../iam/concepts/access-control/system-group.md) или [публичной группы](../../iam/concepts/access-control/public-group.md).
+
+     Результат:
+
+     ```text
+     +---------+-------------------------+----------------------+----------+
+     | ROLE ID |      RESOURCE TYPE      |     RESOURCE ID      | GROUP ID |
+     +---------+-------------------------+----------------------+----------+
+     | admin   | resource-manager.cloud  | b1g2c5615qja******** |          |
+     | admin   | resource-manager.folder | b1gq979gqitb******** |          |
+     +---------+-------------------------+----------------------+----------+
+     ```
+  
+     Список доступов будет представлен в виде таблицы. Для каждого доступа в списке указывается роль, назначенная субъекту на этот ресурс, тип ресурса и его идентификатор. Если эта роль не была назначена субъекту напрямую, а была унаследована из группы, то отобразится идентификатор этой группы.
+
+{% endlist %}
+
+
+#### См. также {#see-also}
+
+* [Модуль диагностики доступов (CIEM)](../../security-deck/concepts/ciem.md)
+* [Общие роли Yandex Security Deck](../../security-deck/security/index.md)

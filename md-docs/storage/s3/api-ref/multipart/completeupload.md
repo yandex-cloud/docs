@@ -1,0 +1,123 @@
+# Object Storage API, REST совместимый с Amazon S3: CompleteMultipartUpload
+
+Запрос завершает составную загрузку.
+
+При получении запроса Object Storage:
+
+- Собирает конечный объект из полученных в процессе загрузки частей в порядке их номеров
+- Удаляет идентификатор загрузки, так что все последующие запросы с идентификатором загрузки вернут ошибку `NoSuchUpload`.
+
+При завершении загрузки клиент должен предоставить список частей, которые он отправлял. Описание каждой части должно содержать `ETag`, который клиент получает в ответ на каждую загруженную часть. Смотрите раздел [Object Storage API, REST совместимый с Amazon S3: UploadPart](uploadpart.md).
+
+В зависимости от размера объекта и количества частей операция может занять несколько минут.
+
+Если запрос завершился с ошибкой, то клиентское приложение должно быть готово повторить запрос.
+
+Подробнее о подготовке к работе с API и общем виде запроса см. в разделе [Как пользоваться S3 API](../../index.md).
+
+## Запрос {#request}
+
+```http
+POST /{bucket}/{key}?uploadId=UploadId HTTP/2
+```
+
+### Path параметры {#path-parameters}
+
+Параметр | Описание
+----- | -----
+`bucket` | Имя бакета.
+`key` | Ключ объекта.
+
+
+### Query параметры {#request-parameters}
+
+Параметр | Описание
+----- | -----
+`uploadId` | Идентификатор составной загрузки, который Object Storage вернул при [инициализации](startupload.md).
+
+
+### Заголовки {#request-headers}
+
+Используйте в запросе необходимые [общие заголовки](../common-request-headers.md).
+
+Заголовок | Описание
+--- | ---
+`If-Match` | Определяет условие выполнения операции. Операция будет выполнена, только если текущая версия объекта по указанному ключу существует, и ее `ETag` совпадает со значением в заголовке `If-Match`.
+`If-None-Match` | Определяет условие выполнения операции. Операция будет выполнена, только если в бакете нет объекта с таким же ключом. В значении заголовка укажите `*`.
+
+### Схема данных {#request-scheme}
+
+Список частей составной загрузки передается в виде XML-файла следующего формата:
+
+```xml
+<CompleteMultipartUpload>
+  <Part>
+    <PartNumber>PartNumber</PartNumber>
+    <ETag>ETag</ETag>
+  </Part>
+  ...
+</CompleteMultipartUpload>
+```
+
+Тег | Описание
+----- | -----
+`CompleteMultipartUpload` | Данные запроса.<br/><br/>Путь: `/CompleteMultipartUpload`.
+`Part` | Данные о загруженной части объекта.<br/><br/>Путь: `/CompleteMultipartUpload/Part`.
+`PartNumber` | Номер части.<br/><br/>Уникальный идентификатор, определяющий положение части среди других частей в загрузке.<br/><br/>Путь: `/CompleteMultipartUpload/Part/PartNumber`.
+`ETag` | Идентификатор, который клиент получил от Object Storage в ответ на загрузку части.<br/><br/>Путь: `/CompleteMultipartUpload/Part/ETag`.
+
+## Ответ {#response}
+
+### Заголовки {#response-headers}
+
+Ответ может содержать только [общие заголовки](../common-response-headers.md).
+
+### Коды ответов {#response-codes}
+
+Перечень возможных ответов смотрите в разделе [Ответы](../response-codes.md).
+
+Дополнительно, Object Storage может вернуть ошибки, описанные в таблице ниже.
+
+Ошибка | Описание | HTTP-код
+----- | ----- | -----
+`NoSuchUpload` | Указанная загрузка не существует. Возможно указан неверный идентификатор загрузки или загрузка была завершена или удалена. | 404 Not Found
+`InvalidPart` | Некоторые из указанных частей не найдены.<br/><br/>Возможные причины:<br/>- Части не загружены.<br/>- Переданный `ETag` не совпадает с сохраненным. | 400 Bad Request
+`InvalidPartOrder` | Список частей передан не в упорядоченном по возрастанию виде.<br/><br/>Список должен быть отсортирован по возрастанию по номерам частей. | 400 Bad Request
+
+
+Успешный ответ содержит дополнительные данные в формате XML, схема которого описана ниже.
+
+### Схема данных {#request-scheme}
+
+```xml
+<CompleteMultipartUploadResult xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+  <Location>http://Example-Bucket.storage.yandexcloud.net/Example-Object</Location>
+  <Bucket>Example-Bucket</Bucket>
+  <Key>Example-Object</Key>
+  <ETag>"3858f62230ac3c915f300c664312c11f-9"</ETag>
+</CompleteMultipartUploadResult>
+```
+
+Тег | Описание
+----- | -----
+`CompleteMultipartUploadResult` | Данные ответа.<br/><br/>Путь: `/CompleteMultipartUploadResult`.
+`Location` | URI созданного в результате загрузки объекта.<br/><br/>Путь: `/CompleteMultipartUploadResult/Location`.
+`Bucket` | Имя бакета, в котором находится объект.<br/><br/>Путь: `/CompleteMultipartUploadResult/Bucket`.
+`Key` | Ключ созданного объекта.<br/><br/>Путь: `/CompleteMultipartUploadResult/Key`.
+`ETag` | Хэш объекта.<br/><br/>ETag может быть, а может и не быть MD5.<br/><br/>Путь: `/CompleteMultipartUploadResult/ETag`.
+
+#### Связанные статьи {#related-articles}
+
+* [Составная (multipart) загрузка](../../../concepts/multipart.md)
+
+* [Завершение составной загрузки с условием](../../../operations/objects/multipart-upload.md#conditional-writes)
+
+#### См. также {#see-also}
+
+* [Начало работы с AWS S3 API в Yandex Object Storage](../../s3-api-quickstart.md)
+
+* [Отладка запросов с помощью утилиты AWS CLI](../../signing-requests.md#debugging)
+
+* [Пример отправки подписанного запроса с помощью утилиты curl](../../../api-ref/authentication.md#s3-api-example)
+
+* [Пример кода для генерации подписи](../../../concepts/pre-signed-urls.md#code-examples)

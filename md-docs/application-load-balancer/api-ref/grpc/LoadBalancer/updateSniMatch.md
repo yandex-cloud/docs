@@ -1,0 +1,290 @@
+# Application Load Balancer API, gRPC: LoadBalancerService.UpdateSniMatch
+
+Updates the specified SNI handler of the specified listener.
+
+This request does not allow to update [TlsListener.default_handler](get.md#yandex.cloud.apploadbalancer.v1.TlsListener). Make an [UpdateListener](updateListener.md#UpdateListener) request instead.
+
+## gRPC request
+
+**rpc UpdateSniMatch ([UpdateSniMatchRequest](#yandex.cloud.apploadbalancer.v1.UpdateSniMatchRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
+
+## UpdateSniMatchRequest {#yandex.cloud.apploadbalancer.v1.UpdateSniMatchRequest}
+
+```json
+{
+  "load_balancer_id": "string",
+  "listener_name": "string",
+  "name": "string",
+  "update_mask": "google.protobuf.FieldMask",
+  "server_names": [
+    "string"
+  ],
+  "handler": {
+    // Includes only one of the fields `http_handler`, `stream_handler`
+    "http_handler": {
+      "http_router_id": "string",
+      // Includes only one of the fields `http2_options`, `allow_http10`
+      "http2_options": {
+        "max_concurrent_streams": "int64"
+      },
+      "allow_http10": "bool",
+      // end of the list of possible fields
+      "rewrite_request_id": "bool"
+    },
+    "stream_handler": {
+      "backend_group_id": "string",
+      "idle_timeout": "google.protobuf.Duration"
+    },
+    // end of the list of possible fields
+    "certificate_ids": [
+      "string"
+    ],
+    "client_certificates_verification": {
+      "require_client_certificate": "bool",
+      // Includes only one of the fields `bytes`
+      "bytes": "string"
+      // end of the list of possible fields
+    }
+  }
+}
+```
+
+#|
+||Field | Description ||
+|| load_balancer_id | **string**
+
+Required field. ID of the application load balancer to update the SNI handler in. ||
+|| listener_name | **string**
+
+Required field. Name of the listener to update the SNI handler in. ||
+|| name | **string**
+
+Required field. Name of the SNI handler to update. ||
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+
+Field mask that specifies which attributes of the SNI handler should be updated. ||
+|| server_names[] | **string**
+
+New server names that are matched by the SNI handler.
+
+Existing set of server names is completely replaced by the provided set, so if you just want
+to add or remove a server name:
+1. Get the current set of server names with a [LoadBalancerService.Get](get.md#Get) request.
+2. Add or remove a server name in this set.
+3. Send the new set in this field.
+
+The number of elements must be greater than 0. ||
+|| handler | **[TlsHandler](#yandex.cloud.apploadbalancer.v1.TlsHandler)**
+
+Required field. New settings for handling requests with Server Name Indication (SNI) matching one of `server_names` values. ||
+|#
+
+## TlsHandler {#yandex.cloud.apploadbalancer.v1.TlsHandler}
+
+A TLS-encrypted (HTTP or TCP stream) handler resource.
+
+#|
+||Field | Description ||
+|| http_handler | **[HttpHandler](#yandex.cloud.apploadbalancer.v1.HttpHandler)**
+
+HTTP handler.
+
+Includes only one of the fields `http_handler`, `stream_handler`.
+
+Settings for handling requests. ||
+|| stream_handler | **[StreamHandler](#yandex.cloud.apploadbalancer.v1.StreamHandler)**
+
+Stream (TCP) handler.
+
+Includes only one of the fields `http_handler`, `stream_handler`.
+
+Settings for handling requests. ||
+|| certificate_ids[] | **string**
+
+ID's of the TLS server certificates from [Certificate Manager](../../../../certificate-manager/index.md).
+
+RSA and ECDSA certificates are supported, and only the first certificate of each type is used.
+
+The number of elements must be greater than 0. ||
+|| client_certificates_verification | **[ClientCertificatesVerification](#yandex.cloud.apploadbalancer.v1.ClientCertificatesVerification)**
+
+Client certificates verification settings. ||
+|#
+
+## HttpHandler {#yandex.cloud.apploadbalancer.v1.HttpHandler}
+
+An HTTP handler resource.
+
+#|
+||Field | Description ||
+|| http_router_id | **string**
+
+ID of the HTTP router processing requests. For details about the concept, see
+[documentation](../../../concepts/http-router.md).
+
+To get the list of all available HTTP routers, make a [HttpRouterService.List](../HttpRouter/list.md#List) request. ||
+|| http2_options | **[Http2Options](#yandex.cloud.apploadbalancer.v1.Http2Options)**
+
+HTTP/2 settings.
+
+If specified, incoming HTTP/2 requests are supported by the listener.
+
+Includes only one of the fields `http2_options`, `allow_http10`.
+
+Protocol settings.
+
+For HTTPS (HTTP over TLS) connections, settings are applied to the protocol
+negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension. ||
+|| allow_http10 | **bool**
+
+Enables support for incoming HTTP/1.0 and HTTP/1.1 requests and disables it for HTTP/2 requests.
+
+Includes only one of the fields `http2_options`, `allow_http10`.
+
+Protocol settings.
+
+For HTTPS (HTTP over TLS) connections, settings are applied to the protocol
+negotiated using TLS [ALPN](https://en.wikipedia.org/wiki/Application-Layer_Protocol_Negotiation) extension. ||
+|| rewrite_request_id | **bool**
+
+When unset, will preserve the incoming x-request-id header, otherwise would rewrite it with a new value. ||
+|#
+
+## Http2Options {#yandex.cloud.apploadbalancer.v1.Http2Options}
+
+An HTTP/2 options resource.
+
+#|
+||Field | Description ||
+|| max_concurrent_streams | **int64**
+
+Maximum number of concurrent HTTP/2 streams in a connection. ||
+|#
+
+## StreamHandler {#yandex.cloud.apploadbalancer.v1.StreamHandler}
+
+A stream (TCP) handler resource.
+
+#|
+||Field | Description ||
+|| backend_group_id | **string**
+
+Required field. ID of the backend group processing requests. For details about the concept, see
+[documentation](../../../concepts/backend-group.md).
+
+The backend group type, specified via [BackendGroup.backend](../BackendGroup/get.md#yandex.cloud.apploadbalancer.v1.BackendGroup.backend), must be `stream`.
+
+To get the list of all available backend groups, make a [BackendGroupService.List](../BackendGroup/list.md#List) request. ||
+|| idle_timeout | **[google.protobuf.Duration](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/duration)**
+
+The idle timeout is duration during which no data is transmitted or received on either the upstream or downstream connection.
+If not configured, the default idle timeout is 1 hour. Setting it to 0 disables the timeout. ||
+|#
+
+## ClientCertificatesVerification {#yandex.cloud.apploadbalancer.v1.ClientCertificatesVerification}
+
+Client certificates verification settings.
+
+#|
+||Field | Description ||
+|| require_client_certificate | **bool**
+
+If true, ALB will reject connections without a valid client certificate. ||
+|| bytes | **string**
+
+Trusted certificate authority certificates bundle (PEM text).
+
+Includes only one of the fields `bytes`. ||
+|#
+
+## operation.Operation {#yandex.cloud.operation.Operation}
+
+```json
+{
+  "id": "string",
+  "description": "string",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
+  "done": "bool",
+  "metadata": {
+    "load_balancer_id": "string",
+    "listener_name": "string",
+    "sni_match_name": "string"
+  },
+  // Includes only one of the fields `error`, `response`
+  "error": "google.rpc.Status",
+  "response": "google.protobuf.Empty"
+  // end of the list of possible fields
+}
+```
+
+An Operation resource. For more information, see [Operation](../../../../api-design-guide/concepts/operation.md).
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the operation. ||
+|| description | **string**
+
+Description of the operation. 0-256 characters long. ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Creation timestamp. ||
+|| created_by | **string**
+
+ID of the user or service account who initiated the operation. ||
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+The time when the Operation resource was last modified. ||
+|| done | **bool**
+
+If the value is `false`, it means the operation is still in progress.
+If `true`, the operation is completed, and either `error` or `response` is available. ||
+|| metadata | **[UpdateSniMatchMetadata](#yandex.cloud.apploadbalancer.v1.UpdateSniMatchMetadata)**
+
+Service-specific metadata associated with the operation.
+It typically contains the ID of the target resource that the operation is performed on.
+Any method that returns a long-running operation should document the metadata type, if any. ||
+|| error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**
+
+The error result of the operation in case of failure or cancellation.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|| response | **[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)**
+
+The normal response of the operation in case of success.
+If the original method returns no data on success, such as Delete,
+the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty).
+If the original method is the standard Create/Update,
+the response should be the target resource of the operation.
+Any method that returns a long-running operation should document the response type, if any.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|#
+
+## UpdateSniMatchMetadata {#yandex.cloud.apploadbalancer.v1.UpdateSniMatchMetadata}
+
+#|
+||Field | Description ||
+|| load_balancer_id | **string**
+
+ID of the application load balancer that the SNI handler is being updated in. ||
+|| listener_name | **string**
+
+Name of the listener that the SNI handler is being updated in. ||
+|| sni_match_name | **string**
+
+Name of the SNI handler that is being updated. ||
+|#

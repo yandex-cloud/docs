@@ -1,0 +1,65 @@
+# Cloud DNS API, REST: DnsZone.GetRecordSet
+
+Returns the specified record set.
+
+## HTTP request
+
+```
+GET https://dns.api.cloud.yandex.net/dns/v1/zones/{dnsZoneId}:getRecordSet
+```
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| dnsZoneId | **string**
+
+Required field. ID of the DNS zone to get record set from.
+
+To get a DNS zone ID, make a [DnsZoneService.List](list.md#List) request. ||
+|#
+
+## Query parameters {#yandex.cloud.dns.v1.GetDnsZoneRecordSetRequest}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Required field. Name of the record set. ||
+|| type | **string**
+
+Required field. Type of the record set. ||
+|#
+
+## Response {#yandex.cloud.dns.v1.RecordSet}
+
+**HTTP Code: 200 - OK**
+
+```json
+{
+  "name": "string",
+  "type": "string",
+  "ttl": "string",
+  "data": [
+    "string"
+  ]
+}
+```
+
+A record set. For details about the concept, see [Resource record](../../concepts/resource-record.md).
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Domain name. ||
+|| type | **string**
+
+Record type. ||
+|| ttl | **string** (int64)
+
+Time to live in seconds. ||
+|| data[] | **string**
+
+Data of the record set. ||
+|#

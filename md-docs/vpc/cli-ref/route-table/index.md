@@ -1,0 +1,79 @@
+# yc vpc route-table
+
+Manage route tables.
+
+#### Command Usage
+
+Syntax:
+
+`yc vpc route-table <command>`
+
+Aliases:
+
+- `route-tables`
+
+#### Command Tree
+
+- [yc vpc route-table add-labels](add-labels.md) — Add labels to a route table.
+
+- [yc vpc route-table create](create.md) — Create a route table.
+
+- [yc vpc route-table delete](delete.md) — Delete a route table.
+
+- [yc vpc route-table get](get.md) — Get information about a route table.
+
+- [yc vpc route-table list](list.md) — List route tables in a folder.
+
+- [yc vpc route-table list-operations](list-operations.md) — List operations for a route table.
+
+- [yc vpc route-table move](move.md) — Move a route table to another folder.
+
+- [yc vpc route-table remove-labels](remove-labels.md) — Remove labels from a route table.
+
+- [yc vpc route-table update](update.md) — Modify configuration or attributes of a route table.
+
+#### Global Flags
+
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom configuration file. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--syntax` | `string`
+
+CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
+|| `--token` | `string`
+
+Set the OAuth token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

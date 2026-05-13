@@ -1,0 +1,540 @@
+# Audit Trails API, gRPC: TrailService.Create
+
+Creates a trail in the specified folder.
+
+## gRPC request
+
+**rpc Create ([CreateTrailRequest](#yandex.cloud.audittrails.v1.CreateTrailRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
+
+## CreateTrailRequest {#yandex.cloud.audittrails.v1.CreateTrailRequest}
+
+```json
+{
+  "folder_id": "string",
+  "name": "string",
+  "description": "string",
+  "labels": "map<string, string>",
+  "destination": {
+    // Includes only one of the fields `object_storage`, `cloud_logging`, `data_stream`, `eventrouter`
+    "object_storage": {
+      "bucket_id": "string",
+      "object_prefix": "string"
+    },
+    "cloud_logging": {
+      // Includes only one of the fields `log_group_id`
+      "log_group_id": "string"
+      // end of the list of possible fields
+    },
+    "data_stream": {
+      "database_id": "string",
+      "stream_name": "string",
+      "codec": "Codec"
+    },
+    "eventrouter": {
+      "eventrouter_connector_id": "string"
+    }
+    // end of the list of possible fields
+  },
+  "service_account_id": "string",
+  "filter": {
+    "path_filter": {
+      "root": {
+        // Includes only one of the fields `any_filter`, `some_filter`
+        "any_filter": {
+          "resource": {
+            "id": "string",
+            "type": "string"
+          }
+        },
+        "some_filter": {
+          "resource": {
+            "id": "string",
+            "type": "string"
+          },
+          "filters": [
+            "PathFilterElement"
+          ]
+        }
+        // end of the list of possible fields
+      }
+    },
+    "event_filter": {
+      "filters": [
+        {
+          "service": "string",
+          "categories": [
+            {
+              "plane": "EventCategoryFilter",
+              "type": "EventAccessTypeFilter"
+            }
+          ],
+          "path_filter": {
+            "root": {
+              // Includes only one of the fields `any_filter`, `some_filter`
+              "any_filter": {
+                "resource": {
+                  "id": "string",
+                  "type": "string"
+                }
+              },
+              "some_filter": {
+                "resource": {
+                  "id": "string",
+                  "type": "string"
+                },
+                "filters": [
+                  "PathFilterElement"
+                ]
+              }
+              // end of the list of possible fields
+            }
+          }
+        }
+      ]
+    }
+  },
+  "filtering_policy": {
+    "management_events_filter": {
+      "resource_scopes": [
+        {
+          "id": "string",
+          "type": "string"
+        }
+      ]
+    },
+    "data_events_filters": [
+      {
+        // Includes only one of the fields `included_events`, `excluded_events`
+        "included_events": {
+          "event_types": [
+            "string"
+          ]
+        },
+        "excluded_events": {
+          "event_types": [
+            "string"
+          ]
+        },
+        // end of the list of possible fields
+        // Includes only one of the fields `dns_filter`
+        "dns_filter": {
+          "include_nonrecursive_queries": "bool"
+        },
+        // end of the list of possible fields
+        "service": "string",
+        "resource_scopes": [
+          {
+            "id": "string",
+            "type": "string"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+#|
+||Field | Description ||
+|| folder_id | **string**
+
+Required field. ID of the folder to create a trail in.
+
+The maximum string length in characters is 50. ||
+|| name | **string**
+
+Name of the trail.
+
+Value must match the regular expression ` [a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
+|| description | **string**
+
+Description of the trail.
+
+The maximum string length in characters is 1024. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Custom labels for the secret as `key:value` pairs. Maximum 64 per key.
+For example, `"type": "critical"` or `"source": "dictionary"`.
+
+The maximum string length in characters for each value is 63. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
+|| destination | **[Destination](#yandex.cloud.audittrails.v1.Trail.Destination)**
+
+Required field. Destination configuration for the trail ||
+|| service_account_id | **string**
+
+Required field. Service account ID of the trail
+
+The maximum string length in characters is 50. ||
+|| filter | **[Filter](#yandex.cloud.audittrails.v1.Trail.Filter)**
+
+Event filtering configuration of the trail
+deprecated: use filtering_policy instead ||
+|| filtering_policy | **[FilteringPolicy](#yandex.cloud.audittrails.v1.Trail.FilteringPolicy)**
+
+Event filtering policy of the trail ||
+|#
+
+## Destination {#yandex.cloud.audittrails.v1.Trail.Destination}
+
+#|
+||Field | Description ||
+|| object_storage | **[ObjectStorage](#yandex.cloud.audittrails.v1.Trail.ObjectStorage)**
+
+Configuration for event delivery to Object Storage
+Uploaded objects will have prefix &lt;trail_id&gt;/ by default
+
+Includes only one of the fields `object_storage`, `cloud_logging`, `data_stream`, `eventrouter`. ||
+|| cloud_logging | **[CloudLogging](#yandex.cloud.audittrails.v1.Trail.CloudLogging)**
+
+Configuration for event delivery to Cloud Logging
+
+Includes only one of the fields `object_storage`, `cloud_logging`, `data_stream`, `eventrouter`. ||
+|| data_stream | **[DataStream](#yandex.cloud.audittrails.v1.Trail.DataStream)**
+
+Configuration for event delivery to YDS
+
+Includes only one of the fields `object_storage`, `cloud_logging`, `data_stream`, `eventrouter`. ||
+|| eventrouter | **[EventRouter](#yandex.cloud.audittrails.v1.Trail.EventRouter)**
+
+Configuration for event delivery to EventRouter
+
+Includes only one of the fields `object_storage`, `cloud_logging`, `data_stream`, `eventrouter`. ||
+|#
+
+## ObjectStorage {#yandex.cloud.audittrails.v1.Trail.ObjectStorage}
+
+#|
+||Field | Description ||
+|| bucket_id | **string**
+
+Name of the destination bucket
+
+The string length in characters must be 3-63. ||
+|| object_prefix | **string**
+
+Prefix for exported objects. Optional
+If specified, uploaded objects will have prefix &lt;object_prefix&gt;/&lt;trail_id&gt;/ ||
+|#
+
+## CloudLogging {#yandex.cloud.audittrails.v1.Trail.CloudLogging}
+
+#|
+||Field | Description ||
+|| log_group_id | **string**
+
+ID of the Cloud Logging destination group
+
+The maximum string length in characters is 64.
+
+Includes only one of the fields `log_group_id`. ||
+|#
+
+## DataStream {#yandex.cloud.audittrails.v1.Trail.DataStream}
+
+#|
+||Field | Description ||
+|| database_id | **string**
+
+ID of the database hosting the destination YDS ||
+|| stream_name | **string**
+
+Name of the destination YDS ||
+|| codec | enum **Codec**
+
+Codec for compressing events
+
+- `RAW`
+- `GZIP`
+- `ZSTD` ||
+|#
+
+## EventRouter {#yandex.cloud.audittrails.v1.Trail.EventRouter}
+
+#|
+||Field | Description ||
+|| eventrouter_connector_id | **string**
+
+ID of the EventRouter Connector
+
+The maximum string length in characters is 64. ||
+|#
+
+## Filter {#yandex.cloud.audittrails.v1.Trail.Filter}
+
+#|
+||Field | Description ||
+|| path_filter | **[PathFilter](#yandex.cloud.audittrails.v1.Trail.PathFilter)**
+
+Configuration of default events gathering for the trail
+If not specified, default events won't be gathered for the trail ||
+|| event_filter | **[EventFilter](#yandex.cloud.audittrails.v1.Trail.EventFilter)**
+
+Required field. Configuration of additional events gathering from specific services ||
+|#
+
+## PathFilter {#yandex.cloud.audittrails.v1.Trail.PathFilter}
+
+#|
+||Field | Description ||
+|| root | **[PathFilterElement](#yandex.cloud.audittrails.v1.Trail.PathFilterElement)**
+
+Required field. Root element of the resource path filter for the trail
+Resource described in that filter node must contain the trail itself ||
+|#
+
+## PathFilterElement {#yandex.cloud.audittrails.v1.Trail.PathFilterElement}
+
+#|
+||Field | Description ||
+|| any_filter | **[PathFilterElementAny](#yandex.cloud.audittrails.v1.Trail.PathFilterElementAny)**
+
+Filter element with ANY type. If used, configures the trail to gather any events from the resource
+
+Includes only one of the fields `any_filter`, `some_filter`. ||
+|| some_filter | **[PathFilterElementSome](#yandex.cloud.audittrails.v1.Trail.PathFilterElementSome)**
+
+Filter element with SOME type. If used, configures the trail to gather some of the events from the resource
+
+Includes only one of the fields `any_filter`, `some_filter`. ||
+|#
+
+## PathFilterElementAny {#yandex.cloud.audittrails.v1.Trail.PathFilterElementAny}
+
+#|
+||Field | Description ||
+|| resource | **[Resource](#yandex.cloud.audittrails.v1.Trail.Resource)**
+
+Required field. Resource definition ||
+|#
+
+## Resource {#yandex.cloud.audittrails.v1.Trail.Resource}
+
+#|
+||Field | Description ||
+|| id | **string**
+
+Required field. ID of the resource
+
+The maximum string length in characters is 64. ||
+|| type | **string**
+
+Required field. Type of the resource
+
+The maximum string length in characters is 50. ||
+|#
+
+## PathFilterElementSome {#yandex.cloud.audittrails.v1.Trail.PathFilterElementSome}
+
+#|
+||Field | Description ||
+|| resource | **[Resource](#yandex.cloud.audittrails.v1.Trail.Resource)**
+
+Required field. Definition of the resource that contains nested resources ||
+|| filters[] | **[PathFilterElement](#yandex.cloud.audittrails.v1.Trail.PathFilterElement)**
+
+Filters for the resources contained in the parent resource
+
+The number of elements must be greater than 0. ||
+|#
+
+## EventFilter {#yandex.cloud.audittrails.v1.Trail.EventFilter}
+
+#|
+||Field | Description ||
+|| filters[] | **[EventFilterElement](#yandex.cloud.audittrails.v1.Trail.EventFilterElement)**
+
+List of filters for services
+
+The minimum number of elements is 0. ||
+|#
+
+## EventFilterElement {#yandex.cloud.audittrails.v1.Trail.EventFilterElement}
+
+#|
+||Field | Description ||
+|| service | **string**
+
+Required field. Service ID of the gathered events ||
+|| categories[] | **[EventFilterElementCategory](#yandex.cloud.audittrails.v1.Trail.EventFilterElementCategory)**
+
+List of the event categories gathered for a specified service
+
+The number of elements must be greater than 0. ||
+|| path_filter | **[PathFilter](#yandex.cloud.audittrails.v1.Trail.PathFilter)**
+
+Required field. Resource path filter for a specified service ||
+|#
+
+## EventFilterElementCategory {#yandex.cloud.audittrails.v1.Trail.EventFilterElementCategory}
+
+#|
+||Field | Description ||
+|| plane | enum **EventCategoryFilter**
+
+Required field. Plane of the gathered category
+
+- `CONTROL_PLANE`: The events that are generated during the interaction with the service's resources
+- `DATA_PLANE`: Events that are generated during interaction with data within the service's resources ||
+|| type | enum **EventAccessTypeFilter**
+
+Required field. Type of the gathered category
+
+- `WRITE`: Events for operations that do perform some modification
+- `READ`: Events for operations that do not perform any modifications ||
+|#
+
+## FilteringPolicy {#yandex.cloud.audittrails.v1.Trail.FilteringPolicy}
+
+Combination of policies describing event filtering process of the trail
+At least one filed must be filled
+
+#|
+||Field | Description ||
+|| management_events_filter | **[ManagementEventsFiltering](#yandex.cloud.audittrails.v1.Trail.ManagementEventsFiltering)**
+
+Singular filter describing gathering management events ||
+|| data_events_filters[] | **[DataEventsFiltering](#yandex.cloud.audittrails.v1.Trail.DataEventsFiltering)**
+
+List of filters describing gathering data events
+
+The number of elements must be less than 128. ||
+|#
+
+## ManagementEventsFiltering {#yandex.cloud.audittrails.v1.Trail.ManagementEventsFiltering}
+
+Policy for gathering management events
+
+#|
+||Field | Description ||
+|| resource_scopes[] | **[Resource](#yandex.cloud.audittrails.v1.Trail.Resource)**
+
+A list of resources which will be monitored by the trail
+
+The number of elements must be in the range 1-1024. ||
+|#
+
+## DataEventsFiltering {#yandex.cloud.audittrails.v1.Trail.DataEventsFiltering}
+
+Policy for gathering data events
+
+#|
+||Field | Description ||
+|| included_events | **[EventTypes](#yandex.cloud.audittrails.v1.Trail.EventTypes)**
+
+Explicitly included events of specified service
+New events of the service won't be delivered by default
+
+Includes only one of the fields `included_events`, `excluded_events`. ||
+|| excluded_events | **[EventTypes](#yandex.cloud.audittrails.v1.Trail.EventTypes)**
+
+Explicitly excluded events of specified service
+New events of the service will be delivered by default
+
+Includes only one of the fields `included_events`, `excluded_events`. ||
+|| dns_filter | **[DnsDataEventsFilter](#yandex.cloud.audittrails.v1.Trail.DnsDataEventsFilter)**
+
+Filter is allowed only if service = dns
+
+Includes only one of the fields `dns_filter`. ||
+|| service | **string**
+
+Required field. Name of the service whose events will be delivered ||
+|| resource_scopes[] | **[Resource](#yandex.cloud.audittrails.v1.Trail.Resource)**
+
+A list of resources which will be monitored by the trail
+
+The number of elements must be in the range 1-1024. ||
+|#
+
+## EventTypes {#yandex.cloud.audittrails.v1.Trail.EventTypes}
+
+Policy with explicitly specified event group
+
+#|
+||Field | Description ||
+|| event_types[] | **string**
+
+The number of elements must be in the range 1-1024. ||
+|#
+
+## DnsDataEventsFilter {#yandex.cloud.audittrails.v1.Trail.DnsDataEventsFilter}
+
+#|
+||Field | Description ||
+|| include_nonrecursive_queries | **bool**
+
+Not only recursive queries will be delivered ||
+|#
+
+## operation.Operation {#yandex.cloud.operation.Operation}
+
+```json
+{
+  "id": "string",
+  "description": "string",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
+  "done": "bool",
+  "metadata": "google.protobuf.Any",
+  // Includes only one of the fields `error`, `response`
+  "error": "google.rpc.Status",
+  "response": "google.protobuf.Any"
+  // end of the list of possible fields
+}
+```
+
+An Operation resource. For more information, see [Operation](../../../../api-design-guide/concepts/operation.md).
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the operation. ||
+|| description | **string**
+
+Description of the operation. 0-256 characters long. ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Creation timestamp. ||
+|| created_by | **string**
+
+ID of the user or service account who initiated the operation. ||
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+The time when the Operation resource was last modified. ||
+|| done | **bool**
+
+If the value is `false`, it means the operation is still in progress.
+If `true`, the operation is completed, and either `error` or `response` is available. ||
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
+
+Service-specific metadata associated with the operation.
+It typically contains the ID of the target resource that the operation is performed on.
+Any method that returns a long-running operation should document the metadata type, if any. ||
+|| error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**
+
+The error result of the operation in case of failure or cancellation.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
+
+The normal response of the operation in case of success.
+If the original method returns no data on success, such as Delete,
+the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty).
+If the original method is the standard Create/Update,
+the response should be the target resource of the operation.
+Any method that returns a long-running operation should document the response type, if any.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|#

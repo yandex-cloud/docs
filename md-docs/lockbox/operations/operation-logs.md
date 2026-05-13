@@ -1,0 +1,140 @@
+# Посмотреть операции с секретом
+
+Все действия с ресурсами сервиса Yandex Lockbox сохраняются в виде списка операций. Каждой операции присваивается уникальный идентификатор.
+
+## Получить список операций {#get-operations}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит секрет.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Lockbox**.
+    1. В меню слева выберите **Секреты**.
+    1. Нажмите на имя нужного секрета.
+    1. На панели слева выберите раздел ![image](../../_assets/operations.svg) **Операции**.
+
+- CLI {#cli}
+
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+
+  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+  Чтобы получить список операций для секрета, воспользуйтесь командой:
+
+  ```bash
+  yc lockbox secret list-operations <имя_или_идентификатор_секрета>
+  ```
+
+  Результат:
+
+  ```text
+  +----------------------+---------------------+----------------------+---------------------+--------+---------------+
+  |          ID          |     CREATED AT      |      CREATED BY      |     MODIFIED AT     | STATUS |  DESCRIPTION  |
+  +----------------------+---------------------+----------------------+---------------------+--------+---------------+
+  | e6qj8hr2mfoj******** | 2024-03-27 02:47:03 | aje9k8luj4qf******** | 2024-03-27 02:47:03 | DONE   | Update secret |
+  | e6q4145hccpl******** | 2024-03-27 02:46:40 | aje9k8luj4qf******** | 2024-03-27 02:46:40 | DONE   | Update secret |
+  +----------------------+---------------------+----------------------+---------------------+--------+---------------+
+  ```
+
+  По умолчанию информация об операциях выводится в текстовом формате. Чтобы получить более подробную информацию, укажите формат `yaml` или `json` для выводимых данных с помощью параметра `--format`:
+
+  ```bash
+  yc lockbox secret list-operations <имя_или_идентификатор_секрета> --format yaml
+  ```
+
+  Результат:
+
+  ```text
+  - id: e6qj8hr2mfoj********
+    description: Update secret
+    created_at: "2024-03-27T02:47:03.482004186Z"
+    created_by: aje9k8luj4qf********
+    modified_at: "2024-03-27T02:47:03.482036369Z"
+    done: true
+    metadata:
+      '@type': type.googleapis.com/yandex.cloud.lockbox.v1.UpdateSecretMetadata
+      secret_id: e6qnva6ntl66********
+    response:
+      '@type': type.googleapis.com/google.protobuf.Empty
+      value: {}
+  - id: e6q4145hccpl********
+    description: Update secret
+    created_at: "2024-03-27T02:46:40.035110019Z"
+    created_by: aje9k8luj4qf********
+    modified_at: "2024-03-27T02:46:40.035138179Z"
+    done: true
+    metadata:
+      '@type': type.googleapis.com/yandex.cloud.lockbox.v1.UpdateSecretMetadata
+      secret_id: e6qnva6ntl66********
+    response:
+      '@type': type.googleapis.com/google.protobuf.Empty
+      value: {}
+  ```
+
+- API {#api}
+
+  Воспользуйтесь методом REST API [listOperations](../api-ref/Secret/listOperations.md) для ресурса [Secret](../api-ref/Secret/index.md) или вызовом gRPC API [SecretService/ListOperations](../api-ref/grpc/Secret/listOperations.md).
+
+{% endlist %}
+
+## Получить подробную информацию об операции {#get-operations-info}
+
+1. [Получите список операций](#get-operations) для ресурса.
+1. Скопируйте идентификатор нужной операции.
+1. Получите подробную информацию об операции:
+
+    {% list tabs group=instructions %}
+
+    - CLI {#cli}
+
+      Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+
+      По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+      Выполните команду:
+
+      ```bash
+      yc operation get <идентификатор_операции>
+      ```
+
+      Результат:
+
+      ```text
+      id: e6qj8hr2mfoj********
+      description: Update secret
+      created_at: "2024-03-27T02:47:03.482Z"
+      created_by: aje9k8luj4qf********
+      modified_at: "2024-03-27T02:47:03.482Z"
+      done: true
+      metadata:
+        '@type': type.googleapis.com/yandex.cloud.lockbox.v1.UpdateSecretMetadata
+        secret_id: e6qnva6ntl66********
+      response:
+        '@type': type.googleapis.com/yandex.cloud.lockbox.v1.Secret
+        id: e6qnva6ntl66********
+        folder_id: b1g681qpemb4********
+        created_at: "2024-03-27T02:45:05.184Z"
+        name: top-secret
+        labels:
+          key2: value2
+        status: ACTIVE
+        current_version:
+          id: e6qo5a6imnm0********
+          secret_id: e6qnva6ntl66********
+          created_at: "2024-03-27T02:45:05.184Z"
+          status: ACTIVE
+          payload_entry_keys:
+            - key
+        deletion_protection: true
+      ```
+
+    - API {#api}
+
+      Воспользуйтесь вызовом gRPC API [OperationService/Get](../api-ref/grpc/Operation/get.md).
+
+    {% endlist %}
+
+#### См. также {#see-also}
+
+* [Работа с операциями](../../api-design-guide/concepts/about-async.md)

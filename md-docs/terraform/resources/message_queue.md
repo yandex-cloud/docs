@@ -1,0 +1,63 @@
+# yandex_message_queue (Resource)
+
+Allows management of [Yandex Cloud Message Queue](../../message-queue/index.md).
+
+## Example usage
+
+```terraform
+//
+// Create a new Message Queue.
+//
+resource "yandex_message_queue" "my_queue" {
+  name                       = "ymq_terraform_example"
+  visibility_timeout_seconds = 600
+  receive_wait_time_seconds  = 20
+  message_retention_seconds  = 1209600
+  redrive_policy = jsonencode({
+    deadLetterTargetArn = yandex_message_queue.example_deadletter_queue.arn
+    maxReceiveCount     = 3
+  })
+}
+
+resource "yandex_message_queue" "my_deadletter_queue" {
+  name = "ymq_terraform_deadletter_example"
+}
+```
+```terraform
+//
+// Create a new Message Queue with FIFO.
+//
+resource "yandex_message_queue" "example_fifo_queue" {
+  name                        = "ymq_terraform_fifo_example.fifo"
+  fifo_queue                  = true
+  content_based_deduplication = true
+}
+```
+
+## Arguments & Attributes Reference
+
+- `access_key` (String). The [access key](../../iam/operations/authentication/manage-access-keys.md) to use when applying changes. If omitted, `ymq_access_key` specified in provider config is used. For more information see [documentation](../../message-queue/quickstart.md).
+- `arn` (*Read-Only*) (String). ARN of the Yandex Message Queue. It is used for setting up a [redrive policy](../../message-queue/concepts/dlq.md). See [documentation](../../message-queue/api-ref/queue/SetQueueAttributes.md).
+- `content_based_deduplication` (Bool). Enables [content-based deduplication](../../message-queue/concepts/deduplication.md#content-based-deduplication). Can be used only if queue is [FIFO](../../message-queue/concepts/queue.md#fifo-queues).
+- `delay_seconds` (Number). Number of seconds to [delay the message from being available for processing](../../message-queue/concepts/delay-queues.md#delay-queues). Valid values: from 0 to 900 seconds (15 minutes). Default: 0.
+- `fifo_queue` (Bool). Is this queue [FIFO](../../message-queue/concepts/queue.md#fifo-queues). If this parameter is not used, a standard queue is created. You cannot change the parameter value for a created queue.
+- `id` (String). 
+- `max_message_size` (Number). Maximum message size in bytes. Valid values: from 1024 bytes (1 KB) to 262144 bytes (256 KB). Default: 262144 (256 KB). For more information see [documentation](../../message-queue/api-ref/queue/CreateQueue.md).
+- `message_retention_seconds` (Number). The length of time in seconds to retain a message. Valid values: from 60 seconds (1 minute) to 1209600 seconds (14 days). Default: 345600 (4 days). For more information see [documentation](../../message-queue/api-ref/queue/CreateQueue.md).
+- `name` (String). Queue name. The maximum length is 80 characters. You can use numbers, letters, underscores, and hyphens in the name. The name of a FIFO queue must end with the `.fifo` suffix. If not specified, random name will be generated. Conflicts with `name_prefix`. For more information see [documentation](../../message-queue/api-ref/queue/CreateQueue.md).
+- `name_prefix` (String). Generates random name with the specified prefix. Conflicts with `name`.
+- `receive_wait_time_seconds` (Number). Wait time for the [ReceiveMessage](../../message-queue/api-ref/message/ReceiveMessage.md) method (for long polling), in seconds. Valid values: from 0 to 20 seconds. Default: 0. For more information about long polling see [documentation](../../message-queue/concepts/long-polling.md).
+- `redrive_policy` (String). Message redrive policy in [Dead Letter Queue](../../message-queue/concepts/dlq.md). The source queue and DLQ must be the same type: for FIFO queues, the DLQ must also be a FIFO queue. For more information about redrive policy see [documentation](../../message-queue/api-ref/queue/CreateQueue.md). Also you can use example in this page.
+- `region_id` (String). ID of the region where the message queue is located at. The default is 'ru-central1'.
+- `secret_key` (String). The [secret key](../../iam/operations/authentication/manage-access-keys.md) to use when applying changes. If omitted, `ymq_secret_key` specified in provider config is used. For more information see [documentation](../../message-queue/quickstart.md).
+- `tags` (Map Of String). SQS tags
+- `visibility_timeout_seconds` (Number). [Visibility timeout](../../message-queue/concepts/visibility-timeout.md) for messages in a queue, specified in seconds. Valid values: from 0 to 43200 seconds (12 hours). Default: 30.
+
+## Import
+
+The resource can be imported by using their `resource ID`. For getting it you can use Yandex Cloud [Web Console](https://console.yandex.cloud) or Yandex Cloud [CLI](../../cli/quickstart.md).
+
+```shell
+# terraform import yandex_message_queue.<resource Name> <queue URL>
+terraform import yandex_message_queue.my_queue https://message-queue.api.cloud.yandex.net/abcdefghijklmn123456/opqrstuvwxyz87654321/ymq_terraform_import_example
+```

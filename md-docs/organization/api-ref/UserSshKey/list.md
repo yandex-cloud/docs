@@ -1,0 +1,87 @@
+# Identity Hub API, REST: UserSshKey.List
+
+## HTTP request
+
+```
+GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/userSshKeys
+```
+
+## Query parameters {#yandex.cloud.organizationmanager.v1.ListUserSshKeysRequest}
+
+#|
+||Field | Description ||
+|| organizationId | **string**
+
+Required field.
+
+The maximum string length in characters is 50. ||
+|| subjectId | **string**
+
+if empty, list all organization keys
+
+The maximum string length in characters is 50. ||
+|| pageSize | **string** (int64)
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| pageToken | **string**
+
+The maximum string length in characters is 2000. ||
+|#
+
+## Response {#yandex.cloud.organizationmanager.v1.ListUserSshKeysResponse}
+
+**HTTP Code: 200 - OK**
+
+```json
+{
+  "sshKeys": [
+    {
+      "id": "string",
+      "subjectId": "string",
+      "data": "string",
+      "name": "string",
+      "fingerprint": "string",
+      "organizationId": "string",
+      "createdAt": "string",
+      "expiresAt": "string"
+    }
+  ],
+  "nextPageToken": "string"
+}
+```
+
+#|
+||Field | Description ||
+|| sshKeys[] | **[UserSshKey](#yandex.cloud.organizationmanager.v1.UserSshKey)** ||
+|| nextPageToken | **string** ||
+|#
+
+## UserSshKey {#yandex.cloud.organizationmanager.v1.UserSshKey}
+
+#|
+||Field | Description ||
+|| id | **string** ||
+|| subjectId | **string** ||
+|| data | **string** ||
+|| name | **string** ||
+|| fingerprint | **string** ||
+|| organizationId | **string** ||
+|| createdAt | **string** (date-time)
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| expiresAt | **string** (date-time)
+
+Used for temporary keys, if empty the key doesn't expire
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|#

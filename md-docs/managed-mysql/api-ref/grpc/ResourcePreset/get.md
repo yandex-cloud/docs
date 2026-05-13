@@ -1,0 +1,58 @@
+# Managed Service for MySQL API, gRPC: ResourcePresetService.Get
+
+Retrieves information about a resource preset.
+
+## gRPC request
+
+**rpc Get ([GetResourcePresetRequest](#yandex.cloud.mdb.mysql.v1.GetResourcePresetRequest)) returns ([ResourcePreset](#yandex.cloud.mdb.mysql.v1.ResourcePreset))**
+
+## GetResourcePresetRequest {#yandex.cloud.mdb.mysql.v1.GetResourcePresetRequest}
+
+```json
+{
+  "resource_preset_id": "string"
+}
+```
+
+#|
+||Field | Description ||
+|| resource_preset_id | **string**
+
+Required field. ID of the resource preset to return information about.
+
+To get this ID, make a [ResourcePresetService.List](list.md#List) request. ||
+|#
+
+## ResourcePreset {#yandex.cloud.mdb.mysql.v1.ResourcePreset}
+
+```json
+{
+  "id": "string",
+  "zone_ids": [
+    "string"
+  ],
+  "cores": "int64",
+  "memory": "int64"
+}
+```
+
+An object that represents MySQL resource preset.
+A resource preset defines hardware configuration for cluster hosts.
+
+See [the documentation](../../../concepts/instance-types.md) for details.
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the resource preset that defines available computational resources (vCPU, RAM, etc.) for a cluster host. ||
+|| zone_ids[] | **string**
+
+IDs of availability zones where the resource preset is available. ||
+|| cores | **int64**
+
+Number of CPU cores for a MySQL host created with the preset. ||
+|| memory | **int64**
+
+RAM volume for a MySQL host created with the preset, in bytes. ||
+|#

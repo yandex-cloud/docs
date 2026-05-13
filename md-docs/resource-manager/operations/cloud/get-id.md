@@ -1,0 +1,68 @@
+# Получение идентификатора облака
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  Вы можете получить идентификатор облака на дашборде или на вкладке **Информация об облаке**.
+
+  **Получение идентификатора на дашборде**
+
+  1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужное [облако](../../concepts/resources-hierarchy.md#cloud).
+  1. Идентификатор облака указан сверху, под именем облака. Чтобы скопировать идентификатор, наведите на него указатель и нажмите ![image](../../../_assets/console-icons/copy.svg).
+
+     {% cut "Расположение идентификатора" %}
+    
+     ![cloud-dashboard-id](../../../_assets/resource-manager/cloud-dashboard-id.png)
+
+     {% endcut %}
+
+  **Получение идентификатора на вкладке Информация об облаке**
+
+  1. В [консоли управления](https://console.yandex.cloud) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите нужное [облако](../../concepts/resources-hierarchy.md#cloud).
+  1. Справа от названия облака нажмите ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **Информация об облаке**.
+  1. В открывшемся окне идентификатор облака указан в поле **Идентификатор облака**. Чтобы скопировать идентификатор, наведите на него указатель и нажмите ![image](../../../_assets/console-icons/copy.svg).
+
+     {% cut "Расположение идентификатора" %}
+
+     ![cloud-info-menu](../../../_assets/resource-manager/cloud-info-option.png)
+    
+     ![cloud-info-id](../../../_assets/resource-manager/cloud-info-id.png)
+
+     {% endcut %}
+
+- CLI {#cli}
+
+  Если вы знаете имя [облака](../../concepts/resources-hierarchy.md#cloud), задайте его в качестве параметра команды `get`:
+
+  ```
+  yc resource-manager cloud get <имя_облака>
+  ```
+  Результат:
+
+  ```
+  id: b1gd129pp9ha********
+  ...
+  ```
+
+  Если вы не знаете имя облака, получите список облаков с идентификаторами:
+
+  ```
+  yc resource-manager cloud list
+  ```
+  Результат:
+  
+  ```
+  +----------------------+------------+----------------------+--------+
+  |          ID          |    NAME    |   ORGANIZATION ID    | LABELS |
+  +----------------------+------------+----------------------+--------+
+  | b1g66mft1vop******** | my-cloud-1 | bpf2c65rqcl8******** |        |
+  | b1gd129pp9ha******** | my-cloud-2 | bpf2c65rqcl8******** |        |
+  +----------------------+------------+----------------------+--------+
+  ```
+
+- API {#api}
+
+  Чтобы получить список [облаков](../../concepts/resources-hierarchy.md#cloud) с идентификаторами, воспользуйтесь методом REST API [list](../../api-ref/Cloud/list.md) для ресурса [Cloud](../../api-ref/Cloud/index.md) или вызовом gRPC API [CloudService/List](../../api-ref/grpc/Cloud/list.md).
+
+{% endlist %}

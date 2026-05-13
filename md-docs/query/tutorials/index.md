@@ -1,0 +1,16 @@
+# Практические руководства Query
+
+* [Обработка логов Yandex Cloud Logging](cloud-logging.md)
+* [Обработка потока изменений Debezium](debezium.md)
+* [Визуализация данных из Yandex Object Storage в Yandex DataLens](datalens.md)
+* [Обработка аудитных логов Yandex Audit Trails](audit-trails.md)
+* [Обработка файлов детализации в сервисе Yandex Cloud Billing](billing.md)
+* [Анализ данных с помощью Jupyter](jupyter.md)
+* [Автоматизация задач Yandex Query с помощью Yandex Managed Service for Apache Airflow™](airflow-auto-tasks.md)
+* [Анализ данных с помощью Query](yq.md)
+* [Работа с данными в Yandex Object Storage](yq-storage.md)
+* [Работа с данными в Yandex Managed Service for ClickHouse®](yq-clickhouse.md)
+* [Работа с данными в Yandex Managed Service for PostgreSQL](yq-postgre.md)
+* [Федеративные запросы к данным](yq-federative-queries.md)
+* [Поиск событий Yandex Cloud в Query](search-events-query.md)
+* [Поставка данных из Яндекс Формы в Yandex DataLens с использованием Yandex Cloud Functions и Yandex Query](forms-and-datalens-integration/index.md)

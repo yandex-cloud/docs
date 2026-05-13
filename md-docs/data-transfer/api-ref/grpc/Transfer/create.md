@@ -1,0 +1,775 @@
+# Data Transfer API, gRPC: TransferService.Create
+
+Creates a transfer in the specified folder.
+
+## gRPC request
+
+**rpc Create ([CreateTransferRequest](#yandex.cloud.datatransfer.v1.CreateTransferRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
+
+## CreateTransferRequest {#yandex.cloud.datatransfer.v1.CreateTransferRequest}
+
+```json
+{
+  "source_id": "string",
+  "target_id": "string",
+  "description": "string",
+  "folder_id": "string",
+  "runtime": {
+    // Includes only one of the fields `yc_runtime`
+    "yc_runtime": {
+      "job_count": "int64",
+      "flavor": "Flavor",
+      "upload_shard_params": {
+        "job_count": "int64",
+        "process_count": "int64"
+      }
+    }
+    // end of the list of possible fields
+  },
+  "type": "TransferType",
+  "name": "string",
+  "labels": "map<string, string>",
+  "regular_snapshot": {
+    // Includes only one of the fields `settings`, `disabled`
+    "settings": {
+      "schedule": "RegularSnapshotScheduleInterval",
+      "tables": [
+        {
+          "table_namespace": "string",
+          "table_name": "string",
+          "cursor_column": "string",
+          "initial_state": "string"
+        }
+      ],
+      "cron_expression": "string",
+      "increment_delay_seconds": "int64",
+      "retry_config": {
+        "max_attempts": "int64"
+      }
+    },
+    "disabled": "RegularSnapshotDisabled"
+    // end of the list of possible fields
+  },
+  "transformation": {
+    "transformers": [
+      {
+        // Includes only one of the fields `mask_field`, `filter_columns`, `rename_tables`, `replace_primary_key`, `convert_to_string`, `sharder_transformer`, `table_splitter_transformer`, `filter_rows`
+        "mask_field": {
+          "tables": {
+            "include_tables": [
+              "string"
+            ],
+            "exclude_tables": [
+              "string"
+            ]
+          },
+          "columns": [
+            "string"
+          ],
+          "function": {
+            // Includes only one of the fields `mask_function_hash`
+            "mask_function_hash": {
+              "user_defined_salt": "string"
+            }
+            // end of the list of possible fields
+          }
+        },
+        "filter_columns": {
+          "tables": {
+            "include_tables": [
+              "string"
+            ],
+            "exclude_tables": [
+              "string"
+            ]
+          },
+          "columns": {
+            "include_columns": [
+              "string"
+            ],
+            "exclude_columns": [
+              "string"
+            ]
+          }
+        },
+        "rename_tables": {
+          "rename_tables": [
+            {
+              "original_name": {
+                "name_space": "string",
+                "name": "string"
+              },
+              "new_name": {
+                "name_space": "string",
+                "name": "string"
+              }
+            }
+          ]
+        },
+        "replace_primary_key": {
+          "tables": {
+            "include_tables": [
+              "string"
+            ],
+            "exclude_tables": [
+              "string"
+            ]
+          },
+          "keys": [
+            "string"
+          ]
+        },
+        "convert_to_string": {
+          "tables": {
+            "include_tables": [
+              "string"
+            ],
+            "exclude_tables": [
+              "string"
+            ]
+          },
+          "columns": {
+            "include_columns": [
+              "string"
+            ],
+            "exclude_columns": [
+              "string"
+            ]
+          },
+          "skip_utc_conversion": "bool"
+        },
+        "sharder_transformer": {
+          // Includes only one of the fields `columns`, `random`
+          "columns": {
+            "include_columns": [
+              "string"
+            ],
+            "exclude_columns": [
+              "string"
+            ]
+          },
+          "random": "SharderTransformerTypeRandom",
+          // end of the list of possible fields
+          "tables": {
+            "include_tables": [
+              "string"
+            ],
+            "exclude_tables": [
+              "string"
+            ]
+          },
+          "shards_count": "int64"
+        },
+        "table_splitter_transformer": {
+          "tables": {
+            "include_tables": [
+              "string"
+            ],
+            "exclude_tables": [
+              "string"
+            ]
+          },
+          "columns": [
+            "string"
+          ],
+          "splitter": "string"
+        },
+        "filter_rows": {
+          "tables": {
+            "include_tables": [
+              "string"
+            ],
+            "exclude_tables": [
+              "string"
+            ]
+          },
+          "filter": "string",
+          "filters": [
+            "string"
+          ]
+        }
+        // end of the list of possible fields
+      }
+    ]
+  },
+  "data_objects": {
+    "include_objects": [
+      "string"
+    ]
+  },
+  "replication_runtime": {
+    // Includes only one of the fields `yc_runtime`
+    "yc_runtime": {
+      "job_count": "int64",
+      "flavor": "Flavor",
+      "upload_shard_params": {
+        "job_count": "int64",
+        "process_count": "int64"
+      }
+    }
+    // end of the list of possible fields
+  }
+}
+```
+
+#|
+||Field | Description ||
+|| source_id | **string**
+
+Identifier of the source endpoint. ||
+|| target_id | **string**
+
+Identifier of the target endpoint. ||
+|| description | **string**
+
+Description of the transfer. ||
+|| folder_id | **string**
+
+ID of the folder to create the transfer in.
+To get the folder ID, make a
+[yandex.cloud.resourcemanager.v1.FolderService.List](../../../../resource-manager/api-ref/grpc/Folder/list.md#List) request. ||
+|| runtime | **[Runtime](#yandex.cloud.datatransfer.v1.Runtime)** ||
+|| type | enum **TransferType**
+
+- `SNAPSHOT_AND_INCREMENT`: Snapshot and increment
+- `SNAPSHOT_ONLY`: Snapshot
+- `INCREMENT_ONLY`: Increment ||
+|| name | **string**
+
+The transfer name. Must be unique within the folder. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Transfer labels as `key:value` pairs.
+For details about the concept, see [documentation]({{ api-url-prefix
+}}/resource-manager/concepts/labels). ||
+|| regular_snapshot | **[RegularSnapshot](#yandex.cloud.datatransfer.v1.RegularSnapshot)** ||
+|| transformation | **[Transformation](#yandex.cloud.datatransfer.v1.Transformation)** ||
+|| data_objects | **[DataObjects](#yandex.cloud.datatransfer.v1.DataObjects)** ||
+|| replication_runtime | **[Runtime](#yandex.cloud.datatransfer.v1.Runtime)** ||
+|#
+
+## Runtime {#yandex.cloud.datatransfer.v1.Runtime}
+
+#|
+||Field | Description ||
+|| yc_runtime | **[YcRuntime](#yandex.cloud.datatransfer.v1.YcRuntime)**
+
+Includes only one of the fields `yc_runtime`. ||
+|#
+
+## YcRuntime {#yandex.cloud.datatransfer.v1.YcRuntime}
+
+YC Runtime parameters for the transfer
+
+#|
+||Field | Description ||
+|| job_count | **int64**
+
+Number of workers in parallel replication. ||
+|| flavor | enum **Flavor**
+
+- `SMALL`
+- `MEDIUM`
+- `LARGE`
+- `TINY` ||
+|| upload_shard_params | **[ShardingUploadParams](#yandex.cloud.datatransfer.v1.ShardingUploadParams)**
+
+Parallel snapshot parameters ||
+|#
+
+## ShardingUploadParams {#yandex.cloud.datatransfer.v1.ShardingUploadParams}
+
+Parallel snapshot parameters
+
+#|
+||Field | Description ||
+|| job_count | **int64**
+
+Number of workers. ||
+|| process_count | **int64**
+
+Number of threads. ||
+|#
+
+## RegularSnapshot {#yandex.cloud.datatransfer.v1.RegularSnapshot}
+
+#|
+||Field | Description ||
+|| settings | **[RegularSnapshotSettings](#yandex.cloud.datatransfer.v1.RegularSnapshotSettings)**
+
+Includes only one of the fields `settings`, `disabled`. ||
+|| disabled | **[RegularSnapshotDisabled](#yandex.cloud.datatransfer.v1.RegularSnapshotDisabled)**
+
+Includes only one of the fields `settings`, `disabled`. ||
+|#
+
+## RegularSnapshotSettings {#yandex.cloud.datatransfer.v1.RegularSnapshotSettings}
+
+Regular snapshot settings
+
+#|
+||Field | Description ||
+|| schedule | enum **RegularSnapshotScheduleInterval**
+
+User predefined periods to schedule regular snapshots:
+REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_15MIN,
+REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_HOUR, etc.
+only one of schedule or cron_expression should be set
+
+- `REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_15MIN`
+- `REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_30MIN`
+- `REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_HOUR`
+- `REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_2HOUR`
+- `REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_3HOUR`
+- `REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_6HOUR`
+- `REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_8HOUR`
+- `REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_12HOUR`
+- `REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_DAY` ||
+|| tables[] | **[IncrementalTable](#yandex.cloud.datatransfer.v1.IncrementalTable)**
+
+Incremental tables configuration for regular snapshot.
+If not empty, each snapshot will copy only data changed since last snapshot
+based on cursor column value. ||
+|| cron_expression | **string**
+
+Use a cron expression to schedule transfer regular snapshots in UTC time.
+The used cron expression format is 5 columns specifying the execution time
+(minute, hour, day, month, day of the week),
+they can contain a numeric list separated by commas, a range of numbers
+separated by a hyphen, symbols * or /.
+only one of schedule or cron_expression should be set ||
+|| increment_delay_seconds | **int64**
+
+Wait for transaction completion time, in seconds
+Set load delay time to insure that current transactions on source are completed
+and thus full data is visible for snapshot.
+This may be useful if source cannot guarantee that cursor values grows
+monotonically -
+due to transaction race or well-known problem that serial id sequence does not
+actually guarantee the order ||
+|| retry_config | **[RetryConfig](#yandex.cloud.datatransfer.v1.RegularSnapshotSettings.RetryConfig)**
+
+Regular snapshot retries, only for cloud installation ||
+|#
+
+## IncrementalTable {#yandex.cloud.datatransfer.v1.IncrementalTable}
+
+#|
+||Field | Description ||
+|| table_namespace | **string** ||
+|| table_name | **string** ||
+|| cursor_column | **string** ||
+|| initial_state | **string** ||
+|#
+
+## RetryConfig {#yandex.cloud.datatransfer.v1.RegularSnapshotSettings.RetryConfig}
+
+#|
+||Field | Description ||
+|| max_attempts | **int64**
+
+Number of attempts to retry regular snapshot in case of failure. Applicable only
+for cloud installation. ||
+|#
+
+## RegularSnapshotDisabled {#yandex.cloud.datatransfer.v1.RegularSnapshotDisabled}
+
+Regular snapshot disabled
+
+#|
+||Field | Description ||
+|| Empty | > ||
+|#
+
+## Transformation {#yandex.cloud.datatransfer.v1.Transformation}
+
+Transformation is converting data using special transformer functions.
+These functions are executed on a data stream, applied to each data change item,
+and transform them.
+A transformer can be run at both the metadata and data levels.
+Data can only be transformed if the source and target are of different types.
+
+#|
+||Field | Description ||
+|| transformers[] | **[Transformer](#yandex.cloud.datatransfer.v1.Transformer)**
+
+A list of transformers. You can specify exactly 1 transformer in each element of
+list
+When activating a transfer, a transformation plan is made for the tables that
+match the specified criteria.
+Transformers are applied to the tables in the sequence specified in the list. ||
+|#
+
+## Transformer {#yandex.cloud.datatransfer.v1.Transformer}
+
+Some transformers may have limitations and only apply to some source-target
+pairs.
+
+#|
+||Field | Description ||
+|| mask_field | **[MaskFieldTransformer](#yandex.cloud.datatransfer.v1.MaskFieldTransformer)**
+
+Mask field transformer allows you to hash data
+
+Includes only one of the fields `mask_field`, `filter_columns`, `rename_tables`, `replace_primary_key`, `convert_to_string`, `sharder_transformer`, `table_splitter_transformer`, `filter_rows`. ||
+|| filter_columns | **[FilterColumnsTransformer](#yandex.cloud.datatransfer.v1.FilterColumnsTransformer)**
+
+Set up a list of table columns to transfer
+
+Includes only one of the fields `mask_field`, `filter_columns`, `rename_tables`, `replace_primary_key`, `convert_to_string`, `sharder_transformer`, `table_splitter_transformer`, `filter_rows`. ||
+|| rename_tables | **[RenameTablesTransformer](#yandex.cloud.datatransfer.v1.RenameTablesTransformer)**
+
+Set rules for renaming tables by specifying the current names of the tables in
+the source and new names for these tables in the target
+
+Includes only one of the fields `mask_field`, `filter_columns`, `rename_tables`, `replace_primary_key`, `convert_to_string`, `sharder_transformer`, `table_splitter_transformer`, `filter_rows`. ||
+|| replace_primary_key | **[ReplacePrimaryKeyTransformer](#yandex.cloud.datatransfer.v1.ReplacePrimaryKeyTransformer)**
+
+Override primary keys.
+
+Includes only one of the fields `mask_field`, `filter_columns`, `rename_tables`, `replace_primary_key`, `convert_to_string`, `sharder_transformer`, `table_splitter_transformer`, `filter_rows`. ||
+|| convert_to_string | **[ToStringTransformer](#yandex.cloud.datatransfer.v1.ToStringTransformer)**
+
+Convert column values to strings
+
+Includes only one of the fields `mask_field`, `filter_columns`, `rename_tables`, `replace_primary_key`, `convert_to_string`, `sharder_transformer`, `table_splitter_transformer`, `filter_rows`. ||
+|| sharder_transformer | **[SharderTransformer](#yandex.cloud.datatransfer.v1.SharderTransformer)**
+
+Set the number of shards for particular tables and a list of columns whose
+values will be used for calculating a hash to determine a shard.
+
+Includes only one of the fields `mask_field`, `filter_columns`, `rename_tables`, `replace_primary_key`, `convert_to_string`, `sharder_transformer`, `table_splitter_transformer`, `filter_rows`. ||
+|| table_splitter_transformer | **[TableSplitterTransformer](#yandex.cloud.datatransfer.v1.TableSplitterTransformer)**
+
+Splits the X table into multiple tables (X_1, X_2, ..., X_n) based on data.
+
+Includes only one of the fields `mask_field`, `filter_columns`, `rename_tables`, `replace_primary_key`, `convert_to_string`, `sharder_transformer`, `table_splitter_transformer`, `filter_rows`. ||
+|| filter_rows | **[FilterRowsTransformer](#yandex.cloud.datatransfer.v1.FilterRowsTransformer)**
+
+This filter only applies to transfers with queues (Logbroker or Apache Kafka®)
+as a data source. When running a transfer, only the strings meeting the
+specified criteria remain in a changefeed.
+
+Includes only one of the fields `mask_field`, `filter_columns`, `rename_tables`, `replace_primary_key`, `convert_to_string`, `sharder_transformer`, `table_splitter_transformer`, `filter_rows`. ||
+|#
+
+## MaskFieldTransformer {#yandex.cloud.datatransfer.v1.MaskFieldTransformer}
+
+Mask field transformer allows you to hash data
+
+#|
+||Field | Description ||
+|| tables | **[TablesFilter](#yandex.cloud.datatransfer.v1.TablesFilter)**
+
+List of included and excluded tables ||
+|| columns[] | **string**
+
+Specify the name of the column for data masking (a regular expression). ||
+|| function | **[MaskFunction](#yandex.cloud.datatransfer.v1.MaskFunction)**
+
+Mask function ||
+|#
+
+## TablesFilter {#yandex.cloud.datatransfer.v1.TablesFilter}
+
+Filter tables using lists of included and excluded tables.
+
+#|
+||Field | Description ||
+|| include_tables[] | **string**
+
+List of tables that will be included to transfer ||
+|| exclude_tables[] | **string**
+
+List of tables that will be excluded to transfer ||
+|#
+
+## MaskFunction {#yandex.cloud.datatransfer.v1.MaskFunction}
+
+Mask function
+
+#|
+||Field | Description ||
+|| mask_function_hash | **[MaskFunctionHash](#yandex.cloud.datatransfer.v1.MaskFunctionHash)**
+
+Hash mask function
+
+Includes only one of the fields `mask_function_hash`. ||
+|#
+
+## MaskFunctionHash {#yandex.cloud.datatransfer.v1.MaskFunctionHash}
+
+Hash data using HMAC
+
+#|
+||Field | Description ||
+|| user_defined_salt | **string**
+
+This string will be used in the HMAC(sha256, salt) function applied to the
+column data. ||
+|#
+
+## FilterColumnsTransformer {#yandex.cloud.datatransfer.v1.FilterColumnsTransformer}
+
+Set up a list of table columns to transfer
+
+#|
+||Field | Description ||
+|| tables | **[TablesFilter](#yandex.cloud.datatransfer.v1.TablesFilter)**
+
+List of the tables to filter using lists of included and excluded tables. ||
+|| columns | **[ColumnsFilter](#yandex.cloud.datatransfer.v1.ColumnsFilter)**
+
+List of the columns to transfer to the target tables using lists of included and
+excluded columns. ||
+|#
+
+## ColumnsFilter {#yandex.cloud.datatransfer.v1.ColumnsFilter}
+
+Filter columns using lists of included and excluded columns.
+
+#|
+||Field | Description ||
+|| include_columns[] | **string**
+
+List of columns that will be included to transfer ||
+|| exclude_columns[] | **string**
+
+List of columns that will be excluded to transfer ||
+|#
+
+## RenameTablesTransformer {#yandex.cloud.datatransfer.v1.RenameTablesTransformer}
+
+Set rules for renaming tables by specifying the current names of the tables in
+the source and new names for these tables in the target.
+
+#|
+||Field | Description ||
+|| rename_tables[] | **[RenameTable](#yandex.cloud.datatransfer.v1.RenameTable)**
+
+List of renaming rules ||
+|#
+
+## RenameTable {#yandex.cloud.datatransfer.v1.RenameTable}
+
+Specify rule for renaming table
+
+#|
+||Field | Description ||
+|| original_name | **[Table](#yandex.cloud.datatransfer.v1.Table)**
+
+Specify the current names of the table in the source ||
+|| new_name | **[Table](#yandex.cloud.datatransfer.v1.Table)**
+
+Specify the new names for this table in the target ||
+|#
+
+## Table {#yandex.cloud.datatransfer.v1.Table}
+
+#|
+||Field | Description ||
+|| name_space | **string** ||
+|| name | **string** ||
+|#
+
+## ReplacePrimaryKeyTransformer {#yandex.cloud.datatransfer.v1.ReplacePrimaryKeyTransformer}
+
+Override primary keys
+
+#|
+||Field | Description ||
+|| tables | **[TablesFilter](#yandex.cloud.datatransfer.v1.TablesFilter)**
+
+List of included and excluded tables ||
+|| keys[] | **string**
+
+List of columns to be used as primary keys ||
+|#
+
+## ToStringTransformer {#yandex.cloud.datatransfer.v1.ToStringTransformer}
+
+Convert column values to strings
+The values will be converted depending on the source type
+Conversion rules are described here:
+https://cloud.yandex.com/en/docs/data-transfer/concepts/data-transformation#convert-to-string
+
+#|
+||Field | Description ||
+|| tables | **[TablesFilter](#yandex.cloud.datatransfer.v1.TablesFilter)**
+
+List of included and excluded tables ||
+|| columns | **[ColumnsFilter](#yandex.cloud.datatransfer.v1.ColumnsFilter)**
+
+List of included and excluded columns ||
+|| skip_utc_conversion | **bool**
+
+When true, time values keep their original timezone, otherwise time values converts (normalizes) to UTC. ||
+|#
+
+## SharderTransformer {#yandex.cloud.datatransfer.v1.SharderTransformer}
+
+Set the number of shards for particular tables and a list of columns whose
+values will be used for calculating a hash to determine a shard.
+
+#|
+||Field | Description ||
+|| columns | **[ColumnsFilter](#yandex.cloud.datatransfer.v1.ColumnsFilter)**
+
+List of included and excluded columns
+
+Includes only one of the fields `columns`, `random`. ||
+|| random | **[SharderTransformerTypeRandom](#yandex.cloud.datatransfer.v1.SharderTransformerTypeRandom)**
+
+Includes only one of the fields `columns`, `random`. ||
+|| tables | **[TablesFilter](#yandex.cloud.datatransfer.v1.TablesFilter)**
+
+List of included and excluded tables ||
+|| shards_count | **int64**
+
+Number of shards ||
+|#
+
+## SharderTransformerTypeRandom {#yandex.cloud.datatransfer.v1.SharderTransformerTypeRandom}
+
+#|
+||Field | Description ||
+|| Empty | > ||
+|#
+
+## TableSplitterTransformer {#yandex.cloud.datatransfer.v1.TableSplitterTransformer}
+
+A transfer splits the X table into multiple tables (X_1, X_2, ..., X_n) based on
+data.
+If a row was located in the X table before it was split, it is now in the X_i
+table,
+where i is determined by the column list and split string parameters.
+Example:
+If the column list has two columns, month of birth and gender, specified and the
+split string states @,
+information about an employee whose name is John and who was born on February
+11, 1984,
+from the Employees table will get to a new table named Employees@February@male.
+
+#|
+||Field | Description ||
+|| tables | **[TablesFilter](#yandex.cloud.datatransfer.v1.TablesFilter)**
+
+List of included and excluded tables ||
+|| columns[] | **string**
+
+Specify the columns in the tables to be partitioned. ||
+|| splitter | **string**
+
+Specify the split string to be used for merging components in a new table name. ||
+|#
+
+## FilterRowsTransformer {#yandex.cloud.datatransfer.v1.FilterRowsTransformer}
+
+This filter only applies to transfers with queues (Logbroker or Apache Kafka®)
+as a data source.
+When running a transfer, only the strings meeting the specified criteria remain
+in a changefeed.
+
+#|
+||Field | Description ||
+|| tables | **[TablesFilter](#yandex.cloud.datatransfer.v1.TablesFilter)**
+
+List of included and excluded tables. ||
+|| filter | **string**
+
+Filtering criterion. This can be comparison operators for numeric, string, and
+Boolean values,
+comparison to NULL, and checking whether a substring is part of a string.
+Details here:
+https://yandex.cloud/en-ru/docs/data-transfer/concepts/data-transformation#append-only-sources.
+Deprecated: Use filters instead. ||
+|| filters[] | **string**
+
+Data is transported if it satisfies at least one of filters. Consider that there
+is OR statement between filters.
+Each filter can be comparison operators for numeric, string, and Boolean values,
+comparison to NULL, and
+checking whether a substring is part of a string.
+Details in docs:
+https://yandex.cloud/en-ru/docs/data-transfer/concepts/data-transformation#append-only-sources. ||
+|#
+
+## DataObjects {#yandex.cloud.datatransfer.v1.DataObjects}
+
+#|
+||Field | Description ||
+|| include_objects[] | **string** ||
+|#
+
+## operation.Operation {#yandex.cloud.operation.Operation}
+
+```json
+{
+  "id": "string",
+  "description": "string",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
+  "done": "bool",
+  "metadata": "google.protobuf.Any",
+  // Includes only one of the fields `error`, `response`
+  "error": "google.rpc.Status",
+  "response": "google.protobuf.Any"
+  // end of the list of possible fields
+}
+```
+
+An Operation resource. For more information, see [Operation](../../../../api-design-guide/concepts/operation.md).
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the operation. ||
+|| description | **string**
+
+Description of the operation. 0-256 characters long. ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Creation timestamp. ||
+|| created_by | **string**
+
+ID of the user or service account who initiated the operation. ||
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+The time when the Operation resource was last modified. ||
+|| done | **bool**
+
+If the value is `false`, it means the operation is still in progress.
+If `true`, the operation is completed, and either `error` or `response` is available. ||
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
+
+Service-specific metadata associated with the operation.
+It typically contains the ID of the target resource that the operation is performed on.
+Any method that returns a long-running operation should document the metadata type, if any. ||
+|| error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**
+
+The error result of the operation in case of failure or cancellation.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
+
+The normal response of the operation in case of success.
+If the original method returns no data on success, such as Delete,
+the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty).
+If the original method is the standard Create/Update,
+the response should be the target resource of the operation.
+Any method that returns a long-running operation should document the response type, if any.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|#

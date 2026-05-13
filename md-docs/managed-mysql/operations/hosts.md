@@ -1,0 +1,842 @@
+# Управление хостами кластера MySQL®
+
+Вы можете добавлять и удалять хосты кластера, а также управлять их настройками. О том, как перенести хосты кластера в другую [зону доступности](../../overview/concepts/geo-scope.md), читайте в [инструкции](host-migration.md).
+
+## Получить список хостов в кластере {#list}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;MySQL**.
+  1. Нажмите на имя нужного кластера, затем выберите вкладку **Хосты**.
+
+- CLI {#cli}
+
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+
+  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+  Чтобы получить список хостов в кластере, выполните команду:
+
+  ```bash
+  yc managed-mysql host list \
+     --cluster-name=<имя_кластера>
+  ```
+
+  Результат:
+
+  ```text
+  +----------------------------+----------------------+---------+--------+---------------+
+  |            NAME            |      CLUSTER ID      |  ROLE   | HEALTH |    ZONE ID    |
+  +----------------------------+----------------------+---------+--------+---------------+
+  | rc1b...mdb.yandexcloud.net | c9q5k4ve7ev4******** | MASTER  | ALIVE  | ru-central1-b |
+  | rc1a...mdb.yandexcloud.net | c9q5k4ve7ev4******** | REPLICA | ALIVE  | ru-central1-a |
+  +----------------------------+----------------------+---------+--------+---------------+
+  ```
+
+  Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- REST API {#api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      ```bash
+      export IAM_TOKEN="<IAM-токен>"
+      ```
+
+  1. Воспользуйтесь методом [Cluster.listHosts](../api-ref/Cluster/listHosts.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+
+      ```bash
+      curl \
+          --request GET \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/<идентификатор_кластера>/hosts'
+      ```
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/listHosts.md#yandex.cloud.mdb.mysql.v1.ListClusterHostsResponse).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      ```bash
+      export IAM_TOKEN="<IAM-токен>"
+      ```
+
+  1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+     
+     ```bash
+     cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+     ```
+     
+     Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+  1. Воспользуйтесь вызовом [ClusterService/ListHosts](../api-ref/grpc/Cluster/listHosts.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<идентификатор_кластера>"
+              }' \
+          mdb.api.cloud.yandex.net:443 \
+          yandex.cloud.mdb.mysql.v1.ClusterService.ListHosts
+      ```
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/listHosts.md#yandex.cloud.mdb.mysql.v1.ListClusterHostsResponse).
+
+{% endlist %}
+
+## Добавить хост {#add}
+
+Количество хостов в кластерах Managed Service for MySQL® ограничено квотами на количество CPU и объем памяти, которые доступны кластерам БД в вашем облаке. Чтобы проверить используемые ресурсы, откройте страницу [Квоты](https://console.yandex.cloud/cloud?section=quotas) и найдите блок **Managed Databases**.
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;MySQL**.
+  1. Нажмите на имя нужного кластера и перейдите на вкладку **Хосты**.
+  1. Нажмите кнопку **Создать хост**.
+  1. Укажите параметры хоста:
+
+     
+     * Зону доступности.
+     * Подсеть (если нужной подсети в списке нет, [создайте ее](../../vpc/operations/subnet-create.md)).
+     * Выберите опцию **Публичный доступ**, если хост должен быть доступен извне Yandex Cloud.
+
+
+     * Приоритет назначения хоста мастером.
+     * Приоритет хоста как MySQL®-реплики для создания резервной копии.
+
+- CLI {#cli}
+
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+
+  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+  Чтобы добавить хост в кластер:
+
+  
+  1. Запросите список подсетей кластера, чтобы выбрать подсеть для нового хоста:
+
+     ```bash
+     yc vpc subnet list
+     ```
+
+     Результат:
+
+     ```text
+     +----------------------+-----------+-----------------------+---------------+------------------+
+     |          ID          |   NAME    |       NETWORK ID      |       ZONE    |      RANGE       |
+     +----------------------+-----------+-----------------------+---------------+------------------+
+     | b0cl69a2b4c6******** | default-d | enp6rq72rndgr******** | ru-central1-d | [172.**.*.*/20]  |
+     | e2lkj9qwe762******** | default-b | enp6rq72rndgr******** | ru-central1-b | [10.**.*.*/16]   |
+     | e9b0ph42bn96******** | a-2       | enp6rq72rndgr******** | ru-central1-a | [172.**.**.*/20] |
+     | e9b9v22r88io******** | default-a | enp6rq72rndgr******** | ru-central1-a | [172.**.**.*/20] |
+     +----------------------+-----------+-----------------------+---------------+------------------+
+     ```
+
+     Если нужной подсети в списке нет, [создайте ее](../../vpc/operations/subnet-create.md).
+
+
+  1. Посмотрите описание команды CLI для добавления хостов:
+
+     ```bash
+     yc managed-mysql host add --help
+     ```
+
+  1. Выполните команду добавления хоста (в примере приведены не все доступные параметры):
+
+     
+     ```bash
+     yc managed-mysql host add \
+       --cluster-name=<имя_кластера> \
+       --host zone-id=<идентификатор_зоны_доступности>,`
+         `subnet-id=<идентификатор_подсети>,`
+         `assign-public-ip=<разрешить_публичный_доступ_к_хосту>,`
+         `replication-source=<имя_хоста-источника>,`
+         `backup-priority=<приоритет_хоста_при_резервном_копировании>,`
+         `priority=<приоритет_назначения_хоста_мастером>
+     ```
+
+
+     Где:
+     * `--cluster-name` — имя кластера Managed Service for MySQL®.
+     * `--host` — параметры хоста:
+       * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
+
+       
+       * `subnet-id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано две или больше подсетей.
+       * `assign-public-ip` — доступность хоста из интернета: `true` или `false.`
+
+
+       * `replication-source` — источник [репликации](../concepts/replication.md) для хоста.
+       * `backup-priority` — приоритет хоста при [резервном копировании](../concepts/backup.md#size): от `0` до `100`.
+       * `priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover): от `0` до `100`.
+
+     Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- Terraform {#tf}
+
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+
+     О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+  1. Добавьте к описанию кластера Managed Service for MySQL® блок `host`:
+
+     
+     ```hcl
+     resource "yandex_mdb_mysql_cluster" "<имя_кластера>" {
+       ...
+       host {
+         zone             = "<зона_доступности>"
+         subnet_id        = <идентификатор_подсети>
+         assign_public_ip = <разрешить_публичный_доступ_к_хосту>
+         priority         = <приоритет_назначения_хоста_мастером>
+         ...
+       }
+     }
+     ```
+
+
+     Где:
+
+     * `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
+     * `priority` — приоритет назначения хоста мастером: от `0` до `100`.
+
+  1. Проверьте корректность настроек.
+
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+     1. Выполните команду:
+     
+        ```bash
+        terraform validate
+        ```
+     
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Подтвердите изменение ресурсов.
+
+     1. Выполните команду для просмотра планируемых изменений:
+     
+        ```bash
+        terraform plan
+        ```
+     
+        Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
+     
+     1. Если вас устраивают планируемые изменения, внесите их:
+        1. Выполните команду:
+     
+           ```bash
+           terraform apply
+           ```
+     
+        1. Подтвердите изменение ресурсов.
+        1. Дождитесь завершения операции.
+
+  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_mysql_cluster.md).
+
+  {% note warning "Ограничения по времени" %}
+  
+  Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for MySQL®:
+  
+  * создание кластера, в том числе путем восстановления из резервной копии, — 15 минут;
+  * изменение кластера, в том числе обновление версии MySQL®, — 60 минут;
+  * удаление кластера — 15 минут.
+  
+  Операции, длящиеся дольше указанного времени, прерываются.
+  
+  {% cut "Как изменить эти ограничения?" %}
+  
+  Добавьте к описанию кластера блок `timeouts`, например:
+  
+  ```hcl
+  resource "yandex_mdb_mysql_cluster" "<имя_кластера>" {
+    ...
+    timeouts {
+      create = "1h30m" # Полтора часа
+      update = "2h"    # 2 часа
+      delete = "30m"   # 30 минут
+    }
+  }
+  ```
+  
+  {% endcut %}
+  
+  {% endnote %}
+
+- REST API {#api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      ```bash
+      export IAM_TOKEN="<IAM-токен>"
+      ```
+
+  1. Воспользуйтесь методом [Cluster.addHosts](../api-ref/Cluster/addHosts.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+
+      
+      ```bash
+      curl \
+          --request POST \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/<идентификатор_кластера>/hosts:batchCreate' \
+          --data '{
+                    "hostSpecs": [
+                      {
+                        "zoneId": "<зона_доступности>",
+                        "subnetId": "<идентификатор_подсети>",
+                        "assignPublicIp": <разрешить_публичный_доступ_к_хосту>,
+                        "replicationSource": "<FQDN_хоста>",
+                        "backupPriority": "<приоритет_хоста_при_резервном_копировании>",
+                        "priority": "<приоритет_назначения_хоста_мастером>"
+                      }
+                    ]
+                  }'
+      ```
+
+
+      Где `hostSpecs` — массив новых хостов. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
+
+      * `zoneId` — зона доступности.
+
+      
+      * `subnetId` — идентификатор подсети.
+      * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+
+
+      * `replicationSource` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#manual-source). В параметре укажите [FQDN хоста](connect/fqdn.md), который будет источником репликации.
+      * `backupPriority` — приоритет хоста при [резервном копировании](../concepts/backup.md#size): от `0` до `100`.
+      * `priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover): от `0` до `100`.
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      ```bash
+      export IAM_TOKEN="<IAM-токен>"
+      ```
+
+  1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+     
+     ```bash
+     cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+     ```
+     
+     Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+  1. Воспользуйтесь вызовом [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+
+      
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<идентификатор_кластера>",
+                "host_specs": [
+                  {
+                    "zone_id": "<зона_доступности>",
+                    "subnet_id": "<идентификатор_подсети>",
+                    "assign_public_ip": <разрешить_публичный_доступ_к_хосту>,
+                    "replication_source": "<FQDN_хоста>",
+                    "backup_priority": "<приоритет_хоста_при_резервном_копировании>",
+                    "priority": "<приоритет_назначения_хоста_мастером>"
+                  }
+                ]
+              }' \
+          mdb.api.cloud.yandex.net:443 \
+          yandex.cloud.mdb.mysql.v1.ClusterService.AddHosts
+      ```
+
+
+      Где `host_specs` — массив новых хостов. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
+
+      * `zone_id` — зона доступности.
+
+      
+      * `subnet_id` — идентификатор подсети.
+      * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+
+
+      * `replication_source` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#manual-source). В параметре укажите [FQDN хоста](connect/fqdn.md), который будет источником репликации.
+      * `backup_priority` — приоритет хоста при [резервном копировании](../concepts/backup.md#size): от `0` до `100`.
+      * `priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover): от `0` до `100`.
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+
+{% endlist %}
+
+
+{% note warning %}
+
+Если после добавления хоста к нему невозможно [подключиться](connect/index.md), убедитесь, что [группа безопасности](../concepts/network.md#security-groups) кластера настроена корректно для подсети, в которую помещен хост.
+
+{% endnote %}
+
+
+## Изменить хост {#update}
+
+Для каждого хоста в кластере Managed Service for MySQL® можно:
+* Указать [источник репликации](../concepts/replication.md#manual-source).
+* Управлять [публичным доступом](../concepts/network.md#public-access-to-host).
+* Задать [приоритет использования](../concepts/backup.md#size) при резервном копировании.
+* Задать приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover).
+
+{% note info %}
+
+Перезапустить отдельный хост кластера невозможно. Для перезапуска хостов [остановите и запустите кластер](cluster-stop.md).
+
+{% endnote %}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  Чтобы изменить параметры хоста в кластере:
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;MySQL**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Хосты**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **Редактировать**.
+  1. Задайте новые настройки для хоста:
+     1. Выберите источник репликации для хоста, чтобы вручную управлять потоками репликации.
+
+     
+     1. Включите опцию **Публичный доступ**, если хост должен быть доступен извне Yandex Cloud.
+
+
+     1. Задайте значение поля **Приоритет мастера**.
+     1. Задайте значение поля **Приоритет cоздания бэкапа**.
+  1. Нажмите кнопку **Сохранить**.
+
+- CLI {#cli}
+
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+
+  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+  Чтобы изменить параметры хоста, выполните команду (в примере приведены не все доступные параметры):
+
+  
+  ```bash
+  yc managed-mysql host update <имя_хоста> \
+    --cluster-name=<имя_кластера> \
+    --replication-source=<имя_хоста-источника> \
+    --assign-public-ip=<разрешить_публичный_доступ_к_хосту> \
+    --backup-priority=<приоритет_хоста_при_резервном_копировании> \
+    --priority=<приоритет_назначения_хоста_мастером>
+  ```
+
+
+  Где:
+  * `--cluster-name` — имя кластера Managed Service for MySQL®.
+  * `--replication-source` — источник [репликации](../concepts/replication.md) для хоста.
+
+  
+  * `--assign-public-ip` — доступность хоста из интернета: `true` или `false`.
+
+
+  * `--backup-priority` — приоритет хоста при [резервном копировании](../concepts/backup.md#size): от `0` до `100`.
+  * `--priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover): от `0` до `100`.
+
+  Имя хоста можно запросить со [списком хостов в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- Terraform {#tf}
+
+  Чтобы изменить параметры хоста в кластере:
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+
+     О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+  1. Измените в описании кластера Managed Service for MySQL® атрибуты блока `host`, соответствующего изменяемому хосту.
+
+     
+     ```hcl
+     resource "yandex_mdb_mysql_cluster" "<имя_кластера>" {
+       ...
+       host {
+         replication_source_name = "<источник_репликации>"
+         assign_public_ip        = <разрешить_публичный_доступ_к_хосту>
+         priority                = <приоритет_назначения_хоста_мастером>
+       }
+     }
+     ```
+
+
+     Где:
+
+     * `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
+     * `priority` — приоритет назначения хоста мастером: от `0` до `100`.
+
+  1. Проверьте корректность настроек.
+
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+     1. Выполните команду:
+     
+        ```bash
+        terraform validate
+        ```
+     
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Подтвердите изменение ресурсов.
+
+     1. Выполните команду для просмотра планируемых изменений:
+     
+        ```bash
+        terraform plan
+        ```
+     
+        Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
+     
+     1. Если вас устраивают планируемые изменения, внесите их:
+        1. Выполните команду:
+     
+           ```bash
+           terraform apply
+           ```
+     
+        1. Подтвердите изменение ресурсов.
+        1. Дождитесь завершения операции.
+
+  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_mysql_cluster.md).
+
+  {% note warning "Ограничения по времени" %}
+  
+  Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for MySQL®:
+  
+  * создание кластера, в том числе путем восстановления из резервной копии, — 15 минут;
+  * изменение кластера, в том числе обновление версии MySQL®, — 60 минут;
+  * удаление кластера — 15 минут.
+  
+  Операции, длящиеся дольше указанного времени, прерываются.
+  
+  {% cut "Как изменить эти ограничения?" %}
+  
+  Добавьте к описанию кластера блок `timeouts`, например:
+  
+  ```hcl
+  resource "yandex_mdb_mysql_cluster" "<имя_кластера>" {
+    ...
+    timeouts {
+      create = "1h30m" # Полтора часа
+      update = "2h"    # 2 часа
+      delete = "30m"   # 30 минут
+    }
+  }
+  ```
+  
+  {% endcut %}
+  
+  {% endnote %}
+
+- REST API {#api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      ```bash
+      export IAM_TOKEN="<IAM-токен>"
+      ```
+
+  1. Воспользуйтесь методом [Cluster.updateHosts](../api-ref/Cluster/updateHosts.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+
+      
+      ```bash
+      curl \
+          --request POST \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/<идентификатор_кластера>/hosts:batchUpdate' \
+          --data '{
+                    "updateHostSpecs": [
+                      {
+                        "updateMask": "assignPublicIp,replicationSource,backupPriority,priority",
+                        "hostName": "<FQDN_хоста>",
+                        "assignPublicIp": <разрешить_публичный_доступ_к_хосту>,
+                        "replicationSource": "<FQDN_хоста>",
+                        "backupPriority": "<приоритет_хоста_при_резервном_копировании>",
+                        "priority": "<приоритет_назначения_хоста_мастером>"
+                      }
+                    ]
+                  }'
+      ```
+
+
+      Где `updateHostSpecs` — массив изменяемых хостов. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
+
+      * `updateMask` — перечень изменяемых параметров в одну строку через запятую.
+      * `hostName` — [FQDN изменяемого хоста](connect/fqdn.md).
+
+      
+      * `assignPublicIp` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+
+
+      * `replicationSource` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#manual-source). В параметре укажите [FQDN хоста](connect/fqdn.md), который будет источником репликации.
+      * `backupPriority` — приоритет хоста при [резервном копировании](../concepts/backup.md#size): от `0` до `100`.
+      * `priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover): от `0` до `100`.
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/updateHosts.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      ```bash
+      export IAM_TOKEN="<IAM-токен>"
+      ```
+
+  1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+     
+     ```bash
+     cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+     ```
+     
+     Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+  1. Воспользуйтесь вызовом [ClusterService/UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+
+      
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<идентификатор_кластера>",
+                "update_host_specs": [
+                  {
+                    "update_mask": {
+                      "paths": [
+                        "assign_public_ip", "replication_source", "backup_priority", "priority"
+                      ]
+                    },
+                    "host_name": "<FQDN_хоста>",
+                    "assign_public_ip": <разрешить_публичный_доступ_к_хосту>,
+                    "replication_source": "<FQDN_хоста>",
+                    "backup_priority": "<приоритет_хоста_при_резервном_копировании>",
+                    "priority": "<приоритет_назначения_хоста_мастером>"
+                  }
+                ]
+              }' \
+          mdb.api.cloud.yandex.net:443 \
+          yandex.cloud.mdb.mysql.v1.ClusterService.UpdateHosts
+      ```
+
+
+      Где `update_host_specs` — массив изменяемых хостов. Один элемент массива содержит настройки для одного хоста и имеет следующую структуру:
+
+      * `update_mask` — перечень изменяемых параметров в виде массива строк `paths[]`.
+      * `host_name` — [FQDN изменяемого хоста](connect/fqdn.md).
+
+      
+      * `assign_public_ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+
+
+      * `replication_source` — источник репликации для хоста для [ручного управления потоками репликации](../concepts/replication.md#manual-source). В параметре укажите [FQDN хоста](connect/fqdn.md), который будет источником репликации.
+      * `backup_priority` — приоритет хоста при [резервном копировании](../concepts/backup.md#size): от `0` до `100`.
+      * `priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover): от `0` до `100`.
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+
+{% endlist %}
+
+
+{% note warning %}
+
+Если после изменения хоста к нему невозможно [подключиться](connect/index.md), убедитесь, что [группа безопасности](../concepts/network.md#security-groups) кластера настроена корректно для подсети, в которую помещен хост.
+
+{% endnote %}
+
+
+## Удалить хост {#remove}
+
+Вы можете удалить хост из кластера MySQL®, если он не является единственным хостом. Чтобы заменить единственный хост, сначала создайте новый хост, а затем удалите старый.
+
+Если хост является мастером в момент удаления, Managed Service for MySQL® автоматически назначит мастером следующую по приоритету реплику.
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;MySQL**.
+  1. Нажмите на имя нужного кластера и выберите вкладку **Хосты**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке нужного хоста и выберите пункт **Удалить**.
+
+- CLI {#cli}
+
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+
+  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+  Чтобы удалить хост из кластера, выполните команду:
+
+  ```bash
+  yc managed-mysql host delete <имя_хоста> \
+     --cluster-name=<имя_кластера>
+  ```
+
+  Имя хоста можно запросить со [списком хостов в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- Terraform {#tf}
+
+  1. Откройте актуальный конфигурационный файл Terraform с планом инфраструктуры.
+
+     О том, как создать такой файл, см. в разделе [Создание кластера](cluster-create.md).
+  1. Удалите из описания кластера Managed Service for MySQL® блок `host`.
+  1. Проверьте корректность настроек.
+
+     1. В командной строке перейдите в каталог, в котором расположены актуальные конфигурационные файлы Terraform с планом инфраструктуры.
+     1. Выполните команду:
+     
+        ```bash
+        terraform validate
+        ```
+     
+        Если в файлах конфигурации есть ошибки, Terraform на них укажет.
+
+  1. Введите слово `yes` и нажмите **Enter**.
+
+     1. Выполните команду для просмотра планируемых изменений:
+     
+        ```bash
+        terraform plan
+        ```
+     
+        Если конфигурации ресурсов описаны верно, в терминале отобразится список изменяемых ресурсов и их параметров. Это проверочный этап: ресурсы не будут изменены.
+     
+     1. Если вас устраивают планируемые изменения, внесите их:
+        1. Выполните команду:
+     
+           ```bash
+           terraform apply
+           ```
+     
+        1. Подтвердите изменение ресурсов.
+        1. Дождитесь завершения операции.
+
+  Подробнее см. в [документации провайдера Terraform](../../terraform/resources/mdb_mysql_cluster.md).
+
+  {% note warning "Ограничения по времени" %}
+  
+  Провайдер Terraform ограничивает время на выполнение операций с кластером Managed Service for MySQL®:
+  
+  * создание кластера, в том числе путем восстановления из резервной копии, — 15 минут;
+  * изменение кластера, в том числе обновление версии MySQL®, — 60 минут;
+  * удаление кластера — 15 минут.
+  
+  Операции, длящиеся дольше указанного времени, прерываются.
+  
+  {% cut "Как изменить эти ограничения?" %}
+  
+  Добавьте к описанию кластера блок `timeouts`, например:
+  
+  ```hcl
+  resource "yandex_mdb_mysql_cluster" "<имя_кластера>" {
+    ...
+    timeouts {
+      create = "1h30m" # Полтора часа
+      update = "2h"    # 2 часа
+      delete = "30m"   # 30 минут
+    }
+  }
+  ```
+  
+  {% endcut %}
+  
+  {% endnote %}
+
+- REST API {#api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      ```bash
+      export IAM_TOKEN="<IAM-токен>"
+      ```
+
+  1. Воспользуйтесь методом [Cluster.deleteHosts](../api-ref/Cluster/deleteHosts.md) и выполните запрос, например, с помощью [cURL](https://curl.se/):
+
+      ```bash
+      curl \
+          --request POST \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --header "Content-Type: application/json" \
+          --url 'https://mdb.api.cloud.yandex.net/managed-mysql/v1/clusters/<идентификатор_кластера>/hosts:batchDelete' \
+          --data '{
+                    "hostNames": [
+                      "<FQDN_хоста>"
+                    ]
+                  }'
+      ```
+
+      Где `hostNames` — массив с удаляемым хостом.
+
+      В одном запросе можно передать только один FQDN хоста. Если нужно удалить несколько хостов, выполните запрос для каждого хоста.
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/deleteHosts.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      ```bash
+      export IAM_TOKEN="<IAM-токен>"
+      ```
+
+  1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+     
+     ```bash
+     cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+     ```
+     
+     Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+  1. Воспользуйтесь вызовом [ClusterService/DeleteHosts](../api-ref/grpc/Cluster/deleteHosts.md) и выполните запрос, например, с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+
+      ```bash
+      grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/mdb/mysql/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d '{
+                "cluster_id": "<идентификатор_кластера>",
+                "host_names": [
+                  "<FQDN_хоста>"
+                ]
+              }' \
+          mdb.api.cloud.yandex.net:443 \
+          yandex.cloud.mdb.mysql.v1.ClusterService.DeleteHosts
+      ```
+
+      Где `host_names` — массив с удаляемым хостом.
+
+      В одном запросе можно передать только один FQDN хоста. Если нужно удалить несколько хостов, выполните запрос для каждого хоста.
+
+      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+
+{% endlist %}
