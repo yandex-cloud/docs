@@ -1,0 +1,54 @@
+# Compute Cloud API, gRPC: ZoneService.Get
+
+Returns the information about the specified availability zone.
+
+To get the list of availability zones, make a [List](list.md#List) request.
+
+## gRPC request
+
+**rpc Get ([GetZoneRequest](#yandex.cloud.compute.v1.GetZoneRequest)) returns ([Zone](#yandex.cloud.compute.v1.Zone))**
+
+## GetZoneRequest {#yandex.cloud.compute.v1.GetZoneRequest}
+
+```json
+{
+  "zone_id": "string"
+}
+```
+
+#|
+||Field | Description ||
+|| zone_id | **string**
+
+Required field. ID of the availability zone to return information about.
+
+The maximum string length in characters is 50. ||
+|#
+
+## Zone {#yandex.cloud.compute.v1.Zone}
+
+```json
+{
+  "id": "string",
+  "region_id": "string",
+  "status": "Status"
+}
+```
+
+Availability zone. For more information, see [Availability zones](../../../../overview/concepts/geo-scope.md).
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the zone. ||
+|| region_id | **string**
+
+ID of the region. ||
+|| status | enum **Status**
+
+Status of the zone.
+
+- `UP`: Zone is available. You can access the resources allocated in this zone.
+- `DOWN`: Zone is not available. ||
+|#

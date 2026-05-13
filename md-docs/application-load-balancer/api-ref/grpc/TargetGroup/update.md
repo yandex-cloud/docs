@@ -1,0 +1,250 @@
+# Application Load Balancer API, gRPC: TargetGroupService.Update
+
+Updates the specified target group.
+
+## gRPC request
+
+**rpc Update ([UpdateTargetGroupRequest](#yandex.cloud.apploadbalancer.v1.UpdateTargetGroupRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
+
+## UpdateTargetGroupRequest {#yandex.cloud.apploadbalancer.v1.UpdateTargetGroupRequest}
+
+```json
+{
+  "target_group_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
+  "name": "string",
+  "description": "string",
+  "labels": "map<string, string>",
+  "targets": [
+    {
+      // Includes only one of the fields `ip_address`
+      "ip_address": "string",
+      // end of the list of possible fields
+      "subnet_id": "string",
+      "private_ipv4_address": "bool"
+    }
+  ]
+}
+```
+
+#|
+||Field | Description ||
+|| target_group_id | **string**
+
+Required field. ID of the target group to update.
+
+To get the target group ID, make a [TargetGroupService.List](list.md#List) request. ||
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+
+Field mask that specifies which attributes of the target group should be updated. ||
+|| name | **string**
+
+New name for the target group.
+The name must be unique within the folder.
+
+Value must match the regular expression ` ([a-z]([-a-z0-9]{0,61}[a-z0-9])?)? `. ||
+|| description | **string**
+
+New description of the target group.
+
+The maximum string length in characters is 256. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Target group labels as `key:value` pairs.
+For details about the concept, see [documentation](../../../../overview/concepts/services.md#labels).
+
+Existing set of labels is completely replaced by the provided set, so if you just want
+to add or remove a label:
+1. Get the current set of labels with a [TargetGroupService.Get](get.md#Get) request.
+2. Add or remove a label in this set.
+3. Send the new set in this field.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
+|| targets[] | **[Target](#yandex.cloud.apploadbalancer.v1.Target)**
+
+New list of targets in the target group.
+
+Existing list of targets is completely replaced by the specified list, so if you just want to add or remove
+a target, make a [TargetGroupService.AddTargets](addTargets.md#AddTargets) request or a [TargetGroupService.RemoveTargets](removeTargets.md#RemoveTargets) request. ||
+|#
+
+## Target {#yandex.cloud.apploadbalancer.v1.Target}
+
+A target resource.
+For details about the concept, see [documentation](../../../concepts/target-group.md).
+
+#|
+||Field | Description ||
+|| ip_address | **string**
+
+IP address of the target.
+
+Includes only one of the fields `ip_address`.
+
+Reference to the target. As of now, targets must only be referred to by their IP addresses. ||
+|| subnet_id | **string**
+
+ID of the subnet that the target is connected to. ||
+|| private_ipv4_address | **bool**
+
+If set, will not require `subnet_id` to validate the target.
+Instead, the address should belong to one of the following ranges:
+10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16
+Only one of `subnet_id` or `private_ipv4_address` should be set. ||
+|#
+
+## operation.Operation {#yandex.cloud.operation.Operation}
+
+```json
+{
+  "id": "string",
+  "description": "string",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
+  "done": "bool",
+  "metadata": {
+    "target_group_id": "string"
+  },
+  // Includes only one of the fields `error`, `response`
+  "error": "google.rpc.Status",
+  "response": {
+    "id": "string",
+    "name": "string",
+    "description": "string",
+    "folder_id": "string",
+    "labels": "map<string, string>",
+    "targets": [
+      {
+        // Includes only one of the fields `ip_address`
+        "ip_address": "string",
+        // end of the list of possible fields
+        "subnet_id": "string",
+        "private_ipv4_address": "bool"
+      }
+    ],
+    "created_at": "google.protobuf.Timestamp"
+  }
+  // end of the list of possible fields
+}
+```
+
+An Operation resource. For more information, see [Operation](../../../../api-design-guide/concepts/operation.md).
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the operation. ||
+|| description | **string**
+
+Description of the operation. 0-256 characters long. ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Creation timestamp. ||
+|| created_by | **string**
+
+ID of the user or service account who initiated the operation. ||
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+The time when the Operation resource was last modified. ||
+|| done | **bool**
+
+If the value is `false`, it means the operation is still in progress.
+If `true`, the operation is completed, and either `error` or `response` is available. ||
+|| metadata | **[UpdateTargetGroupMetadata](#yandex.cloud.apploadbalancer.v1.UpdateTargetGroupMetadata)**
+
+Service-specific metadata associated with the operation.
+It typically contains the ID of the target resource that the operation is performed on.
+Any method that returns a long-running operation should document the metadata type, if any. ||
+|| error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**
+
+The error result of the operation in case of failure or cancellation.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|| response | **[TargetGroup](#yandex.cloud.apploadbalancer.v1.TargetGroup)**
+
+The normal response of the operation in case of success.
+If the original method returns no data on success, such as Delete,
+the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty).
+If the original method is the standard Create/Update,
+the response should be the target resource of the operation.
+Any method that returns a long-running operation should document the response type, if any.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|#
+
+## UpdateTargetGroupMetadata {#yandex.cloud.apploadbalancer.v1.UpdateTargetGroupMetadata}
+
+#|
+||Field | Description ||
+|| target_group_id | **string**
+
+ID of the target group that is being updated. ||
+|#
+
+## TargetGroup {#yandex.cloud.apploadbalancer.v1.TargetGroup}
+
+A target group resource.
+For details about the concept, see [documentation](../../../concepts/target-group.md).
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the target group. Generated at creation time. ||
+|| name | **string**
+
+Name of the target group. The name is unique within the folder. ||
+|| description | **string**
+
+Description of the target group. ||
+|| folder_id | **string**
+
+ID of the folder that the target group belongs to. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Target group labels as `key:value` pairs.
+For details about the concept, see [documentation](../../../../overview/concepts/services.md#labels). ||
+|| targets[] | **[Target](#yandex.cloud.apploadbalancer.v1.Target2)**
+
+List of targets in the target group. ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Creation timestamp. ||
+|#
+
+## Target {#yandex.cloud.apploadbalancer.v1.Target2}
+
+A target resource.
+For details about the concept, see [documentation](../../../concepts/target-group.md).
+
+#|
+||Field | Description ||
+|| ip_address | **string**
+
+IP address of the target.
+
+Includes only one of the fields `ip_address`.
+
+Reference to the target. As of now, targets must only be referred to by their IP addresses. ||
+|| subnet_id | **string**
+
+ID of the subnet that the target is connected to. ||
+|| private_ipv4_address | **bool**
+
+If set, will not require `subnet_id` to validate the target.
+Instead, the address should belong to one of the following ranges:
+10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16
+Only one of `subnet_id` or `private_ipv4_address` should be set. ||
+|#

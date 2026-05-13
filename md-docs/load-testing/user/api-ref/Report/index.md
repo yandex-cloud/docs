@@ -1,0 +1,11 @@
+# Load Testing API, REST: Report
+
+A set of methods for managing test reports.
+
+## Methods
+
+#|
+||Method | Description ||
+|| [GetTable](getTable.md) | Returns a report table for the specified test. ||
+|| [CalculateKpiValues](calculateKpiValues.md) | Returns a list of KPI values for tests matching the specified filter. ||
+|#

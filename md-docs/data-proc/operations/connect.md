@@ -1,0 +1,15 @@
+# Подключение к кластеру Yandex Data Processing
+
+После создания кластера Yandex Data Processing вы можете подключиться к хостам подкластеров:
+
+* Через интернет, если вы настроили публичный доступ для подкластера.
+* С [виртуальной машины](../../compute/operations/vm-create/create-linux-vm.md) Yandex Cloud, расположенной в той же облачной сети.
+
+Чтобы подключиться к кластеру:
+
+1. [Настройте группы безопасности](security-groups.md).
+1. [Получите FQDN хоста](fqdn.md).
+1. Подключитесь к хосту одним из способов:
+    * [по SSH](connect-ssh.md);
+    * через OS Login с помощью [стандартного SSH-клиента](connect-oslogin.md#os-login-ssh) или [Yandex Cloud CLI](connect-oslogin.md#os-login-cli);
+    * [из графических IDE](connect-ide.md).

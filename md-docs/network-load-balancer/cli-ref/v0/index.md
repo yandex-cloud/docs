@@ -1,0 +1,107 @@
+# yc load-balancer v0
+
+Manage Yandex Load Balancer resources
+
+#### Command Usage
+
+Syntax:
+
+`yc load-balancer v0 <group>`
+
+#### Command Tree
+
+- [yc load-balancer v0 network-load-balancer](network-load-balancer/index.md) — Manage network load balancer
+
+  - [yc load-balancer v0 network-load-balancer add-listener](network-load-balancer/add-listener.md) — Adds a listener to the specified network load balancer.
+
+  - [yc load-balancer v0 network-load-balancer attach-target-group](network-load-balancer/attach-target-group.md) — Attaches a target group to the specified network load balancer.
+
+  - [yc load-balancer v0 network-load-balancer create](network-load-balancer/create.md) — Create a network load balancer
+
+  - [yc load-balancer v0 network-load-balancer delete](network-load-balancer/delete.md) — Delete the specified load balancer
+
+  - [yc load-balancer v0 network-load-balancer detach-target-group](network-load-balancer/detach-target-group.md) — Detaches the target group from the specified network load balancer.
+
+  - [yc load-balancer v0 network-load-balancer disable-zones](network-load-balancer/disable-zones.md) — Disable zones for the specified network load balancer
+
+  - [yc load-balancer v0 network-load-balancer enable-zones](network-load-balancer/enable-zones.md) — Enable zones for the specified network load balancer
+
+  - [yc load-balancer v0 network-load-balancer get](network-load-balancer/get.md) — Show information about the specified load balancer
+
+  - [yc load-balancer v0 network-load-balancer list](network-load-balancer/list.md) — List load balancers
+
+  - [yc load-balancer v0 network-load-balancer list-operations](network-load-balancer/list-operations.md) — List operations for the specified load balancer
+
+  - [yc load-balancer v0 network-load-balancer remove-listener](network-load-balancer/remove-listener.md) — Removes the listener from the specified network load balancer.
+
+  - [yc load-balancer v0 network-load-balancer start](network-load-balancer/start.md) — Starts load balancing and health checking with the specified network load balancer.
+
+  - [yc load-balancer v0 network-load-balancer stop](network-load-balancer/stop.md) — Stops load balancing and health checking with the specified network load balancer.
+
+  - [yc load-balancer v0 network-load-balancer target-states](network-load-balancer/target-states.md) — Show states of target resources in the attached target group
+
+  - [yc load-balancer v0 network-load-balancer update](network-load-balancer/update.md) — Update the specified load balancer
+
+- [yc load-balancer v0 target-group](target-group/index.md) — Manage target groups
+
+  - [yc load-balancer v0 target-group add-targets](target-group/add-targets.md) — Add targets to the specified target group
+
+  - [yc load-balancer v0 target-group create](target-group/create.md) — Create a target group
+
+  - [yc load-balancer v0 target-group delete](target-group/delete.md) — Delete the specified target group
+
+  - [yc load-balancer v0 target-group get](target-group/get.md) — Show information about the specified target group
+
+  - [yc load-balancer v0 target-group list](target-group/list.md) — List target groups
+
+  - [yc load-balancer v0 target-group list-operations](target-group/list-operations.md) — List operations for the specified target group
+
+  - [yc load-balancer v0 target-group remove-targets](target-group/remove-targets.md) — Remove targets from the specified target group
+
+  - [yc load-balancer v0 target-group update](target-group/update.md) — Update the specified target group
+
+#### Global Flags
+
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom configuration file. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--syntax` | `string`
+
+CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
+|| `--token` | `string`
+
+Set the OAuth token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

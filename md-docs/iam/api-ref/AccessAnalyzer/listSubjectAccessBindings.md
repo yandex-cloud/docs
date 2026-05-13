@@ -1,0 +1,109 @@
+# Identity and Access Management API, REST: AccessAnalyzer.ListSubjectAccessBindings
+
+Returns the list of access bindings for the specified subject in chosen organization.
+
+## HTTP request
+
+```
+GET https://iam.api.cloud.yandex.net/iam/v1/listSubjectAccessBindings
+```
+
+## Query parameters {#yandex.cloud.iam.v1.ListSubjectAccessBindingsRequest}
+
+#|
+||Field | Description ||
+|| subjectId | **string**
+
+Required field. SubjectId to list access bindings for.
+
+The maximum string length in characters is 100. ||
+|| organizationId | **string**
+
+Required field. OrganizationId to search access bindings in.
+
+The maximum string length in characters is 50. ||
+|| pageSize | **string** (int64)
+
+The maximum number of results per page to return. If the number of available
+results is larger than `pageSize`,
+the service returns a [ListSubjectAccessBindingsResponse.nextPageToken](#yandex.cloud.iam.v1.ListSubjectAccessBindingsResponse)
+that can be used to get the next page of results in subsequent list requests.
+Default value: 100
+
+The maximum value is 1000. ||
+|| pageToken | **string**
+
+Page token. To get the next page of results, set `pageToken`
+to the [ListSubjectAccessBindingsResponse.nextPageToken](#yandex.cloud.iam.v1.ListSubjectAccessBindingsResponse)
+returned by a previous list request.
+
+The maximum string length in characters is 2000. ||
+|#
+
+## Response {#yandex.cloud.iam.v1.ListSubjectAccessBindingsResponse}
+
+**HTTP Code: 200 - OK**
+
+```json
+{
+  "subjectAccessBindings": [
+    {
+      "roleId": "string",
+      "resource": {
+        "id": "string",
+        "type": "string"
+      },
+      "subjectId": "string"
+    }
+  ],
+  "nextPageToken": "string"
+}
+```
+
+#|
+||Field | Description ||
+|| subjectAccessBindings[] | **[SubjectAccessBinding](#yandex.cloud.iam.v1.SubjectAccessBinding)**
+
+List of access bindings for the specified subject. ||
+|| nextPageToken | **string**
+
+This token allows you to get the next page of results for list requests. If the number of results
+is larger than [ListSubjectAccessBindingsRequest.pageSize](#yandex.cloud.iam.v1.ListSubjectAccessBindingsRequest), use
+the `nextPageToken` as the value
+for the [ListSubjectAccessBindingsRequest.pageToken](#yandex.cloud.iam.v1.ListSubjectAccessBindingsRequest) query parameter
+in the next list request. Each subsequent list request will have its own
+`nextPageToken` to continue paging through the results. ||
+|#
+
+## SubjectAccessBinding {#yandex.cloud.iam.v1.SubjectAccessBinding}
+
+#|
+||Field | Description ||
+|| roleId | **string**
+
+Role assigned to the subject. ||
+|| resource | **[Resource](#yandex.cloud.iam.v1.Resource)**
+
+Resource to which the access binding applies. ||
+|| subjectId | **string**
+
+Identifier of the subject to which this role is granted. ||
+|#
+
+## Resource {#yandex.cloud.iam.v1.Resource}
+
+A Resource. For more information, see [Resource](../../concepts/access-control/resources-with-access-control.md).
+
+#|
+||Field | Description ||
+|| id | **string**
+
+Required field. ID of the resource.
+
+The maximum string length in characters is 50. ||
+|| type | **string**
+
+Required field. The type of the resource, e.g. resource-manager.folder, billing.account, compute.snapshot, etc.
+
+The maximum string length in characters is 64. ||
+|#

@@ -1,0 +1,137 @@
+# yc serverless v0 eventrouter
+
+Manage eventrouters
+
+#### Command Usage
+
+Syntax:
+
+`yc serverless eventrouter <group|command>`
+
+Aliases:
+
+- `er`
+
+#### Command Tree
+
+- [yc serverless v0 eventrouter put-event](put-event.md) — Send event
+
+- [yc serverless v0 eventrouter send-event](send-event.md) — Send event
+
+- [yc serverless v0 eventrouter bus](bus/index.md) — Manage buses
+
+  - [yc serverless v0 eventrouter bus add-access-binding](bus/add-access-binding.md) — Add access binding for the specified bus
+
+  - [yc serverless v0 eventrouter bus create](bus/create.md) — Create a bus
+
+  - [yc serverless v0 eventrouter bus delete](bus/delete.md) — Delete the specified bus(es)
+
+  - [yc serverless v0 eventrouter bus get](bus/get.md) — Show information about the specified bus(es)
+
+  - [yc serverless v0 eventrouter bus list](bus/list.md) — List buses
+
+  - [yc serverless v0 eventrouter bus list-access-bindings](bus/list-access-bindings.md) — List access bindings for the specified function
+
+  - [yc serverless v0 eventrouter bus list-operations](bus/list-operations.md) — Show operations for the specified bus
+
+  - [yc serverless v0 eventrouter bus remove-access-binding](bus/remove-access-binding.md) — Remove access binding for the specified bus
+
+  - [yc serverless v0 eventrouter bus set-access-bindings](bus/set-access-bindings.md) — Set access bindings for the specified bus and delete all existing access bindings if there were any
+
+  - [yc serverless v0 eventrouter bus update](bus/update.md) — Update the specified bus
+
+- [yc serverless v0 eventrouter connector](connector/index.md) — Manage connectors
+
+  - [yc serverless v0 eventrouter connector add-access-binding](connector/add-access-binding.md) — Add access binding for the specified connector
+
+  - [yc serverless v0 eventrouter connector delete](connector/delete.md) — Delete the specified connector(s)
+
+  - [yc serverless v0 eventrouter connector get](connector/get.md) — Show information about the specified connector(s)
+
+  - [yc serverless v0 eventrouter connector list](connector/list.md) — List connectors
+
+  - [yc serverless v0 eventrouter connector list-access-bindings](connector/list-access-bindings.md) — List access bindings for the specified function
+
+  - [yc serverless v0 eventrouter connector list-operations](connector/list-operations.md) — Show operations for the specified connector
+
+  - [yc serverless v0 eventrouter connector remove-access-binding](connector/remove-access-binding.md) — Remove access binding for the specified connector
+
+  - [yc serverless v0 eventrouter connector set-access-bindings](connector/set-access-bindings.md) — Set access bindings for the specified connector and delete all existing access bindings if there were any
+
+  - [yc serverless v0 eventrouter connector start](connector/start.md) — Start the specified connector
+
+  - [yc serverless v0 eventrouter connector stop](connector/stop.md) — Stop the specified connector
+
+  - [yc serverless v0 eventrouter connector update](connector/update.md) — Update the specified connector
+
+- [yc serverless v0 eventrouter rule](rule/index.md) — Manage rules
+
+  - [yc serverless v0 eventrouter rule add-access-binding](rule/add-access-binding.md) — Add access binding for the specified rule
+
+  - [yc serverless v0 eventrouter rule create](rule/create.md) — Create a rule
+
+  - [yc serverless v0 eventrouter rule delete](rule/delete.md) — Delete the specified rule(es)
+
+  - [yc serverless v0 eventrouter rule disable](rule/disable.md) — Enable the specified rule
+
+  - [yc serverless v0 eventrouter rule enable](rule/enable.md) — Enable the specified rule
+
+  - [yc serverless v0 eventrouter rule get](rule/get.md) — Show information about the specified rule(es)
+
+  - [yc serverless v0 eventrouter rule list](rule/list.md) — List rulees
+
+  - [yc serverless v0 eventrouter rule list-access-bindings](rule/list-access-bindings.md) — List access bindings for the specified function
+
+  - [yc serverless v0 eventrouter rule list-operations](rule/list-operations.md) — Show operations for the specified rule
+
+  - [yc serverless v0 eventrouter rule remove-access-binding](rule/remove-access-binding.md) — Remove access binding for the specified rule
+
+  - [yc serverless v0 eventrouter rule set-access-bindings](rule/set-access-bindings.md) — Set access bindings for the specified rule and delete all existing access bindings if there were any
+
+  - [yc serverless v0 eventrouter rule update](rule/update.md) — Update the specified rule
+
+#### Global Flags
+
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom configuration file. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--syntax` | `string`
+
+CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
+|| `--token` | `string`
+
+Set the OAuth token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

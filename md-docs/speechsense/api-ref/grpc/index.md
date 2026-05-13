@@ -1,0 +1,16 @@
+# Talk Analytics API: gRPC reference
+
+Actions are performed by making RPC calls. For more information about API architecture, see [API Concepts](../../../api-design-guide/index.md).
+
+**Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/speechsense/v1).
+
+**Service URL**: `api.speechsense.yandexcloud.net`
+
+#|
+||Service | Description ||
+|| [Assistants](Assistants/index.md) |  ||
+|| [Classifiers](Classifiers/index.md) |  ||
+|| [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
+|| [Project](Project/index.md) |  ||
+|| [Talk](Talk/index.md) |  ||
+|#

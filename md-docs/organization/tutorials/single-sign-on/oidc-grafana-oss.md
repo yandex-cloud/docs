@@ -1,0 +1,404 @@
+# Создать OIDC-приложение в Yandex Identity Hub для интеграции с Grafana OSS
+
+[Grafana Open Source Software (OSS)](https://grafana.com/oss/) — это бесплатная платформа с открытым исходным кодом для мониторинга и визуализации данных, которую можно развернуть на собственной инфраструктуре. Grafana OSS поддерживает [OpenID Connect](https://ru.wikipedia.org/wiki/OpenID#OpenID_Connect) (OIDC) аутентификацию для обеспечения безопасного единого входа пользователей организации.
+
+Чтобы пользователи вашей [организации](../../concepts/organization.md) могли аутентифицироваться в Grafana OSS с помощью технологии единого входа по стандарту OpenID Connect, создайте [OIDC-приложение](../../concepts/applications.md#oidc) в Yandex Identity Hub и настройте его на стороне Yandex Identity Hub и на стороне Grafana OSS.
+
+Управлять OIDC-приложениями может пользователь, которому назначена [роль](../../security/index.md#organization-manager-oauthApplications-admin) `organization-manager.oauthApplications.admin` или выше.
+
+Чтобы дать доступ пользователям вашей организации в Grafana OSS:
+
+1. [Создайте приложение](#create-app).
+1. [Настройте интеграцию](#setup-integration).
+1. [Убедитесь в корректной работе приложения](#validate).
+
+## Создайте приложение {#create-app}
+
+{% list tabs group=instructions %}
+
+- Интерфейс Cloud Center {#cloud-center}
+
+    1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения**.
+    1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **Создать приложение** и в открывшемся окне:
+        1. Выберите метод единого входа **OIDC (OpenID Connect)**.
+        1. В поле **Имя** задайте имя создаваемого приложения: `grafana-oss-oidc-app`.
+        1. В поле **Каталог** выберите каталог, в котором будет создан OAuth-клиент для приложения.
+        1. (Опционально) В поле **Описание** задайте описание приложения.
+        1. (Опционально) Добавьте [метки](../../../resource-manager/concepts/labels.md):
+
+            1. Нажмите **Добавить метку**.
+            1. Введите метку в формате `ключ: значение`.
+            1. Нажмите **Enter**.
+        1. Нажмите **Создать приложение**.
+
+- CLI {#cli}
+
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+
+  По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+  1. Посмотрите описание команды CLI для создания OIDC-приложения:
+
+     ```bash
+     yc organization-manager idp application oauth application create --help
+     ```
+
+  1. Создайте OAuth-клиент:
+
+     ```bash
+     yc iam oauth-client create \
+       --name grafana-oss-oauth-client \
+       --scopes openid,email,profile,groups
+     ```
+
+     Где:
+
+     * `--name` — имя OAuth-клиента.
+     * `--scopes` — набор атрибутов пользователей, которые будут доступны Grafana OSS. Указаны атрибуты:
+       * `openid` — идентификатор пользователя. Обязательный атрибут.
+       * `email` — адрес электронной почты пользователя.
+       * `profile` — дополнительная информация о пользователе, такая как имя, фамилия, аватар.
+       * `groups` — [группы пользователей](../../concepts/groups.md) в организации.
+
+     Результат:
+
+     ```text
+     id: ajeqqip130i1********
+     name: grafana-oss-oauth-client
+     folder_id: b1g500m2195v********
+     status: ACTIVE
+     ```
+
+     Сохраните значение поля `id`, оно понадобится для создания и настройки приложения.
+
+  1. Создайте секрет для OAuth-клиента:
+
+     ```bash
+     yc iam oauth-client-secret create \
+       --oauth-client-id <идентификатор_OAuth-клиента>
+     ```
+
+     Результат:
+
+     ```text
+     oauth_client_secret:
+       id: ajeq9jfrmc5t********
+       oauth_client_id: ajeqqip130i1********
+       masked_secret: yccs__939233b8ac****
+       created_at: "2025-10-21T10:14:17.861652377Z"
+     secret_value: yccs__939233b8ac********
+     ```
+
+     Сохраните значение поля `secret_value`, оно понадобится для настройки Grafana OSS.
+  
+  1. Создайте OIDC-приложение:
+
+     ```bash
+     yc organization-manager idp application oauth application create \
+       --organization-id <идентификатор_организации> \
+       --name grafana-oss-oidc-app \
+       --description "OIDC-приложение для интеграции с Grafana OSS" \
+       --client-id <идентификатор_OAuth-клиента> \
+       --authorized-scopes openid,email,profile,groups \
+       --group-distribution-type assigned-groups
+     ```
+
+     Где:
+
+     * `--organization-id` — [идентификатор организации](../../operations/organization-get-id.md), в которой нужно создать OIDC-приложение. Обязательный параметр.
+     * `--name` — имя OIDC-приложения. Обязательный параметр.
+     * `--description` — описание OIDC-приложения. Необязательный параметр.
+     * `--client-id` — идентификатор OAuth-клиента, полученный на втором шаге. Обязательный параметр.
+     * `--authorized-scopes` — укажите те же атрибуты, которые были указаны при создании OAuth-клиента.
+     * `--group-distribution-type` — укажите `assigned-groups`, чтобы передавать в Grafana OSS только группы, добавленные в приложение.
+
+     Результат:
+
+     ```text
+     id: ek0o663g4rs2********
+     name: grafana-oss-oidc-app
+     organization_id: bpf2c65rqcl8********
+     group_claims_settings:
+       group_distribution_type: ASSIGNED_GROUPS
+     client_grant:
+       client_id: ajeqqip130i1********
+       authorized_scopes:
+         - openid
+         - email
+         - profile
+         - groups
+     status: ACTIVE
+     created_at: "2025-10-21T10:51:28.790866Z"
+     updated_at: "2025-10-21T12:37:19.274522Z"
+     ```
+
+{% endlist %}
+
+## Настройте интеграцию {#setup-integration}
+
+Чтобы настроить интеграцию Grafana OSS с созданным OIDC-приложением в Yandex Identity Hub, выполните настройки на стороне Grafana OSS и на стороне Yandex Identity Hub.
+
+### Настройте OIDC-приложение на стороне Yandex Identity Hub {#setup-idp}
+
+#### Получите учетные данные приложения {#get-credentials}
+
+{% list tabs group=instructions %}
+
+- Интерфейс Cloud Center {#cloud-center}
+
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное OIDC-приложение.
+  1. На вкладке **Обзор** в блоке **Конфигурация поставщика удостоверений (IdP)** разверните секцию **Дополнительные атрибуты** и скопируйте значения параметров, которые необходимо задать на стороне Grafana OSS:
+
+        * `ClientID` — уникальный идентификатор приложения.
+        * `OpenID Configuration` — URL с конфигурацией всех необходимых для настройки интеграции параметров.
+
+  1. В блоке **Секреты приложения** нажмите кнопку **Добавить секрет** и в открывшемся окне:
+     
+     1. (Опционально) Добавьте произвольное описание создаваемого секрета.
+     1. Нажмите **Создать**.
+     
+     В окне отобразится сгенерированный [секрет приложения](../../concepts/applications.md#oidc-secret). Сохраните полученное значение.
+     
+     {% note warning %}
+     
+     После обновления или закрытия страницы с информацией о приложении посмотреть секрет будет невозможно.
+     
+     {% endnote %}
+     
+     Если вы закрыли или обновили страницу, не сохранив сгенерированный секрет, используйте кнопку **Добавить секрет**, чтобы создать новый.
+     
+     Чтобы удалить секрет, в списке секретов на странице OIDC-приложения в строке с нужным секретом нажмите значок ![ellipsis](../../../_assets/console-icons/ellipsis.svg) и выберите ![trash-bin](../../../_assets/console-icons/trash-bin.svg) **Удалить**.
+
+- CLI {#cli}
+
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+
+  По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+  1. Получите информацию о созданном OIDC-приложении:
+
+     ```bash
+     yc organization-manager idp application oauth application get <идентификатор_приложения>
+     ```
+
+     Где `<идентификатор_приложения>` — это ID OIDC-приложения, полученный при создании.
+
+     В результате вы получите информацию о приложении, включая:
+
+     ```text
+     id: ek0o663g4rs2********
+     name: grafana-oss-oidc-app
+     organization_id: bpf2c65rqcl8********
+     client_grant:
+       client_id: ajeqqip130i1********
+       authorized_scopes:
+         - openid
+         - email
+         - profile
+         - groups
+     ```
+
+     Сохраните значение `client_id` — это Client ID для настройки Grafana OSS.
+
+  1. Получите URL с конфигурацией OpenID Connect Discovery:
+
+     ```bash
+     yc organization-manager idp application oauth application get <идентификатор_приложения> \
+       --format json | jq -r '.client_grant.issuer_uri'
+     ```
+
+     Результат будет выглядеть так:
+
+     ```text
+     https://auth.yandex.cloud/oauth/<идентификатор_OAuth-клиента>
+     ```
+
+     Сохраните этот URL — это OpenID Connect Discovery URL для настройки Grafana OSS.
+
+  1. Используйте секрет OAuth-клиента, который был сохранен при создании приложения на предыдущем шаге. Если вы не сохранили секрет, создайте новый:
+
+     ```bash
+     yc iam oauth-client-secret create \
+       --oauth-client-id <идентификатор_OAuth-клиента>
+     ```
+
+     Сохраните значение `secret_value` из результата команды — это Client Secret для настройки Grafana OSS.
+
+{% endlist %}
+
+#### Настройте Redirect URI {#setup-redirect}
+
+{% list tabs group=instructions %}
+
+- Интерфейс Cloud Center {#cloud-center}
+
+  1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+  1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное OIDC-приложение.
+  1. Справа сверху нажмите ![pencil](../../../_assets/console-icons/pencil.svg) **Редактировать** и в открывшемся окне:
+      1. В поле **Redirect URI** укажите эндпоинт аутентификации для вашего экземпляра Grafana OSS в формате:
+
+         ```text
+         <URL_экземпляра_Grafana_OSS>/login/generic_oauth
+         ```
+
+      1. В поле **Scopes** отметьте атрибут `groups (группы пользователя в организации)` и выберите `Только назначенные группы`.
+
+      1. Нажмите **Сохранить**.
+
+- CLI {#cli}
+
+  Обновите OAuth-клиент, указав Redirect URI:
+
+  ```bash
+  yc iam oauth-client update \
+    --id <идентификатор_OAuth-клиента> \
+    --redirect-uris "<URL_экземпляра_Grafana_OSS>/login/generic_oauth"
+  ```
+
+  Где:
+  
+  * `<идентификатор_OAuth-клиента>` — идентификатор OAuth-клиента, полученный при его создании.
+  * `--redirect-uris` — эндпоинт аутентификации для вашего экземпляра Grafana OSS. Например: `https://your-domain/login/generic_oauth`.
+
+  Результат:
+
+  ```text
+  id: ajeiu3otac08********
+  name: grafana-oss-oidc-app
+  redirect_uris:
+    - https://your-domain/login/generic_oauth
+  scopes:
+    - openid
+    - email
+    - profile
+    - groups
+  folder_id: b1gkd6dks6i1********
+  status: ACTIVE
+  ```
+
+{% endlist %}
+
+### Настройте OIDC-приложение на стороне Grafana OSS {#setup-sp}
+
+Чтобы настроить аутентификацию по стандарту OpenID Connect на стороне Grafana OSS, в левой панели выберите раздел **Administration** и в нем подраздел **Authentication**. В основном окне выберите **Generic OAuth**.
+
+В настройках Generic OAuth:
+
+1. В поле **Display name** укажите: `OpenID Connect`.
+1. В поле **Client ID** укажите значение, скопированное при настройке OIDC-приложения в Yandex Identity Hub в поле **ClientID**.
+1. В поле **Client Secret** укажите значение, скопированное при настройке OIDC-приложения в Yandex Identity Hub в блоке **Секреты приложения**.
+1. В поле **Scopes** введите последовательно: `openid`, `email`, `profile`, `groups`.
+1. Нажмите **Enter OpenID Connect Discovery URL** и в открывшемся окне укажите URL, скопированный при настройке OIDC-приложения в Yandex Identity Hub в поле **OpenID Configuration**.
+1. **Allow sign up**: активируйте для автоматического создания пользователей при первом входе.
+
+#### Настройте сопоставление ролей {#role-mapping}
+
+{% note info %}
+
+Для сопоставления ролей в Grafana OSS используются JMESPath выражения. См. [примеры использования JMESPath выражений в документации Grafana](https://grafana.com/docs/grafana/latest/setup-grafana/configure-access/configure-authentication/generic-oauth/#role-mapping-examples).
+
+{% endnote %}
+
+1. Разверните секцию **User mapping**.
+1. В поле **Role attribute path** введите JMESPath выражение для сопоставления ролей.
+
+Если пользователю, который находится в группе `grafana-users`, нужно сопоставить роль `Editor`, то в поле **Role attribute path** нужно ввести следующее выражение:
+
+```text
+contains(groups[*], 'grafana-users') && 'Editor' || 'Viewer'
+```
+
+Выражение означает, что если пользователь принадлежит группе `grafana-users`, ему будет назначена роль `Editor`, иначе — роль `Viewer`.
+
+#### Настройте Redirect URI на стороне Grafana OSS {#setup-redirect-grafana}
+
+Необходимо, чтобы Redirect URI, который вы ранее указали на стороне Yandex Identity Hub, и URI, который Grafana OSS отправляет в Yandex Identity Hub, совпадали.
+
+Для этого:
+
+1. Откройте [конфигурационный файл Grafana](https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/#configuration-file-location).
+1. В секции `[server]` установите:
+
+   ```text
+   root_url = https://your-domain
+   ```
+
+1. [Перезапустите](https://grafana.com/docs/grafana/latest/setup-grafana/start-restart-grafana/) Grafana OSS.
+
+### Добавьте пользователя {#add-user}
+
+Чтобы пользователи вашей организации могли аутентифицироваться в Grafana OSS с помощью OIDC-приложения Yandex Identity Hub, необходимо явно добавить в OIDC-приложение нужных пользователей и/или [группы пользователей](../../concepts/groups.md).
+
+{% note info %}
+
+Управлять пользователями и группами, добавленными в OIDC-приложение, может пользователь, которому назначена [роль](../../security/index.md#organization-manager-oidcApplications-userAdmin) `organization-manager.oidcApplications.userAdmin` или выше.
+
+{% endnote %}
+
+Добавьте пользователя в приложение:
+
+{% list tabs group=instructions %}
+
+- Интерфейс Cloud Center {#cloud-center}
+
+    1. Войдите в сервис [Yandex Identity Hub](https://center.yandex.cloud/organization).
+    1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **Приложения** и выберите нужное приложение.
+    1. Перейдите на вкладку **Пользователи и группы**.
+    1. Нажмите ![person-plus](../../../_assets/console-icons/person-plus.svg) **Добавить пользователей**.
+    1. В открывшемся окне выберите нужного пользователя или группу пользователей.
+    1. Нажмите **Добавить**.
+
+- CLI {#cli}
+
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+
+  По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+  1. Получите [идентификатор пользователя](../../operations/users-get.md) или [группы пользователей](../../operations/group-get-id.md).
+
+  1. Чтобы добавить в приложение пользователя или группу пользователей:
+   
+     1. Посмотрите описание команды CLI для добавления пользователей в приложение:
+   
+        ```bash
+        yc organization-manager idp application oauth application add-assignments --help
+        ```
+   
+     1. Выполните команду:
+   
+        ```bash
+        yc organization-manager idp application oauth application add-assignments \
+          --id <идентификатор_приложения> \
+          --subject-id <идентификатор_пользователя_или_группы>
+        ```
+   
+        Где:
+   
+        * `--id` — идентификатор OIDC-приложения.
+        * `--subject-id` — идентификатор нужного пользователя или группы пользователей.
+   
+        Результат:
+   
+        ```text
+        assignment_deltas:
+          - action: ADD
+            assignment:
+              subject_id: ajetvnq2mil8********
+        ```
+
+{% endlist %}
+
+## Убедитесь в корректной работе приложения {#validate}
+
+Чтобы убедиться в корректной работе OIDC-приложения и интеграции с Grafana OSS, выполните аутентификацию в Grafana OSS от имени одного из добавленных в приложение пользователей.
+
+Для этого:
+
+1. В браузере перейдите по адресу вашего экземпляра Grafana OSS (например, `https://your-domain`).
+1. Если вы были авторизованы в Grafana OSS, выйдите из профиля.
+1. На странице авторизации Grafana OSS нажмите **Sign in with OpenID Connect**.
+1. На странице авторизации Yandex Cloud укажите email и пароль пользователя. Пользователь должен быть добавлен в приложение или состоять в группе, добавленной в приложение.
+1. Убедитесь, что вы аутентифицировались в Grafana OSS.
+1. Если вы настроили сопоставление ролей, перейдите в профиль пользователя в Grafana OSS и убедитесь, что в блоке Organizations отображается соответствующая роль.

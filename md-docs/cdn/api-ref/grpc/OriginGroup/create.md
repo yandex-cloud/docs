@@ -1,0 +1,230 @@
+# Cloud CDN API, gRPC: OriginGroupService.Create
+
+Creates origin group.
+
+## gRPC request
+
+**rpc Create ([CreateOriginGroupRequest](#yandex.cloud.cdn.v1.CreateOriginGroupRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
+
+## CreateOriginGroupRequest {#yandex.cloud.cdn.v1.CreateOriginGroupRequest}
+
+```json
+{
+  "folder_id": "string",
+  "name": "string",
+  "use_next": "google.protobuf.BoolValue",
+  "origins": [
+    {
+      "source": "string",
+      "enabled": "bool",
+      "backup": "bool",
+      "meta": {
+        // Includes only one of the fields `common`, `bucket`, `website`, `balancer`
+        "common": {
+          "name": "string"
+        },
+        "bucket": {
+          "name": "string"
+        },
+        "website": {
+          "name": "string"
+        },
+        "balancer": {
+          "id": "string"
+        }
+        // end of the list of possible fields
+      }
+    }
+  ],
+  "provider_type": "string"
+}
+```
+
+#|
+||Field | Description ||
+|| folder_id | **string**
+
+Required field. ID of the folder that the origin group belongs to.
+
+The maximum string length in characters is 50. ||
+|| name | **string**
+
+Name of the origin group. ||
+|| use_next | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+This option have two possible conditions:
+true - The option is active. In case the origin responds with 4XX or 5XX codes,
+use the next origin from the list.
+false - The option is disabled.
+default value is true ||
+|| origins[] | **[OriginParams](#yandex.cloud.cdn.v1.OriginParams)**
+
+List of origins: IP addresses or Domain names of your origins and the port
+(if custom). ||
+|| provider_type | **string**
+
+Set up origin group provider
+It has two possible values:
+ourcdn - Based on Yandex technologies
+gcore - Based on an external partner infrastructure
+Default value: ourcdn ||
+|#
+
+## OriginParams {#yandex.cloud.cdn.v1.OriginParams}
+
+Origin parameters. For details about the concept, see [documentation](../../../concepts/origins.md).
+
+#|
+||Field | Description ||
+|| source | **string**
+
+Source: IP address or Domain name of your origin and the port (if custom). ||
+|| enabled | **bool**
+
+The setting allows to enable or disable an Origin source in the Origins group.
+It has two possible values:
+True - The origin is enabled and used as a source for the CDN. An origins
+group must contain at least one enabled origins. False - The origin is disabled
+and the CDN is not using it to pull content. ||
+|| backup | **bool**
+
+backup option has two possible values:
+True - The option is active. The origin will not be used until one of
+active origins become unavailable.
+False - The option is disabled. ||
+|| meta | **[OriginMeta](#yandex.cloud.cdn.v1.OriginMeta)**
+
+Set up origin of the content. ||
+|#
+
+## OriginMeta {#yandex.cloud.cdn.v1.OriginMeta}
+
+Origin type. For details about the concept, see [documentation](../../../concepts/origins.md).
+
+#|
+||Field | Description ||
+|| common | **[OriginNamedMeta](#yandex.cloud.cdn.v1.OriginNamedMeta)**
+
+A server with a domain name linked to it
+
+Includes only one of the fields `common`, `bucket`, `website`, `balancer`.
+
+Type of the origin. ||
+|| bucket | **[OriginNamedMeta](#yandex.cloud.cdn.v1.OriginNamedMeta)**
+
+An Object Storage bucket not configured as a static site hosting.
+
+Includes only one of the fields `common`, `bucket`, `website`, `balancer`.
+
+Type of the origin. ||
+|| website | **[OriginNamedMeta](#yandex.cloud.cdn.v1.OriginNamedMeta)**
+
+An Object Storage bucket configured as a static site hosting.
+
+Includes only one of the fields `common`, `bucket`, `website`, `balancer`.
+
+Type of the origin. ||
+|| balancer | **[OriginBalancerMeta](#yandex.cloud.cdn.v1.OriginBalancerMeta)**
+
+An L7 load balancer from Application Load Balancer.
+CDN servers will access the load balancer at one of its IP addresses that must be selected in the origin settings.
+
+Includes only one of the fields `common`, `bucket`, `website`, `balancer`.
+
+Type of the origin. ||
+|#
+
+## OriginNamedMeta {#yandex.cloud.cdn.v1.OriginNamedMeta}
+
+Origin info. For details about the concept, see [documentation](../../../concepts/origins.md).
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Name of the origin. ||
+|#
+
+## OriginBalancerMeta {#yandex.cloud.cdn.v1.OriginBalancerMeta}
+
+Application Load Balancer origin info. For details about the concept, see [documentation](../../../concepts/origins.md).
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the origin. ||
+|#
+
+## operation.Operation {#yandex.cloud.operation.Operation}
+
+```json
+{
+  "id": "string",
+  "description": "string",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
+  "done": "bool",
+  "metadata": "google.protobuf.Any",
+  // Includes only one of the fields `error`, `response`
+  "error": "google.rpc.Status",
+  "response": "google.protobuf.Any"
+  // end of the list of possible fields
+}
+```
+
+An Operation resource. For more information, see [Operation](../../../../api-design-guide/concepts/operation.md).
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the operation. ||
+|| description | **string**
+
+Description of the operation. 0-256 characters long. ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Creation timestamp. ||
+|| created_by | **string**
+
+ID of the user or service account who initiated the operation. ||
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+The time when the Operation resource was last modified. ||
+|| done | **bool**
+
+If the value is `false`, it means the operation is still in progress.
+If `true`, the operation is completed, and either `error` or `response` is available. ||
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
+
+Service-specific metadata associated with the operation.
+It typically contains the ID of the target resource that the operation is performed on.
+Any method that returns a long-running operation should document the metadata type, if any. ||
+|| error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**
+
+The error result of the operation in case of failure or cancellation.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
+
+The normal response of the operation in case of success.
+If the original method returns no data on success, such as Delete,
+the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty).
+If the original method is the standard Create/Update,
+the response should be the target resource of the operation.
+Any method that returns a long-running operation should document the response type, if any.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|#

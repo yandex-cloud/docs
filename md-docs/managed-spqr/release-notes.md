@@ -1,0 +1,21 @@
+# История изменений в Yandex Managed Service for Sharded PostgreSQL
+
+{% note info %}
+
+Сервис находится на стадии [Preview](../overview/concepts/launch-stages.md).
+
+{% endnote %}
+
+## Январь 2026 {#jan-2026}
+
+* Сервис Yandex Managed Service for Sharded PostgreSQL вышел в [Public Preview](../overview/concepts/launch-stages.md).
+* Поддержаны интерфейсы [Terraform](tf-ref.md) и [YC CLI](../cli/cli-ref/managed-sharded-postgresql/cli-ref/index.md).
+
+## Ноябрь 2025 {#nov-2025}
+
+* Добавлена возможность задавать настройки СУБД при создании и изменении кластера.
+* Добавлена роль `managed-spqr.restorer`, позволяющая восстанавливать кластеры из резервных копий. Подробнее см. в разделе [Управление доступом](security.md#managed-spqr-restorer).
+
+## Июль 2025 {#jul-2025}
+
+Сервис Yandex Managed Service for Sharded PostgreSQL вышел в Technical Preview.

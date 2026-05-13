@@ -1,0 +1,54 @@
+# Пошаговые инструкции для Managed Service for PostgreSQL
+
+## Кластеры {#clusters}
+
+* [Получение информации об имеющихся кластерах](cluster-list.md)
+* [Создание кластера](cluster-create.md)
+* [Изменение настроек кластера](update.md)
+* [Остановка и запуск кластера](cluster-stop.md)
+* [Управление хостами кластера](hosts.md)
+* [Миграция хостов кластера в другую зону доступности](host-migration.md)
+* [Управление слотами репликации](replication-slots.md)
+* [Управление резервными копиями](cluster-backups.md)
+* [Управление политиками резервного копирования](backup-retention-policies.md)
+* [Управление дисковым пространством](storage-space.md)
+* [Управление доступом к кластеру](cluster-access.md)
+* [Техническое обслуживание](cluster-maintenance.md)
+* [Обновление версии PostgreSQL](cluster-version-update.md)
+* [Удаление кластера](cluster-delete.md)
+
+## Подключения
+
+* [Предварительная настройка](connect/index.md)
+* [FQDN хостов](connect/fqdn.md)
+* [Подключение из приложений](connect/clients.md)
+* [Примеры кода](connect/code-examples.md)
+
+## Базы данных {#databases}
+
+* [Подключение к базе данных в кластере](connect/index.md)
+* [SQL-запросы в Yandex WebSQL](web-sql-query.md)
+* [Копирование и заполнение таблицы с локальной машины](copy-write-data.md)
+* [Управление базами данных](databases.md)
+
+## Пользователи PostgreSQL {#users}
+
+* [Управление пользователями](cluster-users.md)
+* [Назначение привилегий и ролей пользователям](grant.md)
+
+## Расширения и словари PostgreSQL {#extensions-and-dictionaries}
+
+* [Управление расширениями](extensions/cluster-extensions.md)
+* [Использование pg_cron](extensions/pg_cron.md)
+* [Использование pg_repack](extensions/pg_repack.md)
+* [Использование pgaudit](extensions/pgaudit.md)
+* [Использование pgcrypto](extensions/pgcrypto.md)
+* [Использование postgresql_anonymizer](extensions/pg_anon.md)
+* [Использование словаря Hunspell для полнотекстового поиска](extensions/hunspell.md)
+
+## Логи и мониторинг {#logs-and-monitoring}
+
+* [Просмотр логов кластера](cluster-logs.md)
+* [Диагностика производительности](performance-diagnostics.md)
+* [Мониторинг состояния кластера и хостов](monitoring.md)
+* [Подключение к кластеру из DataLens](datalens-connect.md)

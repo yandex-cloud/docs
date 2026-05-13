@@ -1,0 +1,64 @@
+# История изменений в Yandex Data Processing
+
+## IV квартал 2025 {#q4-2025}
+
+* Добавлен новый [класс хостов](../concepts/instance-types.md): AMD Zen 4.
+* Добавлен отдельный IP-адрес для UI Proxy: `158.160.167.170/32`.
+* Добавлена возможность указать отдельный сервисный аккаунт для управления ВМ автомасштабируемого подкластера при [создании кластера](../operations/cluster-create.md), [создании кластера с автомасштабированием](../operations/cluster-create-autoscale.md) и [изменении кластера](../operations/cluster-update.md).
+
+## III квартал 2025 {#q3-2025}
+
+В образе 2.2.9 (бета) Apache Spark™ обновлен до версии 3.5.6.
+
+## II квартал 2025 {#q2-2025}
+
+* Добавлена опция OS Login при создании кластера. Опция включает доступ через [OS Login](../../organization/concepts/os-login.md) ко всем создаваемым хостам кластера.
+
+* Добавлена возможность устанавливать переменные окружения:
+
+    * `HADOOP_HEAPSIZE_MIN` и `HADOOP_HEAPSIZE_MAX` для сервиса `hadoop`:
+        * `hadoop.env:HADOOP_HEAPSIZE_MIN`
+        * `hadoop.env:HADOOP_HEAPSIZE_MAX`
+    * `HADOOP_HEAPSIZE` для сервиса `hive` (доступно только для образов 2.0): `hive.env:HADOOP_HEAPSIZE`.
+
+## I квартал 2025 {#q1-2025}
+
+В образах 2.2.X версия Java изменена на 11.
+
+## IV квартал 2024 {#q4-2024}
+
+* При создании или изменении кластера теперь можно выбрать [окружение](../concepts/environment.md#environment): `PRODUCTION` или `PRESTABLE`.
+* В образах 2.2.X обновлен Python до версии 3.1.
+
+## III квартал 2024 {#q3-2024}
+
+* Кластеры Apache Hive™ Metastore стали частью сервиса Yandex MetaData Hub. Информацию о кластерах Apache Hive™ Metastore читайте в [документации Yandex MetaData Hub](../../metadata-hub/concepts/metastore.md).
+* В образах 2.1.X и 2.2.X обновлена Conda, solver по умолчанию заменен на [Mamba](https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community).
+
+## II квартал 2024 {#q2-2024}
+
+Доступна стабильная линейка образов 2.1. В ее рамках можно создать кластер с более свежими версиями [Spark 3.3.2](https://spark.apache.org/releases/spark-release-3-3-2.html) и [Hadoop 3.3.2](https://hadoop.apache.org/docs/r3.3.2/hadoop-project-dist/hadoop-common/release/3.3.2/RELEASENOTES.3.3.2.html).
+
+## II квартал 2023 {#q2-2023}
+
+Доступно создание кластеров [Apache Hive™ Metastore](../../metadata-hub/concepts/metastore.md). Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md).
+
+## III квартал 2022 {#q3-2022}
+
+* Добавлена поддержка [новых настроек](https://github.com/apache/airflow/pull/25158) в Airflow-операторе `DataprocCreateClusterOperator`.
+* Добавлены классы хостов `cpu-optimized` с соотношением количества гигабайт RAM к количеству vCPU 2 к 1. Новые конфигурации доступны только для платформы Intel Ice Lake.
+* Опубликовано [руководство](../tutorials/geesefs-init-actions.md) по использованию скриптов инициализации для настройки GeeseFS.
+
+## II квартал 2022 {#q2-2022}
+
+* Доступна версия образа 2.1.
+* Появилась возможность включить публичный доступ из интернета для всех видов подкластеров.
+* Lightweight Spark стал доступен начиная с версии образа 2.0.39. Теперь можно создавать кластер без подкластеров для хранения данных, так как сервисы YARN и SPARK больше не зависят от HDFS.
+* Добавлена поддержка [скриптов инициализации](../concepts/init-action.md) в CLI.
+
+## I квартал 2022 {#q1-2022}
+
+* Доступно создание кластеров на сетевых нереплицируемых дисках размером до 8 ТБ. Устройство нереплицируемых дисков существенно проще стандартных сетевых хранилищ SSD, благодаря чему их производительность выше в несколько раз.
+* Добавлена возможность [отмены заданий](../operations/jobs-spark.md#cancel).
+* Добавлен номер сборки в версии [образов Yandex Data Processing](../concepts/environment.md).
+* Добавлена возможность передачи параметров `packages`, `repositories` и `exclude_packages` для заданий Spark и PySpark. Использование этих параметров позволяет скачивать дополнительные зависимости и пакеты из внешних репозиториев.

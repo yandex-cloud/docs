@@ -1,0 +1,49 @@
+# Identity Hub API, REST: OsLogin.GetProfile
+
+OsLogin Profiles
+
+## HTTP request
+
+```
+GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/osLoginProfiles/{osLoginProfileId}
+```
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| osLoginProfileId | **string**
+
+Required field.
+
+The maximum string length in characters is 50. ||
+|#
+
+## Response {#yandex.cloud.organizationmanager.v1.OsLoginProfile}
+
+**HTTP Code: 200 - OK**
+
+```json
+{
+  "id": "string",
+  "organizationId": "string",
+  "subjectId": "string",
+  "login": "string",
+  "uid": "string",
+  "isDefault": "boolean",
+  "homeDirectory": "string",
+  "shell": "string"
+}
+```
+
+#|
+||Field | Description ||
+|| id | **string** ||
+|| organizationId | **string** ||
+|| subjectId | **string** ||
+|| login | **string** ||
+|| uid | **string** (int64) ||
+|| isDefault | **boolean** ||
+|| homeDirectory | **string** ||
+|| shell | **string** ||
+|#

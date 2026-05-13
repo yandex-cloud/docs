@@ -1,0 +1,13 @@
+# Подключиться к KVM-консоли
+
+Чтобы подключиться к KVM-консоли сервера:
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, которому принадлежит сервер.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **BareMetal**.
+  1. В строке с нужным сервером нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) и выберите **KVM-консоль**.
+
+{% endlist %}

@@ -1,0 +1,66 @@
+# Справочник аудитных логов Yandex Audit Trails
+
+В Audit Trails поддерживается отслеживание событий уровня конфигурации (Control Plane) для Yandex DataSphere. Подробнее см. [Аудитный лог событий уровня конфигурации](../audit-trails/concepts/format.md).
+
+Общий вид значения поля `event_type` (_тип события_):
+
+```text
+yandex.cloud.audit.datasphere.<имя_события>
+```
+
+Имя события | Описание
+--- | ---
+`ActivateDataset` | Активация датасета
+`ActivateDocker` | Применение Docker-образа для проекта
+`CancelJob` | Отмена задания
+`CloneJob` | Клонирование задания
+`CloseProject` | Закрытие проекта
+`CreateCluster` | Создание кластера Apache Spark™
+`CreateCommunity` | Создание сообщества
+`CreateDataset` | Создание датасета
+`CreateDocker` | Создание Docker-образа
+`CreateFilestore` | Создание файлового хранилища
+`CreateJob` | Создание задания
+`CreateModel` | Создание [модели](concepts/models/index.md)
+`CreateNode` | Создание ноды
+`CreateProject` | Создание проекта
+`CreateS3Connector` | Создание [коннектора S3](concepts/s3-connector.md)
+`CreateSecret` | Создание [секрета](concepts/secrets.md)
+`CreateSparkConnector` | Создание [коннектора Spark](concepts/spark-connector.md)
+`CreateYandexDataProcessing` | Создание [шаблона Yandex Data Processing](concepts/data-processing-template.md)
+`DeactivateDataset` | Деактивация датасета
+`DeleteAllJobData` | Удаление данных всех заданий
+`DeleteCluster` | Удаление кластера Apache Spark™
+`DeleteCommunity` | Удаление сообщества
+`DeleteDataset` | Удаление датасета
+`DeleteDocker` | Удаление Docker-образа
+`DeleteFilestore` | Удаление файлового хранилища
+`DeleteJobData` | Удаление данных задания
+`DeleteModel` | Удаление модели
+`DeleteNode` | Удаление ноды
+`DeleteProject` | Удаление проекта
+`DeleteS3Connector` | Удаление коннектора S3
+`DeleteSecret` | Удаление секрета
+`DeleteSparkConnector` | Удаление коннектора Apache Spark™
+`DeleteYandexDataProcessing` | Удаление шаблона Yandex Data Processing
+`ExecuteJob` | Запуск выполнения задания
+`OpenProject` | Открытие проекта
+`ResumeNode` | Возобновление работы ноды
+`SetCommunityAccessBindings` | Назначение прав доступа для сообщества
+`SetProjectAccessBindings` | Назначение прав доступа для проекта
+`StartCluster` | Запуск кластера Apache Spark™
+`StopCluster` | Остановка кластера Apache Spark™
+`SuspendNode` | Приостановка работы ноды
+`UpdateCluster` | Изменение кластера Apache Spark™
+`UpdateCommunity` | Изменение сообщества
+`UpdateCommunityAccessBindings` | Изменение прав доступа для сообщества
+`UpdateFilestore` | Изменение файлового хранилища
+`UpdateJobDataTtl` | Изменение времени жизни данных задания
+`UpdateModel` | Изменение модели
+`UpdateNode` | Изменение ноды
+`UpdateProject` | Изменение проекта
+`UpdateProjectAccessBindings` | Изменение прав доступа для проекта
+`UpdateS3Connector` | Изменение коннектора S3
+`UpdateSecret` | Изменение секрета
+`UpdateSparkConnector` | Изменение коннектора Spark
+`UpdateYandexDataProcessing` | Изменение шаблона Yandex Data Processing

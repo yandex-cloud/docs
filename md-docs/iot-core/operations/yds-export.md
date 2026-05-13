@@ -1,0 +1,92 @@
+# Экспорт сообщений в Data Streams
+
+{% note info %}
+
+Экспорт данных в [Data Streams](../../data-streams/index.md) возможен только из топиков `*/events` и `*/commands`.
+
+{% endnote %}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором находится реестр.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **IoT Core**.
+  1. Выберите в списке нужный реестр.
+  1. Перейдите на вкладку **Экспорт в Data Streams**.
+  1. В правом верхнем углу нажмите кнопку **Добавить экспорт**.
+  1. Заполните поля:
+
+     * **Имя** — имя экспорта.
+     * **Фильтр MQTT-топиков** — укажите топик, из которого будут экспортироваться сообщения, или фильтр с использованием [символов подстановки](../concepts/topic/usage.md#wildcards). Если поле пустое, экспортируются сообщения из всех топиков реестра и всех топиков устройств внутри реестра.
+     * **Поток данных** — укажите [поток данных](../../data-streams/concepts/glossary.md#stream-concepts), в который будут отправляться сообщения из MQTT-топиков, или [создайте новый](../../data-streams/operations/manage-streams.md#create-data-stream). Если вы создали новый поток, нажмите кнопку **Обновить** для обновления списка потоков.
+     * **Сервисный аккаунт** — укажите [сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с ролью `yds.writer`.
+
+  1. Нажмите кнопку **Добавить**.
+
+- CLI {#cli}
+  
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+
+  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+  
+  Чтобы создать экспорт:
+
+  1. Получите список реестров в каталоге:
+
+     ```bash
+     yc iot registry list
+     ```
+
+     Результат:
+
+     ```text
+     +----------------------+-------------------+
+     |          ID          |       NAME        |
+     +----------------------+-------------------+
+     | arenou2oj4********** | my-registry       |
+     +----------------------+-------------------+
+     ```
+
+  1. Создайте экспорт:
+
+     ```bash
+     yc iot registry yds-export add \
+       --registry-name <название_реестра> \
+       --name <название_экспорта> \
+       --database <путь_базы_данных> \
+       --stream <название_потока> \
+       --mqtt-topic-filter <топик> \
+       --stream-service-account-name <имя_сервисного_аккаунта>
+     ```
+
+     Где:
+
+     * `--registry-name` — имя реестра.
+     * `--name` — имя экспорта.
+     * `--database` — [размещение базы данных](https://ydb.tech/docs/ru//concepts/connect#database), в которой хранятся данные потока: вторая часть значения поля **Эндпоинт** (часть после вхождения `/?database=`). Например, `/ru-central1/r1gra875baom********/g5n22e7ejf**********`.
+     * `--stream` — имя [потока данных](../../data-streams/concepts/glossary.md#stream-concepts), в который будут отправляться сообщения из MQTT-топиков.
+     * `--mqtt-topic-filter` — топик, из которого будут экспортироваться сообщения, или фильтр с использованием [символов подстановки](../concepts/topic/usage.md#wildcards). Если параметр не указан, экспортируются сообщения из всех топиков реестра и всех топиков устройств внутри реестра.
+     * `--stream-service-account-name` — имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) с ролью `yds.writer`.
+
+     Результат:
+
+     ```text
+     id: are520n46t**********
+     name: export-from-topic
+     registry_id: areqqa5ntm**********
+     database: /ru-central1/b1gia87mbaom********/etnu4r0v1c**********
+     stream: topic-message-stream
+     service_account_id: ajeu9klp40**********
+     created_at: "2023-09-18T09:52:28.840124837Z"
+     ```
+
+- API {#api}
+
+  Чтобы добавить экспорт в Data Streams для реестра, воспользуйтесь вызовом gRPC API [RegistryService/AddDataStreamExport](../api-ref/grpc/Registry/addDataStreamExport.md).
+
+{% endlist %}
+
+## См. также {#see-also}
+
+* [Экспорт в Data Streams](../concepts/topic/usage.md#yds-export)

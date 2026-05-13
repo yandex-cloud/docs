@@ -1,0 +1,1 @@
+## Примеры конфигураций и сценариев провайдера Terraform Yandex Cloud {#configuration-examples}

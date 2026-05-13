@@ -1,0 +1,341 @@
+# Поставка данных из Yandex Managed Service for PostgreSQL в Yandex Managed Service for Apache Kafka® с помощью Debezium
+
+# Поставка данных из Yandex Managed Service for PostgreSQL в Yandex Managed Service for Apache Kafka® с помощью Debezium
+
+Вы можете отслеживать изменения данных в Managed Service for PostgreSQL и отправлять их в Managed Service for Apache Kafka® с помощью технологии Change Data Capture (CDC).
+
+Из этой статьи вы узнаете, как создать в Yandex Cloud виртуальную машину и настроить на ней [Debezium](https://debezium.io/documentation/reference/index.html) — программное обеспечение, используемое для CDC.
+
+
+## Необходимые платные ресурсы {#paid-resources}
+
+* Кластер Managed Service for PostgreSQL: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for PostgreSQL](../../managed-postgresql/pricing.md)).
+* Кластер Managed Service for Apache Kafka®: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы Managed Service for Apache Kafka®](../../managed-kafka/pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы Virtual Private Cloud](../../vpc/pricing.md)).
+* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы Compute Cloud](../../compute/pricing.md)).
+
+
+## Перед началом работы {#before-you-begin}
+
+{% note info %}
+
+Публичный доступ к хостам кластера нужен, если вы планируете подключаться к кластеру через интернет. Этот вариант подключения более простой, и его рекомендуется использовать для прохождения руководства. К хостам без публичного доступа тоже можно подключиться, но только с виртуальных машин Yandex Cloud, расположенных в той же облачной сети, что и кластер.
+
+{% endnote %}
+
+1. [Создайте _кластер-источник_](../../managed-postgresql/operations/cluster-create.md) со следующими настройками:
+
+    * с хостами в публичном доступе;
+    * с базой данных `db1`;
+    * с пользователем `user1`.
+
+1. [Создайте _кластер-приемник_ Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-create.md) любой подходящей конфигурации с хостами в публичном доступе.
+
+1. [Создайте виртуальную машину](../../compute/operations/vm-create/create-linux-vm.md) с [Ubuntu 20.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-20-04-lts) и публичным IP-адресом.
+
+
+1. Если вы используете группы безопасности, настройте их так, чтобы к кластерам можно было подключаться из интернета и созданной виртуальной машины, а к ней — из интернета по [SSH](../../glossary/ssh-keygen.md):
+
+    * [Настройка групп безопасности кластера Managed Service for Apache Kafka®](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
+    * [Настройка групп безопасности кластера Managed Service for PostgreSQL](../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
+
+
+1. [Подключитесь к виртуальной машине по SSH](../../compute/operations/vm-connect/ssh.md#vm-connect) и выполните ее предварительную настройку:
+
+    1. Установите зависимости:
+
+        ```bash
+        sudo apt update && \
+            sudo apt install kafkacat openjdk-17-jre postgresql-client --yes
+        ```
+
+        Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику Managed Service for Apache Kafka® через SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
+
+    1. Создайте директорию для Apache Kafka®:
+
+        ```bash
+        sudo mkdir -p /opt/kafka/
+        ```
+
+    1. Скачайте и распакуйте в эту директорию архив с исполняемыми файлами Apache Kafka®. Например, для загрузки и распаковки Apache Kafka® версии 3.0 выполните команду:
+
+        ```bash
+        wget https://archive.apache.org/dist/kafka/3.0.0/kafka_2.13-3.0.0.tgz && \
+        sudo tar xf kafka_2.13-3.0.0.tgz --strip 1 --directory /opt/kafka/
+        ```
+
+        Актуальную версию Apache Kafka® уточняйте на [странице загрузок проекта](https://kafka.apache.org/community/downloads/).
+
+    1. Установите на виртуальную машину сертификаты и убедитесь в доступности кластеров:
+
+        * [Managed Service for Apache Kafka®](../../managed-kafka/operations/connect/clients.md) (используйте утилиту `kafkacat`).
+        * [Managed Service for PostgreSQL](../../managed-postgresql/operations/connect/index.md#get-ssl-cert) (используйте утилиту `psql`).
+
+    1. Создайте директорию, в которой будут храниться файлы, необходимые для работы коннектора Debezium:
+
+        ```bash
+        sudo mkdir -p /etc/debezium/plugins/
+        ```
+
+    1. Чтобы коннектор Debezium мог подключаться к хостам-брокерам Managed Service for Apache Kafka®, добавьте SSL-сертификат в защищенное хранилище сертификатов Java (Java Key Store). Для дополнительной защиты хранилища в параметре `-storepass` укажите пароль длиной не меньше 6 символов:
+
+        ```bash
+        sudo keytool \
+            -importcert \
+            -alias YandexCA -file /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt \
+            -keystore /etc/debezium/keystore.jks \
+            -storepass <пароль_JKS> \
+            --noprompt
+        ```
+
+## Подготовка кластера-источника {#prepare-source}
+
+1. [Назначьте пользователю](../../managed-postgresql/operations/grant.md) `user1` роль `mdb_replication`.
+
+    Это нужно для создания публикации (publication), с помощью которой Debezium будет отслеживать изменения в кластере Managed Service for PostgreSQL.
+
+1. [Подключитесь к базе данных](../../managed-postgresql/operations/connect/index.md) `db1` от имени пользователя `user1`.
+
+1. Наполните базу тестовыми данными. В качестве примера используется простая таблица, содержащая информацию с некоторых датчиков автомобиля.
+
+    Создайте таблицу:
+
+    ```sql
+    CREATE TABLE public.measurements (
+        "device_id" text PRIMARY KEY NOT NULL,
+        "datetime" timestamp NOT NULL,
+        "latitude" real NOT NULL,
+        "longitude" real NOT NULL,
+        "altitude" real NOT NULL,
+        "speed" real NOT NULL,
+        "battery_voltage" real,
+        "cabin_temperature" real NOT NULL,
+        "fuel_level" real
+    );
+    ```
+
+    Наполните таблицу данными:
+
+    ```sql
+    INSERT INTO public.measurements VALUES
+        ('iv9a94th6rzt********', '2020-06-05 17:27:00', 55.70329032, 37.65472196,  427.5,    0, 23.5, 17, NULL),
+        ('rhibbh3y08qm********', '2020-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32),
+        ('iv9a94th678t********', '2020-06-07 15:00:10', 55.70985913, 37.62141918,  417.0, 15.7, 10.3, 17, NULL);
+    ```
+
+1. Создайте публикацию для добавленной таблицы:
+
+    ```sql
+    CREATE PUBLICATION mpg_publication FOR TABLE public.measurements;
+    ```
+
+## Настройте коннектор Debezium {#setup-debezium}
+
+1. Подключитесь к виртуальной машине по SSH.
+
+1. Скачайте и распакуйте актуальный [Debezium-коннектор](https://debezium.io/releases/) в директорию `/etc/debezium/plugins/`.
+
+    Актуальную версию коннектора уточняйте на [странице проекта](https://debezium.io/releases/). Ниже приведены команды для версии `1.9.4.Final`.
+
+    ```bash
+    VERSION="1.9.4.Final"
+    wget https://repo1.maven.org/maven2/io/debezium/debezium-connector-postgres/${VERSION}/debezium-connector-postgres-${VERSION}-plugin.tar.gz && \
+    sudo tar -xzvf debezium-connector-postgres-${VERSION}-plugin.tar.gz -C /etc/debezium/plugins/
+    ```
+
+1. Создайте файл `/etc/debezium/mdb-connector.conf` с настройками коннектора Debezium для подключения к кластеру-источнику:
+
+    ```ini
+    name=debezium-mpg
+    connector.class=io.debezium.connector.postgresql.PostgresConnector
+    plugin.name=pgoutput
+    database.hostname=c-<идентификатор_кластера>.rw.mdb.yandexcloud.net
+    database.port=6432
+    database.user=user1
+    database.password=<пароль_пользователя_user1>
+    database.dbname=db1
+    database.server.name=mpg
+    table.include.list=public.measurements
+    publication.name=mpg_publication
+    slot.name=debezium_slot
+    heartbeat.interval.ms=15000
+    heartbeat.topics.prefix=debezium-heartbeat
+    snapshot.mode=always
+    ```
+
+    Где:
+
+    * `name` — логическое имя коннектора Debezium. Используется для внутренних нужд коннектора.
+    * `database.hostname` — [особый FQDN](../../managed-postgresql/operations/connect/fqdn.md#fqdn-master) для подключения к хосту-мастеру кластера-источника.
+
+        Идентификатор кластера можно получить со [списком кластеров в каталоге](../../managed-postgresql/operations/cluster-list.md#list).
+
+    * `database.user` — имя пользователя PostgreSQL.
+    * `database.dbname` — имя базы данных PostgreSQL.
+    * `database.server.name` — имя сервера баз данных, которое [Debezium будет использовать](#prepare-target) при выборе топика для отправки сообщений.
+    * `table.include.list` — имена таблиц, для которых Debezium должен отслеживать изменения. Укажите полные имена, включающие в себя имя схемы (по умолчанию `public`). [Debezium будет использовать](#prepare-target) значения настроек из этого поля при выборе топика для отправки сообщений.
+    * `publication.name` — имя публикации, [созданной на кластере-источнике](#prepare-source).
+    * `slot.name` — имя слота репликации, который будет создан Debezium при работе с публикацией.
+    * `heartbeat.interval.ms` и `heartbeat.topics.prefix` — настройки heartbeat, [необходимые для работы](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-wal-disk-space) Debezium.
+    * `snapshot.mode` — [тип создания снапшота](https://debezium.io/documentation/reference/stable/connectors/postgresql.html#postgresql-connector-snapshot-mode-options) при запуске коннектора. Для корректной работы коннектора рекомендуется использовать значение параметра `always`.
+
+## Подготовьте кластер-приемник {#prepare-target}
+
+1. [Создайте топик](../../managed-kafka/operations/cluster-topics.md#create-topic), в который будут помещаться данные, поступающие от кластера-источника:
+
+    * **Имя** — `mpg.public.measurements`.
+
+        Имена топиков для данных [конструируются](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-topic-names) по принципу `<имя_сервера>.<имя_схемы>.<имя_таблицы>`.
+
+        Согласно [файлу настроек коннектора Debezium](#setup-debezium):
+
+        * Имя сервера `mpg` указано в параметре `database.server.name`.
+        * Имя схемы `public` указано вместе с именем таблицы `measurements` в параметре `table.include.list`.
+
+    Если необходимо отслеживать изменения в нескольких таблицах, создайте для каждой из них отдельный топик.
+
+1. Создайте служебный топик для отслеживания состояния коннектора:
+
+    * **Имя** — `debezium-heartbeat.mpg`.
+
+        Имена служебных топиков [конструируются](https://debezium.io/documentation/reference/connectors/postgresql.html#postgresql-property-heartbeat-topics-prefix) по принципу `<префикс_для_heartbeat>.<имя_сервера>`.
+
+        Согласно [файлу настроек коннектора Debezium](#setup-debezium):
+
+        * Префикс `debezium-heartbeat` указан в параметре `heartbeat.topics.prefix`.
+        * Имя сервера `mpg` указано в параметре `database.server.name`.
+
+    * **Политика очистки лога** — `Compact`.
+
+    Если необходимо получать данные из нескольких кластеров-источников, создайте для каждого из них отдельный служебный топик.
+
+1. [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `debezium`.
+
+1. [Выдайте пользователю `debezium` права](../../managed-kafka/operations/cluster-accounts.md#grant-permission) `ACCESS_ROLE_CONSUMER` и `ACCESS_ROLE_PRODUCER` на созданные топики.
+
+## Запустите коннектор Debezium {#run-connector}
+
+1. Создайте файл с настройками воркера Debezium:
+
+    `/etc/debezium/worker.conf`
+
+    ```ini
+    # AdminAPI connect properties
+    bootstrap.servers=<FQDN_хоста-брокера_1>:9091,...,<FQDN_хоста-брокера_N>:9091
+    sasl.mechanism=SCRAM-SHA-512
+    security.protocol=SASL_SSL
+    ssl.truststore.location=/etc/debezium/keystore.jks
+    ssl.truststore.password=<пароль_JKS>
+    sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="debezium" password="<пароль_пользователя_debezium>";
+
+    # Producer connect properties
+    producer.sasl.mechanism=SCRAM-SHA-512
+    producer.security.protocol=SASL_SSL
+    producer.ssl.truststore.location=/etc/debezium/keystore.jks
+    producer.ssl.truststore.password=<пароль_JKS>
+    producer.sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="debezium" password="<пароль_пользователя_debezium>";
+
+    # Worker properties
+    plugin.path=/etc/debezium/plugins/
+    key.converter=org.apache.kafka.connect.json.JsonConverter
+    value.converter=org.apache.kafka.connect.json.JsonConverter
+    key.converter.schemas.enable=true
+    value.converter.schemas.enable=true
+    offset.storage.file.filename=/etc/debezium/worker.offset
+    ```
+
+1. В отдельном терминале запустите коннектор:
+
+    ```bash
+    sudo /opt/kafka/bin/connect-standalone.sh \
+        /etc/debezium/worker.conf \
+        /etc/debezium/mdb-connector.conf
+    ```
+
+## Проверьте работоспособность Debezium {#verify-debezium}
+
+1. В отдельном терминале запустите утилиту `kafkacat` в режиме потребителя:
+
+    ```bash
+    kafkacat \
+        -C \
+        -b <FQDN_хоста-брокера_1>:9091,...,<FQDN_хоста-брокера_N>:9091 \
+        -t mpg.public.measurements \
+        -X security.protocol=SASL_SSL \
+        -X sasl.mechanisms=SCRAM-SHA-512 \
+        -X sasl.username=debezium \
+        -X sasl.password=<пароль> \
+        -X ssl.ca.location=/usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt \
+        -Z \
+        -K:
+    ```
+
+    Будет выведена схема формата данных таблицы `db1.public.measurements` и данные о добавленных в нее ранее строках.
+
+    {% cut "Пример фрагмента сообщения" %}
+
+    ```json
+    {
+    "schema": {
+        ...
+    },
+    "payload": {
+        "before": null,
+        "after": {
+            "device_id": "iv9a94th6rzt********",
+            "datetime": 1591378020000000,
+            "latitude": 55.70329,
+            "longitude": 37.65472,
+            "altitude": 427.5,
+            "speed": 0.0,
+            "battery_voltage": 23.5,
+            "cabin_temperature": 17.0,
+            "fuel_level": null
+        },
+        "source": {
+            "version": "1.8.1.Final",
+            "connector": "postgresql",
+            "name": "mpg",
+            "ts_ms": 1628245046882,
+            "snapshot": "true",
+            "db": "db1",
+            "sequence": "[null,\"4328525512\"]",
+            "schema": "public",
+            "table": "measurements",
+            "txId": 8861,
+            "lsn": 4328525328,
+            "xmin": null
+        },
+        "op": "r",
+        "ts_ms": 1628245046893,
+        "transaction": null
+      }
+    }
+    ```
+
+    {% endcut %}
+
+1. [Подключитесь к кластеру-источнику](../../managed-postgresql/operations/connect/index.md).
+
+    При подключении может возникнуть ошибка `ERROR Postgres roles LOGIN and REPLICATION are not assigned to user`. Она не влияет на работу Debezium, и ее можно игнорировать.
+
+1. Добавьте еще одну строку в таблицу `measurements`:
+
+    ```sql
+    INSERT INTO public.measurements VALUES ('iv7b74th678t********', '2020-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, 20.5, 5.3, 20, NULL);
+    ```
+
+1. Убедитесь, что в терминале с запущенной утилитой `kafkacat` отобразились сведения о добавленной строке.
+
+## Удалите созданные ресурсы {#clear-out}
+
+Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
+
+1. [Удалите виртуальную машину](../../compute/operations/vm-control/vm-delete.md).
+
+    Если вы зарезервировали для виртуальной машины публичный статический IP-адрес, освободите и [удалите его](../../vpc/operations/address-delete.md).
+
+1. Удалите кластеры:
+
+    * [Managed Service for Apache Kafka®](../../managed-kafka/operations/cluster-delete.md).
+    * [Managed Service for PostgreSQL](../../managed-postgresql/operations/cluster-delete.md).

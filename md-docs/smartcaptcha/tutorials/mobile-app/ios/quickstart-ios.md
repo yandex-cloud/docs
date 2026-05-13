@@ -1,0 +1,263 @@
+# SmartCaptcha в приложении на iOS
+
+# Yandex SmartCaptcha в приложении на iOS
+
+Чтобы встроить [SmartCaptcha](../../../index.md) в приложение на iOS:
+1. [Настройте JS часть сайта](#customize-js-part).
+1. [Настройте нативную часть сайта](#customize-native-part).
+
+## Перед началом работы {#before-begin}
+
+1. [Разместите HTML-код](../website.md) для работы SmartCaptcha (или воспользуйтесь готовым `https://smartcaptcha.cloud.yandex.ru/webview`).
+1. Создайте капчу по [инструкции](../../../operations/create-captcha.md).
+1. [Получите ключи](../../../operations/get-keys.md) капчи. Скопируйте значения полей **Ключ клиента** и **Ключ сервера** на вкладке **Обзор** созданной вами капчи. **Ключ клиента** понадобится для загрузки страницы с капчей, **Ключ сервера** — для получения результата прохождения капчи.
+
+## Настройте JS часть сайта {#customize-js-part}
+
+Если вы не используете `https://smartcaptcha.cloud.yandex.ru/webview`, то выполните следующие действия:
+1. [Добавьте виджет](../../../quickstart.md#add-widget) SmartCaptcha на страницу сайта.
+1. Создайте метод для взаимодействия с нативной частью приложения:
+
+   ```js
+   function sendIos(...args) {
+     if (args.length == 0) {
+       return;
+     }
+     const message = {
+       method: args[0],
+       data: args[1] !== undefined ? args[1] : ""
+     };
+
+     // Проверка на вызов из WKWebView.
+     if (window.webkit) {
+       window.webkit.messageHandlers.NativeClient.postMessage(message);
+     }
+   }
+   ```
+
+   С форматом сообщения:
+
+   ```js
+   {
+     method: "captchaDidFinish" | "challengeDidAppear" | "challengeDidDisappear"
+     data: "tokenName" | ""
+   }
+   ```
+
+   Метод возвращает:
+   * `success` — успешная валидации пользователя.
+   * `challenge-visible` — открытие всплывающего окна с заданием.
+   * `challenge-hidden` — закрытие всплывающего окна с заданием.
+
+## Настройте нативную часть сайта {#customize-native-part}
+
+1. В **WKUserContentController** зарегистрируйте обработчик `WKScriptMessageHandler` для ключа `NativeClient`.
+1. В обработчике реализуйте метод:
+
+   ```swift
+   func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+     guard let jsData = message.body as? [String: String] else { return }
+       guard let methodName = jsData["method"] else { return }
+         doSomething(name: methodName, params: jsData["data"])
+   }
+   ```
+
+1. После получения токена из метода `captchaDidFinish` отправьте POST-запрос на сервер для проверки `https://smartcaptcha.cloud.yandex.ru/validate`, передав параметры в формате `x-www-form-urlencoded`:
+
+   * `secret` — [ключ сервера](../../../concepts/keys.md);
+   * `token` — одноразовый токен, полученный после прохождения проверки;
+   * `ip` — IP-адрес пользователя, с которого пришел запрос на проверку токена. Этот параметр не обязателен, однако мы просим передавать IP-адрес пользователя при запросах. Это помогает улучшить качество работы SmartCaptcha.
+
+### Метод challengeDidAppear для невидимой капчи {#challengeDidAppear-method}
+
+Капча [не будет отображаться в HTML-коде страницы](../../../concepts/invisible-captcha.md), если она была вызвана с параметром `invisible`. **WKWebView** должен быть загружен, но недоступен пользователю до момента вызова метода `challengeDidAppear`. Один из способов сделать это:
+
+```swift
+UIApplication.shared.windows.first?.addSubview(webControllerView)
+```
+
+Если в результате проверки появляется `captchaDidFinish`, удалите `webControllerView` из иерархии. Если в результате нет `captchaDidFinish`, переместите `webControllerView` в иерархию для показа пользователю.
+
+### Метод challengeDidDisappear для невидимой капчи {#challengeDidDisappear-method}
+
+Если пользователь "смахнул" капчу с экрана, восстановить самостоятельно ее не получится. Вызовите перезагрузку контента в **WKWebView** по событию `challengeDidDisappear`:
+
+```swift
+webControllerView.reload()
+```
+
+## Пример реализации на Swift с использованием https://smartcaptcha.cloud.yandex.ru/webview {#ios-example}
+
+В этой секции описаны шаги, необходимые для создания приложения с капчей для iOS. См. пример готового приложения, содержащего все настроенные компоненты: [Yandex SmartCaptcha for iOS](https://github.com/yandex-cloud-examples/yc-smartcaptcha-ios-example/tree/main).
+1. Создайте класс, который будет хранить **WKWebView**:
+
+   ```swift
+   final class WebNativeBridge: NSObject {
+
+     private(set) var view: WKWebView?
+     private var userContentController = WKUserContentController()
+
+     func load(_ request: URLRequest?) {
+       guard let request = request else { return }
+       view?.load(request)
+     }
+
+     func reload() {
+       view?.reload()
+     }
+
+     private func close() {
+       view?.removeFromSuperview()
+     }
+
+     private func getConfiguration() -> WKWebViewConfiguration {
+       let configuration = WKWebViewConfiguration()
+       configuration.userContentController = userContentController
+       return configuration
+     }
+   }
+   ```
+
+1. Добавьте свойство, где будет храниться обработчик для **WKUserContentController**:
+
+   ```swift
+   private var handlers = [String: WebContentHandlerBase]()
+
+     func setup(handlers: [String: WebContentHandlerBase]) {
+       handlers.forEach { userContentController.add($1, name: $0) }
+       view = WKWebView(frame: .zero, configuration: getConfiguration())
+     }
+   ```
+
+1. Создайте реализацию обработчика для методов страницы SmartCaptcha:
+
+   ```swift
+   class WebContentHandlerBase: NSObject, WKScriptMessageHandler {
+     var handlerName: String { "" }
+     func execMethod(name: String, params: Any?...) {}
+
+     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+       guard let jsData = message.body as? [String: String] else { return }
+       guard let methodName = jsData["method"] else { return }
+       execMethod(name: methodName, params: jsData["data"])
+     }
+   }
+
+   final class CaptchaHandler: WebContentHandlerBase {
+     private enum Methods: String {
+       case captchaDidFinish
+       case challengeDidAppear
+       case challengeDidDisappear
+     }
+
+     override var handlerName: String {
+       "NativeClient"
+     }
+
+     weak var delegate: CaptchaHandlerDelegate?
+     private var validator: CaptchaValidatorProtocol
+
+     init(_ validator) {
+       self.validator = validator
+     }
+
+     override func execMethod(name: String, params: Any?...) {
+       guard let method = Methods(rawValue: name) else { return }
+       switch method {
+         case .captchaDidFinish:
+           guard let token = params.first as? String else { return }
+           onSuccess(token: token)
+         case .challengeDidDisappear:
+           onChallengeHide()
+         case .challengeDidAppear:
+           onChallengeVisible()
+       }
+     }
+
+     private func onSuccess(token: String) {
+       validator.validateCaptcha(token: token) { result in
+         DispatchQueue.main.async {
+           switch result {
+             case .success(_):
+               self.delegate?.onSuccess()
+             case .failure(let err):
+               self.delegate?.onError(err)
+           }
+         }
+       }
+     }
+
+     private func onChallengeVisible() {
+       delegate?.onShow()
+     }
+
+     private func onChallengeHide() {
+       delegate?.onHide()
+     }
+   }
+   ```
+
+1. Создайте класс для валидации токена от SmartCaptcha:
+
+   ```swift
+   final class CaptchaValidator: CaptchaValidatorProtocol {
+     private var host: String
+     private var secret: String
+     private var session: URLSession
+
+     init(host: String, secret: String) {
+       self.host = host
+       self.secret = secret
+       session = URLSession(configuration: .default)
+     }
+
+     func validateCaptcha(token: String, callback: @escaping (Result<String, Error>) -> Void) {
+       guard let url = URL(string: host),
+         var components = URLComponents(url: url, resolvingAgainstBaseURL: true) else
+       { return }
+       components.queryItems = [
+         URLQueryItem(name: "secret", value: secret),
+         URLQueryItem(name: "token", value: token),
+         URLQueryItem(name: "ip", value: getIPAddress()),
+       ]
+       let task = session.dataTask(with: URLRequest(url: components.url!)) { data, response, error in
+         guard let code = (response as? HTTPURLResponse)?.statusCode, code == 200 else { return }
+         guard let data = data,
+           let result = try? JSONDecoder().decode(YACValidationResponse.self, from: data) else { return }
+         if result.status == "ok" {
+           callback(.success("ok"))
+         } else {
+           callback(.failure(NSError(domain: result.message ?? "", code: code)))
+         }
+       }
+       task.resume()
+     }
+
+     private func getIPAddress() -> String {
+       var address: String = ""
+       var ifaddr: UnsafeMutablePointer<ifaddrs>? = nil
+       if getifaddrs(&ifaddr) == 0 {
+         var ptr = ifaddr
+         while ptr != nil {
+           defer {
+             ptr = ptr?.pointee.ifa_next
+           }
+
+           let interface = ptr?.pointee
+           let addrFamily = interface?.ifa_addr.pointee.sa_family
+           if addrFamily == UInt8(AF_INET) {
+
+             if String(cString: (interface?.ifa_name)!) == "en0" {
+               var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
+               getnameinfo(interface?.ifa_addr, socklen_t((interface?.ifa_addr.pointee.sa_len)!), &hostname, socklen_t(hostname.count), nil, socklen_t(0), NI_NUMERICHOST)
+               address = String(cString: hostname)
+               print(address)
+             }
+           }
+         }
+         freeifaddrs(ifaddr)
+       }
+       return address
+     }
+   }
+   ```

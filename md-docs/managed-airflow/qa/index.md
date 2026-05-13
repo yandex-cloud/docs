@@ -1,0 +1,110 @@
+# Общие вопросы про Managed Service for Apache Airflow™
+
+### Как исправить ошибку про пересечение диапазонов IP-адресов при создании кластера? {#ip-addresses}
+
+Во время создания кластера Managed Service for Apache Airflow™ вы можете получить ошибку:
+
+```text
+user subnet overlaps with service network range 10.248.0.0/13, see documentation for details
+```
+
+Ошибка означает, что при создании кластера вы выбрали подсеть, диапазон IP-адресов которой пересекается с диапазоном адресов `10.248.0.0/13` служебной подсети. В ней Yandex Cloud управляет компонентами кластера Managed Service for Apache Airflow™.
+
+Чтобы исправить ошибку, выберите другую подсеть, диапазон IP-адресов которой не пересекается с диапазоном служебной подсети. Подробнее о требованиях к подсетям кластера см. в разделе [Сеть](../concepts/network.md#subnet-requirements).
+
+### Как исправить ошибку отсутствия прав при подключении сервисного аккаунта к кластеру? {#attach-service-account}
+
+#### Как исправить ошибку отсутствия прав при подключении сервисного аккаунта к кластеру? {#attach-service-account}
+
+Текст ошибки:
+
+```text
+ERROR: rpc error: code = PermissionDenied desc = you do not have permission to access the requested service account or service account does not exist
+```
+
+Ошибка возникает, если вы создаете или изменяете кластер и привязываете к нему сервисный аккаунт.
+
+**Решение**
+[Назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роль [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше.
+
+### Как исправить ошибку `No module named 'airflow.providers.postgres.operators'`? {#airflow-provider-postgres-operators}
+
+При работе с кластером Managed Service for PostgreSQL из кластера Managed Service for Apache Airflow™ вы можете получить ошибку:
+
+```bash
+Broken DAG: [/opt/airflow/dags/postgre.py] Traceback (most recent call last):
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/postgre.py", line 2, in <module>
+    from airflow.providers.postgres.operators.postgres import PostgresOperator
+ModuleNotFoundError: No module named 'airflow.providers.postgres.operators'
+```
+
+По умолчанию используется провайдер `apache-airflow-providers-postgres` версии 5.13.1. Ошибка может возникать при использовании `PostgresOperator` с более новыми версиями провайдера.
+
+**Решение**:
+
+Если вы работаете с более новой версией провайдера, вместо PostgresOperator используйте SQLExecuteQueryOperator. Подробнее см. в [официальной документации](https://airflow.apache.org/docs/apache-airflow-providers-postgres/6.0.0/operators/postgres_operator_howto_guide.html).
+
+### Как исправить ошибку `AirflowException: Unknown hook type "postgres"`? {#airflow-provider-postgres-operators-2}
+
+При работе с кластером Managed Service for PostgreSQL из кластера Managed Service for Apache Airflow™ вы можете получить ошибку:
+
+```bash
+Task failed with exception: source="task"
+AirflowException: Unknown hook type "postgres"
+```
+
+По умолчанию в кластерах Managed Service for Apache Airflow™ с версией Apache Airflow™ выше 3.0 не установлен провайдер `apache-airflow-providers-postgres`.
+
+**Решение**:
+
+При создании или изменении кластера Managed Service for Apache Airflow™ в блоке **Зависимости** добавьте pip-пакет `apache-airflow-providers-postgres`.
+
+### Как исправить ошибку `No module named 'airflow_clickhouse_plugin'`? {#airflow-clickhouse-plugin}
+
+При работе с кластером Managed Service for ClickHouse® из кластера Managed Service for Apache Airflow™ вы можете получить ошибку:
+
+```bash
+Traceback (most recent call last):
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/opt/airflow/dags/dags/clickhouse.py", line 2, in <module>
+    from airflow_clickhouse_plugin.hooks.clickhouse import ClickHouseHook
+ModuleNotFoundError: No module named 'airflow_clickhouse_plugin'
+```
+
+По умолчанию в Managed Service for Apache Airflow™ не установлен плагин `airflow-clickhouse-plugin`.
+
+**Решение**:
+
+При создании или изменении кластера Managed Service for Apache Airflow™ в блоке **Зависимости** добавьте pip-пакет `airflow-clickhouse-plugin`.
+
+### Как исправить ошибку `SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED]`? {#airflow-clickhouse-ssl}
+
+При попытке подключения к кластеру Managed Service for ClickHouse® из кластера Managed Service for Apache Airflow™ вы можете получить ошибку:
+
+```bash
+SSLCertVerificationError: [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self signed certificate in certificate chain (_ssl.c:1123)
+```
+
+**Решение**:
+
+1. Скачайте SSL-сертификат по ссылке: [https://storage.yandexcloud.net/cloud-certs/CA.pem](https://storage.yandexcloud.net/cloud-certs/CA.pem).
+1. Положите сертификат в корень бакета с DAG-файлами.
+1. В параметрах подключения укажите путь до сертификата в поле `ca_certs`.
+
+   [Значение созданного секрета](../operations/clickhouse.md#create-lockbox-secret):
+   
+   ```json
+   {
+     "conn_type": "clickhouse",
+     "host": "<FQDN_хоста_кластера_ClickHouse®>",
+     "port": 9440,
+     "schema": "default-bd",
+     "login": "admin",
+     "password": "admin-password",
+     "extra": {
+         "secure": "True",
+         "ca_certs": "/opt/airflow/dags/CA.pem"
+     }
+   }
+```

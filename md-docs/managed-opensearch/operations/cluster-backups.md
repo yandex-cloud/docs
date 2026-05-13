@@ -1,0 +1,877 @@
+# Управление резервными копиями в Managed Service for OpenSearch
+
+Managed Service for OpenSearch позволяет создавать резервные копии [индексов](../concepts/indexing.md) как средствами Yandex Cloud, так и с помощью механизма [снапшотов](../../glossary/snapshot.md) OpenSearch. Подробнее о механизме снапшотов см. в [документации OpenSearch](https://opensearch.org/docs/latest/opensearch/snapshots/snapshot-restore/).
+
+## Резервное копирование средствами Yandex Cloud {#cloud-backups}
+
+Вы можете создавать [резервные копии](../concepts/backup.md) и восстанавливать кластеры из имеющихся резервных копий.
+
+Также Managed Service for OpenSearch каждый час создает автоматическую резервную копию.
+
+### Получить список резервных копий {#list-backups}
+
+Вы можете получить список резервных копий, которые были созданы за последние 14 дней.
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    Чтобы получить список резервных копий кластера:
+
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **Резервные копии**.
+
+    Чтобы получить список всех резервных копий в каталоге:
+
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. Выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **Резервные копии**.
+
+- CLI {#cli}
+
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+
+    По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+    Чтобы получить список всех резервных копий в каталоге, выполните команду:
+
+    ```bash
+    yc managed-opensearch backup list
+    ```
+
+    Результат:
+
+    ```text
+    +----------------------+---------------------+-------------------+---------------------+
+    |          ID          |      CREATED AT     | SOURCE CLUSTER ID |      STARTED AT     |
+    +----------------------+---------------------+-------------------+---------------------+
+    | c9qlk4v13uq7******** | 2024-01-09 14:38:34 | c9qpm4i********   | 2024-01-09 14:38:28 |
+    | c9qpm90p3pcg******** | 2024-01-09 13:38:31 | c9qpm4i********   | 2024-01-09 13:38:28 |
+    +----------------------+---------------------+-------------------+---------------------+
+    ```
+
+    Если вы хотите ограничить список резервных копий, который выводится после запуска команды, передайте в команду параметр `--limit <количество_записей>`. Например, если вывод команды `yc managed-opensearch backup list` занимает несколько экранов, выполните команду `yc managed-opensearch backup list --limit 5`. Тогда вывод будет содержать список из последних пяти резервных копий.
+
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        ```bash
+        export IAM_TOKEN="<IAM-токен>"
+        ```
+
+    1. Чтобы получить список резервных копий кластера:
+
+        1. Воспользуйтесь методом [Cluster.ListBackups](../api-ref/Cluster/listBackups.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+
+            ```bash
+            curl \
+                --request GET \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/<идентификатор_кластера>/backups'
+            ```
+
+            Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/listBackups.md#yandex.cloud.mdb.opensearch.v1.ListClusterBackupsResponse).
+
+    1. Чтобы получить список резервных копий всех кластеров в каталоге:
+
+        1. Воспользуйтесь методом [Backup.List](../api-ref/Backup/list.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+
+            ```bash
+            curl \
+                --request GET \
+                --header "Authorization: Bearer $IAM_TOKEN" \
+                --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/backups' \
+                --url-query folderId=<идентификатор_каталога>
+            ```
+
+            
+            Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Backup/list.md#yandex.cloud.mdb.opensearch.v1.ListBackupsResponse).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        ```bash
+        export IAM_TOKEN="<IAM-токен>"
+        ```
+
+    1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+       
+       ```bash
+       cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+       ```
+       
+       Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+    1. Чтобы получить список резервных копий кластера:
+
+        1. Воспользуйтесь вызовом [ClusterService.ListBackups](../api-ref/grpc/Cluster/listBackups.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/cluster_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                -d '{
+                      "cluster_id": "<идентификатор_кластера>"
+                    }' \
+                mdb.api.cloud.yandex.net:443 \
+                yandex.cloud.mdb.opensearch.v1.ClusterService.ListBackups
+            ```
+
+            Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/listBackups.md#yandex.cloud.mdb.opensearch.v1.ListClusterBackupsResponse).
+
+    1. Чтобы получить список резервных копий всех кластеров в каталоге:
+
+        1. Воспользуйтесь вызовом [BackupService.List](../api-ref/grpc/Backup/list.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+
+            ```bash
+            grpcurl \
+                -format json \
+                -import-path ~/cloudapi/ \
+                -import-path ~/cloudapi/third_party/googleapis/ \
+                -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/backup_service.proto \
+                -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+                -d '{
+                      "folder_id": "<идентификатор_каталога>"
+                    }' \
+                mdb.api.cloud.yandex.net:443 \
+                yandex.cloud.mdb.opensearch.v1.BackupService.List
+            ```
+
+            
+            Идентификатор каталога можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+
+
+        1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Backup/list.md#yandex.cloud.mdb.opensearch.v1.ListBackupsResponse).
+
+{% endlist %}
+
+### Получить информацию о резервной копии {#get-backup}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    Чтобы получить информацию о резервной копии существующего кластера:
+
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **Резервные копии**.
+
+    Чтобы получить информацию о резервной копии удаленного ранее кластера:
+
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. Выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **Резервные копии**.
+
+- CLI {#cli}
+
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+
+    По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+    Чтобы получить информацию о резервной копии кластера:
+
+    1. Получите идентификатор резервной копии вместе со списком всех резервных копий в каталоге:
+
+        ```bash
+        yc managed-opensearch backup list
+        ```
+
+        Идентификатор указан в столбце `ID` в выводе команды.
+
+    1. Получите информацию о нужной резервной копии:
+
+        ```bash
+        yc managed-opensearch backup get <идентификатор_резервной_копии>
+        ```
+
+        Пример результата команды:
+
+        ```text
+        id: c9qlk4v13uq7********
+        folder_id: b1g86q4m5vej********
+        source_cluster_id: c9qpm4i********
+        started_at: "2024-01-09T10:38:28.683Z"
+        created_at: "2024-01-09T10:38:31.685Z"
+        indices:
+          - .mdb-sli
+          - .opendistro_security
+          - .kibana_1
+          - .opendistro-job-scheduler-lock
+          - .opensearch-observability
+          - .opendistro-ism-config
+        opensearch_version: 2.8.0
+        indices_total: "6"
+        ```
+
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        ```bash
+        export IAM_TOKEN="<IAM-токен>"
+        ```
+
+    1. Воспользуйтесь методом [Backup.Get](../api-ref/Backup/get.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+
+        ```bash
+        curl \
+            --request GET \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/backups/<идентификатор_резервной_копии>'
+        ```
+
+        Идентификатор резервной копии можно запросить со [списком резервных копий](#list-backups).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Backup/get.md#yandex.cloud.mdb.opensearch.v1.Backup).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        ```bash
+        export IAM_TOKEN="<IAM-токен>"
+        ```
+
+    1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+       
+       ```bash
+       cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+       ```
+       
+       Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+    1. Воспользуйтесь вызовом [BackupService.Get](../api-ref/grpc/Backup/get.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/backup_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "backup_id": "<идентификатор_резервной_копии>"
+                }' \
+            mdb.api.cloud.yandex.net:443 \
+            yandex.cloud.mdb.opensearch.v1.BackupService.Get
+        ```
+
+        Идентификатор резервной копии можно запросить со [списком резервных копий](#list-backups).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Backup/get.md#yandex.cloud.mdb.opensearch.v1.Backup).
+
+{% endlist %}
+
+### Создать резервную копию {#create-backup}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+  
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **Резервные копии**.
+    1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Создать резервную копию**.
+
+    Сервис начнет создавать резервную копию без дополнительного подтверждения.
+
+- CLI {#cli}
+
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+
+    По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+    Чтобы создать резервную копию данных кластера, выполните команду:
+
+    ```bash
+    yc managed-opensearch cluster backup <имя_или_идентификатор_кластера>
+    ```
+
+    Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        ```bash
+        export IAM_TOKEN="<IAM-токен>"
+        ```
+
+    1. Воспользуйтесь методом [Cluster.Backup](../api-ref/Cluster/backup.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/<идентификатор_кластера>:backup'
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/backup.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        ```bash
+        export IAM_TOKEN="<IAM-токен>"
+        ```
+
+    1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+       
+       ```bash
+       cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+       ```
+       
+       Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+    1. Воспользуйтесь вызовом [ClusterService.Backup](../api-ref/grpc/Cluster/backup.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<идентификатор_кластера>"
+                }' \
+            mdb.api.cloud.yandex.net:443 \
+            yandex.cloud.mdb.opensearch.v1.ClusterService.Backup
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/backup.md#yandex.cloud.operation.Operation).
+
+{% endlist %}
+
+{% note warning %}
+
+Во время создания резервной копии производительность кластера может снижаться.
+
+{% endnote %}
+
+### Восстановить кластер из резервной копии {#restore}
+
+{% note warning %}
+
+Для кластеров с неподдерживаемой [версией СУБД](../concepts/update-policy.md#versioning-policy) восстановление из резервных копий недоступно.
+
+{% endnote %}
+
+Восстанавливая кластер из резервной копии, вы создаете новый кластер с данными из резервной копии. Если в каталоге не хватает [ресурсов](../concepts/limits.md) для создания такого кластера, восстановиться из резервной копии не получится.
+
+Для нового кластера необходимо задать все параметры, обязательные при его создании.
+
+
+Перед началом работы [назначьте](../../iam/operations/roles/grant.md) вашему аккаунту в Yandex Cloud роли:
+
+* [managed-opensearch.restorer](../../iam/roles-reference.md#managed-opensearch-restorer) или выше на каталог размещения резервной копии и каталог, где будет развернут новый кластер.
+* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) или выше, если вы восстанавливаете из резервной копии кластер с привязкой к [сервисному аккаунту](../../iam/concepts/users/service-accounts.md).
+
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    Чтобы восстановить из резервной копии существующий кластер:
+
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **Резервные копии**.
+    1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **Восстановить кластер**.
+    1. Задайте настройки нового кластера.
+    1. Нажмите кнопку **Восстановить кластер**.
+
+    Чтобы восстановить из резервной копии удаленный ранее кластер:
+
+    1. В [консоли управления](https://console.yandex.cloud) перейдите в нужный каталог.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Managed Service for&nbsp;OpenSearch**.
+    1. Выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **Резервные копии**.
+    1. Найдите нужную резервную копию по времени создания и идентификатору кластера. В колонке **Идентификатор** содержатся идентификаторы в формате `<идентификатор_кластера>:<идентификатор_резервной_копии>`.
+    1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **Восстановить кластер**.
+    1. Задайте настройки нового кластера.
+    1. Нажмите кнопку **Восстановить кластер**.
+
+    Managed Service for OpenSearch запустит операцию создания кластера из резервной копии.
+
+- CLI {#cli}
+
+    Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+
+    По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+    Чтобы восстановить кластер из резервной копии:
+
+    1. Получите идентификатор резервной копии вместе со списком всех резервных копий в каталоге:
+
+        ```bash
+        yc managed-opensearch backup list
+        ```
+
+        Результат:
+
+        ```text
+        +----------------------+---------------------+-------------------+---------------------+
+        |          ID          |      CREATED AT     | SOURCE CLUSTER ID |      STARTED AT     |
+        +----------------------+---------------------+-------------------+---------------------+
+        | c9qlk4v13uq7******** | 2024-01-09 14:38:34 | c9qpm4i********   | 2024-01-09 14:38:28 |
+        | ...                                                                                  |
+        +----------------------+---------------------+-------------------+---------------------+
+        ```
+
+        Идентификатор резервной копии указан в столбце `ID`. Время завершения создания резервной копии указано в столбце `CREATED AT` в формате `yyyy-mm-dd hh:mm:ss`.
+
+    1. Запросите создание кластера из резервной копии:
+
+        ```bash
+        yc managed-opensearch cluster restore --backup-id <идентификатор_резервной_копии>
+        ```
+
+        В команде также можно передать параметры, которые задаются при создании кластера. Описание таких параметров читайте в разделе [Создание кластера](cluster-create.md).
+
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        ```bash
+        export IAM_TOKEN="<IAM-токен>"
+        ```
+
+    1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+        ```json
+        {
+            "backupId": "<идентификатор_резервной_копии>",
+            "folderId": "<идентификатор_каталога>",
+            "name": "<имя_кластера>",
+            "environment": "<окружение>",
+            "networkId": "<идентификатор_сети>",
+            "configSpec": {
+                "version": "<версия_OpenSearch>",
+                "adminPassword": "<пароль_пользователя-администратора>",
+                "opensearchSpec": {
+                    "nodeGroups": [
+                        {
+                            "name": "<имя_группы_хостов_OpenSearch>",
+                            "resources": {
+                                "resourcePresetId": "<класс_хостов>",
+                                "diskSize": "<размер_хранилища_в_байтах>",
+                                "diskTypeId": "<тип_диска>"
+                            },
+                            "roles": ["<роль_1>","<роль_2>"],
+                            "hostsCount": "<число_хостов>",
+                            "zoneIds": [
+                                "<зона_доступности_1>",
+                                "<зона_доступности_2>",
+                                "<зона_доступности_3>"
+                            ],
+                            "subnetIds": [
+                                "<идентификатор_подсети_1>",
+                                "<идентификатор_подсети_2>",
+                                "<идентификатор_подсети_3>"
+                            ]
+                        }
+                    ]
+                },
+                "dashboardsSpec": {
+                    "nodeGroups": [
+                        {
+                            "name": "<имя_группы_хостов_Dashboards>",
+                            "resources": {
+                                "resourcePresetId": "<класс_хостов>",
+                                "diskSize": "<размер_хранилища_в_байтах>",
+                                "diskTypeId": "<тип_диска>"
+                            },
+                            "hostsCount": "<число_хостов>",
+                            "zoneIds": [
+                                "<зона_доступности_1>",
+                                "<зона_доступности_2>",
+                                "<зона_доступности_3>"
+                            ],
+                            "subnetIds": [
+                                "<идентификатор_подсети_1>",
+                                "<идентификатор_подсети_2>",
+                                "<идентификатор_подсети_3>"
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+        ```
+
+        Где:
+
+        * `backupId` — идентификатор резервной копии, из которой восстанавливаете кластер. Идентификатор можно запросить со [списком резервных копий](#list-backups).
+        * `folderId` — идентификатор каталога. Его можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+        * `name` — имя кластера.
+        * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
+        * `networkId` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
+        * `configSpec` — настройки кластера:
+
+            * `version` — версия OpenSearch.
+            * `adminPassword` — пароль пользователя `admin`.
+
+                Пароль должен содержать 3 из 4 групп символов:
+                
+                  * строчные буквы латинского алфавита;
+                  * заглавные буквы латинского алфавита;
+                  * цифры;
+                  * специальные символы.
+                
+                Длина пароля — от 10 до 72 символов.
+
+            * `opensearchSpec` — настройки групп хостов `OpenSearch`. Содержат массив элементов `nodeGroups`. Каждый элемент соответствует отдельной группе хостов и имеет следующую структуру:
+
+                * `name` — имя группы хостов.
+                * `resources` — ресурсы кластера:
+
+                    * `resourcePresetId` — [класс хостов](../concepts/instance-types.md);
+                    * `diskSize` — размер диска в байтах;
+                    * `diskTypeId` — [тип диска](../concepts/storage.md).
+
+                * `roles` — список [ролей хостов](../concepts/host-roles.md). Кластер должен содержать хотя бы по одной группе хостов `DATA` и `MANAGER`. Это может быть одна группа, на которую назначены две роли, или несколько групп с разными ролями.
+                * `hostsCount` — количество хостов в группе. Минимальное число хостов `DATA` — один, хостов `MANAGER` — три.
+                * `zoneIds` — список зон доступности, где размещаются хосты кластера.
+                * `subnetIds` — список идентификаторов подсетей.
+
+            * `dashboardsSpec` — настройки групп хостов `Dashboards`. Содержат массив элементов `nodeGroups`, структура которого совпадает со структурой `opensearchSpec.nodeGroups`. Исключение — параметр `roles`: у хостов `Dashboards` есть только одна роль `DASHBOARDS`, поэтому ее не нужно указывать.
+
+    1. Воспользуйтесь методом [Cluster.Restore](../api-ref/Cluster/restore.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+
+        ```bash
+        curl \
+            --request POST \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters:restore' \
+            --data "@body.json"
+        ```
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/restore.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        ```bash
+        export IAM_TOKEN="<IAM-токен>"
+        ```
+
+    1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+       
+       ```bash
+       cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+       ```
+       
+       Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+    1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+        ```json
+        {
+            "backup_id": "<идентификатор_резервной_копии>",
+            "folder_id": "<идентификатор_каталога>",
+            "name": "<имя_кластера>",
+            "environment": "<окружение>",
+            "network_id": "<идентификатор_сети>",
+            "config_spec": {
+                "version": "<версия_OpenSearch>",
+                "admin_password": "<пароль_пользователя-администратора>",
+                "opensearch_spec": {
+                    "node_groups": [
+                        {
+                            "name": "<имя_группы_хостов_OpenSearch>",
+                            "resources": {
+                                "resource_preset_id": "<класс_хостов>",
+                                "disk_size": "<размер_хранилища_в_байтах>",
+                                "disk_type_id": "<тип_диска>"
+                            },
+                            "roles": ["<роль_1>","<роль_2>"],
+                            "hosts_count": "<число_хостов>",
+                            "zone_ids": [
+                                "<зона_доступности_1>",
+                                "<зона_доступности_2>",
+                                "<зона_доступности_3>"
+                            ],
+                            "subnet_ids": [
+                                "<идентификатор_подсети_1>",
+                                "<идентификатор_подсети_2>",
+                                "<идентификатор_подсети_3>"
+                            ]
+                        }
+                    ]
+                },
+                "dashboards_spec": {
+                    "node_groups": [
+                        {
+                            "name": "<имя_группы_хостов_Dashboards>",
+                            "resources": {
+                                "resource_preset_id": "<класс_хостов>",
+                                "disk_size": "<размер_хранилища_в_байтах>",
+                                "disk_type_id": "<тип_диска>"
+                            },
+                            "hosts_count": "<число_хостов>",
+                            "zone_ids": [
+                                "<зона_доступности_1>",
+                                "<зона_доступности_2>",
+                                "<зона_доступности_3>"
+                            ],
+                            "subnet_ids": [
+                                "<идентификатор_подсети_1>",
+                                "<идентификатор_подсети_2>",
+                                "<идентификатор_подсети_3>"
+                            ]
+                        }
+                    ]
+                }
+            }
+        }
+        ```
+
+        Где:
+
+        * `backup_id` — идентификатор резервной копии, из которой восстанавливаете кластер. Идентификатор можно запросить со [списком резервных копий](#list-backups).
+        * `folder_id` — идентификатор каталога. Его можно запросить со [списком каталогов в облаке](../../resource-manager/operations/folder/get-id.md).
+        * `name` — имя кластера.
+        * `environment` — окружение кластера: `PRODUCTION` или `PRESTABLE`.
+        * `network_id` — идентификатор [сети](../../vpc/concepts/network.md#network), в которой будет размещен кластер.
+        * `config_spec` — настройки кластера:
+
+            * `version` — версия OpenSearch.
+            * `admin_password` — пароль пользователя `admin`.
+
+                Пароль должен содержать 3 из 4 групп символов:
+                
+                  * строчные буквы латинского алфавита;
+                  * заглавные буквы латинского алфавита;
+                  * цифры;
+                  * специальные символы.
+                
+                Длина пароля — от 10 до 72 символов.
+
+            * `opensearch_spec` — настройки групп хостов `OpenSearch`. Содержат массив элементов `nodeGroups`. Каждый элемент соответствует отдельной группе хостов и имеет следующую структуру:
+
+                * `name` — имя группы хостов.
+                * `resources` — ресурсы кластера:
+
+                    * `resource_preset_id` — [класс хостов](../concepts/instance-types.md);
+                    * `disk_size` — размер диска в байтах;
+                    * `disk_type_id` — [тип диска](../concepts/storage.md).
+
+                * `roles` — список [ролей хостов](../concepts/host-roles.md). Кластер должен содержать хотя бы по одной группе хостов `DATA` и `MANAGER`. Это может быть одна группа, на которую назначены две роли, или несколько групп с разными ролями.
+                * `hosts_count` — количество хостов в группе. Минимальное число хостов `DATA` — один, хостов `MANAGER` — три.
+                * `zone_ids` — список зон доступности, где размещаются хосты кластера.
+                * `subnet_ids` — список идентификаторов подсетей.
+
+            * `dashboards_spec` — настройки групп хостов `Dashboards`. Содержат массив элементов `node_groups`, структура которого совпадает со структурой `opensearch_spec.node_groups`. Исключение — параметр `roles`: у хостов `Dashboards` есть только одна роль `DASHBOARDS`, поэтому ее не нужно указывать.
+
+    1. Воспользуйтесь вызовом [ClusterService.Restore](../api-ref/grpc/Cluster/restore.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d @ \
+            mdb.api.cloud.yandex.net:443 \
+            yandex.cloud.mdb.opensearch.v1.ClusterService.Restore \
+            < body.json
+        ```
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/restore.md#yandex.cloud.operation.Operation).
+
+{% endlist %}
+
+### Удалить резервную копию {#delete-backup}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+    1. Перейдите на страницу каталога и выберите сервис **Managed Service for&nbsp;OpenSearch**.
+    1. Нажмите на имя нужного кластера и выберите вкладку ![backups](../../_assets/console-icons/archive.svg) **Резервные копии**.
+    1. Нажмите на значок ![image](../../_assets/console-icons/ellipsis.svg) для нужной резервной копии, затем нажмите **Удалить резервную копию**.
+
+- REST API {#api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        ```bash
+        export IAM_TOKEN="<IAM-токен>"
+        ```
+
+    1. Воспользуйтесь методом [Cluster.DeleteBackup](../api-ref/Cluster/deleteBackup.md) и выполните запрос, например с помощью [cURL](https://curl.se/):
+
+        ```bash
+        curl \
+            --request DELETE \
+            --header "Authorization: Bearer $IAM_TOKEN" \
+            --header "Content-Type: application/json" \
+            --url 'https://mdb.api.cloud.yandex.net/managed-opensearch/v1/clusters/<идентификатор_кластера>/backups/<идентификатор_резервной_копии>'
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/deleteBackup.md#yandex.cloud.operation.Operation).
+
+- gRPC API {#grpc-api}
+
+    1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+        ```bash
+        export IAM_TOKEN="<IAM-токен>"
+        ```
+
+    1. Клонируйте репозиторий [cloudapi](https://github.com/yandex-cloud/cloudapi):
+       
+       ```bash
+       cd ~/ && git clone --depth=1 https://github.com/yandex-cloud/cloudapi
+       ```
+       
+       Далее предполагается, что содержимое репозитория находится в директории `~/cloudapi/`.
+    1. Воспользуйтесь вызовом [ClusterService.DeleteBackup](../api-ref/grpc/Cluster/deleteBackup.md) и выполните запрос, например с помощью [gRPCurl](https://github.com/fullstorydev/grpcurl):
+
+        ```bash
+        grpcurl \
+            -format json \
+            -import-path ~/cloudapi/ \
+            -import-path ~/cloudapi/third_party/googleapis/ \
+            -proto ~/cloudapi/yandex/cloud/mdb/opensearch/v1/cluster_service.proto \
+            -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+            -d '{
+                  "cluster_id": "<идентификатор_кластера>",
+                  "backup_id": "<идентификатор_резервной_копии>"
+                }' \
+            mdb.api.cloud.yandex.net:443 \
+            yandex.cloud.mdb.opensearch.v1.ClusterService.deleteBackup
+        ```
+
+        Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
+
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/deleteBackup.md#yandex.cloud.operation.Operation).
+
+{% endlist %}
+
+## Резервное копирование с помощью снапшотов {#snapshot-backups}
+
+Для работы со снапшотами используется [публичный API OpenSearch](https://opensearch.org/docs/latest/api-reference/index/), а для их хранения — бакет в Object Storage.
+
+{% note info %}
+
+Снапшоты, созданные средствами Yandex Cloud, помещаются в репозиторий `yc-automatic-backups` под именами `yc-automatic-backups-******` (для автоматических резервных копий) или `manual-snapshot-******` (для резервных копий, созданных вручную).
+
+{% endnote %}
+
+### Получить список снапшотов {#list-snapshots}
+
+##### **Для снапшотов, создаваемых средствами Yandex Cloud**
+
+Получите список снапшотов в репозитории `yc-automatic-backups`:
+
+ ```http
+ GET https://admin:<пароль>@<идентификатор_хоста_OpenSearch_с_ролью_DATA>.mdb.yandexcloud.net:9200/_snapshot/<имя_репозитория>/_all
+ ```
+Каждой резервной копии соответствует один снапшот.
+
+##### **Для снапшотов, создаваемых средствами OpenSearch**
+
+1. Получите список репозиториев OpenSearch:
+
+    ```http
+    GET https://admin:<пароль>@<идентификатор_хоста_OpenSearch_с_ролью_DATA>.mdb.yandexcloud.net:9200/_snapshot/_all
+    ```
+
+   Если нужного репозитория нет в списке, [подключите его](s3-access.md).
+
+1. Найдите нужный репозиторий со снапшотами.
+
+1. Получите список снапшотов в репозитории:
+
+    ```http
+    GET https://admin:<пароль>@<идентификатор_хоста_OpenSearch_с_ролью_DATA>.mdb.yandexcloud.net:9200/_snapshot/<имя_репозитория>/_all
+    ```
+
+   Каждой резервной копии соответствует один снапшот.
+
+### Создать снапшот {#create-snapshot}
+
+{% note warning %}
+
+Нельзя создать снапшот в репозитории `yc-automatic-backups`.
+
+{% endnote %}
+
+1. Найдите в списке репозиториев OpenSearch тот, в котором нужно создать резервную копию в виде снапшота:
+
+    ```http
+    GET https://admin:<пароль>@<идентификатор_хоста_OpenSearch_с_ролью_DATA>.mdb.yandexcloud.net:9200/_snapshot/_all
+    ```
+
+    Если нужного репозитория нет в списке, [подключите его](s3-access.md).
+
+1. [Создайте снапшот](https://opensearch.org/docs/latest/opensearch/snapshots/snapshot-restore/#take-snapshots) нужных данных или целого кластера в выбранном репозитории:
+
+    ```http
+    PUT https://admin:<пароль>@<идентификатор_хоста_OpenSearch_с_ролью_DATA>.mdb.yandexcloud.net:9200/_snapshot/<имя_репозитория>/<имя_снапшота>
+    ```
+
+### Восстановить кластер из снапшота {#restore-from-snapshot}
+
+{% note warning %}
+
+При восстановлении из снапшота версия OpenSearch в кластере должна быть не ниже версии OpenSearch, в которой был сделан снапшот.
+
+{% endnote %}
+
+1. [Создайте новый кластер OpenSearch](cluster-create.md) в нужной конфигурации, но не наполняйте его данными.
+
+    При создании кластера выберите:
+
+    * Количество и класс хостов, размер и тип хранилища исходя из размера снапшота и требований к быстродействию.
+
+    * Версию OpenSearch, в которой был создан снапшот, или более новую.
+
+1. Закройте открытые индексы с помощью [OpenSearch API](https://opensearch.org/docs/latest/api-reference/index-apis/close-index/):
+
+    ```http
+    POST: https://admin:<пароль>@<идентификатор_хоста_OpenSearch_с_ролью_DATA>.mdb.yandexcloud.net:9200/<имя_индекса>/_close
+    ```
+
+    Для восстановления всего кластера закройте все открытые индексы. Для восстановления отдельных индексов закройте только их.
+
+1. [Получите список резервных копий](#list-snapshots) и найдите нужный снапшот.
+1. [Запустите операцию восстановления](https://opensearch.org/docs/latest/opensearch/snapshots/snapshot-restore/#restore-snapshots) из нужного снапшота всего кластера или отдельных индексов и потоков данных.
+
+### Удалить снапшот {#delete-snapshot}
+
+1. Найдите в списке репозиториев OpenSearch тот, который содержит в себе резервные копии в виде снапшотов:
+
+    ```http
+    GET https://admin:<пароль>@<идентификатор_хоста_OpenSearch_с_ролью_DATA>.mdb.yandexcloud.net:9200/_snapshot/_all
+    ```
+
+   Если нужного репозитория нет в списке, [подключите его](s3-access.md).
+
+1. Удалите снапшот из репозитория:
+
+    ```http
+    DELETE https://admin:<пароль>@<идентификатор_хоста_OpenSearch_с_ролью_DATA>.mdb.yandexcloud.net:9200/_snapshot/<имя_репозитория>/<имя_снапшота>
+    ```

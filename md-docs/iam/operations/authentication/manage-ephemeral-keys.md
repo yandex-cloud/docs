@@ -1,0 +1,106 @@
+# Управление эфемерными ключами доступа
+
+[Часть сервисов](../../concepts/authorization/ephemeral-keys.md#supported-services) Yandex Cloud поддерживает аутентификацию с помощью [эфемерных ключей доступа](../../concepts/authorization/ephemeral-keys.md).
+
+Эфемерные ключи доступа создаются для [аккаунтов на Яндексе](../../concepts/users/accounts.md#passport), [федеративных аккаунтов](../../concepts/users/accounts.md#saml-federation), [локальных пользователей](../../concepts/users/accounts.md#local) и [сервисных аккаунтов](../../concepts/users/service-accounts.md).
+
+
+## Создать эфемерный ключ доступа {#create}
+
+{% note info %}
+
+Создание эфемерных ключей доступа для сервисных аккаунтов может быть запрещено [политиками авторизации](../../concepts/access-control/access-policies.md) на уровне [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), [облака](../../../resource-manager/concepts/resources-hierarchy.md#cloud) или [организации](../../../organization/concepts/organization.md).
+
+{% endnote %}
+
+{% list tabs group=instructions %}
+
+- Yandex Cloud CLI {#cli}
+
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+
+  По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+  1. Посмотрите описание команды создания эфемерного ключа доступа:
+
+      ```bash
+      yc iam access-key issue-ephemeral --help
+      ```
+
+  1. Создайте эфемерный ключ доступа:
+
+      ```bash
+      yc iam access-key issue-ephemeral \
+        --subject-id <идентификатор_аккаунта> \
+        --session-name <имя_сессии> \
+        --policy <путь_к_файлу> \
+        --duration <срок_жизни>
+      ```
+
+      Где:
+
+      * `--subject-id` — идентификатор сервисного аккаунта. Если параметр не указан, ключ будет создан для пользователя, отправившего запрос.
+      * `--session-name` — имя сессии длиной от 1 до 64 символов. Необходимо для идентификации сессии в случае, если сервисный аккаунт [имперсонирован](../../concepts/access-control/impersonation.md) для нескольких пользователей. Обязательный параметр.
+      * `--policy` — путь к файлу с [политикой доступа](../../../storage/concepts/policy.md) в виде [схемы данных](../../../storage/s3/api-ref/policy/scheme.md) формата JSON. Если параметр не указан, ключ даст полный доступ к [бакету](../../../storage/concepts/bucket.md).
+      * `--duration` — срок жизни ключа от `15m` до `12h`. Если параметр не указан, срок жизни ключа будет ограничен сроком действия IAM-токена текущей сессии.
+
+      Результат:
+
+      ```text
+      access_key_id: ajelprpohp8t********
+      secret: YCOs05v-KRXqhYpUINdWArH4MINhMyJ6CGU********
+      session_token: s1.9muilY********
+      expires_at: "2025-12-16T06:23:51.383485065Z"
+      ```
+
+  1. Сохраните идентификатор ключа `access_key_id`, секретный ключ `secret` и токен сессии `session_token`. Повторно получить эти значения будет невозможно.
+
+{% endlist %}
+
+
+## Протестировать доступ к бакету {#test}
+
+{% list tabs group=instructions %}
+
+- AWS CLI {#cli}
+
+  1. Убедитесь, что у аккаунта, для которого вы создали эфемерный ключ доступа, есть доступ к бакету, к которому вы хотите получить доступ с помощью ключа. Если доступа нет, [назначьте](../sa/assign-role-for-sa.md) аккаунту нужную [роль](../../../storage/security/index.md#roles-list), например [storage.viewer](../../../storage/security/index.md#storage-viewer), на бакет.
+
+      В качестве альтернативы можно использовать разрешения [ACL](../../../storage/security/acl.md) для бакета.
+
+  1. Добавьте новый профиль в `~/.aws/credentials`:
+
+      ```text
+      [<имя_профиля>]
+      aws_access_key_id     = <идентификатор_ключа>
+      aws_secret_access_key = <секретный_ключ>
+      aws_session_token     = <токен_сессии>
+      ```
+
+      Укажите в профиле значения, полученные при создании эфемерного ключа доступа:
+
+      * `aws_access_key_id` — идентификатор ключа `access_key_id`.
+      * `aws_secret_access_key` — секретный ключ `secret`.
+      * `aws_session_token` — токен сессии `session_token`
+
+  1. Сохраните на клиентское устройство объект из префикса бакета, к которому был открыт доступ:
+
+      ```bash
+      aws --endpoint https://storage.yandexcloud.net s3 cp \
+        s3://<имя_бакета>/<префикс><имя_объекта> ./
+      ```
+
+      Результат:
+
+      ```text
+      download: s3://<имя_бакета>/<префикс><имя_объекта> to ./<имя_объекта>
+      ```
+
+{% endlist %}
+
+
+#### См. также {#see-also}
+
+* [Обзор способов управления доступом в Object Storage](../../../storage/security/overview.md)
+* [Создать временный ключ доступа с помощью Security Token Service](../sa/create-sts-key.md)
+* [Доступ к бакету с помощью эфемерного ключа доступа](../../../storage/operations/buckets/manage-ephemeral-keys.md)

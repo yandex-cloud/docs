@@ -1,0 +1,201 @@
+# Docker-контейнер для монтирования бакета Object Storage к (S)FTP(S)-серверу
+
+Для доступа к [бакету](../concepts/bucket.md) по протоколу FTP, [FTPS](https://ru.wikipedia.org/wiki/FTPS) или [SFTP](https://ru.wikipedia.org/wiki/SFTP) можно развернуть сервер с помощью публичного [Docker-контейнера](https://yandex.cloud/ru/blog/posts/2022/03/docker-containers), предоставляемого Object Storage.
+
+В Docker-контейнере реализованы связки FUSE-клиента Object Storage [GeeseFS](geesefs.md) и серверов: для FTP и FTPS — [vsftpd](https://security.appspot.com/vsftpd.html), для SFTP — sftp-server (входит в состав [OpenSSH](https://www.openssh.com/)).
+
+## Подготовка к работе {#before-you-begin}
+
+1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md).
+1. [Назначьте сервисному аккаунту роли](../../iam/operations/sa/assign-role-for-sa.md), которые нужны для вашего проекта, например [storage.editor](../security/index.md#storage-editor) на бакет — для работы с конкретным бакетом, или на каталог — для работы со всеми бакетами в каталоге. Подробнее о ролях см. на странице [Управление доступом с помощью Yandex Identity and Access Management](../security/index.md).
+
+          
+    Чтобы работать с объектами в [зашифрованном](../concepts/encryption.md) бакете, у пользователя или [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) вместе с [ролью](../security/index.md#storage-configurer) `storage.configurer` должны быть следующие [роли на ключ шифрования](../../kms/operations/key-access.md):
+    
+    * `kms.keys.encrypter` — для чтения ключа, [шифрования](../../kms/security/index.md#kms-keys-encrypter) и загрузки объектов;
+    * `kms.keys.decrypter` — для чтения ключа, [расшифровки](../../kms/security/index.md#kms-keys-decrypter) и скачивания объектов;
+    * `kms.keys.encrypterDecrypter` — включает [разрешения](../../kms/security/index.md#kms-keys-encrypterDecrypter), предоставляемые ролями `kms.keys.encrypter` и `kms.keys.decrypter`.
+    
+    Подробнее см. [Сервисные роли Key Management Service](../../kms/security/index.md#service-roles).
+
+
+1. [Создайте статический ключ доступа](../../iam/operations/authentication/manage-access-keys.md#create-access-key).
+
+    
+    В результате вы получите данные статического ключа доступа. Для аутентификации в Object Storage вам понадобятся:
+    
+    * `key_id` — идентификатор статического ключа доступа;
+    * `secret` — секретный ключ.
+    
+    Сохраните `key_id` и `secret`, так как повторное получение значения ключа будет невозможно.
+
+
+
+Авторизация статическими ключами необходима для обращения напрямую к HTTP API и поддерживается инструментами, перечисленными в разделе [Поддерживаемые инструменты](index.md).
+  
+{% note info %}
+
+Вы можете [запретить доступ в бакет с помощью статических ключей](../operations/buckets/disable-statickey-auth.md). После запрета доступ будет прекращен для всех инструментов, которые их используют: AWS CLI, SDK и сторонние приложения. Это также отключит доступ с помощью [эфемерных ключей](../security/ephemeral-keys.md), [временных ключей доступа Security Token Service](../security/sts.md) и [подписанных (pre-signed) URL](../security/overview.md#pre-signed). Останется доступ только через [IAM-токен](../../iam/concepts/authorization/iam-token.md) или [анонимный доступ](../security/public-access.md) (если он включен).
+
+{% endnote %}
+
+
+Статический ключ для доступа к Object Storage можно безопасно хранить в сервисе Yandex Lockbox. Подробнее см. [Использование секрета Yandex Lockbox для хранения статического ключа доступа](../tutorials/static-key-in-lockbox/index.md).
+
+{% note info %}
+
+Сервисный аккаунт может просматривать список бакетов только в том каталоге, в котором он был создан.
+
+Сервисный аккаунт может выполнять действия с объектами в бакетах, которые созданы в каталогах, отличных от каталога сервисного аккаунта. Для этого [назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту [роли](../security/index.md#service-roles) на нужный каталог или бакет в нем.
+
+{% endnote %}
+
+## Установка {#install}
+
+1. [Установите Docker](https://docs.docker.com/get-docker/).
+1. [Аутентифицируйтесь в Yandex Container Registry](../../container-registry/operations/authentication.md).
+1. Скачайте Docker-контейнер:
+
+   ```bash
+   docker pull cr.yandex/crp9ftr22d26age3hulg/ftp-s3-gateway:1.0
+   ```
+
+1. Создайте [папку](../concepts/object.md#folder) `secrets` для хранения данных пользователей FTP-сервера и настроек монтирования бакета:
+
+   ```bash
+   mkdir secrets
+   ```
+
+1. В папке `secrets`:
+   * Создайте файл `credentials`:
+
+     ```text
+     [default]
+     aws_access_key_id = <идентификатор_ключа>
+     aws_secret_access_key = <содержимое_ключа>
+     ```
+
+     Где:
+     * `aws_access_key_id` – идентификатор статического ключа доступа, [полученный ранее](#before-you-begin);
+     * `aws_secret_access_key` – содержимое статического ключа доступа, [полученное ранее](#before-you-begin).
+   * Если вы будете использовать SFTP, создайте файл `authorized_keys` с открытым [SSH-ключом](../../glossary/ssh-keygen.md):
+
+     ```text
+     ssh-ed25519 AAAAB3Nz.....BdZoeQ==
+     ```
+
+     
+     Инструкцию по созданию пары SSH-ключей см. в [документации Compute Cloud](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
+
+
+   * Если вы будете использовать FTPS, добавьте в папку TLS-сертификат `ftp.pem` и его ключ `ftp.key`. Например, для тестирования вы можете выпустить самоподписанный сертификат:
+
+     ```bash
+     openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
+       -keyout secrets/ftp.key -out secrets/ftp.pem
+     ```
+    
+    
+    {% note alert %}
+    
+    Поддержка протокола TLS версий 1.0 и 1.1 в Object Storage прекращена с 1 августа 2025 года.
+    
+    Подробнее см. на странице [Протокол TLS](../concepts/tls.md).
+    
+    {% endnote %}
+
+
+1. Создайте файл `env.list` с переменными окружения для Docker-контейнера:
+
+   ```text
+   <имя_переменной>=<значение_переменной>
+   ...
+   ```
+
+   Поддерживаемые переменные:
+   * `S3_BUCKET` — имя бакета или указание на его папку, которую нужно монтировать к FTP-серверу, в формате `<имя_бакета>:<путь_к_папке>`. Обязательная переменная.
+   * `SFTP` — включает использование SFTP. Значение по умолчанию — `YES`.
+   * `FTP` — включает использование FTP. Значение по умолчанию — `NO`.
+   * `FTP_USER` — имя пользователя для подключения к серверу. Значение по умолчанию — `s3`.
+   * `FTP_PASS` — пароль пользователя для подключения к серверу. По умолчанию сгенерируется случайный пароль, который отобразится в логах Docker-контейнера.
+   * `FTP_PASV_ENABLE` — включает пассивный режим FTP-соединений. Значение по умолчанию — `YES`.
+   * `FTP_PASV_MIN_PORT` — начало диапазона портов для пассивного режима. Значение по умолчанию — `21100`.
+   * `FTP_PASV_MAX_PORT` — конец диапазона портов для пассивного режима. Значение по умолчанию — `21100`.
+   * `FTP_PASV_ADDRESS` — IP-адрес сервера или его доменное имя (если включена опция `FTP_PASV_ADDR_RESOLVE`) для пассивного режима. По умолчанию используется IP-адрес, указанный в таблице маршрутизации Docker-контейнера (команда `ip route show`) как IP-адрес назначения маршрута по умолчанию (ему соответствует строка вида `default via <IP-адрес> ...`).
+   * `FTP_PASV_ADDR_RESOLVE` — разрешает указывать в переменной `FTP_PASV_ADDRESS` доменное имя сервера вместо его IP-адреса. Значение по умолчанию — `YES`.
+   * `FTP_PASV_PROMISCUOUS` — отключает для пассивного режима сверку клиентских IP-адресов: управляющее соединение может быть открыто с одного клиентского адреса, а соединение для обмена данными — с другого. Значение по умолчанию — `NO`. Отключать проверку не рекомендуется.
+   * `FTP_PORT_PROMISCUOUS` — отключает для активного режима сверку клиентских IP-адресов: при установке управляющего соединения клиент может указать в команде `PORT` чужой адрес. Значение по умолчанию — `NO`. Отключать проверку не рекомендуется.
+   * `FTP_SSL_ENABLE` — настраивает использование FTPS (через TLS 1.x) вместо FTP:
+     * `YES` (значение по умолчанию) — FTPS включен, но необязателен. Клиенты могут устанавливать с сервером незащищенные FTP-соединения.
+     * `FORCE` — FTPS включен и обязателен. Клиенты должны устанавливать с сервером только FTPS-соединения.
+     * `NO` — FTPS выключен.
+   * `FTP_RSA_CERT_FILE` — путь к TLS-сертификату внутри Docker-контейнера. Значение по умолчанию — `/secrets/ftp.pem`.
+   * `FTP_RSA_PRIVATE_KEY_FILE` — путь к закрытому ключу TLS-сертификата внутри Docker-контейнера. Значение по умолчанию — `/secrets/ftp.key`.
+1. Запустите Docker-контейнер:
+
+   {% list tabs group=protocols %}
+
+   - SFTP {#sftp}
+    
+      ```bash
+      docker run -d -it \
+        --cap-add SYS_ADMIN \
+        --device /dev/fuse \
+        --security-opt apparmor:unconfined \
+        --env-file env.list \
+        -v <полный_путь_к_папке_secrets>:/secrets \
+        -p 1022:22 \
+        --name ftp \
+        cr.yandex/crp9ftr22d26age3hulg/ftp-s3-gateway:1.0
+      ```
+
+     Сервер будет принимать соединения на порте 1022.
+
+   - FTP(S) {#ftp}
+
+     ```bash
+     docker run -d -it \
+       --cap-add SYS_ADMIN \
+       --device /dev/fuse \
+       --security-opt apparmor:unconfined \
+       --env-file env.list \
+       -v <полный_путь_к_папке_secrets>:/secrets \
+       --expose 21 \
+       -p 1021:21 \
+       --expose 21100 \
+       -p 21100:21100 \
+       --name ftp \
+       cr.yandex/crp9ftr22d26age3hulg/ftp-s3-gateway:1.0
+     ```
+
+     Сервер будет принимать соединения на порте 1021. Также для пассивного режима (переменная `FTP_PASV_ENABLE`) открыт порт 21100 — если вы не используете этот режим, опции `--expose 21100` и `-p 21100:21100` можно не использовать.
+
+   {% endlist %}
+
+1. Подключитесь к серверу:
+
+   {% list tabs group=protocols %}
+
+   - SFTP {#sftp}
+    
+      ```bash
+      sudo sftp -i <путь_к_приватному_SSH-ключу> -P 1022 s3@localhost
+      ```
+
+      После успешного подключения вам будет доступна консоль для взаимодействия с SFTP-сервером.
+
+   - FTP {#ftp}
+
+     ```bash
+     ftp -P 1021 s3@localhost
+     ```
+
+     После успешного подключения вам будет доступна консоль для взаимодействия с FTP-сервером.
+
+   {% endlist %}
+
+## Особенности загрузки файлов в бакет {#uploading-files}
+
+Клиент GeeseFS, входящий в состав Docker-контейнера, работает с файлами асинхронно. Новые файлы кешируются клиентом и через некоторое время загружаются в бакет. При отключении FTP-сервера между этими двумя моментами загруженные файлы могут быть частично или полностью утеряны.
+
+Чтобы обеспечить сохранность данных при SFTP-соединениях, используйте расширение `fsync@openssh.com`, чтобы загрузка файла считалась успешной только после системного вызова `fsync`. Например, для клиента sftp, входящего в состав OpenSSH, расширение включается с помощью флага `-f`: `sftp -f <адрес_сервера>`. Ожидание вызовов `fsync` замедляет работу с файлами.

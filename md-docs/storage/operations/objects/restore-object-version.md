@@ -1,0 +1,145 @@
+# Восстановление версии объекта в версионируемом бакете
+
+Для восстановления версий объектов бакет должен быть [версионируемым](../../concepts/versioning.md). Восстановить можно только те версии, которые были загружены при включенном версионировании. Чтобы включить версионирование, воспользуйтесь [инструкцией](../buckets/versioning.md).
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  {% note warning %}
+
+  На восстановление версии объекта через консоль управления отводится 25 секунд. Большие версии могут не успеть восстановиться за это время.
+  
+  Консоль управления восстанавливает объекты одним запросом, на который действуют [лимиты](../../concepts/limits.md#storage-limits). Размер версии объекта не может превышать 5 ГБ.
+  
+  Если восстановление закончилось ошибкой, или размер версии объекта превышает допустимое значение, рекомендуем использовать другие инструменты, например AWS CLI или S3 API.
+
+  {% endnote %}
+
+  Чтобы восстановить версию объекта:
+
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Object Storage**.
+  1. Выберите нужный бакет из списка.
+  1. На панели слева выберите ![image](../../../_assets/console-icons/folder-tree.svg) **Объекты** и найдите в списке нужный объект.
+  1. Выберите объект, версию которого вы хотите восстановить, нажмите ![image](../../../_assets/console-icons/ellipsis.svg) → **История версий**.
+  1. В списке версий в строке с нужной версией нажмите ![image](../../../_assets/console-icons/arrow-rotate-left.svg) **Восстановить**. Выбранная версия будет восстановлена и отображена как текущая.
+
+  Чтобы посмотреть историю изменений всех объектов в списке, включите опцию **Показать версии**.
+
+- AWS CLI {#cli}
+
+  Чтобы восстановить версию объекта с помощью [AWS CLI](../../tools/aws-cli.md):
+
+  1. Получите идентификатор нужной версии объекта:
+
+     ```bash
+     aws s3api list-object-versions \
+       --endpoint-url https://storage.yandexcloud.net \
+       --bucket <имя_бакета> \
+       --prefix <префикс_ключа_объекта>
+     ```
+
+     В результате отобразится список версий всех объектов, ключи которых начинаются с указанного префикса. Идентификаторы версий содержатся в параметрах `VersionId`.
+
+     {% cut "Пример получения списка версий" %}
+
+     Команда:
+
+     ```bash
+     aws s3api list-object-versions \
+       --endpoint-url https://storage.yandexcloud.net \
+       --bucket my-bucket \
+       --prefix index.html
+     ```
+
+     Результат:
+
+     ```text
+     {
+        "Versions": [
+            {
+                "LastModified": "2015-11-10T00:20:11.000Z",
+                "VersionId": "Rb_l2T8UHDkFEwCgJjhlgPOZ********",
+                "ETag": "\"0622528de826c0df5db1258a********\"",
+                "StorageClass": "STANDARD",
+                "Key": "index.html",
+                "Owner": {
+                    "DisplayName": "my-username",
+                    "ID": "7009a8971cd660687538875e7c86c5b672fe116bd438f46db45460dd********"
+                },
+                "IsLatest": true,
+                "Size": 38
+            },
+            {
+                "LastModified": "2015-11-09T23:26:41.000Z",
+                "VersionId": "rasWWGpgk9E4s0LyTJgusGeR********",
+                "ETag": "\"06225825b8028de826c0df5d********\"",
+                "StorageClass": "STANDARD",
+                "Key": "index.html",
+                "Owner": {
+                    "DisplayName": "my-username",
+                    "ID": "7009a8971cd660687538875e7c86c5b672fe116bd438f46db45460dd********"
+                },
+                "IsLatest": false,
+                "Size": 38
+            }
+        ]
+     }
+     ```
+
+     {% endcut %}
+
+     Чтобы выбрать только один объект:
+
+     1. Установите и инициализируйте [jq](https://stedolan.github.io/jq/download/).
+     1. Отфильтруйте результат:
+
+        ```bash
+        aws s3api list-object-versions \
+          --endpoint-url https://storage.yandexcloud.net \
+          --bucket <имя_бакета> \
+          --prefix <префикс_ключа_объекта> \
+        | jq '.Versions | map(select(.Key == "<ключ_объекта>"))'
+        ```
+
+     Подробнее о команде читайте в ее описании в [документации Amazon](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/list-object-versions.html).
+
+  1. Скопируйте версию объекта в тот же бакет с тем же ключом, чтобы она стала текущей версией объекта:
+
+     ```bash
+     aws s3api copy-object \
+       --endpoint-url https://storage.yandexcloud.net \
+       --bucket <имя_бакета> \
+       --copy-source <имя_бакета>/<ключ_объекта>?versionId=<идентификатор_версии> \
+       --key <ключ_объекта>
+     ```
+
+     Где:
+
+     * `--bucket` – имя бакета.
+     * `--copy-source` – исходный объект для копирования с указанием идентификатора нужной версии.
+     * `--key` – ключ целевого объекта. Чтобы восстановить версию объекта, ключи целевого и исходного объектов должны совпадать.
+
+     Результат:
+
+     ```text
+     {
+       "CopyObjectResult": {
+         "LastModified": "<дата_и_время_последнего_изменения_объекта>",
+         "ETag": "\"589c8b79c230a6ecd5a7e1d040a9a030\""
+       },
+       "VersionId": "<идентификатор_восстановленной_версии_объекта>"
+     }
+     ```
+
+     Подробнее о команде читайте в ее описании в [документации Amazon](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3api/copy-object.html).
+
+- API {#api}
+
+  Чтобы восстановить версию объекта:
+
+  1. Получите идентификатор нужной версии объекта с помощью метода S3 API [listObjectVersions](../../s3/api-ref/bucket/listObjectVersions.md).
+  1. Скопируйте версию объекта в тот же бакет с тем же ключом с помощью метода S3 API [copy](../../s3/api-ref/object/copy.md).
+
+{% endlist %}

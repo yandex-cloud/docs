@@ -1,0 +1,2680 @@
+# Бюллетени безопасности
+
+На этой странице приводятся рекомендации специалистов Yandex Cloud по вопросам безопасности.
+
+## 08.05.2026 — CVE-2026-43284 / CVE-2026-43500 Dirty Frag и Copy Fail 2 — локальное повышение привилегий до root в ядре Linux через подсистемы xfrm-ESP и RxRPC {#CVE-2026-43284}
+
+Идентификаторы CVE (CVE ID): CVE-2026-43284, CVE-2026-43500
+
+Ссылка на CVE: <https://nvd.nist.gov/vuln/detail/CVE-2026-43284>
+
+### Исходный отчет {#original-report-CVE-2026-43284}
+
+* Dirty Frag (PoC и write-up): <https://github.com/V4bel/dirtyfrag>
+* Copy Fail 2: Electric Boogaloo (PoC xfrm-ESP): <https://github.com/0xdeadbeefnetwork/Copy_Fail2-Electric_Boogaloo>
+* Рассылка oss-security: <https://www.openwall.com/lists/oss-security/2026/05/07/8>
+
+### Краткое описание {#brief-description-CVE-2026-43284}
+
+Dirty Frag — это класс логических уязвимостей в ядре Linux, позволяющий непривилегированному локальному пользователю получить права суперпользователя (`root`). Эксплуатация объединяет два независимых page-cache write-примитива в подсистемах xfrm-ESP и RxRPC, каждый из которых самодостаточен для повышения привилегий.
+
+Атака:
+
+* не требует удаленного доступа — только непривилегированный локальный аккаунт;
+* представляет собой детерминистический логический баг без race condition и успешна с первой попытки;
+* не приводит к kernel panic при неудачной эксплуатации;
+* может быть использована как примитив побега из контейнера на хост, поскольку page cache общий для всего узла.
+
+Корневая причина обоих вариантов одна: при использовании `splice()` / `MSG_SPLICE_PAGES` ядро помещает страницы page cache напрямую во фрагменты сокетных буферов (`skb`). Подсистемы xfrm-ESP и RxRPC выполняют дешифрование in-place над такими фрагментами, не проверяя, являются ли они приватными. В результате атакующий получает контролируемую запись в page cache любого читаемого файла, например `/usr/bin/su` или `/etc/passwd`.
+
+Copy Fail 2: Electric Boogaloo — независимый PoC, эксплуатирующий тот же xfrm-ESP-примитив (CVE-2026-43284). По классу уязвимости он аналогичен Copy Fail (CVE-2026-31431), но затрагивает другую подсистему ядра.
+
+### Затронутые технологии {#technologies-affected-CVE-2026-43284}
+
+* Ядро Linux, подсистема `net/ipv4/esp4.c` / `net/ipv6/esp6.c` (xfrm-ESP).
+* Ядро Linux, подсистема `net/rxrpc/rxkad.c` (RxRPC/RxKAD).
+* Системные вызовы `splice()` / `vmsplice()` в связке с UDP-сокетами (ESP-in-UDP-инкапсуляция) и `AF_RXRPC`.
+
+Уязвимость напрямую не затрагивает: `AF_ALG` (`algif_aead` — отдельная уязвимость Copy Fail, CVE-2026-31431), dm-crypt / LUKS, kTLS, in-kernel TLS, IPsec в режиме tunnel без UDP-инкапсуляции.
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions-CVE-2026-43284}
+
+Ядро Linux:
+
+* xfrm-ESP-вариант (CVE-2026-43284): ядра с коммита `cac2661c53f3` (январь 2017 года) до момента включения исправляющего патча — около девяти лет присутствия в mainline.
+* RxRPC-вариант (CVE-2026-43500): ядра с коммита `2dc334f1a63a` (июнь 2023 года) до текущего момента — патч отсутствует.
+
+Подтверждена эксплуатация на: Ubuntu 24.04 LTS (6.8.0-110), Ubuntu 26.04 LTS (7.0.0-15), Debian 13 (6.12.74), Arch (6.19.11), Fedora 43/44, RHEL 10.1, CentOS Stream 10, AlmaLinux 10, openSUSE Tumbleweed.
+
+Ubuntu 22.04 LTS (5.15.0-176) не подвержена xfrm-ESP-варианту.
+
+### Разработчик {#vendor-CVE-2026-43284}
+
+Linux kernel community (mainline). Патч для xfrm-ESP принят в mainline 08.05.2026. Патч для RxRPC-компонента на момент публикации отсутствует.
+
+### Вектор атаки и уровень опасности согласно CVSS v.3.1 {#attack-vector-and-severity-level-CVE-2026-43284}
+
+Базовая оценка на момент публикации не присвоена. Бюллетень будет обновлен после публикации оценки в NVD.
+
+По характеру уязвимость аналогична Copy Fail (CVE-2026-31431, 7,8 HIGH, `CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H`) — это локальное повышение привилегий без race condition.
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations-for-vulnerability-detection-CVE-2026-43284}
+
+* Как можно скорее отключите уязвимые модули до установки патча ядра. Команда выполняется от имени `root` и применяется немедленно:
+
+  ```bash
+  # printf 'install esp4 /bin/false\ninstall esp6 /bin/false\ninstall rxrpc /bin/false\n' > /etc/modprobe.d/dirtyfrag.conf
+  # rmmod esp4 esp6 rxrpc 2>/dev/null || true
+  ```
+
+* Блокировка модулей `esp4`/`esp6` нарушит работу IPsec VPN. Для систем, использующих IPsec, приоритетной мерой является обновление ядра.
+
+* После применения митигации целесообразно сбросить page cache, чтобы исключить использование потенциально модифицированных страниц:
+
+  ```bash
+  # echo 3 > /proc/sys/vm/drop_caches
+  ```
+
+* Обновите ядро до версии, содержащей патч для xfrm-ESP. Исправление принято в mainline 08.05.2026 (коммит `f4c50a4034e62ab75f1d5cdd191dd5f9c77fdff4`). Патч устанавливает флаг `SKBFL_SHARED_FRAG` на фрагменты, полученные через `splice()`, и принуждает `esp_input()` / `esp6_input()` выполнять copy-on-write через `skb_cow_data()` для таких фрагментов.
+
+* Для RxRPC-компонента (CVE-2026-43500) на момент публикации патч отсутствует. Единственная митигация — блокировка загрузки модуля `rxrpc`.
+
+* Для контейнерных и sandbox-нагрузок целесообразно ограничить операции XFRM и создание сокетов `AF_RXRPC` через seccomp независимо от состояния патчей.
+
+### Безопасная версия уязвимого продукта или патч {#safe-version-CVE-2026-43284}
+
+xfrm-ESP (CVE-2026-43284): уязвимость устранена в mainline-коммите `f4c50a4034e62ab75f1d5cdd191dd5f9c77fdff4` от 08.05.2026. Бэкпорты в стабильные ветки (коммиты `50ed1e787310`, `52646cbd00e7`, `71a1d9d985d2`, `b54edf1e9a3f` согласно NVD) готовятся к включению в обновления дистрибутивов.
+
+RxRPC (CVE-2026-43500): патч отсутствует. Единственная митигация — блокировка модуля `rxrpc`.
+
+### Хронология раскрытия {#disclosure-timeline-CVE-2026-43284}
+
+* 30.04.2026 — отчет направлен в Linux kernel security team (`security@kernel.org`);
+* 30.04.2026 — патч опубликован в рассылке netdev;
+* 04.05.2026 — Kuan-Ting Chen предложил альтернативный патч с флагом shared-frag;
+* 07.05.2026 — патч принят в netdev tree; эмбарго нарушено третьей стороной, RxRPC-эксплойт раскрыт публично;
+* 07.05.2026 — полный документ Dirty Frag опубликован на oss-security;
+* 08.05.2026 — патч принят в mainline Linux; присвоен CVE-2026-43284.
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services-CVE-2026-43284}
+
+Были обновлены конфигурации инфраструктуры Yandex Cloud для применения митигирующих мер.
+
+Пользователям сервиса Managed Service for Kubernetes необходимо самостоятельно применить митигирующую меру на узлах своих кластеров. Для этого [обновлен ранее опубликованный DaemonSet](https://github.com/yandex-cloud-examples/yc-mk8s-copy-fail-mitigation), который отключает модули `esp4`, `esp6` и `rxrpc` в дополнение к `algif_aead` для митигации [предыдущей уязвимости Copy Fail](#CVE-2026-31431). Примените его командой:
+
+```bash
+$ kubectl apply -f copy-fail-mitigation-daemonset.yaml
+```
+
+Актуальные версии образов в Yandex Cloud Marketplace, содержащие митигирующие меры, готовятся к публикации.
+
+Настоящий бюллетень будет обновлен после их выхода с дополнительными указаниями.
+
+## 30.04.2026 — CVE-2026-31431 Copy Fail — локальное повышение привилегий до root в ядре Linux через подсистему AF_ALG {#CVE-2026-31431}
+
+Идентификатор CVE (CVE ID): CVE-2026-31431
+
+Ссылка на CVE: <https://nvd.nist.gov/vuln/detail/CVE-2026-31431>
+
+### Исходный отчет {#original-report}
+
+* Сайт уязвимости: <https://copy.fail/>
+* Технический разбор Xint Code (Theori): <https://xint.io/blog/copy-fail-linux-distributions>
+* PoC и issue tracker: <https://github.com/theori-io/copy-fail-CVE-2026-31431>
+
+### Краткое описание {#brief-description}
+
+Copy Fail (CVE-2026-31431) — это логическая уязвимость в подсистеме криптографического API ядра Linux, позволяющая обычному пользователю системы получить права суперпользователя (`root`). PoC работает на всех основных дистрибутивах Linux, выпущенных с 2017 года и до момента выхода патча, без модификаций под конкретное ядро или дистрибутив.
+
+Атака:
+* не требует удаленного доступа — только непривилегированный локальный аккаунт;
+* не требует ни race window, ни kernel-specific смещений;
+* использует криптографический API ядра (`AF_ALG`), который включен в стандартных конфигурациях практически всех мейнстрим-дистрибутивов;
+* может быть использована как примитив побега из контейнера на хост, поскольку page cache общий для всего узла.
+
+### Затронутые технологии {#technologies-affected}
+
+* Ядро Linux, подсистема `crypto/` (модуль `algif_aead`).
+* Интерфейс пользовательского пространства `AF_ALG`.
+* Системный вызов `splice()` в связке с сокетами `AF_ALG`.
+
+Уязвимость напрямую не затрагивает следующие пути использования криптографического API: dm-crypt / LUKS, kTLS, IPsec/XFRM, in-kernel TLS, OpenSSL/GnuTLS/NSS в стандартных сборках, SSH, kernel keyring crypto — все они работают с in-kernel crypto API напрямую и не проходят через `AF_ALG`.
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions}
+
+Уязвимыми являются ядра Linux, собранные в интервале с 2017 года (момент внедрения in-place оптимизации `algif_aead`) до момента включения исправляющего патча. Поскольку модуль `algif_aead` входит в стандартную конфигурацию ядра большинства дистрибутивов, эксплуатация возможна «из коробки».
+
+### Разработчик {#vendor}
+
+Linux kernel community (mainline). Уязвимость привнесена коммитом 2017 года, реализующим in-place оптимизацию в `algif_aead`. Исправляющий патч принят в mainline.
+
+### Вектор атаки и уровень опасности согласно CVSS v.3.1 {#attack-vector-and-severity-level}
+
+Базовая оценка: 7,8 HIGH
+
+Vector: CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations-for-vulnerability-detection}
+
+* Как можно скорее отключить модуль `algif_aead` до установки патча ядра. Команда выполняется от имени `root` и применяется немедленно (новые сокеты `AF_ALG` создаваться не смогут, ранее открытые — продолжат работать до закрытия):
+
+   ```bash
+      # echo "install algif_aead /bin/false" > /etc/modprobe.d/disable-algif.conf
+      # rmmod algif_aead 2>/dev/null || true
+   ```
+
+* Обновить ядро до версии, содержащей патч. Уязвимость присутствует в ядрах с 4.14 (commit `72548b093ee3`, 2017 год) и устранена в следующих релизах:
+
+   * 6.18.22 (стабильная ветка) — commit `fafe0fa2995a`
+   * 6.19.12 (стабильная ветка) — commit `ce42ee423e58`
+   * 7.0-rc7 (mainline) — commit `a664bf3d603d`
+
+* Для контейнерных и sandbox-нагрузок целесообразно блокировать создание сокетов `AF_ALG` через seccomp независимо от состояния патчей.
+
+
+### Безопасная версия уязвимого продукта или патч {#safe-version}
+
+Уязвимость устранена в ядре Linux 6.18.22, 6.19.12 и 7.0-rc7 (mainline-коммит `a664bf3d603d`).
+
+### Хронология раскрытия {#timeline-disclosure}
+
+* 23.03.2026 — отчет направлен в Linux kernel security team;
+* 24.03.2026 — первичное подтверждение получения отчета;
+* 25.03.2026 — патчи предложены и проверены в рассылке;
+* 01.04.2026 — патч принят в mainline;
+* 22.04.2026 — присвоен идентификатор CVE-2026-31431;
+* 29.04.2026 — публичное раскрытие на <https://copy.fail/>.
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services}
+
+Было произведено обновление конфигураций инфраструктуры Yandex Cloud с целью применения митигирующих мер.
+
+Чтобы немедленно устранить уязвимость, пользователям сервиса Managed Service for Kubernetes необходимо самостоятельно применить митигирующую меру на узлах своих кластеров. Для этого [опубликован DaemonSet](https://github.com/yandex-cloud-examples/yc-mk8s-copy-fail-mitigation), который отключает модуль `algif_aead`. В последующих ревизиях уязвимость будет автоматически устранена для всех поддерживаемых версий.
+
+Чтобы применить изменения:
+
+```bash
+$ kubectl apply -f copy-fail-mitigation-daemonset.yaml
+```
+
+Актуальные версии образов в Yandex Cloud Marketplace, содержащие митигирующие меры, в настоящее время готовятся к публикации.
+
+Настоящий бюллетень будет обновлен после их выхода с дополнительными указаниями.
+
+## 25.12.2025 — CVE-2025-14847 (MongoBleed) Чтение неинициализированной памяти в zlib {#CVE-2025-14847}
+
+Идентификатор CVE (CVE ID): CVE-2025-14847
+
+Ссылка на CVE: <https://nvd.nist.gov/vuln/detail/CVE-2025-14847>
+
+### Исходный отчет {#original-report}
+
+<https://github.com/joe-desimone/mongobleed>
+
+### Краткое описание {#brief-description}
+
+Внешний клиент может проэксплуатировать реализацию zlib в MongoDB Server так, чтобы сервер вернул неинициализированную heap‑память. При распаковке zlib MongoDB может использовать длину выделенного буфера, а не фактическую длину распакованных данных.
+Поэтому сервер считает валидным весь буфер, включая незаполненную (неинициализированную) область. Таким образом, искусственно завышая параметр `uncompressedSize`, атакующий может получить доступ к данным за пределами действительно используемой им области. Эксплуатация возможна удаленно и без аутентификации, что ведет к возможности утечки чувствительных данных.
+
+### Затронутые технологии {#technologies-affected}
+
+Yandex StoreDoc
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions}
+
+MongoDB:
+
+* 8.2.0 — 8.2.2
+
+* 8.0.0 — 8.0.16
+
+* 7.0.0 — 7.0.26 (в advisory; фикс — 7.0.28)
+
+* 6.0.0 — 6.0.26
+
+* 5.0.0 — 5.0.31
+
+* 4.4.0 — 4.4.29
+
+* все версии веток 4.2, 4.0, 3.6
+
+### Разработчик {#vendor}
+
+MongoDB, Inc.
+
+### Вектор атаки и уровень опасности согласно CVSS v.3.0 {#attack-vector-and-severity-level}
+
+Базовая оценка: 7,5 HIGH
+
+Vector: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations-for-vulnerability-detection}
+
+* Как можно скорее обновиться до одной из версий: 8.2.3 / 8.0.17 / 7.0.28 / 6.0.27 / 5.0.32 / 4.4.30 (или выше).
+
+* Временная мера (только в том случае, если обновление невозможно): отключить zlib‑компрессию на `mongod/mongos`, указав `networkMessageCompressors` или `net.compression.compressors` без `zlib` (например: `snappy,zstd` или `disabled`).
+
+### Безопасная версия уязвимого продукта или патч {#safe-version}
+
+Уязвимость устранена в следующих версиях:
+
+* 8.2.3
+
+* 8.0.17
+
+* 7.0.28
+
+* 6.0.27
+
+* 5.0.32
+
+* 4.4.30
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services}
+
+Было произведено отключение zlib-компрессии и выполнен рестарт процессов СУБД на хостах кластеров Yandex StoreDoc с публичными адресами в период с 01:00 до 03:00 MSK. В случае обнаружения проблем обратитесь в техническую поддержку.
+
+## 02.04.2025 — CVE-2025-1385 Удаленное выполнение кода ClickHouse Library Bridge {#CVE-2025-1385}
+
+Идентификатор CVE (CVE ID): CVE-2025-1385
+
+Ссылка на CVE: <https://nvd.nist.gov/vuln/detail/CVE-2025-1385>
+
+### Исходный отчет {#original-report}
+
+<https://github.com/ClickHouse/ClickHouse/security/advisories/GHSA-5phv-x8x4-83x5>
+
+### Краткое описание {#brief-description}
+
+Вследствие уязвимости ClickHouse стало возможным удаленное выполнение кода при включенной функции Library Bridge. Функция `clickhouse-library-bridge` открывала HTTP API на `localhost`, что позволяло `clickhouse-server` динамически загружать библиотеку из определенного пути и выполнять ее в изолированном процессе. В сочетании с табличным движком ClickHouse, разрешающим загрузку файлов в определенные директории, сервер с проблемной конфигурацией могли эксплуатировать злоумышленники, имеющие доступ к табличным движкам для выполнения произвольного кода на сервере ClickHouse.
+
+### Затронутые технологии {#technologies-affected}
+
+ClickHouse
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions}
+
+* ClickHouse версии ниже 24.3.18.6
+
+* ClickHouse версии ниже 24.8.14.27
+
+* ClickHouse версии ниже 24.11.5.34
+
+* ClickHouse версии ниже 24.12.5.65
+
+* ClickHouse версии ниже 25.1.5.5
+
+### Разработчик {#vendor}
+
+ClickHouse, Inc.
+
+### Вектор атаки и уровень опасности согласно CVSS v.3.0 {#attack-vector-and-severity-level}
+
+Не назначено.
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations-for-vulnerability-detection}
+
+Проверить, подвержен ли ваш сервер ClickHouse данной уязвимости, можно, изучив файл конфигурации и убедившись, что следующая настройка включена:
+
+```
+<library_bridge>
+   <port>9019</port>
+</library_bridge>
+```
+
+### Безопасная версия уязвимого продукта или патч {#safe-version}
+
+Уязвимость устранена в следующих версиях:
+
+ * 24.3.18.6
+
+ * 24.8.14.27
+
+ * 24.11.5.34
+
+ * 24.12.5.65
+
+ * 25.1.5.5
+ 
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services}
+ 
+Сервис Yandex Managed Service for ClickHouse® обновлен до версий с устраненной уязвимостью. Действий со стороны пользователя не требуется.
+
+При использовании ClickHouse на собственных ВМ в Yandex Cloud дополнительных действий со стороны конечного пользователя не требуется, поскольку уязвимость уже устранена в новой версии образов.
+
+## 01.04.2024 — CVE-2025-1974 Уязвимость в ingress-nginx в Kubernetes {#CVE-2025-1974}
+
+Идентификатор CVE (CVE ID): CVE-2025-1974
+
+Ссылка на CVE: <https://nvd.nist.gov/vuln/detail/CVE-2025-1974>
+
+### Исходный отчет {#original-report}
+
+<https://kubernetes.io/blog/2025/03/24/ingress-nginx-cve-2025-1974/>
+
+### Краткое описание {#brief-description}
+
+В Kubernetes была обнаружена уязвимость, из-за которой при определенных условиях злоумышленник, не прошедший аутентификацию и имеющий доступ к сети подов, может добиться выполнения произвольного кода в контексте контроллера ingress-nginx. Это может привести к получению несанкционированного доступа к секретам, доступных контроллеру. По умолчанию контроллер может получить доступ ко всем секретам в кластере.
+
+### Затронутые технологии {#technologies-affected}
+
+Kubernetes
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions}
+
+* Версии до 1.11.4 включительно;
+* Версия 1.12.0.
+
+### Вектор атаки и уровень опасности согласно CVSS v.3.0 {#severity-level}
+
+9,8 CRITICAL.
+
+CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations}
+
+Чтобы проверить, установлен ли в вашем кластере ingress-nginx, выполните следующую команду: `kubectl get pods --all-namespaces --selector app.kubernetes.io/name=ingress-nginx`.
+
+### Безопасная версия уязвимого продукта или патч {#safe-version}
+
+Если вы используете версию ingress-nginx из Cloud Marketplace, обновление доступно только для версий Kubernetes 1.28 и выше.
+
+Установка безопасной версии ingress-nginx в кластерах Kubernetes с версиями до 1.28 недоступна без обновления версии Kubernetes.
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services}
+
+{% note alert %}
+
+Поддержка контроллера Ingress NGINX прекращается в марте 2026 года. Подробнее см. на странице [Ingress NGINX Retirement: What You Need to Know](https://kubernetes.io/blog/2025/11/11/ingress-nginx-retirement/).
+
+Рекомендуется [перейти](../../managed-kubernetes/alb-ref/nginx-gwin-migration.md) на новый контроллер [Yandex Cloud Gwin](../../managed-kubernetes/alb-ref/gwin-index.md).
+
+{% endnote %}
+
+Рекомендуем установить безопасную версию ingress-nginx.
+
+* Helm: переустановите ingress-nginx с опцией `--set controller.admissionWebhooks.enabled=false`.
+* Манифест YAML:
+  1. Удалите ресурс `ValidatingWebhookConfiguration` с именем `ingress-nginx-admission`.
+  1. Отредактируйте ресурсы `Deployment` или `Daemonset` с именем `ingress-nginx-controller`, удалив ключ `--validating-webhook` из списка аргументов.
+
+## 06.03.2024 — CVE-2024-21626 Взлом runc process.cwd и утечка контейнера fds {#CVE-2024-21626}
+
+Идентификатор CVE (CVE ID): CVE-2024-21626
+
+Ссылка на CVE: <https://nvd.nist.gov/vuln/detail/CVE-2023-23919>
+
+### Исходный отчет {#original-report}
+
+<https://github.com/opencontainers/runc/security/advisories/GHSA-xr7r-f8xq-vfvv>
+
+### Краткое описание {#brief-description}
+
+runc – это инструмент CLI для создания и запуска контейнеров на Linux согласно спецификации OCI. В runc 1.1.11 и более ранних версиях, вследствие утечки внутреннего дескриптора файлов, злоумышленник мог запустить процесс создания контейнера из `runc exec` с целью получения рабочей директории в пространстве имен файловой системы хоста. Таким образом, могла произойти утечка контейнера через предоставление доступа к файловой системе хоста («атака 2»). Подобная атака могла быть организована и с помощью вредоносного образа, благодаря которому процесс контейнера получал доступ к файловой системе хоста через `runc run` («атака 1»). Разновидности атак 1 и 2 также могли использоваться для перезаписи полупроизвольных бинарных файлов хоста, что приводило к полной утечке контейнера («атака 3а» и «атака 3б»).
+
+Патч, включенный в runc версии 1.1.12, устраняет данную проблему.
+
+### Затронутые технологии {#technologies-affected}
+
+runc
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions}
+
+От версии 1.0.0 до 1.1.11 включительно.
+
+### Вектор атаки и уровень опасности согласно CVSS v.3.0 {#severity-level}
+
+7,5 HIGH.
+
+CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:C/C:H/I:H/A:H
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations}
+
+Общедоступные фрагменты вредоносного кода:
+
+* <https://github.com/Wall1e/CVE-2024-21626-POC>
+* <https://github.com/NitroCao/CVE-2024-21626>
+
+### Безопасная версия уязвимого продукта или патч {#safe-version}
+
+Уязвимость устранена в версии 1.1.12.
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services}
+
+Текущие и планируемые к выпуску образы, использующие `runc`, обновлены до последней версии. При использовании на ВМ собственного образа, который подвержен уязвимости, рекомендуется обновить его самостоятельно.
+
+## 05.07.2024 — CVE-2024-6387 RegreSSHion {#CVE-2024-6387}
+
+Идентификатор CVE (CVE ID): CVE-2024-6387
+
+Ссылка на CVE: <https://www.cve.org/CVERecord?id=CVE-2024-6387>
+
+### Исходный отчет {#original-report}
+
+<https://www.qualys.com/2024/07/01/cve-2024-6387/regresshion.txt>
+
+### Краткое описание {#brief-description}
+
+Уязвимость заключается в появлении состояния гонки на сервере OpenSSH (sshd), что позволяет в некоторых случаях выполнять удаленный код без проверки подлинности (RCE) от имени пользователя root в Linux-системах на базе `glibc`, что представляет значительную угрозу безопасности. Процесс эксплуатации занимает не менее шести часов.
+
+### Затронутые технологии {#technologies-affected}
+
+`openssh-server`
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions}
+
+* `openssh-server` до версии `4.4p1`;
+* `openssh-server` версий от `8.5p1` до `9.8p1`.
+
+### Вендор {#vendor}
+
+OpenBSD Project
+
+### Вектор атаки и уровень опасности согласно CVSS v.3.0 {#attack-vector-and-severity-level}
+
+Базовая оценка: 8,1 HIGH
+
+Vector: CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations-for-vulnerability-detection}
+
+В качестве временного решения рекомендуется установить значение `0` для параметра `LoginGraceTime` в конфигурационном файле `/etc/ssh/sshd_config`. Это предотвратит возможную эксплуатацию уязвимости, но потенциально позволит осуществить DDoS-атаку на сервер.
+
+Смотрите также: <https://lists.mindrot.org/pipermail/openssh-unix-dev/2024-July/041431.html>
+
+### Безопасная версия уязвимого продукта или патч {#safe-version}
+
+Узнайте используемую версию `openssh-server` с помощью команды `dpkg -l openssh-server`. Если вы используете версию с уязвимостью, обновите пакет до версии `9.8p1` или выше.
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services}
+
+Базовые образы ВМ обновлены до актуальных версий. Если вы используете собственный образ на ВМ, который подвержен уязвимости, рекомендуется обновить его самостоятельно.
+
+Проведена проверка на наличие уязвимых внутренних сервисов Yandex Cloud.
+
+## 06.03.2024 — CVE-2023-23919 Множественные ошибки OpenSSL при обработке задач в криптобиблиотеке node.js {#CVE-2023-23919}
+
+Идентификатор CVE (CVE ID): CVE-2023-23919
+
+Ссылка на CVE: <https://nvd.nist.gov/vuln/detail/CVE-2023-23919>
+
+### Исходный отчет {#original-report}
+
+<https://hackerone.com/reports/1808596>
+
+### Краткое описание {#brief-description}
+
+Уязвимость криптографического характера наблюдается в Node.js версии ниже 19.2.0, 18.14.1, 16.19.1 и 14.21.3. В некоторых случаях ошибки OpenSSL не устраняются по завершении операций, вызвавших их. Это может привести к ложноположительным срабатываниям во время выполнения последующих криптографических операций, которые попадают в тот же поток. В конечном итоге это может вызвать отказ сервиса.
+
+### Затронутые технологии {#technologies-affected}
+
+Node.js. Также затрагивает OpenSSL.
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions}
+
+Node.js версий 19.2.0, 18.14.1, 16.19.1, 14.21.3 и ниже.
+
+### Вендор {#vendor}
+
+OpenJS Foundation
+
+### Вектор атаки и уровень опасности согласно CVSS v.3.0 {#attack-vector-and-severity-level}
+
+Базовая оценка: 7,5.
+
+HIGHVector: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations-for-vulnerability-detection}
+
+* <https://hackerone.com/reports/1808596>
+* <https://github.com/nodejs/node/pull/45495>
+* <https://github.com/nodejs/node/pull/45377>
+* <https://nodejs.org/en/blog/vulnerability/february-2023-security-releases/>
+
+### Безопасная версия уязвимого продукта или патч {#safe-version}
+
+В новых релизах Node.js и OpenSSL данная ошибка исправлена.
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services}
+
+Актуальные образы уже содержат обновленный Node.js. При использовании на ВМ собственных образов, на которые могут распространяться указанные уязвимости, рекомендуется провести обновление самостоятельно.
+
+## 06.03.2024 — CVE-2023-23946 Критически значимый для безопасности релиз GitLab, версии 15.8.2, 15.7.7 и 15.6.8 {#CVE-2023-23946}
+
+Идентификатор CVE (CVE ID): CVE-2023-23946
+
+Ссылка на CVE: <https://nvd.nist.gov/vuln/detail/CVE-2023-23946>
+
+### Исходный отчет {#original-report}
+
+* <https://about.gitlab.com/releases/2023/02/14/critical-security-release-gitlab-15-8-2-released/>
+* <https://github.com/git/git/security/advisories/GHSA-r87m-v37r-cwfh>
+* <https://github.com/git/git/security/advisories/GHSA-gw92-x3fm-3g3q>
+
+### Краткое описание {#brief-description}
+
+Множественные уязвимости. Полный перечень:
+
+<https://about.gitlab.com/releases/2023/02/14/critical-security-release-gitlab-15-8-2-released/>
+
+### Затронутые технологии {#technologies-affected}
+
+GitLab
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions}
+
+GitLab CE/EE версии ниже 15.8.2, а также 15.7.7 и 15.6.8
+
+### Вендор {#vendor}
+
+GitLab Inc.
+
+### Вектор атаки и уровень опасности согласно CVSS v.3.0 {#attack-vector-and-severity-level}
+
+Базовая оценка: 6,2.
+
+CVSS:3.1/AV:L/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations-for-vulnerability-detection}
+
+<https://about.gitlab.com/releases/2023/02/14/critical-security-release-gitlab-15-8-2-released/>
+
+### Безопасная версия уязвимого продукта или патч {#safe-version}
+
+Уязвимости устранены в версиях 15.8.2, 15.7.7 и 15.6.8.
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services}
+
+Для пользователей Yandex Managed Service for GitLab существующие и планирующиеся к выпуску экземпляры уже обновлены до последней версии. При использовании образа на ВМ рекомендуется обновить его самостоятельно.
+
+## 06.03.2024 — CVE-CVE-2023-22490 Критически значимый для безопасности релиз GitLab, версии 15.8.2, 15.7.7 и 15.6.8 {#CVE-CVE-2023-22490}
+
+Идентификатор CVE (CVE ID): CVE-CVE-2023-22490
+
+Ссылка на CVE: <https://nvd.nist.gov/vuln/detail/CVE-CVE-2023-22490>
+
+### Исходный отчет {#original-report}
+
+* <https://about.gitlab.com/releases/2023/02/14/critical-security-release-gitlab-15-8-2-released/>
+* <https://github.com/git/git/security/advisories/GHSA-r87m-v37r-cwfh>
+* <https://github.com/git/git/security/advisories/GHSA-gw92-x3fm-3g3q>
+
+### Краткое описание {#brief-description}
+
+Множественные уязвимости. Полный перечень:
+
+<https://about.gitlab.com/releases/2023/02/14/critical-security-release-gitlab-15-8-2-released/>
+
+### Затронутые технологии {#technologies-affected}
+
+GitLab
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions}
+
+GitLab CE/EE версии ниже 15.8.2, а также 15.7.7 и 15.6.8
+
+### Вендор {#vendor}
+
+GitLab Inc.
+
+### Вектор атаки и уровень опасности согласно CVSS v.3.0 {#attack-vector-and-severity-level}
+
+CVE-2023-22490
+
+Базовая оценка: 5,5. CVSS:3.1/AV:L/AC:L/PR:N/UI:R/S:U/C:H/I:N/A:N
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations-for-vulnerability-detection}
+
+<https://about.gitlab.com/releases/2023/02/14/critical-security-release-gitlab-15-8-2-released/>
+
+### Безопасная версия уязвимого продукта или патч {#safe-version}
+
+Уязвимости устранены в версиях 15.8.2, 15.7.7 и 15.6.8.
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services}
+
+Для пользователей Yandex Managed Service for GitLab существующие и планирующиеся к выпуску экземпляры уже обновлены до последней версии. При использовании образа на ВМ рекомендуется обновить его самостоятельно.
+
+## 28/12/2023: CVE-2023-44487 DDoS-атака быстрого сброса HTTP/2 {#CVE-2023-44487}
+
+CVE ID: CVE-2023-44487
+
+Ссылка на CVE: <https://nvd.nist.gov/vuln/detail/CVE-2023-44487>
+
+### Исходный отчет {#original-report-CVE-2023-44487}
+
+<https://gist.github.com/adulau/7c2bfb8e9cdbe4b35a5e131c66a0c088>
+
+### Краткое описание {#brief-description-CVE-2023-44487}
+
+Yandex Cloud применил все необходимые меры для противодействия уязвимости CVE-2023-44487, известной под названием _Быстрый сброс HTTP/2_.
+
+Эта уязвимость связана с работой протокола HTTP/2. При определенных условиях этот протокол можно использовать для проведения атаки отказа в обслуживании на таких веб-серверах как NGINX, envoy, а также в других продуктах, реализующих серверную часть спецификации HTTP/2. Для защиты систем от этой атаки рекомендуем немедленно обновить свои веб-серверы.
+
+### Затронутые технологии {#technologies-affected-CVE-2023-44487}
+
+NGINX, HTTP/2
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions-CVE-2023-44487}
+
+* NGINX Open Source 1.x: 1.25.2 - 1.9.5
+* Пакет org.apache.tomcat.embed:tomcat-embed-core, версии [8.5.94, [9.0.0,9.0.81], [10.0.0,10.1.14], [11.0.0-M3,11.0.0-M12]
+* NGINX Ingress Controller
+   * 3.x 3.0.0 - 3.3.0 3.3.1
+   * 2.x 2.0.0 - 2.4.2
+   * 1.x 1.12.2 - 1.12.5
+* Envoy 1.27.1, 1.26.5, 1.25.10 или 1.24.10
+* NGINX Plus R2x R25 - R30
+* BIG-IP (все модули) 17.x 17.1.0
+* BIG-IP Next (все модули) 20.x 20.0.1
+* BIG-IP Next SPK 1.x, версии с 1.5.0 по 1.8.2
+* <https://my.f5.com/manage/s/article/K000137106>
+
+### Базовый вектор атаки и уровень опасности уязвимости согласно CVSS v.3.0 {#severity-level-CVE-2023-44487}
+
+CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations-for-vulnerability-detection-CVE-2023-44487}
+
+Процедура проверки уязвимости и дополнительные материалы (PoC-код, видеодемонстрация и т.д.):
+
+<https://www.nginx.com/blog/http-2-rapid-reset-attack-impacting-f5-nginx-products/>
+
+<https://github.com/envoyproxy/envoy/security/advisories/GHSA-jhv4-f7mr-xx76>
+
+<https://security.snyk.io/vuln/SNYK-JAVA-ORGAPACHETOMCATEMBED-5953331>
+
+Версия обновления или патча:
+
+* Обновите org.apache.tomcat.embed:tomcat-embed-core до версии 8.5.94, 9.0.81, 10.1.14, 11.0.0-M12 или выше.
+
+* Обновите envoyproxy/envoy до версии 1.24.11, 1.25.10, 1.26.5, 1.27.1 или выше.
+
+* Используйте NGINX-директиву http2_max_concurrent_streams
+
+   <https://www.nginx.com/blog/http-2-rapid-reset-attack-impacting-f5-nginx-products/>
+
+* Воспользуйтесь сервисом [Yandex Smart Web Security](https://yandex.cloud/ru/services/smartwebsecurity)
+
+### Безопасная версия или патч для уязвимого продукта {#safe-version-CVE-2023-44487}
+
+Находится в разработке.
+
+### Затрагиваются ли облачные сервисы? {#impact-on-yandex-cloud-services-CVE-2023-44487}
+
+Нет
+
+## 28/12/2023: Уязвимость Reptar в Ice Lake (IPU Out-of-Band) {#CVE-2023-23583}
+
+CVE ID: CVE-2023-23583
+
+Ссылка на CVE: <https://nvd.nist.gov/vuln/detail/CVE-2023-5043>
+
+### Краткое описание {#brief-description-CVE-2023-23583}
+
+Уязвимость Reptar затрагивает серверные системы на базе Intel, производитель выпустил необходимые патчи. Инфраструктура Yandex Cloud была обновлена.
+
+Уязвимость потенциально приводила к эскалации привилегий.
+
+### Затронутые технологии {#technologies-affected-CVE-2023-23583}
+
+Intel (микрокод)
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions-CVE-2023-23583}
+
+<https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00950.html>
+
+<https://www.intel.com/content/www/us/en/developer/topic-technology/software-security-guidance/processors-affected-consolidated-product-cpu-model.html>
+
+### Базовый вектор атаки и уровень опасности уязвимости согласно CVSS v.3.0 {#severity-level-CVE-2023-23583}
+
+7.8 CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations-for-vulnerability-detection-CVE-2023-23583}
+
+Процедура проверки уязвимости и дополнительные материалы (PoC-код, видеодемонстрация и т.д.):
+
+<https://lock.cmpxchg8b.com/reptar.html>
+
+Версия обновления или патча:
+
+<https://www.intel.com/content/www/us/en/security-center/advisory/intel-sa-00950.html>
+
+### Безопасная версия уязвимого продукта или патч {#safe-version-CVE-2023-23583}
+
+Уязвимость исправлена начиная с версии 1.9.0.
+
+### Затрагиваются ли облачные сервисы? {#impact-on-yandex-cloud-services-CVE-2023-23583}
+
+Нет
+
+## 28/12/2023: CVE-2023-46850 Патч безопасности OpenVPN вер. 2.6.7 {#CVE-2023-46850}
+
+CVE ID: CVE-2023-46849, CVE-2023-46850
+
+Ссылки на CVE:
+
+<https://nvd.nist.gov/vuln/detail/CVE-2023-46849>
+<https://nvd.nist.gov/vuln/detail/CVE-2023-46850>
+
+### Исходный отчет {#original-report-CVE-2023-46850}
+
+<https://openvpn.net/community-downloads/>
+
+### Краткое описание {#brief-description-CVE-2023-46850}
+
+Уязвимость CVE-2023-46850 может привести к отправке содержимого памяти процесса на другую сторону соединения, а также, потенциально – к удаленному выполнению кода.
+
+Уязвимость CVE-2023-46849 может привести к удаленному инициированию аварийного выключения сервера доступа.
+
+### Затронутые технологии {#technologies-affected-CVE-2023-46850}
+
+OpenVPN
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions-CVE-2023-46850}
+
+Версии от v2.6.0 до v2.6.6
+
+### Базовый вектор атаки и уровень опасности уязвимости согласно CVSS v.3.0 {#severity-level-CVE-2023-46850}
+
+Cеть.
+
+### Процедура проверки уязвимости и дополнительные материалы (PoC-код, видеодемонстрация и т.д.) {#poc-CVE-2023-46850}
+
+PoC-код в разработке.
+
+### Безопасная версия уязвимого продукта или патч {#safe-version-CVE-2023-46850}
+
+Уязвимость исправлена начиная с версии 2.6.7.
+
+### Затрагиваются ли облачные сервисы? {#impact-on-yandex-cloud-services-CVE-2023-46850}
+
+Да.
+
+## 3.11.2023 — CVE-2023-5043 Nginx ingress controller for Kubernetes vulnerabilities {#CVE-2023-5043}
+
+CVE ID: CVE-2023-5043 , CVE-2023-5044 и CVE-2022-4886
+
+Ссылки на CVE:
+
+<https://nvd.nist.gov/vuln/detail/CVE-2023-5043>
+<https://nvd.nist.gov/vuln/detail/CVE-2023-5044>
+<https://nvd.nist.gov/vuln/detail/CVE-2022-4886>
+
+### Исходный отчет {#original-report-CVE-2023-5043}
+
+<https://github.com/kubernetes/ingress-nginx/issues/10571>
+<https://github.com/kubernetes/ingress-nginx/issues/10572>
+<https://github.com/kubernetes/ingress-nginx/issues/10570>
+
+### Краткое описание {#brief-description-CVE-2023-5043}
+
+Первые две бреши, CVE-2023-5043 и CVE-2023-5044, связаны с недостаточной проверкой входных данных и могут привести к внедрению произвольного кода, получению привилегированных учётных данных и краже всех секретов кластера. Обе проблемы имеют оценку уязвимости 7,6 из 10 по шкале CVSS.
+
+Третья уязвимость, CVE-2022-4886, оценивается более высоко — 8,8 по шкале CVSS. Эта проблема может быть эксплуатирована при создании или обновлении объектов Ingress, позволяя злоумышленникам получить доступ к учётным данным Kubernetes API из контроллера Ingress и, следовательно, украсть все секреты кластера. Она затрагивает версии до 1.8.0 включительно.
+
+### Затронутые технологии {#technologies-affected-CVE-2023-5043}
+
+NGINX
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions-CVE-2023-5043}
+
+NGINX до версии 1.9.0.
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations-for-vulnerability-detection-CVE-2023-5043}
+
+Наши рекомендации для предотвращения использования данных уязвимостей:
+
+1. Обновить NGINX Ingress контролер до версии 1.9.0, с этой версии добавлена валидация аннотаций и отключены пользовательские сниппеты по умолчанию.
+
+1. Добавить к опциям запуска контроллера аргумент `--enable-annotation-validation`.
+
+1. Добавить в конфигурацию (Configmap) контроллера опцию `strict-validate-path-type`.
+
+1. Использовать Policy Engine, например [Kyverno](https://yandex.cloud/ru/marketplace/products/yc/kyverno) для валидации путей, используемых в правилах Ingress. [Подходящую политику](https://kyverno.io/policies/nginx-ingress/restrict-ingress-paths/restrict-ingress-paths/) можно найти на сайте Kyverno.
+
+### Безопасная версия уязвимого продукта или патч {#safe-version-CVE-2023-5043}
+
+Уязвимость устранена в версии 1.9.0.
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services-CVE-2023-5043}
+
+В случае использования ALB Ingress контроллера от Yandex Cloud данные уязвимости не применимы, так как он строится на других технологиях и не имеет аннотаций и настроек, необходимых для реализации уязвимостей.
+
+## 26.10.2023 — CVE-2023-3484 Обновление системы безопасности GitLab Security Release: 16.1.2, 16.0.7 и 15.11.11 {#CVE-2023-3484}
+
+CVE ID: CVE-2023-3484
+
+Ссылка на CVE: <https://nvd.nist.gov/vuln/detail/CVE-2023-3484>
+
+### Исходный отчет {#original-report-CVE-2023-3484}
+
+<https://about.gitlab.com/releases/2023/07/05/security-release-gitlab-16-1-2-released/>
+
+### Краткое описание {#brief-description-CVE-2023-3484}
+
+Компания GitLab устранила уязвимость CVE-2023-3484.
+
+Проблема была обнаружена в GitLab EE и затронула все версии начиная с 12.8 и ниже 15.11.11, все версии начиная с 16.0 и ниже 16.0.7, а также все версии начиная с 16.1 и ниже 16.1.2. В ряде случаев, уязвимость позволяла злоумышленнику изменить название или путь к общедоступной группе верхнего уровня.
+
+### Затронутые технологии {#technologies-affected-CVE-2023-3484}
+
+GitLab
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions-CVE-2023-3484}
+
+GitLab CE/EE, версии ниже 16.1.2, 16.0.7 и 15.11.11
+
+### Вендор {#vendor-CVE-2023-3484}
+
+GitLab Inc.
+
+### Вектор атаки и уровень опасности согласно CVSS v.3.0 {#attack-vector-and-severity-level-CVE-2023-3484}
+
+Рейтинг CVSS: от 3.1 до 6.1
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations-for-vulnerability-detection-CVE-2023-3484}
+
+<https://about.gitlab.com/releases/2023/07/05/security-release-gitlab-16-1-2-released/>
+
+### Безопасная версия уязвимого продукта или патч {#safe-version-CVE-2023-3484}
+
+Уязвимость устранена в GitLab CE/EE начиная с версий 16.1.2, 16.0.7 и 15.11.11
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services-CVE-2023-3484}
+
+Мы перевели на последнюю версию GitLab все наши текущие и будущие образы, а также планируемые к развертыванию инстансы Managed Service for GitLab. Если вы используете собственные образы на своих машинах, и на них распространяются указанные уязвимости, рекомендуем провести обновление самостоятельно.
+
+## 26.10.2023 — CVE-2023-3424 - CVE-2023-1936 Обновление системы безопасности GitLab Security Release: 16.1.1, 16.0.6 и 15.11.10 {#CVE-2023-3424-CVE-2023-1936}
+
+CVE ID: CVE-2023-3424 - CVE-2023-1936
+
+Ссылка на CVE: <https://about.gitlab.com/releases/2023/06/29/security-release-gitlab-16-1-1-released/>
+
+### Исходный отчет {#original-report-CVE-2023-3424-1936}
+
+<https://about.gitlab.com/releases/2023/06/29/security-release-gitlab-16-1-1-released/>
+
+### Краткое описание {#brief-description-CVE-2023-3424-1936}
+
+Компания GitLab выпустила обновление системы безопасности, в котором был исправлен ряд уязвимостей. С полным списком обновлений можно ознакомиться здесь:
+
+<https://about.gitlab.com/releases/2023/06/29/security-release-gitlab-16-1-1-released/>
+
+### Затронутые технологии {#technologies-affected-CVE-2023-3424-1936}
+
+GitLab
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions-CVE-2023-3424-1936}
+
+GitLab CE/EE, версии ниже 16.1.1, 16.0.6 и 15.11.10
+
+### Вендор {#vendor-CVE-2023-3424-1936}
+
+GitLab Inc.
+
+### Вектор атаки и уровень опасности согласно CVSS v.3.0 {#attack-vector-and-severity-level-CVE-2023-3424-1936}
+
+Рейтинг CVSS: от 3.5 до 7.5
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations-for-vulnerability-detection-CVE-2023-3424-1936}
+
+<https://about.gitlab.com/releases/2023/06/29/security-release-gitlab-16-1-1-released/>
+
+### Безопасная версия уязвимого продукта или патч {#safe-version-CVE-2023-3424-1936}
+
+Уязвимость устранена в GitLab CE/EE начиная с версий 16.1.1, 16.0.6 и 15.11.10
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services-CVE-2023-3424-1936}
+
+Мы перевели на последнюю версию GitLab все наши текущие и будущие образы, а также планируемые к развертыванию инстансы Managed Service for GitLab. Если вы используете собственные образы на своих машинах, и на них распространяются указанные уязвимости, рекомендуем провести обновление самостоятельно.
+
+## 26.10.2023 — CVE-2023-2442 - CVE-2023-2013 Обновление системы безопасности GitLab Security Release: 16.0.2, 15.11.7 и 15.10.8 {#CVE-2023-2442-CVE-2023-2013}
+
+CVE ID: CVE-2023-2442 - CVE-2022-2013
+
+Ссылка на CVE: <https://about.gitlab.com/releases/2023/06/05/security-release-gitlab-16-0-2-released/>
+
+### Исходный отчет {#original-report-CVE-2023-2442-2013}
+
+<https://about.gitlab.com/releases/2023/06/05/security-release-gitlab-16-0-2-released/>
+
+### Краткое описание {#brief-description-CVE-2023-2442-2013}
+
+Компания GitLab выпустила обновление системы безопасности, в котором был исправлен ряд уязвимостей. С полным списком обновлений можно ознакомиться здесь:
+
+<https://about.gitlab.com/releases/2023/06/05/security-release-gitlab-16-0-2-released/>
+
+### Затронутые технологии {#technologies-affected-CVE-2023-2442-2013}
+
+GitLab
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions-CVE-2023-2442-2013}
+
+GitLab CE/EE, версии ниже 16.0.2, 15.11.7 и 15.10.8
+
+### Вендор {#vendor-CVE-2023-2442-2013}
+
+GitLab Inc.
+
+### Вектор атаки и уровень опасности согласно CVSS v.3.0 {#attack-vector-and-severity-level-CVE-2023-2442-2013}
+
+Рейтинг CVSS: от 2.6 до 8.7
+
+### Рекомендации по обнаружению уязвимостей и вспомогательные материалы {#recommendations-for-vulnerability-detection-CVE-2023-2442-2013}
+
+<https://about.gitlab.com/releases/2023/06/05/security-release-gitlab-16-0-2-released/>
+
+### Безопасная версия уязвимого продукта или патч {#safe-version-CVE-2023-2442-2013}
+
+Уязвимость устранена в GitLab CE/EE начиная с версий 16.0.2, 15.11.7 и 15.10.8
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services-CVE-2023-2442-2013}
+
+Мы перевели на последнюю версию GitLab все наши текущие и будущие образы, а также планируемые к развертыванию инстансы Managed Service for GitLab. Если вы используете собственные образы на своих машинах, и на них распространяются указанные уязвимости, рекомендуем провести обновление самостоятельно.
+
+## 16.10.2023 — BDU-2023-05857 Уязвимость модуля <q>landing</q> системы управления содержимым сайтов (CMS) 1С-Битрикс {#BDU-2023-05857}
+
+CVE ID: BDU:2023-05857
+
+Ссылка на CVE: <https://bdu.fstec.ru/vul/2023-05857>
+
+### Исходный отчет {#original-report-BDU-2023-05857}
+
+<https://bdu.fstec.ru/vul/2023-05857>
+
+### Краткое описание {#brief-description-BDU-2023-05857}
+
+Уязвимость модуля <q>landing</q> системы управления содержимым сайтов (CMS) 1С-Битрикс: Управление сайтом вызвана ошибками синхронизации при использовании общего ресурса. Эксплуатация уязвимости может позволить нарушителю, действующему удаленно, выполнить команды ОС на уязвимом узле, получить контроль над ресурсами и проникнуть во внутреннюю сеть.
+
+### Затронутые технологии {#technologies-affected-BDU-2023-05857}
+
+1С-Битрикс: Управление сайтом
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions-BDU-2023-05857}
+
+до 23.850.0
+
+### Вендор {#vendor-BDU-2023-05857}
+
+ООО <q>1С-Битрикс</q>
+
+### Вектор атаки и уровень опасности согласно CVSS v.3.0 {#attack-vector-and-severity-level-BDU-2023-05857}
+
+Рейтинг 10. Вектор CVSS:3.0/AV:N/AC:L/PR:N/UI:N/S:C/C:H/I:H/A:H
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations-for-vulnerability-detection-BDU-2023-05857}
+
+* <https://dev.1c-bitrix.ru/docs/versions.php?lang=ru&module=landing>
+* <https://www.bitrix24.ru/features/box/box-versions.php?module=landing>
+* <https://www.bitrix24.com/features/box/box-versions.php>
+* <https://www.bitrix24.com/features/box/box-versions.php?module=landing>
+* <https://safe-surf.ru/upload/VULN-new/VULN.2023-09-21.1.pdf>
+
+### Безопасная версия уязвимого продукта или патч {#safe-version-BDU-2023-05857}
+
+Версия <q>landing</q> 23.850.0 и выше.
+
+### Компенсационные меры для пользователей Yandex Cloud {#compensatory-measures-BDU-2023-05857}
+
+Обновление программного продукта до версии <q>landing</q> 23.850.0 и выше.
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services-BDU-2023-05857}
+
+Мы обновили существующие и будущие образы до актуальной версии. Необходимо проверить текущую версию используемого ПО и обновить его при необходимости. Если вы используете собственный образ на ВМ, который подвержен уязвимости, рекомендуется обновить его самостоятельно.
+
+## 06.10.2023 — CVE-2023-35943 CORS filter segfault when origin header is removed {#CVE-2023-35943}
+
+CVE ID: CVE-2023-35943
+
+Ссылка на CVE: <https://nvd.nist.gov/vuln/detail/CVE-2023-35943>
+
+### Исходный отчет {#original-report-CVE-2023-35943}
+
+<https://github.com/envoyproxy/envoy/security/advisories/GHSA-mc6h-6j9x-v3gq>
+
+### Краткое описание {#brief-description-CVE-2023-35943}
+
+До версий 1.27.0, 1.26.4, 1.25.9, 1.24.10 и 1.23.12 фильтр CORS приводил к ошибкам сегментации и аварийному завершению работы Envoy, когда заголовок `origin` удалялся между `decodeHeaders` и `encodeHeaders`. В версиях 1.27.0, 1.26.4, 1.25.9, 1.24.10 и 1.23.12 эта проблема исправлена.
+
+### Затронутые технологии {#technologies-affected-CVE-2023-35943}
+
+Envoy
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions-CVE-2023-35943}
+
+Envoy до версий 1.27.0, 1.26.4, 1.25.9, 1.24.10, 1.23.12
+
+### Вендор {#vendor-CVE-2023-35943}
+
+Envoy
+
+### Вектор атаки и уровень опасности согласно CVSS v.3.0 {#attack-vector-and-severity-level-CVE-2023-35943}
+
+Рейтинг 7.5. Вектор CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы{#recommendations-for-vulnerability-detection-CVE-2023-35943}
+
+Рекомендуется обновление до актуальных версий. Если обновление невозможно, не удаляйте заголовок `origin` в конфигурации Envoy.
+
+### Безопасная версия уязвимого продукта или патч {#safe-version-CVE-2023-35943}
+
+Уязвимость устранена в версиях 1.27.0, 1.26.4, 1.25.9, 1.24.10, 1.23.12
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services-CVE-2023-35943}
+
+Мы обновили существующие и будущие образы до актуальной версии. Если вы используете собственный образ на ВМ, который подвержен уязвимости, рекомендуется обновить его самостоятельно.
+
+## 06.10.2023 — CVE-2023-35941 OAuth2 credentials exploit with permanent validity {#CVE-2023-35941}
+
+CVE ID: CVE-2023-35941
+
+Ссылка на CVE: <https://nvd.nist.gov/vuln/detail/CVE-2023-35941>
+
+### Исходный отчет {#original-report-CVE-2023-35941}
+
+<https://github.com/envoyproxy/envoy/security/advisories/GHSA-7mhv-gr67-hq55>
+
+### Краткое описание {#brief-description-CVE-2023-35941}
+
+До версий 1.27.0, 1.26.4, 1.25.9, 1.24.10 и 1.23.12 злоумышленник мог создавать учетные данные с постоянным сроком действия. Это происходило в редких сценариях, в которых полезная нагрузка HMAC могла всегда успешно проходить проверку фильтра OAuth2. В качестве обходного пути избегайте подстановочных знаков/префиксов домена в конфигурации домена хоста.
+
+### Затронутые технологии {#technologies-affected-CVE-2023-35941}
+
+Envoy
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions-CVE-2023-35941}
+
+Envoy до версий 1.27.0, 1.26.4, 1.25.9, 1.24.10, 1.23.12
+
+### Вендор {#vendor-CVE-2023-35941}
+
+Envoy
+
+### Вектор атаки и уровень опасности согласно CVSS v.3.0 {#attack-vector-and-severity-level-CVE-2023-35941}
+
+Рейтинг 9.8. Вектор CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы{#recommendations-for-vulnerability-detection-CVE-2023-35941}
+
+Рекомендуется обновление до актуальных версий. Если обновление невозможно, не используйте подстановочные знаки/префиксы домена в конфигурации домена хоста.
+
+### Безопасная версия уязвимого продукта или патч {#safe-version-CVE-2023-35941}
+
+Уязвимость устранена в версиях 1.27.0, 1.26.4, 1.25.9, 1.24.10, 1.23.12
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services-CVE-2023-35941}
+
+Мы обновили существующие и будущие образы до актуальной версии. Если вы используете собственный образ на ВМ, который подвержен уязвимости, рекомендуется обновить его самостоятельно.
+
+## 03.07.2023 — CVE-2023-2478 GitLab Critical Security Release: 15.11.2, 15.10.6, and 15.9.7 {#CVE-2023-2478}
+
+CVE ID: CVE-2023-2478
+
+Ссылка на CVE: <https://nvd.nist.gov/vuln/detail/CVE-2023-2478>
+
+### Исходный отчет {#original-report-CVE-2023-2478}
+
+<https://about.gitlab.com/releases/2023/05/05/critical-security-release-gitlab-15-11-2-released/#malicious-runner-attachment-via-graphql>
+
+### Краткое описание {#brief-description-CVE-2023-2478}
+
+Gitlab закрыл CVE-2023-2478.
+
+В GitLab CE/EE обнаружена проблема, затрагивающая все версии, начиная с 15.4 до 15.9.7, с 15.10 до 15.10.6 и с 15.11 до 15.11.2. При определенных условиях злонамеренный неавторизованный пользователь GitLab может использовать эндпойнт GraphQL для подключения вредоносного GitLab runner к любому проекту.
+
+### Затронутые технологии {#technologies-affected-CVE-2023-2478}
+
+GitLab
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions-CVE-2023-2478}
+
+GitLab CE/EE до 15.11.2, 15.10.6, 15.9.7
+
+### Вендор {#vendor-CVE-2023-2478}
+
+GitLab Inc.
+
+### Вектор атаки и уровень опасности согласно CVSS v.3.0 {#attack-vector-and-severity-level-CVE-2023-2478}
+
+Рейтинг 9.6. Вектор CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:N
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations-for-vulnerability-detection-CVE-2023-2478}
+
+<https://about.gitlab.com/releases/2023/05/05/critical-security-release-gitlab-15-11-2-released/#malicious-runner-attachment-via-graphql>
+
+### Безопасная версия уязвимого продукта или патч {#safe-version-CVE-2023-2478}
+
+Уязвимость устранена в версиях 15.11.2, 15.10.6, 15.9.7
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services-CVE-2023-2478}
+
+Мы обновили существующие и будущие образы, а так же будущие инстансы Managed Service for GitLab до актуальной версии. Если вы используете собственный образ на ВМ, который подвержен уязвимости, рекомендуется обновить его самостоятельно.
+
+## 03.07.2023 — CVE-2023-27561 Race-condition to bypass masked paths {#CVE-2023-27561}
+
+CVE ID: CVE-2023-27561
+
+Ссылка на CVE: <https://nvd.nist.gov/vuln/detail/CVE-2023-27561>
+
+### Исходный отчет {#original-report-CVE-2023-27561}
+
+<https://gist.github.com/LiveOverflow/c937820b688922eb127fb760ce06dab9>
+
+### Краткое описание {#brief-description-CVE-2023-27561}
+
+`runc` до версии 1.1.4 имеет неправильный контроль доступа, приводящий к повышению привилегий, связанных с `libcontainer/rootfs_linux.go`. Чтобы воспользоваться этой уязвимостью, злоумышленник должен иметь возможность создать два контейнера с пользовательскими конфигурациями монтирования томов и иметь возможность запускать пользовательские образы.
+
+### Затронутые технологии {#technologies-affected-CVE-2023-27561}
+
+Linux kernel (runc)
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions-CVE-2023-27561}
+
+`runc` до версии 1.1.5
+
+### Вендор {#vendor-CVE-2023-27561}
+
+Linux kernel
+
+### Вектор атаки и уровень опасности согласно CVSS v.3.0 {#attack-vector-and-severity-level-CVE-2023-27561}
+
+Рейтинг 7.0. Вектор CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:H/I:H/A:H
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations-for-vulnerability-detection-CVE-2023-27561}
+
+Рекомендуется обновление до актуальных версий.
+
+* <https://www.opencve.io/cve/CVE-2023-27561>
+* <https://nvd.nist.gov/vuln/detail/CVE-2023-27561>
+* <https://gist.github.com/LiveOverflow/c937820b688922eb127fb760ce06dab9>
+* <https://github.com/opencontainers/runc/issues/2197#issuecomment-1437617334>
+* <https://github.com/opencontainers/runc/issues/3751>
+
+### Безопасная версия уязвимого продукта или патч {#safe-version-CVE-2023-27561}
+
+Уязвимость устранена в версии 1.1.5
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services-CVE-2023-27561}
+
+Мы обновили существующие и будущие образы, использующие `runc`, до актуальной версии. Если вы используете собственный образ на ВМ, который подвержен уязвимости, рекомендуется обновить его самостоятельно.
+
+## 03.07.2023 — CVE-2023-27492 Crash when a large request body is processed in Lua filter {#CVE--2023-27492}
+
+CVE ID: CVE-2023-27492
+
+Ссылка на CVE: <https://nvd.nist.gov/vuln/detail/CVE-2023-27492>
+
+### Исходный отчет {#original-report-CVE-2023-27492}
+
+<https://github.com/envoyproxy/envoy/security/advisories/GHSA-wpc2-2jp6-ppg2>
+
+### Краткое описание {#brief-description-CVE-2023-27492}
+
+До версий 1.26.0, 1.25.3, 1.24.4, 1.23.6 и 1.22.9 фильтр Lua был уязвим для отказа в обслуживании. Злоумышленники могут отправлять запросы с большим количеством данных в теле для маршрутов с включенным фильтром Lua и вызывать сбои. Начиная с версий 1.26.0, 1.25.3, 1.24.4, 1.23.6 и 1.22.9, Envoy больше не вызывает сопрограмму Lua, если фильтр был сброшен.
+
+### Затронутые технологии {#technologies-affected-CVE-2023-27492}
+
+Envoy
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions-CVE-2023-27492}
+
+Envoy до версий 1.26.0, 1.25.3, 1.24.4, 1.23.6, 1.22.9
+
+### Вендор {#vendor-CVE-2023-27492}
+
+Envoy
+
+### Вектор атаки и уровень опасности согласно CVSS v.3.0 {#attack-vector-and-severity-level-CVE-2023-27492}
+
+Рейтинг 6.5. Вектор CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations-for-vulnerability-detection-CVE-2023-27492}
+
+Необходимо обновление до свежих версий.
+
+<https://github.com/envoyproxy/envoy/security/advisories/GHSA-wpc2-2jp6-ppg2>
+
+### Безопасная версия уязвимого продукта или патч {#safe-version-CVE-2023-27492}
+
+Уязвимость устранена в версиях 1.26.0, 1.25.3, 1.24.4, 1.23.6, 1.22.9
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services-CVE-2023-27492}
+
+Мы обновили версию компонента, которая используется в наших сервисах, до актуальной версии. Если вы используете собственный образ на ВМ, который подвержен уязвимости, рекомендуется обновить его самостоятельно.
+
+## 03.07.2023 — CVE-2023-27491 Envoy forwards invalid HTTP/2 and HTTP/3 downstream headers {#CVE-2023-27491}
+
+CVE ID: CVE-2023-27491
+
+Ссылка на CVE: <https://nvd.nist.gov/vuln/detail/CVE-2023-27491>
+
+### Исходный отчет {#original-report-CVE-2023-27491}
+
+<https://github.com/envoyproxy/envoy/security/advisories/GHSA-5jmv-cw9p-f9rp>
+
+### Краткое описание {#brief-description-CVE-2023-27491}
+
+Совместимая служба HTTP/1 должна отклонять неправильно сформированные строки запроса. До версий 1.26.0, 1.25.3, 1.24.4, 1.23.6 и 1.22.9 существовала вероятность того, что несоответствующая служба HTTP/1 может разрешать выполнение неправильно сформированных запросов, что потенциально может привести к обходу политик безопасности.
+
+### Затронутые технологии {#technologies-affected-CVE-2023-27491}
+
+Envoy
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions-CVE-2023-27491}
+
+Envoy до версий 1.26.0, 1.25.3, 1.24.4, 1.23.6, 1.22.9
+
+### Вендор {#vendor-CVE-2023-27491}
+
+Envoy
+
+### Вектор атаки и уровень опасности согласно CVSS v.3.0 {#attack-vector-and-severity-level-CVE-2023-27491}
+
+Рейтинг 9.1. Вектор CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:N
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations-for-vulnerability-detection-CVE-2023-27491}
+
+Необходимо обновление до свежих версий.
+
+* <https://datatracker.ietf.org/doc/html/rfc9113#section-8.3>
+* <https://datatracker.ietf.org/doc/html/rfc9114#section-4.3.1>
+* <https://github.com/envoyproxy/envoy/security/advisories/GHSA-5jmv-cw9p-f9rp>
+* <https://www.rfc-editor.org/rfc/rfc9110#section-5.6.2>
+
+### Безопасная версия уязвимого продукта или патч {#safe-version-CVE-2023-27491}
+
+Уязвимость устранена в версиях 1.26.0, 1.25.3, 1.24.4, 1.23.6, 1.22.9
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services-CVE-2023-27491}
+
+Мы обновили версию компонента, которая используется в наших сервисах, до актуальной версии. Если вы используете собственный образ на ВМ, который подвержен уязвимости, рекомендуется обновить его самостоятельно.
+
+## 03.07.2023 — CVE-2022-3513 - CVE-2022-3375. GitLab Security Release: 15.10.1, 15.9.4, and 15.8.5 {#CVE-2022-3513-CVE-2022-3375}
+
+CVE ID: CVE-2022-3513 - CVE-2022-3375
+
+Ссылка на CVE: <https://about.gitlab.com/releases/2023/03/30/security-release-gitlab-15-10-1-released/>
+
+### Исходный отчет {#original-report-CVE-2022-3513-3375}
+
+<https://about.gitlab.com/releases/2023/03/30/security-release-gitlab-15-10-1-released/>
+
+### Краткое описание {#brief-description-CVE-2022-3513-3375}
+
+GitLab выпустил релиз безопасности, в котором закрыты множественные уязвимости. Полный список:
+
+<https://about.gitlab.com/releases/2023/03/30/security-release-gitlab-15-10-1-released/>
+
+### Затронутые технологии {#technologies-affected-CVE-2022-3513-3375}
+
+GitLab
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions-CVE-2022-3513-3375}
+
+GitLab CE/EE до 15.10.1, 15.9.4, 15.8.5
+
+### Вендор {#vendor-CVE-2022-3513-3375}
+
+GitLab Inc.
+
+### Вектор атаки и уровень опасности согласно CVSS v.3.0 {#attack-vector-and-severity-level-CVE-2022-3513-3375}
+
+Рейтинг от 3.1 до 6.1
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations-for-vulnerability-detection-CVE-2022-3513-3375}
+
+<https://about.gitlab.com/releases/2023/03/30/security-release-gitlab-15-10-1-released/>
+
+### Безопасная версия уязвимого продукта или патч {#safe-version-CVE-2022-3513-3375}
+
+Уязвимость устранена в версиях 15.10.1, 15.9.4, 15.8.5
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services-CVE-2022-3513-3375}
+
+Мы обновили существующие и будущие образы, а так же будущие инстансы Managed Service for GitLab до актуальной версии. Если вы используете собственный образ на ВМ, который подвержен уязвимости, рекомендуется обновить его самостоятельно.
+
+## 13.04.2023 — CVE-2023-26463 — StrongSwan IPsec — Incorrectly Accepted Untrusted Public Key With Incorrect Refcount {#CVE-2023-26463}
+
+CVE ID: CVE-2023-26463
+
+Ссылка на CVE: <https://cve.mitre.org/cgi-bin/cvename.cgi?name=2023-26463>
+
+### Исходный отчет {#original-report-CVE-2023-26463}
+
+<https://www.strongswan.org/blog/2023/03/02/strongswan-vulnerability-(cve-2023-26463).html>
+
+### Краткое описание {#brief-description-CVE-2023-26463}
+
+Реализация TLS в `libtls` неверно идентифицирует открытый ключ из сертификата однорангового узла как доверенный, даже если сертификат не проходит проверку. Однако у открытого ключа также возникает ошибка при подсчете количества ссылок, что приводит к разыменованию указателя с истекшим сроком действия. Обычно это приводит к сбою сегментации и отказу сервиса, но при этом возможно раскрытие информации или выполнение кода.
+
+Злоумышленник может вызвать этот сбой, отправив самоподписанный (или по другим причинам ненадежный) сертификат на сервер, который аутентифицирует клиентов с помощью метода EAP на основе TLS, такого как EAP-TLS. Клиенты могут быть также уязвимы для злоумышленников, которые отправляют им запрос на такой метод EAP с ненадежным сертификатом сервера. Затронуты версии strongSwan 5.9.8 и 5.9.9.
+
+### Затронутые технологии {#technologies-affected-CVE-2023-26463}
+
+StrongSwan IPsec
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions-CVE-2023-26463}
+
+StrongSwan IPsec до версии 5.9.10
+
+### Вендор {#vendor-CVE-2023-26463}
+
+StrongSwan IPsec
+
+### Вектор атаки и уровень опасности согласно CVSS v.3.0 {#attack-vector-and-severity-level-CVE-2023-26463}
+
+Not installed on 29.03.2023.
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations-for-vulnerability-detection-CVE-2023-26463}
+
+* <https://www.strongswan.org/blog/2023/03/02/strongswan-vulnerability-(cve-2023-26463).html>
+* <https://www.opennet.ru/opennews/art.shtml?num=58736>
+
+Серверы, которые не загружают плагины, реализующие методы EAP на основе TLS (EAP-TLS, EAP-TTLS, EAP-PEAP, EAP-TNC), не подвержены этой уязвимости. Если эти плагины загружаются, они не должны использоваться в качестве способа удаленной аутентификации. Также не следует использовать плагин `eap-dynamic`, поскольку он позволяет клиентам выбирать предпочтительный метод EAP. Серверы, которые используют методы на основе TLS через плагин `eap-radius` только в качестве способа удаленной аутентификации, также не подвержены этой уязвимости.
+
+### Безопасная версия уязвимого продукта или патч {#safe-version-CVE-2023-26463}
+
+StrongSwan IPsec начиная с версии 5.9.10
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services-CVE-2023-26463}
+
+[Образ StrongSwan IPsec](https://yandex.cloud/ru/marketplace/products/yc/ipsec-instance-ubuntu) в Yandex Cloud Marketplace не подвержен данной уязвимости согласно <https://ubuntu.com/security/CVE-2023-26463>. Если вы используете собственный образ на ВМ, который подвержен уязвимости, то рекомендуется обновить его самостоятельно.
+
+## 13.04.2023 — CVE-2023-0286 — OpenSSL Security Advisory 7th February 2023 {#CVE-2023-0286}
+
+CVE ID: CVE-2023-0286
+
+Ссылка на CVE: <https://nvd.nist.gov/vuln/detail/CVE-2023-0286>
+
+### Исходный отчет {#original-report-CVE-2023-0286}
+
+<https://git.openssl.org/gitweb/?p=openssl.git;a=commitdiff;h=2c6c9d439b484e1ba9830d8454a34fa4f80fdfe9>
+
+### Краткое описание {#brief-description-CVE-2023-0286}
+
+Проект OpenSSL выпустил патч для закрытия ряда уязвимостей, в том числе критичной CVE-2023-0286.
+
+### Затронутые технологии {#technologies-affected-CVE-2023-0286}
+
+OpenSSL
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions-CVE-2023-0286}
+
+OpenSSL версий 3.0.0 - 3.0.7 включительно, 1.1.1 и 1.0.2.
+
+### Вендор {#vendor-CVE-2023-0286}
+
+OpenSSL
+
+### Вектор атаки и уровень опасности согласно CVSS v.3.0 {#attack-vector-and-severity-level-CVE-2023-0286}
+
+Base Score: 7.4 HIGH
+Vector: CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:H
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations-for-vulnerability-detection-CVE-2023-0286}
+
+Рекомендуется обновление OpenSSL до последних версий.
+
+### Безопасная версия уязвимого продукта или патч {#safe-version-CVE-2023-0286}
+
+Пользователи OpenSSL 3.0.0 - 3.0.7 должны обновиться до OpenSSL 3.0.8.
+Пользователи OpenSSL 1.1.1 должны обновиться до OpenSSL 1.1.1t.
+Пользователи OpenSSL 1.0.2 должны обновиться до OpenSSL 1.0.2zg.
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services-CVE-2023-0286}
+
+Мы собрали и внедрили актуальные версии OpenSSL в используемые образы. Пользователям, использующим прошлые версии ОС из Yandex Cloud Marketplace с установленным OpenSSL версий 1.0.2, 1.1.1 и 3.0.0, рекомендуется самостоятельное обновление OpenSSL.
+
+## 22.02.2023 — CVE-2022-3602, CVE-2022-3786 — OpenSSL Security release v.3.0.7 {#CVE-2022-3602-CVE-2022-3786}
+
+CVE ID: CVE-2022-3602, CVE-2022-3786.
+
+Ссылки на CVE:
+
+<https://nvd.nist.gov/vuln/detail/CVE-2022-3602>
+<https://nvd.nist.gov/vuln/detail/CVE-2022-3786>
+
+### Исходный отчет {#original-report-CVE-2022-3602-3786}
+
+<https://mta.openssl.org/pipermail/openssl-announce/2022-October/000238.html>
+<https://www.openssl.org/news/secadv/20221101.txt>
+
+### Краткое описание {#brief-description-CVE-2022-3602-3786}
+
+Проект OpenSSL выпустил патч для закрытия критичных уязвимостей, связанных с переполнением буфера при проверке сертификата X.509. Уязвимости CVE-2022-3602 и CVE-2022-3786 исправлены в OpenSSL, начиная с версии 3.0.7.
+
+### Затронутые технологии {#technologies-affected-CVE-2022-3602-3786}
+
+OpenSSL
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions-CVE-2022-3602-3786}
+
+OpenSSL до версии 3.0.7.
+
+### Вендор {#vendor-CVE-2022-3602-3786}
+
+OpenSSL
+
+### Вектор атаки и уровень опасности согласно CVSS v.3.0 {#attack-vector-and-severity-level-CVE-2022-3602-3786}
+
+Base Score: 7.5 HIGH
+Vector: CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations-for-vulnerability-detection-CVE-2022-3602-3786}
+
+При использовании OpenSSL рекомендуется обновление до версии 3.0.7 и старше.
+
+### Безопасная версия уязвимого продукта или патч {#safe-version-CVE-2022-3602-3786}
+
+OpenSSL начиная с версии 3.0.7.
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services-CVE-2022-3602-3786}
+
+Мы собрали и внедрили актуальные версии OpenSSL в используемые образы. В облачных ресурсах среди загруженных модулей и установленных пакетов уязвимый компонент отсутствует.
+
+Пользователям, использующим прошлые версии ОС из Cloud Marketplace с установленным OpenSSL версии до 3.0.7, рекомендуется самостоятельное обновление OpenSSL.
+
+## 07.02.2023 — CVE-2022-3411, CVE-2022-4138, CVE-2022-3759, CVE-2023-0518, — GitLab Security Release: 15.8.1, 15.7.6, 15.6.7 {#CVE-2022-3411-4138-3759-CVE-2023-0518}
+
+CVE ID: CVE-2022-3411, CVE-2022-4138, CVE-2022-3759, CVE-2023-0518.
+
+Ссылки на CVE:
+
+<https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-3411>
+<https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-4138>
+<https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-3759>
+<https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2023-0518>
+
+### Исходный отчет {#original-report-CVE-2022-2992}
+
+<https://about.gitlab.com/releases/2023/01/31/security-release-gitlab-15-8-1-released/#denial-of-service-via-arbitrarily-large-issue-descriptions>
+
+### Краткое описание {#brief-description-CVE-2022-2992}
+
+Множественные уязвимости. Полный список: <https://about.gitlab.com/releases/2023/01/31/security-release-gitlab-15-8-1-released/>.
+
+### Затронутые технологии {#technologies-affected-CVE-2022-2992}
+
+GitLab
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions-CVE-2022-2992}
+
+GitLab CE/EE до 15.8.1, 15.7.6 и 15.6.7.
+
+### Вендор {#vendor-CVE-2022-2992}
+
+GitLab Inc.
+
+### Вектор атаки и уровень опасности согласно CVSS v.3.0 {#attack-vector-and-severity-level-CVE-2022-2992}
+
+6.5-4.3
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations-for-vulnerability-detection-CVE-2022-2992}
+
+<https://about.gitlab.com/releases/2023/01/31/security-release-gitlab-15-8-1-released/>
+
+### Безопасная версия уязвимого продукта или патч {#safe-version-CVE-2022-2992}
+
+Уязвимость устранена в версиях 15.8.1, 15.7.6 и 15.6.7.
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services-CVE-2022-2992}
+
+Для удобства пользователей сервиса Managed Service for GitLab, мы уже обновили существующие и будущие инстансы до актуальной версии. Если вы используете образ на VM, рекомендуется обновить его самостоятельно.
+
+## 02.02.2022 — CVE-2022-41903 and CVE-2022-23521 — GitLab Critical Security Release: 15.7.5, 15.6.6, 15.5.9 {#CVE-2022-41903-23521}
+
+CVE ID: CVE-2022-41903 and CVE-2022-23521
+
+Ссылки на CVE:
+
+<https://nvd.nist.gov/vuln/detail/CVE-2022-41903>
+<https://nvd.nist.gov/vuln/detail/CVE-2022-23521>
+
+### Исходный отчет {#original-report-CVE-2022-41903-23521}
+
+<https://github.com/git/git/security/advisories/GHSA-475x-2q3q-hvwq>
+<https://github.com/git/git/security/advisories/GHSA-c738-c5qq-xg89>
+
+### Краткое описание {#brief-description-CVE-2022-41903-23521}
+
+Множественные уязвимости. Полный список: <https://about.gitlab.com/releases/2023/01/17/critical-security-release-gitlab-15-7-5-released/>.
+
+### Затронутые технологии {#technologies-affected-CVE-2022-41903-23521}
+
+GitLab
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions-CVE-2022-41903-23521}
+
+GitLab CE/EE до 15.7.5, 15.6.6 и 15.5.9.
+
+### Вендор {#vendor-CVE-2022-41903-23521}
+
+GitLab Inc.
+
+### Вектор атаки и уровень опасности согласно CVSS v.3.0 {#attack-vector-and-severity-level-CVE-2022-41903-23521}
+
+Уровень опасности: 9.9.
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations-for-vulnerability-detection-CVE-2022-41903-23521}
+
+<https://github.com/git/git/security/advisories/GHSA-475x-2q3q-hvwq>
+<https://github.com/git/git/security/advisories/GHSA-c738-c5qq-xg89>
+
+### Безопасная версия уязвимого продукта или патч {#safe-version-CVE-2022-41903-23521}
+
+Уязвимость устранена в версиях 15.7.5, 15.6.6 и 15.5.9.
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services-CVE-2022-41903-23521}
+
+Для удобства пользователей сервиса Managed Service for GitLab, мы уже обновили существующие и будущие инстансы до актуальной версии. Если вы используете образ на VM, рекомендуется обновить его самостоятельно.
+
+## 26.12.2022 — CVE-2022-47940 — KSMBD FS/KSMBD/SMB2PDU.C SMB2_WRITE {#CVE-2022-47940}
+
+CVE ID: CVE-2022-47940
+
+Ссылка на CVE: <https://ubuntu.com/security/CVE-2022-47940>
+
+### Исходный отчет {#original-report-CVE-2022-47940}
+
+<https://ubuntu.com/security/CVE-2022-47940>
+
+### Краткое описание {#brief-description-CVE-2022-47940}
+
+Если инсталляция использует версию ядра Linux, которая содержит данную уязвимость, атакующие могут получить доступ к чувствительной информации. Атакующий должен аутентифицироваться, чтобы воспользоваться уязвимостью. Уязвимость использует недостатки обработки команд SMB2_WRITE. Из-за неправильной валидации пользовательских данных атакующий может считать данные за пределами разрешенного буфера и выполнить произвольный код в контексте ядра, воспользовавшись данной уязвимостью и другими.
+
+Уязвимость появляется при запуске сервиса `ksmbd` из пакета `ksmbd-tools`.
+
+### Затронутые технологии {#technologies-affected-CVE-2022-47940}
+
+Ядро Linux.
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions-CVE-2022-47940}
+
+Linux Kernel до 5.18.17
+ksmbd-tools
+
+### Вендор {#vendor-CVE-2022-47940}
+
+ksmbd-tools
+
+### Вектор атаки и уровень опасности согласно CVSS v.3.0 {#attack-vector-and-severity-level-CVE-2022-47940}
+
+4.1
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations-for-vulnerability-detection-CVE-2022-47940}
+
+<https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=158a66b245739e15858de42c0ba60fcf3de9b8e6>
+
+### Безопасная версия уязвимого продукта или патч {#safe-version-CVE-2022-47940}
+
+Уязвимость устранена в версии Linux Kernel 5.18.18.
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services-CVE-2022-47940}
+
+В облачных ресурсах среди загруженных модулей и установленных пакетов данный компонент отсутствует.
+
+Если вы используете в Yandex Compute Cloud образы из Marketplace, их необходимо обновить до безопасной версии самостоятельно.
+
+## 06.12.2022 — CVE-2022-28228 — Out-of-bounds reads in YDB servers {#CVE-2022-28228}
+
+_Обновлено 08.12.2022_
+
+Сообщил об уязвимости: Max Arnold <arnold.maxim@yandex.ru>
+
+CVE ID: CVE-2022-28228
+
+Ссылка на CVE: <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-28228>
+
+### Исходный отчет {#original-report-CVE-2022-28228}
+
+<https://ydb.tech/docs/ru//security-changelog#28-11-2022>
+
+### Краткое описание {#brief-description-CVE-2022-28228}
+
+Злоумышленник может составить специальный запрос, чтобы инициировать ошибку. В сообщение об ошибке могут попасть фрагменты данных другого кластера. Также злоумышленник может вызвать отказ в обслуживании кластера.
+
+### Затронутые технологии {#technologies-affected-CVE-2022-28228}
+
+Yandex Managed Service for YDB в serverless-режиме.
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions-CVE-2022-28228}
+
+Уязвимы все версии до 22.4.44.
+
+В версии 22.4.44 уязвимость устранена.
+
+### Вендор {#vendor-CVE-2022-28228}
+
+Yandex
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations-for-vulnerability-detection-CVE-2022-28228}
+
+<https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-28228>
+
+### Безопасная версия уязвимого продукта или патч {#safe-version-CVE-2022-28228}
+
+Любая версия от 22.4.44 и старше.
+
+### Компенсационные меры для пользователей Yandex Cloud {#compensatory-measures-CVE-2022-28228}
+
+Все работы выполнены сервисом, дополнительные действия не требуются.
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services-CVE-2022-28228}
+
+Уязвимость распространялась только на сервис Yandex Managed Service for YDB в serverless-режиме. На текущий момент уязвимость закрыта: все экземпляры YDB обновлены до безопасной версии.
+
+## 03.11.2022 — CVE-2022-42889 — Text4Shell {#CVE-2022-42889}
+
+CVE ID: CVE-2022-42889
+
+Ссылка на CVE: <https://nvd.nist.gov/vuln/detail/CVE-2022-42889>
+
+### Исходный отчет {#original-report-CVE-2022-42889}
+
+<https://nvd.nist.gov/vuln/detail/CVE-2022-42889>
+
+### Краткое описание {#brief-description-CVE-2022-42889}
+
+Уязвимость обнаружена в нескольких версиях библиотеки Apache Commons Text. Приложения, которые используют параметры интерполяции строк по умолчанию, могут оказаться уязвимыми для удаленного выполнения кода или непредусмотренного взаимодействия с удаленными серверами.
+
+### Затронутые технологии {#technologies-affected-CVE-2022-42889}
+
+Apache Commons Text
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions-CVE-2022-42889}
+
+Уязвимы все версии от 1.5 до 1.9.
+
+В версии 1.10.0 уязвимость устранена.
+
+### Вендор {#vendor-CVE-2022-42889}
+
+Apache Software Foundation
+
+### Вектор атаки и уровень опасности согласно CVSS v.3.0 {#attack-vector-and-severity-level-CVE-2022-42889}
+
+Уровень опасности: 9.8_Critical.
+
+CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H.
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations-for-vulnerability-detection-CVE-2022-42889}
+
+* <https://infosecwriteups.com/text4shell-poc-cve-2022-42889-f6e9df41b3b7>
+* <https://sysdig.com/blog/cve-2022-42889-text4shell/>
+* <https://kyverno.io/policies/other/verify_image_cve-2022-42889/>
+
+### Безопасная версия уязвимого продукта или патч {#safe-version-CVE-2022-42889}
+
+Уязвимость устранена в версии 1.10.0.
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services-CVE-2022-42889}
+
+В сервисах Yandex Cloud, которые используют библиотеку, она обновлена до безопасной версии.
+
+## 01.09.2022 — CVE-2022-2992 — GitLab Critical Security Release: 15.3.2, 15.2.4, 15.1.6 {#CVE-2022-2992}
+
+CVE ID: CVE-2022-2992
+
+Ссылка на CVE: <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-2992>
+
+### Исходный отчет {#original-report-CVE-2022-2992}
+
+<https://about.gitlab.com/releases/2022/08/30/critical-security-release-gitlab-15-3-2-released/>
+
+### Краткое описание {#brief-description-CVE-2022-2992}
+
+Множественные уязвимости. Полный список: <https://about.gitlab.com/releases/2022/08/30/critical-security-release-gitlab-15-3-2-released/>.
+
+### Затронутые технологии {#technologies-affected-CVE-2022-2992}
+
+GitLab
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions-CVE-2022-2992}
+
+Уязвимы все версии GitLab CE/EE до 15.3.2, 15.2.4 и 15.1.6.
+
+В версиях 15.3.2, 15.2.4 и 15.1.6 уязвимость устранена.
+
+### Вендор {#vendor-CVE-2022-2992}
+
+GitLab Inc.
+
+### Вектор атаки и уровень опасности согласно CVSS v.3.0 {#attack-vector-and-severity-level-CVE-2022-2992}
+
+Уровень опасности: 9.9.
+
+AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations-for-vulnerability-detection-CVE-2022-2992}
+
+<https://about.gitlab.com/releases/2022/08/30/critical-security-release-gitlab-15-3-2-released/>
+
+### Безопасная версия уязвимого продукта или патч {#safe-version-CVE-2022-2992}
+
+Уязвимость устранена в версиях 15.3.2, 15.2.4 и 15.1.6.
+
+### Компенсационные меры для пользователей Yandex Cloud {#compensatory-measures-yc-CVE-2022-2992}
+
+<https://about.gitlab.com/releases/2022/08/30/critical-security-release-gitlab-15-3-2-released/>
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services-CVE-2022-2992}
+
+Уязвимость влияет на пользователей сервиса Managed Service for GitLab и образов GitLab из Cloud Marketplace.
+
+Все образы GitLab в Managed Service for GitLab и Cloud Marketplace обновляются до безопасных версий.
+
+## 31.08.2022 — CVE-2020-8561 — Перенаправление запросов сервера Kubernetes API {#CVE-2020-8561}
+
+CVE ID: CVE-2020-8561
+
+Ссылка на CVE: <https://nvd.nist.gov/vuln/detail/CVE-2020-8561>
+
+### Исходный отчет {#original-report-CVE-2020-8561}
+
+<https://groups.google.com/g/kubernetes-security-announce/c/RV2IhwcrQsY>
+
+### Краткое описание {#brief-description-CVE-2020-8561}
+
+В Kubernetes пользователь, который контролирует ответы на запросы `MutatingWebhookConfiguration` или `ValidatingWebhookConfiguration`, может перенаправить запросы `kube-apiserver` в частные сети, к которым подключен сервер API. Если уровень логирования — `10`, то в логи попадают ответы из частной сети.
+
+### Затронутые технологии {#technologies-affected-CVE-2020-8561-CVE-2020-8561}
+
+Kubernetes
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions-CVE-2020-8561}
+
+Все версии Kubernetes.
+
+### Вендор {#vendor-CVE-2020-8561}
+
+Kubernetes
+
+### Вектор атаки и уровень опасности согласно CVSS v.3.0 {#attack-vector-and-severity-level-CVE-2020-8561}
+
+Уровень опасности: 4.1.
+
+AV:N/AC:L/PR:H/UI:N/S:C/C:L/I:N/A:N
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations-for-vulnerability-detection-CVE-2020-8561}
+
+<https://groups.google.com/g/kubernetes-security-announce/c/RV2IhwcrQsY>
+
+### Безопасная версия уязвимого продукта или патч {#safe-version-CVE-2020-8561}
+
+Нет патчей или безопасных версий.
+
+### Компенсационные меры для пользователей Yandex Cloud {#compensatory-measures-CVE-2020-8561}
+
+<https://groups.google.com/g/kubernetes-security-announce/c/RV2IhwcrQsY>
+
+Закройте доступ `kube-apiserver` к ресурсам с чувствительной информацией.
+
+Так же вы можете задать значение меньше `10` для флага `-v` и `false` для флага `--profiling` (значение по умолчанию — `true`). Webhook-запросы смогут перенаправляться в частные сети, но с уровнем логирования меньше `10` тело ответа не попадает в логи. Пользователи не смогут изменить уровень логирования `kube-apiserver`.
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services-CVE-2020-8561}
+
+Влияние отсутствует. API-сервер в Yandex Managed Service for Kubernetes изолирован от сервисного интерфейса. Сервер работает от имени отдельного пользователя, который изолирован локальным межсетевым экраном.
+
+## 25.08.2022 — CVE-2022-2884 — Удаленное выполнение команды через импорт GitHub в GitLab {#CVE-2022-2884}
+
+_Обновлено 01.09.2022_
+
+CVE ID: CVE-2022-2884
+
+Ссылка на CVE: <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-2884>
+
+### Исходный отчет {#original-report-CVE-2022-2884}
+
+<https://about.gitlab.com/releases/2022/08/22/critical-security-release-gitlab-15-3-1-released/>
+
+### Краткое описание {#brief-description-CVE-2022-2884}
+
+Уязвимость в GitLab CE/EE позволяет аутентифицированному пользователю удаленно выполнить код через импорт от эндпоинта API GitHub.
+
+### Затронутые технологии {#technologies-affected-CVE-2022-2884}
+
+GitLab
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions-CVE-2022-2884}
+
+Уязвимы следующие версии GitLab CE/EE:
+* с 11.3.4 до 15.1.5;
+* с 15.2 до 15.2.3;
+* с 15.3 до 15.3.1.
+
+В версиях 15.1.5, 15.2.3 и 15.3.1 уязвимость устранена.
+
+### Вендор {#vendor-CVE-2022-2884}
+
+GitLab Inc.
+
+### Вектор атаки и уровень опасности согласно CVSS v.3.0 {#attack-vector-and-severity-level-CVE-2022-2884}
+
+Уровень опасности: 9.9.
+
+AV:N/AC:L/PR:L/UI:N/S:C/C:H/I:H/A:H.
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations-for-vulnerability-detection-CVE-2022-2884}
+
+<https://about.gitlab.com/releases/2022/08/22/critical-security-release-gitlab-15-3-1-released/>
+
+### Безопасная версия уязвимого продукта или патч {#safe-version-CVE-2022-2884}
+
+Уязвимость устранена в версиях GitLab CE/EE  15.1.5, 15.2.3 и 15.3.1.
+
+### Компенсационные меры для пользователей Yandex Cloud {#compensatory-measures-CVE-2022-2884}
+
+Отключите импорт из GitHub в GitLab:
+1. Войдите в аккаунт администратора вашей инсталляции GitLab.
+1. Нажмите **Menu** → **Admin**.
+1. Нажмите **Settings** → **General**.
+1. Откройте раздел **Visibility and access controls**.
+1. В блоке **Import sources** отключите опцию **GitHub**.
+1. Нажмите **Save changes**.
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services-CVE-2022-2884}
+
+Уязвимость не влияет на пользователей Yandex Cloud. Версии GitLab в Managed Service for GitLab и Cloud Marketplace обновлены до безопасной версии.
+
+## 04.07.2022 — CVE-2022-27228 — Уязвимость модуля «vote» CMS 1С-Битрикс {#CVE-2022-27228}
+
+CVE ID: CVE-2022-27228
+
+Ссылка на CVE: <https://nvd.nist.gov/vuln/detail/CVE-2022-27228>
+
+### Исходный отчет {#original-report-CVE-2022-27228}
+
+<https://bdu.fstec.ru/vul/2022-01141>
+<https://helpdesk.bitrix24.com/open/15536776/>
+
+### Краткое описание {#brief-description-CVE-2022-27228}
+
+Уязвимость модуля «vote» системы управления содержимым сайтов (CMS) 1С-Битрикс: управление сайтом связано с возможностью отправки специально сформированных сетевых пакетов. Эксплуатация уязвимости может позволить нарушителю, действующему удаленно, записать произвольные файлы в уязвимую систему.
+
+### Затронутые технологии {#technologies-affected-CVE-2022-27228}
+
+Bitrix CMS
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions-CVE-2022-27228}
+
+Все версии до 21.0.100.
+
+### Вендор {#vendor-CVE-2022-27228}
+
+1С-Битрикс
+
+### Вектор атаки и уровень опасности согласно CVSS v.3.0 {#attack-vector-and-severity-level-CVE-2022-27228}
+
+Уровень опасности: 9,8
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations-for-vulnerability-detection-CVE-2022-27228}
+
+Запросы к `/bitrix/tools/composite_data.php`, `/bitrix/tools/html_editor_action.php`, `/bitrix/admin/index.php`, `/bitrix/tools/vote/uf.php`.
+
+### Безопасная версия уязвимого продукта или патч {#safe-version-CVE-2022-27228}
+
+Уязвимость устранена в версии 21.0.100 модуля «vote».
+<https://dev.1c-bitrix.ru/docs/versions.php?lang=ru&module=vote>
+
+### Компенсационные меры для пользователей Yandex Cloud {#compensatory-measures-CVE-2022-27228}
+
+Дополнительная валидация входных данных для модуля «vote», в том числе средствами WAF.
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services-CVE-2022-27228}
+
+Влияние на сервисы Yandex Cloud отсутствует.
+
+## 22.06.2022 — CVE-2022-1680 — Захват аккаунта GitLab, критическая уязвимость {#CVE-2022-1680}
+
+CVE ID: CVE-2022-1680
+
+Ссылка на CVE: <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-1680>
+
+### Исходный отчет {#original-report-CVE-2022-1680}
+
+<https://about.gitlab.com/releases/2022/06/01/critical-security-release-gitlab-15-0-1-released/>
+
+### Краткое описание {#brief-description-CVE-2022-1680}
+
+Если для премиум-группы в GitLab используются SAML SSO и SCIM, владелец группы может пригласить произвольного пользователя в группу, заменить через SCIM адрес электронной почты пользователя и таким образом захватить аккаунт пользователя (если не используется двухфакторная аутентификация).
+
+### Затронутые технологии {#technologies-affected-CVE-2022-1680}
+
+Gitlab
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions-CVE-2022-1680}
+
+Уязвимы следующие версии GitLab Enterprise Edition (EE):
+
+* от 11.10 до 14.9.5;
+* от 14.10 до 14.10.4;
+* от 15.0 до 15.0.1.
+
+В версиях 15.0.1, 14.10.4 и 14.9.5 уязвимость устранена.
+
+### Вендор {#vendor-CVE-2022-1680}
+
+GitLab Inc.
+
+### Вектор атаки и уровень опасности согласно CVSS v.3.0 {#attack-vector-and-severity-level-CVE-2022-1680}
+
+Уровень опасности: 9.9
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations-for-vulnerability-detection-CVE-2022-1680}
+
+Если вы используете собственную инсталляцию GitLab, проверьте, включена ли `group_saml` <https://docs.gitlab.com/ee/integration/saml.html#configuring-group-saml-on-a-self-managed-gitlab-instance>.
+
+### Безопасная версия уязвимого продукта или патч {#safe-version-CVE-2022-1680}
+
+Уязвимость устранена в версиях: 15.0.1, 14.10.4 и 14.9.5.
+
+### Компенсационные меры для пользователей Yandex Cloud {#compensatory-measures-CVE-2022-1680}
+
+#### Yandex Compute Cloud {#compute-CVE-2022-1680}
+
+Образы GitLab для Yandex Compute Cloud в Yandex Cloud Marketplace обновлены до безопасной версии.
+
+Пользователи Yandex Compute Cloud, которые используют устаревшие образы GitLab из Yandex Cloud Marketplace или собственные инсталляции устаревших версий, могут быть подвержены уязвимости.
+
+Обновитесь до последней версии.
+
+#### Yandex Managed Service for GitLab {#managed-gitlab-CVE-2022-1680}
+
+Для пользователей Yandex Managed Service for GitLab (находится на стадии preview) версия GitLab обновлена до безопасной.
+
+Дополнительных действий от пользователей не требуется.
+
+## 15.06.2022 — CVE-2021-25748 — Ingress-nginx. Обход фильтрации в path {#CVE-2021-25748}
+
+CVE ID: CVE-2021-25748
+
+Ссылка на CVE: <https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-25748>
+
+### Исходный отчет {#original-report-CVE-2021-25748}
+
+<https://discuss.kubernetes.io/t/security-advisory-cve-2021-25748-ingress-nginx-path-sanitization-can-be-bypassed-with-newline-character/20280>
+
+### Краткое описание {#brief-description-CVE-2021-25748}
+
+Пользователь может обойти фильтрацию в поле `spec.rules[].http.paths[].path` объекта ingress (в группе API networking.k8s.io или extensions), использовав в значении поля символ новой строки, и получить реквизиты доступа контроллера ingress-nginx. В конфигурации по умолчанию с этими реквизитами можно получить доступ ко всем секретам кластера.
+
+### Затронутые технологии {#technologies-affected-CVE-2021-25748}
+
+* Kubernetes
+* Nginx
+
+### Уязвимые продукты и версии {#vulnerable-products-and-versions-CVE-2021-25748}
+
+ingress-nginx < v1.2.1
+
+### Вендор {#vendor-CVE-2021-25748}
+
+NGINX ingress controller
+
+### Вектор атаки и уровень опасности согласно CVSS v.3.0 {#attack-vector-and-severity-level-CVE-2021-25748}
+
+CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:H/I:L/A:L
+
+### Рекомендации по обнаружению уязвимости и дополнительные материалы {#recommendations-for-vulnerability-detection-CVE-2021-25748}
+
+<https://discuss.kubernetes.io/t/security-advisory-cve-2021-25748-ingress-nginx-path-sanitization-can-be-bypassed-with-newline-character/20280>
+
+### Безопасная версия уязвимого продукта или патч {#safe-version-CVE-2021-25748}
+
+ingress-nginx v1.2.1
+
+### Компенсационные меры для пользователей Yandex Cloud {#compensatory-measures-CVE-2021-25748}
+
+Если вы используете контроллер ingress-nginx в Yandex Managed Service for Kubernetes или собственную инсталляцию Kubernetes и не можете обновиться до безопасной версии, используйте политику, которая ограничивает поле `spec.rules[].http.paths[].path` ресурса networking.k8s.io/Ingress только безопасными символами (новые [правила](https://github.com/kubernetes/ingress-nginx/blame/main/internal/ingress/inspector/rules.go) и предлагаемые значения для [annotation-value-word-blocklist](https://kubernetes.github.io/ingress-nginx/user-guide/nginx-configuration/configmap/#annotation-value-word-blocklist)).
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services-CVE-2021-25748}
+
+Влияние на сервисы Yandex Cloud отсутствует, так как в инфраструктуре не используется ingress-nginx. Вместо него используется [alb-ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md).
+
+## 29.04.2022 — CVE-2022-24735 и CVE-2022-24736 — Redis {#cve-2022-24735-24736}
+
+### Описание {#description-CVE-2022-24735-24736}
+
+#### CVE-2022-24735 {#CVE-2022-24735-CVE-2022-24735-24736}
+
+Уязвимость [CVE-2022-24735](https://nvd.nist.gov/vuln/detail/CVE-2022-24735) позволяет эксплуатировать слабости в процессе выполнения Lua-скриптов. Злоумышленник, который имеет доступ к Redis версий до 7.0.0 и 6.2.7, может вставить код на языке Lua, который выполнится с высокими привилегиями другого пользователя.
+
+Подробное описание уязвимости представлено в [статье](https://github.com/redis/redis/security/advisories/GHSA-647m-2wmq-qmvq).
+Описание уязвимости: [CVE-2022-24735](https://nvd.nist.gov/vuln/detail/CVE-2022-24735).
+CVSS рейтинг: [3.9 LOW](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?name=CVE-2022-24735&vector=AV:L/AC:L/PR:L/UI:R/S:U/C:L/I:L/A:N&version=3.1&source=GitHub,%20Inc.).
+
+#### CVE-2022-24736 {#CVE-2022-24736-CVE-2022-24735-24736}
+
+Уязвимость [CVE-2022-24736](https://nvd.nist.gov/vuln/detail/CVE-2022-24736) позволяет злоумышленнику вызвать отказ в обслуживании Redis версий до 7.0.0 и 6.2.7 путем загрузки зловредного Lua-скрипта.
+
+Подробное описание уязвимости представлено в [статье](https://github.com/redis/redis/security/advisories/GHSA-3qpw-7686-5984).
+Описание уязвимости: [CVE-2022-24736](https://nvd.nist.gov/vuln/detail/CVE-2022-24736).
+CVSS рейтинг: [3.3 LOW](https://nvd.nist.gov/vuln-metrics/cvss/v3-calculator?name=CVE-2022-24736&vector=AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:L&version=3.1&source=GitHub,%20Inc.).
+
+### Влияние {#impact-CVE-2022-24735-24736}
+
+#### Общее влияние {#overall-impact-CVE-2022-24735-24736}
+
+Влиянию подвержены все базы данных Redis с версиями до 7.0.0 и 6.2.7.
+
+#### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services-CVE-2022-24735-24736}
+
+В сервисе Yandex Managed Service for Valkey™ используются следующие версии Redis: 5.0, 6.0, 6.2.
+
+В настоящее время принимаются меры по компенсации уязвимости в сервисах Yandex Cloud:
+
+* Для версии 6.2 ведется работа по обновлению до актуальной исправленной версии 6.2.7. Обновление пройдет в штатном режиме согласно настройкам кластера.
+* Для версий 6.0 и 5.0 вендор не выпускал обновлений, пользователям необходимо самостоятельно обновиться до версии 6.2, чтобы получить обновление до версии 6.2.7 в штатном режиме.
+
+### Компенсационные меры {#compensatory-measures-CVE-2022-24735-24736}
+
+Если вы используете Redis версий 6.0 или 5.0 в составе Yandex Managed Service for Valkey™, срочно обновитесь до версии 6.2.
+
+Если вы используете собственную инсталляцию Redis, обновитесь до версии 6.2.7 либо 7.0.0. Если обновление в текущий момент невозможно, используйте [workaround](https://github.com/redis/redis/security/advisories/GHSA-3qpw-7686-5984) от вендора.
+
+## 06.04.2022 — CVE-2022-1162 — GitLab Critical Security Release {#CVE-2022-1162}
+
+### Описание {#description-CVE-2022-1162}
+
+Компания Gitlab опубликовала информацию о наборе уязвимостей в [статье](https://about.gitlab.com/releases/2022/03/31/critical-security-release-gitlab-14-9-2-released/).  
+
+Уязвимость была обнаружена внутри компании и получила идентификатор CVE-2022-1162. Уязвимость затрагивает как GitLab Community Edition (CE), так и Enterprise Edition (EE):
+
+* все версии до 14.7.7 включительно;
+* все версии от 14.8 до 14.8.5 включительно;
+* все версии от 14.9 до 14.9.2 включительно.
+
+Уязвимость связана с тем, что статические пароли были случайно установлены во время регистрации на основе OmniAuth в GitLab CE/EE.
+Это внеочередной релиз, который в том числе является месячным релизом за март.
+
+GitLab подготовил [скрипт](https://about.gitlab.com/releases/2022/03/31/critical-security-release-gitlab-14-9-2-released/#script-to-identify-users-potentially-impacted-by-cve-2022-1162), который может быть использован для идентификации пользовательских аккаунтов, потенциально подверженных CVE-2022-1162.
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services-CVE-2022-1162}
+
+#### Yandex Compute Cloud {#compute-CVE-2022-1162}
+
+Образ GitLab для Yandex Compute Cloud в Yandex Cloud Marketplace был обновлен до актуальной версии.
+
+Уязвимости потенциально подвержены все пользователи Yandex Compute Cloud, которые используют устаревшие образы GitLab из Yandex Cloud Marketplace либо собственные образы устаревших версий. Таким пользователям необходимо выполнить переустановку системы из актуального образа маркетплейс либо обновление версии GitLab до актуальной.
+
+Со стороны Yandex Cloud были отправлены оповещения всем пользователям, которые используют устаревший образ GitLab.
+
+#### Yandex Managed Service for GitLab {#managed-gitlab-CVE-2022-1162}
+
+Для пользователей Yandex Managed Service for GitLab, которые находятся в тестовом режиме в облаке Yandex Cloud, мы уже обновили существующие и будущие инстансы до актуальной версии.
+
+Со стороны Yandex Cloud были отправлены оповещения всем пользователям, которые используют Yandex Managed Service for GitLab.
+
+### Компенсационные меры {#compensatory-measures-CVE-2022-1162}
+
+Уязвимости потенциально подвержены все пользователи, которые используют собственные образы GitLab устаревших версий. Таким пользователям необходимо выполнить обновление версии GitLab до актуальной.
+
+## 18.03.2022 — CVE-2022-0811 — cr8escape {#CVE-2022-0811}
+
+### Описание {#description-CVE-2022-0811}
+
+Исследователи компании CrowdStrike обнаружили уязвимость в контейнерном движке CRI-O, который может использоваться в Kubernetes. Уязвимость позволяет злоумышленнику, который имеет возможность запускать поды, выбраться из контейнера, получить привилегии пользователя root и развить атаку на остальной кластер.
+
+Уязвимость заключается в том, что начиная с версии CRI-O 1.19 можно переопределить системные параметры sysctl и, в частности, использовать kernel.core_pattern для выхода из контейнера.
+
+Ссылка на CVE: [CVE-2022-0811](https://nvd.nist.gov/vuln/detail/CVE-2022-0811).
+
+### Исходный отчет {#original-report-CVE-2022-0811}
+
+<https://www.crowdstrike.com/blog/cr8escape-new-vulnerability-discovered-in-cri-o-container-engine-cve-2022-0811/>
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services-CVE-2022-0811}
+
+Влияние отсутствует, так как в сервисе Managed Service for Kubernetes движок CRI-O недоступен для использования.
+
+### Компенсационные меры {#compensatory-measures-CVE-2022-0811}
+
+Если вы используете Kubernetes не в составе сервиса Managed Service for Kubernetes, а в виде собственной «bare metal» инсталляции:
+
+* обновите CRI-O до версии 1.23.2;
+* если для вашей операционной системы отсутствует патч с обновлением, откатите CRI-O до версии 1.18 или ниже;
+* если в настоящее время вы не можете изменить версию CRI-O:
+
+    1. примените политику, которая блокирует "+" или "=" в значениях sysctl;
+    2. PodSecurityPolicy [forbiddenSysctls](https://kubernetes.io/docs/concepts/policy/pod-security-policy/#sysctl) чтобы заблокировать все sysctl.
+
+## 09.03.2022 — CVE-2022-0847 — Dirty Pipe {#CVE-2022-0847}
+
+Обновлено 17.03.2022
+
+### Описание {#description-CVE-2022-0847}
+
+Исследователь кибербезопасности Макс Келлерман обнаружил уязвимость в Linux, которая позволяет злоумышленнику перезаписывать данные в произвольных файлах, предназначенных только для чтения. Уязвимость назвали Dirty Pipe под кодом CVE-2022-0847. Она актуальна для ядра Linux, начиная с версии 5.8 (2020 год). Уязвимость сохранялась до февраля 2022 года, когда была устранена в версиях 5.16.11, 5.15.25 и 5.10.102.
+
+Отмечается, что по уровню опасности Dirty Pipe находится на одном уровне с Dirty COW (другой опасной уязвимостью, выявленной в 2016 году), но значительно проще в эксплуатации.
+
+Исходный отчёт: [статья](https://arstechnica.com/information-technology/2022/03/linux-has-been-bitten-by-its-most-high-severity-vulnerability-in-years/).
+
+Описание уязвимости: [CVE-2022-0847](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-0847).
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services-CVE-2022-0847}
+
+Уязвимость не влияет на инфраструктуру Yandex Cloud, так как в инфраструктурных сервисах используются версии ядра, отличные от тех, которые подвержены уязвимости.
+
+Однако уязвимости были подвержены несколько образов виртуальных машин из Cloud Marketplace:
+* yc/ubuntu-20-04-lts-gpu
+* yc/ubuntu-20-04-lts-gpu-a100
+
+### Компенсационные меры {#compensatory-measures-CVE-2022-0847}
+
+Образы ВМ, которые подвержены уязвимости, были удалены из Cloud Marketplace. Вместо удаленных образов в Cloud Marketplace размещены актуальные обновленные образы, которые не подвержены уязвимости.
+
+Если вы используете собственный образ ВМ либо устаревший образ из Marketplace, который подвержен уязвимости, выполните обновление согласно официальной документации, например для [Ubuntu](https://ubuntu.com/security/notices/USN-5317-1).
+
+## 28.02.2022 — CVE-2022-0735 (token disclosure), CVE-2022-0549, CVE-2022-0751, CVE-2022-0741, CVE-2021-4191, CVE-2022-0738, CVE-2022-0489 — Множественные уязвимости GitLab {#multiple-GitLab-vulnerabilities}
+
+### Описание {#description-GitLab}
+
+Компания GitLab Inc опубликовала информацию о наборе уязвимостей [в статье](https://about.gitlab.com/releases/2022/02/25/critical-security-release-gitlab-14-8-2-released/).  
+
+#### CVE-2022-0735 {#CVE-2022-0735-GitLab}
+Наиболее критичная уязвимость из набора – [CVE-2022-0735](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-0735) «Runner registration token disclosure through Quick Actions» (Раскрытие регистрационного токена раннера через механизм «Quick Actions»).
+
+Распространяется на следующие версии:
+
+* все версии от 12.10 до 14.6.5 включительно;
+* все версии от 14.7 до 14.7.4 включительно;
+* все версии от 14.8 до 14.8.2 включительно.
+
+Остальные уязвимости из набора менее опасны.
+
+#### CVE-2022-0549 {#CVE-2022-0549-GitLab}
+
+CVE-2022-0549 «Unprivileged users can add other users to groups through an API endpoint» имеет средний уровень критичности.
+
+Распространяется на следующие версии:
+
+* все версии от 14.4 до 14.4.4 включительно;
+* все версии от 14.5 до 14.5.2 включительно.
+
+#### CVE-2022-0751 {#CVE-2022-0751-GitLab}
+
+CVE-2022-0751 «Inaccurate display of Snippet contents can be potentially misleading to users» имеет средний уровень критичности.
+
+#### CVE-2022-0741 {#CVE-2022-0741-GitLab}
+
+CVE-2022-0741 «Environment variables can be leaked via the sendmail delivery method» имеет средний уровень критичности.
+
+#### CVE-2021-4191 {#CVE-2021-4191-GitLab}
+
+CVE-2021-4191 «Unauthenticated user enumeration on GraphQL API» имеет средний уровень критичности и распространяется на все версии от 14.4 до 14.8 включительно.
+
+#### CVE-2022-0738 {#CVE-2022-0738-GitLab}
+
+CVE-2022-0738 «Adding a pull mirror with SSH credentials can leak password» имеет средний уровень критичности.
+
+Распространяется на следующие версии:
+
+* все версии от 14.6 до 14.6.5 включительно;
+* все версии от 14.7 до 14.7.4 включительно;
+* все версии от 14.8 до 14.8.2 включительно.
+
+#### CVE-2022-0489 {#CVE-2022-0489-GitLab}
+
+CVE-2022-0489 «Denial of Service via user comments» имеет низкий уровень критичности и распространяется на все версии от 8.15.
+
+Ссылки на CVE:
+
+* [CVE-2022-0735](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-0735)
+* [CVE-2022-0549](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-0549)
+* [CVE-2022-0751](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-0751)
+* [CVE-2022-0741](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-0741)
+* [CVE-2021-4191](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-4191)
+* [CVE-2022-0738](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-0738)
+* [CVE-2022-0489](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2022-0489)
+
+#### Исходный отчет {#original-report-GitLab}
+
+Подробное описание уязвимости представлено в [исходном отчёте GitLab](https://about.gitlab.com/releases/2022/02/25/critical-security-release-gitlab-14-8-2-released/).
+
+### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services-GitLab}
+
+#### Yandex Compute Cloud {#compute-GitLab}
+
+Образ GitLab для Yandex Compute Cloud в Yandex Cloud Marketplace был обновлен до актуальной версии.
+
+Уязвимости потенциально подвержены все пользователи Yandex Compute Cloud, которые использовали образы GitLab из Cloud Marketplace либо собственные образы. Таким пользователям необходимо выполнить переустановку системы из актуального образа Cloud Marketplace либо обновление версии GitLab до актуальной согласно [официальной инструкции](https://about.gitlab.com/releases/2022/02/25/critical-security-release-gitlab-14-8-2-released/). 
+Если в настоящее время вы не можете выполнить обновление версии GitLab, примените компенсационные меры.
+
+Всем пользователям, которые используют устаревший образ GitLab из Cloud Marketplace, отправлены оповещения с рекомендациями по обновлению.
+
+#### Yandex Managed Service for GitLab {#managed-gitlab-GitLab}
+
+Для пользователей сервиса Managed Service for GitLab, который находится в тестовом режиме в Yandex Cloud, мы уже обновили существующие и будущие инстансы до актуальной версии.
+
+Всем пользователям, которые используют Yandex Managed Service for GitLab, отправлены оповещения.
+
+### Компенсационные меры {#compensatory-measures-GitLab}
+
+Если в настоящее время вы не можете выполнить обновление, то возможно временно закрыть уязвимость с помощью [hotpatch](https://about.gitlab.com/releases/2022/02/25/critical-security-release-gitlab-14-8-2-released/#hotpatch-for-runner-registration-token-disclosure-through-quick-actions).
+
+## 28.01.2022 — CVE-2022-0185 — Heap overflow bug in legacy_parse_param {#CVE-2022-0185}
+
+### Описание {#description-CVE-2022-0185}
+
+Уязвимость [CVE-2022-0185](https://ubuntu.com/security/CVE-2022-0185) содержится в версиях ядра Linux, начиная с 5.1-rc1, в системе контекста файловой системы. Злоумышленник может использовать уязвимость, чтобы вызвать отказ в обслуживании (сбой системы), выполнить произвольный код и выйти за пределы контейнера.
+
+Подробное описание уязвимости представлено в [статье](https://sysdig.com/blog/cve-2022-0185-container-escape/).
+
+Описание уязвимости [CVE-2022-0185](https://ubuntu.com/security/CVE-2022-0185).
+
+CVSS рейтинг: 7.8.
+
+### Влияние {#impact-CVE-2022-0185}
+
+#### Общее влияние {#overall-impact-CVE-2022-0185}
+
+Влиянию подвержены Linux Kernel-системы по всему миру, начиная с версии ядра 5.1-rc1 до версии 5.16.
+
+#### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services-CVE-2022-0185}
+
+Со стороны облака были выполнены обновления в сервисах Yandex Cloud:
+
+* Yandex Cloud Marketplace;
+* во внутренней инфраструктуре Yandex Cloud.
+
+Готовим обновления в сервисе Yandex Managed Service for Kubernetes.
+
+### Компенсационные меры {#compensatory-measures-CVE-2022-0185}
+
+Если вы используете облачную группы узлов в сервисе Yandex Managed Service for Kubernetes, дождитесь официального обновления со стороны сервиса и примените его. Либо самостоятельно выполните [обновление ОС](https://ubuntu.com/security/notices/USN-5240-1).
+
+Также существуют компенсирующие меры:
+
+* Используйте подготовленный для данной уязвимости [daemonset fix](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/cve-quickfix/CVE-2022-0185) из Yc-solution-library-for-security, который устанавливает настройки в соответствии с рекомендациями Ubuntu.
+* Используйте официальные советы по обновлению либо по компенсации уязвимости для вашего дистрибутива Linux, например для Ubuntu установите параметр: `sysctl -w kernel.unprivileged_userns_clone=0`.
+* Используйте seccomp в Kubernetes согласно [статье](https://kubernetes.io/docs/tutorials/security/seccomp/).
+* Не назначайте избыточных capabilities и используйте [раздел по безопасности k8s](../domains/kubernetes.md#secure-config-1) из нашего чек-листа для контроля за ними.
+
+## 28.01.2022 — CVE-2021-4034 – Polkit's pkexec {#cve-2021-4034}
+
+### Описание {#description-CVE-2021-4034}
+
+Уязвимость [CVE-2021-4034](https://ubuntu.com/security/notices/USN-5252-1) содержится во всех версиях Unix-подобных ОС. Инструмент PolicyKit pkexec неправильно обрабатывает аргументы командной строки. Злоумышленник может использовать это поведение pkexec для повышения привилегий до уровня администратора.
+
+Подробное описание уязвимости представлено в [статье](https://www.openwall.com/lists/oss-security/2022/01/25/11).
+
+Описание уязвимости [CVE-2021-4034](https://ubuntu.com/security/notices/USN-5252-1).
+
+CVSS рейтинг: 7.8.
+
+### Влияние {#impact-CVE-2021-4034}
+
+#### Общее влияние {#overall-impact-CVE-2021-4034}
+
+Влиянию подвержены все Unix-подобные ОС, использующие policykit-1 (0.105) версий ниже, чем указаны в статье, например для [Ubuntu](https://ubuntu.com/security/notices/USN-5252-1).
+
+#### Влияние на сервисы Yandex Cloud {#impact-on-yandex-cloud-services-CVE-2021-4034}
+
+Со стороны облака были выполнены обновления в сервисах Yandex Cloud:
+
+* Yandex Cloud Marketplace;
+* во внутренней инфраструктуре Yandex Cloud.
+
+Готовим обновления в сервисе Yandex Managed Service for Kubernetes.
+
+### Компенсационные меры {#compensatory-measures-CVE-2021-4034}
+
+Если вы используете облачную группу узлов в сервисе Yandex Managed Service for Kubernetes, дождитесь официального обновления со стороны сервиса и примените его. Либо самостоятельно выполните [обновление ОС](https://ubuntu.com/security/notices/USN-5252-1).
+
+Также существуют компенсирующие меры:
+
+* Используйте подготовленный для данной уязвимости [daemonset fix](https://github.com/yandex-cloud/yc-solution-library-for-security/tree/master/kubernetes-security/cve-quickfix/CVE-2021-4034) из Yc-solution-library-for-security, который устанавливает настройки в соответствии с рекомендациями Ubuntu.
+
+* Для образов из Yandex Cloud Marketplace либо собственных образов в Yandex Compute Cloud используйте официальные советы по обновлению либо по компенсации уязвимости, например для Ubuntu установите права доступа: `chmod 0755 /usr/bin/pkexec`.
+
+## 29.12.2021 — CVE-2021-45105, CVE-2021-44832 — Отказ в обслуживании и удаленное выполнение кода (Log4j) {#CVE-2021-45105-CVE-2021-44832}
+
+### Описание
+
+Уязвимость CVE-2021-45105 содержится в библиотеке Apache Log4j, в версиях от 2.0-alpha до 2.16.0 включительно, исключая версию 2.12.3. Версии не защищены от неконтролируемой рекурсии из самореференциальных запросов, эксплуатация уязвимости может привести к ошибке StackOverflowError и отказу в обслуживании (DoS).
+
+Уязвимость CVE-2021-44832 содержится в библиотеке Apache Log4j, в версиях от 2.0-beta7до 2.17.0 включительно, исключая fix releases 2.3.2 and 2.12.4. Версии уязвимы к выполнению удаленных команд (RCE) для злоумышленника с правами на изменение файла конфигурации логирования.
+
+Исходный отчёт от [logging.apache.org](https://logging.apache.org/log4j/2.x/security.html). 
+
+Описание уязвимостей [CVE-2021-45105](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45105), [CVE-2021-44832](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44832).
+
+CVSS рейтинг:
+* CVE-2021-45105 5.9 (AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H)
+* CVE-2021-44832 6.6 (AV:N/AC:H/PR:H/UI:N/S:U/C:H/I:H/A:H)
+
+### Влияние
+
+#### Общее влияние
+
+Библиотека Log4j включена в почти все enterprise-решения Apache Software Foundation, такие как: Apache Struts, Apache Flink, Apache Druid, Apache Flume, Apache Solr, Apache Flink, Apache Kafka, Apache Dubbo и т.д.
+
+С полным списком ПО, подверженного уязвимости, можно ознакомиться на следующих ресурсах:
+* https://github.com/NCSC-NL/log4shell/tree/main/software
+* https://gist.github.com/SwitHak/b66db3a06c2955a9cb71a8718970c592
+
+#### Влияние на сервисы Yandex Cloud
+
+Версии библиотеки, подверженные уязвимости, не используются в сервисах Yandex Cloud.
+
+### Компенсационные меры
+
+Если в вашей инфраструктуре используется данная библиотека или продукты, которые упомянуты в разделе «Общее влияние», выполните следующие действия.
+
+#### Log4j 1.x
+
+Log4j 1.x не подвержена уязвимости.
+
+#### Log4j 2.x
+
+* Java 6 – обновите Log4j до версии 2.3.2.
+* Java 7 – обновите Log4j до версии 2.12.4.
+* Java 8 (или старше) – обновите Log4j до версии 2.17.1.
+* Если в настоящее время вы не можете выполнить обновление библиотеки, убедитесь, что JDBC Appender использует только протокол Java. 
+
+Обратите внимание, что этой уязвимости подвержен только файл JAR log4j-core. Приложения, использующие только файл JAR log4j-api без файла JAR log4j-core, не подвержены этой уязвимости.
+
+Также обратите внимание, что Apache Log4j - единственный подпроект Logging Services, подверженный этой уязвимости. На другие проекты, такие как Log4net и Log4cxx, эта уязвимость не влияет. 
+
+Источник: https://logging.apache.org/log4j/2.x/security.html
+
+Дополнительные утилиты для проверки присутствия уязвимости log4j в вашей инфраструктуре: 
+* https://github.com/google/log4jscanner
+* https://github.com/bi-zone/Log4j_Detector
+
+## 17.12.2021 — CVE-2021-45046 – Удаленное выполнение кода (Log4j) {#CVE-2021-45046}
+
+### Описание
+
+Уязвимость [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046) содержится в библиотеке Apache Log4j, в версиях от 2.0-beta9 до 2.15.0 включительно, исключая версию 2.12.2.
+
+Было обнаружено, что исправление для уязвимости [CVE-2021-44228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228) в Apache Log4j 2.15.0 было недостаточным для некоторых нестандартных конфигураций. Уязвимость позволяет злоумышленникам создание вредоносных входных данных с использованием шаблона поиска JNDI, что может приводить к утечке данных, удаленному и локальному выполнению кода. 
+
+Подробное описание эксплойта и поведения представлено в [материале Lunasec](https://www.lunasec.io/docs/blog/log4j-zero-day-update-on-cve-2021-45046/). 
+
+Исходный отчёт от [logging.apache.org](https://logging.apache.org/log4j/2.x/security.html). 
+
+Описание уязвимости [CVE-2021-45046](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-45046). 
+
+CVSSv3.1 рейтинг: 9.0 (AV:N/AC:H/PR:N/UI:N/S:C/C:H/I:H/A:H) 
+
+### Влияние
+
+#### Общее влияние
+
+Библиотека Log4j включена в почти все enterprise-решения Apache Software Foundation, такие как: Apache Struts, Apache Flink, Apache Druid, Apache Flume, Apache Solr, Apache Flink, Apache Kafka, Apache Dubbo и т.д. 
+
+С полным списком ПО, подверженного уязвимости, можно ознакомиться на следующих ресурсах:
+* https://github.com/NCSC-NL/log4shell/tree/main/software
+* https://gist.github.com/SwitHak/b66db3a06c2955a9cb71a8718970c592
+
+#### Влияние на сервисы Yandex Cloud
+
+Сервисы, которые использовали библиотеку Yandex Managed Service for Elasticsearch, Yandex Data Processing, а также ряд базовых сервисов платформы были успешно обновлены.
+
+Со стороны Yandex Cloud была собрана информация о пользователях, которые использовали подобные сервисы. Им были отправлены оповещения.
+
+### Компенсационные меры
+
+Если в вашей инфраструктуре используется данная библиотека или продукты, которые упомянуты в разделе «Общее влияние», выполните следующие действия.
+
+#### Log4j 1.x
+
+Log4j 1.x не подвержена уязвимости.
+
+#### Log4j 2.x
+
+* Java 8 (или старше) – обновите Log4j до версии 2.16.0.
+* Java 7 – обновите Log4j до версии 2.12.2.
+* Если в настоящее время вы не можете выполнить обновление библиотеки, удалите класс `JndiLookup` из classpath `zip -q -d log4j-core-*.jar org/apache/logging/log4j/core/lookup/JndiLookup.class`.
+
+Рекомендуется не включать JNDI в Log4j 2.16.0. Если вам требуется JMS Appender, используйте Log4j 2.12.2. 
+
+Обратите внимание, что уязвимости подвержен только файл `log4j-core JAR`. Приложения, которые используют файл `log4j-api JAR` без файла `log4j-core JAR`, не подвережны уязвимости.
+
+Источник: https://logging.apache.org/log4j/2.x/security.html
+
+## 10.12.2021 — CVE-2021-44228 – Удаленное выполнение кода (Log4Shell, Apache Log4j) {#CVE-2021-44228}
+
+Обновлено 22.12.2021
+
+### Описание
+
+Уязвимость [CVE-2021-44228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228) содержится в библиотеке Apache Log4j, в версиях от 2.14.1 и ниже.
+
+Был обнаружен эксплойт нулевого дня, который приводит к удаленному выполнению кода (RCE) путем записи в журнал определенной строки.
+
+Злоумышленник, который может управлять сообщениями журнала или параметрами сообщений журнала, может выполнить произвольный код, загруженный с серверов LDAP, когда включена функция `message lookup substitution`. Начиная с версии log4j 2.15.0, это поведение отключено по умолчанию.
+
+Подробное описание эксплойта и поведения представлено в [материале Lunasec](https://www.lunasec.io/docs/blog/log4j-zero-day/).
+
+Исходный отчёт от logging.apache.org: [Fixed in Log4j 2.15.0](https://logging.apache.org/log4j/2.x/security.html).
+
+Описание уязвимости: [CVE-2021-44228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228).
+
+CVSSv3.1 рейтинг: 10.0 (AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H/E:P/RL:O/RC:C)
+
+Подробнее: https://www.securitylab.ru/vulnerability/527362.php 
+
+### Влияние
+
+#### Общее влияние
+
+1. Библиотека Log4j включена в почти все enterprise-решения Apache Software Foundation, такие как: Apache Struts, Apache Flink, Apache Druid, Apache Flume, Apache Solr, Apache Flink, Apache Kafka, Apache Dubbo и т.д. 
+
+1. Уязвимость влияет на такие open-source продукты, как ElasticSearch, Elastic Logstash, the NSA’s Ghidra и т.д.
+
+1. Продукты Hystax подвержены уязвимости, так как используют уязвимую версию Elasticsearch Logstash.
+Hystax работает над выпуском новых версий продуктов, в которых будет устранена уязвимость.
+
+#### Влияние на сервисы Yandex Cloud
+
+Сервисы, которые использовали библиотеку Yandex Managed Service for Elasticsearch, Yandex Data Processing, а также ряд базовых сервисов платформы были успешно обновлены.
+
+Со стороны Yandex Cloud была собрана информация о пользователях, которые использовали подобные сервисы. Им были отправлены оповещения.
+
+### Компенсационные меры
+
+Если в вашей инфраструктуре используется данная библиотека или продукты, которые упомянуты в разделе «Общее влияние», выполните следующие действия.
+
+#### Log4j 1.x 
+
+Log4j 1.x не поддерживает [Lookups](https://logging.apache.org/log4j/2.x/manual/lookups.html), поэтому в целом риск эксплуатации уязвимости для приложений, которые используют Log4j 1.x, низкий. 
+
+Приложения, которые используют Log4j 1.x, подвержены данной уязвимости только в случае, если используют [JNDI](https://logging.apache.org/log4j/2.x/manual/lookups.html#JndiLookup). В этом случае убедитесь, что в вашей конфигурации не используется `JMSAppender`. 
+
+#### Log4j 2.x 
+
+* Java 8 (или старше) – обновите Log4j до версии 2.16.0.
+* Java 7 – обновите Log4j до версии 2.12.2, как только эта версия станет доступна.
+* Если в настоящее время вы не можете выполнить обновление библиотеки, удалите класс `JndiLookup` из classpath `zip -q -d log4j-core-*.jar org/apache/logging/log4j/core/lookup/JndiLookup.class`.
+
+Обратите внимание, что уязвимости подвержен только файл `log4j-core JAR`. Приложения, которые используют файл `log4j-api JAR` без файла `log4j-core JAR`, не подвережны уязвимости.
+
+Источник: https://logging.apache.org/log4j/2.x/security.html
+
+#### Hystax 
+
+Hystax Acura Controller: для UDP-порта 12201 в направлении ingress разрешите трафик только для списка IP-адресов источника, которые принадлежат агентам репликации.
+
+Если в вашей инфраструктуре Hystax Acura Controller установлен за балансировщиком нагрузки, примените указанное выше правило фаервола на соответствующий балансировщик.
+
+## 12.11.2021 — CVE-2021-22205 — удаленное выполнение кода через уязвимость в GitLab {#CVE-2021-22205}
+
+### Описание
+
+В GitLab версии 11.9 и выше обнаружена [уязвимость](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-22205), которая позволяет удаленно выполнять произвольные команды. Атака может быть проведена через отправку двух запросов, не требующих прохождения аутентификации.
+
+Уязвимость вызвана некорректной обработкой загружаемых изображений внешним парсером на базе библиотеки ExifTool ([CVE-2021-22204](https://security-tracker.debian.org/tracker/CVE-2021-22204)). 
+
+Проблема была устранена в версиях GitLab 13.10.3, 13.9.6 и 13.8.8.
+
+### Влияние на сервисы Yandex Cloud
+
+Образ GitLab в Yandex Cloud Marketplace обновлен до актуальной версии.
+
+Всем пользователям, которые используют устаревший образ GitLab, отправлены оповещения с рекомендациями по обновлению.
+
+Пользователи сервиса Yandex Managed Service for GitLab не были подвержены уязвимости, т.к. в рамках сервиса используется актуальная версия GitLab.
+
+### Компенсационные меры
+
+Если вы используете устаревший образ GitLab из Yandex Cloud Marketplace, либо собственный образ, [обновите](https://about.gitlab.com/update) его до актуальной версии. Если по каким-то причинам вы не можете обновить версию GitLab, используйте [hotpatch](https://forum.gitlab.com/t/cve-2021-22205-how-to-determine-if-a-self-managed-instance-has-been-impacted/60918#hotpatch-2).
+
+### Дополнительная информация
+
+* [Action needed by self-managed customers in response to CVE-2021-22205](https://about.gitlab.com/blog/2021/11/04/action-needed-in-response-to-cve2021-22205/)
+* [GitLab CE CVE-2021-22205 in the wild](https://security.humanativaspa.it/gitlab-ce-cve-2021-22205-in-the-wild/)
+
+## 12.10.2021 – CVE-2021-25741 – Возможность получить доступ к файловой системе хоста {#CVE-2021-25741}
+
+### Описание
+
+В Kubernetes обнаружена [уязвимость](https://github.com/kubernetes/kubernetes/issues/104980), которая позволяет получить несанкционированный доступ к файловой системе ноды при авторизации пользователя в кластере.
+
+### Влияние на сервисы Yandex Cloud
+
+Yandex Managed Service for Kubernetes не поддерживает анонимный доступ в кластер и не подвержен уязвимости со стороны внешнего нарушителя.
+
+### Компенсационные меры
+
+Для устранения вектора атак со стороны внутреннего нарушителя обновите все существующие кластеры и группы узлов в сервисе до версии 1.19 или выше. Если ваши кластеры и группы узлов уже обновлены до версии 1.19 или выше, обновите ревизии. Обновление, которое закрывает уязвимости, доступно во всех релизных каналах.
+
+Также рекомендуем:
+
+* Автоматически обновлять кластеры и группы узлов до последних версий или ревизий.
+* Планировать ручные обновления хотя бы раз в месяц, если вы не можете применять автоматические обновления.
+* Запретить запускать поды от имени пользователя root для недоверенных загрузок.
+
+Для этого можно использовать следующие инструменты:
+* [OPA Gatekeeper](https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/pod-security-policy/users)
+* [Kyverno](https://kyverno.io/policies/pod-security/restricted/require-run-as-nonroot/require-run-as-nonroot/)
+
+### Дополнительная информация
+
+Чеклист для безопасной конфигурации Kubernetes доступен [по ссылке](../domains/index.md#kubernetes-security).
+
+## 03.03.2021 — CVE-2021-21309 — удаленное выполнение кода через уязвимость в Redis
+
+### Описание
+
+В 32-битной версии Redis версии 4.0 и выше обнаружена уязвимость типа integer overflow, которая при определенных условиях может привести к удаленному выполнению кода.
+
+### Влияние на сервисы Yandex Cloud
+
+Yandex Managed Service for Valkey™ использует 64-битную версию Redis и не подвержен уязвимости.
+
+## 26.01.2021 — CVE-2021-3156 — повышение привилегий через уязвимости в sudo.
+
+### Описание
+
+В приложении `sudo` был найден ряд уязвимостей [CVE-2021-3156](https://nvd.nist.gov/vuln/detail/CVE-2021-3156), которые позволяют непривилегированному пользователю системы повысить свои привилегии до пользователя `root`.
+
+### Влияние на сервисы Yandex Cloud
+
+Были обновлены следующие образы операционных систем Linux:
+* все образы от издателя Yandex Cloud, доступные в Cloud Marketplace;
+* образ Container Optimized Image;
+* образ, который используется для создания узлов в сервисе Managed Service for Kubernetes;
+* образы, которые используются для создания кластеров управляемых баз данных;
+* образ, который используется для создания кластеров Yandex Data Processing.
+
+### Дополнительная информация
+
+* [Buffer overflow in command line unescaping](https://www.sudo.ws/alerts/unescape_overflow.html)
+* [CVE-2021-3156: Heap-Based Buffer Overflow in Sudo (Baron Samedit)](https://blog.qualys.com/vulnerabilities-research/2021/01/26/cve-2021-3156-heap-based-buffer-overflow-in-sudo-baron-samedit)
+
+## 24.12.2020 — CVE-2020-25695 — повышение привилегий в PostgreSQL
+
+### Описание
+
+В системе управления базами данных PostgreSQL была обнаружена уязвимость [CVE-2020-25695](https://nvd.nist.gov/vuln/detail/CVE-2020-25695), которая позволяет непривилегированному пользователю, при наличии у него прав на создание не временных объектов, выполнять произвольные SQL запросы от имени суперпользователя.
+
+### Влияние на сервисы Yandex Cloud
+
+Все системы управления базами данных PostgreSQL, используемые в рамках сервиса Yandex Managed Service for PostgreSQL, были [обновлены](https://www.postgresql.org/about/news/postgresql-131-125-1110-1015-9620-and-9524-released-2111/).
+
+## 19.11.2020 — Отказ от устаревших TLS протоколов {#discontinue-support-for-deprecated-tls}
+
+### Описание
+
+Чтобы повысить безопасность передачи данных, Yandex Cloud рекомендует всем пользователям перейти на использование технологий, которые обеспечивают шифрование по протоколу [TLS 1.2](https://tools.ietf.org/html/rfc5246) и выше.
+
+### Влияние на сервисы Yandex Cloud
+
+Все сервисы Yandex Cloud поддерживают TLS 1.2 и выше. Поддержка устаревших протоколов будет постепенно прекращена. Рекомендуем заранее переключить существующие приложения на использование актуальных версий TLS. 
+ 
+## 20.09.2020 — CVE-2020-1472 (aka Zerologon)
+
+### Описание
+
+Уязвимость в Windows Netlogon Remote Protocol позволяет неаутентифицированному атакующему с сетевым доступом к контроллеру домена скомпрометировать все службы идентификации Active Directory.
+
+Исходный отчёт Secura: [Zerologon](https://www.secura.com/whitepapers/zerologon-whitepaper).
+
+Описание уязвимости, составленное Microsoft: [CVE-2020-1472](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/CVE-2020-1472).
+
+Руководство по управлению изменениями от Microsoft: [Управление изменениями в подключениях безопасного канала Netlogon, связанными с CVE-2020-1472](https://support.microsoft.com/ru-ru/help/4557222/how-to-manage-the-changes-in-netlogon-secure-channel-connections-assoc).
+
+### Влияние на сервисы Yandex Cloud
+
+Образы операционных систем, доступные пользователям Yandex Compute Cloud, уже содержат обновления, устраняющие уязвимость. Все [виртуальные машины](../../glossary/vm.md), созданные в Yandex Compute Cloud после выхода этого сообщения, защищены от описанной атаки.
+
+### Компенсационные меры
+
+В дополнение к обновлениям, для ограничения доступа к контроллеру домена из недоверенных сетей используйте следующие системы контроля доступа к сети:
+* Windows Firewall или группы безопасности;
+* перемещение контроллера домена за NAT-gateway.
+
+## 15.06.2020 — Special Register Buffer Data Sampling Attack (aka CrossTalk)
+
+### Описание
+
+Для некоторых моделей процессоров Intel компания VUSec [обнаружила новую атаку](https://www.vusec.net/projects/crosstalk/) под названием Special Register Buffer Data Sampling Attack (или CrossTalk). Данная атака позволяет злонамеренному процессу получить результаты, возвращаемые инструкциями RDRAND и RDSEED из другого процесса, при этом злонамеренный и легитимный процессы могут выполняться на разных физических ядрах процессора. Атаке присвоен номер [CVE-2020-0543](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2020-0543).
+
+Отчет от Intel: [Deep Dive: Special Register Buffer Data Sampling](https://software.intel.com/security-software-guidance/insights/deep-dive-special-register-buffer-data-sampling).
+
+
+### Влияние на сервисы Yandex Cloud
+
+Модели процессоров, используемые в Yandex Cloud, **не подвержены атаке** CrossTalk.
+
+
+## 28.08.2019 — TCP SACK
+
+
+### Описание
+Специалисты Netflix обнаружили три уязвимости в ядре Linux:
+* [CVE-2019-11477](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11477)
+* [CVE-2019-11478](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11478)
+* [CVE-2019-11479](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2019-11479)
+
+Оригинальный отчёт от Netflix: [NFLX-2019-001](https://github.com/Netflix/security-bulletins/blob/master/advisories/third-party/2019-001.md).
+
+Разбор уязвимости от Red Hat: [TCP SACK PANIC](https://access.redhat.com/security/vulnerabilities/tcpsack).
+
+
+### Влияние на сервисы Yandex Cloud
+* Инфраструктура Yandex Cloud была оперативно защищена и обновлена.
+* Образы операционных систем, доступные пользователям Yandex Compute Cloud, были обновлены как только появились соответствующие исправления. Таким образом, новые виртуальные машины, создаваемые в Yandex Compute Cloud, не подвержены указанным уязвимостям.
+
+
+## 19.08.2019 — Несколько доменов Yandex Object Storage внесены в Public Suffix List
+
+
+### Описание
+
+Список доменов, внесенных в Public Suffix List:
+* yandexcloud.net
+* storage.yandexcloud.net
+* website.yandexcloud.net
+
+Домены из списка Public Suffix List получают свойства доменов верхнего уровня, как, например, домены .ru или .com:
+* Браузеры не будут сохранять cookie, установленные на перечисленные домены.
+* Браузеры не позволят поменять заголовок запроса `Origin` страницы на корневые домены.
+
+### Влияние на сервисы Yandex Cloud
+
+Данные изменения позволят повысить безопасность пользователей Yandex Cloud.

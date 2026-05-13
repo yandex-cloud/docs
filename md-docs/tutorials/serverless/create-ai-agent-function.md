@@ -1,0 +1,1038 @@
+# Создание AI-агента с помощью функции Yandex Cloud Functions
+
+Узнайте, как с помощью [функции](../../functions/concepts/function.md) Cloud Functions с использованием [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) создать [AI-агента](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf) — персонализированного помощника, реализующего сценарий генеративного ответа на основе [моделей генерации текста](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models) Yandex AI Studio.
+
+В данном руководстве вы создадите простого AI-агента, который через функцию Cloud Functions будет получать информацию о погоде, взаимодействовать с [языковой моделью](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models) Yandex AI Studio и, чтобы было интереснее, отвечать пользователю в форме [хайку](https://ru.wikipedia.org/wiki/Хайку).
+
+![create-ai-agent-function](../../_assets/tutorials/create-ai-agent-function.svg)
+
+На схеме:
+
+1. Пользователь отправляет запрос к AI-агенту. Запрос поступает в обработчик функции Cloud Functions.
+1. Обработчик функции Cloud Functions создает и запускает AI-агента.
+1. AI-агент запрашивает дополнительные данные о погоде в нужном городе в пользовательской функции `get_weather()`.
+1. AI-агент отправляет расширенный дополнительным контекстом запрос пользователя в модель генерации текста AI Studio.
+1. [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) с помощью [API-ключа](../../iam/concepts/authorization/api-key.md) авторизует для AI-агента доступ к [Text Generation API](https://aistudio.yandex.ru/docs/ru/ai-studio/text-generation/api-ref/index) AI Studio.
+1. Сервисный аккаунт предоставляет функции Cloud Functions доступ к секрету [Yandex Lockbox](../../lockbox/index.md), в котором хранится API-ключ сервисного аккаунта.
+1. Функция Cloud Functions получает из секрета Yandex Lockbox API-ключ сервисного аккаунта.
+1. Модель AI Studio передает AI-агенту сгенерированный ответ.
+1. AI-агент возвращает полученный ответ пользователю.
+
+Созданный в этом руководстве AI-агент будет развернут в Yandex Cloud с помощью Yandex Cloud Functions. При этом вы создадите необходимые для доступа к модели AI Studio ресурсы: [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), [API-ключ](../../iam/concepts/authorization/api-key.md) сервисного аккаунта, [секрет](../../lockbox/concepts/secret.md) Yandex Lockbox и [функцию](../../functions/concepts/function.md) Cloud Functions.
+
+Вы можете создать эти ресурсы [автоматически](#automatic-setup) или [вручную](#manual-setup).
+
+## Что такое AI-агент и зачем он нужен {#ai-agent-definition}
+
+AI-агент — это программный помощник на базе искусственного интеллекта, который может выполнять инструкции, отвечать на вопросы и взаимодействовать с пользователями или другими системами в заданном контексте. В отличие от обычных моделей генеративного искусственного интеллекта, AI-агенты могут:
+
+* обладать персонализированными инструкциями и «личностью»;
+* использовать внешние источники информации и сторонние инструменты, позволяющие получить дополнительную информацию;
+* поддерживать контекст диалога;
+* выполнять последовательности действий для решения комплексных задач.
+
+### Почему бессерверные функции подходят для работы с AI-агентами {#why-serverless}
+
+Функции Cloud Functions при развертывании AI-агентов предоставляют несколько преимуществ:
+
+* Масштабируемость — автоматическое масштабирование в зависимости от нагрузки.
+* Экономичность — плата только за фактическое время выполнения.
+* Отсутствие необходимости управлять инфраструктурой — не нужно настраивать и поддерживать серверы.
+* Быстрое развертывание — простота создания и обновления AI-агента.
+* Интеграция с другими сервисами — простота подключения к API и другим сервисам Yandex Cloud.
+
+
+## Подготовьте облако к работе {#before-begin}
+
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+
+[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+
+### Необходимые платные ресурсы {#paid-resources}
+
+В стоимость поддержки инфраструктуры для этого практического руководства входят:
+* Плата за использование функции (см. [тарифы Yandex Cloud Functions](../../functions/pricing.md)).
+* Плата за генерацию текста (см. [тарифы Yandex AI Studio](https://aistudio.yandex.ru/docs/ru/ai-studio/pricing)).
+* Плата за хранение секрета и операции с ним (см. [тарифы Yandex Lockbox](../../lockbox/pricing.md)).
+* Плата за запись и хранение данных в [лог-группе](../../logging/concepts/log-group.md) (см. [тарифы Yandex Cloud Logging](../../logging/pricing.md)), если вы используете сервис [Cloud Logging](../../logging/index.md).
+
+## Автоматизированное развертывание AI-агента с использованием SourceCraft CI/CD {#automatic-sourcecraft-setup}
+
+Запустите в [SourceCraft](https://sourcecraft.dev/portal/docs/ru/) CI/CD-процесс, который автоматически создаст в выбранном вами каталоге все необходимые ресурсы и развернет готового AI-агента, с которым вы сможете поэкспериментировать.
+
+### Почему SourceCraft CI/CD — самый быстрый и безопасный способ для развертывания AI-агента {#why-sourcecraft}
+
+В SourceCraft при развертывании AI-агентов предоставляется несколько преимуществ:
+
+* Отсутствие необходимости настраивать среду разработки локально — все необходимые настройки происходят удаленно в процессе запуска CI/CD-процессов в SourceCraft.
+* Безопасность — для развертывания не нужно хранить секреты от сервисных аккаунтов локально. SourceCraft через [сервисное подключение](https://sourcecraft.dev/portal/docs/ru/sourcecraft/concepts/service-connections) предоставляет безопасный способ запроса короткоживущих IAM-токенов для доступа к сервисам Yandex Cloud.
+
+Чтобы создать AI-агента в автоматическом режиме с использованием SourceCraft CI/CD:
+
+1. [Сделайте ответвление (fork)](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/fork-work#create-fork) для [репозитория](https://sourcecraft.dev/yandex-cloud-examples/yc-serverless-ai-agent) со скриптами для создания AI-агента.
+
+    Репозиторий содержит скрипты для создания следующих AI-агентов:
+
+    {% list tabs group=difficulty %}
+
+    - Простой AI-агент {#simple}
+
+      Процесс `create-simple-ai-agent-workflow` создаст простого AI-агента, который при запуске возвращает информацию о погоде в Токио в форме хайку.
+
+    - Продвинутый AI-агент {#advanced}
+
+      Процесс `create-advanced-ai-agent-workflow` создаст продвинутого AI-агента, который отвечает на пользовательские запросы в форме хайку. При отсутствии пользовательского запроса агент возвращает ответ на запрос по умолчанию.
+
+    - Агент-переводчик {#complex}
+
+      Процесс `create-complex-ai-agent-workflow` создаст Агента-переводчика, которому можно передавать пользовательские запросы на перевод текста на нужный язык в нужном стиле.
+
+    {% endlist %}
+
+1. [Настройте сервисное подключение](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/service-connections) в SourceCraft для доступа к вашему облаку Yandex Cloud.
+
+1. [Запустите рабочий процесс](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/run-workflow-manually), например `create-simple-ai-agent-workflow`.
+
+1. Протестируйте работу AI-агента.
+
+   Вы можете увидеть результат работы функции, [посмотрев логи](https://sourcecraft.dev/portal/docs/ru/sourcecraft/operations/ci-cd#check-ci-cd) кубика SourceCraft CI/CD, например, для `create-simple-ai-agent-workflow` этот кубик называется `deploy-simple-ai-agent`. Дополнительно вы можете [протестировать работу функции](#test-function) в консоли управления Yandex Cloud.
+
+1. Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+
+## Автоматизированное создание AI-агента {#automatic-setup}
+
+Запустите скрипт, который автоматически создаст в выбранном вами каталоге все необходимые ресурсы и развернет готового AI-агента, с которым вы сможете поэкспериментировать.
+
+Чтобы создать AI-агента в автоматическом режиме:
+
+1. [Установите](../../cli/operations/install-cli.md) Yandex Cloud CLI и [аутентифицируйтесь](../../cli/operations/index.md#auth).
+1. [Скачайте и установите Python](https://www.python.org/downloads/).
+1. Склонируйте [репозиторий](https://sourcecraft.dev/yandex-cloud-examples/yc-serverless-ai-agent) со скриптами для создания AI-агента:
+
+    ```bash
+    git clone https://git@git.sourcecraft.dev/yandex-cloud-examples/yc-serverless-ai-agent.git
+    ```
+
+    Репозиторий содержит скрипты для создания трех вариантов AI-агента:
+
+    {% list tabs group=difficulty %}
+
+    - Простой AI-агент {#simple}
+
+      Скрипт `create-simple-ai-agent.py` создаст простого AI-агента, который при запуске возвращает информацию о погоде в Токио в форме хайку.
+
+    - Продвинутый AI-агент {#advanced}
+
+      Скрипт `create-advanced-ai-agent.py` создаст продвинутого AI-агента, который отвечает на пользовательские запросы в форме хайку. При отсутствии пользовательского запроса агент возвращает ответ на запрос по умолчанию.
+
+    - Агент-переводчик {#complex}
+
+      Скрипт `create-complex-ai-agent.py` создаст Агента-переводчика, которому можно передавать пользовательские запросы на перевод текста на нужный язык в нужном стиле.
+
+    {% endlist %}
+
+1. Сделайте файл скрипта исполняемым, например:
+
+    ```bash
+    chmod +x create-simple-ai-agent.py
+    ```
+1. Выполните скрипт, например:
+
+    ```bash
+    ./create-simple-ai-agent.py
+    ```
+
+    В процессе выполнения скрипта укажите данные вашего облака и каталога, после чего дождитесь создания ресурсов.
+1. Протестируйте работу AI-агента.
+
+    {% list tabs group=difficulty %}
+
+    - Простой AI-агент {#simple}
+
+      [Протестируйте](#test-function) работу функции в консоли управления.
+
+    - Продвинутый AI-агент {#advanced}
+
+      [Протестируйте](#test-function) работу функции в консоли управления.
+
+      Дополнительно вы можете протестировать работу функции, передав AI-агенту пользовательский запрос с помощью Yandex Cloud CLI. Для этого выполните команду, указав полученный при создании AI-агента идентификатор функции:
+
+      ```bash
+      echo '{"query": "What's the weather in Paris?"}' > request.json \
+        yc serverless function invoke <идентификатор_функции> --data-file request.json
+      ```
+
+    - Агент-переводчик {#complex}
+
+      [Протестируйте](#test-function) работу функции в консоли управления.
+
+      Дополнительно вы можете протестировать работу функции, передав AI-агенту пользовательский запрос с помощью Yandex Cloud CLI. Для этого выполните команду, указав полученный при создании AI-агента идентификатор функции:
+
+      ```bash
+      echo '{"text": "Hello, world!", "target_language": "русский", "tone": "дружеский"}' > translate.json \
+        yc serverless function invoke <идентификатор_функции> --data-file translate.json
+      ```
+
+    {% endlist %}
+
+1. Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+
+
+## Создание AI-агента вручную {#manual-setup}
+
+Чтобы вручную создать AI-агента с помощью функции Cloud Functions:
+
+1. [Создайте сервисный аккаунт](#create-sa).
+1. [Создайте API-ключ сервисного аккаунта](#create-api-key).
+1. [Создайте секрет Yandex Lockbox](#create-secret).
+1. [Подготовьте ZIP-архив с кодом функции](#zip-archive).
+1. [Создайте функцию](#create-function).
+1. [Протестируйте работу функции](#test-function).
+
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+
+## Создайте сервисный аккаунт {#create-sa}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать инфраструктуру.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management**.
+  1. Нажмите **Создать сервисный аккаунт**.
+  1. Введите имя сервисного аккаунта: `function-sa`.
+  1. Нажмите ![plus](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите [роль](https://aistudio.yandex.ru/docs/ru/ai-studio/security/index#languageModels-user) `ai.languageModels.user`.
+  1. Нажмите **Создать**.
+
+- CLI {#cli}
+
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+
+  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+  1. Создайте сервисный аккаунт `function-sa` в каталоге по умолчанию:
+
+      ```bash
+      yc iam service-account create \
+        --name function-sa
+      ```
+
+      Результат:
+
+      ```text
+      done (1s)
+      id: aje23dgspcpi********
+      folder_id: b1gt6g8ht345********
+      created_at: "2025-06-04T19:34:58.145514099Z"
+      name: function-sa
+      ```
+
+      Сохраните идентификаторы сервисного аккаунта (значение поля `id`) и каталога (значение поля `folder_id`) — они понадобятся позднее.
+
+      Подробнее о команде `yc iam service-account create` читайте в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/service-account/create.md).
+
+  1. Назначьте созданному сервисному аккаунту [роль](https://aistudio.yandex.ru/docs/ru/ai-studio/security/index#languageModels-user) `ai.languageModels.user` на каталог, указав сохраненные на предыдущем шаге идентификаторы каталога и сервисного аккаунта:
+
+      ```bash
+      yc resource-manager folder add-access-binding <идентификатор_каталога> \
+        --role ai.languageModels.user \
+        --subject serviceAccount:<идентификатор_сервисного_аккаунта>
+      ```
+
+      Результат:
+
+      ```text
+      done (2s)
+      effective_deltas:
+        - action: ADD
+          access_binding:
+            role_id: ai.languageModels.user
+            subject:
+              id: aje23dgspcpi********
+              type: serviceAccount
+      ```
+
+      Подробнее о команде `yc resource-manager folder add-access-binding` читайте в [справочнике CLI](../../cli/cli-ref/resource-manager/cli-ref/folder/add-access-binding.md).
+
+- API {#api}
+
+  Чтобы создать сервисный аккаунт, воспользуйтесь методом REST API [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md).
+
+  Чтобы назначить сервисному аккаунту роль `ai.languageModels.user` на каталог, воспользуйтесь методом REST API [updateAccessBindings](../../resource-manager/api-ref/Folder/updateAccessBindings.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/UpdateAccessBindings](../../resource-manager/api-ref/grpc/Folder/updateAccessBindings.md).
+
+{% endlist %}
+
+
+## Создайте API-ключ сервисного аккаунта {#create-api-key}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Identity and Access Management** и выберите созданный ранее сервисный аккаунт `function-sa`.
+  1. На панели сверху нажмите ![image](../../_assets/console-icons/plus.svg) **Создать новый ключ** и выберите пункт **Создать API-ключ**.
+  1. В поле **Область действия** выберите [область действия](../../iam/concepts/authorization/api-key.md#scoped-api-keys) `yc.ai.languageModels.execute`.
+  1. (Опционально) Укажите **Срок действия** API-ключа.
+  1. Нажмите **Создать**.
+  1. Сохраните полученный секретный ключ — он понадобится при создании функции.
+
+      {% note alert %}
+
+      После закрытия диалога значение ключа будет недоступно.
+
+      {% endnote %}
+
+- CLI {#cli}
+
+  1. Создайте API-ключ для сервисного аккаунта `function-sa`:
+
+      ```bash
+      yc iam api-key create \
+        --service-account-name function-sa \
+        --scopes yc.ai.languageModels.execute
+      ```
+
+      Результат:
+
+      ```yaml
+      api_key:
+        id: ajemcpt92i9j********
+        service_account_id: aje23dgspcpi********
+        created_at: "2025-06-04T19:41:28.960624728Z"
+        scope: yc.ai.languageModels.execute
+        scopes:
+          - yc.ai.languageModels.execute
+      secret: AQVN1mZ6kUkzDCjhNJxmjDX6WeJdOlJv********
+      ```
+
+      Сохраните полученное значение ключа — получить его повторно будет невозможно.
+
+      Подробнее о команде `yc iam api-key create` читайте в [справочнике CLI](../../cli/cli-ref/iam/cli-ref/api-key/create.md).
+
+- API {#api}
+
+  Чтобы создать API-ключ, воспользуйтесь методом REST API [create](../../iam/api-ref/ApiKey/create.md) для ресурса [ApiKey](../../iam/api-ref/ApiKey/index.md) или вызовом gRPC API [ApiKeyService/Create](../../iam/api-ref/grpc/ApiKey/create.md).
+
+{% endlist %}
+
+
+## Создайте секрет Yandex Lockbox {#create-secret}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Lockbox** и нажмите **Создать секрет**.
+  1. В поле **Имя** укажите имя секрета `api-key-secret`.
+  1. В поле **Тип секрета** выберите `Пользовательский`.
+  1. В поле **Ключ** введите ключ секрета `api-key`.
+  1. В поле **Значение** вставьте полученный на предыдущем шаге секретный ключ.
+  1. Нажмите **Создать**.
+
+- CLI {#cli}
+
+  1. Создайте секрет Yandex Lockbox `api-key-secret` в каталоге по умолчанию, указав полученный на предыдущем шаге секретный ключ:
+
+      ```bash
+      yc lockbox secret create \
+        --name api-key-secret \
+        --payload "[{'key': 'api-key', 'text_value': '<секретный_ключ>'}]"
+      ```
+
+      Результат:
+
+      ```bash
+      done (1s)
+      id: e6q7c0n0n7ji********
+      folder_id: b1gt6g8ht345********
+      created_at: "2025-06-04T19:50:38.690Z"
+      name: api-key-secret
+      status: ACTIVE
+      current_version:
+        id: e6qhmal099ki********
+        secret_id: e6q7c0n0n7ji********
+        created_at: "2025-06-04T19:50:38.690Z"
+        status: ACTIVE
+        payload_entry_keys:
+          - api-key
+      ```
+
+      Подробнее о команде `yc lockbox secret create` читайте в [справочнике CLI](../../cli/cli-ref/lockbox/cli-ref/secret/create.md).
+
+- API {#api}
+
+  Чтобы создать секрет, воспользуйтесь методом REST API [create](../../lockbox/api-ref/Secret/create.md) для ресурса [Secret](../../lockbox/api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Create](../../lockbox/api-ref/grpc/Secret/create.md).
+
+{% endlist %}
+
+### Назначьте сервисному аккаунту права на чтение содержимого секрета {#grant-secret-access}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Lockbox** и выберите созданный ранее секрет `api-key-secret`.
+  1. На панели слева выберите раздел ![persons](../../_assets/console-icons/persons.svg) **Права доступа** и нажмите **Назначить роли**. В открывшемся окне:
+
+      1. В строке поиска введите имя созданного ранее сервисного аккаунта `function-sa` и выберите этот сервисный аккаунт.
+      1. Нажмите ![plus](../../_assets/console-icons/plus.svg) **Добавить роль** и выберите [роль](../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer`.
+      1. Нажмите **Сохранить**.
+
+- CLI {#cli}
+
+  1. Назначьте сервисному аккаунту `function-sa` [роль](../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer` на секрет `api-key-secret`:
+
+      ```bash
+      yc lockbox secret add-access-binding \
+          --name api-key-secret \
+          --service-account-name function-sa \
+          --role lockbox.payloadViewer
+      ```
+
+      Подробнее о команде `yc lockbox secret add-access-binding` читайте в [справочнике CLI](../../cli/cli-ref/lockbox/cli-ref/secret/add-access-binding.md).
+
+- API {#api}
+
+  Чтобы назначить сервисному аккаунту роль на секрет, воспользуйтесь методом REST API [setAccessBindings](../../lockbox/api-ref/Secret/setAccessBindings.md) для ресурса [Secret](../../lockbox/api-ref/Secret/index.md) или вызовом gRPC API [SecretService/SetAccessBindings](../../lockbox/api-ref/grpc/Secret/setAccessBindings.md).
+
+{% endlist %}
+
+## Подготовьте ZIP-архив с кодом функции {#zip-archive}
+
+1. Сохраните следующий код в файл с названием `index.py`:
+
+    {% list tabs group=difficulty %}
+
+    - Простой AI-агент {#simple}
+
+      ```python
+      import os
+
+      from openai import AsyncOpenAI
+
+      from agents import (
+          Agent,
+          OpenAIChatCompletionsModel,
+          Runner,
+          function_tool,
+          set_tracing_disabled,
+      )
+
+      BASE_URL = os.getenv("BASE_URL")
+      API_KEY = os.getenv("API_KEY")
+      MODEL_NAME = os.getenv("MODEL_NAME")
+
+      client = AsyncOpenAI(base_url=BASE_URL, api_key=API_KEY)
+      set_tracing_disabled(disabled=True)
+
+
+      @function_tool
+      def get_weather(city: str):
+          print(f"[debug] getting weather for {city}")
+          return f"The weather in {city} is sunny."
+
+
+      async def handler(event, context):
+          agent = Agent(
+              name="Assistant",
+              instructions="You only respond in haikus.",
+              model=OpenAIChatCompletionsModel(model=MODEL_NAME, openai_client=client),
+              tools=[get_weather],
+          )
+
+          result = await Runner.run(agent, "What's the weather in Tokyo?")
+
+          return {
+              "statusCode": 200,
+              "body": result.final_output,
+          }
+      ```
+
+    - Продвинутый AI-агент {#advanced}
+
+      ```python
+      import os
+      import json
+
+      from openai import AsyncOpenAI
+
+      from agents import (
+          Agent,
+          OpenAIChatCompletionsModel,
+          Runner,
+          function_tool,
+          set_tracing_disabled,
+      )
+
+      BASE_URL = os.getenv("BASE_URL")
+      API_KEY = os.getenv("API_KEY")
+      MODEL_NAME = os.getenv("MODEL_NAME")
+
+      client = AsyncOpenAI(base_url=BASE_URL, api_key=API_KEY)
+      set_tracing_disabled(disabled=True)
+
+
+      @function_tool
+      def get_weather(city: str):
+          print(f"[debug] getting weather for {city}")
+          return f"The weather in {city} is sunny."
+
+
+      async def handler(event, context):
+          # Извлекаем пользовательский запрос из события
+          user_query = "What's the weather today?"  # Запрос по умолчанию
+          
+          try:
+              # Пытаемся получить запрос из тела события
+              if event and isinstance(event, dict):
+                  body = event.get('body')
+                  if body:
+                      # Если body передан как строка (что часто бывает при вызове через API Gateway)
+                      if isinstance(body, str):
+                          try:
+                              body_json = json.loads(body)
+                              if 'query' in body_json:
+                                  user_query = body_json['query']
+                          except json.JSONDecodeError:
+                              pass  # Используем запрос по умолчанию, если body не является JSON
+                      elif isinstance(body, dict) and 'query' in body:
+                          user_query = body['query']
+                  # Если запрос передан напрямую в event
+                  elif 'query' in event:
+                      user_query = event['query']
+          except Exception as e:
+              print(f"Ошибка при обработке запроса: {e}")
+              # В случае ошибки используем запрос по умолчанию
+          
+          print(f"Обрабатываемый запрос: {user_query}")
+          
+          agent = Agent(
+              name="Assistant",
+              instructions="You only respond in haikus. Be creative and poetic.",
+              model=OpenAIChatCompletionsModel(model=MODEL_NAME, openai_client=client),
+              tools=[get_weather],
+          )
+
+          result = await Runner.run(agent, user_query)
+
+          return {
+              "statusCode": 200,
+              "body": result.final_output,
+              "headers": {
+                  "Content-Type": "application/json"
+              }
+          }
+      ```
+
+    - Агент-переводчик {#complex}
+
+      ```python
+      import os
+      import json
+      import re
+      from typing import Dict, List, Optional, Any
+
+      from openai import AsyncOpenAI
+
+      from agents import (
+          Agent,
+          OpenAIChatCompletionsModel,
+          Runner,
+          function_tool,
+          set_tracing_disabled,
+      )
+
+      BASE_URL = os.getenv("BASE_URL")
+      API_KEY = os.getenv("API_KEY")
+      MODEL_NAME = os.getenv("MODEL_NAME")
+
+      client = AsyncOpenAI(base_url=BASE_URL, api_key=API_KEY)
+      set_tracing_disabled(disabled=True)
+
+      # Dictionary with language codes to simplify input
+      LANGUAGE_CODES = {
+          "русский": "ru",
+          "russian": "ru",
+          "английский": "en",
+          "english": "en",
+          "французский": "fr",
+          "french": "fr",
+          "немецкий": "de",
+          "german": "de",
+          "испанский": "es",
+          "spanish": "es",
+          "итальянский": "it",
+          "italian": "it",
+          "китайский": "zh",
+          "chinese": "zh",
+          "японский": "ja",
+          "japanese": "ja",
+          "корейский": "ko",
+          "korean": "ko",
+          "арабский": "ar",
+          "arabic": "ar",
+          "португальский": "pt",
+          "portuguese": "pt",
+      }
+
+      # Dictionary with tone codes
+      TONE_TYPES = {
+          "формальный": "formal",
+          "formal": "formal",
+          "неформальный": "informal",
+          "informal": "informal",
+          "дружеский": "friendly",
+          "friendly": "friendly",
+          "деловой": "business",
+          "business": "business",
+          "технический": "technical",
+          "technical": "technical",
+          "простой": "simple",
+          "simple": "simple",
+          "академический": "academic",
+          "academic": "academic",
+          "поэтический": "poetic",
+          "poetic": "poetic",
+          "разговорный": "conversational",
+          "conversational": "conversational",
+      }
+
+      @function_tool
+      def detect_language(text: str) -> dict:
+          """Detects the language of the input text.
+          
+          Args:
+              text: Text to analyze
+              
+          Returns:
+              Dictionary with detected language and its code
+          """
+          # This function uses model capabilities to determine the language
+          # In a real application, you could use specialized libraries for more accurate detection
+          
+          common_words = {
+              "en": ["the", "and", "of", "to", "in", "a", "is", "that", "for", "it", "with", "as", "was", "on"],
+              "ru": ["и", "в", "не", "на", "что", "с", "по", "это", "я", "он", "как", "из", "то", "а", "все", "так"],
+              "fr": ["le", "la", "les", "un", "une", "et", "de", "des", "du", "dans", "en", "est", "que", "pour", "qui"],
+              "de": ["der", "die", "das", "und", "in", "von", "mit", "den", "zu", "ist", "für", "auf", "dem", "nicht"],
+              "es": ["el", "la", "los", "las", "un", "una", "y", "de", "en", "que", "a", "por", "con", "no", "es"],
+              "it": ["il", "la", "i", "le", "e", "di", "un", "una", "in", "che", "per", "con", "è", "non", "sono"],
+          }
+          
+          # Simple detection by characteristic symbols and words
+          text_lower = text.lower()
+          
+          # Check for Cyrillic characters (for Russian)
+          if re.search('[а-яА-Я]', text):
+              return {"language": "Russian", "code": "ru"}
+          
+          # Check for characters (for Chinese and Japanese)
+          if re.search('[\u4e00-\u9fff]', text):
+              return {"language": "Chinese", "code": "zh"}
+          
+          if re.search('[\u3040-\u309F\u30A0-\u30FF]', text):
+              return {"language": "Japanese", "code": "ja"}
+          
+          # Check by common words
+          word_counts = {}
+          for lang, words in common_words.items():
+              count = 0
+              for word in words:
+                  pattern = r'\b' + re.escape(word) + r'\b'
+                  count += len(re.findall(pattern, text_lower))
+              word_counts[lang] = count
+          
+          # Determine the language with the most matches
+          if word_counts:
+              detected_code = max(word_counts.items(), key=lambda x: x[1])[0]
+              language_names = {
+                  "en": "English",
+                  "ru": "Russian",
+                  "fr": "French",
+                  "de": "German",
+                  "es": "Spanish",
+                  "it": "Italian",
+              }
+              return {"language": language_names.get(detected_code, "Unknown"), "code": detected_code}
+          
+          # Default to English
+          return {"language": "Unknown (assuming English)", "code": "en"}
+
+      @function_tool
+      def translate_text(text: str, target_language: str, source_language: Optional[str] = None, tone: Optional[str] = None) -> str:
+          """Translates text to the specified language while preserving tone and style.
+          
+          Args:
+              text: Text to translate
+              target_language: Target language for translation (code or name)
+              source_language: Source language of the text (code or name, optional)
+              tone: Desired tone of translation (formal, informal, business, etc., optional)
+              
+          Returns:
+              Translated text
+          """
+          # This function would use LLM for translation in reality
+          # Here we just return information about the request for demonstration
+          
+          # Normalize language codes
+          target_code = LANGUAGE_CODES.get(target_language.lower(), target_language.lower())
+          source_code = None
+          if source_language:
+              source_code = LANGUAGE_CODES.get(source_language.lower(), source_language.lower())
+          
+          # Normalize tone
+          tone_type = None
+          if tone:
+              tone_type = TONE_TYPES.get(tone.lower(), tone.lower())
+          
+          # Return information for LLM to perform translation
+          # In a real application, you could call a specialized translation API here
+          return {
+              "text": text,
+              "target_language_code": target_code,
+              "source_language_code": source_code,
+              "tone": tone_type,
+              "length": len(text)
+          }
+
+      async def handler(event, context):
+          """Function handler"""
+          try:
+              # Get text for translation and parameters from the request
+              text = None
+              target_language = None
+              source_language = None
+              tone = None
+              
+              # Process different formats of incoming data
+              if event and isinstance(event, dict):
+                  body = event.get('body')
+                  
+                  if body:
+                      # If body is passed as a string (common when called via API Gateway)
+                      if isinstance(body, str):
+                          try:
+                              body_json = json.loads(body)
+                              text = body_json.get('text')
+                              target_language = body_json.get('target_language')
+                              source_language = body_json.get('source_language')
+                              tone = body_json.get('tone')
+                          except json.JSONDecodeError:
+                              # Maybe it's just text for translation
+                              text = body
+                      elif isinstance(body, dict):
+                          text = body.get('text')
+                          target_language = body.get('target_language')
+                          source_language = body.get('source_language')
+                          tone = body.get('tone')
+                  else:
+                      # If parameters are passed directly in the event
+                      text = event.get('text')
+                      target_language = event.get('target_language')
+                      source_language = event.get('source_language')
+                      tone = event.get('tone')
+              
+              # Check required parameters
+              if not text:
+                  return {
+                      "statusCode": 400,
+                      "body": json.dumps({"error": "Missing 'text' parameter (text to translate)"}),
+                      "headers": {"Content-Type": "application/json"}
+                  }
+              
+              if not target_language:
+                  return {
+                      "statusCode": 400,
+                      "body": json.dumps({"error": "Missing 'target_language' parameter (target language)"}),
+                      "headers": {"Content-Type": "application/json"}
+                  }
+                  
+              # Create request for AI agent
+              user_query = f"Translate the following text to {target_language}:"
+              if source_language:
+                  user_query += f" from {source_language}"
+              if tone:
+                  user_query += f". Preserve the {tone} tone and style of the original"
+              user_query += f"\\n\\n{text}"
+              
+              # Set up AI agent
+              agent = Agent(
+                  name="TranslatorAssistant",
+                  instructions="""You are a professional translator assistant who can translate text between different languages 
+      while preserving the original tone, style, and context. 
+
+      Your tools:
+      1. detect_language - to identify the language of the input text
+      2. translate_text - to translate text to the target language
+
+      You should:
+      - Understand the tone and style of the original text
+      - Preserve formatting, including paragraphs, bullet points, and special symbols
+      - Keep names, terms, and brand names unchanged unless translation is specifically required
+      - When translating technical or specialized content, use appropriate terminology
+      - Be sensitive to cultural context and adapt idioms appropriately
+      - For formal documents, maintain formal language in the translation
+      - For creative content, preserve the creative elements in the translation
+
+      When responding:
+      1. Provide the translation
+      2. If requested or if there are important notes about the translation, briefly mention them
+      3. Be concise and focus on accurate translation""",
+                  model=OpenAIChatCompletionsModel(model=MODEL_NAME, openai_client=client),
+                  tools=[detect_language, translate_text],
+              )
+
+              # Run the agent
+              result = await Runner.run(agent, user_query)
+              
+              # Format the response
+              return {
+                  "statusCode": 200,
+                  "body": json.dumps({
+                      "translation": result.final_output,
+                      "original_text": text,
+                      "target_language": target_language,
+                      "source_language": source_language,
+                      "tone": tone
+                  }, ensure_ascii=False),
+                  "headers": {"Content-Type": "application/json; charset=utf-8"}
+              }
+              
+          except Exception as e:
+              print(f"Request processing error: {str(e)}")
+              return {
+                  "statusCode": 500,
+                  "body": json.dumps({"error": f"Internal server error: {str(e)}"}),
+                  "headers": {"Content-Type": "application/json"}
+              }
+      ```
+
+    {% endlist %}
+
+1. Сохраните следующий код в файл с названием `requirements.txt`:
+
+    ```text
+    openai-agents
+    ```
+1. Добавьте файлы `index.py` и `requirements.txt` в ZIP-архив `openai-function.zip`.
+
+
+## Создайте функцию {#create-function}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создаете инфраструктуру.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Functions**.
+  1. Создайте функцию:
+     1. Нажмите **Создать функцию**.
+     1. В открывшемся окне введите имя функции `ai-agent-function`.
+     1. Нажмите **Создать**.
+  1. Создайте [версию функции](../../functions/concepts/function.md#version):
+     1. Выберите среду выполнения `Python 3.12`, отключите опцию **Добавить файлы с примерами кода** и нажмите кнопку **Продолжить**.
+     1. В поле **Источник кода** выберите `ZIP-архив` и прикрепите созданный ранее файл `openai-function.zip`.
+     1. Укажите точку входа `index.handler`.
+     1. В блоке **Параметры** укажите:
+         * **Таймаут** — `5 минут`.
+         * **Память** — `128 МБ`.
+         * **Сервисный аккаунт** — выберите сервисный аккаунт `function-sa`.
+         * **Переменные окружения**:
+             * `FOLDER_ID` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором вы создаете инфраструктуру.
+             * `MODEL_NAME` — [URI модели](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models#generation) генерации текста Yandex AI Studio.
+
+                 Например: `gpt://<идентификатор_каталога>/yandexgpt/latest`.
+                
+                 Укажите идентификатор каталога, в котором вы создаете инфраструктуру.
+             * `BASE_URL` — URL сервиса Yandex AI Studio: `https://ai.api.cloud.yandex.net/v1`.
+
+         * **Секреты Lockbox**:
+             * В поле **Переменная окружения** укажите `API_KEY` и выберите созданный ранее секрет `api-key-secret`, его версию и ключ `api-key`.
+        * Если вы не хотите сохранять логи и платить за использование сервиса Cloud Logging, отключите опцию **Запись логов**, чтобы отключить логирование.
+     1. Нажмите **Сохранить изменения**.
+
+- CLI {#cli}
+
+  1. Создайте функцию `ai-agent-function` в каталоге по умолчанию:
+
+      ```bash
+      yc serverless function create \
+       --name ai-agent-function
+      ```
+
+      Результат:
+
+      ```text
+      id: d4edhic2qf3i********
+      folder_id: b1gt6g8ht345********
+      created_at: "2025-06-04T20:02:14.741Z"
+      name: ai-agent-function
+      http_invoke_url: https://functions.yandexcloud.net/d4edhic2qf3i********
+      status: ACTIVE
+      ```
+
+      Подробнее о команде `yc serverless function create` читайте в [справочнике CLI](../../cli/cli-ref/serverless/cli-ref/function/create.md).
+
+  1. Создайте [версию функции](../../functions/concepts/function.md#version) `ai-agent-function`:
+
+      ```bash
+      yc serverless function version create \
+        --function-name ai-agent-function \
+        --memory=128m \
+        --execution-timeout=5m \
+        --runtime=python312 \
+        --entrypoint=index.handler \
+        --service-account-id=<идентификатор_сервисного_аккаунта> \
+        --environment FOLDER_ID="<идентификатор_каталога>",MODEL_NAME="gpt://<идентификатор_каталога>/yandexgpt/latest",BASE_URL="https://ai.api.cloud.yandex.net/v1" \
+        --secret name=api-key-secret,key=api-key,environment-variable=API_KEY \
+        --source-path=./openai-function.zip \
+        --no-logging
+      ```
+
+      Где:
+
+      * `--service-account-id` — [идентификатор](../../iam/operations/sa/get-id.md) сервисного аккаунта `function-sa`, сохраненный ранее при его создании.
+      * `--environment` — переменные окружения:
+
+          * `FOLDER_ID` — [идентификатор](../../resource-manager/operations/folder/get-id.md) каталога, сохраненный ранее при создании сервисного аккаунта.
+          * `MODEL_NAME` — [URI модели](https://aistudio.yandex.ru/docs/ru/ai-studio/concepts/generation/models#generation) генерации текста Yandex AI Studio.
+
+                 Например: `gpt://<идентификатор_каталога>/yandexgpt/latest`.
+                
+                 Укажите идентификатор каталога, в котором вы создаете инфраструктуру.
+
+          * `BASE_URL` — URL сервиса Yandex AI Studio: `https://ai.api.cloud.yandex.net/v1`.
+
+      Результат:
+
+      ```text
+      done (16s)
+      id: d4e1vnnvhk5p********
+      function_id: d4edhic2qf3i********
+      created_at: "2025-06-04T20:09:59.675Z"
+      runtime: python312
+      entrypoint: index.handler
+      resources:
+        memory: "134217728"
+      execution_timeout: 300s
+      service_account_id: aje23dgspcpi********
+      image_size: "14958592"
+      status: ACTIVE
+      tags:
+        - $latest
+      environment:
+        FOLDER_ID: b1gt6g8ht345********
+        BASE_URL: https://ai.api.cloud.yandex.net/v1
+        MODEL_NAME: gpt://b1gt6g8ht345********/yandexgpt/latest
+      secrets:
+        - id: e6q7c0n0n7ji********
+          version_id: e6qhmal099ki********
+          key: api-key
+          environment_variable: API_KEY
+      log_options:
+        disabled: true
+        folder_id: b1gt6g8ht345********
+      concurrency: "1"
+      ```
+
+      Подробнее о команде `yc serverless function version create` читайте в [справочнике CLI](../../cli/cli-ref/serverless/cli-ref/function/version/create.md).
+
+- API {#api}
+
+  Чтобы создать функцию, воспользуйтесь методом REST API [create](../../functions/functions/api-ref/Function/create.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/Create](../../functions/functions/api-ref/grpc/Function/create.md).
+
+  Чтобы создать версию функции, воспользуйтесь методом REST API [createVersion](../../functions/functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/CreateVersion](../../functions/functions/api-ref/grpc/Function/createVersion.md).
+
+{% endlist %}
+
+
+## Протестируйте работу функции {#test-function}
+
+{% list tabs group=difficulty %}
+
+- Простой AI-агент {#simple}
+
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором вы создали инфраструктуру.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Functions** и выберите созданную функцию.
+  1. Перейдите на вкладку ![circle-play](../../_assets/console-icons/circle-play.svg) **Тестирование**.
+  1. Нажмите ![play-fill](../../_assets/console-icons/play-fill.svg) **Запустить тест** и посмотрите результат тестирования.
+
+      При успешном выполнении запроса состояние функции изменится на `Выполнена`, а ответ функции будет содержать код статуса `200` и ответ модели. Например:
+
+      ```json
+      {
+          "statusCode": 200,
+          "body": "In Tokyo's sky,\nSunshine beams so bright and clear,\nWarmth fills the air."
+      }
+      ```
+
+- Продвинутый AI-агент {#advanced}
+
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Functions** и выберите созданную функцию.
+  1. Перейдите на вкладку ![circle-play](../../_assets/console-icons/circle-play.svg) **Тестирование**.
+  1. В поле **Входные данные** укажите:
+
+      ```json
+      {
+        "query": "What's the weather in Paris?"
+      }
+      ```
+
+  1. Нажмите ![play-fill](../../_assets/console-icons/play-fill.svg) **Запустить тест** и посмотрите результат тестирования.
+
+      При успешном выполнении запроса состояние функции изменится на `Выполнена`, а ответ функции будет содержать код статуса `200` и ответ модели. Например:
+
+      ```json
+      {
+          "statusCode": 200,
+          "body": "Paris skies so blue,\nSunshine warms the city's heart,\nBreathe in, feel the joy.",
+          "headers": {
+              "Content-Type": "application/json"
+          }
+      }
+      ```
+
+- Агент-переводчик {#complex}
+
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Functions** и выберите созданную функцию.
+  1. Перейдите на вкладку ![circle-play](../../_assets/console-icons/circle-play.svg) **Тестирование**.
+  1. В поле **Входные данные** укажите:
+
+      ```json
+      {
+        "text": "Hello, world!",
+        "target_language": "русский",
+        "tone": "дружеский"
+      }
+      ```
+
+  1. Нажмите ![play-fill](../../_assets/console-icons/play-fill.svg) **Запустить тест** и посмотрите результат тестирования.
+
+      При успешном выполнении запроса состояние функции изменится на `Выполнена`, а ответ функции будет содержать код статуса `200` и ответ модели. Например:
+
+      ```json
+      {
+          "statusCode": 200,
+          "body": "{\"translation\": \"Привет, мир!\", \"original_text\": \"Hello, world!\", \"target_language\": \"русский\", \"source_language\": null, \"tone\": \"дружеский\"}",
+          "headers": {
+              "Content-Type": "application/json; charset=utf-8"
+          }
+      }
+      ```
+
+{% endlist %}
+
+
+## Как удалить созданные ресурсы {#clear-out}
+
+Чтобы перестать платить за созданные ресурсы:
+1. [Удалите функцию](../../functions/operations/function/function-delete.md).
+1. [Удалите секрет](../../lockbox/operations/secret-delete.md).
+1. Если вы записывали логи в лог-группу, [удалите ее](../../logging/operations/delete-group.md).

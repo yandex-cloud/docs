@@ -1,0 +1,108 @@
+# История изменений в Yandex Managed Service for Apache Kafka®
+
+
+## Март 2026 {#march-2026}
+
+Добавлены отдельные роли для просмотра и редактирования задач на техническое обслуживание: [managed-kafka.maintenanceTask.viewer](security/index.md#managed-kafka-maintenanceTask-viewer), [managed-kafka.maintenanceTask.editor](security/index.md#managed-kafka-maintenanceTask-editor).
+
+
+## Февраль 2026 {#february-2026}
+
+* Добавлена возможность [получения установленной патч-версии Apache Kafka®](operations/cluster-patch-version.md) на кластере.
+* Добавлена возможность [настроить права доступа к кластеру](operations/cluster-access.md).
+
+## Декабрь 2025 {#december-2025}
+
+* Добавлена поддержка новой версии Apache Kafka® 4.0. Эта версия доступна в окружении `PRODUCTION`. Подробнее об изменениях в [документации Apache Kafka®](https://kafka.apache.org/community/downloads/#400).
+* Добавлена функция [шифрования диска](concepts/storage.md#disk-encryption) пользовательским ключом KMS.
+
+## Ноябрь 2025 {#november-2025}
+
+Для Kafka UI теперь используется [kafbat UI](https://ui.docs.kafbat.io/).
+
+## Октябрь 2025 {#october-2025}
+
+* Добавлены [метрики](metrics.md): `can_read`, `can_write`, `kafka_topic_partition_low_water_mark`, `kafka_topic_partition_high_water_mark`.
+* Добавлены новые [классы хостов](concepts/instance-types.md): AMD Zen 4 и AMD Zen 4 HighFreq.
+
+## Сентябрь 2025 {#september-2025}
+
+* Добавлена новая [сервисная роль](security/index.md#managed-kafka-interface-user) `managed-kafka.interfaceUser`, которая позволяет использовать веб-интерфейс Kafka UI.
+* Добавлена возможность выбора сервиса координации при создании кластера:
+   * ZooKeeper (на отдельных хостах);
+   * KRaft (комбинированный режим);
+   * KRaft (на отдельных хостах).
+* Поддержано использование ZooKeeper в кластерах с версиями 3.6 — 3.9 (включительно).
+
+## Август 2025 {#august-2025}
+
+* [Встроенная поддержка веб-интерфейса Kafka UI](concepts/kafka-ui.md) стала доступна в [регионе](../overview/concepts/region.md) Казахстан.
+* Добавлены новые [роли пользователей](concepts/account-roles.md) для управления ресурсами кластера Apache Kafka®: `ACCESS_ROLE_TOPIC_PRODUCER`, `ACCESS_ROLE_TOPIC_CONSUMER`, `ACCESS_ROLE_SCHEMA_READER`, `ACCESS_ROLE_SCHEMA_WRITER`.
+* Добавлена [возможность миграции](tutorials/zk-kraft-kafka-migration.md) с хостов ZooKeeper на KRaft.
+* Добавлена возможность синхронизации даных из топиков Apache Kafka® в бакет Object Storage без использования интернета.
+* Изменился лимит по объему данных на брокере при использовании хранилища на сетевых SSD-дисках — 32 768 ГБ.
+
+## Июль 2025 {#july-2025}
+
+* Добавлена [встроенная поддержка веб-интерфейса Kafka UI](concepts/kafka-ui.md) для кластера.
+* Добавлена возможность [получить скидку за резервируемый объем ресурсов KRaft](pricing.md#prices-kraft).
+* Добавлена [политика обновления версий](concepts/update-policy.md).
+* Добавлена новая [роль пользователя](concepts/account-roles.md) для управления топиками: `ACCESS_ROLE_TOPIC_ADMIN`.
+
+## Май 2025 {#may-2025}
+
+В консоли управления добавлен раздел [**Обслуживание**](operations/cluster-maintenance.md).
+
+## Март 2025 {#mar-2025}
+
+* Добавлена поддержка новых версий Apache Kafka® 3.7, 3.8 и 3.9. Эти версии доступны в окружении `PRODUCTION`. Подробнее об изменениях в [документации Apache Kafka®](https://kafka.apache.org/community/downloads/).
+* С 1 марта 2025 года прекращена поддержка Apache Kafka® версий 2.8, 3.0, 3.1, 3.2 и 3.3. Создать кластер с этими версиями невозможно.
+
+## Июль 2024 {#jul-2024}
+
+Добавлено автоматическое увеличение размера диска. В [настройках кластера](operations/cluster-update.md) пользователь может задать порог заполненности дискового хранилища и максимальное значение размера диска. При достижении порогового значения размер диска будет автоматически увеличиваться фиксированными шагами до максимального значения. Настройку можно задать для незамедлительного увеличения размера диска или для увеличения в ближайшее окно обслуживания.
+
+## Март 2024 {#mar-2024}
+
+Добавлена возможность [замены зоны доступности](operations/host-migration.md) для кластеров Managed Service for Apache Kafka®.
+
+## IV квартал 2023 {#q4-2023}
+
+Новая версия Apache Kafka® 3.5.1 доступна в окружении `PRODUCTION`. Подробнее об изменениях в [документации Apache Kafka® 3.5.0](https://archive.apache.org/dist/kafka/3.5.0/RELEASE_NOTES.html) и [документации Apache Kafka® 3.5.1](https://archive.apache.org/dist/kafka/3.5.1/RELEASE_NOTES.html).
+
+## II квартал 2023 {#q2-2023}
+
+Новая версия Apache Kafka® 3.4 доступна в окружении `PRODUCTION`. Подробнее об изменениях в [документации Apache Kafka®](https://archive.apache.org/dist/kafka/3.4.0/RELEASE_NOTES.html).
+
+## I квартал 2023 {#q1-2023}
+
+Новая версия Apache Kafka® 3.3 доступна в окружении `PRODUCTION`.
+
+## IV квартал 2022 {#q4-2022}
+
+* Добавлена поддержка настройки [Sasl enabled mechanisms](concepts/settings-list.md#settings-sasl-enabled-mechanisms), позволяющей задать доступные при подключении к кластеру механизмы шифрования.
+* Для пользователей с ролью `admin` добавлена возможность удалять группы потребителей (consumer groups).
+* Коннектор [S3 Sink](concepts/connectors.md#s3-sink) теперь доступен в CLI.
+
+## III квартал 2022 {#q3-2022}
+
+* Добавлена поддержка управления коннекторами в CLI с помощью команды `yc managed-kafka connector` и коннекторами типа MirrorMaker с помощью команды `yc managed-kafka connector-mirrormaker`.
+* Ускорены операции по изменению прав пользователей при большом количестве топиков.
+* Добавлена поддержка [настроек](concepts/settings-list.md#cluster-settings) `Message max bytes`, `Offsets retention minutes`, `Replica fetch max bytes` и `Ssl cipher suites`.
+* Добавлена возможность создания кластера на локальных дисках на платформе Intel Ice Lake.
+* Исправлен расчет метрики `kafka_group_topic_partition_lag`.  Подробнее в [справочнике метрик Yandex Monitoring](metrics.md). 
+* Новая версия Apache Kafka® 3.2 доступна в окружении `PRODUCTION`.
+
+## II квартал 2022 {#q2-2022}
+
+* Доступен новый коннектор: [S3 Sink](concepts/connectors.md#s3-sink).
+* Новая версия Apache Kafka® 3.1 доступна в окружениях `PRESTABLE` и `PRODUCTION`.
+* Добавлена возможность загружать SSL-сертификат для соединения с кластером через коннектор MirrorMaker.
+* Добавлена поддержка офлайн-обслуживания.
+* Добавлена возможность изменять настройку публичного доступа в CLI.
+* Запрещено использование флага `preallocate`, провоцирующего `CorruptRecordException` (см. тикет [KAFKA-13664](https://issues.apache.org/jira/browse/KAFKA-13664)).
+* Добавлена поддержка стандартного сжатия (zstd) для реестра схем (schema registry).
+
+## I квартал 2022 {#q1-2022}
+
+Доступна новая версия Apache Kafka® 3.0.

@@ -1,0 +1,93 @@
+# yc loadtesting v0
+
+Manage Yandex Load Testing resources
+
+#### Command Usage
+
+Syntax:
+
+`yc loadtesting v0 <group>`
+
+#### Command Tree
+
+- [yc loadtesting v0 agent](agent/index.md) — Manage load testing agents
+
+  - [yc loadtesting v0 agent create](agent/create.md) — Create a load testing agent
+
+  - [yc loadtesting v0 agent delete](agent/delete.md) — Delete the specified load testing agent
+
+  - [yc loadtesting v0 agent get](agent/get.md) — Show information about the specified load testing agent
+
+  - [yc loadtesting v0 agent list](agent/list.md) — List agents
+
+- [yc loadtesting v0 test](test/index.md) — Manage load testing test config executions
+
+  - [yc loadtesting v0 test check-regression](test/check-regression.md) — Checks for regressions for the specified test.
+
+  - [yc loadtesting v0 test create](test/create.md) — Create a test
+
+  - [yc loadtesting v0 test delete](test/delete.md) — Delete the specified test
+
+  - [yc loadtesting v0 test get](test/get.md) — Show information about the specified test
+
+  - [yc loadtesting v0 test get-report-table](test/get-report-table.md) — Get report table for finished test.
+
+  - [yc loadtesting v0 test list](test/list.md) — List tests
+
+  - [yc loadtesting v0 test stop](test/stop.md) — Stop running test
+
+  - [yc loadtesting v0 test wait](test/wait.md) — Wait until test transition to final state.
+
+- [yc loadtesting v0 test-config](test-config/index.md) — Manage load testing test configs
+
+  - [yc loadtesting v0 test-config create](test-config/create.md) — Create a load testing config
+
+  - [yc loadtesting v0 test-config get](test-config/get.md) — Show information about the specified load testing config
+
+  - [yc loadtesting v0 test-config list](test-config/list.md) — List load testing configs
+
+#### Global Flags
+
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom configuration file. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--syntax` | `string`
+
+CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
+|| `--token` | `string`
+
+Set the OAuth token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

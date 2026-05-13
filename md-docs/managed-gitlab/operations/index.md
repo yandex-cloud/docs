@@ -1,0 +1,18 @@
+# Пошаговые инструкции для Managed Service for GitLab
+
+* [Получение информации об инстансах](instance/instance-list.md)
+* [Создание и активация инстанса](instance/instance-create.md)
+* [Настройка групп безопасности и ограничение доступа к инстансу](configure-security-group.md)
+* [Остановка и запуск инстанса](instance/instance-stop.md)
+* [Изменение настроек инстанса](instance/instance-update.md)
+* [Управление резервными копиями](instance/instance-backups.md)
+* [Миграция из GitLab в Managed Service for GitLab](instance/migration.md)
+* [Миграция инстанса в другую зону доступности](instance/zone-migration.md)
+* [Очистка переполненного дискового пространства инстанса](instance/clean-up-disk-space.md)
+* [Удаление инстанса GitLab](instance/instance-delete.md)
+* [Создание и добавление пользователей в проект](create-user.md)
+* [Настройка правил ревью кода](approval-rules.md)
+* [Мониторинг состояния инстанса Managed Service for GitLab](instance/monitoring.md)
+* [Настройка OmniAuth](omniauth.md)
+* [Интеграция с Object Storage](objstorage-integration.md)
+* [Работа с управляемым раннером](runner.md)

@@ -1,0 +1,337 @@
+# Изменить вычислительные ресурсы виртуальной машины
+
+
+После создания ВМ вы можете изменить ее вычислительные ресурсы. Как изменить имя, описание и метки ВМ читайте в разделе [Изменить виртуальную машину](vm-update.md).
+
+## Изменить конфигурацию vCPU и RAM {#update-vcpu-ram}
+
+В этом разделе приведена инструкция для изменения количества и производительности ядер процессора (vCPU), а также количества памяти (RAM).
+
+{% note warning %}
+
+Виртуальные машины с количеством vCPU больше 256 будут корректно работать только на операционных системах с ядром Linux версии 5.15 и выше.
+
+{% endnote %}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  Чтобы изменить vCPU и RAM ВМ:
+
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
+  1. Нажмите на имя нужной ВМ.
+  1. В правом верхнем углу страницы нажмите кнопку **Остановить**.
+  1. В открывшемся окне нажмите кнопку **Остановить**.
+  1. Подождите пока ВМ перейдет в статус `Stopped` и в правом верхнем углу страницы нажмите ![image](../../../_assets/console-icons/pencil.svg) **Изменить ВМ**.
+  1. В блоке **Вычислительные ресурсы** измените [конфигурацию](../../concepts/performance-levels.md) ВМ. Для этого:
+
+      * Перейдите на вкладку **Своя конфигурация**.
+      * Выберите [платформу](../../concepts/vm-platforms.md).
+      * Укажите [гарантированную долю](../../concepts/performance-levels.md) и необходимое количество vCPU, а также объем RAM.
+      * При необходимости сделайте ВМ [прерываемой](../../concepts/preemptible-vm.md).
+
+  1. Нажмите кнопку **Сохранить изменения**.
+  1. Нажмите кнопку **Запустить** в правом верхнем углу.
+  1. В открывшемся окне нажмите кнопку **Запустить**.
+
+- CLI {#cli}
+
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+
+  По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+  1. Посмотрите описание команды CLI для обновления параметров ВМ:
+
+      ```bash
+      yc compute instance update --help
+      ```
+
+  1. Получите список ВМ в каталоге по умолчанию:
+
+      ```bash
+      yc compute instance list
+      ```
+      
+      Результат:
+      ```text
+      +----------------------+-----------------+---------------+---------+----------------------+
+      |          ID          |       NAME      |    ZONE ID    | STATUS  |     DESCRIPTION      |
+      +----------------------+-----------------+---------------+---------+----------------------+
+      | fhm0b28lgfp4******** | first-instance  | ru-central1-a | RUNNING | my first vm via CLI  |
+      | fhm9gk85nj7g******** | second-instance | ru-central1-a | RUNNING | my second vm via CLI |
+      +----------------------+-----------------+---------------+---------+----------------------+
+      ```
+
+  1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной ВМ, например `first-instance`.
+  1. Остановите ВМ:
+
+      ```bash
+      yc compute instance stop first-instance
+      ```
+
+  1. Получите текущую [конфигурацию](../../concepts/performance-levels.md) ВМ вместе с [метаданными](../../concepts/vm-metadata.md):
+
+      ```bash
+      yc compute instance get --full first-instance
+      ```
+
+  1. Измените конфигурацию ВМ:
+
+      ```bash
+      yc compute instance update first-instance \
+        --memory 32 \
+        --cores 4 \
+        --core-fraction 100
+      ```
+
+      Данная команда изменит конфигурацию ВМ:
+      * **Гарантированный уровень vCPU** — на 100%.
+      * **vCPU** — на 4.
+      * **RAM** — на 32 ГБ.
+
+  1. Запустите ВМ:
+
+      ```bash
+      yc compute instance start first-instance
+      ```
+
+- API {#api}
+
+  Чтобы изменить vCPU и RAM ВМ, воспользуйтесь методом REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Update](../../api-ref/grpc/Instance/update.md).
+
+{% endlist %}
+
+{% note warning %}
+
+При изменении ресурсов ВМ возможна смена PCI-топологии. Учитывайте это при работе с операционными системами, чувствительными к таким изменениям. Например, при сильно измененных настройках сети в Windows Server возможна потеря сетевой связанности и, как следствие, пропадание доступа к ВМ.
+
+{% endnote %}
+
+## Добавить GPU к существующей виртуальной машине {#add-gpu}
+
+Чтобы добавить [GPU](../../concepts/gpus.md) к существующей ВМ, измените платформу и укажите количество GPU.
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  Чтобы изменить количество GPU на ВМ:
+
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
+  1. Нажмите на имя нужной ВМ.
+  1. В правом верхнем углу страницы нажмите кнопку **Остановить**.
+  1. В открывшемся окне нажмите кнопку **Остановить**.
+  1. Подождите пока ВМ перейдет в статус `Stopped` и в правом верхнем углу страницы нажмите ![image](../../../_assets/console-icons/pencil.svg) **Изменить ВМ**.
+  1. В блоке **Вычислительные ресурсы**:
+
+      * Перейдите на вкладку **GPU**.
+      * Выберите одну из [платформ](../../concepts/vm-platforms.md#gpu-platforms):
+
+          * Intel Broadwell with NVIDIA® Tesla® V100
+          * Intel Cascade Lake with NVIDIA® Tesla® V100
+          * AMD EPYC™ with NVIDIA® Ampere® A100
+          * Intel Ice Lake with NVIDIA® Tesla® T4
+          * Intel Ice Lake with T4i
+
+      * Выберите одну из предлагаемых конфигураций с необходимым количеством GPU, vCPU и объемом RAM.
+
+  1. Нажмите кнопку **Сохранить изменения**.
+  1. В правом верхнем углу страницы нажмите кнопку **Запустить**.
+  1. В открывшемся окне нажмите кнопку **Запустить**.
+
+- CLI {#cli}
+
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+
+  По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+  1. Посмотрите описание команды CLI для обновления параметров ВМ:
+
+      ```bash
+      yc compute instance update --help
+      ```
+
+  1. Получите список ВМ в каталоге по умолчанию:
+
+      ```bash
+      yc compute instance list
+      ```
+      
+      Результат:
+      ```text
+      +----------------------+-----------------+---------------+---------+----------------------+
+      |          ID          |       NAME      |    ZONE ID    | STATUS  |     DESCRIPTION      |
+      +----------------------+-----------------+---------------+---------+----------------------+
+      | fhm0b28lgfp4******** | first-instance  | ru-central1-a | RUNNING | my first vm via CLI  |
+      | fhm9gk85nj7g******** | second-instance | ru-central1-a | RUNNING | my second vm via CLI |
+      +----------------------+-----------------+---------------+---------+----------------------+
+      ```
+
+  1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной ВМ, например `first-instance`.
+  1. Остановите ВМ:
+
+      ```bash
+      yc compute instance stop first-instance
+      ```
+
+  1. Получите текущую [конфигурацию](../../concepts/performance-levels.md) ВМ вместе с [метаданными](../../concepts/vm-metadata.md):
+
+      ```bash
+      yc compute instance get --full first-instance
+      ```
+
+  1. Измените конфигурацию ВМ:
+
+      ```bash
+      yc compute instance update first-instance \
+        --platform=standard-v3-t4 \
+        --cores=8 \
+        --memory=32 \
+        --gpus=1
+      ```
+
+      После выполнения данной команды изменятся следующие характеристики ВМ:
+
+      * **Платформа** — на Intel Ice Lake with NVIDIA® Tesla® T4.
+      * **vCPU** — на 8.
+      * **RAM** — на 32 ГБ.
+      * **GPU** — на 1.
+
+  1. Запустите ВМ:
+
+      ```bash
+      yc compute instance start first-instance
+      ```
+
+- API {#api}
+
+  Чтобы изменить платформу и конфигурацию ВМ, воспользуйтесь методом REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Update](../../api-ref/grpc/Instance/update.md).
+
+{% endlist %}
+
+## Изменить количество GPU {#update-gpu}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  Чтобы изменить количество [GPU](../../concepts/gpus.md) на существующей ВМ:
+
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
+  1. Нажмите на имя нужной ВМ.
+  1. В правом верхнем углу страницы нажмите кнопку **Остановить**.
+  1. В открывшемся окне нажмите кнопку **Остановить**.
+  1. Подождите, пока ВМ перейдет в статус `Stopped`, и в правом верхнем углу страницы нажмите ![image](../../../_assets/console-icons/pencil.svg) **Изменить ВМ**.
+  1. В блоке **Вычислительные ресурсы**:
+
+      * Перейдите на вкладку **GPU**.
+      * Выберите одну из [платформ](../../concepts/vm-platforms.md#gpu-platforms):
+
+          * Intel Broadwell with NVIDIA® Tesla® V100
+          * Intel Cascade Lake with NVIDIA® Tesla® V100
+          * AMD EPYC™ with NVIDIA® Ampere® A100
+          * Intel Ice Lake with NVIDIA® Tesla® T4
+          * Intel Ice Lake with T4i
+
+      * Выберите одну из предлагаемых конфигураций с необходимым количеством GPU, vCPU и объемом RAM.
+
+  1. Нажмите кнопку **Сохранить изменения**.
+  1. В правом верхнем углу страницы нажмите кнопку **Запустить**.
+  1. В открывшемся окне нажмите кнопку **Запустить**.
+
+- CLI {#cli}
+
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../../cli/quickstart.md#install).
+
+  По умолчанию используется каталог, указанный при [создании](../../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+  1. Посмотрите описание команды CLI для обновления параметров ВМ:
+
+      ```bash
+      yc compute instance update --help
+      ```
+
+  1. Получите список ВМ в каталоге по умолчанию:
+
+      ```bash
+      yc compute instance list
+      ```
+      
+      Результат:
+      ```text
+      +----------------------+-----------------+---------------+---------+----------------------+
+      |          ID          |       NAME      |    ZONE ID    | STATUS  |     DESCRIPTION      |
+      +----------------------+-----------------+---------------+---------+----------------------+
+      | fhm0b28lgfp4******** | first-instance  | ru-central1-a | RUNNING | my first vm via CLI  |
+      | fhm9gk85nj7g******** | second-instance | ru-central1-a | RUNNING | my second vm via CLI |
+      +----------------------+-----------------+---------------+---------+----------------------+
+      ```
+
+  1. Выберите идентификатор (`ID`) или имя (`NAME`) нужной ВМ, например `first-instance`.
+  1. Остановите ВМ:
+
+      ```bash
+      yc compute instance stop first-instance
+      ```
+
+  1. Получите текущую [конфигурацию](../../concepts/performance-levels.md) ВМ вместе с [метаданными](../../concepts/vm-metadata.md):
+
+      ```bash
+      yc compute instance get --full first-instancegit
+      ```
+
+  1. Измените конфигурацию ВМ:
+
+      ```bash
+      yc compute instance update first-instance \
+        --gpus=2 \
+        --cores=56 \
+        --memory=238
+      ```
+
+      Данная команда изменит количество GPU на 2. 
+
+      Значения параметров `--cores` (количество vCPU) и `--memory` (размер RAM в ГБ) зависят от платформы и количества GPU. См. [список доступных конфигураций](../../concepts/gpus.md#config).
+
+  1. Запустите ВМ:
+
+      ```bash
+      yc compute instance start first-instance
+      ```
+
+- API {#api}
+
+  Чтобы изменить количество GPU, воспользуйтесь методом REST API [update](../../api-ref/Instance/update.md) для ресурса [Instance](../../api-ref/Instance/index.md) или вызовом gRPC API [InstanceService/Update](../../api-ref/grpc/Instance/update.md).
+
+{% endlist %}
+
+## Включить программно ускоренную сеть {#enable-software-accelerated-network}
+
+{% note warning %}
+
+Функциональность доступна только по согласованию с вашим аккаунт-менеджером.
+
+{% endnote %}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  Чтобы включить [программно ускоренную сеть](../../concepts/software-accelerated-network.md) на существующей ВМ:
+
+  1. В [консоли управления](https://console.yandex.cloud) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит ВМ.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
+  1. Нажмите на имя нужной ВМ.
+  1. В правом верхнем углу страницы нажмите кнопку **Остановить**.
+  1. В открывшемся окне нажмите кнопку **Остановить**.
+  1. Подождите пока ВМ перейдет в статус `Stopped` и в правом верхнем углу страницы нажмите ![image](../../../_assets/console-icons/pencil.svg) **Изменить ВМ**.
+  1. В блоке **Вычислительные ресурсы** откройте вкладку **Своя конфигурация** и включите опцию **Программное ускорение сети**.
+  1. Нажмите кнопку **Сохранить изменения**.
+  1. В правом верхнем углу страницы нажмите кнопку **Запустить**.
+  1. В открывшемся окне нажмите кнопку **Запустить**.
+
+{% endlist %}

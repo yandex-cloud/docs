@@ -1,0 +1,75 @@
+# Identity and Access Management API, gRPC: ApiKeyService.Get
+
+Returns the specified API key.
+
+To get the list of available API keys, make a [List](list.md#List) request.
+
+## gRPC request
+
+**rpc Get ([GetApiKeyRequest](#yandex.cloud.iam.v1.GetApiKeyRequest)) returns ([ApiKey](#yandex.cloud.iam.v1.ApiKey))**
+
+## GetApiKeyRequest {#yandex.cloud.iam.v1.GetApiKeyRequest}
+
+```json
+{
+  "api_key_id": "string"
+}
+```
+
+#|
+||Field | Description ||
+|| api_key_id | **string**
+
+Required field. ID of the API key to return.
+To get the API key ID, use a [ApiKeyService.List](list.md#List) request.
+
+The maximum string length in characters is 50. ||
+|#
+
+## ApiKey {#yandex.cloud.iam.v1.ApiKey}
+
+```json
+{
+  "id": "string",
+  "service_account_id": "string",
+  "created_at": "google.protobuf.Timestamp",
+  "description": "string",
+  "last_used_at": "google.protobuf.Timestamp",
+  "scope": "string",
+  "scopes": [
+    "string"
+  ],
+  "expires_at": "google.protobuf.Timestamp",
+  "masked_secret": "string"
+}
+```
+
+An ApiKey resource. For more information, see [Api-Key](../../../concepts/authorization/api-key.md).
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the API Key. ||
+|| service_account_id | **string**
+
+ID of the service account that the API key belongs to. ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Creation timestamp. ||
+|| description | **string**
+
+Description of the API key. 0-256 characters long. ||
+|| last_used_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Timestamp for the last authentication using this API key. ||
+|| scopes[] | **string**
+
+Scopes of the API key. 0-256 characters long. ||
+|| expires_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+API key expiration timestamp. ||
+|| masked_secret | **string**
+
+Masked value of the API key's secret part: `\*{4}[a-zA-Z0-9_]{6}` ||
+|#
