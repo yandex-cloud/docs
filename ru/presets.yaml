@@ -8859,7 +8859,27 @@ default:
           label_table-column-add_241Co: Добавить столбец
           label_table-columns_68mj2: Доступ к столбцам
           label_table-privileges_2ikK4: Привилегии
+          ResourceGroupDialogContent:
+            field_hard-concurrency-limit_hjuBf: Hard concurrency limit
+            field_hard-cpu-limit_eeDrV: Hard CPU limit
+            field_max-queued_aj14k: Max queued
+            field_scheduling-policy_5vhLX: Scheduling policy
+            field_scheduling-weight_fP1ue: Scheduling weight
+            field_soft-concurrency-limit_j5KQC: Soft concurrency limit
+            field_soft-cpu-limit_aUwE5: Soft CPU limit
+            field_soft-memory-limit_1mATZ: Soft memory limit, %
+          ResourceGroupsTable:
+            button_add-group_m99qN: Добавить группу
+          SelectorRulesTable:
+            button_add-rule_3Gide: Добавить правило
+            label_query-type_69gwq: Тип запроса
+            label_resource-group_qjdHa: Ресурсная группа
+            label_source_5knZL: Источник
+            label_user_3spf1: Пользователь
+            label_user-group_qRK1P: Группа
+            label-client-tags_eyQNn: Теги
         ClusterView:
+          label_cpu-quota-period_tD5vD: CPU quota period
           RBACView:
             label_rbac-settings_o2F64: Настройки доступа
         label_private-access: Приватный доступ
@@ -8887,6 +8907,7 @@ default:
         rbac-catalog-match-by-name: Имя
         rbac-catalog-match-by-name-regexp: Имя (регулярное выражение)
         section_rbac: Настройки доступа
+        section_resource-management: Управление ресурсами
         title_catalogs: Каталоги
       ui:
         metadata-hub:

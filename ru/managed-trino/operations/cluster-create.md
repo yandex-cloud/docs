@@ -21,7 +21,7 @@ keywords:
 * [logging.editor](../../logging/security/index.md#logging-editor) — чтобы управлять настройками логирования кластера;
 * [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) — чтобы привязать сервисный аккаунт к кластеру.
 
-[Сервисному аккаунту](../../iam/concepts/users/service-accounts.md) кластера должны быть назначены роли `managed-trino.integrationProvider` и `storage.editor`. Это даст кластеру нужные права для работы с пользовательскими ресурсами. Подробнее см. в разделе [Имперсонация](../concepts/impersonation.md).
+[Сервисному аккаунту](../../iam/concepts/users/service-accounts.md) кластера должны быть назначены роли `managed-trino.integrationProvider` и `storage.editor`. Это даст кластеру нужные права для работы с пользовательскими ресурсами. Подробнее в разделе [Имперсонация](../concepts/impersonation.md).
 
 О назначении ролей читайте в [документации {{ iam-full-name }}](../../iam/operations/roles/grant.md).
 
@@ -65,8 +65,9 @@ keywords:
         1. (Опционально) В поле **Параметры хранилища** задайте дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах см. в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
     1. Задайте конфигурацию [координатора](../concepts/index.md#coordinator) и [воркеров](../concepts/index.md#workers).
-    1. (Опционально) В блоке **{{ ui-key.yacloud.trino.title_catalogs }}** добавьте [каталоги Trino](../concepts/index.md#catalog). Вы можете сделать это как при создании кластера, так и позже. Подробнее см. в разделе [Создание каталога {{ TR }}](catalog-create.md).
-    1. (Опционально) В блоке **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}** задайте [правила доступа к объектам кластера](../concepts/access-control.md). Подробнее см. в разделе [{#T}](access-control.md).
+    1. (Опционально) В блоке **{{ ui-key.yacloud.trino.title_catalogs }}** добавьте [каталоги Trino](../concepts/index.md#catalog). Вы можете сделать это как при создании кластера, так и позже. Подробнее в разделе [Создание каталога {{ TR }}](catalog-create.md).
+    1. (Опционально) В блоке **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}** задайте [правила доступа к объектам кластера](../concepts/access-control.md). Подробнее в разделе [{#T}](access-control.md).
+    1. (Опционально) В блоке **{{ ui-key.yacloud.trino.section_resource-management }}** задайте [конфигурацию ресурсных групп](../concepts/access-control.md). Подробнее в разделе [{#T}](manage-resource-groups.md).
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
 
         1. (Опционально) Включите защиту от удаления кластера.
@@ -280,7 +281,7 @@ keywords:
 
         {% include [Terraform cluster parameters description](../../_includes/managed-trino/terraform/cluster-parameters.md) %}
 
-    1. Чтобы создать в кластере [каталоги {{ TR }}](../concepts/index.md#catalog), добавьте в конфигурационный файл нужное количество ресурсов `yandex_trino_catalog`. Вы можете сделать это как при создании кластера, так и позже. Подробнее см. в разделе [Создание каталога {{ TR }}](catalog-create.md).
+    1. Чтобы создать в кластере [каталоги {{ TR }}](../concepts/index.md#catalog), добавьте в конфигурационный файл нужное количество ресурсов `yandex_trino_catalog`. Вы можете сделать это как при создании кластера, так и позже. Подробнее в разделе [Создание каталога {{ TR }}](catalog-create.md).
 
     1. Чтобы включить отправку логов {{ TR }} в сервис [{{ cloud-logging-full-name }}](../../logging/), добавьте к описанию кластера блок `logging`:
 

@@ -37,6 +37,10 @@ Adds a network interface spec to the server.
 
 Possible property names:
 
+- `id`: Specifies the ID of the network interface. Should not be specified when creating a server.
+
+- `configuration-network-interface-id`: Specifies the ID of the configuration network interface that determines the network interface configuration. If not specified, the configuration will be chosen automatically on the server side based on availability. It is recommended to specify this field for deterministic behavior.
+
 - `private-subnet-id`: Specifies the ID of the private subnet that the interface will be part of.
 
 - `public-subnet-id`: Specifies the ID of the public subnet that the interface will be part of.

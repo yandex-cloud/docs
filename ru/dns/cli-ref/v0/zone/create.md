@@ -10,7 +10,7 @@ Create a dns zone in the specified folder.
 
 Syntax:
 
-`yc dns zone create <DNS-ZONE-NAME> [Flags...] [Global Flags...]`
+`yc dns zone create [Flags...] [Global Flags...]`
 
 #### Flags
 

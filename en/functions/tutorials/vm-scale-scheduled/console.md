@@ -2,10 +2,10 @@
 canonical: '{{ link-docs }}/tutorials/infrastructure-management/vm-scale-scheduled/console'
 ---
 
-# Instance group scheduled scaling with the management console, CLI, and API
+# Scheduled instance group scaling with the management console, CLI, and API
 
 
-To set up [instance group scheduled scaling](index.md), follow these steps:
+To set up [scheduled instance group scaling](index.md), follow these steps:
 
 {% include [vm-scale-scheduled-console](../../../_tutorials/infrastructure/vm-scale-scheduled-console.md) %}
 

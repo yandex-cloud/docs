@@ -5,9 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Создать облако в другом регионе
 
-{% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
-
-Чтобы создавать облака в другом [регионе](../../../overview/concepts/region.md), [подключите](../../../organization/operations/add-region.md) управляемую организацию. После этого выполните следующие шаги:
+Чтобы создавать облака в другом [регионе](../../../overview/concepts/region.md), [создайте](../../../organization/operations/add-region.md) управляемую организацию. После этого выполните следующие шаги:
 
 {% list tabs group=instructions %}
 

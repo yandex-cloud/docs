@@ -20,7 +20,11 @@ keywords:
 * [конфигурацию координатора и воркеров](#change-configuration);
 * [дополнительные настройки кластера](#change-additional-settings).
 
-Вы также можете изменить [правила доступа к объектам кластера](../concepts/access-control.md), подробнее см. в разделе [{#T}](access-control.md).
+Подробнее о других изменениях кластера:
+
+* [настройка технического обслуживания](cluster-maintenance.md);
+* [настройка правил доступа к объектам кластера](access-control.md);
+* [настройка ресурсных групп](manage-resource-groups.md).
 
 ## Изменить имя и описание кластера {#change-basic-settings}
 
@@ -987,7 +991,7 @@ keywords:
           < body.json
         ```
 
-    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+    1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 

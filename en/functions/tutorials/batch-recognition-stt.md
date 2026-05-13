@@ -1,6 +1,6 @@
 ---
-title: Guide on regular recognition of audio files in a {{ objstorage-full-name }} bucket
-description: Follow this guide to configure regular recognition of audio files in an {{ objstorage-full-name }} bucket.
+title: How to recognize audio files in a {{ objstorage-full-name }} bucket on a regular basis
+description: Follow this tutorial to configure regular recognition of audio files in a {{ objstorage-full-name }} bucket.
 noIndex: true
 canonical: '{{ link-docs }}/tutorials/ml-ai/batch-recognition-stt'
 ---

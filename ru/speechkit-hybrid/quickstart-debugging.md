@@ -35,8 +35,8 @@ description: Следуя данной инструкции, вы сможете
 
    ```text
    REPOSITORY                                        TAG   DIGEST             IMAGE ID  CREATED  SIZE
-   {{ registry }}/crp33...7i/release/stt/v100/stt_server  0.21  sha256:83245...6b  0d1...89  ...      15.3GB
-   {{ registry }}/crp33...7i/release/tts/v100/tts_server  0.21  sha256:41c1f...ea  d3a...7d  ...      16.1GB
+   {{ registry }}/crp33...7i/release/stt/a100/stt_server  0.21  sha256:83245...6b  0d1...89  ...      15.3GB
+   {{ registry }}/crp33...7i/release/tts/a100/tts_server  0.21  sha256:41c1f...ea  d3a...7d  ...      16.1GB
    {{ registry }}/crp33...7i/release/envoy                0.21  sha256:853ed...cb  6f7...31  ...      220MB
    {{ registry }}/crp33...7i/release/license_server       0.21  sha256:44d24...3d  59e...62  ...      1.23GB
    ```
@@ -53,8 +53,8 @@ description: Следуя данной инструкции, вы сможете
 
    ```text
    CONTAINER ID  IMAGE                                                  ...  STATUS            ...
-   659...a0      {{ registry }}/crp33...7i/release/stt/v100/stt_server:0.21  ...  Up About an hour  ...
-   af3...1f      {{ registry }}/crp33...7i/release/tts/v100/tts_server:0.21  ...  Up About an hour  ...
+   659...a0      {{ registry }}/crp33...7i/release/stt/a100/stt_server:0.21  ...  Up About an hour  ...
+   af3...1f      {{ registry }}/crp33...7i/release/tts/a100/tts_server:0.21  ...  Up About an hour  ...
    e42...36      {{ registry }}/crp33...7i/release/envoy:0.21                ...  Up About an hour  ...
    a4a...43      {{ registry }}/crp33...7i/release/license_server:0.21       ...  Up About an hour  ...
    ```
@@ -67,7 +67,7 @@ description: Следуя данной инструкции, вы сможете
       sudo apt install net-tools
       ```
 
-   1. Убедитесь, что сервисы {{ sk-hybrid-name }} готовы обслуживать сетевые соединения на выделенных им портах. Список портов см. в файле `docker-compose.yaml`. Он хранится в файле [node-deploy.tf](https://github.com/yandex-cloud-examples/yc-speechkit-hybrid-deployment/blob/main/node-deploy.tf), в переменной `COMPOSE_V100_STT_TTS`.
+   1. Убедитесь, что сервисы {{ sk-hybrid-name }} готовы обслуживать сетевые соединения на выделенных им портах. Список портов см. в файле `docker-compose.yaml`. Он хранится в файле [node-deploy.tf](https://github.com/yandex-cloud-examples/yc-speechkit-hybrid-deployment/blob/main/node-deploy.tf), в переменной `COMPOSE_A100_STT_TTS`.
 
       Выполните команду, чтобы получить информацию о сетевых соединениях сервисов:
 
@@ -122,7 +122,7 @@ description: Следуя данной инструкции, вы сможете
       | GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
       | Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
       |===============================+======================+======================|
-      |   0  Tesla V100-SXM2...  Off  | 00000000:8B:00.0 Off |                    0 |
+      |   0  Ampere A100-SXM2...  Off | 00000000:8B:00.0 Off |                    0 |
       | N/A   33C    P0    36W / 300W |      0MiB / 32510MiB |      2%      Default |
       +-------------------------------+----------------------+----------------------+
       ```
@@ -140,8 +140,8 @@ description: Следуя данной инструкции, вы сможете
       CUDA version:   11.4
       Device Index:   0
       Device Minor:   0
-      Model:          Tesla V100-SXM2-32GB
-      Brand:          Tesla
+      Model:          Ampere A100-SXM2-32GB
+      Brand:          Ampere
       GPU UUID:       GPU-1af...cb
       Bus Location:   00000000:8b:00.0
       Architecture:   7.0
@@ -158,6 +158,6 @@ description: Следуя данной инструкции, вы сможете
 
 1. Изучите содержимое файла `docker-compose.yaml`, с помощью которого осуществляется запуск Docker-контейнеров.
 
-   `docker-compose.yaml` описан в файле `node-deploy.tf`, в переменной `COMPOSE_V100_STT_TTS`. Содержимое переменной автоматически выгружается в файл `docker-compose.yaml`. Он размещается и собирается на ВМ, где запускается {{ sk-hybrid-name }}.
+   `docker-compose.yaml` описан в файле `node-deploy.tf`, в переменной `COMPOSE_A100_STT_TTS`. Содержимое переменной автоматически выгружается в файл `docker-compose.yaml`. Он размещается и собирается на ВМ, где запускается {{ sk-hybrid-name }}.
 
    Во время сборки могут возникнуть ошибки. Чтобы их обработать, убедитесь, что содержимое файла `docker-compose.yaml` соответствует информации о конфигурации окружения. Эта информация была собрана по описанным выше шагам.
