@@ -1,0 +1,18 @@
+# Container Registry API: gRPC reference
+
+Actions are performed by making RPC calls. For more information about API architecture, see [API Concepts](../../../api-design-guide/index.md).
+
+**Interface definitions** available at [GitHub](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/containerregistry/v1).
+
+**Service URL**: `https://container-registry.api.cloud.yandex.net`
+
+#|
+||Service | Description ||
+|| [Image](Image/index.md) | A set of methods for managing Image resources. ||
+|| [LifecyclePolicy](LifecyclePolicy/index.md) | A set of methods for managing Lifecycle policy resources. ||
+|| [Operation](Operation/index.md) | A set of methods for managing operations for asynchronous API requests. ||
+|| [Registry](Registry/index.md) | A set of methods for managing Registry resources. ||
+|| [Repository](Repository/index.md) | A set of methods for managing Repository resources. ||
+|| [Scanner](Scanner/index.md) | A set of methods for scanning Docker images. ||
+|| [ScanPolicy](ScanPolicy/index.md) | A set of methods for managing scan policy resources. ||
+|#
