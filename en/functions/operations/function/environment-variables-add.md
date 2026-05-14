@@ -1,17 +1,17 @@
 # Adding function environment variables
 
-When you add environment variables, a new version of the function is created. You cannot add variables to an existing version.
+When adding environment variables, you create a new version of the function. You cannot add variables to an existing version.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
     
-    1. In the [management console]({{ link-console-main }}), select the folder containing the function.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
     1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-    1. Select the function whose version you want to add an environment variable for.
+    1. Select the function whose version you want to add an environment variable to.
     1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify the environment variable and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**. You can add multiple environment variables.
-    1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**. This will create a new version of the function with the specified environment variables.
+    1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**. This will create a new function version with the specified environment variables.
     
 - CLI {#cli}
 
@@ -19,18 +19,18 @@ When you add environment variables, a new version of the function is created. Yo
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    To add environment variables, run the command:
+    To add environment variables, run this command:
 
     {% note warning %}
 
-    If the previous version contained environment variables, this command overwrites them.
+    If the previous version contains environment variables, they will be overwritten.
 
     {% endnote %}
 
     ```bash
     yc serverless function version create \
       --function-name=<function_name> \
-      --runtime <runtime_environment> \
+      --runtime <runtime> \
       --entrypoint <entry_point> \
       --memory 128m \
       --execution-timeout 5s \
@@ -41,10 +41,10 @@ When you add environment variables, a new version of the function is created. Yo
     Where:
 
     * `--function-name`: Function name.
-    * `--runtime`: Runtime environment.
+    * `--runtime`: Runtime.
     * `--entrypoint`: Entry point in `<function_file_name>.<handler_name>` format.
     * `--memory`: Amount of RAM.
-    * `--execution-timeout`: Maximum function running time before timeout.
+    * `--execution-timeout`: Maximum function execution time before timeout.
     * `--source-version-id`: ID of the function version from which you want to copy the code.
     * `--environment`: Environment variables in `key=value` format. You can specify multiple pairs separated by commas.
 
@@ -56,7 +56,7 @@ When you add environment variables, a new version of the function is created. Yo
 
     To add environment variables:
 
-    1. In the configuration file, add the `environment` section for the `yandex_function` resource and specify the list of environment variables as `<key> = "<value>"`.
+    1. In the configuration file, add the `environment` section for the `yandex_function` resource and specify the list of environment variables in `<key> = "<value>"` format.
 
        Example of a function description in the {{ TF }} configuration:
       
@@ -80,15 +80,15 @@ When you add environment variables, a new version of the function is created. Yo
         }
         ```
 
-        For more information about `yandex_function` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function).
+        For more information about `yandex_function` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
-    1. Check the configuration using this command:
+    1. Validate your configuration using this command:
         
        ```bash
        terraform validate
        ```
 
-       If the configuration is correct, you will get this message:
+       If the configuration is valid, you will get this message:
         
        ```text
        Success! The configuration is valid.
@@ -100,17 +100,17 @@ When you add environment variables, a new version of the function is created. Yo
        terraform plan
        ```
 
-       You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+       You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
          
-    1. Apply the changes:
+    1. Apply the configuration changes:
 
        ```bash
        terraform apply
        ```
 
-    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+    1. Type `yes` and press **Enter** to confirm the changes.
       
-    You can check the new environment variables using the [management console]({{ link-console-main }}).
+    You can check the new environment variables in the [management console]({{ link-console-main }}).
 
 - API {#api}
 

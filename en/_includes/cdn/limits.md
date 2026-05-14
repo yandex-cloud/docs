@@ -16,3 +16,4 @@
 | Number of [forced file caching](../../cdn/concepts/caching.md#prefetch) requests per minute | 1 |
 | Number of paths to files forcibly loaded into the cache per request | 100 |
 | Number of IP addresses (subnet prefixes) in the IP-based access policy [list](../../cdn/concepts/ip-address-acl.md#ip-list) | 100 |
+| Number of [dedicated IP addresses](../../cdn/concepts/dedicated-ip-addressing.md) for CDN resources per [billing account](../../billing/concepts/billing-account.md) | 1 |

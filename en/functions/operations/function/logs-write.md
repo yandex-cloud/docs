@@ -11,7 +11,7 @@ description: Follow this guide to configure function logging.
 
 - Management console {#console}
     
-    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing the function.
+    1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing the function.
     1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select the function you want to configure logging for.
     1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
@@ -20,7 +20,7 @@ description: Follow this guide to configure function logging.
         1. Enable **{{ ui-key.yacloud.logging.field_logging }}**.
         1. In the **{{ ui-key.yacloud.logging.label_destination }}** field, select:
           
-           * `{{ ui-key.yacloud.common.folder }}`: To write [logs](../../concepts/logs.md) to the default [log group](../../../logging/concepts/log-group.md) for the folder the function is in.
+           * `{{ ui-key.yacloud.common.folder }}`: To write [logs](../../concepts/logs.md) to the default [log group](../../../logging/concepts/log-group.md) for the folder containing the function.
            * {% include [log-group](../../../_includes/functions/log-group.md) %}
 
         1. Optionally, select the minimum logging level.
@@ -39,31 +39,31 @@ description: Follow this guide to configure function logging.
 
     {% include [logging-destination](../../../_includes/functions/logging-destination.md) %}
 
-    For logging to another folder's default log group, provide that folder's ID in the `--log-folder-id` parameter when [creating a function version](version-manage.md). The [account](../../../iam/concepts/users/accounts.md) used to run the command must have the `logging.editor` [role](../../../logging/security/index.md#logging-editor) or higher for that folder.
+    To write logs to another folder's default log group, provide that folder's ID in the `--log-folder-id` parameter when [creating a function version](version-manage.md). The [account](../../../iam/concepts/users/accounts.md) used to run the command must have the `logging.editor` [role](../../../logging/security/index.md#logging-editor) or higher for the folder.
 
-    For logging to a custom log group, provide that log group's ID in the `--log-group-id` parameter when creating a function version. The log group may reside in a different folder. The account used to run the command must have the `logging.editor` role or higher for that folder.
+    To write logs a custom log group, provide that log group's ID in the `--log-group-id` parameter when creating a function version. The log group may reside in a different folder. The account used to run the command must have the `logging.editor` role or higher for that folder.
 
 
     ### Minimum logging level {#log-level}
 
-    To set a minimum logging level, provide it in the `--min-log-level` parameter when creating a function version. 
+    To set the minimum logging level, specify it in the `--min-log-level` parameter when creating a function version. 
     
     {% include [min-log-level](../../../_includes/functions/min-log-level.md) %}
 
     ### Disabling logging {#disabled}
 
-    To disable logging, set the `--no-logging` parameter when creating a function version.
+    To disable logging, specify `--no-logging` when creating a function version.
 
     ### Command example {#example}
     
-    For logging to a custom log group, run this command:
+    To write logs to a custom log group, run this command:
         
     ```
     {{ yc-serverless }} function version create \
       --function-id <function_ID> \
-      --runtime <runtime_environment> \
+      --runtime <runtime> \
       --entrypoint <entry_point> \
-      --memory <RAM_size> \
+      --memory <RAM_amount> \
       --source-path <ZIP_archive_with_function_code> \
       --log-group-id <log_group_ID> \
       --min-log-level <minimum_logging_level>
@@ -71,12 +71,12 @@ description: Follow this guide to configure function logging.
 
     Where:
     * `--function-id`: Function ID.
-    * `--runtime`: Runtime environment.
-    * `--entrypoint`: Entry point in the following format: `<file_name_without_extension>.<listener_name>`.
+    * `--runtime`: Runtime.
+    * `entrypoint`: Entry point in `<file_name_without_extension>.<handler_name>` format.
     * `--memory`: Amount of RAM.
     * `--source-path`: ZIP archive with the function code and required dependencies.
     * `--log-group-id`: ID of the log group to write logs to.
-    * `--min-log-level`: Minimum logging level. This is an optional parameter.
+    * `--min-log-level`: Minimum logging level. This is an optional setting.
 
     Result:
     ```
@@ -108,9 +108,9 @@ description: Follow this guide to configure function logging.
 
     {% include [logging-destination](../../../_includes/functions/logging-destination.md) %}
 
-    For logging to another folder's default log group, provide that folder's ID under `log_options` in the `folder_id` parameter when [creating a function version](version-manage.md). The [account](../../../iam/concepts/users/accounts.md) used to run the command must have the `logging.editor` [role](../../../logging/security/index.md#logging-editor) or higher for the folder.
+    To write logs to another folder's default log group, provide that folder's ID under `log_options` in the `folder_id` parameter when [creating a function version](version-manage.md). The [account](../../../iam/concepts/users/accounts.md) used to run the command must have the `logging.editor` [role](../../../logging/security/index.md#logging-editor) or higher for the folder.
 
-    For logging to a custom log group, provide that log group's ID under `log_options` in the `log_group_id` parameter when creating a function version. The log group may reside in a different folder. The account used to run the command must have the `logging.editor` role or higher for that folder.
+    To write logs to a custom log group, provide that log group's ID under `log_options` in the `log_group_id` parameter when creating a function version. The log group may reside in a different folder. The account used to run the command must have the `logging.editor` role or higher for that folder.
 
     ### Minimum logging level {#log-level}
 
@@ -120,11 +120,11 @@ description: Follow this guide to configure function logging.
 
     ### Disabling logging {#disabled}
 
-    To disable logging, set the `disabled` parameter to `true` under `log_options` when creating a function version.
+    To disable logging, specify `disabled` set to `true` under `log_options` when creating a function version.
 
     ### Example {#example}
 
-    For logging to a custom log group:
+    To write logs to a custom log group:
 
     1. Open the {{ TF }} configuration file and add the `log_options` section to the `yandex_function` resource description:
 
@@ -134,9 +134,9 @@ description: Follow this guide to configure function logging.
         resource "yandex_function" "my-function" {
           name       = "<function_name>"
           user_hash  = "<function_version_hash>"
-          runtime    = "<runtime_environment>"
+          runtime    = "<runtime>"
           entrypoint = "<entry_point>"
-          memory     = "<RAM_size>"
+          memory     = "<RAM_amount>"
           content {
             zip_filename = "<path_to_ZIP_archive>"
           }
@@ -149,17 +149,17 @@ description: Follow this guide to configure function logging.
 
         Where:
         * `name`: Function name.
-        * `user_hash`: Custom string to define the function version. When the function changes, update this string, too. The function will update when this string is updated.
-        * `runtime`: Function [runtime environment](../../concepts/runtime/index.md).
+        * `user_hash`: Any string to identify the function version. When you change the function, update this string as well. Updating this string triggers a function update.
+        * `runtime`: Function [runtime](../../concepts/runtime/index.md).
         * `entrypoint`: Function name in the source code that will serve as an entry point to applications.
-        * `memory`: Amount of memory allocated for the function, in MB.
+        * `memory`: Amount of memory allocated to the function, in MB.
         * `content`: Function source code:
-            * `zip_filename`: Path to the ZIP archive containing the function source code and relevant dependencies.
+            * `zip_filename`: Path to the ZIP archive with the function source code and required dependencies.
         * `log_options`: Logging settings:
             * `log_group_id`: ID of the log group to write logs to.
-            * `min_level`: Minimum logging level. This is an optional parameter.
+            * `min_level`: Minimum logging level. This is an optional setting.
 
-        For more information about `yandex_function` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/function).
+        For more information about `yandex_function` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
     1. Apply the changes:
 
@@ -167,13 +167,13 @@ description: Follow this guide to configure function logging.
 
 - API {#api}
 
-    For logging to the function execution log, use the [createVersion](../../functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/LogOptions](../../functions/api-ref/grpc/Function/createVersion.md#yandex.cloud.serverless.functions.v1.LogOptions) gRPC API call.
+    To write logs to the function execution log, use the [createVersion](../../functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/LogOptions](../../functions/api-ref/grpc/Function/createVersion.md#yandex.cloud.serverless.functions.v1.LogOptions) gRPC API call.
 
 {% endlist %}
 
 ## Structured logs {#structured-logs}
 
-Apart from text, you can write [structured logs](../../concepts/logs.md#structured-logs) to the standard output stream (`stdout`) and standard error output stream (`stderr`).
+Apart from text, you can write [structured logs](../../concepts/logs.md#structured-logs) to the standard output (`stdout`) and standard error output (`stderr`).
 
 ### Function examples
 

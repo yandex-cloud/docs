@@ -1,12 +1,12 @@
 # Making a function public
 
-To allow any user to invoke a function without passing an authorization header, make it public.
+To allow any user to invoke a function without providing an authorization header, make it public.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder containing the function.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
     1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select the function you want to make public.
     1. On the **{{ ui-key.yacloud.serverless-functions.item.overview.label_title }}** page, enable **{{ ui-key.yacloud.serverless-functions.item.overview.label_all-users-invoke }}**.
@@ -17,7 +17,7 @@ To allow any user to invoke a function without passing an authorization header, 
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    To make a function public, run the command:
+    To make a function public, run this command:
     
     ```bash
     yc serverless function allow-unauthenticated-invoke <function_name>
@@ -37,7 +37,7 @@ To allow any user to invoke a function without passing an authorization header, 
 
   To make a function public:
 
-  1. Describe the properties of the function access rights in a configuration file:
+  1. Describe the function access permissions in the configuration file:
 
      ```hcl
      resource "yandex_function_iam_binding" "function-iam" {
@@ -51,21 +51,21 @@ To allow any user to invoke a function without passing an authorization header, 
 
      Where:
 
-     * `function_id`: Function ID. To find out the function ID, [get a list of functions](function-list.md) in the folder.
+     * `function_id`: Function ID. To find out the function ID, [get the list of functions](function-list.md) in the folder.
      * `role`: Role to assign.
      * `members`: List of users to assign the role to.
 
-        To make a function public, assign the `{{ roles-functions-invoker }}` role to all unauthorized users ([`All users` public group](../../../iam/concepts/access-control/public-group.md)).
+        To make a function public, assign the `{{ roles-functions-invoker }}` role to all unauthorized users (the `All users` [public group](../../../iam/concepts/access-control/public-group.md)).
 
-     For more information about the `yandex_function_iam_binding` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_iam_binding).
+     For more information about the `yandex_function_iam_binding` properties, see [this provider guide]({{ tf-provider-resources-link }}/function_iam_binding).
 
-  1. Check the configuration using this command:
+  1. Validate your configuration using this command:
 
      ```bash
      terraform validate
      ```
 
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
 
      ```text
      Success! The configuration is valid.
@@ -77,15 +77,15 @@ To allow any user to invoke a function without passing an authorization header, 
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them. 
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration. 
 
-  1. Apply the changes:
+  1. Apply the configuration changes:
 
      ```bash
      terraform apply
      ```
 
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+  1. Type `yes` and press **Enter** to confirm the changes.
 
      You can check the assignment of the function role using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 

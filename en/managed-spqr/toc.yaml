@@ -28,6 +28,8 @@ items:
         href: operations/cluster-maintenance.md
       - name: Viewing cluster logs
         href: operations/cluster-logs.md
+      - name: Cluster and host state monitoring
+        href: operations/monitoring.md
       - name: Deleting a cluster
         href: operations/cluster-delete.md
       - name: Managing users

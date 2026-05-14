@@ -1,10 +1,23 @@
-title: "List of CLI releases"
-description: "This page presents CLI releases and their updates."
+---
+title: List of CLI releases
+description: This page presents CLI releases and their updates.
 ---
 
 # CLI releases
 
 ## Current version {#latest-release}
+
+### Version 1.6.0 (27/04/26) {#v-1-6-0}
+
+#### {{ cloud-registry-name }} {#v-1-6-0-cloud-registry-name}
+
+* Added the `yc cloud-registry registry lifecycle-policy dry-run` command to simulate the execution of a lifecycle policy.
+
+#### {{ iam-name }} {#v-1-6-0-iam-name}
+
+* Added the `MASKED KEY` field to the output of the `yc iam api-key list` command, containing the last six characters of the key's secret part.
+
+## Previous releases {#previous-release}
 
 ### Version 1.5.0 (23/04/26) {#v-1-5-0}
 
@@ -37,8 +50,6 @@ CLI commands now support versioning. It is implemented on a per-service basis as
 * Added the `--transactional-id-expiration-ms` parameter to these commands:
   * `yc kafka cluster create`
   * `yc kafka cluster update`
-
-## Previous releases {#previous-release}
 
 ### Version 1.4.0 (20/04/26) {#v-1-4-0}
 

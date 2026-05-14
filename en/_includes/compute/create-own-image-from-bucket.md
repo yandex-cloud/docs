@@ -9,19 +9,17 @@ Create a new image using the link you got in {{ objstorage-name }}:
   1. In the left-hand panel, select ![image](../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.compute.images_e7RdQ }}**.
   1. Click **{{ ui-key.yacloud.compute.images.button_upload }}**, and in the window that opens:
 
-      1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the image. Follow these naming requirements:
+      1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the image. The naming requirements are as follows:
 
           {% include [name-format](../name-format.md) %}
 
       1. Optionally, in the **{{ ui-key.yacloud.common.description }}** field, add a description of the new image.
-      1. In the **{{ ui-key.yacloud.compute.images.popup-upload_field_url }}** field, paste the image file link you got in {{ objstorage-name }} earlier.
+      1. In the **{{ ui-key.yacloud.compute.images.popup-upload_field_url }}** field, paste the image file link you previously got in {{ objstorage-name }}.
       1. In the **{{ ui-key.yacloud.compute.hardware-generation_1iEpT }}** field, select the hardware generation for the virtual machines created from your image. For more information about the available options, see [{#T}](../../compute/concepts/hardware-generations.md).
 
-          {% note alert %}
+          {% include [image-uefi-gen2-tip](./image-uefi-gen2-tip.md) %}
 
-          If you select `Gen 2`, make sure the bootloader in your image supports [UEFI](https://en.wikipedia.org/wiki/UEFI) and [GPT](https://en.wikipedia.org/wiki/GUID_Partition_Table). Otherwise, VMs will not be able to boot the operating system.
-
-          {% endnote %}
+          {% include [gen2-uefi-support-alert](./gen2-uefi-support-alert.md) %}
 
       1. To enable image [optimization](../../compute/concepts/image.md#images-optimized-for-deployment) for deployment, enable the **{{ ui-key.yacloud.compute.images.popup-upload_field_pooled }}** option.
       1. Click **{{ ui-key.yacloud.common.button_upload }}**.
@@ -47,7 +45,7 @@ Create a new image using the link you got in {{ objstorage-name }}:
       {% include [name-format](../name-format.md) %}
   
   * `--source-uri`: Image link you got in {{ objstorage-name }}.
-  * `--pooled`: Enables image [optimization](../../compute/concepts/image.md#images-optimized-for-deployment) for deployment. This is an optional setting. By default, the optimization is disabled.
+  * `--pooled`: Enables image [optimization](../../compute/concepts/image.md#images-optimized-for-deployment) for deployment. This is an optional setting. By default, optimization is disabled.
 
   Add a description as required and specify the [family](../../compute/concepts/image.md#family) the image belongs to:
 
@@ -80,6 +78,10 @@ Create a new image using the link you got in {{ objstorage-name }}:
     --hardware-features pci_topology=v2 \
     --source-uri "https://{{ s3-storage-host }}/mybucket/cosmic-server-cloudimg-amd64.vmdk"
   ```
+
+  {% include [image-uefi-gen2-tip](./image-uefi-gen2-tip.md) %}
+
+  {% include [gen2-uefi-support-alert](./gen2-uefi-support-alert.md) %}
 
   If you want to create an image with the `Gen 2` VM hardware generation assigned:
 
@@ -131,8 +133,12 @@ Create a new image using the link you got in {{ objstorage-name }}:
           * `true`: Optimization enabled.
           * `false`: Optimization disabled.
           
-          This is an optional setting. By default, the optimization is disabled.
+          This is an optional setting. By default, optimization is disabled.
       * `hardware_generation`: VM [hardware generation](../../compute/concepts/hardware-generations.md) configuration:
+
+          {% include [image-uefi-gen2-tip](./image-uefi-gen2-tip.md) %}
+
+          {% include [gen2-uefi-support-alert](./gen2-uefi-support-alert.md) %}
 
           * `generation2_features`: Parameter that assigns the `Gen 2` hardware generation to the new image. This is an optional setting. You cannot use this parameter together with `legacy_features`.
           * `legacy_features`: Parameter to assign the `Gen 1.2` hardware generation to the new image. You cannot use this parameter together with `generation2_features`.
@@ -142,8 +148,8 @@ Create a new image using the link you got in {{ objstorage-name }}:
                   * `PCI_TOPOLOGY_V1`: Matches the `Gen 1.1` hardware generation.
                   * `PCI_TOPOLOGY_V2`: Matches the `Gen 1.2` hardware generation.
           The `hardware_generation` configuration section is optional. If it is not specified, `Gen 1.1` will be assigned to the new image.
-      For detailed information about the `yandex_compute_image` resource parameters, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/compute_image).
-  1. Create the resources:
+      For more information about the `yandex_compute_image` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/compute_image).
+  1. Create the required resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -156,6 +162,10 @@ Create a new image using the link you got in {{ objstorage-name }}:
 - API {#api}
 
   Create a new image using the [create](../../compute/api-ref/Image/create.md) REST API method for the [Image](../../compute/api-ref/Image/index.md) resource or the [ImageService/Create](../../compute/api-ref/grpc/Image/create.md) gRPC API call. In the request, specify the image link you got in {{ objstorage-name }}.
+
+  {% include [image-uefi-gen2-tip](./image-uefi-gen2-tip.md) %}
+
+  {% include [gen2-uefi-support-alert](./gen2-uefi-support-alert.md) %}
 
   By default, the `Gen 1.1` [hardware generation](../../compute/concepts/hardware-generations.md) is assigned to newly created images.
 

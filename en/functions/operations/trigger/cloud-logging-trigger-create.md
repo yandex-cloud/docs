@@ -1,12 +1,12 @@
-# Creating a trigger for {{ cloud-logging-name }} that invokes a {{ sf-name }} function
+# Creating a trigger for {{ cloud-logging-name }} that invokes {{ sf-name }}
 
-Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-logging-trigger.md) that calls a {{ sf-name }} [function](../../concepts/function.md) when entries are added to a [log group](../../../logging/concepts/log-group.md).
+Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-logging-trigger.md) that invokes [{{ sf-name }}](../../concepts/function.md) whenever entries are added to the [log group](../../../logging/concepts/log-group.md).
 
 ## Getting started {#before-you-begin}
 
 {% include [trigger-before-you-begin](../../../_includes/functions/trigger-before-you-begin.md) %}
 
-* Log group for which a trigger will fire when entries are added to it. If you do not have a log group, [create one](../../../logging/operations/create-group.md).
+* Log group whose new entries will set off the trigger. If you do not have a log group, [create one](../../../logging/operations/create-group.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -48,7 +48,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
 
         {% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
 
-    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
+    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select a dead-letter queue and a service account with write permissions for that queue.
 
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -64,11 +64,11 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
     yc serverless trigger create logging \
       --name <trigger_name> \
       --log-group-name <log_group_name> \
-      --batch-size <message_group_size> \
-      --batch-cutoff <maximum_timeout> \
+      --batch-size <message_batch_size> \
+      --batch-cutoff <maximum_wait_time> \
       --resource-ids <resource_ID> \
       --resource-types <resource_type> \
-      --stream-names <logging_stream> \
+      --stream-names <log_stream> \
       --log-levels <logging_level> \
       --invoke-function-id <function_ID> \
       --invoke-function-service-account-id <service_account_ID> \
@@ -81,7 +81,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
     Where:
 
     * `--name`: Trigger name.
-    * `--log-group-name`: Name of the log group that will invoke a function when entries are added to it.
+    * `--log-group-name`: Name of the log group whose new log entries will invoke the function.
 
     {% include [batch-settings-messages](../../../_includes/functions/batch-settings-messages.md) %}
 
@@ -141,7 +141,7 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
           id                 = "<function_ID>"
           service_account_id = "<service_account_ID>"
           retry_attempts     = "<number_of_retry_attempts>"
-          retry_interval     = "<time_between_retry_attempts>"
+          retry_interval     = "<interval_between_retry_attempts>"
        }
        logging {
           group_id       = "<log_group_ID>"
@@ -163,22 +163,22 @@ Create a [trigger for {{ cloud-logging-name }}](../../concepts/trigger/cloud-log
 
      {% include [tf-function-params](../../../_includes/functions/tf-function-params.md) %}
 
-     * `logging`: Trigger parameters:
+     * `logging`: Trigger settings:
 
-        * `group_id`: ID of the log group that will invoke a function when entries are added to it.
-        * `resource_types`: Types of resources, e.g., of a `resource_types = [ "serverless.function" ]` {{ sf-name }} function. You can specify multiple types. 
-        * `resource_ids`: IDs of your resources or {{ yandex-cloud }} resources, e.g., of the `resource_ids = [ "<function_ID>" ]` functions. You can specify multiple IDs.
-        * `stream_names`: Log streams. This is an optional parameter.
-        * `levels`: Logging levels. For example, `levels = [ "INFO", "ERROR"]`.
+        * `group_id`: ID of the log group whose new log entries will invoke the function.
+        * `resource_types`: Types of resources, e.g., {{ sf-name }} such as `resource_types = [ "serverless.function" ]`. You can specify multiple types. 
+        * `resource_ids`: IDs of your resources or {{ yandex-cloud }} resources, e.g., `resource_ids = [ "<function_ID>" ]`. You can specify multiple IDs.
+        * `stream_names`: Log streams. This is an optional setting.
+        * `levels`: Logging levels, e.g., `levels = [ "INFO", "ERROR"]`.
 
-          A trigger fires when the specified log group receives entries that comply with all of the following parameters: `resource-ids`, `resource-types`, `stream-names`, and `levels`. If the parameter is not specified, the trigger fires for any value.
+          A trigger fires when the specified log group receives entries that comply with all of the following settings: `resource-ids`, `resource-types`, `stream-names`, and `levels`. If the setting is not specified, the trigger fires for any value.
 
-        * `batch_cutoff`: Maximum wait time. Acceptable values are from 0 to 60 seconds. The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a function. The number of messages cannot exceed the specified `batch-size`.
-        * `batch_size`: Message batch size. Acceptable values are from 1 to 10.
+        * `batch_cutoff`: Maximum wait time. The valid values range from 0 to 60 seconds. The trigger groups messages within the specified wait time period and sends them to the function. The number of messages cannot exceed the specified `batch-size`.
+        * `batch_size`: Message batch size. The valid values range from 1 to 10.
 
      {% include [tf-dlq-params](../../../_includes/serverless-containers/tf-dlq-params.md) %}
 
-     For more information about `yandex_function_trigger` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+     For more information about `yandex_function_trigger` properties, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Create the resources:
 

@@ -448,7 +448,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
        Below is an example structure of a configuration file describing a cluster of three {{ CH }} hosts:
 
        ```hcl
-       resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+       resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
          name                = "<cluster_name>"
          environment         = "<environment>"
          network_id          = yandex_vpc_network.<network_name_in_{{ TF }}>.id
@@ -456,47 +456,54 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
          embedded_keeper     = true
          deletion_protection = <cluster_deletion_protection>
 
-         clickhouse {
-           resources {
+         clickhouse = {
+           resources = {
              resource_preset_id = "<host_class>"
              disk_type_id       = "<disk_type>"
              disk_size          = <storage_size_in_GB>
            }
          }
 
-         host {
-           type             = "CLICKHOUSE"
-           zone             = "<availability_zone>"
-           subnet_id        = yandex_vpc_subnet.<subnet_name_in_{{ TF }}>.id
-           assign_public_ip = <public_access_to_host>
+         shards = {
+           "<shard_name>" = {
+             weight = <shard_weight>
+           }
          }
 
-         host {
-           type             = "CLICKHOUSE"
-           zone             = "<availability_zone>"
-           subnet_id        = yandex_vpc_subnet.<subnet_name_in_{{ TF }}>.id
-           assign_public_ip = <public_access_to_host>
-         }
+         hosts = {
+           "<host_1_name>" = {
+             type             = "CLICKHOUSE"
+             zone             = "<availability_zone>"
+             subnet_id        = yandex_vpc_subnet.<subnet_name_in_{{ TF }}>.id
+             assign_public_ip = <public_access_to_host>
+             shard_name       = "<shard_name>"
+           }
 
-         host {
-           type             = "CLICKHOUSE"
-           zone             = "<availability_zone>"
-           subnet_id        = yandex_vpc_subnet.<subnet_name_in_{{ TF }}>.id
-           assign_public_ip = <public_access_to_host>
-         }
+           "<host_2_name>" = {
+             type             = "CLICKHOUSE"
+             zone             = "<availability_zone>"
+             subnet_id        = yandex_vpc_subnet.<subnet_name_in_{{ TF }}>.id
+             assign_public_ip = <public_access_to_host>
+             shard_name       = "<shard_name>"
+           }
 
-         lifecycle {
-           ignore_changes = [database, user]
+           "<host_3_name>" = {
+             type             = "CLICKHOUSE"
+             zone             = "<availability_zone>"
+             subnet_id        = yandex_vpc_subnet.<subnet_name_in_{{ TF }}>.id
+             assign_public_ip = <public_access_to_host>
+             shard_name       = "<shard_name>"
+           }
          }
        }
 
        resource "yandex_mdb_clickhouse_database" "<DB_name>" {
-         cluster_id = yandex_mdb_clickhouse_cluster.<cluster_name>.id
+         cluster_id = yandex_mdb_clickhouse_cluster_v2.<cluster_name>.id
          name       = "<DB_name>"
        }
 
        resource "yandex_mdb_clickhouse_user" "<username>" {
-         cluster_id = yandex_mdb_clickhouse_cluster.<cluster_name>.id
+         cluster_id = yandex_mdb_clickhouse_cluster_v2.<cluster_name>.id
          name       = "<username>"
          password   = "<user_password>"
          permission {
@@ -518,15 +525,20 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
        * `deletion_protection`: Cluster deletion protection, `true` or `false`.
 
-       * `host`: `CLICKHOUSE` host description.
-       
+       * `shards`: Cluster [shards](../concepts/sharding.md) as an associative array of elements. The key specifies the shard name, and the value includes the `weight` parameter, i.e., the shard weight. 
+
+       * `hosts`: Cluster hosts as an associative array of elements. The key specifies the host name, and the value, the host parameters. Each element in the array has the following structure:
+
+          * `type`: Host type, `CLICKHOUSE`.
+          * `zone`: [Availability zone](../../overview/concepts/geo-scope.md).
+          * `subnet_id`: [Subnet ID](../../vpc/concepts/network.md#subnet).
           * `assign_public_ip`: Public access to the {{ CH }} host, `true` or `false`.
 
             {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
           
+          * `shard_name`: Shard name.
+          
           {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
-
-       * `lifecycle.ignore_changes`: Eliminates resource conflicts in operations with users and databases created through individual resources.
 
        For a user, specify the following:
 
@@ -553,9 +565,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
        1. To enable access from other services and allow [running SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}, add the `access` section with the settings you need:
 
           ```hcl
-          resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+          resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
             ...
-            access {
+            access = {
               data_lens    = <access_from_{{ datalens-name }}>
               metrika      = <access_from_Metrica_and_AppMetrica>
               serverless   = <access_from_Cloud_Functions>
@@ -585,7 +597,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
        1. To encrypt the disk with a [custom KMS key](../../kms/concepts/key.md), add the `disk_encryption_key_id` parameter:
 
           ```hcl
-          resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+          resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
             ...
             disk_encryption_key_id = <KMS_key_ID>
             ...
@@ -918,7 +930,6 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                   "hour": "<hour>"
                 }
               }
-            }
             ```
 
 
@@ -1416,73 +1427,79 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
        Below is an example structure of a configuration file describing a cluster of two {{ CH }} hosts and three {{ ZK }} hosts:
 
        ```hcl
-       resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+       resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
          name                = "<cluster_name>"
          environment         = "<environment>"
          network_id          = yandex_vpc_network.<network_name_in_{{ TF }}>.id
          security_group_ids  = ["<list_of_security_group_IDs>"]
          deletion_protection = <cluster_deletion_protection>
 
-         clickhouse {
-           resources {
+         clickhouse = {
+           resources = {
              resource_preset_id = "<host_class>"
              disk_type_id       = "<disk_type>"
              disk_size          = <storage_size_in_GB>
            }
          }
 
-         zookeeper {
-           resources {
+         zookeeper = {
+           resources = {
              resource_preset_id = "<host_class>"
              disk_type_id       = "<disk_type>"
              disk_size          = <storage_size_in_GB>
            }
          }
 
-         host {
-           type             = "CLICKHOUSE"
-           zone             = "<availability_zone>"
-           subnet_id        = yandex_vpc_subnet.<subnet_name_in_{{ TF }}>.id
-           assign_public_ip = <public_access_to_host>
+         shards = {
+           "<shard_name>" = {
+             weight = <shard_weight>
+           }
          }
 
-         host {
-           type             = "CLICKHOUSE"
-           zone             = "<availability_zone>"
-           subnet_id        = yandex_vpc_subnet.<subnet_name_in_{{ TF }}>.id
-           assign_public_ip = <public_access_to_host>
-         }
+         hosts = {
+           "<host_1_name>" = {
+             type             = "CLICKHOUSE"
+             zone             = "<availability_zone>"
+             subnet_id        = yandex_vpc_subnet.<subnet_name_in_{{ TF }}>.id
+             assign_public_ip = <public_access_to_host>
+             shard_name       = "<shard_name>"
+           }
 
-         host {
-           type      = "ZOOKEEPER"
-           zone      = "<availability_zone>"
-           subnet_id = yandex_vpc_subnet.<subnet_name_in_{{ TF }}>.id
-         }
+           "<host_2_name>" = {
+             type             = "CLICKHOUSE"
+             zone             = "<availability_zone>"
+             subnet_id        = yandex_vpc_subnet.<subnet_name_in_{{ TF }}>.id
+             assign_public_ip = <public_access_to_host>
+             shard_name       = "<shard_name>"
+           }
 
-         host {
-           type      = "ZOOKEEPER"
-           zone      = "<availability_zone>"
-           subnet_id = yandex_vpc_subnet.<subnet_name_in_{{ TF }}>.id
-         }
+           "<host_3_name>" = {
+             type             = "ZOOKEEPER"
+             zone             = "<availability_zone>"
+             subnet_id        = yandex_vpc_subnet.<subnet_name_in_{{ TF }}>.id
+           }
 
-         host {
-           type      = "ZOOKEEPER"
-           zone      = "<availability_zone>"
-           subnet_id = yandex_vpc_subnet.<subnet_name_in_{{ TF }}>.id
-         }
+           "<host_4_name>" = {
+             type             = "ZOOKEEPER"
+             zone             = "<availability_zone>"
+             subnet_id        = yandex_vpc_subnet.<subnet_name_in_{{ TF }}>.id
+           }
 
-         lifecycle {
-           ignore_changes = [database, user]
+           "<host_5_name>" = {
+             type             = "ZOOKEEPER"
+             zone             = "<availability_zone>"
+             subnet_id        = yandex_vpc_subnet.<subnet_name_in_{{ TF }}>.id
+           }
          }
        }
 
        resource "yandex_mdb_clickhouse_database" "<DB_name>" {
-         cluster_id = yandex_mdb_clickhouse_cluster.<cluster_name>.id
+         cluster_id = yandex_mdb_clickhouse_cluster_v2.<cluster_name>.id
          name       = "<DB_name>"
        }
 
        resource "yandex_mdb_clickhouse_user" "<username>" {
-         cluster_id = yandex_mdb_clickhouse_cluster.<cluster_name>.id
+         cluster_id = yandex_mdb_clickhouse_cluster_v2.<cluster_name>.id
          name       = "<username>"
          password   = "<user_password>"
          permission {
@@ -1500,15 +1517,20 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
        * `deletion_protection`: Cluster deletion protection, `true` or `false`.
         
-       * `host`: `CLICKHOUSE` or `ZOOKEEPER` host description.
-       
+       * `shards`: Cluster [shards](../concepts/sharding.md) as an associative array of elements. The key specifies the shard name, and the value includes the `weight` parameter, i.e., the shard weight. 
+
+       * `hosts`: Cluster hosts as an associative array of elements. The key specifies the host name, and the value, the host parameters. Each element in the array has the following structure:
+
+          * `type`: Host type, `CLICKHOUSE` or `ZOOKEEPER`.
+          * `zone`: [Availability zone](../../overview/concepts/geo-scope.md).
+          * `subnet_id`: [Subnet ID](../../vpc/concepts/network.md#subnet).
           * `assign_public_ip`: Public access to the {{ CH }} host, `true` or `false`. This setting is only relevant for `CLICKHOUSE` hosts.
 
             {% include [mch-public-access-sg](../../_includes/mdb/mch/note-public-access-sg-rule.md) %}
           
+          * `shard_name`: Shard name. This setting is only relevant for `CLICKHOUSE` hosts.
+          
           {% include [zk-hosts-details](../../_includes/mdb/mch/api/zk-hosts-details.md) %}
-
-       * `lifecycle.ignore_changes`: Eliminates resource conflicts in operations with users and databases created through individual resources.
 
        For a user, specify the following:
 
@@ -1535,9 +1557,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
        1. To enable access from other services and allow [running SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}, add the `access` section with the settings you need:
 
           ```hcl
-          resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+          resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
             ...
-            access {
+            access = {
               data_lens    = <access_from_{{ datalens-name }}>
               metrika      = <access_from_Metrica_and_AppMetrica>
               serverless   = <access_from_Cloud_Functions>
@@ -1567,7 +1589,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
        1. To encrypt the disk with a [custom KMS key](../../kms/concepts/key.md), add the `disk_encryption_key_id` parameter:
 
           ```hcl
-          resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+          resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
             ...
             disk_encryption_key_id = <KMS_key_ID>
             ...
@@ -2064,10 +2086,10 @@ To create a {{ CH }} cluster copy:
     1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
     1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-    1. In the same working directory, place a `.tf` file with the following contents:
+    1. In your current working directory, create a `.tf` file with the following contents:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "old" { }
+        resource "yandex_mdb_clickhouse_cluster_v2" "old" { }
         ```
 
     1. Save the ID of the original {{ CH }} cluster to an environment variable:
@@ -2081,7 +2103,7 @@ To create a {{ CH }} cluster copy:
     1. Import the original {{ CH }} cluster settings to the {{ TF }} configuration:
 
         ```bash
-        terraform import yandex_mdb_clickhouse_cluster.old ${CLICKHOUSE_CLUSTER_ID}
+        terraform import yandex_mdb_clickhouse_cluster_v2.old ${CLICKHOUSE_CLUSTER_ID}
         ```
 
     1. Get the imported configuration:
@@ -2094,9 +2116,9 @@ To create a {{ CH }} cluster copy:
     1. Create a new directory `imported-cluster` and move your configuration file there.
     1. Modify the configuration so that you can use it to create a new cluster:
 
-        * Specify the new cluster name in the `resource` string and the `name` parameter.
-        * Delete the `created_at`, `health`, `id`, and `status` parameters.
-        * In the `host` sections, delete `fqdn`.
+        * Specify the new cluster name in the `resource` string and in the `name` argument.
+        * Delete the `created_at`, `cluster_id`, and `id` arguments.
+        * In the host descriptions, delete `fqdn`.
         * Under `clickhouse.config.merge_tree`, if the `max_bytes_to_merge_at_max_space_in_pool`, `max_parts_in_total`, and `number_of_free_entries_in_pool_to_execute_mutation` parameters are set to `0`, delete them.
         * Under `clickhouse.config.kafka`, set `sasl_password` or delete this parameter.
         * Under `clickhouse.config.rabbitmq`, set `password` or delete this parameter.
@@ -2181,7 +2203,9 @@ To create a {{ CH }} cluster copy:
   * Folder ID: `{{ tf-folder-id }}`.
   * New cloud network: `cluster-net`.
   * New [default security group](connect/index.md#configuring-security-groups): `cluster-sg` (in the `cluster-net` network). It must allow connections to any cluster host from any network (including the internet) on ports `8443` and `9440`.
-  * One `{{ host-class }}` host in the new `cluster-subnet-{{ region-id }}-a` subnet.
+  
+  * One shard, `shard1`.
+  * One `{{ host-class }}` host in `shard1`. The host resides in the new subnet, `cluster-subnet-{{ region-id }}-a`.
 
     Subnet parameters:
     * Address range: `172.16.1.0/24`.
@@ -2191,6 +2215,7 @@ To create a {{ CH }} cluster copy:
   * Network SSD storage (`{{ disk-type-example }}`): 32 GB.
   * Database name: `db1`.
   * User: `user1`, password: `user1user1`.
+  * Maintenance takes place at any time.
 
   The configuration files for this cluster are as follows:
 
@@ -2284,9 +2309,11 @@ To create a {{ CH }} cluster copy:
   * Folder ID: `{{ tf-folder-id }}`.
   * New cloud network: `cluster-net`.
 
+  * One shard, `shard1`, to house all {{ CH }} hosts.
   * Three {{ CH }} `{{ host-class }}` hosts and three {{ ZK }} `{{ zk-host-class }}` hosts (for [replication](../concepts/replication.md)).
 
-    One host of each class will be added to the new subnets:
+    One {{ CH }} and one {{ ZK }} host will be added to each new subnet:
+
     * `cluster-subnet-{{ region-id }}-a`: `172.16.1.0/24`, availability zone: `{{ region-id }}-a`.
     * `cluster-subnet-{{ region-id }}-b`: `172.16.2.0/24`, availability zone: `{{ region-id }}-b`.
     * `cluster-subnet-{{ region-id }}-d`: `172.16.3.0/24`, availability zone: `{{ region-id }}-d`.
@@ -2298,6 +2325,7 @@ To create a {{ CH }} cluster copy:
   * Network SSD storage (`{{ disk-type-example }}`) for each of the {{ ZK }} cluster hosts: 10 GB.
   * Database name: `db1`.
   * User: `user1`, password: `user1user1`.
+  * Maintenance takes place at any time.
 
   The configuration files for this cluster are as follows:
 

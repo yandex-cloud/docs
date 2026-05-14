@@ -1,6 +1,6 @@
 ---
 title: How to delete a trigger in {{ sf-full-name }}
-description: In this tutorial, you will learn how to delete a trigger in {{ sf-full-name }}.
+description: In this guide, you will learn how to delete a trigger in {{ sf-full-name }}.
 ---
 
 # Deleting a trigger in {{ sf-name }}
@@ -55,15 +55,15 @@ description: In this tutorial, you will learn how to delete a trigger in {{ sf-f
 
 - {{ TF }} {#tf}
 
-  For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  For more information about {{ TF }}, [see this tutorial](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-  To delete a trigger created using {{ TF }}:
+  To delete a trigger created with {{ TF }}:
 
-  1. Open the {{ TF }} configuration file and delete the fragment with the trigger description.
+  1. Open the {{ TF }} configuration file and delete the section describing the trigger.
      
-     Example trigger description in the {{ TF }} configuration:
+     Example of a trigger description in the {{ TF }} configuration:
 
      ```hcl
      ...
@@ -82,13 +82,13 @@ description: In this tutorial, you will learn how to delete a trigger in {{ sf-f
 
   1. In the command line, go to the directory with the {{ TF }} configuration file.
 
-  1. Check the configuration using this command:
+  1. Validate your configuration using this command:
 
      ```
      terraform validate
      ```
      
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
      
      ```
      Success! The configuration is valid.
@@ -100,9 +100,9 @@ description: In this tutorial, you will learn how to delete a trigger in {{ sf-f
      terraform plan
      ```
   
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
-  1. Apply the changes:
+  1. Apply the configuration changes:
 
      ```
      terraform apply
@@ -110,7 +110,7 @@ description: In this tutorial, you will learn how to delete a trigger in {{ sf-f
 
   1. Type `yes` and press **Enter** to confirm the changes.
 
-     You can check the update using the [management console]({{ link-console-main }}) or these [CLI](../../../cli/quickstart.md) commands:
+     You can check the updates using the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/quickstart.md) command:
 
      ```
      yc serverless trigger list

@@ -70,6 +70,8 @@ items:
             href: operations/cspm/index.md
           - name: Посмотреть правила контроля и нарушения
             href: operations/cspm/view-rules.md
+          - name: Запустить проверку окружения
+            href: operations/cspm/check-environment.md
           - name: Проверить соответствие стандартам безопасности
             href: operations/cspm/check-compliance.md
           - name: Управлять исключениями из правил контроля

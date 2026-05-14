@@ -67,8 +67,12 @@ You are billed for the following:
 * Storage allocated for database clusters.
 
     * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
-                * For **Intel Broadwell** and **Intel Cascade Lake**: In 100 GB increments.
-        * For **Intel Ice Lake**: In {{ local-ssd-v3-step }} increments.
+
+      
+        * For **Intel Broadwell** and **Intel Cascade Lake**: In 100 GB increments.
+
+
+        * For **Intel Ice Lake** and **AMD Zen 4**: In {{ local-ssd-v3-step }} increments.
 
     * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more hosts.
 
@@ -76,7 +80,7 @@ You are billed for the following:
 
     * Backups are stored free of charge as long as the combined size of the database and all backups is smaller than the selected storage size.
 
-    * The number of hosts in a cluster does not affect the storage size and, consequently, the amount of free backups.
+    * The number of hosts in a cluster does not affect the storage size and, consequently, the free backup quota.
 
 The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
 

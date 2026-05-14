@@ -8,7 +8,7 @@ Deletes a table with all its records. It also deletes table indexes.
 You can only delete a table that is `ACTIVE`.
 
 The method is asynchronous.
-This means it changes a table status to `DELETING` and immediately returns the result. However, the table is actually being deleted in the background. If its status is already `DELETING`, the method will not return an error.
+This means it changes the table's state to `DELETING` and immediately returns the result. However, the table is actually being deleted in the background. If its status is already `DELETING`, the method will not return an error.
 While the table has the `DELETING` status, {{ ydb-name }} may continue accepting data read and write requests, such as [GetItem](./getItem) and [PutItem](./putItem).
 
 ## Request

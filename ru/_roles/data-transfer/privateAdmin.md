@@ -1,10 +1,11 @@
-Роль `data-transfer.privateAdmin` позволяет управлять эндпоинтами и трансферами с передачей данных только в сетях Yandex Cloud, а также просматривать информацию о каталоге и квотах сервиса Data Transfer.
+
+Роль `data-transfer.privateAdmin` позволяет управлять эндпоинтами и трансферами с передачей данных только в сетях {{ yandex-cloud }}, а также просматривать информацию о каталоге и квотах сервиса {{ data-transfer-name }}.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о [трансферах](../../data-transfer/concepts/index.md#transfer), а также создавать, изменять, удалять, активировать, использовать и деактивировать трансферы с передачей данных в сетях Yandex Cloud;
-* просматривать информацию об [эндпоинтах](../../data-transfer/concepts/index.md#endpoint), а также создавать, изменять и удалять эндпоинты в Yandex Cloud;
+* просматривать информацию о [трансферах](../../data-transfer/concepts/index.md#transfer), а также создавать, изменять, удалять, активировать, использовать и деактивировать трансферы с передачей данных в сетях {{ yandex-cloud }};
+* просматривать информацию об [эндпоинтах](../../data-transfer/concepts/index.md#endpoint), а также создавать, изменять и удалять эндпоинты в {{ yandex-cloud }};
 * просматривать информацию о [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder);
-* просматривать информацию о [квотах](../../data-transfer/concepts/limits.md#dataproc-quotas) сервиса Data Transfer.
+* просматривать информацию о [квотах](../../data-transfer/concepts/limits.md#dataproc-quotas) сервиса {{ data-transfer-name }}.
 
 Включает разрешения, предоставляемые ролью `data-transfer.viewer`.
 
