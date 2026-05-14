@@ -4,7 +4,7 @@
 
 To apply a model, add it to your cluster and call it in an SQL query using the built-in `catboostEvaluate()` function. This query will return model predictions for each row of the input data.
 
-Read more about the `catboostEvaluate()` function in [this {{ CH }} article]({{ ch.docs }}/sql-reference/functions/other-functions/#catboostevaluatepath_to_model-feature_1-feature_2--feature_n).
+Read more about the `catboostEvaluate()` function in [this {{ CH }} guide]({{ ch.docs }}/sql-reference/functions/other-functions/#catboostevaluatepath_to_model-feature_1-feature_2--feature_n).
 
 ## Before adding a model {#prereq}
 
@@ -26,7 +26,7 @@ Read more about the `catboostEvaluate()` function in [this {{ CH }} article]({{ 
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** tab in the left-hand panel.
 
 - CLI {#cli}
@@ -58,9 +58,9 @@ Read more about the `catboostEvaluate()` function in [this {{ CH }} article]({{ 
             --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/mlModels'
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/MlModel/list.md#yandex.cloud.mdb.clickhouse.v1.ListMlModelsResponse) to make sure your request was successful.
+    1. Check the [server response](../api-ref/MlModel/list.md#yandex.cloud.mdb.clickhouse.v1.ListMlModelsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -85,7 +85,7 @@ Read more about the `catboostEvaluate()` function in [this {{ CH }} article]({{ 
             yandex.cloud.mdb.clickhouse.v1.MlModelService.List
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/MlModel/list.md#yandex.cloud.mdb.clickhouse.v1.ListMlModelsResponse) to make sure your request was successful.
 
@@ -98,7 +98,7 @@ Read more about the `catboostEvaluate()` function in [this {{ CH }} article]({{ 
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** tab in the left-hand panel.
 
 - CLI {#cli}
@@ -114,7 +114,7 @@ Read more about the `catboostEvaluate()` function in [this {{ CH }} article]({{ 
       --cluster-name=<cluster_name>
     ```
 
-    You can get the model name with a [list of cluster models](#list), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the model name with the [list of cluster models](#list), and the cluster name, with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
 - REST API {#api}
 
@@ -131,7 +131,7 @@ Read more about the `catboostEvaluate()` function in [this {{ CH }} article]({{ 
             --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/mlModels/<model_name>'
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters), and the model name, with a [list of models](#list) in the cluster.
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the model name, with the [list of models](#list) in the cluster.
 
     1. View the [server response](../api-ref/MlModel/get.md#yandex.cloud.mdb.clickhouse.v1.MlModel) to make sure your request was successful.
 
@@ -159,7 +159,7 @@ Read more about the `catboostEvaluate()` function in [this {{ CH }} article]({{ 
             yandex.cloud.mdb.clickhouse.v1.MlModelService.Get
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters), and the model name, with a [list of models](#list) in the cluster.
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the model name, with the [list of models](#list) in the cluster.
 
     1. View the [server response](../api-ref/grpc/MlModel/get.md#yandex.cloud.mdb.clickhouse.v1.MlModel) to make sure your request was successful.
 
@@ -180,7 +180,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
     1. Select the cluster:
 
         1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-        1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+        1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
         1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** tab in the left-hand panel.
         1. Click **{{ ui-key.yacloud.clickhouse.cluster.ml-models.button-action_add-ml-model }}**.
 
@@ -190,7 +190,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
         * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-name }}**: Model name. It is one of the arguments of the `catboostEvaluate()` function, which is used to call the model in {{ CH }}.
         * **{{ ui-key.yacloud.clickhouse.cluster.ml-models.field_ml-model-uri }}**: Model address in {{ objstorage-full-name }}.
 
-    1. Click **{{ ui-key.yacloud.clickhouse.cluster.ml-models.label_add-ml-model }}** and wait until the model is created.
+    1. Click **{{ ui-key.yacloud.clickhouse.cluster.ml-models.label_add-ml-model }}** and wait for the model to be created.
 
 - CLI {#cli}
 
@@ -207,18 +207,19 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
       --uri=<link_to_model_file_in_Object_Storage>
     ```
 
-    You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the cluster name from the [list of clusters in your folder](cluster-list.md#list-clusters).
+
 
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Add the `ml_model` section describing the ML model being added to the {{ mch-name }} cluster description:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
           ...
           ml_model {
             name = "<model_name>"
@@ -228,17 +229,18 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
         }
         ```
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     For more information, see [this {{ TF }} provider guide]({{ tf-provider-mch }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -267,9 +269,9 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
         * `type`: Model type, which is always `ML_MODEL_TYPE_CATBOOST`.
         * `uri`: Link to the model file in {{ objstorage-name }}.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/MlModel/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/MlModel/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -303,7 +305,7 @@ The only supported model type is CatBoost: `ML_MODEL_TYPE_CATBOOST`.
         * `type`: Model type, which is always `ML_MODEL_TYPE_CATBOOST`.
         * `uri`: Link to the model file in {{ objstorage-name }}.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/MlModel/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -350,9 +352,9 @@ To update the contents of a model that is already added to the cluster:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** tab in the left-hand panel.
-    1. Select the model, click ![image](../../_assets/console-icons/ellipsis-vertical.svg), and select **{{ ui-key.yacloud.clickhouse.cluster.ml-models.button_action-edit-ml-model }}**.
+    1. Find your model, click ![image](../../_assets/console-icons/ellipsis-vertical.svg), and select **{{ ui-key.yacloud.clickhouse.cluster.ml-models.button_action-edit-ml-model }}**.
 
 - CLI {#cli}
 
@@ -368,18 +370,19 @@ To update the contents of a model that is already added to the cluster:
       --uri=<new_link_to_file_in_Object_Storage>
     ```
 
-    You can get the model name with a [list of cluster models](#list), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the model name with the [list of cluster models](#list), and the cluster name, with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
 
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. In the {{ mch-name }} cluster description, change the `uri` parameter value under `ml_model`:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
         ...
           ml_model {
             name = "<model_name>"
@@ -389,17 +392,18 @@ To update the contents of a model that is already added to the cluster:
         }
         ```
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     For more information, see [this {{ TF }} provider guide]({{ tf-provider-mch }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -425,15 +429,15 @@ To update the contents of a model that is already added to the cluster:
 
         Where:
 
-        * `updateMask`: Comma-separated list of settings you want to update.
+        * `updateMask`: Comma-separated string of settings to update.
 
             Here, we only specified a single parameter, `uri`.
 
-        * `uri`: Link to the new model file in {{ objstorage-name }}.
+        * `uri`: Link to the new schema file in {{ objstorage-name }}.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/MlModel/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/MlModel/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -468,24 +472,24 @@ To update the contents of a model that is already added to the cluster:
         Where:
 
         * `ml_model_name`: Model name.
-        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
-            Here, we only specified a single setting, `uri`.
+            Here, we only specified a single parameter, `uri`.
 
-        * `uri`: Link to the new model file in {{ objstorage-name }}.
+        * `uri`: Link to the new schema file in {{ objstorage-name }}.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/MlModel/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
-## Disabling a model {#disable}
+## Removing a model {#disable}
 
 {% note info %}
 
 
-After you disable a model, the relevant object remains in the {{ objstorage-full-name }} bucket. If you no longer need this model object, you can [delete](../../storage/operations/objects/delete.md) it.
+After removing a model, the related object remains in the {{ objstorage-full-name }} bucket. If you no longer need this model object, you can [delete](../../storage/operations/objects/delete.md) it.
 
 
 {% endnote %}
@@ -495,9 +499,9 @@ After you disable a model, the relevant object remains in the {{ objstorage-full
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_ml-models }}** tab in the left-hand panel.
-    1. Select the model, click ![image](../../_assets/console-icons/ellipsis-vertical.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
+    1. Find your model, click ![image](../../_assets/console-icons/ellipsis-vertical.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
 - CLI {#cli}
 
@@ -512,27 +516,29 @@ After you disable a model, the relevant object remains in the {{ objstorage-full
       --cluster-name=<cluster_name>
     ```
 
-    You can get the model name with a [list of cluster models](#list), and the cluster name, with a [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can get the model name with the [list of cluster models](#list), and the cluster name, with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
 
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Delete the section describing `ml_model` in question from the {{ mch-name }} cluster description.
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     For more information, see [this {{ TF }} provider guide]({{ tf-provider-mch }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -549,7 +555,7 @@ After you disable a model, the relevant object remains in the {{ objstorage-full
             --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/mlModels/<model_name>'
         ```
 
-        You can get the cluster ID with a [list of clusters in the folder](cluster-list.md#list-clusters), and the model name, with a [list of models](#list) in the cluster.
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the model name, with the [list of models](#list) in the cluster.
 
     1. View the [server response](../api-ref/MlModel/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -577,7 +583,7 @@ After you disable a model, the relevant object remains in the {{ objstorage-full
             yandex.cloud.mdb.clickhouse.v1.MlModelService.Delete
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/MlModel/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -635,7 +641,7 @@ To upload data to {{ CH }} and test the model:
 
 1. Test the model:
 
-    * Get predicted values of the `ACTION` column for the first ten rows in the table:
+    * Get the predicted values of the `ACTION` column for the first ten rows in the table:
 
         ```sql
         SELECT

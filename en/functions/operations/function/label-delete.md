@@ -9,11 +9,11 @@ description: Follow this guide to delete a function label.
 
 - Management console {#console}
     
-    1. In the [management console]({{ link-console-main }}), select the folder containing the function.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
     1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-    1. Select a function.
+    1. Select the function.
     1. In the top-right corner, click **{{ ui-key.yacloud.serverless-functions.list.button_action-edit }}**.
-    1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, select the appropriate label and click ![cross](../../../_assets/console-icons/xmark.svg) next to its name.
+    1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, select the label and click ![cross](../../../_assets/console-icons/xmark.svg) next to its name.
     1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -51,7 +51,7 @@ description: Follow this guide to delete a function label.
 
     To delete a function label:
 
-    1. Open the {{ TF }} configuration file and delete the label you no longer need in the `labels` section.
+    1. Open the {{ TF }} configuration file and delete the label you no longer need from the `labels` section.
 
         Example of a function description in the {{ TF }} configuration:
       
@@ -76,15 +76,15 @@ description: Follow this guide to delete a function label.
         }
         ``` 
 
-        For more information about `yandex_function` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function).
+        For more information about `yandex_function` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
-    1. Check the configuration using this command:
+    1. Validate your configuration using this command:
         
        ```
        terraform validate
        ```
 
-       If the configuration is correct, you will get this message:
+       If the configuration is valid, you will get this message:
         
        ```
        Success! The configuration is valid.
@@ -96,16 +96,16 @@ description: Follow this guide to delete a function label.
        terraform plan
        ```
         
-       You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+       You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration. 
          
-    1. Apply the changes:
+    1. Apply the configuration changes:
 
        ```
        terraform apply
        ```
     1. Type `yes` and press **Enter** to confirm the changes.
       
-    You can check the deletion of the function labels using this [CLI](../../../cli/quickstart.md) command:
+    You can check that the function labels are deleted using this [CLI](../../../cli/quickstart.md) command:
 
     ```
     yc serverless function get <function_name_or_ID>

@@ -9,7 +9,7 @@ description: Follow this guide to delete a function.
 
 - Management console {#console}
   
-    1. In the [management console]({{ link-console-main }}), select the folder to delete the function from.
+    1. In the [management console]({{ link-console-main }}), select the folder containing the function you want to delete.
     1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. In the function row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.serverless-functions.list.button_action-delete }}**.
     1. In the window that opens, click **{{ ui-key.yacloud.serverless-functions.list.popup-confirm_button_delete }}**.
@@ -22,7 +22,7 @@ description: Follow this guide to delete a function.
 
     {% include [function-list-note](../../../_includes/functions/function-list-note.md) %}
     
-    To delete a function, run the command:
+    To delete a function, run this command:
     
     ```
     yc serverless function delete <function_name>
@@ -45,9 +45,9 @@ description: Follow this guide to delete a function.
 
     {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-    To delete a function created using {{ TF }}:
+    To delete a function created with {{ TF }}:
 
-    1. Open the {{ TF }} configuration file and delete the fragment with the function description.
+    1. Open the {{ TF }} configuration file and delete the section describing the function.
        
        Example of a function description in the {{ TF }} configuration:
 
@@ -68,15 +68,15 @@ description: Follow this guide to delete a function.
         }
         ```
 
-        For more information about `yandex_function` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function).
+        For more information about `yandex_function` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
-    1. Check the configuration using this command:
+    1. Validate your configuration using this command:
         
        ```
        terraform validate
        ```
 
-       If the configuration is correct, you will get this message:
+       If the configuration is valid, you will get this message:
         
        ```
        Success! The configuration is valid.
@@ -88,9 +88,9 @@ description: Follow this guide to delete a function.
        terraform plan
        ```
         
-       You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them. 
+       You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration. 
          
-    1. Apply the changes:
+    1. Apply the configuration changes:
 
        ```
        terraform apply

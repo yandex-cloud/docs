@@ -1,5 +1,7 @@
 * [Can I connect to individual {{ CH }} hosts?](#connect-node)
 
+* [Is it possible to specify any port for inter-server communication when executing distributed requests?](#connect-port)
+
 * [Why cannot I connect to a host from the internet?](#fail-connection)
 
 * [How do I connect to a non-public host in {{ yandex-cloud }}?](#private-host)
@@ -10,4 +12,4 @@
 
 * [Can I connect to cluster hosts over SSH or get superuser privileges on hosts?](#connect-ssh)
 
-* [What should I do if I get a revocation check error when using PowerShell to obtain an SSL certificate?](#get-ssl-error)
+* [What should I do if I get a revocation check error when obtaining an SSL certificate via PowerShell?](#get-ssl-error)

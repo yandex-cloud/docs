@@ -12,11 +12,7 @@ You can use your own file with a Linux [VM](../../concepts/vm.md) [disk](../../c
 
 If you have developed software that might be helpful to others, consider [listing](../../../marketplace/operations/create-product.md) it in {{ marketplace-full-name }}.
 
-{% note warning %}
-
-Images with an [UEFI/EFI](https://en.wikipedia.org/wiki/UEFI) bootloader are not compatible with {{ compute-name }}. To boot from disks larger than 2 TB with the [GUID Partition Table (GPT)](https://en.wikipedia.org/wiki/GUID_Partition_Table), use the [GRUB 2](https://www.gnu.org/software/grub/manual/grub/html_node/BIOS-installation.html) bootloader.
-
-{% endnote %}
+{% include [image-uefi-gen2-tip](../../../_includes/compute/image-uefi-gen2-tip.md) %}
 
 ## Configure the OS as per the requirements {#requirements}
 
@@ -58,7 +54,7 @@ Follow the steps below to check if the drivers are installed in your OS. If not,
 
    {% endcut %}
 
-1. If you get the `CONFIG_VIRTIO_BLK=m`, `CONFIG_VIRTIO_NET=m`, `CONFIG_VIRTIO_PCI=m`, and `CONFIG_VIRTIO_FS=m` lines in _Step 1_, check that the drivers are installed as kernel modules:
+1. If you get the `CONFIG_VIRTIO_BLK=m`, `CONFIG_VIRTIO_NET=m`, `CONFIG_VIRTIO_PCI=m`, and `CONFIG_VIRTIO_FS=m` lines in _Step 1_, check that the drivers were installed as kernel modules:
 
    {% cut "How to check kernel modules" %}
 

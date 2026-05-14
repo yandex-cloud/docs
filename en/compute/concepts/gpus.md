@@ -138,9 +138,9 @@ You can add VMs from different folders, networks, and subnets to your cluster. F
 
 Maximum Gen2 cluster size is 20 VMs with 8 GPU, 80 GB VRAM, 180 vCPU, 1,440 GB RAM configuration. The actual maximum cluster size is limited by the technical availability of the resources.
 
-
 #### See also {#see-also}
 
 * [{#T}](../operations/vm-create/create-vm-with-gpu.md)
 * [Adding a GPU to an existing VM](../operations/vm-control/vm-update-resources.md#add-gpu)
 * [Changing the number of GPUs](../operations/vm-control/vm-update-resources.md#update-gpu)
+* [Questions about GPUs](../../compute/qa/gpu.md)

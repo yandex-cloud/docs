@@ -10,9 +10,9 @@ You can configure metadata service parameters when [creating a function version]
 
   1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [function](../../concepts/function.md).
   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. Select a function.
+  1. Select the function.
   1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
-  1. Expand the **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-additional-parameters }}** section.
+  1. Expand **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-additional-parameters }}**.
   1. Under **Metadata service parameters**, configure the parameters of the function metadata service: `{{ ui-key.yacloud.serverless-functions.item.editor.label_gce_http_endpoint }}` and `{{ ui-key.yacloud.serverless-functions.item.editor.label_aws_v1_http_endpoint }}`.
   1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
@@ -23,19 +23,19 @@ You can configure metadata service parameters when [creating a function version]
   ```bash
   yc serverless function version create \
     --function-id=<function_ID> \
-    --runtime <runtime_environment> \
+    --runtime <runtime> \
     --entrypoint <entry_point> \
     --source-version-id <version_ID> \
-    --metadata-options <option>=<enable_or_disabled>
+    --metadata-options <option>=<enabled_or_disabled>
   ```
 
   Where:
 
-  * `--function-id`: ID of the function a new version of which you want to create. To find out the function ID, [get a list of functions](function-list.md) in the folder.
-  * `--runtime`: Runtime environment.
+  * `--function-id`: ID of the function whose new version you want to create. To find out the function ID, [get the list of functions](function-list.md) in the folder.
+  * `--runtime`: Runtime.
   * `--entrypoint`: Entry point in `<function_file_name>.<handler_name>` format.
-  * `--source-version-id`: ID of the function version from which you want to copy the code. To find out the ID, [get a list of function versions](version-list.md).
-  * `--metadata-options`: Metadata service settings, e.g., `aws-v1-http-endpoint=disabled`.
+  * `--source-version-id`: ID of the function version from which you want to copy the code. To find out the ID, [get the list of function versions](version-list.md).
+  * `--metadata-options`: Settings for the metadata service parameters, e.g., `aws-v1-http-endpoint=disabled`.
 
 - {{ TF }} {#tf}
 
@@ -51,9 +51,9 @@ You can configure metadata service parameters when [creating a function version]
         resource "yandex_function" "metadata_function" {
           name               = "<function_name>"
           user_hash          = "<function_hash>"
-          runtime            = "<runtime_environment>"
+          runtime            = "<runtime>"
           entrypoint         = "<entry_point>"
-          memory             = "<RAM_size>"
+          memory             = "<RAM_amount>"
           execution_timeout  = "<execution_timeout>"
           service_account_id = "<service_account_ID>"
           content {
@@ -74,7 +74,7 @@ You can configure metadata service parameters when [creating a function version]
             * `1` to enable the parameter.
             * `2` to disable the parameter.
 
-        For more information about `yandex_function` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/function).
+        For more information about `yandex_function` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
    1. Apply the changes:
 

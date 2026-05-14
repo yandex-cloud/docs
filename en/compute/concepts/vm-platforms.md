@@ -11,10 +11,7 @@ description: In this article, you will learn about available platforms when crea
 
 {% note warning %}
 
-The `{{ region-id }}-d` zone does not support VMs based on the Intel Broadwell, {{ v100-broadwell }}, {{ v100-cascade-lake }}, or {{ a100-epyc }} platforms. To [move](../operations/vm-control/vm-change-zone.md) such VMs to `{{ region-id }}-d`, do one of the following:
-
-* Take a disk snapshot and use it to create a new VM in the `{{ region-id }}-d` zone on a different platform.
-* Stop the VM, change the platform, and move the VM by running `relocate`.
+The `{{ region-id }}-d` and `{{ region-id }}-e` [availability zones](../../overview/concepts/geo-scope.md) do not support VM instances on certain {{ compute-name }} platforms. For more information, see [Limitations](#restrictions).
 
 {% endnote %}
 
@@ -56,7 +53,41 @@ Intel Ice Lake with</br>NVIDIA® Tesla® T4</br>(`standard-v3-t4`) | [NVIDIA® T
 {{ t4i-ice-lake }}</br>(`standard-v3-t4i`) | T4i | [Intel® Xeon® Gold 6338](https://ark.intel.com/content/www/us/en/ark/products/212285/intel-xeon-gold-6338-processor-48m-cache-2-00-ghz.html) | **Maximum number of GPUs per VM**: 1 </br> **Number of vCPUs per GPU**: 4, 8, 16, or 32 </br> **RAM per GPU**: 16, 32, 64, or 128 GB
 GPU PLATFORM V4</br>(`gpu-standard-v4`) | GPU V4 | Intel® Xeon® Platinum | **Maximum number of GPUs per VM**: 8 </br> **Number of vCPUs per GPU**: 22 or 22.5 </br> **RAM per GPU**: 220 or 225 GB
 
-## See also {#see-also}
+## Limitations {#restrictions}
+
+The table below shows which {{ compute-name }} platforms are supported in the `{{ region-id }}-d` and `{{ region-id }}-e` [availability zones](../../overview/concepts/geo-scope.md).
+
+#|
+|| {.cell-align-center} platform | Availability zone {.cell-align-center} | > ||
+|| ^ | `{{ region-id }}-d` | `{{ region-id }}-e` ||
+|| **Standard platforms** {.cell-align-center} | > | > ||
+|| Intel Broadwell | ![image](../../_assets/common/no.svg) {.cell-align-center} | ![image](../../_assets/common/no.svg) {.cell-align-center} ||
+|| Intel Cascade Lake | ![image](../../_assets/common/yes.svg) {.cell-align-center} | ![image](../../_assets/common/yes.svg) {.cell-align-center} ||
+|| Intel Ice Lake | ![image](../../_assets/common/yes.svg) {.cell-align-center} | ![image](../../_assets/common/yes.svg) {.cell-align-center} ||
+|| AMD Zen 3 | ![image](../../_assets/common/yes.svg) {.cell-align-center} | ![image](../../_assets/common/yes.svg) {.cell-align-center} ||
+|| AMD Zen 4 | ![image](../../_assets/common/yes.svg) {.cell-align-center} | ![image](../../_assets/common/yes.svg) {.cell-align-center} ||
+|| **High-performance platforms** {.cell-align-center} | > | > ||
+|| {{ highfreq-ice-lake }} | ![image](../../_assets/common/yes.svg) {.cell-align-center} | ![image](../../_assets/common/no.svg) {.cell-align-center} ||
+|| AMD Zen 4 Compute-Optimized | ![image](../../_assets/common/yes.svg) {.cell-align-center} | ![image](../../_assets/common/yes.svg) {.cell-align-center} ||
+|| **Platforms with GPUs** {.cell-align-center} | > | > ||
+|| {{ v100-broadwell }} | ![image](../../_assets/common/no.svg) {.cell-align-center} | ![image](../../_assets/common/no.svg) {.cell-align-center} ||
+|| {{ v100-cascade-lake }} | ![image](../../_assets/common/no.svg) {.cell-align-center} | ![image](../../_assets/common/no.svg) {.cell-align-center} ||
+|| {{ a100-epyc }} | ![image](../../_assets/common/no.svg) {.cell-align-center} | ![image](../../_assets/common/no.svg) {.cell-align-center} ||
+|| Gen2 | ![image](../../_assets/common/yes.svg) {.cell-align-center} | ![image](../../_assets/common/no.svg) {.cell-align-center} ||
+|| {{ t4-ice-lake }} | ![image](../../_assets/common/yes.svg) {.cell-align-center} | ![image](../../_assets/common/no.svg) {.cell-align-center} ||
+|| {{ t4i-ice-lake }} | ![image](../../_assets/common/yes.svg) {.cell-align-center} | ![image](../../_assets/common/no.svg) {.cell-align-center} ||
+|| GPU PLATFORM V4 | ![image](../../_assets/common/yes.svg) {.cell-align-center} | ![image](../../_assets/common/yes.svg) {.cell-align-center} ||
+|#
+
+{% note tip %}
+
+To migrate a VM with a non-supported platform from the `{{ region-id }}-d` or `{{ region-id }}-e` zone, do one of the following:
+* [Take](../operations/disk-control/create-snapshot.md) a disk snapshot and use it to [create](../operations/vm-create/create-from-snapshots.md) a new VM in the `{{ region-id }}-d` or `{{ region-id }}-e` zone on a different platform.
+* [Stop](../operations/vm-control/vm-stop-and-start.md#stop) the VM, [change](../operations/vm-control/vm-update-resources.md#update-vcpu-ram) the platform, and [move](../operations/vm-control/vm-change-zone.md#relocate-command) the VM by running [yc compute instance relocate](../cli-ref/instance/relocate.md).
+
+{% endnote %}
+
+### See also {#see-also}
 
 * [Supported vCPU and RAM configurations](performance-levels.md)
 * [Supported GPU, vCPU, and RAM configurations](gpus.md#config)

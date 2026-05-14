@@ -1,6 +1,6 @@
-# Creating an email trigger that invokes a {{ sf-name }} function
+# Creating an email trigger that invokes {{ sf-name }}
 
-Create an [email trigger](../../concepts/trigger/mail-trigger.md) to invoke a {{ sf-name }} [function](../../concepts/function.md) when an email arrives. The service automatically generates an email address when creating the trigger.
+Create an [email trigger](../../concepts/trigger/mail-trigger.md) that invokes [{{ sf-name }}](../../concepts/function.md) when an email arrives. {{ sf-name }} will automatically generate an email address when creating the trigger.
 
 ## Getting started {#before-you-begin}
 
@@ -11,7 +11,7 @@ To create a trigger, you will need:
     * [Create a function](../../../functions/operations/function/function-create.md).
     * [Create a function version](../../../functions/operations/function/version-manage.md).
 
-* (Optional) A [dead-letter queue](../../../functions/concepts/dlq.md) where messages that could not be processed by a function will be redirected. If you do not have a queue, [create one](../../../message-queue/operations/message-queue-new-queue.md).
+* Optionally, a [dead-letter queue](../../../functions/concepts/dlq.md) where to redirect the messages the function failed to process. If you do not have a queue, [create one](../../../message-queue/operations/message-queue-new-queue.md).
 
 * [Service accounts](../../../iam/concepts/users/service-accounts.md) with the following permissions:
     
@@ -21,7 +21,7 @@ To create a trigger, you will need:
     
     You can use the same service account or different ones. If you do not have a service account, [create one](../../../iam/operations/sa/create.md).
 
-* [Bucket](../../../storage/concepts/bucket.md) to save email attachments to (optional). If you do not have a bucket, [create one](../../../storage/operations/buckets/create.md) with restricted access.
+* Optionally, [bucket](../../../storage/concepts/bucket.md) to save email attachments to. If you do not have a bucket, [create one](../../../storage/operations/buckets/create.md) with restricted access.
 
 ## Creating a trigger {#trigger-create}
 
@@ -63,7 +63,7 @@ To create a trigger, you will need:
 
         {% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
 
-    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
+    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select a dead-letter queue and a service account with write permissions for that queue.
 
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -79,7 +79,7 @@ To create a trigger, you will need:
     yc serverless trigger create mail \
       --name <trigger_name> \
       --batch-size <message_batch_size> \
-      --batch-cutoff <maximum_timeout> \
+      --batch-cutoff <maximum_wait_time> \
       --attachements-bucket <bucket_name> \
       --attachements-service-account-id <service_account_ID> \
       --invoke-function-id <function_ID> \
@@ -137,7 +137,7 @@ To create a trigger, you will need:
 
     To create an email trigger that invokes a function:
 
-    1. In the configuration file, describe the trigger parameters:
+    1. In the configuration file, describe the trigger properties:
 
        ```hcl
        resource "yandex_function_trigger" "my_trigger" {
@@ -146,7 +146,7 @@ To create a trigger, you will need:
            id                 = "<function_ID>"
            service_account_id = "<service_account_ID>"
            retry_attempts     = <number_of_retry_attempts>
-           retry_interval     = <time_between_retry_attempts>
+           retry_interval     = <interval_between_retry_attempts>
          }
          mail {
            attachments_bucket_id = "<bucket_name>"
@@ -165,16 +165,16 @@ To create a trigger, you will need:
  
        {% include [tf-function-params](../../../_includes/functions/tf-function-params.md) %}
 
-       * `mail`: Trigger parameters:
+       * `mail`: Trigger settings:
 
-           * `attachments_bucket_id`: Name of the bucket to save email attachments to. This is an optional parameter.
-           * `service_account_id`: ID of the service account authorized to upload objects to the {{ objstorage-name }} bucket. This is an optional parameter.
-           * `batch_cutoff`: Maximum timeout. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. The number of messages cannot exceed `batch-size`.
-           * `batch_size`: Message batch size. This is an optional parameter. The values may range from 1 to 10. The default value is 1.
+           * `attachments_bucket_id`: Name of the bucket to save email attachments to. This is an optional setting.
+           * `service_account_id`: ID of the service account with permissions to upload objects to the {{ objstorage-name }} bucket. This is an optional setting.
+           * `batch_cutoff`: Maximum wait time. This is an optional setting. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages within the `batch-cutoff` period and sends them to the function. The number of messages cannot exceed `batch-size`.
+           * `batch_size`: Message batch size. This is an optional setting. The values may range from 1 to 10. The default value is 1.
 
        {% include [tf-dlq-params](../../../_includes/serverless-containers/tf-dlq-params.md) %}
 
-       For more information about the `yandex_function_trigger` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+       For more information about the `yandex_function_trigger` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
 
     1. Create the resources:
 
@@ -192,7 +192,7 @@ To create a trigger, you will need:
 
 {% endlist %}
 
-{{ sf-name }} will automatically generate an email address for which the trigger will fire when messages are sent to it. To see it, [retrieve detailed trigger information](trigger-list.md#trigger-get).
+{{ sf-name }} will automatically generate an email address for which the trigger will fire when messages are sent to it. To view it, [get trigger details](trigger-list.md#trigger-get).
 
 ## Checking the result {#check-result}
 

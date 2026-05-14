@@ -52,7 +52,7 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
    To configure {{ CH }}:
 
    1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-   1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Click the name of the cluster you need, then go the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** section.
    1. In the appropriate user row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
    1. In the **{{ ui-key.yacloud.mdb.forms.section_additional }}** list, expand **settings** and [configure {{ CH }}](../concepts/settings-list.md#user-level-settings).
@@ -86,13 +86,14 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
          --settings="<parameter_1_name>=<value_1>,<parameter_2_name>=<value_2>,..."
       ```
 
+
 - {{ TF }} {#tf}
 
    To configure {{ CH }}:
 
    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      For information on how to create such a file, see [Creating a cluster](cluster-create.md).
+      For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
    1. In the {{ mch-name }} cluster user description, under `settings`, edit the parameters as follows:
 
@@ -107,7 +108,7 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
       }
       ```
 
-   1. Make sure the settings are correct.
+   1. Validate your configuration.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -117,13 +118,14 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
 
    For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
 
+
 - REST API {#api}
 
     1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Call the [User.Update](../api-ref/User/update.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
+    1. Call the [User.Update](../api-ref/User/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -141,7 +143,7 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
 
         Where:
 
-        * `updateMask`: Comma-separated list of settings you want to update.
+        * `updateMask`: Comma-separated string of settings you want to update.
 
         * `settings`: Required [{{ CH }} settings](../concepts/settings-list.md#user-level-settings) with new values.
 
@@ -157,7 +159,7 @@ You can specify [{{ CH }} settings at the query level](https://clickhouse.com/do
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Call the [UserService.Update](../api-ref/grpc/User/update.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
+    1. Call the [UserService.Update](../api-ref/grpc/User/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -306,7 +308,7 @@ You can specify {{ CH }} settings when [creating](#create-settings-profile) or [
 - SQL {#sql}
 
    1. [Connect](connect/clients.md) to the database in the cluster.
-   1. Run this query:
+   1. Run this request:
 
       ```sql
       SET <username> SETTINGS <list_of_{{ CH }}_settings>;
@@ -334,7 +336,7 @@ You can specify {{ CH }} settings when [creating](#create-settings-profile) or [
 
 - SQL {#sql}
 
-   1. [Set the dependencies](connect/clients.md#clickhouse-client) required for connecting to a database.
+   1. [Install the dependencies](connect/clients.md#clickhouse-client) required for connecting to a database.
    1. View the description of the command for connecting to a database:
 
       ```bash

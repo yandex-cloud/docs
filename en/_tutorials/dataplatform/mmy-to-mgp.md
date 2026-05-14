@@ -1,20 +1,21 @@
 # Migrating data from {{ mmy-full-name }} to {{ mgp-full-name }} using {{ data-transfer-full-name }}
 
-You can set up a data transfer from {{ mmy-name }} to {{ GP }} databases in {{ mgp-name }} using {{ data-transfer-name }}. To do this:
+You can set up a data transfer from {{ mmy-full-name }} to {{ GP }} databases in {{ mgp-name }} using {{ data-transfer-full-name }}. Follow these steps:
 
 1. [Prepare your test data](#prepare-data).
 1. [Create a database in the target cluster](#prepare-data).
-1. [Set up and activate the transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate your transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
 ## Required paid resources {#paid-resources}
 
-* {{ mmy-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
-* {{ mgp-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mgp-name }} pricing](../../managed-greenplum/pricing/index.md)).
-* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ mmy-name }} cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
+* {{ mgp-name }} cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ mgp-name }} pricing](../../managed-greenplum/pricing/index.md)).
+* Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -120,7 +121,7 @@ Set up your infrastructure:
     CREATE DATABASE mgp_db;
     ```
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate your transfer {#prepare-transfer}
 
 1. [Create a `{{ GP }}` target endpoint](../../data-transfer/operations/endpoint/target/greenplum.md) with these cluster connection settings:
 
@@ -171,7 +172,7 @@ Set up your infrastructure:
 
     {% endlist %}
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
 Make sure the transfer works correctly by testing copying and replication.
 
@@ -179,7 +180,7 @@ Make sure the transfer works correctly by testing copying and replication.
 
 1. [Connect](../../managed-greenplum/operations/connect/index.md) to the `mgp_db` database in the {{ GP }} target cluster.
 
-1. Run this query:
+1. Run this request:
 
     ```sql
     SELECT * FROM mmy_db.table1;
@@ -198,8 +199,8 @@ Make sure the transfer works correctly by testing copying and replication.
 
 1. Check that the added row appears in the target database:
 
-    1. [Connect](../../managed-greenplum/operations/connect/index.md) to the `mgp_db` database in the {{ GP }} target cluster.
-    1. Run this query:
+    1. [Connect](../../managed-greenplum/operations/connect/index.md) to the database `mgp_db` in the {{ GP }} target cluster.
+    1. Run this request:
 
         ```sql
         SELECT * FROM mmy_db.table1;
@@ -209,7 +210,7 @@ Make sure the transfer works correctly by testing copying and replication.
 
 {% note info %}
 
-Before deleting the resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting any resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 

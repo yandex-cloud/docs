@@ -26,7 +26,7 @@ description: Управление доступом в сервисе по пер
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](../../_assets/data-transfer/security/service-roles-hierarchy.svg)
+{% include [data-transfer](../../_mermaid/roles/data-transfer.md) %}
 
 ### Сервисные роли {#service-roles}
 

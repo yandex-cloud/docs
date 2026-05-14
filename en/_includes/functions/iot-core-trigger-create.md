@@ -2,7 +2,7 @@ Create a [trigger](../../functions/concepts/trigger/iot-core-trigger.md) for a [
 
 {% note warning %}
 
-The trigger must be in the same [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) as the registry or device from the topic of which it reads messages.
+The trigger must be in the same [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) as the registry or device whose topic it reads messages from.
 
 {% endnote %}
 
@@ -10,7 +10,7 @@ The trigger must be in the same [cloud](../../resource-manager/concepts/resource
 
 {% include [trigger-before-you-begin](trigger-before-you-begin.md) %}
 
-* Registry or device from whose topics the trigger will receive message copies. If you have neither:
+* Registry or device whose topics the trigger will receive message copies from. If you have neither:
   * [Create a registry](../../iot-core/operations/registry/registry-create.md).
   * [Create a device](../../iot-core/operations/device/device-create.md).
 
@@ -52,7 +52,7 @@ The trigger must be in the same [cloud](../../resource-manager/concepts/resource
 
      {% include [repeat-request.md](repeat-request.md) %}
 
-  1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the [service account](../../iam/concepts/users/service-accounts.md) with write permissions for this queue.
+  1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select a dead-letter queue and a [service account](../../iam/concepts/users/service-accounts.md) with write permissions for that queue.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
 - CLI {#cli}
@@ -69,8 +69,8 @@ The trigger must be in the same [cloud](../../resource-manager/concepts/resource
     --registry-id <registry_ID> \
     --device-id <device_ID> \
     --mqtt-topic '<MQTT_topic>' \
-    --batch-size <message_group_size> \
-    --batch-cutoff <maximum_timeout> \
+    --batch-size <message_batch_size> \
+    --batch-cutoff <maximum_wait_time> \
     --invoke-function-id <function_ID> \
     --invoke-function-service-account-id <service_account_ID> \
     --retry-attempts <number_of_retry_attempts> \
@@ -82,8 +82,8 @@ The trigger must be in the same [cloud](../../resource-manager/concepts/resource
   Where:
   * `--name`: Trigger name.
   * `--registry-id`: [Registry ID](../../iot-core/operations/registry/registry-list.md).
-  * `--device-id`: [Device ID](../../iot-core/operations/device/device-list.md). If you are creating a trigger for a registry topic, you can omit this parameter.
-  * `--mqtt-topic`: MQTT topic you want to create a trigger for. This is an optional parameter. If this parameter is skipped, the trigger will fire for all registry or device topics.
+  * `--device-id`: [Device ID](../../iot-core/operations/device/device-list.md). If you are creating a trigger for a registry topic, you can skip this setting.
+  * `--mqtt-topic`: MQTT topic you want to create a trigger for. This is an optional setting. If you skip it, the trigger will fire for all registry or device topics.
 
   {% include [trigger-param](../iot-core/trigger-param-cf.md) %}
 
@@ -132,7 +132,7 @@ The trigger must be in the same [cloud](../../resource-manager/concepts/resource
          id                 = "<function_ID>"
          service_account_id = "<service_account_ID>"
          retry_attempts     = "<number_of_retry_attempts>"
-         retry_interval     = "<time_between_retry_attempts>"
+         retry_interval     = "<interval_between_retry_attempts>"
        }
        iot {
          registry_id  = "<registry_ID>"
@@ -152,17 +152,17 @@ The trigger must be in the same [cloud](../../resource-manager/concepts/resource
 
      {% include [tf-function-params](tf-function-params.md) %}
 
-     * `iot`: Trigger parameters:
+     * `iot`: Trigger settings:
 
         * `registry-id`: [Registry ID](../../iot-core/operations/registry/registry-list.md).
-        * `device-id`: [Device ID](../../iot-core/operations/device/device-list.md). If you are creating a trigger for a registry topic, you can omit this parameter.
-        * `topic`: MQTT topic you want to create a trigger for. This is an optional parameter. If this parameter is skipped, the trigger will fire for all registry or device topics.
-        * `batch_cutoff`: Maximum wait time. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. The number of messages cannot exceed `batch-size`.
-        * `batch_size`: Size of the message batch from MQTT topics. This is an optional parameter. The values may range from 1 to 10. The default value is 1.
+        * `device-id`: [Device ID](../../iot-core/operations/device/device-list.md). If you are creating a trigger for a registry topic, you can skip this setting.
+        * `topic`: MQTT topic you want to create a trigger for. This is an optional setting. If you skip it, the trigger will fire for all registry or device topics.
+        * `batch_cutoff`: Maximum wait time. This is an optional setting. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages within the `batch-cutoff` period and sends them to the function. The number of messages cannot exceed `batch-size`.
+        * `batch_size`: Size of the message batch from MQTT topics. This is an optional setting. The values may range from 1 to 10. The default value is 1.
 
      {% include [tf-dlq-params](../serverless-containers/tf-dlq-params.md) %}
 
-     For more information about `yandex_function_trigger` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+     For more information about `yandex_function_trigger` properties, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Create the resources:
 

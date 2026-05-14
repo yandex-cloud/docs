@@ -1,1 +1,1 @@
-The `managed-postgresql.clusters.connector` enables {{ yandex-cloud }} [users](../../../iam/concepts/users/accounts.md) to connect to databases in [{{ PG }} clusters](../../../managed-mysql/concepts/index.md) via [{{ iam-full-name }}](../../../iam/index.yaml).
+The `managed-postgresql.clusters.connector` role enables {{ yandex-cloud }} [users](../../../iam/concepts/users/accounts.md) to connect to databases in [{{ PG }} clusters](../../../managed-mysql/concepts/index.md) via [{{ iam-full-name }}](../../../iam/index.yaml).

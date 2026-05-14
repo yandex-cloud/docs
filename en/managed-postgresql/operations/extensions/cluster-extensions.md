@@ -141,7 +141,7 @@ Loading a shared library will cause {{ PG }} on the master host to restart.
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     To learn how to create this file, see [Creating a cluster](../cluster-create.md).
+     For more on how to create this file, see [Creating a cluster](../cluster-create.md).
 
      For a complete list of {{ mpg-name }} cluster database configuration fields you can update, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_postgresql_database).
 
@@ -309,7 +309,7 @@ Using this extension requires you to [enable the `age` shared library](#librarie
 || <p>[lwaldump](https://github.com/g0djan/lwaldump/tree/REL_13_STABLE)</p><p>Enables you to retrieve the last LSN (log sequence number) written to the replica’s disk.</p> | - | - | - | 1.0 | - ||
 || <p>[moddatetime]({{ pg-docs }}/static/contrib-spi.html#id-1.11.7.47.8)</p><p>Provides the `moddatetime()` function for tracking the last modification time of a table row.</p> | 1.0 | 1.0 | 1.0 | 1.0 | - ||
 || <p>[oracle_fdw](https://github.com/laurenz/oracle_fdw)</p><p>Adds a [foreign data wrapper](https://wiki.postgresql.org/wiki/Foreign_data_wrappers) for accessing Oracle databases.</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) role.</p> | 1.2 | 1.2 | 1.2 | 1.2 | 2.8.0 ||
-|| <p>[orafce](https://github.com/orafce/orafce)</p><p>Provides functions and operators emulating Oracle database functions and packages.</p> | 3.18 | 3.25 | 4.6 | 4.13 | - ||
+|| <p>[orafce](https://github.com/orafce/orafce)</p><p>Provides functions and operators emulating Oracle database functions and packages.</p> | 3.18 | 3.25 | 4.6 | - | - ||
 || <p>[pg_buffercache]({{ pg-docs }}/pgbuffercache.html)</p><p>Provides functions for shared buffer cache monitoring.</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) role.</p> | 1.3 | 1.3 | 1.4 | 1.5 | - ||
 || <p>[pg_cron](https://github.com/citusdata/pg_cron)</p><p>Enables you to schedule database jobs and execute SQL queries directly within them.</p><p>Requires [enabling the `pg_cron` shared library](#libraries-connection).</p><p>To use this extension, you need the [`mdb_admin`](../../concepts/roles.md#mdb-admin) role.</p><p>Loading this extension will cause all hosts to restart. For more information, see [Using pg_cron](./pg_cron.md).</p>  | 1.4.1 | 1.4.1 | 1.5 | 1.6 | 1.6.7 ||
 || <p>[pg_hint_plan](http://pghintplan.osdn.jp/)</p><p>Provides functions for managing the {{ PG }} planner.</p><p>Using this extension requires you to [enable the `pg_hint_plan` shared library](#libraries-connection).</p> | 1.4 | 1.5 | 1.6.0 | 1.7.0 | 1.8.0 ||

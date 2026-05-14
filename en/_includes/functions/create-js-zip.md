@@ -17,6 +17,6 @@
     };
     ```
 
-1. Add the `index.js` file into the `hello-js.zip` ZIP archive.
+1. Add `index.js` to the `hello-js.zip` archive.
 
     {% include [macos-zip-error](macos-zip-error.md) %}

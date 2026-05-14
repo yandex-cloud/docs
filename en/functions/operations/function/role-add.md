@@ -1,9 +1,9 @@
 ---
-title: Assigning roles to a function
-description: Follow this guide to assign roles to a function.
+title: Assigning roles for a function
+description: Follow this guide to assign roles for a function.
 ---
 
-# Assigning roles to a function
+# Assigning roles for a function
 
 {% list tabs group=instructions %}
 

@@ -1,6 +1,6 @@
 ---
 title: How to work with {{ sf-full-name }}
-description: In this article, you will learn how to work with {{ sf-full-name }} in {{ yandex-cloud }}. Find out how to manage a function (create, modify, invoke, and delete a function) and a trigger (create a timer or trigger for {{ message-queue-name }}, {{ iot-full-name }}, {{ container-registry-name }}).
+description: In this article, you will learn how to work with {{ sf-full-name }} in {{ yandex-cloud }}. Find out how to manage a function (create, modify, invoke, and delete a function) and a trigger (create a timer or trigger for {{ message-queue-name }}, {{ iot-full-name }}, or {{ container-registry-name }}).
 ---
 
 # Step-by-step guides for {{ sf-name }}
@@ -35,7 +35,7 @@ description: In this article, you will learn how to work with {{ sf-full-name }}
 * [{#T}](function/function-invoke-async.md)
 * [{#T}](function/auth.md)
 
-## Managing functions {#function-manage}
+## Managing a function {#function-manage}
 
 * [Updating a name](function/name-update.md)
 * [Updating a description](function/description-update.md)
@@ -46,7 +46,7 @@ description: In this article, you will learn how to work with {{ sf-full-name }}
 * [{#T}](function/network-add.md)
 * [{#T}](function/lockbox-secret-transmit.md)
 * [Allocating memory for the /tmp directory](function/allocate-memory-tmp.md)
-* [Mounting a bucket](function/mount-bucket.md)
+* [Mounting buckets](function/mount-bucket.md)
 * [Mounting an ephemeral disk](function/mount-ephemeral-disk.md)
 * [Adding a tag](function/tag-add.md)
 * [Deleting a tag](function/tag-delete.md)
@@ -61,10 +61,10 @@ description: In this article, you will learn how to work with {{ sf-full-name }}
 * [{#T}](function/function-delete.md)
 
 
-## Getting information about a trigger {#trigger-info}
+## Getting trigger information {#trigger-info}
 
 * [Getting a list of triggers](trigger/trigger-list.md)
-* [Getting information about a trigger](trigger/trigger-info.md)
+* [Getting trigger information](trigger/trigger-info.md)
 
 ## Creating a trigger {#trigger-create}
 
@@ -79,7 +79,7 @@ description: In this article, you will learn how to work with {{ sf-full-name }}
 * [Creating a trigger for {{ yds-name }}](trigger/data-streams-trigger-create.md)
 * [Creating an email trigger](trigger/mail-trigger-create.md)
 
-## Managing triggers {#trigger-manage}
+## Managing a trigger {#trigger-manage}
 
 * [Updating a trigger](trigger/trigger-update.md)
 * [Adding a label](trigger/label-add.md)

@@ -13,28 +13,28 @@ description: Follow this guide to create a function version.
 
 ## Creating a function version {#version-create}
 
-When creating a version, set the following parameters:
+When creating a version, specify the following settings:
 
-* _{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}_: Provides additional libraries and environment variables that can be accessed from the function code. It corresponds to the programming language your function is written in. For more information, see [Runtime environment](../../concepts/runtime/index.md).
-* _{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}_: Function to be invoked as a [handler](../../concepts/function.md#programming-model).
-* _{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}_: Maximum function execution time, after which the service will terminate its execution without waiting for a response. It includes the time of the first initialization when the function is first run.
+* _{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}_: Provides additional libraries and environment variables accessible from the function code. It matches the programming language of your function. For more information, see [Runtime](../../concepts/runtime/index.md).
+* _{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}_: Function to invoke as the [handler](../../concepts/function.md#programming-model).
+* _{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}_: Maximum function execution time. After this time, the service stops the function without waiting for a response. It includes the initialization time during the first run.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder containing the function.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
     1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select the function whose version you want to create.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}**, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
-    1. Select the [runtime environment](../../concepts/runtime/index.md). Disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
+    1. Select the [runtime](../../concepts/runtime/index.md). Disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
     1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
     1. Prepare the function code:
        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}**: `nodejs18`.
        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: `hello-js.zip`.
        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.
-    1. Set the version parameters:
+    1. Configure the version:
        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `5`.
        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
        * [**{{ ui-key.yacloud.forms.label_service-account-select }}**](../../../iam/concepts/users/service-accounts.md): `{{ ui-key.yacloud.component.service-account-select.label_no-service-account }}`.
@@ -47,7 +47,7 @@ When creating a version, set the following parameters:
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    To create a function version, run the command:
+    To create a function version, run this command:
 
     ```
     yc serverless function version create \
@@ -62,10 +62,10 @@ When creating a version, set the following parameters:
     Where:
 
     * `--function-name`: Name of the function whose version you want to create.
-    * `--runtime`: Runtime environment.
-    * `--entrypoint`: Entry point in the following format: `<file_name_without_extension>.<listener_name>`.
+    * `--runtime`: Runtime.
+    * `entrypoint`: Entry point in `<file_name_without_extension>.<handler_name>` format.
     * `--memory`: Amount of RAM.
-    * `--execution-timeout`: Maximum function running time before timeout.
+    * `--execution-timeout`: Maximum function execution time before timeout.
     * `--source-path`: ZIP archive with the function code and required dependencies.
 
     Result:
@@ -96,15 +96,15 @@ When creating a version, set the following parameters:
 
     To create a new function version:
 
-    1. Open the {{ TF }} configuration file and change the function parameters:
+    1. Open the {{ TF }} configuration file and change the function settings:
       
-       * `yandex_function`: Description of the function being created and its source code.
+       * `yandex_function`: Description of the new function and its source code.
          * `name`: Function name.
          * `description`: Text description of the function.
-         * `user_hash`: Any string to identify the function version. When the function changes, update this string, too. The function will update when this string is updated.
-         * `runtime`: Function [runtime environment](../../concepts/runtime/index.md).
+         * `user_hash`: Any string to identify the function version. When you change the function, update this string as well. Updating this string triggers a function update.
+         * `runtime`: Function [runtime](../../concepts/runtime/index.md).
          * `entrypoint`: Function name in the source code that will serve as an entry point to applications.
-         * `memory`: Amount of memory allocated for the function, in MB.
+         * `memory`: Amount of memory allocated to the function, in MB.
          * `execution_timeout`: Function execution timeout.
          * `service_account_id`: ID of the service account you want to use to invoke the function.
          * `content`: Function source code.
@@ -130,19 +130,19 @@ When creating a version, set the following parameters:
 
        {% note info %}
     
-       If the function name or description is changed, the version will not be created.
+       If you change the function name or description, the system will not create a new version.
 
        {% endnote %}
 
-        For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
+        For more information about `yandex_function` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
-    1. Check the configuration using this command:
+    1. Validate your configuration using this command:
         
        ```
        terraform validate
        ```
 
-       If the configuration is correct, you will get this message:
+       If the configuration is valid, you will get this message:
         
        ```
        Success! The configuration is valid.
@@ -154,9 +154,9 @@ When creating a version, set the following parameters:
        terraform plan
        ```
         
-       You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration. 
+       You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration. 
          
-    1. Apply the changes:
+    1. Apply the configuration changes:
 
        ```
        terraform apply
@@ -175,12 +175,12 @@ When creating a version, set the following parameters:
 
     **Request examples**
 
-    To use the examples, install [cURL](https://curl.haxx.se) and [authenticate](../../api-ref/functions/authentication.md) in the API.
+    To use the examples below, install [cURL](https://curl.haxx.se) and [authenticate](../../api-ref/functions/authentication.md) with the API.
 
     {% cut "Example where code is fetched from an {{ objstorage-name }} bucket" %}
 
     1. [Upload](../../../storage/operations/objects/upload.md) the `hello-js.zip` archive with the function version code to your {{ objstorage-name }} bucket.
-    1. Prepare a file named `body.json` with the following request body:
+    1. Create a file named `body.json` with the following request body:
 
         ```json
         {
@@ -201,11 +201,11 @@ When creating a version, set the following parameters:
 
         Where:
 
-        * `functionId`: ID of the function the version of which you want to create.
-        * `runtime`: [Runtime environment](../../concepts/runtime/index.md#runtimes).
-        * `entrypoint`: Entry point in the following format: `<file_name_without_extension>.<listener_name>`.
+        * `functionId`: ID of the function whose version you want to create.
+        * `runtime`: [Runtime](../../concepts/runtime/index.md#runtimes).
+        * `entrypoint`: Entry point in `<file_name_without_extension>.<handler_name>` format.
         * `memory`: Amount of RAM.
-        * `executionTimeout`: Maximum function running time before timeout.
+        * `executionTimeout`: Maximum function execution time before timeout.
         * `serviceAccountId`: ID of the service account with a [role](../../../storage/security/index.md#service-roles) that allows bucket data reads.
         * `bucketName`: Name of the bucket where you uploaded the ZIP archive with the function code and required dependencies.
         * `objectName`: [Key of the bucket object](../../../storage/concepts/object.md#key) that contains the function code.
@@ -220,7 +220,7 @@ When creating a version, set the following parameters:
         base64 -i hello-js.zip > output.txt
         ```
 
-    1. Prepare a file named `body.json` with the following request body:
+    1. Create a file named `body.json` with the following request body:
 
         ```json
         {
@@ -237,18 +237,18 @@ When creating a version, set the following parameters:
 
         Where:
 
-        * `functionId`: ID of the function the version of which you want to create.
-        * `runtime`: [Runtime environment](../../concepts/runtime/index.md#runtimes).
-        * `entrypoint`: Entry point in the following format: `<file_name_without_extension>.<listener_name>`.
+        * `functionId`: ID of the function whose version you want to create.
+        * `runtime`: [Runtime](../../concepts/runtime/index.md#runtimes).
+        * `entrypoint`: Entry point in `<file_name_without_extension>.<handler_name>` format.
         * `memory`: Amount of RAM.
-        * `executionTimeout`: Maximum function running time before timeout.
+        * `executionTimeout`: Maximum function execution time before timeout.
         * `content`: Function version code in Base64 encoding, `output.txt` file contents.
 
     {% endcut %}
 
     {% cut "Example where code is fetched from another function version in {{ sf-name }}" %}
 
-    Prepare a file named `body.json` with the following request body:
+    Create a file named `body.json` with the following request body:
 
     ```json
     {
@@ -265,16 +265,16 @@ When creating a version, set the following parameters:
 
     Where:
 
-    * `functionId`: ID of the function the version of which you want to create.
-    * `runtime`: [Runtime environment](../../concepts/runtime/index.md#runtimes).
-    * `entrypoint`: Entry point in the following format: `<file_name_without_extension>.<listener_name>`.
+    * `functionId`: ID of the function whose version you want to create.
+    * `runtime`: [Runtime](../../concepts/runtime/index.md#runtimes).
+    * `entrypoint`: Entry point in `<file_name_without_extension>.<handler_name>` format.
     * `memory`: Amount of RAM.
-    * `executionTimeout`: Maximum function running time before timeout.
+    * `executionTimeout`: Maximum function execution time before timeout.
     * `versionId`: ID of a [previous function version](./version-list.md).
 
     {% endcut %}
 
-    Send the request by specifying the path to the previously prepared file with the request body:
+    Send the request by specifying the path to the previously created file with the request body:
 
     ```bash
     export IAM_TOKEN=$(yc iam create-token)
@@ -306,6 +306,6 @@ When creating a version, set the following parameters:
 
 {% note info %}
 
-To ensure the integrity of version links, you cannot update function versions. For more information about the resource relationships, see [{#T}](../../concepts/function.md).
+To ensure integrity of relationships, you cannot update function versions. For more information about the resource relationships, see [{#T}](../../concepts/function.md).
 
 {% endnote %}

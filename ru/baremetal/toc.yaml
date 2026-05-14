@@ -84,7 +84,7 @@ items:
             href: concepts/server-configurations.md
           - name: Своя конфигурация сервера
             href: concepts/server-custom-configurations.md
-          - name: Конфигурация сервера под заказ
+          - name: Конфигурация сервера по запросу
             href: concepts/server-individual-configurations.md
           - name: Диски и RAID
             items:

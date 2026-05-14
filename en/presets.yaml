@@ -3709,6 +3709,9 @@ default:
       billing-account-detail:
         filter_label-labels-all: All labels
         filter_label-products-all: All products
+        label_credit-cudCredit: Committed use discount
+        label_credit-monetaryGrantCredit: Grant
+        label_credit-volumeIncentiveCredit: Volume incentive credit
         value_empty_clouds: All clouds and folders
       cloud-billing-account:
         label_card-add: Add card
@@ -5124,6 +5127,8 @@ default:
             labelDescriptionField: Description
             labelNameField: Name
             labelServiceAccountField: Service account
+          DownloadCspmScanResultsDialog:
+            action_download-file_gJ3Vh: Download file
           label_rule-kind_3PswX: Rule type
           module_dspm_xxxxx: |
             Data Security Posture Management (DSPM)
@@ -5134,6 +5139,11 @@ default:
             action_save: Save selection
           title_security-modules_8MdQg: Control modules
           title_security-requirements_8r7hd: Sets of requirements
+          TriggeredRunsCheckEnvironmentDialog:
+            action_start-check_w0jM2: Run check
+          TriggeredRunsControl:
+            action_check-environment_k3mP9: Check environment for compliance with control rules
+            action_download-check-report_q7nR2: Download check report
           WorkspaceEditPageLayout:
             tabGeneralParams_xc2v2: Main parameters
             tabResources_vJuSN: Resources
@@ -6004,6 +6014,7 @@ default:
           registry-kind_docker: Docker
         title_ip-permissions: Access for IP addresses
         title_registries: Registries
+        title_registry-artifacts: Artifacts
       cloud-shell:
         label_service: Cloud Shell
       cloud-tree-list:

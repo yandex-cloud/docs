@@ -1,1 +1,1 @@
-Downtime of provisioned instances and runtime of the function in them are [charged](../../functions/pricing.md#provisioned-instances) additionally.
+You are [charged](../../functions/pricing.md#provisioned-instances) separately for provisioned instance downtime and function execution time.

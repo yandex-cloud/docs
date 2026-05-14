@@ -1,6 +1,6 @@
 ---
 title: Allocating memory for the /tmp directory
-description: In this tutorial, you will learn how to allocate some RAM within a function for the /tmp directory.
+description: In this guide, you will learn how to allocate a portion of memory in a function for the /tmp directory.
 ---
 
 # Allocating memory for the /tmp directory
@@ -9,9 +9,9 @@ description: In this tutorial, you will learn how to allocate some RAM within a 
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder containing the function.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
     1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-    1. Select a function.
+    1. Select the function.
     1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
     1. In the **Memory** section under **Additional settings**, enable **Allocate memory for the /tmp directory**.
     1. In the **Allocated memory** field, specify the amount of memory to allocate.
@@ -28,9 +28,9 @@ description: In this tutorial, you will learn how to allocate some RAM within a 
     ```bash
     yc serverless function version create \
       --function-name=<function_name> \
-      --runtime <runtime_environment> \
+      --runtime <runtime> \
       --entrypoint <entry_point> \
-      --memory <RAM_size> \
+      --memory <RAM_amount> \
       --source-version-id <version_ID> \
       --tmpfs-size <RAM_size_for_tmp>
     ```
@@ -38,9 +38,9 @@ description: In this tutorial, you will learn how to allocate some RAM within a 
     Where:
 
     * `--function-name`: Function name.
-    * `--runtime`: Runtime environment.
+    * `--runtime`: Runtime.
     * `--entrypoint`: Entry point in `<function_file_name>.<handler_name>` format.
-    * `--memory`: Amount of memory (RAM).
+    * `--memory`: Amount of RAM.
     * `--source-version-id`: ID of the function version from which you want to copy the code.
     * `--tmpfs-size`: RAM amount you want to allocate for the `/tmp` directory.
 
@@ -60,9 +60,9 @@ description: In this tutorial, you will learn how to allocate some RAM within a 
         resource "yandex_function" "test-function" {
             name               = "<function_name>"
             user_hash          = "<hash>"
-            runtime            = "<runtime_environment>"
+            runtime            = "<runtime>"
             entrypoint         = "<entry_point>"
-            memory             = "<RAM_size>"
+            memory             = "<RAM_amount>"
             tmpfs_size         = "<RAM_size_for_tmp>"
             
             content {
@@ -71,15 +71,15 @@ description: In this tutorial, you will learn how to allocate some RAM within a 
         }
         ```
 
-        For more information about `yandex_function` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function).
+        For more information about `yandex_function` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
-    1. Check the configuration using this command:
+    1. Validate your configuration using this command:
 
        ```bash
        terraform validate
        ```
 
-       If the configuration is correct, you will get this message:
+       If the configuration is valid, you will get this message:
 
        ```text
        Success! The configuration is valid.
@@ -91,9 +91,9 @@ description: In this tutorial, you will learn how to allocate some RAM within a 
        terraform plan
        ```
 
-       You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+       You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
-    1. Apply the changes:
+    1. Apply the configuration changes:
 
        ```bash
        terraform apply

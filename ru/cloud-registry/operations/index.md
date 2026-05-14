@@ -40,6 +40,11 @@ description: В этом разделе собраны пошаговые инс
 ### Python {#python}
 
 * [Настроить PyPI](pypi/installation.md)
+* [Создать Python-пакет](pypi/create.md)
+* [Загрузить Python-пакет в реестр](pypi/push.md)
+* [Скачать Python-пакет из реестра](pypi/pull.md)
+* [Удалить Python-пакет из реестра](pypi/delete.md)
+* [Примеры работы с PyPI-реестрами](pypi/examples.md)
 
 ### Binary {#binary}
 

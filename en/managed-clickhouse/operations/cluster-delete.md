@@ -1,13 +1,13 @@
 ---
 title: Deleting a {{ CH }} cluster
-description: After you delete a {{ CH }} database cluster, its backups are retained for seven days for recovery purposes. To restore a deleted cluster from a backup, you will need its ID, so make sure to securely save the cluster ID before deleting the cluster.
+description: After you delete a {{ CH }} database cluster, its backups are retained and available for recovery for 7 days. To restore a deleted cluster from a backup, you will need its ID. Therefore, make sure to save the cluster ID safely before deletion.
 ---
 
 # Deleting a {{ CH }} cluster
 
 ## Before deleting a cluster {#before-you-delete}
 
-* [Disable deletion protection](update.md#change-additional-settings) for the cluster if it is enabled.
+* If deletion protection is on for the cluster, [disable it](update.md#change-additional-settings).
 * [Save the cluster ID](cluster-list.md#list-clusters).
 
   {% include [backups-stored](../../_includes/mdb/backups-stored.md) %}
@@ -19,7 +19,7 @@ description: After you delete a {{ CH }} database cluster, its backups are retai
 - Management console {#console}
   
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the cluster in question and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
   
 - CLI {#cli}
@@ -36,11 +36,13 @@ description: After you delete a {{ CH }} database cluster, its backups are retai
 
   You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
   {% include [terraform-delete-mdb-cluster](../../_includes/mdb/terraform-delete-mdb-cluster.md) %}
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -59,7 +61,7 @@ description: After you delete a {{ CH }} database cluster, its backups are retai
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+  1. Check the [server response](../api-ref/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -84,7 +86,7 @@ description: After you delete a {{ CH }} database cluster, its backups are retai
         yandex.cloud.mdb.clickhouse.v1.ClusterService.Delete
       ```
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

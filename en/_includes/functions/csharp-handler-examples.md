@@ -2,7 +2,7 @@
 
 ### HTTP request structure output {#http-req}
 
-The following function receives a request with two fields (a string and a number) as an input and returns a formatted string with the data received.
+The following function receives a request with two fields (a string and a number) and returns a formatted string with the provided data.
 
 {% note warning %}
 
@@ -24,7 +24,7 @@ The Handler.cs file:
 ```C#
 public class Handler {
   public String FunctionHandler(Request r) {
-    // at this stage, the r variable already stores the parsed query
+    // at this stage, the r variable already stores the parsed request
     return $"Message is {r.message}, number is {r.number}";
   }
 }
@@ -47,11 +47,11 @@ Message is Hello, number is 24
 
 ### Parsing an HTTP request
 
-The function is invoked using an HTTP request with the username, logs the request method and body, and returns a greeting.
+The function is invoked via an HTTP request with a username, logs the request method and body, and returns a greeting.
 
 {% note warning %}
 
-Do not use the `?integration=raw` parameter to invoke this function. If you do, the function will not get any data about the original request's methods, headers, or parameters.
+Do not use `?integration=raw` to invoke this function. If you do, the function will not get any data about the original request’s methods, headers, or parameters.
 
 {% endnote %}
 
@@ -93,8 +93,8 @@ public class Handler {
     using var jsonDoc = JsonDocument.Parse(body);
     var root = jsonDoc.RootElement;
 
-    // here, the "name" parameter is obtained from the request body
-    // if you do not provide it, an error will be thrown
+    // Here, the name parameter is retrieved from the request body.
+    // If you do not provide it, an error will be thrown.
     var name = root.GetProperty("name").GetString(); 
     return new Response(200, $"Hello, {name}");
   }

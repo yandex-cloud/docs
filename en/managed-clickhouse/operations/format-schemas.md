@@ -16,8 +16,8 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-   1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-   1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}** tab.
+   1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}** tab.
 
 - CLI {#cli}
 
@@ -35,7 +35,7 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -48,13 +48,13 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
             --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/formatSchemas'
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/FormatSchema/list.md#yandex.cloud.mdb.clickhouse.v1.ListFormatSchemasResponse) to make sure your request was successful.
+    1. Check the [server response](../api-ref/FormatSchema/list.md#yandex.cloud.mdb.clickhouse.v1.ListFormatSchemasResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -75,7 +75,7 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
             yandex.cloud.mdb.clickhouse.v1.FormatSchemaService.List
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/FormatSchema/list.md#yandex.cloud.mdb.clickhouse.v1.ListFormatSchemasResponse) to make sure your request was successful.
 
@@ -102,7 +102,7 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -121,7 +121,7 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -157,12 +157,12 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
 
 {{ mch-name }} only works with format schemas uploaded to {{ objstorage-full-name }} and accessible for reading. Before adding a schema to a cluster:
 
-1. Prepare a file with a format schema (see the [Cap'n Proto](https://capnproto.org/language.html) and [Protobuf](https://developers.google.com/protocol-buffers/docs/tutorials?hl=ru) tutorials).
+1. Prepare a file with your format schema (see the [Cap'n Proto](https://capnproto.org/language.html) and [Protobuf](https://developers.google.com/protocol-buffers/docs/tutorials?hl=ru) tutorials).
 
 
 1. To attach a [service account](../../iam/concepts/users/service-accounts.md) to a cluster, [assign](../../iam/operations/roles/grant.md) the [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) role or higher to your {{ yandex-cloud }} account.
 1. [Upload](../../storage/operations/objects/upload.md) the format schema file to {{ objstorage-full-name }}.
-1. [Attach the service account to the cluster](s3-access.md#connect-service-account). You will use this service account to configure permissions to access the schema file.
+1. [Attach the service account to the cluster](s3-access.md#connect-service-account). You will use this service account to configure access to the schema file.
 1. [Assign](s3-access.md#configure-acl) the `storage.viewer` role to the service account.
 1. In the bucket ACL, [add](../../storage/operations/buckets/edit-acl.md) the `READ` permission to the service account.
 1. [Get a link](s3-access.md#get-link-to-object) to the schema file.
@@ -175,8 +175,8 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}** tab.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}** tab.
     1. Click **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.button-action_add-format-schema }}**.
     1. In the **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.dialog.title_add }}** dialog box, fill out the form by specifying the schema file link generated earlier in the **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.dialog.field_format-schema-uri }}** field.
     1. Click **{{ ui-key.yacloud.clickhouse.cluster.format-schemas.dialog.label_add }}**.
@@ -206,18 +206,19 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
       --uri="<link_to_file_in_Object_Storage>"
     ```
 
-  You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can get the cluster name from the [list of clusters in your folder](cluster-list.md#list-clusters).
+
 
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Add the `format_schema` section to the {{ mch-name }} cluster description:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
           ...
           format_schema {
             name = "<schema_name>"
@@ -229,7 +230,7 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
 
         Where `type` is the schema type, `FORMAT_SCHEMA_TYPE_CAPNPROTO` or `FORMAT_SCHEMA_TYPE_PROTOBUF`.
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -241,9 +242,10 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
+
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -268,13 +270,13 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
         * `type`: Schema type, `FORMAT_SCHEMA_TYPE_CAPNPROTO` or `FORMAT_SCHEMA_TYPE_PROTOBUF`.
         * `uri`: Link to the schema file in {{ objstorage-name }}.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/FormatSchema/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/FormatSchema/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -304,7 +306,7 @@ You can find examples of using Cap'n Proto and Protobuf formats when inserting d
         * `type`: Schema type, `FORMAT_SCHEMA_TYPE_CAPNPROTO` or `FORMAT_SCHEMA_TYPE_PROTOBUF`.
         * `uri`: Link to the schema file in {{ objstorage-name }}.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/FormatSchema/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -327,9 +329,9 @@ To update the contents of a schema that is already added to the cluster:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-    1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}** tab.
-    1. Select the appropriate schema, click ![image](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}** tab.
+    1. Find the schema you need, click ![image](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
 
 - CLI {#cli}
 
@@ -340,23 +342,24 @@ To update the contents of a schema that is already added to the cluster:
     To update the link to a format schema file in an object storage, run this command:
 
     ```bash
-    {{ yc-mdb-ch }} format-schema update "<data_schema_name>" \
+    {{ yc-mdb-ch }} format-schema update "<format_schema_name>" \
       --cluster-name="<cluster_name>" \
       --uri="<new_link_to_file_in_Object_Storage>"
     ```
 
     You can get the schema name with the [list of format schemas in the cluster](#list-format-schemas), and the cluster name, with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. In the {{ mch-name }} cluster description, change the `uri` parameter value under `format_schema`:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
           ...
           format_schema {
             name = "<schema_name>"
@@ -366,7 +369,7 @@ To update the contents of a schema that is already added to the cluster:
         }
         ```
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -378,9 +381,10 @@ To update the contents of a schema that is already added to the cluster:
 
         {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
+
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -402,19 +406,19 @@ To update the contents of a schema that is already added to the cluster:
 
         Where:
 
-        * `updateMask`: Comma-separated list of settings you want to update.
+        * `updateMask`: Comma-separated string of settings to update.
 
             Here, we only specified a single setting, `uri`.
 
         * `uri`: Link to the new schema file in {{ objstorage-name }}.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/FormatSchema/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/FormatSchema/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -445,13 +449,13 @@ To update the contents of a schema that is already added to the cluster:
         Where:
 
         * `format_schema_name`: Schema name.
-        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
-            Here, we only specified a single setting, `uri`.
+            Here, we only specified a single parameter, `uri`.
 
-        * `uri`: Link to the new model file in {{ objstorage-name }}.
+        * `uri`: Link to the new schema file in {{ objstorage-name }}.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/FormatSchema/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -472,9 +476,9 @@ After removing a format schema, the related object remains in the {{ objstorage-
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-   1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-   1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}** tab.
-   1. Select the appropriate schema, click ![image](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
+   1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_format-schemas }}** tab.
+   1. Find the schema you need, click ![image](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
 - CLI {#cli}
 
@@ -491,15 +495,16 @@ After removing a format schema, the related object remains in the {{ objstorage-
 
   You can get the schema name with the [list of format schemas in the cluster](#list-format-schemas), and the cluster name, with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
-    1. Delete the section describing `format_schema` in question from the {{ mch-name }} cluster description.
+    1. Delete the `format_schema` section in question from the {{ mch-name }} cluster description.
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -511,9 +516,10 @@ After removing a format schema, the related object remains in the {{ objstorage-
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
+
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -532,7 +538,7 @@ After removing a format schema, the related object remains in the {{ objstorage-
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

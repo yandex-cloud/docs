@@ -4,7 +4,7 @@
 || Type of limit | Value ||
 || Number of clusters per cloud 
 `mdb.clusters.count` | 16 ||
-|| Total number of processor cores for all database hosts per cloud 
+|| Total number of CPU cores for all database hosts per cloud 
 `mdb.cpu.count` | 64 ||
 || Total virtual memory for all database hosts per cloud 
 `mdb.memory.size` | 512 GB ||
@@ -18,15 +18,15 @@
 
 | Type of limit                                                                                                  | Minimum value                                                                             | Maximum value                            |
 |:-----------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------|:-------------------------------------------------|
-| Host class                                                                                                      | b1.medium (2 × [50%](../../compute/concepts/performance-levels.md) vCPU Intel Broadwell, 4 GB RAM) | m4a-c224-m1792 (224 vCPU AMD Zen 4, 1,792 GB RAM) |
+| Host class                                                                                                      | b1.medium (2 × [50%](../../compute/concepts/performance-levels.md) vCPU Intel Broadwell, 4 GB RAM) | m4a-c224-m1792 (224 vCPUs, AMD Zen 4, 1,792 GB RAM) |
 | Number of shards per cluster                                                                                     | 1                                                                                          | 10                                               |
-| Number of hosts per shard when using an HDD or SSD network storage or an ultra high-speed network storage with three replicas (SSD) | 1                                                                                          | 7                                                |
+| Number of hosts per shard when using a network HDD or SSD storage or an ultra high-speed network SSD storage with three replicas | 1                                                                                          | 7                                                |
 | Number of hosts in a shard when storing data on non-replicated or local SSDs^*^  | 3                                                                                          | 7                                                |
-| Number of hosts per cluster                                                                               | 1 or 3 hosts depending on the [disk type](../../storedoc/concepts/storage.md#storage-type-selection); the cluster [is created](../../storedoc/operations/cluster-create.md) in an unsharded state. | 70 (10 shards, 7 hosts)                        |
-| Amount of data on the host when using network HDD or SSD storage                | 10 GB                                                                                      | 2,048 GB                                        |
-| Amount of data per host when using a non-replicated SSD storage or an ultra high-speed network storage with three replicas (SSD) | 93 GB                                                                                      | 2,232 GB                                        |
-| Amount of data per host when using local SSD storage (for Intel Broadwell and Intel Cascade Lake)^*^                            | 100 GB                                                                                     | 1,500 GB                                        |
-| Amount of data per host when using local SSD storage (for Intel Ice Lake)^*^ | {{ local-ssd-v3-step }}                                                                                     | {{ local-ssd-v3-max }}                                        |
+| Number of hosts per cluster                                                                               | 1 or 3 hosts depending on the [disk type](../../storedoc/concepts/storage.md#storage-type-selection); the cluster [is created](../../storedoc/operations/cluster-create.md) in an unsharded state. | 70 (10 shards × 7 hosts)                        |
+| Amount of data per host when using a network HDD or SSD storage.                | 10 GB                                                                                      | 2,048 GB                                        |
+| Amount of data per host when using a non-replicated SSD storage or an ultra high-speed network SSD storage with three replicas | 93 GB                                                                                      | 2,232 GB                                        |
+| Amount of data per host when using a local SSD storage (for Intel Broadwell and Intel Cascade Lake)                            | 100 GB                                                                                     | 1,500 GB                                        |
+| Amount of data per host when using a local SSD storage (for Intel Ice Lake and AMD Zen 4) | {{ local-ssd-v3-step }}                                                                                     | {{ local-ssd-v3-max }}                                        |
 | Number of databases per cluster                                                                           | 1                                                                                          | {{ all-mdb.max-databases }}                                           |
 
 {% include [storage-limitations-mmg](./mmg/storage-limitations-note.md) %}

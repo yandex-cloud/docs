@@ -12,7 +12,7 @@
 
   {% include [default-catalogue](../default-catalogue.md) %}
 
-  To get a list of functions, run the following command:
+  To get a list of functions, run this command:
 
   ```bash
   yc serverless function list

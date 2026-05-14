@@ -4,7 +4,7 @@
 || Type of limit | Value ||
 || Number of clusters per cloud 
 `mdb.clusters.count` | 16 ||
-|| Total number of processor cores for all database hosts per cloud 
+|| Total number of CPU cores for all database hosts per cloud 
 `mdb.cpu.count` | 64 ||
 || Total virtual memory for all database hosts per cloud 
 `mdb.memory.size` | 512 GB ||
@@ -24,7 +24,7 @@
 | Number of segment hosts in the cluster                                                                        | 2                                                | 32                                               |
 | Number of segments per host                                                                                  | 1                                                | 16                                               |
 | Amount of data on the host when using HDD network storage                                       | 10 GB                                            | 2048 GB                                          |
-| Amount of data per host when using network SSD storage                                       | 10 GB                                            | 8,192 GB                                          |
-| Amount of data per host when using a non-replicated SSD storage or an ultra high-speed network storage with three replicas (SSD) | 93 GB                                            | 8,184 GB                                          |
-| Amount of data on the host when using local SSD storage (for Intel Cascade Lake)  | 100 GB                                           | 1,500 GB                                          |
-| Amount of data per host when using local SSD storage (for Intel Ice Lake)      | {{ local-ssd-v3-step }}                          | {{ local-ssd-v3-max }}                           |
+| Amount of data per host when using an SSD network storage                                       | 10 GB                                            | 8,192 GB                                          |
+| Amount of data per host when using a non-replicated SSD storage or an ultra high-speed network SSD storage with three replicas | 93 GB                                            | 8,184 GB                                          |
+| Amount of data per host when using a local SSD storage (for Intel Cascade Lake)  | 100 GB                                           | 1,500 GB                                          |
+| Amount of data per host when using a local SSD storage (for Intel Ice Lake and AMD Zen 4)      | {{ local-ssd-v3-step }}                          | {{ local-ssd-v3-max }}                           |

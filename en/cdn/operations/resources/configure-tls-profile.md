@@ -17,7 +17,7 @@ For more information, see [{#T}](../../concepts/clients-to-servers-tls.md#tls-pr
 
   ```json
   "tls": {
-    "profile": "<TLS_security_profile>"
+    "profile": "<TLS_profile>"
   }
   ```
 
@@ -44,10 +44,8 @@ For more information, see [{#T}](../../concepts/clients-to-servers-tls.md#tls-pr
         }
       },
       "originProtocol": "HTTPS",
-      "options": {
-        "tls": {
-          "profile": "PROFILE_SECURE"
-        }
+      "tls": {
+        "profile": "PROFILE_SECURE"
       }
     }'
   ```
@@ -56,27 +54,25 @@ For more information, see [{#T}](../../concepts/clients-to-servers-tls.md#tls-pr
 
   ```text
   {
-  "done": true,
-  "metadata": {
-    "@type": "type.googleapis.com/yandex.cloud.cdn.v1.CreateResourceMetadata",
-    "resourceId": "bc8rgivxwhcy********"
-  },
-  "response": {
-    "@type": "type.googleapis.com/yandex.cloud.cdn.v1.Resource",
-    "active": true,
-    "options": {
-    ...
-    "tls": {
-      "profile": "PROFILE_SECURE"
-    }
+    "done": true,
+    "metadata": {
+      "@type": "type.googleapis.com/yandex.cloud.cdn.v1.CreateResourceMetadata",
+      "resourceId": "bc8rgivxwhcy********"
     },
-    ...
-  },
-  "id": "bc8y2mnkri2d********",
-  "description": "Create resource",
-  "createdAt": "2026-02-05T18:02:30.735628Z",
-  "createdBy": "aje9k8luj4qf********",
-  "modifiedAt": "2026-02-05T18:02:30.735628Z"
+    "response": {
+      "@type": "type.googleapis.com/yandex.cloud.cdn.v1.Resource",
+      "active": true,
+      ...
+      "tls": {
+        "profile": "PROFILE_SECURE"
+      },
+      ...
+    },
+    "id": "bc8y2mnkri2d********",
+    "description": "Create resource",
+    "createdAt": "2026-02-05T18:02:30.735628Z",
+    "createdBy": "aje9k8luj4qf********",
+    "modifiedAt": "2026-02-05T18:02:30.735628Z"
   }
   ```
 
@@ -86,7 +82,7 @@ For more information, see [{#T}](../../concepts/clients-to-servers-tls.md#tls-pr
 
   ```json
   "tls": {
-    "profile": "<TLS_security_profile>"
+    "profile": "<TLS_profile>"
   }
   ```
 
@@ -110,10 +106,8 @@ For more information, see [{#T}](../../concepts/clients-to-servers-tls.md#tls-pr
             }
           },
           "origin_protocol": "HTTPS",
-          "options": {
-            "tls": {
-              "profile": "PROFILE_SECURE"
-            }
+          "tls": {
+            "profile": "PROFILE_SECURE"
           }
         }' \
     cdn.{{ api-host }}:443 \
@@ -131,7 +125,7 @@ For more information, see [{#T}](../../concepts/clients-to-servers-tls.md#tls-pr
     "modifiedAt": "2026-02-05T18:19:01.262477Z",
     "done": true,
     "metadata": {"@type":"type.googleapis.com/yandex.cloud.cdn.v1.CreateResourceMetadata","resourceId":"bc8r4gogfqeb********"},
-    "response": {..."options":{..."tls":{"profile":"PROFILE_SECURE"}},...}
+    "response": {..."tls":{"profile":"PROFILE_SECURE"},...}
   }
   ```
 

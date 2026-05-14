@@ -1,30 +1,30 @@
 ---
 title: Invoking a function asynchronously
-description: Follow this guide to configure and invoke a function asynchronously.
+description: Follow this guide to configure and run an asynchronous function invocation.
 ---
 
 # Invoking a function asynchronously
 
 {% include [note-preview](../../../_includes/note-preview.md) %}
 
-## Setting up asynchronous invocation {#async}
+## Configure asynchronous invocation {#async}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
     
-    1. In the [management console]({{ link-console-main }}), select the folder containing the function.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
     1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-    1. Select a function.
+    1. Select the function.
     1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
-    1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_async }}**, switch the **{{ ui-key.yacloud.serverless-functions.item.editor.label_turn-on-button }}** toggle to on.
-    1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_tries-count }}** field, specify the number of invocation retries before the call is considered failed.
-    1. In the **{{ ui-key.yacloud.forms.label_service-account-select }}** field, specify a service account with rights to invoke the function.
-    1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_success-sa }}** and **{{ ui-key.yacloud.serverless-functions.item.editor.label_failed-sa }}** fields, specify where messages on successful and unsuccessful function calls should be sent to, respectively:
+    1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_async }}**, select **{{ ui-key.yacloud.serverless-functions.item.editor.label_turn-on-button }}**.
+    1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_tries-count }}** field, specify the number of retries before the invocation fails.
+    1. In the **{{ ui-key.yacloud.forms.label_service-account-select }}** field, specify a service account with permissions to invoke the function.
+    1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.label_success-sa }}** and **{{ ui-key.yacloud.serverless-functions.item.editor.label_failed-sa }}** fields, specify where to send messages about successful and failed function invocations respectively:
         * `{{ ui-key.yacloud.serverless-functions.item.editor.option_queues-unset }}`: Do not send messages.
-        * `{{ ui-key.yacloud.serverless-functions.item.editor.option_queues-mq }}`: Send messages to a queue in {{ message-queue-name }}:
-            * **{{ ui-key.yacloud.serverless-functions.item.editor.label_mq }}**: Queue in {{ message-queue-name }} to send messages to.
-            * **{{ ui-key.yacloud.forms.label_service-account-select }}**: Service account with rights to write messages to the queue.
+        * `{{ ui-key.yacloud.serverless-functions.item.editor.option_queues-mq }}`: Send messages to a {{ message-queue-name }}.
+            * **{{ ui-key.yacloud.serverless-functions.item.editor.label_mq }}**: {{ message-queue-name }} to send messages to.
+            * **{{ ui-key.yacloud.forms.label_service-account-select }}**: Service account with permissions to write messages to the queue.
     1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 - CLI {#cli}
@@ -33,14 +33,14 @@ description: Follow this guide to configure and invoke a function asynchronously
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    To set up asynchronous invocation, run the following command:
+    To configure asynchronous invocation, run this command:
 
     ```bash
     yc serverless function version create \
       --function-name=<function_name> \
-      --runtime <runtime_environment> \
+      --runtime <runtime> \
       --entrypoint <entry_point> \
-      --memory <RAM_size> \
+      --memory <RAM_amount> \
       --execution-timeout <execution_timeout> \
       --source-version-id <version_ID> \
       --async-max-retries <number_of_retry_attempts> \
@@ -54,16 +54,16 @@ description: Follow this guide to configure and invoke a function asynchronously
     Where:
 
     * `--function-name`: Function name.
-    * `--runtime`: Runtime environment.
+    * `--runtime`: Runtime.
     * `--entrypoint`: Entry point in `<function_file_name>.<handler_name>` format.
     * `--memory`: Amount of RAM.
-    * `--execution-timeout`: Maximum function running time before timeout.
+    * `--execution-timeout`: Maximum function execution time before timeout.
     * `--source-version-id`: ID of the function version from which you want to copy the code.
     * `--async-max-retries`: Number of retries before the invocation fails.
     * `--async-service-account-id`: ID of the service account with permissions to invoke the function.
-    * `--async-success-ymq-arn`: ARN of the destination queue in {{ message-queue-name }} for messages about successful function invocations. If you skip this parameter, no messages will be sent.
+    * `--async-success-ymq-arn`: ARN of the destination queue in {{ message-queue-name }} for messages about successful function invocations. If you skip this setting, no messages will be sent.
     * `--async-success-sa-id`: ID of the service account with permissions to write to the `async-success-ymq-arn` queue.
-    * `--async-failure-ymq-arn`: ARN of the destination queue in {{ message-queue-name }} for messages about failed function invocations. If you skip this parameter, no messages will be sent.
+    * `--async-failure-ymq-arn`: ARN of the destination queue in {{ message-queue-name }} for messages about failed function invocations. If you skip this setting, no messages will be sent.
     * `--async-failure-sa-id`: ID of the service account with permissions to write to the `async-failure-ymq-arn` queue.
 
 - {{ TF }} {#tf}
@@ -72,7 +72,7 @@ description: Follow this guide to configure and invoke a function asynchronously
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  To set up asynchronous invocation:
+  To configure asynchronous invocation:
 
   1. Open the {{ TF }} configuration file and add the `async_invocation` section to the function description:
 
@@ -80,9 +80,9 @@ description: Follow this guide to configure and invoke a function asynchronously
      resource "yandex_function" "test-function" {
        name               = "<function_name>"
        user_hash          = "<function_hash>"
-       runtime            = "<runtime_environment>"
+       runtime            = "<runtime>"
        entrypoint         = "<entry_point>"
-       memory             = "<RAM_size>"
+       memory             = "<RAM_amount>"
        execution_timeout  = "<execution_timeout>"
        service_account_id = "<service_account_ID>"
 
@@ -103,17 +103,17 @@ description: Follow this guide to configure and invoke a function asynchronously
 
      Where:
      
-     * `async_invocation`: Asynchronous invocation parameters:
+     * `async_invocation`: Asynchronous invocation settings:
        * `retries_count`: Number of retries before the invocation fails.
        * `service_account_id`: Service account with permissions to invoke the function.
-       * `ymq_failure_target`: Parameters of the queue for failed invocations:
+       * `ymq_failure_target`: Settings of the queue for failed invocations:
          * `service_account_id`: Service account with permissions to write to the queue for failed asynchronous invocations.
-         * `arn`: ARN of the destination queue in {{ message-queue-name }} for messages about failed function invocations. If you skip this parameter, no messages will be sent.
-       * `ymq_success_target`: Parameters of the queue for successful invocations:
+         * `arn`: ARN of the destination queue in {{ message-queue-name }} for messages about failed function invocations. If you skip this setting, no messages will be sent.
+       * `ymq_success_target`: Settings of the queue for successful invocations:
          * `service_account_id`: Service account with permissions to write to the queue for successful asynchronous invocations.
-         * `arn`: ARN of the destination queue in {{ message-queue-name }} for messages about successful function invocations. If you skip this parameter, no messages will be sent.
+         * `arn`: ARN of the destination queue in {{ message-queue-name }} for messages about successful function invocations. If you skip this setting, no messages will be sent.
 
-     For more information about the `yandex_function` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/function).
+     For more information about `yandex_function` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
   1. Apply the changes:
 
@@ -127,13 +127,13 @@ description: Follow this guide to configure and invoke a function asynchronously
 
 - API {#api}
 
-    To set up asynchronous invocation, use the [createVersion](../../functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/CreateVersion](../../functions/api-ref/grpc/Function/createVersion.md) gRPC API call.
+    To configure asynchronous invocation, use the [createVersion](../../functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/CreateVersion](../../functions/api-ref/grpc/Function/createVersion.md) gRPC API call.
 
 {% endlist %}
 
 ## Invoke the function {#invoke}
 
-[Invoke the function](function-invoke.md) using the HTTPS protocol and specifying the `?integration=async` query string parameter.
+[Call the function](function-invoke.md) via HTTPS, specifying the `?integration=async` query string parameter.
 
 ## See also {#see-also}
 

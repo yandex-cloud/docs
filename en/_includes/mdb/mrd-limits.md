@@ -28,8 +28,8 @@
 || Number of hosts per sharded cluster | 1, 2, or 3 hosts depending on the [disk type](../../managed-valkey/concepts/storage.md#storage-type-selection) | 70 (10 shards × 7 hosts) ||
 || Amount of data per host when using an SSD network storage | Twice the selected amount of RAM | 4,096 GB ||
 || Amount of data per host when using a non-replicated SSD storage^*^ or an ultra high-speed network SSD storage with three replicas | Twice the selected amount of RAM but at least 93 GB | 8,184 GB ||
-|| Amount of data per host when using a local SSD storage (for Intel Broadwell and Intel Cascade Lake)^*^ | Twice the selected amount of RAM but at least 100 GB | 1,536 GB ||
-|| Amount of data per host when using a local SSD storage (for Intel Ice Lake)^*^ | Twice the selected amount of RAM but at least {{ local-ssd-v3-step }} | {{ local-ssd-v3-max }} ||
+|| Amount of data per host when using a local SSD storage (for Intel Broadwell and Intel Cascade Lake) | Twice the selected amount of RAM but at least 100 GB | 1,536 GB ||
+|| Amount of data per host when using a local SSD storage (for Intel Ice Lake and AMD Zen 4) | Twice the selected amount of RAM but at least {{ local-ssd-v3-step }} | {{ local-ssd-v3-max }} ||
 || Number of cluster connections | — | 65,000 ||
 |#
 

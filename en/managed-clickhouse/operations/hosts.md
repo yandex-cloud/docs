@@ -36,7 +36,7 @@ You can create several hosts in a cluster in one go.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
   1. Click **{{ ui-key.yacloud.clickhouse.hosts.dialog.action_add-clickhouse-hosts }}**.
 
@@ -46,7 +46,7 @@ You can create several hosts in a cluster in one go.
       * Availability zone.
       * Subnet (if the required subnet is not on the list, [create it](../../vpc/operations/subnet-create.md)).
       * Shard name.
-      * Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** to make the host accessible from outside of {{ yandex-cloud }}.
+      * Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** if you want the host to be accessible from outside of {{ yandex-cloud }}.
 
 
   1. Optionally, click **{{ ui-key.yacloud.clickhouse.hosts.dialog.action_add-host-item }}** to add more hosts and specify their parameters.
@@ -128,18 +128,21 @@ You can create several hosts in a cluster in one go.
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
      For more on how to create this file, see [Creating a cluster](cluster-create.md).
-  1. Add one or multiple `host` sections to the {{ mch-name }} cluster description, one for each new host.
 
-     A single `host` section is as follows:
+  1. Add a new host to the `hosts` section:
 
      ```hcl
-     resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+     resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
        ...
-       host {
-         type             = "CLICKHOUSE"
-         zone             = "<availability_zone>"
-         subnet_id        = "<subnet_ID>"
-         assign_public_ip = <public_access_to_host>
+       hosts = {
+         ...
+         <host_name> = {
+           type             = "CLICKHOUSE"
+           zone             = "<availability_zone>"
+           subnet_id        = "<subnet_ID>"
+           assign_public_ip = <public_access_to_host>
+           shard_name       = "<shard_name>"
+         }
        }
      }
      ```
@@ -150,7 +153,7 @@ You can create several hosts in a cluster in one go.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -161,7 +164,7 @@ You can create several hosts in a cluster in one go.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -288,7 +291,7 @@ You can change public access settings for any host in a {{ mch-name }} cluster.
 
   To change the cluster host settings:
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host row and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. In the window that opens, enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** to make the host accessible from outside {{ yandex-cloud }}, if required.
@@ -300,7 +303,7 @@ You can change public access settings for any host in a {{ mch-name }} cluster.
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To change the host parameters, run this command:
+  To change the host settings, run this command:
 
   ```bash
   {{ yc-mdb-ch }} host update <host_name> \
@@ -319,16 +322,18 @@ You can change public access settings for any host in a {{ mch-name }} cluster.
 
      For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
-  1. Add or edit the `assign_public_ip` parameter in the relevant `host` section.
+  1. Under `hosts`, add or change the `assign_public_ip` parameter value for the host:
 
      ```hcl
-     resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+     resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
        ...
-       host {
+       hosts = {
          ...
-         assign_public_ip = <public_access_to_host>
+         <host_name> = {
+           ...
+           assign_public_ip = <public_access_to_host>
+         }
        }
-       ...
      }
      ```
 
@@ -379,7 +384,7 @@ You can change public access settings for any host in a {{ mch-name }} cluster.
 
             Here, we only specified a single setting, `assignPublicIp`.
 
-        * `assignPublicIp`: Host accessibility from the internet via a public IP address, `true` or `false`.
+        * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
 
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
@@ -428,7 +433,7 @@ You can change public access settings for any host in a {{ mch-name }} cluster.
 
             Here, we only specified a single setting, `assign_public_ip`.
 
-        * `assign_public_ip`: Host accessibility from the internet via a public IP address, `true` or `false`.
+        * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
 
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
@@ -468,7 +473,7 @@ You cannot delete hosts of different types ({{ CH }} and {{ ZK }}) at the same t
   To delete a single host:
 
     1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the host row and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
     1. In the window that opens, enable **Delete host** and click **{{ ui-key.yacloud.mdb.cluster.hosts.popup-confirm_button }}**.
@@ -476,7 +481,7 @@ You cannot delete hosts of different types ({{ CH }} and {{ ZK }}) at the same t
   To delete multiple hosts in one go:
 
     1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
     1. Select the hosts you want to delete and click **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}** at the bottom of the screen.
     1. In the window that opens, click **{{ ui-key.yacloud.mdb.cluster.hosts.action_delete-host }}**.
@@ -498,12 +503,14 @@ You cannot delete hosts of different types ({{ CH }} and {{ ZK }}) at the same t
 
   You can get the host names with the [list of cluster hosts](#list-hosts), and the cluster name, with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
      For more on how to create this file, see [Creating a cluster](cluster-create.md).
-  1. In the {{ mch-name }} cluster description, delete one or multiple `CLICKHOUSE` `host` sections.
+  
+  1. Delete one or multiple `CLICKHOUSE` hosts from the `hosts` section.
   1. Validate your configuration.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -515,6 +522,7 @@ You cannot delete hosts of different types ({{ CH }} and {{ ZK }}) at the same t
   For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 

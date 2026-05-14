@@ -1,9 +1,10 @@
-The `managed-metastore.admin` role allows you to manage Apache Hive™ Metastore clusters, as well as view their runtime logs and information on service quotas of Yandex Cloud managed DBs.
+
+The `managed-metastore.admin` role allows you to manage {{ metastore-name }} clusters, as well as view their runtime logs and information on service quotas of {{ yandex-cloud }} managed DBs.
 
 Users with this role can:
-* View info on Apache Hive™ Metastore [clusters](../../metadata-hub/concepts/metastore.md), as well as create, modify, run, stop, and delete them.
-* [Export and import](../../metadata-hub/operations/metastore/export-and-import.md) Apache Hive™ Metastore clusters.
-* View Apache Hive™ Metastore cluster logs.
+* View info on {{ metastore-name }} [clusters](../../metadata-hub/concepts/metastore.md), as well as create, modify, run, stop, and delete them.
+* [Export and import](../../metadata-hub/operations/metastore/export-and-import.md) {{ metastore-name }} clusters.
+* View {{ metastore-name }} cluster logs.
 * View info on the Yandex Cloud managed DB service quotas.
 * View info on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
