@@ -1,5 +1,7 @@
 # Disks, snapshots, and images
 
+{% include [minitoc](minitoc/disks.md) %}
+
 #### How much disk space can I use for a virtual machine? {#disk-size}
 
 For disk space limits, see [{#T}](../../compute/concepts/limits.md).
@@ -83,7 +85,7 @@ Snapshots are billed and count towards [quotas]({{ link-console-quotas }}) based
    * Role for the cloud: `resource-manager.clouds.member`.
    * Role for the folder: `viewer` or `compute.images.user`.
 
-   For details, see [{#T}](../../iam/operations/roles/grant.md)this guide.
+   For details, see [{#T}](../../iam/operations/roles/grant.md).
 1. Create an image from your snapshot under **{{ ui-key.yacloud.compute.snapshots_81jHX }}** or from the disk itself under **{{ ui-key.yacloud.compute.disks_ddfdb }}**.
 
 A user in the cloud you want to move your VM to must follow these steps:

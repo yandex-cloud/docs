@@ -26,7 +26,7 @@ You cannot directly change the [Max server memory usage]({{ ch.docs }}/operation
    To configure {{ CH }}:
 
    1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-   1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+   1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
    1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
    1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
    1. Specify the [{{ CH }} settings](../concepts/settings-list.md#server-level-settings).
@@ -52,12 +52,13 @@ You cannot directly change the [Max server memory usage]({{ ch.docs }}/operation
       {{ yc-mdb-ch }} cluster update-config --help
       ```
 
-   1. Provide the arguments as needed:
+   1. Set the parameter values as needed:
 
       ```bash
       {{ yc-mdb-ch }} cluster update-config <cluster_name_or_ID> \
          --set <parameter_1_name>=<value_1>,...
       ```
+
 
 - {{ TF }} {#tf}
 
@@ -65,52 +66,51 @@ You cannot directly change the [Max server memory usage]({{ ch.docs }}/operation
 
    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      For information on how to create such a file, see [Creating a cluster](cluster-create.md).
+      For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
    1. In the {{ mch-name }} cluster description, under `clickhouse.config`, edit the parameters as follows:
 
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+      resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
         ...
-        clickhouse {
+        clickhouse = {
           ...
 
-          config {
+          config = {
             # General DBMS settings
             ...
 
-            merge_tree {
+            merge_tree = {
               # MergeTree engine settings
               ...
             }
 
-            kafka {
+            kafka = {
               # General settings for getting data from Apache Kafka
               ...
             }
 
-            kafka_topic {
-              # Settings for an individual Apache Kafka topic
-              ...
-            }
-
-            rabbit_mq {
+            rabbit_mq = {
               # Settings for getting data from {{ RMQ }}
               username = "<username>"
               password = "<password>"
             }
 
-            compression {
-              # Data compression settings
-              method              = "<compression_method>"
-              min_part_size       = <data_part_size>
-              min_part_size_ratio = <size_ratio>
-            }
+            compression = [
+              {
+                # Data compression settings
+                method              = "<compression_method>"
+                min_part_size       = <data_part_size>
+                min_part_size_ratio = <size_ratio>
+              }
+            ]
 
-            graphite_rollup {
-              # GraphiteMergeTree engine settings for data thinning, aggregation, and rollup in Graphite.
-              ...
-            }
+            graphite_rollup = [
+              {
+                # GraphiteMergeTree engine settings for data thinning, aggregation, and rollup in Graphite.
+                ...
+              }
+            ]
           }
           ...
         }
@@ -119,11 +119,12 @@ You cannot directly change the [Max server memory usage]({{ ch.docs }}/operation
       ```
 
       Where:
+
       * `method`: Compression method, `LZ4` or `ZSTD`.
       * `min_part_size`: Minimum size of a table data part, in bytes.
       * `min_part_size_ratio`: Ratio of the smallest data part size to the full table size.
 
-   1. Make sure the settings are correct.
+   1. Validate your configuration.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -134,6 +135,7 @@ You cannot directly change the [Max server memory usage]({{ ch.docs }}/operation
    For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -168,12 +170,12 @@ You cannot directly change the [Max server memory usage]({{ ch.docs }}/operation
 
       Where:
 
-      * `updateMask`: Comma-separated list of settings you want to update.
+      * `updateMask`: Comma-separated string of settings to update.
       * `configSpec.clickhouse.config`: {{ CH }} server-level settings. For the list of possible parameters and their values, see the [method description](../api-ref/Cluster/update.md#yandex.cloud.mdb.clickhouse.v1.UpdateClusterRequest).
 
       You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+   1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -220,10 +222,10 @@ You cannot directly change the [Max server memory usage]({{ ch.docs }}/operation
 
       Where:
 
-      * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+      * `update_mask`: List of settings to update as an array of strings (`paths[]`).
       * `config_spec.clickhouse.config`: {{ CH }} server-level settings. For the list of possible parameters and their values, see the [method description](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.clickhouse.v1.UpdateClusterRequest).
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -291,14 +293,14 @@ You cannot directly change the [Max server memory usage]({{ ch.docs }}/operation
 
    {% endlist %}
 
-### Changing settings of an existing MergeTree table {#change-settings-of-existing-table}
+### Changing the settings of an existing MergeTree table {#change-settings-of-existing-table}
 
    {% list tabs group=instructions %}
 
    - SQL {#sql}
 
       1. [Connect](connect/clients.md) to the database in the cluster.
-      1. To change the settings for an existing table, run the following query:
+      1. To change the settings of an existing table, run this query:
 
          ```sql
          ALTER TABLE <table_name> MODIFY SETTING <setting_name> = <new_setting_value>;

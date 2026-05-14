@@ -6,7 +6,9 @@ keywords:
   - virtual machines
 ---
 
-# Virtual machines
+# VMs
+
+{% include [minitoc](minitoc/vm.md) %}
 
 ### Technical specifications {#technical-parameters}
 
@@ -18,11 +20,13 @@ For more information, see [{#T}](../../compute/concepts/performance-levels.md).
 
 #### How do I change the amount of RAM and the number of vCPUs allocated to my VM? {#update-type}
 
+To make changes, stop the VM and proceed to editing. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, select a platform and specify the number of vCPUs and amount of RAM.
+
 For more information, see [{#T}](../../compute/operations/vm-control/vm-update-resources.md).
 
 #### How do I create a multi-interface VM? {#multi-interface}
 
-You can add a network interface only when [creating a VM](../../compute/operations/index.md#vm-create). Currently, you can only create multiple interfaces on network images from [{{ marketplace-full-name }}](/marketplace?categories=network). 
+You can add a network interface only when [creating a VM](../../compute/operations/index.md#vm-create). Currently, you can only create multiple interfaces on network images from [{{ marketplace-full-name }}](/marketplace?categories=network).
 
 You can also create a [NAT instance](../../vpc/tutorials/nat-instance) to use multiple network interfaces.
 

@@ -1,4 +1,4 @@
-Create a [{{ container-registry-name }} trigger](../../functions/concepts/trigger/cr-trigger.md) to invoke a {{ sf-name }} [function](../../functions/concepts/function.md) when you create or delete {{ container-registry-name }} [Docker images](../../container-registry/concepts/docker-image.md) or [Docker image tags](../../container-registry/concepts/docker-image.md#version).
+Create a [trigger for {{ container-registry-name }}](../../functions/concepts/trigger/cr-trigger.md) that invokes [{{ sf-name }}](../../functions/concepts/function.md) when you create or delete {{ container-registry-name }} [Docker images](../../container-registry/concepts/docker-image.md) or [Docker image tags](../../container-registry/concepts/docker-image.md#version).
 
 ## Getting started {#before-you-begin}
 
@@ -27,8 +27,8 @@ Create a [{{ container-registry-name }} trigger](../../functions/concepts/trigge
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_container-registry }}**:
 
      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_container-registry }}** field, select the registry where you want to create a trigger for image events.
-     * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_event-types }}** field, select the [events](../../functions/concepts/trigger/cr-trigger.md#event) that will fire the trigger.
-     * Optionally, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_image-name }}** field, enter the image name for [filtering](../../functions/concepts/trigger/cr-trigger.md#filter). To find out the Docker image name, [get a list of Docker images in the registry](../../container-registry/operations/docker-image/docker-image-list.md).
+     * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_event-types }}** field, select [events](../../functions/concepts/trigger/cr-trigger.md#event) that will set off the trigger.
+     * Optionally, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_image-name }}** field, enter the image name for [filtering](../../functions/concepts/trigger/cr-trigger.md#filter). To find out the Docker image name, [get the list of Docker images in the registry](../../container-registry/operations/docker-image/docker-image-list.md).
      * Optionally, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_tag }}** field, enter the [image tag](../../functions/concepts/trigger/cr-trigger.md#filter) for filtering.
 
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
@@ -45,7 +45,7 @@ Create a [{{ container-registry-name }} trigger](../../functions/concepts/trigge
 
      {% include [repeat-request.md](repeat-request.md) %}
 
-  1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
+  1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select a dead-letter queue and a service account with write permissions for that queue.
 
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -62,8 +62,8 @@ Create a [{{ container-registry-name }} trigger](../../functions/concepts/trigge
     --name <trigger_name> \
     --registry-id <registry_ID> \
     --events 'create-image', 'delete-image', 'create-image-tag', 'delete-image-tag' \
-    --batch-size <event_group_size> \
-    --batch-cutoff <maximum_timeout> \
+    --batch-size <event_batch_size> \
+    --batch-cutoff <maximum_wait_time> \
     --invoke-function-id <function_ID> \
     --invoke-function-service-account-id <service_account_ID> \
     --retry-attempts <number_of_retry_attempts> \
@@ -130,7 +130,7 @@ Create a [{{ container-registry-name }} trigger](../../functions/concepts/trigge
           id                 = "<function_ID>"
           service_account_id = "<service_account_ID>"
           retry_attempts     = "<number_of_retry_attempts>"
-          retry_interval     = "<time_between_retry_attempts>"
+          retry_interval     = "<interval_between_retry_attempts>"
         }
         container_registry {
           registry_id      = "<registry_ID>"
@@ -141,7 +141,7 @@ Create a [{{ container-registry-name }} trigger](../../functions/concepts/trigge
           create_image_tag = true
           delete_image_tag = true
           batch_cutoff     = "<maximum_wait_time>"
-          batch_size       = "<event_group_size>"
+          batch_size       = "<event_batch_size>"
         }
         dlq {
           queue_id           = "<dead-letter_queue_ID>"
@@ -154,23 +154,23 @@ Create a [{{ container-registry-name }} trigger](../../functions/concepts/trigge
 
       {% include [tf-function-params](tf-function-params.md) %}
 
-      * `container_registry`: Trigger properties:
+      * `container_registry`: Trigger settings:
 
         * `registry_id`: [Registry ID](../../container-registry/operations/registry/registry-list.md).
         * `image_name`: Docker image name.
         * `tag`: Docker image tag.
-        * [Cevents](../../functions/concepts/trigger/cr-trigger.md#event) that set off the trigger:
+        * [Events](../../functions/concepts/trigger/cr-trigger.md#event) that set off the trigger:
 
-          * `create_image`: Trigger will call the function when a new Docker image is created in the registry. It can either be `true` or `false`.
-          * `delete_image`: Trigger will call the function when a Docker image is deleted from the registry. It can either be `true` or `false`.
-          * `create_image_tag`: Trigger will call the function when a new Docker image tag is created in the registry. It can either be `true` or `false`.
-          * `delete_image_tag`: Trigger will call the function when a Docker image tag is deleted from the registry. It can either be `true` or `false`.
+          * `create_image`: Trigger will invoke the function when a new Docker image is created in the registry. It can either be `true` or `false`.
+          * `delete_image`: Trigger will invoke  the function when a Docker image is deleted from the registry. It can either be `true` or `false`.
+          * `create_image_tag`: Trigger will invoke the function when a new Docker image tag is created in the registry. It can either be `true` or `false`.
+          * `delete_image_tag`: Trigger will invoke the function when a Docker image tag is deleted from the registry. It can either be `true` or `false`.
 
         {% include [tf-batch-params-events](../../_includes/functions/tf-batch-params-events.md) %}
 
       {% include [tf-dlq-params](../serverless-containers/tf-dlq-params.md) %}
 
-      For more information about the `yandex_function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+      For more information about `yandex_function_trigger` properties, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Create the resources:
 

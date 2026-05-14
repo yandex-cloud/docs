@@ -3709,6 +3709,9 @@ default:
       billing-account-detail:
         filter_label-labels-all: Все метки
         filter_label-products-all: Все продукты
+        label_credit-cudCredit: Скидка на резервируемое потребление
+        label_credit-monetaryGrantCredit: Грант
+        label_credit-volumeIncentiveCredit: Скидка за объём потребления
         value_empty_clouds: Все облака и каталоги
       cloud-billing-account:
         label_card-add: Добавить карту
@@ -5123,6 +5126,8 @@ default:
             labelDescriptionField: Описание
             labelNameField: Имя
             labelServiceAccountField: Сервисный аккаунт
+          DownloadCspmScanResultsDialog:
+            action_download-file_gJ3Vh: Скачать файл
           label_rule-kind_3PswX: Тип правила
           module_dspm_xxxxx: Контроль данных (DSPM)
           module-cspm_gozhj: Контроль конфигурации (CSPM)
@@ -5132,6 +5137,11 @@ default:
             action_save: Сохранить выбор
           title_security-modules_8MdQg: Модули контроля
           title_security-requirements_8r7hd: Наборы требований
+          TriggeredRunsCheckEnvironmentDialog:
+            action_start-check_w0jM2: Запустить проверку
+          TriggeredRunsControl:
+            action_check-environment_k3mP9: Проверить окружение на соответствие правилам контроля
+            action_download-check-report_q7nR2: Скачать отчёт о проверке
           WorkspaceEditPageLayout:
             tabGeneralParams_xc2v2: Основные параметры
             tabResources_vJuSN: Ресурсы
@@ -6006,6 +6016,7 @@ default:
           registry-kind_docker: Docker
         title_ip-permissions: Доступ для IP-адресов
         title_registries: Реестры
+        title_registry-artifacts: Артефакты
       cloud-shell:
         label_service: Cloud Shell
       cloud-tree-list:

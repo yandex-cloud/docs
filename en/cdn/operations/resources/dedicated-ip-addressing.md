@@ -5,11 +5,7 @@ description: Follow this guide to configure dedicated IP addressing of CDN resou
 
 # Configuring dedicated IP addressing of CDN resources
 
-{% note warning %}
-
-The dedicated IP addressing service is subject to the [{{ cdn-full-name }} pricing policy](../../pricing.md).
-
-{% endnote %}
+{% include [dedicated-ip-condition.md](../../../_includes/cdn/dedicated-ip-condition.md) %}
 
 To get a [dedicated IP address](../../concepts/dedicated-ip-addressing.md) for [CDN resources](../../concepts/resource.md) from a specific folder:
 1. Make sure the folder you are requesting dedicated IP addressing for already contains at least one CDN resource.
@@ -81,3 +77,4 @@ To get a [dedicated IP address](../../concepts/dedicated-ip-addressing.md) for [
 ### See also {#see-also}
 
 * [{#T}](../../concepts/dedicated-ip-addressing.md)
+* [{#T}](../../concepts/limits.md)

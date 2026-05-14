@@ -1,4 +1,4 @@
-Роль `data-transfer.viewer` позволяет просматривать информацию о [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder), [эндпоинтах](../../data-transfer/concepts/index.md#endpoint) и [трансферах](../../data-transfer/concepts/index.md#transfer), а также о [квотах](../../data-transfer/concepts/limits.md#dataproc-quotas) сервиса Data Transfer.
+Роль `data-transfer.viewer` позволяет просматривать информацию о [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder), [эндпоинтах](../../data-transfer/concepts/index.md#endpoint) и [трансферах](../../data-transfer/concepts/index.md#transfer), а также о [квотах](../../data-transfer/concepts/limits.md#dataproc-quotas) сервиса {{ data-transfer-name }}.
 
 Включает разрешения, предоставляемые ролью `data-transfer.auditor`.
 

@@ -33,21 +33,23 @@ If you do not have a web server yet:
 1. [Create](../../compute/operations/vm-create/create-linux-vm.md) a {{ compute-name }} instance or [rent](../../baremetal/operations/servers/server-lease.md) a {{ baremetal-name }} server.
 1. Install a web server on the new server or VM instance, e.g., [Apache](https://httpd.apache.org/) or [nginx](https://nginx.org/).
 
-    When installing the web server on a VM instance, remember to associate it with a [security group](../../vpc/concepts/security-groups.md) that allows incoming and outgoing network traffic on the appropriate ports, e.g., `80` and `443`. For more information, see [{#T}](../../vpc/operations/security-group-create.md).
+    When installing the web server on a VM instance, remember to associate it with a [security group](../../vpc/concepts/security-groups.md) that allows incoming and outgoing network traffic on the ports you need, e.g., `80` and `443`. To learn more about creating security groups, see [{#T}](../../vpc/operations/security-group-create.md).
 1. Upload content to your web server.
 1. Make sure your web server is available from the internet.
 
-    To check the availability of a web server created on a {{ compute-name }} VM instance or {{ baremetal-name }} server, enter the [public IP address](../../vpc/concepts/address.md#public-addresses) of the instance or server in the address bar, e.g.,
+    To check availability of a web server created on a {{ compute-name }} VM instance or {{ baremetal-name }} server, enter the [public IP address](../../vpc/concepts/address.md#public-addresses) of the instance or server in the address bar, for example:
 
     ```text
     http://198.51.100.27/
     ```
 
-    As a result, you should see the main page of the application deployed on the server in your browser window.
+    As the result, in the browser window, you should see the page of the application deployed on the server.
 
-Learn more about creating a website based on a {{ compute-name }} VM instance [here](../../tutorials/web/lamp-lemp/index.md).
+For more information on creating a website based on a {{ compute-name }} VM instance, see [{#T}](../../tutorials/web/lamp-lemp/index.md).
 
 ## Create a CDN resource {#create-cdn-resource}
+
+<iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplva6365yoayxar6ore?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
 
 1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
 1. In the ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.cdn.label_resources-list }}** tab, click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
@@ -93,6 +95,6 @@ Learn more about creating a website based on a {{ compute-name }} VM instance [h
 * [{#T}](./bucket.md)
 * [{#T}](../concepts/index.md)
 * [Creating a VM from a public Linux image](../../compute/operations/vm-create/create-linux-vm.md)
-* [Renting a stock-configuration {{ baremetal-name }} server](../../baremetal/operations/servers/server-lease.md)
-* [Creating a website on the LAMP or LEMP stack](../../tutorials/web/lamp-lemp/index.md)
+* [Renting a stock configuration {{ baremetal-name }} server](../../baremetal/operations/servers/server-lease.md)
+* [Creating a website on LAMP or LEMP stack](../../tutorials/web/lamp-lemp/index.md)
 * [Configuring a web server](../tutorials/protected-access-to-content/console.md#setup-web-server)

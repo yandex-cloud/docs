@@ -1,9 +1,9 @@
 ---
-title: Revoking roles assigned to a function
-description: Follow this guide to revoke the roles assigned to a function.
+title: Revoking roles assigned for a function
+description: Follow this guide to revoke roles assigned for a function.
 ---
 
-# Revoking roles assigned to a function
+# Revoking roles assigned for a function
 
 {% list tabs group=instructions %}
 
@@ -15,7 +15,7 @@ description: Follow this guide to revoke the roles assigned to a function.
 
     To revoke a [role](../../security/index.md#roles-list) for a function, run this command:
 
-    * User:
+    * From a user:
         ```
         yc serverless function remove-access-binding \
           --id <function_ID> \
@@ -26,7 +26,7 @@ description: Follow this guide to revoke the roles assigned to a function.
         ```
         done (1s)
         ```
-    * [Service account](../../../iam/concepts/users/service-accounts.md):
+    * From a [service account](../../../iam/concepts/users/service-accounts.md):
         ```
         yc serverless function remove-access-binding \
           --id <function_ID> \
@@ -37,7 +37,7 @@ description: Follow this guide to revoke the roles assigned to a function.
         ```
         done (1s)
         ```
-    * All authorized users (the `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md)):
+    * From all authenticated users (the `All authenticated users` [public group](../../../iam/concepts/access-control/public-group.md)):
         ```
         yc serverless function remove-access-binding \
           --id <function_ID> \
@@ -51,6 +51,6 @@ description: Follow this guide to revoke the roles assigned to a function.
 
 - API {#api}
 
-  To revoke function roles, use the [updateAccessBindings](../../functions/api-ref/Function/updateAccessBindings.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/UpdateAccessBindings](../../functions/api-ref/grpc/Function/updateAccessBindings.md) gRPC API call.
+  To revoke roles for a function, use the [updateAccessBindings](../../functions/api-ref/Function/updateAccessBindings.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/UpdateAccessBindings](../../functions/api-ref/grpc/Function/updateAccessBindings.md) gRPC API call.
 
 {% endlist %}

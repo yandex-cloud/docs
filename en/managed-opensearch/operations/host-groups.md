@@ -378,7 +378,7 @@ To create a host group:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -519,14 +519,16 @@ To create a host group:
 
         * Disk size.
 
+            
             Disk resizing increments depend on the disk type:
 
             * Network HDDs and SSDs: In increments of 1 GB.
 
             * Local SSDs:
                 * For **Intel Cascade Lake**: In increments of 100 GB.
-                * For **Intel Ice Lake**: In increments of {{ local-ssd-v3-step }}.
+                * For **Intel Ice Lake** and **AMD Zen 4**: In {{ local-ssd-v3-step }} increments.
             * Non-replicated SSDs: In increments of 93 GB.
+
 
         * Optionally, set up automatic storage expansion:
 
@@ -760,7 +762,7 @@ To create a host group:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1056,7 +1058,7 @@ The following restrictions apply when deleting a host group:
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

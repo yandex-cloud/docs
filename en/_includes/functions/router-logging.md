@@ -1,6 +1,6 @@
 ## System messages {#router-loggin}
 
-When processing each function call, the system also logs `START`, `END`, and `REPORT` system messages:
+When processing each function call, the system also logs the `START`, `END`, and `REPORT` system messages:
 
 ```text
 START RequestID: <request_ID> Version: <function_version_ID>
@@ -19,7 +19,7 @@ All lines contain the ID of the request (`RequestID`), which is generated automa
 The `REPORT` line provides a report on the function run. It contains additional information about the resources consumed:
 * `Duration`: Time spent invoking the function. It includes the `Queuing Duration` and `Function Init Duration` parameters.
 * `Billed Duration`: Time billed based on the [pricing policy](../../functions/pricing.md).
-* `Memory Size`: Amount of memory specified at version creation, MB.
+* `Memory Size`: Amount of memory specified when creating the version, in MB.
 * `Max Memory Used`: Memory used when the request starts running.
-* `Queuing Duration`: Time spent by the request in the internal queue. If this time increases, it may indicate a lack of function instances. The maximum number of instances is determined by the [quotas](../../functions/concepts/limits.md).
+* `Queuing Duration`: Time spent by the request in the internal queue. If this time increases, it may indicate a lack of function instances. The maximum number of instances is limited by [quotas](../../functions/concepts/limits.md).
 * `Function Init Duration`: Time spent initializing the runtime and loading the function code.

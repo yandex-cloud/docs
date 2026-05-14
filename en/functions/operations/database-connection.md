@@ -37,10 +37,10 @@ Connection to {{ PG }} clusters version 17 and above is not supported.
 ## Connecting to a database {#connect}
 
 To access database cluster hosts from a function using the created connection:
-* In the function version settings, specify the service account with the `{{ roles-functions-mdbProxiesUser }}` role for the folder where you created the connection. [How to assign a role](../../resource-manager/operations/folder/set-access-bindings.md#access-to-sa).
+* In the function version settings, specify the service account with the `{{ roles-functions-mdbProxiesUser }}` role for the folder where you created the connection. Learn how to assign a role [here](../../resource-manager/operations/folder/set-access-bindings.md#access-to-sa).
 * In advanced cluster settings, enable **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}**.
 
-To connect to a database from a function, use the [IAM token](../../iam/concepts/authorization/iam-token.md) of the service account specified in the function version settings as your password. [Getting IAM token](./function-sa.md).
+To connect to a database from a function, use the [IAM token](../../iam/concepts/authorization/iam-token.md) of the service account specified in the function version settings as your password. Learn how to get an IAM token [here](./function-sa.md).
 
 You can only connect to a database from a function over SSL.
 

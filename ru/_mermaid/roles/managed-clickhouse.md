@@ -1,11 +1,9 @@
 ```mermaid
-%%{init: { "flowchart": { "padding": 4 } } }%%
+%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
 flowchart BT
-    vpc.publicAdmin ~~~ mdb.admin
     mdb.viewer --> mdb.admin
-    mdb.viewer ~~~ mdb.admin
-    mdb.restorer ~~~ mdb.admin
     mdb.viewer --> mdb.restorer
+    vpc.publicAdmin
     managed-clickhouse.admin --> mdb.admin
     managed-clickhouse.viewer --> managed-clickhouse.restorer
     managed-clickhouse.restorer["`managed-clickhouse.

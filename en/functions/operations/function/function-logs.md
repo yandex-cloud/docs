@@ -1,6 +1,6 @@
 ---
 title: Viewing the execution log in {{ sf-full-name }}
-description: You can view monitoring charts in {{ sf-full-name }} using the management console. To do this, select {{ sf-name }} and click the function whose execution log you want to view. In the window that opens, go to Logs and specify the time period. The default time period is one hour. All times in the log are UTC.
+description: You can view monitoring charts in {{ sf-full-name }} using the management console. To do this, select {{ sf-name }} and click the function whose execution log you want to view. In the window that opens, go to **Logs** and specify the time period. The default time period is one hour. All times in the log are UTC.
 ---
 
 # Viewing function logs
@@ -11,10 +11,10 @@ All times in the log are [UTC](https://en.wikipedia.org/wiki/Coordinated_Univers
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder containing the function.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
     1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-    1. Click a function to view its runtime log.
-    1. In the window that opens, go to **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** and specify the period for which you want to view logs. The default period is 1 hour.
+    1. Click the function to view its execution log.
+    1. In the window that opens, go to **{{ ui-key.yacloud.serverless-functions.item.switch_logs }}** and specify the period for which you want to view logs. The default period is one hour.
     
 - CLI {#cli}
     
@@ -44,11 +44,11 @@ All times in the log are [UTC](https://en.wikipedia.org/wiki/Coordinated_Univers
 
     {% note info %}
     
-    If you called a function with a specific tag, you must also specify this tag when viewing the execution log: `yc serverless function logs my-python-function --tag test`.
+    If you called a function with a specific tag, make sure to specify this tag when viewing the execution log: `yc serverless function logs my-python-function --tag test`.
     
     {% endnote %}
 
 
 {% endlist %}
 
-To learn more about working with logs, see the [{{ cloud-logging-full-name }}](../../../logging/) documentation.
+To learn more about working with logs, see [this {{ cloud-logging-full-name }} article](../../../logging/).

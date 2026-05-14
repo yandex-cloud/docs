@@ -1,5 +1,5 @@
 ---
-title: Running parallel tasks in a GPU cluster
+title: Running parallel jobs in a GPU cluster
 description: Follow this guide to use mpirun to run distributed jobs in a GPU cluster.
 ---
 
@@ -70,3 +70,7 @@ description: Follow this guide to use mpirun to run distributed jobs in a GPU cl
    # Out of bounds values : 0 OK
    # Avg bus bandwidth    : 121.467
    ```
+
+#### See also {#see-also}
+
+* [Questions about GPUs](../../../compute/qa/gpu.md)

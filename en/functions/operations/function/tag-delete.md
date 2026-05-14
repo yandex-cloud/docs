@@ -1,9 +1,9 @@
 ---
-title: Removing a function version tag
-description: Follow this guide to remove a function version tag.
+title: Deleting a function version tag
+description: Follow this guide to delete a function version tag.
 ---
 
-# Removing a function version tag
+# Deleting a function version tag
 
 {% note info %}
 
@@ -19,7 +19,7 @@ You cannot delete the `$latest` tag.
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    To remove a version tag, run the command:
+    To delete a version tag, run this command:
 
     ```
     yc serverless function version remove-tag --id <version_ID> --tag <tag>
@@ -51,7 +51,7 @@ You cannot delete the `$latest` tag.
 
     To delete a version tag:
 
-    1. Open the {{ TF }} configuration file and delete the string with the tag you no longer need from the `tags` section.
+    1. Open the {{ TF }} configuration file and delete the line with the tag you no longer need from the `tags` section.
 
        Example of a function description in the {{ TF }} configuration:
  
@@ -72,15 +72,15 @@ You cannot delete the `$latest` tag.
         }
         ``` 
 
-        For more information about `yandex_function` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function).
+        For more information about `yandex_function` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
-    1. Check the configuration using this command:
+    1. Validate your configuration using this command:
         
        ```
        terraform validate
        ```
 
-       If the configuration is correct, you will get this message:
+       If the configuration is valid, you will get this message:
         
        ```
        Success! The configuration is valid.
@@ -92,9 +92,9 @@ You cannot delete the `$latest` tag.
        terraform plan
        ```
         
-       You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them. 
+       You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration. 
          
-    1. Apply the changes:
+    1. Apply the configuration changes:
 
        ```
        terraform apply
@@ -109,7 +109,7 @@ You cannot delete the `$latest` tag.
 
 - API {#api}
 
-    To remove a function version tag, use the [removeTag](../../functions/api-ref/Function/removeTag.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/RemoveTag](../../functions/api-ref/grpc/Function/removeTag.md) gRPC API call.
+    To delete a function version tag, use the [removeTag](../../functions/api-ref/Function/removeTag.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/RemoveTag](../../functions/api-ref/grpc/Function/removeTag.md) gRPC API call.
 
 
 {% endlist %}

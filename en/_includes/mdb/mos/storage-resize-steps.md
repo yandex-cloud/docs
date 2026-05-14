@@ -6,7 +6,7 @@ Upon reaching the specified threshold, the storage expands differently depending
 * For local SSDs:
 
     * **Intel Cascade Lake** cluster, by 100 GB.
-    * **Intel Ice Lake** cluster, by {{ local-ssd-v3-step }}.
+    * In an **Intel Ice Lake** or **AMD Zen 4** cluster, by {{ local-ssd-v3-step }}.
 
 
 If the threshold is reached again, the storage will be automatically expanded until it reaches the specified maximum. After that, you can set a new maximum storage size manually.

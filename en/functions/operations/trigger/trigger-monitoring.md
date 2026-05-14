@@ -1,13 +1,13 @@
 ---
 title: Viewing monitoring charts in {{ sf-full-name }}
-description: You can view a monitoring chart in {{ sf-full-name }} using the management console by selecting {{ sf-name }} and clicking the trigger of interest.
+description: You can view monitoring charts in {{ sf-full-name }} using the management console. To do this, select {{ sf-name }} and click the trigger whose monitoring charts you want to view.
 ---
 
 # Viewing trigger monitoring charts in {{ sf-name }}
 
-You can monitor triggers using the monitoring tools in your management console. These tools display diagnostic information as charts. Metric values are collected and charts are displayed by [{{ monitoring-name }}](../../../monitoring/).
+You can monitor triggers using the monitoring tools in the management console. These tools display diagnostic information as charts. [{{ monitoring-name }}](../../../monitoring/) collects metric values and displays charts.
 
-The chart update period is 15 seconds.
+The chart refresh interval is 15 seconds.
 
 ## Viewing monitoring charts {#charts}
 
@@ -19,20 +19,20 @@ The chart update period is 15 seconds.
 
     1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
-    1. Select a trigger to view its monitoring charts.
+    1. Select the trigger whose monitoring charts you want to view.
 
     1. Navigate to the **{{ ui-key.yacloud.component.navigation-menu.label_monitoring }}** tab.
 
     1. You will see the following charts:
 
         * **Request latency**: Average time it takes a trigger to process a request.
-        * **Read events**: Number of events that have set off a trigger.
-        * **Function access errors**: Number of access errors when invoking a function.
-        * **Function call errors**: Number of errors when invoking a function.
-        * **DLQ access errors**: Number of errors when accessing the [Dead Letter Queue](../../concepts/dlq.md).
-        * **Send to DLQ errors**: Number of errors when sending messages to the Dead Letter Queue.
+        * **Read events**: Number of events that have set off the trigger.
+        * **Function access errors**: Number of access errors when invoking the function.
+        * **Function call errors**: Number of errors when invoking the function.
+        * **DLQ access errors**: Number of errors when accessing the [dead-letter queue](../../concepts/dlq.md).
+        * **Send to DLQ errors**: Number of errors when sending messages to the dead-letter queue.
 
-    You can select the time period to display information for: hour, day, week, month, or a custom interval.
+    You can select a time period for which you want to display information: hour, day, week, month, or a custom interval.
 
 {% endlist %}
 

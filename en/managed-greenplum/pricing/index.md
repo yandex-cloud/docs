@@ -72,7 +72,7 @@ You pay for the following:
   * You can only order local SSD storage (`local-ssd`) for clusters with two master hosts:
 
     * For Intel Cascade Lake: In increments of 100 GB.
-    * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
+    * For Intel Ice Lake and AMD Zen 4: In increments of {{ local-ssd-v3-step }}.
 
 
 

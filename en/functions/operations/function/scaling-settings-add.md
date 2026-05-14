@@ -1,6 +1,6 @@
 ---
-title: How to configure function scaling settings in {{ sf-full-name }}
-description: Follow this guide to configure function scaling settings.
+title: How to configure function scaling in {{ sf-full-name }}
+description: Follow this guide to configure function scaling.
 ---
 
 # Adding function scaling settings
@@ -11,7 +11,7 @@ You can set the following:
 
 {% include [provisioned-instances-price](../../../_includes/functions/provisioned-instances-price.md) %}
 
-You can configure different scaling settings for different function [versions](../../concepts/function.md#version) using [tags](../../concepts/function.md#tag). Scaling settings will be valid for the function version that the specified tag is assigned to. Function versions are scaled independently of each other.
+You can configure different scaling settings for different function [versions](../../concepts/function.md#version) using [tags](../../concepts/function.md#tag). Scaling settings will apply to the function version with the specified tag assigned. Function versions are scaled independently of each other.
 
 The scaling settings must be within the [quotas](../../concepts/limits.md#functions-quotas).
 
@@ -25,16 +25,16 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder containing the function.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
     1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-    1. Select a function.
+    1. Select the function.
     1. To configure:
         * Any scaling setting other than the number of calls processed concurrently by a single function instance (`concurrency`):
             1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-history }}**, hover over the version tag (e.g., ![image](../../../_assets/console-icons/gear.svg) or `$latest`) of the function you want to add scaling settings for.
             1. In the pop-up window, click **{{ ui-key.yacloud.common.add }}**.
             1. In the window that opens, specify the following:
-                * **zone_instances_limit**: Number of function instances in an availability zone.
-                * **zone_requests_limit**: Number of concurrent function calls in an availability zone.
+                * **zone_instances_limit**: Number of function instances per availability zone.
+                * **zone_requests_limit**: Number of concurrent function calls per availability zone.
                 * **provisioned_instances_count**: Number of provisioned instances.
             1. Click **{{ ui-key.yacloud.common.save }}**.
         * [Number of calls processed concurrently by a single function instance](../../concepts/function.md#concurrency) (`concurrency`):
@@ -59,11 +59,11 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
         Where:
 
-        * `--id`: Function ID. To find out the ID, [request](./function-list.md) a list of functions.
+        * `--id`: Function ID. To find out the ID, [get](./function-list.md) the list of functions.
         * `--tag`: Function version [tag](../../concepts/function.md#tag).
         * `--zone-instances-limit`: Number of function instances.
         * `--zone-requests-limit`: Number of calls in progress.
-        * `--provisioned-instances-count`: Number of ready-to-go instances.
+        * `--provisioned-instances-count`: Number of provisioned instances.
 
         Result:
 
@@ -80,7 +80,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
         ```bash
         yc serverless function version create \
         --function-name=<function_name> \
-        --runtime <runtime_environment> \
+        --runtime <runtime> \
         --entrypoint <entry_point> \
         --memory 128m \
         --concurrency 2 \
@@ -91,11 +91,11 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
         Where:
 
         * `--function-name`: Name of the function whose version you want to create.
-        * `--runtime`: Function [runtime environment](../../concepts/index.md).
-        * `--entrypoint`: Entry point in the following format: `<file_name_without_extension>.<listener_name>`.
+        * `--runtime`: Function [runtime](../../concepts/index.md).
+        * `entrypoint`: Entry point in `<file_name_without_extension>.<handler_name>` format.
         * `--memory`: Amount of RAM.
         * `--concurrency`: Maximum number of calls processed concurrently by a single function instance.
-        * `--execution-timeout`: Maximum function running time before timeout.
+        * `--execution-timeout`: Maximum function execution time before timeout.
         * `--source-path`: ZIP archive with the function code and required dependencies.
 
         Result:
@@ -123,20 +123,20 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
     {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
-    {% include [terraform-install](../../../_includes/terraform-install.md) %}
+    {% include [terraform-install](../../../_includes/terraform-install.md) %}  
 
     To add scaling settings:
 
     1. In the configuration file, describe the resources you want to create:
 
-       * `yandex_function`: Description of the function being created and its source code.
+       * `yandex_function`: Description of the new function and its source code.
          * `name`: Function name.
-         * `user_hash`: Custom string to define the function version. When the function changes, update this string, too. The function will update when this string is updated.
-         * `runtime`: Function [runtime environment](../../concepts/runtime/index.md).
-         * `entrypoint`: Entry point in the following format: `<file_name_without_extension>.<listener_name>`.
-         * `memory`: Amount of memory allocated for the function, in MB.
+         * `user_hash`: Any string to identify the function version. When you change the function, update this string as well. Updating this string triggers a function update.
+         * `runtime`: Function [runtime](../../concepts/runtime/index.md).
+         * `entrypoint`: Entry point in `<file_name_without_extension>.<handler_name>` format.
+         * `memory`: Amount of memory allocated to the function, in MB.
          * `concurrency`: [Maximum number of calls processed concurrently by a single function instance](../../concepts/function.md#concurrency).
-         * `execution_timeout`: Maximum function running time before timeout.
+         * `execution_timeout`: Maximum function execution time before timeout.
          * `service_account_id`: ID of the service account you want to use to invoke the function.
          * `content`: Function source code.
            * `content.0.zip_filename`: Name of the ZIP archive containing the function source code.
@@ -159,7 +159,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
         resource "yandex_function" "test-function" {
             name               = "<function_name>"
             user_hash          = "<hash>"
-            runtime            = "<runtime_environment>"
+            runtime            = "<runtime>"
             entrypoint         = "<entry_point>"
             memory             = "128"
             concurrency        = "2"
@@ -180,15 +180,15 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
         }
         ```
 
-        For more information about resource parameters, see [yandex_function]({{ tf-provider-resources-link }}/function) and [yandex_function_scaling_policy]({{ tf-provider-resources-link }}/function_scaling_policy).
+        For more information about resource properties, see [yandex_function]({{ tf-provider-resources-link }}/function) and [yandex_function_scaling_policy]({{ tf-provider-resources-link }}/function_scaling_policy).
 
-    1. Check the configuration using this command:
+    1. Validate your configuration using this command:
         
        ```
        terraform validate
        ```
 
-       If the configuration is correct, you will get this message:
+       If the configuration is valid, you will get this message:
         
        ```
        Success! The configuration is valid.
@@ -200,9 +200,9 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
        terraform plan
        ```
 
-       You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them. 
+       You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration. 
 
-    1. Apply the changes:
+    1. Apply the configuration changes:
 
        ```
        terraform apply

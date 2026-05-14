@@ -1,8 +1,10 @@
 # Connection
 
+{% include [minitoc](minitoc/connection.md) %}
+
 #### How do I connect to a Linux VM? {#conn-vm-linux}
 
-Use [{#T}](../../compute/operations/vm-connect/ssh.md) this guide. If the computer you are connecting from runs Windows 7, 8, or early releases of Windows 10 without a built-in console SSH client, use [PuTTY](https://www.putty.org/).
+Follow [{#T}](../../compute/operations/vm-connect/ssh.md). If the computer you are connecting from runs Windows 7, 8, or early releases of Windows 10 without a built-in console SSH client, use [PuTTY](https://www.putty.org/).
 
 Linux images provided by {{ yandex-cloud }} come without a GUI shell by default. SSH authentication with a username and password is disabled by default, as this method is outdated and poses security risks.
 
@@ -66,7 +68,7 @@ To solve the connection issue, try providing the valid private key using the `-i
 #### How do I set up an RDP/VNC connection to a Linux VM? {#set-rdp-vnc-to-linux}
 
 To enable the GUI on Linux VMs, consider one of these two options:
-* Use RDP or VNC. To do this:
+* Use RDP or VNC. Follow these steps:
   1. Install the desktop environment on the Linux VM (Ubuntu/CentOS).
   1. Install the `xrdp` or VNC server to connect through RDP or VNC, respectively.
   1. Configure the software.

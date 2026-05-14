@@ -1,6 +1,6 @@
-# Create a trigger for {{ message-queue-name }} that sends messages to the {{ sf-name }} function
+# Creating a trigger for {{ message-queue-name }} that sends messages to {{ sf-name }}
 
-Create a [trigger](../../concepts/trigger/ymq-trigger.md) for a [message queue](../../../message-queue/concepts/queue.md) in {{ message-queue-short-name }} and process the messages using the {{ sf-name }} [function](../../concepts/function.md).
+Create a [trigger](../../concepts/trigger/ymq-trigger.md) for a [message queue](../../../message-queue/concepts/queue.md) in {{ message-queue-short-name }} and process the messages using [{{ sf-name }}](../../concepts/function.md).
 
 {% include [ymq-trigger-note.md](../../../_includes/functions/ymq-trigger-note.md) %}
 
@@ -15,12 +15,12 @@ To create a trigger, you will need:
 
 * [Service accounts](../../../iam/concepts/users/service-accounts.md) with the following permissions:
 
-    * To invoke functions, e.g., [{{ roles-functions-invoker }}](../../security/index.md#functions-functionInvoker)
-    * To read from the queue the trigger receives messages from, e.g., [ymq.reader](../../../message-queue/security/index.md#ymq-reader)
+    * To invoke functions, e.g., [{{ roles-functions-invoker }}](../../security/index.md#functions-functionInvoker).
+    * To read from the queue the trigger receives messages from, e.g., [ymq.reader](../../../message-queue/security/index.md#ymq-reader).
 
     You can use the same service account or different ones. If you do not have a service account, [create one](../../../iam/operations/sa/create.md).
 
-* Message queue the trigger will pick up messages from. If you do not have a queue, [create one](../../../message-queue/operations/message-queue-new-queue.md).
+* Message queue the trigger will receive messages from. If you do not have a queue, [create one](../../../message-queue/operations/message-queue-new-queue.md).
 
 ## Creating a trigger {#trigger-create}
 
@@ -93,8 +93,8 @@ To create a trigger, you will need:
     * `--invoke-function-id`: Function ID.
     * `--queue-service-account-name`: ID of the service account with permissions to read messages from the queue.
     * `--invoke-function-service-account-id`: ID of the service account with permissions to invoke the function.
-    * `--batch-size`: Message batch size. This is an optional parameter. The values may range from 1 to 1,000. The default value is 1.
-    * `--batch-cutoff`: Maximum wait time. This is an optional parameter. The values may range from 0 to 20 seconds. The default value is 10 seconds. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. The number of messages cannot exceed `batch-size`.
+    * `--batch-size`: Message batch size. This is an optional setting. The values may range from 1 to 1,000. The default value is 1.
+    * `--batch-cutoff`: Maximum wait time. This is an optional setting. The values may range from 0 to 20 seconds. The default value is 10 seconds. The trigger groups messages within the `batch-cutoff` period and sends them to the function. The number of messages cannot exceed `batch-size`.
 
     Result:
     ```text
@@ -124,7 +124,7 @@ To create a trigger, you will need:
 
   To create a trigger for {{ message-queue-name }}:
 
-  1. In the configuration file, describe the trigger parameters:
+  1. In the configuration file, describe the trigger properties:
 
      ```
      resource "yandex_function_trigger" "my_trigger" {
@@ -150,12 +150,12 @@ To create a trigger, you will need:
 
      * `description`: Trigger description.
 
-     * `function`: Function parameters:
+     * `function`: Function settings:
 
        * `id`: Function ID.
        * `service_account_id`: ID of the service account with permissions to invoke the function.
 
-     * `message_queue`: Trigger parameters:
+     * `message_queue`: Trigger settings:
 
        * `queue_id`: Message queue ID.
 
@@ -167,10 +167,10 @@ To create a trigger, you will need:
            1. You can see the queue ID under **{{ ui-key.yacloud.ymq.queue.overview.section_base }}** in the **{{ ui-key.yacloud.ymq.queue.overview.label_queue-arn }}** field.
 
        * `service_account_id`: ID of the service account with permissions to read messages from the queue.
-       * `batch_size`: Message batch size. This is an optional parameter. The values may range from 1 to 1,000. The default value is 1.
-       * `batch_cutoff`: Maximum wait time. This is an optional parameter. The values may range from 0 to 20 seconds. The default value is 10 seconds. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. The number of messages cannot exceed `batch-size`.
+       * `batch_size`: Message batch size. This is an optional setting. The values may range from 1 to 1,000. The default value is 1.
+       * `batch_cutoff`: Maximum wait time. This is an optional setting. The values may range from 0 to 20 seconds. The default value is 10 seconds. The trigger groups messages within the `batch-cutoff` period and sends them to the function. The number of messages cannot exceed `batch-size`.
 
-     For more information about `yandex_function_trigger` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+     For more information about `yandex_function_trigger` properties, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Create the resources:
 
@@ -202,7 +202,7 @@ To create a trigger, you will need:
 
     1. In the [management console]({{ link-console-main }}), [go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
     1. Select the queue for which you created the trigger.
-    1. Go to **{{ ui-key.yacloud.common.monitoring }}**. Check the **{{ ui-key.yacloud.ymq.queue.overview.label_msg-count }}** chart.
+    1. Navigate to **{{ ui-key.yacloud.common.monitoring }}**. View the **{{ ui-key.yacloud.ymq.queue.overview.label_msg-count }}** chart.
 
 {% endlist %}
 

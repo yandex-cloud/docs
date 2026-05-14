@@ -1,9 +1,9 @@
 ---
-title: How to transmit {{ lockbox-name }} secrets to a function
-description: This guide describes how you can transmit {{ lockbox-name }} secrets to a function.
+title: How to provide {{ lockbox-name }} secrets to a function
+description: Follow this guide to provide {{ lockbox-name }} secrets to a function.
 ---
 
-# Transmitting {{ lockbox-name }} secrets to a function
+# Providing {{ lockbox-name }} secrets to a function
 
 {% note info %}
 
@@ -11,6 +11,6 @@ description: This guide describes how you can transmit {{ lockbox-name }} secret
 
 {% endnote %}
 
-[{{ lockbox-name }}](../../../lockbox/) is a service for storing secrets. You can transmit a {{ lockbox-name }} secret to a function in the [environment variable](../../concepts/runtime/environment-variables.md#env).
+[{{ lockbox-name }}](../../../lockbox/) is designed to store secrets. You can provide a {{ lockbox-name }} secret to a function via an [environment variable](../../concepts/runtime/environment-variables.md#env).
 
 {% include [transmit-secret](../../../_includes/functions/transmit-secret.md) %}

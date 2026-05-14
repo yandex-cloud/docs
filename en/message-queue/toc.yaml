@@ -84,8 +84,8 @@ items:
       - name: Autoscaling an instance group to process messages from a queue
         href: tutorials/autoscale-monitoring.md
       - name: >-
-          Creating triggers that invoke a function to stop a VM and send a
-          Telegram notification
+          Creating triggers that invoke functions to stop VMs and send Telegram
+          notifications
         href: tutorials/serverless-trigger-budget-queue-vm-tg.md
       - name: Storing a static access key in a {{ lockbox-name }} secret
         items:

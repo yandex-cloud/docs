@@ -9,12 +9,12 @@ description: Follow this guide to add a function label.
 
 - Management console {#console}
     
-    1. In the [management console]({{ link-console-main }}), select the folder containing the function.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
     1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-    1. Select a function.
+    1. Select the function.
     1. In the top-right corner, click **{{ ui-key.yacloud.serverless-functions.list.button_action-edit }}**.
     1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-    1. Enter the key and the value, and press **Enter**.
+    1. Enter the key and value, and press **Enter**.
     1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -23,7 +23,7 @@ description: Follow this guide to add a function label.
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
     
-    To add a label to a function, run the command:
+    To add a function label, run this command:
 
     ```
     yc serverless function add-labels <function_name> --labels <key>=<value>
@@ -78,15 +78,15 @@ description: Follow this guide to add a function label.
         }
         ``` 
 
-        For more information about `yandex_function` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function).
+        For more information about `yandex_function` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
-    1. Check the configuration using this command:
+    1. Validate your configuration using this command:
         
        ```
        terraform validate
        ```
 
-       If the configuration is correct, you will get this message:
+       If the configuration is valid, you will get this message:
         
        ```
        Success! The configuration is valid.
@@ -98,16 +98,16 @@ description: Follow this guide to add a function label.
        terraform plan
        ```
         
-       You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+       You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration. 
          
-    1. Apply the changes:
+    1. Apply the configuration changes:
 
        ```
        terraform apply
        ```
     1. Type `yes` and press **Enter** to confirm the changes.
       
-    You can check the addition of function labels using this [CLI](../../../cli/quickstart.md) command:
+    You can check that the function labels are added using this [CLI](../../../cli/quickstart.md) command:
 
     ```
     yc serverless function get <function_name_or_ID>

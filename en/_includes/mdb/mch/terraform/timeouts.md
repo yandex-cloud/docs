@@ -8,14 +8,14 @@ The {{ TF }} provider sets the following timeouts for {{ mch-name }} cluster ope
 
 Operations exceeding the timeout are aborted.
 
-{% cut "How do I change these limits?" %}
+{% cut "How to change these limits" %}
 
-Add a `timeouts` section to the cluster description, e.g.:
+Add the `timeouts` section to your cluster description, such as the following:
 
 ```hcl
-resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
   ...
-  timeouts {
+  timeouts = {
     create = "1h30m" # 1 hour 30 minutes
     update = "2h"    # 2 hours
     delete = "30m"   # 30 minutes

@@ -1,11 +1,11 @@
 ---
-title: Creating a trigger for {{ yds-full-name }} that invokes a {{ sf-full-name }} function
-description: Follow this guide to create a trigger for {{ yds-name }} that invokes a function in {{ sf-name }}.
+title: Creating a trigger for {{ yds-full-name }} that invokes a function from {{ sf-full-name }}
+description: Follow this guide to create a trigger for {{ yds-name }} that invokes {{ sf-name }}.
 ---
 
-# Creating a trigger for {{ yds-name }} that invokes a {{ sf-name }} function
+# Creating a trigger for {{ yds-name }} that invokes {{ sf-name }}
 
-Create a [trigger for {{ yds-name }}](../../concepts/trigger/data-streams-trigger.md) to invoke a {{ sf-name }} [function](../../concepts/function.md) when data is sent to a [stream](../../../data-streams/concepts/glossary.md#stream-concepts).
+Create a [trigger for {{ yds-name }}](../../concepts/trigger/data-streams-trigger.md) to invoke [{{ sf-name }}](../../concepts/function.md) when data is sent to a [stream](../../../data-streams/concepts/glossary.md#stream-concepts).
 
 {% note info %}
 
@@ -56,14 +56,14 @@ To create a trigger, you will need:
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select **{{ ui-key.yacloud.serverless-functions.triggers.form.label_data-streams }}**.
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select **{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}**.
 
-    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_data-streams }}**, select a data stream and a service account with read and write permissions to the stream.
+    1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_data-streams }}**, select a data stream and a service account with read and write permissions for that stream.
 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_batch-settings }}**, specify:
 
         * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_cutoff }}**. The values may range from 1 to 60 seconds. The default value is 1 second.
         * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_stream-size }}**. The values may range from 1 B to 64 KB. The default value is 1 B.
 
-        The trigger groups messages for a period of time not exceeding the specified timeout and sends them to a function. The total amount of data transmitted to a function may exceed the specified batch size if the data is transmitted as a single message. In all other cases, the amount of data does not exceed the batch size.
+        The trigger groups messages within the specified wait time period and sends them to the function. The total amount of data transmitted to a function may exceed the specified batch size if the data is transmitted as a single message. In all other cases, the amount of data does not exceed the batch size.
 
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**, select a function and specify:
 
@@ -73,7 +73,7 @@ To create a trigger, you will need:
 
         {% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
 
-    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
+    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select a dead-letter queue and a service account with write permissions for that queue.
 
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -91,7 +91,7 @@ To create a trigger, you will need:
       --database <database_location> \
       --stream <data_stream_name> \
       --batch-size <message_batch_size> \
-      --batch-cutoff <maximum_timeout> \
+      --batch-cutoff <maximum_wait_time> \
       --stream-service-account-id <service_account_ID> \
       --invoke-function-id <function_ID> \
       --invoke-function-service-account-id <service_account_ID> \
@@ -104,14 +104,14 @@ To create a trigger, you will need:
     Where:
 
     * `--name`: Trigger name.
-    * `--database`: Location of the {{ ydb-short-name }} DB the {{ yds-name }} stream is linked to.
+    * `--database`: Location of the {{ ydb-short-name }} database associated with the stream in {{ yds-name }}.
 
-      To find out where the DB is located, run the `yc ydb database list` command. The DB location is specified in the `ENDPOINT` column, in the `database` parameter, e.g., `/{{ region-id }}/b1gia87mba**********/etn7hehf6g*******`.
+      To find out where the database is located, run the `yc ydb database list` command. The database location is specified in the `ENDPOINT` column, in the `database` property, e.g., `/{{ region-id }}/b1gia87mba**********/etn7hehf6g*******`.
 
-    * `--stream`: Name of the {{ yds-name }} stream.
-    * `--batch-size`: Message batch size. This is an optional parameter. The values may range from 1 B to 64 KB. The default value is 1 B.
-    * `--batch-cutoff`: Maximum wait time. This is an optional parameter. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. The total amount of data transmitted to a function may exceed `batch-size` if the data is transmitted as a single message. In all other cases, the amount of data does not exceed `batch-size`.
-    * `--stream-service-account-id`: ID of the service account with write and read permissions to the stream.
+    * `--stream`: Stream name in {{ yds-name }}.
+    * `--batch-size`: Message batch size. This is an optional setting. The values may range from 1 B to 64 KB. The default value is 1 B.
+    * `--batch-cutoff`: Maximum wait time. This is an optional setting. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages within the `batch-cutoff` period and sends them to the function. The total amount of data transmitted to a function may exceed `batch-size` if the data is transmitted as a single message. In all other cases, the amount of data does not exceed `batch-size`.
+    * `--stream-service-account-id`: ID of the service account with write and read permissions for the stream.
     
     {% include [trigger-cli-param](../../../_includes/functions/trigger-cli-param.md) %}
 
@@ -151,7 +151,7 @@ To create a trigger, you will need:
 
   To create a trigger for {{ yds-name }}:
 
-  1. In the configuration file, describe the trigger parameters:
+  1. In the configuration file, describe the trigger properties:
 
      ```hcl
      resource "yandex_function_trigger" "my_trigger" {
@@ -160,7 +160,7 @@ To create a trigger, you will need:
          id                 = "<function_ID>"
          service_account_id = "<service_account_ID>"
          retry_attempts     = "<number_of_retry_attempts>"
-         retry_interval     = "<time_between_retry_attempts>"
+         retry_interval     = "<interval_between_retry_attempts>"
        }
        data_streams {
          stream_name        = "<data_stream_name>"
@@ -180,21 +180,21 @@ To create a trigger, you will need:
 
      {% include [tf-function-params](../../../_includes/functions/tf-function-params.md) %}
      
-     * `data_streams`: Trigger parameters:
+     * `data_streams`: Trigger properties:
 
-         * `stream_name`: Name of the {{ yds-name }} stream.
-         * `database`: Location of the {{ ydb-short-name }} DB the {{ yds-name }} stream is linked to.
+         * `stream_name`: Stream name in {{ yds-name }}.
+         * `database`: Location of the {{ ydb-short-name }} database associated with the stream in {{ yds-name }}.
 
-             To find out where the DB is located, run the `yc ydb database list` command. The DB location is specified in the `ENDPOINT` column, in the `database` parameter, e.g., `/ru-central1/b1gia87mba**********/etn7hehf6g*******`.
+             To find out where the database is located, run the `yc ydb database list` command. The database location is specified in the `ENDPOINT` column, in the `database` property, e.g., `/ru-central1/b1gia87mba**********/etn7hehf6g*******`.
 
-         * `service_account_id`: Service account with permissions to read from and write to the {{ yds-name }} stream.
+         * `service_account_id`: Service account with read and write permissions for the stream in {{ yds-name }}.
 
-         * `batch_cutoff`: Maximum wait time. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages for a period not exceeding `batch-cutoff` and sends them to a function. The total amount of data transmitted to a function may exceed `batch-size` if the data is transmitted as a single message. In all other cases, the amount of data does not exceed `batch-size`.
+         * `batch_cutoff`: Maximum wait time. The values may range from 1 to 60 seconds. The default value is 1 second. The trigger groups messages within the `batch-cutoff` period and sends them to the function. The total amount of data transmitted to a function may exceed `batch-size` if the data is transmitted as a single message. In all other cases, the amount of data does not exceed `batch-size`.
          * `batch_size`: Message batch size. This is an optional setting. The values may range from 1 B to 64 KB. The default value is 1 B.
 
      {% include [tf-dlq-params](../../../_includes/serverless-containers/tf-dlq-params.md) %}
 
-     For more information about the `yandex_function_trigger` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+     For more information about `yandex_function_trigger` properties, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Create the resources:
 

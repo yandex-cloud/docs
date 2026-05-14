@@ -221,3 +221,4 @@ By default, a [cloud](../../../resource-manager/concepts/resources-hierarchy.md#
 #### See also {#see-also}
 
 * Learn how to update the VM configuration [here](../vm-control/vm-update-resources.md).
+* [Questions about GPUs](../../../compute/qa/gpu.md)

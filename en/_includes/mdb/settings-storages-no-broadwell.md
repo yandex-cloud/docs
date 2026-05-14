@@ -1,7 +1,7 @@
-The selected type determines the increments in which you can change your disk size:
+The type you select determines the increments for changing the disk size:
 
-* Network HDD and SSD storage: In increments of 1 GB.
-* Local SSD storage:
+* Network HDDs and SSDs: In increments of 1 GB.
+* Local SSDs:
     * For **Intel Cascade Lake**: In increments of 100 GB.
-    * For **Intel Ice Lake**: In increments of {{ local-ssd-v3-step }}.
-* Non-replicated SSD storage: In increments of 93 GB.
+    * For **Intel Ice Lake** and **AMD Zen 4**: In {{ local-ssd-v3-step }} increments.
+* Non-replicated SSDs: In increments of 93 GB.

@@ -21,6 +21,7 @@ keywords:
 * [Managing backups](cluster-backups.md)
 * [Maintenance](cluster-maintenance.md)
 * [Viewing cluster logs](cluster-logs.md)
+* [Cluster and host state monitoring](monitoring.md)
 * [Deleting a cluster](cluster-delete.md)
 * [Managing cluster access](cluster-access.md)
 * [Managing users](cluster-users.md)

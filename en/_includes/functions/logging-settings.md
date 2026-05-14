@@ -1,7 +1,7 @@
 * Log group.
-* (Optional) Resource types, such as `serverless.function` for {{ sf-name }} functions.
-* (Optional) IDs of {{ yandex-cloud }} or your resources, such as {{ sf-name }} functions.
-* (Optional) Log streams.
-* (Optional) Logging levels.
+* Optionally, types of resources, e.g., `serverless.function` in {{ sf-name }}.
+* Optionally, IDs of your resources or {{ yandex-cloud }} resources, e.g., functions in {{ sf-name }}.
+* Optionally, log streams.
+* Optionally, logging levels.
 
-A trigger fires when records that match all the optional settings are added to the specified log group. If an optional setting is not specified, the trigger fires for any value of the setting.
+A trigger fires when the specified log group receives entries that comply with all of the optional settings. If the optional setting is not specified, the trigger fires for any value.

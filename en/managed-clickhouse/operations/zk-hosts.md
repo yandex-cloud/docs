@@ -89,6 +89,7 @@ Intel Broadwell is not supported in the `{{ region-id }}-d` [availability zone](
 
      You can get the cluster name from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
@@ -99,7 +100,7 @@ Intel Broadwell is not supported in the `{{ region-id }}-d` [availability zone](
 
      For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
-  1. Make sure the configuration file describes three subnets, one per availability zone. Add the missing ones, if required:
+  1. In the configuration file, add three subnets to different availability zones:
 
      ```hcl
      resource "yandex_vpc_network" "<network_name>" {
@@ -127,40 +128,50 @@ Intel Broadwell is not supported in the `{{ region-id }}-d` [availability zone](
        v4_cidr_blocks = [ "<{{ region-id }}-d_zone_subnet_IP_address_range>" ]
      }
      ```
-
-  1. Add a {{ ZK }} configuration section and at least three `ZOOKEEPER`-type `host` sections to the {{ CH }} cluster description.
-
+      
+  1. Add the following to the {{ CH }} cluster description:
+      
+     * `zookeeper` section with {{ ZK }} configuration.
+     * At least three {{ ZK }} hosts in the `hosts` section.
+      
+     These three {{ ZK }} hosts must reside in different availability zones.
+      
      The {{ ZK }} host requirements are as follows:
-     * Each availability zone must have at least one host.
+
      * Minimum host class: `b1.medium`.
      * Disk type: `{{ disk-type-example }}`.
      * Minimum storage size: 10 GB.
 
+     Configuration file example:
+
      ```hcl
-     resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+     resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
        ...
-       zookeeper {
-         resources {
+       zookeeper = {
+         resources = {
            resource_preset_id = "<host_class>"
            disk_type_id       = "{{ disk-type-example }}"
            disk_size          = <storage_size_in_GB>
          }
        }
-       ...
-       host {
-         type      = "ZOOKEEPER"
-         zone      = "{{ region-id }}-a"
-         subnet_id = yandex_vpc_subnet.<subnet_name_in_{{ region-id }}-a_zone>.id
-       }
-       host {
-         type      = "ZOOKEEPER"
-         zone      = "{{ region-id }}-b"
-         subnet_id = yandex_vpc_subnet.<subnet_name_in_{{ region-id }}-b_zone>.id
-       }
-       host {
-         type      = "ZOOKEEPER"
-         zone      = "{{ region-id }}-d"
-         subnet_id = yandex_vpc_subnet.<subnet_name_in_{{ region-id }}-d_zone>.id
+       
+       hosts = {
+         ...
+         <host_1_name> = {
+           type      = "ZOOKEEPER"
+           zone      = "{{ region-id }}-a"
+           subnet_id = yandex_vpc_subnet.<subnet_name_in_{{ region-id }}-a_zone>.id
+         }
+         <host_2_name> = {
+           type      = "ZOOKEEPER"
+           zone      = "{{ region-id }}-b"
+           subnet_id = yandex_vpc_subnet.<subnet_name_in_{{ region-id }}-b_zone>.id
+         }
+         <host_3_name> = {
+           type      = "ZOOKEEPER"
+           zone      = "{{ region-id }}-d"
+           subnet_id = yandex_vpc_subnet.<subnet_name_in_{{ region-id }}-d_zone>.id
+         }
        }
      }
      ```
@@ -179,6 +190,7 @@ Intel Broadwell is not supported in the `{{ region-id }}-d` [availability zone](
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
 
+
 - REST API {#api}
 
   {% include [zk-hosts-rest](../../_includes/mdb/mch/api/zk-hosts-rest.md) %}
@@ -188,14 +200,6 @@ Intel Broadwell is not supported in the `{{ region-id }}-d` [availability zone](
   {% include [zk-hosts-grpc](../../_includes/mdb/mch/api/zk-hosts-grpc.md) %}
 
 {% endlist %}
-
-{% note info %}
-
-{{ ZK }} hosts have the following configuration by default:
-* Host class: `b2.medium`.
-* Network SSD [storage](../concepts/storage.md) (`{{ disk-type-example }}`): 10 GB.
-
-{% endnote %}
 
 ## Updating {{ ZK }} host settings {#update-zk-settings}
 
@@ -263,6 +267,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of cor
 
      You can get the cluster name and ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
@@ -271,7 +276,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of cor
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     To learn how to create this file, see [Creating a cluster](cluster-create.md).
+     For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
   1. In the {{ ZK }} configuration section, specify the new host class, disk type, and storage size.
 
@@ -280,10 +285,10 @@ The minimum number of cores per {{ ZK }} host depends on the total number of cor
      * Minimum storage size: 10 GB.
 
      ```hcl
-     resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+     resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
        ...
-       zookeeper {
-         resources {
+       zookeeper = {
+         resources = {
            resource_preset_id = "<host_class>"
            disk_type_id       = "<disk_type>"
            disk_size          = <storage_size_in_GB>
@@ -304,6 +309,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of cor
   For more information, see [this {{ TF }} provider guide]({{ tf-provider-mch }}).
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -490,6 +496,7 @@ If {{ ZK }} hosts have already been created in the cluster, you cannot delete th
 
   You can get the host name with the [list of cluster hosts](hosts.md#list-hosts), and the cluster name, with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
    {% include [terraform-definition](../../_tutorials/_tutorials_includes/terraform-definition.md) %}
@@ -499,7 +506,8 @@ If {{ ZK }} hosts have already been created in the cluster, you cannot delete th
    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
       For more on how to create this file, see [Creating a cluster](cluster-create.md).
-   1. Delete the `ZOOKEEPER`-type `host` section from the {{ mch-name }} cluster description.
+
+   1. Delete the `{{ ZK }}` host from the `hosts` section.
    1. Validate your configuration.
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -511,6 +519,7 @@ If {{ ZK }} hosts have already been created in the cluster, you cannot delete th
    For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 

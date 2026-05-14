@@ -13,7 +13,7 @@ description: Follow this guide to update a function label.
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
     
-    To update the function label, run the command:
+    To update a function label, run this command:
   
     {% include [labels-rewrite-warning](../../../_includes/labels-rewrite-warning.md) %}
 
@@ -41,11 +41,11 @@ description: Follow this guide to update a function label.
 
     {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-    To change a function label:
+    To update a function label:
 
     1. Open the {{ TF }} configuration file and edit the `labels` section.
 
-        Example function description in the {{ TF }} configuration:
+        Example of a function description in the {{ TF }} configuration:
       
         ```
         resource "yandex_function" "test-function" {
@@ -68,15 +68,15 @@ description: Follow this guide to update a function label.
         }
         ``` 
 
-        For more information about the `yandex_function` resource properties, see the [provider documentation]({{ tf-provider-resources-link }}/function).
+        For more information about `yandex_function` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
-    1. Check the configuration using this command:
+    1. Validate your configuration using this command:
         
        ```
        terraform validate
        ```
 
-       If the configuration is correct, you will get this message:
+       If the configuration is valid, you will get this message:
         
        ```
        Success! The configuration is valid.
@@ -88,16 +88,16 @@ description: Follow this guide to update a function label.
        terraform plan
        ```
         
-       The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+       You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration. 
          
     1. Apply the configuration changes:
 
        ```
        terraform apply
        ```
-    1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+    1. Type `yes` and press **Enter** to confirm the changes.
       
-    You can the function labels update using this [CLI](../../../cli/quickstart.md) command:
+    You can check the update of the function labels using this [CLI](../../../cli/quickstart.md) command:
 
     ```
     yc serverless function get <function_name_or_ID>

@@ -58,7 +58,7 @@ You are billed for the following:
     * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
 
         * For Intel Broadwell and Intel Cascade Lake: In increments of 100 GB.
-        * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
+        * For Intel Ice Lake and AMD Zen 4: In {{ local-ssd-v3-step }} increments.
 
 
 

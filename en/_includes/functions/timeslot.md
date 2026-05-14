@@ -1,12 +1,12 @@
-When viewing the log, you can set a specific time interval using the `--since` and `--until` parameters. If you do not specify a time interval, the log will show info for the last hour.
+When viewing the log, you can set a specific time interval using the `--since` and `--until` flags. If you do not specify a time interval, the log will show info for the last hour.
 
-Using parameters:
+Using flags:
 
 - `--since`: Time N and later.
 
 - `--until`: Time N and earlier.
 
-If you only specify a single parameter, you will see info for one hour before or after time N, depending on the parameter.
+If you only specify a single flag, you will see info for one hour before or after time N, depending on the flag.
 
 You can use one of these time formats:
 

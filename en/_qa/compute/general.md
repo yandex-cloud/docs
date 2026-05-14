@@ -5,6 +5,8 @@ description: 'Why use cloud computing? {{ yandex-cloud }} offers scalable cloud 
 
 # General questions about {{ compute-name }}
 
+{% include [minitoc](minitoc/general.md) %}
+
 #### Why use cloud computing? {#benefits}
 
 {{ yandex-cloud }} offers scalable computing capacity: you can quickly create and start [VMs](../../compute/concepts/vm.md) on demand and stop them when the load decreases. By leveraging cloud resources, you reduce your IT infrastructure costs as you pay only for the resources you actually consume.

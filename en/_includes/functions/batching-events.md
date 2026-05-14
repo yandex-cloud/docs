@@ -1,3 +1,3 @@
 ## Event batching {#batching}
 
-The grouping settings allow sending several events to the function in one go. They set a top limit on event group size and on event group accumulation time. For example, if the size of an event group is 3, the function can receive groups that contain from 1 to 3 events.
+Batching settings allow you to send multiple events to a function at the same time. They set a top limit on the event batch size and accumulation time. For example, if the event batch size is `3`, the function can receive batches of one to three events.

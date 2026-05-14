@@ -1,5 +1,5 @@
 {% note info %}
 
-Function behavior in preloaded and normal runtime environments may differ. Review the features of function behavior in [{#T}](../../functions/concepts/runtime/preload-runtime.md).
+A function may behave differently in preloaded and standard runtimes. To learn about function behavior, see [{#T}](../../functions/concepts/runtime/preload-runtime.md).
 
 {% endnote %}

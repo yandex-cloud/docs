@@ -7,7 +7,7 @@ description: Follow this guide to change a {{ CH }} cluster version.
 
 You can change the {{ CH }} version used by your cluster to any of the [versions supported by {{ mch-name }}](../concepts/update-policy.md#versioning-policy).
 
-Learn more about minor version updates and host maintenance in [Maintenance](../concepts/maintenance.md).
+To learn about updates within the same version and host maintenance, see [Maintenance](../concepts/maintenance.md).
 
 ## List of available versions
 
@@ -122,16 +122,17 @@ Make sure the upgrade will not disrupt your applications:
 
     As soon as you run the upgrade, the cluster status will switch to **UPDATING**. Wait for the operation to complete and then check the cluster version.
 
+
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
-    1. Add the `version` field to the {{ mch-name }} cluster description or edit its value if it is already there:
+    1. Add or update the `version` field in the {{ mch-name }} cluster description:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
           ...
           version = "<{{ CH }}_version>"
         }
@@ -139,7 +140,7 @@ Make sure the upgrade will not disrupt your applications:
 
         Specify the {{ CH }} version: {{ versions.tf.str }}.
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -150,6 +151,7 @@ Make sure the upgrade will not disrupt your applications:
     For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -177,13 +179,13 @@ Make sure the upgrade will not disrupt your applications:
 
         Where:
 
-        * `updateMask`: Comma-separated list of settings you want to update.
+        * `updateMask`: Comma-separated string of settings you want to update.
 
             Here, we only specified a single setting, `configSpec.version`.
 
         * `configSpec.version`: Target {{ CH }} version, {{ versions.api.str }}.
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure your request was successful.
 
@@ -223,15 +225,15 @@ Make sure the upgrade will not disrupt your applications:
 
         Where:
 
-        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
             Here, we only specified a single setting, `config_spec.version`.
 
         * `config_spec.version`: Target {{ CH }} version, {{ versions.api.str }}.
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

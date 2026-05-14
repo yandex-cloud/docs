@@ -1,4 +1,4 @@
-The `schema-registry.admin` role enables managing Schema Registry, as well as schemas and namespaces.
+The `schema-registry.admin` role enables managing {{ schema-registry-name }}, as well as schemas and namespaces.
 
 Users with this role can:
 * View info on [schemas](../../metadata-hub/concepts/schema-registry.md#schema), create, modify, and delete them, and compare schema versions.

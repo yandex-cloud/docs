@@ -1,13 +1,13 @@
 ---
 title: Viewing function monitoring charts in {{ sf-full-name }}
-description: You can view a monitoring chart in {{ sf-full-name }} using the management console. To do this, select {{ sf-name }} and click the function to view the monitoring charts for.
+description: You can view monitoring charts in {{ sf-full-name }} using the management console. To do this, select {{ sf-name }} and click the function whose monitoring charts you want to view.
 ---
 
 # Viewing function monitoring charts
 
- You can monitor functions at runtime using the monitoring tools in your management console. These tools display diagnostic information as charts. Metric values are collected and charts are displayed by [{{ monitoring-name }}](../../../monitoring/).
+ You can monitor functions using the monitoring tools in the management console. These tools display diagnostic information as charts. [{{ monitoring-name }}](../../../monitoring/) collects metric values and displays charts.
 
-The chart update period is 15 seconds.
+The chart refresh interval is 15 seconds.
 
 ## Viewing monitoring charts {#charts}
 
@@ -15,21 +15,21 @@ The chart update period is 15 seconds.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder containing the function.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
 
     1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 
-    1. Select a function to view its monitoring charts.
+    1. Select the function whose monitoring charts you want to view.
 
     1. Navigate to the **{{ ui-key.yacloud.common.monitoring }}** tab.
 
     1. You will see the following charts:
 
         * **Requests**: Number of function calls.
-        * **Request latency**: Average time it takes a trigger to process a request.
-        * **Errors**: The number of runtime errors a function generated.
+        * **Request latency**: Average time it takes the trigger to process a request.
+        * **Errors**: Number of runtime errors that occurred while running the function.
 
-    You can select the time period to display information for: hour, day, week, month, or a custom interval.
+    You can select a time period for which you want to display information: hour, day, week, month, or a custom interval.
 
 {% endlist %}
 

@@ -1,6 +1,7 @@
 ```mermaid
+%%{init: {"flowchart": {'defaultRenderer': 'elk'}} }%%
 flowchart BT
-    compute.osAdminLogin~~~iam.serviceAccounts.user
+    iam.serviceAccounts.user
     vpc.user --> compute.editor
     compute.snapshotSchedules.viewer --> compute.viewer
     compute.snapshotSchedules.viewer --> compute.snapshotSchedules.editor
@@ -8,7 +9,7 @@ flowchart BT
     compute.viewer --> compute.operator
     compute.snapshotSchedules.editor --> compute.editor
     compute.operator --> compute.editor
-	 compute.viewer --> compute.editor
+	compute.viewer --> compute.editor
     compute.disks.user --> compute.editor
     compute.images.user --> compute.editor
     compute.osLogin --> compute.editor

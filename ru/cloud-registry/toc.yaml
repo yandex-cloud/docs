@@ -67,6 +67,16 @@ items:
             items:
               - name: Настроить PyPI
                 href: operations/pypi/installation.md
+              - name: Создать Python-пакет
+                href: operations/pypi/create.md
+              - name: Загрузить Python-пакет в реестр
+                href: operations/pypi/push.md
+              - name: Скачать Python-пакет из реестра
+                href: operations/pypi/pull.md
+              - name: Удалить Python-пакет из реестра
+                href: operations/pypi/delete.md
+              - name: Примеры работы с PyPI-реестрами
+                href: operations/pypi/examples.md
           - name: Binary-артефакт
             items:
               - name: Загрузить binary-артефакт в реестр
