@@ -34,6 +34,10 @@ description: Управление доступом в сервисе по соз
 
 ### Сервисные роли {#service-roles}
 
+#### managed-redis.clusters.connector {#managed-redis-clusters-connector}
+
+{% include [managed-redis.clusters.connector](../../_roles/managed-redis/clusters/connector.md) %}
+
 #### managed-redis.auditor {#managed-redis-auditor}
 
 {% include [managed-redis.auditor](../../_roles/managed-redis/auditor.md) %}

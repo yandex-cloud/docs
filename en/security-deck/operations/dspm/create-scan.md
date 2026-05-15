@@ -7,14 +7,15 @@ description: Follow this tutorial to create scans in {{ sd-full-name }} {{ dspm-
 
 [{{ dspm-full-name }}](../../concepts/dspm.md) ({{ dspm-name }}) scans [data sources](../../concepts/dspm.md#data-source) – {{ objstorage-full-name }} [buckets](../../../storage/concepts/bucket.md) and {{ yandex-360 }} [Yandex Disks]({{ link-yandex }}/support/yandex-360/business/disk/web/{{ lang }}/index.html) – to locate sensitive information in storage.
 
-Before you start using {{ dspm-name }}, [set up](../../quickstart-overview.md#configure-sd) the default folder to store {{ sd-name }} data.
+## Getting started {#before-begin}
 
+{% include [dspm-before-begin-section](../../../_includes/security-deck/dspm-before-begin-section.md) %}
 
 ## Creating a scan for {{ objstorage-name }} {#object-storage}
 
 {% list tabs group=instructions %}
 
-- {{ sd-name }} UI {#cloud-sd}
+- {{ sd-name }} UI {#console}
 
   1. Go to [{{ sd-full-name }}]({{ link-sd-main }}).
   1. In the left-hand panel, select ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}** and go to the **{{ ui-key.yacloud_org.security-center.dspm.title_scan-jobs }}** tab.
@@ -53,7 +54,7 @@ Before you start using {{ dspm-name }}, [set up](../../quickstart-overview.md#co
 
 {% list tabs group=instructions %}
 
-- {{ sd-name }} UI {#cloud-sd}
+- {{ sd-name }} UI {#console}
 
   1. Go to [{{ sd-full-name }}]({{ link-sd-main }}).
   1. In the left-hand panel, select ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}** and go to the **{{ ui-key.yacloud_org.security-center.dspm.title_scan-jobs }}** tab.

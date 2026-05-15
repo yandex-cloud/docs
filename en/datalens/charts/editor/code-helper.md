@@ -5,12 +5,6 @@ description: In this article, you will learn about Neuroanalyst in Editor and ho
 
 # Neuroanalyst in Editor
 
-{% note info %}
-
-This feature is at the Beta testing stage.
-
-{% endnote %}
-
 Neuroanalyst streamlines the creation and editing of visualizations in Editor. Available for three visualization types: [Table](./widgets/table.md), [Markdown](./widgets/markdown.md), and [Advanced chart](./widgets/advanced.md). Neuroanalyst only works with the **Prepare** tab.
 
 To activate Neuroanalyst, click **Help me code** at the top in Editor to open the **Neuroanalyst** tab on the right.

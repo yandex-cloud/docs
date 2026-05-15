@@ -2,7 +2,7 @@
 
 - {{ monium-name }} UI {#console}
 
-  1. On the [{{ monium-name }}]({{ link-monium }}) home page, select a data type section on the left:
+  1. On the [{{ monium-name }}]({{ link-monium }}) home page, select the relevant data type section on the left:
      * **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**.
      * **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.logs.title }}**.   
      * **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.traces.title }}**.
@@ -23,7 +23,7 @@
        
      {% endcut %}
 
-     More on [metrics](../../monium/operations/metric/metric-explorer.md).
+     More on [metrics](../../monium/metrics/metric-explorer.md).
 
      {% cut "Example of a page with logs" %}
        
@@ -41,6 +41,6 @@
 
      More on [traces](../../monium/traces/operations/traces-explorer.md).
 
-  1. To view information about the data shard, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.shards.title }}** on the left and then, the shard with your service name.
+  1. To view information about the data shard, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.shards.title }}** on the left and then select the shard with your service name.
 
 {% endlist %}

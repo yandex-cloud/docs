@@ -109,26 +109,33 @@ The following backend settings apply in {{ TF }} `1.6.3` and higher.
 
 {% endnote %}
 
+{% note warning %}
+
+Starting with {{ TF }} `1.11`, state locking via the [Document API](../../ydb/docapi/api-ref/) is deprecated and will be removed in a future minor version. If you are on {{ TF }} version `1.11` or higher, refer to the official [{{ TF }} guides](https://developer.hashicorp.com/terraform/language/backend/s3) for updates.
+
+For [OpenTofu](https://opentofu.org/) users, both locking mechanisms are supported with no plans for removal.    
+
+{% endnote %}   
+
 To save the {{ TF }} state in {{ objstorage-name }} and enable state locking:
 1. Add the key ID and secret key [you got earlier](#create-service-account) to environment variables:
 
    {% list tabs group=programming_language %}
-
+   
    - Bash {#bash}
-
-     ```bash
-     export ACCESS_KEY="<key_ID>"
-     export SECRET_KEY="<secret_key>"
-     ```
-
+   
+       ```bash
+       export AWS_ACCESS_KEY="<key_ID>"
+       export AWS_SECRET_KEY="<secret_key>"
+       ```
+   
    - PowerShell {#powershell}
-
-    ```powershell
-    $Env:AWS_ACCESS_KEY_ID="<key_ID>"
-    $Env:AWS_SECRET_ACCESS_KEY="<secret_key>"
-    ```
-
-   {% endlist %}
+   
+       ```powershell
+       $Env:AWS_ACCESS_KEY="<key_ID>"
+       $Env:AWS_SECRET_KEY="<secret_key>"
+       ```
+   {% endlist %}  
 
 1. Add the provider and backend settings to the configuration file:
 
@@ -140,7 +147,7 @@ To save the {{ TF }} state in {{ objstorage-name }} and enable state locking:
          source = "yandex-cloud/yandex"
        }
      }
-     required_version = ">= 0.13"
+     required_version = ">= 1.6.3"
 
      backend "s3" {
        endpoints = {

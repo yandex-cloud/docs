@@ -64,6 +64,12 @@ When creating an API key in the [management console]({{ link-console-main }}), s
 
 {% include [default-scope-list](../../../_includes/iam/default-scope-list.md) %}
 
+## Identifying an API key {#identify-key}
+
+The [list](../../operations/authentication/manage-api-keys.md#list-api-keys) of API keys in the {{ yandex-cloud }} CLI includes the `MASKED KEY` field which shows the last six characters of the key’s secret part. This helps you match the API key to its ID. Displaying the six characters is secure as the entire key is not revealed.
+
+Use the `MASKED KEY` field to quickly identify a key, e.g., when searching for a key in leak databases or mapping keys in other systems with keys in {{ yandex-cloud }}.
+
 ## Using an API key {#use}
 
 Enter your API key when accessing {{ yandex-cloud }} resources via the API. Provide the API key in the `Authorization` header in the following format:

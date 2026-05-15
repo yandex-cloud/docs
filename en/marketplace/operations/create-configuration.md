@@ -43,7 +43,7 @@
         1. Select a folder to save your configuration. You need the `cloudapps.editor` role for that folder.
         1. Name the configuration.
         1. Optionally, provide a description for the configuration.
-        1. Optionally, under **Preset parameters**, specify default parameter values for the resources that will be created during application (product instance) installation. Make sure the {{ ig-name }} VM [disk image](../../compute/concepts/image.md) meets the [requirements](create-image.md).
+        1. Optionally, under **Preset parameters**, specify default parameter values for the resources that will be created during application (product instance) installation. Make sure the {{ ig-name }} VM [disk image](../../compute/concepts/image.md) meets the [requirements](../concepts/compute-product.md).
 
     {% endlist %}
 
@@ -65,7 +65,7 @@ To add an artifact:
             [Disk images](../../compute/concepts/image.md) are used to initialize disks of {{ compute-name }} [VM instances](../../compute/concepts/vm.md), including those in instance groups.
 
             1. Name the artifact.
-            1. Select the {{ compute-full-name }} disk image. It must meet [these requirements](create-image.md).
+            1. Select the {{ compute-full-name }} disk image. It must meet [these requirements](../concepts/compute-product.md).
             1. Click **Add**.
 
         * `Container image`:
@@ -73,7 +73,7 @@ To add an artifact:
             [Container images](../../container-registry/concepts/docker-image.md) are used to create containerized applications with [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml) or [{{ cos-full-name }}](../../cos/index.yaml).
 
             1. Name the artifact.
-            1. Select the Docker image uploaded to {{ container-registry-full-name }}. It must meet [these requirements](create-container.md).
+            1. Select the Docker image uploaded to {{ container-registry-full-name }}. It must meet [these requirements](../concepts/kubernetes-product.md).
             1. Click **Add**.
 
         * `{{ objstorage-name }}`:

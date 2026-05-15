@@ -3,10 +3,14 @@
 resource "yandex_smartcaptcha_captcha" "<captcha_name>" {
   name                    = "<captcha_name>"
   turn_off_hostname_check = True
-  style_json              = "<captcha_appearance>"
   complexity              = "<challenge_difficulty>"
   pre_check_type          = "<main_challenge_type>"
   challenge_type          = "<additional_challenge_type>"
+
+  style_json = jsonencode({
+    light    = jsonencode(<json_object>)
+    dark = jsonencode(<json_object>)
+  })
 
   allowed_sites = [
     "<first_host>",

@@ -70,7 +70,8 @@ To set up integration for an individual {{ GL }} project, create one.
 
 - VM with a {{ GL }} image {#gl-image-vm}
 
-    1. On the {{ compute-full-name }} page, select the created [VM](../../compute/concepts/vm.md) and copy its [public IP](../../vpc/concepts/address.md#public-addresses).
+    1. [Go](../../console/operations/select-service.md#select-service) to {{ compute-full-name }}.
+    1. Select the created [VM](../../compute/concepts/vm.md) and copy its [public IP address](../../vpc/concepts/address.md#public-addresses).
     1. [Connect](../../compute/operations/vm-connect/ssh.md) to the VM over SSH.
     1. Get the {{ GL }} administrator password with the following VM command:
 

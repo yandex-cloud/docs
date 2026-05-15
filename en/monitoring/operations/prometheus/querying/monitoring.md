@@ -34,7 +34,7 @@ You can build charts based on {{ prometheus-name }} metrics:
 
   {% note info %}
 
-  For {{ prometheus-name }} metrics, all features described in [{#T}](../../metric/metric-explorer.md) are available. You can add the workspace ID as a parameter for splitting charts.
+  You can add the workspace ID as a parameter for splitting charts.
 
   {% endnote %}
 

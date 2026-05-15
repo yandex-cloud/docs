@@ -43,7 +43,8 @@ You can also restart the existing test:
 
 - Management console
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+  1. In the [management console]({{ link-console-main }}), open the folder where you want to restart the test.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
   1. In the left-hand panel, select ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**.
   1. Select the test. In the top-right corner, click **{{ ui-key.yacloud.load-testing.restart }}**.
   1. Under **{{ ui-key.yacloud.load-testing.section_export }}**, enable **{{ ui-key.yacloud.load-testing.field_export-enable }}**.

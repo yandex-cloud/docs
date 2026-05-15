@@ -26,6 +26,7 @@ resource "yandex_organizationmanager_group" "my_group" {
 - `description` (*Read-Only*) (String). The resource description.
 - `group_id` (String). ID of a Group.
 - `id` (String). 
+- `labels` (Map Of String). Resource labels as `key:value` pairs.
 - `name` (String). The resource name.
 - `organization_id` (String). Organization that the Group belongs to. If value is omitted, the default provider organization is used.
 - `timeouts` [Block]. 

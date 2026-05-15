@@ -22,6 +22,7 @@ description: In this article, you will learn how to work with {{ sd-name }} in {
 
 * [{#T}](./dspm/create-data-source.md).
 * [{#T}](./dspm/create-scan.md).
+* [{#T}](./dspm/discovery-mode.md).
 
 ## {{ kspm-full-name }} ({{ kspm-name }}) {#k8s}
 

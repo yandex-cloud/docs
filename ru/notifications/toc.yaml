@@ -15,7 +15,7 @@ items:
         href: quickstart-sms.md
       - name: Начало работы с топиками
         href: quickstart-topics.md
-  - name: Пошаговые операции
+  - name: Пошаговые инструкции
     items:
       - name: Все инструкции
         href: operations/index.md

@@ -67,7 +67,7 @@ You can also use [Dispatcher](../../load-testing/operations/payload-dispatcher) 
 1. [Create](../../storage/operations/buckets/create.md) a bucket and [upload](../../storage/operations/objects/upload.md) the test data file into it.
 1. Grant read permissions for the bucket to the service account. To do this, edit the bucket [ACL](../../storage/concepts/acl.md):
    1. In the [management console]({{ link-console-main }}), select the folder with the bucket.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the bucket and select **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
    1. In the window that opens, enter the service account name, select `READ` for the bucket permissions, and click **{{ ui-key.yacloud.common.add }}**.
    1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -208,8 +208,9 @@ You can also use [Dispatcher](../../load-testing/operations/payload-dispatcher) 
    After you save the `.gitlab-ci.yml` configuration file, the build pipeline will start.
 
    You can view the test results in more detail in the management console:
-      1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
-      1. In the left-hand panel, select ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**.
+      1. Open the [management console]({{ link-console-main }}).
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+      1. In the left-hand panel, select ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**.
       1. Select the test you created and navigate to the **{{ ui-key.yacloud.load-testing.label_test-report }}** tab.
 
    You can use any connection logic for this stage:

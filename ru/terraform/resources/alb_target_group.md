@@ -36,8 +36,9 @@ resource "yandex_alb_target_group" "foo" {
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
 - `name` (String). The resource name.
 - `target` [Block]. A Target resource.
+  - `external_address` (Bool). External address of the target.
   - `ip_address` (**Required**)(String). IP address of the target.
-  - `private_ipv4_address` (Bool). 
+  - `private_ipv4_address` (Bool). Private IPv4 address of the target.
   - `subnet_id` (String). ID of the subnet that targets are connected to. All targets in the target group must be connected to the same subnet within a single availability zone.
 - `timeouts` [Block]. 
   - `create` (String). 

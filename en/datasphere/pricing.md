@@ -90,6 +90,7 @@ The prices of the configurations are valid for computations in [{{ ds-nb }}](con
 
 ## Cost calculation examples {#price-example}
 
+
 ### {{ ds-nb }} {#price-example-notebook}
 
 Cost of using {{ ml-platform-name }} with the following properties:

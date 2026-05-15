@@ -2,7 +2,7 @@
 
 To add a product for {{ compute-full-name }} to the Marketplace, you need to upload the image to {{ yandex-cloud }}. You can add products based on Linux. This section will help you create a Linux-based image.
 
-If you wish to add a product for {{ managed-k8s-full-name }}, follow the [relevant instructions](create-container.md).
+If you wish to add a product for {{ managed-k8s-full-name }}, follow the [relevant instructions](kubernetes-product.md).
 
 ## Creating an image {#create}
 

@@ -1,0 +1,3 @@
+Optionally, under **{{ ui-key.yacloud_org.security.workspaces.title_security-modules_8MdQg }}**, activate additional {{ sd-name }} modules that you need in your environment.
+
+For example, the **{{ ui-key.yacloud_org.security.workspaces.module_dspm_xxxxx }}** module is independent of the standards and regulations selected in the environment and must be activated manually for the environment in question.

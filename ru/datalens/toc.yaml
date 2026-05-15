@@ -45,7 +45,7 @@ items:
             href: tutorials/data-from-csv-geo-visualization.md
           - name: >-
               Анализ продаж и локаций пиццерий на данных из БД {{ CH }} и
-              Marketplace
+              Галереи {{ datalens-short-name }}
             href: tutorials/data-from-ch-to-geolayers-visualization.md
           - name: >-
               Геокодинг с помощью API Яндекс Карт для визуализации в {{

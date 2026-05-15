@@ -3,10 +3,70 @@ title: '{{ iam-full-name }} release notes'
 description: This section contains the {{ iam-name }} release notes.
 ---
 
-
 # {{ iam-full-name }} release notes
 
 {% include [Tags-nosql](../_includes/release-notes-tags-nosql.md) %}
+
+## April 2026 {#april-2026}
+
+* Added the `MASKED KEY` field to the `yc iam api-key list` output, and the `maskedSecret` field, to the responses of [REST API](../iam/api-ref/ApiKey/list.md) and [gRPC API](../iam/api-ref/grpc/ApiKey/list.md) methods. Both fields contain the last six characters of the key’s secret part. {{ tag-cli }} {{ tag-api }}
+
+* Added the following [roles](roles-reference.md):
+
+   {% cut "{{ cns-full-name }}" %}
+
+     Role | Description
+     --- | ---
+     `notifications.admin` | Enables managing all notification channels and topics, as well as sending notifications to all channels and topics.
+     `notifications.auditor` | Enables viewing all notification channel metadata, topic metadata, and info on the service quotas.
+     `notifications.editor` | Enables managing all notification channels and topics, as well as sending notifications to all channels and topics.
+     `notifications.publisher` | Enables sending notifications to all channels and topics.
+     `notifications.viewer` | Enables viewing info on topics, notification channels, and service quotas.
+
+   {% endcut %}
+
+   {% cut "{{ datalens-full-name }}" %}
+
+     Role | Description
+     --- | ---
+     `datalens.metaReader` | Enables executing requests from the _Audit_ section in the [DataLens Public API](../datalens/operations/api-start.md).
+
+   {% endcut %}
+
+   {% cut "{{ dns-full-name }}" %}
+
+     Role | Description
+     --- | ---
+     `dns.firewallEditor` | Enables managing DNS firewalls and using clouds, folders, and cloud networks as resources for them.
+     `dns.firewallUser` | Enables using clouds, folders, and cloud networks as resources for DNS firewalls, as well as viewing info on resources and service quotas.
+
+   {% endcut %}
+
+   {% cut "{{ org-full-name }}" %}
+
+     Role | Description
+     --- | ---
+     `organization-manager.groups.viewer` | Enables viewing info on user groups and access permissions granted for them, as well as viewing the list of users and service accounts that are members of groups.
+
+   {% endcut %}
+
+   {% cut "{{ managed-k8s-full-name }}" %}
+
+     Role | Description
+     --- | ---
+     `k8s.cluster-api.admin` | Grants the `yc:k8s-core-admin` group and the `admin` role in Kubernetes RBAC.
+
+   {% endcut %}
+
+   {% cut "Managed databases" %}
+
+     Role | Description
+     --- | ---
+     `mdb.maintenanceTask.editor` | Enables viewing info on maintenance tasks for managed database clusters and modifying such tasks, as well as viewing info on clusters and access permissions granted for them, on hosts and cluster backups, and on quotas and service resource operations.
+     `mdb.maintenanceTask.viewer` | Enables viewing info on maintenance tasks for managed database clusters, as well as info on such clusters and access permissions granted for them, info on hosts and cluster backups, quotas and service resource operations.
+     `mdb.switcher` | Enables re-assigning the master host in managed database clusters, viewing info on clusters, hosts, databases, and users, as well as viewing cluster logs, quotas, and service resource operations.
+
+   {% endcut %}
 
 ## March 2026 {#march-2026}
 

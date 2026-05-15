@@ -207,7 +207,7 @@ In this step, you will install [OpenTelemetry Collector Contrib](https://github.
 
 {% endlist %}
 
-More on [metrics](../operations/metric/metric-explorer.md).
+More on [metrics](../metrics/metric-explorer.md).
 
 If there is no data in {{ monium-name }}, see [{#T}](../collector/troubleshooting.md).
 

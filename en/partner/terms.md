@@ -45,3 +45,8 @@ Registering a deal for a new {{ yandex-cloud }} customer signed up by a partner 
 
 Registration of a project for an existing {{ yandex-cloud }} customer that has signed an agreement with Yandex for using {{ yandex-cloud }} services and that pays their payment invoices directly as to increase the consumption of services by the customer.
 
+
+#### Co-marketing budget {#co-marketing}
+
+Co-marketing budget is a calculated balance of credits available to a partner for co-funding Yandex-approved marketing activities aimed at promoting {{ yandex-cloud }} services.
+

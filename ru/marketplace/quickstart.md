@@ -44,8 +44,8 @@ description: Следуя данной инструкции, вы сможете
 
 В {{ marketplace-short-name }} можно размещать образы ВМ из публичных образов {{ yandex-cloud }} и приложения для {{ managed-k8s-name }}. Требования к образам и приложениям и рекомендации по их созданию описаны в разделах:
 
-* [{#T}](operations/create-image.md)
-* [{#T}](operations/create-container.md)
+* [{#T}](concepts/compute-product.md)
+* [{#T}](concepts/kubernetes-product.md)
 
 ## Создайте первую версию продукта {#create-version}
 
@@ -53,4 +53,4 @@ description: Следуя данной инструкции, вы сможете
 
 ## Пройдите модерацию версии {#moderate-version}
 
-Все версии продуктов, размещенные в {{ marketplace-short-name }}, проходят техническую модерацию и модерацию контента с учетом требований к продуктам {{ marketplace-short-name }} для [{{ compute-name }}](operations/create-image.md) и [{{ managed-k8s-name }}](operations/create-container.md). После успешного прохождения всего процесса модерации вы получите уведомление и сможете сделать версию вашего продукта доступной для пользователей.
+Все версии продуктов, размещенные в {{ marketplace-short-name }}, проходят техническую модерацию и модерацию контента с учетом требований к продуктам {{ marketplace-short-name }} для [{{ compute-name }}](concepts/compute-product.md) и [{{ managed-k8s-name }}](concepts/kubernetes-product.md). После успешного прохождения всего процесса модерации вы получите уведомление и сможете сделать версию вашего продукта доступной для пользователей.

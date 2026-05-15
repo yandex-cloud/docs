@@ -63,6 +63,30 @@
          * `--service-account-id`: Service account ID.
          * `--subject group`: Group ID.
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-install](../terraform-install.md) %}
+
+  To revoke a role from a user, service account, or user group:
+
+  1. Open the {{ TF }} configuration file and remove the part containing the `yandex_organizationmanager_group_iam_binding` resource for the role you want to revoke.
+
+      ```hcl
+      resource "yandex_organizationmanager_group_iam_binding" "editor" {
+        group_id = "<group_ID>"
+        role     = "<role_ID>"
+        members  = [
+          "<subject_type>:<subject_ID>",
+        ]
+      }
+      ```
+
+  1. Apply the changes:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+   
+  The role will be revoked from the subject you indicated. You can check the role is no longer assigned using the [{{ cloud-center }} UI]({{ link-org-cloud-center }}).
+
 - API {#api}
 
    Use the [updateAccessBindings](../../organization/api-ref/Group/updateAccessBindings.md) method for the [Group](../../organization/api-ref/Group/index.md) resource or the [GroupService/UpdateAccessBindings](../../organization/api-ref/grpc/Group/updateAccessBindings.md) gRPC API call and provide the following in the request:

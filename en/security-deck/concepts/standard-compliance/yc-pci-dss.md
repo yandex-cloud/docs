@@ -1,9 +1,9 @@
 ---
-title: PCI DSS in {{ yandex-cloud }}
-description: This section sets forth rules that help you automate Payment Card Industry Data Security Standard (PCI DSS) compliance for your {{ yandex-cloud }} resources.
+title: PCI DSS requirements
+description: This section sets forth rules that help you automate compliance with the Payment Card Industry Data Security Standard (PCI DSS).
 ---
 
-# PCI DSS in {{ yandex-cloud }}
+# PCI DSS requirements
 
 {% include [note-preview](../../../_includes/note-preview.md) %}
 
@@ -42,7 +42,6 @@ To ensure PCI DSS compliance, use the following rules:
 || 3.5 | Ensuring that stored PANs are unreadable |
 [cspm.data.object-storage-encryption](../../rules-reference/cspm.md#object-storage-encryption)
 [cspm.crypto.managed-vm-kms](../../rules-reference/cspm.md#managed-vm-kms)
-[cspm.crypto.data.application-encryption](../../rules-reference/cspm.md#application-encryption)
 ||
 || 3.6, 3.7 | Protection and management of cryptographic keys |
 [cspm.crypto.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation)
@@ -51,7 +50,6 @@ To ensure PCI DSS compliance, use the following rules:
 [cspm.crypto.keys-deletion-protection](../../rules-reference/cspm.md#keys-deletion-protection)
 [cspm.crypto.secrets-lockbox](../../rules-reference/cspm.md#secrets-lockbox)
 [cspm.crypto.secrets-serverless](../../rules-reference/cspm.md#secrets-serverless)
-[cspm.crypto.secrets-coi](../../rules-reference/cspm.md#secrets-coi)
 ||
 || **4. Protecting transmission of cardholder data over public networks with strong cryptography** {.cell-align-center} | > | > ||
 || 4.2 | Protection of PANs with strong cryptography during transmission |
@@ -60,15 +58,13 @@ To ensure PCI DSS compliance, use the following rules:
 [cspm.appsec.api-gateway-https](../../rules-reference/cspm.md#api-gateway-https)
 ||
 || **5. Protecting all systems and networks against malware** {.cell-align-center} | > | > ||
-|| 5.2, 5.3 | Prevention, detection, and removal of malware; ensuring the mechanisms are actively running | [cspm.appsec.upload-policy](../../rules-reference/cspm.md#upload-policy) ||
+|| 5.2, 5.3 | Prevention, detection, and removal of malware; ensuring the mechanisms are actively running | [cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry) ||
 || 5.4 | Protecting users against phishing attacks | [cspm.appsec.use-smartcaptcha](../../rules-reference/cspm.md#use-smartcaptcha) ||
 || **6. Developing and maintaining secure systems and software** {.cell-align-center} | > | > ||
 || 6.3 | Detecting and addressing security vulnerabilities |
-[cspm.active.ip-vulnerability-scan](../../rules-reference/cspm.md#ip-vulnerability-scan)
-[cspm.appsec.upload-policy](../../rules-reference/cspm.md#upload-policy)
+[cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry)
 [cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry)
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
-[cspm.k8s.version-update](../../rules-reference/cspm.md#version-update)
 ||
 || 6.4 | Protecting public-facing web applications against attacks |
 [cspm.appsec.use-sws](../../rules-reference/cspm.md#use-sws)
@@ -101,16 +97,13 @@ To ensure PCI DSS compliance, use the following rules:
 [cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails)
 [cspm.o11y.audit-trails-no-errors](../../rules-reference/cspm.md#o11y-audit-trails-no-errors)
 [cspm.o11y.data-plane-events](../../rules-reference/cspm.md#data-plane-events)
-[cspm.k8s.audit-logs](../../rules-reference/cspm.md#audit-logs)
 ||
 || **11. Regular testing of system and network security** {.cell-align-center} | > | > ||
 || 11.3 | Regular detection, prioritization, and elimination of external and internal vulnerabilities |
-[cspm.active.ip-vulnerability-scan](../../rules-reference/cspm.md#ip-vulnerability-scan)
-[cspm.appsec.upload-policy](../../rules-reference/cspm.md#upload-policy)
+[cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry)
 ||
 || **12. Maintaining information security with organizational policies and programs** {.cell-align-center} | > | > ||
 || 12.10 | Incident response |
 [cspm.backup.compute-disks](../../rules-reference/cspm.md#compute-disks)
-[cspm.k8s.backup](../../rules-reference/cspm.md#backup)
 ||
 |#

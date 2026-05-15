@@ -20,12 +20,14 @@ resource "yandex_dns_firewall" "fw1" {
     label1 = "label-1-value"
   }
 
+  folder_id = "my-folder-id"
+
   enabled         = true
   whitelist_fqdns = ["*.foo.bar."]
   blacklist_fqdns = ["bad.foo.bar."]
 
   resource_config = {
-    resource_type  = "NETWORK"
+    type           = "NETWORK"
     resource_ids   = [yandex_vpc_network.foo.id]
     lock_resources = true
   }

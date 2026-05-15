@@ -16,6 +16,8 @@ description: Из этой инструкции вы узнаете, как уп
 
 - {{ yandex-cloud }} CLI {#cli}
 
+  {% include [s3-inventory-cli-version.md](../../../_includes/storage/s3-inventory-cli-version.md) %}
+
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
@@ -179,6 +181,8 @@ description: Из этой инструкции вы узнаете, как уп
 
 - {{ yandex-cloud }} CLI {#cli}
 
+  {% include [s3-inventory-cli-version.md](../../../_includes/storage/s3-inventory-cli-version.md) %}
+
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
@@ -235,6 +239,8 @@ description: Из этой инструкции вы узнаете, как уп
 {% list tabs group=instructions %}
 
 - {{ yandex-cloud }} CLI {#cli}
+
+  {% include [s3-inventory-cli-version.md](../../../_includes/storage/s3-inventory-cli-version.md) %}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -293,6 +299,8 @@ description: Из этой инструкции вы узнаете, как уп
 {% list tabs group=instructions %}
 
 - {{ yandex-cloud }} CLI {#cli}
+
+  {% include [s3-inventory-cli-version.md](../../../_includes/storage/s3-inventory-cli-version.md) %}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 

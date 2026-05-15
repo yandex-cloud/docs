@@ -132,11 +132,11 @@ items:
       - name: Сайт на WordPress с БД {{ MY }}
         items:
           - name: Обзор
-            href: tutorials/wordpress-mysql.md
+            href: tutorials/wordpress-mysql/index.md
           - name: Консоль управления
-            href: tutorials/console.md
+            href: tutorials/wordpress-mysql/console.md
           - name: '{{ TF }}'
-            href: tutorials/terraform.md
+            href: tutorials/wordpress-mysql/terraform.md
       - name: Создание сайта на базе «1С-Битрикс»
         items:
           - name: Обзор

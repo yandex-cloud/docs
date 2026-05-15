@@ -29,7 +29,7 @@ The wizard UI has the following elements:
 1. Dataset measures you can use to build your chart.
 1. [Chart type](../../visualization-ref/index.md) selection button and the ![image](../../../_assets/console-icons/gear.svg) icon to open the [general settings](./settings.md#common-settings).
 1. List of sections. The available sections depend on the selected chart type, e.g., X axis, Y axis, filters, etc. You can drag and drop fields in a section.
-1. Preview area where the visualization is displayed.
+1. Preview area where the visualization is displayed. You can select multiple elements to view in graphs and charts by holding the `Ctrl` key.
 1. Chart legend. The legend maps the chart colors to the field values in the **Colors** section. By clicking individual legend elements, you can change the data display in the chart. You can select multiple legend elements by pressing and holding `Ctrl`/`Cmd`. You can enable and disable the legend in the [chart settings](./settings.md).
 
 ![image](../../../_assets/datalens/concepts/widget.png)

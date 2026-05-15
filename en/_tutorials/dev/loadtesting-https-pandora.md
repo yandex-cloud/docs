@@ -81,7 +81,8 @@ For a service whose subnet and security group is different from the agent's ones
 
 ## Create and run a test {#run-test}
 
-1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+1. Open the [management console]({{ link-console-main }}).
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
 1. In the left-hand panel, select ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**. Click **{{ ui-key.yacloud.load-testing.button_create-test }}**.
 1. In the **{{ ui-key.yacloud.load-testing.label_agents-list }}** parameter, select `agent-008`.
 1. Under **{{ ui-key.yacloud.load-testing.test-data-section }}**, click **Select files** and select the `data.uri` file you saved earlier.

@@ -1,0 +1,1 @@
+Роль `postbox.statistics.reader` позволяет просматривать [статистику](../../../postbox/concepts/statistics.md) по отправленным письмам в разделе **{{ ui-key.yacloud.postbox.label_statistics }}** [консоли управления]({{ link-console-main }}).

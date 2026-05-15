@@ -67,7 +67,7 @@
 
    1. В открывшемся окне выберите тип подключения `Указать вручную` и укажите параметры подключения:
 
-      * **Имя хоста** — `rc1a-g1gicp3imcc0pnsg.{{ dns-zone }},rc1b-vbbl6tob599tr3oi.{{ dns-zone }},rc1d-qf1ven1igeihhbep.{{ dns-zone }}` (указать через запятую).
+      * **Имя хоста** — `rc1a-g1gicp3imcc0pnsg.mdb.yandexcloud.net,rc1b-vbbl6tob599tr3oi.mdb.yandexcloud.net,rc1d-qf1ven1igeihhbep.mdb.yandexcloud.net` (указать через запятую).
       * **Порт HTTP-интерфейса** — `8443` (по умолчанию).
       * **Имя пользователя** — `datalens-marathon-2020-11-ro`.
       * **Пароль** — `/4b+xBF6aSCgN9wKTevYGuDjxC9IO4Fa`.

@@ -8,7 +8,7 @@ Event name | Description
 `dedicated_instance.StartDedicatedInstance` | Starting a dedicated instance
 `dedicated_instance.StopDedicatedInstance` | Stopping a dedicated instance
 `dedicated_instance.UpdateDedicatedInstance` | Updating a dedicated instance
-`guardrails.CreateDictionary` | Creating a [dictionary] of phrases and regular expressions in a [guardrail]
+`guardrails.CreateDictionary` | Creating a [dictionary]({{ link-docs-ai }}/ai-studio/concepts/security/guardrails#dictionaries) of phrases and regular expressions in a [guardrail]({{ link-docs-ai }}/ai-studio/concepts/security/guardrails#rules)
 `guardrails.CreateGuardrail` | Creating a guardrail
 `guardrails.DeleteDictionary` | Deleting a dictionary of phrases and regular expressions from a guardrail
 `guardrails.DeleteGuardrail` | Deleting a guardrail
@@ -22,5 +22,5 @@ Event name | Description
 `mcp_hub.SetMcpGatewayAccessBindings` | Assigning access permissions for an MCP server
 `mcp_hub.UpdateMcpGateway` | Updating an MCP server
 `mcp_hub.UpdateMcpGatewayAccessBindings` | Updating access permissions for an MCP server
-`tuning.CancelTuning` | Stop model [tuning]
+`tuning.CancelTuning` | Stop model [tuning]({{ link-docs-ai }}/ai-studio/concepts/tuning/index)
 `tuning.StartTuning` | Start model tuning

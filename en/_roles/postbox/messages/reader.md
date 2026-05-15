@@ -1,0 +1,1 @@
+The `postbox.messages.reader` role enables viewing info on sent emails in the **{{ ui-key.yacloud.postbox.label_messages }}** section of the [management console]({{ link-console-main }}), including data on the sender, receivers, subject, sending date, deliverability and engagement [metrics](../../../postbox/concepts/statistics.md#metrics), complaints, and unsubscriptions.
