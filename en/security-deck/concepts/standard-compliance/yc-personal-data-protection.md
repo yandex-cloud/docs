@@ -1,9 +1,9 @@
 ---
-title: Personal data protection standard for {{ yandex-cloud }} users
-description: This section presents a collection of rules for automation of legal compliance monitoring in {{ yandex-cloud }} resources as per Russian Federal Law No. 152-FZ of July 27, 2006.
+title: Requirements of the Federal Law FZ-152 on Personal Data
+description: This collection of rules automates legal compliance monitoring for laws and regulations on personal data protection.
 ---
 
-# Personal data protection standard for {{ yandex-cloud }} users
+# Requirements of the Federal Law FZ-152 on Personal Data
 
 {% include [note-preview](../../../_includes/note-preview.md) %}
 
@@ -18,7 +18,6 @@ These rules ensure protection of personal data in accordance with FSTEC Requirem
 || IA.4 | Management of authentication means including the storage, issue, initialization and blocking of authentication means and taking relevant measures in case of loss and/or compromising a means of authentication |
 [cspm.crypto.secrets-lockbox](../../rules-reference/cspm.md#secrets-lockbox)
 [cspm.crypto.secrets-serverless](../../rules-reference/cspm.md#secrets-serverless)
-[cspm.crypto.secrets-coi](../../rules-reference/cspm.md#secrets-coi)
 [cspm.crypto.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation)
 [cspm.aws-token](../../rules-reference/cspm.md#aws-token)
 ||
@@ -65,7 +64,7 @@ These rules ensure protection of personal data in accordance with FSTEC Requirem
 ||
 || SER.2 | Managing installation of software components, including defining components to be installed, configuring the installation parameters of components, and monitoring installation of software components |
 [cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry)
-[cspm.appsec.upload-policy](../../rules-reference/cspm.md#upload-policy)
+[cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry)
 ||
 || SER.3 | Restrictions for only authorized software and/or installation of its components |
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
@@ -78,12 +77,10 @@ These rules ensure protection of personal data in accordance with FSTEC Requirem
 ||
 || SEL.2 | Determining scope and contents of information about security events to be logged |
 [cspm.o11y.data-plane-events](../../rules-reference/cspm.md#data-plane-events)
-[cspm.k8s.audit-logs](../../rules-reference/cspm.md#audit-logs)
 ||
 || SEL.3 | Collecting, recording and storing information on security events during the determined storage time |
 [cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails)
 [cspm.o11y.audit-trails-no-errors](../../rules-reference/cspm.md#o11y-audit-trails-no-errors)
-[cspm.k8s.audit-logs](../../rules-reference/cspm.md#audit-logs)
 ||
 || SEL.4 | Responding to failures when recording security events, including hardware and software errors, failures in information collection mechanisms, and reaching the limit or overflow of memory capacity | [cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails) ||
 || SEL.7 | Protection of information on security events |
@@ -92,7 +89,7 @@ These rules ensure protection of personal data in accordance with FSTEC Requirem
 ||
 || **Virus protection** (VP) {.cell-align-center} | > | > ||
 || VP.1 | Implementation of virus protection |
-[cspm.appsec.upload-policy](../../rules-reference/cspm.md#upload-policy)
+[cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry)
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
 ||
 || VP.2 | Updating the database of malware (virus) signatures | [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan) ||
@@ -104,11 +101,9 @@ These rules ensure protection of personal data in accordance with FSTEC Requirem
 || IDS.2 | Decision rule base update | [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan) ||
 || **Control (analysis) of personal data security** (AS) {.cell-align-center} | > | > ||
 || AS.1 | Detection and analysis of the information system's vulnerabilities and prompt elimination of newly detected vulnerabilities |
-[cspm.active.ip-vulnerability-scan](../../rules-reference/cspm.md#ip-vulnerability-scan)
-[cspm.appsec.upload-policy](../../rules-reference/cspm.md#upload-policy)
+[cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry)
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
 ||
-|| AS.2 | Control of installation of software updates, including software updates for information protection means | [cspm.k8s.version-update](../../rules-reference/cspm.md#version-update) ||
 || AS.3 | Control of operability, settings and faultless operation of software and information protection means |
 [cspm.k8s.kubernetes-safe-config](../../rules-reference/cspm.md#kubernetes-safe-config)
 [cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry)
@@ -116,17 +111,14 @@ These rules ensure protection of personal data in accordance with FSTEC Requirem
 || AS.4 | Control of composition of hardware, software, and information protection means | [cspm.o11y.labeled-resources](../../rules-reference/cspm.md#labeled-resources) ||
 || AS.5 | Password policy | [cspm.access.min-privileges](../../rules-reference/cspm.md#min-privileges) ||
 || **Integrity of the information system and information** (INT) {.cell-align-center} | > | > ||
-|| INT.1 | Software integrity control, including information protection software | [cspm.runtime.vm-environment-integrity](../../rules-reference/cspm.md#vm-environment-integrity) ||
 || INT.2 | Control of integrity of information stored in the information system databases |
-[cspm.crypto.data.application-encryption](../../rules-reference/cspm.md#application-encryption)
 [cspm.data.object-storage-encryption](../../rules-reference/cspm.md#object-storage-encryption)
 [cspm.crypto.managed-vm-kms](../../rules-reference/cspm.md#managed-vm-kms)
 [cspm.crypto.keys-hsm](../../rules-reference/cspm.md#keys-hsm)
 [cspm.crypto.keys-rotation](../../rules-reference/cspm.md#keys-rotation)
 ||
 || INT.3 | Ensuring recoverability of software, including information protection software, in emergencies |
-[cspm.compute.snapshot](../../rules-reference/cspm.md#snapshot)
-[cspm.k8s.backup](../../rules-reference/cspm.md#backup)
+[cspm.backup.compute-disks](../../rules-reference/cspm.md#compute-disks)
 [cspm.backup.compute-disks](../../rules-reference/cspm.md#compute-disks)
 ||
 || INT.4 | Detection and response to the receipt of unsolicited electronic messages (letters, documents) and other information that is not related to the functioning of the information system (spam protection) |
@@ -140,12 +132,10 @@ These rules ensure protection of personal data in accordance with FSTEC Requirem
 ||
 || **Availability of personal data** (AVL) {.cell-align-center} | > | > ||
 || AVL.4 | Periodic information backup on machine media reserved for information backups |
-[cspm.compute.snapshot](../../rules-reference/cspm.md#snapshot)
-[cspm.k8s.backup](../../rules-reference/cspm.md#backup)
+[cspm.backup.compute-disks](../../rules-reference/cspm.md#compute-disks)
 ||
 || AVL.5 | Ensuring the possibility of restoring information from machine media reserved for information backups (backup copies) within a specified time interval |
-[cspm.compute.snapshot](../../rules-reference/cspm.md#snapshot)
-[cspm.k8s.backup](../../rules-reference/cspm.md#backup)
+[cspm.backup.compute-disks](../../rules-reference/cspm.md#compute-disks)
 ||
 || **Protection of hardware** (PH) / **Virtualization environment protection** (VEP) {.cell-align-center} | > | > ||
 || VEP.1 | Identification and authentication of access subjects and access objects in the virtual infrastructure, including administrators of virtualization means |
@@ -156,14 +146,11 @@ These rules ensure protection of personal data in accordance with FSTEC Requirem
 [cspm.k8s.kubernetes-safe-config](../../rules-reference/cspm.md#kubernetes-safe-config)
 [cspm.k8s.access](../../rules-reference/cspm.md#access)
 ||
-|| VEP.3 | Logging security events in the virtual infrastructure | [cspm.k8s.audit-logs](../../rules-reference/cspm.md#audit-logs) ||
 || VEP.4 | Managing (filtering, routing, connection control, unidirectional transmission) information flows between virtual infrastructure components, as well as around the virtual infrastructure perimeter | [cspm.network.firewall](../../rules-reference/cspm.md#firewall) ||
-|| VEP.5 | Trusted boot of virtualization servers, virtual machine (container), virtualization management servers | [cspm.runtime.vm-environment-integrity](../../rules-reference/cspm.md#vm-environment-integrity) ||
 || VEP.6 | Managing the migration of virtual machines (containers) and the data processed on them | [cspm.k8s.kubernetes-safe-config](../../rules-reference/cspm.md#kubernetes-safe-config) ||
 || VEP.7 | Control of integrity of the virtual infrastructure and its configurations | [cspm.k8s.kubernetes-safe-config](../../rules-reference/cspm.md#kubernetes-safe-config) ||
-|| VEP.8 | Data backup, redundancy of virtual infrastructure hardware and software, as well as communication channels within the virtual infrastructure | [cspm.k8s.backup](../../rules-reference/cspm.md#backup) ||
 || VEP.9 | Anti-virus protection in the virtual infrastructure |
-[cspm.appsec.upload-policy](../../rules-reference/cspm.md#upload-policy)
+[cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry)
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
 [cspm.appsec.registry-recently-scan](../../rules-reference/cspm.md#registry-recently-scan)
 ||
@@ -195,11 +182,8 @@ These rules ensure protection of personal data in accordance with FSTEC Requirem
 || **Identifying and responding to incidents** (IM) {.cell-align-center} | > | > ||
 || IM.2 | Incident detection, identification and registration |
 [cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails)
-[cspm.k8s.audit-logs](../../rules-reference/cspm.md#audit-logs)
-[cspm.procedure.organization-contacts](../../rules-reference/cspm.md#organization-contacts)
 ||
 || IM.6 | Planning and taking measures to prevent the recurrence of incidents |
-[cspm.k8s.version-update](../../rules-reference/cspm.md#version-update)
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
 ||
 || **Management of configuration of the information system and the personal data protection** (MC) {.cell-align-center} | > | > ||

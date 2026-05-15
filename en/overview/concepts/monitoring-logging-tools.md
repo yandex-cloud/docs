@@ -11,6 +11,12 @@ description: '{{ yandex-cloud }} offers a number of observability (monitoring an
 * [{{ at-full-name }}](../../audit-trails/index.yaml)
 * [{{ cloud-logging-full-name }}](../../logging/index.yaml)
 
+Metrics, logs, and audit events address different needs and are complementary to each other. Metrics allow you to monitor system health and performance. Logs are used to analyze the behavior of applications and services, detect errors, and examine individual requests or operations. Audit events are records of security events and actions on resources.
+
+This data is usually analyzed by different specialists. Metrics and logs are used by [SRE](https://en.wikipedia.org/wiki/Site_reliability_engineering), [DevOps](https://en.wikipedia.org/wiki/DevOps), and other engineering teams. Audit event are handled by security administrators as well as SOC and compliance teams.
+
+Audit event collection is not strictly part of observability, but analyzing this data together with metrics and logs provides helpful insights.
+
 See the table below for availability info on observability tools for specific services:
 
 | Service | {{ metrics-name }} | {{ at-name }} Control&nbsp;Plane | {{ at-name }} Data&nbsp;Plane | {{ cloud-logging-name }} |

@@ -9,7 +9,7 @@ title: How to get DNS zone information in {{ dns-full-name }}
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing your [DNS zone](../concepts/dns-zone.md).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/compass.svg) **{{ ui-key.yacloud.dns.label_zones-list }}**.
   1. Select the DNS zone you need.
   1. Navigate to the **{{ ui-key.yacloud.common.overview }}** tab.
@@ -71,12 +71,12 @@ title: How to get DNS zone information in {{ dns-full-name }}
      * `output "zone"`: Output variable with the DNS zone type information:
        * `value`: Return value.
 
-     You can replace `public` with another variable to get the information you need. For more information about the `yandex_dns_zone` data source variables, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/dns_zone).
+     You can replace `public` with another variable to get the information you need. To learn more about the `yandex_dns_zone` data source properties, see [this {{ TF }} provider guide]({{ tf-provider-datasources-link }}/dns_zone).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
+     {{ TF }} will create all required resources and display their output variables. To check the results, run this command:
 
      ```bash
      terraform output

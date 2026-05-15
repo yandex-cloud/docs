@@ -16,7 +16,7 @@ Visualization addresses three primary objectives:
 Visualization tools:
 
 * [Dashboards](../operations/dashboard/create.md) combine multiple widgets on the same screen for integrated data presentation.
-* Overview page gives a real-time view of the data. There is an overview page for each data type: [metrics](../operations/metric/metric-explorer.md), [logs](../logs/logs-explorer.md), and [traces](../traces/operations/traces-explorer.md).
+* Overview page gives a real-time view of the data. There is an overview page for each data type: [metrics](../metrics/metric-explorer.md), [logs](../logs/logs-explorer.md), and [traces](../traces/operations/traces-explorer.md).
 
 You can filter chart data by time intervals, services, environments, etc. Also, you can also break the data down by specific attributes for a more detailed analysis.
 

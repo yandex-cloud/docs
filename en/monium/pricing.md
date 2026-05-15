@@ -22,6 +22,7 @@ When using {{ monium-name }} services, you pay for the following:
 * Exporting metrics in {{ prometheus-name }} format via the {{ monium-name }} API.
 * Writing data to {{ monium-logs-name }}.
 * Writing data to {{ traces-name }}.
+* Sending SMS and phone calls.
 
 There is no charge for writing {{ yandex-cloud }} resource metrics, reading metrics via the {{ prometheus-name }} Remote API, or reading logs and traces.
 
@@ -65,27 +66,10 @@ The minimum billing unit is one metric value. Billing for logs and traces is bas
 <MDX>
   <PriceList
     serviceIds={['{{ pcs|monium }}']}
-    excludeSkuIds={['{{ pc|monitoring.alerts.notifications.sms }}', '{{ pc|monitoring.alerts.notifications.phone }}', '{{ pc|monitoring.metrics.stored }}']}
+    excludeSkuIds={['{{ pc|monitoring.metrics.stored }}']}
     installationCode="ru"
     currency="USD"
   />
 </MDX>
-
-
-
-### Pricing for phone calls and SMS {#sms-call-prices}
-
-{% note warning %}
-
-The prices are valid as of April 24, 2026.
-
-{% endnote %}
-
-You pay for calls and SMS messages triggered by [alerts](concepts/alerting/alert.md) and [escalation policies](concepts/alerting/escalations.md). The prices below are per call and per SMS.
-
-
-
-{% include [usd.md](../_pricing/monium/usd-sms-call.md) %}
-
 
 

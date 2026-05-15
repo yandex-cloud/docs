@@ -150,48 +150,30 @@
 
 ## Настройте интеграцию с {{ KF }} для кластера {{ mch-name }} {#configure-mch-for-kf}
 
-{% list tabs group=instructions %}
+В зависимости от количества кластеров {{ mkf-name }}:
 
-- Вручную {#manual}
+* Если кластер {{ KF }} один:
 
-    В зависимости от количества кластеров {{ mkf-name }}:
+   {% list tabs group=instructions %}
 
-    * Если кластер {{ KF }} один, укажите данные для аутентификации в [настройках {{ CH }}](../../managed-clickhouse/operations/change-server-level-settings.md#yandex-cloud-interfaces) в секции **{{ ui-key.yacloud.mdb.forms.section_settings }}** → **Kafka**. В этом случае кластер {{ mch-name }} будет использовать эти данные для аутентификации при обращении к любому топику.
+   - Вручную {#manual}
 
-        Данные для аутентификации:
+       Укажите данные для аутентификации в [настройках {{ CH }}](../../managed-clickhouse/operations/change-server-level-settings.md#yandex-cloud-interfaces) в секции **{{ ui-key.yacloud.mdb.forms.section_settings }}** → **Kafka**. В этом случае кластер {{ mch-name }} будет использовать эти данные для аутентификации при обращении к любому топику.
 
-        * **Sasl mechanism** — `SCRAM-SHA-512`.
-        * **Sasl password** — [пароль пользователя для потребителя](#before-you-begin).
-        * **Sasl username** — [имя пользователя для потребителя](#before-you-begin).
-        * **Security protocol** — `SASL_SSL`.
+       Данные для аутентификации:
 
-    * Если кластеров {{ KF }} несколько, создайте нужное количество [именованных коллекций]({{ ch.docs }}/operations/named-collections) с данными для аутентификации каждого топика {{ mkf-name }}:
+       * **Sasl mechanism** — `SCRAM-SHA-512`.
+       * **Sasl password** — [пароль пользователя для потребителя](#before-you-begin).
+       * **Sasl username** — [имя пользователя для потребителя](#before-you-begin).
+       * **Security protocol** — `SASL_SSL`.
 
-        1. [Подключитесь](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) к базе данных `db1` кластера {{ mch-name }} с помощью `clickhouse-client`.
+   - {{ TF }} {#tf}
 
-        1. Выполните следующий запрос нужное количество раз, указав данные для аутентификации каждого топика:
-
-            ```sql
-            CREATE NAMED COLLECTION <имя_коллекции> AS
-                kafka_broker_list = '<FQDN_хоста-брокера>:9091',
-                kafka_topic_list = '<имя_топика>',
-                kafka_group_name = 'sample_group',
-                kafka_format = 'JSONEachRow'
-                kafka_security_protocol = 'SASL_SSL',
-                kafka_sasl_mechanism = 'SCRAM-SHA-512',
-                kafka_sasl_username = '<имя_пользователя_для_потребителя>',
-                kafka_sasl_password = '<пароль_пользователя_для_потребителя>';
-            ```
-
-- {{ TF }} {#tf}
-
-    1. В зависимости от количества кластеров {{ mkf-name }}:
-
-        - Если кластер {{ KF }} один, раскомментируйте в файле `data-from-kafka-to-clickhouse.tf` блок `clickhouse.config.kafka`:
+       1. Раскомментируйте в файле `data-from-kafka-to-clickhouse.tf` блок `clickhouse.config.kafka`:
 
             ```hcl
-            config {
-                kafka {
+            config = {
+                kafka = {
                     security_protocol = "SECURITY_PROTOCOL_SASL_SSL"
                     sasl_mechanism    = "SASL_MECHANISM_SCRAM_SHA_512"
                     sasl_username     = "<имя_пользователя_для_потребителя>"
@@ -200,33 +182,33 @@
             }
             ```
 
-        - Если кластеров {{ KF }} несколько, раскомментируйте блок `clickhouse.config.kafka_topic`, указав данные для аутентификации каждого топика {{ mkf-name }}:
+       1. Проверьте корректность настроек.
 
-            ```hcl
-            config {
-                kafka_topic {
-                    name = "<имя_топика>"
-                    settings {
-                    security_protocol = "SECURITY_PROTOCOL_SASL_SSL"
-                    sasl_mechanism    = "SASL_MECHANISM_SCRAM_SHA_512"
-                    sasl_username     = "<имя_пользователя_для_потребителя>"
-                    sasl_password     = "<пароль_пользователя_для_потребителя>"
-                    }
-                }
-            }
-            ```
+           {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-            Если в кластерах несколько топиков, продублируйте блок `kafka_topic` необходимое количество раз, указав соответствующие имена топиков.
+       1. Подтвердите изменение ресурсов.
 
-    1. Проверьте корректность настроек.
+           {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+   {% endlist %}
 
-    1. Подтвердите изменение ресурсов.
+* Если кластеров {{ KF }} несколько, создайте нужное количество [именованных коллекций]({{ ch.docs }}/operations/named-collections) с данными для аутентификации каждого топика {{ mkf-name }}:
 
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+   1. [Подключитесь](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) к базе данных `db1` кластера {{ mch-name }} с помощью `clickhouse-client`.
 
-{% endlist %}
+   1. Выполните следующий запрос нужное количество раз, указав данные для аутентификации каждого топика:
+
+       ```sql
+       CREATE NAMED COLLECTION <имя_коллекции> AS
+           kafka_broker_list = '<FQDN_хоста-брокера>:9091',
+           kafka_topic_list = '<имя_топика>',
+           kafka_group_name = 'sample_group',
+           kafka_format = 'JSONEachRow'
+           kafka_security_protocol = 'SASL_SSL',
+           kafka_sasl_mechanism = 'SCRAM-SHA-512',
+           kafka_sasl_username = '<имя_пользователя_для_потребителя>',
+           kafka_sasl_password = '<пароль_пользователя_для_потребителя>';
+       ```
 
 ## Создайте в кластере {{ mch-name }} таблицы на движке Kafka {#create-kf-table}
 

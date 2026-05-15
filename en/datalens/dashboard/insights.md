@@ -5,12 +5,6 @@ description: In this article, you will learn about Neuroanalyst on your dashboar
 
 # Neuroanalyst on your dashboard in {{ datalens-full-name }}
 
-{% note info %}
-
-This feature is at the Beta testing stage.
-
-{% endnote %}
-
 [Neuroanalyst](../concepts/neuroanalyst.md) on your dashboard is a tool that analyzes dashboard charts, generates findings based on their data, and allows you to ask follow-up questions. It also considers the following for context:
 * [Dashboard information](../operations/dashboard/add-description.md).
 * Dashboard chart header.

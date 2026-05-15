@@ -5,6 +5,6 @@
 
 Where:
 * 3 × 5: Number of versions of all secrets.
-* 720 × {{ sku|USD|lockbox.storage.v1.active_secrets|string }}: Price of storing one version of a secret per month (without VAT). 720 is the number of hours per month set for ease of calculation.
+* 720 × {{ sku|USD|lockbox.storage.v1.active_secrets|string }}: Price of storing one secret version per month, without VAT. 720: Number of hours per month, fixed for simpler calculations.
 * 20,000: Number of `get` operations.
 * {{ sku|USD|lockbox.api.v1.get|string }}: Price per 10,000 `get` operations, without VAT.

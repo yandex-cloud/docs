@@ -38,6 +38,8 @@ items:
             href: operations/dspm/create-data-source.md
           - name: Creating a scan
             href: operations/dspm/create-scan.md
+          - name: Managing data analysis
+            href: operations/dspm/discovery-mode.md
           - name: Managing scan results
             href: operations/dspm/work-with-results.md
       - name: '{{ kspm-full-name }} ({{ kspm-name }})'

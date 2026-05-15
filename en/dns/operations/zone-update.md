@@ -9,7 +9,7 @@ To update a DNS zone:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the DNS zone you want to update.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Find the zone you want to update and click ![image](../../_assets/console-icons/ellipsis.svg) in its row.
   1. In the menu that opens, click **{{ ui-key.yacloud.common.edit }}**.
   1. Edit zone settings as needed.
@@ -82,7 +82,7 @@ To update a DNS zone:
      terraform validate
      ```
      
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
      
      ```
      Success! The configuration is valid.
@@ -93,7 +93,7 @@ To update a DNS zone:
      terraform plan
      ```
   
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains errors, {{ TF }} will show them.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
      
   1. Type `yes` and press **Enter** to confirm changes.

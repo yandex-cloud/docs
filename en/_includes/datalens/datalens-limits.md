@@ -61,9 +61,11 @@ Choropleth map | 40,000 rows
 Heat map | 40,000 rows
 Polyline map | 40,000 rows
 
+
 #### API limits {#datalens-api-limits}
 
 Type of limit | Value
 ----- | -----
 Maximum number of requests per minute per {{ datalens-short-name }} instance | 200
 Maximum number of requests per minute per user | 60
+

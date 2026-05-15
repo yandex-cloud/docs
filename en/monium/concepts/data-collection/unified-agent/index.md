@@ -13,7 +13,7 @@ The agent supports:
 
 - [Collecting Linux system metrics](../../../operations/unified-agent/linux_metrics.md) (CPU, RAM, disk).
 - Collecting metrics in [Prometheus](https://prometheus.io) format.
-- Delivering metrics to {{ monitoring-full-name }}.
+- Delivering metrics to {{ monium-name }}.
 - File storage for reliable data delivery.
 
 You can find the examples of using the agent in [{#T}](../../../operations/index.md#working-with-metrics). Learn more about {{ unified-agent-short-name }} installation methods in [{#T}](./installation.md). The syntax of the agent's configuration file is described in [{#T}](./configuration.md).
@@ -53,7 +53,6 @@ All messages sent during a session contain both message metadata and session met
 Types of information to collect (inputs), pipes (filters), interim storage spaces (storages), and outputs are specified in the {{ unified-agent-short-name }} configuration file. 
 
 ## Inputs {#inputs}
-
 An input is used by the agent to receive the messages transmitted during sessions. An input can contain the session infrastructure settings used to configure various limits.
 
 See the [list of available inputs](inputs.md).
@@ -76,7 +75,6 @@ Filter types:
 See also the [list of available filters](filters.md).
 
 ## Storages {#storages}
-
 Storages serve as interim depots for messages in transit between the input and the output.
 With a storage, you will not lose your data if the agent fails to write it to the specified output, e.g., due to network issues or unavailability of the destination API.
 
@@ -85,7 +83,6 @@ See also the [storage configuration guide](storage.md).
 ## Routing {#routing}
 
 ### Pipes {#pipes}
-
 Pipes contain:
 * Sequence of filters that messages pass through.
 * Link to the storage where the messages will be stored before their transmission to the output.

@@ -14,7 +14,7 @@ Even if an [operation](../../api-design-guide/concepts/about-async.md) with reso
 
 {% endnote %}
 
-## Resources you can assign a role for {#resources}
+## Resources supporting role assignment {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
@@ -27,6 +27,7 @@ You can also assign roles for individual resources within the service:
   You can use the [{{ cloud-center }} interface]({{ link-org-cloud-center }}) to assign roles for the following resources:
 
   * [Organization](../operations/security.md)
+  * [User pool](../concepts/user-pools.md)
   * [User group](../operations/access-manage-group.md)
 
 - CLI {#cli}
@@ -58,15 +59,15 @@ You can also assign roles for individual resources within the service:
 
 {% endlist %}
 
-## Roles this service has {#roles-list}
+## Roles available in the service {#roles-list}
 
-The first diagram shows the general {{ org-full-name }} roles and some minor role groups for managing individual features.
+The first diagram shows common {{ org-full-name }} roles and a few small role groups for managing certain functions.
 
-With service roles for [organizations](#organization-manager-auditor), you can manage access to organization settings, identity federations, user pools, SAML applications, OIDC applications, users and user groups, and users' access permissions to the organization and its resources.
+With [organization](#organization-manager-auditor) service roles, you can manage access to organization settings, identity federations, user pools, SAML applications, OIDC applications, users and user groups, and users' access permissions to the organization and its resources.
 
 With [{{ oslogin }}](#organization-manager-osLogins-viewer) service roles, you can manage SSH keys, {{ oslogin }} profiles of users and service accounts, and operating mode settings at the organization level.
 
-With service roles for [{{ org-full-name }}](#organization-manager-idpInstances-billingViewer) usage management, you can control access to user data related to paid feature subscriptions and quota usage statistics.
+With service roles for management via [{{ org-full-name }}](#organization-manager-idpInstances-billingViewer), you can manage access to user data on paid feature subscriptions and quota usage statistics for the service.
 
 {% include [organization-manager-common](../../_mermaid/roles/organization-manager-common.md) %}
 
@@ -74,7 +75,7 @@ Below you will find diagrams of roles grouped by use cases. Each diagram shows b
 
 {% cut "Roles for identity federations" %}
 
-With service roles for [identity federations](#organization-manager-federations-extGroupsViewer), you can manage user access to federations, their settings, as well as user groups associated with federations from external sources.
+With service roles for [identity federations](#organization-manager-federations-extGroupsViewer), you can manage user access to federations, their settings, as well as user groups linked to federations from external sources.
 
 {% include [organization-manager-federations](../../_mermaid/roles/organization-manager-federations.md) %}
 
@@ -82,7 +83,7 @@ With service roles for [identity federations](#organization-manager-federations-
 
 {% cut "Roles for user groups" %}
 
-With service roles for [user groups](#organization-manager-groups-viewer), you can manage access to groups, their settings, as well as actions on users and service accounts belonging to those groups.
+With service roles for [user groups](#organization-manager-groups-viewer), you can manage access to groups, their settings, as well as actions on users and service accounts as group members.
 
 {% include [organization-manager-groups](../../_mermaid/roles/organization-manager-groups.md) %}
 
@@ -98,7 +99,7 @@ With service roles for [OIDC apps](#organization-manager-oauthApplications-audit
 
 {% cut "Roles for SAML apps" %}
 
-With service roles for [SAML apps](#organization-manager-samlApplications-auditor), you can manage access to SAML apps, their settings, as well as permissions to view users added to the apps.
+With service roles for [SAML apps](#organization-manager-samlApplications-auditor), you can manage user access to SAML apps, their settings, as well as viewing users added to the apps.
 
 {% include [organization-manager-samlApplications](../../_mermaid/roles/organization-manager-samlApplications.md) %}
 
@@ -380,7 +381,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
        terraform plan
        ```
 
-      If the configuration is described correctly, the terminal will display a list of the assigned roles. Otherwise, {{ TF }} will show any detected errors. 
+      If the configuration is described correctly, the terminal will display a list of the assigned roles. {{ TF }} will show any errors in the configuration. 
  
   1. Assign roles.
   

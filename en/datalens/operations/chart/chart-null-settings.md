@@ -7,7 +7,7 @@ description: "Follow this guide to\_configure the display of null values in a {{
 
 {% note info %}
 
-The setting is only available for charts that have at least one X or Y axis:
+This setting is only available for charts that have at least one X or Y axis:
 
 * Line chart
 * Area chart (stacked and normalized).
@@ -22,7 +22,7 @@ If the source data includes a row where the measure value is `null`, the chart w
 You can configure how the chart will display null values in the chart section settings:
 
 1. Click ![image](../../../_assets/console-icons/gear.svg) in the top-right corner of the section with the measure you want to configure (the icon appears on hover).
-1. Set up the **Null values** option:
+1. Configure the **Null values** option:
 
    * **Hide**: Do not show points with `null` values. On the chart, it will appear as a line gap, skipped column or point. For example, the source has a row with a date (`20.07.2022`) but the sales total for it is not specified.
       
@@ -59,7 +59,7 @@ You can configure how the chart will display null values in the chart section se
 
 {% endcut %}
 
-If a row is missing from the source data altogether, the **Null values** option will not change the way the chart is presented. For example, if the source does not have a row with a particular date (`20.07.2022`), nothing will be shown for this date on the chart.
+If a row is missing from the source data altogether, the **Null values** option will not change the chart. For example, if the source does not have a row with a particular date (`20.07.2022`), nothing will be shown for this date on the chart.
 
 {% cut "Example of a chart with a missing date" %}
 
@@ -84,9 +84,9 @@ If a row is missing from the source data altogether, the **Null values** option 
 
 {% note info %}
 
-To display a zero value for a date missing from the table:
+To display a null value for a date missing from the table:
 
-1. Add a row with this date and `null` for value to the source.
-1. In the chart settings for the relevant indicator, select **Display as 0** for the **Null values** option.
+1. Add a row with this date and `null` for the value to the source.
+1. In the chart section settings for the relevant measure, select **Display as 0** for the **Null values** option.
 
 {% endnote %}
