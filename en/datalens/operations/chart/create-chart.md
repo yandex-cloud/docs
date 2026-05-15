@@ -40,6 +40,10 @@ To create a chart copy, use one of these methods:
 
 You can also create a draft of the chart by clicking ![image](../../../_assets/console-icons/chevron-down.svg) → **Save as draft** in the upper right corner of the chart. For more information, see [{#T}](../../concepts/chart/versioning.md).
 
+## Undoing and redoing changes in charts {#undo-redo}
+
+When editing a chart, you can [undo/redo](../../concepts/chart/settings.md#undo-redo) any change introduced within the current version.
+
 
 ## Use cases {#examples}
 

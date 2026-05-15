@@ -30,12 +30,6 @@ You can filter the list of access permissions granted to a subject by:
 * ID of the granted role.
 * Assignment method, `{{ ui-key.yacloud_org.iam-bindings.subject.value_role-source-filter_direct }}` or `{{ ui-key.yacloud_org.iam-bindings.subject.value_role-source-filter_group }}`.
 
-{% note warning %}
-
-Currently, {{ ciem-full-name }} does not display subjects’ access permissions for [{{ datalens-full-name }}](../../datalens/index.yaml) resources and [billing accounts](../../billing/concepts/billing-account.md).
-
-{% endnote %}
-
 ## Revoking access permissions {#revoking-permissions}
 
 {{ ciem-full-name }} allows you to [revoke](../operations/ciem/revoke-permissions.md) excessive access permissions from individual subjects or groups and remove individual subjects from user groups.

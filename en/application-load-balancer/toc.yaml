@@ -253,6 +253,8 @@ items:
             href: tools/gwin/policies.md
           - name: Migrating apps from an ALB Ingress controller to Gwin
             href: tools/gwin/ingress-gwin-migration.md
+          - name: Attachment mechanism for Gwin integration with {{ alb-name }}
+            href: tools/gwin/gwin-alb-attachment.md
           - name: Resource configuration
             items:
               - name: Gateway

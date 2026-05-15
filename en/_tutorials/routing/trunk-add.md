@@ -6,8 +6,6 @@ In this tutorial, we will set up a direct trunk.
 
 * See our [guides](../../interconnect/concepts/index.md) to learn how this service works.
 * Select a [point of presence](../../interconnect/concepts/pops.md) for the [trunk](../../interconnect/concepts/trunk.md).
-
-
 * Select the type of an [optical transceiver](../../interconnect/concepts/transceivers.md) for {{ yandex-cloud }} equipment cross-connection in the [point of presence](../../interconnect/concepts/pops.md). We will reserve a compatible transceiver port for you on the {{ yandex-cloud }} endpoint. You will need to buy a compatible transceiver to install on your endpoint.
 * Select the [connection capacity](../../interconnect/concepts/capacity.md).
 * If you work with a {{ yandex-cloud }} solution architect, discuss with them and agree on a {{ interconnect-full-name }} service setup plan.
@@ -51,9 +49,5 @@ Where:
 
 Use the [monitoring](../../interconnect/concepts/monitoring.md#trunk-mon) service to track when the physical port of the trunk on the {{ yandex-cloud }} endpoint transitions to the operational state. If there are any issues, contact support for diagnostics and troubleshooting.
 
-{% note alert %}
-
 A private or public connection can only be established after the physical port of the trunk becomes operational.
-
-{% endnote %}
 

@@ -20,6 +20,9 @@ Go to the {{ objstorage-full-name }} bucket you specified when setting up a [reg
 #### Can I reconfigure a regular export after I create it? {#change-parameters}
 No. To change its settings (language, type of detail, bucket), [stop](../../billing/operations/get-folder-report.md#stop-export) the existing regular export and [set up a new one](../../billing/operations/get-folder-report.md#set-up-regular-download).
 
+#### Can I upload additional data for past periods within a previously created export?
+Yes. You can [upload](../../billing/operations/get-folder-report.md#additional-export) additional data into a previously created regular export. The data will become available after the next update of the regular export.
+
 #### Can I create an export for past periods using an encrypted bucket? {#past-period-encrypted}
 Yes. You can create an export for past periods using an encrypted bucket.
 

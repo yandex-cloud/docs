@@ -70,7 +70,7 @@ The infrastructure support cost includes:
             * **{{ ui-key.yacloud.component.compute.resources.field_gpu-cluster }}**: Select the `test-gpu-cluster` cluster you created earlier.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-            * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `ubuntu`. Do not use `root` or other names reserved for the OS purposes. To perform operations requiring root privileges, use the `sudo` command.
+            * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `ubuntu`. Do not use `root` or other names reserved for the OS purposes. For operations requiring root privileges, use the `sudo` command.
             * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
       1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
@@ -84,7 +84,7 @@ The infrastructure support cost includes:
 Optionally, you can:
 
 
-* [Test cluster physical state](../../compute/operations/gpu-cluster/gpu-cluster-test-physical-state.md).
+* [Test the cluster physical state](../../compute/operations/gpu-cluster/gpu-cluster-test-physical-state.md).
 * [Run parallel jobs in the cluster](../../compute/operations/gpu-cluster/gpu-cluster-mpirun-parallel.md).
 * [Test InfiniBand throughput](../../compute/operations/gpu-cluster/test-infiniband-bandwidth.md).
 
@@ -180,6 +180,10 @@ Optionally, you can:
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources you created:
+To stop incurring charges for the resources you created:
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the VM instances in {{ compute-name }}.
 1. [Delete](../../compute/operations/gpu-cluster/gpu-cluster-delete.md) the GPU cluster in {{ compute-name }}.
+
+#### See also {#see-also}
+
+* [Questions about GPUs](../../compute/qa/gpu.md)

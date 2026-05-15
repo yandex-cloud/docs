@@ -22,6 +22,7 @@ editable: false
 * Экспорт метрик в формате {{ prometheus-name }} через {{ monium-name }} API.
 * Запись данных в {{ monium-logs-name }}.
 * Запись данных в {{ traces-name }}.
+* Отправка СМС и телефонные звонки.
 
 Запись значений метрик ресурсов {{ yandex-cloud }}, чтение метрик через {{ prometheus-name }} Remote API, чтение логов и трейсов не тарифицируются.
 
@@ -83,38 +84,12 @@ editable: false
 <MDX>
   <PriceList
     serviceIds={['{{ pcs|monium }}']}
-    excludeSkuIds={['{{ pc|monitoring.alerts.notifications.sms }}', '{{ pc|monitoring.alerts.notifications.phone }}', '{{ pc|monitoring.metrics.stored }}']}
+    excludeSkuIds={['{{ pc|monitoring.metrics.stored }}']}
     installationCode="ru"
     currency="RUB"
   />
 </MDX>
 
-
-
-
-
-### Тарификация телефонных звонков и СМС {#sms-call-prices}
-
-{% note warning %}
-
-Цены действуют с 24 апреля 2026 года.
-
-{% endnote %}
-
-Тарифицируются звонки и СМС, отправляемые в рамках [алертов](concepts/alerting/alert.md) и [политик эскалаций](concepts/alerting/escalations.md). Указаны цены за 1 звонок и 1 СМС.
-
-
-{% list tabs group=pricing %}
-
-- Цены в рублях {#prices-rub}
-
-  {% include [rub.md](../_pricing/monium/rub-sms-call.md) %}
-
-- Цены в тенге {#prices-kzt}
-
-  {% include [kzt.md](../_pricing/monium/kzt-sms-call.md) %}
-
-{% endlist %}
 
 
 

@@ -74,10 +74,7 @@ default:
   billing-name: Yandex Cloud Billing
   billing-oferta-url: https://yandex.ru/legal/cloud_oferta/?lang=ru
   bitrix24-name: Битрикс24
-  brand-voice-cc: Brand Voice Call Center
-  brand-voice-core: Brand Voice Self Service
   brand-voice-name: SpeechKit Brand Voice
-  brand-voice-premium: Brand Voice Premium
   ca-address: https://storage.yandexcloud.net/mqtt/rootCA.crt
   ca-full-name: SourceCraft Code Assistant
   ca-name: Code Assistant
@@ -521,8 +518,8 @@ default:
       console:
         str-1c: 14-1c, 15-1c, 16-1c, 17-1c, 18-1c
       tf:
-        latest: '17'
-        str: 13, 13-1c, 14, 14-1c, 15, 15-1c, 16, 16-1c, 17 и 17-1c
+        latest: '18'
+        str: 14, 14-1c, 15, 15-1c, 16, 16-1c, 17, 17-1c, 18 и 18-1c
   pgadmin: "pgAdmin\_4"
   php-cli-ver: php82
   php-full-ver: PHP 8.2

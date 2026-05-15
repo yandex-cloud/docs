@@ -12,7 +12,7 @@ description: Различные сценарии использования {{ m
 * [{#T}](mkf-mmy-data-transfer.md)
 * [{#T}](cdc-data-transfer.md)
 * [{#T}](cdc-debezium.md)
-* [{#T}](wordpress-mysql.md)
+* [{#T}](wordpress-mysql/index.md)
 * [{#T}](bitrix-website/index.md)
 * [{#T}](bitrix-shop/index.md)
 * [{#T}](opencart/index.md)

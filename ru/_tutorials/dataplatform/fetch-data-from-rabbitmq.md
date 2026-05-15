@@ -150,12 +150,12 @@
     Добавьте к описанию кластера блок `clickhouse.config.rabbitmq` с именем пользователя и паролем для аутентификации {{ RMQ }}:
 
     ```hcl
-    resource "yandex_mdb_clickhouse_cluster" "clickhouse-cluster" {
+    resource "yandex_mdb_clickhouse_cluster_v2" "clickhouse-cluster" {
       ...
-      clickhouse {
+      clickhouse = {
         ...
-        config {
-          rabbitmq {
+        config = {
+          rabbitmq = {
             username = "<имя_пользователя>"
             password = "<пароль>"
           }

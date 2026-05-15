@@ -2,9 +2,9 @@
 
 Чтобы добавить программный продукт для {{ managed-k8s-name }} в {{ marketplace-short-name }}, его пакеты необходимо загрузить в [реестр](../../container-registry/concepts/registry.md) {{ yandex-cloud }}. Этот раздел поможет подготовить продукт {{ marketplace-short-name }} для {{ managed-k8s-full-name }}.
 
-Как настроить доступ к продукту по [подписке](../concepts/subscription.md), см. в разделе [Интеграция с {{ license-manager }} API](license-manager-integration.md#managed-k8s).
+Как настроить доступ к продукту по [подписке](subscription.md), см. в разделе [Интеграция с {{ license-manager }} API](../operations/license-manager-integration.md#managed-k8s).
 
-Вы также можете создать продукты для {{ compute-full-name }} на базе ОС [Linux](create-image.md), воспользовавшись соответствующими рекомендациями.
+Вы также можете создать продукты для {{ compute-full-name }} на базе ОС [Linux](compute-product.md), воспользовавшись соответствующими рекомендациями.
 
 ## Размещение и именование Docker-образов {#registry}
 
@@ -594,7 +594,7 @@ Helm, в отличие от Docker, корректно поддерживает
               required: false
         ```
 
-      * `licenseidvalue` — идентификатор [подписки](license-manager-integration.md) из {{ license-manager }} API.
+      * `licenseidvalue` — идентификатор [подписки](../operations/license-manager-integration.md) из {{ license-manager }} API.
 
         ```yaml
         user_values:

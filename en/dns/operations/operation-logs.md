@@ -9,7 +9,7 @@ All {{ dns-name }} zone activities are logged as a list of operations. Each oper
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your DNS zone.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Select the zone you need.
   1. Navigate to the ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected zone.
 
@@ -27,7 +27,7 @@ All {{ dns-name }} zone activities are logged as a list of operations. Each oper
   yc dns zone list-operations <zone_name_or_ID>
   ```
 
-  By default, information about operations is displayed as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter:
+  By default, information about operations is output as text. To get more details, specify the `yaml` or `json` output data format using `--format`:
 
   ```bash
   yc dns zone list-operations dns3fh7phb04******** --format yaml
@@ -65,7 +65,7 @@ All {{ dns-name }} zone activities are logged as a list of operations. Each oper
 
 1. [Get a zone operation list](#get-operations).
 1. Copy the ID of the operation you need.
-1. Get operation details:
+1. Get the operation details:
 
     {% list tabs group=instructions %}
 

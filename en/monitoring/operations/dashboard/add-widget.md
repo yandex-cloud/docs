@@ -20,7 +20,7 @@ You can move widgets around the dashboard and resize them.
 
 ## Chart {#graph}
 
-A chart allows you to visualize metric changes over time. You can configure charts on the dashboard or add them from the [Metrics](../metric/metric-explorer.md#add-to-dashboard) section.
+A chart allows you to visualize metric changes over time. You can configure charts on the dashboard or add them from the **Metrics** section.
 
 1. Click ![image](../../../_assets/console-icons/chart-column.svg) **{{ ui-key.yacloud_monitoring.dashboard.widget-placeholder.add-graph }}**.
 1. Configure the chart by specifying [queries](../../concepts/querying.md) and visualization of metrics.
@@ -29,7 +29,7 @@ A chart allows you to visualize metric changes over time. You can configure char
 
 ### Chart parameters {#chart-parameters}
 
-The steps you take to configure charts on the dashboard or in the [Metrics](../metric/metric-explorer.md#add-graph) section are the same.
+The steps you take to configure charts on the dashboard or in the **Metrics** section are the same.
 
 To configure a chart:
 

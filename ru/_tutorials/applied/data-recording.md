@@ -118,7 +118,7 @@
     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}** введите `my-pg-database`.
     1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** выберите `PRODUCTION`.
-    1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите `12`.
+    1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите `17`.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}**:
         * Укажите платформу `Intel Cascade Lake`.
         * Выберите тип `burstable`.

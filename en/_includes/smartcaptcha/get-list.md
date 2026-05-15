@@ -1,4 +1,4 @@
-Get a list of captchas:
+Getting a list of available CAPTCHAs:
 
 ```bash
 yc smartcaptcha captcha list

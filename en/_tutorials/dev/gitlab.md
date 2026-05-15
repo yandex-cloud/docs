@@ -42,12 +42,12 @@ The cost for maintaining a {{ GL }} server includes:
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
 
-    * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to connect your VM to. If the required [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) is not there, [create it](../../vpc/operations/subnet-create.md).
-    * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, keep `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign the VM a random external IP address from the {{ yandex-cloud }} pool or select a static address from the list if you reserved one in advance.
+    * In the **{{ ui-key.yacloud.component.compute.network-select.field_subnetwork }}** field, select the network and subnet to which you want to connect your VM. If the [network](../../vpc/concepts/network.md#network) or [subnet](../../vpc/concepts/network.md#subnet) you need does not exist yet, [create it](../../vpc/operations/subnet-create.md).
+    * In the **{{ ui-key.yacloud.component.compute.network-select.field_external }}** field, select a static IP address from the list, or leave `{{ ui-key.yacloud.component.compute.network-select.switch_auto }}` to assign your VM a random external IP address from the {{ yandex-cloud }} pool.
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-    * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username. Do not use `root` or other OS-reserved usernames. For operations requiring root privileges, use the `sudo` command.
+    * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username. Do not use `root` or other reserved usernames. For operations requiring root privileges, use the `sudo` command.
     * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `gitlab`.
@@ -57,7 +57,8 @@ Wait about five minutes until the VM is created and all its services are up and 
 
 ## Configure {{ GL }} {#confgure-gitlab}
 
-1. On the {{ compute-name }} page, select the `gitlab` VM you created and copy its public IP address.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ compute-name }}**.
+1. Select the VM instance you created, `gitlab`, and copy its public IP address.
 1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
 1. Get the {{ GL }} administrator password with the following VM command:
 
@@ -260,7 +261,7 @@ After committing, the system will automatically start testing the latest commit.
 
 ### Create an error in the project {#create}
 
-Now modify the project so it produces an error that the runner can detect during testing. Proceed as follows:
+Now modify the project so it produces an error that the runner can detect during testing. Follow these steps:
 1. Go to the project repository and open the `test.cpp` file.
 1. Click **Edit**.
 1. Update the assert so that 2 multiplied by 2 equals 5. This will cause the program to fail.
@@ -285,6 +286,6 @@ If you click the `failed` progress status and go to **Failed Jobs**, you can see
 To stop paying for your deployed server, delete the `gitlab` VM you created.
 
 If you reserved a static public IP address for this VM:
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** in your folder.
-1. Navigate to the **{{ ui-key.yacloud.vpc.switch_addresses }}** tab.
+1. From your folder, [navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+1. Open the **{{ ui-key.yacloud.vpc.switch_addresses }}** tab.
 1. Find the IP address, click ![ellipsis](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.common.delete }}**.

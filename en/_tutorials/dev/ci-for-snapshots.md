@@ -22,7 +22,7 @@ If you no longer need the VMs you created, [delete them](#clear-out).
 
 Before creating a VM:
 1. Navigate to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to work with.
-1. Make sure the selected folder has a [network](../../vpc/concepts/network.md#network) with a [subnet](../../vpc/concepts/network.md#subnet) for your VM. To do this, select **{{ vpc-name }}** on the folder dashboard. If the list contains a network, click its name to see the list of subnets. If there are no networks in the list or the selected network has no subnets, [create them](../../vpc/quickstart.md) as required.
+1. Make sure the selected folder has a [network](../../vpc/concepts/network.md#network) with a [subnet](../../vpc/concepts/network.md#subnet) for your VM. To do this, [navigate](../../console/operations/select-service.md#select-service) to **{{ vpc-name }}** on the folder page. If the list contains a network, click its name to see the list of subnets. If there are no networks in the list or the selected network has no subnets, [create them](../../vpc/quickstart.md) as required.
 
 ### Required paid resources {#paid-resources}
 
@@ -36,7 +36,7 @@ The infrastructure support cost includes:
 Create a VM where you will install a web server, your test application, and its components:
 
 1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu 18.04](/marketplace/products/yc/ubuntu-18-04-lts) public image.
@@ -270,7 +270,7 @@ To make sure the web server is properly configured and the test application is w
 
 Create a VM disk snapshot to transfer your web server configuration and test application to CI VMs.
 1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), select the folder where you created your VM.
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. Find the `ci-tutorial-test-app` VM and select it.
 1. Click **{{ ui-key.yacloud.common.stop }}**.
 1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
@@ -284,8 +284,8 @@ Create a VM disk snapshot to transfer your web server configuration and test app
 You can set up CI in {{ yandex-cloud }} by using a public image with {{ GL }} pre-installed. {{ GL }} includes tools for managing Git repositories and configuring CI.
 
 1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
-1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, navigate to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab, click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**, and select the [{{ GL }}](/marketplace/products/yc/gitlab) image.
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
@@ -319,7 +319,8 @@ Once your VM is created, the system will assign it an [IP address and a host nam
 ## Configure {{ GL }} {#configure-gitlab}
 
 To set {{ GL }} up and configure the CI process, create a new project and enter your CI login credentials:
-1. On the {{ compute-name }} page, select the created VM and copy its public IP address.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ compute-name }}**. 
+1. Select the VM instance you created and copy its public IP address.
 1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
 1. Get the {{ GL }} administrator password with the following VM command:
 
@@ -512,7 +513,7 @@ After making a commit, make sure that CI ran successfully. You should see a new 
 
 To test the new VM:
 1. Open the {{ yandex-cloud }} management console.
-1. In the folder with the VMs, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. In the folder where the VM instances were created, [navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. If you did everything correctly, you will see a new VM in the list, e.g., `ci-tutorial-test-app-1543910277`.
 1. Select the new VM and copy its public IP address.
 1. In your browser, open this link:

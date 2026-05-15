@@ -1,5 +1,13 @@
 ```mermaid
+%%{
+  init: {
+    "flowchart": { "defaultRenderer": "elk" },
+    "elk": { "nodePlacementStrategy": "BRANDES_KOEPF" }
+  }
+}%%
 flowchart BT
+    managed-redis.clusters.connector["`managed-redis.
+    clusters.connector`"] ~~~ mdb.auditor
     vpc.publicAdmin ~~~ mdb.admin
     managed-redis.auditor --> mdb.auditor
     mdb.auditor --> mdb.maintenanceTask.viewer

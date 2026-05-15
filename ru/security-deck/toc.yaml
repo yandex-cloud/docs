@@ -118,6 +118,8 @@ items:
             href: concepts/standard-compliance/yc-personal-data-protection.md
           - name: Стандарт PCI DSS в {{ yandex-cloud }}
             href: concepts/standard-compliance/yc-pci-dss.md
+          - name: Требования стандарта ГОСТ Р 57580
+            href: concepts/standard-compliance/yc-gost-57580.md
       - name: Контроль данных ({{ dspm-name }})
         href: concepts/dspm.md
       - name: Контроль {{ k8s }}® ({{ kspm-name }})

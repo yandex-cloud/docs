@@ -59,7 +59,7 @@ The cost of using {{ kms-name }} is based on:
 
 ## Cost calculation examples
 
-In the examples given, the price per month of use is indicated for reference at the rate of 720 hours per month.
+In the examples, the price per month is provided for reference based on 720 hours per month.
 
 ### Symmetric encryption {#symmetric}
 

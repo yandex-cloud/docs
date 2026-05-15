@@ -6,6 +6,11 @@ description: This section contains the {{ org-full-name }} release notes.
 
 # {{ org-full-name }} release notes
 
+## April 2026 {#april-2026}
+
+* Added the following commands for managing organization group label: `yc organization-manager group add-labels` and `yc organization-manager group remove-labels`. Added the `--labels` parameter to the `yc organization-manager group create` and `yc organization-manager group update` commands. Added the `labels` field to the [REST API](api-ref/Group/create.md) and [gRPC API](api-ref/grpc/Group/create.md) methods for creating and updating groups. {{ tag-cli }} {{ tag-api }}
+
+
 ## March 2026 {#march-2026}
 
 * Added the `yc organization-manager organization leave` command for leaving an organization. {{ tag-cli }}

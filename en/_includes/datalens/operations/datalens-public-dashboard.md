@@ -10,6 +10,14 @@
 1. In the window that opens, set up public access as follows:
 
    1. Under **Current object**, enable publishing. You will see a link for public access to the dashboard below.
+
+      {% note info %}
+
+      * The dashboard, along with all its included related objects, will be accessible to any internet user via a public access link. To copy it, click **Copy link**.
+      * The dashboard and its related objects will only be accessible to authorized users via the link in the browser's address bar, factoring in their access permissions.
+
+      {% endnote %}
+
    1. (Optional) Under **Author or link to source**, specify the link to the dashboard source or author and its text. The link will be displayed at the bottom of the dashboard.
    1. (Optional) Under **Linked objects**, select the objects to be public. By default, {{ datalens-short-name }} will automatically grant access to all linked objects.
    1. Click **Apply**.

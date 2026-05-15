@@ -17,7 +17,7 @@ subcluster_name | Subcluster name
 
 ## CPU metrics {#managed-opensearch-cpu-metrics}
 
-These metrics show the processor core workload.
+CPU core workload.
 
 The consumption type goes into the `systag` label.
 
@@ -25,17 +25,17 @@ The consumption type goes into the `systag` label.
 | ----- | ----- |
 | `cpu.fraction`<br/>`DGAUGE`, % | Guaranteed vCPU share | 
 | `cpu.guarantee`<br/>`DGAUGE`, count | Guaranteed number of cores | 
-| `cpu.guest_nice`<br/>`DGAUGE`, % | CPU core usage, `guest_nice` usage type | 
-| `cpu.guest`<br/>`DGAUGE`, % | CPU core usage, `guest` usage type | 
-| `cpu.idle`<br/>`DGAUGE`, % | CPU core usage, `idle` usage type | 
-| `cpu.iowait`<br/>`DGAUGE`, % | CPU core usage, `iowait` usage type | 
-| `cpu.irq`<br/>`DGAUGE`, % | CPU core usage, `irq` usage type | 
-| `cpu.limit`<br/>`DGAUGE`, count | Maximum number of cores in use | 
-| `cpu.nice`<br/>`DGAUGE`, % | CPU core usage, `nice` usage type | 
-| `cpu.softirq`<br/>`DGAUGE`, % | CPU core usage, `softirq` usage type | 
-| `cpu.steal`<br/>`DGAUGE`, % | CPU core usage, `steal` usage type | 
-| `cpu.system`<br/>`DGAUGE`, % | CPU core usage, `system` usage type | 
-| `cpu.user`<br/>`DGAUGE`, % | CPU core usage, `user` usage type |
+| `cpu.guest_nice`<br/>`DGAUGE`, % | CPU core usage, [guest_nice](*guest_nice) usage type |
+| `cpu.guest`<br/>`DGAUGE`, % | CPU core usage, [guest](*guest) usage type |
+| `cpu.idle`<br/>`DGAUGE`, % | CPU core usage, [idle](*idle) usage type |
+| `cpu.iowait`<br/>`DGAUGE`, % | CPU core usage, [iowait](*iowait) usage type |
+| `cpu.irq`<br/>`DGAUGE`, % | CPU core usage, [irq](*irq) usage type |
+| `cpu.limit`<br/>`DGAUGE`, count | Maximum number of cores in use |
+| `cpu.nice`<br/>`DGAUGE`, % | CPU core usage, [nice](*nice) usage type |
+| `cpu.softirq`<br/>`DGAUGE`, % | CPU core usage, [softirq](*softirq) usage type |
+| `cpu.steal`<br/>`DGAUGE`, % | CPU core usage, [steal](*steal) usage type |
+| `cpu.system`<br/>`DGAUGE`, % | CPU core usage, [system](*system) usage type |
+| `cpu.user`<br/>`DGAUGE`, % | CPU core usage, [user](*user) usage type |
 | `cpu_time_iowait_counter`<br/>`DGAUGE`, seconds | Total I/O wait time |
 | `cpu_time_iowait`<br/>`DGAUGE`, seconds | I/O wait time |
 | `cpu_time_system_counter`<br/>`DGAUGE`, seconds | Total time in system mode |
@@ -46,8 +46,8 @@ The consumption type goes into the `systag` label.
 | `cpu_utilization_by_db_15`<br/>`DGAUGE`, % | Average VM processor core (vCPU) utilization by a database over 15 seconds (%). It ranges from 0% to the [vCPU performance level](../../../compute/concepts/performance-levels.md). | 
 | `cpu_utilization_by_db_60_limit`<br/>`DGAUGE`, % | Maximum VM processor core (vCPU) utilization by a database over 60 seconds (%) |
 | `cpu_utilization_by_db_60`<br/>`DGAUGE`, % | Average VM processor core (vCPU) utilization by a database over 60 seconds (%) | 
-| `load.avg_15min`<br/>`DGAUGE`, % | Average load over 15 minutes | 
-| `load.avg_1min`<br/>`DGAUGE`, % | Average load over one minute | 
+| `load.avg_15min`<br/>`DGAUGE`, % | Average load over 15 minutes |
+| `load.avg_1min`<br/>`DGAUGE`, % | Average load over one minute |
 | `load.avg_5min`<br/>`DGAUGE`, % | Average load over five minutes |
 
 ## Disk metrics {#managed-opensearch-disk-metrics}
@@ -67,37 +67,37 @@ The consumption type goes into the `systag` label.
 | `io.avg.read_bytes`<br/>`DGAUGE`, bytes per second | Disk read speed |
 | `io.avg.read_count`<br/>`DGAUGE`, operations per second | Number of read operations per second |
 | `io.avg.read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second |
-| `io.avg.read_time`<br/>`DGAUGE`, milliseconds | Average read time for all disks |
-| `io.avg.weighted_io_time`<br/>`DGAUGE`, milliseconds | Total (weighted) time spent on I/O operations |
+| `io.avg.read_time`<br/>`DGAUGE`, ms | Average read time for all disks |
+| `io.avg.weighted_io_time`<br/>`DGAUGE`, ms | Total (weighted) time spent on I/O operations |
 | `io.avg.write_bytes`<br/>`DGAUGE`, bytes per second | Disk write speed |
 | `io.avg.write_count`<br/>`DGAUGE`, operations per second | Number of writes per second |
 | `io.avg.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second |
-| `io.avg.write_time`<br/>`DGAUGE`, milliseconds | Total time spent writing to disk |
+| `io.avg.write_time`<br/>`DGAUGE`, ms | Total time spent writing to disk |
 | `io.disk*.iops_in_progress`<br/>`DGAUGE`, count | Number of disk I/O operations in progress | 
 | `io.disk*.read_bytes`<br/>`DGAUGE`, bytes per second | Read speed for a given disk | 
 | `io.disk*.read_count`<br/>`DGAUGE`, operations per second | Number of reads per second for a given disk | 
 | `io.disk*.read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second for a given disk |
-| `io.disk*.read_time`<br/>`DGAUGE`, milliseconds | Average read time for a given disk | 
+| `io.disk*.read_time`<br/>`DGAUGE`, ms | Average read time for a given disk | 
 | `io.disk*.utilization`<br/>`DGAUGE`, % | Utilization of a given disk; disabled for network drives. | 
-| `io.disk*.weighted_io_time`<br/>`DGAUGE`, milliseconds | I/O wait time for a given disk | 
+| `io.disk*.weighted_io_time`<br/>`DGAUGE`, ms | I/O wait time for a given disk | 
 | `io.disk*.write_bytes`<br/>`DGAUGE`, bytes per second | Write speed for a given disk | 
 | `io.disk*.write_count`<br/>`DGAUGE`, operations per second | Number of writes per second for a given disk | 
 | `io.disk*.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second for a given disk |
-| `io.disk*.write_time`<br/>`DGAUGE`, milliseconds | Average write time for a given disk | 
+| `io.disk*.write_time`<br/>`DGAUGE`, ms | Average write time for a given disk | 
 | `io_quota_utilization_percentage`<br/>`DGAUGE`, % | Average percentage of disk quota usage |
 | `io_quota_utilization_percentage_burst`<br/>`DGAUGE`, % | Maximum percentage of disk quota usage |
-| `monitoring_disk.read_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes read from disk. |
+| `monitoring_disk.read_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes read from disk |
 | `monitoring_disk.read_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes read from disk |
-| `monitoring_disk.write_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes written to disk. |
+| `monitoring_disk.write_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes written to disk |
 | `monitoring_disk.write_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes written to disk |
-| `read_latency`<br/>`DGAUGE`, milliseconds | Distribution histogram for disk read request latency |
+| `read_latency`<br/>`DGAUGE`, ms | Distribution histogram for disk read request latency |
 | `read_ops`<br/>`DGAUGE`, operations per second | Average number of disk reads |
 | `read_ops_burst`<br/>`DGAUGE`, operations per second | Maximum number of disk reads |
-| `read_throttler_delay`<br/>`DGAUGE`, milliseconds | Histogram of read latency due to exceeded disk quota |
-| `write_latency`<br/>`DGAUGE`, milliseconds | Distribution histogram for disk write request latency |
+| `read_throttler_delay`<br/>`DGAUGE`, ms | Histogram of read latency due to exceeded disk quota |
+| `write_latency`<br/>`DGAUGE`, ms | Distribution histogram for disk write request latency |
 | `write_ops`<br/>`DGAUGE`, operations per second | Average number of disk write operations |
 | `write_ops_burst`<br/>`DGAUGE`, operations per second | Maximum number of disk write operations |
-| `write_throttler_delay`<br/>`DGAUGE`, milliseconds | Histogram of write latency due to exceeded disk quota |
+| `write_throttler_delay`<br/>`DGAUGE`, ms | Histogram of write latency due to exceeded disk quota |
 
 ## RAM metrics {#managed-opensearch-ram-metrics}
 
@@ -106,41 +106,41 @@ The consumption type goes into the `systag` label.
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `mem.active_bytes`<br/>`DGAUGE`, bytes | Active resident memory (frequently accessed and released when absolutely necessary) | 
-| `mem.available_bytes`<br/>`DGAUGE`, bytes | RAM usage, `available` usage type | 
-| `mem.available_percent_bytes`<br/>`DGAUGE`, % | Percentage of RAM usage, `available` usage type | 
-| `mem.buffers_bytes`<br/>`DGAUGE`, bytes | RAM usage, `buffers` usage type | 
-| `mem.cached_bytes`<br/>`DGAUGE`, bytes | RAM usage, `cached` usage type | 
-| `mem.commit_limit_bytes`<br/>`DGAUGE`, bytes | RAM usage, `commit_limit` usage type | 
-| `mem.committed_as_bytes`<br/>`DGAUGE`, bytes | RAM usage, `committed_as` usage type | 
-| `mem.dirty_bytes`<br/>`DGAUGE`, bytes | RAM usage, `dirty` usage type | 
+| `mem.available_bytes`<br/>`DGAUGE`, bytes | RAM usage, [available](*available) usage type |
+| `mem.available_percent_bytes`<br/>`DGAUGE`, % | Percentage of RAM usage, [available](*available) usage type |
+| `mem.buffers_bytes`<br/>`DGAUGE`, bytes | RAM usage, [buffers](*buffers) usage type |
+| `mem.cached_bytes`<br/>`DGAUGE`, bytes | RAM usage, [cached](*cached) usage type |
+| `mem.commit_limit_bytes`<br/>`DGAUGE`, bytes | RAM usage, [commit_limit](*commit_limit) usage type |
+| `mem.committed_as_bytes`<br/>`DGAUGE`, bytes | RAM usage, [committed_as](*committed_as) usage type |
+| `mem.dirty_bytes`<br/>`DGAUGE`, bytes | RAM usage, [dirty](*dirty) usage type |
 | `mem.free_bytes`<br/>`DGAUGE`, bytes | Amount of free RAM available, excluding `mem.buffers_bytes` and `mem.cached_bytes`. |
 | `mem.guarantee_bytes`<br/>`DGAUGE`, bytes | Guaranteed memory allocation |
-| `mem.high_free_bytes`<br/>`DGAUGE`, bytes | RAM usage, `high_free` usage type | 
-| `mem.high_total_bytes`<br/>`DGAUGE`, bytes | RAM usage, `high_total` usage type | 
-| `mem.huge_page_size_bytes`<br/>`DGAUGE`, bytes | RAM usage, `huge_page_size` usage type | 
-| `mem.huge_pages_free_bytes`<br/>`DGAUGE`, bytes | RAM usage, `huge_pages_free` usage type | 
-| `mem.huge_pages_total_bytes`<br/>`DGAUGE`, bytes | RAM usage, `huge_pages_total` usage type | 
-| `mem.inactive_bytes`<br/>`DGAUGE`, bytes | RAM usage, `inactive` usage type | 
-| `mem.limit_bytes`<br/>`DGAUGE`, bytes | Memory limit | 
-| `mem.low_free_bytes`<br/>`DGAUGE`, bytes | RAM usage, `low_free` usage type | 
-| `mem.low_total_bytes`<br/>`DGAUGE`, bytes | RAM usage, `low_total` usage type | 
-| `mem.mapped_bytes`<br/>`DGAUGE`, bytes | RAM usage, `mapped` usage type | 
-| `mem.page_tables_bytes`<br/>`DGAUGE`, bytes | RAM usage, `page_tables` usage type | 
-| `mem.shared_bytes`<br/>`DGAUGE`, bytes | RAM usage, `shared` usage type | 
-| `mem.slab_bytes`<br/>`DGAUGE`, bytes | RAM usage, `slab` usage type | 
-| `mem.sreclaimable_bytes`<br/>`DGAUGE`, bytes | RAM usage, `sreclaimable` usage type | 
-| `mem.sunreclaim_bytes`<br/>`DGAUGE`, bytes | RAM usage, `sunreclaim` usage type | 
-| `mem.swap_cached_bytes`<br/>`DGAUGE`, bytes | RAM usage, `swap_cached` usage type | 
-| `mem.swap_free_bytes`<br/>`DGAUGE`, bytes | RAM usage, `swap_free` usage type | 
-| `mem.swap_total_bytes`<br/>`DGAUGE`, bytes | RAM usage, `swap_total` usage type | 
-| `mem.total_bytes`<br/>`DGAUGE`, bytes | RAM usage, `total` usage type | 
-| `mem.used_bytes`<br/>`DGAUGE`, bytes | Amount of RAM currently used by running processes | 
-| `mem.used_percent_bytes`<br/>`DGAUGE`, % | Percentage of used RAM | 
-| `mem.vmalloc_chunk_bytes`<br/>`DGAUGE`, bytes | RAM usage, `vmalloc_chunk` usage type | 
-| `mem.vmalloc_total_bytes`<br/>`DGAUGE`, bytes | RAM usage, `vmalloc_total` usage type | 
-| `mem.vmalloc_used_bytes`<br/>`DGAUGE`, bytes | RAM usage, `vmalloc_used` usage type | 
-| `mem.write_back_bytes`<br/>`DGAUGE`, bytes | RAM usage, `write_back` usage type | 
-| `mem.write_back_tmp_bytes`<br/>`DGAUGE`, bytes | RAM usage, `write_back_tmp` usage type |
+| `mem.high_free_bytes`<br/>`DGAUGE`, bytes | RAM usage, [high_free](*high_free) usage type |
+| `mem.high_total_bytes`<br/>`DGAUGE`, bytes | RAM usage, [high_total](*high_total) usage type |
+| `mem.huge_page_size_bytes`<br/>`DGAUGE`, bytes | RAM usage, [huge_page_size](*huge_page_size) usage type |
+| `mem.huge_pages_free_bytes`<br/>`DGAUGE`, bytes | RAM usage, [huge_pages_free](*huge_pages_free) usage type |
+| `mem.huge_pages_total_bytes`<br/>`DGAUGE`, bytes | RAM usage, [huge_pages_total](*huge_pages_total) usage type |
+| `mem.inactive_bytes`<br/>`DGAUGE`, bytes | RAM usage, [inactive](*inactive) usage type |
+| `mem.limit_bytes`<br/>`DGAUGE`, bytes | Memory limit |
+| `mem.low_free_bytes`<br/>`DGAUGE`, bytes | RAM usage, [low_free](*low_free) usage type |
+| `mem.low_total_bytes`<br/>`DGAUGE`, bytes | RAM usage, [low_total](*low_total) usage type |
+| `mem.mapped_bytes`<br/>`DGAUGE`, bytes | RAM usage, [mapped](*mapped) usage type |
+| `mem.page_tables_bytes`<br/>`DGAUGE`, bytes | RAM usage, [page_tables](*page_tables) usage type |
+| `mem.shared_bytes`<br/>`DGAUGE`, bytes | RAM usage, [shared](*shared) usage type |
+| `mem.slab_bytes`<br/>`DGAUGE`, bytes | RAM usage, [slab](*slab) usage type |
+| `mem.sreclaimable_bytes`<br/>`DGAUGE`, bytes | RAM usage, [sreclaimable](*sreclaimable) usage type |
+| `mem.sunreclaim_bytes`<br/>`DGAUGE`, bytes | RAM usage, [sunreclaim](*sunreclaim) usage type |
+| `mem.swap_cached_bytes`<br/>`DGAUGE`, bytes | RAM usage, [swap_cached](*swap_cached) usage type |
+| `mem.swap_free_bytes`<br/>`DGAUGE`, bytes | RAM usage, [swap_free](*swap_free) usage type |
+| `mem.swap_total_bytes`<br/>`DGAUGE`, bytes | RAM usage, [swap_total](*swap_total) usage type |
+| `mem.total_bytes`<br/>`DGAUGE`, bytes | RAM usage, [total](*total) usage type |
+| `mem.used_bytes`<br/>`DGAUGE`, bytes | Amount of RAM currently used by running processes |
+| `mem.used_percent_bytes`<br/>`DGAUGE`, % | Percentage of used RAM |
+| `mem.vmalloc_chunk_bytes`<br/>`DGAUGE`, bytes | RAM usage, [vmalloc_chunk](*vmalloc_chunk) usage type |
+| `mem.vmalloc_total_bytes`<br/>`DGAUGE`, bytes | RAM usage, [vmalloc_total](*vmalloc_total) usage type |
+| `mem.vmalloc_used_bytes`<br/>`DGAUGE`, bytes | RAM usage, [vmalloc_used](*vmalloc_used) usage type |
+| `mem.write_back_bytes`<br/>`DGAUGE`, bytes | RAM usage, [write_back](*write_back) usage type |
+| `mem.write_back_tmp_bytes`<br/>`DGAUGE`, bytes | RAM usage, [write_back_tmp](*write_back_tmp) usage type |
 
 ## Network metrics {#managed-opensearch-net-metrics}
 | Name<br/>Type, units | Description |
@@ -159,24 +159,24 @@ The consumption type goes into the `systag` label.
 | Name<br/>Type, units | Description |
 | ----- | ----- |
 | `active`<br/>`DGAUGE`, count | Active resident memory (frequently accessed and released when absolutely necessary) |
-| `available`<br/>`DGAUGE`, count | RAM usage, `available` usage type |
-| `available_percent`<br/>`DGAUGE`, % | Percentage of RAM usage, `available` usage type |
-| `buffered`<br/>`DGAUGE`, bytes | RAM usage, `buffered` usage type |
-| `cached`<br/>`DGAUGE`, bytes | RAM usage, `cached` usage type |
-| `commit_limit`<br/>`DGAUGE`, bytes | RAM usage, `commit_limit` usage type |
-| `committed_as`<br/>`DGAUGE`, bytes | RAM usage, `committed_as` usage type |
+| `available`<br/>`DGAUGE`, count | RAM usage, [available](*available) usage type |
+| `available_percent`<br/>`DGAUGE`, % | Percentage of RAM usage, [available](*available) usage type |
+| `buffered`<br/>`DGAUGE`, bytes | RAM usage, [buffered](*buffered) usage type |
+| `cached`<br/>`DGAUGE`, bytes | RAM usage, [cached](*cached) usage type |
+| `commit_limit`<br/>`DGAUGE`, bytes | RAM usage, [commit_limit](*commit_limit) usage type |
+| `committed_as`<br/>`DGAUGE`, bytes | RAM usage, [committed_as](*committed_as) usage type |
 | `count`<br/>`DGAUGE`, objects | Number of objects |
-| `dirty`<br/>`DGAUGE`, bytes | RAM usage, `dirty` usage type | 
-| `free`<br/>`DGAUGE`, bytes | RAM usage, `free` usage type | 
-| `high_free`<br/>`DGAUGE`, bytes | RAM usage, `high_free` usage type | 
-| `high_total`<br/>`DGAUGE`, bytes | RAM usage, `high_total` usage type | 
+| `dirty`<br/>`DGAUGE`, bytes | RAM usage, [dirty](*dirty) usage type |
+| `free`<br/>`DGAUGE`, bytes | RAM usage, [free](*free) usage type |
+| `high_free`<br/>`DGAUGE`, bytes | RAM usage, [high_free](*high_free) usage type |
+| `high_total`<br/>`DGAUGE`, bytes | RAM usage, [high_total](*high_total) usage type |
 | `hosts.ha`<br/>`DGAUGE`, count | Number of nodes with enabled fault tolerance |
 | `hosts.subcluster.dashboards.total`<br/>`DGAUGE`, count | Number of Dashboards subcluster nodes |
 | `hosts.subcluster.opensearch.total`<br/>`DGAUGE`, count | Number of {{ OS }} subcluster nodes |
 | `hosts.total`<br/>`DGAUGE`, count | Number of cluster nodes |
-| `huge_page_size`<br/>`DGAUGE`, bytes | RAM usage, `huge_page_size` usage type | 
-| `huge_pages_free`<br/>`DGAUGE`, bytes | RAM usage, `huge_pages_free` usage type | 
-| `huge_pages_total`<br/>`DGAUGE`, bytes | RAM usage, `huge_pages_total` usage type | 
+| `huge_page_size`<br/>`DGAUGE`, bytes | RAM usage, [huge_page_size](*huge_page_size) usage type |
+| `huge_pages_free`<br/>`DGAUGE`, bytes | RAM usage, [huge_pages_free](*huge_pages_free) usage type |
+| `huge_pages_total`<br/>`DGAUGE`, bytes | RAM usage, [huge_pages_total](*huge_pages_total) usage type |
 | `icmp_inaddrmaskreps`<br/>`DGAUGE`, count | Number of ICMP address mask reply messages received from the polled node  | 
 | `icmp_inaddrmasks`<br/>`DGAUGE`, count | Number of ICMP address mask request messages received | 
 | `icmp_incsumerrors`<br/>`DGAUGE`, count | Total IP packets with checksum errors | 
@@ -212,7 +212,7 @@ The consumption type goes into the `systag` label.
 | `icmpmsg_outtype3`<br/>`DGAUGE`, count | Number of ICMP type 3 (destination unreachable) messages sent  | 
 | `icmpmsg_outtype8`<br/>`DGAUGE`, count | Total number of ICMP type 8 (echo request) messages sent  | 
 | `icmpmsg_outtype11`<br/>`DGAUGE`, count | Total number of ICMP type 11 (time exceeded) messages sent |
-| `inactive`<br/>`DGAUGE`, bytes | RAM usage, `inactive` usage type | 
+| `inactive`<br/>`DGAUGE`, bytes | RAM usage, [inactive](*inactive) usage type |
 | `index_docs_count`<br/>`DGAUGE`, count | Number of documents in the index. Displays 10 indexes with the largest number of documents. Only applies to indexes larger than 1 MB.<br/>The `index` special label is the index name. |
 | `index_primary_store_size`<br/>`DGAUGE`, bytes | Index size. Displays 10 largest indexes. Only applies to indexes larger than 1 MB.<br/>The `index` special label is the index name. |
 | `inodes_free`<br/>`DGAUGE`, count | Free inodes | 
@@ -241,28 +241,28 @@ The consumption type goes into the `systag` label.
 | `ip_reasmoks`<br/>`DGAUGE`, count | Number of IP packets successfully reassembled | 
 | `ip_reasmreqds`<br/>`DGAUGE`, count | Number of received IP fragments requiring reassembly in the object in question | 
 | `ip_reasmtimeout`<br/>`DGAUGE`, seconds | Maximum time, in seconds, received fragments are kept while awaiting reassembly in the object in question. | 
-| `low_free`<br/>`DGAUGE`, bytes | RAM usage, `low_free` usage type | 
-| `low_total`<br/>`DGAUGE`, bytes | RAM usage, `low_total` usage type | 
+| `low_free`<br/>`DGAUGE`, bytes | RAM usage, [low_free](*low_free) usage type |
+| `low_total`<br/>`DGAUGE`, bytes | RAM usage, [low_total](*low_total) usage type |
 | `memory_pss`<br/>`DGAUGE`, byte | Proportional memory size used by the process (Proportional Set Size), including shared memory pages |
-| `mapped`<br/>`DGAUGE`, bytes | RAM usage, `mapped` usage type | 
+| `mapped`<br/>`DGAUGE`, bytes | RAM usage, [mapped](*mapped) usage type |
 | `merged_reads`<br/>`DGAUGE`, count | Number of merged disk reads | 
 | `merged_writes`<br/>`DGAUGE`, count | Number of merged disk writes | 
 | `n_cpus`<br/>`DGAUGE`, count | Maximum number of cores in use | 
 | `n_unique_users`<br/>`DGAUGE`, count | Number of unique users or accounts engaging with the system |
 | `n_users`<br/>`DGAUGE`, count | Limit on the number of users | 
-| `page_tables`<br/>`DGAUGE`, bytes | RAM usage, `page_tables` usage type | 
+| `page_tables`<br/>`DGAUGE`, bytes | RAM usage, [page_tables](*page_tables) usage type |
 | `read_bytes`<br/>`DGAUGE`, bytes per second | Read speed for a given disk | 
 | `read_count`<br/>`DGAUGE`, operations per second | Number of reads per second for a given disk | 
 | `read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second |
-| `read_time`<br/>`DGAUGE`, milliseconds | Average disk read time | 
+| `read_time`<br/>`DGAUGE`, ms | Average disk read time | 
 | `running`<br/>`DGAUGE`, 0/1 | It can be either `1` if the service is running or `0` if it is not. |
-| `shared`<br/>`DGAUGE`, bytes | RAM usage, `shared` usage type | 
-| `slab`<br/>`DGAUGE`, bytes | RAM usage, `slab` usage type | 
-| `sreclaimable`<br/>`DGAUGE`, bytes | RAM usage, `sreclaimable` usage type | 
-| `sunreclaim`<br/>`DGAUGE`, bytes | RAM usage, `sunreclaim` usage type | 
-| `swap_cached`<br/>`DGAUGE`, bytes | RAM usage, `swap_cached` usage type | 
-| `swap_free`<br/>`DGAUGE`, bytes | RAM usage, `swap_free` usage type | 
-| `swap_total`<br/>`DGAUGE`, bytes | RAM usage, `swap_total` usage type | 
+| `shared`<br/>`DGAUGE`, bytes | RAM usage, [shared](*shared) usage type |
+| `slab`<br/>`DGAUGE`, bytes | RAM usage, [slab](*slab) usage type |
+| `sreclaimable`<br/>`DGAUGE`, bytes | RAM usage, [sreclaimable](*sreclaimable) usage type |
+| `sunreclaim`<br/>`DGAUGE`, bytes | RAM usage, [sunreclaim](*sunreclaim) usage type |
+| `swap_cached`<br/>`DGAUGE`, bytes | RAM usage, [swap_cached](*swap_cached) usage type |
+| `swap_free`<br/>`DGAUGE`, bytes | RAM usage, [swap_free](*swap_free) usage type |
+| `swap_total`<br/>`DGAUGE`, bytes | RAM usage, [swap_total](*swap_total) usage type |
 | `tcp_activeopens`<br/>`DGAUGE`, count | Number of times TCP connections have made a direct transition from the `CLOSED` state to `SYN-SENT`. | 
 | `tcp_attemptfails`<br/>`DGAUGE`, count | Number of times TCP connections have made a direct transition to the `CLOSED` state from either the `SYN-SENT` or `SYN-RCVD` state, plus the number of direct TCP connection transitions. | 
 | `tcp_currestab`<br/>`DGAUGE`, count | Current number of TCP connections for the `ESTABLISHED` or `CLOSE WAIT` state | 
@@ -276,9 +276,9 @@ The consumption type goes into the `systag` label.
 | `tcp_passiveopens`<br/>`DGAUGE`, count | Number of times TCP connections have made a direct transition to the `SYN-RCVD` state from `LISTEN` | 
 | `tcp_retranssegs`<br/>`DGAUGE`, count | Total segments retransmitted, i.e., number of TCP segments sent containing one or more previously transmitted octets. | 
 | `tcp_rtoalgorithm`<br/>`DGAUGE` | Algorithm used to determine the timeout for retransmitting unacknowledged octets |
-| `tcp_rtomax`<br/>`DGAUGE`, milliseconds | Maximum TCP retransmission timeout, in milliseconds | 
-| `tcp_rtomin`<br/>`DGAUGE`, milliseconds | Minimum TCP retransmission timeout, in milliseconds | 
-| `total`<br/>`DGAUGE`, bytes | RAM usage, `total` usage type | 
+| `tcp_rtomax`<br/>`DGAUGE`, ms | Maximum TCP retransmission timeout, in milliseconds | 
+| `tcp_rtomin`<br/>`DGAUGE`, ms | Minimum TCP retransmission timeout, in milliseconds | 
+| `total`<br/>`DGAUGE`, bytes | RAM usage, [total](*total) usage type |
 | `udp_ignoredmulti`<br/>`DGAUGE`, count | Number of UDP multicast packets ignored | 
 | `udp_incsumerrors`<br/>`DGAUGE`, count | This value increases when a received UDP packet contains an invalid kernel code checksum. | 
 | `udp_indatagrams`<br/>`DGAUGE`, count | Total UDP packets received  | 
@@ -298,28 +298,28 @@ The consumption type goes into the `systag` label.
 | `udplite_rcvbuferrors`<br/>`DGAUGE`, count | This value increases when no memory can be allocated to process an inbound UDP-Lite packet. | 
 | `udplite_sndbuferrors`<br/>`DGAUGE`, count | This value increases when no memory can be allocated to send an inbound UDP-Lite packet. | 
 | `uptime`<br/>`DGAUGE`, % | Uptime percentage | 
-| `usage_guest`<br/>`DGAUGE`, % | CPU core usage, `guest` usage type | 
-| `usage_guest_nice`<br/>`DGAUGE`, % | CPU core usage, `guest_nice` usage type | 
-| `usage_idle`<br/>`DGAUGE`, % | CPU core usage, `idle` usage type | 
-| `usage_iowait`<br/>`DGAUGE`, % | CPU core usage, `iowait` usage type | 
-| `usage_irq`<br/>`DGAUGE`, % | CPU core usage, `irq` usage type | 
-| `usage_nice`<br/>`DGAUGE`, % | CPU core usage, `nice` usage type | 
-| `usage_softirq`<br/>`DGAUGE`, % | CPU core usage, `softirq` usage type | 
-| `usage_steal`<br/>`DGAUGE`, % | CPU core usage, `steal` usage type | 
-| `usage_system`<br/>`DGAUGE`, % | CPU core usage, `system` usage type | 
-| `usage_user`<br/>`DGAUGE`, % | CPU core usage, `user` usage type | 
-| `used`<br/>`DGAUGE`, bytes | RAM usage, `used` usage type | 
-| `used_percent`<br/>`DGAUGE`, % | Percentage of RAM usage, `used` usage type | 
-| `vmalloc_chunk`<br/>`DGAUGE`, bytes | RAM usage, `vmalloc_chunk` usage type | 
-| `vmalloc_total`<br/>`DGAUGE`, bytes | RAM usage, `vmalloc_total` usage type | 
-| `vmalloc_used`<br/>`DGAUGE`, bytes | RAM usage, `vmalloc_used` usage type | 
-| `weighted_io_time`<br/>`DGAUGE`, milliseconds | I/O wait time | 
-| `write_back`<br/>`DGAUGE`, bytes | RAM usage, `write_back` usage type | 
-| `write_back_tmp`<br/>`DGAUGE`, bytes | RAM usage, `write_back_tmp` usage type |
-| `write_bytes`<br/>`DGAUGE`, bytes per second | Disk write speed | 
-| `write_count`<br/>`DGAUGE`, operations per second | Number of writes per second | 
-| `write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second for a given disk | 
-| `write_time`<br/>`DGAUGE`, milliseconds | Average disk write time | 
+| `usage_guest`<br/>`DGAUGE`, % | CPU core usage, [guest](*guest) usage type |
+| `usage_guest_nice`<br/>`DGAUGE`, % | CPU core usage, [guest_nice](*guest_nice) usage type |
+| `usage_idle`<br/>`DGAUGE`, % | CPU core usage, [idle](*idle) usage type |
+| `usage_iowait`<br/>`DGAUGE`, % | CPU core usage, [iowait](*iowait) usage type |
+| `usage_irq`<br/>`DGAUGE`, % | CPU core usage, [irq](*irq) usage type |
+| `usage_nice`<br/>`DGAUGE`, % | CPU core usage, [nice](*nice) usage type |
+| `usage_softirq`<br/>`DGAUGE`, % | CPU core usage, [softirq](*softirq) usage type |
+| `usage_steal`<br/>`DGAUGE`, % | CPU core usage, [steal](*steal) usage type |
+| `usage_system`<br/>`DGAUGE`, % | CPU core usage, [system](*system) usage type |
+| `usage_user`<br/>`DGAUGE`, % | CPU core usage, [user](*user) usage type |
+| `used`<br/>`DGAUGE`, bytes | RAM usage, [used](*used) usage type |
+| `used_percent`<br/>`DGAUGE`, % | Percentage of RAM usage, [used](*used) usage type |
+| `vmalloc_chunk`<br/>`DGAUGE`, bytes | RAM usage, [vmalloc_chunk](*vmalloc_chunk) usage type |
+| `vmalloc_total`<br/>`DGAUGE`, bytes | RAM usage, [vmalloc_total](*vmalloc_total) usage type |
+| `vmalloc_used`<br/>`DGAUGE`, bytes | RAM usage, [vmalloc_used](*vmalloc_used) usage type |
+| `weighted_io_time`<br/>`DGAUGE`, ms | I/O wait time | 
+| `write_back`<br/>`DGAUGE`, bytes | RAM usage, [write_back](*write_back) usage type |
+| `write_back_tmp`<br/>`DGAUGE`, bytes | RAM usage, [write_back_tmp](*write_back_tmp) usage type |
+| `write_bytes`<br/>`DGAUGE`, bytes per second | Disk write speed |
+| `write_count`<br/>`DGAUGE`, operations per second | Number of writes per second |
+| `write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second for a given disk |
+| `write_time`<br/>`DGAUGE`, ms | Average disk write time |
 
 #### {{ OS }} native metrics {#managed-opensearch-system-metrics}
 
@@ -331,15 +331,15 @@ The consumption type goes into the `systag` label.
 | `opensearch_above_low_watermark`<br/>`DGAUGE`, 0/1 | 
 | `opensearch_discovered_cluster_manager`<br/>`DGAUGE`, 0/1 | 
 | `opensearch_discovered_master`<br/>`DGAUGE`, 0/1 | 
-| `opensearch_fs_io_stats_total_io_time_in_millis`<br/>`DGAUGE`, milliseconds | 
+| `opensearch_fs_io_stats_total_io_time_in_millis`<br/>`DGAUGE`, ms | 
 | `opensearch_fs_io_stats_total_operations`<br/>`DGAUGE`, count | 
 | `opensearch_fs_io_stats_total_queue_size`<br/>`DGAUGE`, count | 
 | `opensearch_fs_io_stats_total_read_kilobytes`<br/>`DGAUGE`, kilobytes | 
 | `opensearch_fs_io_stats_total_read_operations`<br/>`DGAUGE`, count | 
-| `opensearch_fs_io_stats_total_read_time`<br/>`DGAUGE`, milliseconds | 
+| `opensearch_fs_io_stats_total_read_time`<br/>`DGAUGE`, ms | 
 | `opensearch_fs_io_stats_total_write_kilobytes`<br/>`DGAUGE`, kilobytes | 
 | `opensearch_fs_io_stats_total_write_operations`<br/>`DGAUGE`, count | 
-| `opensearch_fs_io_stats_total_write_time`<br/>`DGAUGE`, milliseconds | 
+| `opensearch_fs_io_stats_total_write_time`<br/>`DGAUGE`, ms | 
 | `opensearch_fs_total_available_in_bytes`<br/>`DGAUGE`, bytes | 
 | `opensearch_fs_total_cache_reserved_in_bytes`<br/>`DGAUGE`, bytes | 
 | `opensearch_fs_total_free_in_bytes`<br/>`DGAUGE`, bytes | 
@@ -354,35 +354,35 @@ The consumption type goes into the `systag` label.
 | `opensearch_indices_fielddata_evictions`<br/>`DGAUGE`, count | 
 | `opensearch_indices_fielddata_memory_size_in_bytes`<br/>`DGAUGE`, bytes | 
 | `opensearch_indices_flush_periodic`<br/>`DGAUGE`, count | 
-| `opensearch_indices_flush_total_time_in_millis`<br/>`DGAUGE`, milliseconds | 
+| `opensearch_indices_flush_total_time_in_millis`<br/>`DGAUGE`, ms | 
 | `opensearch_indices_flush_total`<br/>`DGAUGE`, count | 
 | `opensearch_indices_get_current`<br/>`DGAUGE`, count | 
-| `opensearch_indices_get_exists_time_in_millis`<br/>`DGAUGE`, milliseconds | 
+| `opensearch_indices_get_exists_time_in_millis`<br/>`DGAUGE`, ms | 
 | `opensearch_indices_get_exists_total`<br/>`DGAUGE`, count | 
-| `opensearch_indices_get_missing_time_in_millis`<br/>`DGAUGE`, milliseconds | 
+| `opensearch_indices_get_missing_time_in_millis`<br/>`DGAUGE`, ms | 
 | `opensearch_indices_get_missing_total`<br/>`DGAUGE`, count | 
-| `opensearch_indices_get_time_in_millis`<br/>`DGAUGE`, milliseconds | 
+| `opensearch_indices_get_time_in_millis`<br/>`DGAUGE`, ms | 
 | `opensearch_indices_get_total`<br/>`DGAUGE`, count |
 | `opensearch_indices_indexing_delete_current`<br/>`DGAUGE`, count |
-| `opensearch_indices_indexing_delete_time_in_millis`<br/>`DGAUGE`, milliseconds | 
+| `opensearch_indices_indexing_delete_time_in_millis`<br/>`DGAUGE`, ms | 
 | `opensearch_indices_indexing_delete_total`<br/>`DGAUGE`, count | 
 | `opensearch_indices_indexing_doc_status_2xx`<br/>`DGAUGE`, count | 
 | `opensearch_indices_indexing_doc_status_4xx`<br/>`DGAUGE`, count | 
 | `opensearch_indices_indexing_index_current`<br/>`DGAUGE`, count | 
 | `opensearch_indices_indexing_index_failed`<br/>`DGAUGE`, count | 
-| `opensearch_indices_indexing_index_time_in_millis`<br/>`DGAUGE`, milliseconds | 
+| `opensearch_indices_indexing_index_time_in_millis`<br/>`DGAUGE`, ms | 
 | `opensearch_indices_indexing_index_total`<br/>`DGAUGE`, count | 
 | `opensearch_indices_indexing_noop_update_total`<br/>`DGAUGE`, count | 
-| `opensearch_indices_indexing_throttle_time_in_millis`<br/>`DGAUGE`, milliseconds | 
+| `opensearch_indices_indexing_throttle_time_in_millis`<br/>`DGAUGE`, ms | 
 | `opensearch_indices_merges_current_docs`<br/>`DGAUGE`, count | 
 | `opensearch_indices_merges_current_size_in_bytes`<br/>`DGAUGE`, bytes | 
 | `opensearch_indices_merges_current`<br/>`DGAUGE`, count | 
 | `opensearch_indices_merges_total_auto_throttle_in_bytes`<br/>`DGAUGE`, bytes | 
 | `opensearch_indices_merges_total_docs`<br/>`DGAUGE`, count | 
 | `opensearch_indices_merges_total_size_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_indices_merges_total_stopped_time_in_millis`<br/>`DGAUGE`, milliseconds | 
-| `opensearch_indices_merges_total_throttled_time_in_millis`<br/>`DGAUGE`, milliseconds | 
-| `opensearch_indices_merges_total_time_in_millis`<br/>`DGAUGE`, milliseconds | 
+| `opensearch_indices_merges_total_stopped_time_in_millis`<br/>`DGAUGE`, ms | 
+| `opensearch_indices_merges_total_throttled_time_in_millis`<br/>`DGAUGE`, ms | 
+| `opensearch_indices_merges_total_time_in_millis`<br/>`DGAUGE`, ms | 
 | `opensearch_indices_merges_total`<br/>`DGAUGE`, count | 
 | `opensearch_indices_merges_unreferenced_file_cleanups_performed`<br/>`DGAUGE`, count | 
 | `opensearch_indices_query_cache_cache_count`<br/>`DGAUGE`, count | 
@@ -394,11 +394,11 @@ The consumption type goes into the `systag` label.
 | `opensearch_indices_query_cache_total_count`<br/>`DGAUGE`, count | 
 | `opensearch_indices_recovery_current_as_source`<br/>`DGAUGE`, count | 
 | `opensearch_indices_recovery_current_as_target`<br/>`DGAUGE`, count | 
-| `opensearch_indices_recovery_throttle_time_in_millis`<br/>`DGAUGE`, milliseconds | 
-| `opensearch_indices_refresh_external_total_time_in_millis`<br/>`DGAUGE`, milliseconds |
+| `opensearch_indices_recovery_throttle_time_in_millis`<br/>`DGAUGE`, ms | 
+| `opensearch_indices_refresh_external_total_time_in_millis`<br/>`DGAUGE`, ms |
 | `opensearch_indices_refresh_external_total`<br/>`DGAUGE`, count | 
 | `opensearch_indices_refresh_listeners`<br/>`DGAUGE`, count | 
-| `opensearch_indices_refresh_total_time_in_millis`<br/>`DGAUGE`, milliseconds |
+| `opensearch_indices_refresh_total_time_in_millis`<br/>`DGAUGE`, ms |
 | `opensearch_indices_refresh_total`<br/>`DGAUGE`, count | 
 | `opensearch_indices_request_cache_evictions`<br/>`DGAUGE`, count | 
 | `opensearch_indices_request_cache_hit_count`<br/>`DGAUGE`, count | 
@@ -406,41 +406,41 @@ The consumption type goes into the `systag` label.
 | `opensearch_indices_request_cache_miss_count`<br/>`DGAUGE`, count | 
 | `opensearch_indices_search_concurrent_avg_slice_count`<br/>`DGAUGE`, count |
 | `opensearch_indices_search_concurrent_query_current`<br/>`DGAUGE`, count | 
-| `opensearch_indices_search_concurrent_query_time_in_millis`<br/>`DGAUGE`, milliseconds | 
+| `opensearch_indices_search_concurrent_query_time_in_millis`<br/>`DGAUGE`, ms | 
 | `opensearch_indices_search_concurrent_query_total`<br/>`DGAUGE`, count | 
 | `opensearch_indices_search_fetch_current`<br/>`DGAUGE`, count | 
-| `opensearch_indices_search_fetch_time_in_millis`<br/>`DGAUGE`, milliseconds |
+| `opensearch_indices_search_fetch_time_in_millis`<br/>`DGAUGE`, ms |
 | `opensearch_indices_search_fetch_total`<br/>`DGAUGE`, count | 
 | `opensearch_indices_search_open_contexts`<br/>`DGAUGE`, count | 
 | `opensearch_indices_search_point_in_time_current`<br/>`DGAUGE`, count | 
-| `opensearch_indices_search_point_in_time_time_in_millis`<br/>`DGAUGE`, milliseconds | 
+| `opensearch_indices_search_point_in_time_time_in_millis`<br/>`DGAUGE`, ms | 
 | `opensearch_indices_search_point_in_time_total`<br/>`DGAUGE`, count | 
 | `opensearch_indices_search_query_current`<br/>`DGAUGE`, count | 
-| `opensearch_indices_search_query_time_in_millis`<br/>`DGAUGE`, milliseconds | 
+| `opensearch_indices_search_query_time_in_millis`<br/>`DGAUGE`, ms | 
 | `opensearch_indices_search_query_total`<br/>`DGAUGE`, count | 
 | `opensearch_indices_search_request_can_match_current`<br/>`DGAUGE`, count | 
-| `opensearch_indices_search_request_can_match_time_in_millis`<br/>`DGAUGE`, milliseconds | 
+| `opensearch_indices_search_request_can_match_time_in_millis`<br/>`DGAUGE`, ms | 
 | `opensearch_indices_search_request_can_match_total`<br/>`DGAUGE`, count | 
 | `opensearch_indices_search_request_dfs_pre_query_current`<br/>`DGAUGE`, count | 
-| `opensearch_indices_search_request_dfs_pre_query_time_in_millis`<br/>`DGAUGE`, milliseconds | 
+| `opensearch_indices_search_request_dfs_pre_query_time_in_millis`<br/>`DGAUGE`, ms | 
 | `opensearch_indices_search_request_dfs_pre_query_total`<br/>`DGAUGE`, count | 
 | `opensearch_indices_search_request_dfs_query_current`<br/>`DGAUGE`, count | 
-| `opensearch_indices_search_request_dfs_query_time_in_millis`<br/>`DGAUGE`, milliseconds | 
+| `opensearch_indices_search_request_dfs_query_time_in_millis`<br/>`DGAUGE`, ms | 
 | `opensearch_indices_search_request_dfs_query_total`<br/>`DGAUGE`, count | 
 | `opensearch_indices_search_request_expand_current`<br/>`DGAUGE`, count |
-| `opensearch_indices_search_request_expand_time_in_millis`<br/>`DGAUGE`, milliseconds |
+| `opensearch_indices_search_request_expand_time_in_millis`<br/>`DGAUGE`, ms |
 | `opensearch_indices_search_request_expand_total`<br/>`DGAUGE`, count |
 | `opensearch_indices_search_request_fetch_current`<br/>`DGAUGE`, count |
-| `opensearch_indices_search_request_fetch_time_in_millis`<br/>`DGAUGE`, milliseconds |
+| `opensearch_indices_search_request_fetch_time_in_millis`<br/>`DGAUGE`, ms |
 | `opensearch_indices_search_request_fetch_total`<br/>`DGAUGE`, count |
 | `opensearch_indices_search_request_query_current`<br/>`DGAUGE`, count |
-| `opensearch_indices_search_request_query_time_in_millis`<br/>`DGAUGE`, milliseconds |
+| `opensearch_indices_search_request_query_time_in_millis`<br/>`DGAUGE`, ms |
 | `opensearch_indices_search_request_query_total`<br/>`DGAUGE`, count |
 | `opensearch_indices_search_scroll_current`<br/>`DGAUGE`, count | 
-| `opensearch_indices_search_scroll_time_in_millis`<br/>`DGAUGE`, milliseconds |
+| `opensearch_indices_search_scroll_time_in_millis`<br/>`DGAUGE`, ms |
 | `opensearch_indices_search_scroll_total`<br/>`DGAUGE`, count | 
 | `opensearch_indices_search_suggest_current`<br/>`DGAUGE`, count | 
-| `opensearch_indices_search_suggest_time_in_millis`<br/>`DGAUGE`, milliseconds |
+| `opensearch_indices_search_suggest_time_in_millis`<br/>`DGAUGE`, ms |
 | `opensearch_indices_search_suggest_total`<br/>`DGAUGE`, count | 
 | `opensearch_indices_segments_count`<br/>`DGAUGE`, count | 
 | `opensearch_indices_segments_doc_values_memory_in_bytes`<br/>`DGAUGE`, bytes | 
@@ -453,12 +453,12 @@ The consumption type goes into the `systag` label.
 | `opensearch_indices_segments_remote_store_download_total_download_size_failed_bytes`<br/>`DGAUGE`, bytes |
 | `opensearch_indices_segments_remote_store_download_total_download_size_started_bytes`<br/>`DGAUGE`, bytes |
 | `opensearch_indices_segments_remote_store_download_total_download_size_succeeded_bytes`<br/>`DGAUGE`, bytes |
-| `opensearch_indices_segments_remote_store_download_total_time_spent_in_millis`<br/>`DGAUGE`, milliseconds |
-| `opensearch_indices_segments_remote_store_upload_max_refresh_time_lag_in_millis`<br/>`DGAUGE`, milliseconds |
+| `opensearch_indices_segments_remote_store_download_total_time_spent_in_millis`<br/>`DGAUGE`, ms |
+| `opensearch_indices_segments_remote_store_upload_max_refresh_time_lag_in_millis`<br/>`DGAUGE`, ms |
 | `opensearch_indices_segments_remote_store_upload_pressure_total_rejections`<br/>`DGAUGE`, count |
 | `opensearch_indices_segments_remote_store_upload_refresh_size_lag_max_bytes`<br/>`DGAUGE`, bytes |
 | `opensearch_indices_segments_remote_store_upload_refresh_size_lag_total_bytes`<br/>`DGAUGE`, bytes |
-| `opensearch_indices_segments_remote_store_upload_total_time_spent_in_millis`<br/>`DGAUGE`, milliseconds |
+| `opensearch_indices_segments_remote_store_upload_total_time_spent_in_millis`<br/>`DGAUGE`, ms |
 | `opensearch_indices_segments_remote_store_upload_total_upload_size_failed_bytes`<br/>`DGAUGE`, bytes |
 | `opensearch_indices_segments_remote_store_upload_total_upload_size_started_bytes`<br/>`DGAUGE`, bytes |
 | `opensearch_indices_segments_remote_store_upload_total_upload_size_succeeded_bytes`<br/>`DGAUGE`, bytes |
@@ -480,10 +480,10 @@ The consumption type goes into the `systag` label.
 | `opensearch_indices_translog_remote_store_upload_total_uploads_started`<br/>`DGAUGE`, count |
 | `opensearch_indices_translog_remote_store_upload_total_uploads_succeeded`<br/>`DGAUGE`, count |
 | `opensearch_indices_translog_size_in_bytes`<br/>`DGAUGE`, bytes | 
-| `opensearch_indices_translog_uncommitted_operations`<br/>`DGAUGE`, count |  | 
+| `opensearch_indices_translog_uncommitted_operations`<br/>`DGAUGE`, count |
 | `opensearch_indices_translog_uncommitted_size_in_bytes`<br/>`DGAUGE`, bytes | 
 | `opensearch_indices_warmer_current`<br/>`DGAUGE`, count | 
-| `opensearch_indices_warmer_total_time_in_millis`<br/>`DGAUGE`, milliseconds |
+| `opensearch_indices_warmer_total_time_in_millis`<br/>`DGAUGE`, ms |
 | `opensearch_indices_warmer_total`<br/>`DGAUGE`, count | 
 | `opensearch_is_master`<br/>`DGAUGE`, 0/1 |
 | `opensearch_jvm_gc_collectors_old_collection_count`<br/>`DGAUGE`, count | 
@@ -502,12 +502,12 @@ The consumption type goes into the `systag` label.
 | `opensearch_number_of_nodes`<br/>`DGAUGE`, count | 
 | `opensearch_number_of_pending_tasks`<br/>`DGAUGE`, count | 
 | `opensearch_process_cpu_percent`<br/>`DGAUGE`, count | 
-| `opensearch_process_cpu_total_in_millis`<br/>`DGAUGE`, milliseconds | 
+| `opensearch_process_cpu_total_in_millis`<br/>`DGAUGE`, ms | 
 | `opensearch_process_max_file_descriptors`<br/>`DGAUGE`, count | 
 | `opensearch_process_mem_total_virtual_in_bytes`<br/>`DGAUGE`, bytes | 
 | `opensearch_process_open_file_descriptors`<br/>`DGAUGE`, count | 
 | `opensearch_process_timestamp`<br/>`DGAUGE`, timestamp | 
-| `opensearch_task_max_waiting_in_queue_millis`<br/>`DGAUGE`, milliseconds |
+| `opensearch_task_max_waiting_in_queue_millis`<br/>`DGAUGE`, ms |
 | `opensearch_thread_pool_<thread_pool_name>_active`<br/>`DGAUGE`, count | 
 | `opensearch_thread_pool_<thread_pool_name>_completed`<br/>`DGAUGE`, count | 
 | `opensearch_thread_pool_<thread_pool_name>_largest`<br/>`DGAUGE`, count | 
@@ -527,7 +527,7 @@ The consumption type goes into the `systag` label.
 | ----- | ----- |
 | `dashboards_is_alive`<br/>`DGAUGE`, 0/1 | Host health indicator.<br/>`1` if the database host is healthy, `0` if not. | 
 | `dashboards_metrics_requests_total`<br/>`DGAUGE`, count | Total cluster requests | 
-| `opensearch_active_primary_shards`<br/>`DGAUGE`, count | Number of active [primary shards](../../../managed-opensearch/concepts/scalability-and-resilience.md) and total active shards in the cluster | 
+| `opensearch_active_primary_shards`<br/>`DGAUGE`, count | Number of active [primary shards](../../../managed-opensearch/concepts/scalability-and-resilience.md) and total active shards in the cluster |
 | `opensearch_active_shards_percent_as_number`<br/>`DGAUGE`, count | Percentage of active shards | 
 | `opensearch_active_shards`<br/>`DGAUGE`, count | Number of active shards | 
 | `opensearch_backup_age`<br/>`DGAUGE`, seconds | Most recent backup age |
@@ -556,3 +556,88 @@ The consumption type goes into the `systag` label.
 | `opensearch_unassigned_user_shards_count`<br/>`DGAUGE`, count | Number of unassigned custom shards |
 | `opensearch_user_shards_without_primary_count`<br/>`DGAUGE`, count | Number of custom shards without primary backups |
 | `opensearch_user_shards_without_replica_count`<br/>`DGAUGE`, count | Number of custom shards without replicas |
+
+
+[*guest]: Time servicing a guest OS.
+
+[*guest_nice]: Time servicing a low-priority guest OS.
+
+[*idle]: CPU idle time.
+
+[*iowait]: I/O completion wait time.
+
+[*irq]: Hardware interrupt processing time.
+
+[*nice]: Execution time of low-priority processes.
+
+[*softirq]: Software interrupt processing time.
+
+[*steal]: Time the hypervisor spends on servicing other vCPUs.
+
+[*system]: System process execution time (kernel mode).
+
+[*user]: User process execution time.
+
+[*available]: Memory available for running new applications without a swap file.
+
+[*buffered]: Memory used for kernel buffers (temporary storage for block device data).
+
+[*buffers]: Memory used for kernel buffers (temporary storage for block device data).
+
+[*cached]: Memory used for the file system cache (pages read from disk).
+
+[*commit_limit]: Total memory the system can allocate, including the swap file.
+
+[*committed_as]: Memory reserved for executing all operations (may exceed the physical memory).
+
+[*dirty]: Memory waiting to be written to disk (modified cache data).
+
+[*free]: Available unused memory.
+
+[*high_free]: Available memory in the high memory area (for systems with memory allocation).
+
+[*high_total]: Total memory in the high memory area.
+
+[*huge_page_size]: Size of a huge memory page.
+
+[*huge_pages_free]: Number of free huge memory pages.
+
+[*huge_pages_total]: Total number of huge memory pages.
+
+[*inactive]: Amount of memory that is rarely used and, if required, can be swapped out.
+
+[*low_free]: Available memory in the low memory area (for systems with memory allocation).
+
+[*low_total]: Total memory in the low memory area.
+
+[*mapped]: Memory displayed in the process address spaces (files and shared libraries).
+
+[*page_tables]: Memory used for page tables (virtual memory management structures).
+
+[*shared]: Memory used for in-memory temporary file systems.
+
+[*slab]: Memory used by the kernel to cache frequently used data structures.
+
+[*sreclaimable]: Part of the kernel memory that can be reclaimed under memory pressure.
+
+[*sunreclaim]: Part of the kernel memory that cannot be reclaimed.
+
+[*swap_cached]: Memory that has been swapped out but is still in RAM.
+
+[*swap_free]: Free space in the swap file.
+
+[*swap_total]: Total swap file size.
+
+[*total]: Total amount of RAM.
+
+[*used]: Amount of used RAM.
+
+[*vmalloc_chunk]: Size of the largest contiguous block in the kernel virtual memory area.
+
+[*vmalloc_total]: Total size of the kernel virtual memory area.
+
+[*vmalloc_used]: Amount of kernel virtual memory currently in use.
+
+[*write_back]: Memory with data currently being written to disk.
+
+[*write_back_tmp]: Amount of temporary memory for write operations.

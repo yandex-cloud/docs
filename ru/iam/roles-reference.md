@@ -692,6 +692,14 @@ description: В статье приведен полный справочник 
 
 {% include [postbox.editor](../_roles/postbox/editor.md) %}
 
+#### postbox.messages.reader {#postbox-messages-reader}
+
+{% include [postbox.messages.reader](../_roles/postbox/messages/reader.md) %}
+
+#### postbox.statistics.reader {#postbox-statistics-reader}
+
+{% include [postbox.statistics.reader](../_roles/postbox/statistics/reader.md) %}
+
 #### postbox.admin {#postbox-admin}
 
 {% include [postbox.admin](../_roles/postbox/admin.md) %}
@@ -1934,6 +1942,10 @@ description: В статье приведен полный справочник 
 
 
 ## {{ mrd-full-name }} {#mrd-roles}
+
+#### managed-redis.clusters.connector {#managed-redis-clusters-connector}
+
+{% include [managed-redis.clusters.connector](../_roles/managed-redis/clusters/connector.md) %}
 
 #### managed-redis.auditor {#managed-redis-auditor}
 

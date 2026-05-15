@@ -1,6 +1,6 @@
 ---
 title: Step-by-step guides for {{ captcha-full-name }}
-description: This page provides a list of step-by-step guides for {{ captcha-name }}.
+description: This page features step-by-step guides for {{ captcha-name }}.
 ---
 
 # Step-by-step guides for {{ captcha-full-name }}
@@ -11,7 +11,7 @@ description: This page provides a list of step-by-step guides for {{ captcha-nam
 * [{#T}](advanced-method.md)
 
 
-## Getting information about a CAPTCHA {#get-info}
+## Getting CAPTCHA details {#get-info}
 
 * [{#T}](get-list.md)
 * [{#T}](get-info.md)

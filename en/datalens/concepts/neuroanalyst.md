@@ -5,12 +5,6 @@ description: In this article, you will learn about {{ datalens-full-name }} Neur
 
 # Neuroanalyst in {{ datalens-full-name }}
 
-{% note info %}
-
-This feature is at the Beta testing stage.
-
-{% endnote %}
-
 {{ datalens-full-name }} Neuroanalyst is a group of AI assistants that help you with project analysis, suggest improvements and edits, and streamline creating and editing visualizations.
 
 * [Neuroanalyst for calculated fields](../concepts/calculations/formulas-helper.md): Helps you to create calculated fields.

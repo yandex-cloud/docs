@@ -56,7 +56,7 @@ Deal registration is a partner protection tool that rewards the partner for gene
 
 
 
-
+      
 For more on how to create a deal, see [this guide](../operations/deal-registration.md).
 
 
@@ -182,27 +182,52 @@ Requirements for program participants:
 
 ## Co-marketing program {#co-marketing}
 
-The co-marketing program is designed to strengthen the relationship between {{ yandex-cloud }} and its partners. It enables companies to expand their market presence and improve their sales figures through a joint marketing effort.
+{{ yandex-cloud }} co-marketing is a collaborative marketing program with partners aimed at boosting sales of cloud and on-premise {{ yandex-cloud }} solutions, driving demand, and developing joint projects.
 
-The program's main goals and benefits:
+### Who is the program for? {#co-marketing-for-whom}
 
-* Increased recognition through association with Russia's largest technology brand.
-* Optimizing marketing expenditure through joint funding of marketing activities, including:
-  
-  * Events: conferences, business dinners and breakfasts
-  * Webinars
-  * Success stories
-  * Guided tours to the Yandex data center for partner's customers
+The program is available to {{ yandex-cloud }} partners who:
 
-* Increased sales and expanded customer base.
+* Hold the **{{ yandex-cloud }} Expert** or **{{ yandex-cloud }} Professional** status.
+* Have their sales and marketing strategy approved by {{ yandex-cloud }}.
+* Commit resources to joint development and meet the defined KPIs.
+* Work towards increasing the consumption of {{ yandex-cloud }} services.
 
-Requirements for program participants:
+### What does the program include? {#co-marketing-inside}
 
-* You have a partner agreement signed.
-* You have obtained one of the [technology specializations](../specializations/index.md).
-* You have covered 50% of marketing costs related to acquiring new customers, generating new projects with current ones, as well as bringing in brand new customers for {{ yandex-cloud }}.
-* You guarantee in-depth study and analysis of the results of the marketing activities.
-* You comply with all {{ yandex-cloud }} policies and requirements.
+Co-marketing covers a variety of activities (events, digital campaigns, education initiatives, etc.) and includes:
+
+* Cooperation in planning and holding activities.
+* Marketing and expert support from {{ yandex-cloud }}.
+* Co-funding of costs from the co-marketing fund.
+* Performance evaluation based on business metrics (leads, deals, revenue, and ROMI).
+
+### How co-marketing works {#co-marketing-how-it-works}
+
+1. A partner submits an activity proposal via the partner portal.
+1. {{ yandex-cloud }} approves the activity and its budget.
+1. Both parties run the activity together.
+1. The partner submits a report on the results.
+1. {{ yandex-cloud }} compensates the agreed-upon part of costs.
+
+### Co-marketing budget {#co-marketing-budget}
+
+Partners with the **{{ yandex-cloud }} Expert** or **{{ yandex-cloud }} Professional** status are eligible for co-marketing budget:
+
+* 1.5% for **{{ yandex-cloud }} Expert** and 3% for **{{ yandex-cloud }} Professional** (read more in [Partner rewards](../specializations/index.md#award)).
+* Budgets are calculated and updated every quarter.
+
+Partners can use the budget funds to cover:
+
+* Up to 70% marketing activity costs.
+* Up to 100% of employee education initiatives.
+
+### Co-marketing standards {#co-marketing-principles}
+
+* Focus on measurable business results (pipeline, revenue, ROMI).
+* Priority to activities that boost sales.
+* Transparent approval and payment procedures.
+* Ability to scale successful practices.
 
 
 

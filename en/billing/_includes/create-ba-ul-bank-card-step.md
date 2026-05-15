@@ -10,4 +10,4 @@ If the user account already has bank cards linked to it, you can select one of t
 
 {% include [payment-card-validation](../../_includes/billing/payment-card-validation.md) %}
 
-Once you have added your card, click **Next**.
+Once you are done adding your card, click **Next**.

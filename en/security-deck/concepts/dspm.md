@@ -15,6 +15,8 @@ The {{ yandex-360 }} disk scanning feature is at the [Preview](../../overview/co
 
 ## Data analysis {#discovery-mode}
 
+{% include [analysis-preview-mode](../../_includes/security-deck/analysis-preview-mode.md) %}
+
 {% include [about-discovery](../../_includes/security-deck/about-discovery.md) %}
 
 ## Scanning for sensitive information {#scanning}

@@ -18,7 +18,7 @@ For information on roles available in {{ yandex-cloud }} and their associated pe
 
   1. [Get the user ID](../operations/users-get.md).
 
-  1. To assign the role, run the following command:
+  1. Assign the role using this command:
 
       ```bash
       yc <service_name> <resource> add-access-binding <resource_name_or_ID> \
@@ -66,10 +66,12 @@ For information on roles available in {{ yandex-cloud }} and their associated pe
 
         * `userAccount:<user_ID>`: ID of the user Yandex account or local user ID.
         * `federatedUser:<user_ID>`: Federated user ID.
+        * `serviceAccount:<service_account_ID>`: Service account ID.
+        * `group:<group_ID>`: User group ID.
 
-      To learn more about resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
+      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
 
-  1. Create the resources:
+  1. Create the required resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
      

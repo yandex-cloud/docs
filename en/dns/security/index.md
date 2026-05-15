@@ -5,10 +5,10 @@ description: Access management in {{ dns-full-name }}, a service for managing DN
 
 # Access management in {{ dns-name }}
 
-In this section, you will learn:
+In this section, you will learn about the following:
 * [Resources you can assign a role for](#resources).
 * [Roles this service has](#roles-list).
-* [What roles are required](#required-roles) for specific actions.
+* [Roles required](#required-roles) for specific actions.
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
@@ -22,7 +22,7 @@ To assign a role for a resource, you need the `dns.admin` role or one of the fol
 
 To assign a role for a [DNS zone](../concepts/dns-zone.md), use the {{ yandex-cloud }} [CLI](../../cli/cli-ref/dns/cli-ref/zone/add-access-binding.md), [API](../api-ref/authentication.md), or [{{ TF }}]({{ tf-provider-resources-link }}/dns_zone_iam_binding).
 
-## Roles this service has {#roles-list}
+## Roles available in the service {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
@@ -60,7 +60,7 @@ To assign a role for a [DNS zone](../concepts/dns-zone.md), use the {{ yandex-cl
 
 {% include [primitive-roles-footnote](../../_includes/primitive-roles-footnote.md) %}
 
-## What roles do I need {#required-roles}
+## Required roles {#required-roles}
 
 The table below lists the roles required for specific actions. You can always assign a role with more permissions. For example, you can assign the `editor` role instead of `viewer`, or `dns.admin` instead of `dns.editor`.
 

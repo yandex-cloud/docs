@@ -203,6 +203,10 @@ CASE
 END
 ```
 
+## Undoing and redoing changes in charts {#undo-redo}
+
+When editing a QL chart, you can now [undo/redo](../../concepts/chart/settings.md#undo-redo) any change introduced within the current version.
+
 #### See also {#see-also}
 
 * [{#T}](../../concepts/chart/index.md)

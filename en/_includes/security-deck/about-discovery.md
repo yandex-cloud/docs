@@ -1,3 +1,3 @@
-One of {{ dspm-name }}'s key features is the ability to analyze all the data stored in buckets within the specified workspace. The analysis starts automatically as soon as you create a workspace and covers all the data there is in the buckets.
+A key feature of {{ dspm-name }} is automatic analysis of all data stored in buckets within a given environment. The [analysis](../../security-deck/operations/dspm/discovery-mode.md) starts as soon as an environment is created and scans all bucket data.
 
-The analysis gives you a better picture of resources potentially containing sensitive data and produces a data source suitable for a detailed scan. You can thus locate sensitive data quicker than by scanning a data source created manually.
+These insights help you more accurately identify which resources may contain sensitive data and provide you with a data source for your next detailed scanning. Identifying sensitive data this way takes less time than scanning a manually created data source.

@@ -175,7 +175,7 @@ The cost of resources you need for {{ monium-name }} includes:
        
        {% endcut %}
 
-       More on [metrics](../operations/metric/metric-explorer.md).
+       More on [metrics](../metrics/metric-explorer.md).
 
      * **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.logs.title }}**.
      
