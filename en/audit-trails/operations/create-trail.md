@@ -104,7 +104,7 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder to host the trail.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
   1. Enter a trail name. It must be unique within the folder.
   1. (Optional) Enter a description for your trail.
@@ -146,6 +146,8 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 
       To configure **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**:
 
+      {% include [events-by-default](../../_includes/audit-trails/events-by-default.md) %}
+
       1. Select one or more services to collect events from.
 
       1. For each such service, select the [log collection scope](../concepts/trail.md): `Organization`, `Cloud`, or `Folder`. The logged events will be collected in the scope you specify.
@@ -184,7 +186,7 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 
   {% cut "In the YAML specification" %}
 
-  Create a YAML specification containing the trail parameters and specify this file in the command to create the trail.
+  [Create a YAML specification](prepare-spec.md#spec-for-create) containing the trail parameters and specify this file in the command to create the trail.
   
   This method simplifies working with trail parameters and reduces error probability. In addition, you can only customize the registration of [data events](../concepts/control-plane-vs-data-plane.md#data-plane-events) using the YAML specification.
 
@@ -314,6 +316,8 @@ Depending on the selected [destination object](../concepts/trail.md#target) for 
 - API {#api}
 
   Use the [create](../api-ref/Trail/create.md) REST API method for the [Trail](../api-ref/Trail/index.md) resource or the [TrailService/Create](../api-ref/grpc/Trail/create.md) gRPC API call.
+
+  To make it easier to create a trail specification, you can get existing trail parameters using the [get](../api-ref/Trail/get.md) REST API method for the [Trail](../api-ref/Trail/index.md) resource or the [TrailService/Get](../api-ref/grpc/Trail/get.md) gRPC API call.
 
 {% endlist %}
 

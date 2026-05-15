@@ -141,6 +141,8 @@ For a node group, you can specify the following settings:
 * [Node group cloud labels](../../resource-manager/concepts/labels.md)
 * [Scaling parameters](./node-group/cluster-autoscaler.md)
 * [Deployment policy](./node-group/deploy-policy.md)
+* [Reserved instance pools](./node-group/reserved-pools.md)
+* [Variables in a node template](./node-group/variables-in-the-template.md)
 * [{#T}](#config)
 * [{#T}](#taints-tolerations)
 * [{#T}](#node-labels)
@@ -151,7 +153,13 @@ For {{ managed-k8s-name }}, only [containerd](https://containerd.io/) is availab
 
 
 When creating a node group, you can configure the following VM parameters:
-* VM type.
+
+* VM type. To pay less for your cluster, consider [preemptible VMs](../../compute/concepts/preemptible-vm.md).
+
+   
+   {% include [preemtible-vm](../../_includes/managed-kubernetes/note-preemtible-vm.md) %}
+   
+
 * Type and number of cores (vCPUs).
 * Amount of memory (RAM) and disk space.
 * [Placement group](../../compute/concepts/placement-groups.md).
@@ -289,7 +297,7 @@ You can connect to nodes in a group in the following ways:
 
 A _pod_ is a request to run one or multiple containers on a group node. In a {{ k8s }} cluster, each pod has its unique IP address so that applications do not conflict when using ports.
 
-Containers are described in pods via JSON or YAML objects.
+Containers are described in pods via JSON or YAML objects. You can connect to running container terminals using [kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/) or directly from the [management console](../operations/kubernetes-console/pod-terminal.md).
 
 ### Masquerading IP addresses for pods {#pod-ip-masquerade}
 

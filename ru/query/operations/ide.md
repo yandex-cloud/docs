@@ -10,7 +10,7 @@
 
 ### JDBC-драйвер {#jdbc}
 
-Для подключения к {{ yq-full-name }} из DBeaver понадобится JDBC-драйвер. Так как {{ yq-full-name }} построен с помощью [федеративных запросов]({{ ydb.docs }}/concepts/federated_query/) {{ ydb-short-name }}, то для подключения будет использоваться JDBC-драйвер {{ydb-short-name}}.
+Для подключения к {{ yq-full-name }} из DBeaver понадобится JDBC-драйвер. Так как {{ yq-full-name }} построен с помощью [федеративных запросов]({{ ydb.docs }}/concepts/federated_query/) {{ ydb-short-name }}, то для подключения будет использоваться JDBC-драйвер {{ ydb-short-name }}.
 
 Для скачивания драйвера выполните следующие шаги:
 1. Перейдите в [репозиторий ydb-jdbc-driver](https://github.com/ydb-platform/ydb-jdbc-driver/releases).
@@ -67,7 +67,7 @@
     Где:
     - `folder_id` — идентификатор каталога, в котором будут выполняться запросы к {{ yq-full-name }}.
     - `path_to_auth_key_file.json` — путь к файлу с авторизованным ключом.
-    - `useQueryService` — режим подключения. {{yq-full-name}} поддерживает только режим `useQueryService=false`.
+    - `useQueryService` — режим подключения. {{ yq-full-name }} поддерживает только режим `useQueryService=false`.
 
     ![](../../_assets/query/dbeaver-yandex-query-connection.png)
 

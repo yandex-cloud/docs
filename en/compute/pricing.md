@@ -7,22 +7,42 @@ editable: false
 
 # {{ compute-name }} pricing policy
 
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 12
+      sm: 4
+    children:
+      - type: basic-card
+        title: Price calculator
+        text: Calculate the cost of the service based on your needs
+        icon: _assets/icons/calculator.svg
+        urlTitle: Price calculator
+        url: https://yandex.cloud/en/prices?state=5c229918f492#calculator
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Price list
+        text: Current prices of all our services
+        icon: _assets/icons/circle-ruble.svg
+        urlTitle: Price list
+        url: https://yandex.cloud/en/price-list?services=dn28okfvqh19eiue6l2m%2Cdn22pas77ftg9h3f2djj
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+:::
 
-{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
 
 
-{% note tip %}
-
-
-
-
-
-For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=577e4326f11d#calculator) on our website or check out the pricing below.
-
-
-{% endnote %}
-
-{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -45,8 +65,6 @@ The {{ compute-name }} usage cost includes:
 * Public IP address.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
-
-The monthly prices are based on 720 hours per month.
 
 ### Using reserved instance pools {#pool}
 
@@ -81,6 +99,8 @@ _{{ price-per-hour-count-per-second }}_
 
 
 #### Example of calculating the cost of computing resources {#instance-resources-example}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 Let's compare the cost of [Intel Ice Lake](concepts/vm-platforms.md) VMs of different [vCPU performance levels](concepts/performance-levels.md).
 
@@ -131,7 +151,7 @@ If you created an image or snapshot, you pay for its storage separately dependin
 
 After deleting a VM instance, you will still be charged for disks, snapshots, and images. If you no longer need these resources, delete them.
 
-_The price covers one month of use. You are charged per second of usage._
+_{{ price-per-hour-count-per-second }}_
 
 {% note warning %}
 
@@ -140,6 +160,19 @@ Disks with installed [{{ marketplace-name }}](/marketplace) products contain the
 If you connect such a disk to a VM as additional storage, you will be charged for the use of the {{ marketplace-name }} products in addition to the storage fee.
 
 {% endnote %}
+
+
+#### Example of cost calculation for snapshot retention {#snapshot-example}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
+Let’s calculate the cost of storing a 20 GB snapshot for 60 days.
+
+
+
+
+{% include [usd-snapshot](../_pricing_examples/compute/usd-snapshot.md) %}
+
 
 
 ### Using {{ ig-name }} {#instance-groups}
@@ -161,6 +194,8 @@ Use of additional resources, such as images from {{ marketplace-name }} or netwo
 _{{ price-per-hour-count-per-second }}_
 
 {% cut "Example of calculating the cost of a dedicated host" %}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 An `intel-6338-c108-m704-n3200x6` dedicated host running for an hour is charged as follows:
 
@@ -208,7 +243,7 @@ In {{ compute-name }}, a [software-accelerated network](./concepts/software-acce
 
 For resources provided under CVoS, the [Prices for the Russia region](#prices) section presents their CVoS prices separately with expiration date.
 
-Currently, you cannot order storage or web traffic this way.
+Storage size and internet traffic cannot currently be reserved via CVoS.
 
 {% endnote %}
 

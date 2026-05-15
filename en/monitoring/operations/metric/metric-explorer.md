@@ -3,7 +3,7 @@ title: Viewing your services' metrics in {{ monitoring-full-name }}
 description: Follow this guide to view detailed metric charts for your services.
 ---
 
-# Viewing your services' metrics in {{ monitoring-full-name }}
+# Viewing metrics in {{ monitoring-full-name }}
 
 In **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.explorer.title }}**, you can flexibly manage metric visualization and analyze various metrics of your infrastructure and applications in real time.
 
@@ -41,7 +41,7 @@ You can set the time interval for displaying metrics in one of the following way
 * At the top of the page, click:
   * **Last hour** to flexibly set the date and time in the drop-down list.
   * **<** or **>** to move one hour forward or backward on the timescale.
-  * **1h**, **1d**, **1w**, or **1M** to show metrics for the last hour, day, week, or month, respectively, on the chart. In the field next to it, you can specify your own time interval, such as `15m`.
+  * **1h**, **1d**, **1w**, or **1M** to show metrics for the last hour, day, week, or month, respectively, on the chart. In the field next to it, you can specify your own time interval, e.g., `15m`.
 * At the top right of the chart panel, click **+** or **–**.
 * Select an area on the chart and click **{{ ui-key.yacloud_monitoring.tooltip.actions.go-to-window }}**.
 

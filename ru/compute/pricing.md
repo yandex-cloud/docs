@@ -7,22 +7,57 @@ editable: false
 
 # Правила тарификации для {{ compute-name }}
 
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 12
+      sm: 4
+    children:
+      - type: basic-card
+        title: Калькулятор цен
+        text: Рассчитайте стоимость использования сервиса, исходя из ваших потребностей
+        icon: _assets/icons/calculator.svg
+        urlTitle: Калькулятор цен
+        url: https://yandex.cloud/ru/prices?state=2362f8e07ee5#calculator
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Прайс-лист
+        text: Актуальные тарифы на все наши услуги
+        icon: _assets/icons/circle-ruble.svg
+        urlTitle: Прайс-лист
+        url: https://yandex.cloud/ru/price-list?services=dn22pas77ftg9h3f2djj%2Cdn28okfvqh19eiue6l2m
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Акции и free tier
+        text: Гранты, специальные условия и программы поддержки
+        icon: _assets/icons/flame.svg
+        urlTitle: Акции и free tier
+        url: https://yandex.cloud/ru/all-offers
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+:::
+
+
+
 
 {% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
 
-
-{% note tip %}
-
-
-Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=f2dac101335a#calculator) на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
-
-
-
-
-
-{% endnote %}
-
-{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 
 {% include [vat](../_includes/vat.md) %}
@@ -44,8 +79,6 @@ editable: false
 * Публичный IP-адрес.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
-
-Цены за месяц использования формируются из расчета 720 часов в месяц.
 
 ### Использование пулов резервов ВМ {#pool}
 
@@ -80,6 +113,8 @@ _{{ price-per-hour-count-per-second }}_
 
 
 #### Пример расчета стоимости вычислительных ресурсов {#instance-resources-example}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 Сравним стоимость ВМ для [платформы](concepts/vm-platforms.md) Intel Ice Lake с разным [уровнем производительности vCPU](concepts/performance-levels.md).
 
@@ -163,6 +198,8 @@ _{{ price-per-hour-count-per-second }}_
 
 #### Пример расчета стоимости хранения снимков {#snapshot-example}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 Рассчитаем стоимость хранения снимка объемом 20 ГБ в течение 60 дней.
 
 
@@ -201,6 +238,8 @@ vCPU и память ВМ, запущенных на выделенном хос
 _{{ price-per-hour-count-per-second }}_
 
 {% cut "Пример расчета стоимости выделенного хоста" %}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 Работа выделенного хоста типа `intel-6338-c108-m704-n3200x6` в течение одного часа тарифицируется следующим образом:
 

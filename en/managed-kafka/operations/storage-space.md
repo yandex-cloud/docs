@@ -18,7 +18,7 @@ When the [storage](../concepts/storage.md) usage exceeds 97%, the host automatic
 ## Setting up alerts in {{ monitoring-full-name }} {#set-alert}
 
 1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
 1. [Create a notification channel](../../monitoring/operations/alert/create-channel.md).
 1. [Create an alert](../../monitoring/operations/alert/create-alert.md) with the following settings:
 
@@ -40,7 +40,7 @@ When the [storage](../concepts/storage.md) usage exceeds 97%, the host automatic
         * **{{ ui-key.yacloud_monitoring.alert.status_warn }}**: `95` (95% of the storage size).
         * **{{ ui-key.yacloud_monitoring.alert.status_alarm }}**: `90` (90% of the storage size).
         * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}**: Preferred metric update period.
-        * **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.time-shift }}**: Preferred time shift backward, in seconds. It allows to keep the alert from triggering when multiple metrics are specified and collected at different intervals. To learn more about the evaluation delay, see [this {{ monitoring-full-name }} guide](../../monitoring/concepts/alerting/alert.md#evaluation-delay).
+        * **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.time-shift }}**: Preferred time shift backward, in seconds. It allows to keep the alert from triggering when multiple metrics are specified and collected at different intervals. Learn more about the calculation delay, see [this {{ monitoring-full-name }} guide](../../monitoring/concepts/alerting/alert.md#evaluation-delay).
 
     1. **Notifications**: Add the notification channel you created earlier.
 
@@ -56,7 +56,7 @@ When the [storage](../concepts/storage.md) usage exceeds 97%, the host automatic
     To increase your cluster storage size:
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Edit the settings under **{{ ui-key.yacloud.mdb.forms.section_storage }}**.
 
@@ -72,7 +72,7 @@ When the [storage](../concepts/storage.md) usage exceeds 97%, the host automatic
 
     To increase your host storage size:
 
-    1. See the description of the CLI command for updating a cluster:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-kf }} cluster update --help
@@ -104,7 +104,7 @@ When the [storage](../concepts/storage.md) usage exceeds 97%, the host automatic
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        Learn how to create this file in [Creating a cluster](cluster-create.md).
+        For information about creating this file, see [{#T}](cluster-create.md).
 
     1. In the {{ mkf-name }} cluster description, change the `disk_size` value in the `kafka.resources` and `zookeeper.resources` sections for {{ KF }} and {{ ZK }} hosts, respectively:
 
@@ -129,11 +129,11 @@ When the [storage](../concepts/storage.md) usage exceeds 97%, the host automatic
 
         You cannot change the disk type for an {{ KF }} cluster once the cluster is created.
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -186,7 +186,7 @@ When the [storage](../concepts/storage.md) usage exceeds 97%, the host automatic
 
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-    1. Check the [server response](../api-ref/Cluster/update.md#responses) to make sure your request was successful.
+    1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure your request was successful.
 
 * gRPC API {#grpc-api}
 
@@ -248,7 +248,7 @@ When the [storage](../concepts/storage.md) usage exceeds 97%, the host automatic
 
 {% endlist %}
 
-## Setting up automatic storage expansion {#disk-size-autoscale}
+## Set up automatic storage expansion {#disk-size-autoscale}
 
 Set up [automatic storage expansion](../concepts/storage.md#auto-rescale) to prevent the cluster from running out of disk space and the hosts from switching to read-only mode.
 
@@ -263,7 +263,7 @@ Set up [automatic storage expansion](../concepts/storage.md#auto-rescale) to pre
 * Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.cluster.section_disk-scaling }}**, set the storage [utilization thresholds](../concepts/storage.md#auto-rescale) that will trigger storage expansion when reached: 
     
@@ -277,7 +277,7 @@ Set up [automatic storage expansion](../concepts/storage.md#auto-rescale) to pre
 
     To set up automatic storage expansion:
 
-    1. See the description of the CLI command for updating a cluster:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-kf }} cluster update --help
@@ -333,9 +333,9 @@ Set up [automatic storage expansion](../concepts/storage.md#auto-rescale) to pre
 
         {% include [autoscale-settings](../../_includes/mdb/mkf/api/rest-autoscale-settings.md) %}
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-    1. Check the [server response](../api-ref/Cluster/update.md#responses) to make sure your request was successful.
+    1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure your request was successful.
 
 * gRPC API {#grpc-api}
 

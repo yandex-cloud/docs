@@ -78,5 +78,7 @@ data "yandex_airflow_cluster" "airflow_cluster_by_id" {
   - `max_count` (**Required**)(Number). The maximum number of worker instances in the cluster.
   - `min_count` (**Required**)(Number). The minimum number of worker instances in the cluster.
   - `resource_preset_id` (**Required**)(String). The identifier of the preset for computational resources available to an instance (CPU, memory etc.).
+- `timeouts` [Block]. 
+  - `read` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
 
 

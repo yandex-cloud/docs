@@ -1,5 +1,5 @@
 ---
-title: Create function
+title: Creating a function
 description: Follow this guide to create a function.
 ---
 
@@ -9,8 +9,8 @@ description: Follow this guide to create a function.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
-    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder where you want to create your function.
+    1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
     1. Enter a name and description for the function. Follow these naming requirements:
 
@@ -24,7 +24,7 @@ description: Follow this guide to create a function.
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    To create a function, run the command:
+    To create a function, run this command:
 
     ```bash
     yc serverless function create --name=<function_name>
@@ -54,7 +54,7 @@ description: Follow this guide to create a function.
         resource "yandex_function" "my-function" {
           name       = "<function_name>"
           user_hash  = "<function_version_hash>"
-          runtime    = "<runtime_environment>"
+          runtime    = "<runtime>"
           entrypoint = "<entry_point>"
           memory     = "<memory_size>"
           content {
@@ -66,14 +66,14 @@ description: Follow this guide to create a function.
         Where:
 
         * `name`: Function name.
-        * `user_hash`: Custom string to define the function version. When the function changes, update this string, too. The function will update when this string is updated.
-        * `runtime`: Function [runtime environment](../../concepts/runtime/index.md).
+        * `user_hash`: Any string to identify the function version. When you change the function, update this string as well. Updating this string triggers a function update.
+        * `runtime`: Function [runtime](../../concepts/runtime/index.md).
         * `entrypoint`: Function name in the source code that will serve as an entry point to applications.
-        * `memory`: Amount of memory allocated for the function, in MB.
+        * `memory`: Amount of memory allocated to the function, in MB.
         * `content`: Function source code:
-            * `zip_filename`: Path to the ZIP archive containing the function source code and relevant dependencies.
+            * `zip_filename`: Path to the ZIP archive with the function source code and required dependencies.
 
-        For more information about `yandex_function` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function).
+        For more information about `yandex_function` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
     1. Create the resources:
 

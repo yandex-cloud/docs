@@ -86,6 +86,7 @@ description: Следуя данной инструкции, вы сможете
          --settings="<имя_параметра_1>=<значение_1>,<имя_параметра_2>=<значение_2>,..."
       ```
 
+
 - {{ TF }} {#tf}
 
    Чтобы задать настройки {{ CH }}:
@@ -116,6 +117,7 @@ description: Следуя данной инструкции, вы сможете
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
+
 
 - REST API {#api}
 

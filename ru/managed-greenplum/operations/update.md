@@ -1604,7 +1604,7 @@ ALTER DATABASE <имя_базы_данных> SET <настройка> = <зна
     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Выберите нужный кластер.
     1. В верхней части страницы нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional}}** включите или выключите логирование с помощью опции **{{ ui-key.yacloud.logging.field_logging }}**. Если вы включили логирование, настройте его параметры:
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}** включите или выключите логирование с помощью опции **{{ ui-key.yacloud.logging.field_logging }}**. Если вы включили логирование, настройте его параметры:
 
         * Укажите место записи логов:
 

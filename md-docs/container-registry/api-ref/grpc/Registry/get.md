@@ -1,0 +1,69 @@
+# Container Registry API, gRPC: RegistryService.Get
+
+Returns the specified Registry resource.
+
+To get the list of available Registry resources, make a [List](list.md#List) request.
+
+## gRPC request
+
+**rpc Get ([GetRegistryRequest](#yandex.cloud.containerregistry.v1.GetRegistryRequest)) returns ([Registry](#yandex.cloud.containerregistry.v1.Registry))**
+
+## GetRegistryRequest {#yandex.cloud.containerregistry.v1.GetRegistryRequest}
+
+```json
+{
+  "registry_id": "string"
+}
+```
+
+#|
+||Field | Description ||
+|| registry_id | **string**
+
+Required field. ID of the Registry resource to return.
+
+To get the registry ID use a [RegistryService.List](list.md#List) request.
+
+The maximum string length in characters is 50. ||
+|#
+
+## Registry {#yandex.cloud.containerregistry.v1.Registry}
+
+```json
+{
+  "id": "string",
+  "folder_id": "string",
+  "name": "string",
+  "status": "Status",
+  "created_at": "google.protobuf.Timestamp",
+  "labels": "map<string, string>"
+}
+```
+
+A Registry resource. For more information, see the [Registry](../../../concepts/registry.md) section of the documentation.
+
+#|
+||Field | Description ||
+|| id | **string**
+
+Output only. ID of the registry. ||
+|| folder_id | **string**
+
+ID of the folder that the registry belongs to. ||
+|| name | **string**
+
+Name of the registry. ||
+|| status | enum **Status**
+
+Output only. Status of the registry.
+
+- `CREATING`: Registry is being created.
+- `ACTIVE`: Registry is ready to use.
+- `DELETING`: Registry is being deleted. ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Output only. Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `key:value` pairs. Maximum of 64 per resource. ||
+|#

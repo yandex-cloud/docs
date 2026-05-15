@@ -34,7 +34,7 @@ description: This article establishes the equivalence between {{ yandex-cloud }}
 | Cloud Quotas | [{{ quota-manager-full-name }}](../../quota-manager/) |
 | Cloud Run | [{{ cos-full-name }}](../../cos/)<br/>[{{ serverless-containers-full-name }}](../../serverless-containers/) |
 | Cloud SDK | [{{ yandex-cloud }} CLI](../../cli/) |
-| Cloud Search | [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/concepts/index) |
+| Cloud Search | [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/concepts) |
 | Cloud Security Command Center | [{{ sd-full-name }}](../../security-deck/) |
 | Cloud Spanner | [{{ ydb-full-name }}](../../ydb/) |
 | Cloud Speech-to-Text,<br/>Cloud Text-to-Speech | [{{ speechkit-full-name }}]({{ link-docs-ai }}speechkit/overview) |
@@ -55,7 +55,7 @@ description: This article establishes the equivalence between {{ yandex-cloud }}
 | Google Distributed Cloud | [{{ stackland-full-name }}](../../stackland/) |
 | Identity and Access Management,<br/>Cloud Identity | [{{ iam-full-name }}](../../iam/) |
 | Instance groups | [{{ ig-full-name }}](../../compute/concepts/instance-groups/) |
-| Kubernetes Engine | [{{managed-k8s-full-name}}](../../managed-kubernetes/) |
+| Kubernetes Engine | [{{ managed-k8s-full-name }}](../../managed-kubernetes/) |
 | Looker Studio | [{{ datalens-full-name }}](../../datalens/) |
 | MongoDB Atlas | [{{ mmg-full-name }}](../../storedoc/) |
 | Operations suite | [{{ monitoring-full-name }}](../../monitoring/) |

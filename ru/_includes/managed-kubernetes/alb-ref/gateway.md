@@ -1,10 +1,12 @@
 # Поля ресурса Gateway
 
-В ресурсе `Gateway` определяются правила приема входящего трафика и выбора маршрутов (ресурсов [HTTPRoute](../../../application-load-balancer/k8s-ref/http-route.md), [GRPCRoute](../../../application-load-balancer/k8s-ref/grpc-route.md) и [TLSRoute](../../../application-load-balancer/k8s-ref/tls-route.md)) для этого трафика. По этим правилам [Gateway API {{ alb-name }}](../../../application-load-balancer/tools/k8s-gateway-api/index.md) создает:
+В ресурсе `Gateway` определяются правила приема входящего трафика и выбора маршрутов (ресурсов [HTTPRoute]({{ configuration-local-link }}/http-route.md), [GRPCRoute]({{ configuration-local-link }}/grpc-route.md) и [TLSRoute]({{ configuration-local-link }}/tls-route.md)) для этого трафика. По этим правилам [Gateway API {{ alb-name }}]({{ gateway-local-link }}/index.md) создает:
 
 * [балансировщик](../../../application-load-balancer/concepts/application-load-balancer.md) с нужными обработчиками;
 * [группы бэкендов](../../../application-load-balancer/concepts/backend-group.md);
-* [HTTP-роутеры](../../../application-load-balancer/concepts/http-router.md) (если используются ресурсы [HTTPRoute](../../../application-load-balancer/k8s-ref/http-route.md) или [GRPCRoute](../../../application-load-balancer/k8s-ref/grpc-route.md)).
+* [HTTP-роутеры](../../../application-load-balancer/concepts/http-router.md) (если используются ресурсы [HTTPRoute]({{ configuration-local-link }}/http-route.md) или [GRPCRoute]({{ configuration-local-link }}/grpc-route.md)).
+
+{% include [Gwin-with-preset](../../application-load-balancer/ingress-to-gwin-tip-with-preset.md) %}
 
 `Gateway` предназначен для оператора кластера. Разработчики приложений должны использовать `TLSRoute`, `HTTPRoute` или `GRPCRoute`.
 
@@ -57,7 +59,7 @@ spec: <GatewaySpec>
 
     {% note info %}
 
-    Вы можете определить ресурс [GatewayPolicy](../../../application-load-balancer/k8s-ref/gateway-policy.md) вместо аннотаций. Набор параметров ресурса `GatewayPolicy` и аннотации `Gateway` равнозначны.
+    Вы можете определить ресурс [GatewayPolicy]({{ configuration-local-link }}/gateway-policy.md) вместо аннотаций. Набор параметров ресурса `GatewayPolicy` и аннотации `Gateway` равнозначны.
 
     {% endnote %}
 
@@ -69,7 +71,7 @@ spec: <GatewaySpec>
       gateway.alb.yc.io/security-groups: b0c2kotoidcoh6haf8cu,e2lnhhdj9a0aqmr78d36,e9bud5itjnl8mkjj7td1
       ```
 
-      Для корректной работы балансировщика и Gateway API группы безопасности должны быть настроены, как описано в разделе [{#T}](../../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md).
+      Для корректной работы балансировщика и Gateway API группы безопасности должны быть настроены, как описано в разделе [{#T}]({{ alb-local-link }}/security-groups.md).
 
     * `gateway.alb.yc.io/subnet-ids` (`string`)
 
@@ -179,7 +181,7 @@ addresses:
 
     {% include [k8s-ingress-controller-hostnames-wildcard](../../application-load-balancer/k8s-ingress-controller-hostnames-wildcard.md) %}
   
-    К обработчику будут привязаны только те маршруты (ресурсы [HTTPRoute](../../../application-load-balancer/k8s-ref/http-route.md), [GRPCRoute](../../../application-load-balancer/k8s-ref/grpc-route.md) и [TLSRoute](../../../application-load-balancer/k8s-ref/tls-route.md)), доменные имена которых (поле `spec.hostnames`) «пересекаются» с доменным именем в этом поле.
+    К обработчику будут привязаны только те маршруты (ресурсы [HTTPRoute]({{ configuration-local-link }}/http-route.md), [GRPCRoute]({{ configuration-local-link }}/grpc-route.md) и [TLSRoute]({{ configuration-local-link }}/tls-route.md)), доменные имена которых (поле `spec.hostnames`) «пересекаются» с доменным именем в этом поле.
 
   * `port` (`int32`)
     
@@ -207,7 +209,7 @@ addresses:
 
       В балансировщике используется только первый сертификат из списка, остальные игнорируются.
   
-      Можно указать сертификат {{ certificate-manager-name }} (ресурс [YCCertificate](../../../application-load-balancer/k8s-ref/yc-certificate.md)) либо добавить сертификат в кластер в виде секрета (ресурса `Secret`) через консоль управления {{ managed-k8s-name }} или с помощью kubectl:
+      Можно указать сертификат {{ certificate-manager-name }} (ресурс [YCCertificate]({{ configuration-local-link }}/yc-certificate.md)) либо добавить сертификат в кластер в виде секрета (ресурса `Secret`) через консоль управления {{ managed-k8s-name }} или с помощью kubectl:
   
       ```
       kubectl create secret tls <имя_секрета> \
@@ -238,7 +240,7 @@ addresses:
 
   * `allowedRoutes` (`AllowedRoutes`)
 
-    Правила, по которым для обработчика выбираются маршруты (ресурсы [HTTPRoute](../../../application-load-balancer/k8s-ref/http-route.md), [GRPCRoute](../../../application-load-balancer/k8s-ref/grpc-route.md) и [TLSRoute](../../../application-load-balancer/k8s-ref/tls-route.md)). Чтобы маршрут был выбран, в конфигурации этих ресурсов должно быть указание на `Gateway` в поле `spec.parentRefs`.
+    Правила, по которым для обработчика выбираются маршруты (ресурсы [HTTPRoute]({{ configuration-local-link }}/http-route.md), [GRPCRoute]({{ configuration-local-link }}/grpc-route.md) и [TLSRoute]({{ configuration-local-link }}/tls-route.md)). Чтобы маршрут был выбран, в конфигурации этих ресурсов должно быть указание на `Gateway` в поле `spec.parentRefs`.
 
     По этим маршрутам создаются [группы бэкендов](../../../application-load-balancer/concepts/backend-group.md), привязываемые к обработчику. При использовании `HTTPRoute` или `GRPCRoute` также создаются [HTTP-роутеры](../../../application-load-balancer/concepts/http-router.md).
 

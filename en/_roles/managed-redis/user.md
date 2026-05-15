@@ -1,1 +1,1 @@
-The `managed-redis.user` role enables using [Valkey™ clusters](../../managed-valkey/concepts/index.md).
+The `managed-redis.user` role enables using [{{ VLK }} clusters](../../managed-valkey/concepts/index.md).

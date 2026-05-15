@@ -5,6 +5,7 @@ description: In this tutorial, you will learn how to create a {{ SD }} cluster.
 
 # Creating a {{ SD }} cluster
 
+
 A {{ SD }} cluster consists of one or multiple database hosts, with the option to configure [replication](../concepts/replication.md) between them. Any cluster with more than one host has replication enabled by default. In this setup, the primary host accepts write requests and asynchronously replicates changes to secondary hosts.
 
 
@@ -154,7 +155,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
       {{ yc-mdb-mg }} cluster create --help
       ```
 
-  1. Specify the cluster parameters in the create command (not all parameters are given in the example):
+  1. Specify the cluster settings in the `cluster create` command. Note that our example does not contain all available settings:
 
       {% cut "For a non-sharded cluster" %}
 
@@ -280,7 +281,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         * `type`: Host type, i.e., `mongod`, `mongoinfra`, `mongos`, or `mongocfg`. The default host type is `mongod`.
         * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
         * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). To be specified if the selected availability zone has more than one subnet.
-        * `assign-public-ip`: Controls whether the host is accessible via a public IP address, `true` or `false`. In a sharded cluster, it is used only for `MONGOS` and `MONGOINFRA` hosts.
+        * `assign-public-ip`: Internet access to the host via a public IP address, `true` or `false`. In a sharded cluster, it is used only for `MONGOS` and `MONGOINFRA` hosts.
         * `hidden`: Determines whether the host is hidden, `true` or `false`. If the host is hidden, only direct connections will be able to read from it (for example, to make backups from it without adding load to the cluster).
         * `secondary-delay-secs`: Replica's lag behind the master in seconds. This setting can be useful for data recovery after operational errors.
         * `priority`: [Host priority for master promotion](../concepts/replication.md#master-failover).
@@ -609,7 +610,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
        To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
 
-     To learn more about resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-mmg }}).
+     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-mmg }}).
 
   1. Validate your settings.
 
@@ -767,7 +768,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
               "minutes": "<minutes>",
               "seconds": "<seconds>",
               "nanos": "<nanoseconds>"
-            },  
+            },
             "backupRetainPeriodDays": "<backup_retention_in_days>",
             "performanceDiagnostics": {
               "profilingEnabled": <enable_profiler>
@@ -958,10 +959,10 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
           {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. In `maintenanceWindow`, provide one of the following values:
+        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. In `maintenanceWindow`, provide one of the two values:
 
-          * `anytime`: Maintenance can occur at any time.
-          * `weeklyMaintenanceWindow`: Maintenance occurs once a week at the specified time:
+          * `anytime`: Maintenance takes place at any time.
+          * `weeklyMaintenanceWindow`: Maintenance takes place once a week at the specified time:
 
             * `day`: Day of the week, in `DDD` format.
             * `hour`: Hour of the day, in `HH` format. Allowed values range from `1` to `24` hours.
@@ -1008,9 +1009,10 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
         * `hostSpecs`: Cluster host settings as an array of elements, one per host. Each element has the following structure:
 
-                    * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
+          
+          * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
           * `subnetId`: [Subnet ID](../../vpc/concepts/network.md#subnet).
-          * `assignPublicIp`: Controls whether the host is accessible via a public IP address, `true` or `false`. In a sharded cluster, it is used only for `MONGOS` and `MONGOINFRA` hosts.
+          * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`. In a sharded cluster, it is used only for `MONGOS` and `MONGOINFRA` hosts.
           * `type`: Host type in a sharded cluster, `MONGOD`, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`.
           * `tags`: Host tags.
           * `shard_name`: Shard name in a sharded cluster (for `MONGOD` hosts only).
@@ -1040,7 +1042,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1373,10 +1375,10 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
           {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-        * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. In `maintenance_window`, provide one of the following values:
+        * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. In `maintenance_window`, provide one of the two values:
 
-          * `anytime`: Maintenance can take place at any time.
-          * `weekly_maintenance_window`: Maintenance occurs once a week at the specified time:
+          * `anytime`: Maintenance takes place at any time.
+          * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
 
             * `day`: Day of the week, in `DDD` format.
             * `hour`: Hour of the day, in `HH` format. Allowed values range from `1` to `24` hours.
@@ -1426,7 +1428,7 @@ To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
           
           * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
           * `subnet_id`: [Subnet ID](../../vpc/concepts/network.md#subnet).
-          * `assign_public_ip`: Controls whether the host is accessible via a public IP address, `true` or `false`. In a sharded cluster, it is used only for `MONGOS` and `MONGOINFRA` hosts.
+          * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`. In a sharded cluster, it is used only for `MONGOS` and `MONGOINFRA` hosts.
           * `type`: Host type in a sharded cluster, `MONGOD`, `MONGOINFRA`, `MONGOS`, or `MONGOCFG`.
           * `tags`: Host tags.
           * `shard_name`: Shard name in a sharded cluster.
@@ -1510,9 +1512,9 @@ To create a {{ SD }} cluster copy:
         terraform show
         ```
 
-    1. Copy it from the terminal and paste it into the `.tf` file.
-    1. Place the file in the new `imported-cluster` directory.
-    1. Edit the copied configuration so that you can create a new cluster from it:
+    1. Copy it from your terminal and paste it into the `.tf` file.
+    1. Create a new directory `imported-cluster` and move your configuration file there.
+    1. Modify the configuration so that you can use it to create a new cluster:
 
         * Specify the new cluster name in the `resource` string and in the `name` argument.
         * Delete the `created_at`, `health`, `id`, `sharded`, and `status` arguments.
@@ -1521,11 +1523,11 @@ To create a {{ SD }} cluster copy:
         * Delete all `user` sections. Use `yandex_mdb_mongodb_user` resource to add database users.
         * Optionally, you can customize the configuration further as needed.
 
-    1. Navigate to the `imported-cluster` directory and [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
+    1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
 
     1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Instead of manually creating the provider configuration file, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
-    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
+    1. Move the configuration file to the `imported-cluster` directory and [specify the arguments](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
 
     1. Validate your {{ TF }} configuration:
 
@@ -1603,7 +1605,7 @@ To create a {{ SD }} cluster copy:
   * Subnet: `mysubnet`. Network settings: 
 
     * Availability zone: `{{ region-id }}-a`.
-    * Range: `10.5.0.0/24`.
+    * CIDR: `10.5.0.0/24`.
 
   * Security group: `mymg-sg`. Rules in this security group must allow incoming public TCP connections on port `{{ port-mmg }}`.
   * Network SSD storage: `{{ disk-type-example }}`.
@@ -1701,7 +1703,7 @@ Cluster test specifications:
 * Deletion protection: Enabled.
 * Version: `{{ versions.tf.latest }}`.
 * Database: `db1`.
-* `user1` user.
+* Username: `user1`.
 * Password: `user1user1`.
 * `MONGOD` host class: `{{ host-class }}`.
 * `MONGOINFRA` host class: `c3-c2-m4`.
@@ -1710,13 +1712,12 @@ Cluster test specifications:
 
 Network specifications:
 
+
 * Availability zone: `{{ region-id }}-a`.
 * Network: `mynet`.
-
-
 * Security group: `mymg-sg` with `{{ security-group }}` ID. {{ TF }} creates a group containing a rule allowing incoming public TCP connections on port `{{ port-mmg }}`.
 * Subnet: `mysubnet`. 
-* Range: `10.5.0.0/24` (only for {{ TF }}).
+* CIDR: `10.5.0.0/24` (only for {{ TF }}).
 
 
 {% list tabs group=instructions %}
@@ -1878,13 +1879,12 @@ Cluster test specifications:
 
 Network specifications:
 
+
 * Availability zone: `{{ region-id }}-a`.
 * Network: `mynet`.
-
-
 * Security group: `mymg-sg` with `{{ security-group }}` ID. {{ TF }} creates a group containing a rule allowing incoming public TCP connections on port `{{ port-mmg }}`.
 * Subnet: `mysubnet`. 
-* Range: `10.5.0.0/24` (only for {{ TF }}).
+* CIDR: `10.5.0.0/24` (only for {{ TF }}).
 
 
 {% list tabs group=instructions %}

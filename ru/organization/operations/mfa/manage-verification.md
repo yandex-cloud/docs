@@ -53,6 +53,7 @@ description: Следуя данной инструкции, вы сможете
 * [{#T}](./create-policy.md)
 * [{#T}](./update-policy.md)
 * [{#T}](./add-users.md)
+* [{#T}](./excluded-audience.md)
 * [{#T}](./deactivate-reactivate-policy.md)
 * [{#T}](./delete-policy.md)
 * [{#T}](../../concepts/mfa.md)

@@ -13,12 +13,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mpg-name }} cluster: Computing resources allocated to hosts along with storage and backup capacity (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
+* {{ mpg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 * {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../../ydb/pricing/index.md)). Its cost depends on the deployment mode:
 
-    * In serverless mode, you pay for data operations as well as the amount of stored data and backups.
-    * In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
+    * In serverless mode, you pay for data operations and storage volume, including stored backups.
+    * In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage and backup size.
 
 * {{ yds-name }} (see [{{ yds-name }} pricing](../../../data-streams/pricing.md)). The cost depends on the pricing model:
 
@@ -177,7 +177,7 @@ Set up your infrastructure:
 
 {% include [note before delete resources](../../../_includes/mdb/note-before-delete-resources.md) %}
 
-To reduce the consumption of resources, delete those you do not need:
+To minimize resource consumption, delete the resources you no longer need:
 
 1. [Delete the transfer](../../../data-transfer/operations/transfer.md#delete).
 1. [Delete the target endpoint](../../../data-transfer/operations/endpoint/index.md#delete).

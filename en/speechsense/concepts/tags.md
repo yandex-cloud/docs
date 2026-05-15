@@ -83,7 +83,6 @@ Such use of semantic tags allows you to [filter dialogs](../operations/data/mana
 
 Semantic Pro tags rely on dialog analysis with the use of complex search queries. You provide a search query that may include mutliple topics. {{ speechsense-name }} analyses the dialogs and tags them if the dialog is semantically relevant to the search query.
 
-
 ### Testing semantic Pro tags {#test-sense-pro-tags}
 
 {% include [note-pro](../../_includes/speechsense/tag/note-pro.md) %}
@@ -175,13 +174,15 @@ You can add multiple constraints to a single tag. The constraints sum up as per 
 
 ### Exclusion phrases {#exclusion-phrases}
 
-To increase a dictionary tag's accuracy, add _exclusion phrases_ to it. If the dialog contains exclusion phrases, these will not trigger the tag.
+To increase a dictionary tag's accuracy, add _exclusion phrases_ to it. Exception phrases narrow the context of the key phrase. However, exception phrases must overlap with the key phrase in at least some words; otherwise, they will not work.
 
 You can add exclusion phrases manually or upload a phrase dictionary.
 
-> Let's say we create a tag called `Fire` and add the `flamed` keyword to it.
-> The tag will trigger on the phrase `The battle flamed up`; however, such a phrase does not indicate a fire. This is a false positive. To fix it, let's add the `battle flamed up` exclusion phrase.
-> Now the tag will not trigger on the phrase `The battle flamed up` but it will on `The stove flamed up`.
+> Let's say we create a tag called `Fire` and add the `lit` keyword to it.
+> The tag will trigger on the phrase `An indicator on the panel erroneously lit up` because of the word `lit`, yet this phrase does not indicate a fire. This is a false positive. To fix it, let's add the exclusion phrase. For example, let's use different versions of the exception phrase and see how they affect the result:
+> * `erroneously`: Does not work, because this phrase is not related with the key phrase `lit`. As a result, the phrase `An indicator on the panel erroneously lit up` will not be filtered out: it contains the word `lit`.
+> * `on the panel lit up` and `an indicator lit up`: Do not work, because although they are related to the key phrase, they cut off some legitimate matches. In case of a real fire, a panel could indeed light up and some indicator might trigger.
+> * `erroneously lit up`: Works, because it filters out only exceptions while still overlapping with the key phrase.
 
 To fine-tune the exclusion phrase:
 

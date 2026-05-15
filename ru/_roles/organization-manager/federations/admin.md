@@ -14,7 +14,8 @@
 * просматривать список [групп](../../../organization/concepts/groups.md), в которые входят пользователи;
 * просматривать список и информацию о группах пользователей Identity Hub, привязанных к федерациям удостоверений в процессе синхронизации с пользовательскими группами в каталоге Active Directory или другом внешнем источнике;
 * привязывать группы пользователей к федерациям удостоверений в процессе синхронизации с пользовательскими группами в каталоге Active Directory или другом внешнем источнике, а также отвязывать их;
-* просматривать [атрибуты](../../../organization/operations/setup-federation.md#claims-mapping) федеративных и локальных пользователей.
+* просматривать [атрибуты](../../../organization/operations/setup-federation.md#claims-mapping) федеративных и локальных пользователей;
+* просматривать и завершать [сессии](../../../organization/concepts/sessions.md) федеративных и локальных пользователей.
 
 Включает разрешения, предоставляемые ролями `organization-manager.federations.editor`, `organization-manager.federations.extGroupsManager` и `organization-manager.federations.extGroupsCleaner`.
 

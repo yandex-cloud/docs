@@ -1,6 +1,8 @@
 # Поля ресурса TLSRoute
 
-В ресурсе `TLSRoute` определяются правила маршрутизации трафика по бэкендам — сервисам {{ k8s }} (ресурсам [Service](../../../application-load-balancer/k8s-ref/service-for-gateway.md)). `TLSRoute` получает входящий трафик от тех ресурсов [Gateway](../../../application-load-balancer/k8s-ref/gateway.md), требованиям которых соответствует.
+В ресурсе `TLSRoute` определяются правила маршрутизации трафика по бэкендам — сервисам {{ k8s }} (ресурсам [Service]({{ configuration-local-link }}/service-for-gateway.md)). `TLSRoute` получает входящий трафик от тех ресурсов [Gateway]({{ configuration-local-link }}/gateway.md), требованиям которых соответствует.
+
+{% include [Gwin-with-preset](../../application-load-balancer/ingress-to-gwin-tip-with-preset.md) %}
 
 `TLSRoute` предназначен для разработчиков приложений. Оператор кластера должен использовать `Gateway`.
 
@@ -81,7 +83,7 @@ rules: <[]TLSRouteRule>
 || `parentRefs` | `[]ParentReference`   | **Обязательное**.
 [Список ресурсов Gateway или их обработчиков](#parentrefs), к которым должен быть привязан `TLSRoute`.
 
-Для привязки маршрута он должен удовлетворять правилам, описанным в [конфигурации](../../../application-load-balancer/k8s-ref/gateway.md#spec) `Gateway` (поле `spec.listeners.allowedRoutes`). ||
+Для привязки маршрута он должен удовлетворять правилам, описанным в [конфигурации]({{ configuration-local-link }}/gateway.md#spec) `Gateway` (поле `spec.listeners.allowedRoutes`). ||
 || `hostnames`  | `[]Hostname`          | Список доменных имен, соответствующих атрибуту `SNI` сообщения `ClientHello`, которое используется при выполнении TLS handshake.
 
 {% include [k8s-ingress-controller-hostnames-wildcard](../../application-load-balancer/k8s-ingress-controller-hostnames-wildcard.md) %} ||
@@ -126,13 +128,13 @@ backendRefs:
 || `backendRefs.name`   | `string`              | **Обязательное**.
 Имя сервиса {{ k8s }}, который выступает в качестве бэкенда.
 
-Ресурс `Service`, на который указывает это поле, должен быть описан по [принятой конфигурации](../../../application-load-balancer/k8s-ref/service-for-gateway.md). ||
+Ресурс `Service`, на который указывает это поле, должен быть описан по [принятой конфигурации]({{ configuration-local-link }}/service-for-gateway.md). ||
 || `backendRefs.namespace` | `string`           | Пространство имен, к которому относится ресурс `Service`.
 
 По умолчанию совпадает с пространством имен ресурса `TLSRoute` (поле [metadata.namespace](#metadata)). ||
 || `backendRefs.port`   | `int32`               | Номер порта сервиса.
 
-Этот номер должен совпадать с одним из номеров портов, указанных в полях [spec.ports.port](../../../application-load-balancer/k8s-ref/service-for-gateway.md#servicespec) ресурса `Service`. ||
+Этот номер должен совпадать с одним из номеров портов, указанных в полях [spec.ports.port]({{ configuration-local-link }}/service-for-gateway.md#servicespec) ресурса `Service`. ||
 || `backendRefs.weight` | `int32`               | Относительный вес бэкенда. Трафик между бэкендами в группе бэкендов распределяется пропорционально их весам.
 
 Веса должны быть указаны либо у всех бэкендов в группе, либо ни у одного из них. Между бэкендами без указанных весов трафик распределяется, как если бы у них были указаны одинаковые положительные веса.

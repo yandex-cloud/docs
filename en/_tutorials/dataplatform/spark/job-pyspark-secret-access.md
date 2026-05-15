@@ -17,15 +17,17 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
 
+
 ### Required paid resources {#paid-resources}
 
-* {{ msp-full-name }} cluster: computing resources of cluster components (see [{{ msp-full-name }} pricing](../../../managed-spark/pricing.md)).
-* {{ mpg-name }} cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
+* {{ msp-name }} cluster: computing resources allocated to the hosts (see [{{ msp-name }} pricing](../../../managed-spark/pricing.md)).
+* {{ mpg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 * {{ objstorage-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
 * NAT gateway: hourly use of the gateway and its outgoing traffic (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
 There is no charge for using {{ lockbox-name }} secrets created with {{ connection-manager-name }}.
+
 
 ## Set up your infrastructure {#infra}
 
@@ -61,7 +63,7 @@ There is no charge for using {{ lockbox-name }} secrets created with {{ connecti
     * **Network**: `spark-network`
     * **Security group**: `pg-sg`
 
-## Configure permissions for access to a {{ mpg-name }} user's secret {#set-up-roles}
+## Configure access permissions for the {{ mpg-name }} user secret {#set-up-roles}
 
 {% list tabs group=instructions %}
 

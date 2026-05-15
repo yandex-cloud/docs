@@ -31,6 +31,10 @@ resource "yandex_vpc_network" "my_net" {
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
 - `name` (String). The resource name.
 - `subnet_ids` (*Read-Only*) (List Of String). The list of VPC subnets identifiers which resource is attached.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `update` (String).
 
 ## Import
 

@@ -31,7 +31,7 @@ To start working with [selectors](../dashboard/selector.md):
  
    - Navigation bar
 
-     1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+     1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
      1. In the left-hand panel, select ![image](../../_assets/console-icons/display-pulse.svg) **Reports** and select the report.
 
    {% endlist %}
@@ -188,7 +188,7 @@ If you add a field selector to a report, filters added at the chart level will n
 {% endnote %}
 
 
-## Adding a JS selector{#add-js-selector}
+## Adding a JS selector {#add-js-selector}
 
 To add a [JS selector](../charts/editor/widgets/controls.md) to a report:
 

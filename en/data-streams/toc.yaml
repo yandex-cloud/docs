@@ -127,8 +127,14 @@ items:
             href: tutorials/search-events-audit-logs/query.md
       - name: Debezium Change Data Capture (CDC) stream processing
         href: tutorials/debezium.md
-      - name: Importing audit logs to MaxPatrol SIEM
-        href: tutorials/maxpatrol.md
+      - name: Exporting audit logs to MaxPatrol SIEM
+        items:
+          - name: Overview
+            href: tutorials/maxpatrol/index.md
+          - name: Management console
+            href: tutorials/maxpatrol/console.md
+          - name: '{{ TF }}'
+            href: tutorials/maxpatrol/terraform.md
       - name: Searching for {{ yandex-cloud }} events in {{ yq-full-name }}
         href: tutorials/search-events-query.md
       - name: '{{ postbox-full-name }} integration with external systems via webhooks'

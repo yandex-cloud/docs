@@ -122,7 +122,7 @@ Learn how to change the [availability zone](../../../overview/concepts/geo-scope
   To update a {{ managed-k8s-name }} node group:
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more on how to create such a file, see [{#T}](node-group-create.md).
+     For more on how to create this file, see [{#T}](node-group-create.md).
   1. Edit the {{ managed-k8s-name }} node group description properties.
 
      * To change the scaling settings, edit the `scale_policy` section as follows:
@@ -158,11 +158,11 @@ Learn how to change the [availability zone](../../../overview/concepts/geo-scope
 
        {% include [node-name](../../../_includes/managed-kubernetes/tf-node-name.md) %}
 
-  1. Make sure the configuration files are correct.
+  1. Validate your configuration files.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -236,7 +236,7 @@ Using a [deployment policy](../../concepts/node-group/deploy-policy.md), you can
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-      For more on how to create such a file, see [{#T}](./node-group-create.md).
+      For more on how to create this file, see [{#T}](./node-group-create.md).
 
   1. Specify the settings under `deploy_policy`. If there is no such section, add it first.
 
@@ -256,11 +256,11 @@ Using a [deployment policy](../../concepts/node-group/deploy-policy.md), you can
 
       {% include [deploy-policy-parameters-tf](../../../_includes/managed-kubernetes/deploy-policy/parameters-tf.md) %}
 
-  1. Make sure the configuration files are correct.
+  1. Validate your configuration files.
 
       {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -331,7 +331,7 @@ Using a [deployment policy](../../concepts/node-group/deploy-policy.md), you can
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more on how to create such a file, see [{#T}](node-group-create.md).
+     For more on how to create this file, see [{#T}](node-group-create.md).
 
   1. Add `instance_template.network_interface.nat` set to `true` to the node group description:
 
@@ -351,7 +351,7 @@ Using a [deployment policy](../../concepts/node-group/deploy-policy.md), you can
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -389,7 +389,7 @@ Adding [taints](../../concepts/index.md#taints-tolerations) results in removing 
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more on how to create such a file, see [{#T}](node-group-create.md).
+     For more on how to create this file, see [{#T}](node-group-create.md).
 
   1. Add the `node_taints` section to the node group description:
 
@@ -412,11 +412,11 @@ Adding [taints](../../concepts/index.md#taints-tolerations) results in removing 
 
      You can place multiple taints by specifying them separated by commas.
 
-  1. Make sure the configuration files are correct.
+  1. Validate your configuration files.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -442,15 +442,15 @@ Removing [taints](../../concepts/index.md#taints-tolerations) results in removin
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more on how to create such a file, see [{#T}](node-group-create.md).
+     For more on how to create this file, see [{#T}](node-group-create.md).
 
   1. In the node group description, remove the taints you no longer need under `node_taints`.
 
-  1. Make sure the configuration files are correct.
+  1. Validate your configuration files.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -506,7 +506,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more on how to create such a file, see [{#T}](node-group-create.md).
+     For more on how to create this file, see [{#T}](node-group-create.md).
   1. Add the `labels` property to the {{ managed-k8s-name }} node group description:
 
      ```hcl
@@ -524,7 +524,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -549,8 +549,8 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
     1. Select the node group you need.
     1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
     1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click the cross next to the label to remove it.
-    1. Click **{{ui-key.yacloud.component.label-set.button_add-label }}** and enter a new key and/or value for the label.
-    1. Press **Enter**, then click **{{ ui-key.yacloud.common.save }}**.
+    1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}** and enter a new key and/or value for the label.
+    1. Press **Enter** and click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -575,7 +575,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more on how to create such a file, see [{#T}](node-group-create.md).
+     For more on how to create this file, see [{#T}](node-group-create.md).
   1. Edit the `labels` property in the {{ managed-k8s-name }} node group description:
 
      ```hcl
@@ -594,7 +594,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -642,11 +642,11 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
      For more on how to create this file, see [{#T}](node-group-create.md).
   1. In the {{ managed-k8s-name }} node group description, remove the cloud labels you no longer need under `labels`.
-  1. Make sure the configuration files are correct.
+  1. Validate your configuration files.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -837,11 +837,11 @@ After you update the metadata, the node group status will temporarily change to 
 
         {% endnote %}
 
-    1. Make sure the configuration files are correct.
+    1. Validate your configuration files.
 
         {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 

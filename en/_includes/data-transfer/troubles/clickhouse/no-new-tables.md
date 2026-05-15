@@ -1,6 +1,6 @@
 ### New tables cannot be added {#no-new-tables}
 
-​No new tables are added to _{{ dt-type-copy-repl}}_ transfers.
+​No new tables are added to _{{ dt-type-copy-repl }}_ transfers.
 
 **Solution**:
 
@@ -19,7 +19,7 @@
         ENGINE = ReplacingMergeTree
         ```
 
-1. [Create](../../../../data-transfer/operations/transfer.md#create) a separate transfer of the _{{ dt-type-copy-repl }}_ type and add only new tables to the list of objects to transfer. Deactivating the original _{{ dt-type-copy-repl}}_ transfer is not required. [Activate](../../../../data-transfer/operations/transfer.md#activate) the new transfer, and once it switches to the {{ dt-status-repl }} status, [deactivate](../../../../data-transfer/operations/transfer.md#deactivate) it.
+1. [Create](../../../../data-transfer/operations/transfer.md#create) a separate transfer of the _{{ dt-type-copy-repl }}_ type and add only new tables to the list of objects to transfer. Deactivating the original _{{ dt-type-copy-repl }}_ transfer is not required. [Activate](../../../../data-transfer/operations/transfer.md#activate) the new transfer, and once it switches to the {{ dt-status-repl }} status, [deactivate](../../../../data-transfer/operations/transfer.md#deactivate) it.
 
    To add other tables, put them into the list of objects to transfer in the created separate transfer (replacing other objects in that list), reactivate it, and, once it switches to the {{ dt-status-repl }} status, deactivate it.
 

@@ -193,7 +193,9 @@ Before connecting, install [MongoDB Shell](index.md#install-mongosh).
 
 {% include [ide-environments](../../../_includes/mdb/mmg-ide-envs.md) %}
 
-From graphical IDEs, you can only connect to public cluster hosts using an [SSL certificate](index.md#get-ssl-cert).
+
+From graphical IDEs, you can only connect to public cluster hosts using an SSL certificate.
+
 
 {% include [note-connection-ide](../../../_includes/mdb/note-connection-ide.md) %}
 
@@ -203,7 +205,7 @@ From graphical IDEs, you can only connect to public cluster hosts using an [SSL 
    1. Select **File** → **New** → **Data Source** → **{{ MG }}**.
    1. On the **General** tab:
       1. Configure the connection as follows:
-         * **User**, **Password**: DB user name and password.
+         * **User**, **Password**: Database user name and password.
          * **URL**: Connection string.
 
               For a non-sharded cluster:
@@ -220,11 +222,11 @@ From graphical IDEs, you can only connect to public cluster hosts using an [SSL 
 
               {% include [see-fdqn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
 
-      1. Click **Download** to download the connection driver.
+      1. Click **Download** to get the database driver.
    1. On the **SSH/SSL** tab:
       1. Enable **Use SSL**.
       1. In the **CA file** field, specify the path to the [SSL certificate for your connection](./index.md#get-ssl-cert).
-1. Click **Test Connection**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
+1. Click **Test Connection**. If the connection is successful, you will see the connection status, DBMS information, and driver details.
 1. Click **OK** to save the data source.
 
 ### DBeaver {#dbeaver}
@@ -235,7 +237,7 @@ To connect to your cluster:
 
 1. Create a new database connection:
    1. In the **Database** menu, select **New connection**.
-   1. Select **{{ MG }}** from the DB list.
+   1. Select **{{ MG }}** from the database list.
    1. Click **Next**.
    1. On the **Main** tab, specify the connection settings:
       1. Under **Address**, change **Type** to `URL` and specify the connection string.

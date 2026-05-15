@@ -224,6 +224,8 @@ May be specified as an absolute value (for example, 8GB) or a percentage of the 
 This setting is dynamic. If you don't specify this setting, the maximum size is 35%. 
 This value should be smaller than the **indices.breaker.fielddata.limit**
 For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/index-settings/#dynamic-cluster-level-index-settings).
+      - `http_max_initial_line_length` (String). Sets the maximum length allowed for HTTP URLs in the initial request line. URLs exceeding this limit will be rejected. Default is **4kb**.
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/network-settings/#advanced-http-settings).
       - `max_clause_count` (Number). Defines the maximum product of fields and terms that are queryable simultaneously. 
 Before OpenSearch 2.16, a cluster restart was required in order to apply this static setting. 
 Now dynamic, existing search thread pools may use the old static value initially, causing **TooManyClauses** exceptions. 
@@ -231,6 +233,8 @@ New thread pools use the updated value.
 For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/index-settings/#dynamic-cluster-level-index-settings).
       - `reindex_remote_whitelist` (String). Allowed remote hosts
 For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/api-reference/document-apis/reindex/#remote-cluster-allow-list).
+      - `search_max_buckets` (Number). The maximum number of aggregation buckets allowed in a single response. Default is 65535
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/search-settings).
     - `plugins` (Set Of String). A set of requested OpenSearch plugins.
     - `node_groups` [Block]. A set of named OpenSearch node group configurations.
       - `assign_public_ip` (Bool). Sets whether the hosts should get a public IP address.
@@ -250,7 +254,11 @@ For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/a
 - `maintenance_window` [Block]. 
   - `day` (String). 
   - `hour` (Number). 
-  - `type` (**Required**)(String).
+  - `type` (**Required**)(String). 
+- `timeouts` [Block]. 
+  - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+  - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+  - `update` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 
 ## Import
 

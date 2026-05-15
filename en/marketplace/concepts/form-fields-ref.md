@@ -1,5 +1,5 @@
 ---
-title: Description of fields available for a {{ cloud-apps-name}} product form
+title: Description of fields available for a {{ cloud-apps-name }} product form
 description: In this guide, you will learn how to correctly add fields to a {{ cloud-apps-name }} product form.
 ---
 

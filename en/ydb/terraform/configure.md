@@ -3,7 +3,7 @@ title: Creating configuration files and connecting to {{ ydb-short-name }}
 description: Follow this guide to create configuration files and connect to {{ ydb-short-name }}.
 ---
 
-# Creating configuration files and connecting to {{ ydb-short-name}}
+# Creating configuration files and connecting to {{ ydb-short-name }}
 
 {% note warning %}
 
@@ -11,15 +11,15 @@ For this tutorial, you need to install a {{ TF }} provider for {{ ydb-short-name
 
 {% endnote %}
 
-Create a directory where you will place {{ TF }} configuration files for {{ ydb-short-name }}, then create a file named `main.tf`. For example:
+Create a directory where you will place your {{ TF }} configuration files for {{ ydb-short-name }}, then create a file named `main.tf.`, e.g.:
 ```bash
 mkdir ydb_terraform && cd ydb_terraform
 touch main.tf
 ```
 
-## Description of the provider section settings {#tproviders_description}
+## Provider section properties {#tproviders_description}
 
-Add the following section to the beginning of the file and save the file:
+Add the following section at the beginning of the file and save this file:
 
 ```tf
 terraform {
@@ -36,10 +36,10 @@ provider "yandex" {
 }
 ```
 
-Values of the provider section fields:
-* `source`: Global provider [source address](https://developer.hashicorp.com/terraform/language/providers/requirements#source-addresses).
+Here is the description of the provider section fields:
+* `source`: Provider's global [source address](https://developer.hashicorp.com/terraform/language/providers/requirements#source-addresses).
 * `required_version`: Minimum {{ TF }} version the provider is compatible with.
 * `provider`: Provider name.
-* `zone`: [Availability zone](../../overview/concepts/geo-scope.md) where all cloud resources will be created by default.
+* `zone`: Default [availability zone](../../overview/concepts/geo-scope.md) for all your cloud resources.
 
-To initialize the provider, run the `terraform init` command in the directory hosting the configuration files. In the terminal, you will see a message about successful installation. Now that {{ TF }} is installed and set up, you can start creating a [serverless](./serverless-database.md) or [dedicated](./dedicated-database.md) database.
+To initialize the provider, run `terraform init` in the directory with the configuration files. In the terminal, you will see a message about successful installation. Now that {{ TF }} is installed and set up, you can start creating a [serverless](./serverless-database.md) or [dedicated](./dedicated-database.md) database.

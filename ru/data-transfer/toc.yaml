@@ -382,6 +382,86 @@ items:
             href: cli-ref/transfer/list.md
           - name: update
             href: cli-ref/transfer/update.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: endpoint
+            items:
+              - name: Overview
+                href: cli-ref/v0/endpoint/index.md
+              - name: create
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/endpoint/create/index.md
+                  - name: clickhouse-source
+                    href: cli-ref/v0/endpoint/create/clickhouse-source.md
+                  - name: clickhouse-target
+                    href: cli-ref/v0/endpoint/create/clickhouse-target.md
+                  - name: mongo-source
+                    href: cli-ref/v0/endpoint/create/mongo-source.md
+                  - name: mongo-target
+                    href: cli-ref/v0/endpoint/create/mongo-target.md
+                  - name: mysql-source
+                    href: cli-ref/v0/endpoint/create/mysql-source.md
+                  - name: mysql-target
+                    href: cli-ref/v0/endpoint/create/mysql-target.md
+                  - name: postgres-source
+                    href: cli-ref/v0/endpoint/create/postgres-source.md
+                  - name: postgres-target
+                    href: cli-ref/v0/endpoint/create/postgres-target.md
+                  - name: yds-source
+                    href: cli-ref/v0/endpoint/create/yds-source.md
+                  - name: yds-target
+                    href: cli-ref/v0/endpoint/create/yds-target.md
+              - name: delete
+                href: cli-ref/v0/endpoint/delete.md
+              - name: get
+                href: cli-ref/v0/endpoint/get.md
+              - name: list
+                href: cli-ref/v0/endpoint/list.md
+              - name: update
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/endpoint/update/index.md
+                  - name: clickhouse-source
+                    href: cli-ref/v0/endpoint/update/clickhouse-source.md
+                  - name: clickhouse-target
+                    href: cli-ref/v0/endpoint/update/clickhouse-target.md
+                  - name: mongo-source
+                    href: cli-ref/v0/endpoint/update/mongo-source.md
+                  - name: mongo-target
+                    href: cli-ref/v0/endpoint/update/mongo-target.md
+                  - name: mysql-source
+                    href: cli-ref/v0/endpoint/update/mysql-source.md
+                  - name: mysql-target
+                    href: cli-ref/v0/endpoint/update/mysql-target.md
+                  - name: postgres-source
+                    href: cli-ref/v0/endpoint/update/postgres-source.md
+                  - name: postgres-target
+                    href: cli-ref/v0/endpoint/update/postgres-target.md
+                  - name: yds-source
+                    href: cli-ref/v0/endpoint/update/yds-source.md
+                  - name: yds-target
+                    href: cli-ref/v0/endpoint/update/yds-target.md
+          - name: transfer
+            items:
+              - name: Overview
+                href: cli-ref/v0/transfer/index.md
+              - name: activate
+                href: cli-ref/v0/transfer/activate.md
+              - name: create
+                href: cli-ref/v0/transfer/create.md
+              - name: deactivate
+                href: cli-ref/v0/transfer/deactivate.md
+              - name: delete
+                href: cli-ref/v0/transfer/delete.md
+              - name: get
+                href: cli-ref/v0/transfer/get.md
+              - name: list
+                href: cli-ref/v0/transfer/list.md
+              - name: update
+                href: cli-ref/v0/transfer/update.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

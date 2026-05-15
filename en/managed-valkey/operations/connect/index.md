@@ -7,19 +7,19 @@ description: In this tutorial, you will learn how to pre-configure a database co
 
 You can connect to {{ mrd-name }} cluster hosts:
 
+
 * Over the internet if the following conditions are met:
 
     * The hosts have [public access enabled](../hosts.md#public-access).
     * SSL is used.
     * The cluster supports TLS.
 
+
 * From {{ yandex-cloud }} virtual machines located in the same cloud network:
 
-    
-    1. [Create a virtual machine](../../../compute/operations/vm-create/create-linux-vm.md) with a public IP address in the same virtual network as the cluster.
-    1. [Connect](../../../compute/operations/vm-connect/ssh.md) to the created VM over SSH.
+    1. [Create a VM](../../../compute/operations/vm-create/create-linux-vm.md) with a public IP address in the same virtual network as the cluster.
+    1. [Connect](../../../compute/operations/vm-connect/ssh.md) to the new VM over SSH.
     1. From this VM, connect to {{ VLK }} using any of the connection string examples.
-
 
 
 ## Encryption support {#tls-support}

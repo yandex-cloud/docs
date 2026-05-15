@@ -117,6 +117,8 @@ items:
         href: tools/sdk-python.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Управление доступом
+    href: security/index.md
   - name: Справочник API
     items:
       - name: Обзор

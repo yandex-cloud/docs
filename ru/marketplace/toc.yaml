@@ -345,6 +345,8 @@ items:
           - name: >-
               Установка WordPress High Availability с помощью {{ cloud-apps-name
               }}
+            href: tutorials/wordpress-ha-cloudapp.md
+          - name: Установка WordPress с помощью {{ cloud-apps-name }}
             href: tutorials/wordpress-cloudapp.md
           - name: >-
               Использование продуктов {{ marketplace-name }} в {{

@@ -155,6 +155,9 @@ The maximum string length in characters is 1000. ||
         "window": "string",
         "block": "string",
         "attempts": "string"
+      },
+      "passwordBlacklistPolicy": {
+        "checkCommon": "boolean"
       }
     }
   ],
@@ -240,6 +243,9 @@ Password lifetime policy for this userpool. ||
 || bruteforceProtectionPolicy | **[BruteforceProtectionPolicy](#yandex.cloud.organizationmanager.v1.idp.BruteforceProtectionPolicy)**
 
 Bruteforce protection policy for this userpool. ||
+|| passwordBlacklistPolicy | **[PasswordBlacklistPolicy](#yandex.cloud.organizationmanager.v1.idp.PasswordBlacklistPolicy)**
+
+Password blacklist policy for this userpool. ||
 |#
 
 ## UserSettings {#yandex.cloud.organizationmanager.v1.idp.UserSettings}
@@ -434,4 +440,15 @@ Duration of the block after too many failed attempts. ||
 Number of failed attempts allowed within the window before blocking.
 
 Acceptable values are 1 to 100, inclusive. ||
+|#
+
+## PasswordBlacklistPolicy {#yandex.cloud.organizationmanager.v1.idp.PasswordBlacklistPolicy}
+
+Policy that defines password blacklist requirements.
+
+#|
+||Field | Description ||
+|| checkCommon | **boolean**
+
+Whether check in common password database is enabled. Default value is true. ||
 |#

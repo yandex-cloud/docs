@@ -40,7 +40,7 @@ To attach a service account to a {{ mch-name }} cluster, [assign](../../iam/oper
     To change the service account settings:
 
     1. In the [management console]({{ link-console-main }}), select the folder where the cluster is located.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_service-settings }}**, select your service account from the list or [create a new one](../../iam/operations/sa/create.md). For more information about setting up a service account, see [{#T}](s3-access.md).
 
@@ -51,7 +51,7 @@ To attach a service account to a {{ mch-name }} cluster, [assign](../../iam/oper
 
 {% note info %}
 
-You cannot use {{ ZK }} hosts in clusters with {{ CK }} support. To learn more, see [Replication](../concepts/replication.md).
+You cannot use {{ ZK }} hosts in clusters with {{ CK }} support. For more information, see [Coordination services](../concepts/coordination-system.md).
 
 {% endnote %}
 
@@ -59,20 +59,23 @@ When changing the host class:
 
 * A single-host cluster will be unavailable for a few minutes and all database connections will be dropped.
 * In a multi-host cluster, hosts will be stopped and updated one by one. When stopped, a host will be unavailable for a few minutes.
+* A cluster with local SSD storage may be unavailable for an extended period, as data migration to another physical server may be required.
 * Using a [special FQDN](connect/fqdn.md#auto) does not guarantee a stable database connection: user sessions may be terminated.
 
 {% include [instance-type-change](../../_includes/mdb/mch/instance-type-change.md) %}
 
+You can also [change the host class for an individual shard](shards.md#shard-update).
+
 The host class affects the RAM amount {{ CH }} can use. For more information, see [Memory management](../concepts/memory-management.md).
 
-The minimum number of cores per {{ ZK }} host depends on the total number of cores on {{ CH }} hosts. To learn more, see [Replication](../concepts/replication.md#zk).
+The minimum number of cores per {{ ZK }} host depends on the total number of cores on {{ CH }} hosts. For more information, see [Coordination services](../concepts/coordination-system.md#zk).
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. To change the {{ CH }} host class, select the platform, VM type, and required host class under **{{ ui-key.yacloud.mdb.forms.new_section_resource }}**.
   1. To change the {{ ZK }} host class, select the platform, VM type, and required {{ ZK }} host class under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-resource }}**.
@@ -119,25 +122,26 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
   1. To change the class of a {{ ZK }} host, provide the value you need in the `--zookeeper-resource-preset` parameter.
 
+
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. In the {{ mch-name }} cluster description, change the `resource_preset_id` value in the `clickhouse.resources` and `zookeeper.resources` sections for {{ CH }} and {{ ZK }} hosts, respectively:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
           ...
-          clickhouse {
-            resources {
+          clickhouse = {
+            resources = {
               resource_preset_id = "<{{ CH }}_host_class>"
               ...
             }
           }
-          zookeeper {
-            resources {
+          zookeeper = {
+            resources = {
               resource_preset_id = "<{{ ZK }}_host_class>"
               ...
             }
@@ -156,6 +160,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
     For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -308,13 +313,17 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
 {% note info %}
 
-You cannot use {{ ZK }} hosts in clusters with {{ CK }} support. To learn more, see [Replication](../concepts/replication.md).
+You cannot use {{ ZK }} hosts in clusters with {{ CK }} support. For more information, see [Coordination services](../concepts/coordination-system.md).
 
 {% endnote %}
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
 {% include [note-change-disk-type-data-loss](../../_includes/mdb/mch/note-change-disk-type-data-loss.md) %}
+
+When changing the disk type or storage size, a cluster with local SSD storage may be unavailable for an extended period, as data migration to another physical server may be required.
+
+You can also [change the disk type and storage size for an individual shard](shards.md#shard-update).
 
 {% note info %}
 
@@ -329,7 +338,7 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
   To change the disk type and expand the storage size for a cluster:
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. To change the disk type and increase the storage size for your {{ CH }} hosts, select the appropriate value under **{{ ui-key.yacloud.mdb.forms.section_disk }}**.
   1. To change the disk type and increase the storage size for your {{ ZK }} hosts, select the appropriate value under **{{ ui-key.yacloud.mdb.forms.section_zookeeper-disk }}**.
@@ -365,28 +374,29 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
 
   1. To change the disk type and increase the storage size for your {{ ZK }} hosts, provide the appropriate values in the `--zookeeper-disk-size` parameter.
 
+
 - {{ TF }} {#tf}
 
   To change the [disk type](../concepts/storage.md) and increase the storage size, do the following:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. In the {{ mch-name }} cluster description, change the `disk_size` and `disk_type_id` values in the `clickhouse.resources` and `zookeeper.resources` sections for {{ CH }} and {{ ZK }} hosts, respectively:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
           ...
-          clickhouse {
-            resources {
+          clickhouse = {
+            resources = {
               disk_size = <storage_size_in_GB>
               disk_type_id = "<disk_type>"
               ...
             }
           }
-          zookeeper {
-            resources {
+          zookeeper = {
+            resources = {
               disk_size = <storage_size_in_GB>
               disk_type_id = "<disk_type>"
               ...
@@ -406,6 +416,7 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
     For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -539,7 +550,11 @@ You can turn on the {{ CK }} or {{ ZK }} [coordination service](#enable-coordina
 
 ### Turning on the coordination service {#enable-coordination}
 
+{% note warning %}
+
 {% include [note-pricing-zk-ck](../../_includes/mdb/mch/note-pricing-zk-ck.md) %}
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -548,7 +563,7 @@ You can turn on the {{ CK }} or {{ ZK }} [coordination service](#enable-coordina
   1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.button_create-coordinator }}** in the top-right corner of the page.
-  1. Under **{{ ui-key.yacloud.clickhouse.AddCoordinatorHost.title_main-settings_68Grp }}**, select the [coordination service](../concepts/replication.md).
+  1. Under **{{ ui-key.yacloud.clickhouse.AddCoordinatorHost.title_main-settings_68Grp }}**, select the [coordination service](../concepts/coordination-system.md).
   1. Configure the following settings depending on the service you selected:
       
       * For the **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-zookeeper }}** coordination service:
@@ -636,7 +651,7 @@ You cannot disable settings for user or database management via SQL once they ar
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. To [manage users via SQL](./cluster-users.md#sql-user-management), enable **{{ ui-key.yacloud.mdb.forms.section_settings }}** under **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** and specify the `admin` password.
   1. To [manage databases via SQL](./databases.md#sql-database-management), enable **{{ ui-key.yacloud.mdb.forms.section_settings }}** and **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** under **{{ ui-key.yacloud.mdb.forms.database_field_sql-database-management }}** and specify the `admin` password.
@@ -673,11 +688,12 @@ You cannot disable settings for user or database management via SQL once they ar
            --admin-password "<admin_password>"
         ```
 
+
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. {% include [Enable SQL user management with Terraform](../../_includes/mdb/mch/terraform/sql-management-users.md) %}
 
@@ -687,13 +703,14 @@ You cannot disable settings for user or database management via SQL once they ar
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     For more information, see [this {{ TF }} provider guide]({{ tf-provider-mch }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -808,7 +825,7 @@ You cannot disable settings for user or database management via SQL once they ar
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
@@ -874,7 +891,7 @@ You cannot disable settings for user or database management via SQL once they ar
     
     * `--metrika-access`: Enables [data import from AppMetrica to your cluster](https://appmetrica.yandex.com/docs/common/cloud/about.html). The default value is `false`.
 
-    * `--serverless-access`: Enables access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md). The default value is `false`. For details on setting up access, see [{{ sf-name }} this guide](../../functions/operations/database-connection.md).
+    * `--serverless-access`: Enables access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md). The default value is `false`. For more information on setting up access, see [this {{ sf-name }} guide](../../functions/operations/database-connection.md).
 
 
     * `--websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
@@ -896,18 +913,19 @@ You cannot disable settings for user or database management via SQL once they ar
 
     You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. To change the backup start time, add the `backup_window_start` section to the {{ mch-name }} cluster description:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
           ...
-          backup_window_start {
+          backup_window_start = {
             hours   = <backup_start_hour>
             minutes = <backup_start_minute>
           }
@@ -917,11 +935,10 @@ You cannot disable settings for user or database management via SQL once they ar
 
     1. To enable cluster access from other services and allow [running SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}, edit the values of the appropriate fields in the `access` section:
 
-        
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
           ...
-          access {
+          access = {
             data_lens    = <access_from_{{ datalens-name }}>
             metrika      = <access_from_Metrica_and_AppMetrica>
             serverless   = <access_from_Cloud_Functions>
@@ -932,16 +949,11 @@ You cannot disable settings for user or database management via SQL once they ar
         }
         ```
 
-
         Where:
 
         * `data_lens`: Access from {{ datalens-name }}, `true` or `false`.
-
-        
         * `metrika`: Access from Yandex Metrica and AppMetrica, `true` or `false`.
         * `serverless`: Access from {{ sf-name }}, `true` or `false`.
-
-
         * `yandex_query`: Access from {{ yq-full-name }}, `true` or `false`.
         * `web_sql`: Running SQL queries from the management console, `true` or `false`.
 
@@ -950,7 +962,7 @@ You cannot disable settings for user or database management via SQL once they ar
     1. To activate cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to the cluster description:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
           ...
           deletion_protection = <cluster_deletion_protection>
         }
@@ -969,6 +981,7 @@ You cannot disable settings for user or database management via SQL once they ar
     For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -1057,7 +1070,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
                 {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-        1. Run this query:
+        1. Run this request:
 
             ```bash
             curl \
@@ -1168,7 +1181,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
             You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-        1. Run this query:
+        1. Run this request:
 
             ```bash
             grpcurl \
@@ -1200,7 +1213,7 @@ The following resources will be created for each database user:
 
   The connection and secret will be created for each new database user. To view all connections, open the **{{ ui-key.yacloud.connection-manager.label_connections }}** tab on the cluster page.
 
-  You need the `connection-manager.viewer` role to view connection info. You can [use {{ connection-manager-name }}](../../metadata-hub/operations/connection-access.md) to configure access to connections.
+  You need the `connection-manager.viewer` role to view the connection details. You can [use {{ connection-manager-name }}](../../metadata-hub/operations/connection-access.md) to configure access to connections.
 
   {% note info %}
 
@@ -1216,7 +1229,7 @@ The following resources will be created for each database user:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the cluster you want to move.
     1. Select **{{ ui-key.yacloud.common.move }}**.
     1. Select the folder you want to move your cluster to.
@@ -1245,16 +1258,17 @@ The following resources will be created for each database user:
 
         You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        Learn how to create this file in [Creating a cluster](./cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](./cluster-create.md).
 
     1. In the {{ mch-name }} cluster description, add or update the `folder_id` argument:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
           ...
           folder_id = "<destination_folder_ID>"
         }
@@ -1264,13 +1278,14 @@ The following resources will be created for each database user:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     For more information, see [this {{ TF }} provider guide]({{ tf-provider-mch }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -1338,7 +1353,7 @@ The following resources will be created for each database user:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the security groups for cluster network traffic.
 
@@ -1367,12 +1382,12 @@ The following resources will be created for each database user:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Edit the `security_group_ids` value in the cluster description:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
           ...
           security_group_ids = [ <list_of_cluster_security_group_IDs> ]
         }
@@ -1389,6 +1404,7 @@ The following resources will be created for each database user:
     For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 

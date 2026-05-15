@@ -13,14 +13,14 @@ If the required Docker image has been pushed to {{ container-registry-full-name 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, navigate to the **{{ ui-key.yacloud.compute.instances.create.image_value_coi }}** tab.
   1. Click **{{ ui-key.yacloud.compute.instances.create.image_coi_label_empty-button }}**.
   1. In the **{{ ui-key.yacloud.compute.instances.create.section_coi }}** window that opens, set the parameters using the suggestions:
 
-      * Optionally, enter the **{{ ui-key.yacloud.compute.instances.create.field_coi-name }}** of the Docker container you will run on the VM. Follow these naming requirements:
+      * Optionally, enter the **{{ ui-key.yacloud.compute.instances.create.field_coi-name }}** of the Docker container you will run on the VM. The naming requirements are as follows:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
@@ -71,10 +71,10 @@ If the required Docker image has been pushed to {{ container-registry-full-name 
        --public-ip \
        --platform standard-v3 \
        --container-name=my-app \
-       --container-image={{ registry }}/mirror/ubuntu:20.04 \
+       --container-image={{ registry }}/mirror/ubuntu:24.04 \
        --container-command=sleep \
        --container-arg="1000" \
-       --container-env=KEY1=VAL1,KEY2=VAL2 \
+       --container-env='"KEY-GROUP={key1:value1,key2:value2,key3:value3}"',KEY4=VALUE4,KEY5=VALUE5 \
        --container-privileged
       ```
 
@@ -93,6 +93,8 @@ If the required Docker image has been pushed to {{ container-registry-full-name 
      * `--container-command`: Command to run when you start the Docker container.
      * `--container-arg`: Parameters for the command specified in `--container-command`.
      * `--container-env`: Environment variables available in the Docker container.
+
+        Use single and double quotes at the same time for `key:value` pairs, e.g., `--container-env='"KEY-GROUP={key1:value1,key2:value2,key3:value3}"'`.
      * `--container-privileged`: Run the Docker container in privileged mode.
 
      Result:

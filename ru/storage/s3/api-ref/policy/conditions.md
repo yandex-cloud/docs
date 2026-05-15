@@ -194,4 +194,8 @@ description: Из статьи вы узнаете, какие условия с
 
 Результат оператора `Null` принимает значение `true`, если ключ условия отсутствует в запросе в момент авторизации. Если ключ присутствует и его значение задано, результат равен `false`.
 
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/policy.md)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

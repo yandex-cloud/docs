@@ -6,6 +6,8 @@ description: Follow this guide to set or reset a local user password in {{ org-f
 # Updating a local user password
 
 
+{% include [organization-deny-user-listing](../../../_includes/organization/organization-deny-user-listing.md) %}
+
 ## Resetting a password {#reset}
 
 To reset a [local](../../../iam/concepts/users/accounts.md#local) user password, do the following:
@@ -57,6 +59,12 @@ To reset a [local](../../../iam/concepts/users/accounts.md#local) user password,
 {% endlist %}
 
 The user must change this password on their first login to {{ yandex-cloud }}.
+
+{% note info %}
+
+If a [password policy](../../concepts/password-policy.md) is configured for a user pool, it will not apply to automatically generated passwords.
+
+{% endnote %}
 
 ## Setting a password {#set}
 

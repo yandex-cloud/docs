@@ -213,6 +213,8 @@ items:
     items:
       - name: Все справочники метрик
         href: metrics-ref/index.md
+      - name: '{{ ai-studio-name }}'
+        href: metrics-ref/ai-studio-ref.md
       - name: '{{ api-gw-name }}'
         href: metrics-ref/api-gateway-ref.md
       - name: '{{ alb-name }}'
@@ -281,6 +283,8 @@ items:
         href: metrics-ref/managed-valkey-ref.md
       - name: '{{ ydb-name }}'
         href: metrics-ref/ydb-ref.md
+      - name: '{{ myt-name }}'
+        href: metrics-ref/managed-ytsaurus-ref.md
       - name: '{{ message-queue-name }}'
         href: metrics-ref/message-queue-ref.md
       - name: '{{ monitoring-name }}'

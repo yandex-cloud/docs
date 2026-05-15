@@ -18,12 +18,12 @@ One channel can be used multiple times for different alerts.
 
 * **{{ ui-key.yacloud_monitoring.channel.field_method }}**. Notification delivery method. The following notification methods are supported:
 
-  {% include [channels](../../../_includes/monitoring/channels.md) %}
+  {% include [channels](../../../_includes/monium/channels.md) %}
 
 As soon as a notification channel is created, the following additional parameters become available:
 
 * **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.sent-notify-statuses }}**. Select the alert statuses that will prompt notification.
-* **{{ ui-key.yacloud_monitoring.monitoring-alerts.channel-table.repeat }}**. Select the time after which {{ monitoring-short-name }} will repeat alert status notifications. Does not apply for the `OK` status.
+* **{{ ui-key.yacloud_monitoring.monitoring-alerts.channel-table.repeat }}**. Select the time after which {{ monium-name }} will repeat alert status notifications. Does not apply for the `OK` status.
 
 ## Notification sending statuses {#dispatch-statuses}
 

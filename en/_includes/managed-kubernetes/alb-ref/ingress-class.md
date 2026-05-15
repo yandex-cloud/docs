@@ -1,10 +1,10 @@
 # IngressClass resource fields and annotations
 
-The `IngressClass` resource is a class of [Ingress](../../../application-load-balancer/k8s-ref/ingress.md) resources supporting simultaneous use of multiple ingress controllers, e.g., {{ alb-name }} and NGINX. Each `IngressClass` resource specifies a distinct ingress controller. This enables traffic routing across multiple `Ingress` resources of different controllers within the same application and {{ managed-k8s-name }} cluster.
+The `IngressClass` resource is a class of [Ingress]({{ configuration-local-link }}/ingress.md) resources supporting simultaneous use of multiple ingress controllers, e.g., {{ alb-name }} and NGINX. Each `IngressClass` resource specifies a distinct ingress controller. This enables traffic routing across multiple `Ingress` resources of different controllers within the same application and {{ managed-k8s-name }} cluster.
 
-{% include [Gwin](../../application-load-balancer/ingress-to-gwin-tip.md) %}
+{% include [Gwin-with-preset](../../application-load-balancer/ingress-to-gwin-tip-with-preset.md) %}
 
-When using multiple ingress controllers, explicitly declare the target controller for each `Ingress` resource. To do this, specify the relevant controller’s `IngressClass` in the [spec.ingressClassName](../../../application-load-balancer/k8s-ref/ingress.md#spec) field.
+When using multiple ingress controllers, explicitly declare the target controller for each `Ingress` resource. To do this, specify the relevant controller’s `IngressClass` in the [spec.ingressClassName]({{ configuration-local-link }}/ingress.md#spec) field.
 
 `IngressClass` is a standard {{ k8s }} resource. We describe its fields and annotations below. For more information on configuring and using `IngressClass` resources, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-class). Check out a GitHub [example](https://github.com/yandex-cloud-examples/yc-mk8s-with-ingress-class) for configuring `Ingress` resources and routing traffic using multiple ingress controllers.
 
@@ -34,7 +34,7 @@ Resource specification. ||
 
 Ingress controller name specified by the `IngressClass` resource. The possible values are:
 
-* `ingress.alb.yc.io/yc-alb-ingress-controller`: {{ alb-name}} controller.
+* `ingress.alb.yc.io/yc-alb-ingress-controller`: {{ alb-name }} controller.
 * `k8s.io/ingress-nginx`: NGINX controller. ||
 |#
 
@@ -71,7 +71,7 @@ annotations:
 
 Resource name. For more information about the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
 
-This name is also specified in the [spec.ingressClassName](../../../application-load-balancer/k8s-ref/ingress.md#spec) field of the `Ingress` resource. ||
+This name is also specified in the [spec.ingressClassName]({{ configuration-local-link }}/ingress.md#spec) field of the `Ingress` resource. ||
 || `labels`      | `map[string]string`  | {{ k8s }} metrics for managing and monitoring {{ k8s }} objects.
 
 [We recommend](https://kubernetes.io/docs/concepts/overview/working-with-objects/common-labels/) specifying `app.kubernetes.io/component: controller` in this field. ||

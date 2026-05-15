@@ -1,0 +1,60 @@
+title: '{{ yandex-siem-full-name }}'
+href: index.yaml
+items:
+  - name: Начало работы
+    href: quickstart.md
+  - name: Пошаговые инструкции
+    items:
+      - name: Все инструкции
+        href: operations/index.md
+      - name: Расследования
+        items:
+          - name: Обзор
+            href: operations/investigations/index.md
+          - name: Управление расследованиями
+            href: operations/investigations/manage-investigations.md
+          - name: Работа со списком расследований
+            href: operations/investigations/investigations-list.md
+      - name: Запросы
+        items:
+          - name: Обзор
+            href: operations/queries/index.md
+          - name: Управление запросами
+            href: operations/queries/manage-queries.md
+          - name: Работа с шаблонами
+            href: operations/queries/work-with-templates.md
+          - name: Работа со схемой базы и датасетами
+            href: operations/queries/work-with-schema-datasets.md
+          - name: История запросов
+            href: operations/queries/query-history.md
+      - name: Правила корреляции
+        items:
+          - name: Обзор
+            href: operations/correlation-rules/index.md
+          - name: Управление правилами корреляции
+            href: operations/correlation-rules/manage-rules.md
+          - name: Работа со списком правил
+            href: operations/correlation-rules/rules-list.md
+      - name: Исключения
+        items:
+          - name: Обзор
+            href: operations/exceptions/index.md
+          - name: Управление исключениями
+            href: operations/exceptions/manage-exceptions.md
+          - name: Работа со списком исключений
+            href: operations/exceptions/exceptions-list.md
+  - name: Концепции
+    items:
+      - name: О сервисе {{ yandex-siem-full-name }}
+        href: concepts/index.md
+      - name: Расследования
+        href: concepts/investigations.md
+      - name: Запросы
+        href: concepts/queries.md
+      - name: Правила корреляции и исключения
+        href: concepts/correlation-rules.md
+  - name: Справочник KQL
+    href: kql-reference.md
+  - name: Управление доступом
+    href: security/index.md
+path: ru/yandex-siem/toc.yaml

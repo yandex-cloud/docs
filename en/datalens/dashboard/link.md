@@ -45,17 +45,6 @@ Affects/Affected | Selector | Chart
 
 You can add multiple charts to a single widget on the dashboard. The link between a [QL chart](../concepts/chart/ql-charts.md) and a selector will appear in the link configuration window only when you select that QL chart in the widget. If a different chart is selected in the widget, the QL chart link will be marked `Undefined`.
 
-{% cut "QL chart selected in the widget" %}
-
-![image](../../_assets/datalens/dashboard/links/ql-chart-link-active.png)
-
-{% endcut %}
-
-{% cut "A different chart selected in the widget" %}
-
-![image](../../_assets/datalens/dashboard/links/ql-chart-link-inactive.png)
-
-{% endcut %}
 
 {% endnote %}
 
@@ -98,5 +87,5 @@ If the links window already shows a link between the widgets, adding an alias fo
 
 For more information about how to create aliases, see [{#T}](../operations/dashboard/create-alias.md).
 
-You can delete links from an alias where more than two fields are linked. Delete a field from the alias if its associated link between datasets or widgets is not required on a dashboard tab. Learn more in [{#T}](../operations/dashboard/edit-alias.md).
+You can delete links from an alias where more than two fields are linked. Delete a field from the alias if its associated link between datasets or widgets is not required on a dashboard tab. For more information, see [{#T}](../operations/dashboard/edit-alias.md).
 

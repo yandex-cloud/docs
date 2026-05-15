@@ -1,0 +1,134 @@
+# Resource Manager API, gRPC: FolderService.ListOperations
+
+Lists operations for the specified folder.
+
+## gRPC request
+
+**rpc ListOperations ([ListFolderOperationsRequest](#yandex.cloud.resourcemanager.v1.ListFolderOperationsRequest)) returns ([ListFolderOperationsResponse](#yandex.cloud.resourcemanager.v1.ListFolderOperationsResponse))**
+
+## ListFolderOperationsRequest {#yandex.cloud.resourcemanager.v1.ListFolderOperationsRequest}
+
+```json
+{
+  "folder_id": "string",
+  "page_size": "int64",
+  "page_token": "string"
+}
+```
+
+#|
+||Field | Description ||
+|| folder_id | **string**
+
+Required field. ID of the Folder resource to list operations for.
+
+The maximum string length in characters is 50. ||
+|| page_size | **int64**
+
+The maximum number of results per page to return. If the number of available
+results is larger than `page_size`, the service returns a [ListFolderOperationsResponse.next_page_token](#yandex.cloud.resourcemanager.v1.ListFolderOperationsResponse)
+that can be used to get the next page of results in subsequent list requests.
+Default value: 100.
+
+The maximum value is 1000. ||
+|| page_token | **string**
+
+Page token. Set `page_token`
+to the [ListFolderOperationsResponse.next_page_token](#yandex.cloud.resourcemanager.v1.ListFolderOperationsResponse)
+returned by a previous list request to get the next page of results.
+
+The maximum string length in characters is 2000. ||
+|#
+
+## ListFolderOperationsResponse {#yandex.cloud.resourcemanager.v1.ListFolderOperationsResponse}
+
+```json
+{
+  "operations": [
+    {
+      "id": "string",
+      "description": "string",
+      "created_at": "google.protobuf.Timestamp",
+      "created_by": "string",
+      "modified_at": "google.protobuf.Timestamp",
+      "done": "bool",
+      "metadata": "google.protobuf.Any",
+      // Includes only one of the fields `error`, `response`
+      "error": "google.rpc.Status",
+      "response": "google.protobuf.Any"
+      // end of the list of possible fields
+    }
+  ],
+  "next_page_token": "string"
+}
+```
+
+#|
+||Field | Description ||
+|| operations[] | **[Operation](#yandex.cloud.operation.Operation)**
+
+List of operations for the specified folder. ||
+|| next_page_token | **string**
+
+This token allows you to get the next page of results for list requests. If the number of results
+is larger than [ListFolderOperationsRequest.page_size](#yandex.cloud.resourcemanager.v1.ListFolderOperationsRequest), use the `next_page_token` as the value
+for the [ListFolderOperationsRequest.page_token](#yandex.cloud.resourcemanager.v1.ListFolderOperationsRequest) query parameter in the next list request.
+Each subsequent list request will have its own `next_page_token` to continue paging through the results. ||
+|#
+
+## Operation {#yandex.cloud.operation.Operation}
+
+An Operation resource. For more information, see [Operation](../../../../api-design-guide/concepts/operation.md).
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the operation. ||
+|| description | **string**
+
+Description of the operation. 0-256 characters long. ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Creation timestamp. ||
+|| created_by | **string**
+
+ID of the user or service account who initiated the operation. ||
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+The time when the Operation resource was last modified. ||
+|| done | **bool**
+
+If the value is `false`, it means the operation is still in progress.
+If `true`, the operation is completed, and either `error` or `response` is available. ||
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
+
+Service-specific metadata associated with the operation.
+It typically contains the ID of the target resource that the operation is performed on.
+Any method that returns a long-running operation should document the metadata type, if any. ||
+|| error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**
+
+The error result of the operation in case of failure or cancellation.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
+
+The normal response of the operation in case of success.
+If the original method returns no data on success, such as Delete,
+the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty).
+If the original method is the standard Create/Update,
+the response should be the target resource of the operation.
+Any method that returns a long-running operation should document the response type, if any.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|#

@@ -1,6 +1,9 @@
 # URIPOST
 
-Type of test data used for describing HTTP `POST` requests. Used in Pandora and Phantom load generators.
+{% include [loadtesting-sunset-warning](../../../_includes/load-testing/sunset-warning.md) %}
+
+
+Type of test data used to describe HTTP `POST` requests. Used in Pandora and Phantom load generators.
 
 The test data type is specified when [creating a test](../../operations/create-test-bucket.md#create-test).
 
@@ -27,8 +30,8 @@ uripost
 
    ```
    phantom:
-     ammo_type: uripost # Required, otherwise the load testing tool won't be able to distinguish it from uri-style.
-     ammofile: ./ammo.txt # or HTTP link
+     ammo_type: uripost # Required, otherwise the load testing tool will not be able to distinguish it from uri-style.
+     ammofile: ./ammo.txt # or an HTTP link
    ```
 
 - Pandora {#pandora}

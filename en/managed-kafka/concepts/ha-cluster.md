@@ -1,10 +1,10 @@
 # High availability of a {{ mkf-name }} cluster
 
-[High availability](../../architecture/fault-tolerance.md#mdb-ha) of a {{ mkf-name }} cluster depends on the number and placement of its hosts, topic settings, and other cluster parameters.
+High availability of a {{ mkf-name }} cluster depends on the number and placement of its hosts, topic settings, and other cluster parameters.
 
 ## Number and placement of cluster hosts {#hosts}
 
-The [Service Level Agreement (SLA)]({{ link-sla-kafka }}) defines a high-availability cluster as the one made up of three or more broker hosts residing in different [availability zones](../../overview/concepts/geo-scope.md).
+The [Service Level Agreement (SLA)]({{ link-sla-kafka }}) defines a high-availability cluster as one made up of three or more broker hosts residing in different [availability zones](../../overview/concepts/geo-scope.md).
 
 ### Single-host cluster {#one-host}
 
@@ -28,14 +28,14 @@ To ensure high availability of your cluster under the SLA, you can [increase the
 
 ### Cluster with three or more hosts {#three-or-more-hosts}
 
-A cluster with three or more hosts offers reliable storage and continuous data availability if each of the three availability zones has at least one broker host. Such a cluster meets the high availability criteria and is subject to the SLA.
+A cluster with three or more hosts will ensure reliable storage and continuous data availability if each of the three availability zones has at least one broker host. Such a cluster meets the high availability criteria and is subject to the SLA.
 
 To qualify for high availability under the SLA, your cluster topics must have the following parameters:
 
 * **{{ ui-key.yacloud.kafka.label_replication-factor }}**: `3`
 * **{{ ui-key.yacloud.kafka.label_min-insync-replicas }}**: `2`
 
-Also, we recommend specifying the `acks=all` parameter in the [producer](producers-consumers.md) configuration. In which case, writing a message to a topic will be considered successful only after {{ KF }} gets a write confirmation from as many broker hosts as specified in the **{{ ui-key.yacloud.kafka.label_min-insync-replicas }}** parameter. For more information, see [this {{ KF }} article](https://kafka.apache.org/42/configuration/producer-configs/#producerconfigs_acks).
+Also, we recommend specifying the `acks=all` parameter in the [producer](producers-consumers.md) configuration. In which case, writing a message to a topic will be considered successful only after {{ KF }} gets a write confirmation from as many broker hosts as specified in the **{{ ui-key.yacloud.kafka.label_min-insync-replicas }}** parameter. For more information, see [this {{ KF }} guide](https://kafka.apache.org/42/configuration/producer-configs/#producerconfigs_acks).
 
 ## Cluster availability during maintenance {#maintenance}
 

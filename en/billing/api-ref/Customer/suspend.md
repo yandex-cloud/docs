@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the customer.
             To get the customer ID, use [CustomerService.List](/docs/billing/api-ref/Customer/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - customerId
@@ -37,7 +38,9 @@ POST https://billing.{{ api-host }}/billing/v1/customers/{customerId}:suspend
 || customerId | **string**
 
 Required field. ID of the customer.
-To get the customer ID, use [CustomerService.List](/docs/billing/api-ref/Customer/list#List) request. ||
+To get the customer ID, use [CustomerService.List](/docs/billing/api-ref/Customer/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}

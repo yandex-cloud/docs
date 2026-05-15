@@ -45,7 +45,7 @@ Parameter descriptions:
 
         # Format of received messages. Only the prometheus value is currently supported.
         format:  # Required
-          # Incoming messages are in the prometheus format (https://github.com/prometheus/docs/blob/master/content/docs/instrumenting/exposition_formats.md).
+          # Incoming messages are in the prometheus format (https://github.com/prometheus/docs/blob/main/docs/instrumenting/exposition_formats.md).
           prometheus: {}
         
         metric_name_label:  my_name  # Optional, allows you to rename your application's name label because this name is reserved by the agent.

@@ -26,6 +26,7 @@
 * [{#T}](llm.md)
 * [{#T}](mcp.md)
 * [{#T}](nlp.md)
+* [{#T}](deep-learning.md)
 
 ## Облачные вычисления и сервера {#servers}
 
@@ -59,6 +60,7 @@
 
 * [{#T}](backlog.md)
 * [{#T}](vcs.md)
+* [{#T}](ci-cd.md)
 * [{#T}](sprints.md)
 * [{#T}](kanban.md)
 

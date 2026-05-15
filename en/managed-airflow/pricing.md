@@ -7,9 +7,6 @@ editable: false
 # {{ maf-name }} pricing policy
 
 
-{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
-
-
 
 
 In this section, you can find the {{ maf-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources. Other {{ yandex-cloud }} resources you may employ while using {{ maf-name }} are charged based on their pricing plans.
@@ -44,6 +41,8 @@ Using {{ objstorage-full-name }} for [storing DAG files](operations/upload-dags.
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
 ### Example of cluster cost calculation {#example}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 Let's calculate the cost of using a cluster with the following properties for 30 days:
 

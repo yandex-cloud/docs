@@ -252,6 +252,8 @@ items:
             href: security/single-sign-on/saml-zabbix.md
           - name: '{{ yandex-360 }}'
             href: security/single-sign-on/saml-yandex-360.md
+          - name: Яндекс Браузер для организаций
+            href: security/single-sign-on/saml-ya-browser-corporate.md
           - name: '{{ mos-name }}'
             href: security/single-sign-on/saml-opensearch.md
           - name: '{{ OS }}'
@@ -266,6 +268,8 @@ items:
             href: security/single-sign-on/saml-ovpn.md
           - name: MWS
             href: security/single-sign-on/oidc-mws.md
+          - name: Harbor
+            href: security/single-sign-on/oidc-harbor.md
           - name: Cloud.ru
             items:
               - name: SAML
@@ -278,6 +282,12 @@ items:
                 href: security/single-sign-on/vk-cloud/saml-vk-cloud.md
           - name: Sentry
             href: security/single-sign-on/saml-sentry.md
+          - name: Jenkins
+            items:
+              - name: SAML
+                href: security/single-sign-on/jenkins/saml-jenkins.md
+              - name: OpenID Connect
+                href: security/single-sign-on/jenkins/oidc-jenkins.md
           - name: Использование OAuth2 Proxy для приложений, не поддерживающих SSO
             href: security/single-sign-on/oidc-nginx-oauth2-proxy.md
       - name: Загрузка аудитных логов в {{ mos-name }}
@@ -433,6 +443,8 @@ items:
         href: dev/self-hosted-worker-sourcecraft.md
       - name: Сравнение результатов нагрузочных тестов
         href: testing/loadtesting-results-compare.md
+      - name: Миграция нагрузочного тестирования на k6
+        href: testing/loadtesting-migration-to-k6.md
       - name: >-
           ИИ-ревью пул-реквестов на GitHub с помощью {{ sw-full-name }} и GitHub
           Actions
@@ -777,6 +789,34 @@ items:
                 href: applied/cdn-hosting/console.md
               - name: '{{ TF }}'
                 href: applied/cdn-hosting/terraform.md
+          - name: Сайт на WordPress
+            items:
+              - name: Обзор
+                href: web/wordpress-overview.md
+              - name: >-
+                  Сайт на WordPress High Availability с помощью {{
+                  cloud-apps-name }}
+                href: web/wordpress-ha-cloudapp.md
+              - name: Сайт на WordPress с помощью {{ cloud-apps-name }}
+                href: web/wordpress-cloudapp.md
+              - name: Сайт на WordPress с помощью {{ marketplace-short-name }}
+                items:
+                  - name: Обзор
+                    href: web/wordpress/index.md
+                  - name: Консоль управления
+                    href: web/wordpress/console.md
+                  - name: '{{ TF }}'
+                    href: web/wordpress/terraform.md
+              - name: Сайт на WordPress с БД {{ MY }}
+                items:
+                  - name: Обзор
+                    href: web/wordpress-mysql/index.md
+                  - name: Консоль управления
+                    href: web/wordpress-mysql/console.md
+                  - name: '{{ TF }}'
+                    href: web/wordpress-mysql/terraform.md
+              - name: Перенос WordPress-сайта с хостинга в {{ yandex-cloud }}
+                href: web/wordpress-transfer.md
           - name: Сайт на LAMP- или LEMP-стеке
             items:
               - name: Обзор
@@ -793,26 +833,6 @@ items:
                 href: web/joomla-postgresql/console.md
               - name: '{{ TF }}'
                 href: web/joomla-postgresql/terraform.md
-          - name: Создание сайта на WordPress
-            items:
-              - name: Обзор
-                href: web/wordpress/index.md
-              - name: Консоль управления
-                href: web/wordpress/console.md
-              - name: '{{ TF }}'
-                href: web/wordpress/terraform.md
-          - name: Создание сайта на WordPress с помощью {{ cloud-apps-name }}
-            href: web/wordpress-cloudapp.md
-          - name: Сайт на WordPress с БД {{ MY }}
-            items:
-              - name: Обзор
-                href: web/wordpress-mysql/index.md
-              - name: Консоль управления
-                href: web/wordpress-mysql/console.md
-              - name: '{{ TF }}'
-                href: web/wordpress-mysql/terraform.md
-          - name: Перенос WordPress сайта с хостинга в {{ yandex-cloud }}
-            href: web/wordpress-transfer.md
           - name: Создание сайта на базе «1С-Битрикс»
             items:
               - name: Обзор
@@ -1223,6 +1243,8 @@ items:
         href: dataplatform/opensearch-saml-keycloak.md
       - name: Использование плагина yandex-lemmer в {{ mos-name }}
         href: dataplatform/opensearch-yandex-lemmer.md
+      - name: Отправка оповещений по электронной почте в {{ mos-name }}
+        href: dataplatform/opensearch-email-notifications.md
       - name: Создание кластера {{ PG }} для «1С:Предприятия»
         href: dataplatform/1c-postgresql.md
       - name: Поиск проблем с производительностью кластера {{ mpg-name }}
@@ -1379,6 +1401,8 @@ items:
         href: dataplatform/airflow-spark-min.md
       - name: Использование {{ objstorage-full-name }} в {{ msp-full-name }}
         href: dataplatform/spark-objstorage-integration.md
+      - name: Интеграция {{ msp-full-name }} и {{ ml-platform-name }}
+        href: dataplatform/spark-and-datasphere.md
       - name: >-
           Использование секрета {{ lockbox-name }} в PySpark-задании для
           подключения к {{ mpg-full-name }}
@@ -1390,7 +1414,13 @@ items:
       - name: Все руководства
         href: windows/index.md
       - name: Безопасная передача пароля в скрипт инициализации
-        href: windows/secure-password-script.md
+        items:
+          - name: Обзор
+            href: windows/secure-password-script/index.md
+          - name: Консоль управления, CLI, API
+            href: windows/secure-password-script/console.md
+          - name: '{{ TF }}'
+            href: windows/secure-password-script/terraform.md
       - name: Развертывание Active Directory
         href: windows/active-directory.md
       - name: Развертывание Microsoft Exchange
@@ -1624,7 +1654,13 @@ items:
           - name: Разработка пользовательской интеграции в {{ api-gw-name }}
             href: serverless/api-gw-integration.md
           - name: Сокращатель ссылок
-            href: serverless/serverless-url-shortener.md
+            items:
+              - name: Обзор
+                href: serverless/serverless-url-shortener/index.md
+              - name: Консоль управления
+                href: serverless/serverless-url-shortener/console.md
+              - name: '{{ TF }}'
+                href: serverless/serverless-url-shortener/terraform.md
           - name: Разработка CRUD API для сервиса фильмов
             href: serverless/movies-database.md
           - name: >-
@@ -1880,6 +1916,8 @@ items:
             href: ml-ai/yq-postgre.md
           - name: Федеративные запросы к данным
             href: ml-ai/yq-federative-queries.md
+          - name: Использование сервиса {{ msp-name }}
+            href: dataplatform/spark-and-datasphere.md
       - name: Разработка с помощью {{ mgl-full-name }}
         items:
           - name: Управление жизненным циклом MLOps с помощью ML Registry

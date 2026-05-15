@@ -23,7 +23,6 @@ Deletes the specified endpoint.
 || endpoint_id | **string**
 
 Identifier of the endpoint to delete.
-
 To get the list of all available endpoints, make a [List](/docs/data-transfer/api-ref/grpc/Endpoint/list#List) request. ||
 |#
 

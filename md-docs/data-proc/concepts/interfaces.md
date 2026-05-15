@@ -1,0 +1,41 @@
+# Интерфейсы и порты компонентов Yandex Data Processing
+
+Пользовательские веб-интерфейсы некоторых компонентов Yandex Data Processing, например Hadoop, Spark, Yarn и Zeppelin, доступны на хосте-мастере кластера. Эти интерфейсы могут быть использованы:
+
+* для управления и мониторинга ресурсов кластеров — YARN Resource Manager и HDFS Name Node;
+* для просмотра статуса и отладки заданий — Spark History и JobHistory;
+* для совместной работы, экспериментов или ad-hoc операций — Apache Zeppelin.
+
+Yandex Data Processing позволяет создавать кластеры с доступом из интернета или только из облачной сети, однако при любой конфигурации интерфейсы компонентов сервиса рекомендуется делать недоступными извне Yandex Cloud. Вы можете подключиться к интерфейсам компонентов Yandex Data Processing либо с помощью [UI Proxy](../operations/connect-interfaces.md#ui-proxy), либо с помощью [промежуточной виртуальной машины](../operations/connect-interfaces.md#routing).
+
+UI Proxy — это механизм, который позволяет проксировать интерфейс компонентов кластера с шифрованием HTTP-трафика и аутентификацией через IAM Yandex Cloud. Чтобы получить доступ к интерфейсам, пользователь должен быть авторизован в Yandex Cloud, иметь права на просмотр кластера и обладать ролью `dataproc.user`.
+
+UI Proxy по умолчанию отключен. Чтобы воспользоваться UI Proxy, включите его при [создании](../operations/cluster-create.md#create) или [настройке](../operations/connect-interfaces.md#ui-proxy-enable) кластера и [посмотрите](../operations/connect-interfaces.md#ui-proxy-list) список доступных веб-интерфейсов для подключения.
+
+{% note warning %}
+
+Для корректной работы UI Proxy необходимо обеспечить сетевое соединение между вашим устройством, мастер-узлом кластера и серверами UI Proxy.
+
+Убедитесь, что ваше устройство и мастер-узел кластера имеют разрешенный исходящий доступ к IP-адресам сервиса:
+* `158.160.167.170`
+* `2a0d:d6c1:0:1c::23e`
+
+При необходимости [настройте группы безопасности](../operations/security-groups.md).
+
+{% endnote %}
+
+## Компоненты и порты {#port-numbers}
+
+| Сервис                        | Порт  |
+| ----------------------------- | ----- |
+| HBase Master                  | 16010 |
+| HBase REST                    |  8085 |
+| HDFS Name Node                |  9870 |
+| Hive Server2                  | 10002 |
+| Livy                          |  8998 |
+| MapReduce Application History | 19888 |
+| Oozie                         | 11000 |
+| Spark History                 | 18080 |
+| YARN Application History      |  8188 |
+| YARN Resource Manager         |  8088 |
+| Zeppelin                      |  8890 |

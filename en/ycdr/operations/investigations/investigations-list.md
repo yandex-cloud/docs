@@ -3,7 +3,7 @@ title: Working with the investigation list in {{ ycdr-full-name }}
 description: Follow this guide to learn how to filter, search, and sort investigations in {{ ycdr-name }}.
 ---
 
-# Working with the investigations list
+# Working with the investigation list
 
 {% include [preview-by-request](../../../_includes/note-preview-by-request.md) %}
 
@@ -37,7 +37,7 @@ To filter investigations by creation date:
 
 - {{ sd-name }} UI {#cloud-sd}
 
-  1. Go to **{{ ui-key.yacloud_org.security.ycdr.YcdrPageLayout.investigations_wYxSe }}**.
+  1. Navigate to **{{ ui-key.yacloud_org.security.ycdr.YcdrPageLayout.investigations_wYxSe }}**.
   1. Click the date filter.
   1. Select a period:
      * Certain date.
@@ -56,7 +56,7 @@ To find an investigation:
 
 - {{ sd-name }} UI {#cloud-sd}
 
-  1. Go to **{{ ui-key.yacloud_org.security.ycdr.YcdrPageLayout.investigations_wYxSe }}**.
+  1. Navigate to **{{ ui-key.yacloud_org.security.ycdr.YcdrPageLayout.investigations_wYxSe }}**.
   1. Enter your keywords in the search field.
   1. The results will be displayed automatically.
 
@@ -81,7 +81,7 @@ To sort investigations:
 
 - {{ sd-name }} UI {#cloud-sd}
 
-  1. Go to **{{ ui-key.yacloud_org.security.ycdr.YcdrPageLayout.investigations_wYxSe }}**.
+  1. Navigate to **{{ ui-key.yacloud_org.security.ycdr.YcdrPageLayout.investigations_wYxSe }}**.
   1. Click the **{{ ui-key.yacloud_org.security.siem.InvestigationPageLayout.fieldModified }}** column header.
   1. Select the sort order:
      * Ascending, i.e., from oldest to newest.
@@ -95,7 +95,7 @@ To sort investigations:
 
 The investigations list displays the following details for each investigation:
 
-* **Name**: Brief description of the investigation's objective.
+* **Name**: Brief description of the investigation's purpose.
 * **Creation date**: Timestamp when the investigation was created.
 * **Last modified date**: Timestamp of the most recent modification.
 * **Tags**: Keywords to group and search for investigations.

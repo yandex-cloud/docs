@@ -1,6 +1,6 @@
 # Удалить топик
 
-Если у вас есть топик [{{ KF }}](../../concepts/components/kafka.md) в [проекте](../projects/create-project.md)), вы можете удалить его.
+Если у вас есть топик [{{ KF }}](../../concepts/components/kafka.md) в [проекте](../projects/create-project.md), вы можете удалить его.
 
 {% list tabs group=instructions %}
 

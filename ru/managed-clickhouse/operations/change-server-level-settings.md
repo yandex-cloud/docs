@@ -59,6 +59,7 @@
          --set <имя_параметра_1>=<значение_1>,...
       ```
 
+
 - {{ TF }} {#tf}
 
    Чтобы задать настройки {{ CH }}:
@@ -70,47 +71,46 @@
    1. В описании кластера {{ mch-name }}, в блоке `clickhouse.config`, измените значения параметров:
 
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+      resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
         ...
-        clickhouse {
+        clickhouse = {
           ...
 
-          config {
+          config = {
             # Общие настройки СУБД
             ...
 
-            merge_tree {
+            merge_tree = {
               # Настройки движка MergeTree
               ...
             }
 
-            kafka {
+            kafka = {
               # Общие настройки получения данных из Apache Kafka
               ...
             }
 
-            kafka_topic {
-              # Настройки отдельного топика Apache Kafka
-              ...
-            }
-
-            rabbit_mq {
+            rabbit_mq = {
               # Настройки получения данных из {{ RMQ }}
               username = "<имя_пользователя>"
               password = "<пароль>"
             }
 
-            compression {
-              # Настройки сжатия данных
-              method              = "<метод_сжатия>"
-              min_part_size       = <размер_куска_данных>
-              min_part_size_ratio = <отношение_размеров>
-            }
+            compression = [
+              {
+                # Настройки сжатия данных
+                method              = "<метод_сжатия>"
+                min_part_size       = <размер_куска_данных>
+                min_part_size_ratio = <отношение_размеров>
+              }
+            ]
 
-            graphite_rollup {
-              # Настройки движка GraphiteMergeTree для прореживания, агрегирования и усреднения (rollup) данных Graphite.
-              ...
-            }
+            graphite_rollup = [
+              {
+                # Настройки движка GraphiteMergeTree для прореживания, агрегирования и усреднения (rollup) данных Graphite.
+                ...
+              }
+            ]
           }
           ...
         }
@@ -119,6 +119,7 @@
       ```
 
       Где:
+
       * `method` — метод сжатия: `LZ4` или `ZSTD`.
       * `min_part_size` — минимальный размер куска данных таблицы в байтах.
       * `min_part_size_ratio` — отношение размера наименьшего куска данных в таблице к полному размеру таблицы.
@@ -134,6 +135,7 @@
    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 

@@ -13,4 +13,4 @@ resource "yandex_trino_cluster" "<имя_кластера>" {
 
 * `query_properties` — настройки выполнения запросов и выделения ресурсов кластера для запросов в формате `"<ключ>" = "<значение>"`.
 
-    Подробнее о [настройках выделения ресурсов кластера для запросов]({{ tr.docs}}/admin/properties-resource-management.html) и о [настройках выполнения запросов]({{ tr.docs}}/admin/properties-query-management.html).
+    Подробнее о [настройках выделения ресурсов кластера для запросов]({{ tr.docs }}/admin/properties-resource-management.html) и о [настройках выполнения запросов]({{ tr.docs }}/admin/properties-query-management.html).

@@ -1,0 +1,76 @@
+# yc compute snapshot-schedule add-disks
+
+Add disks to the specified snapshot schedule
+
+#### Command Usage
+
+Syntax:
+
+`yc compute snapshot-schedule add-disks <SNAPSHOT-SCHEDULE-NAME>|<SNAPSHOT-SCHEDULE-ID> [Flags...] [Global Flags...]`
+
+#### Flags
+
+#|
+||Flag | Description ||
+|| `--id` | `string`
+
+Snapshot schedule id. ||
+|| `--name` | `string`
+
+Snapshot schedule name. ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|| `--disk-id` | `value[,value]`
+
+Disk ids to add to the specified snapshot schedule, --disk-id id1 --disk-id=id2 ||
+|#
+
+#### Global Flags
+
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom configuration file. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--syntax` | `string`
+
+CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
+|| `--token` | `string`
+
+Set the OAuth token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#
+#### Examples
+
+ * [Добавить расписание к диску](../../../../../compute/operations/disk-control/configure-schedule.md#cli_1)
+ * [Настроить автоматическое создание снимков дисков по расписанию](../../../../../compute/operations/snapshot-control/create-schedule.md#cli_1)
+ * [Изменить список дисков](../../../../../compute/operations/snapshot-control/update-schedule.md#cli_2)

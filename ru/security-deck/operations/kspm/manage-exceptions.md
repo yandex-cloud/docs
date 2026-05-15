@@ -1,13 +1,13 @@
 ---
-title: Управлять исключениями из правил контроля безопасности в модуле Контроль {{ k8s }}® (KSPM) в {{ sd-full-name }}
-description: Инструкция по управлению исключениями из правил контроля безопасности в модуле KSPM.
+title: Управлять исключениями из правил контроля безопасности в модуле Контроль {{ k8s }}® ({{ kspm-name }}) в {{ sd-full-name }}
+description: Инструкция по управлению исключениями из правил контроля безопасности в модуле {{ kspm-name }}.
 ---
 
-# Управлять исключениями из правил контроля безопасности модуля KSPM
+# Управлять исключениями из правил контроля безопасности модуля {{ kspm-name }}
 
 {% include [note-preview](../../../_includes/note-preview.md) %}
 
-В исключениях модуля KSPM можно указать объекты, которые будут исключены из проверки по выбранным [правилам контроля](../../concepts/kspm.md): все ресурсы {{ k8s }} в окружении или только определенные объекты.
+В исключениях модуля {{ kspm-name }} можно указать объекты, которые будут исключены из проверки по выбранным [правилам контроля](../../concepts/kspm.md): все ресурсы {{ k8s }} в окружении или только определенные объекты.
 
 ## Посмотреть список исключений из правил {#view-exceptions-list}
 
@@ -23,7 +23,7 @@ description: Инструкция по управлению исключения
   1. На открывшейся странице **{{ ui-key.yacloud_org.security.controls.ControlsPage.security_control_r4yn7 }}** перейдите на вкладку **{{ ui-key.yacloud_org.security.controls.ControlsPage.exceptions_kw1u7 }}**.
 
       Список исключений для правил {{ k8s }} приведен в блоке **Контроль {{ k8s }}®** и содержит следующие поля:
-      * **{{ ui-key.yacloud_org.security.controls.ControlsExceptionTable.field_name }}** — причина исключения.
+      * **{{ ui-key.yacloud_org.security.controls.ExceptionDrawer.header_caption }}** — причина исключения.
       * **{{ ui-key.yacloud_org.security.controls.ControlsExceptionTable.field_status }}** — активно или неактивно.
       * **{{ ui-key.yacloud_org.security.controls.ControlsExceptionTable.field_rules }}** — список правил, проверка на соответствие с которыми исключена.
       * **{{ ui-key.yacloud_org.security.controls.ControlsExceptionTable.field_author }}** — пользователь, создавший исключение.
@@ -77,7 +77,7 @@ description: Инструкция по управлению исключения
 
 ## Удалить исключение {#delete-exception}
 
-Чтобы удалить исключение для правил контроля {{ k8s}}:
+Чтобы удалить исключение для правил контроля {{ k8s }}:
 
 {% list tabs group=instructions %}
 

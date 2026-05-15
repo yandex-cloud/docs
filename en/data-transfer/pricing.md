@@ -7,9 +7,6 @@ editable: false
 # {{ data-transfer-name }} pricing policy
 
 
-{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
-
-
 
 
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
@@ -63,6 +60,8 @@ Data delivery for transfers that are at the Preview stage is free of charge. For
 
 
 ## Cost calculation examples {#price-example}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 When calculating the cost, keep in mind that one [worker](concepts/index.md#worker) can use the following computing resources:
 

@@ -1,4 +1,4 @@
-# Метод listParts
+# Object Storage API, REST совместимый с Amazon S3: ListParts
 
 Возвращает список уже загруженных частей для указанной составной загрузки.
 
@@ -109,5 +109,11 @@ GET /{bucket}/{key}?uploadId=UploadId HTTP/2
 `LastModified` | Дата и время загрузки части.<br/><br/>Путь: `/ListPartsResult/Part/LastModified`.
 `ETag` | `ETag` загруженной части.<br/><br/>Путь: `/ListPartsResult/Part/ETag`.
 `Size` | Размер загруженной части.<br/><br/>Путь: `/ListPartsResult/Part/Size`.
+
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/multipart.md)
+
+* [Составная загрузка объекта](../../../operations/objects/multipart-upload.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

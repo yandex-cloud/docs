@@ -1,6 +1,6 @@
 ---
 title: Information about clusters in {{ mch-short-name }}
-description: You can get detailed information about each {{ mch-short-name }} cluster you created. To get a list of database clusters in a folder, navigate to the folder dashboard and select {{ mch-name }}.
+description: You can request detailed information for each {{ mch-short-name }} cluster you have created. To get a list of database clusters in your folder, navigate to the folder dashboard and select {{ mch-name }}.
 ---
 
 # Information about existing {{ CH }} clusters
@@ -104,7 +104,7 @@ You can get detailed information about each {{ mch-short-name }} cluster you cre
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To get information about a {{ CH }} cluster, run the following command:
+  To get {{ CH }} cluster details, run the following command:
 
   ```
   {{ yc-mdb-ch }} cluster get <cluster_name_or_ID>
@@ -173,15 +173,14 @@ All actions with {{ mch-name }} clusters are logged as a list of operations. Eac
 
   To view operations with all {{ mch-name }} clusters, select ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.clickhouse.switch_operations }}** in the left-hand panel. In the list that opens, you will also see operations for the deleted resources.
 
-  You can get a list of operations for a cluster as follows:
+  You can get a list of cluster operations as follows:
 
-  1. In the [management console]({{ link-console-main }}), open the folder with the cluster.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.clickhouse.switch_list }}**.
-  1. Select your cluster.
-  1. Navigate to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.clickhouse.switch_operations }}** panel for the cluster you selected.
+  1. In the [management console]({{ link-console-main }}), open the folder containing the cluster.
+  1. [Go to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3.svg) **{{ ui-key.yacloud.clickhouse.switch_list }}**.
+  1. Select the cluster and open the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.clickhouse.switch_operations }}** tab.
 
-     You will see the list of operations with this cluster.
+     You will see the list of operations with the cluster.
 
 - CLI {#cli}
 
@@ -211,9 +210,9 @@ All actions with {{ mch-name }} clusters are logged as a list of operations. Eac
   +----------------------+---------------------+----------------------+---------------------+---- ---+--------------------------------+
   ```
 
-  You can get the cluster ID and name with a [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-  By default, information about operations is output as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter:
+  By default, information about transactions is displayed in text format. To get more details, specify `yaml` or `json` for the output data using the `--format` argument:
 
   ```bash
   yc managed-clickhouse cluster list-operations epdplu8jn7sr******** --format yaml
@@ -254,7 +253,7 @@ All actions with {{ mch-name }} clusters are logged as a list of operations. Eac
 
       You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-  1. View the [server response](../api-ref/Cluster/listOperations.md#yandex.cloud.mdb.clickhouse.v1.ListClusterOperationsResponse) to make sure your request was successful.
+  1. Check the [server response](../api-ref/Cluster/listOperations.md#yandex.cloud.mdb.clickhouse.v1.ListClusterOperationsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -282,15 +281,15 @@ All actions with {{ mch-name }} clusters are logged as a list of operations. Eac
 
       You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-  1. View the [server response](../api-ref/grpc/Cluster/listOperations.md#yandex.cloud.mdb.clickhouse.v1.ListClusterOperationsResponse) to make sure your request was successful.
+  1. Check the [server response](../api-ref/grpc/Cluster/listOperations.md#yandex.cloud.mdb.clickhouse.v1.ListClusterOperationsResponse) to make sure your request was successful.
 
 {% endlist %}
 
 ### Getting operation details {#get-operations-info}
 
-1. [Get a list of operations](#get-operations) for your cluster.
+1. [Get the list of operations](#get-operations) for the cluster.
 1. Copy the ID of the operation you need.
-1. Get the operation details:
+1. Get operation details:
 
     {% list tabs group=instructions %}
 

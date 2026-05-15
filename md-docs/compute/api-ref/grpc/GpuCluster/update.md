@@ -1,0 +1,188 @@
+# Compute Cloud API, gRPC: GpuClusterService.Update
+
+Updates the specified GPU cluster.
+
+Currently only name, description and labels can be updated.
+
+## gRPC request
+
+**rpc Update ([UpdateGpuClusterRequest](#yandex.cloud.compute.v1.UpdateGpuClusterRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**
+
+## UpdateGpuClusterRequest {#yandex.cloud.compute.v1.UpdateGpuClusterRequest}
+
+```json
+{
+  "gpu_cluster_id": "string",
+  "update_mask": "google.protobuf.FieldMask",
+  "name": "string",
+  "description": "string",
+  "labels": "map<string, string>"
+}
+```
+
+#|
+||Field | Description ||
+|| gpu_cluster_id | **string**
+
+ID of the GPU cluster to update.
+
+To get the GPU cluster ID, make a [GpuClusterService.List](list.md#List) request. ||
+|| update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
+
+Field mask that specifies which attributes of the GPU cluster should be updated. ||
+|| name | **string**
+
+New name for the GPU cluster.
+
+The name must be unique within the folder. ||
+|| description | **string**
+
+New description of the GPU cluster. ||
+|| labels | **object** (map<**string**, **string**>)
+
+New GPU cluster labels as `key:value` pairs.
+
+Existing set of labels is completely replaced by the provided set, so if you just want
+to add or remove a label:
+1. Get the current set of labels with a [GpuClusterService.Get](get.md#Get) request.
+2. Add or remove a label in this set.
+3. Send the new set in this field. ||
+|#
+
+## operation.Operation {#yandex.cloud.operation.Operation}
+
+```json
+{
+  "id": "string",
+  "description": "string",
+  "created_at": "google.protobuf.Timestamp",
+  "created_by": "string",
+  "modified_at": "google.protobuf.Timestamp",
+  "done": "bool",
+  "metadata": {
+    "gpu_cluster_id": "string"
+  },
+  // Includes only one of the fields `error`, `response`
+  "error": "google.rpc.Status",
+  "response": {
+    "id": "string",
+    "folder_id": "string",
+    "created_at": "google.protobuf.Timestamp",
+    "name": "string",
+    "description": "string",
+    "labels": "map<string, string>",
+    "status": "Status",
+    "zone_id": "string",
+    "interconnect_type": "GpuInterconnectType"
+  }
+  // end of the list of possible fields
+}
+```
+
+An Operation resource. For more information, see [Operation](../../../../api-design-guide/concepts/operation.md).
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the operation. ||
+|| description | **string**
+
+Description of the operation. 0-256 characters long. ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Creation timestamp. ||
+|| created_by | **string**
+
+ID of the user or service account who initiated the operation. ||
+|| modified_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+The time when the Operation resource was last modified. ||
+|| done | **bool**
+
+If the value is `false`, it means the operation is still in progress.
+If `true`, the operation is completed, and either `error` or `response` is available. ||
+|| metadata | **[UpdateGpuClusterMetadata](#yandex.cloud.compute.v1.UpdateGpuClusterMetadata)**
+
+Service-specific metadata associated with the operation.
+It typically contains the ID of the target resource that the operation is performed on.
+Any method that returns a long-running operation should document the metadata type, if any. ||
+|| error | **[google.rpc.Status](https://cloud.google.com/tasks/docs/reference/rpc/google.rpc#status)**
+
+The error result of the operation in case of failure or cancellation.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|| response | **[GpuCluster](#yandex.cloud.compute.v1.GpuCluster)**
+
+The normal response of the operation in case of success.
+If the original method returns no data on success, such as Delete,
+the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty).
+If the original method is the standard Create/Update,
+the response should be the target resource of the operation.
+Any method that returns a long-running operation should document the response type, if any.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|#
+
+## UpdateGpuClusterMetadata {#yandex.cloud.compute.v1.UpdateGpuClusterMetadata}
+
+#|
+||Field | Description ||
+|| gpu_cluster_id | **string**
+
+ID of the GPU cluster that is being updated. ||
+|#
+
+## GpuCluster {#yandex.cloud.compute.v1.GpuCluster}
+
+A GPU cluster. For details about the concept, see [documentation](../../../concepts/gpus.md#gpu-clusters).
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of GPU cluster. ||
+|| folder_id | **string**
+
+ID of the folder that the GPU cluster belongs to. ||
+|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Creation timestamp. ||
+|| name | **string**
+
+Name of the GPU cluster.
+
+The name is unique within the folder. ||
+|| description | **string**
+
+Description of the GPU cluster. ||
+|| labels | **object** (map<**string**, **string**>)
+
+GPU cluster labels as `key:value` pairs. ||
+|| status | enum **Status**
+
+Status of the GPU cluster.
+
+- `CREATING`: GPU cluster is being created.
+- `READY`: GPU cluster is ready to use.
+- `ERROR`: GPU cluster encountered a problem and cannot operate.
+- `DELETING`: GPU cluster is being deleted. ||
+|| zone_id | **string**
+
+ID of the availability zone where the GPU cluster resides. ||
+|| interconnect_type | enum **GpuInterconnectType**
+
+Type of interconnect used for this GPU cluster.
+
+- `INFINIBAND`: InfiniBand interconnect. ||
+|#

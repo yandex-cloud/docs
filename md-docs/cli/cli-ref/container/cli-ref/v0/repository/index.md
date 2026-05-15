@@ -1,0 +1,95 @@
+# yc container v0 repository
+
+Manage Docker image repositories.
+
+#### Command Usage
+
+Syntax:
+
+`yc container repository <group|command>`
+
+Aliases:
+
+- `repositories`
+
+- `repo`
+
+#### Command Tree
+
+- [yc container v0 repository add-access-binding](add-access-binding.md) — Add access binding for the specified repository
+
+- [yc container v0 repository get](get.md) — Get information about a Docker image repository.
+
+- [yc container v0 repository list](list.md) — List Docker image repositories.
+
+- [yc container v0 repository list-access-bindings](list-access-bindings.md) — List access bindings for the specified repository
+
+- [yc container v0 repository remove-access-binding](remove-access-binding.md) — Remove access binding for the specified repository
+
+- [yc container v0 repository set-access-bindings](set-access-bindings.md) — Set access bindings for the specified repository and delete all existing access bindings if there were any
+
+- [yc container v0 repository lifecycle-policy](lifecycle-policy/index.md) — Manage lifecycle policies for Docker image repositories.
+
+  - [yc container v0 repository lifecycle-policy create](lifecycle-policy/create.md) — Create a lifecycle policy.
+
+  - [yc container v0 repository lifecycle-policy delete](lifecycle-policy/delete.md) — Delete a lifecycle policy.
+
+  - [yc container v0 repository lifecycle-policy dry-run](lifecycle-policy/dry-run.md) — Dry run a lifecycle policy.
+
+  - [yc container v0 repository lifecycle-policy get](lifecycle-policy/get.md) — Get information about a lifecycle policy.
+
+  - [yc container v0 repository lifecycle-policy get-dry-run-result](lifecycle-policy/get-dry-run-result.md) — Get information about a dry run result for a lifecycle policy
+
+  - [yc container v0 repository lifecycle-policy list](lifecycle-policy/list.md) — List lifecycle policies.
+
+  - [yc container v0 repository lifecycle-policy list-dry-run-affected-images](lifecycle-policy/list-dry-run-affected-images.md) — List images affected by dry run for a lifecycle policy.
+
+  - [yc container v0 repository lifecycle-policy list-dry-run-results](lifecycle-policy/list-dry-run-results.md) — Dry run results for a lifecycle policy.
+
+  - [yc container v0 repository lifecycle-policy update](lifecycle-policy/update.md) — Modify configuration or attributes of a lifecycle policy.
+
+#### Global Flags
+
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom configuration file. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--syntax` | `string`
+
+CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
+|| `--token` | `string`
+
+Set the OAuth token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

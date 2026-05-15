@@ -100,6 +100,123 @@ description: В статье приведен полный справочник 
 Подробнее см. [Управление доступом в партнерской программе {{ yandex-cloud }}](../partner/security/index.md).
 
 
+## {{ ai-studio-full-name }} {#fm-roles}
+
+#### ai.playground.user {#ai-playground-user}
+
+{% include [ai-playground-user](../_roles/ai/playground/user.md) %}
+
+#### ai.languageModels.user {#languageModels-user}
+
+{% include [yandexgpt-user](../_roles/ai/languageModels/user.md) %}
+
+#### ai.imageGeneration.user {#imageGeneration-user}
+
+{% include [yandexart-user](../_roles/ai/imageGeneration/user.md) %}
+
+#### ai.assistants.auditor {#ai-assistants-auditor}
+
+{% include [assistants-auditor](../_roles/ai/assistants/auditor.md) %}
+
+#### ai.assistants.viewer {#ai-assistants-viewer}
+
+{% include [assistants-viewer](../_roles/ai/assistants/viewer.md) %}
+
+#### ai.assistants.editor {#ai-assistants-editor}
+
+{% include [assistants-editor](../_roles/ai/assistants/editor.md) %}
+
+#### ai.assistants.admin {#ai-assistants-admin}
+
+{% include [assistants-admin](../_roles/ai/assistants/admin.md) %}
+
+#### ai.datasets.auditor {#ai-datasets-auditor}
+
+{% include [ai-datasets-auditor](../_roles/ai/datasets/auditor.md) %}
+
+#### ai.datasets.viewer {#ai-datasets-viewer}
+
+{% include [ai-datasets-viewer](../_roles/ai/datasets/viewer.md) %}
+
+#### ai.datasets.user {#ai-datasets-user}
+
+{% include [ai-datasets-user](../_roles/ai/datasets/user.md) %}
+
+#### ai.datasets.editor {#ai-datasets-editor}
+
+{% include [ai-datasets-editor](../_roles/ai/datasets/editor.md) %}
+
+#### ai.datasets.admin {#ai-datasets-admin}
+
+{% include [ai-datasets-admin](../_roles/ai/datasets/admin.md) %}
+
+#### ai.models.auditor {#ai-models-auditor}
+
+{% include [ai-models-auditor](../_roles/ai/models/auditor.md) %}
+
+#### ai.models.viewer {#ai-models-viewer}
+
+{% include [ai-models-viewer](../_roles/ai/models/viewer.md) %}
+
+#### ai.models.user {#ai-models-user}
+
+{% include [ai-models-user](../_roles/ai/models/user.md) %}
+
+#### ai.models.editor {#ai-models-editor}
+
+{% include [ai-models-editor](../_roles/ai/models/editor.md) %}
+
+#### ai.models.admin {#ai-models-admin}
+
+{% include [ai-models-admin](../_roles/ai/models/admin.md) %}
+
+#### ai.guardrails.auditor {#ai-guardrails-auditor}
+
+{% include [ai.guardrails.auditor](../_roles/ai/guardrails/auditor.md) %}
+
+#### ai.guardrails.viewer {#ai-guardrails-viewer}
+
+{% include [ai.guardrails.viewer](../_roles/ai/guardrails/viewer.md) %}
+
+#### ai.guardrails.user {#ai-guardrails-user}
+
+{% include [ai.guardrails.user](../_roles/ai/guardrails/user.md) %}
+
+#### ai.guardrails.editor {#ai-guardrails-editor}
+
+{% include [ai.guardrails.editor](../_roles/ai/guardrails/editor.md) %}
+
+#### ai.guardrails.admin {#ai-guardrails-admin}
+
+{% include [ai.guardrails.admin](../_roles/ai/guardrails/admin.md) %}
+
+#### serverless.mcpGateways.auditor {#serverless-mcpGateways-auditor}
+
+{% include [serverless-mcpGateways-auditor](../_roles/serverless/mcpGateways/auditor.md) %}
+
+#### serverless.mcpGateways.viewer {#serverless-mcpGateways-viewer}
+
+{% include [serverless-mcpGateways-viewer](../_roles/serverless/mcpGateways/viewer.md) %}
+
+#### serverless.mcpGateways.invoker {#serverless-mcpGateways-invoker}
+
+{% include [serverless-mcpGateways-invoker](../_roles/serverless/mcpGateways/invoker.md) %}
+
+#### serverless.mcpGateways.anonymousInvoker {#serverless-mcpGateways-anonymousInvoker}
+
+{% include [serverless-mcpGateways-anonymousInvoker](../_roles/serverless/mcpGateways/anonymousInvoker.md) %}
+
+#### serverless.mcpGateways.editor {#serverless-mcpGateways-editor}
+
+{% include [serverless-mcpGateways-editor](../_roles/serverless/mcpGateways/editor.md) %}
+
+#### serverless.mcpGateways.admin {#serverless-mcpGateways-admin}
+
+{% include [serverless-mcpGateways-admin](../_roles/serverless/mcpGateways/admin.md) %}
+
+Подробнее см. [Управление доступом в {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/security/index).
+
+
 ## {{ api-gw-full-name }} {#api-gateway-roles}
 
 #### api-gateway.auditor {#api-gateway-auditor}
@@ -204,6 +321,31 @@ description: В статье приведен полный справочник 
 Подробнее см. [{#T}](../baremetal/security/index.md).
 
 
+## {{ certificate-manager-full-name }} {#certificate-manager-roles}
+
+#### certificate-manager.auditor {#certificate-manager-auditor}
+
+{% include [certificate-manager.auditor](../_roles/certificate-manager/auditor.md) %}
+
+#### certificate-manager.viewer {#certificate-manager-viewer}
+
+{% include [certificate-manager.viewer](../_roles/certificate-manager/viewer.md) %}
+
+#### certificate-manager.editor {#certificate-manager-editor}
+
+{% include [certificate-manager.editor](../_roles/certificate-manager/editor.md) %}
+
+#### certificate-manager.admin {#certificate-manager-admin}
+
+{% include [certificate-manager.admin](../_roles/certificate-manager/admin.md) %}
+
+#### certificate-manager.certificates.downloader {#certificate-manager-certificates-downloader}
+
+{% include [certificate-manager.certificates.downloader](../_roles/certificate-manager/certificates/downloader.md) %}
+
+Подробнее см. [{#T}](../certificate-manager/security/index.md).
+
+
 ## {{ interconnect-full-name }} {#interconnect-roles}
 
 #### cic.auditor {#cic-auditor}
@@ -231,56 +373,6 @@ description: В статье приведен полный справочник 
 {% include [cic.secretEditor](../_roles/cic/secretEditor.md) %}
 
 Подробнее см. [{#T}](../interconnect/security/index.md).
-
-
-## {{ cr-full-name }} {#cloudrouter-roles}
-
-#### cloud-router.auditor {#cloudrouter-auditor}
-
-{% include [cloud-router.auditor](../_roles/cloud-router/auditor.md) %}
-
-#### cloud-router.viewer {#cloudrouter-viewer}
-
-{% include [cloud-router.viewer](../_roles/cloud-router/viewer.md) %}
-
-#### cloud-router.prefixEditor {#cloudrouter-prefixEditor}
-
-{% include [cloud-router.prefixEditor](../_roles/cloud-router/prefixEditor.md) %}
-
-#### cloud-router.editor {#cloudrouter-editor}
-
-{% include [cloud-router.editor](../_roles/cloud-router/editor.md) %}
-
-#### cloud-router.admin {#cloudrouter-admin}
-
-{% include [cloud-router.admin](../_roles/cloud-router/admin.md) %}
-
-Подробнее см. [{#T}](../cloud-router/security/index.md).
-
-
-## {{ certificate-manager-full-name }} {#certificate-manager-roles}
-
-#### certificate-manager.auditor {#certificate-manager-auditor}
-
-{% include [certificate-manager.auditor](../_roles/certificate-manager/auditor.md) %}
-
-#### certificate-manager.viewer {#certificate-manager-viewer}
-
-{% include [certificate-manager.viewer](../_roles/certificate-manager/viewer.md) %}
-
-#### certificate-manager.editor {#certificate-manager-editor}
-
-{% include [certificate-manager.editor](../_roles/certificate-manager/editor.md) %}
-
-#### certificate-manager.admin {#certificate-manager-admin}
-
-{% include [certificate-manager.admin](../_roles/certificate-manager/admin.md) %}
-
-#### certificate-manager.certificates.downloader {#certificate-manager-certificates-downloader}
-
-{% include [certificate-manager.certificates.downloader](../_roles/certificate-manager/certificates/downloader.md) %}
-
-Подробнее см. [{#T}](../certificate-manager/security/index.md).
 
 
 ## {{ backup-full-name }} {#backup-roles}
@@ -387,6 +479,13 @@ description: В статье приведен полный справочник 
 Подробнее см. [{#T}](../cloud-desktop/security/index.md).
 
 
+## {{ ycdr-full-name }} {#ycdr-roles}
+
+#### ycdr.admin {#ycdr-admin}
+
+{% include [ycdr.admin](../_roles/ycdr/admin.md) %}
+
+
 ## {{ dns-full-name }} {#dns-roles}
 
 #### dns.auditor {#dns-auditor}
@@ -400,6 +499,14 @@ description: В статье приведен полный справочник 
 #### dns.editor {#dns-editor}
 
 {% include [roles-dns-editor](../_roles/dns/editor.md) %}
+
+#### dns.firewallUser {#dns-firewallUser}
+
+{% include [dns.firewallUser](../_roles/dns/firewallUser.md) %}
+
+#### dns.firewallEditor {#dns-firewallEditor}
+
+{% include [dns.firewallEditor](../_roles/dns/firewallEditor.md) %}
 
 #### dns.admin {#dns-admin}
 
@@ -540,6 +647,531 @@ description: В статье приведен полный справочник 
 {% include [license-manager.subscriptionAgent](../_roles/license-manager/subscriptionAgent.md) %}
 
 Подробнее см. [{#T}](../marketplace/security/index.md).
+
+
+## {{ cns-full-name }} {#cns-roles}
+
+#### notifications.auditor {#notifications-auditor}
+
+{% include [notifications.auditor](../_roles/notifications/auditor.md) %}
+
+#### notifications.viewer {#notifications-viewer}
+
+{% include [notifications.viewer](../_roles/notifications/viewer.md) %}
+
+#### notifications.publisher {#notifications-publisher}
+
+{% include [notifications.publisher](../_roles/notifications/publisher.md) %}
+
+#### notifications.editor {#notifications-editor}
+
+{% include [notifications.editor](../_roles/notifications/editor.md) %}
+
+#### notifications.admin {#notifications-admin}
+
+{% include [notifications.admin](../_roles/notifications/admin.md) %}
+
+Подробнее см. [{#T}](../notifications/security/index.md).
+
+
+## {{ postbox-full-name }} {#postbox-roles}
+
+#### postbox.sender {#postbox-sender}
+
+{% include [postbox.sender](../_roles/postbox/sender.md) %}
+
+#### postbox.auditor {#postbox-auditor}
+
+{% include [postbox.auditor](../_roles/postbox/auditor.md) %}
+
+#### postbox.viewer {#postbox-viewer}
+
+{% include [postbox.viewer](../_roles/postbox/viewer.md) %}
+
+#### postbox.editor {#postbox-editor}
+
+{% include [postbox.editor](../_roles/postbox/editor.md) %}
+
+#### postbox.admin {#postbox-admin}
+
+{% include [postbox.admin](../_roles/postbox/admin.md) %}
+
+Подробнее см. [{#T}](../postbox/security/index.md).
+
+
+## {{ cloud-registry-full-name }} {#cloud-registry-roles}
+
+#### cloud-registry.auditor {#cloud-registry-auditor}
+
+{% include [cloud-registry-auditor](../_roles/cloud-registry/auditor.md) %}
+
+#### cloud-registry.viewer {#cloud-registry-viewer}
+
+{% include [cloud-registry-viewer](../_roles/cloud-registry/viewer.md) %}
+
+#### cloud-registry.editor {#cloud-registry-editor}
+
+{% include [cloud-registry-editor](../_roles/cloud-registry/editor.md) %}
+
+#### cloud-registry.admin {#cloud-registry-admin}
+
+{% include [cloud-registry-admin](../_roles/cloud-registry/admin.md) %}
+
+#### cloud-registry.artifacts.puller {#cloud-registry-artifacts-puller}
+
+{% include [cloud-registry-artifacts-puller](../_roles/cloud-registry/artifacts/puller.md) %}
+
+#### cloud-registry.artifacts.pusher {#cloud-registry-artifacts-pusher}
+
+{% include [cloud-registry-artifacts-pusher](../_roles/cloud-registry/artifacts/pusher.md) %}
+
+Подробнее см. [{#T}](../cloud-registry/security/index.md).
+
+
+
+## {{ cr-full-name }} {#cloudrouter-roles}
+
+#### cloud-router.auditor {#cloudrouter-auditor}
+
+{% include [cloud-router.auditor](../_roles/cloud-router/auditor.md) %}
+
+#### cloud-router.viewer {#cloudrouter-viewer}
+
+{% include [cloud-router.viewer](../_roles/cloud-router/viewer.md) %}
+
+#### cloud-router.prefixEditor {#cloudrouter-prefixEditor}
+
+{% include [cloud-router.prefixEditor](../_roles/cloud-router/prefixEditor.md) %}
+
+#### cloud-router.editor {#cloudrouter-editor}
+
+{% include [cloud-router.editor](../_roles/cloud-router/editor.md) %}
+
+#### cloud-router.admin {#cloudrouter-admin}
+
+{% include [cloud-router.admin](../_roles/cloud-router/admin.md) %}
+
+Подробнее см. [{#T}](../cloud-router/security/index.md).
+
+
+## {{ video-full-name }} {#video-roles}
+
+#### video.auditor {#video-auditor}
+
+{% include [video.auditor](../_roles/video/auditor.md) %}
+
+#### video.viewer {#video-viewer}
+
+{% include [video.viewer](../_roles/video/viewer.md) %}
+
+#### video.editor {#video-editor}
+
+{% include [video.editor](../_roles/video/editor.md) %}
+
+#### video.admin {#video-admin}
+
+{% include [video.admin](../_roles/video/admin.md) %}
+
+
+## {{ compute-full-name }} {#compute-roles}
+
+#### compute.auditor {#compute-auditor}
+
+{% include [compute.auditor](../_roles/compute/auditor.md) %}
+
+#### compute.viewer {#compute-viewer}
+
+{% include [compute.viewer](../_roles/compute/viewer.md) %}
+
+#### compute.editor {#compute-editor}
+
+{% include [compute.editor](../_roles/compute/editor.md) %}
+
+#### compute.admin {#compute-admin}
+
+{% include [compute.admin](../_roles/compute/admin.md) %}
+
+#### compute.osLogin {#compute-oslogin}
+
+{% include [compute.oslogin](../_roles/compute/osLogin.md) %}
+
+#### compute.osAdminLogin {#compute-osadminlogin}
+
+{% include [compute.osadminlogin](../_roles/compute/osAdminLogin.md) %}
+
+#### compute.disks.user {#compute-disks-user}
+
+{% include [compute.disks.user](../_roles/compute/disks/user.md) %}
+
+#### compute.images.user {#compute-images-user}
+
+{% include [compute.images.user](../_roles/compute/images/user.md) %}
+
+#### compute.operator {#compute-operator}
+
+{% include [compute.operator](../_roles/compute/operator.md) %}
+
+#### compute.snapshotSchedules.viewer {#compute-snapshotSchedules-viewer}
+
+{% include [compute.snapshotSchedules.viewer](../_roles/compute/snapshotSchedules/viewer.md) %}
+
+#### compute.snapshotSchedules.editor {#compute-snapshotSchedules-editor}
+
+{% include [compute.snapshotSchedules.editor](../_roles/compute/snapshotSchedules/editor.md) %}
+
+Подробнее см. [{#T}](../compute/security/index.md).
+
+
+## {{ connection-manager-full-name }} {#connection-manager-roles}
+
+#### connection-manager.auditor {#connection-manager-auditor}
+
+{% include [connection-manager.auditor](../_roles/connection-manager/auditor.md) %}
+
+#### connection-manager.viewer {#connection-manager-viewer}
+
+{% include [connection-manager.viewer](../_roles/connection-manager/viewer.md) %}
+
+#### connection-manager.editor {#connection-manager-editor}
+
+{% include [connection-manager.editor](../_roles/connection-manager/editor.md) %}
+
+#### connection-manager.admin {#connection-manager-admin}
+
+{% include [connection-manager.admin](../_roles/connection-manager/admin.md) %}
+
+Подробнее см. [Управление доступом в {{ connection-manager-name }}](../metadata-hub/security/index.md).
+
+
+## {{ container-registry-full-name }} {#cr-roles}
+
+#### container-registry.viewer {#container-registry.viewer}
+
+{% include [container-registry.viewer](../_roles/container-registry/viewer.md) %}
+
+#### container-registry.editor {#container-registry.editor}
+
+{% include [container-registry.editor](../_roles/container-registry/editor.md) %}
+
+#### container-registry.admin {#container-registry.admin}
+
+{% include [container-registry.admin](../_roles/container-registry/admin.md) %}
+
+#### container-registry.images.pusher {#container-registry-images-pusher}
+
+{% include [container-registry.images.pusher](../_roles/container-registry/images/pusher.md) %}
+
+#### container-registry.images.puller {#container-registry-images-puller}
+
+{% include [container-registry.images.puller](../_roles/container-registry/images/puller.md) %}
+
+#### container-registry.images.scanner {#container-registry-images-scanner}
+
+{% include [container-registry.images.scanner](../_roles/container-registry/images/scanner.md) %}
+
+Подробнее см. [{#T}](../container-registry/security/index.md).
+
+
+## {{ datalens-full-name }} {#datalens-roles}
+
+#### datalens.workbooks.limitedViewer {#datalens-workbooks-limitedViewer}
+
+{% include [datalens.workbooks.limitedViewer](../_roles/datalens/workbooks/limitedViewer.md) %}
+
+#### datalens.workbooks.viewer {#datalens-workbooks-viewer}
+
+{% include [datalens.workbooks.viewer](../_roles/datalens/workbooks/viewer.md) %}
+
+#### datalens.workbooks.editor {#datalens-workbooks-editor}
+
+{% include [datalens.workbooks.editor](../_roles/datalens/workbooks/editor.md) %}
+
+#### datalens.workbooks.admin {#datalens-workbooks-admin}
+
+{% include [datalens.workbooks.admin](../_roles/datalens/workbooks/admin.md) %}
+
+#### datalens.collections.limitedViewer {#datalens-collections-limitedViewer}
+
+{% include [datalens.collections.limitedViewer](../_roles/datalens/collections/limitedViewer.md) %}
+
+#### datalens.collections.viewer {#datalens-collections-viewer}
+
+{% include [datalens.collections.viewer](../_roles/datalens/collections/viewer.md) %}
+
+#### datalens.collections.editor {#datalens-collections-editor}
+
+{% include [datalens.collections.editor](../_roles/datalens/collections/editor.md) %}
+
+#### datalens.collections.admin {#datalens-collections-admin}
+
+{% include [datalens.collections.admin](../_roles/datalens/collections/admin.md) %}
+
+#### datalens.metaReader {#datalens-metaReader}
+
+{% include [datalens-metaReader](../_roles/datalens/metaReader.md) %}
+
+#### datalens.visitor {#datalens-visitor}
+
+{% include [datalens-visitor](../_roles/datalens/visitor.md) %}
+
+#### datalens.creator {#datalens-creator}
+
+{% include [datalens-creator](../_roles/datalens/creator.md) %}
+
+#### datalens.admin {#datalens-admin}
+
+{% include [datalens-admin](../_roles/datalens/admin.md) %}
+
+#### datalens.instances.user {#datalens-instances-user}
+
+{% include [datalens-instances-user](../_roles/datalens/instances/user.md) %}
+
+#### datalens.instances.admin {#datalens-instances-admin}
+
+{% include [datalens-instances-admin](../_roles/datalens/instances/admin.md) %}
+
+Подробнее см. [{#T}](../datalens/security/roles.md).
+
+
+## {{ dataproc-full-name }} {#dataproc-roles}
+
+#### dataproc.agent {#dataproc-agent}
+
+{% include [dataproc.agent](../_roles/data-processing/agent.md) %}
+
+#### dataproc.auditor {#dataproc-auditor}
+
+{% include [dataproc.auditor](../_roles/data-processing/auditor.md) %}
+
+#### dataproc.viewer {#dataproc-viewer}
+
+{% include [dataproc.viewer](../_roles/data-processing/viewer.md) %}
+
+#### dataproc.user {#dataproc-user}
+
+{% include [dataproc.user](../_roles/data-processing/user.md) %}
+
+#### dataproc.provisioner {#dataproc-provisioner}
+
+{% include [dataproc.provisioner](../_roles/data-processing/provisioner.md) %}
+
+#### dataproc.editor {#dataproc-editor}
+
+{% include [dataproc.editor](../_roles/data-processing/editor.md) %}
+
+#### dataproc.admin {#dataproc-admin}
+
+{% include [dataproc.admin](../_roles/data-processing/admin.md) %}
+
+#### mdb.dataproc.agent {#mdb-dataproc-agent}
+
+{% include [mdb.dataproc.agent](../_roles/mdb/dataproc/agent.md) %}
+
+#### {{ roles.metastore.auditor }} {#managed-metastore-auditor}
+
+{% include [managed-metastore.auditor](../_roles/managed-metastore/auditor.md) %}
+
+#### {{ roles.metastore.viewer }} {#managed-metastore-viewer}
+
+{% include [managed-metastore.viewer](../_roles/managed-metastore/viewer.md) %}
+
+#### {{ roles.metastore.editor }} {#managed-metastore-editor}
+
+{% include [managed-metastore.editor](../_roles/managed-metastore/editor.md) %}
+
+#### {{ roles.metastore.admin }} {#managed-metastore-admin}
+
+{% include [managed-metastore.admin](../_roles/managed-metastore/admin.md) %}
+
+#### {{ roles.metastore.integrationProvider }} {#managed-metastore-integrationProvider}
+
+{% include [managed-metastore.integrationProvider](../_roles/managed-metastore/integrationProvider.md) %}
+
+Подробнее см. [{#T}](../data-proc/security/index.md).
+
+
+## {{ ml-platform-full-name }} {#datasphere-roles}
+
+#### datasphere.community-projects.viewer {#datasphere-communityprojects-viewer}
+
+{% include [datasphere.community-projects.viewer](../_roles/datasphere/community-projects/viewer.md) %}
+
+#### datasphere.community-projects.developer {#datasphere-communityprojects-developer}
+
+{% include [datasphere.community-projects.developer](../_roles/datasphere/community-projects/developer.md) %}
+
+#### datasphere.community-projects.editor {#datasphere-communityprojects-editor}
+
+{% include [datasphere.community-projects.editor](../_roles/datasphere/community-projects/editor.md) %}
+
+#### datasphere.community-projects.admin {#datasphere-communityprojects-admin}
+
+{% include [datasphere.community-projects.admin](../_roles/datasphere/community-projects/admin.md) %}
+
+#### datasphere.communities.viewer {#datasphere-communities-viewer}
+
+{% include [datasphere.communities.viewer](../_roles/datasphere/communities/viewer.md) %}
+
+#### datasphere.communities.developer {#datasphere-communities-developer}
+
+{% include [datasphere.communities.developer](../_roles/datasphere/communities/developer.md) %}
+
+#### datasphere.communities.editor {#datasphere-communities-editor}
+
+{% include [datasphere.communities.editor](../_roles/datasphere/communities/editor.md) %}
+
+#### datasphere.communities.admin {#datasphere-communities-admin}
+
+{% include [datasphere.communities.admin](../_roles/datasphere/communities/admin.md) %}
+
+#### datasphere.user {#datasphere-user}
+
+{% include [datasphere.user](../_roles/datasphere/user.md) %}
+
+#### data-sphere.user {#data-sphere-user}
+
+{% include [data-sphere.user](../_roles/data-sphere/user.md) %}
+
+#### datasphere.admin {#datasphere-admin}
+
+{% include [datasphere.admin](../_roles/datasphere/admin.md) %}
+
+#### data-sphere.admin {#data-sphere-admin}
+
+{% include [data-sphere.admin](../_roles/data-sphere/admin.md) %}
+
+Подробнее см. [{#T}](../datasphere/security/index.md).
+
+
+## {{ yds-full-name }} {#yds-roles}
+
+#### yds.auditor {#yds-auditor}
+
+{% include [yds.auditor](../_roles/yds/auditor.md) %}
+
+#### yds.viewer {#yds-viewer}
+
+{% include [yds.viewer](../_roles/yds/viewer.md) %}
+
+#### yds.writer {#yds-writer}
+
+{% include [yds.writer](../_roles/yds/writer.md) %}
+
+#### yds.editor {#yds-editor}
+
+{% include [yds.editor](../_roles/yds/editor.md) %}
+
+#### yds.admin {#yds-admin}
+
+{% include [yds.admin](../_roles/yds/admin.md) %}
+
+Подробнее см. [{#T}](../data-streams/security/index.md).
+
+
+## {{ data-transfer-full-name }} {#data-transfer-roles}
+
+#### data-transfer.auditor {#data-transfer-auditor}
+
+{% include [data-transfer.auditor](../_roles/data-transfer/auditor.md) %}
+
+#### data-transfer.viewer {#data-transfer-viewer}
+
+{% include [data-transfer.viewer](../_roles/data-transfer/viewer.md) %}
+
+#### data-transfer.privateAdmin {#data-transfer-privateadmin}
+
+{% include [data-transfer.privateadmin](../_roles/data-transfer/privateAdmin.md) %}
+
+#### data-transfer.admin {#data-transfer-admin}
+
+{% include [data-transfer.admin](../_roles/data-transfer/admin.md) %}
+
+Подробнее см. [{#T}](../data-transfer/security/index.md).
+
+
+## {{ iam-full-name }} {#iam-roles}
+
+#### iam.serviceAccounts.user {#iam-serviceAccounts-user}
+
+{% include [iam.serviceAccounts.user](../_roles/iam/serviceAccounts/user.md) %}
+
+#### iam.serviceAccounts.admin {#iam-serviceAccounts-admin}
+
+{% include [iam.serviceAccounts.admin](../_roles/iam/serviceAccounts/admin.md) %}
+
+#### iam.serviceAccounts.accessKeyAdmin {#iam-serviceAccounts-accessKeyAdmin}
+
+{% include [iam.serviceAccounts.accessKeyAdmin](../_roles/iam/serviceAccounts/accessKeyAdmin.md) %}
+
+#### iam.serviceAccounts.apiKeyAdmin {#iam-serviceAccounts-apiKeyAdmin}
+
+{% include [iam.serviceAccounts.apiKeyAdmin](../_roles/iam/serviceAccounts/apiKeyAdmin.md) %}
+
+#### iam.serviceAccounts.authorizedKeyAdmin {#iam-serviceAccounts-authorizedKeyAdmin}
+
+{% include [iam.serviceAccounts.authorizedKeyAdmin](../_roles/iam/serviceAccounts/authorizedKeyAdmin.md) %}
+
+#### iam.serviceAccounts.keyAdmin {#iam-serviceAccounts-keyAdmin}
+
+{% include [iam.serviceAccounts.keyAdmin](../_roles/iam/serviceAccounts/keyAdmin.md) %}
+
+#### iam.serviceAccounts.tokenCreator {#iam-serviceAccounts-tokenCreator}
+
+{% include [iam.serviceAccounts.tokenCreator](../_roles/iam/serviceAccounts/tokenCreator.md) %}
+
+#### iam.serviceAccounts.federatedCredentialViewer {#iam-serviceAccounts-federatedCredentialViewer}
+
+{% include [iam.serviceAccounts.federatedCredentialViewer](../_roles/iam/serviceAccounts/federatedCredentialViewer.md) %}
+
+#### iam.serviceAccounts.federatedCredentialEditor {#iam-serviceAccounts-federatedCredentialEditor}
+
+{% include [iam.serviceAccounts.federatedCredentialEditor](../_roles/iam/serviceAccounts/federatedCredentialEditor.md) %}
+
+#### iam.workloadIdentityFederations.auditor {#iam-workloadIdentityFederations-auditor}
+
+{% include [iam.workloadIdentityFederations.auditor](../_roles/iam/workloadIdentityFederations/auditor.md) %}
+
+#### iam.workloadIdentityFederations.viewer {#iam-workloadIdentityFederations-viewer}
+
+{% include [iam.workloadIdentityFederations.viewer](../_roles/iam/workloadIdentityFederations/viewer.md) %}
+
+#### iam.workloadIdentityFederations.user {#iam-workloadIdentityFederations-user}
+
+{% include [iam.workloadIdentityFederations.user](../_roles/iam/workloadIdentityFederations/user.md) %}
+
+#### iam.workloadIdentityFederations.editor {#iam-workloadIdentityFederations-editor}
+
+{% include [iam.workloadIdentityFederations.editor](../_roles/iam/workloadIdentityFederations/editor.md) %}
+
+#### iam.workloadIdentityFederations.admin {#iam-workloadIdentityFederations-admin}
+
+{% include [iam.workloadIdentityFederations.admin](../_roles/iam/workloadIdentityFederations/admin.md) %}
+
+#### iam.userAccounts.refreshTokenViewer {#iam-userAccounts-refreshTokenViewer}
+
+{% include [iam.userAccounts.refreshTokenViewer](../_roles/iam/userAccounts/refreshTokenViewer.md) %}
+
+#### iam.userAccounts.refreshTokenRevoker {#iam-userAccounts-refreshTokenRevoker}
+
+{% include [iam.userAccounts.refreshTokenRevoker](../_roles/iam/userAccounts/refreshTokenRevoker.md) %}
+
+#### iam.auditor {#iam-auditor}
+
+{% include [iam.auditor](../_roles/iam/auditor.md) %}
+
+#### iam.viewer {#iam-viewer}
+
+{% include [iam.viewer](../_roles/iam/viewer.md) %}
+
+#### iam.editor {#iam-editor}
+
+{% include [iam.editor](../_roles/iam/editor.md) %}
+
+#### iam.admin {#iam-admin}
+
+{% include [iam.admin](../_roles/iam/admin.md) %}
+
+Подробнее см. [{#T}](../iam/security/index.md).
 
 
 ## {{ org-full-name }} {#organization-roles}
@@ -727,483 +1359,6 @@ description: В статье приведен полный справочник 
 Подробнее см. [{#T}](../organization/security/index.md).
 
 
-## {{ postbox-full-name }} {#postbox-roles}
-
-#### postbox.sender {#postbox-sender}
-
-{% include [postbox.sender](../_roles/postbox/sender.md) %}
-
-#### postbox.auditor {#postbox-auditor}
-
-{% include [postbox.auditor](../_roles/postbox/auditor.md) %}
-
-#### postbox.viewer {#postbox-viewer}
-
-{% include [postbox.viewer](../_roles/postbox/viewer.md) %}
-
-#### postbox.editor {#postbox-editor}
-
-{% include [postbox.editor](../_roles/postbox/editor.md) %}
-
-#### postbox.admin {#postbox-admin}
-
-{% include [postbox.admin](../_roles/postbox/admin.md) %}
-
-Подробнее см. [{#T}](../postbox/security/index.md).
-
-
-## {{ cloud-registry-full-name }} {#cloud-registry-roles}
-
-#### cloud-registry.auditor {#cloud-registry-auditor}
-
-{% include [cloud-registry-auditor](../_roles/cloud-registry/auditor.md) %}
-
-#### cloud-registry.viewer {#cloud-registry-viewer}
-
-{% include [cloud-registry-viewer](../_roles/cloud-registry/viewer.md) %}
-
-#### cloud-registry.editor {#cloud-registry-editor}
-
-{% include [cloud-registry-editor](../_roles/cloud-registry/editor.md) %}
-
-#### cloud-registry.admin {#cloud-registry-admin}
-
-{% include [cloud-registry-admin](../_roles/cloud-registry/admin.md) %}
-
-#### cloud-registry.artifacts.puller {#cloud-registry-artifacts-puller}
-
-{% include [cloud-registry-artifacts-puller](../_roles/cloud-registry/artifacts/puller.md) %}
-
-#### cloud-registry.artifacts.pusher {#cloud-registry-artifacts-pusher}
-
-{% include [cloud-registry-artifacts-pusher](../_roles/cloud-registry/artifacts/pusher.md) %}
-
-Подробнее см. [{#T}](../cloud-registry/security/index.md).
-
-
-## {{ video-full-name }} {#video-roles}
-
-#### video.auditor {#video-auditor}
-
-{% include [video.auditor](../_roles/video/auditor.md) %}
-
-#### video.viewer {#video-viewer}
-
-{% include [video.viewer](../_roles/video/viewer.md) %}
-
-#### video.editor {#video-editor}
-
-{% include [video.editor](../_roles/video/editor.md) %}
-
-#### video.admin {#video-admin}
-
-{% include [video.admin](../_roles/video/admin.md) %}
-
-
-## {{ compute-full-name }} {#compute-roles}
-
-#### compute.auditor {#compute-auditor}
-
-{% include [compute.auditor](../_roles/compute/auditor.md) %}
-
-#### compute.viewer {#compute-viewer}
-
-{% include [compute.viewer](../_roles/compute/viewer.md) %}
-
-#### compute.editor {#compute-editor}
-
-{% include [compute.editor](../_roles/compute/editor.md) %}
-
-#### compute.admin {#compute-admin}
-
-{% include [compute.admin](../_roles/compute/admin.md) %}
-
-#### compute.osLogin {#compute-oslogin}
-
-{% include [compute.oslogin](../_roles/compute/osLogin.md) %}
-
-#### compute.osAdminLogin {#compute-osadminlogin}
-
-{% include [compute.osadminlogin](../_roles/compute/osAdminLogin.md) %}
-
-#### compute.disks.user {#compute-disks-user}
-
-{% include [compute.disks.user](../_roles/compute/disks/user.md) %}
-
-#### compute.images.user {#compute-images-user}
-
-{% include [compute.images.user](../_roles/compute/images/user.md) %}
-
-#### compute.operator {#compute-operator}
-
-{% include [compute.operator](../_roles/compute/operator.md) %}
-
-#### compute.snapshotSchedules.viewer {#compute-snapshotSchedules-viewer}
-
-{% include [compute.snapshotSchedules.viewer](../_roles/compute/snapshotSchedules/viewer.md) %}
-
-#### compute.snapshotSchedules.editor {#compute-snapshotSchedules-editor}
-
-{% include [compute.snapshotSchedules.editor](../_roles/compute/snapshotSchedules/editor.md) %}
-
-Подробнее см. [{#T}](../compute/security/index.md).
-
-
-## {{ connection-manager-full-name }} {#connection-manager-roles}
-
-#### connection-manager.auditor {#connection-manager-auditor}
-
-{% include [connection-manager.auditor](../_roles/connection-manager/auditor.md) %}
-
-#### connection-manager.viewer {#connection-manager-viewer}
-
-{% include [connection-manager.viewer](../_roles/connection-manager/viewer.md) %}
-
-#### connection-manager.editor {#connection-manager-editor}
-
-{% include [connection-manager.editor](../_roles/connection-manager/editor.md) %}
-
-#### connection-manager.admin {#connection-manager-admin}
-
-{% include [connection-manager.admin](../_roles/connection-manager/admin.md) %}
-
-Подробнее см. [Управление доступом в {{ connection-manager-name }}](../metadata-hub/security/index.md).
-
-
-## {{ container-registry-full-name }} {#cr-roles}
-
-#### container-registry.viewer {#container-registry.viewer}
-
-{% include [container-registry.viewer](../_roles/container-registry/viewer.md) %}
-
-#### container-registry.editor {#container-registry.editor}
-
-{% include [container-registry.editor](../_roles/container-registry/editor.md) %}
-
-#### container-registry.admin {#container-registry.admin}
-
-{% include [container-registry.admin](../_roles/container-registry/admin.md) %}
-
-#### container-registry.images.pusher {#container-registry-images-pusher}
-
-{% include [container-registry.images.pusher](../_roles/container-registry/images/pusher.md) %}
-
-#### container-registry.images.puller {#container-registry-images-puller}
-
-{% include [container-registry.images.puller](../_roles/container-registry/images/puller.md) %}
-
-#### container-registry.images.scanner {#container-registry-images-scanner}
-
-{% include [container-registry.images.scanner](../_roles/container-registry/images/scanner.md) %}
-
-Подробнее см. [{#T}](../container-registry/security/index.md).
-
-
-## {{ datalens-full-name }} {#datalens-roles}
-
-#### datalens.workbooks.limitedViewer {#datalens-workbooks-limitedViewer}
-
-{% include [datalens.workbooks.limitedViewer](../_roles/datalens/workbooks/limitedViewer.md) %}
-
-#### datalens.workbooks.viewer {#datalens-workbooks-viewer}
-
-{% include [datalens.workbooks.viewer](../_roles/datalens/workbooks/viewer.md) %}
-
-#### datalens.workbooks.editor {#datalens-workbooks-editor}
-
-{% include [datalens.workbooks.editor](../_roles/datalens/workbooks/editor.md) %}
-
-#### datalens.workbooks.admin {#datalens-workbooks-admin}
-
-{% include [datalens.workbooks.admin](../_roles/datalens/workbooks/admin.md) %}
-
-#### datalens.collections.limitedViewer {#datalens-collections-limitedViewer}
-
-{% include [datalens.collections.limitedViewer](../_roles/datalens/collections/limitedViewer.md) %}
-
-#### datalens.collections.viewer {#datalens-collections-viewer}
-
-{% include [datalens.collections.viewer](../_roles/datalens/collections/viewer.md) %}
-
-#### datalens.collections.editor {#datalens-collections-editor}
-
-{% include [datalens.collections.editor](../_roles/datalens/collections/editor.md) %}
-
-#### datalens.collections.admin {#datalens-collections-admin}
-
-{% include [datalens.collections.admin](../_roles/datalens/collections/admin.md) %}
-
-#### datalens.visitor {#datalens-visitor}
-
-{% include [datalens-visitor](../_roles/datalens/visitor.md) %}
-
-#### datalens.creator {#datalens-creator}
-
-{% include [datalens-creator](../_roles/datalens/creator.md) %}
-
-#### datalens.admin {#datalens-admin}
-
-{% include [datalens-admin](../_roles/datalens/admin.md) %}
-
-#### datalens.instances.user {#datalens-instances-user}
-
-{% include [datalens-instances-user](../_roles/datalens/instances/user.md) %}
-
-#### datalens.instances.admin {#datalens-instances-admin}
-
-{% include [datalens-instances-admin](../_roles/datalens/instances/admin.md) %}
-
-Подробнее см. [{#T}](../datalens/security/roles.md).
-
-
-## {{ dataproc-full-name }} {#dataproc-roles}
-
-#### dataproc.agent {#dataproc-agent}
-
-{% include [dataproc.agent](../_roles/data-processing/agent.md) %}
-
-#### dataproc.auditor {#dataproc-auditor}
-
-{% include [dataproc.auditor](../_roles/data-processing/auditor.md) %}
-
-#### dataproc.viewer {#dataproc-viewer}
-
-{% include [dataproc.viewer](../_roles/data-processing/viewer.md) %}
-
-#### dataproc.user {#dataproc-user}
-
-{% include [dataproc.user](../_roles/data-processing/user.md) %}
-
-#### dataproc.provisioner {#dataproc-provisioner}
-
-{% include [dataproc.provisioner](../_roles/data-processing/provisioner.md) %}
-
-#### dataproc.editor {#dataproc-editor}
-
-{% include [dataproc.editor](../_roles/data-processing/editor.md) %}
-
-#### dataproc.admin {#dataproc-admin}
-
-{% include [dataproc.admin](../_roles/data-processing/admin.md) %}
-
-#### mdb.dataproc.agent {#mdb-dataproc-agent}
-
-{% include [mdb.dataproc.agent](../_roles/mdb/dataproc/agent.md) %}
-
-#### {{ roles.metastore.auditor }} {#managed-metastore-auditor}
-
-{% include [managed-metastore.auditor](../_roles/managed-metastore/auditor.md) %}
-
-#### {{ roles.metastore.viewer }} {#managed-metastore-viewer}
-
-{% include [managed-metastore.viewer](../_roles/managed-metastore/viewer.md) %}
-
-#### {{ roles.metastore.editor }} {#managed-metastore-editor}
-
-{% include [managed-metastore.editor](../_roles/managed-metastore/editor.md) %}
-
-#### {{ roles.metastore.admin }} {#managed-metastore-admin}
-
-{% include [managed-metastore.admin](../_roles/managed-metastore/admin.md) %}
-
-#### {{ roles.metastore.integrationProvider }} {#managed-metastore-integrationProvider}
-
-{% include [managed-metastore.integrationProvider](../_roles/managed-metastore/integrationProvider.md) %}
-
-Подробнее см. [{#T}](../data-proc/security/index.md).
-
-
-## {{ ml-platform-full-name }} {#datasphere-roles}
-
-#### datasphere.community-projects.viewer {#datasphere-communityprojects-viewer}
-
-{% include [datasphere.community-projects.viewer](../_roles/datasphere/community-projects/viewer.md) %}
-
-#### datasphere.community-projects.developer {#datasphere-communityprojects-developer}
-
-{% include [datasphere.community-projects.developer](../_roles/datasphere/community-projects/developer.md) %}
-
-#### datasphere.community-projects.editor {#datasphere-communityprojects-editor}
-
-{% include [datasphere.community-projects.editor](../_roles/datasphere/community-projects/editor.md) %}
-
-#### datasphere.community-projects.admin {#datasphere-communityprojects-admin}
-
-{% include [datasphere.community-projects.admin](../_roles/datasphere/community-projects/admin.md) %}
-
-#### datasphere.communities.viewer {#datasphere-communities-viewer}
-
-{% include [datasphere.communities.viewer](../_roles/datasphere/communities/viewer.md) %}
-
-#### datasphere.communities.developer {#datasphere-communities-developer}
-
-{% include [datasphere.communities.developer](../_roles/datasphere/communities/developer.md) %}
-
-#### datasphere.communities.editor {#datasphere-communities-editor}
-
-{% include [datasphere.communities.editor](../_roles/datasphere/communities/editor.md) %}
-
-#### datasphere.communities.admin {#datasphere-communities-admin}
-
-{% include [datasphere.communities.admin](../_roles/datasphere/communities/admin.md) %}
-
-#### datasphere.user {#datasphere-user}
-
-{% include [datasphere.user](../_roles/datasphere/user.md) %}
-
-#### data-sphere.user {#data-sphere-user}
-
-{% include [data-sphere.user](../_roles/data-sphere/user.md) %}
-
-#### datasphere.admin {#datasphere-admin}
-
-{% include [datasphere.admin](../_roles/datasphere/admin.md) %}
-
-#### data-sphere.admin {#data-sphere-admin}
-
-{% include [data-sphere.admin](../_roles/data-sphere/admin.md) %}
-
-Подробнее см. [{#T}](../datasphere/security/index.md).
-
-
-## {{ ycdr-full-name }} {#ycdr-roles}
-
-#### ycdr.admin {#ycdr-admin}
-
-{% include [ycdr.admin](../_roles/ycdr/admin.md) %}
-
-
-## {{ yds-full-name }} {#yds-roles}
-
-#### yds.auditor {#yds-auditor}
-
-{% include [yds.auditor](../_roles/yds/auditor.md) %}
-
-#### yds.viewer {#yds-viewer}
-
-{% include [yds.viewer](../_roles/yds/viewer.md) %}
-
-#### yds.writer {#yds-writer}
-
-{% include [yds.writer](../_roles/yds/writer.md) %}
-
-#### yds.editor {#yds-editor}
-
-{% include [yds.editor](../_roles/yds/editor.md) %}
-
-#### yds.admin {#yds-admin}
-
-{% include [yds.admin](../_roles/yds/admin.md) %}
-
-Подробнее см. [{#T}](../data-streams/security/index.md).
-
-
-## {{ data-transfer-full-name }} {#data-transfer-roles}
-
-#### data-transfer.auditor {#data-transfer-auditor}
-
-{% include [data-transfer.auditor](../_roles/data-transfer/auditor.md) %}
-
-#### data-transfer.viewer {#data-transfer-viewer}
-
-{% include [data-transfer.viewer](../_roles/data-transfer/viewer.md) %}
-
-#### data-transfer.privateAdmin {#data-transfer-privateadmin}
-
-{% include [data-transfer.privateadmin](../_roles/data-transfer/privateAdmin.md) %}
-
-#### data-transfer.admin {#data-transfer-admin}
-
-{% include [data-transfer.admin](../_roles/data-transfer/admin.md) %}
-
-Подробнее см. [{#T}](../data-transfer/security/index.md).
-
-
-## {{ iam-full-name }} {#iam-roles}
-
-#### iam.serviceAccounts.user {#iam-serviceAccounts-user}
-
-{% include [iam.serviceAccounts.user](../_roles/iam/serviceAccounts/user.md) %}
-
-#### iam.serviceAccounts.admin {#iam-serviceAccounts-admin}
-
-{% include [iam.serviceAccounts.admin](../_roles/iam/serviceAccounts/admin.md) %}
-
-#### iam.serviceAccounts.accessKeyAdmin {#iam-serviceAccounts-accessKeyAdmin}
-
-{% include [iam.serviceAccounts.accessKeyAdmin](../_roles/iam/serviceAccounts/accessKeyAdmin.md) %}
-
-#### iam.serviceAccounts.apiKeyAdmin {#iam-serviceAccounts-apiKeyAdmin}
-
-{% include [iam.serviceAccounts.apiKeyAdmin](../_roles/iam/serviceAccounts/apiKeyAdmin.md) %}
-
-#### iam.serviceAccounts.authorizedKeyAdmin {#iam-serviceAccounts-authorizedKeyAdmin}
-
-{% include [iam.serviceAccounts.authorizedKeyAdmin](../_roles/iam/serviceAccounts/authorizedKeyAdmin.md) %}
-
-#### iam.serviceAccounts.keyAdmin {#iam-serviceAccounts-keyAdmin}
-
-{% include [iam.serviceAccounts.keyAdmin](../_roles/iam/serviceAccounts/keyAdmin.md) %}
-
-#### iam.serviceAccounts.tokenCreator {#iam-serviceAccounts-tokenCreator}
-
-{% include [iam.serviceAccounts.tokenCreator](../_roles/iam/serviceAccounts/tokenCreator.md) %}
-
-#### iam.serviceAccounts.federatedCredentialViewer {#iam-serviceAccounts-federatedCredentialViewer}
-
-{% include [iam.serviceAccounts.federatedCredentialViewer](../_roles/iam/serviceAccounts/federatedCredentialViewer.md) %}
-
-#### iam.serviceAccounts.federatedCredentialEditor {#iam-serviceAccounts-federatedCredentialEditor}
-
-{% include [iam.serviceAccounts.federatedCredentialEditor](../_roles/iam/serviceAccounts/federatedCredentialEditor.md) %}
-
-#### iam.workloadIdentityFederations.auditor {#iam-workloadIdentityFederations-auditor}
-
-{% include [iam.workloadIdentityFederations.auditor](../_roles/iam/workloadIdentityFederations/auditor.md) %}
-
-#### iam.workloadIdentityFederations.viewer {#iam-workloadIdentityFederations-viewer}
-
-{% include [iam.workloadIdentityFederations.viewer](../_roles/iam/workloadIdentityFederations/viewer.md) %}
-
-#### iam.workloadIdentityFederations.user {#iam-workloadIdentityFederations-user}
-
-{% include [iam.workloadIdentityFederations.user](../_roles/iam/workloadIdentityFederations/user.md) %}
-
-#### iam.workloadIdentityFederations.editor {#iam-workloadIdentityFederations-editor}
-
-{% include [iam.workloadIdentityFederations.editor](../_roles/iam/workloadIdentityFederations/editor.md) %}
-
-#### iam.workloadIdentityFederations.admin {#iam-workloadIdentityFederations-admin}
-
-{% include [iam.workloadIdentityFederations.admin](../_roles/iam/workloadIdentityFederations/admin.md) %}
-
-#### iam.userAccounts.refreshTokenViewer {#iam-userAccounts-refreshTokenViewer}
-
-{% include [iam.userAccounts.refreshTokenViewer](../_roles/iam/userAccounts/refreshTokenViewer.md) %}
-
-#### iam.userAccounts.refreshTokenRevoker {#iam-userAccounts-refreshTokenRevoker}
-
-{% include [iam.userAccounts.refreshTokenRevoker](../_roles/iam/userAccounts/refreshTokenRevoker.md) %}
-
-#### iam.auditor {#iam-auditor}
-
-{% include [iam.auditor](../_roles/iam/auditor.md) %}
-
-#### iam.viewer {#iam-viewer}
-
-{% include [iam.viewer](../_roles/iam/viewer.md) %}
-
-#### iam.editor {#iam-editor}
-
-{% include [iam.editor](../_roles/iam/editor.md) %}
-
-#### iam.admin {#iam-admin}
-
-{% include [iam.admin](../_roles/iam/admin.md) %}
-
-Подробнее см. [{#T}](../iam/security/index.md).
-
-
 ## {{ iot-full-name }} {#iot-core-roles}
 
 #### iot.devices.writer {#iot-devices-writer}
@@ -1227,123 +1382,6 @@ description: В статье приведен полный справочник 
 {% include [iot-editor](../_roles/iot/editor.md) %}
 
 Подробнее см. [{#T}](../iot-core/security/index.md).
-
-
-## {{ ai-studio-full-name }} {#fm-roles}
-
-#### ai.playground.user {#ai-playground-user}
-
-{% include [ai-playground-user](../_roles/ai/playground/user.md) %}
-
-#### ai.languageModels.user {#languageModels-user}
-
-{% include [yandexgpt-user](../_roles/ai/languageModels/user.md) %}
-
-#### ai.imageGeneration.user {#imageGeneration-user}
-
-{% include [yandexart-user](../_roles/ai/imageGeneration/user.md) %}
-
-#### ai.assistants.auditor {#ai-assistants-auditor}
-
-{% include [assistants-auditor](../_roles/ai/assistants/auditor.md) %}
-
-#### ai.assistants.viewer {#ai-assistants-viewer}
-
-{% include [assistants-viewer](../_roles/ai/assistants/viewer.md) %}
-
-#### ai.assistants.editor {#ai-assistants-editor}
-
-{% include [assistants-editor](../_roles/ai/assistants/editor.md) %}
-
-#### ai.assistants.admin {#ai-assistants-admin}
-
-{% include [assistants-admin](../_roles/ai/assistants/admin.md) %}
-
-#### ai.datasets.auditor {#ai-datasets-auditor}
-
-{% include [ai-datasets-auditor](../_roles/ai/datasets/auditor.md) %}
-
-#### ai.datasets.viewer {#ai-datasets-viewer}
-
-{% include [ai-datasets-viewer](../_roles/ai/datasets/viewer.md) %}
-
-#### ai.datasets.user {#ai-datasets-user}
-
-{% include [ai-datasets-user](../_roles/ai/datasets/user.md) %}
-
-#### ai.datasets.editor {#ai-datasets-editor}
-
-{% include [ai-datasets-editor](../_roles/ai/datasets/editor.md) %}
-
-#### ai.datasets.admin {#ai-datasets-admin}
-
-{% include [ai-datasets-admin](../_roles/ai/datasets/admin.md) %}
-
-#### ai.models.auditor {#ai-models-auditor}
-
-{% include [ai-models-auditor](../_roles/ai/models/auditor.md) %}
-
-#### ai.models.viewer {#ai-models-viewer}
-
-{% include [ai-models-viewer](../_roles/ai/models/viewer.md) %}
-
-#### ai.models.user {#ai-models-user}
-
-{% include [ai-models-user](../_roles/ai/models/user.md) %}
-
-#### ai.models.editor {#ai-models-editor}
-
-{% include [ai-models-editor](../_roles/ai/models/editor.md) %}
-
-#### ai.models.admin {#ai-models-admin}
-
-{% include [ai-models-admin](../_roles/ai/models/admin.md) %}
-
-#### ai.guardrails.auditor {#ai-guardrails-auditor}
-
-{% include [ai.guardrails.auditor](../_roles/ai/guardrails/auditor.md) %}
-
-#### ai.guardrails.viewer {#ai-guardrails-viewer}
-
-{% include [ai.guardrails.viewer](../_roles/ai/guardrails/viewer.md) %}
-
-#### ai.guardrails.user {#ai-guardrails-user}
-
-{% include [ai.guardrails.user](../_roles/ai/guardrails/user.md) %}
-
-#### ai.guardrails.editor {#ai-guardrails-editor}
-
-{% include [ai.guardrails.editor](../_roles/ai/guardrails/editor.md) %}
-
-#### ai.guardrails.admin {#ai-guardrails-admin}
-
-{% include [ai.guardrails.admin](../_roles/ai/guardrails/admin.md) %}
-
-#### serverless.mcpGateways.auditor {#serverless-mcpGateways-auditor}
-
-{% include [serverless-mcpGateways-auditor](../_roles/serverless/mcpGateways/auditor.md) %}
-
-#### serverless.mcpGateways.viewer {#serverless-mcpGateways-viewer}
-
-{% include [serverless-mcpGateways-viewer](../_roles/serverless/mcpGateways/viewer.md) %}
-
-#### serverless.mcpGateways.invoker {#serverless-mcpGateways-invoker}
-
-{% include [serverless-mcpGateways-invoker](../_roles/serverless/mcpGateways/invoker.md) %}
-
-#### serverless.mcpGateways.anonymousInvoker {#serverless-mcpGateways-anonymousInvoker}
-
-{% include [serverless-mcpGateways-anonymousInvoker](../_roles/serverless/mcpGateways/anonymousInvoker.md) %}
-
-#### serverless.mcpGateways.editor {#serverless-mcpGateways-editor}
-
-{% include [serverless-mcpGateways-editor](../_roles/serverless/mcpGateways/editor.md) %}
-
-#### serverless.mcpGateways.admin {#serverless-mcpGateways-admin}
-
-{% include [serverless-mcpGateways-admin](../_roles/serverless/mcpGateways/admin.md) %}
-
-Подробнее см. [Управление доступом в {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/security/index).
 
 
 ## {{ kms-full-name }} {#kms-roles}
@@ -1735,47 +1773,6 @@ description: В статье приведен полный справочник 
 Подробнее см. [{#T}](../managed-kubernetes/security/index.md).
 
 
-## {{ mmg-full-name }} {#storedoc-roles}
-
-#### managed-mongodb.auditor {#managed-mongodb-auditor}
-
-{% include [managed-mongodb.auditor](../_roles/managed-mongodb/auditor.md) %}
-
-#### managed-mongodb.viewer {#managed-mongodb-viewer}
-
-{% include [managed-mongodb.viewer](../_roles/managed-mongodb/viewer.md) %}
-
-#### managed-mongodb.restorer {#managed-mongodb-restorer}
-
-{% include [managed-mongodb.restorer](../_roles/managed-mongodb/restorer.md) %}
-
-#### managed-mongodb.user {#managed-mongodb-user}
-
-{% include [managed-mongodb.user](../_roles/managed-mongodb/user.md) %}
-
-#### managed-mongodb.switcher {#managed-mongodb-switcher}
-
-{% include [managed-mongodb.switcher](../_roles/managed-mongodb/switcher.md) %}
-
-#### managed-mongodb.editor {#managed-mongodb-editor}
-
-{% include [managed-mongodb.editor](../_roles/managed-mongodb/editor.md) %}
-
-#### managed-mongodb.admin {#managed-mongodb-admin}
-
-{% include [managed-mongodb.admin](../_roles/managed-mongodb/admin.md) %}
-
-#### managed-mongodb.maintenanceTask.viewer {#managed-mongodb-maintenanceTask-viewer}
-
-{% include [managed-mongodb.maintenanceTask.viewer](../_roles/managed-mongodb/maintenanceTask/viewer.md) %}
-
-#### managed-mongodb.maintenanceTask.editor {#managed-mongodb-maintenanceTask-editor}
-
-{% include [managed-mongodb.maintenanceTask.editor](../_roles/managed-mongodb/maintenanceTask/editor.md) %}
-
-Подробнее см. [{#T}](../storedoc/security/index.md).
-
-
 ## {{ mmy-full-name }} {#managed-mysql-roles}
 
 #### managed-mysql.clusters.connector {#managed-mysql-clusters-connector}
@@ -2087,6 +2084,47 @@ description: В статье приведен полный справочник 
 Подробнее см. [{#T}](../ydb/security/index.md).
 
 
+## {{ mmg-full-name }} {#storedoc-roles}
+
+#### managed-mongodb.auditor {#managed-mongodb-auditor}
+
+{% include [managed-mongodb.auditor](../_roles/managed-mongodb/auditor.md) %}
+
+#### managed-mongodb.viewer {#managed-mongodb-viewer}
+
+{% include [managed-mongodb.viewer](../_roles/managed-mongodb/viewer.md) %}
+
+#### managed-mongodb.restorer {#managed-mongodb-restorer}
+
+{% include [managed-mongodb.restorer](../_roles/managed-mongodb/restorer.md) %}
+
+#### managed-mongodb.user {#managed-mongodb-user}
+
+{% include [managed-mongodb.user](../_roles/managed-mongodb/user.md) %}
+
+#### managed-mongodb.switcher {#managed-mongodb-switcher}
+
+{% include [managed-mongodb.switcher](../_roles/managed-mongodb/switcher.md) %}
+
+#### managed-mongodb.editor {#managed-mongodb-editor}
+
+{% include [managed-mongodb.editor](../_roles/managed-mongodb/editor.md) %}
+
+#### managed-mongodb.admin {#managed-mongodb-admin}
+
+{% include [managed-mongodb.admin](../_roles/managed-mongodb/admin.md) %}
+
+#### managed-mongodb.maintenanceTask.viewer {#managed-mongodb-maintenanceTask-viewer}
+
+{% include [managed-mongodb.maintenanceTask.viewer](../_roles/managed-mongodb/maintenanceTask/viewer.md) %}
+
+#### managed-mongodb.maintenanceTask.editor {#managed-mongodb-maintenanceTask-editor}
+
+{% include [managed-mongodb.maintenanceTask.editor](../_roles/managed-mongodb/maintenanceTask/editor.md) %}
+
+Подробнее см. [{#T}](../storedoc/security/index.md).
+
+
 ## {{ message-queue-full-name }} {#message-queue-roles}
 
 #### ymq.reader {#ymq-reader}
@@ -2312,7 +2350,7 @@ description: В статье приведен полный справочник 
 
 Подробнее см. [Управление доступом в {{ dspm-name }}](../security-deck/security/dspm-roles.md).
 
-### Сервисные роли для модуля Контроль {{ k8s }}® (KSPM) {#kspm-roles}
+### Сервисные роли для модуля Контроль {{ k8s }}® ({{ kspm-name }}) {#kspm-roles}
 
 #### kspm.worker {#kspm-worker}
 
@@ -2334,7 +2372,7 @@ description: В статье приведен полный справочник 
 
 {% include [kspm.admin](../_roles/kspm/admin.md) %}
 
-Подробнее см. [Управление доступом в KSPM](../security-deck/security/kspm-roles.md).
+Подробнее см. [Управление доступом в {{ kspm-name }}](../security-deck/security/kspm-roles.md).
 
 ### Сервисные роли для модуля Контроль конфигурации ({{ cspm-name }}) {#cspm-roles}
 
@@ -2499,6 +2537,19 @@ description: В статье приведен полный справочник 
 {% include [serverless.workflows.admin](../_roles/serverless/workflows/admin.md) %}
 
 Подробнее см. [Управление доступом в {{ sw-name }}](../serverless-integrations/security/workflows.md).
+
+
+## {{ yandex-siem-full-name }} {#yandex-siem-roles}
+
+#### ycem.inspector {#ycem-inspector}
+
+{% include [ycem.inspector](../_roles/ycem/inspector.md) %}
+
+#### ycem.executor {#ycem-executor}
+
+{% include [ycem.executor](../_roles/ycem/executor.md) %}
+
+Подробнее см. [{#T}](../yandex-siem/security/index.md).
 
 
 ## {{ captcha-full-name }} {#captcha-roles}

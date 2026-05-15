@@ -47,7 +47,7 @@ In the unified Lambda architecture, a single system processes both analytical an
 
 In this architecture, the runtime system should enable the processing of analytical data and data streams using common tools. This lets you unify all workflows around processing these types of data.
 
-{{yq-full-name}} is an example of such architecture. You can use {{yq-full-name}} to work with streaming and analytical data stored in different storage systems in a unified way. This will allow you to:
+{{ yq-full-name }} is an example of such architecture. You can use {{ yq-full-name }} to work with streaming and analytical data stored in different storage systems in a unified way. This will allow you to:
 - Unify data processing by using a single runtime environment.
 - Streamline system maintenance with a single data processing system.
 

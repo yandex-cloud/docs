@@ -228,7 +228,7 @@ To integrate Grafana OSS with the OIDC app you created in {{ org-full-name }}, c
          <Grafana_OSS_instance_URL>/login/generic_oauth
          ```
 
-      1. In the **{{ ui-key.yacloud_org.organization.apps.OauthAppEditForm.field-scopes_hEuar }}** field, check the `{{ ui-key.yacloud_org.organization.apps.OauthAppEditForm.oauth-scope-groups_iZoa5 }}` attribute and select `{{ ui-key.yacloud_org.field-data.attributes.update_dialog.field_group_assigned }}`.
+      1. In the **{{ ui-key.yacloud_org.organization.apps.OauthAppEditForm.field-scopes_hEuar }}** field, check the `{{ ui-key.yacloud_org.organization.apps.OauthAppEditForm.oauth-scope-groups_iZoa5 }}` attribute and select `{{ ui-key.yacloud_org.organization.apps.field_group_assigned_amGdu }}`.
 
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -301,7 +301,7 @@ The expression means the user will get the `Editor` role if they belong to the `
 
 The redirect URI you previously specified in {{ org-full-name }} must match the URI that Grafana OSS sends to {{ org-full-name }}.
 
-Proceed as follows:
+Follow these steps:
 
 1. Open the [Grafana configuration file](https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/#configuration-file-location).
 1. In the `[server]` section, set:
@@ -379,7 +379,7 @@ Add a user to the application:
 
 To make sure both your OIDC app and Grafana OSS integration work correctly, authenticate to Grafana OSS as one of the users you added to the app.
 
-Proceed as follows:
+Follow these steps:
 
 1. In your browser, navigate to the address of your Grafana OSS instance, e.g., `https://your-domain`.
 1. If you were logged in to Grafana OSS, log out.

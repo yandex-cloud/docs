@@ -14,9 +14,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+
 ### Required paid resources {#paid-resources}
 
 {% include [joomla-postgresql-paid-resources](../_tutorials_includes/joomla-postgresql/joomla-postgresql-paid-resources.md) %}
+
 
 ## Set up a cloud network {#setup-network}
 
@@ -240,7 +242,7 @@ Create a new Let's Encrypt® [certificate](../../certificate-manager/concepts/ma
       * **{{ ui-key.yacloud.mdb.forms.database_field_name }}**: `joomla_db`.
       * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `joomla`.
       * In the **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** field, select `{{ ui-key.yacloud.component.password-input.label_button-enter-manually }}` and set a password you will use to access the database.
-  1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select `joomla-network` and `postgresql-sg` you created previously as the network and security group, respectively.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_network }}**, select `joomla-network` and `postgresql-sg` you created previously as the network and security group, respectively.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, add more hosts to have one host in each availability zone. When creating hosts, do not enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** for them.
   1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 

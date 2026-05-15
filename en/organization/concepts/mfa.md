@@ -23,7 +23,7 @@ _MFA policies_ specify the multi-factor authentication requirements enforced on 
 
 You can [create](../operations/mfa/create-policy.md) an MFA policy in the [{{ org-full-name }}]({{ link-org-cloud-center }}) interface in {{ cloud-center }}.
 
-For an MFA policy to apply to specific user accounts, you need to [explicitly add](../operations/mfa/add-users.md) those users or the [groups](./groups.md) to which they belong to the policy's target groups.
+For an MFA policy to apply to specific user accounts, you need to [explicitly add](../operations/mfa/add-users.md) those users or the [groups](./groups.md) to which they belong to the policy's target groups. If needed, you can [exclude](../operations/mfa/excluded-audience.md) certain users or groups from the policy without deleting them from the target groups.
 
 {% include [mfa-policy-applications-acc-type-notice](../../_includes/organization/mfa-policy-applications-acc-type-notice.md) %}
 
@@ -67,6 +67,7 @@ To use WebAuthn, make sure it is supported by your browser and OS. The table bel
 * [{#T}](../operations/mfa/create-policy.md)
 * [{#T}](../operations/mfa/update-policy.md)
 * [{#T}](../operations/mfa/add-users.md)
+* [{#T}](../operations/mfa/excluded-audience.md)
 * [{#T}](../operations/mfa/deactivate-reactivate-policy.md)
 * [{#T}](../operations/mfa/delete-policy.md)
 * [{#T}](../operations/mfa/manage-verification.md)

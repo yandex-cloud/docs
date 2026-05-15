@@ -1,14 +1,37 @@
-Чтобы аутентифицироваться с помощью [пула пользователей](../../organization/concepts/user-pools.md):
+Чтобы аутентифицироваться с помощью [аккаунта локального пользователя](../../iam/concepts/users/accounts.md#local):
 
-1. Узнайте идентификатор пула пользователей у вашего администратора.
 1. Запустите интерактивное создание профиля:
 
-      
-   ```bash
-   yc init --federation-id=<идентификатор_пула_пользователей>
-   ```
+   {% list tabs %}
+
+   - Пул пользователей
+   
+     1. Узнайте идентификатор пула пользователей у вашего администратора.
+     1. Запустите интерактивное создание профиля:
+
+                  
+         ```bash
+         yc init --userpool-id=<идентификатор_пула_пользователей>
+         ```
 
 
+
+   - Электронная почта
+
+      1. Получите адрес электронной почты:
+         1. Перейдите в портал [Мой аккаунт]({{ link-my-account }}).
+         1. На панели слева выберите ![alt](../../_assets/console-icons/passport.svg) **{{ ui-key.yacloud_org.center-layout.MyAccountLayout.profile_8kyBA }}**.
+         1. В блоке **{{ ui-key.yacloud_org.my-account.ProfilePage.contacts_subheader }}** скопируйте адрес электронной почты.
+      1. Запустите интерактивное создание профиля:
+
+                  
+         ```bash
+         yc init --username=<электронная_почта>
+         ```
+
+
+
+   {% endlist %}
 
 1. Выберите профиль, для которого вы хотите настроить аутентификацию, или создайте новый.
 
@@ -22,8 +45,8 @@
 1. CLI выведет сообщение о продолжении аутентификации в браузере. Для продолжения нажмите клавишу **Enter**.
 
    ```text
-   You are going to be authenticated via federation-id 'aje1f0hsgds3a********'.
-   Your federation authentication web site will be opened.
+   You are going to be authenticated via userpool-id 'ek0auknfc0mh********'.
+   Your userpool authentication web site will be opened.
    After your successful authentication, you will be redirected to cloud console.
 
    Press 'enter' to continue...
@@ -63,13 +86,31 @@
    ```
 
    Результат:
-
    
-   ```bash
-   federation-id: aje1f0hs6oja********
-   cloud-id: b1g159pa15cd********
-   folder-id: b1g8o9jbt58********
-   compute-default-zone: {{ region-id }}-b
-   ```
+   {% list tabs %}
+
+   - Пул пользователей
+   
+      
+      ```bash
+      userpool-id: ek0auknfc0mh********
+      subject-id: ek00cd1m8hdd8********
+      cloud-id: b1g159pa15cd********
+      folder-id: b1g8o9jbt58********
+      compute-default-zone: {{ region-id }}-b
+      ```
 
 
+
+   - Электронная почта
+      
+      ```bash
+      subject-id: b1g159pa15cd********
+      username: <электронная_почта>
+      folder-id: b1g8o9jbt58********
+      compute-default-zone: {{ region-id }}-b
+      ```
+
+
+
+   {% endlist %}

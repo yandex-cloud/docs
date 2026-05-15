@@ -1,0 +1,1 @@
+Some operating systems and software products do not support RAIDs created on Fake RAID controllers (e.g., VMware [ESXi](https://en.wikipedia.org/wiki/VMware_ESXi)).

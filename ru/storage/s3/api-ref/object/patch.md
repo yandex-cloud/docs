@@ -1,4 +1,4 @@
-# Метод patch
+# Object Storage API, REST совместимый с Amazon S3: patch
 
 [Частично изменяет и дозаписывает данные объекта](../../../concepts/object-patch.md) в {{ objstorage-full-name }}.
 
@@ -71,5 +71,11 @@ PATCH /{bucket}/{key} HTTP/2
 `Object` | Родительский тег для результатов изменения.
 `LastModified` | Дата и время последнего изменения объекта. При частичном изменении объекта тег не изменяется.
 `ETag` | ETag обновленного объекта. Подробнее см. [общие заголовки](../common-response-headers.md).
+
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/object.md)
+
+* [{#T}](../../../concepts/object-patch.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

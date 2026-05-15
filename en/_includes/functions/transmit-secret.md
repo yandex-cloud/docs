@@ -2,9 +2,9 @@ For a [function](../../functions/concepts/function.md) to get access to a [secre
 * `{{ roles-lockbox-payloadviewer }}` for the secret ([how to assign access permissions for a secret](../../lockbox/operations/secret-access.md)).
 * `kms.keys.encrypterDecrypter` for the encryption [key](../../kms/concepts/key.md) if the secret was created using a [{{ kms-full-name }}](../../kms/) key ([how to assign access permissions for an encryption key](../../kms/operations/key-access.md)).
 
-A [{{ lockbox-full-name }}](../../lockbox/) secret provided to a function is cached in [{{ sf-full-name }}](../../functions/). As soon as the service account can no longer access the secret, the function may store it for up to 5 minutes.
+A [{{ lockbox-full-name }}](../../lockbox/) secret provided to a function is cached in [{{ sf-full-name }}](../../functions/). After the service account loses access to the secret, the function may retain it for up to five minutes.
 
-Transmitting secrets creates a new function version. You cannot transmit secrets to an existing version.
+Providing secrets creates a new function version. You cannot provide secrets to an existing version.
 
 {% list tabs group=instructions %}
 
@@ -12,7 +12,7 @@ Transmitting secrets creates a new function version. You cannot transmit secrets
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the function.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-  1. Select the function to transmit a {{ lockbox-name }} secret to.
+  1. Select the function to provide a {{ lockbox-name }} secret to.
   1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
   1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
      * In the **{{ ui-key.yacloud.forms.label_service-account-select }}** field, the service account with the `{{ roles-lockbox-payloadviewer }}` role.
@@ -20,11 +20,11 @@ Transmitting secrets creates a new function version. You cannot transmit secrets
        * Name of the environment variable that will store the secret.
        * Secret ID.
        * Secret version ID.
-       * Key of one of the key-value pairs in the secret version.
+       * Key of a key-value pair in the secret version.
   1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**.
 
-     You can transmit multiple secrets to a function. To do this, click **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**.
-  1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**. A new version of the function with the specified secrets will be created.
+     You can provide multiple secrets to a function. To do this, click **{{ ui-key.yacloud.serverless-functions.item.editor.button_add-environment-variable }}**.
+  1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**. This will create a new version of the function with the specified secrets.
 
 - CLI {#cli}
 
@@ -32,11 +32,11 @@ Transmitting secrets creates a new function version. You cannot transmit secrets
 
   {% include [default-catalogue](../default-catalogue.md) %}
 
-  To transmit a {{ lockbox-name }} secret to a function, run this command:
+  To provide a {{ lockbox-name }} secret to a function, run this command:
 
   {% note warning %}
 
-  If the secrets were already sent to the previous function version, they will be overwritten.
+  If secrets were already provided to the previous function version, they will be overwritten.
 
   {% endnote %}
 
@@ -54,19 +54,19 @@ Transmitting secrets creates a new function version. You cannot transmit secrets
 
   Where:
   * `--function-name`: Function name.
-  * `--runtime`: Runtime environment.
+  * `--runtime`: Runtime.
   * `--entrypoint`: Entry point in `<function_file_name>`.`<handler_name>` format.
   * `--memory`: Amount of RAM.
-  * `--execution-timeout`: Maximum function running time before timeout.
+  * `--execution-timeout`: Maximum function execution time before timeout.
   * `--source-version-id`: ID of the function version from which you want to copy the code.
   * `--service-account-id`: ID of the service account with the `{{ roles-lockbox-payloadviewer }}` role.
   * `--secret`:
     * `environment-variable`: Name of the environment variable that will store the secret.
     * `id`: Secret ID.
     * `version-id`: Secret version ID.
-    * `key`: Key of one of the key-value pairs in the secret version.
+    * `key`: Key of a key-value pairs in the secret version.
 
-    You can transmit multiple secrets to a function. To do this, specify the `--secret` parameter as many times as needed.
+    You can provide multiple secrets to a function. To do this, specify `--secret` as many times as needed.
 
 - {{ TF }} {#tf}
 
@@ -105,22 +105,22 @@ Transmitting secrets creates a new function version. You cannot transmit secrets
      ```
 
      Where:
-     * `secrets`: Section with secret settings. It contains the following parameters:
+     * `secrets`: Section with secret configuration. It contains the following settings:
        * `id`: Secret ID. This is a required setting.
        * `version_id`: Secret version ID. This is a required setting.
-       * `key`: Key of one of the secret version's key-value pairs that will be stored in the environment variable. This is a required setting.
+       * `key`: Key of a secret version’s key-value pair that will be stored in the environment variable. This is a required setting.
        * `environment_variable`: Name of the environment variable that will store the secret. This is a required setting.
   
-     For more information about the `yandex_function` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function).
+     For more information about `yandex_function` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check the function's update settings in the [management console]({{ link-console-main }}).
+  You can check the function update and its settings in the [management console]({{ link-console-main }}).
 
 - API {#api}
 
-  To transmit a {{ lockbox-name }} secret to a function, use the [createVersion](../../functions/functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionsService/CreateVersion](../../functions/functions/api-ref/grpc/Function/createVersion.md) gRPC API call.
+  To provide a {{ lockbox-name }} secret to a function, use the [createVersion](../../functions/functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/functions/api-ref/Function/index.md) resource or the [FunctionsService/CreateVersion](../../functions/functions/api-ref/grpc/Function/createVersion.md) gRPC API call.
 
 {% endlist %}

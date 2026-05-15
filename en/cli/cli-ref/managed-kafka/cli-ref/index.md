@@ -64,6 +64,12 @@ Aliases:
 
   - [yc managed-kafka connector resume](connector/resume.md) — Resume a Kafka connector.
 
+- [yc managed-kafka connector-iceberg-sink](connector-iceberg-sink/index.md) — Manage Kafka Iceberg-Sink connector.
+
+  - [yc managed-kafka connector-iceberg-sink create](connector-iceberg-sink/create.md) — Create a Kafka Iceberg-Sink connector.
+
+  - [yc managed-kafka connector-iceberg-sink update](connector-iceberg-sink/update.md) — Modify attributes of a Kafka Iceberg-Sink connector.
+
 - [yc managed-kafka connector-mirrormaker](connector-mirrormaker/index.md) — Manage Kafka Mirrormaker connector.
 
   - [yc managed-kafka connector-mirrormaker create](connector-mirrormaker/create.md) — Create a Kafka Mirrormaker connector.
@@ -103,6 +109,10 @@ Aliases:
   - [yc managed-kafka user revoke-permission](user/revoke-permission.md) — Revoke permission from the specified Kafka user.
 
   - [yc managed-kafka user update](user/update.md) — Modify attributes of a Kafka user.
+
+- [yc managed-kafka v0](v0/index.md) — Manage Apache Kafka clusters, brokers, topics, users and connectors.
+
+
 
 #### Global Flags
 

@@ -1,29 +1,29 @@
 # Migrating {{ MG }} clusters
 
 
-To migrate your {{ MG }} database to {{ mmg-name }}, you need to transfer the actual data, write-lock the old database, and transfer the load to the {{ yandex-cloud }} DB cluster.
+To migrate your {{ MG }} database to {{ mmg-name }}, follow these steps: transfer the data, switch the legacy database to read-only mode, transfer the workload over to the {{ yandex-cloud }} database cluster.
 
-Performing migration with {{ data-transfer-name }} allows you to:
+Using {{ data-transfer-name }} for migration allows you to:
 
-* Migrate the database without interrupting user service.
-* Migrate from older {{ MG }} versions to newer versions.
-* Eliminate the need for an intermediate VM or public internet access to your {{ mmg-name }} target cluster.
+* Migrate your database with zero downtime.
+* Migrate from older to newer versions of {{ MG }}.
+* Eliminate the need for an intermediate VM or for exposing your {{ mmg-name }} target cluster to the internet.
 
 For more information, see [{#T}](../../data-transfer/concepts/use-cases.md).
 
-To use this migration method, allow connecting to the source cluster from the internet.
+To use this migration method, enable internet access to the source cluster.
 
 
 ## Required paid resources {#paid-resources}
 
-* {{ SD }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ SD }} pricing](../../storedoc/pricing.md)).
+* {{ SD }} cluster: Computing resources allocated to hosts along with storage and backup capacity (see [{{ SD }} pricing](../../storedoc/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Each transfer: Use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Per transfer: Computing resources used and the number of data rows transferred (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-[Create a {{ mmg-name }} target cluster](../../storedoc/operations/cluster-create.md) whose computing and storage capacity match those of the source database environment.
+[Create a {{ mmg-name }} target cluster](../../storedoc/operations/cluster-create.md) with computing capacity and storage size matching the source database’s environment.
 
 The source and target database names must be the same.
 
@@ -33,4 +33,4 @@ The source and target database names must be the same.
 
 ## See also {#see-also}
 
-For other migration methods, see the [{{ mmg-name }} documentation](../../storedoc/tutorials/data-migration.md).
+For other migration methods, see [this {{ mmg-name }} guide](../../storedoc/tutorials/data-migration.md).

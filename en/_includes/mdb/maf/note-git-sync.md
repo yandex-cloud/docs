@@ -1,3 +1,5 @@
+The `RSA`, `DSA`, `ECDSA`, and `Ed25519` private keys in `PKCS#1`, `PKCS#8`, `OpenSSL`, and `OpenSSH` formats are supported.
+
 {% note warning %}
 
 * The repository address must allow connections via the SSH protocol.

@@ -3,7 +3,7 @@ title: How to connect to a {{ VLK }} cluster in {{ mrd-full-name }}
 description: Follow this guide to connect to a {{ VLK }} cluster.
 ---
 
-# Connecting to an {{ VLK }} cluster from applications
+# Connecting to a {{ VLK }} cluster from applications
 
 You can connect to a {{ VLK }} cluster using [command line tools](#command-line-tools), [graphical IDEs](#connection-ide), or [Docker containers](#connection-docker). To learn how to connect from your application code, see [Code examples](./code-examples.md).
 
@@ -111,7 +111,7 @@ If your client application does not support connecting via Sentinel, connect dir
 
 {% include [after-connect](../../../_includes/mdb/mvk/connect/bash/after-connect.md) %}
 
-For more information about Sentinel, see [{#T}](../../concepts/replication.md) and [this {{ VLK }} guide](https://redis.io/topics/sentinel).
+For more information about Sentinel, see [{#T}](../../concepts/replication.md) and [this {{ VLK }} guide](https://valkey.io/topics/sentinel/).
 
 ## Connecting from graphical IDEs {#connection-ide}
 

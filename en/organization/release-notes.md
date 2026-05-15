@@ -6,7 +6,11 @@ description: This section contains the {{ org-full-name }} release notes.
 
 # {{ org-full-name }} release notes
 
-{% include [Tags-nosql](../_includes/release-notes-tags-nosql.md) %}
+## March 2026 {#march-2026}
+
+* Added the `yc organization-manager organization leave` command for leaving an organization. {{ tag-cli }}
+* Added MFA policy exception [management](operations/mfa/excluded-audience.md) functions. {{ tag-center }} {{ tag-cli }} {{ tag-api }}
+
 
 
 ## January 2026 {#january-2026}
@@ -54,7 +58,7 @@ description: This section contains the {{ org-full-name }} release notes.
 * [{{ oslogin }}](../organization/concepts/os-login.md) package building script is now available on VMs running Ubuntu 24.04.
 * [Added](../iam/roles-reference.md#organization-manager-passportUserAdmin) the `organization-manager.passportUserAdmin` role to manage organization [users](../organization/concepts/membership.md) with [Yandex accounts](https://yandex.ru/id/about).
 * In [{{ at-full-name }}](../audit-trails/), [added](../audit-trails/concepts/events.md#organization) events for federated user group management: `CreateGroupMapping`, `DeleteGroupMapping`, and `UpdateGroupMapping`.
-* Implemented user notification about the expiration of their {{ yandex-cloud}} SAML certificates.
+* Implemented user notification about the expiration of their {{ yandex-cloud }} SAML certificates.
 
 
 ## Q3 2024 {#q3-2024}

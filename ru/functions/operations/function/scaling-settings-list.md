@@ -9,8 +9,6 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-    Чтобы посмотреть любую настройку масштабирования, кроме количества вызовов, одновременно обрабатываемых одним экземпляром функции (`concurrency`):
-
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
     1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Выберите функцию.
@@ -26,7 +24,7 @@ description: Следуя данной инструкции, вы сможете
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    Чтобы посмотреть любую настройку масштабирования, кроме количества вызовов, одновременно обрабатываемых одним экземпляром функции (`concurrency`), выполните команду:
+    Чтобы посмотреть настройки масштабирования, выполните команду:
 
     ```bash
     yc serverless function list-scaling-policies --id=<идентификатор_функции>
@@ -46,11 +44,9 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-    Чтобы посмотреть любую настройку масштабирования, кроме количества вызовов, одновременно обрабатываемых одним экземпляром функции (`concurrency`), воспользуйтесь методом REST API [listScalingPolicies](../../functions/api-ref/Function/listScalingPolicies.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/ListScalingPolicies](../../functions/api-ref/grpc/Function/listScalingPolicies.md).
+    Чтобы посмотреть настройки масштабирования, воспользуйтесь методом REST API [listScalingPolicies](../../functions/api-ref/Function/listScalingPolicies.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/ListScalingPolicies](../../functions/api-ref/grpc/Function/listScalingPolicies.md).
 
 
 {% endlist %}
-
-Информацию о [количестве вызовов, одновременно обрабатываемых одним экземпляром функции](../../concepts/function.md#concurrency) (`concurrency`), можно посмотреть, получив [информацию о версии функции](../../operations/function/version-info.md).
 
 {% include [see-also-scaling](../../../_includes/functions/see-also-scaling.md) %}

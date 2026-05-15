@@ -7,9 +7,6 @@ editable: false
 # {{ mmg-name }} pricing policy
 
 
-{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
-
-
 
 
 This section describes the {{ mmg-name }} pricing [policy](#rules) and [current prices](#prices) for its resources.
@@ -58,7 +55,7 @@ You are billed for the following:
 
     * You can order local SSD storage (`local-ssd`) only for clusters with three or more hosts:
         * For **Intel Broadwell** and **Intel Cascade Lake**: In 100 GB increments.
-        * For **Intel Ice Lake**: In {{ local-ssd-v3-step }} increments.
+        * For **Intel Ice Lake** and **AMD Zen 4**: In {{ local-ssd-v3-step }} increments.
 
     For details on platform-specific storage limitations, see [{#T}](./concepts/storage.md).
 
@@ -70,9 +67,11 @@ You are billed for the following:
 
     * The number of hosts in a cluster does not affect the storage size and, consequently, the free backup quota.
 
-The price covers one month of use, based on 720 hours per month.  The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
+The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
 
 ### Cluster cost calculation example {#example}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 Suppose we calculate the 30-day usage cost of a cluster with the following configuration:
 

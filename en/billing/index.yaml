@@ -46,7 +46,7 @@ blocks:
           dark: assets/icons/rocket.svg
       - type: basic-card
         title: Step-by-step guides
-        text: How to perform routine operations
+        text: Follow our guides for routine operations
         urlTitle: All Yandex Cloud Billing guides
         url: operations/index
         border: shadow
@@ -57,7 +57,7 @@ blocks:
           dark: assets/icons/list-ol.svg
       - type: basic-card
         title: Concepts
-        text: Introduction to the terms and concepts used in the service
+        text: Introduction to the basic terms and concepts
         urlTitle: All concepts
         url: concepts/index
         border: shadow
@@ -69,7 +69,7 @@ blocks:
       - type: basic-card
         title: Paying for resources
         text: >-
-          Learn about the payment methods and billing cycles for individuals,
+          Learn about payment methods and billing cycles for individuals,
           businesses, and individual entrepreneurs
         urlTitle: Paying for resources
         url: payment/index
@@ -92,7 +92,7 @@ blocks:
           dark: assets/icons/persons-lock.svg
       - type: basic-card
         title: Pricing policy
-        text: Prices and rates of Yandex Cloud services
+        text: Explore pricing and rates for Yandex Cloud services
         urlTitle: Yandex Cloud pricing policy
         url: pricing
         border: shadow
@@ -114,7 +114,7 @@ blocks:
           dark: assets/icons/circle-question.svg
       - type: basic-card
         title: API reference
-        text: Use the REST API to manage your billing account
+        text: Use the REST API for managing your billing account
         urlTitle: 'Billing API: REST reference'
         url: api-ref
         border: shadow

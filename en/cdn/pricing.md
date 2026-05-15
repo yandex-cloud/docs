@@ -24,7 +24,7 @@ The cost of using {{ cdn-name }} is based on:
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-If the origin shielding or log export function is activated or deactivated on any day within the month, its full monthly price will be debited on the last day of the month.
+You will be charged for a full month on the day you enable origin shielding or log export. Thereafter, you will be charged on the first day of every next month.
 
 
 

@@ -9,9 +9,9 @@ keywords:
 
 # Managing the MLOps lifecycle with ML Registry in {{ mgl-full-name }}
 
-The machine learning model lifecycle comprises development, model training, quality evaluation, and model deployment. This guide explores {{ GL }}'s capabilities related to storing and versioning of the ML artifacts you get during experiments with the ML model within the {{ yandex-cloud }} infrastructure. The experiments change the model's hyperparameters, i.e., settings configured prior to the start of model training, which determine its architecture, training strategy, and overall behavior. Unlike the model's parameters (weights, coefficients), which are picked out in the course of data-based training, hyperparameters are not changed automatically: they are selected by the researcher or ML engineer.
+The machine learning model lifecycle comprises development, model training, quality evaluation, and model deployment. This guide explores {{ GL }}'s capabilities in the area of storing and versioning of ML artifacts you get during experiments with an ML model within the {{ yandex-cloud }} infrastructure. The experiments feature changing the model's hyperparameters, i.e., the settings configured prior to the start of model training that determine its architecture, training strategy, and overall behavior. Unlike the model's parameters (weights, coefficients), which are picked out in the course of data-based training, hyperparameters are selected by the researcher or ML engineer rather than changed automatically.
 
-The diagram depicts the model development and testing lifecycle in the {{ GL }} environment:
+This diagram depicts the model development and testing lifecycle in a {{ GL }} environment:
 
 ![mlops-pipeline](../_assets/architecture/mlops.svg)
 
@@ -20,27 +20,27 @@ The development and testing environment is represented by a DSVM. Your {{ GL }} 
 * Model Registry, which you can use to log metrics, analyze model application experiments, and perform quality assessment.
 * The Model Experiments catalog used for model storage and versioning management.
 
-There is the MLFlow platform's [Python API library](https://mlflow.org/docs/latest/api_reference/python_api/index.html) for integration of your model with ML Registry.
+The MLFlow [Python API library](https://mlflow.org/docs/latest/api_reference/python_api/index.html) serves for integrating the model with ML Registry.
 
-In addition to {{ mgl-name }}, you use [{{ compute-full-name }}](../compute/index.yaml) to work with the model's source code, and [{{ vpc-full-name }}](../vpc/index.yaml) for the network infrastructure.
+In addition to {{ mgl-name }}, the user leverages [{{ compute-full-name }}](../compute/index.yaml) to work with the model's source code, and [{{ vpc-full-name }}](../vpc/index.yaml) for the network infrastructure.
 
 ## System architecture {#architecture}
 
 ### Network {#network}
 
-As part of the solution, you create a {{ vpc-name }} [cloud network](../vpc/concepts/network.md#network) named `net-gitlab`.
+As part of the solution, the user creates a {{ vpc-name }} [network](../vpc/concepts/network.md#network) named `net-gitlab`.
 
 #### Subnets {#subnets}
 
-Within `net-gitlab`, you create a [subnet](../vpc/concepts/network.md#subnet) in an [availability zone](../overview/concepts/geo-scope.md) of your choice to host the {{ mgl-name }} instance and the VM.
+Within `net-gitlab`, the user creates a [subnet](../vpc/concepts/network.md#subnet) in an [availability zone](../overview/concepts/geo-scope.md) of their choice to host the {{ mgl-name }} instance and the VM.
 
 #### Security groups {#security-groups}
 
-Network access to resources within the infrastructure is controlled with the help of [security groups](../vpc/concepts/security-groups.md). [More on configuring security group rules for {{ mgl-name }}](../managed-gitlab/operations/configure-security-group.md).
+Network access to resources within the infrastructure is managed through [security groups](../vpc/concepts/security-groups.md). [Learn more on configuring security group rules for {{ mgl-name }}](../managed-gitlab/operations/configure-security-group.md).
 
 #### Resource addresses {#addresses}
 
-The new infrastructure uses a [public IP address](../vpc/concepts/address.md#public-addresses) for the new VM and the URL of the {{ GL }} instance in the `gitlab.yandexcloud.net` domain.
+The new infrastructure uses a [public IP address](../vpc/concepts/address.md#public-addresses) for the new VM and the {{ GL }} instance URL in the `gitlab.yandexcloud.net` domain.
 
 ### {{ mgl-name }} {#gitlab}
 
@@ -71,8 +71,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Required paid resources {#paid-resources}
 
-* {{ mgl-name }}: use of computing resources of the instance (VM) and its data storage capacity (see [{{ mgl-name }} pricing](../managed-gitlab/pricing.md)). Depending on where {{ GLR }} is deployed, you may have to pay for the {{ compute-name }} VM used to install {{ GLR }}.
-* VMs: use of computing resources, storage, public IP address, and OS (see [{{ compute-name }} pricing](../compute/pricing.md)).
+* {{ mgl-name }}: use of computing resources pertaining to the instance (VM) and its data storage capacity (see [{{ mgl-name }} pricing](../managed-gitlab/pricing.md)). Depending on where {{ GLR }} is deployed, you may have to pay for the {{ compute-name }} VM used to install {{ GLR }}.
+* VMs: use of computing resources, storage, public IP address, and the OS (see [{{ compute-name }} pricing](../compute/pricing.md)).
 * {{ objstorage-name }}: storage of {{ mgl-name }} backups (see [{{ objstorage-name }} pricing](../storage/pricing.md)).
 
 ## Create your infrastructure {#deploy}
@@ -92,8 +92,8 @@ Before you start creating your infrastructure, [make sure](../quota-manager/oper
       * **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}**: `subnet-gitlab-a`
       * **{{ ui-key.yacloud.vpc.subnetworks.create.field_zone }}**: `{{ region-id }}-a`
       * **{{ ui-key.yacloud.vpc.subnetworks.create.field_ip }}**: `10.16.0.0/24`
-  1. In the `net-gitlab` network, [create a security group](../vpc/operations/security-group-create.md) named `gitlab-sg` for the [{{ mgl-name }} instance](../managed-gitlab/concepts/index.md#instance) and the VM. Follow the [instruction](../managed-gitlab/operations/configure-security-group.md) to set up the rules in this security group.
-  1. [Create](../iam/operations/sa/create.md) a service account named `gitlab-sa` and [assign](../iam/operations/sa/assign-role-for-sa.md) the `compute.admin`, `{{ roles-vpc-admin }}`, and `iam.serviceAccounts.user` [roles](../iam/concepts/access-control/roles.md) to it.
+  1. In the `net-gitlab` network, [create a security group](../vpc/operations/security-group-create.md) named `gitlab-sg` for the [{{ mgl-name }} instance](../managed-gitlab/concepts/index.md#instance) and the VM. Follow the [guide](../managed-gitlab/operations/configure-security-group.md) to set up rules in this security group.
+  1. [Create](../iam/operations/sa/create.md) a service account named `gitlab-sa` and [assign](../iam/operations/sa/assign-role-for-sa.md) it the `compute.admin`, `{{ roles-vpc-admin }}`, and `iam.serviceAccounts.user` [roles](../iam/concepts/access-control/roles.md).
   1. [Create and activate a {{ GL }} instance](../managed-gitlab/operations/instance/instance-create.md) of any suitable configuration. When creating the instance, specify the subnet and security group you created earlier.
   1. [Create a VM from the {{ dsvm-short-name }} image](../compute/operations/dsvm/quickstart.md) named `vm-mlops` in the `{{ region-id }}-a` availability zone and the subnet created earlier. When creating the VM, specify the security group you created earlier.
 
@@ -121,7 +121,7 @@ Before you start creating your infrastructure, [make sure](../quota-manager/oper
         * `instance_login`: {{ GL }} instance admin login.
         * `instance_email`: Instance admin email address.
         * `instance_domain`: Instance domain name in `<name>.gitlab.yandexcloud.net` format.
-        * `vm_username` and `vm_public_key`: Username and absolute path to the [public key](../compute/operations/vm-connect/ssh.md#creating-ssh-keys), which are going to be used to access the VM.
+        * `vm_username` and `vm_public_key`: Username and absolute path to the [public key](../compute/operations/vm-connect/ssh.md#creating-ssh-keys), both required to access the VM.
         * `sa_folder_id`: ID of the new service account's folder.
 
     1. Validate your {{ TF }} configuration files using this command:
@@ -148,14 +148,14 @@ Before you start creating your infrastructure, [make sure](../quota-manager/oper
    * **Git Repository URL**: `https://github.com/yandex-cloud-examples/yc-ml-ops-managed-gitlab.git`.
    * **Project name**: `gitlab-mlflow`.
 
-1. Deploy a [runner](../managed-gitlab/concepts/index.md#runners) for the new {{ GL }} project according to the [instruction](../managed-gitlab/tutorials/install-gitlab-runner.md). During deployment, specify the [previously created](#deploy) infrastructure components:
+1. Deploy a [runner](../managed-gitlab/concepts/index.md#runners) for the created {{ GL }} project using the [instructions](../managed-gitlab/tutorials/install-gitlab-runner.md). During deployment, specify the [previously created](#deploy) infrastructure components:
 
-   * If installing the runner on your VM manually, select the `subnet-gitlab-a` subnet and the `gitlab-sg` security group when creating the VM.
+   * If installing the runner on your VM manually, select `subnet-gitlab-a` and the `gitlab-sg` security group when creating the VM.
    * If creating the runner using the management console, specify the `gitlab-sa` service account and the `gitlab-sg` security group.
 
 ### Configure the environment variables {#variables}
 
-1. Open the {{ GL }} project named `gitlab-mlflow`.
+1. Open the {{ GL }} `gitlab-mlflow` project.
 1. Navigate to **Settings** in the left-hand panel and select **Access Tokens** from the drop-down list.
 1. Create a new token with the following settings:
    * **Token name**: `mlflow`.
@@ -163,12 +163,12 @@ Before you start creating your infrastructure, [make sure](../quota-manager/oper
    * **Select scopes**: `api`, `manage_runner`, `read_repository`, `write_repository`.
 1. Click **Create project access token**.
 1. Copy the token value.
-1. Select the **Settings** tab on the left and **CI/CD** in the popup list.
+1. Select **Settings** on the left and, in the popup list, select **CI/CD**.
 1. Under **Variables**, click **Expand**.
 1. Add these environment variables:
       * `MLFLOW_TRACKING_TOKEN`: New token.
       * `MLFLOW_TRACKING_URI`: `https://<{{ GL }}_instance_address>.gitlab.yandexcloud.net/api/v4/projects/4/ml/mlflow`.
-      * `REPO_TOKEN`: New token.
+      * `REPO_TOKEN`: The token you created earlier.
 
       To add a variable:
       * Click **Add variable**.

@@ -64,3 +64,4 @@ yc resource-manager folder list
 * [Пошаговые инструкции](operations/index.md) помогут вам решить конкретные задачи, возникающие при использовании {{ iam-name }}.
 * [Подробнее про сервисные аккаунты](concepts/users/service-accounts.md) написано в концепциях.
 * Посмотрите [рекомендации по безопасному использованию сервисных аккаунтов](best-practices/using-iam-securely.md#use-sa).
+* Используйте [чеклист безопасности аутентификации и авторизации](../security/domains/iam-checklist.md).

@@ -24,7 +24,6 @@ Unbinds the access policy template from the organization.
 || resource_id | **string**
 
 Required field. ID of the resource for which access policy bindings are being removed.
-
 To get the resource ID, use a corresponding List request.
 
 The maximum string length in characters is 50. ||

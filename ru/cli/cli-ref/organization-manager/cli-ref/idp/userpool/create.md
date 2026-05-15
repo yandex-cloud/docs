@@ -73,6 +73,7 @@ Minimum length for passwords with three character classes (smart policy). ||
 || `--password-smart-four-classes` | `int`
 
 Minimum length for passwords with four character classes (smart policy). ||
+|| `--password-blacklist-check-common` | Whether to check passwords against the common password database. ||
 |#
 
 #### Global Flags

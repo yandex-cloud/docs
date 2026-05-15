@@ -1,1 +1,1 @@
-На данный момент {{ monium-name }} принимает данные только в формате [OpenTelemetry (OTLP)](https://opentelemetry.io/docs/).
+Формат поставки данных в {{ monium-name }} — [OpenTelemetry (OTLP)](https://opentelemetry.io/docs/).

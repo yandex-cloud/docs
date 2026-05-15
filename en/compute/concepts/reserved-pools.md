@@ -3,17 +3,19 @@ title: '{{ compute-full-name }} reserved instance pools'
 description: In this article, you will learn what a reserved instance pool is and how to reserve computing resources to create properly configured VMs in availability zones of your choice.
 ---
 
-# Reserved instance pools
+# Reserved instance pools in {{ compute-name }}
 
 {% include [reserved-pools-pricing-warning](../../_includes/compute/reserved-pools-pricing-warning.md) %}
 
 {% include [reserved-pools-preview-notice](../../_includes/compute/reserved-pools-preview-notice.md) %}
 
-A _reserved instance pool_ is the total of computing resources reserved by the user in a given [availability zone](../../overview/concepts/geo-scope.md) to secure their guaranteed availability to the user for the purpose of creating [VMs](./vm.md) of a particular [configuration](./performance-levels.md#available-configurations) in this availability zone.
+{% include [reserved-pools-intro](../../_includes/compute/reserved-pools-intro.md) %}
 
 You can manage reserved instance pools and VM attachment to them using the [management console]({{ link-console-main }}), [{{ yandex-cloud }} CLI](../cli-ref/reserved-instance-pool/index.md), and [API](../api-ref/ReservedInstancePool/index.md).
 
-Reserved instance pools are incompatible with [dedicated hosts](./dedicated-host.md), [preemptible VMs](./preemptible-vm.md), and VMs with [vCPU performance levels](./performance-levels.md) below 100%. At present, reserved instance pools do not support [placement groups](./placement-groups.md) and [instance groups](./instance-groups/index.md).
+You can use reserved instance pools to [create](../operations/instance-groups/create-group-with-pool.md) instance groups.
+
+{% include [pool-restrictions](../_includes_service/pool-restrictions.md) %}
 
 A reserved instance pool consists of a set of _slots_, i.e., collections of the availability zone's [computing resources](./vm.md#types) that are minimally required to launch one VM in the configuration specified for the pool.
 
@@ -153,6 +155,8 @@ When you [delete](../operations/reserved-pools/delete-reserved-pool.md) a reserv
 #### See also {#see-also}
 
 * [{#T}](../operations/reserved-pools/create-reserved-pool.md)
+* [{#T}](../operations/instance-groups/create-group-with-pool.md)
 * [{#T}](../operations/reserved-pools/update-reserved-pool.md)
 * [{#T}](../operations/reserved-pools/delete-reserved-pool.md)
 * [{#T}](../operations/reserved-pools/manage-pool-vms.md)
+* [{#T}](../../managed-kubernetes/concepts/node-group/reserved-pools.md)

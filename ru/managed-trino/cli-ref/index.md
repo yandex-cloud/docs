@@ -64,6 +64,10 @@ Aliases:
 
   - [yc managed-trino cluster update](cluster/update.md) — Update the specified Trino cluster
 
+- [yc managed-trino v0](v0/index.md) — Manage Trino clusters.
+
+
+
 #### Global Flags
 
 #|

@@ -1,5 +1,8 @@
 # Обзор сервиса {{ load-testing-full-name }}
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 {{ load-testing-full-name }} предоставляет возможность проведения нагрузочного тестирования ваших приложений и сервисов.
 
 

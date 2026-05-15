@@ -18,10 +18,14 @@ description: Настройка интеграции {{ org-full-name }} с вн
 * [SonarQube](./saml-sonarqube.md)
 * [OpenVPN Access Server](./saml-ovpn.md)
 * [MWS](./oidc-mws.md)
+* [{#T}](./oidc-harbor.md)
 * Cloud.ru
    * [{#T}](./cloud-ru/saml-cloud-ru.md)
    * [{#T}](./cloud-ru/oidc-cloud-ru.md)
 * VK Cloud
    * [{#T}](./vk-cloud/saml-vk-cloud.md)
 * [Sentry](./saml-sentry.md)
+* Jenkins
+   * [{#T}](./jenkins/saml-jenkins.md)
+   * [{#T}](./jenkins/oidc-jenkins.md)
 * [Настройка единого входа в приложения, не поддерживающие SSO](./oidc-nginx-oauth2-proxy.md)

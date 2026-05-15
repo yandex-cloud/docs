@@ -1,5 +1,7 @@
 # Troubleshooting in {{ compute-name }}
 
+{% include [minitoc](minitoc/troubleshooting.md) %}
+
 This section describes typical problems that may arise when using {{ compute-name }} and the relevant solutions.
 
 #### You cannot connect to a new VM with multiple network interfaces over SSH {#unable-to-connect-to-new-multi-interface-vm}

@@ -42,7 +42,7 @@ The infrastructure support cost for deploying a web application on {{ baremetal-
 
 * Fee for using the VM [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for [VM](../../compute/concepts/vm.md) computing resources and disks (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for leasing the {{ baremetal-name }} servers (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
+* Fee for renting the {{ baremetal-name }} servers (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
 * Fee for using the L7 load balancer’s computing resources (see [{{ alb-full-name }} pricing](../../application-load-balancer/pricing.md)).
 * Fee for requests processed by security profile rules (see [{{ sws-full-name }} pricing](../../smartwebsecurity/pricing.md)).
 * If using a [log group](../../logging/concepts/log-group.md) for load balancer logging, fee for data logging and storage (see [{{ cloud-logging-full-name }} pricing](../../logging/pricing.md)).
@@ -60,7 +60,7 @@ Configure the infrastructure on the {{ vpc-name }} side. In this step, you will 
 - Management console {#console} 
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you are going to create your infrastructure.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. At the top right, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, specify `sample-network`.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_advanced }}** field, disable **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
@@ -75,7 +75,7 @@ Configure the infrastructure on the {{ vpc-name }} side. In this step, you will 
 - Management console {#console} 
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your cloud infrastructure.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
   1. At the top right, click **{{ ui-key.yacloud.vpc.subnetworks.button_action-create }}**.
   1. In the **{{ ui-key.yacloud.vpc.subnetworks.create.field_name }}** field, specify `vpc-subnet-a`.
@@ -97,7 +97,7 @@ Configure the infrastructure on the {{ vpc-name }} side. In this step, you will 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your cloud infrastructure.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}** and click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-name }}** field, specify `vpc-ingress-sg`.
   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select `sample-network` you created earlier.
@@ -127,7 +127,7 @@ Configure the infrastructure on the {{ vpc-name }} side. In this step, you will 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}** and click **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu 24.04](/marketplace/products/yc/ubuntu-2404-lts-oslogin) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-a` [availability zone](../../overview/concepts/geo-scope.md).
@@ -182,7 +182,7 @@ Create a VRF segment and a private subnet in the `{{ region-id }}-m4` [server po
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. Create a virtual routing and forwarding segment:
         1. In the left-hand panel, select ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks }}** and click **{{ ui-key.yacloud.baremetal.label_create-network }}**.
         1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, name your VRF segment: `my-vrf`.
@@ -206,7 +206,7 @@ Create a {{ interconnect-name }} [private connection](../../baremetal/concepts/p
 
 {% include [create-private-connection](../../_includes/baremetal/create-private-connection.md) %}
 
-### Renting {{ baremetal-name }} servers {#rent-servers}
+### Rent {{ baremetal-name }} servers {#rent-servers}
 
 {% list tabs group=instructions %}
 
@@ -214,11 +214,14 @@ Create a {{ interconnect-name }} [private connection](../../baremetal/concepts/p
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. {% include [server-lease-step2](../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
-  1. Click **{{ ui-key.yacloud.baremetal.label_create-server }}** and, in the window that opens, select `{{ ui-key.yacloud_components.baremetal.PresetConfigurations }}` and a suitable {{ baremetal-name }} server [configuration](../../baremetal/concepts/server-configurations.md) in the `{{ region-id }}-m4` server pool.
+  1. Click **{{ ui-key.yacloud.baremetal.label_create-server }}** and, in the window that opens, select `{{ ui-key.yacloud_components.baremetal.StockConfigurations }}` and a suitable {{ baremetal-name }} server [configuration](../../baremetal/concepts/server-configurations.md) in the `{{ region-id }}-m4` server pool.
 
       Do it by selecting the `{{ region-id }}-m4` server pool in the filter on the right side of the window, under **{{ ui-key.yacloud_components.baremetal.poolFilter }}**.
 
       To select the suitable server configuration, click the section with its name in the central part of the screen.
+
+      {% include [server-lease-save-with-assembling-tip](../../_includes/baremetal/instruction-steps/server-lease-save-with-assembling-tip.md) %}
+
   1. In the server configuration window that opens:
 
       1. In the **{{ ui-key.yacloud.baremetal.field_server-lease-duration }}** field, select your lease period: `1 day`.
@@ -467,7 +470,7 @@ After you create the {{ vpc-name }} and {{ baremetal-name }} infrastructure comp
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/target.svg) **{{ ui-key.yacloud.alb.label_target-groups }}** and click **{{ ui-key.yacloud.alb.button_target-group-create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the [target group](../../application-load-balancer/concepts/target-group.md): `bms-target-group`.
   1. Under **{{ ui-key.yacloud.alb.label_targets }}**:
@@ -486,7 +489,7 @@ After you create the {{ vpc-name }} and {{ baremetal-name }} infrastructure comp
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.alb.label_backend-groups }}** and click **{{ ui-key.yacloud.alb.button_backend-group-create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the [backend group](../../application-load-balancer/concepts/backend-group.md): `bms-backend-group`.
   1. In the **{{ ui-key.yacloud.alb.label_backend-type }}** field, select `{{ ui-key.yacloud.alb.label_proto-http }}`.
@@ -513,7 +516,7 @@ After you create the {{ vpc-name }} and {{ baremetal-name }} infrastructure comp
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.alb.label_http-routers }}** and click **{{ ui-key.yacloud.alb.button_http-router-create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the [HTTP router](../../application-load-balancer/concepts/http-router.md): `http-80`.
   1. Under **{{ ui-key.yacloud.alb.label_virtual-hosts }}**, click **{{ ui-key.yacloud.alb.button_virtual-host-add }}** and do the following in the **{{ ui-key.yacloud.alb.label_new-virtual-host }}** form that opens:
@@ -533,7 +536,7 @@ After you create the {{ vpc-name }} and {{ baremetal-name }} infrastructure comp
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Click **{{ ui-key.yacloud.alb.button_load-balancer-create }}** and select **{{ ui-key.yacloud.alb.label_alb-create-form }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the load balancer: `demo-alb-bms`.
   1. In the **{{ ui-key.yacloud.mdb.forms.label_network }}** field, select `sample-network`.
@@ -561,7 +564,7 @@ Once you make sure your L7 load balancer works correctly, set up a {{ sws-name }
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![arl](../../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}** and click **{{ ui-key.yacloud.smart-web-security.arl.label_create-profile }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the [ARL profile](../../smartwebsecurity/concepts/arl.md) name: `arl-profile-demo`.
   1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_add-rule }}** and in the window that opens:
@@ -581,7 +584,7 @@ Once you make sure your L7 load balancer works correctly, set up a {{ sws-name }
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![waf](../../_assets/smartwebsecurity/waf.svg) **{{ ui-key.yacloud.smart-web-security.waf.label_profiles }}** and click **{{ ui-key.yacloud.smart-web-security.waf.label_create-profile }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the [WAF profile](../../smartwebsecurity/concepts/waf.md) name: `waf-profile-demo`.
   1. By default, the WAF profile uses the [OWASP Core Rule Set](https://coreruleset.org/). Click the row with the rule set to view the rules it includes.
@@ -596,7 +599,7 @@ Once you make sure your L7 load balancer works correctly, set up a {{ sws-name }
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}** and select `{{ ui-key.yacloud.smart-web-security.title_no-template }}`.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the [security profile](../../smartwebsecurity/concepts/profiles.md) name: `sws-demo-profile`.
@@ -634,9 +637,11 @@ Once you make sure your L7 load balancer works correctly, set up a {{ sws-name }
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, click ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}** and select the `sws-demo-profile` you created earlier.
-  1. In the top panel, click ![plug-connection](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}** and in the window that opens:
+  1. In the top panel, click ![plug](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**.
+  1. In the window that opens, click **{{ ui-key.yacloud.smart-web-security.AttachSecurityProfileDialog.label_add-resource_v4U3g }}** and select **{{ ui-key.yacloud.smart-web-security.AttachSecurityProfileDialog.label_virtual-host_tYim5 }}**.
+  1. Set field values in the following order:
 
       1. Select `demo-alb-bms`.
       1. Select `http-80` as the HTTP router.
@@ -657,7 +662,7 @@ To stop paying for the resources you created:
 1. [Delete](../../application-load-balancer/operations/application-load-balancer-delete.md) the L7 load balancer; then delete the [HTTP router](../../application-load-balancer/operations/http-router-delete.md), [backend group](../../application-load-balancer/operations/backend-group-delete.md), and the load balancer's [target group](../../application-load-balancer/operations/target-group-delete.md) one by one.
 1. [Delete](../../smartwebsecurity/operations/profile-delete.md) the {{ sws-name }} profile; then delete the [WAF profile](../../smartwebsecurity/operations/waf-profile-delete.md) and [ARL profile](../../smartwebsecurity/operations/arl-profile-delete.md).
 1. You cannot delete {{ baremetal-name }} servers. Instead, [cancel](../../baremetal/operations/servers/server-lease-cancel.md) the renewal of their lease.
-1. If you had left the L7 load balancer logging feature on, [delete](../../logging/operations/delete-group.md) the log group.
+1. If the L7 load balancer logging feature was left on, [delete](../../logging/operations/delete-group.md) the log group.
 1. Optionally, delete the [security groups](../../vpc/operations/security-group-delete.md), [subnets](../../vpc/operations/subnet-delete.md), and [cloud network](../../vpc/operations/network-delete.md) one by one.
 1. Delete the private connection if you no longer need it:
 
@@ -666,7 +671,7 @@ To stop paying for the resources you created:
     - Management console {#console} 
     
       1. In the [management console]({{ link-console-main }}), select the folder where you created the infrastructure.
-      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+      1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
       1. In the left-hand panel, click ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks }}** and select `my-vrf`.
       1. Under **{{ ui-key.yacloud.baremetal.title_vrf-interconnect-section }}**, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![CircleXmark](../../_assets/console-icons/circle-xmark.svg) **{{ ui-key.yacloud.baremetal.action_delete-external-connection }}**.
       1. In the window that opens, confirm the deletion.

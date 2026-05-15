@@ -1,6 +1,6 @@
 # Creating an external Hive data source
 
-In {{ mgp-name }}, as an [external data source](../../concepts/external-tables.md#pxf-data-sources) with the Hive connection type, you can use a Hive DBMS as part of [{{ dataproc-full-name }}](../../../data-proc/index.yaml) or other third-party Hive services.
+In {{ mgp-name }}, you can use a Hive DBMS as part of [{{ dataproc-full-name }}](../../../data-proc/index.yaml) or other third-party Hive services as an [external data source](../../concepts/external-tables.md#pxf-data-sources) with the Hive connection type.
 
 ## Create an external data source {#create-external-source}
 
@@ -9,7 +9,7 @@ In {{ mgp-name }}, as an [external data source](../../concepts/external-tables.m
 - Management console {#console}
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
+    1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Open the page of the {{ GP }} cluster in question.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.greenplum.label_pxf }}**.
     1. Click **{{ ui-key.yacloud.greenplum.cluster.pxf.action_create-datasource }}**.
@@ -20,11 +20,11 @@ In {{ mgp-name }}, as an [external data source](../../concepts/external-tables.m
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [PXFDatasource.Create](../../api-ref/PXFDatasource/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [PXFDatasource.Create](../../api-ref/PXFDatasource/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -56,13 +56,13 @@ In {{ mgp-name }}, as an [external data source](../../concepts/external-tables.m
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [PXFDatasourceService.Create](../../api-ref/grpc/PXFDatasource/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [PXFDatasourceService.Create](../../api-ref/grpc/PXFDatasource/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -94,8 +94,10 @@ In {{ mgp-name }}, as an [external data source](../../concepts/external-tables.m
 
         You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
 
-    1. View the [server response](../../api-ref/grpc/PXFDatasource/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../../api-ref/grpc/PXFDatasource/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
+
+After you create an external data source, [create an external table](create-table.md).
 
 {% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}

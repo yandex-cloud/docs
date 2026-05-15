@@ -1,6 +1,6 @@
 # Восстановить кластер
 
-Если вы утратили кластер [{{ CH }}](../../concepts/components/clickhouse.md) в [проекте](../projects/create-project.md)), вы можете восстановить его.
+Если вы утратили кластер [{{ CH }}](../../concepts/components/clickhouse.md) в [проекте](../projects/create-project.md), вы можете восстановить его.
 
 ## Через CLI
 

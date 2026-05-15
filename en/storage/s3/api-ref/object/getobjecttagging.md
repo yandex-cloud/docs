@@ -1,4 +1,4 @@
-# getObjectTagging method
+# Object Storage API, Amazon S3-compatible REST: GetObjectTagging
 
 Returns bucket object [labels](../../../concepts/tags.md).
 
@@ -19,7 +19,7 @@ Parameter | Description
 `bucket` | Bucket name.
 `key` | Object key.
 
-### Request parameters {#request-params}
+### Query parameters {#request-params}
 
 Parameter | Description
 --- | ---
@@ -67,5 +67,11 @@ Element | Description
 `Tag` | Container for a label.
 `Key` | Label key.<br>Type: String.
 `Value` | Label value.<br>Type: String.
+
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/object.md)
+
+* [{#T}](../../../operations/objects/tagging.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

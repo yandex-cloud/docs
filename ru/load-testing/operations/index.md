@@ -5,6 +5,9 @@ description: Из статьи вы узнаете, как работать с {
 
 # Пошаговые инструкции для {{ load-testing-name }}
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 * [{#T}](create-agent.md)
 * [{#T}](security-groups-agent.md)
 * [{#T}](security-groups-target.md)

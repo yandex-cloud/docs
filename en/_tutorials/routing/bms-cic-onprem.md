@@ -2,11 +2,9 @@
 
 In this tutorial, you will set up network connectivity between a {{ baremetal-name }} [server](../../baremetal/concepts/servers.md) located in a [private {{ baremetal-full-name }} subnet](../../baremetal/concepts/private-network.md) and your on-premise resources. Network connectivity will be established using [{{ interconnect-name }}](../../interconnect/index.yaml) and [{{ cr-name }}](../../cloud-router/index.yaml).
 
-
 You can see the solution architecture in the diagram below:
 
 ![bms-cic-onprem](../../_assets/tutorials/bms-cic-onprem.svg)
-
 
 The diagram above shows network connectivity between the {{ baremetal-full-name }} segment resources and customer’s remote on-premise resources connected to {{ yandex-cloud }} via {{ interconnect-name }}.
 
@@ -78,7 +76,7 @@ Create a virtual network segment (VRF) and a private subnet in the `{{ region-id
 {% endlist %}
 
 
-### Lease a {{ baremetal-name }} server {#rent-bms}
+### Rent a {{ baremetal-name }} server {#rent-bms}
 
 {% list tabs group=instructions %}
 
@@ -86,11 +84,14 @@ Create a virtual network segment (VRF) and a private subnet in the `{{ region-id
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. {% include [server-lease-step2](../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
-  1. Click **{{ ui-key.yacloud.baremetal.label_create-server }}** and, in the window that opens, select `{{ ui-key.yacloud_components.baremetal.PresetConfigurations }}` and a suitable {{ baremetal-name }} server [configuration](../../baremetal/concepts/server-configurations.md) in the `{{ region-id }}-m3` server pool.
+  1. Click **{{ ui-key.yacloud.baremetal.label_create-server }}** and, in the window that opens, select `{{ ui-key.yacloud_components.baremetal.StockConfigurations }}` and a suitable {{ baremetal-name }} server [configuration](../../baremetal/concepts/server-configurations.md) in the `{{ region-id }}-m3` server pool.
 
       Do it by selecting the `{{ region-id }}-m3` server pool in the filter on the right side of the window, under **{{ ui-key.yacloud_components.baremetal.poolFilter }}**.
 
       To select the suitable server configuration, click the section with its name in the central part of the screen.
+
+      {% include [server-lease-save-with-assembling-tip](../../_includes/baremetal/instruction-steps/server-lease-save-with-assembling-tip.md) %}
+
   1. In the server configuration window that opens:
 
       1. {% include [server-lease-step5](../../_includes/baremetal/instruction-steps/server-lease-step5.md) %}
@@ -181,7 +182,7 @@ A network connectivity check assumes that:
       If you do not see this prompt, try [restarting](../../baremetal/operations/servers/server-stop-and-start.md#restart) the server.
 
   1. In the KVM console terminal, specify `root` for the username and press **ENTER**.
-  1. Paste the password generated when leasing the server in the password input line and press **ENTER**. Note that when typing or pasting a password in Linux, the characters you enter will not appear on the screen.
+  1. Paste the password generated when renting the server in the password input line and press **ENTER**. Note that when typing or pasting a password in Linux, the characters you enter will not appear on the screen.
 
       {% include [kvm-paste-tip](../../_includes/baremetal/kvm-paste-tip.md) %}
 

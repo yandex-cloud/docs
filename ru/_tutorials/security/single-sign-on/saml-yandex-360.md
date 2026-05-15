@@ -76,8 +76,8 @@
 
         1. Атрибут `emailaddress` замените на `User.EmailAddress`. Для этого:
             1. Кликните на строку с атрибутом `emailaddress`.
-            1. В поле **{{ ui-key.yacloud_org.attributes.update_dialog.field_attribute_name }}** введите `User.EmailAddress`.
-            1. В поле **{{ ui-key.yacloud_org.attributes.update_dialog.field_attribute_value }}** оставьте текущее значение `SubjectClaims.email`.
+            1. В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** введите `User.EmailAddress`.
+            1. В поле **{{ ui-key.yacloud_org.organization.apps.AttributeFormDialogNew.field_attribute_value_dgUAv }}** оставьте текущее значение `SubjectClaims.email`.
             1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
         1. Атрибут `givenname` замените на `User.Firstname`:
@@ -137,11 +137,7 @@
 
 Чтобы пользователи вашей организации могли аутентифицироваться в {{ yandex-360 }} с помощью SAML-приложения {{ org-full-name }}, необходимо явно добавить в ваше SAML-приложение нужных пользователей и/или [группы пользователей](../../../organization/concepts/groups.md).
 
-{% note info %}
-
-Управлять пользователями и группами, добавленными в SAML-приложение, может пользователь, которому назначена [роль](../../../organization/security/index.md#organization-manager-samlApplications-userAdmin) `organization-manager.samlApplications.userAdmin` или выше.
-
-{% endnote %}
+{% include [saml-manage-users](../../../_includes/organization/saml-manage-users.md) %}
 
 Добавьте пользователей в приложение:
 

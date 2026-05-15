@@ -1,9 +1,45 @@
 ---
 title: FAQ about {{ compute-full-name }}
-description: See this page for {{ compute-name }} FAQs.
+description: This page covers questions and answers about {{ compute-name }}.
 ---
 
 # FAQ about {{ compute-name }}
+
+### General questions {#toc-general}
+
+{% include [general-minitoc](../../_qa/compute/minitoc/general.md) %}
+
+### Virtual machines {#toc-vm}
+
+{% include [vm-minitoc](../../_qa/compute/minitoc/vm.md) %}
+
+### Connection {#toc-connection}
+
+{% include [connection-minitoc](../../_qa/compute/minitoc/connection.md) %}
+
+### Disks, snapshots, and images {#toc-disks}
+
+{% include [disks-minitoc](../../_qa/compute/minitoc/disks.md) %}
+
+### Instance groups {#toc-instance-groups}
+
+{% include [instance-groups-minitoc](../../_qa/compute/minitoc/instance-groups.md) %}
+
+### Graphics processing units (GPUs) {#toc-gpu}
+
+{% include [gpu-minitoc](../../_qa/compute/minitoc/gpu.md) %}
+
+### Monitoring resource utilization {#toc-monitoring}
+
+{% include [monitoring-minitoc](../../_qa/compute/minitoc/monitoring.md) %}
+
+### Licensing {#toc-licensing}
+
+{% include [licensing-minitoc](../../_qa/compute/minitoc/licensing.md) %}
+
+### Troubleshooting {#toc-troubleshooting}
+
+{% include [troubleshooting-minitoc](../../_qa/compute/minitoc/troubleshooting.md) %}
 
 ## General questions {#general}
 
@@ -25,7 +61,11 @@ description: See this page for {{ compute-name }} FAQs.
 
 {% include notitle [instance-groups](../../_qa/compute/instance-groups.md) %}
 
-## Monitoring resource usage {#monitoring}
+## Graphics processing units (GPUs) {#gpu}
+
+{% include notitle [gpu-cluster](../../_qa/compute/gpu.md) %}
+
+## Monitoring resource utilization {#monitoring}
 
 {% include notitle [monitoring](../../_qa/compute/monitoring.md) %}
 

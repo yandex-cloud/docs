@@ -15,7 +15,6 @@
 | Number of requests per second for image search by image | 10 |
 | Number of requests per second for statistics | 10 |
 | Number of requests per hour for statistics | 100 |
-| Number of requests per day for a list of region codes | 10 |
 
 #### Limits {#search-api-limits}
 

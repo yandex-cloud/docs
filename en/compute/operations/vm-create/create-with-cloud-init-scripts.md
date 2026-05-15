@@ -48,7 +48,7 @@ To create a VM with a custom configuration script:
   ```bash
   yc compute instance create \
     --name my-sample-instance \
-    --zone {{ region-id}}-a \
+    --zone {{ region-id }}-a \
     --network-interface subnet-name=<subnet_name>,nat-ip-version=ipv4,security-group-ids=<security_group_ID> \
     --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts,kms-key-id=<key_ID> \
     --metadata-from-file user-data="<path_to_configuration_file>"

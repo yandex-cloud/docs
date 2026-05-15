@@ -55,7 +55,7 @@ Create a [secret](../../datasphere/concepts/secrets.md) to store the [Geocoder A
 
 1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** on the project page, click ![secret](../../_assets/datasphere/jupyterlab/secret.svg)**{{ ui-key.yc-ui-datasphere.resources.secret }}**.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**.
-1. In the **{{ ui-key.yc-ui-datasphere.secret.name }}** field, enter the name for the secret: `API_KEY`.
+1. In the **{{ ui-key.yc-ui-datasphere.secret.name }}** field, enter a name for the secret: `API_KEY`.
 1. In the **{{ ui-key.yc-ui-datasphere.secret.content }}** field, enter the key value.
 1. Click **{{ ui-key.yc-ui-datasphere.common.create }}**. You will see a page with detailed info on the secret you created.
 
@@ -207,7 +207,7 @@ wget "{{ crt-web-path-int }}" \
 
 ## Create a connection to the file in {{ datalens-short-name }} {#create-connection}
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
 1. In the left-hand panel, select ![image](../../_assets/console-icons/thunderbolt.svg) **Connections** and click **Create connection**.
 1. Under **Files and services**, select the **Files** connection.
 1. Click **Upload files** and select the `encoded_data.csv` file.
@@ -220,7 +220,7 @@ wget "{{ crt-web-path-int }}" \
 ## Create a dataset based on the connection {#create-dataset}
 
 1. In the top-right corner, click **Create dataset**.
-1. Go to the **Fields** tab.
+1. Navigate to the **Fields** tab.
 1. Rename the fields as follows:
 
    * `field1` to `Shop name`

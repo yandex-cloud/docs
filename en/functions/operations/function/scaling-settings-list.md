@@ -11,13 +11,13 @@ description: Follow this guide to view function scaling settings.
 
     To view any scaling setting other than the number of calls processed concurrently by a single function instance (`concurrency`):
 
-    1. In the [management console]({{ link-console-main }}), select the folder containing the function.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
     1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-    1. Select a function.
+    1. Select the function.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-history }}**, hover over the tag (e.g., ![image](../../../_assets/console-icons/gear.svg) `$latest`) of the function version whose scaling settings you want to view.
-    1. Information on these scaling settings will be displayed in a pop-up window:
-        * **zone_instances_limit**: Number of function instances in an availability zone.
-        * **zone_requests_limit**: Number of concurrent function calls in an availability zone.
+    1. The following scaling settings will be displayed in a pop-up window:
+        * **zone_instances_limit**: Number of function instances per availability zone.
+        * **zone_requests_limit**: Number of concurrent function calls per availability zone.
         * **provisioned_instances_count**: Number of provisioned instances.
 
 - CLI {#cli}
@@ -32,7 +32,7 @@ description: Follow this guide to view function scaling settings.
     yc serverless function list-scaling-policies --id=<function_ID>
     ```
 
-    Where `--id` is the function ID. To find out the ID, [request](./function-list.md) a list of functions.
+    Where `--id` is the function ID. To find out the ID, [get](./function-list.md) the list of functions.
 
     Result:
 
@@ -51,6 +51,6 @@ description: Follow this guide to view function scaling settings.
 
 {% endlist %}
 
-You can look up the [number of calls simultaneously processed by a single function instance](../../concepts/function.md#concurrency) (`concurrency`) by getting the [function version information](../../operations/function/version-info.md).
+You can find out the [number of calls simultaneously processed by a single function instance](../../concepts/function.md#concurrency) (`concurrency`) by getting the [function version information](../../operations/function/version-info.md).
 
 {% include [see-also-scaling](../../../_includes/functions/see-also-scaling.md) %}

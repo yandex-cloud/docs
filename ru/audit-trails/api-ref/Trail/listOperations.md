@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the trail to get operations for.
+            The maximum string length in characters is 50.
           type: string
       required:
         - trailId
@@ -24,6 +25,7 @@ apiPlayground:
             results is larger than `page_size`, the service returns a [ListTrailOperationsResponse.nextPageToken](#yandex.cloud.audittrails.v1.ListTrailOperationsResponse)
             that can be used to get the next page of results in subsequent list requests.
             Default value: 100.
+            The maximum value is 1000.
           default: '100'
           type: string
           format: int64
@@ -32,6 +34,7 @@ apiPlayground:
             **string**
             Page token. To get the next page of results, set `page_token` to the
             [ListTrailOperationsRequest.next_page_token] returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
       additionalProperties: false
     body: null
@@ -54,7 +57,9 @@ GET https://audittrails.{{ api-host }}/audit-trails/v1/trails/{trailId}/operatio
 ||Field | Description ||
 || trailId | **string**
 
-Required field. ID of the trail to get operations for. ||
+Required field. ID of the trail to get operations for.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.audittrails.v1.ListTrailOperationsRequest}
@@ -66,11 +71,15 @@ Required field. ID of the trail to get operations for. ||
 The maximum number of results per page that should be returned. If the number of available
 results is larger than `page_size`, the service returns a [ListTrailOperationsResponse.nextPageToken](#yandex.cloud.audittrails.v1.ListTrailOperationsResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 100. ||
+Default value: 100.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListTrailOperationsRequest.next_page_token] returned by a previous list request. ||
+[ListTrailOperationsRequest.next_page_token] returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.audittrails.v1.ListTrailOperationsResponse}

@@ -1,6 +1,6 @@
 # Exporting extended usage details
 
-You can get a CSV file with your general or per-resource spending details. You can either [download](#single-time-download) the file once or [set up](#set-up-regular-download) its regular export.
+You can get a CSV file with your general or per-resource spending details. You can either [download](#single-time-download) the file once or [set up](#regular-download) its regular export.
 
 ## One-time export {#single-time-download}
 
@@ -21,7 +21,7 @@ You can get a CSV file with your general or per-resource spending details. You c
 
 {% endlist %}
 
-## Setting up regular export {#set-up-regular-download}
+## Regular export {#regular-download}
 
 ### Getting started {#before-you-begin}
 
@@ -35,9 +35,22 @@ You can get a CSV file with your general or per-resource spending details. You c
 
     {% endnote %}
 
-1. Make sure you have one of the following roles: `billing.accounts.owner`, `billing.accounts.admin`, or `billing.accounts.editor`.
+1. Optionally, for additional details protection, set up [bucket encryption](../../storage/operations/buckets/encrypt.md).
+   To export details to an encrypted bucket, you need a service account that will be handling the export. To manage this service account, the billing account needs the `iam.serviceAccounts.user` role.
 
-### Get the expense details {#download-detail}
+1. Verify that your billing account has the roles required for operations involving regular exports.
+   To create, stop, or resume regular exports, the user needs one of the following roles:
+     * `billing.accounts.editor`
+     * `billing.accounts.accountant`
+     * `billing.accounts.varWithoutDiscounts`
+   
+   To view regular exports, the user needs one of the following roles:
+     * `billing.accounts.viewer`
+     * `billing.accounts.varWithoutDiscount`
+  
+  For more information, see [Service roles in {{ billing-name }}](../../billing/security/index.md).
+
+### Setting up a regular export {#set-up-regular-download}
 
 {% list tabs group=instructions %}
 
@@ -45,26 +58,107 @@ You can get a CSV file with your general or per-resource spending details. You c
 
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Select the account you want the details for.
-  1. In the left-hand panel, select ![image](../../_assets/console-icons/square-chart-column.svg) **{{ ui-key.yacloud_billing.billing.account.switch_detail }}**.
-  1. At the top right, click **More** and select **{{ ui-key.yacloud_org.billing.account.detail.button_create-periodic-export }}**.
+  1. Go to the regular export setting:
+   
+      {% list tabs %}
+
+       - {{ ui-key.yacloud_billing.billing.account.switch_detail }} section
+  
+         1. In the left-hand panel, select ![image](../../_assets/console-icons/square-chart-column.svg) **{{ ui-key.yacloud_billing.billing.account.switch_detail }}**.
+         1. At the top right, click **More** and select **{{ ui-key.yacloud_org.billing.account.detail.button_create-periodic-export }}**.
+
+      - {{ ui-key.yacloud_billing.billing.account.switch_exports }} section
+
+          1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-up-from-square.svg) **{{ ui-key.yacloud_billing.billing.account.switch_exports }}**.
+          1. Click **{{ ui-key.yacloud_billing.billing.account.exports.button_create-periodic-export }}**.
+
+      {% endlist %}
+
   1. In the window that opens, specify the following:
      * Name of the bucket to store the CSV file with details.
-     * Name of the file folder. Make sure the last character is `/`.
+     * If selecting an encrypted bucket, specify an existing service account or create a new one:
+  
+        {% list tabs %}
+
+          - Existing account
+  
+              1. In the **{{ ui-key.yacloud_org.billing.account.exports.column_service_account }}** field, specify the service account.
+              1. When you see a message about missing roles, click **{{ ui-key.yacloud_org.billing.providers.button_ca-roles-update }}** and wait for a message saying they were successfully added.
+
+          - New account
+
+              1. In the **{{ ui-key.yacloud_org.billing.account.exports.column_service_account }}** field, click **{{ ui-key.yacloud_org.billing.exports.ServiceAccountAddField.addNewServiceAccount  }}**.
+              1. Enter a name for the service account.
+              1. Click **{{ ui-key.yacloud_org.iam.folder.service-account.popup-robot_button_save }}**.
+
+          {% endlist %}
+
+      {% note info %}
+
+       One service account can handle multiple regular exports. However, [roles](#before-you-begin) must be assigned separately for each encrypted bucket and KMS key.
+
+      {% endnote %}
+
+     * Name of the details file folder. Make sure the last character is `/`.
      * Display language for product names: `{{ ui-key.yacloud_org.billing.account.exports.locale_value_ru-lang }}` or `{{ ui-key.yacloud_org.billing.account.exports.locale_value_en-lang }}`.
      * Detailed view type: `{{ ui-key.yacloud_billing.billing.account.exports.label_not-include-resources }}` or `{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}`.
 
          {% note tip %}
 
-         If you select `{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}` for regular export of details, the [`resource_id`](#format) field will allow you to view, among others, the {{ datalens-full-name }}, {{ tracker-full-name }}, and {{ ml-platform-name }} resources (e.g., [{{ ml-platform-name }} community IDs](../../datasphere/concepts/community.md)).
+         If you select `{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}` for a regular export of details, the [`resource_id`](#format) field will allow you to view the {{ datalens-full-name }}, {{ tracker-full-name }}, and {{ ml-platform-name }} resources (e.g., [{{ ml-platform-name }} community IDs](../../datasphere/concepts/community.md)).
 
          {% endnote %}
 
-  1. Optionally, to export data for the previous period, enable the relevant option. In the **Export reports starting from** field that appears, select the start date for exporting reports.
+  1. Optionally, to add data for a previous period, enable **{{ ui-key.yacloud_org.billing.account.exports.field_period }}**. In the **{{ ui-key.yacloud_org.billing.account.exports.field_date }}** field that appears, select the desired detailed report start date. You can get data starting from the billing account creation date.
+
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
 {% include [billing-partner-detalization-file-info](../../_includes/billing-partner-detalization-file-info.md) %}
+
+### Stopping a regular export {#stop-export}
+
+{% list tabs group=instructions %}
+
+- {{ billing-interface }} {#billing}
+
+  1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+  1. Select the account you want to stop a regular export for.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-up-from-square.svg) **{{ ui-key.yacloud_billing.billing.account.switch_exports }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the regular export and select **Delete**.
+
+{% endlist %}
+
+### Resuming a regular export {#recover-export}
+
+You can resume a `Failed` export. Resolve the error and resume the export:
+
+{% list tabs group=instructions %}
+
+- {{ billing-interface }} {#billing}
+
+  1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+  1. Select the account you want to resume an export for.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-up-from-square.svg) **{{ ui-key.yacloud_billing.billing.account.switch_exports }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the regular export and select **{{ ui-key.yacloud_billing.billing.account.exports.button_resume-export }}**.
+
+{% endlist %}
+
+### Viewing regular exports {#view-export}
+
+You can view all your regular exports and their info: bucket, prefix, type of detail, status, ID, last modified date, and creation date.
+
+{% list tabs group=instructions %}
+
+- {{ billing-interface }} {#billing}
+
+  1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+  1. Select the account you want to view details for.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-up-from-square.svg) **{{ ui-key.yacloud_billing.billing.account.switch_exports }}**.
+  1. Select the details file.
+
+{% endlist %}
 
 ## Expense details file format {#format}
 

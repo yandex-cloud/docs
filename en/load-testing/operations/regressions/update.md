@@ -5,6 +5,9 @@ description: Follow this guide to edit data on a regression dashboard in {{ load
 
 # Editing dashboard data
 
+{% include [loadtesting-sunset-warning](../../../_includes/load-testing/sunset-warning.md) %}
+
+
 Once your dashboard is [created](create.md), you can edit its elements.
 
 {% list tabs group=instructions %}

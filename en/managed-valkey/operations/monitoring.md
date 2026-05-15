@@ -22,7 +22,7 @@ To view detailed information on the health state of a {{ mrd-name }} cluster:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.redis.cluster.switch_monitoring }}** tab.
       
       The page that opens will display performance charts for the cluster.
@@ -53,8 +53,8 @@ To view detailed information on the health state of a {{ mrd-name }} cluster:
   Under **DB Metrics**:
 
   * **DB keys**: Number of keys on each cluster host.
-  * **Evicted keys**: Number of keys deleted from memory when inserting new data. Information is displayed for each cluster host.
-  * **Cache Hit Rate**: Percentage of requests for which data was retrieved from the cache. Information is displayed for each cluster host.
+  * **Evicted keys**: Number of keys deleted from memory when inserting new data. The information is displayed for each cluster host.
+  * **Cache Hit Rate**: Percentage of requests for which data was retrieved from the cache. The information is displayed for each cluster host.
   * **Replication Lag**: Replica's lag behind the master, in seconds.
   * **IO threads active**: Number of active threads on each cluster host.
   * **Valkey-server OOM kills (for last hour)**: Number of `Out of Memory` errors on each cluster host.
@@ -64,17 +64,17 @@ To view detailed information on the health state of a {{ mrd-name }} cluster:
   * **Outer memory limit**: Limit and RAM usage by processes on each cluster host.
   * **Inner Memory limit**: Limit and RAM usage on each cluster host.
   * **Memory fragmentation ratio**: Ratio of allocated memory to actually used memory on each cluster host.
-  * **Valkey Used Memory on Masters**: RAM usage on master hosts of the cluster.
+  * **Valkey Used Memory on Masters**: RAM usage on the cluster's master hosts.
   * **Valkey Used Memory on Replicas**: RAM usage in replicated cluster hosts.
   * **Replication buffer size**: Size of used and available memory for the [replication](../concepts/replication.md#replication) buffer on each cluster host.
   * **Client recent max input buffer size**: Maximum buffer size for handling incoming client connections on each cluster host.
   * **Client recent max output buffer size**: Maximum buffer size for handling outgoing client connections on each cluster host.
-  * **Copy-on-write allocations**: Amount of memory allocated by the COW mechanism when creating child processes. Information is displayed for each cluster host.
+  * **Copy-on-write allocations**: Amount of memory allocated by the COW mechanism when creating child processes. The information is displayed for each cluster host.
 
   Under **Resources** → **CPU**:
 
   * **CPU usage main thread**: CPU time, system and user, consumed by the main thread on each cluster host.
-  * **CPU usage main thread on Masters**: CPU time, system and user, consumed by the main thread on the cluster's master hosts. 
+  * **CPU usage main thread on Masters**: CPU time, system and user, used by the main thread on the cluster's master hosts. 
   * **CPU usage main thread on Replicas**: CPU time, system and user, consumed by the main thread on the cluster's replica hosts. 
 
   Under **Resources** → **Network**:
@@ -83,7 +83,7 @@ To view detailed information on the health state of a {{ mrd-name }} cluster:
   * **Network usage on Masters**: Amount of incoming and outgoing network traffic on the cluster's master hosts.
   * **Network usage on Replicas**: Amount of incoming and outgoing network traffic on the cluster's replica hosts.
   * **Replication network usage**: Amount of incoming and outgoing network traffic for replication on each cluster host.
-  * **Replication network usage on Masters**: Amount of incoming and outgoing network traffic for replication on the cluster's master hosts.
+  * **Replication network usage on Masters**: Amount of incoming and outgoing replication network traffic on the cluster's master hosts.
   * **Replication network usage on Replicas**: Amount of incoming and outgoing network traffic for replication on the cluster's replica hosts.
 
   Under **Resources** → **Data**:
@@ -115,23 +115,30 @@ To view detailed information on the state of individual {{ mrd-name }} hosts:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Click the name of your cluster and select **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** → **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}**.
   1. Select the host from the drop-down list.
 
   This page displays the charts showing workloads of individual cluster hosts:
 
   * **CPU usage**: Processor core workload. As the workload goes up, the `idle` value goes down.
-  * **Disk read/write bytes**: Speed of disk operations, in bytes per second.
-  * **Disk IOPS**: Number of disk operations per second.
+  * **Memory usage**: Use of RAM, in bytes. At high workloads, the `Free` value goes down, while the other values go up.
+  * **Disk IOPS**: Number of disk operations per second. The `Read` value increases during database read activity, and `Write`, during database write activity.
+  * **Network bytes**: Network data exchange rate, in bytes per second. For **Replica** hosts, the `Received` value is normally greater than `Sent`.
+  * **Network packets**: Network packet exchange rate, in packets per second. For **Replica** hosts, the `Received` value is normally greater than `Sent`.
   * **Disk space usage**: Amount of used and total disk space.
-  * **Memory usage**: Amount of RAM used, in bytes. At high workloads, the `Free` value goes down, while the other values go up.
-  * **Network bytes**: Network data exchange rate, in bytes per second.
-  * **Network packets**: Network packet exchange rate, in packets per second.
 
-  The **Disk read/write bytes** and the **Disk IOPS** charts show the increase of the **Read** value during database read activity, and in **Write**, during database write activity.
+  Under **Disk Metrics Details**:
 
-  For **Replica** hosts, the **Received** value is normally greater than **Sent** on the **Network bytes** and **Network packets** charts.
+  * **Disk write latency (percentiles)**: Disk write latency, percentiles.
+  * **Disk write bytes**: Average and maximum disk write rate, bytes per second.
+  * **Disk write operations**: Average and maximum number of write operations per second.
+  * **Disk read latency (percentiles)**: Disk read latency, percentiles.
+  * **Disk read bytes**: Average and maximum disk read rate, bytes per second.
+  * **Disk read operations**: Average and maximum number of read operations per second.
+  * **Disk write throttler latency (percentiles)**: Write delay introduced by exceeding disk quota, percentiles.
+  * **Disk read throttler latency (percentiles)**: Read delay introduced by exceeding disk quota, percentiles.
+  * **Disk used quota**: Average and maximum quota used percentage for disk operations.
 
 {% endlist %}
 
@@ -144,7 +151,7 @@ To view detailed information on the health state of {{ mrd-name }} shards:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.redis.cluster.switch_monitoring }}** tab.
   1. Navigate to the **Shards** tab and select a shard.
       
@@ -176,8 +183,8 @@ To view detailed information on the health state of {{ mrd-name }} shards:
   Under **DB Metrics**:
 
   * **DB keys**: Number of keys on each shard host.
-  * **Evicted keys**: Number of keys deleted from memory when inserting new data. Information is displayed for each shard host.
-  * **Cache Hit Rate**: Percentage of requests for which data was retrieved from the cache. Information is displayed for each shard host.
+  * **Evicted keys**: Number of keys deleted from memory when inserting new data. The information is displayed for each shard host.
+  * **Cache Hit Rate**: Percentage of requests for which data was retrieved from the cache. The information is displayed for each shard host.
   * **Replication Lag**: Replica's lag behind the master, in seconds.
   * **IO threads active**: Number of active threads on each shard host.
   * **Valkey-server OOM kills (for last hour)**: Number of `Out of Memory` errors on each shard host.
@@ -192,7 +199,7 @@ To view detailed information on the health state of {{ mrd-name }} shards:
   * **Replication buffer size**: Size of used and available memory for the [replication](../concepts/replication.md#replication) buffer on each shard host.
   * **Client recent max input buffer size**: Maximum buffer size for handling incoming client connections on each shard host.
   * **Client recent max output buffer size**: Maximum buffer size for handling outgoing client connections on each shard host.
-  * **Copy-on-write allocations**: Amount of memory allocated by the COW mechanism when creating child processes. Information is displayed for each shard host.
+  * **Copy-on-write allocations**: Amount of memory allocated by the COW mechanism when creating child processes. The information is displayed for each shard host.
 
   Under **Resources** → **CPU**:
 
@@ -280,7 +287,7 @@ To check the cluster state and status:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your cluster.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
   1. In the cluster row, hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column.
 
 {% endlist %}

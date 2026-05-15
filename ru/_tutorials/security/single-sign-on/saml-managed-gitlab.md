@@ -132,7 +132,7 @@
     1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.attributes_to71e }}**.
     1. Нажмите на строку с атрибутом `emailaddress` и в открывшемся окне:
 
-        1. В поле **{{ ui-key.yacloud_org.attributes.update_dialog.field_attribute_name }}** измените значение на `email`.
+        1. В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** измените значение на `email`.
         1. Нажмите **{{ ui-key.yacloud.common.update }}**.
 
 {% endlist %}
@@ -143,11 +143,7 @@
 
 Чтобы пользователи вашей организации могли аутентифицироваться в {{ GL }} с помощью SAML-приложения {{ org-full-name }}, необходимо явно добавить в SAML-приложение нужных пользователей и/или [группы пользователей](../../../organization/concepts/groups.md).
 
-{% note info %}
-
-Управлять пользователями и группами, добавленными в SAML-приложение, может пользователь, которому назначена [роль](../../../organization/security/index.md#organization-manager-samlApplications-userAdmin) `organization-manager.samlApplications.userAdmin` или выше.
-
-{% endnote %}
+{% include [saml-manage-users](../../../_includes/organization/saml-manage-users.md) %}
 
 1. Добавьте пользователей в приложение:
 

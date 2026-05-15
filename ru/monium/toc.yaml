@@ -25,6 +25,8 @@ items:
             href: collector/otel-clinic-example.md
           - name: Пример мониторинга ансамбля микросервисов в {{ k8s }}
             href: collector/otel-k8s-example.md
+          - name: Пример мониторинга Nginx в {{ k8s }}
+            href: collector/otel-k8s-nginx.md
           - name: Устранение неполадок при поставке данных
             href: collector/troubleshooting.md
       - name: Fluent Bit
@@ -73,48 +75,28 @@ items:
         href: metrics/quickstart.md
       - name: Обзор возможностей
         href: metrics/overview.md
-      - name: Пошаговые инструкции
+      - name: Поиск и анализ метрик
+        href: metrics/metric-explorer.md
+      - name: Поставка и экспорт метрик
         items:
           - name: Все инструкции
             href: operations/index.md
-          - name: Работа с метриками
-            items:
-              - name: Обзор метрик
-                href: operations/metric/metric-explorer.md
-              - name: Поставка системных метрик Linux
-                href: operations/unified-agent/linux_metrics.md
-              - name: Поставка метрик пользовательских приложений
-                href: operations/unified-agent/pull_prometheus.md
-              - name: Поставка метрик HAProxy и других сторонних приложений
-                href: operations/unified-agent/haproxy.md
-              - name: Поставка метрик с хостов вне {{ yandex-cloud }}
-                href: operations/unified-agent/non-yc.md
-              - name: Запись пользовательских метрик через API
-                href: operations/metric/add.md
-              - name: Получение списка метрик
-                href: operations/metric/list.md
-              - name: Выгрузка метрик
-                href: operations/metric/get.md
-              - name: Экспорт метрик в формате Prometheus
-                href: operations/metric/prometheusExport.md
-          - name: Работа с дашбордами
-            items:
-              - name: Создание и управление дашбордом
-                href: operations/dashboard/create.md
-              - name: Копирование дашборда
-                href: operations/dashboard/copy.md
-              - name: Добавление виджета на дашборд
-                href: operations/dashboard/add-widget.md
-              - name: Добавление параметра дашборда
-                href: operations/dashboard/add-parameters.md
-              - name: Управление виджетами
-                href: operations/dashboard/widget-management.md
-              - name: Удаление виджета с дашборда
-                href: operations/dashboard/delete-widget.md
-              - name: Удаление дашборда
-                href: operations/dashboard/delete-dashboard.md
-              - name: Примеры работы с gRPC API
-                href: operations/dashboard/api-examples.md
+          - name: Поставка системных метрик Linux
+            href: operations/unified-agent/linux_metrics.md
+          - name: Поставка метрик пользовательских приложений
+            href: operations/unified-agent/pull_prometheus.md
+          - name: Поставка метрик HAProxy и других сторонних приложений
+            href: operations/unified-agent/haproxy.md
+          - name: Поставка метрик с хостов вне {{ yandex-cloud }}
+            href: operations/unified-agent/non-yc.md
+          - name: Запись пользовательских метрик через API
+            href: operations/metric/add.md
+          - name: Получение списка метрик
+            href: operations/metric/list.md
+          - name: Выгрузка метрик
+            href: operations/metric/get.md
+          - name: Экспорт метрик в формате Prometheus
+            href: operations/metric/prometheusExport.md
       - name: Практические руководства
         items:
           - name: Все практические руководства
@@ -133,6 +115,8 @@ items:
         items:
           - name: Все справочники метрик
             href: metrics-ref/index.md
+          - name: '{{ ai-studio-name }}'
+            href: metrics-ref/ai-studio-ref.md
           - name: '{{ api-gw-name }}'
             href: metrics-ref/api-gateway-ref.md
           - name: '{{ alb-name }}'
@@ -201,6 +185,8 @@ items:
             href: metrics-ref/managed-valkey-ref.md
           - name: '{{ ydb-name }}'
             href: metrics-ref/ydb-ref.md
+          - name: '{{ myt-name }}'
+            href: metrics-ref/managed-ytsaurus-ref.md
           - name: '{{ message-queue-name }}'
             href: metrics-ref/message-queue-ref.md
           - name: '{{ monitoring-name }}'
@@ -225,30 +211,32 @@ items:
         href: concepts/ttl.md
   - name: Логи
     items:
-      - name: Начало работы
+      - name: Начало работы с логами приложений
         href: logs/quickstart.md
-      - name: Обзор
-        href: logs/index.md
-      - name: Сбор данных
+      - name: Начало работы с логами ресурсов {{ yandex-cloud }}
+        href: logs/quickstart-resources.md
+      - name: Поставка данных
         items:
           - name: Преобразование данных
             href: logs/write/converting-data.md
           - name: Fluent Bit
             href: logs/write/fluent-bit.md
-      - name: Просмотр логов
+      - name: Поиск и анализ логов
         href: logs/logs-explorer.md
-      - name: Язык запросов
-        href: logs/query.md
       - name: Концепции
         items:
-          - name: Основные понятия
+          - name: Обзор и основные понятия
             href: logs/concepts/glossary.md
+          - name: Язык запросов
+            href: logs/query.md
           - name: Рекомендации по разметке логов
             href: logs/concepts/attributes-guide.md
           - name: Время хранения данных (TTL)
             href: logs/concepts/ttl.md
       - name: Метрики логов
         href: logs/logs-metrics.md
+      - name: Ограничения
+        href: logs/limits.md
   - name: Трейсы
     items:
       - name: Начало работы
@@ -277,6 +265,8 @@ items:
         items:
           - name: Поиск трейсов и спанов
             href: traces/operations/traces-explorer.md
+          - name: Карта сервисов
+            href: traces/operations/service-map.md
           - name: Просмотр и анализ трейса
             href: traces/operations/trace-view.md
           - name: Язык запросов

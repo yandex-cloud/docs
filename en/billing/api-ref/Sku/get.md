@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the SKU to return.
             To get the SKU ID, use [SkuService.List](/docs/billing/api-ref/Sku/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - id
@@ -58,7 +59,9 @@ GET https://billing.{{ api-host }}/billing/v1/skus/{id}
 || id | **string**
 
 Required field. ID of the SKU to return.
-To get the SKU ID, use [SkuService.List](/docs/billing/api-ref/Sku/list#List) request. ||
+To get the SKU ID, use [SkuService.List](/docs/billing/api-ref/Sku/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Query parameters {#yandex.cloud.billing.v1.GetSkuRequest}
@@ -145,7 +148,6 @@ Defines current and past prices for the sku.
 
 Type of the pricing version.
 
-- `PRICING_VERSION_TYPE_UNSPECIFIED`
 - `STREET_PRICE`: Regular price.
 - `CONTRACT_PRICE`: Price is overridden by a contract. Defined in the scope of a billing account. ||
 || effectiveTime | **string** (date-time)

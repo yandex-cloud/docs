@@ -21,5 +21,10 @@ description: Setting up integration between {{ org-full-name }} and external app
 * Cloud.ru
    * [{#T}](./cloud-ru/saml-cloud-ru.md)
    * [{#T}](./cloud-ru/oidc-cloud-ru.md)
+* VK Cloud
+   * [{#T}](./vk-cloud/saml-vk-cloud.md)
 * [Sentry](./saml-sentry.md)
+* Jenkins
+   * [{#T}](./jenkins/saml-jenkins.md)
+   * [{#T}](./jenkins/oidc-jenkins.md)
 * [Configuring single sign-on for applications that do not support SSO](./oidc-nginx-oauth2-proxy.md)

@@ -7,22 +7,48 @@ editable: false
 
 # {{ objstorage-name }} pricing policy
 
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 4
+      sm: 4
+      md: 4
+    children:
+      - type: basic-card
+        title: Price calculator
+        text: Calculate the cost of the service based on your needs
+        icon: _assets/icons/calculator.svg
+        urlTitle: Price calculator
+        url: https://yandex.cloud/en/prices?state=39504f78134a#calculator
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Price list
+        text: Current prices of all our services
+        icon: _assets/icons/circle-ruble.svg
+        urlTitle: Price list
+        url: https://yandex.cloud/en/price-list?services=dn2li5qddoc5cad2n6br
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+:::
 
-{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
 
+{% note warning %}
 
-{% note tip %}
-
-
-
-
-
-For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=0791121652d3#calculator) on our website or check out the pricing below.
-
+Starting April 20, 2026, [object metadata export (S3 Inventory)](concepts/s3-inventory.md) will become a paid feature.
 
 {% endnote %}
 
-{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -79,6 +105,8 @@ You pay for data operations according to the following policy:
 
 
 ## Cost calculation examples {#price-example}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 ### Data storage {#prices-storage}
 
@@ -145,6 +173,8 @@ The first 100 GB of outgoing traffic per month for {{ objstorage-name }} are fre
 
 
 ## Examples of storage class cost comparison {#comparison-examples}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 **Example 1**
 

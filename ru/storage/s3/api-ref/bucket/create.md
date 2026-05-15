@@ -1,4 +1,4 @@
-# Метод create
+# Object Storage API, REST совместимый с Amazon S3: CreateBucket
 
 Создает бакет.
 
@@ -34,5 +34,11 @@ PUT /{bucket} HTTP/2
 Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
 
 Успешный ответ не содержит дополнительных данных.
+
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/bucket.md)
+
+* [{#T}](../../../operations/buckets/create.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

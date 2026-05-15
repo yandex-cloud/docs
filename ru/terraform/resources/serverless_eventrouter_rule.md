@@ -55,6 +55,11 @@ subcategory: Serverless Event Router
   - `folder_id` (String). Folder ID
   - `log_group_id` (String). Log group ID
   - `service_account_id` (**Required**)(String). Service account which has permission for writing logs
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `read` (String). 
+  - `update` (String). 
 - `workflow` [Block]. WorkflowTarget
   - `service_account_id` (**Required**)(String). Service account which should be used to start workflow
   - `workflow_id` (**Required**)(String). Workflow ID

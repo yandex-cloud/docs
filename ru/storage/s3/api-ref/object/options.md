@@ -1,4 +1,4 @@
-# Метод options
+# Object Storage API, REST совместимый с Amazon S3: options
 
 Проверяет возможность [CORS-запроса](../../../concepts/cors.md) к объекту.
 
@@ -49,5 +49,11 @@ OPTIONS /{bucket}/{key} HTTP/2
 - 403 — если запросы к объекту запрещены.
 
 Подробные описания кодов ответов смотрите в разделе [{#T}](../response-codes.md).
+
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/object.md)
+
+* [{#T}](../../../operations/buckets/cors.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

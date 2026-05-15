@@ -6,7 +6,7 @@
 С помощью кластера {{ maf-full-name }} можно автоматизировать работу с [сервисом {{ msp-full-name }}](../../../managed-spark/index.yaml), включая создание кластеров {{ msp-full-name }}, запуск заданий и другие операции. Для этого создайте DAG — [направленный ациклический граф задач](../../../managed-airflow/concepts/index.md) (DAG). Используя DAG, кластер {{ AF }} автоматически выполнит все необходимые действия по работе с {{ msp-full-name }}.
 
 В этом руководстве показан пример использования DAG, включающего в себя:
-1. Создание кластера {{ msp-full-name }}, подключенного к [{{ objstorage-name }}](../../../storage/concepts/index.md) и [{{ metastore-name }}](../../../metadata-hub/concepts/metastore.md).
+1. Создание кластера {{ msp-full-name }}, подключенного к [{{ objstorage-full-name }}](../../../storage/concepts/index.md) и [{{ metastore-full-name }}](../../../metadata-hub/concepts/metastore.md).
 1. Запуск PySpark-задания: создание таблицы в бакете {{ objstorage-name }}.
 1. Удаление кластера {{ msp-full-name }}.
 
@@ -28,12 +28,10 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входят:
-
-* Плата за кластер {{ AF }}: вычислительные ресурсы компонентов кластера (см. [тарифы {{ maf-full-name }}](../../../managed-airflow/pricing.md)).
-* Плата за вычислительные ресурсы кластера {{ metastore-name }} (см. [тарифы {{ metadata-hub-full-name }}](../../../metadata-hub/pricing.md#metastore)).
-* Плата за бакеты {{ objstorage-name }}: хранение данных и выполнение операций с ними (см. [тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
-* Плата за получение и хранение логов (см. [тарифы {{ cloud-logging-name }}](../../../logging/pricing.md)).
+* Кластер {{ maf-name }}: вычислительные ресурсы компонентов кластера (см. [тарифы {{ maf-name }}](../../../managed-airflow/pricing.md)).
+* Кластер {{ metastore-name }}: вычислительные ресурсы компонентов кластера (см. [тарифы {{ metadata-hub-full-name }}](../../../metadata-hub/pricing.md#metastore)).
+* Бакеты {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
+* Сервис {{ cloud-logging-full-name }}: объем записываемых данных и время их хранения (см. [тарифы {{ cloud-logging-name }}](../../../logging/pricing.md)).
 
 
 ## Подготовьте инфраструктуру {#infra}

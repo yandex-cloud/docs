@@ -64,7 +64,7 @@ description: Различные сценарии использования {{ c
 
 ## Продукты Microsoft в {{ yandex-cloud }} {#microsoft}
 
-* [{#T}](secure-password-script.md)
+* [{#T}](secure-password-script/index.md)
 * [{#T}](active-directory.md)
 * [{#T}](exchange.md)
 * [{#T}](rds.md)

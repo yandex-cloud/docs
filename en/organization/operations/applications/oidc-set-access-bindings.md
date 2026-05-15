@@ -42,12 +42,20 @@ To grant access to an [OIDC app](../../concepts/applications.md#oidc), assign [r
            --access-binding role=<role>,user-account-id=<user_ID>
          ```
 
-      * To a federated user:
+      * To all users of a federation:
 
          ```bash
          yc organization-manager idp application oauth application set-access-bindings \
            --id <app_ID> \
-           --access-binding role=<role>,subject=federatedUser:<user_ID>
+           --access-binding role=<role>,federation-users=<federation_ID>
+         ```
+
+      * To all users of an organization:
+        
+         ```bash
+         yc organization-manager idp application oauth application set-access-bindings \
+           --id <app_ID> \
+           --access-binding role=<role>,organization-users=<organization_ID>
          ```
 
       * To a service account:

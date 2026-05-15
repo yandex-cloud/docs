@@ -25,7 +25,7 @@
 
 ## Спецификация расширения {#spec}
 
-Пример спецификации: 
+Пример спецификации:
 
 ```yaml
   /static/{file}:
@@ -48,5 +48,5 @@
 ## Примеры использования {#examples}
 
 * [{#T}](../../tutorials/java-servlet-todo-list.md)
-* [{#T}](../../tutorials/serverless-url-shortener.md)
+* [{#T}](../../tutorials/serverless-url-shortener/index.md)
 * [{#T}](../../tutorials/telegram-bot-serverless.md)

@@ -25,9 +25,6 @@ Description of the privateConnection. ||
 || `--labels` | `key=value[,key=value...]`
 
 A list of privateConnection labels as key-value pairs. ||
-|| `--region` | `string`
-
-Region of the privateConnection. ||
 || `--trunk-id` | `string`
 
 Id of a trunk connection of the privateConnection. ||
@@ -43,7 +40,6 @@ Supported peering parameters:
    peer-ip: ip with just an ipAddress format without mask.
    cloud-ip: Ip with just an ipAddress format without mask.
    peer-bgp-asn: PeerAsn excluding rfc5398 (excluding 64496 - 64511 and 65536 - 65551).
-   cloud-bgp-asn: The BGP ASN of the cloud.
    peer-bgp-md5-key: (optional) MD5 key of the peer. ||
 || `--ipv4-static-routes` | `value[,value]`
 

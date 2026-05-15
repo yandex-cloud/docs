@@ -1,12 +1,12 @@
-# Creating a trigger for {{ objstorage-name }} that invokes a {{ sf-name }} function
+# Creating a trigger for {{ objstorage-name }} that invokes {{ sf-name }}
 
-Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) that calls a [{{ sf-name }} function](../../concepts/function.md) when you create, move, or delete an [object](../../../storage/concepts/object.md) in a bucket.
+Create a [trigger for {{ objstorage-name }}](../../concepts/trigger/os-trigger.md) that invokes [{{ sf-name }}](../../concepts/function.md) when you create, move, or delete a bucket [object](../../../storage/concepts/object.md).
 
 ## Getting started {#before-you-begin}
 
 {% include [trigger-before-you-begin](../../../_includes/functions/trigger-before-you-begin.md) %}
 
-* [Bucket](../../../storage/concepts/bucket.md) for whose object events the trigger will fire. If you do not have a bucket, [create one](../../../storage/operations/buckets/create.md) with restricted access.
+* [Bucket](../../../storage/concepts/bucket.md) whose object events will set off the trigger. If you do not have a bucket, [create one](../../../storage/operations/buckets/create.md) with restricted access.
 
 ## Creating a trigger {#trigger-create}
 
@@ -33,7 +33,7 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
     1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_storage }}**:
 
         * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_bucket }}** field, select the bucket whose object events you want to create a trigger for.
-        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_event-types }}** field, select the [events](../../concepts/trigger/os-trigger.md#event) that will fire the trigger.
+        * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_event-types }}** field, select [events](../../concepts/trigger/os-trigger.md#event) that will set off the trigger.
         * Optionally, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_prefix }}** field, enter a [prefix](../../concepts/trigger/os-trigger.md#filter) for filtering.
         * Optionally, in the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_suffix }}** field, enter a [suffix](../../concepts/trigger/os-trigger.md#filter) for filtering.
 
@@ -51,7 +51,7 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
 
         {% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
 
-    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
+    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select a dead-letter queue and a service account with write permissions for that queue.
 
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 
@@ -70,8 +70,8 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
       --prefix '<object_key_prefix>' \
       --suffix '<object_key_suffix>' \
       --events 'create-object','delete-object','update-object' \
-      --batch-size <event_group_size> \
-      --batch-cutoff <maximum_timeout> \
+      --batch-size <event_batch_size> \
+      --batch-cutoff <maximum_wait_time> \
       --invoke-function-id <function_ID> \
       --invoke-function-service-account-id <service_account_ID> \
       --retry-attempts <number_of_retry_attempts> \
@@ -84,8 +84,8 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
 
     * `--name`: Trigger name.
     * `--bucket-id`: Bucket ID.
-    * `--prefix`: Bucket object key [prefix](../../concepts/trigger/os-trigger.md#filter). This is an optional parameter. It is used for filtering.
-    * `--suffix`: Bucket object key [suffix](../../concepts/trigger/os-trigger.md#filter). This is an optional parameter. It is used for filtering.
+    * `--prefix`: Bucket object key [prefix](../../concepts/trigger/os-trigger.md#filter). This is an optional setting used for filtering.
+    * `--suffix`: Bucket object key [suffix](../../concepts/trigger/os-trigger.md#filter). This is an optional setting used for filtering.
     * `--events`: [Events](../../concepts/trigger/os-trigger.md#event) that set off the trigger.
 
     {% include [batch-settings-events](../../../_includes/functions/batch-settings-events.md) %}
@@ -142,7 +142,7 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
          id                 = "<function_ID>"
          service_account_id = "<service_account_ID>"
          retry_attempts     = "<number_of_retry_attempts>"
-         retry_interval     = "<time_between_retry_attempts>"
+         retry_interval     = "<interval_between_retry_attempts>"
        }
        object_storage {
          bucket_id    = "<bucket_ID>"
@@ -152,7 +152,7 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
          update       = true
          delete       = true
          batch_cutoff = "<maximum_wait_time>"
-         batch_size   = "<event_group_size>"
+         batch_size   = "<event_batch_size>"
        }
        dlq {
          queue_id           = "<dead-letter_queue_ID>"
@@ -165,22 +165,22 @@ Create a [{{ objstorage-name }} trigger](../../concepts/trigger/os-trigger.md) t
 
      {% include [tf-function-params](../../../_includes/functions/tf-function-params.md) %}
 
-     * `object_storage`: Trigger parameters:
+     * `object_storage`: Trigger settings:
 
         * `bucket_id`: Bucket ID.
-        * `prefix`: Bucket object key [prefix](../../concepts/trigger/os-trigger.md#filter). This is an optional parameter. It is used for filtering.
-        * `suffix`: Bucket object key [suffix](../../concepts/trigger/os-trigger.md#filter). This is an optional parameter. It is used for filtering.
+        * `prefix`: Bucket object key [prefix](../../concepts/trigger/os-trigger.md#filter). This is an optional setting used for filtering.
+        * `suffix`: Bucket object key [suffix](../../concepts/trigger/os-trigger.md#filter). This is an optional setting used for filtering.
         * [Events](../../concepts/trigger/os-trigger.md#event) that set off the trigger:
 
             * `create`: Trigger will invoke the function when a new object is created in the storage. It can either be `true` or `false`.
-            * `update`: The trigger will invoke the function when an object is updated in the storage. It can either be `true` or `false`.
-            * `delete`: The trigger will invoke the function when an object is deleted from the storage. It can either be `true` or `false`.
+            * `update`: Trigger will invoke the function when an object is updated in the storage. It can either be `true` or `false`.
+            * `delete`: Trigger will invoke the function when an object is deleted from the storage. It can either be `true` or `false`.
         
         {% include [tf-batch-params-events](../../../_includes/functions/tf-batch-params-events.md) %}
         
      {% include [tf-dlq-params](../../../_includes/serverless-containers/tf-dlq-params.md) %}
 
-     For more information about the `yandex_function_trigger` resource parameters, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+     For more information about `yandex_function_trigger` properties, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
 
   1. Create the resources:
 

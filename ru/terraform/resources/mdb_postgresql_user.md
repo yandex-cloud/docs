@@ -124,6 +124,11 @@ Possible values are `USER_PASSWORD_ENCRYPTION_MD5` or `USER_PASSWORD_ENCRYPTION_
 The default is password_encryption setting for cluster.
 - `permission` [Block]. Set of permissions granted to the user.
   - `database_name` (**Required**)(String). The name of the database that the permission grants access to.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `read` (String). 
+  - `update` (String).
 
 ## Import
 

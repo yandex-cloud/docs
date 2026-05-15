@@ -7,9 +7,6 @@ editable: false
 # {{ serverless-containers-name }} pricing policy
 
 
-{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
-
-
 
 
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
@@ -49,6 +46,8 @@ You are only charged for the container invocations that have caused your applica
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
 ### Cost calculation examples {#example}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 Example of calculating the cost of a container with the following properties:
 

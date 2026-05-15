@@ -1,4 +1,4 @@
-# Метод bucketGetAcl
+# Object Storage API, REST совместимый с Amazon S3: GetBucketAcl
 
 Возвращает список управления доступом для бакета.
 
@@ -40,5 +40,11 @@ GET /{bucket}?acl HTTP/2
 ### Коды ответов {#response-codes}
 
 Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
+
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/acl.md)
+
+* [{#T}](../../../operations/buckets/edit-acl.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

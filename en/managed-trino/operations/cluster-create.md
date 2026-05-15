@@ -52,7 +52,11 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
             {% include [change-version-note](../../_includes/managed-trino/change-version-note.md) %}
 
-    1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select a [network](../../vpc/operations/network-create.md), [subnet](../../vpc/operations/subnet-create.md), and [security group](../../vpc/concepts/security-groups.md) for the cluster.
+    1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
+
+        1. Select a [network](../../vpc/operations/network-create.md), [subnet](../../vpc/operations/subnet-create.md), and [security group](../../vpc/concepts/security-groups.md) for the cluster.
+        1. Optionally, enable the **{{ ui-key.yacloud.trino.label_private-access }}** parameter to make the cluster accessible only via a [service connection](../concepts/network.md#private-endpoint).
+
     1. Under **Retry policy**, specify the [fault-tolerant query execution](../concepts/retry-policy.md) parameters:
         1. Select an **Object type for retry**.
            * **Task**: Retries the intermediate task within the query that caused worker failure.
@@ -141,6 +145,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
            --service-account-id <service_account_ID> \
            --subnet-ids <list_of_subnet_IDs> \
            --security-group-ids <list_of_security_group_IDs> \
+           --private-access \
            --coordinator resource-preset-id=<class_of_computing_resources> \
            --worker resource-preset-id=<class_of_computing_resources>,count=<number_of_workers> \
            --deletion-protection \
@@ -157,6 +162,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
         * `--service-account-id`: Service account ID.
         * `--subnet-ids`: List of subnet IDs.
         * `--security-group-ids`: List of security group IDs.
+        * `--private-access`: Private access to the cluster. Use this parameter to make the cluster accessible only via a [service connection](../concepts/network.md#private-endpoint).
         * `--coordinator`: [Coordinator](../concepts/index.md#coordinator) configuration.
 
             * `resource-preset-id`: [Class of the coordinator's computing resources](../concepts/instance-types.md).
@@ -165,7 +171,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
             * `resource-preset-id`: [Class of the worker's computing resources](../concepts/instance-types.md).
             * `count`: Fixed number of workers.
-            * `min_count`: Minimum number of workers for autoscaling.
+            * `minCount`: Minimum number of workers for autoscaling.
             * `maxCount`: Maximum number of workers for autoscaling.
 
             Specify either a fixed number of workers (`count`), or minimum and maximum number of workers (`minCount`, `maxCount`) for automatic scaling.
@@ -222,9 +228,9 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
             * `task`: Retries the intermediate task within the query that caused worker failure.
             * `query`: Retries all [stages of the query](../concepts/index.md#query-execution) in which the worker failed.
 
-        * `--retry-policy-additional-properties`: Additional query retry parameters in `<key>=<value>` format. For more information about parameters, see [this {{ TR }} guide]({{ tr.docs}}/admin/fault-tolerant-execution.html#advanced-configuration).
+        * `--retry-policy-additional-properties`: Additional query retry parameters in `<key>=<value>` format. For more information about parameters, see [this {{ TR }} guide]({{ tr.docs }}/admin/fault-tolerant-execution.html#advanced-configuration).
         * `--retry-policy-exchange-manager-service-s3`: Use an S3 storage to write data when retrying queries.
-        * `--retry-policy-exchange-manager-additional-properties`: Additional storage parameters in `<key>=<value>` format. For more information about parameters, see [this {{ TR }} guide]({{ tr.docs}}/admin/fault-tolerant-execution.html#id1).
+        * `--retry-policy-exchange-manager-additional-properties`: Additional storage parameters in `<key>=<value>` format. For more information about parameters, see [this {{ TR }} guide]({{ tr.docs }}/admin/fault-tolerant-execution.html#id1).
 
     1. To add the settings of query execution and resource allocation for queries, specify this parameter:
 
@@ -238,7 +244,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         * `--query-properties`: Settings of query execution and cluster resource allocation for queries in `<key>=<value>` format.
 
-          Learn more about [settings of cluster resource allocation for queries]({{ tr.docs}}/admin/properties-resource-management.html) and [query execution settings]({{ tr.docs}}/admin/properties-query-management.html).
+          Learn more about the [settings of cluster resource allocation for queries]({{ tr.docs }}/admin/properties-resource-management.html) and [query execution settings]({{ tr.docs }}/admin/properties-query-management.html).
 
     1. To set up a maintenance window (including for disabled clusters), provide the relevant value in the `--maintenance-window` parameter:
 
@@ -296,11 +302,11 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
        {% include [tls description](../../_includes/managed-trino/terraform/tls.md) %}
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -368,7 +374,10 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
           },
           "network": {
             "subnetIds": [ <list_of_subnet_IDs> ],
-            "securityGroupIds": [ <list_of_security_group_IDs> ]
+            "securityGroupIds": [ <list_of_security_group_IDs> ],
+            "privateAccess": {
+              "enabled": "<enable_private_access_to_cluster>"
+            }
           },
           "deletionProtection": "<deletion_protection>",
           "serviceAccountId": "<service_account_ID>",
@@ -426,7 +435,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
             * `resourceManagement.query.properties`: Settings of query execution and cluster resource allocation for queries in `key:value` format.
 
-              Learn more about [settings of cluster resource allocation for queries]({{ tr.docs}}/admin/properties-resource-management.html) and [query execution settings]({{ tr.docs}}/admin/properties-query-management.html).
+              Learn more about the [settings of cluster resource allocation for queries]({{ tr.docs }}/admin/properties-resource-management.html) and [query execution settings]({{ tr.docs }}/admin/properties-query-management.html).
 
             * `tls`: TLS parameters.
 
@@ -442,6 +451,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
             * `subnetIds`: List of subnet IDs.
             * `securityGroupIds`: List of security group IDs.
+            * `privateAccess.enabled`: Private access to the cluster, `true` or `false`. Enable this parameter to make the cluster accessible only via a [service connection](../../managed-trino/concepts/network.md#private-endpoint).
 
         * `deletionProtection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
 
@@ -533,7 +543,10 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
           },
           "network": {
             "subnet_ids": [ <list_of_subnet_IDs> ],
-            "security_group_ids": [ <list_of_security_group_IDs> ]
+            "security_group_ids": [ <list_of_security_group_IDs> ],
+            "private_access": {
+              "enabled": "<enable_private_access_to_cluster>"
+            }
           },
           "deletion_protection": "<deletion_protection>",
           "service_account_id": "<service_account_ID>",
@@ -584,14 +597,14 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
                * `exchange_manager.additional_properties`: Additional Exchange Manager storage parameters in `key: value` format. For more information about parameters, see [this {{ TR }} guide](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
                * `additional_properties`: Additional parameters in `key: value` format. For more information about parameters, see [this {{ TR }} guide](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
-            
+
             * `version`: {{ TR }} version.
 
                {% include [change-version-note](../../_includes/managed-trino/change-version-note.md) %}
 
             * `resource_management.query.properties`: Settings of query execution and cluster resource allocation for queries in `key:value` format.
 
-              Learn more about [settings of cluster resource allocation for queries]({{ tr.docs}}/admin/properties-resource-management.html) and [query execution settings]({{ tr.docs}}/admin/properties-query-management.html).
+              Learn more about the [settings of cluster resource allocation for queries]({{ tr.docs }}/admin/properties-resource-management.html) and [query execution settings]({{ tr.docs }}/admin/properties-query-management.html).
 
             * `tls`: TLS parameters.
 
@@ -607,6 +620,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
             * `subnet_ids`: List of subnet IDs.
             * `security_group_ids`: List of security group IDs.
+            * `private_access.enabled`: Private access to the cluster, `true` or `false`. Enable this parameter to make the cluster accessible only via a [service connection](../../managed-trino/concepts/network.md#private-endpoint).
 
         * `deletion_protection`: Enables cluster protection against accidental deletion. The possible values are `true` or `false`.
 

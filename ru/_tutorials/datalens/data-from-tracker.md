@@ -161,7 +161,7 @@
 
 ## Создайте подключение в {{ datalens-short-name }} {#connection-create}
 
-1. Откройте [кластер](#database-create) **{{ mch-name}}**.
+1. Откройте [кластер](#database-create) **{{ mch-name }}**.
 1. В левой части окна выберите раздел ![datalens](../../_assets/console-icons/chart-column.svg) **{{ datalens-short-name }}**.
 1. Нажмите кнопку **Создать подключение**.
 1. Укажите настройки подключения:

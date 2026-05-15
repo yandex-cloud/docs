@@ -1,6 +1,6 @@
 # Configuring permissions for access to a secret created by {{ connection-manager-full-name }} for a {{ mpg-full-name }} user
 
-You can get a [{{ mpg-name }}](../../managed-postgresql/index.yaml) user's password from the [{{ lockbox-name }} secret](../../lockbox/concepts/secret.md). You can do it via the [{{ yandex-cloud }} CLI](../../cli/index.yaml). Do it by permitting the [service account](../../iam/concepts/users/service-accounts.md) you are using to log in to the {{ yandex-cloud }} CLI to access the user's secret. You can get the secret-related information you need to configure the permissions from the [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md) connection.
+You can get a [{{ mpg-full-name }}](../../managed-postgresql/index.yaml) user's password from the [{{ lockbox-name }} secret](../../lockbox/concepts/secret.md). You can do it via the [{{ yandex-cloud }} CLI](../../cli/index.yaml). Do it by permitting the [service account](../../iam/concepts/users/service-accounts.md) you are using to log in to the {{ yandex-cloud }} CLI to access the user's secret. You can get the secret-related information you need to configure the permissions from the [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md) connection.
 
 To configure permissions for access to a user's secret:
 
@@ -13,12 +13,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+
 ### Required paid resources {#paid-resources}
 
 * {{ mpg-name }} cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
-* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 {{ connection-manager-name }} and the secrets created with it are free of charge.
+
 
 ## Configure permissions for access to a {{ mpg-name }} user's secret {#set-up-roles}
 

@@ -36,7 +36,7 @@ To set up Auto Unseal:
 
         An authorized key is used for authentication. For more information about how to use authorized keys, see [{#T}](../../iam/operations/iam-token/create-for-sa.md#via-cli).
 
-    - Yandex or federated account {#yandex-account}
+    - Yandex account or federated account {#yandex-account}
 
         Authentication is done using an [OAuth token](../../iam/concepts/authorization/oauth-token.md) or [{{ iam-short-name }} token](../../iam/concepts/authorization/iam-token.md).
 
@@ -48,16 +48,15 @@ To set up Auto Unseal:
 
     {% endlist %}
 
-1. [Create](../../kms/operations/key.md#create) a separate [{{ kms-name}} key](../../kms/concepts/key.md) for Vault (recommended).
+1. [Create](../../kms/operations/key.md#create) a separate [{{ kms-name }} key](../../kms/concepts/key.md) for Vault (recommended).
 1. [Grant access](../../iam/operations/roles/grant.md) to the key only to the user or service account that will be used to authenticate Vault requests to {{ kms-short-name }}. When interacting with {{ kms-short-name }}, Vault performs only [encryption and decryption](../../kms/concepts/symmetric-encryption.md) operations, so the `kms.keys.encrypterDecrypter` [role](../../iam/concepts/access-control/roles.md) will be enough.
 
 ### Required paid resources {#paid-resources}
 
-The infrastructure support costs include:
+The infrastructure support cost includes:
 * Fee for a continuously running VM (see [{{ compute-full-name }}](../../compute/pricing.md) pricing).
 * Fee for a dynamic or static [external IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 * Fee for the number of active {{ kms-short-name }} key versions and completed cryptographic operations (see [{{ vpc-full-name }} pricing](../../kms/pricing.md)).
-
 
 ## Set up Auto Unseal {#setup}
 
@@ -83,7 +82,7 @@ If Vault has already been initialized, you have to run a [migration procedure](h
 
       In the `service_account_key_file` parameter, specify the path to the file with the service account's authorized key.
 
-    - Yandex or federated account {#yandex-account}
+    - Yandex account or federated account {#yandex-account}
 
       If using a Yandex account, specify the OAuth token in the `oauth_token` parameter. For a federated account, specify the IAM token.
 
@@ -129,7 +128,7 @@ The environment variable values prevail over those from the configuration file.
 
     Where `service_account_key_file` is the path to the JSON file with the authorized key.
 
-- Yandex or federated account {#yandex-account}
+- Yandex account or federated account {#yandex-account}
 
     ```json
     ...
@@ -152,7 +151,7 @@ This way you can rotate the Vault master key through [key rotation in {{ kms-sho
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources you created:
+To stop incurring charges for the resources you created:
 * [Delete the VM](../../compute/operations/vm-control/vm-delete.md) if you created one to run Vault.
 * [Delete the static public IP](../../vpc/operations/address-delete.md) if you reserved one.
 * [Delete the {{ kms-name }} key](../../kms/operations/key.md#delete).

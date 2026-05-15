@@ -380,17 +380,17 @@ apiPlayground:
               **[ColumnsFilter](#yandex.cloud.datatransfer.v1.ColumnsFilter)**
               List of included and excluded columns
             $ref: '#/definitions/ColumnsFilter'
+          skipUtcConversion:
+            description: |-
+              **boolean**
+              When true, time values keep their original timezone, otherwise time values converts (normalizes) to UTC.
+            type: boolean
       SharderTransformerTypeRandom:
         type: object
         properties: {}
       SharderTransformer:
         type: object
         properties:
-          tables:
-            description: |-
-              **[TablesFilter](#yandex.cloud.datatransfer.v1.TablesFilter)**
-              List of included and excluded tables
-            $ref: '#/definitions/TablesFilter'
           columns:
             description: |-
               **[ColumnsFilter](#yandex.cloud.datatransfer.v1.ColumnsFilter)**
@@ -402,6 +402,11 @@ apiPlayground:
               **object**
               Includes only one of the fields `columns`, `random`.
             $ref: '#/definitions/SharderTransformerTypeRandom'
+          tables:
+            description: |-
+              **[TablesFilter](#yandex.cloud.datatransfer.v1.TablesFilter)**
+              List of included and excluded tables
+            $ref: '#/definitions/TablesFilter'
           shardsCount:
             description: |-
               **string** (int64)
@@ -706,17 +711,10 @@ Required field. Identifier of the transfer to be updated. ||
             "excludeColumns": [
               "string"
             ]
-          }
+          },
+          "skipUtcConversion": "boolean"
         },
         "sharderTransformer": {
-          "tables": {
-            "includeTables": [
-              "string"
-            ],
-            "excludeTables": [
-              "string"
-            ]
-          },
           // Includes only one of the fields `columns`, `random`
           "columns": {
             "includeColumns": [
@@ -728,6 +726,14 @@ Required field. Identifier of the transfer to be updated. ||
           },
           "random": "object",
           // end of the list of possible fields
+          "tables": {
+            "includeTables": [
+              "string"
+            ],
+            "excludeTables": [
+              "string"
+            ]
+          },
           "shardsCount": "string"
         },
         "tableSplitterTransformer": {
@@ -804,7 +810,6 @@ The rest of the fields will be reset to the default. ||
 || labels | **object** (map<**string**, **string**>)
 
 Transfer labels as `key:value` pairs.
-
 For details about the concept, see [documentation]({{ api-url-prefix
 }}/resource-manager/concepts/labels). ||
 || regularSnapshot | **[RegularSnapshot](#yandex.cloud.datatransfer.v1.RegularSnapshot)** ||
@@ -1157,6 +1162,9 @@ List of included and excluded tables ||
 || columns | **[ColumnsFilter](#yandex.cloud.datatransfer.v1.ColumnsFilter)**
 
 List of included and excluded columns ||
+|| skipUtcConversion | **boolean**
+
+When true, time values keep their original timezone, otherwise time values converts (normalizes) to UTC. ||
 |#
 
 ## SharderTransformer {#yandex.cloud.datatransfer.v1.SharderTransformer}
@@ -1166,9 +1174,6 @@ values will be used for calculating a hash to determine a shard.
 
 #|
 ||Field | Description ||
-|| tables | **[TablesFilter](#yandex.cloud.datatransfer.v1.TablesFilter)**
-
-List of included and excluded tables ||
 || columns | **[ColumnsFilter](#yandex.cloud.datatransfer.v1.ColumnsFilter)**
 
 List of included and excluded columns
@@ -1177,6 +1182,9 @@ Includes only one of the fields `columns`, `random`. ||
 || random | **object**
 
 Includes only one of the fields `columns`, `random`. ||
+|| tables | **[TablesFilter](#yandex.cloud.datatransfer.v1.TablesFilter)**
+
+List of included and excluded tables ||
 || shardsCount | **string** (int64)
 
 Number of shards ||

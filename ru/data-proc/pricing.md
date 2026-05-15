@@ -47,6 +47,8 @@ editable: false
 
 ### Пример расчета стоимости стандартных хостов {#price-example}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 Стоимость часа использования кластера из двух подкластеров со следующими параметрами:
 
 * Первый подкластер:
@@ -77,8 +79,6 @@ editable: false
 ## Цены для региона Россия {#prices} 
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
-{% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
 
 <MDX>

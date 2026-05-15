@@ -1,4 +1,4 @@
-# Метод upload
+# Object Storage API, REST совместимый с Amazon S3: PutObject
 
 Загружает объект и его метаданные в {{ objstorage-full-name }}.
 
@@ -66,5 +66,11 @@ PUT /{bucket}/{key} HTTP/2
 ### Коды ответов {#response-codes}
 
 Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
+
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/object.md)
+
+* [{#T}](../../../operations/objects/upload.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

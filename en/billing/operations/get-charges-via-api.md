@@ -52,7 +52,7 @@ Here is how you can get metadata on the following entities within a billing acco
 * Available clouds, services, products (SKUs), label keys, and date ranges: [Metadata/GetUsage](../usage/api-ref/grpc/Metadata/getUsage.md) gRPC API call.
 * Available label keys and values: [Metadata/GetLabel](../usage/api-ref/grpc/Metadata/getLabel.md) gRPC API call.
 * Available folders for the specified clouds: [Metadata/GetCloud](../usage/api-ref/grpc/Metadata/getCloud.md) gRPC API call.
-* Available resource IDs within a date range: [Metadata/GetResourceIDs](../usage/api-ref/grpc/Metadata/getResourceIDs.md) gRPC API call.
+* Available resource IDs within a date range: [Metadata/GetResources](../usage/api-ref/grpc/Metadata/getResources.md) gRPC API call.
 
 For more information, see the [Metadata](../usage/api-ref/grpc/Metadata/index.md) API reference.
 

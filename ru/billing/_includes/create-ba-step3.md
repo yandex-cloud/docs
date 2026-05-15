@@ -1,1 +1,1 @@
-Чтобы создать ваш первый платежный аккаунт, на вкладке **{{ ui-key.yacloud_org.billing.account.switch_overview }}** нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.billing.accounts.listing_button_create }}**.
+Чтобы создать ваш первый платежный аккаунт, на вкладке ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}** нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.billing.accounts.listing_button_create }}**.

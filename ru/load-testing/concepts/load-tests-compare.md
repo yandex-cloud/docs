@@ -1,5 +1,8 @@
 # Сравнение результатов нагрузочных тестов
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 Вы можете сравнить результаты нескольких тестов на странице **Сравнение**.
 На вкладке **{{ ui-key.yacloud.load-testing.label_results-comparison-section-title }}** представлена визуализация наложения графиков следующих зависимостей:
 

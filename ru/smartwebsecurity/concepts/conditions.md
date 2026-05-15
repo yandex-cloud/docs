@@ -127,19 +127,7 @@ PIRE
 `csrftoken=u32t4o3tb`
 | _и_ ||
 
-|| `{{ ui-key.yacloud.component.condition-column.condition_name-body }}` |
-* Совпадает с
-* Не совпадает с
-* Начинается с
-* Не начинается с
-* Соответствует регулярному выражению
-* Не соответствует регулярному выражению
-|
-Строка в теле HTTP-пакета или 
-регулярное выражение библиотеки PIRE
-|
-`<br><input type='submit'>`
-| _или_ ||
+
 || `Bot name` |
 * Принадлежит списку
 * Не принадлежит списку
@@ -188,7 +176,7 @@ PIRE
 
 ## Формат регулярных выражений {#regular-expressions}
 
-Регулярные выражения можно использовать в условиях `{{ ui-key.yacloud.component.condition-column.condition_name-header }}`, `{{ ui-key.yacloud.component.condition-column.condition_name-requestUri }}`, `Query Match`, `{{ ui-key.yacloud.component.condition-column.condition_name-authority }}`, `{{ ui-key.yacloud.component.condition-column.condition_name-httpMethod }}`, `{{ ui-key.yacloud.component.condition-column.condition_name-cookie }}`, `{{ ui-key.yacloud.component.condition-column.condition_name-body }}`. Так как в этих условиях есть типы сопоставления «Соответствует регулярному выражению» и «Не соответствует регулярному выражению».
+Регулярные выражения можно использовать в условиях `{{ ui-key.yacloud.component.condition-column.condition_name-header }}`, `{{ ui-key.yacloud.component.condition-column.condition_name-requestUri }}`, `Query Match`, `{{ ui-key.yacloud.component.condition-column.condition_name-authority }}`, `{{ ui-key.yacloud.component.condition-column.condition_name-httpMethod }}`, `{{ ui-key.yacloud.component.condition-column.condition_name-cookie }}`. Так как в этих условиях есть типы сопоставления «Соответствует регулярному выражению» и «Не соответствует регулярному выражению».
 
 ### Группы операторов для регулярных выражений {#regular-expressions-operators}
 

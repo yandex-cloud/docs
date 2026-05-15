@@ -1,11 +1,11 @@
 # Migrating data to {{ mch-name }} using {{ CH }}
 
-You can migrate data from your {{ CH }} cluster to a {{ mch-name}} cluster by using:
+You can migrate data from your {{ CH }} cluster to a {{ mch-name }} cluster by using:
 
 * [Built-in `remote` function](#transfer-remote). This method is suitable for migrating individual tables.
 * [Built-in `BACKUP`/`RESTORE` commands and a {{ objstorage-full-name }} bucket](#backup-objstorage). Use this method to migrate both individual tables and an entire database.
 
-You can also migrate a database from a {{ CH }} cluster to a {{ mch-name}} cluster using {{ data-transfer-name }}. For more information about this method, see [this tutorial](../../tutorials/dataplatform/ch-to-mch-migration.md).
+You can also migrate a database from a {{ CH }} cluster to a {{ mch-name }} cluster using {{ data-transfer-name }}. For more information about this method, see [this tutorial](../../tutorials/dataplatform/ch-to-mch-migration.md).
 
 ## Data migration using the remote function {#transfer-remote}
 
@@ -79,11 +79,11 @@ For more details on using the `remote` function, see [this {{ CH }} guide]({{ ch
 
 {% note warning %}
 
-To work with the `BACKUP`/`RESTORE` commands in a third-party cluster, you need {{ CH }} version 22.10 or newer.
+You need {{ CH }} version 22.10 or later to work with the `BACKUP`/`RESTORE` commands in a third-party cluster.
 
 {% endnote %}
 
-You can use the `BACKUP`/`RESTORE` commands and an {{ objstorage-name }} bucket to migrate either individual tables or an entire database from a third-party {{ CH }} cluster.
+You can use the `BACKUP`/`RESTORE` commands and an {{ objstorage-name }} bucket to migrate both individual tables and an entire database from a third-party {{ CH }} cluster.
 
 1. [Create a {{ mch-name }} target cluster](../../managed-clickhouse/operations/cluster-create.md#create-cluster) with [User management via SQL](../../managed-clickhouse/operations/cluster-users.md#sql-user-management) enabled.
 1. [Create a service account](../../iam/operations/sa/create.md#create-sa) with the `storage.editor` role.
@@ -91,13 +91,13 @@ You can use the `BACKUP`/`RESTORE` commands and an {{ objstorage-name }} bucket 
 
     Save both the key and its ID, as you will need them in the next steps.
 
-1. [Create an {{ objstorage-name }}](../../storage/operations/buckets/create.md) bucket.
+1. [Create a {{ objstorage-name }}](../../storage/operations/buckets/create.md) bucket.
 
 
 1. If [encryption](../../storage/concepts/encryption.md) is enabled for the bucket, [assign](../../kms/operations/key-access.md#add-access-binding) to the service account the [kms.keys.encrypterDecrypter](../../iam/roles-reference.md#kms-keys-encrypterDecrypter) role for the encryption key linked to the bucket.
 
 
-1. Connect to the source cluster as a user with the `BACKUP` privilege for the database. By default, it is the `admin` user's privilege. To assign it to another user, run this query:
+1. Connect to the source cluster as a user with the `BACKUP` privilege for the database. By default, the `admin` user has this privilege. To assign the privilege to another user, run this query:
 
     ```sql
     GRANT BACKUP ON <DB_name>.* TO <username>;
@@ -123,7 +123,7 @@ You can use the `BACKUP`/`RESTORE` commands and an {{ objstorage-name }} bucket 
     );
     ```
 
-1. [Connect to the {{ mch-name }} target cluster](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) as a user with the `CREATE DATABASE`, `CREATE TABLE`, and `INSERT` privileges for the database. By default, these are the `admin` user's privileges. To assign them to another user, run this query:
+1. [Connect to the {{ mch-name }} target cluster](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) under a user privileged with `CREATE DATABASE`, `CREATE TABLE`, and `INSERT` for the desired database. By default, the `admin` user has these privileges. To assign the privileges to another user, run this query:
 
     ```sql
     GRANT CREATE DATABASE, CREATE TABLE, INSERT ON <DB_name>.* TO <username>;
@@ -139,7 +139,7 @@ You can use the `BACKUP`/`RESTORE` commands and an {{ objstorage-name }} bucket 
     );
     ```
 
-    To restore the entire database, use this command: 
+    To restore an entire database, use this command: 
 
     ```sql
     RESTORE DATABASE <DB_name> FROM S3(

@@ -346,7 +346,12 @@ Exactly one rule specifier: `smart_protection` or `rule_condition` or `waf` shou
         - `ip_ranges_match` [Block]. 
           - `ip_ranges` (List Of String). 
         - `ip_ranges_not_match` [Block]. 
-          - `ip_ranges` (List Of String).
+          - `ip_ranges` (List Of String). 
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `read` (String). 
+  - `update` (String).
 
 ## Import
 

@@ -5,7 +5,6 @@
 * [Fixing the `ERR.DS_API.SOURCE_CONFIG.TABLE_NOT_CONFIGURED` error](validation-error-in-dataset-preview-when-using-csv-or-gsheets-as-data-source.md)
 * [Fixing the `ERR.DS_API.US Not correct folder_id` error](err-ds-api-us-not-correct-folder-id.md)
 * [`Total` values in {{ datalens-name }} table charts mismatch the respective data from Yandex Metrica](values-in-total-fields-dont-match-with-data-from-ymetrics.md)
-* [Resolving issues with linked tables when connecting to Bitrix24](bitrix24-linking-talbes-issue.md)
 * [Fixing issues when loading a CSV file into a dataset as a data source](csv-upload-issue.md)
 * [Fixing the `ERR.DS_API.FORMULA.VALIDATION.AGG.INCONSISTENT` error](error-ds-api-formula-validation-agg-inconsistent.md)
 * [Fixing the `Validation error Request failed with status code 500` error when saving a dashboard](validation-error-request-failed-with-status-code-500.md)

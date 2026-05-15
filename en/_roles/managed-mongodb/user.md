@@ -1,1 +1,1 @@
-The `managed-mongodb.user` role enables using [Yandex StoreDoc clusters](../../storedoc/concepts/index.md).
+The `managed-mongodb.user` role enables using [{{ SD }} clusters](../../storedoc/concepts/index.md).

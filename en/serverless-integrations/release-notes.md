@@ -1,9 +1,34 @@
 ---
 title: '{{ si-full-name }} release notes'
-description: This section contains {{ si-name }} release notes.
+description: This section contains the {{ si-name }} release notes.
 ---
 
 # {{ si-full-name }} release notes
+
+## February 2026 {#february-2026}
+
+### Updates {#updates}
+
+* Added support for starting a workflow by a link.
+* Added support for the `auto_approve` field for the [AIStudioAgent](concepts/workflows/yawl/integration/aistudioagent.md) step.
+
+## January 2026 {#january-2026}
+
+### Updates {#updates}
+
+* Added support for the `message` field for the [AIStudioAgent](concepts/workflows/yawl/integration/aistudioagent.md) step.
+
+## December 2025 {#december-2025}
+
+### Updates {#updates}
+
+* Upgraded the version of the `jq` templating language in {{ sw-name }}.
+
+## November 2025 {#november-2025}
+
+### Updates {#updates}
+
+* Updated the list of supported {{ ai-studio-name }} models in {{ sw-name }} integration steps.
 
 ## October 2025 {#october-2025}
 
@@ -32,7 +57,7 @@ description: This section contains {{ si-name }} release notes.
 
 ### Updates {#updates}
 
-* In the {{ sw-name }} constructor, added support for [error transition rules](operations/workflows/constructor/setup-catch-rule.md) in integration steps.
+* Added support for [error transition rules](operations/workflows/constructor/setup-catch-rule.md) for integration steps in the {{ sw-name }} constructor.
 
 ## July 2025 {#july-2025}
 

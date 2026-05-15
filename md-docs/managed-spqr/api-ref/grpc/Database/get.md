@@ -1,0 +1,60 @@
+# Managed Service for SPQR API, gRPC: DatabaseService.Get
+
+Returns the specified SPQR Database resource.
+
+To get the list of available SPQR Database resources, make a [List](list.md#List) request.
+
+## gRPC request
+
+**rpc Get ([GetDatabaseRequest](#yandex.cloud.mdb.spqr.v1.GetDatabaseRequest)) returns ([Database](#yandex.cloud.mdb.spqr.v1.Database))**
+
+## GetDatabaseRequest {#yandex.cloud.mdb.spqr.v1.GetDatabaseRequest}
+
+```json
+{
+  "cluster_id": "string",
+  "database_name": "string"
+}
+```
+
+#|
+||Field | Description ||
+|| cluster_id | **string**
+
+Required field. ID of the SPQR cluster that the database belongs to.
+To get the cluster ID use a [ClusterService.List](../Cluster/list.md#List) request.
+
+The maximum string length in characters is 50. ||
+|| database_name | **string**
+
+Required field. Name of the SPQR database to return.
+To get the name of the database use a [DatabaseService.List](list.md#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+|#
+
+## Database {#yandex.cloud.mdb.spqr.v1.Database}
+
+```json
+{
+  "name": "string",
+  "cluster_id": "string",
+  "deletion_protection": "google.protobuf.BoolValue"
+}
+```
+
+A SPQR Database resource. For more information, see the
+[Developer's Guide](../../../concepts/index.md).
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Name of the database. ||
+|| cluster_id | **string**
+
+ID of the SPQR cluster that the database belongs to. ||
+|| deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Deletion Protection inhibits deletion of the database ||
+|#

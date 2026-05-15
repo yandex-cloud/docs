@@ -1,6 +1,6 @@
 # Удалить пользователя
 
-Если у вас есть пользователь [{{ KF }}](../../concepts/components/kafka.md) в [проекте](../projects/create-project.md)), вы можете удалить его.
+Если у вас есть пользователь [{{ KF }}](../../concepts/components/kafka.md) в [проекте](../projects/create-project.md), вы можете удалить его.
 
 {% list tabs group=instructions %}
 

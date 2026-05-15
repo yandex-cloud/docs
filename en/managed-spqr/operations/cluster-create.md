@@ -11,6 +11,7 @@ keywords:
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
+
 ## Creating a cluster {#create-cluster}
 
 {% list tabs group=instructions %}
@@ -18,7 +19,7 @@ keywords:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a {{ SPQR }} cluster.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
     1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 

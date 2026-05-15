@@ -3,7 +3,7 @@
 
 ## Описание проблемы {#issue-description}
 
-При попытке привязать облако, {{ tracker-full-name}} или {{ ml-platform-full-name }} возникает ошибка `PROHIBITED_BILLING_ACCOUNT_USAGE_STATUS`.
+При попытке привязать облако, {{ tracker-full-name }} или {{ ml-platform-full-name }} возникает ошибка `PROHIBITED_BILLING_ACCOUNT_USAGE_STATUS`.
 
 ## Решение {#issue-resolution}
 

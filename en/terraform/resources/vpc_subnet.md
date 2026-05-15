@@ -44,6 +44,10 @@ resource "yandex_vpc_network" "lab-net" {
   - `domain_name` (String). Domain name.
   - `domain_name_servers` (List Of String). Domain name server IP addresses.
   - `ntp_servers` (List Of String). NTP server IP addresses.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `update` (String).
 
 ## Import
 

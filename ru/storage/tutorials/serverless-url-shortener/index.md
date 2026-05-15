@@ -1,0 +1,11 @@
+---
+title: Сокращатель ссылок
+description: В этом руководстве вы развернете сервис для сокращения ссылок, используя API-шлюз {{ api-gw-full-name }} и функцию {{ sf-full-name }}.
+canonical: '{{ link-docs }}/tutorials/serverless/serverless-url-shortener/'
+noIndex: true
+---
+
+{% include [serverless-url-shortener](../../../_tutorials/serverless/serverless-url-shortener.md) %}
+
+* [Консоль управления](console.md) — используйте этот способ, чтобы пошагово создать сокращатель ссылок в консоли управления {{ yandex-cloud }}.
+* [{{ TF }}](terraform.md) — используйте этот способ, чтобы упростить создание ресурсов и управление ими, используя подход «инфраструктура как код» (IaC). Скачайте пример конфигурации {{ TF }} с репозитория GitHub, а затем разверните инфраструктуру с помощью [{{ TF }}-провайдера {{ yandex-cloud }}]({{ tf-docs-link }}).

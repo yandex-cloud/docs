@@ -7,9 +7,6 @@ editable: false
 # {{ dns-name }} pricing policy
 
 
-{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
-
-
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
@@ -65,6 +62,8 @@ You do not pay for:
 * Requests for domain names of {{ yandex-cloud }} services (e.g., `{{ api-host }}`) and Yandex services (e.g., `mail.yandex.com`), both from VMs and the internet.
 
 The cost of public DNS requests is based on usage.
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 For example, the cost of 50,000 authoritative requests to your public DNS zone per month will be:
 

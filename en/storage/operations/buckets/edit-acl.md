@@ -17,8 +17,8 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. In the [management console]({{ link-console-main }}), select any folder.
+  1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. In the bucket row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
 
       Alternatively, you can click the bucket name, then, on the page that opens, click ![image](../../../_assets/console-icons/ellipsis.svg) at the top right and select **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
@@ -101,7 +101,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
       ```
 
       Where:
-      * `grant-type`: Permission grantee type. The possible values are:
+      * `grant-type`: Permission grantee type. The possible values are as follows:
         * `grant-type-account`: User, [service account](../../../iam/concepts/users/service-accounts.md), or [user group](../../../organization/concepts/groups.md).
         * `grant-type-all-authenticated-users`: [Public group](../../concepts/acl.md#public-groups) that includes all authenticated {{ yandex-cloud }} users.
         * `grant-type-all-users`: Public group that includes all internet users.
@@ -274,6 +274,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
+
   Before you start, retrieve the [static access keys](../../../iam/operations/authentication/manage-access-keys.md#create-access-key): a secret key and key ID used for {{ objstorage-short-name }} authentication.
 
   {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
@@ -288,7 +289,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 
   **yandex_storage_bucket_grant** {#tf-storage-bucket-grant}
 
-  1. In the configuration file, describe the properties of resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      ```hcl
      resource "yandex_storage_bucket_grant" "my_bucket_grant" {
@@ -337,7 +338,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 
      Instead of `grant`, you can specify `acl`, i.e., the [predefined ACL](../../../storage/concepts/acl.md#predefined-acls) of the bucket. The default value is `private`: {{ yandex-cloud }} users get permissions according to their roles in {{ iam-short-name }}.
 
-     For more information about `yandex_storage_bucket_grant` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/storage_bucket_grant).
+     For more information about the `yandex_storage_bucket_grant` properties, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket_grant).
 
   1. If you plan to use the [yandex_storage_bucket_iam_binding]({{ tf-provider-resources-link }}/storage_bucket_iam_binding) resource together with [yandex_storage_bucket_grant]({{ tf-provider-resources-link }}/storage_bucket_grant) for the same bucket, we recommend creating them sequentially. To do this, add a dependency on the `yandex_storage_bucket_grant` resource to the `yandex_storage_bucket_iam_binding` section.
 
@@ -363,7 +364,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 
   **yandex_storage_bucket (obsolete)** {#tf-yandex_storage_bucket}
 
-  1. In the configuration file, describe the properties of resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      ```hcl
      resource "yandex_storage_bucket" "test" {
@@ -412,7 +413,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 
      Instead of `grant`, you can specify `acl`, i.e., the [predefined ACL](../../../storage/concepts/acl.md#predefined-acls) of the bucket. The default value is `private`: {{ yandex-cloud }} users get permissions according to their roles in {{ iam-short-name }}.
 
-     For more information about `yandex_storage_bucket` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/storage_bucket).
+     For more information about the `yandex_storage_bucket` properties, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket).
 
   1. Apply the configuration:
 

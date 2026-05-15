@@ -38,7 +38,7 @@ These practices can help you manage security of your organization:
 Most {{ yandex-cloud }} services store their resources in [folders](../../resource-manager/concepts/resources-hierarchy.md#folder) within an [organization](organization.md). However, some services are separate from the common resource and role model. They operate at the organization level and can exchange data with other services within the same organization. These services include:
 
 * [{{ tracker-full-name }}]({{ link-tracker }})
-* [{{ datalens-full-name }}]({{ link-datalens-main }})
+* [{{ datalens-full-name }}]({{ link-datalens-main-promo }})
 * [{{ wiki-full-name }}]({{ link-wiki }})
 * [{{ forms-full-name }}]({{ link-forms-b2b }})
 * [{{ ml-platform-full-name }}]({{ link-datasphere-main }})

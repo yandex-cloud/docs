@@ -1,0 +1,54 @@
+# Создать резервную копию
+
+Если у вас есть кластер [ClickHouse®](../../concepts/components/clickhouse.md) в [проекте](../projects/create-project.md), вы можете создать для него резервную копию.
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+Поддерживаются два типа создания резервной копии в `spec.type`:
+
+- **full** — полная резервная копия кластера. Поле `spec.incrementFrom` не задаётся.
+- **incremental** — инкрементальная копия от существующего бэкапа. Обязательно укажите в `spec.incrementFrom` имя ресурса `ClickhouseBackup`, от которого строится инкремент (например, имя полной копии или предыдущей инкрементальной).
+
+Опционально в `spec.shards` можно перечислить шарды для бэкапа (каждый элемент — объект с полем `name`, идентификатор шарда из кластера). Если не задано — создаётся копия по всем шардам кластера.
+
+  1. Создайте файл ресурса `ClickhouseBackup`. Например, с помощью команды `touch clickhousebackup.yaml`.
+  1. Откройте файл и вставьте конфигурацию:
+
+      ```yaml
+      apiVersion: clickhouse.stackland.yandex.cloud/v1alpha1
+      kind: ClickhouseBackup
+      metadata:
+        labels:
+          app.kubernetes.io/name: ch-stackland-operator
+          app.kubernetes.io/managed-by: kustomize
+        name: backup
+      spec:
+        cluster:
+          name: ch-sample-mine
+        type: full
+        shards:
+          - name: "shard-1"
+      ```
+
+  1. Примените манифест: `kubectl apply -f clickhousebackup.yaml -n <название проекта>`. При необходимости можно прописать название проекта в параметр ресурса `metadata.namespace` и не использовать в команде.
+
+
+- Консоль управления {#console}
+
+  1. Если вы еще не открыли проект, выберите проект.
+  1. В левом меню выберите ** ClickHouse® Clusters**.
+  1. Выберите кластер.
+  1. Нажмите **Создать резервную копию**.
+  1. Подтвердите создание резервной копии.
+
+{% endlist %}
+
+Готово, резервная копия создана.
+
+{% note info %}
+
+Чтобы восстановить удаленный кластер из резервной копии, см. инструкцию [Восстановить кластер](recover-copy.md).
+
+{% endnote %}

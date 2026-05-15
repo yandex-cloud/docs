@@ -1,6 +1,6 @@
-# getObjectRetention method
+# Object Storage API, Amazon S3-compatible REST: GetObjectRetention
 
-Returns settings of the [retention](../../../concepts/object-lock.md) put on an object version.
+Returns the object version's [retention](../../../concepts/object-lock.md) settings.
 
 {% include [s3-api-intro-include](../../../../_includes/storage/s3-api-intro-include.md) %}
 
@@ -17,7 +17,7 @@ Parameter | Description
 `bucket` | Bucket name.
 `key` | Object key.
 
-### Request parameters {#request-params}
+### Query parameters {#request-params}
 
 Parameter | Description
 ----- | -----
@@ -51,5 +51,13 @@ Element | Description
 ----- | -----
 `Mode` | <p>Retention [type](../../../concepts/object-lock.md#types):</p><ul><li>`GOVERNANCE`: Governance-mode retention.</li><li>`COMPLIANCE`: Compliance-mode retention.</li></ul><p>Path: `Retention\Mode`.</p>
 `RetainUntilDate` | <p>Retention expiration date and time in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) format, e.g., `2025-01-01T00:00:00`. The expiration time value is specified in [UTC±00:00](https://en.wikipedia.org/wiki/UTC%2B00:00). To use a different time zone, add `+` or `-` and a UTC±00:00 offset to the end of the record.</p><p>Path: `Retention\RetainUntilDate`.</p>
+
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/object.md)
+
+* [{#T}](../../../concepts/object-lock.md)
+
+* [Configuring an object lock](../../../operations/objects/edit-object-lock.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

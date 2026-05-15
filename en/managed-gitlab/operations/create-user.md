@@ -1,31 +1,31 @@
-# Adding and removing users from a project
+# Creating and adding users to a project
 
 You can create users in a {{ GL }} instance and invite them to your project. Thus you will grant your team access to the repository.
 
-Use different email addresses for each account. They should not be linked to the primary account created together with the {{ GL }} instance.
+Use a unique email address for each account. Make sure it is not linked to the primary account created together with the {{ GL }} instance.
 
 ## Creating a user {#create}
 
 1. Open your {{ GL }} instance.
 1. In the left-hand menu, select **Search or go to** → **Admin Area**.
-1. In the menu on the left, go to **Overview** → **Users** section.
+1. In the left-hand menu, navigate to **Overview** → **Users**.
 1. Click **New user**.
-1. In the window that opens, fill out the fields:
+1. In the window that opens, fill out these fields:
 
-   * **Name**: User name
-   * **Username**: User login
-   * **Email**: User email address
+    * **Name**: Name of the user.
+    * **Username**: User login.
+    * **Email**: User email address.
 
-   If you create a service account for [configuring approval rules](approval-rules.md), specify **Administrator** in the **Access level** field.
+    If creating a service account to [set up approval rules](approval-rules.md), specify **Administrator** in the **Access level** field.
 
-   Optionally, complete the **Profile** and **Admin notes** sections. Leave the other fields unchanged.
+    Optionally, fill out the **Profile** and **Admin notes** sections. Leave the other fields unchanged.
 
 1. Click **Create user**.
 
-   A new user will be created.
+    This will create a new user.
 
-1. To set a password for the user, click **Edit** on the user's page.
-1. In the **Password** section, enter and confirm the user's password.
+1. To set a password for the user, click **Edit** on the user page.
+1. In the **Password** section, enter and confirm a user password.
 1. Click **Save changes**.
 
 ## Adding a user to a project {#add-to-project}
@@ -33,14 +33,14 @@ Use different email addresses for each account. They should not be linked to the
 1. Open your project in {{ GL }}.
 1. In the left-hand menu, navigate to **Manage** → **Members**.
 1. Click **Invite members**.
-1. In the window that opens, enter the user's login or email address and select a [project role]({{ gl.docs }}/ee/user/permissions.html) for the user.
+1. In the window that opens, enter the user login or email address and select a [project role]({{ gl.docs }}/ee/user/permissions.html) for the user.
 
-   {% note info %}
+    {% note info %}
 
-   If adding a user to [configure approval rules](approval-rules.md), assign the `Maintainer` or `Owner` role to them. Users with other roles will not have sufficient permissions to configure approval rules.
+    If adding a user for [setting up approval rules](approval-rules.md), assign them the `Maintainer` or `Owner` role. Users with other roles lack the permissions required to set up approval rules.
 
-   {% endnote %}
+    {% endnote %}
 
 1. Click **Invite**.
 
-The user will receive an email with a link to the project and a confirmation of being added to the project.
+The user will receive an email with a project link and confirmation of being added to the project.

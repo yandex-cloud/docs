@@ -228,7 +228,7 @@
          <URL_экземпляра_Grafana_OSS>/login/generic_oauth
          ```
 
-      1. В поле **{{ ui-key.yacloud_org.organization.apps.OauthAppEditForm.field-scopes_hEuar }}** отметьте атрибут `{{ ui-key.yacloud_org.organization.apps.OauthAppEditForm.oauth-scope-groups_iZoa5 }}` и выберите `{{ ui-key.yacloud_org.field-data.attributes.update_dialog.field_group_assigned }}`.
+      1. В поле **{{ ui-key.yacloud_org.organization.apps.OauthAppEditForm.field-scopes_hEuar }}** отметьте атрибут `{{ ui-key.yacloud_org.organization.apps.OauthAppEditForm.oauth-scope-groups_iZoa5 }}` и выберите `{{ ui-key.yacloud_org.organization.apps.field_group_assigned_amGdu }}`.
 
       1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 

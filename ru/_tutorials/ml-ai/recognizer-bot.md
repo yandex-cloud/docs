@@ -30,7 +30,7 @@
 
 В стоимость поддержки Telegram-бота входят:
 
-* плата за использование {{ speechkit-name }} (см. [тарифы для {{ speechkit-name }}](({{ link-docs-ai }}speechkit/pricing));
+* плата за использование {{ speechkit-name }} (см. [тарифы {{ speechkit-name }}]({{ link-docs-ai }}speechkit/pricing));
 * плата за использование {{ vision-name }} (см. [тарифы для {{ vision-name }}]({{ link-docs-ai }}vision/pricing));
 * плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы для {{ sf-name }}](../../functions/pricing.md));
 * плата за количество запросов к созданному API-шлюзу и исходящий трафик (см. [тарифы {{ api-gw-name }}](../../api-gateway/pricing.md)).
@@ -240,7 +240,7 @@
   1. Создайте версию функции:
 
      1. Выберите среду выполнения `Python`, отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-     1. Укажите способ загрузки `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-storage }}` и выберите [созданный ранее](#prepare) бакет. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_object}}** укажите имя файла `index.zip`.
+     1. Укажите способ загрузки `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-storage }}` и выберите [созданный ранее](#prepare) бакет. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_object }}** укажите имя файла `index.zip`.
      1. Укажите точку входа `index.handler`.
      1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** укажите:
 

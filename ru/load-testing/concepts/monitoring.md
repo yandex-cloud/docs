@@ -1,5 +1,8 @@
 # Мониторинг агентов тестирования
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 Мониторинг позволяет собирать данные о состоянии цели и агента тестирования (метрики), а также отображать эти данные на графиках. Сбор метрик выполняется с помощью плагина для агента сбора метрик [Telegraf](https://github.com/influxdata/telegraf) или плагина YCMonitoring. Графики мониторинга отображаются на вкладке **{{ ui-key.yacloud.load-testing.label_monitoring-report }}** для выбранного теста.
 
 Включить мониторинг агента тестирования можно в настройках при [создании теста](../operations/create-test-bucket.md#create-test):

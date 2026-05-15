@@ -1,1 +1,1 @@
-Роль `managed-mongodb.user` позволяет использовать [кластеры Yandex StoreDoc](../../storedoc/concepts/index.md).
+Роль `managed-mongodb.user` позволяет использовать [кластеры {{ SD }}](../../storedoc/concepts/index.md).

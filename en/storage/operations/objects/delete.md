@@ -25,7 +25,7 @@ To delete an object:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select any folder.
   1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket containing the object you want to delete.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
@@ -216,6 +216,7 @@ To delete an object:
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
+
   To delete an object created with {{ TF }} from a bucket:
   1. Open the {{ TF }} configuration file and delete the section specifying the object.
 
@@ -235,33 +236,9 @@ To delete an object:
 
      {% endcut %}
 
-  1. In the command line, navigate to the directory with the {{ TF }} configuration file.
-  1. Check the configuration using this command:
-
-     ```bash
-     terraform validate
-     ```
-
-     If the configuration is correct, you will get this message:
-
-     ```text
-     Success! The configuration is valid.
-     ```
-
-  1. Run this command:
-
-     ```bash
-     terraform plan
-     ```
-
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
   1. Apply the changes:
 
-     ```bash
-     terraform apply
-     ```
-
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
      You can check the update using the [management console]({{ link-console-main }}).
 

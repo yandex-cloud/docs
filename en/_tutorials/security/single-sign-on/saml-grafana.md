@@ -109,7 +109,7 @@ Set up mapping between user object fields in Grafana Cloud and {{ org-full-name 
 
     {% endnote %}
 
-    Next, under **Role mapping**, specify the names of the groups whose users will receive the appropriate roles. Here is an example:
+    Next, under **Role mapping**, specify the names of the groups whose users will receive the appropriate roles. For example:
 
     - Under **Viewer**: `grafana-viewer`
     - Under **Editor**: `grafana-editor`
@@ -159,20 +159,20 @@ If users do not have the `login` attribute, add it:
     1. Navigate to the **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.attributes_to71e }}** tab.
     1. In the top-right corner, click ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.action_add_attribute }}** and in the window that opens:
 
-        1. In the **{{ ui-key.yacloud_org.attributes.update_dialog.field_attribute_name }}** field, enter `login`.
-        1. In the **{{ ui-key.yacloud_org.attributes.update_dialog.field_attribute_value }}** field, select `SubjectClaims.preferred_username`.
+        1. In the **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** field, specify `login`.
+        1. In the **{{ ui-key.yacloud_org.organization.apps.AttributeFormDialogNew.field_attribute_value_dgUAv }}** field, select `SubjectClaims.preferred_username`.
         1. Click **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}
 
-If you have configured role mapping in Grafana Cloud, add the user group attribute. Proceed as follows:
+If you have configured role mapping in Grafana Cloud, add the user group attribute. Follow these steps:
 
 {% list tabs group=instructions %}
 
 - {{ cloud-center }} UI {#cloud-center}
 
     1. In the top-right corner, click ![circles-3-plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.action_add_group_attribute }}** and in the window that opens.
-    1. In the **{{ ui-key.yacloud_org.attributes.update_dialog.field_group_attribute_value }}** field, select `{{ ui-key.yacloud_org.field-data.attributes.update_dialog.field_group_assigned }}`.
+    1. In the **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_group_attribute_value_oxrpu }}** field, select `{{ ui-key.yacloud_org.organization.apps.field_group_assigned_amGdu }}`.
     1. Click **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}
@@ -227,7 +227,7 @@ Users and groups added to a SAML application can be managed by a user with the `
 
 ## Make sure your application works correctly {#validate}
 
-To make sure both your SAML app and Grafana Cloud integration work correctly, authenticate to Grafana Cloud as one of the users you added to the app. Proceed as follows:
+To make sure both your SAML app and Grafana Cloud integration work correctly, authenticate to Grafana Cloud as one of the users you added to the app. Follow these steps:
 
 1. In your browser, navigate to the address of your Grafana Cloud instance, e.g., `https://your-org.grafana.net`.
 1. If you were logged in to Grafana Cloud, log out.

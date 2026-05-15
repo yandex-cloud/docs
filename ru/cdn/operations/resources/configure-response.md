@@ -20,7 +20,7 @@ CDN-ресурс может возвращать определенный код
   1. Нажмите на имя необходимого ресурса.
   1. Перейдите на вкладку **{{ ui-key.yacloud.cdn.label_resource-http-headers }}**.
   1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-  1. В блоке **{{ ui-key.yacloud.cdn.sections.StaticResponseSection.section_static-response_hGcUL }}** включите опцию **{{ ui-key.yacloud.cdn.sections.StaticResponseSection.field_static-response-enabled_sPsQU }}**.
+  1. В блоке **{{ ui-key.yacloud.cdn.sections.StaticResponseSection.section_static-response_v3GRn }}** включите опцию **{{ ui-key.yacloud.cdn.sections.StaticResponseSection.field_static-response-enabled_sPsQU }}**.
   1. В поле **{{ ui-key.yacloud.cdn.sections.StaticResponseSection.field_static-response-type_5KyYv }}** выберите `{{ ui-key.yacloud.cdn.sections.StaticResponseSection.option_static-response_redirect_o58we }}`.
   1. Укажите код ответа.
 
@@ -93,7 +93,7 @@ CDN-ресурс может возвращать определенный код
   1. Нажмите на имя необходимого ресурса.
   1. Перейдите на вкладку **{{ ui-key.yacloud.cdn.label_resource-http-headers }}**.
   1. В правом верхнем углу нажмите кнопку ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-  1. В блоке **{{ ui-key.yacloud.cdn.sections.StaticResponseSection.section_static-response_hGcUL }}** включите опцию **{{ ui-key.yacloud.cdn.sections.StaticResponseSection.field_static-response-enabled_sPsQU }}**.
+  1. В блоке **{{ ui-key.yacloud.cdn.sections.StaticResponseSection.section_static-response_v3GRn }}** включите опцию **{{ ui-key.yacloud.cdn.sections.StaticResponseSection.field_static-response-enabled_sPsQU }}**.
   1. В поле **{{ ui-key.yacloud.cdn.sections.StaticResponseSection.field_static-response-type_5KyYv }}** выберите `{{ ui-key.yacloud.cdn.sections.StaticResponseSection.option_static-response_data_rLo9U }}`.
   1. Укажите код ответа.
 

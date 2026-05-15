@@ -10,7 +10,7 @@ High-quality raw original video content (video file or broadcast) is not well su
 * Distributes content using the CDN technology.
 * Provides a fault-tolerant infrastructure for transcoding, storing, and broadcasting video content.
 
-You can also monetize your video content using the [Yandex Advertising Network](https://yandex.ru/support2/partner/ru/yan-rules/video).
+You can also monetize your video content using the [Yandex Advertising Network](https://yandex.ru/support2/partner/ru/yan-rules/video). You need to [enable](../operations/video/update.md) ads for each video individually.
 
 To learn more about advertising, see [{#T}](../operations/channels/settings.md).
 

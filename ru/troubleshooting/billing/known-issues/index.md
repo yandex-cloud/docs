@@ -1,7 +1,6 @@
 ## Решения для известных проблем {{ billing-name }} {#known-issues-resolving}
 
 * [В детализации по платежному аккаунту стало отображаться потребление по сервису {{ cloud-logging-name }}](cloud-logging-unexpectedly-charges-in-billing-account-details.md)
-* [Не удается оформить резервируемое потребление для {{ compute-short-name }}](unable-to-issue-a-new-cvos-position.md)
 * [Устранение проблем с привязкой банковской карты к платежному аккаунту](couldnt-link-card.md)
 * [Устранение ошибки `INVALID_PERSON_TYPE` при регистрации платежного аккаунта](invalid-person-type.md)
 * [Устранение проблем с оплатой](payment-problems.md)
@@ -21,6 +20,5 @@
 * [Устранение ошибки `ILLEGAL_REQUEST_CONTRACT` при формировании счета на оплату](illegal-request-contract.md)
 * [{{ kms-short-name }}-ключи продолжают тарифицироваться после удаления](kms-keys-are-charged-in-billing-after-deletion.md)
 * [Платежный аккаунт находится в статусе `PAYMENT_NOT_CONFIRMED`](payment-not-confirmed-issue.md)
-* [Устранение ошибки `message: Unauthorized; description: Unauthorized`](error-unauthorized.md)
 * [Устранение ошибки `PROHIBITED_BILLING_ACCOUNT_USAGE_STATUS`](error-prohibited-user-account-usage-status.md)
 * [Устранение ошибки `Веб-страница временно недоступна` при оплате картой Сбера](unable-to-pay-with-sber-card.md)

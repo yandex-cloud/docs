@@ -1,11 +1,11 @@
 ---
 title: Stopping and starting a {{ MY }} cluster in {{ mmy-name }}
-description: You can stop and restart a {{ MY }} cluster as needed. While your cluster is idle, you only pay for the size of your storage and backups.
+description: You can stop and restart an {{ MY }} cluster as needed. While your cluster is idle, you only pay for the size of your storage and backups.
 ---
 
 # Stopping and starting a {{ MY }} cluster
 
-You can stop and restart a {{ MY }} cluster as needed. While your cluster is idle, you only pay for the size of your storage and backups based on the [pricing policy](../pricing.md#prices-storage).
+If necessary, you can stop and restart your {{ MY }} cluster. While your cluster is idle, you only pay for the size of your storage and backups as per the [pricing policy](../pricing.md#prices-storage).
 
 {% include [pricing-status-warning.md](../../_includes/mdb/pricing-status-warning.md) %}
 
@@ -14,13 +14,19 @@ You can stop and restart a {{ MY }} cluster as needed. While your cluster is idl
 
 {% include [cluster-stop](../../_includes/mdb/cluster-stop.md) %}
 
+{% note info %}
+
+Stopping a cluster is not allowed if it has no backups. In order to stop it, you must [create its backup](cluster-backups.md#create-backup) first.
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Find your cluster in the list, click ![options](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-stop }}**.
-  1. Click **{{ ui-key.yacloud.mdb.cluster.stop-dialog.popup-confirm_button }}** to confirm stopping the cluster.
+  1. Locate the cluster you need in the list, click ![options](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-stop }}**.
+  1. Confirm that you want to stop the cluster by clicking **{{ ui-key.yacloud.mdb.cluster.stop-dialog.popup-confirm_button }}**.
 
 - CLI {#cli}
 
@@ -48,7 +54,7 @@ You can stop and restart a {{ MY }} cluster as needed. While your cluster is idl
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -62,13 +68,13 @@ You can stop and restart a {{ MY }} cluster as needed. While your cluster is idl
             --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>:stop'
         ```
 
-        You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/stop.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/stop.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -97,15 +103,15 @@ You can stop and restart a {{ MY }} cluster as needed. While your cluster is idl
 
 ## Starting a cluster {#start-cluster}
 
-You can restart **STOPPED** clusters.
+You can restart a cluster if its status is **STOPPED**.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
-  1. Find the stopped cluster in the list, click ![options](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-start }}**.
-  1. In the dialog box that opens, click **{{ ui-key.yacloud.mdb.cluster.start-dialog.popup-confirm_button }}** to confirm starting the cluster.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+  1. In the list, locate the stopped cluster you want to restart, click ![options](../../_assets/console-icons/ellipsis.svg), and select **{{ ui-key.yacloud.mdb.clusters.button_action-start }}**.
+  1. In the dialog box that opens, click **{{ ui-key.yacloud.mdb.cluster.start-dialog.popup-confirm_button }}** to confirm the cluster launch.
 
 - CLI {#cli}
 
@@ -133,7 +139,7 @@ You can restart **STOPPED** clusters.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -147,13 +153,13 @@ You can restart **STOPPED** clusters.
             --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>:start'
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/start.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/start.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -174,7 +180,7 @@ You can restart **STOPPED** clusters.
             yandex.cloud.mdb.mysql.v1.ClusterService.Start
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

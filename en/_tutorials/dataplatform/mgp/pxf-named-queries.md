@@ -20,12 +20,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* {{ GP }} cluster fee: Computing resources allocated to hosts, size of storage and backups (see [{{ mgp-name }} pricing](../../../managed-greenplum/pricing/index.md)).
-* {{ mpg-full-name }} cluster fee: Computing resources allocated to hosts, size of storage and backups (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
-* Fee for hourly usage of NAT gateways and outgoing traffic they handle (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
-* Fee for using public IP addresses (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* {{ mgp-name }} cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ mgp-name }} pricing](../../../managed-greenplum/pricing/index.md)).
+* {{ mpg-full-name }} cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
+* NAT gateway: Fee for hourly usage of NAT gateways and outgoing traffic they handle (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -159,7 +157,7 @@ To create a named query, add it to the `mdb_toolkit.pxf_named_queries` table:
 
 1. [Connect](../../../managed-greenplum/operations/connect/index.md) to {{ GP }}.
 
-1. Run this query:
+1. Run this request:
 
    ```sql
    INSERT INTO mdb_toolkit.pxf_named_queries (pxf_profile, name, query) VALUES (

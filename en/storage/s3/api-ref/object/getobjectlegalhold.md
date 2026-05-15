@@ -1,4 +1,4 @@
-# getObjectLegalHold method
+# Object Storage API, Amazon S3-compatible REST: GetObjectLegalHold
 
 Returns the settings of the legal [hold](../../../concepts/object-lock.md) placed on the object version.
 
@@ -17,7 +17,7 @@ Parameter | Description
 `bucket` | Bucket name.
 `key` | Object key.
 
-### Request parameters {#request-params}
+### Query parameters {#request-params}
 
 Parameter | Description
 ----- | -----
@@ -50,5 +50,13 @@ For a list of possible responses, see [{#T}](../response-codes.md).
 Element | Description
 ----- | -----
 `Status` | <p>Legal hold status:</p><ul><li>`ON`: Enabled.</li><li>`OFF`: Disabled.</li></ul><p>Path: `LegalHold\Status`.</p>
+
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/object.md)
+
+* [{#T}](../../../concepts/object-lock.md)
+
+* [Configuring an object lock](../../../operations/objects/edit-object-lock.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

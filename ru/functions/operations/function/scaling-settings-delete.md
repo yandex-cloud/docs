@@ -9,8 +9,6 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-    Чтобы удалить любую настройку масштабирования, кроме количества вызовов, одновременно обрабатываемых одним экземпляром функции (`concurrency`):
-
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
     1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Выберите функцию.
@@ -21,7 +19,7 @@ description: Следуя данной инструкции, вы сможете
 
 - CLI {#cli}
 
-    Чтобы удалить любую настройку масштабирования, кроме количества вызовов, одновременно обрабатываемых одним экземпляром функции (`concurrency`), выполните команду:
+    Чтобы удалить настройки масштабирования, выполните команду:
 
     ```
     yc serverless function remove-scaling-policy \
@@ -40,7 +38,7 @@ description: Следуя данной инструкции, вы сможете
 
     {% include [terraform-install](../../../_includes/terraform-install.md) %}  
 
-    Чтобы удалить любую настройку масштабирования, кроме количества вызовов, одновременно обрабатываемых одним экземпляром функции (`concurrency`):
+    Чтобы удалить настройки масштабирования:
 
     1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
@@ -101,11 +99,9 @@ description: Следуя данной инструкции, вы сможете
 
 - API {#api}
 
-    Чтобы удалить любую настройку масштабирования, кроме количества вызовов, одновременно обрабатываемых одним экземпляром функции (`concurrency`), воспользуйтесь методом REST API [removeScalingPolicy](../../functions/api-ref/Function/removeScalingPolicy.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/RemoveScalingPolicy](../../functions/api-ref/grpc/Function/removeScalingPolicy.md).
+    Чтобы удалить настройки масштабирования, воспользуйтесь методом REST API [removeScalingPolicy](../../functions/api-ref/Function/removeScalingPolicy.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/RemoveScalingPolicy](../../functions/api-ref/grpc/Function/removeScalingPolicy.md).
 
 
 {% endlist %}
-
-Чтобы удалить [количество вызовов, одновременно обрабатываемых одним экземпляром функции](../../concepts/function.md#concurrency) (`concurrency`), [создайте версию функции](../../operations/function/version-manage.md#version-create) без указания этого параметра.
 
 {% include [see-also-scaling](../../../_includes/functions/see-also-scaling.md) %}

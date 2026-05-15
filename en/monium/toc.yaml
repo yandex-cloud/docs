@@ -25,6 +25,8 @@ items:
             href: collector/otel-clinic-example.md
           - name: Example of monitoring a microservice suite in {{ k8s }}
             href: collector/otel-k8s-example.md
+          - name: Example of Nginx monitoring in {{ k8s }}
+            href: collector/otel-k8s-nginx.md
           - name: Data delivery troubleshooting
             href: collector/troubleshooting.md
       - name: Fluent Bit
@@ -201,6 +203,8 @@ items:
             href: metrics-ref/managed-valkey-ref.md
           - name: '{{ ydb-name }}'
             href: metrics-ref/ydb-ref.md
+          - name: '{{ myt-name }}'
+            href: metrics-ref/managed-ytsaurus-ref.md
           - name: '{{ message-queue-name }}'
             href: metrics-ref/message-queue-ref.md
           - name: '{{ monitoring-name }}'
@@ -225,24 +229,24 @@ items:
         href: concepts/ttl.md
   - name: Logs
     items:
-      - name: Getting started
+      - name: Getting started with application logs
         href: logs/quickstart.md
-      - name: Overview
-        href: logs/index.md
-      - name: Data collection
+      - name: Getting started with {{ yandex-cloud }} resource logs
+        href: logs/quickstart-resources.md
+      - name: Data delivery
         items:
           - name: Data conversions
             href: logs/write/converting-data.md
           - name: Fluent Bit
             href: logs/write/fluent-bit.md
-      - name: View logs
+      - name: Log search and analysis
         href: logs/logs-explorer.md
-      - name: Query language
-        href: logs/query.md
       - name: Concepts
         items:
-          - name: Basic terms
+          - name: Overview and basic concepts
             href: logs/concepts/glossary.md
+          - name: Query language
+            href: logs/query.md
           - name: Log annotation recommendations
             href: logs/concepts/attributes-guide.md
           - name: Data retention period (TTL)

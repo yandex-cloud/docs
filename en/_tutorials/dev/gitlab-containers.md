@@ -1,27 +1,27 @@
 
 
-[{{ GL }}](https://about.gitlab.com/) is a tool for Continuous integration (CI).
+[{{ GL }}](https://about.gitlab.com/) is a tool for continuous integration (CI).
 
 This tutorial describes:
 * Building an application into a Docker container.
 * Deploying an application from a container in a [{{ managed-k8s-full-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) via {{ GL }} using the {{ yandex-cloud }} tools.
 
 Each commit to {{ GL }} is followed by:
-* Running a script that includes steps to build the [Docker image](../../container-registry/concepts/docker-image.md).
+* Running a pipeline that includes steps to build the [Docker image](../../container-registry/concepts/docker-image.md).
 * Applying a new {{ managed-k8s-name }} cluster configuration specifying the application to deploy.
 
-To set up the infrastructure required to store the source code, build the Docker image, and deploy your applications, follow these steps:
+To set up the required infrastructure for storing source code, building the Docker image, and deploying the application, follow these steps:
 1. [Get your cloud ready](#before-you-begin).
 
-   1. [Review the list of paid resources available](#paid-resources).
+   1. [Review the list of required paid resources](#paid-resources).
 
-1. [Set up the infrastructure](#deploy-infrastructure).
+1. [Set up your infrastructure](#deploy-infrastructure).
 1. [Create a {{ GL }} instance](#create-gitlab).
 1. [Configure {{ GL }}](#configure-gitlab).
 1. [Create a test application](#app-create).
 1. [Create a {{ GLR }}](#runners).
 1. [Set up {{ k8s }} authentication in {{ GL }}](#gitlab-authentication).
-1. [Configure the CI script](#ci).
+1. [Configure the CI pipeline](#ci).
 1. [Check the result](#check-result).
 
 If you no longer need the resources you created, [delete them](#clear-out).
@@ -34,9 +34,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 Infrastructure support costs include fees for the following resources:
 * [Disks](../../compute/concepts/disk.md) and continuously running [VMs](../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Usage of a dynamic [public IP](../../vpc/concepts/ips.md) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
-* Storage of created Docker images (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
-* Usage of a [{{ managed-k8s-name }} master](../../managed-kubernetes/concepts/index.md#master) (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
+* Dynamic [public IP address](../../vpc/concepts/ips.md) assigned (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md#prices-public-ip)).
+* Storing the created Docker images (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
+* Using a [{{ managed-k8s-name }} master](../../managed-kubernetes/concepts/index.md#master) (see [{{ managed-k8s-name }} pricing](../../managed-kubernetes/pricing.md)).
 
 {% include [deploy-infrastructure](../../_includes/managed-gitlab/deploy-infrastructure.md) %}
 
@@ -66,10 +66,10 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
 
 {% endlist %}
 
-## Configure the CI script {#ci}
+## Configure the CI pipeline {#ci}
 
-1. Create the [{{ GL }} environment variables]({{ gl.docs }}/ee/ci/variables/):
-   1. In {{ GL }}, navigate to **Settings** in the left-hand panel and select **CI/CD** from the drop-down list.
+1. Create [{{ GL }} environment variables]({{ gl.docs }}/ee/ci/variables/):
+   1. In {{ GL }}, navigate to **Settings** in the left-hand panel and select **CI/CD** from the pop-up list.
    1. Click **Expand** next to **Variables**.
    1. Add the following environment variables depending on the {{ k8s }} authentication method in {{ GL }}:
 
@@ -77,7 +77,7 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
 
       - Service account token {#token}
 
-        * `KUBE_URL`: {{ managed-k8s-name }} master address. You can retrieve it using the following command:
+        * `KUBE_URL`: {{ managed-k8s-name }} master address. You can get it using the following command:
 
           ```bash
           yc managed-kubernetes cluster get <cluster_ID_or_name> --format=json \
@@ -95,12 +95,12 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
 
       To add a variable:
       * Click **Add variable**.
-      * In the window that opens, specify the variable name in the **Key** field and its value in the **Value** field.
+      * In the window that opens, specify a variable name in the **Key** field and its value in the **Value** field.
       * Click **Add variable**.
-1. Create the CI script configuration file:
+1. Create a CI pipeline configuration file:
    1. Open the `gitlab-test` project.
    1. Click ![image](../../_assets/console-icons/plus.svg) in the repository navigation bar and select **New file** from the drop-down menu.
-   1. Name your file `.gitlab-ci.yml`. Add the steps to build and push a Docker image and update the application configuration in the {{ managed-k8s-name }} cluster. The file structure depends on the {{ k8s }} authentication method in {{ GL }}:
+   1. Name your file `.gitlab-ci.yml`. Add steps to build and push the Docker image and update the application configuration in the {{ managed-k8s-name }} cluster. The file structure depends on the {{ k8s }} authentication method in {{ GL }}:
 
       {% list tabs group=gl_auth %}
 
@@ -212,9 +212,9 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
               - mkdir -p /kaniko/.docker
               - echo "{\"auths\":{\"${CI_REGISTRY}\":{\"auth\":\"$(echo -n "json_key:${CI_REGISTRY_KEY}" | base64 | tr -d '\n' )\"}}}" > /kaniko/.docker/config.json
               - >-
-                /kaniko/executor
-                --context "${CI_PROJECT_DIR}"
-                --dockerfile "${CI_PROJECT_DIR}/Dockerfile"
+                /kaniko/executor \
+                --context "${CI_PROJECT_DIR}" \
+                --dockerfile "${CI_PROJECT_DIR}/Dockerfile" \
                 --destination "${CI_REGISTRY}/${CI_PROJECT_PATH}:${CI_COMMIT_SHORT_SHA}"
 
           deploy:
@@ -283,12 +283,12 @@ You can set up authentication in {{ GL }} using a {{ k8s }} service account toke
 
    The `.gitlab-ci.yml` file describes the following two steps of the project build process:
    * Building a Docker image using `Dockerfile` and pushing the image to {{ container-registry-name }}.
-   * Setting up an environment to work with {{ k8s }} and applying the `k8s.yaml` configuration to {{ managed-k8s-name }} clusters. This way, the application is deployed on the previously created {{ managed-k8s-name }} cluster.
+   * Setting up an environment to work with {{ k8s }} and applying the `k8s.yaml` configuration to the {{ managed-k8s-name }} cluster. This way, the application is deployed to the previously created {{ managed-k8s-name }} cluster.
 
 ## Check the result {#check-result}
 
-1. After you save the `.gitlab-ci.yml` configuration file, the build scenario will start. To check its results, select **Build** on the left-hand panel in the `gitlab-test` project, then select **Pipelines** from the drop-down menu, and wait for both build stages to complete successfully.
-1. To check how the created application is running in your {{ managed-k8s-name }} cluster, view its container logs:
+1. After you save the `.gitlab-ci.yml` configuration file, the build pipeline will start. To check its results, select **Build** on the left-hand panel in the `gitlab-test` project, then select **Pipelines** from the drop-down menu, and wait for both build stages to complete successfully.
+1. To check how the application is running in your {{ managed-k8s-name }} cluster, view its container logs:
 
    ```bash
    kubectl logs deployment/hello-world-deployment -n hello-world
@@ -311,7 +311,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
    - Manually {#manual}
 
      1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).
-     1. [Delete the {{ container-registry-name }} registry](../../container-registry/operations/registry/registry-delete.md).
+     1. [Delete the {{ container-registry-name }}](../../container-registry/operations/registry/registry-delete.md).
      1. [Delete the created subnets](../../vpc/operations/subnet-delete.md) and [networks](../../vpc/operations/network-delete.md).
      1. [Delete the created service accounts](../../iam/operations/sa/delete.md).
 
@@ -321,7 +321,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
    {% endlist %}
 
-1. [Delete the {{ GL }} VM](../../compute/operations/vm-control/vm-delete.md) or {{ mgl-name }} instance that you created.
+1. [Delete the created {{ GL }} VM](../../compute/operations/vm-control/vm-delete.md) or {{ mgl-name }} instance.
 
 ## See also {#see-also}
 

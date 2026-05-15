@@ -5,6 +5,10 @@ description: This section contains the {{ mrd-name }} release notes.
 
 # {{ mrd-full-name }} release notes
 
+## March 2026 {#mar-2026}
+
+* Added separate [roles](./security/index.md) to view and edit (reschedule) [maintenance](./concepts/maintenance.md) without access to the cluster.
+
 ## February 2026 {#feb-2026}
 
 * A new [Valkey-Search](concepts/modules.md#valkey-search) version is out: 1.1.0.

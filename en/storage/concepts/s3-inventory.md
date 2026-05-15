@@ -5,6 +5,7 @@ description: In {{ objstorage-name }}, you can export metadata of bucket objects
 
 # Object metadata export (S3 Inventory)
 
+
 In {{ objstorage-name }}, you can export [metadata](./object.md#metadata) of bucket objects (S3 Inventory) for further analysis and cataloging. Data is exported to a different bucket in [CSV](https://{{ lang }}.wikipedia.org/wiki/CSV) format and includes object size, creation date, MD5 checksum, [storage class](./storage-class.md), [versioning](./versioning.md) data, [object ACLs](./acl.md), and more.
 
 {% include [s3-inventory-pricing](../../_includes/storage/s3-inventory-pricing.md) %}
@@ -60,6 +61,19 @@ You can [create an export configuration](../operations/buckets/manage-s3-invento
 * Optional prefix to filter objects included in the report.
 * Configuration status: enabled or disabled.
 * List of optional object metadata fields.
+
+### Reporting frequency {#schedule}
+
+Depending on the frequency you specify, export will begin:
+
+* `DAILY`: At 03:00 UTC every day.
+* `WEEKLY`: At 03:00 UTC every Sunday.
+
+For example, if you create a configuration with a daily export at 12:00 UTC, the first one will not start until 03:00 UTC the next day.
+
+{% include [s3-inventory-schedule-note](../../_includes/storage/s3-inventory-schedule-note.md) %}
+
+### Metadata types {#metadata-types}
 
 Each export report contains a list of source bucket objects and their metadata. The following fields are included by default:
 

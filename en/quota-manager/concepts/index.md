@@ -14,7 +14,7 @@ The diagram below illustrates the relationship between quotas and limits.
 
 ![image](../../_assets/quota-manager/quotas-limits.svg)
 
-Quotas are allocated and applied at the {{ yandex-cloud}} cloud level; they are distributed between all the folders and services.
+Quotas are allocated and applied at the {{ yandex-cloud }} cloud level; they are distributed between all the folders and services.
 
 {{ quota-manager-name }} helps you monitor your quota values and usage automatically. Use the API methods to get notified as soon as your consumption hits the threshold values. It means you will never be late to increase your quota, prevent an abnormality or excessive consumption.
 
@@ -30,7 +30,7 @@ Quotas can potentially be increased up to the limit values. Quotas do not guaran
 
 Quota management via the CLI and API relies on quota ID in `<service_name>.<resource_name>.<unit_of_measurement>` format, e.g., `dns.zones.count`, `serverless.networkPackets.rate`, or `mdb.memory.size`. 
 
-See [{#T}](../all-quotas.md) for quota IDs and default quotas for all {{ yandex-cloud}} services.
+See [{#T}](../all-quotas.md) for quota IDs and default quotas for all {{ yandex-cloud }} services.
 
 You can look up quota usage info in the console on the [{{ quota-manager-name }}]({{ link-console-quotas }}) page or via an [API request](../operations/list-quotas.md).
 

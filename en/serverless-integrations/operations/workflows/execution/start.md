@@ -3,7 +3,9 @@ title: How to start a workflow
 description: Follow this guide to start a workflow.
 ---
 
-# Starting a workflow
+# Starting a workflow execution
+
+Make the workflow [public](../workflow/make-public.md) so that any user can run it.
 
 {% list tabs group=instructions %}
 

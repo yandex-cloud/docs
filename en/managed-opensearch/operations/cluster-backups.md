@@ -513,7 +513,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
                     * `diskTypeId`: [Disk type](../concepts/storage.md).
 
                 * `roles`: List of [host roles](../concepts/host-roles.md). A cluster must include at least one group of `DATA` hosts and one group of `MANAGER` hosts. This can be a single group with two roles or multiple groups with different roles.
-                * `hostsCount`: Number of hosts in the group. The minimum number of `DATA` hosts is one, while the minimum number of `MANAGER` hosts is three.
+                * `hostsCount`: Number of hosts in the group. Minimum number of `DATA` hosts: one; minimum number of `MANAGER` hosts: three.
                 * `zoneIds`: List of availability zones the cluster hosts are located in.
                 * `subnetIds`: List of subnet IDs.
 
@@ -626,7 +626,7 @@ Before you begin, [assign](../../iam/operations/roles/grant.md) the following ro
                     * `disk_type_id`: [Disk type](../concepts/storage.md).
 
                 * `roles`: List of [host roles](../concepts/host-roles.md). A cluster must include at least one group of `DATA` hosts and one group of `MANAGER` hosts. This can be a single group with two roles or multiple groups with different roles.
-                * `hosts_count`: Number of hosts in the group. The minimum number of `DATA` hosts is one, while the minimum number of `MANAGER` hosts is three.
+                * `hosts_count`: Number of hosts in the group. Minimum number of `DATA` hosts: one; minimum number of `MANAGER` hosts: three.
                 * `zone_ids`: List of availability zones the cluster hosts are located in.
                 * `subnet_ids`: List of subnet IDs.
 

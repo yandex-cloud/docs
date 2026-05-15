@@ -16,7 +16,7 @@ In the flow chart below, `NAT-A` is the main egress internet gateway, while `NAT
    | Element name | Description |
    | ----------- | ----------- |
    | NAT-A, NAT-B | NAT instances that enable internet access for cloud resources by translating the resources' private IP addresses to the NAT instances' public IP addresses. |
-   | VPC: demo | {{vpc-name }} network |
+   | VPC: demo | {{ vpc-name }} network |
    | private-a | Subnet in the `{{ region-id }}-a` availability zone, hosting resources that require internet access. |
    | public-a, public-b | Subnets in the `{{ region-id }}-a` and `{{ region-id }}-b` availability zones, hosting NAT instances |
    | public ip a, public ip b | NAT instance public IP addresses |
@@ -432,7 +432,7 @@ The infrastructure support cost includes:
    {% endlist %}
 
 1. Monitor the `ping` output. As `NAT-A` recovers, you may not see any packet loss. 
-1. Make sure `test-vm` now uses the `nat-a` public IP address to access the internet by stopping `ping` and running this command in the serial console:
+1. Make sure `test-vm` now uses the `nat-a` public IP address to access the internet by running this command in the serial console:
 
    ```bash
    curl ifconfig.co

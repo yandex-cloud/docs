@@ -5,6 +5,28 @@ description: На странице представлены вопросы и о
 
 # Вопросы и ответы про {{ objstorage-name }}
 
+* [Что такое {{ objstorage-full-name }}?](#qa-what-is)
+* [Что я могу делать с {{ objstorage-full-name }}?](#qa-usecases)
+* [Как начать пользоваться {{ objstorage-full-name }}?](#qa-quickstart)
+* [Какие форматы данных я могу хранить?](#qa-data-types)
+* [Как мне оставить отзыв на {{ objstorage-full-name }}?](#qa-feedback)
+* [Как обратиться в службу технической поддержки?](qa-support-channels)
+* [Сколько я могу хранить данных?](#qa-storage-volume)
+* [Как удалить несколько объектов за один раз?](#qa-delete-multiple-objects)
+* [Почему сервисный аккаунт не может получить доступ в бакет?](#sa-bucket-access)
+* [Что {{ yandex-cloud }} делает с данными, которые я храню в {{ objstorage-full-name }}?](#qa-data-use-by-platform)
+* [Использует ли Яндекс {{ objstorage-name }} для размещения своих данных?](#qa-usage-by-yandex)
+* [Какую модель консистентности данных использует {{ objstorage-full-name }}?](#qa-consistency)
+* [Какие возможности AWS S3 поддерживаются в {{ objstorage-full-name }}?](#qa-s3-support)
+* [Где хранятся мои данные?](#qa-where)
+* [Как защищены мои данные в {{ objstorage-full-name }}?](#qa-data-security)
+* [Какие есть гарантии скорости работы {{ objstorage-full-name }}?](#qa-timings)
+* [Как подключить собственный домен к бакету {{ objstorage-name }}?](#domain-bucket)
+* [Почему после создания/изменения политики доступа пропал доступ к бакету?](#qa-lost-access)
+* [Как получить доступ к {{ objstorage-name }} из облачной сети {{ vpc-name }}?](#qa-from-vpc)
+* [Проверяются ли объекты, загружаемые в бакет, на наличие чувствительных данных и вредоносного кода?](#anti-malware)
+* [Как исправить некорректный MIME-тип объектов при их загрузке в бакет?](#qa-mime-type)
+
 #### Что такое {{ objstorage-full-name }}? {#qa-what-is}
 
 {{ objstorage-full-name }} — это универсальное масштабируемое решение для хранения данных. Оно подходит как для высоконагруженных сервисов, которым требуется надежный и быстрый доступ к данным, так и для проектов с невысокими требованиями к инфраструктуре хранения.
@@ -156,9 +178,89 @@ yc kms symmetric-key add-access-binding \
 * Если к бакету применена политика доступа без правил, то доступ будет запрещен всем пользователям. Чтобы отключить проверки запросов по политике доступа, [удалите](operations/buckets/policy.md#delete-policy) ее.
 
 
-* Если с бакетом взаимодействует кластер [{{ metastore-full-name }}](../metadata-hub/concepts/metastore.md) или [{{ maf-full-name}}](../managed-airflow/concepts/index.md) и для бакета настроена политика доступа, кластер не сможет записывать данные в бакет или читать данные из бакета без сервисного аккаунта с соответствующей ролью. Подробнее см. в инструкциях для [{{ metastore-name }}](../metadata-hub/operations/metastore/s3-policy-connect.md) и [{{ maf-name }}](../managed-airflow/operations/s3-policy-connect.md).
+* Если с бакетом взаимодействует кластер [{{ metastore-full-name }}](../metadata-hub/concepts/metastore.md) или [{{ maf-full-name }}](../managed-airflow/concepts/index.md) и для бакета настроена политика доступа, кластер не сможет записывать данные в бакет или читать данные из бакета без сервисного аккаунта с соответствующей ролью. Подробнее см. в инструкциях для [{{ metastore-name }}](../metadata-hub/operations/metastore/s3-policy-connect.md) и [{{ maf-name }}](../managed-airflow/operations/s3-policy-connect.md).
 
 
 #### Как получить доступ к {{ objstorage-name }} из облачной сети {{ vpc-name }}? {#qa-from-vpc}
 
 Для ресурсов, которые размещены в облачной сети {{ vpc-short-name }} и не имеют публичных IP-адресов или выхода в интернет, можно [организовать подключение](../tutorials/routing/storage-vpc-access.md) к {{ objstorage-name }} через [API Endpoint](../api-design-guide/concepts/endpoints.md). [FQDN](../glossary/fqdn.md) эндпоинта с помощью службы DNS будет преобразован в публичный IP-адрес.
+
+
+#### Проверяются ли объекты, загружаемые в бакет, на наличие чувствительных данных и вредоносного кода? {#anti-malware}
+
+В {{ objstorage-name }} объекты, загружаемые в бакет, не проверяются на наличие чувствительных данных или вредоносного кода.
+
+Реализуйте проверку на наличие вредоносного кода самостоятельно перед загрузкой объектов в бакет.
+
+Для выявления чувствительных данных в бакете воспользуйтесь [модулем контроля данных ({{ dspm-name }}) {{ sd-full-name }}](../security-deck/concepts/dspm.md).
+
+
+#### Как исправить некорректный MIME-тип объектов при их загрузке в бакет? {#qa-mime-type}
+
+Если бакет используется для [хостинга сайта](./concepts/hosting.md), некорректный [MIME-тип](https://ru.wikipedia.org/wiki/Список_MIME-типов) объектов может приводить к возникновению ошибок на сайте, например могут не открываться изображения или не работать скрипты.
+
+В таком случае в браузере в консоли разработчика отображаются ошибки о некорректных MIME-типах объектов, загружаемых из бакета.
+
+В зависимости от способа загрузки объектов в бакет заголовок [Content-Type](./s3/api-ref/common-request-headers.md) может подбираться автоматически, при этом не всегда корректно, например `text/plain` вместо `text/css`, либо выставляться по умолчанию — `binary/octet-stream`.
+
+Чтобы избежать ошибок, явно укажите заголовок `Content-Type` при загрузке объектов в бакет:
+
+{% list tabs %}
+
+- AWS CLI
+
+  ```bash
+  aws s3 cp \
+    <путь_к_локальному_файлу> \
+    s3://<имя_бакета>/ \
+    --no-guess-mime-type \
+    --content-type "application/javascript" \
+    --endpoint-url=https://{{ s3-storage-host }}
+  ```
+
+- s3cmd
+
+  ```bash
+  s3cmd put \
+    --no-guess-mime-type \
+    --no-mime-magic \
+    --mime-type="application/javascript" \
+    <путь_к_локальному_файлу> \
+    s3://<имя_бакета>/
+  ```
+
+{% endlist %}
+
+Также вы можете изменить заголовок `Content-Type` для уже загруженных объектов, например:
+
+{% list tabs %}
+
+- AWS CLI
+
+  ```bash
+  aws s3 cp \
+    s3://<имя_бакета>/ \
+    s3://<имя_бакета>/ \
+    --exclude '*' \
+    --include '*.js' \
+    --no-guess-mime-type \
+    --content-type="application/javascript" \
+    --metadata-directive="REPLACE" \
+    --recursive \
+    --endpoint-url=https://{{ s3-storage-host }}
+    ```
+
+- s3cmd
+
+  ```bash
+  s3cmd modify \
+    --recursive \
+    --exclude '*' \
+    --include '*.js' \
+    --no-guess-mime-type \
+    --no-mime-magic \
+    --mime-type="application/javascript" \
+    s3://<имя_бакета>/
+  ```
+
+{% endlist %}

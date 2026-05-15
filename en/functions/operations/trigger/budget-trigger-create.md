@@ -1,6 +1,6 @@
-# Creating a trigger for budgets that invokes a {{ sf-name }} function
+# Creating a trigger for budgets that invokes {{ sf-name }}
 
-Create a [trigger for budgets](../../concepts/trigger/budget-trigger.md) that calls a {{ sf-name }} [function](../../concepts/function.md) when threshold values are exceeded.
+Create a [trigger for budgets](../../concepts/trigger/budget-trigger.md) that invokes [{{ sf-name }}](../../concepts/function.md) when threshold values are exceeded.
 
 ## Getting started {#before-you-begin}
 
@@ -40,7 +40,7 @@ Create a [trigger for budgets](../../concepts/trigger/budget-trigger.md) that ca
 
         {% include [repeat-request.md](../../../_includes/functions/repeat-request.md) %}
 
-    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select the dead-letter queue and the service account with write permissions for this queue.
+    1. Optionally, under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_dlq }}**, select a dead-letter queue and a service account with write permissions for that queue.
 
     1. Click **{{ ui-key.yacloud.serverless-functions.triggers.form.button_create-trigger }}**.
 

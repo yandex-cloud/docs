@@ -1,4 +1,4 @@
-{{ yq-full-name }} is an interactive service for serverless data analysis. You can use it to process information from various storages without having to to create a dedicated cluster. {{ yq-full-name }} supports [{{ objstorage-full-name }}](../../storage/), [{{ mpg-full-name }}](../../managed-postgresql/), and [{{ mch-full-name }}](../../managed-clickhouse/) data storages.
+{{ yq-full-name }} is an interactive service for serverless data analysis. You can use it to process information from various storages without the need to create a dedicated cluster. {{ yq-full-name }} supports [{{ objstorage-full-name }}](../../storage/), [{{ mpg-full-name }}](../../managed-postgresql/), and [{{ mch-full-name }}](../../managed-clickhouse/) data storages.
 
 You can process data from these systems either individually or as part of one common query, referred to as a _federated_ query.
 
@@ -18,15 +18,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin-datasphere.md) %}
 
+
 ### Required paid resources {#paid-resources}
 
-The cost of supporting the infrastructure for running federated queries in this tutorial includes:
+* {{ ml-platform-name }}: computing resources and storage (see [{{ ml-platform-name }} pricing](../../datasphere/pricing.md)).
+* {{ mpg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* {{ mch-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* {{ objstorage-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* {{ yq-name }}: amount of data read when running queries (see [{{ yq-name }} pricing](../../query/pricing.md)).
 
-* Fee for using [{{ ml-platform-name }} computing resources](../../datasphere/pricing.md).
-* Fee for [storing data in a bucket](../../storage/pricing.md#prices-storage).
-* Fee for a running [{{ mch-name }} cluster](../../managed-clickhouse/pricing.md).
-* Fee for a running [{{ mpg-name }} cluster](../../managed-postgresql/pricing.md).
-* Fee for the amount of read data when running [{{ yq-name }} queries](../../query/pricing.md).
 
 ## Set up your infrastructure {#infra}
 
@@ -300,7 +300,7 @@ The {{ mch-name }} table will contain the item names.
 
 {% endlist %}
 
-To check the connection, run a query in the notebook cell. Here is an example:
+To check the connection, run a query in the notebook cell. For example:
 
 ```sql
 %yq SELECT * FROM clickhouse.items
@@ -380,7 +380,7 @@ The {{ mpg-name }} table will contain the names of the customers.
 
 {% endlist %}
 
-To check the connection, run a query in the notebook cell. Here is an example:
+To check the connection, run a query in the notebook cell. For example:
 
 ```sql
 %yq SELECT * FROM postgresql.persons

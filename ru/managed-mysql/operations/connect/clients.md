@@ -91,11 +91,17 @@ sudo apt update && sudo apt install --yes mysql-client
 
 К базе данных {{ mmy-name }} можно подключиться с помощью [интерфейса командной строки {{ yandex-cloud }} (CLI)](../../../cli/quickstart.md#install), используя аутентификацию через IAM. Этот метод доступен для [аккаунтов на Яндексе](../../../iam/concepts/users/accounts.md#passport), [федеративных аккаунтов](../../../iam/concepts/users/accounts.md#saml-federation) и [локальных пользователей](../../../iam/concepts/users/accounts.md#local). Подключение с аутентификацией через IAM не требует получения SSL-сертификата или указания FQDN хостов кластера.
 
-Перед подключением установите клиент {{ MY }}:
+Перед подключением:
 
-```bash
-sudo apt update && sudo apt install --yes mysql-client
-```
+1. {% include [cli-install](../../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+1. Установите клиент {{ MY }}:
+
+    ```bash
+    sudo apt update && sudo apt install --yes mysql-client
+    ```
 
 Подготовьте кластер {{ mmy-name }} к подключению:
 
@@ -110,10 +116,10 @@ sudo apt update && sudo apt install --yes mysql-client
      1. Нажмите значок ![image](../../../_assets/console-icons/ellipsis.svg) в строке первого хоста и выберите пункт **{{ ui-key.yacloud.common.edit }}**.
      1. Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**.
      1. Повторите операцию для остальных хостов кластера.
-  1. Назначьте роль аккаунту пользователя, который будет подключаться к БД:
+  1. Назначьте роль `managed-mysql.clusters.connector` аккаунту пользователя, который будет подключаться к БД:
      1. Выберите вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
      1. Введите электронную почту пользователя, к которой привязан аккаунт.
-     1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role}}** и выберите роль `managed-mysql.clusters.connector`.
+     1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль `managed-mysql.clusters.connector`.
      1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
   1. Создайте пользователя {{ MY }}:
      1. Выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_users }}**.
@@ -121,7 +127,7 @@ sudo apt update && sudo apt install --yes mysql-client
      1. Выберите способ аутентификации **{{ ui-key.yacloud.mysql.cluster.label_iam_dgBhy }}**.
      1. Выберите аккаунт, которому была назначена роль `managed-mysql.clusters.connector`.
      1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}** и выберите нужную базу данных из выпадающего списка.
-     1. Нажмите значок ![image](../../../_assets/console-icons/plus.svg) в столбце **{{ ui-key.yacloud.mdb.dialogs.popup_field_roles }}** и выберите привилегию из выпадающего списка.
+     1. Нажмите значок ![image](../../../_assets/console-icons/plus.svg) в столбце **{{ ui-key.yacloud.mdb.dialogs.popup_field_roles }}** и выберите необходимые привилегии из выпадающего списка.
      1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-add_button_add }}**.
 
 {% endlist %}
@@ -131,6 +137,8 @@ sudo apt update && sudo apt install --yes mysql-client
 ```bash
 {{ yc-mdb-my }} connect <имя_или_идентификатор_кластера> --db <имя_БД>
 ```
+
+Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
 
 
 ## Подключение из графических IDE {#connection-ide}
@@ -183,6 +191,85 @@ sudo apt update && sudo apt install --yes mysql-client
   1. Нажмите кнопку **Готово**, чтобы сохранить настройки соединения с БД.
 
 {% endlist %}
+
+### Подключение с аутентификацией через IAM {#ide-iam}
+
+Для подключения к базе данных {{ mmy-name }} из графических IDE с аутентификацией через [{{ iam-full-name }}](../../../iam/) необходимо запустить утилиту [CLI {{ yandex-cloud }}](../../../cli/) в режиме слушающего прокси-сервера.
+
+Подключение доступно для [аккаунтов на Яндексе](../../../iam/concepts/users/accounts.md#passport), [федеративных аккаунтов](../../../iam/concepts/users/accounts.md#saml-federation) и [локальных пользователей](../../../iam/concepts/users/accounts.md#local). Оно не требует получения SSL-сертификата или указания FQDN хостов кластера.
+
+Подключаться из графических IDE можно только к хостам кластера в публичном доступе.
+
+Чтобы подключиться к БД {{ mmy-name }}:
+
+1. Назначьте роль `managed-mysql.clusters.connector` аккаунту пользователя, который будет подключаться к БД:
+
+    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+    1. Нажмите на имя нужного кластера.
+    1. Выберите вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
+    1. Введите электронную почту пользователя, к которой привязан аккаунт.
+    1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role}}** и выберите роль `managed-mysql.clusters.connector`.
+    1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
+
+1. Создайте пользователя {{ MY }}:
+
+    1. Выберите вкладку **{{ ui-key.yacloud.mysql.cluster.switch_users }}**.
+    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
+    1. Выберите способ аутентификации **{{ ui-key.yacloud.mysql.cluster.label_iam_dgBhy }}**.
+    1. Выберите аккаунт, которому была назначена роль `managed-mysql.clusters.connector`.
+    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.dialogs.button_add-database }}** и выберите нужную базу данных из выпадающего списка.
+    1. Нажмите значок ![image](../../../_assets/console-icons/plus.svg) в столбце **{{ ui-key.yacloud.mdb.dialogs.popup_field_roles }}** и выберите необходимые привилегии из выпадающего списка.
+    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.users.popup-add_button_add }}**.
+
+1. Запустите CLI {{ yandex-cloud }} в режиме прокси-сервера:
+
+    1. {% include [cli-install](../../../_includes/cli-install.md) %}
+
+        {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+    1. Выполните команду:
+
+        ```bash
+        {{ yc-mdb-my }} connect <имя_или_идентификатор_кластера> --db <имя_БД> --daemon
+        ```
+
+        Будет запущен прокси-сервер на порте `3306`. Чтобы выбрать другой порт, укажите в команде параметр `--port <номер_порта>`.
+
+        Имя и идентификатор кластера можно запросить со [списком кластеров в каталоге](../cluster-list.md#list-clusters).
+
+1. Подключитесь к кластеру {{ mmy-name }}:
+
+    {% list tabs group=ide %}
+
+    - DBeaver {#dbeaver}
+
+        1. Создайте новое соединение с БД:
+            1. Выберите в меню **База данных** пункт **Новое соединение**.
+            1. Выберите из списка БД **{{ MY }}**.
+            1. Нажмите кнопку **Далее**.
+            1. Укажите параметры подключения на вкладке **Главное**:
+                * **Сервер** — `localhost`;
+                * **Порт** — `3306` или порт, который вы указали при запуске прокси-сервера;
+                * **База данных** — имя БД для подключения;
+                * **Пользователь** — логин или электронная почта вашего аккаунта;
+                * **Пароль** — оставьте это поле пустым.
+        1. Нажмите кнопку **Тест соединения ...** для проверки подключения. При успешном подключении будет выведен статус подключения, информация о СУБД и драйвере.
+        1. Нажмите кнопку **Готово**, чтобы сохранить настройки соединения с БД.
+
+    - {{ MY }} Workbench {#mysql-workbench}
+
+        1. Создайте новое соединение с БД:
+            1. Выберите в меню **Database** пункт **Manage connections...**
+            1. Нажмите кнопку **New**.
+            1. Укажите параметры подключения на вкладке **Connection**:
+                * **Hostname** — `127.0.0.1`;
+                * **Port** — `3306` или порт, который вы указали при запуске прокси-сервера;
+                * **Username** — логин или электронная почта вашего аккаунта;
+                * **Default schema** — имя БД для подключения;
+                * **SSL** → **Use SSL** — `No`.
+        1. Нажмите кнопку **Test Connection** для проверки подключения. При успешном подключении будет выведена информация о нем.
+
+    {% endlist %}
 
 
 ## Подключение из {{ websql-full-name }} {#websql}

@@ -285,6 +285,8 @@ items:
             href: tutorials/yq-postgre.md
           - name: Федеративные запросы к данным
             href: tutorials/yq-federative-queries.md
+          - name: Использование сервиса {{ msp-full-name }}
+            href: tutorials/spark-and-datasphere.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

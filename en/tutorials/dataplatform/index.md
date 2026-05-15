@@ -119,6 +119,7 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](postgresql-to-opensearch.md)
 * [{#T}](opensearch-saml-keycloak.md)
 * [{#T}](opensearch-yandex-lemmer.md)
+* [{#T}](opensearch-email-notifications.md)
 
 ## {{ PG }} {#postgresql}
 
@@ -179,6 +180,7 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](data-processing-to-data-processing.md)
 * [{#T}](metastore-import.md)
 * [{#T}](s3-data-processing-ch.md)
+* [{#T}](spark-and-datasphere.md)
 
 ### Basic examples of working with jobs {#jobs-basic-tutorials}
 
@@ -225,6 +227,7 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](metastore-and-spark.md)
 * [{#T}](airflow-spark-min.md)
 * [{#T}](spark-objstorage-integration.md)
+* [{#T}](spark-and-datasphere.md)
 * [{#T}](job-pyspark-secret-access.md)
 
 

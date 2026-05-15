@@ -55,6 +55,8 @@ items:
             href: operations/user-pools/deactivate-user.md
           - name: Посмотреть логи пользователя
             href: operations/user-pools/user-get-logs.md
+          - name: Управлять сессиями пользователя
+            href: operations/manage-sessions.md
           - name: Удалить аккаунт пользователя
             href: operations/edit-account.md
           - name: Покинуть организацию
@@ -145,6 +147,10 @@ items:
                 href: operations/applications/saml-create.md
               - name: Изменить приложение
                 href: operations/applications/saml-update.md
+              - name: Настроить доступ пользователям приложения
+                href: operations/applications/saml-set-access-bindings.md
+              - name: Получить информацию о приложении
+                href: operations/applications/saml-get.md
               - name: Деактивировать и удалить приложение
                 href: operations/applications/saml-deactivate-remove.md
           - name: OIDC-приложения
@@ -179,6 +185,8 @@ items:
                 href: operations/mfa/create-policy.md
               - name: Применить политику MFA к пользователям
                 href: operations/mfa/add-users.md
+              - name: Управлять исключениями политики MFA
+                href: operations/mfa/excluded-audience.md
               - name: Изменить политику MFA
                 href: operations/mfa/update-policy.md
               - name: Активировать и деактивировать политику MFA
@@ -271,6 +279,8 @@ items:
             href: tutorials/single-sign-on/saml-zabbix.md
           - name: '{{ yandex-360 }}'
             href: tutorials/single-sign-on/saml-yandex-360.md
+          - name: Яндекс Браузер для организаций
+            href: tutorials/single-sign-on/saml-ya-browser-corporate.md
           - name: Selectel
             href: tutorials/single-sign-on/saml-selectel.md
           - name: SonarQube
@@ -279,6 +289,8 @@ items:
             href: tutorials/single-sign-on/saml-ovpn.md
           - name: MWS
             href: tutorials/single-sign-on/oidc-mws.md
+          - name: Harbor
+            href: tutorials/single-sign-on/oidc-harbor.md
           - name: Cloud.ru
             items:
               - name: SAML
@@ -286,11 +298,15 @@ items:
               - name: OpenID Connect
                 href: tutorials/single-sign-on/cloud-ru/oidc-cloud-ru.md
           - name: VK Cloud
-            items:
-              - name: SAML
-                href: tutorials/single-sign-on/vk-cloud/saml-vk-cloud.md
+            href: tutorials/single-sign-on/vk-cloud/saml-vk-cloud.md
           - name: Sentry
             href: tutorials/single-sign-on/saml-sentry.md
+          - name: Jenkins
+            items:
+              - name: SAML
+                href: tutorials/single-sign-on/jenkins/saml-jenkins.md
+              - name: OpenID Connect
+                href: tutorials/single-sign-on/jenkins/oidc-jenkins.md
           - name: Использование OAuth2 Proxy для приложений, не поддерживающих SSO
             href: tutorials/single-sign-on/oidc-nginx-oauth2-proxy.md
   - name: Концепции
@@ -323,6 +339,8 @@ items:
         href: concepts/my-account.md
       - name: Аудитные логи и логи входа
         href: concepts/logs.md
+      - name: Сессии
+        href: concepts/sessions.md
       - name: Синхронизация с {{ microsoft-idp.ad-short }}
         href: concepts/ad-sync.md
       - name: Квоты и лимиты
@@ -429,6 +447,8 @@ items:
             href: cli-ref/group/index.md
           - name: add-access-binding
             href: cli-ref/group/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/group/add-labels.md
           - name: add-members
             href: cli-ref/group/add-members.md
           - name: create
@@ -449,6 +469,8 @@ items:
             href: cli-ref/group/list-operations.md
           - name: remove-access-binding
             href: cli-ref/group/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/group/remove-labels.md
           - name: remove-members
             href: cli-ref/group/remove-members.md
           - name: set-access-bindings
@@ -756,6 +778,441 @@ items:
             href: cli-ref/user/list.md
           - name: remove
             href: cli-ref/user/remove.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: federation
+            items:
+              - name: Overview
+                href: cli-ref/v0/federation/index.md
+              - name: group-mapping
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/federation/group-mapping/index.md
+                  - name: add-mapping-items
+                    href: cli-ref/v0/federation/group-mapping/add-mapping-items.md
+                  - name: create
+                    href: cli-ref/v0/federation/group-mapping/create.md
+                  - name: delete
+                    href: cli-ref/v0/federation/group-mapping/delete.md
+                  - name: get
+                    href: cli-ref/v0/federation/group-mapping/get.md
+                  - name: list-mapping-items
+                    href: cli-ref/v0/federation/group-mapping/list-mapping-items.md
+                  - name: remove-mapping-items
+                    href: >-
+                      cli-ref/v0/federation/group-mapping/remove-mapping-items.md
+                  - name: update
+                    href: cli-ref/v0/federation/group-mapping/update.md
+              - name: saml
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/federation/saml/index.md
+                  - name: add-domain
+                    href: cli-ref/v0/federation/saml/add-domain.md
+                  - name: add-labels
+                    href: cli-ref/v0/federation/saml/add-labels.md
+                  - name: add-user-accounts
+                    href: cli-ref/v0/federation/saml/add-user-accounts.md
+                  - name: certificate
+                    items:
+                      - name: Overview
+                        href: cli-ref/v0/federation/saml/certificate/index.md
+                      - name: create
+                        href: cli-ref/v0/federation/saml/certificate/create.md
+                      - name: delete
+                        href: cli-ref/v0/federation/saml/certificate/delete.md
+                      - name: get
+                        href: cli-ref/v0/federation/saml/certificate/get.md
+                      - name: list
+                        href: cli-ref/v0/federation/saml/certificate/list.md
+                      - name: list-operations
+                        href: >-
+                          cli-ref/v0/federation/saml/certificate/list-operations.md
+                      - name: update
+                        href: cli-ref/v0/federation/saml/certificate/update.md
+                  - name: create
+                    href: cli-ref/v0/federation/saml/create.md
+                  - name: delete
+                    href: cli-ref/v0/federation/saml/delete.md
+                  - name: delete-domain
+                    href: cli-ref/v0/federation/saml/delete-domain.md
+                  - name: delete-user-accounts
+                    href: cli-ref/v0/federation/saml/delete-user-accounts.md
+                  - name: get
+                    href: cli-ref/v0/federation/saml/get.md
+                  - name: get-domain
+                    href: cli-ref/v0/federation/saml/get-domain.md
+                  - name: list
+                    href: cli-ref/v0/federation/saml/list.md
+                  - name: list-domains
+                    href: cli-ref/v0/federation/saml/list-domains.md
+                  - name: list-operations
+                    href: cli-ref/v0/federation/saml/list-operations.md
+                  - name: list-user-accounts
+                    href: cli-ref/v0/federation/saml/list-user-accounts.md
+                  - name: reactivate-user-accounts
+                    href: cli-ref/v0/federation/saml/reactivate-user-accounts.md
+                  - name: remove-labels
+                    href: cli-ref/v0/federation/saml/remove-labels.md
+                  - name: suspend-user-accounts
+                    href: cli-ref/v0/federation/saml/suspend-user-accounts.md
+                  - name: update
+                    href: cli-ref/v0/federation/saml/update.md
+                  - name: validate-domain
+                    href: cli-ref/v0/federation/saml/validate-domain.md
+          - name: group
+            items:
+              - name: Overview
+                href: cli-ref/v0/group/index.md
+              - name: add-access-binding
+                href: cli-ref/v0/group/add-access-binding.md
+              - name: add-labels
+                href: cli-ref/v0/group/add-labels.md
+              - name: add-members
+                href: cli-ref/v0/group/add-members.md
+              - name: create
+                href: cli-ref/v0/group/create.md
+              - name: delete
+                href: cli-ref/v0/group/delete.md
+              - name: get
+                href: cli-ref/v0/group/get.md
+              - name: list
+                href: cli-ref/v0/group/list.md
+              - name: list-access-bindings
+                href: cli-ref/v0/group/list-access-bindings.md
+              - name: list-effective
+                href: cli-ref/v0/group/list-effective.md
+              - name: list-members
+                href: cli-ref/v0/group/list-members.md
+              - name: list-operations
+                href: cli-ref/v0/group/list-operations.md
+              - name: remove-access-binding
+                href: cli-ref/v0/group/remove-access-binding.md
+              - name: remove-labels
+                href: cli-ref/v0/group/remove-labels.md
+              - name: remove-members
+                href: cli-ref/v0/group/remove-members.md
+              - name: set-access-bindings
+                href: cli-ref/v0/group/set-access-bindings.md
+              - name: update
+                href: cli-ref/v0/group/update.md
+          - name: idp
+            items:
+              - name: Overview
+                href: cli-ref/v0/idp/index.md
+              - name: application
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/idp/application/index.md
+                  - name: oauth
+                    items:
+                      - name: Overview
+                        href: cli-ref/v0/idp/application/oauth/index.md
+                      - name: application
+                        items:
+                          - name: Overview
+                            href: >-
+                              cli-ref/v0/idp/application/oauth/application/index.md
+                          - name: add-access-bindings
+                            href: >-
+                              cli-ref/v0/idp/application/oauth/application/add-access-bindings.md
+                          - name: add-assignments
+                            href: >-
+                              cli-ref/v0/idp/application/oauth/application/add-assignments.md
+                          - name: create
+                            href: >-
+                              cli-ref/v0/idp/application/oauth/application/create.md
+                          - name: delete
+                            href: >-
+                              cli-ref/v0/idp/application/oauth/application/delete.md
+                          - name: get
+                            href: >-
+                              cli-ref/v0/idp/application/oauth/application/get.md
+                          - name: list
+                            href: >-
+                              cli-ref/v0/idp/application/oauth/application/list.md
+                          - name: list-access-bindings
+                            href: >-
+                              cli-ref/v0/idp/application/oauth/application/list-access-bindings.md
+                          - name: list-assignments
+                            href: >-
+                              cli-ref/v0/idp/application/oauth/application/list-assignments.md
+                          - name: list-operations
+                            href: >-
+                              cli-ref/v0/idp/application/oauth/application/list-operations.md
+                          - name: reactivate
+                            href: >-
+                              cli-ref/v0/idp/application/oauth/application/reactivate.md
+                          - name: remove-access-bindings
+                            href: >-
+                              cli-ref/v0/idp/application/oauth/application/remove-access-bindings.md
+                          - name: remove-assignments
+                            href: >-
+                              cli-ref/v0/idp/application/oauth/application/remove-assignments.md
+                          - name: set-access-bindings
+                            href: >-
+                              cli-ref/v0/idp/application/oauth/application/set-access-bindings.md
+                          - name: suspend
+                            href: >-
+                              cli-ref/v0/idp/application/oauth/application/suspend.md
+                          - name: update
+                            href: >-
+                              cli-ref/v0/idp/application/oauth/application/update.md
+                  - name: saml
+                    items:
+                      - name: Overview
+                        href: cli-ref/v0/idp/application/saml/index.md
+                      - name: application
+                        items:
+                          - name: Overview
+                            href: >-
+                              cli-ref/v0/idp/application/saml/application/index.md
+                          - name: add-access-bindings
+                            href: >-
+                              cli-ref/v0/idp/application/saml/application/add-access-bindings.md
+                          - name: add-assignments
+                            href: >-
+                              cli-ref/v0/idp/application/saml/application/add-assignments.md
+                          - name: create
+                            href: >-
+                              cli-ref/v0/idp/application/saml/application/create.md
+                          - name: delete
+                            href: >-
+                              cli-ref/v0/idp/application/saml/application/delete.md
+                          - name: get
+                            href: cli-ref/v0/idp/application/saml/application/get.md
+                          - name: list
+                            href: >-
+                              cli-ref/v0/idp/application/saml/application/list.md
+                          - name: list-access-bindings
+                            href: >-
+                              cli-ref/v0/idp/application/saml/application/list-access-bindings.md
+                          - name: list-assignments
+                            href: >-
+                              cli-ref/v0/idp/application/saml/application/list-assignments.md
+                          - name: list-operations
+                            href: >-
+                              cli-ref/v0/idp/application/saml/application/list-operations.md
+                          - name: list-supported-attribute-values
+                            href: >-
+                              cli-ref/v0/idp/application/saml/application/list-supported-attribute-values.md
+                          - name: reactivate
+                            href: >-
+                              cli-ref/v0/idp/application/saml/application/reactivate.md
+                          - name: remove-access-bindings
+                            href: >-
+                              cli-ref/v0/idp/application/saml/application/remove-access-bindings.md
+                          - name: remove-assignments
+                            href: >-
+                              cli-ref/v0/idp/application/saml/application/remove-assignments.md
+                          - name: set-access-bindings
+                            href: >-
+                              cli-ref/v0/idp/application/saml/application/set-access-bindings.md
+                          - name: suspend
+                            href: >-
+                              cli-ref/v0/idp/application/saml/application/suspend.md
+                          - name: update
+                            href: >-
+                              cli-ref/v0/idp/application/saml/application/update.md
+                          - name: update-assignments
+                            href: >-
+                              cli-ref/v0/idp/application/saml/application/update-assignments.md
+                      - name: signature-certificate
+                        items:
+                          - name: Overview
+                            href: >-
+                              cli-ref/v0/idp/application/saml/signature-certificate/index.md
+                          - name: create
+                            href: >-
+                              cli-ref/v0/idp/application/saml/signature-certificate/create.md
+                          - name: delete
+                            href: >-
+                              cli-ref/v0/idp/application/saml/signature-certificate/delete.md
+                          - name: get
+                            href: >-
+                              cli-ref/v0/idp/application/saml/signature-certificate/get.md
+                          - name: list
+                            href: >-
+                              cli-ref/v0/idp/application/saml/signature-certificate/list.md
+                          - name: update
+                            href: >-
+                              cli-ref/v0/idp/application/saml/signature-certificate/update.md
+              - name: user
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/idp/user/index.md
+                  - name: convert-to-external
+                    href: cli-ref/v0/idp/user/convert-to-external.md
+                  - name: create
+                    href: cli-ref/v0/idp/user/create.md
+                  - name: delete
+                    href: cli-ref/v0/idp/user/delete.md
+                  - name: generate-password
+                    href: cli-ref/v0/idp/user/generate-password.md
+                  - name: get
+                    href: cli-ref/v0/idp/user/get.md
+                  - name: get-password-metadata
+                    href: cli-ref/v0/idp/user/get-password-metadata.md
+                  - name: list
+                    href: cli-ref/v0/idp/user/list.md
+                  - name: reactivate
+                    href: cli-ref/v0/idp/user/reactivate.md
+                  - name: reset-password
+                    href: cli-ref/v0/idp/user/reset-password.md
+                  - name: resolve-external-ids
+                    href: cli-ref/v0/idp/user/resolve-external-ids.md
+                  - name: set-own-password
+                    href: cli-ref/v0/idp/user/set-own-password.md
+                  - name: set-password
+                    href: cli-ref/v0/idp/user/set-password.md
+                  - name: set-password-hash
+                    href: cli-ref/v0/idp/user/set-password-hash.md
+                  - name: suspend
+                    href: cli-ref/v0/idp/user/suspend.md
+                  - name: update
+                    href: cli-ref/v0/idp/user/update.md
+              - name: userpool
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/idp/userpool/index.md
+                  - name: create
+                    href: cli-ref/v0/idp/userpool/create.md
+                  - name: delete
+                    href: cli-ref/v0/idp/userpool/delete.md
+                  - name: domain
+                    items:
+                      - name: Overview
+                        href: cli-ref/v0/idp/userpool/domain/index.md
+                      - name: add
+                        href: cli-ref/v0/idp/userpool/domain/add.md
+                      - name: delete
+                        href: cli-ref/v0/idp/userpool/domain/delete.md
+                      - name: get
+                        href: cli-ref/v0/idp/userpool/domain/get.md
+                      - name: list
+                        href: cli-ref/v0/idp/userpool/domain/list.md
+                      - name: validate
+                        href: cli-ref/v0/idp/userpool/domain/validate.md
+                  - name: get
+                    href: cli-ref/v0/idp/userpool/get.md
+                  - name: list
+                    href: cli-ref/v0/idp/userpool/list.md
+                  - name: list-access-bindings
+                    href: cli-ref/v0/idp/userpool/list-access-bindings.md
+                  - name: list-operations
+                    href: cli-ref/v0/idp/userpool/list-operations.md
+                  - name: set-access-bindings
+                    href: cli-ref/v0/idp/userpool/set-access-bindings.md
+                  - name: update
+                    href: cli-ref/v0/idp/userpool/update.md
+                  - name: update-access-bindings
+                    href: cli-ref/v0/idp/userpool/update-access-bindings.md
+          - name: mfa-enforcement
+            items:
+              - name: Overview
+                href: cli-ref/v0/mfa-enforcement/index.md
+              - name: activate
+                href: cli-ref/v0/mfa-enforcement/activate.md
+              - name: create
+                href: cli-ref/v0/mfa-enforcement/create.md
+              - name: deactivate
+                href: cli-ref/v0/mfa-enforcement/deactivate.md
+              - name: delete
+                href: cli-ref/v0/mfa-enforcement/delete.md
+              - name: get
+                href: cli-ref/v0/mfa-enforcement/get.md
+              - name: list
+                href: cli-ref/v0/mfa-enforcement/list.md
+              - name: list-audience
+                href: cli-ref/v0/mfa-enforcement/list-audience.md
+              - name: list-excluded-audience
+                href: cli-ref/v0/mfa-enforcement/list-excluded-audience.md
+              - name: update
+                href: cli-ref/v0/mfa-enforcement/update.md
+              - name: update-audience
+                href: cli-ref/v0/mfa-enforcement/update-audience.md
+              - name: update-excluded-audience
+                href: cli-ref/v0/mfa-enforcement/update-excluded-audience.md
+          - name: organization
+            items:
+              - name: Overview
+                href: cli-ref/v0/organization/index.md
+              - name: add-access-binding
+                href: cli-ref/v0/organization/add-access-binding.md
+              - name: add-labels
+                href: cli-ref/v0/organization/add-labels.md
+              - name: bind-access-policy
+                href: cli-ref/v0/organization/bind-access-policy.md
+              - name: get
+                href: cli-ref/v0/organization/get.md
+              - name: leave
+                href: cli-ref/v0/organization/leave.md
+              - name: list
+                href: cli-ref/v0/organization/list.md
+              - name: list-access-bindings
+                href: cli-ref/v0/organization/list-access-bindings.md
+              - name: list-access-policy-bindings
+                href: cli-ref/v0/organization/list-access-policy-bindings.md
+              - name: list-operations
+                href: cli-ref/v0/organization/list-operations.md
+              - name: remove-access-binding
+                href: cli-ref/v0/organization/remove-access-binding.md
+              - name: remove-labels
+                href: cli-ref/v0/organization/remove-labels.md
+              - name: set-access-bindings
+                href: cli-ref/v0/organization/set-access-bindings.md
+              - name: unbind-access-policy
+                href: cli-ref/v0/organization/unbind-access-policy.md
+              - name: update
+                href: cli-ref/v0/organization/update.md
+          - name: oslogin
+            items:
+              - name: Overview
+                href: cli-ref/v0/oslogin/index.md
+              - name: get-settings
+                href: cli-ref/v0/oslogin/get-settings.md
+              - name: profile
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/oslogin/profile/index.md
+                  - name: create
+                    href: cli-ref/v0/oslogin/profile/create.md
+                  - name: delete
+                    href: cli-ref/v0/oslogin/profile/delete.md
+                  - name: get
+                    href: cli-ref/v0/oslogin/profile/get.md
+                  - name: list
+                    href: cli-ref/v0/oslogin/profile/list.md
+                  - name: set-default
+                    href: cli-ref/v0/oslogin/profile/set-default.md
+                  - name: update
+                    href: cli-ref/v0/oslogin/profile/update.md
+              - name: update-settings
+                href: cli-ref/v0/oslogin/update-settings.md
+              - name: user-ssh-key
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/oslogin/user-ssh-key/index.md
+                  - name: create
+                    href: cli-ref/v0/oslogin/user-ssh-key/create.md
+                  - name: delete
+                    href: cli-ref/v0/oslogin/user-ssh-key/delete.md
+                  - name: get
+                    href: cli-ref/v0/oslogin/user-ssh-key/get.md
+                  - name: list
+                    href: cli-ref/v0/oslogin/user-ssh-key/list.md
+                  - name: update
+                    href: cli-ref/v0/oslogin/user-ssh-key/update.md
+          - name: user
+            items:
+              - name: Overview
+                href: cli-ref/v0/user/index.md
+              - name: list
+                href: cli-ref/v0/user/list.md
+              - name: remove
+                href: cli-ref/v0/user/remove.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

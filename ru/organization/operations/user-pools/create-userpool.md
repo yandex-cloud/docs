@@ -13,9 +13,9 @@ description: Следуя данной инструкции, вы сможете
   1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
   1. На панели слева выберите ![userpool](../../../_assets/organization/userpool.svg) **{{ ui-key.yacloud_org.pages.userpools }}**.  
   1. В правом верхнем углу страницы нажмите ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.organization.userpools.action_create-userpool }}**.
-  1. Задайте название и описание [пула пользователей](../../concepts/user-pools.md).
+  1. Задайте имя и описание [пула пользователей](../../concepts/user-pools.md).
 
-      Название должно быть уникальным в рамках организации и соответствовать требованиям:
+      Имя должно быть уникальным в рамках организации и соответствовать требованиям:
 
       {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
 
@@ -25,6 +25,7 @@ description: Следуя данной инструкции, вы сможете
      1. Введите метку в формате `ключ: значение`.
      1. Нажмите **Enter**.
   1. (Опционально) В поле **{{ ui-key.yacloud_org.form.userpool.caption.settings-data }}** выберите пользовательские настройки, доступные для изменения на портале [Мой аккаунт](../../concepts/my-account.md). По умолчанию разрешено управление паролем.
+  1. В поле **{{ ui-key.yacloud_org.form.userpool.caption.session-lifetime }}** задайте период времени, в течение которого будут действительны [сессии](../../concepts/sessions.md) пользователя и не будет требоваться повторная аутентификация в {{ org-full-name }}.
   1. Нажмите кнопку **{{ ui-key.yacloud_org.form.userpool.create.action.create }}**.
 
 - CLI {#cli}

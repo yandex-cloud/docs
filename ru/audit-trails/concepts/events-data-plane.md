@@ -173,7 +173,7 @@ description: В данном разделе приведены описания 
 
 {% include [sd-cspm-events-dp](../../_includes/audit-trails/events/sd-cspm-events-dp.md) %}
 
-### Модуль Контроль {{ k8s }}® (KSPM) {#sd-kspm}
+### Модуль Контроль {{ k8s }}® ({{ kspm-name }}) {#sd-kspm}
 
 Имя модуля — `securitydeck.kspm`.
 
@@ -226,3 +226,9 @@ description: В данном разделе приведены описания 
 Имя сервиса — `websql`.
 
 {% include [websql-events-dp](../../_includes/audit-trails/events/websql-events-dp.md) %}
+
+## {{ ydb-full-name }} {#ydb}
+
+Имя сервиса — `ydb`.
+
+{% include [ydb-events-dp](../../_includes/audit-trails/events/ydb-events-dp.md) %}

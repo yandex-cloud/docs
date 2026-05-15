@@ -5,7 +5,7 @@ description: Video recordings of conferences and webinars on {{ mspqr-full-name 
 
 # Public materials about {{ mspqr-full-name }}
 
-## Documentation {#docs}
+## Guides {#docs}
 
 * [Documentation for developers](https://pg-sharding.tech). 
 

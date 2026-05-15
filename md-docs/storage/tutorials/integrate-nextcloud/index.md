@@ -1,0 +1,9 @@
+# Развертывание Nextcloud в Yandex Cloud
+
+[Nextcloud](https://nextcloud.com/) — это программное решение с открытым исходным кодом, позволяющее организовывать совместную работу в команде, проводить аудио- и видеоконференции, а также удобно, гибко и безопасно управлять файлами, обмениваться ими и совместно работать над документами. При этом Nextcloud позволяет как создавать собственные облачные хранилища, так и интегрировать готовые решения, например, [Yandex Object Storage](../../index.md). В качестве пользовательского интерфейса Nextcloud предоставляет приложения для рабочего стола, мобильные приложения и веб-интерфейс.
+
+Чтобы развернуть Nextcloud в инфраструктуре Yandex Cloud с интеграцией объектного хранилища Object Storage, воспользуйтесь одним из предлагаемых решений:
+
+* [Развертывание Nextcloud на виртуальной машине Yandex Compute Cloud с помощью образа Container Optimized Image](coi-based.md) — способ быстро развернуть базовую функциональность Nextcloud в инфраструктуре Yandex Cloud.
+* [Развертывание Nextcloud вручную на виртуальной машине или в группе виртуальных машин Compute Cloud](fault-tolerant.md) — способ вручную развернуть Nextcloud в инфраструктуре Yandex Cloud в [базовом](fault-tolerant.md#the-basic-variant) или [отказоустойчивом](fault-tolerant.md#the-redundant-variant) вариантах.
+* [Развертывание Nextcloud на виртуальной машине или в группе виртуальных машин Compute Cloud с помощью Terraform](terraform.md) — способ развернуть Nextcloud в инфраструктуре Yandex Cloud в [базовом](terraform.md#the-basic-variant) или [отказоустойчивом](terraform.md#the-redundant-variant) вариантах с помощью [Terraform-провайдера Yandex Cloud](../../../terraform/index.md).

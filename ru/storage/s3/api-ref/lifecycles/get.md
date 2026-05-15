@@ -1,4 +1,4 @@
-# Метод get
+# Object Storage API, REST совместимый с Amazon S3: GetBucketLifecycleConfiguration
 
 Возвращает конфигурацию жизненных циклов объектов в бакете из {{ objstorage-name }}.
 
@@ -44,5 +44,11 @@ GET /{bucket}?lifecycle HTTP/2
 ### Схема данных {#response-scheme}
 
 Возвращаемые данные имеют ту же структуру, которую имеют данные, передаваемые методом [upload](upload.md). Структура описана в разделе [{#T}](xml-config.md).
+
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/lifecycles.md)
+
+* [{#T}](../../../operations/buckets/lifecycles.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

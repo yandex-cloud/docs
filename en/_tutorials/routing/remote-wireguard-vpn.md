@@ -1,6 +1,6 @@
 # Secure user access to cloud resources based on WireGuard VPN
 
-In this tutorial, we will set up [WireGuard VPN](https://www.wireguard.com/) access to your cloud resources with [Firezone](https://www.firezone.dev/): an open-source [VPN](https://ru.wikipedia.org/wiki/VPN) solution supporting various [identity providers](https://www.firezone.dev/docs/authenticate) for [single sign-on](https://ru.wikipedia.org/wiki/Технология_единого_входа). We will also use the [Keycloak](https://www.keycloak.org/) access management software.
+In this tutorial, we will set up [WireGuard VPN](https://www.wireguard.com/) access to your cloud resources with [Firezone](https://www.firezone.dev/): an open-source [VPN](https://ru.wikipedia.org/wiki/VPN) solution. For the purpose of implementing single sign-on scenarios for users, Firezone supports several authentication services ([Identity Providers](https://www.firezone.dev/docs/authenticate)). We will also use the [Keycloak](https://www.keycloak.org/) access management software.
 
 In our scenario, we will create a {{ yandex-cloud }} infrastructure and set up a WireGuard VPN access as shown in the diagram below:
 

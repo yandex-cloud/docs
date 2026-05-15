@@ -1,6 +1,6 @@
-### I used a single connection for multiple dashboards, {{ datalens-short-name }} prompts to place all of them in the same workbook. How can I get a separate workbook for each dashboard? {#workbook-for-dashboard}
+### I used a single connection for multiple dashboards. {{ datalens-short-name }} prompts to place all of them in the same workbook. How can I get a separate workbook for each dashboard? {#workbook-for-dashboard}
 
-We recommend placing objects in different [workbooks](../../datalens/workbooks-collections/index.md) if they have different [access rights](../../datalens/workbooks-collections/security.md).
+We recommend placing objects in different [workbooks](../../datalens/workbooks-collections/index.md) if they have different [access rights](../../datalens/workbooks-collections/workbooks-operations.md#security).
 
 To get a separate workbook for each dashboard, use one of the following methods:
 

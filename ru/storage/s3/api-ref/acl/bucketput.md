@@ -1,4 +1,4 @@
-# Метод bucketPutAcl
+# Object Storage API, REST совместимый с Amazon S3: PutBucketAcl
 
 Загружает список управления доступом для бакета.
 
@@ -49,5 +49,11 @@ ACL передается в виде XML-документа. Описание с
 ### Коды ответов {#response-codes}
 
 Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
+
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/acl.md)
+
+* [{#T}](../../../operations/buckets/edit-acl.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

@@ -183,7 +183,7 @@ _Эволюция схемы_ — это изменение одного или 
 
 {{ schema-registry-name }} поддерживает проверку совместимости схем через конвертацию открытой схемы потребителя в закрытую. Для этого задайте в [пространстве имен](schema-registry.md#namespace) для JSON-схем [политику проверки совместимости](compatibility-check-policy.md) `Optional-friendly`. Вы можете [задать политику](../operations/create-name-space.md) для нового пространства имен или [изменить ее](../operations/update-name-space.md) для существующего пространства. Чтобы политика `Optional-friendly` работала корректно, схемы в пространстве имен должны создаваться по [закрытой контентной модели](#closed-model).
 
-Вы также можете использовать это решение для сохранения совместимости JSON-схем при поставке данных в [{{ mkf-full-name }}](../../managed-kafka) через [{{ yds-full-name}}](../../data-streams/) [{{ data-transfer-full-name }}](../../data-transfer/). Подробнее о требуемых настройках эндпоинта {{ data-transfer-name }} см. в [инструкции](../../data-transfer/operations/endpoint/target/kafka.md#serializer).
+Вы также можете использовать это решение для сохранения совместимости JSON-схем при поставке данных в [{{ mkf-full-name }}](../../managed-kafka) через [{{ yds-full-name }}](../../data-streams/) [{{ data-transfer-full-name }}](../../data-transfer/). Подробнее о требуемых настройках эндпоинта {{ data-transfer-name }} см. в [инструкции](../../data-transfer/operations/endpoint/target/kafka.md#serializer).
 
 ## См. также {#see-also}
 

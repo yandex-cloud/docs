@@ -1,6 +1,6 @@
 ---
 title: Maintenance in {{ mpg-full-name }}
-description: In {{ mpg-name }}, maintenance means automatic installation of updates and patches for DBMS hosts (including for stopped clusters), host class and storage size modifications, and other maintenance operations.
+description: In {{ mpg-name }}, maintenance means automatic installation of database updates and patches for hosts (including for stopped clusters), host class and storage size modifications, and other maintenance operations.
 ---
 
 # Maintenance in {{ mpg-name }}
@@ -21,9 +21,9 @@ You can set the maintenance window when [creating a cluster](../operations/clust
 
 {% note info %}
 
-Viewing information on maintenance tasks requires the `managed-postgresql.maintenanceTask.viewer` [role](../security/index.md#managed-postgresql-maintenanceTask-viewer) or higher.
+To view maintenance task information, you need the `managed-postgresql.maintenanceTask.viewer` [role](../security/index.md#managed-postgresql-maintenanceTask-viewer) or higher.
 
-Managing maintenance tasks requires the `managed-postgresql.maintenanceTask.editor` [role](../security/index.md#managed-postgresql-maintenanceTask-editor) or higher.
+To manage maintenance tasks, you need the `managed-postgresql.maintenanceTask.editor` [role](../security/index.md#managed-postgresql-maintenanceTask-editor) or higher.
 
 {% endnote %}
 

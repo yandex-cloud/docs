@@ -2,7 +2,11 @@
 
 {{ mmg-name }} enables retrieval of [cluster log snippets](#get-log) for a chosen period and [real-time log viewing](#get-log-stream).
 
-{% include [log-duration](../../_includes/mdb/log-duration.md) %}
+{% note info %}
+
+{% include [log-duration](../../_includes/mdb/mmg/log-duration.md) %}
+
+{% endnote %}
 
 ## Getting a cluster log {#get-log}
 

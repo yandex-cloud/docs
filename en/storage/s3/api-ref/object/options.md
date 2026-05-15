@@ -1,4 +1,4 @@
-# options method
+# Object Storage API, Amazon S3-compatible REST: options
 
 Checks whether a [CORS request](../../../concepts/cors.md) to an object can be made.
 
@@ -49,5 +49,11 @@ The method returns the following:
 - 403: If requests to the object are not allowed.
 
 For a detailed description of response codes, see [{#T}](../response-codes.md).
+
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/object.md)
+
+* [{#T}](../../../operations/buckets/cors.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

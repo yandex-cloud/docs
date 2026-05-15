@@ -1,4 +1,4 @@
-# Метод deleteObjectTagging
+# Object Storage API, REST совместимый с Amazon S3: DeleteObjectTagging
 
 Удаляет все [метки](../../../concepts/tags.md) объекта в бакете.
 
@@ -45,5 +45,11 @@ DELETE /{bucket}/{key}?tagging&versionId={versionId} HTTP/2
 Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
 
 Успешный ответ не содержит дополнительных данных.
+
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/object.md)
+
+* [{#T}](../../../operations/objects/tagging.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

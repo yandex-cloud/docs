@@ -85,6 +85,18 @@ Service account to be used by the worker to broadcast to gateway websocket. ||
 || `--new-gateway-websocket-broadcast-service-account-name` | `string`
 
 Service account to be used by the worker to broadcast to gateway websocket. ||
+|| `--new-start-workflow-id` | `string`
+
+Workflow to be started on each YMQ Message. ||
+|| `--new-start-workflow-name` | `string`
+
+Workflow to be started on each YMQ Message. ||
+|| `--new-start-workflow-service-account-id` | `string`
+
+Service account to start the workflow. ||
+|| `--new-start-workflow-service-account-name` | `string`
+
+Service account to start the workflow. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 || `--id` | `string`
 

@@ -30,6 +30,7 @@ description: Step-by-step guides on using push notifications and SMS in {{ cns-f
 * [{#T}](sms/test-number-create.md)
 * [{#T}](sms/test-number-delete.md)
 * [{#T}](sms/send.md)
+* [{#T}](sms/manage-templates.md)
 * [{#T}](sms/exit-sandbox.md)
 
 ## Topics {#topics}

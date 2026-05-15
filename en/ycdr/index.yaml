@@ -16,7 +16,7 @@ meta:
 links:
   - title: Getting started
     description: Create your first investigation and run a KQL query
-    href: quickstart.md
+    href: quickstart
   - title: Concepts
     description: Learn about its concepts and resources
     href: concepts/
@@ -25,7 +25,7 @@ links:
     href: operations/
   - title: KQL reference
     description: KQL (Kusto Query Language) syntax description
-    href: kql-reference.md
+    href: kql-reference
   - title: Access management
     description: Configure access permissions to use this service
     href: security/

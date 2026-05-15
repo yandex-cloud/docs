@@ -7,7 +7,7 @@ description: В данном разделе описан модуль диагн
 
 В целях обеспечения [безопасности](../../security/standard/all.md) данных и облачной инфраструктуры необходимо регулярно проводить аудит прав доступа, имеющихся у [пользователей](../../overview/roles-and-resources.md#users) и [сервисных аккаунтов](../../iam/concepts/users/accounts.md#sa).
 
-[Модуль диагностики доступов]({{ link-sd-main }}iam-diagnostics/) или {{ ciem-name }} (Cloud Infrastructure Entitlement Management) — это инструмент, позволяющий централизованно [просматривать](../operations/ciem/view-permissions.md) полный список доступов [субъектов](../../iam/concepts/access-control/index.md#subject): пользователей, сервисных аккаунтов, [групп пользователей](../../organization/concepts/groups.md), [системных групп](../../iam/concepts/access-control/system-group.md) и [публичных групп](../../iam/concepts/access-control/public-group.md) к [ресурсам](../../iam/concepts/access-control/resources-with-access-control.md) организации. Этот инструмент также позволяет легко [отзывать](../operations/ciem/revoke-permissions.md) у субъектов лишние доступы.
+[Модуль диагностики доступов]({{ link-sd-main }}iam-diagnostics/) или {{ ciem-name }} ({{ ciem-full-name }}) — это инструмент, позволяющий централизованно [просматривать](../operations/ciem/view-permissions.md) полный список доступов [субъектов](../../iam/concepts/access-control/index.md#subject): пользователей, сервисных аккаунтов, [групп пользователей](../../organization/concepts/groups.md), [системных групп](../../iam/concepts/access-control/system-group.md) и [публичных групп](../../iam/concepts/access-control/public-group.md) к [ресурсам](../../iam/concepts/access-control/resources-with-access-control.md) организации. Этот инструмент также позволяет легко [отзывать](../operations/ciem/revoke-permissions.md) у субъектов лишние доступы.
 
 ## Просмотр доступов {#viewing-permissions}
 
@@ -29,12 +29,6 @@ description: В данном разделе описан модуль диагн
 * по идентификатору ресурса, к которому выдан доступ;
 * по идентификатору выданной роли;
 * по способу назначения: `{{ ui-key.yacloud_org.iam-bindings.subject.value_role-source-filter_direct }}` или `{{ ui-key.yacloud_org.iam-bindings.subject.value_role-source-filter_group }}`.
-
-{% note warning %}
-
-В настоящее время диагностика доступов не отображает права доступа субъектов к [платежным аккаунтам](../../billing/concepts/billing-account.md) и ресурсам сервиса [{{ datalens-full-name }}](../../datalens/index.yaml).
-
-{% endnote %}
 
 ## Отзыв доступов {#revoking-permissions}
 

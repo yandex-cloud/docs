@@ -1,3 +1,4 @@
+# Creating an agent based on the OpenAI Agents SDK with response streaming via web sockets on {{ sf-full-name }} and {{ api-gw-name }}
 
 
 In this tutorial, you will create an agent with response streaming via [web sockets](https://{{ lang }}.wikipedia.org/wiki/WebSocket) on [{{ sf-full-name }}](../../functions/) and [{{ api-gw-full-name }}](../../api-gateway/). The function will use the [OpenAI Agents SDK](https://openai.github.io/openai-agents-python/) to access [the {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/generation/index#yandex) models.
@@ -427,7 +428,7 @@ The [{{ lockbox-name }}](../../lockbox/) secret will store the secret key.
   1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the secret name: `api-key-secret`.
   1. In the **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** field, select `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.
-  1. In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, enter `api-key`.
+  1. In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, specify `api-key`.
   1. In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, paste the secret key you obtained in the previous step.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -626,7 +627,7 @@ Create the API gateway for access to the function.
       1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}**, paste the contents of the `gateway-spec.yaml` file.
       1. If you prefer to opt out of logging so as not to pay for {{ cloud-logging-name }}, disable the **{{ ui-key.yacloud.logging.field_logging }}** option.
       1. Click **{{ ui-key.yacloud.serverless-functions.gateways.form.button_create-gateway }}**.
-      1. Select the created API gateway. Save the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_wss_domain }}** field value as you will need it at the next step.
+      1. Select the previously created API gateway. Save the **{{ ui-key.yacloud.serverless-functions.gateways.overview.label_wss_domain }}** field value as you will need it at the next step.
 
     - {{ yandex-cloud }} CLI {#cli}
 
@@ -695,9 +696,9 @@ Create the API gateway for access to the function.
 
 ## How to delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid [paying](#paid-resources) for them:
+To avoid [incurring charges](#paid-resources) for resources you no longer need, delete them.
 
 1. [Delete the API gateway](../../api-gateway/operations/api-gw-delete.md).
 1. [Delete](../../functions/operations/function/function-delete.md) the function.
 1. [Delete](../../lockbox/operations/secret-delete.md) the secret.
-1. If you had left the function logging feature on, [delete](../../logging/operations/delete-group.md) the log group.
+1. If the function logging feature was left on, [delete](../../logging/operations/delete-group.md) the log group.

@@ -9,13 +9,6 @@ description: Из статьи вы узнаете как работать с и
 - [{#T}](update-cli.md)
 - [{#T}](remove-cli.md)
 
-## Аутентификация {#auth}
-
-- [{#T}](authentication/user.md)
-- [{#T}](authentication/service-account.md)
-- [{#T}](authentication/federated-user.md)
-- [{#T}](authentication/local-user.md)
-
 ## Управление профилем {#profile}
 
 - [{#T}](profile/profile-create.md)
@@ -23,3 +16,10 @@ description: Из статьи вы узнаете как работать с и
 - [{#T}](profile/profile-list.md)
 - [{#T}](profile/profile-activate.md)
 - [{#T}](profile/profile-delete.md)
+
+## Аутентификация {#auth}
+
+- [{#T}](authentication/user.md)
+- [{#T}](authentication/service-account.md)
+- [{#T}](authentication/federated-user.md)
+- [{#T}](authentication/local-user.md)

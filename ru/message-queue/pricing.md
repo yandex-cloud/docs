@@ -11,7 +11,6 @@ editable: false
 
 
 
-
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
@@ -29,6 +28,7 @@ editable: false
 
 ## Цены для региона Россия {#prices}
 
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
@@ -39,6 +39,7 @@ editable: false
     currency="RUB"
   />
 </MDX>
+
 
 
 

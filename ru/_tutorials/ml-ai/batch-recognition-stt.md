@@ -18,7 +18,7 @@
 
 1. [Создайте](../../iam/operations/authentication/manage-api-keys.md#create-api-key) API-ключ доступа для сервисного аккаунта.
 1. [Создайте](../../storage/operations/buckets/create.md) бакет {{ objstorage-name }} с именем `asr-batch-bucket` в каталоге сервисного аккаунта.
-1. Откройте бакет `asr-batch-bucket`, нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_create }}** и укажите в поле **{{ ui-key.yacloud.storage.bucket.popup-create-folder_field_name}}** значение `input`.
+1. Откройте бакет `asr-batch-bucket`, нажмите кнопку **{{ ui-key.yacloud.storage.bucket.button_create }}** и укажите в поле **{{ ui-key.yacloud.storage.bucket.popup-create-folder_field_name }}** значение `input`.
 1. [Загрузите](../../storage/operations/objects/upload.md#simple) в папку `input` бакета файл `config.json` с заданным [языком распознавания]({{ link-docs-ai }}speechkit/stt/models#languages). Файл содержит только один параметр:
 
    ```json

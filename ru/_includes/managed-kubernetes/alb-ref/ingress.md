@@ -1,8 +1,8 @@
 # Поля и аннотации ресурса Ingress
 
-В ресурсе `Ingress` определяются правила распределения входящего трафика между сервисами {{ k8s }}. По этим правилам [Ingress-контроллер {{ alb-name }}](../../../application-load-balancer/tools/k8s-ingress-controller/index.md) создает [балансировщик](../../../application-load-balancer/concepts/application-load-balancer.md) с нужными обработчиками и [HTTP-роутерами](../../../application-load-balancer/concepts/http-router.md). [Сервисы](../../../application-load-balancer/k8s-ref/service-for-ingress.md), выступающие в роли бэкендов {{ alb-name }}, могут быть указаны в `Ingress` напрямую или в составе [групп бэкендов `HttpBackendGroup`](../../../application-load-balancer/k8s-ref/http-backend-group.md).
+В ресурсе `Ingress` определяются правила распределения входящего трафика между сервисами {{ k8s }}. По этим правилам [Ingress-контроллер {{ alb-name }}]({{ ingress-local-link }}/index.md) создает [балансировщик](../../../application-load-balancer/concepts/application-load-balancer.md) с нужными обработчиками и [HTTP-роутерами](../../../application-load-balancer/concepts/http-router.md). [Сервисы]({{ configuration-local-link }}/service-for-ingress.md), выступающие в роли бэкендов {{ alb-name }}, могут быть указаны в `Ingress` напрямую или в составе [групп бэкендов `HttpBackendGroup`]({{ configuration-local-link }}/http-backend-group.md).
 
-{% include [Gwin](../../application-load-balancer/ingress-to-gwin-tip.md) %}
+{% include [Gwin-with-preset](../../application-load-balancer/ingress-to-gwin-tip-with-preset.md) %}
 
 `Ingress` — стандартный ресурс {{ k8s }}. Ниже описаны поля и аннотации ресурса, с которыми работает Ingress-контроллер {{ alb-name }}. Полное описание конфигурации ресурса см. в [документации {{ k8s }}](https://kubernetes.io/docs/reference/kubernetes-api/service-resources/ingress-v1/).
 
@@ -167,7 +167,7 @@ annotations:
 
   В балансировщике, созданном по группе из нескольких `Ingress` (аннотация [ingress.alb.yc.io/group-name](#annot-group-name)), используются все группы безопасности, указанные в этих `Ingress`.
 
-  Для корректной работы балансировщика и Ingress-контроллера группы безопасности должны быть настроены, как описано в разделе [{#T}](../../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md).
+  Для корректной работы балансировщика и Ingress-контроллера группы безопасности должны быть настроены, как описано в разделе [{#T}]({{ alb-local-link }}/security-groups.md).
 
 * **ingress.alb.yc.io/external-ipv4-address** {#annot-external-ipv4-address}
 
@@ -219,7 +219,7 @@ annotations:
 
   {% note warning %}
 
-  В [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) версии 0.2.0 и позднее используйте аннотацию только в объекте [Service](../../../application-load-balancer/k8s-ref/service-for-ingress.md#metadata).
+  В [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) версии 0.2.0 и позднее используйте аннотацию только в объекте [Service]({{ configuration-local-link }}/service-for-ingress.md#metadata).
 
   Если указать аннотацию в ресурсах `Ingress`, где используется один сервис с одинаковыми настройками для групп бэкендов, аннотация применится корректно. Но такой механизм устарел, в дальнейшем он не будет поддерживаться.
 
@@ -231,7 +231,7 @@ annotations:
 
   Если аннотация не указана, балансировщик соединяется с бэкендами без шифрования.
 
-  Для бэкендов, входящих в состав групп, значение аннотации игнорируется. Шифрование соединений балансировщика с бэкендами из групп настраивается с помощью поля `spec.backend.tls` ресурса `HttpBackendGroup` (см. [справочник ресурса](../../../application-load-balancer/k8s-ref/http-backend-group.md)).
+  Для бэкендов, входящих в состав групп, значение аннотации игнорируется. Шифрование соединений балансировщика с бэкендами из групп настраивается с помощью поля `spec.backend.tls` ресурса `HttpBackendGroup` (см. [справочник ресурса]({{ configuration-local-link }}/http-backend-group.md)).
 
 * **ingress.alb.yc.io/prefix-rewrite** {#annot-prefix-rewrite}
 
@@ -479,7 +479,7 @@ defaultBackend:
 
 #|
 || **Поле**           | **Значение или тип** | **Описание** ||
-|| `ingressClassName` | `string`             | Имя ресурса [IngressClass](../../../application-load-balancer/k8s-ref/ingress-class.md), к которому относится ресурс `Ingress`.
+|| `ingressClassName` | `string`             | Имя ресурса [IngressClass]({{ configuration-local-link }}/ingress-class.md), к которому относится ресурс `Ingress`.
 
 `IngressClass` нужен, чтобы маршрутизировать трафик в рамках одного приложения с помощью нескольких Ingress-контроллеров. Если вы не используете параметр `ingressClassName`, но используете несколько Ingress-контроллеров, создайте ресурс `IngressClass`, который будет применяться по умолчанию. ||
 || `tls`              | `[]IngressTLS`       | **Обязательное**.
@@ -538,7 +538,7 @@ defaultBackend:
         backend: <IngressBackend>
 ```
 
-В версиях [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) до 0.2.0 каждая группа бэкендов соответствует связке параметров `host`, `http.paths.path` и `http.paths.pathType`. В версиях 0.2.0 и позднее группа бэкендов соответствует параметру `backend.service` ([IngressBackend](#backend)). Из-за этого при обновлении ALB Ingress Controller могут возникнуть коллизии. Чтобы избежать их, [узнайте, применимы ли ограничения при обновлении](../../../application-load-balancer/operations/k8s-ingress-controller-upgrade.md) к вашей инфраструктуре.
+В версиях [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) до 0.2.0 каждая группа бэкендов соответствует связке параметров `host`, `http.paths.path` и `http.paths.pathType`. В версиях 0.2.0 и позднее группа бэкендов соответствует параметру `backend.service` ([IngressBackend](#backend)). Из-за этого при обновлении ALB Ingress Controller могут возникнуть коллизии. Чтобы избежать их, [узнайте, применимы ли ограничения при обновлении]({{ ingress-upgrade-local-link }}) к вашей инфраструктуре.
 
 #|
 || **Поле** | **Значение или тип** | **Описание** ||
@@ -613,7 +613,7 @@ resource:
 || `service`    | `IngressServiceBackend`        | **Обязательное**.
 Указание на [сервис {{ k8s }}](../../../managed-kubernetes/concepts/index.md#service), который должен обрабатывать запросы в качестве бэкенда.
 
-Ресурс `Service`, на который указывает это поле, должен быть описан по [принятой конфигурации](../../../application-load-balancer/k8s-ref/service-for-ingress.md).
+Ресурс `Service`, на который указывает это поле, должен быть описан по [принятой конфигурации]({{ configuration-local-link }}/service-for-ingress.md).
 
 Для элемента списка `spec.rules.http.paths` должен быть указан либо сервис-бэкенд, либо группа бэкендов (`resource`), но не оба одновременно.
 
@@ -624,14 +624,14 @@ resource:
 || `resource` | `TypedLocalObjectReference`  | **Обязательное**.
 Указание на группу бэкендов, которые должны обрабатывать запросы.
 
-Ресурс `HttpBackendGroup`, на который указывает это поле, реализован Ingress-контроллером как [custom resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/). Он должен быть описан по [принятой конфигурации](../../../application-load-balancer/k8s-ref/http-backend-group.md).
+Ресурс `HttpBackendGroup`, на который указывает это поле, реализован Ingress-контроллером как [custom resource](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/). Он должен быть описан по [принятой конфигурации]({{ configuration-local-link }}/http-backend-group.md).
 
 Для элемента списка `spec.rules.http.paths` должна быть указана либо группа бэкендов, либо сервис-бэкенд (`service`), но не оба одновременно.
 
 * `kind`: `HttpBackendGroup`
 * `name` (`string`) — имя группы бэкендов.
 
-    Имя должно совпадать с именем, указанным в поле `metadata.name` ресурса `HttpBackendGroup`. Подробнее см. в [конфигурации ресурса](../../../application-load-balancer/k8s-ref/http-backend-group.md).
+    Имя должно совпадать с именем, указанным в поле `metadata.name` ресурса `HttpBackendGroup`. Подробнее см. в [конфигурации ресурса]({{ configuration-local-link }}/http-backend-group.md).
 
 * `apiGroup`: `alb.yc.io`
 

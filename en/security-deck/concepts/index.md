@@ -11,13 +11,15 @@ description: '{{ sd-name }} is a CNAPP, a comprehensive platform that discovers 
 
 The {{ sd-name }} modules allow you to achieve a number of security objectives:
 
-* **Comprehensive data protection**. The [Data Security Posture Management](./dspm.md) (DSPM) module detects sensitive information stored in {{ objstorage-full-name }} [buckets](../../storage/concepts/bucket.md) and {{ yandex-360 }} [Yandex Disks]({{ link-yandex }}/support/yandex-360/business/disk/web/{{ lang }}/index.html) for timely action to protect it from unauthorized access or leaks.
+* **{{ td-full-name }}**. The [{{ td-full-name }} ({{ td-name }})](./threat-detector.md) module is the first line of defense of the user's cloud infrastructure in {{ sd-full-name }}, which automatically detects suspicious activity and notifies the user about detected threats. To identify security risks, the module analyzes audit events found in the client's infrastructure and registered with [{{ at-full-name }}](../../audit-trails/index.yaml).
 
-* **Containerized application security management**: [{{ k8s }} Security Posture Management (KSPM)](./kspm.md) ensures the security of containerized applications and [images](../../container-registry/concepts/docker-image.md) they use. The KSPM module automatically checks the cloud infrastructure against corporate and industry standards, identifies all {{ k8s }} clusters and containers in the specified [workspace](./workspace.md), and deploys security components in them as defined in the configuration.
+* **Comprehensive data protection**. [{{ dspm-full-name }} ({{ dspm-name }})] detects sensitive information stored in {{ objstorage-full-name }} [buckets](../../storage/concepts/bucket.md) and {{ yandex-360 }} [Yandex Disks]({{ link-yandex }}/support/yandex-360/business/disk/web/{{ lang }}/index.html) for timely action to protect it from unauthorized access or leaks.
 
-* **Vulnerability management**. The [vulnerability management](./vulnerability-management.md) module that enables you to centrally manage container image vulnerability scanning and view scan results. The module supports scanning images from {{ container-registry-name }} and {{ cloud-registry-name }}, as well as images run in {{ managed-k8s-name }} clusters.
+* **Containerized application security management**. [{{ kspm-full-name }} ({{ kspm-name }})](./kspm.md) ensures the security of containerized applications and [images](../../container-registry/concepts/docker-image.md). The {{ kspm-name }} module automatically checks your cloud infrastructure against the corporate and industry standards, identifies all {{ k8s }} clusters and containers in a given [workspace](./workspace.md), and deploys security components in them as per the configuration.
 
-* **User access management**. The [Cloud Infrastructure Entitlement Management](./ciem.md) (CIEM) module allows you to manage user [access](../../iam/concepts/access-control/index.md) to diverse corporate resources with full control over who has access to which data, and what actions are allowed with that data.
+* **{{ vuln-man-name }}**. The [vulnerability management](./vulnerability-management.md) module that enables you to centrally manage container image vulnerability scanning and view scan results. The module supports scanning images from {{ container-registry-name }} and {{ cloud-registry-name }}, as well as images run in {{ managed-k8s-name }} clusters.
+
+* **User access management**. [{{ ciem-full-name }}](./ciem.md) ({{ ciem-name }}) allows you to manage user [access](../../iam/concepts/access-control/index.md) to various corporate resources with full control over who has access to which data, and what actions are allowed with that data.
 
     One of the fundamental principles of [{{ iam-full-name }}](../../iam/index.yaml) is that of least privilege, where users get only the access permissions they need to perform their job duties.
 
@@ -28,7 +30,7 @@ The {{ sd-name }} modules allow you to achieve a number of security objectives:
     * Effective management of [user](../../overview/roles-and-resources.md#users) and [service account](../../iam/concepts/users/service-accounts.md) access permissions.
     * Shorter time to investigate security incidents.
 
-* **{{ yandex-cloud }} configuration management**: [Cloud Security Posture Management ({{ cspm-name }})](./cspm.md) checks the {{ yandex-cloud }} infrastructure and applications deployed within the specified [workspace](./workspace.md) for compliance with comprehensive security requirements and best practices. This module helps ensure compliance with the selected security policies and protection against common threats and vulnerabilities in the cloud.
+* **{{ yandex-cloud }} configuration management**: [{{ cspm-full-name }} ({{ cspm-name }})](./cspm.md) checks the {{ yandex-cloud }} infrastructure and applications deployed within the specified [workspace](./workspace.md) for compliance with comprehensive security requirements and best practices. This module helps ensure compliance with the selected security policies and protection against common threats and vulnerabilities in the cloud.
 
 * **Transparent data handling**. The [{{ atr-name }}](./access-transparency.md) module allows customers to follow what {{ yandex-cloud }} engineers do with the organization's resources.
 

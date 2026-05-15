@@ -111,7 +111,7 @@ Create a [service account](../../iam/concepts/users/service-accounts.md) you wil
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. At the top of the screen, navigate to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Specify the service account name: `docker-puller`.
+  1. Enter a name for the service account: `docker-puller`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
   1. Select the previously created registry.
@@ -170,7 +170,7 @@ Create an [authorized key](../../iam/concepts/authorization/key.md) for the `doc
 - Management console {#console}
 
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. In the list that opens, select the `docker-puller` service account.
+  1. In the list that opens, select `docker-puller`.
   1. In the top panel, click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select `{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.iam.folder.service-account.overview.action_download-keys-file }}** and then **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_close }}**

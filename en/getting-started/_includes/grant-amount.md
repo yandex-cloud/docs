@@ -4,7 +4,7 @@ The initial grant can be issued to an individual or single-owner legal entity on
 * Have not activated the [trial period](../../billing/concepts/trial-period.md).
 
 
-The initial grant is valid for 60 days. The grant amount and currency depend on your country of residence:
+The grant amount and currency depend on your country of residence:
 
 
 * For residents of Russia and tax residents of Belarus, the grant amount is at least ₽4,000, including VAT.

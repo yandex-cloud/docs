@@ -1,9 +1,9 @@
 ---
-title: Investigation management in {{ ycdr-full-name }}
+title: Managing investigations in {{ ycdr-full-name }}
 description: Follow this guide to learn how to create, update, copy, and delete investigations in {{ ycdr-name }}.
 ---
 
-# Investigation management
+# Managing investigations
 
 {% include [preview-by-request](../../../_includes/note-preview-by-request.md) %}
 
@@ -61,7 +61,7 @@ To edit an investigation description:
 
 - {{ sd-name }} UI {#cloud-sd}
 
-  1. Open the investigation.
+  1. Open an investigation.
   1. Under **{{ ui-key.yacloud_org.security.siem.InvestigationPageLayout.information_cZr8L }}**, click the **{{ ui-key.yacloud_org.security.siem.InvestigationPageLayout.fieldDescription_wiAxw }}** field.
   1. Enter a new description.
   1. Press **Enter** or click outside the input field.
@@ -77,7 +77,7 @@ To create an investigation copy:
 
 - {{ sd-name }} UI {#cloud-sd}
 
-  1. Open the investigation.
+  1. Open an investigation.
   1. In the actions menu, select **{{ ui-key.yacloud_org.security.siem.InvestigationPageLayout.copy_wiAxw }}**.
   1. Wait until the copy is created.
 
@@ -93,7 +93,7 @@ To delete an investigation:
 
 - {{ sd-name }} UI {#cloud-sd}
 
-  1. Open the investigation.
+  1. Open an investigation.
   1. In the actions menu, select **{{ ui-key.yacloud_org.security.siem.action_delete_wM5k5 }}**.
   1. Confirm the deletion.
 

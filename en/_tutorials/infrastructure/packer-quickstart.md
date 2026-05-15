@@ -214,7 +214,7 @@ To configure the [plugin](https://developer.hashicorp.com/packer/plugins/builder
           "folder_id": "<folder_ID>",
           "zone":      "<availability_zone>",
 
-          "image_name":        "debian-11-nginx-not_var{{isotime | clean_resource_name}}",
+          "image_name":        "debian-11-nginx-not_var{{isotime | clean_resource_name }}",
           "image_family":      "debian-web-server",
           "image_description": "my custom debian with nginx",
 
@@ -313,7 +313,7 @@ Make sure you created the image:
 
 ### Delete the resources you created {#clear-out}
 
-To stop paying for the resources you created:
+To stop incurring charges for the resources you created:
 
 * [Delete](../../compute/operations/image-control/delete.md) the image you created.
 * Delete the [subnet](../../vpc/operations/subnet-delete.md) and [cloud network](../../vpc/operations/network-delete.md) if created specifically for the purpose of this tutorial.

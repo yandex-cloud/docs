@@ -3,4 +3,5 @@
 || YandexGPT Pro | {{ sku|USD|speechsense.analysis.assistant.v1|string }} ||
 || YandexGPT Lite | {% calc [currency=USD] {{ sku|USD|speechsense.analysis.assistant.v1|number }} / 6 %} ||
 || Qwen3 235B | {% calc [currency=USD] {{ sku|USD|speechsense.analysis.assistant.v1|number }} * 2 %} ||
+|| DeepSeek V3.2 | {% calc [currency=USD] {{ sku|USD|speechsense.analysis.assistant.v1|number }} * 2 %} ||
 |#

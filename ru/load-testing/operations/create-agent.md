@@ -5,6 +5,9 @@ description: Из статьи вы узнаете, как создать аге
 
 # Создание агента тестирования
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 ## Подготовка инфраструктуры {#infrastructure-prepare}
 
 1. Создайте сервисный аккаунт для агента тестирования:
@@ -29,7 +32,7 @@ description: Из статьи вы узнаете, как создать аге
 - Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите каталог для тестирования.
-   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
    1. На вкладке ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** нажмите **{{ ui-key.yacloud.load-testing.button_create-test }}**.
    1. В секции **{{ ui-key.yacloud.load-testing.label_agents-list }}** нажмите **{{ ui-key.yacloud.load-testing.label_agent-temporal-selector }}**.
    1. В блоке **{{ ui-key.yacloud.load-testing.title_temporal-agent-field }}**:

@@ -32,7 +32,11 @@ description: Various use cases for machine learning and artificial intelligence 
 * [{#T}](yq-clickhouse.md)
 * [{#T}](yq-postgre.md)
 * [{#T}](yq-federative-queries.md)
+* [{#T}](../dataplatform/spark-and-datasphere.md)
 
+## Development with {{ mgl-full-name }} {#gitlab-development}
+
+* [{#T}](mlops-ml-registry.md)
 
 ## Image, text, and speech recognition {#recognition}
 

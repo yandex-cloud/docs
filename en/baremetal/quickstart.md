@@ -11,7 +11,7 @@ Lease your first [physical server](./concepts/servers.md) and connect to it. All
 
 {% include [before-you-begin](../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
-## Lease a server {#server-lease}
+## Renting a server {#server-lease}
 
 {% list tabs group=instructions %}
 
@@ -19,9 +19,11 @@ Lease your first [physical server](./concepts/servers.md) and connect to it. All
 
   1. {% include [server-lease-step1](../_includes/baremetal/instruction-steps/server-lease-step1.md) %}
   1. {% include [server-lease-step2](../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
-  1. Click **{{ ui-key.yacloud.baremetal.label_create-server }}** and, in the window that opens, select `{{ ui-key.yacloud_components.baremetal.PresetConfigurations }}` and a suitable [configuration](./concepts/server-configurations.md) for your {{ baremetal-name }} server. For example: `BA-i103-S-10G`.
+  1. Click **{{ ui-key.yacloud.baremetal.label_create-server }}** and, in the window that opens, select `{{ ui-key.yacloud_components.baremetal.StockConfigurations }}` and a suitable [configuration](./concepts/server-configurations.md) for your {{ baremetal-name }} server, e.g., `BA-i103-S-10G`.
 
       {% include [server-lease-selecting-the-right-config](../_includes/baremetal/instruction-steps/server-lease-selecting-the-right-config.md) %}
+
+      {% include [server-lease-save-with-assembling-tip](../_includes/baremetal/instruction-steps/server-lease-save-with-assembling-tip.md) %}
 
   1. In the server configuration window that opens:
 
@@ -35,7 +37,7 @@ Lease your first [physical server](./concepts/servers.md) and connect to it. All
           {% endnote %}
       1. In the **{{ ui-key.yacloud.baremetal.field_server-count_jPgTg }}** field, keep `1`.
       1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select `{{ ui-key.yacloud.baremetal.field_choose-marketplace-os }}` and an image running `Ubuntu 24.04 LTS`.
-      1. Under **{{ ui-key.yacloud.baremetal.title_section-disk }}**, click **{{ ui-key.yacloud.baremetal.action_disk-layout-settings }}** to configure partitions for the server disks.
+      1. Under **{{ ui-key.yacloud.baremetal.title_section-disk }}**, click **{{ ui-key.yacloud.baremetal.action_disk-layout-settings }}** to configure partitions for the server [disks](./concepts/disks/disk-types.md).
 
           In the window that opens, leave the default disk partitioning settings or edit them, then click **{{ ui-key.yacloud.common.save }}**.
       1. {% include [server-lease-step9-bm](../_includes/baremetal/instruction-steps/server-lease-step9-bm.md) %}
@@ -56,7 +58,7 @@ Lease your first [physical server](./concepts/servers.md) and connect to it. All
 - KVM console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your server.
-  1. [Go](../console/operations/select-service.md#select-service) to **{{ baremetal-name }}**.
+  1. [Navigate](../console/operations/select-service.md#select-service) to **{{ baremetal-name }}**.
   1. Find the server you need in the list, click ![image](../_assets/console-icons/ellipsis.svg) in its row, and select **KVM console**.
 
 - Linux/macOS {#linux-macos}
