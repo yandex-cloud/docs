@@ -7,7 +7,8 @@
 
       ```bash
       sudo apt update && \
-      sudo apt install -y jq && \
+      sudo apt install -y jq &&
+      sudo apt install uuid-dev && \
       curl https://{{ s3-storage-host }}/backup-distributions/agent_installer.sh | sudo bash
       ```
 
