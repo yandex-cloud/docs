@@ -4,6 +4,32 @@
 
 This repository contains the source files for [Yandex Cloud documentation](https://yandex.cloud/ru/docs) and is open for community contributions through the Content Program.
 
+The repository has two distinct kinds of content. **Choose the right location based on your task** — do not treat all folders as interchangeable.
+
+## For AI Agents: Reading vs Editing
+
+### Search and answer questions about Yandex Cloud
+
+When you need **factual information** from the documentation — how a service works, CLI commands, limits, pricing, step-by-step procedures, troubleshooting — work in **`md-docs/`**.
+
+- **`md-docs/`** is a **pre-built documentation bundle**: plain Markdown with YFM variables and includes already resolved, ready to read and search.
+- Prefer `md-docs/` for grep, codebase search, and reading pages end-to-end.
+- **Do not edit** files in `md-docs/`. It is generated output, not source.
+
+### Modify documentation (contributions, technical writers)
+
+When you **change documentation** — fix typos, add sections, update operations guides, help technical writers — work in the **source** directories, not in `md-docs/`.
+
+| Task | Where to work |
+|------|----------------|
+| Edit Russian documentation | **`ru/`** (primary source) |
+| Contribution guides, topic lists | **`guides/`** |
+| English documentation | **`en/`** — **do not edit**; English is translated from Russian |
+
+Source files use **Yandex Flavored Markdown (YFM)**: frontmatter, `{{ variables }}` from `ru/presets.yaml` / `en/presets.yaml`, `{% include %}` blocks, and service-specific syntax. After source changes, documentation is rebuilt; the result lands in a bundle like `md-docs/` (or a local `docs-gen/` output when building locally).
+
+**Summary:** read and search in **`md-docs/`**; write and edit in **`ru/`** (and related source paths). Never edit `md-docs/` or `en/` unless explicitly instructed otherwise.
+
 ## How the Documentation is Created
 
 The documentation is built using Diplodoc and Yandex Flavored Markdown (YFM).
@@ -28,17 +54,22 @@ To build the documentation locally, follow these steps:
    ```
    Where `docs` is the directory with source texts, and `docs-gen` is the directory where the generated documentation will be placed.
 
+   In this repository, Russian source lives under `ru/`. The **`md-docs/`** directory is the checked-in **built bundle** (same role as `docs-gen` after a local build): use it for search without running a build.
+
 ## Repository Structure
 
 ### Top-level Directories and Files
 
 The external repository is organized as follows:
 
-- **ru/**: Contains Russian language documentation
-- **en/**: Contains English language documentation (DO NOT edit, documentation is translated from Russian)
+- **md-docs/**: Pre-built documentation bundle for **reading and search** (resolved variables and includes). **Do not edit.**
+- **ru/**: Russian language **source** documentation — edit here when changing docs
+- **en/**: English language **source** documentation (DO NOT edit, documentation is translated from Russian)
 - **guides/**: Contains contribution guides and important topics list
 - **redirects.yaml**: URL redirect configuration (DO NOT edit)
 - **README.md**: Repository introduction and contribution guidelines
+
+`ru/` and `en/` hold YFM source; `md-docs/` holds the built Markdown equivalent (same structure as services on the site, without templating syntax).
 
 ### Documentation Content Structure
 
