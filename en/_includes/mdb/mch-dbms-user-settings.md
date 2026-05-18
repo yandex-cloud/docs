@@ -508,7 +508,7 @@
   * If the value is less than 2, quorum writes are disabled.
   * If the value is greater than or equal to 2, quorum writes are enabled.
 
-  Quorum writes ensure that {{ CH }} writes data error-free to the `Insert quorum` replicas during within a time period not exceeding [Insert quorum timeout](#setting-insert-quorum-timeout) and that data is not lost if one or multiple replicas fail. All replicas in the quorum are consistent, i.e., they contain data from all the previous `INSERT` queries.
+  Quorum writes ensure that {{ CH }} writes data error-free to the `Insert quorum` replicas within a time period not exceeding [Insert quorum timeout](#setting-insert-quorum-timeout) and that data is not lost if one or multiple replicas fail. All replicas in the quorum are consistent, i.e., they contain data from all the previous `INSERT` queries.
 
   You can use the [Select sequential consistency](#setting-select-sequential-consistency) setting to read data written with `Insert quorum`.
 
@@ -615,7 +615,7 @@
 
   The possible values are:
 
-  * `nmap`
+  * `mmap`
   * `pread`
   * `pread_threadpool`
   * `read`
@@ -888,7 +888,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}/operations/settings/settings#max_parser_depth).
 
-* **Max partitions per insert block**{#setting-partitions-per-insert-block} {{ tag-con }} {{ tag-sql }}
+* **Max partitions per insert block**{#setting-max-partitions-per-insert-block} {{ tag-con }} {{ tag-sql }}
 
   Limits the maximum number of partitions per insert block.
 
