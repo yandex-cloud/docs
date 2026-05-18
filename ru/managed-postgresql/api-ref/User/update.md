@@ -701,6 +701,11 @@ The default value is PG_AUDIT_SETTINGS_LOG_UNSPECIFIED. In this case, the parame
     "connectionManager": {
       "connectionId": "string"
     },
+    "userConnectionManager": {
+      "connectionId": "string",
+      "connectionFolderId": "string",
+      "secretFolderId": "string"
+    },
     "authMethod": "string"
   }
   // end of the list of possible fields
@@ -861,6 +866,9 @@ The default is `` password_encryption `` setting for cluster.
 || connectionManager | **[ConnectionManager](#yandex.cloud.mdb.postgresql.v1.ConnectionManager)**
 
 Connection Manager Connection and settings associated with user. Read only field. ||
+|| userConnectionManager | **[UserConnectionManager](#yandex.cloud.mdb.v1.UserConnectionManager)**
+
+Connection Manager Connection and settings associated with user ||
 || authMethod | **enum** (AuthMethod)
 
 Auth method for user
@@ -1048,4 +1056,27 @@ The default value is PG_AUDIT_SETTINGS_LOG_UNSPECIFIED. In this case, the parame
 || connectionId | **string**
 
 ID of Connection Manager Connection ||
+|#
+
+## UserConnectionManager {#yandex.cloud.mdb.v1.UserConnectionManager}
+
+A message representing Connection Manager integration details and settings for a user in a cluster.
+
+#|
+||Field | Description ||
+|| connectionId | **string**
+
+ID of the Connection Manager connection corresponding to the user.
+Ignored if specified in update requests. ||
+|| connectionFolderId | **string**
+
+ID of the folder where connection for the user is created.
+Optional. Defaults to the cluster's ClusterConnectionManager.connections_folder_id if not specified,
+or the cluster's folder if ClusterConnectionManager.connections_folder_id is not specified. ||
+|| secretFolderId | **string**
+
+A Connection Manager setting for a user's connection created by MDB integration.
+ID of the folder where secret for the user's connection is created.
+Optional. Defaults to the cluster's ClusterConnectionManager.secrets_folder_id if not specified,
+or the cluster's ClusterConnectionManager.connections_folder_id, or the cluster's folder. ||
 |#

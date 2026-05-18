@@ -30,7 +30,7 @@ description: Follow this tutorial to create scans in {{ sd-full-name }} {{ dspm-
 
       {% endnote %}
 
-  1. Under **{{ ui-key.yacloud_org.dspm.scans.section_access_title }}**, select the [service account](../../../iam/concepts/users/service-accounts.md) to use for scanning. If you need a new service account, click **{{ ui-key.yacloud_org.iam.folder.service-accounts.dialog_select-service-account_create-new-action }}**.
+  1. Under **{{ ui-key.yacloud_org.dspm.scans.section_access_title }}**, select the [service account](../../../iam/concepts/users/service-accounts.md) to use for scanning. If you need a new service account, click **{{ ui-key.yacloud_components.security.dspm.dialog_select-service-account_create-new-action }}**.
 
       {% include [sa-scan-roles-warning](../../../_includes/security-deck/sa-scan-roles-warning.md) %}
 

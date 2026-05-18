@@ -28,7 +28,7 @@ For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=
 
 ## Cluster status {#running-stopped}
 
-Pricing applies differently depending on cluster status:
+Pricing applies differently depending on the cluster status:
 
 * For a `Running` cluster, you pay for both the computing resources and storage size.
 * For a `Stopped` cluster, you only pay for your storage size.
@@ -66,18 +66,18 @@ You pay for the storage allocated for database clusters.
 
 * You can only order local SSD storage (`local-ssd`) for clusters with three or more broker hosts:
     * For Intel Cascade Lake: In increments of 100 GB.
-    * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
+    * For Intel Ice Lake and AMD Zen 4: In {{ local-ssd-v3-step }} increments.
 * You can only order non-replicated SSD storage (`network-ssd-nonreplicated`) in 93 GB increments for clusters with three or more broker hosts.
 
 The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
 
 ### Cluster cost calculation example {#example}
 
-In the example given, the price per month of use is indicated for reference at the rate of 720 hours per month.
+In the example, the price per month is provided for reference based on 720 hours per month.
 
 {% include [prices-difference](../_includes/prices-difference.md) %}
 
-Let's calculate the cost of using a cluster with the following properties for 30 days:
+Suppose we calculate the 30-day usage cost of a cluster with the following configuration:
 
 * **{{ KF }} broker hosts**: Three `s3-c2-m8` hosts, Intel Ice Lake, 2 × 100% vCPU, 8 GB RAM.
 * **Storage for {{ KF }} broker hosts**: 100 GB of network HDD storage per broker host.

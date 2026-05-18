@@ -615,7 +615,7 @@
 
   Возможные значения:
 
-  * `nmap`
+  * `mmap`
   * `pread`
   * `pread_threadpool`
   * `read`

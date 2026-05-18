@@ -106,7 +106,12 @@ The maximum string length in characters is 50. ||
         "emergency_usage_threshold": "int64",
         "disk_size_limit": "int64"
       },
-      "full_version": "string"
+      "full_version": "string",
+      "connection_manager": {
+        "enabled": "google.protobuf.BoolValue",
+        "connections_folder_id": "string",
+        "secrets_folder_id": "string"
+      }
     },
     "network_id": "string",
     "health": "Health",
@@ -440,6 +445,9 @@ Disk size autoscaling ||
 || full_version | **string**
 
 Full version ||
+|| connection_manager | **[ClusterConnectionManager](#yandex.cloud.mdb.v1.ClusterConnectionManager)**
+
+Cluster-wide Connection Manager integration configuration ||
 |#
 
 ## ConnectionPoolerConfig {#yandex.cloud.mdb.postgresql.v1.ConnectionPoolerConfig}
@@ -538,6 +546,28 @@ Acceptable values are 0 to 100, inclusive. ||
 || disk_size_limit | **int64**
 
 New storage size (in bytes) that is set when one of the thresholds is achieved. ||
+|#
+
+## ClusterConnectionManager {#yandex.cloud.mdb.v1.ClusterConnectionManager}
+
+A message representing the Connection Manager integration status and settings for a cluster.
+
+#|
+||Field | Description ||
+|| enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+True if the integration for the cluster is enabled.
+Set to true to enable the integration.
+Disabling the integration is not supported. ||
+|| connections_folder_id | **string**
+
+ID of the folder where connections for the cluster are created.
+Optional. Defaults to the cluster's folder if not specified. ||
+|| secrets_folder_id | **string**
+
+A Connection Manager setting for connections created by MDB integration.
+ID of the folder where connection secrets are created.
+Optional. Defaults to the cluster's folder if not specified. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.postgresql.v1.MaintenanceWindow}

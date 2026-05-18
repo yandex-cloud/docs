@@ -2,8 +2,8 @@ title: Yandex MPP Analytics for PostgreSQL
 description:
   - >-
     Сервис Yandex MPP Analytics for PostgreSQL помогает разворачивать и
-    поддерживать кластеры Greenplum<sup>®</sup> версии 6 в инфраструктуре Yandex
-    Cloud.
+    поддерживать кластеры Greenplum<sup>®</sup> версии 6.28 и выше в
+    инфраструктуре Yandex Cloud.
   - >-
     Greenplum<sup>®</sup> — аналитическая колоночная массово-параллельная (<a
     href="https://ru.wikipedia.org/wiki/Массово-параллельная_архитектура">MPP</a>)

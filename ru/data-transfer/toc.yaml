@@ -248,6 +248,8 @@ items:
             href: tutorials/object-storage-to-ydb.md
           - name: '{{ ydb-short-name }} в {{ CH }}'
             href: tutorials/ydb-to-clickhouse.md
+          - name: '{{ ydb-short-name }} в {{ PG }}'
+            href: tutorials/ydb-to-postgresql.md
           - name: '{{ OS }} в {{ CH }}'
             href: tutorials/opensearch-to-clickhouse.md
       - name: Загрузка данных в {{ objstorage-name }}

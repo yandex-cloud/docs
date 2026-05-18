@@ -18,7 +18,7 @@
     Акт сверки за текущий месяц можно заказать спустя 7 рабочих дней после его завершения.
 
     Чтобы заказать акт сверки:
-    1. В консоли управления в левом верхнем углу нажмите значок ![image](../../../_assets/main-menu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** и выберите сервис [**{{ billing-name }}**]({{ link-console-billing }}).
+    1. В консоли управления в левом верхнем углу нажмите значок ![image](../../../_assets/main-menu.svg) **{{ ui-key.yacloud.dashboard.DashboardPage.ServicesSection.title_ur39b }}** и выберите сервис [**{{ billing-name }}**]({{ link-console-billing }}).
     1. На странице **{{ ui-key.yacloud_billing.billing.title_accounts }}** выберите платежный аккаунт.
     1. Перейдите в раздел **{{ ui-key.yacloud_billing.billing.account.switch_acts }}**.
     1. Откройте вкладку **{{ ui-key.yacloud_billing.billing.account.tab_reconciliation-reports-title }}**.

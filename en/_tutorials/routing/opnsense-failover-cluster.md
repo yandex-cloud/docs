@@ -78,7 +78,7 @@ Upload the OPNsense and ESXi installation images to your [{{ objstorage-name }}]
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are going to create your infrastructure.
   1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-  1. In the left-hand panel, select ![icon](../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.baremetal.label_images }}**.
+  1. In the left-hand panel, select ![icon](../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.baremetal.label_images_duoXD }}**.
   1. Click **{{ ui-key.yacloud.baremetal.label_load-image }}**.
   1. Name your OPNsense image. Follow these naming requirements:
 

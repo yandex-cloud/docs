@@ -35,7 +35,7 @@ To create a {{ baremetal-name }} image from your ISO image and deploy it on the 
 
       1. In the [management console]({{ link-console-main }}), select a folder where you want to create your image.
       1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-      1. In the left-hand panel, select ![icon](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.baremetal.label_images }}**.
+      1. In the left-hand panel, select ![icon](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.baremetal.label_images_duoXD }}**.
       1. Click **Upload image**.
       1. Specify the image name. The naming requirements are as follows:
 

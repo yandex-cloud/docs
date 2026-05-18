@@ -172,7 +172,7 @@ https://c-{{ cluster-id }}.rw.{{ dns-zone }}/
             1. Перейдите на вкладку **{{ ui-key.yacloud_org.entity.group.title_tab-members }}**.  
             1. Нажмите **{{ ui-key.yacloud_org.entity.group.action_add-member }}**.
             1. В открывшемся окне выберите нужных пользователей.
-            1. Нажмите **{{ ui-key.yacloud_org.component.subject-select-dialog.action_apply }}**.
+            1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
     {% endlist %}
 

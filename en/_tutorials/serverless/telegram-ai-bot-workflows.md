@@ -333,9 +333,9 @@ Create a [text agent]({{ link-docs-ai }}ai-studio/concepts/agents/text-agents) i
 - Management console {#console}
 
   1. Open the [{{ ai-studio-name }} interface]({{ link-console-ai }}).
-  1. Click **{{ ui-key.yacloud.yagpt.YaGPT.Overview3.action-card_create-ai-agent_ahZQH }}** → **{{ ui-key.yacloud.yagpt.YaGPT.CreateAgentCard.create-agent_button-text_n2qCs }}**.
-  1. In the **{{ ui-key.yacloud.yagpt.YaGPT.name_hTzhB }}** field, enter a name for the agent, e.g., `Cinephile agent`.
-  1. In the **{{ ui-key.yacloud.yagpt.YaGPT.agent_instruction_9oe6q }}** field, enter an instruction for the agent:
+  1. Click **Create AI agent** → **Create agent**.
+  1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the agent, e.g., `Cinephile agent`.
+  1. In the **Instructions** field, enter an instruction for the agent:
 
       ```
       You are a movie selection consultant

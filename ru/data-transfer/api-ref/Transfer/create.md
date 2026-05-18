@@ -805,6 +805,7 @@ Description of the transfer. ||
 || folderId | **string**
 
 ID of the folder to create the transfer in.
+
 To get the folder ID, make a
 [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
 || runtime | **[Runtime](#yandex.cloud.datatransfer.v1.Runtime)** ||
@@ -819,6 +820,7 @@ The transfer name. Must be unique within the folder. ||
 || labels | **object** (map<**string**, **string**>)
 
 Transfer labels as `key:value` pairs.
+
 For details about the concept, see [documentation]({{ api-url-prefix
 }}/resource-manager/concepts/labels). ||
 || regularSnapshot | **[RegularSnapshot](#yandex.cloud.datatransfer.v1.RegularSnapshot)** ||
