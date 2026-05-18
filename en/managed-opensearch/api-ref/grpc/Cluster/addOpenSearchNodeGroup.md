@@ -4,6 +4,8 @@ editable: false
 
 # Managed Service for OpenSearch API, gRPC: ClusterService.AddOpenSearchNodeGroup
 
+(-- api-linter: yc::1705::custom-method-colon=disabled
+Required for backward compatibility with old clients. --)
 Creates an OpenSearch type host group.
 
 ## gRPC request
@@ -92,8 +94,11 @@ Determines whether a public IP is assigned to the hosts in the group. ||
 
 Roles of the hosts in the group.
 
-- `DATA`
-- `MANAGER` ||
+- `DATA`: Data nodes store indices data.
+- `MANAGER`: Manager nodes perform cluster coordination.
+- `WARM`: Warm nodes provide access to searchable snapshots and store search cache.
+- `INGEST`: Ingest nodes provides indexed data processing.
+If no node groups have INGEST role explicitly set, then all DATA nodes will implicitly have INGEST role. ||
 || disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||

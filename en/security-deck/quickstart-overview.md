@@ -106,3 +106,4 @@ For more information, see [{#T}](./concepts/access-transparency.md).
 * Learn [how to scan buckets for sensitive information](./operations/dspm/create-scan.md) in {{ sd-name }}.
 * Learn [how to view a subject's access list](./operations/ciem/view-permissions.md) in {{ sd-name }}.
 * Learn about the [required access permissions](./security/index.md) to work with {{ sd-name }}.
+

@@ -55,11 +55,6 @@ IAM-токен для аккаунта на Яндексе можно получ
 {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
 
 
-### Пример использования IAM-токена, полученного с помощью CLI {#use-cli}
-
-{% include [token-examples](../../../_includes/iam/iam-token-usage-examples.md) %}
-
-
 ## Получить и обменять OAuth-токен на IAM-токен {#exchange-token}
 
 {% include [owner-warning](../../../_includes/iam/owner-warning.md) %}
@@ -67,6 +62,11 @@ IAM-токен для аккаунта на Яндексе можно получ
 {% include [create-iam-token-api-steps](../../../_includes/iam/create-iam-token-api-steps.md) %}
 
 {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
+
+
+## Пример использования IAM-токена, полученного с помощью CLI {#use-cli}
+
+{% include [token-examples](../../../_includes/iam/iam-token-usage-examples.md) %}
 
 
 #### См. также {#see-also}

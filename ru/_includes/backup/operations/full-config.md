@@ -89,7 +89,6 @@
           "monthdays": [
             "string"
           ],
-          "includeLastDayOfMonth": bool,
           "months": [
             "string"
           ],
@@ -200,29 +199,100 @@
 
   Настройка расписания резервного копирования. Атрибуты `time` (по заданному времени) и `sinceLastExecTime` (с заданным интервалом между операциями) — взаимоисключающие. Использование одного делает невозможным использование другого.
 
-  | Атрибут | Описание | Возможные значения |
-  |---|---|---|
-  | `scheduling.backupSets.time.weekdays` | Дни недели, в которые должно происходить копирование. Можно указать одновременно несколько значений, разделенных запятой. | <ul><li>`DAY_UNSPECIFIED` — не задано;</li><li>`MONDAY` — понедельник;</li><li>`TUESDAY` — вторник;</li><li>`WEDNESDAY` — среда;</li><li>`THURSDAY` — четверг;</li><li>`FRIDAY` — пятница;</li><li>`SATURDAY` — суббота;</li><li>`SUNDAY` — воскресенье.</li></ul> |
-  | `scheduling.backupSets.time.repeatAt.hour` | Время для повторения копирования: часы. | Целое число от 0 до 23. |
-  | `scheduling.backupSets.time.repeatAt.minute` | Время для повторения копирования: минуты. | Целое число от 0 до 59. |
-  | `scheduling.backupSets.time.repeatEvery.type` | Единицы времени для определения частоты повторения операции резервного копирования. | <ul><li>`TYPE_UNSPECIFIED` — не задано;</li><li>`SECONDS` — секунды;</li><li>`MINUTES` — минуты;</li><li>`HOURS` — часы;</li><li>`DAYS` — дни;</li><li>`WEEKS` — недели;</li><li>`MONTHS` — месяцы.</li></ul> |
-  | `scheduling.backupSets.time.repeatEvery.count` | Частота повторения операции резервного копирования в единицах измерения, заданных в атрибуте `repeatEvery.type`. | Целое число. |
-  | `scheduling.backupSets.time.timeFrom.hour` | Время начала временного интервала для копирования (от): часы. | Целое число от 0 до 23. |
-  | `scheduling.backupSets.time.timeFrom.minute` | Время начала временного интервала для копирования (от): минуты. | Целое число от 0 до 59. |
-  | `scheduling.backupSets.time.timeTo.hour` | Время окончания временного интервала для копирования (до): часы. | Целое число от 0 до 23. |
-  | `scheduling.backupSets.time.timeTo.minute` | Время окончания временного интервала для копирования (до): минуты. | Целое число от 0 до 59. |
-  | `scheduling.backupSets.time.monthdays` | День месяца, когда должно выполняться резервное копирование. Можно указать одновременно несколько значений, разделенных запятой. | Целое число от 1 до 31. |
-  | `scheduling.backupSets.time.includeLastDayOfMonth` | Выполнение резервного копирования в последний день месяца. | <ul><li>`true` — включено;</li><li>`false` — выключено.</li></ul> |
-  | `scheduling.backupSets.time.months` | Месяцы, в которые должно выполняться резервное копирование. Можно указать одновременно несколько значений, разделенных запятой. | Целое число от 1 до 12. |
-  | `scheduling.backupSets.time.type` | Периодичность копирования. | <ul><li>`REPEATE_PERIOD_UNSPECIFIED` — не задано;</li><li>`HOURLY` — каждый час;</li><li>`DAILY` — ежедневно;</li><li>`WEEKLY` — еженедельно;</li><li>`MONTHLY` — ежемесячно.</li></ul> |
-  | `scheduling.backupSets.sinceLastExecTime.delay.type` | Единицы времени для определения интервала между операциями резервного копирования. | <ul><li>`TYPE_UNSPECIFIED` — не задано;</li><li>`SECONDS` — секунды;</li><li>`MINUTES` — минуты;</li><li>`HOURS` — часы;</li><li>`DAYS` — дни;</li><li>`WEEKS` — недели;</li><li>`MONTHS` — месяцы.</li></ul> |
-  | `scheduling.backupSets.sinceLastExecTime.delay.count` | Длительность интервала между резервными копированиями в единицах времени, заданных атрибутом `delay.type`. | Целое число. |
-  | `scheduling.enabled` | Выполнение резервного копирования по расписанию. | <ul><li>`true` — включено;</li><li>`false` — выключено.</li></ul> |
-  | `scheduling.maxParallelBackups` | Максимально допустимое количество одновременно запущенных процессов резервного копирования. Если не задано — без ограничений. | Целое число. |
-  | `scheduling.randMaxDelay.type` | Единицы времени для определения максимальной задержки между запуском параллельных задач. | <ul><li>`TYPE_UNSPECIFIED` — не задано;</li><li>`SECONDS` — секунды;</li><li>`MINUTES` — минуты;</li><li>`HOURS` — часы;</li><li>`DAYS` — дни;</li><li>`WEEKS` — недели;</li><li>`MONTHS` — месяцы.</li></ul> |
-  | `scheduling.randMaxDelay.count` | Значение максимальной задержки между запуском параллельных задач в единицах времени, заданных атрибутом `randMaxDelay.type`. Задержка определяется случайным образом, но не превышает заданного здесь значения. | Целое число. |
-  | `scheduling.scheme` | Схема расписания резервного копирования. | <ul><li>`SCHEME_UNSPECIFIED` — не задано;</li><li>`SIMPLE` — простая;</li><li>`ALWAYS_FULL` — всегда полная;</li><li>`ALWAYS_INCREMENTAL` — всегда инкрементальная;</li><li>`WEEKLY_INCREMENTAL` — еженедельно: инкрементальная;</li><li>`WEEKLY_FULL_DAILY_INCREMENTAL` — еженедельно: полная, ежедневно: инкрементальная;</li><li>`CUSTOM` — пользовательская;</li><li>`CDP` — Continuous Data Protection, непрерывная защита данных.</li></ul> |
-  | `scheduling.weeklyBackupDay` | День недели, в который будут выполняться еженедельные операции копирования. | Целое число от 1 до 7. |
+  #|
+  || **Атрибут** | **Описание** | **Возможные значения** ||
+  || `scheduling.backupSets.`
+  `time.weekdays` | Дни недели, в которые должно происходить копирование. Можно указать одновременно несколько значений, разделенных запятой. |
+  * `DAY_UNSPECIFIED` — не задано;
+  * `MONDAY` — понедельник;
+  * `TUESDAY` — вторник;
+  * `WEDNESDAY` — среда;
+  * `THURSDAY` — четверг;
+  * `FRIDAY` — пятница;
+  * `SATURDAY` — суббота;
+  * `SUNDAY` — воскресенье. ||
+  || `scheduling.backupSets.`
+  `time.repeatAt.hour` | Время для повторения копирования: часы. | Целое число от 0 до 23. ||
+  || `scheduling.backupSets.`
+  `time.repeatAt.minute` | Время для повторения копирования: минуты. | Целое число от 0 до 59. ||
+  || `scheduling.backupSets.`
+  `time.repeatEvery.type` | Единицы времени для определения частоты повторения операции резервного копирования. |
+  * `TYPE_UNSPECIFIED` — не задано;
+  * `SECONDS` — секунды;
+  * `MINUTES` — минуты;
+  * `HOURS` — часы;
+  * `DAYS` — дни;
+  * `WEEKS` — недели;
+  * `MONTHS` — месяцы. ||
+  || `scheduling.backupSets.`
+  `time.repeatEvery.count` | Частота повторения операции резервного копирования в единицах измерения, заданных в атрибуте `repeatEvery.type`. | Целое число. ||
+  || `scheduling.backupSets.`
+  `time.timeFrom.hour` | Время начала временного интервала для копирования (от): часы. | Целое число от 0 до 23. ||
+  || `scheduling.backupSets.`
+  `time.timeFrom.minute` | Время начала временного интервала для копирования (от): минуты. | Целое число от 0 до 59. ||
+  || `scheduling.backupSets.`
+  `time.timeTo.hour` | Время окончания временного интервала для копирования (до): часы. | Целое число от 0 до 23. ||
+  || `scheduling.backupSets.`
+  `time.timeTo.minute` | Время окончания временного интервала для копирования (до): минуты. | Целое число от 0 до 59. ||
+  || `scheduling.backupSets.`
+  `time.monthdays` | День месяца, когда должно выполняться резервное копирование. Можно указать одновременно несколько значений, разделенных запятой. | Целое число от 1 до 31. ||
+  || `scheduling.backupSets.`
+  `time.includeLastDayOfMonth` | Выполнение резервного копирования в последний день месяца.
+
+  {% note warning %}
+
+  Если установлено значение `true`, параметр переопределяет другие настройки расписания: дни недели, дни месяца и т. д.
+
+  {% endnote %}
+  
+  |
+  * `true` — включено;
+  * `false` — выключено.
+  ||
+  || `scheduling.backupSets.`
+  `time.months` | Месяцы, в которые должно выполняться резервное копирование. Можно указать одновременно несколько значений, разделенных запятой. | Целое число от 1 до 12. ||
+  || `scheduling.backupSets.`
+  `time.type` | Периодичность копирования. |
+  * `REPEATE_PERIOD_UNSPECIFIED` — не задано;
+  * `HOURLY` — каждый час;
+  * `DAILY` — ежедневно;
+  * `WEEKLY` — еженедельно;
+  * `MONTHLY` — ежемесячно. ||
+  || `scheduling.backupSets.`
+  `sinceLastExecTime.delay.type` | Единицы времени для определения интервала между операциями резервного копирования. |
+  * `TYPE_UNSPECIFIED` — не задано;
+  * `SECONDS` — секунды;
+  * `MINUTES` — минуты;
+  * `HOURS` — часы;
+  * `DAYS` — дни;
+  * `WEEKS` — недели;
+  * `MONTHS` — месяцы. ||
+  || `scheduling.backupSets.`
+  `sinceLastExecTime.delay.count` | Длительность интервала между резервными копированиями в единицах времени, заданных атрибутом `delay.type`. | Целое число. ||
+  || `scheduling.enabled` | Выполнение резервного копирования по расписанию. |
+  * `true` — включено;
+  * `false` — выключено. ||
+  || `scheduling.maxParallelBackups` | Максимально допустимое количество одновременно запущенных процессов резервного копирования. Если не задано — без ограничений. | Целое число. ||
+  || `scheduling.randMaxDelay.type` | Единицы времени для определения максимальной задержки между запуском параллельных задач. |
+  * `TYPE_UNSPECIFIED` — не задано;
+  * `SECONDS` — секунды;
+  * `MINUTES` — минуты;
+  * `HOURS` — часы;
+  * `DAYS` — дни;
+  * `WEEKS` — недели;
+  * `MONTHS` — месяцы. ||
+  || `scheduling.randMaxDelay.count` | Значение максимальной задержки между запуском параллельных задач в единицах времени, заданных атрибутом `randMaxDelay.type`. Задержка определяется случайным образом, но не превышает заданного здесь значения. | Целое число. ||
+  || `scheduling.scheme` | Схема расписания резервного копирования. |
+  * `SCHEME_UNSPECIFIED` — не задано;
+  * `SIMPLE` — простая;
+  * `ALWAYS_FULL` — всегда полная;
+  * `ALWAYS_INCREMENTAL` — всегда инкрементальная;
+  * `WEEKLY_INCREMENTAL` — еженедельно: инкрементальная;
+  * `WEEKLY_FULL_DAILY_INCREMENTAL` — еженедельно: полная, ежедневно: инкрементальная;
+  * `CUSTOM` — пользовательская;
+  * `CDP` — Continuous Data Protection, непрерывная защита данных. ||
+  || `scheduling.weeklyBackupDay` | День недели, в который будут выполняться еженедельные операции копирования. | Целое число от 1 до 7. ||
+  |#
 
 - fileFilters
 

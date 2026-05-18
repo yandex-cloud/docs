@@ -23,27 +23,6 @@
 
   {% endnote %}
 
-- OAuth-токен {#oauth-token}
-
-  1. [Получите]({{ link-cloud-oauth }}) OAuth-токен для [аккаунта на Яндексе](../../iam/concepts/users/accounts.md#passport), от имени которого вы будете выполнять аутентификацию.
-  1. Создайте переменные окружения `REGISTRY_USERNAME` и `REGISTRY_PASSWORD`:
-
-      ```bash
-      export REGISTRY_USERNAME="oauth"
-      export REGISTRY_PASSWORD="<OAuth-токен>"
-      ```
-
-      Где:
-
-      * `REGISTRY_USERNAME` — способ аутентификации.
-      * `REGISTRY_PASSWORD` — тело полученного ранее [OAuth-токена](../../iam/concepts/authorization/oauth-token.md).
-
-  {% note info %}
-
-  [Время жизни](../../iam/concepts/authorization/oauth-token.md#lifetime) OAuth-токена — 1 год.
-
-  {% endnote %}
-
 - API-ключ {#api-key}
 
   1. [Создайте](../../iam/operations/authentication/manage-api-keys.md#create-api-key) API-ключ для [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), от имени которого вы будете выполнять аутентификацию.

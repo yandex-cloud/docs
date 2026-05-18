@@ -12,7 +12,7 @@
   
   1. In the window that opens, select the users or [service accounts](../../iam/concepts/users/service-accounts.md). Use search, if required.
   
-  1. Click **{{ ui-key.yacloud_org.component.subject-select-dialog.action_apply }}**.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 

@@ -9,8 +9,6 @@ description: Follow this guide to delete function scaling settings.
 
 - Management console {#console}
 
-    To delete any scaling setting other than the number of calls processed concurrently by a single function instance (`concurrency`):
-
     1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
     1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select the function.
@@ -21,7 +19,7 @@ description: Follow this guide to delete function scaling settings.
 
 - CLI {#cli}
 
-    To delete any scaling setting other than the number of calls processed concurrently by a single function instance (`concurrency`), run this command:
+    To remove scaling settings, run this command:
 
     ```
     yc serverless function remove-scaling-policy \
@@ -40,7 +38,7 @@ description: Follow this guide to delete function scaling settings.
 
     {% include [terraform-install](../../../_includes/terraform-install.md) %}  
 
-    To delete any scaling setting other than the number of calls processed concurrently by a single function instance (`concurrency`):
+    To delete scaling settings:
 
     1. In the configuration file, describe the resources you want to create:
 
@@ -101,11 +99,9 @@ description: Follow this guide to delete function scaling settings.
 
 - API {#api}
 
-    To delete any function scaling setting other than the number of calls processed concurrently by a single function instance (`concurrency`), use the [removeScalingPolicy](../../functions/api-ref/Function/removeScalingPolicy.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/RemoveScalingPolicy](../../functions/api-ref/grpc/Function/removeScalingPolicy.md) gRPC API call.
+    To remove scaling settings, use the [removeScalingPolicy](../../functions/api-ref/Function/removeScalingPolicy.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/RemoveScalingPolicy](../../functions/api-ref/grpc/Function/removeScalingPolicy.md) gRPC API call.
 
 
 {% endlist %}
-
-To delete the [number of calls processed concurrently by a single function instance](../../concepts/function.md#concurrency) (`concurrency`), [create a function version](../../operations/function/version-manage.md#version-create) without specifying this parameter.
 
 {% include [see-also-scaling](../../../_includes/functions/see-also-scaling.md) %}

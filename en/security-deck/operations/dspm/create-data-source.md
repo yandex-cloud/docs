@@ -24,7 +24,7 @@ A [data source](../../concepts/dspm.md#data-source) contains information about t
   1. Add the resources you want to scan to the data source:
       * To add individual buckets, click ![circle-plus](../../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_org.dspm.scan-resource-group.button_select_bucket }}** and select one or more buckets from available folders.
 
-          You can filter buckets by access settings (`{{ ui-key.yacloud_org.storage.value_private-bucket }}` or `{{ ui-key.yacloud_org.storage.value_public-bucket }}`) and by bucket name as needed.
+          You can filter buckets by access settings (`{{ ui-key.yacloud.storage.buckets.value_private-bucket }}` or `{{ ui-key.yacloud.storage.buckets.value_public-bucket }}`) and by bucket name as needed.
 
       * To add [clouds](../../../resource-manager/concepts/resources-hierarchy.md#cloud) or [folders](../../../resource-manager/concepts/resources-hierarchy.md#folder) to your data source, click ![circle-plus](../../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_org.dspm.scan-resource-group.button_select_cloud_catalog }}** and select all or some of the available clouds and/or folders.
 

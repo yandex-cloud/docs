@@ -89,7 +89,7 @@ You can get a CSV file with your general or per-resource spending details. You c
 
               1. In the **{{ ui-key.yacloud_org.billing.account.exports.column_service_account }}** field, click **{{ ui-key.yacloud_org.billing.exports.ServiceAccountAddField.addNewServiceAccount  }}**.
               1. Enter a name for the service account.
-              1. Click **{{ ui-key.yacloud_org.iam.folder.service-account.popup-robot_button_save }}**.
+              1. Click **{{ ui-key.yacloud_org.common.save }}**.
 
           {% endlist %}
 

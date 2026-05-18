@@ -1,28 +1,3 @@
-title: Yandex Managed Service for Apache Kafka®
-description:
-  - >-
-    Сервис Managed Service for Apache Kafka<sup>®</sup> помогает разворачивать и
-    поддерживать кластеры серверов Apache Kafka<sup>®</sup> версий {{
-    versions.console.str }} в инфраструктуре Yandex Cloud.
-  - >-
-    Инфраструктура Yandex Cloud <a href="/docs/security/conform">защищена</a> в
-    соответствии со следующими стандартами:
-  - >-
-    <ul> <li>Федеральный закон Российской Федерации «О персональных данных»
-    № 152-ФЗ.</li> <li>Стандарт безопасности индустрии платежных карт (PCI
-    DSS).</li> <li>Стандарт ISO 27001.</li> <li>Стандарт ISO 27017.</li>
-    <li>Стандарт ISO 27018.</li> <li>ГОСТ 57580.1-2017.</li> </ul>
-  - >-
-    Для сервиса действует <a href="https://yandex.ru/legal/cloud_sla">соглашение
-    об уровне обслуживания</a>.
-  - >-
-    Уровень обслуживания сервиса определен в документе <a
-    href="https://yandex.ru/legal/cloud_sla_mdb">Уровень обслуживания Yandex
-    Managed Databases</a>.
-  - >-
-    <em>Apache<sup>®</sup> и Apache Kafka<sup>®</sup> являются
-    зарегистрированными товарными знаками или товарными знаками Apache Software
-    Foundation в США и/или других странах.</em>
 meta:
   title: Yandex Managed Service for Apache Kafka®
   description: >-
@@ -41,28 +16,135 @@ meta:
     - keyword: Apache Kafka в {{ yandex-cloud }}
     - keyword: '{{ mkf-name }} в {{ yandex-cloud }}'
     - keyword: сервис {{ mkf-name }}
-links:
-  - title: Начало работы
-    description: Создайте первый кластер
-    href: quickstart
-  - title: Пошаговые инструкции
-    description: Инструкции по выполнению рутинных операций
-    href: operations/
-  - title: Концепции
-    description: Узнайте про концепции и общее устройство сервиса
-    href: concepts/
-  - title: Практические руководства
-    description: Решайте типовые задачи при помощи {{ mkf-name }}
-    href: tutorials/
-  - title: Квоты и лимиты
-    description: Технические и организационные ограничения сервиса
-    href: concepts/limits
-  - title: Управление доступом
-    description: Настройте права доступа для работы с сервисом
-    href: security/
-  - title: Правила тарификации
-    description: Цены и правила расчета стоимости услуг сервиса
-    href: pricing
-  - title: Обучающие курсы
-    description: Информация о доступных программах обучения
-    href: training
+blocks:
+  - type: content-layout-block
+    textContent:
+      title: Yandex Managed Service for Apache Kafka®
+      text: >-
+        Сервис Managed Service for Apache Kafka® помогает разворачивать и
+        поддерживать кластеры серверов Apache Kafka® версий 3.6, 3.7, 3.8, 3.9
+        или 4.0 в инфраструктуре Yandex Cloud.
+    size: l
+  - type: card-layout-block
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+      lg: 3
+    background: ''
+    children:
+      - type: basic-card
+        title: Начало работы
+        text: Создайте свой первый кластер
+        icon: _assets/icons/rocket.svg
+        urlTitle: Как начать работать с Managed Service for Apache Kafka
+        url: quickstart
+        centered: true
+        size: s
+      - type: basic-card
+        title: Пошаговые инструкции
+        text: Следуйте инструкциям для выполнения рутинных операций
+        icon: _assets/icons/list-ol.svg
+        urlTitle: Все пошаговые инструкции для Managed Service for Apache Kafka®
+        url: operations/index
+        centered: true
+        size: s
+      - type: basic-card
+        title: Концепции
+        text: Изучите основные термины и понятия, используемые в сервисе
+        icon: _assets/icons/bookmark.svg
+        urlTitle: Все понятия
+        url: concepts/index
+        centered: true
+        size: s
+      - type: basic-card
+        title: Практические руководства
+        text: Решайте типовые задачи при помощи сервиса
+        icon: _assets/icons/book.svg
+        urlTitle: Практические руководства Managed Service for Apache Kafka®
+        url: tutorials/index
+        centered: true
+        size: s
+      - type: basic-card
+        title: Правила тарификации
+        text: Цены и правила расчета стоимости услуг
+        icon: _assets/icons/calculator.svg
+        urlTitle: Правила тарификации для Managed Service for Apache Kafka
+        url: pricing
+        centered: true
+        size: s
+      - type: basic-card
+        title: Квоты и лимиты
+        text: Технические и организационные ограничения сервиса
+        icon: _assets/icons/sliders.svg
+        urlTitle: Квоты в Managed Service for Apache Kafka®
+        url: concepts/limits
+        centered: true
+        size: s
+      - type: basic-card
+        title: Управление доступом
+        text: Настройте права доступа для работы с сервисом
+        icon: _assets/icons/persons-lock.svg
+        urlTitle: Управление доступом в Managed Service for Apache Kafka®
+        url: security/index
+        centered: true
+        size: s
+      - type: basic-card
+        title: Обучающие курсы
+        text: Информация о доступных программах обучения
+        icon: _assets/icons/graduation-cap.svg
+        urlTitle: Обучающие курсы по Yandex Managed Service for Apache Kafka®
+        url: training
+        centered: true
+        size: s
+  - type: card-layout-block
+    colSizes:
+      all: 12
+      sm: 6
+      md: 6
+    background: ''
+    title: Условия использования сервиса
+    description: >-
+      Для сервиса действует [соглашение об уровне
+      обслуживания](https://yandex.ru/legal/cloud_sla/ru/).
+    iconPosition: left
+    children:
+      - type: basic-card
+        title: ''
+        text: >-
+          Инфраструктура Yandex Cloud защищена в соответствии со следующими
+          стандартами:
+
+          * [Федеральный закон Российской Федерации «О персональных данных»
+          № 152-ФЗ](https://yandex.cloud/ru/docs/security/conform#law)
+
+
+          * [ГОСТ
+          57580.1-2017](https://yandex.cloud/ru/docs/security/conform#gost)
+
+          * [Стандарт PCI
+          DSS](https://yandex.cloud/ru/docs/security/conform#pci-dss)
+
+          * [Стандарты ISO](https://yandex.cloud/ru/docs/security/conform#iso)
+        icon: _assets/icons/file-text.svg
+        centered: true
+        size: s
+      - type: basic-card
+        title: ''
+        text: >-
+          Уровень обслуживания сервиса определен в документе:
+
+          * [Уровень обслуживания Сервиса Управления (для Apache Kafka®) /
+          Yandex Managed Service (for Apache
+          Kafka®)](https://yandex.ru/legal/cloud_sla_kfk/ru/)
+        icon: _assets/icons/file-text.svg
+        centered: true
+        size: s
+  - type: content-layout-block
+    textContent:
+      title: ''
+      text: >-
+        _Apache® и Apache Kafka® являются зарегистрированными товарными знаками
+        или товарными знаками Apache Software Foundation в США и/или других
+        странах._
+links: []

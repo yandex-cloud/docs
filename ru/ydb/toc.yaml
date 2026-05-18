@@ -72,6 +72,10 @@ items:
           помощью {{ data-transfer-full-name }}
         href: tutorials/ydb-to-clickhouse.md
       - name: >-
+          Загрузка данных из {{ ydb-short-name }} в {{ mpg-full-name }} с
+          помощью {{ data-transfer-full-name }}
+        href: tutorials/ydb-to-postgresql.md
+      - name: >-
           Миграция данных из {{ mos-full-name }} в {{ ydb-short-name }} с
           помощью {{ data-transfer-full-name }}
         href: tutorials/opensearch-to-ydb.md

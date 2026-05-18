@@ -62,7 +62,7 @@ Create a {{ org-full-name }} [user group](../organization/concepts/groups.md) an
 
   1. In the window than opens, select the users to deploy a desktop group for.
 
-  1. Click **{{ ui-key.yacloud_org.component.subject-select-dialog.action_apply }}**.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 

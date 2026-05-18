@@ -658,16 +658,16 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
           DST_BUCKET  = "<backup_bucket_name>"
           S3_ENDPOINT = "https://{{ s3-storage-host }}"
         }
-        secrets = {
-          id = "<secret_ID>"
-          version_id = "<secret_version_ID>"
-          key = "key_id"
+        secrets {
+          id                   = "<secret_ID>"
+          version_id           = "<secret_version_ID>"
+          key                  = "key_id"
           environment_variable = "AWS_ACCESS_KEY_ID"
         }
-        secrets = {
-          id = "<secret_ID>"
-          version_id = "<secret_version_ID>"
-          key = "secret"
+        secrets {
+          id                   = "<secret_ID>"
+          version_id           = "<secret_version_ID>"
+          key                  = "secret"
           environment_variable = "AWS_SECRET_ACCESS_KEY"
         }
         content {
@@ -879,4 +879,3 @@ To stop paying for the resources you created:
 1. [Delete](../../storage/operations/buckets/delete.md) the buckets.
 1. [Delete](../../functions/operations/trigger/trigger-delete.md) the `bucket-to-bucket-copying` trigger.
 1. [Delete](../../functions/operations/function/function-delete.md) `copy-function`.
-

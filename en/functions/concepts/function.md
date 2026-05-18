@@ -134,7 +134,7 @@ A function instance processes one function call at a single point in time. If th
 
 To reduce the number of cold starts, {{ sf-name }} creates function instances in the background, not for the purpose of processing user requests. The number of instances created this way does not exceed the quota.
 
-Additionally, in {{ sf-name }}, you can set:
+In addition, you can set the following scaling settings in {{ sf-name }}:
 
 {% include [scaling](../../_includes/functions/scaling.md) %}
 
@@ -145,22 +145,6 @@ Calls are distributed across availability zones randomly. {{ sf-name }} does not
 {% endnote %}
 
 {% include [provisioned-instances-time](../../_includes/functions/provisioned-instances-time.md) %}
-
-#### Concurrent function instance calls {#concurrency}
-
-To allow a single function instance to handle multiple function calls concurrently, set the `concurrency` parameter when creating a function version. The IDs of such calls (`RequestID`) must be unique. Otherwise, you will be getting an error when attempting to process a call with a duplicate ID.
-
-If at least one call reaches a timeout, that call and all other calls handled by the same function instance will be aborted. For more information about the timeout, see [{#T}](limits.md#functions-limits).
-
-The `concurrency` parameter is available for functions with the following [runtime environments](runtime/index.md):
-
-* [Node.js](../lang/nodejs/index.md)
-* [Go](../lang/golang/index.md)
-* [Java](../lang/java/index.md)
-* [Bash](../lang/bash/index.md)
-* [Kotlin](../lang/kotlin/index.md)
-
-#### Limits {#limits}
 
 When the number of function instances reaches the `zone_instances_limit` value, {{ sf-name }} stops scaling it. If there are more function calls than the instances can handle, the new call is queued and treated as a call in progress. When the number of calls in progress reaches the `zone_requests_limit` value, the service stops queuing calls and returns the `429 TooManyRequests` error.
 
@@ -182,6 +166,24 @@ Provisioned instances count towards the following [quotas](limits.md) even when 
 * Total RAM for all running functions per availability zone.
 * Number of provisioned function instances per cloud.
 
+### Concurrent function instance calls {#concurrency}
+
+To allow a single function instance to handle multiple function calls concurrently, set the `concurrency` parameter when creating a function version.
+
+If the user specifies call IDs (`RequestID`) themselves, they must ensure these are unique; otherwise, an error will be returned when the instance attempts to process a call with a duplicate ID.
+
+When a function instance processes multiple calls simultaneously, only the ID of the last one is written to the logs. To log the IDs of all calls a function handles, use [structured logs](logs.md#structured-logs).
+
+If at least one call reaches a timeout, that call and all other calls handled by the same function instance will be aborted. For more information about the timeout, see [{#T}](limits.md#functions-limits).
+
+The `concurrency` parameter is available for functions with the following [runtime environments](runtime/index.md):
+
+* [Node.js](../lang/nodejs/index.md)
+* [Go](../lang/golang/index.md)
+* [Java](../lang/java/index.md)
+* [Bash](../lang/bash/index.md)
+* [Kotlin](../lang/kotlin/index.md)
+
 ## Use cases {#examples}
 
 * [{#T}](../tutorials/api-gw-integration.md)
@@ -196,3 +198,4 @@ Provisioned instances count towards the following [quotas](limits.md) even when 
 
 * [Creating a function version](../operations/function/version-manage.md)
 * [Adding scaling settings](../operations/function/scaling-settings-add.md)
+* [{#T}](../operations/function/concurrency.md)

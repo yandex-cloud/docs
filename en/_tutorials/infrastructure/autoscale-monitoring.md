@@ -387,7 +387,7 @@ You will need the AWS CLI to complete the final step of this scenario, i.e., to 
      
      - Management console {#console}
      
-       On the [cloud page]({{ link-console-cloud }}), find `example-folder` in the **{{ ui-key.yacloud.iam.cloud.folders.section_folders }}** list and copy its **{{ ui-key.yacloud.common.id }}**.
+       On the [cloud page]({{ link-console-cloud }}), find `example-folder` in the **Folders** list and copy its **{{ ui-key.yacloud.common.id }}**.
      
      - CLI {#cli}
      

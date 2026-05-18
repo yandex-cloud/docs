@@ -6,6 +6,14 @@ editable: false
 
 
 
+## 0.204.0 (May 18, 2026)
+##### FEATURES:
+* compute: add `aws_v2_http_endpoint` and `aws_v2_http_token` options to yandex_compute_instance
+##### BUG FIXES:
+* clickhouse: fix deprecated version in `yandex_mdb_clickhouse_cluster_*` tests
+##### ENHANCEMENTS:
+* postgresql: remove 13 and 13-1c postgresql versions support
+
 ## 0.203.0 (May 14, 2026)
 ##### FEATURES:
 * alb: add `external_address` support in `Target`

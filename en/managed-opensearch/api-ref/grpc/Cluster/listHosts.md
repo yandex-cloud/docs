@@ -155,8 +155,11 @@ Name of the host group that the host belongs to. ||
 
 Roles of the host.
 
-- `DATA`
-- `MANAGER` ||
+- `DATA`: Data nodes store indices data.
+- `MANAGER`: Manager nodes perform cluster coordination.
+- `WARM`: Warm nodes provide access to searchable snapshots and store search cache.
+- `INGEST`: Ingest nodes provides indexed data processing.
+If no node groups have INGEST role explicitly set, then all DATA nodes will implicitly have INGEST role. ||
 |#
 
 ## Resources {#yandex.cloud.mdb.opensearch.v1.Resources}

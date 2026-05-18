@@ -2,7 +2,7 @@
 
 {% include [af-restriction-version](../../_includes/mdb/maf/af-restriction-version.md) %}
 
-Use a [directed acyclic graph (DAG)](../../managed-airflow/concepts/index.md#about-the-service) to configure your SMTP server to send e-mail notifications. Data for connecting to the DB is stored in {{ lockbox-name }} and automatically inserted into the graph.
+Use a [directed acyclic graph (DAG)](../../managed-airflow/concepts/index.md#about-the-service) to configure your SMTP server to send e-mail notifications. Data for connecting to the DB is stored in {{ lockbox-full-name }} and automatically inserted into the graph.
 
 To configure an SMTP server to send e-mail notifications, follow these steps:
 
@@ -12,6 +12,18 @@ To configure an SMTP server to send e-mail notifications, follow these steps:
 1. [Check the result](#check-result).
 
 If you no longer need the resources you created, [delete them](#clear-out).
+
+
+## Getting started {#before-you-begin}
+
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+### Required paid resources {#paid-resources}
+
+* {{ maf-name }} cluster: computing resources of cluster components (see [{{ maf-name }} pricing](../../managed-airflow/pricing.md)).
+* {{ objstorage-full-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* {{ lockbox-name }} secret: number of stored secret versions and requests to them (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
+
 
 ## Set up your infrastructure {#create-infrastracture}
 
@@ -44,18 +56,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    Fill in the fields manually or import the settings from a configuration file (see [a configuration file example](https://{{ s3-storage-host }}/doc-files/managed-airflow/airflow.cfg)).
 
-
-### Required paid resources {#paid-resources}
-
-The support cost for this solution includes:
-
-* {{ maf-name }} cluster fee: using computing resources allocated to hosts and disk space (see [{{ maf-name }} pricing](../../managed-airflow/pricing.md)).
-* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Fee for an {{ objstorage-name }} bucket: data storage and data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* {{ lockbox-name }} fee: storing secrets (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
-
-
-## Create a {{ lockbox-full-name }} secret {#create-lockbox-secret}
+## Create a {{ lockbox-name }} secret {#create-lockbox-secret}
 
 [Create a {{ lockbox-name }} secret](../../lockbox/operations/secret-create.md) named `airflow/connections/smtp_default`, containing `json.dumps(conn)`, where `conn` is a connection to an SMTP server.
 

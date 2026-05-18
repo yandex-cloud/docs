@@ -2930,11 +2930,13 @@ POST https://{{ api-host-data-transfer }}/v1/endpoint
 || folderId | **string**
 
 ID of the folder to create the endpoint in.
+
 To get the folder ID, make a
 [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/Folder/list#List) request. ||
 || name | **string**
 
 Name of the endpoint.
+
 The name must be unique within the folder. ||
 || description | **string**
 
@@ -2942,6 +2944,7 @@ Description of the endpoint. ||
 || labels | **object** (map<**string**, **string**>)
 
 Endpoint labels as `key:value` pairs.
+
 For details about the concept, see [documentation]({{ api-url-prefix
 }}/resource-manager/concepts/labels). ||
 || settings | **[EndpointSettings](#yandex.cloud.datatransfer.v1.EndpointSettings)** ||
@@ -3010,6 +3013,7 @@ Database connection settings ||
 || database | **string**
 
 Name of the database to transfer
+
 You can leave it empty, then it will be possible to transfer tables from several
 databases at the same time from this source. ||
 || user | **string**
@@ -3021,6 +3025,7 @@ Password for database access. ||
 || timezone | **string**
 
 Database timezone
+
 Is used for parsing timestamps for saving source timezones. Accepts values from
 IANA timezone database. Default: local timezone. ||
 || objectTransferSettings | **[MysqlObjectTransferSettings](#yandex.cloud.datatransfer.v1.endpoint.MysqlObjectTransferSettings)**
@@ -3151,6 +3156,7 @@ Includes only one of the fields `raw`. ||
 || view | **enum** (ObjectTransferStage)
 
 Views
+
 CREATE VIEW ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -3159,6 +3165,7 @@ CREATE VIEW ...
 || routine | **enum** (ObjectTransferStage)
 
 Routines
+
 CREATE PROCEDURE ... ; CREATE FUNCTION ... ;
 
 - `BEFORE_DATA`: Before data transfer
@@ -3167,6 +3174,7 @@ CREATE PROCEDURE ... ; CREATE FUNCTION ... ;
 || trigger | **enum** (ObjectTransferStage)
 
 Triggers
+
 CREATE TRIGGER ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -3279,6 +3287,7 @@ TLS settings for server connection. Disabled by default. ||
 || sequence | **enum** (ObjectTransferStage)
 
 Sequences
+
 CREATE SEQUENCE ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -3287,6 +3296,7 @@ CREATE SEQUENCE ...
 || sequenceOwnedBy | **enum** (ObjectTransferStage)
 
 Owned sequences
+
 CREATE SEQUENCE ... OWNED BY ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -3295,6 +3305,7 @@ CREATE SEQUENCE ... OWNED BY ...
 || table | **enum** (ObjectTransferStage)
 
 Tables
+
 CREATE TABLE ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -3303,6 +3314,7 @@ CREATE TABLE ...
 || primaryKey | **enum** (ObjectTransferStage)
 
 Primary keys
+
 ALTER TABLE ... ADD PRIMARY KEY ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -3311,6 +3323,7 @@ ALTER TABLE ... ADD PRIMARY KEY ...
 || fkConstraint | **enum** (ObjectTransferStage)
 
 Foreign keys
+
 ALTER TABLE ... ADD FOREIGN KEY ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -3319,6 +3332,7 @@ ALTER TABLE ... ADD FOREIGN KEY ...
 || defaultValues | **enum** (ObjectTransferStage)
 
 Default values
+
 ALTER TABLE ... ALTER COLUMN ... SET DEFAULT ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -3327,6 +3341,7 @@ ALTER TABLE ... ALTER COLUMN ... SET DEFAULT ...
 || constraint | **enum** (ObjectTransferStage)
 
 Constraints
+
 ALTER TABLE ... ADD CONSTRAINT ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -3335,6 +3350,7 @@ ALTER TABLE ... ADD CONSTRAINT ...
 || index | **enum** (ObjectTransferStage)
 
 Indexes
+
 CREATE INDEX ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -3343,6 +3359,7 @@ CREATE INDEX ...
 || view | **enum** (ObjectTransferStage)
 
 Views
+
 CREATE VIEW ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -3351,6 +3368,7 @@ CREATE VIEW ...
 || function | **enum** (ObjectTransferStage)
 
 Functions
+
 CREATE FUNCTION ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -3359,6 +3377,7 @@ CREATE FUNCTION ...
 || trigger | **enum** (ObjectTransferStage)
 
 Triggers
+
 CREATE TRIGGER ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -3367,6 +3386,7 @@ CREATE TRIGGER ...
 || type | **enum** (ObjectTransferStage)
 
 Types
+
 CREATE TYPE ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -3375,6 +3395,7 @@ CREATE TYPE ...
 || rule | **enum** (ObjectTransferStage)
 
 Rules
+
 CREATE RULE ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -3383,6 +3404,7 @@ CREATE RULE ...
 || collation | **enum** (ObjectTransferStage)
 
 Collations
+
 CREATE COLLATION ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -3391,6 +3413,7 @@ CREATE COLLATION ...
 || policy | **enum** (ObjectTransferStage)
 
 Policies
+
 CREATE POLICY ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -3399,6 +3422,7 @@ CREATE POLICY ...
 || cast | **enum** (ObjectTransferStage)
 
 Casts
+
 CREATE CAST ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -3407,6 +3431,7 @@ CREATE CAST ...
 || materializedView | **enum** (ObjectTransferStage)
 
 Materialized views
+
 CREATE MATERIALIZED VIEW ...
 
 - `BEFORE_DATA`: Before data transfer
@@ -3965,6 +3990,7 @@ Database connection settings ||
 || database | **string**
 
 Database name
+
 Allowed to leave it empty, then the tables will be created in databases with the
 same names as on the source. If this field is empty, then you must fill below db
 schema for service table. ||
@@ -3990,6 +4016,7 @@ cascading operations ||
 || timezone | **string**
 
 Database timezone
+
 Is used for parsing timestamps for saving source timezones. Accepts values from
 IANA timezone database. Default: local timezone. ||
 || cleanupPolicy | **enum** (CleanupPolicy)

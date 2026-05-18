@@ -7,6 +7,9 @@
 
     {% include [note-managing-roles](../../../_includes/mdb/note-managing-roles.md) %}
 
+### Необходимые платные ресурсы {#paid-resources}
+
+В стоимость инфраструктуры для интеграции с внешними системами входит плата за сервис {{ speechsense-name }}: длительность каждого двухканального аудиофайла (см. [тарифы {{ speechsense-name }}](../../../speechsense/pricing.md)).
 
 ### Создайте сервисный аккаунт {#create-sa}
 

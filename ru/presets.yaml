@@ -3980,6 +3980,15 @@ default:
         label_placeholder: Поиск по облачным ресурсам
         search_filters_all: Везде
         search_filters_docs: Документация
+      security:
+        dspm:
+          action_button_apply: Скачать файл
+          action_button_export_without_validation: Экспортировать без проверки
+          action_export_with_validation: Проверить и экспортировать
+          card_title_image: На изображениях
+          card_title_text: В тексте
+          dialog_select-service-account_create-new-action: Создать новый
+          header_scan_result_sensitive_data: Отображение чувствительных данных
       services:
         service_compute: Compute Cloud
       settings:
@@ -4473,6 +4482,7 @@ default:
         overview: Обзор
         resource-acl:
           label_invitee-accounts: Приглашенные аккаунты
+        save: Сохранить
         section-base: Общая информация
       component:
         form-file-upload:
@@ -4480,8 +4490,6 @@ default:
             method: Способ
           method:
             manual: Текст
-        subject-select-dialog:
-          action_apply: Сохранить
       dashboard:
         notify:
           action:
@@ -4506,9 +4514,6 @@ default:
           label_create-source: Создать источник
           label_field-name: Имя
           label_source-info: Информация об источнике
-        scan-categories:
-          card_title_image: На изображениях
-          card_title_text: В тексте
         scan-jobs:
           field_data-sources: Источники данных
         scan-resource-group:
@@ -4529,11 +4534,8 @@ default:
           public_buckets: Публичные бакеты
           title_all_buckets: Все бакеты
         scan:
-          action_button_apply: Скачать файл
-          action_button_export: Проверить и экспортировать
           action_download-results: Скачать результаты
           action_export-results: Экспортировать результаты
-          header_scan-result_sensitive-data: Отображение чувствительных данных
           label_data-type: Тип данных
           label_found-occurrence: Найденное вхождение
           results_resource-name: Ресурс
@@ -4665,11 +4667,6 @@ default:
           folders-create:
             button_create: Создать
             field_description: Описание
-        folder:
-          service-account:
-            popup-robot_button_save: Сохранить
-          service-accounts:
-            dialog_select-service-account_create-new-action: Создать новый
       kspm:
         TopClustersByErrorsWidget:
           table_clusters: Топ кластеров с нарушениями
@@ -5048,8 +5045,6 @@ default:
             value_personal-data_w5gVm: Персональные данные
             value_secrets_4CdGy: Секреты
           label_field-bucket_3mM6u: Бакет
-          ScanExportDialog:
-            action_button_export_without_validation_pFWLZ: Экспортировать без проверки
           ScanForm:
             action_create-scan_dvakP: Создать сканирование без проверки
             table_action_assign_roles_bw4am: Назначить роли
@@ -5098,7 +5093,6 @@ default:
           ExceptionsPage:
             create-exception: Новое исключение
           InvestigationPageLayout:
-            copy_wiAxw: Создать копию
             fieldDescription_wiAxw: Описание
             fieldModified: Изменено
             information_cZr8L: Информация
@@ -5125,7 +5119,6 @@ default:
             labelServiceAccountField: Сервисный аккаунт
           DownloadCspmScanResultsDialog:
             action_download-file_gJ3Vh: Скачать файл
-          label_rule-kind_3PswX: Тип правила
           module_dspm_xxxxx: Контроль данных (DSPM)
           module-cspm_gozhj: Контроль конфигурации (CSPM)
           namespace-checkbox_85krx: Пространства имен
@@ -5202,9 +5195,6 @@ default:
       siem:
         SearchActionButtonBlock:
           save: Сохранить
-      storage:
-        value_private-bucket: Ограниченный
-        value_public-bucket: Публичный
       support:
         switch_tickets: Обращения
         tickets:
@@ -5712,14 +5702,12 @@ default:
         label_create-public-subnet-full: Заказать публичную подсеть
         label_create-server: Заказать сервер
         label_create-subnetwork: Создать подсеть
-        label_images: Загрузочные образы
         label_images_duoXD: Загрузочные образы
         label_kvm-console_37Kma: KVM-консоль
         label_load-image: Загрузить образ
         label_lockbox-key: Ключ
         label_lockbox-name: Имя
         label_lockbox-version: Версия
-        label_networks: VRF
         label_networks_kHgng: VRF
         label_password-lockbox: Секрет Lockbox
         label_password-plain: Новый пароль
@@ -5727,7 +5715,6 @@ default:
         label_public-ip-from-dedicated-subnet: Из выделенной подсети
         label_public-ip-no: Без адреса
         label_public-ip-via-dhcp: Назначить по DHCP
-        label_public-subnets: Публичные адреса и подсети
         label_public-subnets_v16CV: Публичные адреса и подсети
         label_servers_sCNgb: Серверы
         label_subnetworks_uU4LH: Приватные подсети
@@ -6724,6 +6711,8 @@ default:
           ResourcesSection:
             create-resources_rGA1t: Создать ресурс
             title_7kYbU: Ресурсы
+          ServicesSection:
+            title_ur39b: Все сервисы
         FoldersSelector:
           FolderInfoDialog:
             folder-id_6KQJv: Идентификатор каталога
@@ -7108,7 +7097,6 @@ default:
           folders:
             button_cancel-deletion: Отменить удаление
             popup-edit_button_save: Сохранить
-            section_folders: Каталоги
           incident-notifications:
             button_open-dialog: Добавить
           label_create_cloud: Создать облако
@@ -7217,7 +7205,6 @@ default:
             label_monitoring: Monitoring
             label_monium: Monium
             label_postbox: Cloud Postbox
-            label_products: Все сервисы
             label_schema-registry: Schema Registry
             label_serverless-containers: Serverless Containers
             label_serverless-functions: Cloud Functions
@@ -7281,7 +7268,6 @@ default:
             label_title: Сервисные аккаунты
             popup-confirm_button_delete: Удалить
           switch_dashboard: Дашборд каталога
-          switch_service-accounts: Сервисные аккаунты
           switch_service-notifications: Уведомления сервисов
         label_create-wli-federation: Создать федерацию
         label_federations: Федерации сервисных аккаунтов
@@ -8010,7 +7996,7 @@ default:
           label_master-subcluster: Мастер
           label_max-size-units: ГБ
           label_network: Сеть
-          maintenance-window-type: Окно обслуживания
+          maintenance-window-type: Обслуживание
           network_field_form-type: Формат указания сети
           network_field_subnetwork: Подсеть
           network_field_zone: Зона доступности
@@ -8040,8 +8026,8 @@ default:
           section_zookeeper-resource: Класс хоста ZooKeeper
           title_deb-packages: Deb-пакеты
           title_pip-packages: Pip-пакеты
-          value_maintenance-type-anytime: произвольное
-          value_maintenance-type-weekly: по расписанию
+          value_maintenance-type-anytime: В любое время
+          value_maintenance-type-weekly: По расписанию
         hosts:
           dialog:
             button_choose: Сохранить
@@ -8816,6 +8802,8 @@ default:
           create:
             button_create: Создать бакет
           label_title: Бакеты
+          value_private-bucket: Ограниченный
+          value_public-bucket: Публичный
         button_upload: Загрузить
         field_perm-object-lock-enabled: Бессрочная блокировка
         field_temp-object-lock-enabled: Временная блокировка
@@ -9098,47 +9086,6 @@ default:
         switch_private-endpoints: Сервисные подключения
         switch_route-tables: Таблицы маршрутизации
         title_network-map-page: Карта облачной сети
-      yagpt:
-        YaGPT:
-          agent_instruction_9oe6q: Инструкция
-          AgentForm:
-            add-mcp-tool_gqwmZ: Добавить MCP
-            save-and-continue_u1Wis: Создать и продолжить
-            select_dPVTq: Выбрать
-            tools_title_9yUpx: Инструменты
-          agents_2h9Sa: Агенты
-          Assistant:
-            model_iyopt: Модель
-          AssistantChat:
-            test-assistant-title_6ZNFg: Тестирование агента
-          ConnectMcpTools:
-            add-mcp-tool_dyEgv: Добавить инструменты
-          create-agent_1txyW: Создать агента
-          CreateAgentCard:
-            create-agent_button-text_n2qCs: Создать агента
-          CreateMcpServerForm:
-            access-type_aPzxZ: Доступ
-            access-type_private_b4gkg: Приватный
-            form-view_connect_bS8yQ: Подключить
-            service-account_h3ujf: Сервисный аккаунт
-            tools_gkQfS: Инструменты
-            type_dZSaw: Способ добавления
-          mcp-servers-list-title_snWTf: MCP-серверы
-          mcp-tool_all-tools_gZA6P: Поведение по умолчанию для всех инструментов
-          mcp-tool_require-approval-policy_never_qPvRW: Подтверждение не нужно
-          McpCallToolForm:
-            add_47STV: Добавить
-            add-tools_ih6PU: Добавление инструментов
-            connect_xY9Zw: Подключиться
-            mcp-authorization_header_fdGKe: Токен доступа
-            transport_q3nD6: Транспорт
-            transport_streamable_eV7Rb: Streamable HTTP
-            url_bUhZ1: URL
-          McpServersList:
-            label_create-mcp-gateway_3o3Vu: Создать MCP-сервер
-          name_hTzhB: Имя
-          Overview3:
-            action-card_create-ai-agent_ahZQH: Создать AI-агента
       ydb:
         browse:
           button_create: Создать

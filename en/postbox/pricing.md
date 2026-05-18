@@ -24,7 +24,7 @@ For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=
 
 {% note info %}
 
-By default, {{ postbox-name }} has quotas (e.g., on the number of emails you send), which you can increase by submitting a support request. For more information, see [{#T}](concepts/limits.md).
+By default, {{ postbox-name }} has quotas (e.g., on the number of emails you send), which you can increase by submitting a support request. For more details, see [{#T}](concepts/limits.md).
 
 {% endnote %}
 

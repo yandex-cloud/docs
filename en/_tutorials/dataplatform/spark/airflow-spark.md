@@ -33,25 +33,18 @@ The {{ msp-full-name }} cluster we create here does not use the S3 [{{ objstorag
 ## Required paid resources {#paid-resources}
 
 * {{ maf-name }} cluster: computing resources of cluster components (see [{{ maf-name }} pricing](../../../managed-airflow/pricing.md)).
-
-  {% note info %}
-
-  Using {{ objstorage-name }} for storing DAG files is charged according to the [{{ objstorage-name }} pricing policy](../../../storage/pricing.md).
-
-  {% endnote %}
-
-* {{ msp-full-name }} cluster: computing resources of cluster components (see [{{ msp-full-name }} pricing](../../../managed-spark/pricing.md)).
 * {{ objstorage-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
 * {{ cloud-logging-full-name }}: amount of written data and its retention time (see [{{ cloud-logging-name }} pricing](../../../logging/pricing.md)).
+* {{ msp-full-name }} cluster: computing resources of cluster components (see [{{ msp-full-name }} pricing](../../../managed-spark/pricing.md)).
 
 
 ## Set up your infrastructure {#infra}
 
 This tutorial uses a simplified infrastructure setup:
 
-* Single service account with advanced privileges.
-* Single bucket for the whole data.
-* Default security group.
+* A single service account with advanced privileges.
+* A single bucket for the whole data.
+* The default security group.
 
 This setup is good for testing but does not ensure a sufficient security level for real-world scenarios. To make the solution more secure, adhere to the [principle of least privilege](../../../iam/best-practices/using-iam-securely.md#restrict-access).
 

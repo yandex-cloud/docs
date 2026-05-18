@@ -24,7 +24,7 @@ description: Следуя данной инструкции, вы узнаете
   1. Добавьте к источнику данных ресурсы, в которых вы хотите выполнять сканирование:
       * Чтобы добавить отдельные бакеты, нажмите ![circle-plus](../../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_org.dspm.scan-resource-group.button_select_bucket }}** и выберите один или несколько бакетов в одном или нескольких доступных вам каталогах.
 
-          При необходимости используйте фильтры по настройкам доступа (`{{ ui-key.yacloud_org.storage.value_private-bucket }}` или `{{ ui-key.yacloud_org.storage.value_public-bucket }}`) и по имени бакета.
+          При необходимости используйте фильтры по настройкам доступа (`{{ ui-key.yacloud.storage.buckets.value_private-bucket }}` или `{{ ui-key.yacloud.storage.buckets.value_public-bucket }}`) и по имени бакета.
 
       * Чтобы добавить к источнику данных [облака](../../../resource-manager/concepts/resources-hierarchy.md#cloud) или [каталоги](../../../resource-manager/concepts/resources-hierarchy.md#folder), нажмите ![circle-plus](../../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_org.dspm.scan-resource-group.button_select_cloud_catalog }}** и выберите сразу все или некоторые из доступных вам облаков и/или каталогов.
 

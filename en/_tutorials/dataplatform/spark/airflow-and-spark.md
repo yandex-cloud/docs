@@ -6,7 +6,7 @@
 With a {{ maf-full-name }} cluster, you can automate your [{{ msp-full-name }}](../../../managed-spark/index.yaml) work, including operations like creating {{ msp-full-name }} clusters, running jobs, etc. Do it by creating a [directed acyclic graph (DAG) for jobs](../../../managed-airflow/concepts/index.md). The {{ AF }} cluster will use this DAG to automatically perform all its {{ msp-full-name }}-related actions.
 
 This tutorial demonstrates a DAG use case, which includes:
-1. Creating a {{ msp-full-name }} cluster connected to [{{ objstorage-name }}](../../../storage/concepts/index.md) and [{{ metastore-name }}](../../../metadata-hub/concepts/metastore.md).
+1. Creating a {{ msp-full-name }} cluster connected to [{{ objstorage-full-name }}](../../../storage/concepts/index.md) and [{{ metastore-full-name }}](../../../metadata-hub/concepts/metastore.md).
 1. Running a PySpark job to create a table in an {{ objstorage-name }} bucket.
 1. Deleting the {{ msp-full-name }} cluster.
 

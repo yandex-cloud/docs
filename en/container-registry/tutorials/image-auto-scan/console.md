@@ -80,7 +80,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), select a folder where you want to create a service account.
-     1. At the top of the screen, go to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+     1. At the top of the screen, go to the **Service accounts** tab.
      1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. Enter a name for the service account.
      1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `container-registry.images.scanner` role.

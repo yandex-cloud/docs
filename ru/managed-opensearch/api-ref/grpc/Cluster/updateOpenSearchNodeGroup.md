@@ -79,8 +79,11 @@ Number of hosts in the group. ||
 
 Opensearch roles applicable to the node group.
 
-- `DATA`
-- `MANAGER` ||
+- `DATA`: Data nodes store indices data.
+- `MANAGER`: Manager nodes perform cluster coordination.
+- `WARM`: Warm nodes provide access to searchable snapshots and store search cache.
+- `INGEST`: Ingest nodes provides indexed data processing.
+If no node groups have INGEST role explicitly set, then all DATA nodes will implicitly have INGEST role. ||
 || zone_ids[] | **string**
 
 IDs of the availability zones for hosts ||

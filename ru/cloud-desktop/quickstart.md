@@ -62,7 +62,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В открывшемся окне выберите пользователей, для которых будет развернута группа рабочих столов.
 
-  1. Нажмите **{{ ui-key.yacloud_org.component.subject-select-dialog.action_apply }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 

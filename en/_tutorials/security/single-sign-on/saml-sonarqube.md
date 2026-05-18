@@ -182,7 +182,7 @@ Users and groups added to a SAML application can be managed by a user with the `
             1. Navigate to the **{{ ui-key.yacloud_org.entity.group.title_tab-members }}** tab.  
             1. Click **{{ ui-key.yacloud_org.entity.group.action_add-member }}**.
             1. In the window that opens, select the required users.
-            1. Click **{{ ui-key.yacloud_org.component.subject-select-dialog.action_apply }}**.
+            1. Click **{{ ui-key.yacloud.common.save }}**.
 
     {% endlist %}
 

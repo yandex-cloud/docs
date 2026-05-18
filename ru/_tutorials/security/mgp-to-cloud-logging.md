@@ -46,7 +46,7 @@
 
       ```bash
       yc managed-greenplum cluster create <имя_кластера> \
-         --greenplum-version=6.25 \
+         --greenplum-version=<версия {{ GP }}> \
          --environment=PRODUCTION \
          --network-name=<имя_сети_кластера> \
          --user-name=<имя_пользователя_кластера> \
@@ -101,7 +101,7 @@
             zone               = "<идентификатор_зоны_доступности>"
             subnet_id          = "<идентификатор_подсети_кластера>"
             assign_public_ip   = true
-            version            = "6.25"
+            version            = "<версия {{ GP }}>"
             master_host_count  = 2
             segment_host_count = 2
             segment_in_host    = 2
@@ -294,7 +294,7 @@
 
       ```bash
       yc managed-greenplum cluster create <имя_кластера> \
-         --greenplum-version=6.25 \
+         --greenplum-version=<версия {{ GP }}> \
          --environment=PRODUCTION \
          --network-name=<имя_сети_кластера> \
          --user-name=<имя_пользователя_кластера> \
@@ -349,7 +349,7 @@
             zone               = "<идентификатор_зоны_доступности>"
             subnet_id          = "<идентификатор_подсети_кластера>"
             assign_public_ip   = true
-            version            = "6.25"
+            version            = "<версия {{GP}}>"
             master_host_count  = 2
             segment_host_count = 2
             segment_in_host    = 2

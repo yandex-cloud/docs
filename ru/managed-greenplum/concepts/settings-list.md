@@ -28,7 +28,7 @@
 а также важных параметров по умолчанию, которые пользователь не может редактировать.
 
 Список параметров отчасти дублирует тот, что есть в
-[официальной документации]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html).
+[официальной документации]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-config_params-guc-list.html).
 
 Важное отличие данного списка параметров заключается в следующем:
 
