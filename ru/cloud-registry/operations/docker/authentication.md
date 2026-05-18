@@ -19,7 +19,6 @@ description: Следуя данной инструкции, вы сможете
 
 * [Как пользователь](#user):
   * С помощью IAM-токена. Время жизни — не больше {{ iam-token-lifetime }}.
-  * С помощью OAuth-токена. Время жизни — 1 год.
   * С помощью API-ключа и сервисного аккаунта. [Время жизни](../../../iam/concepts/authorization/api-key.md#scoped-api-keys) API-ключа ограничивается вручную при создании.
 
 
@@ -49,30 +48,6 @@ description: Следуя данной инструкции, вы сможете
       Где:
       * `<IAM-токен>` — тело полученного ранее IAM-токена.
       * `--username` — тип токена: значение `iam` указывает на то, что для аутентификации используется IAM-токен.
-      * `{{ cloud-registry }}` — эндпоинт, к которому будет обращаться [Docker](/blog/posts/2022/03/docker-containers) при работе с реестром образов. Если его не указать, запрос пойдет в сервис по умолчанию — [Docker Hub](https://hub.docker.com).
-
-- С помощью OAuth-токена {#oauth-token}
-
-  {% note info %}
-
-  {% include [oauth-token-lifetime](../../../_includes/oauth-token-lifetime.md) %}
-
-  {% endnote %}
-
-  1. Если у вас не установлен Docker, [установите](installation.md) его.
-  1. Если у вас еще нет OAuth-токена, получите его по [ссылке]({{ link-cloud-oauth }}).
-  1. Выполните команду:
-
-     ```bash
-     echo <OAuth-токен> | docker login \
-       --username oauth \
-       --password-stdin \
-      {{ cloud-registry }}
-     ```
-
-      Где:
-      * `<OAuth-токен>` — тело полученного ранее OAuth-токена.
-      * `--username` — тип токена: значение `oauth` указывает на то, что для аутентификации используется OAuth-токен.
       * `{{ cloud-registry }}` — эндпоинт, к которому будет обращаться [Docker](/blog/posts/2022/03/docker-containers) при работе с реестром образов. Если его не указать, запрос пойдет в сервис по умолчанию — [Docker Hub](https://hub.docker.com).
 
 - С помощью API-ключа {#api-key}

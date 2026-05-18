@@ -55,7 +55,7 @@ You need to create a [service account](../../iam/concepts/users/service-accounts
 - Management console {#console}
 
   1. Navigate to `data-folder`.
-  1. On the left-hand panel, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**, or find it using the search bar on the dashboard.
+  1. On the left-hand panel, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.dashboard.DashboardPage.ServicesSection.title_ur39b }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**, or find it using the search bar on the dashboard.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Specify the service account name, e.g., `gpt-user`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the `{{ roles-yagpt-user }}` role to this service account.
@@ -86,7 +86,7 @@ To enable the service account to access the model, create an [API key](../../iam
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to `data-folder`.
-  1. On the left-hand panel, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**, or find it using the search bar on the dashboard.
+  1. On the left-hand panel, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.dashboard.DashboardPage.ServicesSection.title_ur39b }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**, or find it using the search bar on the dashboard.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the list that opens, select the `gpt-user` service account.
   1. In the top panel, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.

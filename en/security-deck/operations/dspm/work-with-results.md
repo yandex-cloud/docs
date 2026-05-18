@@ -52,8 +52,8 @@ The file can contain a maximum of 10,000 sensitive data records. To export a lar
 
      Alternatively, go to the scan page, click **{{ ui-key.yacloud_org.common.more }}** ![image](../../../_assets/console-icons/chevron-down.svg), and select ![image](../../../_assets/console-icons/arrow-shape-down-to-line.svg) **{{ ui-key.yacloud_org.dspm.scan.action_download-results }}**.
 
-  1. In the **{{ ui-key.yacloud_org.dspm.scan.header_scan-result_sensitive-data }}** field, specify how to display names, contact information, and other personal data.
-  1. Click **{{ ui-key.yacloud_org.dspm.scan.action_button_apply }}**.
+  1. In the **{{ ui-key.yacloud_components.security.dspm.header_scan_result_sensitive_data }}** field, specify how to display names, contact information, and other personal data.
+  1. Click **{{ ui-key.yacloud_components.security.dspm.action_button_apply }}**.
 
 {% endlist %}
 
@@ -77,13 +77,13 @@ When exporting, the file with scan results is saved to the bucket you select.
      * In the **{{ ui-key.yacloud_org.security.dspm.field_bucket-path_5qRqM }}** field, set the [prefix](../../../storage/concepts/object.md#folder) of the object to save the results to.
      * In the **{{ ui-key.yacloud_org.security.dspm.field_file-name_kWRPK }}** field, specify the name of the file to save the results to. The file will automatically get the `.csv` extension.
      * In the **{{ ui-key.yacloud_org.security.dspm.field_service-account_rTeXv }}** field, select the service account with the `storage.uploader` [role](../../../iam/concepts/access-control/roles.md) for the selected bucket and `kms.keys.encrypter` for the [encryption key](../../../kms/concepts/key.md), if the bucket is [encrypted](../../../storage/concepts/encryption.md).
-     * Click **{{ ui-key.yacloud_org.dspm.scan.action_button_export }}** to export the results with parameter validation.
+     * Click **{{ ui-key.yacloud_components.security.dspm.action_export_with_validation }}** to export the results with parameter validation.
 
        If the selected service account does not have enough permissions for the operation, the information about this will be displayed on the **{{ ui-key.yacloud_org.security.dspm.tab_issues_title_hLQN2 }}** tab.
 
-       Expand the section with information about missing roles, select the service account, and click ![list-check](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud_org.security.dspm.ScanForm.table_action_assign_roles_bw4am }}** to grant the lacking permissions to this service account. Then click **{{ ui-key.yacloud_org.dspm.scan.action_button_export }}** again.
+       Expand the section with information about missing roles, select the service account, and click ![list-check](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud_org.security.dspm.ScanForm.table_action_assign_roles_bw4am }}** to grant the lacking permissions to this service account. Then click **{{ ui-key.yacloud_components.security.dspm.action_export_with_validation }}** again.
 
-     Alternatively, you can export the results without parameter validation by clicking the **{{ ui-key.yacloud_org.security.dspm.ScanExportDialog.action_button_export_without_validation_pFWLZ }}**. If the selected service account does not have enough permissions for the operation, you will see an error.
+     Alternatively, you can export the results without parameter validation by clicking the **{{ ui-key.yacloud_components.security.dspm.action_button_export_without_validation }}**. If the selected service account does not have enough permissions for the operation, you will see an error.
 
 {% endlist %}
 

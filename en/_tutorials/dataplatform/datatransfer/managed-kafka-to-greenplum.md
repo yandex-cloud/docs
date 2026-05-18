@@ -1,17 +1,18 @@
-You can set up data transfer from a {{ mkf-full-name }} topic to {{ GP }} in {{ mgp-name }} using {{ data-transfer-full-name }}. To do this:
+You can set up data transfer from a {{ mkf-full-name }} topic to {{ GP }} in {{ mgp-name }} using {{ data-transfer-full-name }}. Follow these steps:
 
 1. [Prepare your test data](#prepare-data).
-1. [Set up and activate the transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
 ## Required paid resources {#paid-resources}
 
-* {{ mkf-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../../managed-kafka/pricing.md)).
-* {{ mgp-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mgp-name }} pricing](../../../managed-greenplum/pricing/index.md)).
-* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* {{ mkf-name }} cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../../managed-kafka/pricing.md)).
+* {{ mgp-name }} cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ mgp-name }} pricing](../../../managed-greenplum/pricing/index.md)).
+* Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../../data-transfer/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -70,15 +71,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     {% endlist %}
 
-1. Install these tools:
+1. Install the following tools:
 
-    * [kafkacat](https://github.com/edenhill/kcat): For data reads and writes in {{ KF }} topics.
+    * [kafkacat](https://github.com/edenhill/kcat): For reading from and writing to {{ KF }} topics.
 
         ```bash
         sudo apt update && sudo apt install --yes kafkacat
         ```
 
-        Make sure you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../../managed-kafka/operations/connect/clients.md#bash-zsh).
+        Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
     * [jq](https://stedolan.github.io/jq/): For stream processing of JSON files.
 
@@ -87,7 +88,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Prepare your test data {#prepare-data}
 
-Let's assume the {{ KF }} `sensors` topic in the source cluster receives data from car sensors in JSON format.
+Suppose the {{ KF }} `sensors` topic in the source cluster receives JSON-formatted data from car sensors.
 
 Create a file named `sample.json` with test data on your local machine:
 
@@ -109,7 +110,7 @@ Create a file named `sample.json` with test data on your local machine:
 
 {% endcut %}
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate your transfer {#prepare-transfer}
 
 1. [Create a source endpoint](../../../data-transfer/operations/endpoint/source/kafka.md) of the `{{ KF }}` type and specify the following for it:
 
@@ -178,7 +179,7 @@ Create a file named `sample.json` with test data on your local machine:
 
             * `kf_source_endpoint_id`: Source endpoint ID.
             * `gp_target_endpoint_id`: Target endpoint ID.
-            * `transfer_enabled`: Set to `1` to create a transfer.
+            * `transfer_enabled`: Set to `1` to create the transfer.
 
         1. Validate your {{ TF }} configuration files using this command:
 
@@ -196,7 +197,7 @@ Create a file named `sample.json` with test data on your local machine:
 
     {% endlist %}
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
 Make sure data from the {{ mkf-name }} source cluster topic is being transferred to the {{ GP }} database:
 
@@ -231,7 +232,7 @@ To reduce the consumption of resources, delete those you do not need:
 
 1. Make sure the transfer has the {{ dt-status-finished }} status and [delete](../../../data-transfer/operations/transfer.md#delete) it.
 1. [Delete both the source and target endpoints](../../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete the other resources depending on how you created them:
+1. Delete the rest of the resources depending on how you created them:
 
     {% list tabs group=instructions %}
 

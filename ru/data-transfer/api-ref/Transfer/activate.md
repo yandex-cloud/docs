@@ -21,6 +21,7 @@ apiPlayground:
 # Data Transfer API, REST: Transfer.Activate
 
 Activates the specified transfer.
+
 To get the list of all available transfers, make a [List](/docs/data-transfer/api-ref/Transfer/list#List) request.
 
 ## HTTP request
@@ -36,6 +37,7 @@ POST https://{{ api-host-data-transfer }}/v1/transfer/{transferId}:activate
 || transferId | **string**
 
 Required field. Identifier of the transfer to be activated.
+
 To get the list of all available transfers, make a [List](/docs/data-transfer/api-ref/Endpoint/list#List) request. ||
 |#
 

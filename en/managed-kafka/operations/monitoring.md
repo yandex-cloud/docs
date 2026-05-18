@@ -30,13 +30,13 @@ To view detailed information on the health state of a {{ mkf-name }} cluster:
   The page displays the following charts:
 
   * **Alive brokers**: Number of functional brokers for each host with the `KAFKA` role.
-  * **Offline partitions**: Displays the values of the settings below:
-      * `OfflineReplicaCount`: Number of partitions with no leader broker. These partitions do not support message writes or reads.
-      * `Underreplicated partitions`: Number of partitions with ISR count below the replication factor.
-      * `Under min ISR partitions`: Number of partitions with ISR count below the minimum value specified in the [settings](../concepts/settings-list.md).
+  * **Problematic partitions**: Displays the values of the settings below:
+      * `Offline Replicas`: Number of partitions with no leader broker. These partitions do not support message writes or reads.
+      * `UnderMinISR`: Number of partitions with an in-sync replicas (ISRs) count below the minimum value specified in the [settings](../concepts/settings-list.md).
+      * `UnderReplicated`: Number of partitions with an ISR count below the replication factor.
   * **Errors**: Number of failed requests by error type.
   * **Free space**: Free disk space for each host with the `KAFKA` role, in bytes.
-  * **Messages in**: Message write rate, in messages per second.
+  * **Messages in**: Message write rate for each host with the `KAFKA` role, messages per second.
   * **Bytes In/Out**: Message write and read rate for each host with the `KAFKA` role, in bytes per second.
   * **Top 5 topics by size**: Amount of data for each of the five largest topics, in bytes.
   * **Replicated bytes**: Replication data streaming rate for each host with the `KAFKA` role, in bytes per second.
@@ -57,18 +57,33 @@ To view detailed information on the state of individual {{ mkf-name }} hosts:
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
   1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
-  1. Click the name of your cluster and select **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** → **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}**.
-  1. Select the host from the drop-down list.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** tab.
+  1. Navigate to the **Hosts** tab and select the host.
 
-  This page displays the charts showing workloads of individual cluster hosts:
+      Host type, `KAFKA`, `KRAFT` or `ZOOKEEPER`, is specified for each host.
 
-  * **CPU usage**: Processor core workload. As the workload goes up, the `Idle` value goes down.
+      {% include [open-in-yandex-monitoring](../../_includes/mdb/open-in-yandex-monitoring.md) %}
+
+  This page displays workload charts for an individual cluster host:
+
+  * **CPU usage**: Processor core workload. As the workload goes up, the `idle` value goes down.
   * **Memory usage**: Use of RAM, in bytes. At high workloads, the `Free` value goes down, while the other values go up.
-  * **Disk read/write bytes**: Speed of disk operations, in bytes per second.
   * **Disk IOPS**: Number of disk operations per second.
-  * **Network Bytes**: Network data transfer rate, in bytes per second.
-  * **Network Packets**: Network packet exchange rate, in packets per second.
+  * **Network packets**: Network packet exchange rate, in packets per second.
   * **Free space**: Free disk space, in bytes.
+  * **Network bytes**: Network data exchange rate, in bytes per second.
+
+  Under **Disk Metrics Details**:
+
+  * **Disk write latency (percentiles)**: Disk write time, in percentiles.
+  * **Disk write bytes**: Average and maximum disk write rate.
+  * **Disk write operations**: Average and maximum number of write operations per second.
+  * **Disk read latency (percentiles)**: Disk read time, in percentiles.
+  * **Disk read bytes**: Average and maximum disk read rate.
+  * **Disk read operations**: Average and maximum number of read operations per second.
+  * **Disk write throttler latency (percentiles)**: Write delay introduced by exceeding disk quota, percentiles.
+  * **Disk read throttler latency (percentiles)**: Read delay introduced by exceeding disk quota, percentiles.
+  * **Disk used quota**: Disk operation quota usage.
 
 {% endlist %}
 

@@ -26,7 +26,7 @@ The [service account](../../iam/concepts/users/service-accounts.md) will be link
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the `example-folder` folder.
-  1. At the top of the screen, navigate to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+  1. At the top of the screen, navigate to the **Service accounts** tab.
   1. At the top right, click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `vm-scale-scheduled-sa`.
   1. Click ![](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select these [roles](../../iam/concepts/access-control/roles.md):

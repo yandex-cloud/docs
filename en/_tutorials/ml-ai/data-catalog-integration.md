@@ -143,16 +143,16 @@ Create a resource folder to host your metadata catalog.
 
   1. Navigate to `data-folder`.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ai-studio }}**.
-  1. In the left-hand panel, select ![logo-mcp](../../_assets/console-icons/logo-mcp.svg) **{{ ui-key.yacloud.yagpt.YaGPT.mcp-servers-list-title_snWTf }}** and click **{{ ui-key.yacloud.yagpt.YaGPT.McpServersList.label_create-mcp-gateway_3o3Vu }}**. In the window that opens:
+  1. In the left-hand panel, select ![logo-mcp](../../_assets/console-icons/logo-mcp.svg) **MCP servers** and click **Create MCP server**. In the window that opens:
 
-      1. Under **{{ ui-key.yacloud.yagpt.YaGPT.CreateMcpServerForm.type_dZSaw }}**, select ![plug-connection](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.yagpt.YaGPT.CreateMcpServerForm.form-view_connect_bS8yQ }}**.
-      1. Under **{{ ui-key.yacloud.yagpt.YaGPT.CreateMcpServerForm.tools_gkQfS }}**, click **{{ ui-key.yacloud.yagpt.YaGPT.ConnectMcpTools.add-mcp-tool_dyEgv }}**. In the window that opens, configure the MCP server connection:
+      1. Under **Add method**, select ![plug-connection](../../_assets/console-icons/plug-connection.svg) **Connect**.
+      1. Under **Tools**, click **Add tools**. In the window that opens, configure the MCP server connection:
 
-         * **{{ ui-key.yacloud.yagpt.YaGPT.McpCallToolForm.transport_q3nD6 }}**: **{{ ui-key.yacloud.yagpt.YaGPT.McpCallToolForm.transport_streamable_eV7Rb }}**.
+         * **Transport**: **Streamable HTTP**.
 
-         * **{{ ui-key.yacloud.yagpt.YaGPT.McpCallToolForm.url_bUhZ1 }}**: `https://datacatalog-consumer.mcp.cloud.yandex.net/mcp`.
+         * **URL**: `https://datacatalog-consumer.mcp.cloud.yandex.net/mcp`.
 
-         * **Authorization type**: `{{ ui-key.yacloud.yagpt.YaGPT.McpCallToolForm.mcp-authorization_header_fdGKe }}`.
+         * **Authorization type**: `Access token`.
 
          * Under **Authorization header**, set the **Value** field to `Bearer <IAM_token>`. To do it, get an [IAM token](../../iam/concepts/authorization/iam-token.md) for the service account [created earlier](#create-sa), then paste it into the field.
 
@@ -162,28 +162,28 @@ Create a resource folder to host your metadata catalog.
 
             {% endnote %}
 
-      1. Click **{{ ui-key.yacloud.yagpt.YaGPT.McpCallToolForm.connect_xY9Zw }}**.
-      1. In the **{{ ui-key.yacloud.yagpt.YaGPT.McpCallToolForm.add-tools_ih6PU }}** window that opens, select all tools and click **{{ ui-key.yacloud.yagpt.YaGPT.McpCallToolForm.add_47STV }}**.
+      1. Click **Connect**.
+      1. In the **Add tools** window that opens, select all tools and click **{{ ui-key.yacloud.common.add }}**.
 
       1. Under **Server parameters**:
 
           1. {% include [create-server-console-general-params-ss1](../../_includes/ai-studio/mcp-hub/create-server-console-general-params-ss1.md) %}
           1. {% include [create-server-console-general-params-ss2](../../_includes/ai-studio/mcp-hub/create-server-console-general-params-ss2.md) %}
-          1. In the **{{ ui-key.yacloud.yagpt.YaGPT.CreateMcpServerForm.access-type_aPzxZ }}** field, select **{{ ui-key.yacloud.yagpt.YaGPT.CreateMcpServerForm.access-type_private_b4gkg }}**.
-          1. In the **{{ ui-key.yacloud.yagpt.YaGPT.CreateMcpServerForm.service-account_h3ujf }}** field, select the service account you previously created.
+          1. In the **Access** field, select **Private**.
+          1. In the **Service account** field, select the service account you previously created.
           1. {% include [create-server-console-general-params-ss5](../../_includes/ai-studio/mcp-hub/create-server-console-general-params-ss5.md) %}
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
-  1. In the left-hand panel, select ![logo-agent](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.yagpt.YaGPT.agents_2h9Sa }}** and click **{{ ui-key.yacloud.yagpt.YaGPT.create-agent_1txyW }}**.
+  1. In the left-hand panel, select ![logo-agent](../../_assets/console-icons/face-robot.svg) **Agents** and click **Create agent**.
   1. Specify the agent settings:
-     * **{{ ui-key.yacloud.yagpt.YaGPT.name_hTzhB }}**: Agent name.
-     * **{{ ui-key.yacloud.yagpt.YaGPT.Assistant.model_iyopt }}**: Language model.
-     * Under **{{ ui-key.yacloud.yagpt.YaGPT.agent_instruction_9oe6q }}**, select a ready-made system instruction template for the agent or describe how the agent should behave and what it should do.
-     * Under **{{ ui-key.yacloud.yagpt.YaGPT.AgentForm.tools_title_9yUpx }}**:
-       * Click **{{ ui-key.yacloud.yagpt.YaGPT.McpCallToolForm.add_47STV }}** and select **{{ ui-key.yacloud.yagpt.YaGPT.AgentForm.add-mcp-tool_gqwmZ }}**.
-       * In the list, select the MCP server you created earlier and click **{{ ui-key.yacloud.yagpt.YaGPT.AgentForm.select_dPVTq }}**.
-       * In the **{{ ui-key.yacloud.yagpt.YaGPT.mcp-tool_all-tools_gZA6P }}** field, select **{{ ui-key.yacloud.yagpt.YaGPT.mcp-tool_require-approval-policy_never_qPvRW }}**.
-       * Click **{{ ui-key.yacloud.yagpt.YaGPT.AgentForm.save-and-continue_u1Wis }}**.
+     * **{{ ui-key.yacloud.common.name }}**: Agent name.
+     * **Model**: Language model.
+     * Under **Instructions**, select a ready-made system instruction template for the agent or describe how the agent should behave and what it should do.
+     * Under **Tools**:
+       * Click **{{ ui-key.yacloud.common.add }}** and select **Add MCP**.
+       * In the list, select the MCP server you created earlier and click **Select**.
+       * In the **Default behavior for all tools** field, select **Confirmation not needed**.
+       * Click **Create and continue**.
 
 {% endlist %}
 
@@ -217,7 +217,7 @@ Create a resource folder to host your metadata catalog.
 
 {% note tip %}
 
-If using the agent in {{ ai-studio-name }}, do the testing in the right-hand **{{ ui-key.yacloud.yagpt.YaGPT.AssistantChat.test-assistant-title_6ZNFg }}** panel.
+If using the agent in {{ ai-studio-name }}, do the testing in the right-hand **Agent testing** panel.
 
 {% endnote %}
 

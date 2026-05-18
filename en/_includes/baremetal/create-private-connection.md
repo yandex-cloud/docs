@@ -4,7 +4,7 @@
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your private connection.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-  1. In the left-hand panel, select ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks }}** and then select the virtual network segment you need.
+  1. In the left-hand panel, select ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks_kHgng }}** and then select the virtual network segment you need.
   1. Under **{{ ui-key.yacloud.baremetal.title_vrf-interconnect-section }}**, click **{{ ui-key.yacloud.baremetal.action_add-vrf-interconnect }}**, and in the window that opens:
 
       1. In the **{{ ui-key.yacloud.baremetal.label_vrf-interconnect-select-type }}** field, select `{{ ui-key.yacloud.baremetal.field_interconnect-direct-id }}` and paste the `Routing Instance` private connection ID to the **{{ ui-key.yacloud.baremetal.label_vrf-interconnect-direct-type }}** field.

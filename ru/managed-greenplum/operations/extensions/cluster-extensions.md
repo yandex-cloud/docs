@@ -4,7 +4,7 @@
 
 #|
 || **Расширение** | **Версия** ||
-|| [btree_gin]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-modules-btree_gin.html)
+|| [btree_gin]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-modules-btree_gin.html)
 Добавляет возможность создавать индексы GIN для столбцов, подходящих для индексирования B-tree.
 | 1.0 ||
 || [citext]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-modules-citext.html)
@@ -30,9 +30,6 @@
 | 1.0.0 ||
 || [gp_internal_tools]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-managing-monitor.html#creating-the-session_level_memory_consumption-view)
 Содержит различные внутренние утилиты для {{ GP }}.
-| 1.0.0 ||
-|| [gp_legacy_string_agg]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-modules-gp_legacy_string_agg.html)
-Добавляет функцию `string_agg` с одним аргументом, которая присутствовала в {{ GP }} версии `5`.
 | 1.0.0 ||
 || [gp_percentile_agg]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-modules-gp_percentile_agg.html)
 Добавляет агрегатную функцию для вычисления процентилей.
@@ -77,13 +74,13 @@
 || [pg_trgm]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-modules-pg_trgm.html)
 Добавляет функции и операторы для определения сходства текста, а также операторы индексации для поиска похожих строк.
 | 1.1 ||
-|| [plperl]({{ gp.docs.broadcom }}/5/greenplum-database/ref_guide-extensions-pl_perl.html)
+|| [plperl]({{ gp.docs.broadcom }}/7/greenplum-database/analytics-pl_perl.html)
 Включает поддержку процедурного языка PL/Perl.
 | 1.0 ||
-|| [plpgsql]({{ gp.docs.broadcom }}/5/greenplum-database/ref_guide-extensions-pl_sql.html)
+|| [plpgsql]({{ gp.docs.broadcom }}/7/greenplum-database/analytics-pl_sql.html)
 Включает поддержку процедурного языка PL/pgSQL.
 | 1.0 ||
-|| [postgis]({{ gp.docs.broadcom }}/5/greenplum-database/ref_guide-extensions-postGIS.html)
+|| [postgis]({{ gp.docs.broadcom }}/7/greenplum-database/analytics-postGIS.html)
 Добавляет возможности хранения и обработки объектов геоинформационных систем (ГИС) в базах данных {{ PG }}.
 | 2.1.5 ||
 || [postgres_fdw]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-modules-postgres_fdw.html)

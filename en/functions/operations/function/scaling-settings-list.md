@@ -9,8 +9,6 @@ description: Follow this guide to view function scaling settings.
 
 - Management console {#console}
 
-    To view any scaling setting other than the number of calls processed concurrently by a single function instance (`concurrency`):
-
     1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
     1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select the function.
@@ -26,7 +24,7 @@ description: Follow this guide to view function scaling settings.
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    To view any scaling setting other than the number of calls processed concurrently by a single function instance (`concurrency`), run this command:
+    To view scaling settings, run this command:
 
     ```bash
     yc serverless function list-scaling-policies --id=<function_ID>
@@ -46,11 +44,9 @@ description: Follow this guide to view function scaling settings.
 
 - API {#api}
 
-    To view any function scaling setting other than the number of calls processed concurrently by a single function instance (`concurrency`), use the [listScalingPolicies](../../functions/api-ref/Function/listScalingPolicies.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/ListScalingPolicies](../../functions/api-ref/grpc/Function/listScalingPolicies.md) gRPC API call.
+    To view scaling settings, use the [listScalingPolicies](../../functions/api-ref/Function/listScalingPolicies.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/ListScalingPolicies](../../functions/api-ref/grpc/Function/listScalingPolicies.md) gRPC API call.
 
 
 {% endlist %}
-
-You can find out the [number of calls simultaneously processed by a single function instance](../../concepts/function.md#concurrency) (`concurrency`) by getting the [function version information](../../operations/function/version-info.md).
 
 {% include [see-also-scaling](../../../_includes/functions/see-also-scaling.md) %}

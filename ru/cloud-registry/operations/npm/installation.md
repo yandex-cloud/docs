@@ -56,25 +56,6 @@ description: Следуя данной инструкции, вы настрои
               always-auth=true
               ```
 
-        - OAuth-токен (Base64)
-
-          1. [Получите]({{ link-cloud-oauth }}) OAuth-токен для [аккаунта на Яндексе](../../../iam/concepts/users/accounts.md#passport), от имени которого вы будете выполнять аутентификацию.
-          1. Создайте переменную окружения `NPM_AUTH`:
-
-              ```bash
-              export NPM_AUTH=$(echo -n 'oauth:<OAuth-токен>' | base64)
-              ```
-
-              Где `NPM_AUTH` — тело полученного ранее [OAuth-токена](../../../iam/concepts/authorization/oauth-token.md) в кодировке [Base64](https://www.base64encode.org/).
-
-          1. Добавьте в созданный ранее файл `.npmrc` следующие строки:
-
-              ```text
-              registry=https://{{ cloud-registry }}/npm/<идентификатор_реестра>
-              //{{ cloud-registry }}/npm/:_auth=${NPM_AUTH}
-              always-auth=true
-              ```
-
         - API-ключ (Base64)
 
           1. [Создайте](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) API-ключ для [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md), от имени которого вы будете выполнять аутентификацию.

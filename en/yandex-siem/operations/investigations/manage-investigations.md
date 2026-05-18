@@ -78,7 +78,7 @@ To create an investigation copy:
 - {{ cloud-center }} UI {#cloud-center}
 
   1. Open an investigation.
-  1. In the actions menu, select **{{ ui-key.yacloud_org.security.siem.InvestigationPageLayout.copy_wiAxw }}**.
+  1. In the actions menu, select **Create copy**.
   1. Wait until the copy is created.
 
   The copy inherits all requests and settings of the original investigation.

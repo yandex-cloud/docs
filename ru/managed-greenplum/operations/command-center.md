@@ -18,7 +18,7 @@ description: Используя командный центр, вы можете
 
 {% note info %}
 
-Командный центр {{ GP }} позволяет проводить только базовый операционный анализ сессий и запросов. Если ваша задача требует углубленного стратегического исследования и расширенных инструментов анализа, используйте [экспорт логов в {{ cloud-logging-full-name }}](./mgp-to-cloud-logging.md). Сервис {{ cloud-logging-full-name }} позволяет [визуализировать логи в {{ grafana-name }}](../../logging/tutorials/grafana-logs-plugin.md) и выполнять их [обработку с помощью {{ yds-short-name }} и {{ yq-name }}](../../logging/tutorials/cloud-logging.md).
+Командный центр доступен для кластеров {{ GP }} и Apache Cloudberry. Командный центр позволяет проводить только базовый операционный анализ сессий и запросов. Если ваша задача требует углубленного стратегического исследования и расширенных инструментов анализа, используйте [экспорт логов в {{ cloud-logging-full-name }}](./mgp-to-cloud-logging.md). Сервис {{ cloud-logging-full-name }} позволяет [визуализировать логи в {{ grafana-name }}](../../logging/tutorials/grafana-logs-plugin.md) и выполнять их [обработку с помощью {{ yds-short-name }} и {{ yq-name }}](../../logging/tutorials/cloud-logging.md).
 
 {% endnote %}
 

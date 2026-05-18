@@ -300,7 +300,7 @@ To enable your employees to use {{ yandex-cloud }} resources, add them to the {{
       1. Click **{{ ui-key.yacloud_org.entity.group.action_add-member }}**. In the window that opens:
 
           1. Select the users. Use search, if required.
-          1. Click **{{ ui-key.yacloud_org.component.subject-select-dialog.action_apply }}**.
+          1. Click **{{ ui-key.yacloud.common.save }}**.
 
     {% endlist %}
 

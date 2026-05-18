@@ -11,7 +11,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать [виртуальный сегмент сети (VRF)](../concepts/private-network.md#vrf-segment).
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-  1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks }}**.
+  1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks_kHgng }}**.
   1. Справа вверху нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-network }}**.
   1. В поле **{{ ui-key.yacloud.baremetal.field_name }}** укажите имя VRF. Требования к имени:
 

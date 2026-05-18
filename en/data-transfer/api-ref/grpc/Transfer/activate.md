@@ -5,6 +5,7 @@ editable: false
 # Data Transfer API, gRPC: TransferService.Activate
 
 Activates the specified transfer.
+
 To get the list of all available transfers, make a [List](/docs/data-transfer/api-ref/grpc/Transfer/list#List) request.
 
 ## gRPC request
@@ -24,6 +25,7 @@ To get the list of all available transfers, make a [List](/docs/data-transfer/ap
 || transfer_id | **string**
 
 Identifier of the transfer to be activated.
+
 To get the list of all available transfers, make a [List](/docs/data-transfer/api-ref/grpc/Endpoint/list#List) request. ||
 |#
 

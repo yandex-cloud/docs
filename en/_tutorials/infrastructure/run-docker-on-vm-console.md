@@ -59,7 +59,7 @@ Create a [service account](../../iam/concepts/users/service-accounts.md) and ass
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your service account.
-  1. At the top of the screen, navigate to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+  1. At the top of the screen, navigate to the **Service accounts** tab.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter `images-puller` as the service account name and click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
   1. At the top of the screen, navigate to the **{{ ui-key.yacloud.iam.folder.switch_dashboard }}** tab.

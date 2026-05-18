@@ -300,7 +300,7 @@
       1. Нажмите кнопку **{{ ui-key.yacloud_org.entity.group.action_add-member }}**. В открывшемся окне:
 
           1. Выберите нужных пользователей. При необходимости воспользуйтесь поиском.
-          1. Нажмите **{{ ui-key.yacloud_org.component.subject-select-dialog.action_apply }}**.
+          1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
     {% endlist %}
 

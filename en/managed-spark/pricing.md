@@ -6,7 +6,7 @@ editable: false
 
 # {{ msp-full-name }} pricing policy
 
-In this section, you can find the {{ msp-full-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources. For other {{ yandex-cloud }} resources consumed while using the service you pay as per their pricing plans.
+This section describes the {{ msp-full-name }} pricing [policy](#rules) and [current prices](#prices) for its resources. For other {{ yandex-cloud }} resources consumed while using the service you pay as per their pricing plans.
 
 {% note tip %}
 
@@ -26,7 +26,7 @@ For a cost calculation, use our [calculator](https://yandex.cloud/en/prices?stat
 
 ## Cluster status {#running-stopped}
 
-The prices apply differently depending on the cluster status:
+Pricing applies differently depending on cluster status:
 
 * For a `Running` cluster, you pay for both the computing resources and storage size.
 * For a `Stopped` cluster, you only pay for your storage size.
@@ -36,7 +36,7 @@ The prices apply differently depending on the cluster status:
 When using {{ msp-full-name }}, you pay for:
 
 * Computing resources of cluster components.
-* Egress traffic from {{ yandex-cloud }} to the internet.
+* Outgoing traffic from {{ yandex-cloud }} to the internet.
 
 Cluster operation cost is charged per hour. The minimum billing unit is one hour; e.g., you will be charged for 2 hours when using a cluster for 90 minutes (1.5 hours).
 
@@ -44,7 +44,7 @@ Cluster operation cost is charged per hour. The minimum billing unit is one hour
 
 ### Example of cluster cost calculation {#example}
 
-Let's calculate the cost of using a cluster with the following properties for 30 days:
+Suppose we calculate the 30-day usage cost of a cluster with the following configuration:
 
 * **Driver**: Two `standard` configuration instances, `c4-m16` [host class](concepts/instance-types.md), fixed quantity: 4 vCPUs, 16 GB RAM.
 * **Executor**: Four `standard` configuration instances, `c4-m16` host class, fixed quantity: 4 vCPUs, 16 GB RAM.

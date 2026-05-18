@@ -73,6 +73,14 @@ items:
             href: operations/activate-revision.md
           - name: Changing the container operation mode
             href: operations/update-runtime.md
+          - name: Adding environment variables
+            href: operations/environment-variables-add.md
+          - name: Providing {{ lockbox-full-name }} secrets
+            href: operations/lockbox-secret-transmit.md
+          - name: Specifying a cloud network
+            href: operations/network-add.md
+          - name: Setting the number of concurrent container instance calls
+            href: operations/concurrency.md
           - name: Scaling a container
             items:
               - name: Viewing scaling settings
@@ -81,15 +89,9 @@ items:
                 href: operations/scaling-settings-add.md
               - name: Deleting scaling settings
                 href: operations/scaling-settings-delete.md
-          - name: Adding environment variables
-            href: operations/environment-variables-add.md
-          - name: Specifying a cloud network
-            href: operations/network-add.md
-          - name: Transferring {{ lockbox-full-name }} secrets
-            href: operations/lockbox-secret-transmit.md
           - name: Mounting external resources to a container file system
             items:
-              - name: Mounting a bucket
+              - name: Mounting buckets
                 href: operations/mount-bucket.md
               - name: Mounting an ephemeral disk
                 href: operations/mount-ephemeral-disk.md
@@ -109,15 +111,15 @@ items:
                 href: operations/logs.md
               - name: Writing logs
                 href: operations/logs-write.md
-          - name: Migration to the {{ region-id }}-d availability zone
+          - name: Migrating to the {{ region-id }}-d availability zone
             href: operations/migration.md
           - name: Deleting a container
             href: operations/delete.md
-      - name: Getting trigger info
+      - name: Getting trigger information
         items:
           - name: Getting a list of triggers
             href: operations/trigger-list.md
-          - name: Getting trigger info
+          - name: Getting trigger information
             href: operations/trigger-info.md
       - name: Creating a trigger
         items:
@@ -163,7 +165,7 @@ items:
         href: concepts/invoke.md
       - name: Asynchronous container invocation
         href: concepts/invoke-async.md
-      - name: Runtime environment
+      - name: Runtime
         href: concepts/runtime.md
       - name: Networking
         href: concepts/networking.md
@@ -227,7 +229,7 @@ items:
             href: tutorials/functions-framework-to-container.md
       - name: Serverless-based workflows and automation
         items:
-          - name: Building a CI/CD pipeline in {{ GL }} with serverless products
+          - name: Building a CI/CD pipeline in {{ GL }} using serverless products
             href: tutorials/ci-cd-serverless.md
           - name: Starting {{ GLR }} in {{ serverless-containers-name }}
             href: tutorials/serverless-gitlab-runner.md
@@ -236,8 +238,8 @@ items:
               serverless-containers-name }} using GitHub Actions
             href: tutorials/ci-cd-sourcecraft-github-actions.md
           - name: >-
-              Regular recognition of images and PDF documents from an {{
-              objstorage-short-name }} bucket
+              Scheduled image and PDF recognition in an {{ objstorage-short-name
+              }} bucket
             href: tutorials/vision-ocrrecognizer-storage.md
   - name: Access management
     href: security/index.md

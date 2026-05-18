@@ -5,7 +5,7 @@
 {% include [workflows-preview-note](../../../_includes/serverless-integrations/workflows-preview-note.md) %}
 
 
-Вы можете настроить автоматическую загрузку файлов с диалогами и их метаданными из бакета {{ objstorage-name }} в [пространство {{ speechsense-name }}](../../../speechsense/concepts/resources-hierarchy.md#space). Поддерживаемые форматы:
+Вы можете настроить автоматическую загрузку файлов с диалогами и их метаданными из бакета {{ objstorage-full-name }} в [пространство {{ speechsense-name }}](../../../speechsense/concepts/resources-hierarchy.md#space). Поддерживаемые форматы:
 
   * `MP3`, `WAV`, `OggOpus` — для аудиозаписей;
   * `JSON` — для переписки из чата.
@@ -17,7 +17,7 @@
 1. [Триггер](../../../functions/concepts/trigger/os-trigger.md) для {{ objstorage-name }} отслеживает появление новых JSON-файлов с метаданными в выделенной папке [бакета](../../../storage/concepts/bucket.md) или любой из ее подпапок.
 1. Когда в папке появляются новые файлы, триггер вызывает [функцию](../../../functions/concepts/function.md) `workflow-call`, которая запускает [рабочий процесс {{ sw-name }}](../../../serverless-integrations/concepts/workflows/workflow.md).
 1. Рабочий процесс получает содержимое JSON-файлов с метаданными и проверяет их синтаксис с помощью функции `verify-file`.
-1. Рабочий процесс получает параметры подключения {{ speechsense-name }} из [секрета {{ lockbox-name }}](../../../lockbox/concepts/secret.md).
+1. Рабочий процесс получает параметры подключения {{ speechsense-name }} из [секрета {{ lockbox-full-name }}](../../../lockbox/concepts/secret.md).
 1. Путь к аудиозаписи или текстовому файлу, а также их метаданные передаются в функцию загрузки `speechsense-upload`.
 1. Функция `speechsense-upload` загружает файлы и их метаданные в пространство {{ speechsense-name }}.
 1. Во время выполнения рабочий процесс обращается к БД с метаданными:
@@ -35,7 +35,7 @@
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте инфраструктуру для загрузки файлов](#infra).
 1. [Создайте секрет {{ lockbox-name }}](#create-secret).
-1. [Создайте модель данных в кластере {{ mpg-name }}](#create-table).
+1. [Создайте модель данных в кластере {{ mpg-full-name }}](#create-table).
 1. [Создайте в бакете {{ objstorage-name }} папки для хранения файлов и их метаданных](#create-folder).
 1. [Подготовьте метаданные](#prepare-metadata).
 1. [Загрузите файлы в бакет {{ objstorage-name }}](#upload-files).
@@ -50,12 +50,11 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость ресурсов входят:
-
-* плата за хранение данных в бакете и операции с ними (см. [тарифы {{ objstorage-full-name }}](../../../storage/pricing.md));
-* плата за использование кластера (см. [тарифы {{ mpg-full-name }}](../../../managed-postgresql/pricing.md));
-* плата за вызовы функций (см. [тарифы {{ sf-full-name }}](../../../functions/pricing.md));
-* плата за хранение секрета и запросы к нему (см. [тарифы {{ lockbox-full-name }}](../../../lockbox/pricing.md)).
+* Сервис {{ speechsense-name }}: длительность каждого двухканального аудиофайла или количество символов в каждом текстовом диалоге (см. [тарифы {{ speechsense-name }}](../../../speechsense/pricing.md)).
+* Бакет {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
+* Кластер {{ mpg-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../../managed-postgresql/pricing.md)).
+* Функция {{ sf-full-name }}: количество вызовов функции, время простоя подготовленных экземпляров и выделенные для выполнения функции вычислительные ресурсы (см. [тарифы {{ sf-name }}](../../../functions/pricing.md)).
+* Секрет {{ lockbox-name }}: количество хранимых версий секрета и запросы к ним (см. [тарифы {{ lockbox-name }}](../../../lockbox/pricing.md)).
 
 ### Создайте сервисные аккаунты {#create-sa}
 
@@ -746,7 +745,7 @@
 1. [Удалите](../../../managed-postgresql/operations/cluster-delete.md) кластер {{ mpg-name }}.
 1. [Удалите](../../../functions/operations/trigger/trigger-delete.md) триггер для вызова функции {{ sf-name }}.
 1. [Удалите](../../../functions/operations/function/function-delete.md) функции {{ sf-name }}.
-1. Удалите подключениe к базе данных кластера {{ mpg-name }}:
+1. Удалите подключение к базе данных кластера {{ mpg-name }}:
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите удалить подключение.
     1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.

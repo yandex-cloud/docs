@@ -35,6 +35,7 @@ DELETE https://{{ api-host-data-transfer }}/v1/endpoint/{endpointId}
 || endpointId | **string**
 
 Required field. Identifier of the endpoint to delete.
+
 To get the list of all available endpoints, make a [List](/docs/data-transfer/api-ref/Endpoint/list#List) request. ||
 |#
 

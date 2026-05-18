@@ -89,4 +89,4 @@ To download metric data, use the [read](../../monitoring/api-ref/MetricsData/rea
         ]
     }    
 
-You can also view metrics in the [management console]({{ link-console-main }}). To do this, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** on the left-hand panel and select ![image](../../_assets/console-icons/monitoring-icon.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}** or find it using the search bar on the dashboard.
+You can also view metrics in the [management console]({{ link-console-main }}). To do this, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.dashboard.DashboardPage.ServicesSection.title_ur39b }}** on the left-hand panel and select ![image](../../_assets/console-icons/monitoring-icon.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}** or find it using the search bar on the dashboard.

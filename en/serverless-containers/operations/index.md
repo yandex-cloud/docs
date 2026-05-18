@@ -41,13 +41,14 @@ description: In this article, you will learn how to work with the managed servic
 * [Updating a description](./description-update.md)
 * [Making a revision active](./activate-revision.md)
 * [Changing the operation mode](./update-runtime.md)
+* [Adding environment variables](./environment-variables-add.md)
+* [{#T}](./lockbox-secret-transmit.md)
+* [{#T}](./network-add.md)
+* [{#T}](./concurrency.md)
 * [Viewing scaling settings](./scaling-settings-list.md)
 * [Adding scaling settings](./scaling-settings-add.md)
 * [Deleting scaling settings](./scaling-settings-delete.md)
-* [Adding environment variables](./environment-variables-add.md)
-* [{#T}](./network-add.md)
-* [{#T}](./lockbox-secret-transmit.md)
-* [Mounting a bucket](./mount-bucket.md)
+* [Mounting buckets](./mount-bucket.md)
 * [Mounting an ephemeral disk](./mount-ephemeral-disk.md)
 * [Adding a label](./label-add.md)
 * [Updating a label](./label-update.md)
@@ -76,7 +77,7 @@ description: In this article, you will learn how to work with the managed servic
 * [Creating a trigger for {{ yds-name }}](./data-streams-trigger-create.md)
 * [Creating an email trigger](./mail-trigger-create.md)
 
-## Managing triggers {#manage-trigger}
+## Managing a trigger {#manage-trigger}
 
 * [Updating a trigger](./trigger-update.md)
 * [Viewing monitoring charts](./trigger-monitoring.md)

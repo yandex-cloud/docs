@@ -801,6 +801,7 @@ default:
   spqr:
     docs: https://docs.pg-sharding.tech
   SPRK: Apache Spark™
+  SR: StarRocks
   src-full-name: SourceCraft
   src-name: SourceCraft
   stackland-full-name: Yandex Cloud Stackland
@@ -3980,6 +3981,15 @@ default:
         label_placeholder: Search in cloud resources
         search_filters_all: Everywhere
         search_filters_docs: Documentation
+      security:
+        dspm:
+          action_button_apply: Download file
+          action_button_export_without_validation: Export without validation
+          action_export_with_validation: Validate and export
+          card_title_image: On images
+          card_title_text: In text
+          dialog_select-service-account_create-new-action: Create a new one
+          header_scan_result_sensitive_data: Display sensitive data
       services:
         service_compute: Compute Cloud
       settings:
@@ -4473,6 +4483,7 @@ default:
         overview: Overview
         resource-acl:
           label_invitee-accounts: Invitee accounts
+        save: Save
         section-base: General information
       component:
         form-file-upload:
@@ -4480,8 +4491,6 @@ default:
             method: Method
           method:
             manual: Text
-        subject-select-dialog:
-          action_apply: Save
       dashboard:
         notify:
           action:
@@ -4506,9 +4515,6 @@ default:
           label_create-source: Create source
           label_field-name: Name
           label_source-info: Information about source
-        scan-categories:
-          card_title_image: On images
-          card_title_text: In text
         scan-jobs:
           field_data-sources: Data sources
         scan-resource-group:
@@ -4529,11 +4535,8 @@ default:
           public_buckets: Public buckets
           title_all_buckets: All buckets
         scan:
-          action_button_apply: Download file
-          action_button_export: Validate and export
           action_download-results: Download results
           action_export-results: Export results
-          header_scan-result_sensitive-data: Display sensitive data
           label_data-type: Data type
           label_found-occurrence: Found occurrence
           results_resource-name: Resource
@@ -4665,11 +4668,6 @@ default:
           folders-create:
             button_create: Create
             field_description: Description
-        folder:
-          service-account:
-            popup-robot_button_save: Save
-          service-accounts:
-            dialog_select-service-account_create-new-action: Create a new one
       kspm:
         TopClustersByErrorsWidget:
           table_clusters: Tops clusters with warnings
@@ -5049,8 +5047,6 @@ default:
             value_personal-data_w5gVm: Personal data
             value_secrets_4CdGy: Secrets
           label_field-bucket_3mM6u: Bucket
-          ScanExportDialog:
-            action_button_export_without_validation_pFWLZ: Export without validation
           ScanForm:
             action_create-scan_dvakP: Create scan without validation
             table_action_assign_roles_bw4am: Assign roles
@@ -5099,7 +5095,6 @@ default:
           ExceptionsPage:
             create-exception: New exception
           InvestigationPageLayout:
-            copy_wiAxw: Create copy
             fieldDescription_wiAxw: Description
             fieldModified: Modified
             information_cZr8L: Information
@@ -5126,7 +5121,6 @@ default:
             labelServiceAccountField: Service account
           DownloadCspmScanResultsDialog:
             action_download-file_gJ3Vh: Download file
-          label_rule-kind_3PswX: Rule type
           module_dspm_xxxxx: |
             Data Security Posture Management (DSPM)
           module-cspm_gozhj: Configuration Monitoring (CSPM)
@@ -5204,9 +5198,6 @@ default:
       siem:
         SearchActionButtonBlock:
           save: Save
-      storage:
-        value_private-bucket: Private
-        value_public-bucket: Public
       support:
         switch_tickets: Tickets
         tickets:
@@ -5710,14 +5701,12 @@ default:
         label_create-public-subnet-full: Order a public subnet
         label_create-server: Lease server
         label_create-subnetwork: Create subnet
-        label_images: Boot images
         label_images_duoXD: Boot images
         label_kvm-console_37Kma: KVM console
         label_load-image: Upload image
         label_lockbox-key: Key
         label_lockbox-name: Name
         label_lockbox-version: Version
-        label_networks: VRF
         label_networks_kHgng: VRF
         label_password-lockbox: Lockbox secret
         label_password-plain: New password
@@ -5725,7 +5714,6 @@ default:
         label_public-ip-from-dedicated-subnet: From a dedicated subnet
         label_public-ip-no: No address
         label_public-ip-via-dhcp: Assign via DHCP
-        label_public-subnets: Public addresses and subnets
         label_public-subnets_v16CV: Public addresses and subnets
         label_servers_sCNgb: Servers
         label_subnetworks_uU4LH: Private subnets
@@ -6720,6 +6708,8 @@ default:
           ResourcesSection:
             create-resources_rGA1t: Create resource
             title_7kYbU: Resources
+          ServicesSection:
+            title_ur39b: All services
         FoldersSelector:
           FolderInfoDialog:
             folder-id_6KQJv: Folder ID
@@ -7104,7 +7094,6 @@ default:
           folders:
             button_cancel-deletion: Cancel deletion
             popup-edit_button_save: Save
-            section_folders: Folders
           incident-notifications:
             button_open-dialog: Add
           label_create_cloud: Create cloud
@@ -7213,7 +7202,6 @@ default:
             label_monitoring: Monitoring
             label_monium: Monium
             label_postbox: Cloud Postbox
-            label_products: All services
             label_schema-registry: Schema Registry
             label_serverless-containers: Serverless Containers
             label_serverless-functions: Cloud Functions
@@ -7277,7 +7265,6 @@ default:
             label_title: Service accounts
             popup-confirm_button_delete: Delete
           switch_dashboard: Folder dashboard
-          switch_service-accounts: Service accounts
           switch_service-notifications: Service notifications
         label_create-wli-federation: Create federation
         label_federations: Workload identity federations
@@ -8006,7 +7993,7 @@ default:
           label_master-subcluster: Master
           label_max-size-units: GB
           label_network: Network
-          maintenance-window-type: Maintenance window
+          maintenance-window-type: Maintenance
           network_field_form-type: Network ID format
           network_field_subnetwork: Subnet
           network_field_zone: Availability zone
@@ -8036,8 +8023,8 @@ default:
           section_zookeeper-resource: ZooKeeper host class
           title_deb-packages: Deb packages
           title_pip-packages: Pip packages
-          value_maintenance-type-anytime: arbitrary
-          value_maintenance-type-weekly: by schedule
+          value_maintenance-type-anytime: At any time
+          value_maintenance-type-weekly: By schedule
         hosts:
           dialog:
             button_choose: Save
@@ -8810,6 +8797,8 @@ default:
           create:
             button_create: Create bucket
           label_title: Buckets
+          value_private-bucket: Restricted
+          value_public-bucket: Public
         button_upload: Upload
         field_perm-object-lock-enabled: Legal hold
         field_temp-object-lock-enabled: Retention
@@ -9092,47 +9081,6 @@ default:
         switch_private-endpoints: Service connections
         switch_route-tables: Routing tables
         title_network-map-page: Cloud network map
-      yagpt:
-        YaGPT:
-          agent_instruction_9oe6q: Instructions
-          AgentForm:
-            add-mcp-tool_gqwmZ: Add MCP
-            save-and-continue_u1Wis: Create and continue
-            select_dPVTq: Select
-            tools_title_9yUpx: Tools
-          agents_2h9Sa: Agents
-          Assistant:
-            model_iyopt: Model
-          AssistantChat:
-            test-assistant-title_6ZNFg: Agent testing
-          ConnectMcpTools:
-            add-mcp-tool_dyEgv: Add tools
-          create-agent_1txyW: Create agent
-          CreateAgentCard:
-            create-agent_button-text_n2qCs: Create agent
-          CreateMcpServerForm:
-            access-type_aPzxZ: Access
-            access-type_private_b4gkg: Private
-            form-view_connect_bS8yQ: Connect
-            service-account_h3ujf: Service account
-            tools_gkQfS: Tools
-            type_dZSaw: Add method
-          mcp-servers-list-title_snWTf: MCP servers
-          mcp-tool_all-tools_gZA6P: Default behavior for all tools
-          mcp-tool_require-approval-policy_never_qPvRW: Confirmation not needed
-          McpCallToolForm:
-            add_47STV: Add
-            add-tools_ih6PU: Add tools
-            connect_xY9Zw: Connect
-            mcp-authorization_header_fdGKe: Access token
-            transport_q3nD6: Transport
-            transport_streamable_eV7Rb: Streamable HTTP
-            url_bUhZ1: URL
-          McpServersList:
-            label_create-mcp-gateway_3o3Vu: Create MCP server
-          name_hTzhB: Name
-          Overview3:
-            action-card_create-ai-agent_ahZQH: Create AI agent
       ydb:
         browse:
           button_create: Create

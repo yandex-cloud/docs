@@ -333,9 +333,9 @@
 - Консоль управления {#console}
 
   1. Откройте [интерфейс {{ ai-studio-name }}]({{ link-console-ai }}).
-  1. Нажмите **{{ ui-key.yacloud.yagpt.YaGPT.Overview3.action-card_create-ai-agent_ahZQH }}** → **{{ ui-key.yacloud.yagpt.YaGPT.CreateAgentCard.create-agent_button-text_n2qCs }}**.
-  1. В поле **{{ ui-key.yacloud.yagpt.YaGPT.name_hTzhB }}** введите имя агента, например `Агент-киноман`.
-  1. В поле **{{ ui-key.yacloud.yagpt.YaGPT.agent_instruction_9oe6q }}** введите инструкцию агента:
+  1. Нажмите **Создать AI-агента** → **Создать агента**.
+  1. В поле **{{ ui-key.yacloud.common.name }}** введите имя агента, например `Агент-киноман`.
+  1. В поле **Инструкция** введите инструкцию агента:
 
       ```
       Ты — консультант по подбору фильмов

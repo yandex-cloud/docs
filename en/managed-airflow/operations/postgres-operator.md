@@ -141,3 +141,8 @@ To check the result in the {{ AF }} web interface:
   1. Make sure the logs contain the `Rows affected: 1` line. This means the query was successful.
 
 {% endlist %}
+
+## Troubleshooting {#troubleshooting}
+
+* [{#T}](../qa/index.md#airflow-provider-postgres-operators)
+* [{#T}](../qa/index.md#airflow-provider-postgres-operators-2)

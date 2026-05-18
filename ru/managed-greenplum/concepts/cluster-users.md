@@ -116,7 +116,6 @@
    * Обращаться к учетным данным пользователей. Эти данные передаются по PXF в открытом виде.
 
 * [Расширять кластер](../operations/cluster-expand.md): добавлять хосты-сегменты в него и перераспределять данные между ними с помощью утилиты `gp_expand`.
-* Подключаться к БД `gpperfmon` и [диагностировать производительность кластера](../operations/performance-diagnostics.md).
 
 Имя пользователя-администратора и его пароль задаются при [создании кластера](../operations/cluster-create.md#create-cluster).
 
@@ -127,3 +126,4 @@ GRANT mdb_admin TO <имя_пользователя>;
 ```
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
+

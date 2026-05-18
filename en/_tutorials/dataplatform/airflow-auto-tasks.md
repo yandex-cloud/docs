@@ -9,7 +9,7 @@ To create an infrastructure for automation of {{ yq-full-name }} tasks with {{ m
 1. [Get your cloud ready](#before-you-begin).
 1. [Create a service account](#create-service-account).
 1. [Create a cloud network and subnets](#create-network).
-1. [Prepare a bucket in {{ objstorage-name }}](#bucket).
+1. [Prepare a bucket in {{ objstorage-full-name }}](#bucket).
 1. [Configure an egress NAT](#nat-routing).
 1. [Create a {{ maf-name }} cluster](#create-airflow-cluster).
 1. [Prepare the DAG file and run the graph](#dag).

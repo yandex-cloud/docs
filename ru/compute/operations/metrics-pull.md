@@ -89,4 +89,4 @@
         ]
     }    
 
-Также метрики можно посмотреть в [консоли управления]({{ link-console-main }}). Для этого на панели слева нажмите ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** и выберите ![image](../../_assets/console-icons/monitoring-icon.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}** или найдите его с помощью строки поиска на дашборде.
+Также метрики можно посмотреть в [консоли управления]({{ link-console-main }}). Для этого на панели слева нажмите ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.dashboard.DashboardPage.ServicesSection.title_ur39b }}** и выберите ![image](../../_assets/console-icons/monitoring-icon.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}** или найдите его с помощью строки поиска на дашборде.

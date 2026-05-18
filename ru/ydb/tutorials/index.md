@@ -16,6 +16,7 @@ description: Различные сценарии использования {{ y
 * [{#T}](ydb-to-object-storage.md)
 * [{#T}](object-storage-to-ydb.md)
 * [{#T}](ydb-to-clickhouse.md)
+* [{#T}](ydb-to-postgresql.md)
 * [{#T}](opensearch-to-ydb.md)
 * [{#T}](yds-to-ydb.md)
 * [{#T}](yds-to-kafka.md)

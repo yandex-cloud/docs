@@ -15,6 +15,14 @@ curl https://{{ api-host }}/endpoints
 {
  "endpoints": [
   {
+   "id": "ai-assistants",
+   "address": "assistant.{{ api-host }}:443"
+  },
+  {
+   "id": "ai-files",
+   "address": "assistant.{{ api-host }}:443"
+  },
+  {
    "id": "ai-foundation-models",
    "address": "ai.{{ api-host }}:443"
   },
@@ -51,6 +59,10 @@ curl https://{{ api-host }}/endpoints
    "address": "alb.{{ api-host }}:443"
   },
   {
+   "id": "alert-sink",
+   "address": "alert-sink.{{ api-host }}:443"
+  },
+  {
    "id": "apigateway-connections",
    "address": "apigateway-connections.{{ api-host }}:443"
   },
@@ -63,12 +75,20 @@ curl https://{{ api-host }}/endpoints
    "address": "alb.{{ api-host }}:443"
   },
   {
+   "id": "audittrails",
+   "address": "audittrails.{{ api-host }}:443"
+  },
+  {
    "id": "baas",
    "address": "backup.{{ api-host }}:443"
   },
   {
    "id": "backup",
    "address": "backup.{{ api-host }}:443"
+  },
+  {
+   "id": "baremetal",
+   "address": "baremetal.{{ api-host }}:443"
   },
   {
    "id": "billing",
@@ -91,6 +111,22 @@ curl https://{{ api-host }}/endpoints
    "address": "{{ api-host-certmanager-certcontent }}:443"
   },
   {
+   "id": "certificate-manager-private-ca",
+   "address": "private-ca.certificate-manager.{{ api-host }}:443"
+  },
+  {
+   "id": "certificate-manager-private-ca-data",
+   "address": "data.private-ca.certificate-manager.{{ api-host }}:443"
+  },
+  {
+   "id": "cic",
+   "address": "cic.{{ api-host }}:443"
+  },
+  {
+   "id": "cloud-registry",
+   "address": "registry.{{ api-host }}:443"
+  },
+  {
    "id": "cloudapps",
    "address": "cloudapps.{{ api-host }}:443"
   },
@@ -103,6 +139,10 @@ curl https://{{ api-host }}/endpoints
    "address": "clouddesktops.{{ api-host }}:443"
   },
   {
+   "id": "cloudrouter",
+   "address": "cloudrouter.{{ api-host }}:443"
+  },
+  {
    "id": "cloudvideo",
    "address": "video.{{ api-host }}:443"
   },
@@ -111,8 +151,16 @@ curl https://{{ api-host }}/endpoints
    "address": "compute.{{ api-host }}:443"
   },
   {
+   "id": "connection-manager",
+   "address": "connectionmanager.{{ api-host }}:443"
+  },
+  {
    "id": "container-registry",
    "address": "container-registry.{{ api-host }}:443"
+  },
+  {
+   "id": "datacatalog",
+   "address": "datacatalog.{{ api-host }}:443"
   },
   {
    "id": "dataproc",
@@ -137,6 +185,18 @@ curl https://{{ api-host }}/endpoints
   {
    "id": "endpoint",
    "address": "{{ api-host }}:443"
+  },
+  {
+   "id": "fomo-dataset",
+   "address": "fomo-dataset.{{ api-host }}:443"
+  },
+  {
+   "id": "fomo-tuning",
+   "address": "fomo-tuning.{{ api-host }}:443"
+  },
+  {
+   "id": "gitlab",
+   "address": "gitlab.{{ api-host }}:443"
   },
   {
    "id": "iam",
@@ -165,6 +225,10 @@ curl https://{{ api-host }}/endpoints
   {
    "id": "kms-crypto",
    "address": "{{ api-host-kms-symcrypto }}:443"
+  },
+  {
+   "id": "kspm",
+   "address": "kspm.{{ api-host }}:443"
   },
   {
    "id": "load-balancer",
@@ -199,8 +263,8 @@ curl https://{{ api-host }}/endpoints
    "address": "logging.{{ api-host }}:443"
   },
   {
-   "id": "logs",
-   "address": "logs.{{ api-host }}:443"
+   "id": "managed-airflow",
+   "address": "airflow.{{ api-host }}:443"
   },
   {
    "id": "managed-clickhouse",
@@ -223,6 +287,10 @@ curl https://{{ api-host }}/endpoints
    "address": "mks.{{ api-host }}:443"
   },
   {
+   "id": "managed-metastore",
+   "address": "metastore.{{ api-host }}:443"
+  },
+  {
    "id": "managed-mongodb",
    "address": "mdb.{{ api-host }}:443"
   },
@@ -239,19 +307,35 @@ curl https://{{ api-host }}/endpoints
    "address": "mdb.{{ api-host }}:443"
   },
   {
-   "id": "managed-sharded-postgresql",
-   "address": "mdb.{{ api-host }}:443"
-  },
-  {
    "id": "managed-redis",
    "address": "mdb.{{ api-host }}:443"
   },
   {
-   "id": "managed-sqlserver",
+   "id": "managed-spark",
+   "address": "{{ api-host-spark }}:443"
+  },
+  {
+   "id": "managed-spqr",
    "address": "mdb.{{ api-host }}:443"
   },
   {
+   "id": "managed-trino",
+   "address": "trino.{{ api-host }}:443"
+  },
+  {
+   "id": "managed-ytsaurus",
+   "address": "ytsaurus.{{ api-host }}:443"
+  },
+  {
    "id": "marketplace",
+   "address": "marketplace.{{ api-host }}:443"
+  },
+  {
+   "id": "marketplace-pim",
+   "address": "marketplace.{{ api-host }}:443"
+  },
+  {
+   "id": "marketplace-stacklandlicenseapi",
    "address": "marketplace.{{ api-host }}:443"
   },
   {
@@ -275,11 +359,11 @@ curl https://{{ api-host }}/endpoints
    "address": "mdb.{{ api-host }}:443"
   },
   {
-   "id": "mdb-sharded-postgresql",
+   "id": "mdb-redis",
    "address": "mdb.{{ api-host }}:443"
   },
   {
-   "id": "mdb-redis",
+   "id": "mdb-spqr",
    "address": "mdb.{{ api-host }}:443"
   },
   {
@@ -303,12 +387,24 @@ curl https://{{ api-host }}/endpoints
    "address": "organization-manager.{{ api-host }}:443"
   },
   {
+   "id": "quota-manager",
+   "address": "quota-manager.{{ api-host }}:443"
+  },
+  {
+   "id": "quotamanager",
+   "address": "quota-manager.{{ api-host }}:443"
+  },
+  {
    "id": "resource-manager",
    "address": "resource-manager.{{ api-host }}:443"
   },
   {
    "id": "resourcemanager",
    "address": "resource-manager.{{ api-host }}:443"
+  },
+  {
+   "id": "searchapi",
+   "address": "searchapi.{{ api-host }}:443"
   },
   {
    "id": "serialssh",
@@ -323,6 +419,10 @@ curl https://{{ api-host }}/endpoints
    "address": "serverless-containers.{{ api-host }}:443"
   },
   {
+   "id": "serverless-eventrouter",
+   "address": "serverless-eventrouter.{{ api-host }}:443"
+  },
+  {
    "id": "serverless-functions",
    "address": "serverless-functions.{{ api-host }}:443"
   },
@@ -331,8 +431,28 @@ curl https://{{ api-host }}/endpoints
    "address": "apigateway-connections.{{ api-host }}:443"
   },
   {
+   "id": "serverless-mcp-gateway",
+   "address": "serverless-mcp-gateway.{{ api-host }}:443"
+  },
+  {
    "id": "serverless-triggers",
    "address": "serverless-triggers.{{ api-host }}:443"
+  },
+  {
+   "id": "serverless-workflows",
+   "address": "serverless-workflows.{{ api-host }}:443"
+  },
+  {
+   "id": "serverlesseventrouter-events",
+   "address": "events.eventrouter.serverless.yandexcloud.net:443"
+  },
+  {
+   "id": "smart-captcha",
+   "address": "smartcaptcha.{{ api-host }}:443"
+  },
+  {
+   "id": "smart-web-security",
+   "address": "smartwebsecurity.{{ api-host }}:443"
   },
   {
    "id": "storage",
@@ -351,10 +471,16 @@ curl https://{{ api-host }}/endpoints
    "address": "vpc.{{ api-host }}:443"
   },
   {
+   "id": "ycvc",
+   "address": "yc-tools-version-control.{{ api-host }}:443"
+  },
+  {
    "id": "ydb",
    "address": "ydb.{{ api-host }}:443"
   }
  ]
 }
 ```
+
+
 

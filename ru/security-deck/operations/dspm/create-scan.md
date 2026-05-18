@@ -30,7 +30,7 @@ description: Следуя данной инструкции, вы узнаете
 
       {% endnote %}
 
-  1. В блоке **{{ ui-key.yacloud_org.dspm.scans.section_access_title }}** выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), от имени которого будет выполняться сканирование. При необходимости нажмите **{{ ui-key.yacloud_org.iam.folder.service-accounts.dialog_select-service-account_create-new-action }}**, чтобы создать новый сервисный аккаунт.
+  1. В блоке **{{ ui-key.yacloud_org.dspm.scans.section_access_title }}** выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), от имени которого будет выполняться сканирование. При необходимости нажмите **{{ ui-key.yacloud_components.security.dspm.dialog_select-service-account_create-new-action }}**, чтобы создать новый сервисный аккаунт.
 
       {% include [sa-scan-roles-warning](../../../_includes/security-deck/sa-scan-roles-warning.md) %}
 

@@ -8,7 +8,7 @@ editable: false
 
 
 
-In this section, you can find the {{ mtr-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources. For other {{ yandex-cloud }} resources consumed while using the service you pay as per their pricing plans.
+This section describes the {{ mtr-name }} pricing [policy](#rules) and [current prices](#prices) for its resources. For other {{ yandex-cloud }} resources consumed while using the service you pay as per their pricing plans.
 
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
@@ -19,7 +19,7 @@ In this section, you can find the {{ mtr-name }} pricing [policy](#rules) and [e
 
 ## Cluster status {#running-stopped}
 
-The prices apply differently depending on the cluster status:
+Pricing applies differently depending on cluster status:
 
 * For a `Running` cluster, you pay for both the computing resources and storage size.
 * For a `Stopped` cluster, you only pay for your storage size.
@@ -29,7 +29,7 @@ The prices apply differently depending on the cluster status:
 When using {{ mtr-name }}, you pay for:
 
 * Computing resources of cluster components.
-* Egress traffic from {{ yandex-cloud }} to the internet.
+* Outgoing traffic from {{ yandex-cloud }} to the internet.
 
 Cluster operation cost is charged per hour. The minimum billing unit is one hour; e.g., you will be charged for 2 hours when using a cluster for 90 minutes (1.5 hours).
 
@@ -37,7 +37,7 @@ Cluster operation cost is charged per hour. The minimum billing unit is one hour
 
 ### Example of cluster cost calculation {#example}
 
-Let's calculate the cost of using a cluster with the following properties for 30 days:
+Suppose we calculate the 30-day usage cost of a cluster with the following configuration:
 
 * **Coordinator**: One `standard` configuration instance: 4 × 100% vCPU, 16 GB RAM.
 * **Workers**: One `standard` configuration instance, fixed number: 4 × 100% vCPU, 16 GB RAM.

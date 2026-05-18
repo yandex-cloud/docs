@@ -78,7 +78,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы планируете создавать инфраструктуру.
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-  1. На панели слева выберите ![icon](../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.baremetal.label_images }}**.
+  1. На панели слева выберите ![icon](../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.baremetal.label_images_duoXD }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_load-image }}**.
   1. Введите имя для образа OPNsense. Требования к имени:
 

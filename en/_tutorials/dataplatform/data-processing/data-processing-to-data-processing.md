@@ -20,12 +20,10 @@ If a {{ dataproc-name }} cluster contains tables that should be available in ano
 
 ## Required paid resources {#paid-resources}
 
-The infrastructure support cost includes:
-
-* Fee for the {{ dataproc-name }} cluster computing resources and storage (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
-* Fee for the {{ metastore-name }} cluster computing resources (see [{{ metadata-hub-full-name }} pricing](../../../metadata-hub/pricing.md#metastore)).
-* Fee for data storage and operations in a bucket (see [{{ objstorage-full-name }} pricing](../../../storage/pricing.md)).
-* Fee for NAT gateway usage and outbound traffic (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md#nat-gateways)).
+* {{ dataproc-name }} cluster: use of computing resources with a {{ dataproc-name }} markup, use of network drives, retrieval and storage of logs, volume of outgoing traffic (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
+* {{ metastore-name }} cluster: computing resources of cluster components (see [{{ metadata-hub-name }} pricing](../../../metadata-hub/pricing.md)).
+* {{ objstorage-name }} buckets: use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+* NAT gateway: hourly use of the gateway and its outgoing traffic (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
 ## Getting started {#before-you-begin}
 
@@ -53,10 +51,10 @@ Set up your infrastructure:
 
     1. If the cloud network uses [security groups](../../../vpc/concepts/security-groups.md), [add](../../../vpc/operations/security-group-add-rule.md) the following rule for outgoing traffic to the {{ dataproc-name }} cluster security group:
 
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-metastore }}`
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`)
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-metastore }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
 - {{ TF }} {#tf}
 

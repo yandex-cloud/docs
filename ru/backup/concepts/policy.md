@@ -56,10 +56,9 @@ description: Из этой статьи вы узнаете, как работа
 
 Политику резервного копирования в {{ backup-name }} можно [создать](../operations/policy-vm/create.md) или [изменить](../operations/policy-vm/update.md) по спецификации в формате [JSON](https://ru.wikipedia.org/wiki/JSON) с помощью [командной строки](../../cli/quickstart.md) {{ yandex-cloud }} или API-запроса.
 
-Полная спецификация политики резервного копирования в {{ backup-name }}:
+Полная спецификация политики резервного копирования в {{ backup-name }} представлена ниже. Также актуальная версия спецификации доступна на странице [справочника REST API](../backup/api-ref/Policy/create.md).
 
 {% include [full-config](../../_includes/backup/operations/full-config.md) %}
-
 
 ## Примеры использования {#examples}
 

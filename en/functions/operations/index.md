@@ -48,6 +48,7 @@ description: In this article, you will learn how to work with {{ sf-full-name }}
 * [Allocating memory for the /tmp directory](function/allocate-memory-tmp.md)
 * [Mounting buckets](function/mount-bucket.md)
 * [Mounting an ephemeral disk](function/mount-ephemeral-disk.md)
+* [{#T}](function/concurrency.md)
 * [Adding a tag](function/tag-add.md)
 * [Deleting a tag](function/tag-delete.md)
 * [Adding a label](function/label-add.md)
