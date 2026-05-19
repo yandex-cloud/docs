@@ -79,13 +79,13 @@ The {{ ad-sync-agent }} syncs the following objects with the {{ microsoft-idp.ad
 
 To implement {{ org-full-name }} user and group synchronization with {{ microsoft-idp.ad-short }}, you need to do the presetting both on the [domain controller](https://en.wikipedia.org/wiki/Domain_controller_(Windows)) side with {{ microsoft-idp.ad-short }} services deployed and on the {{ yandex-cloud }} side.
 
-## {{ microsoft-idp.ad-short }} domain controller side setup {#dc-setup}
+### {{ microsoft-idp.ad-short }} domain controller side setup {#dc-setup}
 
 For the synchronization [agent](#sync-agent) to work correctly on the {{ microsoft-idp.ad-short }} side, do the following:
 
 {% include [ad-synk-presetup-ad](../../_includes/organization/ad-synk-presetup-ad.md) %}
 
-## {{ yandex-cloud }} side setup {#yc-setup}
+### {{ yandex-cloud }} side setup {#yc-setup}
 
 For the synchronization [agent](#sync-agent) to work correctly on the {{ yandex-cloud }} side, do the following:
 
@@ -142,6 +142,14 @@ The running agent performs incremental synchronization continuously with the fol
 * _Syncing user passwords and states_: The agent tracks the lock/unlock status of users in the {{ microsoft-idp.ad-short }} domain and user password changes and transfers these updates to {{ org-full-name }} at an interval of several seconds. You cannot change the frequency for this synchronization type.
 * _Syncing other values_: The agent tracks other changes in properties, attributes, and parameters of users and groups at an interval [set](#agent-config) in the agent's configuration file.
 
+#### Dry run {#dry-run}
+
+{{ ad-sync-agent }} can be dry run. Use this mode to try out the changes you make to the agent's configuration before applying them.
+
+In dry run mode, the agent does not alter the data of {{ org-full-name }} users and groups. Instead, it tests all operations caused by changes to the agent's configuration and [logs](#logging) the results of these tests.
+
+For more information on how to dry run the agent, see [{#T}](../operations/sync-ad.md#dry-run).
+
 ### Tracked changes {#tracked-changes}
 
 During continuous synchronization, the agent tracks the following changes in {{ microsoft-idp.ad-short }} and transfers them to {{ org-full-name }}:
@@ -175,3 +183,4 @@ The synchronization agent's configuration is set in a [YAML](https://yaml.org/) 
 #### See also {#see-also}
 
 * [{#T}](../operations/sync-ad.md)
+

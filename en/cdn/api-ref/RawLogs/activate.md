@@ -54,6 +54,8 @@ apiPlayground:
 
 # Cloud CDN API, REST: RawLogs.Activate
 
+Activate raw log export.
+
 ## HTTP request
 
 ```

@@ -22,6 +22,8 @@ apiPlayground:
 
 # Cloud CDN API, REST: RawLogs.Get
 
+Get configuration of raw log export.
+
 ## HTTP request
 
 ```

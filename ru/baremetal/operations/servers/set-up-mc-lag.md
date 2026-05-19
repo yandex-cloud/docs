@@ -57,7 +57,7 @@ description: Следуя данной инструкции, вы сможете
         1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), которому принадлежит сервер.
         1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}** и в открывшемся списке серверов выберите нужный сервер.
 
-            На открывшейся странице в разделах **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}** и **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}** в поле `{{ ui-key.yacloud.baremetal.field_mac-address }}` указаны MAC-адреса интерфейсов, подключенных соответственно к публичной и приватной сетям.
+            На открывшейся странице в разделе **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** в поле `{{ ui-key.yacloud.baremetal.field_mac-address }}` указаны MAC-адреса интерфейсов, подключенных соответственно к публичной и приватной сетям.
 
         1. Соотнесите информацию, полученную на двух предыдущих шагах, и определите пары интерфейсов сервера, которые подключены к публичной и приватной сетям. В примере выше это следующие пары:
 

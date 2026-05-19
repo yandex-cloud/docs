@@ -23,7 +23,7 @@ For more information about private networks, see [{#T}](./private-network.md).
 
 ## MAC addresses of network interfaces {#mac-addresses}
 
-You can [look up](../operations/servers/get-info.md) the MAC addresses of the {{ baremetal-name }} server network interfaces on the server information page under **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}** and **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}**.
+You can [look up](../operations/servers/get-info.md) the MAC addresses of the {{ baremetal-name }} server network interfaces on the server information page under **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}**.
 
 ## Server routing table {#routing-table}
 

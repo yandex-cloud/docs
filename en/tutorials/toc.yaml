@@ -190,13 +190,13 @@ items:
                 href: security/keycloak.md
       - name: '{{ captcha-name }} use cases'
         items:
-          - name: CAPTCHA in Android apps
+          - name: CAPTCHA on Android
             href: security/mobile-app/android/quickstart-android.md
-          - name: Invisible CAPTCHA in Android apps
+          - name: Invisible CAPTCHA on Android
             href: security/mobile-app/android/invisible-captcha-android.md
-          - name: CAPTCHA in an Android app on Flutter
+          - name: CAPTCHA in a Flutter Android app
             href: security/mobile-app/android/quickstart-android-flutter.md
-          - name: CAPTCHA in iOS apps
+          - name: CAPTCHA on iOS
             href: security/mobile-app/ios/quickstart-ios.md
       - name: Data encryption
         items:
@@ -244,6 +244,8 @@ items:
             href: security/single-sign-on/saml-zabbix.md
           - name: '{{ yandex-360 }}'
             href: security/single-sign-on/saml-yandex-360.md
+          - name: Yandex Browser for organizations
+            href: security/single-sign-on/saml-ya-browser-corporate.md
           - name: '{{ mos-name }}'
             href: security/single-sign-on/saml-opensearch.md
           - name: '{{ OS }}'
@@ -258,6 +260,8 @@ items:
             href: security/single-sign-on/saml-ovpn.md
           - name: MWS
             href: security/single-sign-on/oidc-mws.md
+          - name: Harbor
+            href: security/single-sign-on/oidc-harbor.md
           - name: Cloud.ru
             items:
               - name: SAML
@@ -757,6 +761,36 @@ items:
                 href: applied/cdn-hosting/console.md
               - name: '{{ TF }}'
                 href: applied/cdn-hosting/terraform.md
+          - name: WordPress website
+            items:
+              - name: Overview
+                href: web/wordpress-overview.md
+              - name: >-
+                  WordPress High Availability website using {{ cloud-apps-name
+                  }}
+                href: web/wordpress-ha-cloudapp.md
+              - name: WordPress website using {{ cloud-apps-name }}
+                href: web/wordpress-cloudapp.md
+              - name: WordPress website using {{ marketplace-short-name }}
+                items:
+                  - name: Overview
+                    href: web/wordpress/index.md
+                  - name: Management console
+                    href: web/wordpress/console.md
+                  - name: '{{ TF }}'
+                    href: web/wordpress/terraform.md
+              - name: WordPress website on a {{ MY }} database
+                items:
+                  - name: Overview
+                    href: web/wordpress-mysql/index.md
+                  - name: Management console
+                    href: web/wordpress-mysql/console.md
+                  - name: '{{ TF }}'
+                    href: web/wordpress-mysql/terraform.md
+              - name: >-
+                  Migrating a WordPress website from a third-party hosting
+                  provider to {{ yandex-cloud }}
+                href: web/wordpress-transfer.md
           - name: Website based on LAMP or LEMP stack
             items:
               - name: Overview
@@ -773,28 +807,6 @@ items:
                 href: web/joomla-postgresql/console.md
               - name: '{{ TF }}'
                 href: web/joomla-postgresql/terraform.md
-          - name: Creating a WordPress website
-            items:
-              - name: Overview
-                href: web/wordpress/index.md
-              - name: Management console
-                href: web/wordpress/console.md
-              - name: '{{ TF }}'
-                href: web/wordpress/terraform.md
-          - name: Creating a WordPress website using {{ cloud-apps-name }}
-            href: web/wordpress-cloudapp.md
-          - name: WordPress website with a {{ MY }} database
-            items:
-              - name: Overview
-                href: web/wordpress-mysql/index.md
-              - name: Management console
-                href: web/wordpress-mysql/console.md
-              - name: '{{ TF }}'
-                href: web/wordpress-mysql/terraform.md
-          - name: >-
-              Transferring a WordPress website from a different hosting provider
-              to {{ yandex-cloud }}
-            href: web/wordpress-transfer.md
           - name: Building a 1C-Bitrix website
             items:
               - name: Overview

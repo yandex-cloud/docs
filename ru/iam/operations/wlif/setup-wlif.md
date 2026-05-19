@@ -193,8 +193,7 @@ description: С помощью этой инструкции вы научите
       При необходимости [создайте](../sa/create.md) новый сервисный аккаунт.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. В списке выберите нужный сервисный аккаунт.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.iam.label_federations }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.connected-federation.action_connect-federation }}**.
+  1. На верхней панели нажмите ![image](../../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.action_connect-federation }}**.
   1. В поле **{{ ui-key.yacloud.iam.connected-federation.field_federation }}** выберите ранее созданную федерацию.
   1. В поле **{{ ui-key.yacloud.iam.connected-federation.field_subject }}** укажите идентификатор внешнего субъекта.
 

@@ -25,7 +25,17 @@ description: Вы научитесь взаимодействовать с API {
 
 Чтобы начать работать c {{ marketplace-short-name }} {{ license-manager }} API:
 
-{% include [license-manager-quickstart-before-you-begin](../../../_includes/marketplace/license-manager-quickstart-before-you-begin.md) %}
+1. [Подайте заявку](../../quickstart.md#send-application) и [зарегистрируйте](../../operations/registration.md) аккаунт юридического лица.
+
+1. В интерфейсе {{ yandex-cloud }}:
+    1. [Создайте](../../../iam/operations/sa/create.md) сервисный аккаунт, от имени которого будете аутентифицироваться в {{ license-manager }} API.
+    1. [Получите](../../../iam/concepts/authorization/iam-token.md) IAM-токен для сервисного аккаунта.
+
+1. В [кабинете партнера]({{ link-cloud-partners }}) {{ marketplace-short-name }}:
+    1. Создайте [продукт](../../operations/create-product.md) и [тариф](../../operations/create-tariff.md) с типом [Subscription](../../concepts/subscription.md).
+    1. [Назначьте](../../security/partners.md#assign-role) сервисному аккаунту роль `license-manager.saasSubscriptionSupervisor` на [профиль партнера](../../concepts/publisher.md) или на отдельный [продукт](../../concepts/product.md).
+
+Чтобы воспользоваться примерами, установите утилиты [cURL](https://curl.haxx.se) и [gRPCurl](https://github.com/fullstorydev/grpcurl) (при использовании [gRPC API](../saas/api-ref/grpc/index.md)).
 
 
 ## Настройте интеграцию с API {#integrate}

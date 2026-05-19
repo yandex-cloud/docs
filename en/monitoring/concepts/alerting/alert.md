@@ -5,13 +5,13 @@ description: In {{ monitoring-short-name }}, an alert is a sequence of named que
 
 # Alert
 
-An _alert_ is a sequence of named [queries](../data-model.md#queries) calculated once a minute. The resulting query value is compared to the preset threshold values. If a threshold is reached, {{ monitoring-short-name }} changes the alert [status](#alert-statuses) to `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` or `{{ ui-key.yacloud_monitoring.alert.status_warn }}` and notifies the user via a [notification channel](./notification-channel.md).
+{% include [alert-definition](../../../_includes/monitoring/alert-definition.md) %}
 
 ## Alert statuses {#alert-statuses}
 
 An alert can have one of the following statuses:
 
-Color | Status | Description
+Color | Stage | Description
 ----- | ----- | -----
 🟢 | `{{ ui-key.yacloud_monitoring.alert.status_ok }}` | The metric value is within the specified normal threshold.
 🟡 | `{{ ui-key.yacloud_monitoring.alert.status_warn }}` | The metric value has reached the `Warning` threshold.

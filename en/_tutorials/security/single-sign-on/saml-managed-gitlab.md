@@ -1,10 +1,10 @@
 # Creating a SAML app in {{ org-full-name }} for integration with {{ mgl-name }}
 
-To authenticate your [organization's](../../../organization/concepts/organization.md) users to {{ mgl-full-name }} via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-full-name }} and configure it appropriately both in {{ org-full-name }} and {{ mgl-name }}.
+For the users of your [organization](../../../organization/concepts/organization.md) to be able to authenticate to {{ mgl-full-name }} via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-full-name }} and configure it both in {{ org-full-name }} and {{ mgl-name }}.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
-For the users of your organization to be able to access {{ mgl-name }}:
+To give access to {{ mgl-name }} to the users of your organization:
 
 1. [Create a {{ GL }} instance](#create-mgl-instance).
 1. [Create an app in {{ org-full-name }}](#create-app).
@@ -64,7 +64,7 @@ For the users of your organization to be able to access {{ mgl-name }}:
       1. Optionally, add [labels](../../../resource-manager/concepts/labels.md):
 
          1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-         1. Enter a label in `key: value` format.
+         1. Add a label in `key: value` format.
          1. Press **Enter**.
       1. Click **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
    1. Save the **{{ ui-key.yacloud_org.application.overview.saml_field_login }}**, **{{ ui-key.yacloud_org.application.overview.saml_field_issuer }}** and **{{ ui-key.yacloud_org.application.overview.field_cert-fingerprin }}** values as you will need them in the next step.
@@ -143,11 +143,7 @@ For more information about configuring attributes, see [Configure user and group
 
 For your organization's users to be able to authenticate in {{ GL }} with {{ org-full-name }}'s SAML app, you need to explicitly add these users and/or [user groups](../../../organization/concepts/groups.md) to the SAML application.
 
-{% note info %}
-
-Users and groups added to a SAML application can be managed by a user with the `organization-manager.samlApplications.userAdmin` [role](../../../organization/security/index.md#organization-manager-samlApplications-userAdmin) or higher.
-
-{% endnote %}
+{% include [saml-manage-users](../../../_includes/organization/saml-manage-users.md) %}
 
 1. Add users to the application:
 

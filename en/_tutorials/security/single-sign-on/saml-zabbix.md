@@ -2,11 +2,11 @@
 
 [Zabbix](https://www.zabbix.com/) is an open-source, enterprise-level monitoring system for tracking the performance and health of servers, networks, apps, and other IT resources. Zabbix supports SAML authentication to provide secure SSO for your organization's users.
 
-To authenticate your [organization's](../../../organization/concepts/organization.md) users to Zabbix via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-full-name }} and configure it appropriately both in {{ org-full-name }} and Zabbix.
+For the users of your [organization](../../../organization/concepts/organization.md) to be able to authenticate to Zabbix via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-full-name }} and configure it both in {{ org-full-name }} and Zabbix.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
-For the users of your organization to be able to access Zabbix:
+To give access to Zabbix to the users of your organization:
 
 1. [Create an app](#create-app).
 1. [Set up the integration](#setup-integration).
@@ -28,7 +28,7 @@ For the users of your organization to be able to access Zabbix:
         1. Optionally, add [labels](../../../resource-manager/concepts/labels.md):
 
             1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-            1. Enter a label in `key: value` format.
+            1. Add a label in `key: value` format.
             1. Press **Enter**.
         1. Click **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
 
@@ -42,7 +42,7 @@ To integrate Zabbix with the SAML app you created in {{ org-full-name }}, comple
 
 {% note info %}
 
-To set up the SAML application in Zabbix, the user needs  the **Super admin role**. 
+To set up the SAML application in Zabbix, the user needs the **Super admin role**. 
 
 {% endnote %}
 
@@ -222,11 +222,7 @@ For more information about configuring attributes, see [Configure user and group
 
 For your organization's users to be able to authenticate in Zabbix with {{ org-full-name }}'s SAML app, you need to explicitly add these users and/or [user groups](../../../organization/concepts/groups.md) to the SAML app:
 
-{% note info %}
-
-Users and groups added to a SAML application can be managed by a user with the `organization-manager.samlApplications.userAdmin` [role](../../../organization/security/index.md#organization-manager-samlApplications-userAdmin) or higher.
-
-{% endnote %}
+{% include [saml-manage-users](../../../_includes/organization/saml-manage-users.md) %}
 
 1. If you have configured automatic user creation in Zabbix, [create](../../../organization/operations/create-group.md) the relevant [group](../../../organization/concepts/groups.md):
 
@@ -264,7 +260,7 @@ Users and groups added to a SAML application can be managed by a user with the `
 
 ## Make sure your application works correctly {#validate}
 
-To make sure both your SAML app and Zabbix integration work correctly, authenticate to Zabbix as one of the users you added to the app. Proceed as follows:
+To make sure both your SAML app and Zabbix integration work correctly, authenticate to Zabbix as one of the users you added to the app. Follow these steps:
 
 1. In your browser, navigate to the address of your Zabbix instance, e.g., `https://<your-domain>/zabbix/`.
 1. If you were logged in to Zabbix, log out.

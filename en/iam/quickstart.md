@@ -79,7 +79,8 @@ If the assigned roles are no longer needed, revoke them:
 * The [step-by-step guides](operations/index.md) will help you perform specific tasks in {{ iam-name }}.
 * Learn about [access management in {{ yandex-cloud }}](concepts/access-control/index.md).
 * See the [best practices for using {{ yandex-cloud }} securely](best-practices/using-iam-securely.md).
-* Learn [how to get started with {{ org-name }}](../organization/quickstart.md).
+* Learn [how to get started with {{ org-full-name }}](../organization/quickstart.md).
 * Learn about [authentication in {{ yandex-cloud }}](concepts/authorization/index.md#authentication).
 * [Learn how to work with service accounts](quickstart-sa.md).
+* Use [authentication and authorization security checklist](../security/domains/iam-checklist.md).
 * See [answers to frequently asked questions](qa/index.md).

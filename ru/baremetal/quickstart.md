@@ -41,7 +41,7 @@ description: Следуя данной инструкции, вы сможете
 
           В открывшемся окне оставьте параметры разметки дисков по умолчанию или измените их, затем нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
       1. {% include [server-lease-step9-bm](../_includes/baremetal/instruction-steps/server-lease-step9-bm.md) %}
-      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}** в поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
+      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** в разделе **Интерфейс 2** в поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
       1. В блоке **{{ ui-key.yacloud.baremetal.title_server-access }}**:
 
           {% include [server-lease-access](../_includes/baremetal/server-lease-access.md) %}
@@ -63,7 +63,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Linux/macOS {#linux-macos}
 
-  Для подключения к серверу необходимо указать его публичный IP-адрес, который можно узнать в консоли управления, в поле **{{ ui-key.yacloud.baremetal.field_server-public-ip }}** блока **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}** на странице сервера.
+  Для подключения к серверу необходимо указать его публичный IP-адрес, который можно узнать в консоли управления, в поле **{{ ui-key.yacloud.baremetal.field_server-public-ip }}** блока **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** на странице сервера.
 
   В терминале выполните команду:
 
@@ -84,7 +84,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Windows 10/11 {#windows}
 
-  Для подключения к серверу необходимо указать его публичный IP-адрес, который можно узнать в консоли управления, в поле **{{ ui-key.yacloud.baremetal.field_server-public-ip }}** блока **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}** на странице сервера.
+  Для подключения к серверу необходимо указать его публичный IP-адрес, который можно узнать в консоли управления, в поле **{{ ui-key.yacloud.baremetal.field_server-public-ip }}** блока **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** на странице сервера.
 
   Убедитесь, что учетная запись Windows обладает правами на чтение файлов в папке с ключами.
 
@@ -106,7 +106,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Windows 7/8 {#windows7-8}
 
-  Для подключения к серверу необходимо указать его публичный IP-адрес, который можно узнать в консоли управления, в поле **{{ ui-key.yacloud.baremetal.field_server-public-ip }}** блока **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}** на странице сервера.
+  Для подключения к серверу необходимо указать его публичный IP-адрес, который можно узнать в консоли управления, в поле **{{ ui-key.yacloud.baremetal.field_server-public-ip }}** блока **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** на странице сервера.
 
   Установите соединение с помощью приложения PuTTY:
 

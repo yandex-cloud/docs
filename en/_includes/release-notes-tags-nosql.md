@@ -1,1 +1,0 @@
-Labels next to update description indicate the interface supporting the update: [management console](../console/), [CLI](../cli/), API, or [{{ TF }}](../tutorials/infrastructure-management/terraform-quickstart.md).

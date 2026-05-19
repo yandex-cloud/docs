@@ -11,7 +11,7 @@ resource_id | Идентификатор кластера
 resource_type | Тип ресурса: `cluster`
 service | Идентификатор сервиса: `managed-clickhouse`
 shard | Идентификатор шарда
-subcluster_name | Тип подкластера: `clickhouse_subcluster`, `zookeeper_subcluster`
+subcluster_name | Тип подкластера: `clickhouse_subcluster`, `zookeeper_subcluster`, `keeper_subcluster`
 
 
 ## Метрики CPU {#managed-clickhouse-cpu-metrics}

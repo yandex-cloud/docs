@@ -229,8 +229,10 @@ Create a {{ interconnect-name }} [private connection](../../baremetal/concepts/p
           {% include [server-lease-step6-period](../../_includes/baremetal/instruction-steps/server-lease-step6-period.md) %}
 
       1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select the `Debian 11` image.
-      1. Under **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}**, in the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select the `subnet-m4` subnet you created earlier.
-      1. Under **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}**, select `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}` in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field.
+      1. Under **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}**:
+          1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, specify `subnet-m3`.
+          1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, specify `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
+
       1. Under **{{ ui-key.yacloud.baremetal.title_server-access }}**:
 
           {% include [server-lease-access](../../_includes/baremetal/server-lease-access.md) %}
@@ -262,7 +264,7 @@ To deploy your web application on the server:
     ssh root@<server_public_IP_address>
     ```
 
-    You can look up the server's public IP address in the [management console]({{ link-console-main }}): see the {{ baremetal-name }} server info on the **{{ ui-key.yacloud.common.overview }}** page. You can find the address in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field under **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}**.
+    You can look up the server's public IP address in the [management console]({{ link-console-main }}): see the {{ baremetal-name }} server info on the **{{ ui-key.yacloud.common.overview }}** page. You can find the address in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field under **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}**.
 
     You will perform all further actions under this step in the server terminal.
 1. Prepare your working directory:
@@ -441,7 +443,7 @@ Make sure the [previously created](#connect-to-vpc) private connection to the cl
     ping <server_private_IP_address> -s 1024 -c 3
     ```
 
-    You can look up the server's private IP address in the [management console]({{ link-console-main }}): see the {{ baremetal-name }} server info on the **{{ ui-key.yacloud.common.overview }}** page. You can find the address in the **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}** field under **{{ ui-key.yacloud.baremetal.field_server-private-ip }}**.
+    You can look up the server's private IP address in the [management console]({{ link-console-main }}): see the {{ baremetal-name }} server info on the **{{ ui-key.yacloud.common.overview }}** page. You can find the address in the **{{ ui-key.yacloud.baremetal.field_server-private-ip }}** field under **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}**.
 
     Result:
 

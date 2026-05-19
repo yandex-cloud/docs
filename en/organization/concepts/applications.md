@@ -201,3 +201,4 @@ In addition to the above-mentioned settings, you also need to specify an [app se
 * [{#T}](../operations/applications/oidc-create.md)
 * [{#T}](../operations/applications/oidc-update.md)
 * [{#T}](../operations/applications/oidc-deactivate-remove.md)
+* [{#T}](../../security/domains/iam-checklist.md)

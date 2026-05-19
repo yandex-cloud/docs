@@ -516,7 +516,9 @@ default:
       pro: https://postgrespro.ru/docs
     versions:
       console:
+        dpr: '14'
         str-1c: 14-1c, 15-1c, 16-1c, 17-1c, 18-1c
+        str-last: '15'
       tf:
         latest: '18'
         str: 14, 14-1c, 15, 15-1c, 16, 16-1c, 17, 17-1c, 18 и 18-1c
@@ -830,7 +832,6 @@ default:
   t4i-ice-lake: Intel Ice Lake with T4i
   tag-all: <code><b><small>Все интерфейсы</small></b></code>
   tag-api: <code><b><small>API</small></b></code>
-  tag-center: <code><b><small>Cloud Center</small></b></code>
   tag-cli: <code><b><small>CLI</small></b></code>
   tag-con: <code><b><small>Консоль управления</small></b></code>
   tag-preview: <code><b><small>Preview</small></b></code>
@@ -4947,6 +4948,8 @@ default:
           general:
             section_default-storage_label: Хранилище по умолчанию
       security:
+        alerts-base:
+          action_create-exception_kyUtB: Создать исключение
         alerts:
           comment_form:
             send: Отправить
@@ -5738,16 +5741,13 @@ default:
         title_section-disk: Диск
         title_section-lease-conditions: Условия аренды
         title_section-location: Расположение
+        title_section-network-interfaces: Сетевые интерфейсы
         title_section-resources: Ресурсы
         title_section-server-backups: Резервное копирование
         title_section-server-config: Конфигурация
         title_section-server-info: Информация о сервере
         title_section-server-marketplace-app: Приложение Marketplace
-        title_section-server-private-network: Приватная сеть
-        title_section-server-private-network_xrEye: Приватная сеть
         title_section-server-product: Образ
-        title_section-server-public-network: Публичная сеть
-        title_section-server-public-network_p7Zhj: Публичная сеть
         title_server-access: Доступ
         title_vrf-interconnect-section: Приватное соединение с облачными сетями
         vrfs:
@@ -7143,7 +7143,6 @@ default:
           switch_quotas: Квоты
         connected-federation:
           action_connect: Привязать
-          action_connect-federation: Привязать к федерации
           field_federation: Федерация сервисных аккаунтов
           field_subject: Значение Subject (sub)
         federations:
@@ -7232,6 +7231,7 @@ default:
           service-account:
             label_add-role: Добавить роль
             overview:
+              action_connect-federation: Привязать к федерации
               action_download-keys-file: Скачать файл с ключами
               button_create_api_key: Создать API-ключ
               button_create_key: Создать авторизованный ключ
@@ -8568,10 +8568,11 @@ default:
         label_domain-protection-domains: Домены
         label_search-rule-type: 'Тип правила:'
         match-lists:
-          ip-list_add-addresses: Добавить адреса
           label_create-list: Создать список
           label_create-match-list: Создать список
           label_match-lists: Списки
+        MatchListTable:
+          button_add-to-list_1kKXh: Добавить в список
         overview:
           action_attach-to-host: Подключить к хосту
           action_disconnect-host: Отключить от профиля

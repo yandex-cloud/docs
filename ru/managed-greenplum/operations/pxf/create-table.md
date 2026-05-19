@@ -3,13 +3,26 @@ title: Создание внешней таблицы по протоколу PX
 description: Следуя данной инструкции, вы создадите внешнюю таблицу по протоколу PXF с помощью SQL-запроса.
 ---
 
+
 # Создание внешней таблицы по протоколу PXF
+
+{{ mgp-name }} позволяет [создавать external-таблицы](#sql-statement) для доступа к данным во внешних СУБД. В кластерах с СУБД [Apache Cloudberry™](https://cloudberry.apache.org) кроме external-таблиц также можно [создавать foreign-таблицы](#sql-statement-fdw) с использованием механизма FDW. Такие таблицы предоставляют доступ к тем же внешним СУБД, что и external-таблицы. При этом foreign-таблицы поддерживают чтение и запись в рамках одной таблицы, тогда как external-таблицы — либо чтение, либо запись.
+
+Механизм FDW поддерживает следующие типы внешних источников данных:
+
+* `s3_pxf_fdw`
+* `jdbc_pxf_fdw`
+* `hdfs_pxf_fdw`
+* `hive_pxf_fdw`
+
+External-таблицы создаются с помощью SQL-запроса `CREATE EXTERNAL TABLE`, а foreign-таблицы — `CREATE FOREIGN TABLE`.
+
 
 ## Перед началом работы {#before-you-begin}
 
 
-1. В подсети кластера {{ GP }} [настройте NAT-шлюз и привяжите таблицу маршрутизации](../../../vpc/operations/create-nat-gateway.md).
-1. В той же подсети [создайте группу безопасности](../../../vpc/operations/security-group-create.md), разрешающую весь входящий и исходящий трафик со всех адресов.
+1. В подсети кластера {{ mgp-name }} [настройте NAT-шлюз и привяжите таблицу маршрутизации](../../../vpc/operations/create-nat-gateway.md).
+1. В сети кластера {{ mgp-name }} [создайте группу безопасности](../../../vpc/operations/security-group-create.md), разрешающую весь входящий и исходящий трафик со всех адресов.
 1. Создайте внешний источник данных. Инструкции по созданию зависят от типа подключения источника:
 
     * [S3](create-s3-source.md)
@@ -18,9 +31,390 @@ description: Следуя данной инструкции, вы создади
     * [Hive](create-hive-source.md)
 
 
-## Создание внешней таблицы с помощью SQL-запроса {#sql-statement}
 
-Синтаксис SQL-запроса на создание внешней таблицы:
+## Создать foreign-таблицу {#sql-statement-fdw}
+
+Синтаксис SQL-запроса на создание foreign-таблицы:
+
+```sql
+CREATE FOREIGN TABLE <имя_таблицы>
+  (<имя_столбца> <тип_данных> [, ...])
+  SERVER "<локальное_имя_источника>"
+  OPTIONS (
+    resource '<путь_к_данным_или_имя_таблицы>'
+  );
+```
+
+Где:
+
+* `<имя_таблицы>` — имя внешней таблицы в кластере {{ mgp-name }}.
+* `<имя_столбца>` — имя столбца.
+* `<тип_данных>` — тип данных столбца. Должен совпадать с типом соответствующего столбца во внешней СУБД.
+* `<локальное_имя_источника>` — локальное имя внешнего источника данных.
+* `<путь_к_данным_или_имя_таблицы>` — путь к данным или имя таблицы на внешнем источнике.
+
+
+### Примеры создания foreign-таблиц {#fdw-examples}
+
+{% list tabs group=data_sources %}
+
+- {{ CH }} {#clickhouse}
+
+  1. [Создайте кластер {{ mch-full-name }}](../../../managed-clickhouse/operations/cluster-create.md) с именем пользователя `chuser`.
+
+  
+  1. В группу безопасности кластера {{ mch-name }} [добавьте правила](../../../vpc/operations/security-group-add-rule.md), разрешающие весь входящий и исходящий трафик.
+    
+    
+  1. Создайте таблицу в {{ CH }} и заполните ее данными:
+      
+      1. [Подключитесь к БД {{ CH }}](../../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) с помощью утилиты `clickhouse-client`.
+  
+      1. Создайте таблицу `test`:
+
+          ```sql
+          CREATE TABLE test (
+            a INT,
+            b INT
+          ) ENGINE = Memory;
+          ```
+
+      1. Добавьте данные:
+
+          ```sql
+          INSERT INTO test (a, b)
+          VALUES (1, 11), (2, 22);
+          ```
+
+  1. Получите доступ к внешним данным в {{ mgp-name }}:
+  
+      1. [Подключитесь к БД](../connect/index.md) в сервисе {{ mgp-name }}.
+
+      1. Создайте внешний источник данных:
+          
+          
+          ```sql
+          CREATE SERVER "chserver"
+            FOREIGN DATA WRAPPER jdbc_pxf_fdw
+            OPTIONS (
+              jdbc_driver 'com.clickhouse.jdbc.ClickHouseDriver',
+              db_url 'jdbc:clickhouse:http://c-<идентификатор_кластера>.rw.{{ dns-zone }}:8123/<имя_БД>',
+              user 'chuser',
+              pass '<пароль>'
+            );
+          ```
+
+          Где `db_url` — [особый FQDN](../../../managed-clickhouse/operations/connect/fqdn.md#auto), который всегда указывает на доступный хост кластера {{ mch-name }}.
+
+          Идентификатор кластера можно [получить со списком кластеров](../../../managed-clickhouse/operations/cluster-list.md#list-clusters) в каталоге.
+
+          Если для хостов {{ CH }} включен публичный доступ, при создании внешней таблицы необходимо использовать шифрованное соединение. Для этого укажите в запросе параметры SSL, используйте протокол `https` и порт `{{ port-mch-http }}`:
+
+          ```sql
+          CREATE SERVER "chserver"
+            FOREIGN DATA WRAPPER jdbc_pxf_fdw
+            OPTIONS (
+              ssl 'true',
+              sslmode 'strict',
+              sslrootcert '/etc/greenplum/ssl/allCAs.pem',
+              jdbc_driver 'com.clickhouse.jdbc.ClickHouseDriver',
+              db_url 'jdbc:clickhouse:https://c-<идентификатор_кластера>.rw.{{ dns-zone }}:{{ port-mch-http }}/<имя_БД>',
+              user 'chuser',
+              pass '<пароль>'
+            );
+          ```
+
+      1. Создайте сопоставление локального пользователя с пользователем на внешнем источнике:
+  
+          ```sql
+          CREATE USER MAPPING FOR CURRENT_USER
+            SERVER "chserver";
+          ```
+
+      1. Создайте внешнюю таблицу `fdw_ch`, которая будет ссылаться на таблицу `test` в кластере {{ CH }}:
+
+          ```sql
+          CREATE FOREIGN TABLE fdw_ch (
+            a INT,
+            b INT
+          )
+          SERVER "chserver"
+          OPTIONS (
+            resource 'test'
+          );
+         ```
+
+      1. Получите данные из внешней таблицы:
+
+          ```sql
+          SELECT * FROM fdw_ch;
+          ```
+      
+      1. Добавьте данные во внешнюю таблицу:
+          
+          ```sql
+          INSERT INTO fdw_ch (a, b)
+          VALUES (3, 33);
+          ```
+
+- {{ MY }} {#mysql}
+
+  
+  1. [Создайте кластер {{ mmy-full-name }}](../../../managed-mysql/operations/cluster-create.md) с публичным доступом к хостам и именем пользователя `mysqluser`.
+
+  1. В группу безопасности кластера {{ mmy-name }} [добавьте правила](../../../vpc/operations/security-group-add-rule.md), разрешающие весь входящий и исходящий трафик.
+
+    
+  1. Создайте таблицу в {{ MY }} и заполните ее данными:
+      
+      1. [Подключитесь к БД {{ MY }}](../../../managed-mysql/operations/connect/index.md#connection-string) с помощью утилиты `mysql`.
+  
+      1. Создайте таблицу `test`:
+
+          ```sql
+          CREATE TABLE test (
+            a INT,
+            b INT
+          );
+          ```
+
+      1. Добавьте данные:
+
+          ```sql
+          INSERT INTO test (a, b)
+          VALUES (1, 11), (2, 22);
+          ```
+
+  1. Получите доступ к внешним данным в {{ mgp-name }}:
+  
+      1. [Подключитесь к БД](../connect/index.md) в сервисе {{ mgp-name }}.
+
+      1. Создайте внешний источник данных:
+          
+          ```sql
+          CREATE SERVER "myserver"
+            FOREIGN DATA WRAPPER jdbc_pxf_fdw
+            OPTIONS (
+              jdbc_driver 'com.mysql.jdbc.Driver',
+              db_url 'jdbc:mysql://c-<идентификатор_кластера>.rw.{{ dns-zone }}:{{ port-mmy }}/<имя_БД>',
+              user 'mysqluser',
+              pass '<пароль>'
+            );
+          ```
+
+          Где `db_url` — [особый FQDN](../../../managed-mysql/operations/connect/fqdn.md#fqdn-master), который всегда указывает на текущий хост-мастер в кластере {{ mmy-name }}.
+
+          Идентификатор кластера можно [получить со списком кластеров](../../../managed-mysql/operations/cluster-list.md#list-clusters) в каталоге.
+
+      1. Создайте сопоставление локального пользователя с пользователем на внешнем источнике:
+  
+          ```sql
+          CREATE USER MAPPING FOR CURRENT_USER
+            SERVER "myserver";
+          ```
+
+      1. Создайте внешнюю таблицу `fdw_mysql`, которая будет ссылаться на таблицу `test` в кластере {{ MY }}:
+
+          ```sql
+          CREATE FOREIGN TABLE fdw_mysql (
+            a INT,
+            b INT
+          )
+          SERVER "myserver"
+          OPTIONS (
+            resource 'test'
+          );
+         ```
+
+      1. Получите данные из внешней таблицы:
+
+          ```sql
+          SELECT * FROM fdw_mysql;
+          ```
+      
+      1. Добавьте данные во внешнюю таблицу:
+          
+          ```sql
+          INSERT INTO fdw_mysql (a, b)
+          VALUES (3, 33);
+          ```
+
+- {{ PG }} {#postgresql}
+
+  
+  1. [Создайте кластер {{ mpg-full-name }}](../../../managed-postgresql/operations/cluster-create.md) с публичным доступом к хостам и именем пользователя `pguser`.
+  1. В группу безопасности кластера {{ mpg-name }} [добавьте правила](../../../vpc/operations/security-group-add-rule.md), разрешающие весь входящий и исходящий трафик.
+
+    
+  1. Создайте таблицу в {{ PG }} и заполните ее данными:
+      
+      1. [Подключитесь к БД {{ PG }}](../../../managed-postgresql/operations/connect/clients.md) с помощью утилиты `psql`.
+  
+      1. Создайте таблицу `test`:
+
+          ```sql
+          CREATE TABLE public.test (
+            a INT,
+            b INT
+          );
+          ```
+
+      1. Добавьте данные:
+
+          ```sql
+          INSERT INTO public.test (a, b)
+          VALUES (1, 11), (2, 22);
+          ```
+
+  1. Получите доступ к внешним данным в {{ mgp-name }}:
+  
+      1. [Подключитесь к БД](../connect/index.md) в сервисе {{ mgp-name }}.
+
+      1. Создайте внешний источник данных:
+          
+          ```sql
+          CREATE SERVER "pgserver"
+            FOREIGN DATA WRAPPER jdbc_pxf_fdw
+            OPTIONS (
+              jdbc_driver 'org.postgresql.Driver',
+              db_url 'jdbc:postgresql://c-<идентификатор_кластера>.rw.{{ dns-zone }}:{{ port-mpg }}/<имя_БД>',
+              user 'pguser',
+              pass '<пароль>'
+            );
+          ```
+
+          Где `db_url` — [особый FQDN](../../../managed-postgresql/operations/connect/fqdn.md#fqdn-master), который всегда указывает на текущий хост-мастер в кластере {{ mpg-name }}.
+
+          Идентификатор кластера можно [получить со списком кластеров](../../../managed-postgresql/operations/cluster-list.md#list-clusters) в каталоге.
+
+      1. Создайте сопоставление локального пользователя с пользователем на внешнем источнике:
+  
+          ```sql
+          CREATE USER MAPPING FOR CURRENT_USER
+            SERVER "pgserver";
+          ```
+
+      1. Создайте внешнюю таблицу `fdw_pg`, которая будет ссылаться на таблицу `public.test` в кластере {{ PG }}:
+
+          ```sql
+          CREATE FOREIGN TABLE fdw_pg (
+            a INT,
+            b INT
+          )
+          SERVER "pgserver"
+          OPTIONS (
+            resource 'public.test'
+          );
+         ```
+
+      1. Получите данные из внешней таблицы:
+
+          ```sql
+          SELECT * FROM fdw_pg;
+          ```
+
+      1. Добавьте данные во внешнюю таблицу:
+          
+          ```sql
+          INSERT INTO fdw_pg (a, b)
+          VALUES (3, 33);
+          ```
+
+- {{ objstorage-name }} {#storage}
+
+  1. [Создайте сервисный аккаунт](../../../iam/operations/sa/create.md#create-sa) `fdw-agent` и назначьте ему роль `storage.editor` для доступа к бакету {{ objstorage-name }}.
+  1. [Создайте бакет {{ objstorage-name }}](../../../storage/operations/buckets/create.md) с ограниченным доступом.
+  1. [Предоставьте разрешение](../../../storage/operations/buckets/edit-acl.md) `READ и WRITE` для сервисного аккаунта `fdw-agent` на созданный бакет.
+  1. [Создайте статический ключ доступа](../../../iam/operations/authentication/manage-access-keys.md#create-access-key).
+  1. Подготовьте тестовый файл и загрузите его в бакет:
+      
+      1. На локальной машине создайте тестовый файл `test.csv`:
+
+          ```csv
+          1,11
+          2,22
+          ```
+
+      1. [Загрузите в бакет](../../../storage/operations/objects/upload.md) файл `test.csv`.
+  
+  1. Получите доступ к внешним данным в {{ mgp-name }}:
+  
+      1. [Подключитесь к БД](../connect/index.md) в сервисе {{ mgp-name }}.
+
+      1. Создайте внешний источник данных:
+          
+          ```sql
+          CREATE SERVER "objserver"
+            FOREIGN DATA WRAPPER s3_pxf_fdw
+            OPTIONS (
+              accesskey '<идентификатор_статического_ключа_доступа>',
+              secretkey '<секретный_ключ_доступа>',
+              endpoint '{{ s3-storage-host }}'
+            );
+          ```
+
+      1. Создайте сопоставление локального пользователя с пользователем на внешнем источнике:
+  
+          ```sql
+          CREATE USER MAPPING FOR CURRENT_USER
+            SERVER "objserver";
+          ```
+
+      1. Создайте внешнюю таблицу `fdw_s3`, которая будет ссылаться на таблицу `test.csv` в бакете:
+
+          ```sql
+          CREATE FOREIGN TABLE fdw_s3 (
+            a INT,
+            b INT
+          )
+          SERVER "objserver"
+          OPTIONS (
+            resource '<имя_бакета>/test.csv',
+            format 'csv'
+          );
+         ```
+
+      1. Получите данные из внешней таблицы:
+
+          ```sql
+          SELECT * FROM fdw_s3;
+          ```
+
+{% endlist %}
+
+{% note tip %}
+
+Параметры подключения можно передавать как при создании источника данных, так и при создании внешней таблицы.
+
+{% cut "Передача параметров подключения при создании внешней таблицы" %}
+
+```sql
+CREATE SERVER "<локальное_имя_источника>"
+  FOREIGN DATA WRAPPER jdbc_pxf_fdw;
+
+CREATE USER MAPPING FOR CURRENT_USER
+  SERVER "<локальное_имя_источника>";
+
+CREATE FOREIGN TABLE <имя_таблицы>
+  (<имя_столбца> <тип_данных> [, ...])
+  SERVER "<локальное_имя_источника>"
+  OPTIONS (
+    resource '<путь_к_данным_или_имя_таблицы>',
+    jdbc_driver '<имя_класса_JDBC_драйвера>',
+    db_url 'jdbc:<тип_СУБД>://<FQDN_кластера>:<порт>/<имя_БД>',
+    user '<имя_пользователя>',
+    pass '<пароль>'
+  );
+```
+
+{% endcut %}
+
+{% endnote %}
+
+
+## Создать external-таблицу {#sql-statement}
+
+Синтаксис SQL-запроса на создание external-таблицы:
 
 ```sql
 CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
@@ -47,7 +441,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
 
 Опция `WRITABLE` позволяет записывать данные во внешний объект. Чтобы считать данные из внешнего объекта, создайте внешнюю таблицу с опцией `READABLE`.
 
-## Примеры создания внешних таблиц {#pxf-examples}
+### Примеры создания external-таблиц {#pxf-examples}
 
 {% list tabs group=data_sources %}
 
@@ -174,7 +568,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
         ```
 
         ```sql
-        INSERT INTO test VALUES (1, '11'), (2, '22');
+        INSERT INTO test VALUES (1, 11), (2, 22);
         ```
 
     1. [Подключитесь к БД {{ GP }}](../connect/index.md).
@@ -248,7 +642,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
         ```
 
         ```sql
-        INSERT INTO public.test VALUES (1, '11'), (2, '22');
+        INSERT INTO public.test VALUES (1, 11), (2, 22);
         ```
 
     1. [Подключитесь к БД {{ GP }}](../connect/index.md).
@@ -299,7 +693,7 @@ CREATE [WRITABLE] EXTERNAL TABLE <имя_таблицы>
 
         * **Имя** — `objserver`;
         * **Access Key** — идентификатор статического ключа доступа, созданного ранее;
-        * **Secret Key** — секретыный ключ, созданный ранее вместе со статическим ключом доступа;
+        * **Secret Key** — секретный ключ, созданный ранее вместе со статическим ключом доступа;
         * **Endpoint** — `{{ s3-storage-host }}`.
 
         Если не создать источник данных, параметры подключения к источнику нужно передать в SQL-запросе на создание внешней таблицы.

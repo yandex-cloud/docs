@@ -28,13 +28,13 @@ description: In this tutorial, you will learn how to update your {{ baremetal-fu
 
           {% endnote %}
       
-      * Optionally, change the server's [network settings](../../concepts/network.md) in the **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}** and **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}** sections.
+      * Optionally, change the server's [network settings](../../concepts/network.md) in the **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** section.
 
-          To attach an [additional private subnet](../../concepts/private-network.md#tagged-vlan-subnet) to the server, click **{{ ui-key.yacloud.baremetal.addAdditionalSubnet }}** in the **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}** section and, in the field that appears, select an existing additional subnet or create a new one.
+          To attach an [additional private subnet](../../concepts/private-network.md#tagged-vlan-subnet) to the server, click **{{ ui-key.yacloud.baremetal.addAdditionalSubnet }}** in the **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** section and, in the field that appears, select an existing additional subnet or create a new one.
 
           {% include [additional-private-subnet-dhcp-notice](../../../_includes/baremetal/additional-private-subnet-dhcp-notice.md) %}
 
-          To detach an additional subnet from the server, click ![trash-bin](../../../_assets/console-icons/trash-bin.svg) next to this subnet in the **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}** section.
+          To detach an additional subnet from the server, click ![trash-bin](../../../_assets/console-icons/trash-bin.svg) next to this subnet in the **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** section.
 
           {% note warning %}
 

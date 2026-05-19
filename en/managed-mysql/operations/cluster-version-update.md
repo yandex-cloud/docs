@@ -8,9 +8,9 @@ In multi-host clusters, upgrades proceed in this sequence:
 
 1. Replicas are taken offline for an upgrade and stopped, one by one. The replicas are queued randomly. Following the upgrade, the replicas get back online. Read performance may temporarily degrade at this stage, as some replicas will be unavailable.
 
-1. The master becomes read-only. One of the replicas is [promoted to master](../concepts/replication.md#master-failover) and becomes write-enabled. This ensures the cluster is upgraded with minimal downtime.
+1. The master host turns off for the upgrade. During the master upgrade, one of the replicas takes over its role and becomes available for writing. Once the upgrade is complete, the host with the highest [failover priority](../concepts/replication.md#master-failover) becomes the new master. If the cluster has several hosts with maximum priority, the one with the least lag behind the master will be selected.
 
-1. The original master is taken offline, upgraded, and then brought online as a replica. The master does not switch back to avoid the risk of extra failovers.
+    {% include [note-role-master](../../_includes/mdb/mmy/note-role-master.md) %}
 
 {% note info %}
 
@@ -18,7 +18,7 @@ In {{ MY }} 8.0, replica failover is more reliable and efficient due to improved
 
 {% endnote %}
 
-For information on minor version upgrades and host maintenance, see [Maintenance](../concepts/maintenance.md).
+To learn about upgrades within the same version and host maintenance, see [Maintenance](../concepts/maintenance.md).
 
 {% note alert %}
 
@@ -116,13 +116,13 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
      WHERE COMMAND = 'Binlog Dump';
      ```
 
-## Updating the {{ MY }} version {#start-update}
+## Upgrading the {{ MY }} version {#start-update}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-   1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
+   1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}**.
    1. Select your cluster from the list and click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
    1. In the **{{ ui-key.yacloud.mdb.forms.base_field_version }}** field, select the new version number.
    1. Click **{{ ui-key.yacloud.mdb.forms.button_edit }}**.
@@ -151,7 +151,7 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
       {{ yc-mdb-my }} cluster get <cluster_name_or_ID>
       ```
 
-   1. Run the {{ MY }} upgrade:
+   1. Start the {{ MY }} upgrade:
 
       ```bash
       {{ yc-mdb-my }} cluster update <cluster_name_or_ID> \
@@ -164,7 +164,7 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
 
    1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-      For information on how to create such a file, see [Creating a cluster](cluster-create.md).
+      For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
    1. Add the `version` field to the `yandex_mdb_mysql_cluster` resource or change the field value if it already exists:
 
@@ -190,7 +190,7 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
 
 - REST API {#api}
 
-   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -214,19 +214,19 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
 
       Where:
 
-      * `updateMask`: Comma-separated list of settings you want to update.
+      * `updateMask`: Comma-separated string of settings to update.
 
          Here, we provide only one setting.
 
       * `configSpec.version`: New {{ MY }} version.
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-   1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+   1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and set it as an environment variable:
+   1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -265,7 +265,7 @@ When getting ready for an upgrade, a comprehensive approach to testing and compa
 
       * `config_spec.version`: New {{ MY }} version.
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

@@ -1,0 +1,1 @@
+Create a [public DNS zone](../../../dns/concepts/dns-zone.md#public-zones) and delegate your domain to it. For more about delegating domains, see [this guide](../../../troubleshooting/dns/how-to/delegate-public-zone.md). This DNS zone will host the WordPress domains.

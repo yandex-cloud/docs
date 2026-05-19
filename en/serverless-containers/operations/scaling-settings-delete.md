@@ -9,7 +9,7 @@ description: Follow this guide to delete container scaling settings.
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder with your container.
+    1. In the [management console]({{ link-console-main }}), select the folder with your container.
     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Select the container.
     1. Navigate to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
@@ -25,7 +25,7 @@ description: Follow this guide to delete container scaling settings.
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To delete scaling settings, create a new container revision without specifying its scaling settings:
+    To delete scaling settings, create a new container revision without specifying scaling settings:
 
     ```bash
     yc serverless container revision deploy \
@@ -35,7 +35,7 @@ description: Follow this guide to delete container scaling settings.
     ```
 
     Where:
-    * `--container-id`: Container ID. To find out the ID, [get](list.md) a list of containers.
+    * `--container-id`: Container ID. To find out the ID, [get](list.md) the list of containers.
     * `--image`: [Docker image](../../container-registry/concepts/docker-image.md) URL.
     * `--service-account-id`: [ID of the service account](../../iam/operations/sa/get-id.md) authorized to download the image.
 
@@ -64,7 +64,7 @@ description: Follow this guide to delete container scaling settings.
     metadata_options: {}
     ```
 
-    To learn more about the command, see the [CLI reference](../../../cli/cli-ref/managed-services/serverless/container/revision/deploy).
+    To learn more about the command, see the [CLI reference](../../../cli/cli-ref/serverless/cli-ref/container/revision/deploy).
 
 - API {#api}
 

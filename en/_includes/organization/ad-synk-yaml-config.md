@@ -17,6 +17,12 @@ cloud_credentials_file_path: "<path_to_file_with_authorized_key>"
 # If `true`, the cloud_credentials_file_path parameter will be ignored.
 use_metadata_service: true|false
 
+# Enable the Dry Run mode.
+# If `true`, no changes will be applied to users or groups in {{ org-full-name }}.
+# Instead, all pending operations will be saved to the current log file location.
+dry_run:
+  enabled: true|false
+
 # Active Directory replication API client settings
 drsr:
   host: "<domain_controller_IP_address>"

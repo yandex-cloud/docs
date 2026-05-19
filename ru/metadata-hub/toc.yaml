@@ -415,6 +415,16 @@ items:
                 href: operations/data-catalog/catalog-operations.md
               - name: Удаление каталога
                 href: operations/data-catalog/delete-catalog.md
+          - name: Источники
+            items:
+              - name: Получение списка источников
+                href: operations/data-catalog/source-list.md
+              - name: Создание источника
+                href: operations/data-catalog/create-source.md
+              - name: Изменение источника
+                href: operations/data-catalog/update-source.md
+              - name: Удаление источника
+                href: operations/data-catalog/delete-source.md
           - name: Загрузки
             items:
               - name: Получение списка загрузок
@@ -429,26 +439,28 @@ items:
                 href: operations/data-catalog/get-info-ingestion.md
               - name: Удаление загрузки
                 href: operations/data-catalog/delete-ingestion.md
-          - name: Классификации
+          - name: Работа с данными
             items:
-              - name: Получение списка классификаций
-                href: operations/data-catalog/list-classifications.md
-              - name: Создание классификации
-                href: operations/data-catalog/create-classification.md
-              - name: Изменение классификации
-                href: operations/data-catalog/update-classification.md
-              - name: Удаление классификации
-                href: operations/data-catalog/delete-classification.md
-          - name: Теги
+              - name: Разметка метаданных
+                href: operations/data-catalog/markup-metadata.md
+              - name: Поиск метаданных
+                href: operations/data-catalog/search-metadata.md
+              - name: Анализ связей между метаданными
+                href: operations/data-catalog/analysis-metadata.md
+              - name: Получение профиля данных
+                href: operations/data-catalog/get-data-profile.md
+              - name: Запросы к наборам данных с помощью {{ websql-full-name }}
+                href: operations/data-catalog/web-sql-query.md
+          - name: Домены
             items:
-              - name: Получение списка тегов
-                href: operations/data-catalog/list-tags.md
-              - name: Создание тега
-                href: operations/data-catalog/create-tag.md
-              - name: Изменение тега
-                href: operations/data-catalog/update-tag.md
-              - name: Удаление тега
-                href: operations/data-catalog/delete-tag.md
+              - name: Получение списка доменов и поддоменов
+                href: operations/data-catalog/list-domains.md
+              - name: Создание домена
+                href: operations/data-catalog/create-domain.md
+              - name: Изменение домена
+                href: operations/data-catalog/update-domain.md
+              - name: Удаление домена
+                href: operations/data-catalog/delete-domain.md
           - name: Глоссарии
             items:
               - name: Получение списка глоссариев
@@ -475,38 +487,26 @@ items:
                 href: operations/data-catalog/delete-term.md
               - name: Удаление дочернего термина
                 href: operations/data-catalog/delete-term-child.md
-          - name: Домены
+          - name: Классификации
             items:
-              - name: Получение списка доменов и поддоменов
-                href: operations/data-catalog/list-domains.md
-              - name: Создание домена
-                href: operations/data-catalog/create-domain.md
-              - name: Изменение домена
-                href: operations/data-catalog/update-domain.md
-              - name: Удаление домена
-                href: operations/data-catalog/delete-domain.md
-          - name: Источники
+              - name: Получение списка классификаций
+                href: operations/data-catalog/list-classifications.md
+              - name: Создание классификации
+                href: operations/data-catalog/create-classification.md
+              - name: Изменение классификации
+                href: operations/data-catalog/update-classification.md
+              - name: Удаление классификации
+                href: operations/data-catalog/delete-classification.md
+          - name: Теги
             items:
-              - name: Получение списка источников
-                href: operations/data-catalog/source-list.md
-              - name: Создание источника
-                href: operations/data-catalog/create-source.md
-              - name: Изменение источника
-                href: operations/data-catalog/update-source.md
-              - name: Удаление источника
-                href: operations/data-catalog/delete-source.md
-          - name: Работа с данными
-            items:
-              - name: Разметка метаданных
-                href: operations/data-catalog/markup-metadata.md
-              - name: Поиск метаданных
-                href: operations/data-catalog/search-metadata.md
-              - name: Анализ связей между метаданными
-                href: operations/data-catalog/analysis-metadata.md
-              - name: Получение профиля данных
-                href: operations/data-catalog/get-data-profile.md
-              - name: Запросы к наборам данных с помощью {{ websql-full-name }}
-                href: operations/data-catalog/web-sql-query.md
+              - name: Получение списка тегов
+                href: operations/data-catalog/list-tags.md
+              - name: Создание тега
+                href: operations/data-catalog/create-tag.md
+              - name: Изменение тега
+                href: operations/data-catalog/update-tag.md
+              - name: Удаление тега
+                href: operations/data-catalog/delete-tag.md
           - name: Хранилище данных
             items:
               - name: Получение списка хранилищ данных

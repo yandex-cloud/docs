@@ -12,6 +12,7 @@ To create a {{ dataproc-name }} cluster, your {{ yandex-cloud }} account needs t
 * [dataproc.editor](../security/index.md#dataproc-editor): To create a cluster.
 * [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user): To use the cluster [network](../../vpc/concepts/network.md#network).
 * [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user): To assign a [service account](../../iam/concepts/users/service-accounts.md) to the cluster and use it to create resources.
+* [resource-manager.auditor](../../resource-manager/security/index.md#resource-manager-auditor) or higher for the folder where you want to create the {{ dataproc-name }} cluster: To connect to the cluster using [{{ oslogin }}](../../organization/concepts/os-login.md).
 
 Make sure to assign the following roles to the {{ dataproc-name }} cluster’s service account:
 
@@ -652,7 +653,7 @@ If you want to create a {{ dataproc-name }} cluster copy, [import its configurat
      * `decommission_timeout`: [Decommissioning timeout](../concepts/decommission.md), in seconds. The minimum value is `0` and the maximum, `86400` (24 hours).
 
      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/dataproc_cluster).
-  1. Validate your {{ TF }} configuration files:
+  1. Make sure the {{ TF }} configuration files are correct:
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -777,7 +778,7 @@ To create a {{ dataproc-name }} cluster copy:
   1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
   1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Instead of manually creating the provider configuration file, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
   1. Move the configuration file to the `imported-cluster` directory and [specify the arguments](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
-  1. Validate your {{ TF }} configuration files using this command:
+  1. Make sure the {{ TF }} configuration files are correct using this command:
 
      ```bash
      terraform validate

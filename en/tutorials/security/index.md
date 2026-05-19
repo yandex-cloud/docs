@@ -88,6 +88,7 @@ description: Various security use cases in {{ yandex-cloud }}.
 * [{#T}](single-sign-on/oidc-1c-enterprise.md)
 * [{#T}](single-sign-on/saml-zabbix.md)
 * [{#T}](single-sign-on/saml-yandex-360.md)
+* [{#T}](single-sign-on/saml-ya-browser-corporate.md)
 * [{#T}](single-sign-on/saml-opensearch.md)
 * [{#T}](single-sign-on/saml-opensearch-self-managed.md)
 * [{#T}](single-sign-on/saml-managed-gitlab.md)

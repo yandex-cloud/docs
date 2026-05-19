@@ -18,6 +18,7 @@ description: Setting up integration between {{ org-full-name }} and external app
 * [SonarQube](./saml-sonarqube.md)
 * [OpenVPN Access Server](./saml-ovpn.md)
 * [MWS](./oidc-mws.md)
+* [{#T}](./oidc-harbor.md)
 * Cloud.ru
    * [{#T}](./cloud-ru/saml-cloud-ru.md)
    * [{#T}](./cloud-ru/oidc-cloud-ru.md)
