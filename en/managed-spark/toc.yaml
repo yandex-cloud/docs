@@ -81,6 +81,8 @@ items:
         href: concepts/maintenance.md
       - name: Autoscaling
         href: concepts/autoscaling.md
+      - name: '{{ SPRK }} properties'
+        href: concepts/spark-properties.md
   - name: Access management
     href: security.md
   - name: Pricing policy

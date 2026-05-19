@@ -27,3 +27,4 @@ If you use user groups in your identity provider (IdP) when working with [federa
 
 * [Managing user groups](../operations/manage-groups.md)
 * [Quotas and limits](limits.md)
+* [{#T}](../../security/domains/iam-checklist.md)

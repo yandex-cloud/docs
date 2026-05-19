@@ -6,7 +6,7 @@ description: You can create user pools to use local users and group them into co
 # User pools
 
 
-_User pools_ group [local users](../../iam/concepts/users/accounts.md#local) together, thus allowing you to manage them centrally, link your [domains](domains.md), manage access permissions, authentication settings, and editability of [My account](../concepts/my-account.md) data.
+_User pools_ group [local users](../../iam/concepts/users/accounts.md#local) together, thus allowing you to manage them centrally, link your [domains](domains.md), manage access permissions, authentication settings, and editable [My account](../concepts/my-account.md) portal data.
 
 Pools and users inside them exist only at the organization level and are subject to {{ yandex-cloud }} [security policies](../../security/standarts.md).
 
@@ -27,3 +27,4 @@ The pool administrator can indicate which data users will be able modify on the 
 * [Creating a local user](../operations/add-account.md#add-local-user)
 * [{#T}](../operations/user-pools/add-domain.md)
 * [{#T}](../operations/user-pools/user-get-logs.md)
+* [{#T}](../../security/domains/iam-checklist.md)

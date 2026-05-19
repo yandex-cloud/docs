@@ -59,6 +59,8 @@ items:
             href: operations/monitoring.md
   - name: Практические руководства
     items:
+      - name: Все руководства
+        href: tutorials/index.md
       - name: Настройка политики индексов в {{ mos-name }}
         href: tutorials/opensearch-index-policy.md
       - name: Настройка политики холодного хранилища в {{ mos-name }}

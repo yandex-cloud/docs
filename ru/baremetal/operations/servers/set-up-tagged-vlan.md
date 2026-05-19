@@ -71,7 +71,7 @@ description: Следуя данной инструкции, вы сможете
       * {% include [set-up-tagged-vlan-legend-2](../../../_includes/baremetal/set-up-tagged-vlan-legend-2.md) %}
       * `<имя_сетевого_интерфейса>` — имя, назначенное в конфигурации Netplan (в секции `ethernets`) сетевому интерфейсу, подключенному к приватной сети. Например: `etx1`.
 
-          Определить, какой из сетевых интерфейсов сервера подключен к приватной сети, вы можете по [MAC-адресу](https://ru.wikipedia.org/wiki/MAC-адрес): MAC-адрес [отображается](./get-info.md) в [консоли управления]({{ link-console-main }}) на странице с информацией о сервере в блоке **{{ ui-key.yacloud.baremetal.title_section-server-private-network_xrEye }}**.
+          Определить, какой из сетевых интерфейсов сервера подключен к приватной сети, вы можете по [MAC-адресу](https://ru.wikipedia.org/wiki/MAC-адрес): MAC-адрес [отображается](./get-info.md) в [консоли управления]({{ link-console-main }}) на странице с информацией о сервере в блоке **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}**.
       * {% include [set-up-tagged-vlan-legend-3](../../../_includes/baremetal/set-up-tagged-vlan-legend-3.md) %}
       * {% include [set-up-tagged-vlan-legend-4](../../../_includes/baremetal/set-up-tagged-vlan-legend-4.md) %}
       * {% include [set-up-tagged-vlan-legend-5](../../../_includes/baremetal/set-up-tagged-vlan-legend-5.md) %}

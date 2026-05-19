@@ -304,8 +304,7 @@ The infrastructure support cost includes:
   1. In the [management console]({{ link-console-main }}), select the folder the service account was created in.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the list of service accounts, select `sa-lockbox`.
-  1. Navigate to the **{{ ui-key.yacloud.iam.label_federations }}** tab.
-  1. Click **{{ ui-key.yacloud.iam.connected-federation.action_connect-federation }}**.
+  1. In the top panel, click ![image](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.action_connect-federation }}**.
   1. In the **{{ ui-key.yacloud.iam.connected-federation.field_federation }}** field, select the federation you created earlier.
   1. In the **{{ ui-key.yacloud.iam.connected-federation.field_subject }}** field, specify the ID of the previously created {{ k8s }} service account in `system:serviceaccount:<namespace>:<{{ k8s }}_service_account_name>` format, where:
       * `namespace`: {{ k8s }} service account's `Namespace` field value, e.g., `default`.

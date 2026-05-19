@@ -219,7 +219,7 @@ items:
             href: logs/write/converting-data.md
           - name: Fluent Bit
             href: logs/write/fluent-bit.md
-      - name: Log search and analysis
+      - name: Monitoring and analysis of logs
         href: logs/logs-explorer.md
       - name: Concepts
         items:
@@ -233,6 +233,8 @@ items:
             href: logs/concepts/ttl.md
       - name: Log metrics
         href: logs/logs-metrics.md
+      - name: Limits
+        href: logs/limits.md
   - name: Traces
     items:
       - name: Getting started
@@ -253,7 +255,7 @@ items:
             href: traces/instrumentation/rpc.md
           - name: Asynchronous operations
             href: traces/instrumentation/async.md
-          - name: Handling errors
+          - name: Error handling
             href: traces/instrumentation/exceptions.md
           - name: Retries
             href: traces/instrumentation/retries.md
@@ -269,7 +271,7 @@ items:
             href: traces/operations/critical-path.md
           - name: Trace-to-log correlation
             href: traces/operations/traces-logs.md
-          - name: Trace archiving
+          - name: Archiving traces
             href: traces/operations/archiving.md
           - name: Incomplete traces
             href: traces/operations/incomplete-traces.md
@@ -283,7 +285,7 @@ items:
             href: traces/llm/manual_instrumentation.md
           - name: Viewing and analyzing LLM traces
             href: traces/llm/traces.md
-      - name: Limitations
+      - name: Limits
         href: traces/limits.md
   - name: Visualizing data
     items:

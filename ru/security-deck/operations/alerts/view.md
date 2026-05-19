@@ -108,4 +108,10 @@ description: В данном разделе вы узнаете, как в {{ sd
 
       {% endlist %}
 
+      {% note tip %}
+
+      На странице алертов от модулей {{ cspm-name }} и {{ kspm-name }} вы можете [создать исключение](./work.md#create-exception).
+
+      {% endnote %}
+
 {% endlist %}

@@ -22,6 +22,8 @@ apiPlayground:
 
 # Cloud CDN API, REST: RawLogs.Deactivate
 
+Deactivate raw log export.
+
 ## HTTP request
 
 ```

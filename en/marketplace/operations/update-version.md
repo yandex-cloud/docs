@@ -15,3 +15,16 @@ To change the version:
 1. Make changes and click **{{ ui-key.yacloud.common.edit }}**.
 
 While a version is under moderation, you can [add a new version](create-new-version.md) to the product.
+
+
+## Testing a product upgrade for {{ managed-k8s-full-name }} {#test}
+
+You can test a product upgrade for {{ managed-k8s-name }} using {{ TF }}:
+
+1. Install the published version in the cluster using {{ TF }}.
+1. Create a target version to upgrade the product to.
+1. _Before submitting_ the new version for moderation, replace the current version ID in the {{ TF }} manifest with the new version ID.
+    You can look up the ID in the [{{ marketplace-short-name }} partner dashboard]({{ link-cloud-partners }}).
+
+1. Run the `terraform apply` command.
+    The product will upgrade in the same way as on the users’ side.

@@ -33,7 +33,7 @@ The cost of supporting the infrastructure created in the guide includes:
 
 ## Create a service account with an SSH key in the {{ oslogin }} profile {#create-ssh-key}
 
-1. [Create](../../iam/operations/sa/create.md) a service account named `my-ansible-sa` and [assign](../../iam/operations/sa/assign-role-for-sa) the `compute.osLogin` [role](../../compute/security/index.md#compute-oslogin) to it.
+1. [Create](../../iam/operations/sa/create.md) a service account named `my-ansible-sa` and [assign](../../iam/operations/sa/assign-role-for-sa) the `compute.osLogin` [role](../../compute/security/index.md#compute-oslogin) to it. You also need the `resource-manager.auditor` role or higher for the folder housing the VM.
 1. [Create](../../organization/operations/os-login-profile-create.md) an [{{ oslogin }} profile](../../organization/concepts/os-login.md#os-login-profiles) with the `my-ansible-sa-profile` login for `my-ansible-sa`.
 1. Create an SSH key pair of the `ed25519` type the service account will use to connect to virtual machines:
 
@@ -67,7 +67,7 @@ The cost of supporting the infrastructure created in the guide includes:
       * `--organization-id`: ID of the [organization](../../organization/operations/organization-get-id.md) the `my-ansible-sa` service account belongs to.
       * `--subject-id`: [ID](../../iam/operations/sa/get-id.md) of the service account to whose profile you are adding the SSH key.
       * `--data`: Contents of the file with the public part of the SSH key (`my-ansible-sa-profile.pub`).
-      * `--expires-at`: Uploaded key expiration date. This is an optional parameter. If the parameter is not set, the key will have no expiration date.
+      * `--expires-at`: Uploaded key expiration date. This is an optional setting. If the parameter is not set, the key will have no expiration date.
 
           You can specify the value in two formats:
           * Key expiration date in [ISO 8601](https://ru.wikipedia.org/wiki/ISO_8601) format, e.g., `YYYY-MM-DDT00:00:00Z`.

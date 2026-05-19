@@ -1,4 +1,4 @@
-Under **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}**:
+Under **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}**, in the **Interface 2** section:
 
 * In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, select a public IP address assignment method:
 

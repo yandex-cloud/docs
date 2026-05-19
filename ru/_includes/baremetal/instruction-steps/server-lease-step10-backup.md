@@ -1,4 +1,4 @@
-В блоке **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}**:
+В блоке **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** в разделе **Интерфейс 1**:
 
 * В поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите способ назначения публичного адреса:
 

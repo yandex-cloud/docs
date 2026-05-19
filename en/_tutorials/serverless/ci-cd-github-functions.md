@@ -177,8 +177,7 @@ With [federated credentials](../../iam/concepts/workload-identity.md#federated-c
   1. Open the [management console]({{ link-console-main }}).
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Select the `ci-cd-github-sa` service account.
-  1. Navigate to the ![cpus](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.label_federations }}** tab.
-  1. Click **{{ ui-key.yacloud.iam.connected-federation.action_connect-federation }}**.
+  1. In the top panel, click ![image](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.action_connect-federation }}**.
   1. In the **{{ ui-key.yacloud.iam.connected-federation.field_federation }}** field, select `ci-cd-github-federation`.
   1. In the **{{ ui-key.yacloud.iam.connected-federation.field_subject }}** field, specify the external subject ID for your test environment: `repo:<GitHub_user_name>/<repository_name>:environment:preprod`.
 

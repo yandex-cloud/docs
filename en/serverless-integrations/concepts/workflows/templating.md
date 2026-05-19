@@ -67,7 +67,22 @@ The `$global` variable returns the top-level state of the workflow before starti
 
 ### $counter variable {#counter}
 
-The `$counter` variable returns the current operation index (indexing starts from zero). You can use the variable inside the `input` and `condition` fields of the [While](yawl/management/while.md) step.
+The `$counter` variable returns the current operation index (indexing starts from zero). You can use the variable inside the `condition` field of the [While](yawl/management/while.md) step and inside the fields of the `input` steps specified in `do`, for example:
+
+```yaml
+while:
+  max_iterations: 5
+  do:
+    start: my_step
+    steps:
+      my_step:
+        httpCall:
+          input: |-
+            {
+              "url": "\("my-url-iter-" + ($counter | tostring))"
+            }
+          url: \(.url)
+```
 
 ### {{ lockbox-full-name }} {#lockbox-extension}
 

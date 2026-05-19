@@ -177,8 +177,7 @@
   1. Откройте [консоль управления]({{ link-console-main }}).
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Выберите сервисный аккаунт `ci-cd-github-sa`.
-  1. Перейдите на вкладку ![cpus](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.label_federations }}**.
-  1. Нажмите **{{ ui-key.yacloud.iam.connected-federation.action_connect-federation }}**.
+  1. На верхней панели нажмите ![image](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.action_connect-federation }}**.
   1. В поле **{{ ui-key.yacloud.iam.connected-federation.field_federation }}** выберите федерацию `ci-cd-github-federation`.
   1. В поле **{{ ui-key.yacloud.iam.connected-federation.field_subject }}** укажите идентификатор внешнего субъекта для тестового окружения: `repo:<имя_пользователя_GitHub>/<имя_репозитория>:environment:preprod`.
 

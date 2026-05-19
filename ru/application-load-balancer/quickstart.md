@@ -25,7 +25,6 @@ description: Следуя данной инструкции, вы сможете
 1. На странице [**{{ ui-key.yacloud.component.navigation-menu.label_billing }}**]({{ link-console-billing }}) убедитесь, что у вас подключен [платежный аккаунт](../billing/concepts/billing-account.md) и он находится в статусе `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../billing/quickstart/index.md#create_billing_account).
 1. Если у вас еще нет каталога, [создайте его](../resource-manager/operations/folder/create.md). Во время создания каталога вы можете создать виртуальную сеть по умолчанию с подсетями во всех зонах доступности.
 
-
 ## Создайте ВМ и запустите на ней тестовый веб-сервер {#create-vm}
 
 {% include [create-web-server](../_includes/application-load-balancer/create-web-server.md) %}
@@ -173,7 +172,6 @@ description: Следуя данной инструкции, вы сможете
   1. В блоке **{{ ui-key.yacloud.alb.section_allocation-settings }}** выберите подсеть в одной [зоне доступности](../overview/concepts/geo-scope.md) и включите прием трафика в этой подсети.
 
       Остальные зоны доступности удалите, нажав ![xmark](../_assets/console-icons/xmark.svg) в соответствующей строке.
-
 
   1. В блоке **{{ ui-key.yacloud.alb.label_listeners }}** нажмите кнопку **{{ ui-key.yacloud.alb.button_add-listener }}**. Задайте настройки обработчика:
       1. Введите имя обработчика: `test-listener`.

@@ -19,16 +19,15 @@ Before connecting:
 
 1. [Enable access via {{ oslogin }}](../../organization/operations/os-login-access.md) at the organization level.
 1. [Configure security groups](security-groups.md).
-1. Assign one of the following roles to the user or [service account](../../iam/concepts/users/service-accounts.md) you will use for the connection:
+1. Assign the required roles to the user or [service account](../../iam/concepts/users/service-accounts.md) you will use for the connection:
     
-    * `compute.osLogin`
-    * `compute.osAdminLogin`
-  
-    If connecting using the {{ yandex-cloud }} CLI, you will additionally need the `compute.operator` role.
+   * `compute.osLogin` or `compute.osAdminLogin` [role](../../compute/security/index.md#compute-oslogin).
+   * `resource-manager.auditor` [role](../../resource-manager/security/index.md#resource-manager-auditor) or higher for the folder housing the VM.
+   * `compute.operator` [role](../../compute/security/index.md#compute-operator) for connecting via the {{ yandex-cloud }} CLI.
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
 
-## Connect using a standard SSH client {#os-login-ssh}
+## Connecting using a standard SSH client {#os-login-ssh}
 
 1. [Export the {{ oslogin }} certificate](../../compute/operations/vm-connect/os-login-export-certificate.md).
 
@@ -38,9 +37,9 @@ Before connecting:
 
    {% endnote %}
 
-   The certificate includes the public and private parts. Save the path to the `Identity` private part as you will need it to connect to the host.
+   The certificate includes the public and private parts. Save the path to the `Identity` private part, as you will need it to connect to the host.
 
-1. Learn the {{ dataproc-name }} host IP:
+1. Get the {{ dataproc-name }} host IP address:
 
     1. Get a list of hosts:
 
@@ -81,7 +80,7 @@ Before connecting:
       ...
       ```
 
-      If you are connecting to the host from the internet, save the external IP address; for connections from an intermediate VM, save the internal IP address.
+      If you are connecting to the host from the internet, save the external IP address; for connections from an jump host VM, save the internal IP address.
 
 1. Connect to the host:
 
@@ -92,7 +91,7 @@ Before connecting:
     Where:
 
     * `<path_to_certificate_file>`: Path to the certificate's `Identity` file you saved earlier, e.g., `/home/user1/.ssh/yc-cloud-id-b1gia87mbaom********-orgusername`.
-    * `<user_login>`: Login set for the user in the [{{ oslogin }} profile](../../organization/concepts/os-login.md#os-login-profiles). This login is also specified at the end of the name of the exported {{ oslogin }} certificate. In the example above, it is `orgusername`.
+    * `<user_login>`: User login as set in their [{{ oslogin }} profile](../../organization/concepts/os-login.md#os-login-profiles). This login is also specified at the end of the name of the exported {{ oslogin }} certificate. In the example above, it is `orgusername`.
 
         {% note info %}
 
@@ -102,7 +101,7 @@ Before connecting:
 
     * `<host_IP_address>`: Host IP address you got earlier.
 
-    When connecting to the host for the first time, you will get an unknown host warning:
+    If this is your first time connecting to the host, you will get an unknown host warning:
 
     ```text
     The authenticity of host '158.160.**.** (158.160.**.**)' can't be established.
@@ -112,9 +111,9 @@ Before connecting:
 
     Type `yes` into the terminal and press **Enter**.  
 
-## Connect using the CLI {#os-login-cli}
+## Connecting using the CLI {#os-login-cli}
 
-1. Get a list of {{ dataproc-name }} hosts:
+1. Get the list of {{ dataproc-name }} hosts:
 
    ```bash
    {{ yc-dp }} cluster list-hosts <cluster_name_or_ID>

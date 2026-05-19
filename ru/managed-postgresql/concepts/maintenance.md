@@ -15,9 +15,13 @@ description: Под техническим обслуживанием в {{ mpg-
 
 ## Окно обслуживания {#maintenance-window}
 
-Предпочтительное время технического обслуживания можно задать при [создании кластера](../operations/cluster-create.md) или [изменении его настроек](../operations/cluster-maintenance.md#set-maintenance-window):
+Предпочтительное время начала технического обслуживания можно задать с помощью интерфейсов {{ yandex-cloud }} ([консоль управления]({{ link-console-main }}), [CLI](../../cli/index.yaml), {{ TF }} и [API](../../glossary/rest-api.md)) при [создании кластера](../operations/cluster-create.md) или [изменении его настроек](../operations/cluster-maintenance.md#set-maintenance-window):
 
 {% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}
+
+В консоли управления время начала обслуживания выбирается в виде часового интервала. В других интерфейсах задается порядковый номер этого интервала от `1` до `24`.
+
+> Например, чтобы начать обслуживание с `00:00` до `01:00`, укажите `1`, а с `04:00` до `05:00` — `5`.
 
 {% note info %}
 

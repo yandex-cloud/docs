@@ -1531,11 +1531,12 @@ const params = Editor.getParams();
 
   Содержимое вкладки [Prepare](./tabs.md#prepare):
 
+
   ```js
   Editor.setChartsInsights([
       {
           title: 'markdown',
-          message: 'Используй [markdown](https://datalens.yandex-team.ru/docs/editor/widgets/markdown/)',
+          message: 'Используй [markdown](https://yandex.cloud/ru/docs/datalens/charts/editor/widgets/markdown)',
           level: 'critical',
           locator: '1'
       },
@@ -1559,6 +1560,7 @@ const params = Editor.getParams();
       }
   ]);
   ```
+
 
 - Результат
 

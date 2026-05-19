@@ -55,7 +55,7 @@ A job includes:
 * Job type: `Spark` for Java and Scala or `PySpark` for Python.
 * Executable module and entry point: JAR file or main class for a `Spark` job or a PY file for a `PySpark` job.
 * Arguments for running the job.
-* Spark properties: Job run resources, dynamic allocation and parallelism parameters, SQL parameters, etc.
+* [{{ SPRK }} properties](spark-properties.md): Run resources, dynamic allocation and parallelism parameters, SQL parameters, etc.
 * Libraries and files: JAR files, Maven packages, additional files and archives.
 
 ## Parallelism and autoscaling {#parallel}

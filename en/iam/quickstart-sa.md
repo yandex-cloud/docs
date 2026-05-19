@@ -55,7 +55,7 @@ yc resource-manager folder list
 
 ## Delete the service account {#delete-sa}
 
-If you no longer need the service account, delete it:
+Delete the service account if you no longer need it:
 
 {% include [delete-sa-via-console](../_includes/iam/delete-sa-via-console.md) %}
 
@@ -64,3 +64,4 @@ If you no longer need the service account, delete it:
 * The [step-by-step guides](operations/index.md) will help you perform specific tasks in {{ iam-name }}.
 * [Read more about service accounts](concepts/users/service-accounts.md) in the concepts section.
 * See the [best practices for using service accounts securely](best-practices/using-iam-securely.md#use-sa).
+* Use [authentication and authorization security checklist](../security/domains/iam-checklist.md).

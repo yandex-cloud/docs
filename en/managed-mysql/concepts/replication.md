@@ -54,7 +54,7 @@ Assigning a replication source for the cluster hosts allows you to:
 
 ## Selecting a master if the primary master fails {#master-failover}
 
-If the master host fails, any of the cluster hosts available for replication may become a new master. To influence master selection in a {{ MY }} cluster, [set your preferred priority values](../operations/hosts.md#update) for the cluster hosts. The highest priority host will become the master. Or, in a cluster with multiple replicas of equal priority, the one lagging the least behind the master will be selected. Replicas lagging more than the value of the [Mdb priority choice max lag](settings-list.md#setting-mdb-priority-choice-max-lag) setting (60 seconds by default) will be excluded from the selection.
+If the master host fails, any of the cluster hosts available for replication may become a new master. To influence master selection in a {{ MY }} cluster, [set your preferred priority values](../operations/hosts.md#update) for the cluster hosts. The host with the highest priority will become the master. In a cluster with multiple hosts of equal priority, the one with the least lag behind the master will be selected. Hosts lagging more than the value of the [Mdb priority choice max lag](settings-list.md#setting-mdb-priority-choice-max-lag) setting (60 seconds by default) will be excluded from the selection.
 
 You can set host priority:
 

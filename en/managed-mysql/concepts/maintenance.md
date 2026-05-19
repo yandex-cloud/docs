@@ -33,4 +33,8 @@ In {{ mmy-name }} single-host clusters, a master host undergoes maintenance. The
 In multi-host clusters, the maintenance is run as follows:
 
 1. [Replicas](replication.md) undergo maintenance one by one. The replicas are queued randomly. If a replica needs to be restarted during maintenance, it will become unavailable.
-1. Master host undergoes maintenance and gets updated. If the master host needs to restart and becomes unavailable, one of the replicas will assume its role. If you access a cluster using the [FQDN of the master host](../operations/connect/fqdn.md), the cluster may become unavailable. To make your application continuously available, access the cluster using a [specific FQDN](../operations/connect/fqdn.md#special-fqdns) that always points to the master host.
+1. Master host undergoes maintenance and gets updated. If the master host needs to restart and becomes unavailable, one of the replicas will assume its role. Once the upgrade is complete, the host with the highest [failover priority](../concepts/replication.md#master-failover) will become the new master. If the cluster has several hosts with maximum priority, the one with the least lag behind the master will be selected.
+
+    {% include [note-role-master](../../_includes/mdb/mmy/note-role-master.md) %}
+
+    If you access a cluster using the [FQDN of the master host](../operations/connect/fqdn.md), the cluster may become unavailable. To make your application continuously available, access the cluster using a [special FQDN](../operations/connect/fqdn.md#special-fqdns) that always points to the current master host.

@@ -186,8 +186,9 @@ To keep the VPN connection alive if you stop and restart your VPN server, [make]
       1. {% include [server-lease-step5](../../_includes/baremetal/instruction-steps/server-lease-step5.md) %}
       1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select the `Ubuntu 24.04` image.
       1. {% include [server-lease-step8](../../_includes/baremetal/instruction-steps/server-lease-step8.md) %}
-      1. Under **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}**, in the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select the `subnet-m3` subnet you created earlier.
-      1. Under **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}**, select `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}` in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field.
+      1. Under **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}**:
+          1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, specify `subnet-m3`.
+          1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, specify `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
 
       1. Under **{{ ui-key.yacloud.baremetal.title_server-access }}**:
 

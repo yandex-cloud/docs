@@ -504,5 +504,5 @@ Once the image is created, you can use it as a boot disk image for desktop group
 If you are not using Cloudbase-Init and you want to resize the boot disk in a desktop group:
 
 1. Increase the boot disk file system size on your desktop, e.g., using the `diskmgmt.msc` snap-in.
-1. [Create](/.create-from-desktop.md) a new {{ cloud-desktop-name }} image from that desktop.
+1. [Create](create-from-desktop.md) a new {{ cloud-desktop-name }} image from that desktop.
 1. Use the new image as a boot disk image for desktop groups.

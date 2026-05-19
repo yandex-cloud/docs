@@ -19,7 +19,7 @@ Once created, the job will run automatically.
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}).
+    1. Open the [folder dashboard]({{ link-console-main }}).
     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}** tab.
     1. Click **{{ ui-key.yacloud.spark.jobs.create_action }}**.
@@ -32,7 +32,7 @@ Once created, the job will run automatically.
 
           {% include [jar-file-path-requirements](../../_includes/managed-spark/jar-file-path-requirements.md) %}
 
-        * In the **{{ ui-key.yacloud.dataproc.jobs.field_properties }}** field, specify component properties as `key-value` pairs.
+        * In the **{{ ui-key.yacloud.dataproc.jobs.field_properties }}** field, specify [{{ SPRK }} properties](../concepts/spark-properties.md) as `key-value` pairs.
         * Specify the coordinates of included and excluded Maven packages as well as URLs of additional repositories for package search.
 
     1. Click **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
@@ -63,7 +63,7 @@ Once created, the job will run automatically.
           --packages <list_of_package_Maven_coordinates> \
           --repositories <list_of_URLs_of_repositories_for_package_search>\
           --exclude-packages <list_of_Maven_coordinates_of_excluded_packages> \
-          --properties <list_of_properties> 
+          --properties <list_of_Apache_Spark™_properties> 
         ```
 
         Where:
@@ -82,7 +82,7 @@ Once created, the job will run automatically.
         * `--packages`: List of Maven coordinates of JAR files in `groupId:artifactId:version` format.
         * `--repositories`: List of URLs of additional repositories for package search.
         * `--exclude-packages`: List of Maven coordinates of the packages to exclude, in `groupId:artifactId` format.
-        * `--properties`: List of component properties in `key=value` format.
+        * `--properties`: List of [{{ SPRK }} properties](../concepts/spark-properties.md) in `key=value` format.
 
 - gRPC API {#grpc-api}
 
@@ -115,7 +115,7 @@ Once created, the job will run automatically.
                 <list_of_paths_to_archives>
               ],
               "properties": {
-                <list_of_properties>
+                <list_of_Apache_Spark™_properties>
               },
               "packages": [
                 <list_of_package_Maven_coordinates>
@@ -147,12 +147,12 @@ Once created, the job will run automatically.
 
             * `file_uris`: List of paths to files.
             * `archive_uris`: List of paths to archives.
-            * `properties`: List of component properties in `"key":"value"` format.
+            * `properties`: List of [{{ SPRK }} properties](../concepts/spark-properties.md) in `"key":"value"` format.
             * `packages`: List of Maven coordinates of JAR files in `groupId:artifactId:version` format.
             * `repositories`: List of URLs of additional repositories for package search.
             * `exclude_packages`: List of Maven coordinates of the packages to exclude, in `groupId:artifactId` format.
 
-    1. View the [server response](../api-ref/grpc/Job/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Job/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

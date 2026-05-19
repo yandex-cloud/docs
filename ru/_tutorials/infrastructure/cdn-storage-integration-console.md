@@ -289,6 +289,7 @@
 
 ## Создайте облачную сеть и подсети {#create-network}
 
+
 Все ресурсы будут относиться к одной [облачной сети](../../vpc/concepts/network.md).
 
 {% list tabs group=instructions %}

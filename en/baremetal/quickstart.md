@@ -41,7 +41,7 @@ Lease your first [physical server](./concepts/servers.md) and connect to it. All
 
           In the window that opens, leave the default disk partitioning settings or edit them, then click **{{ ui-key.yacloud.common.save }}**.
       1. {% include [server-lease-step9-bm](../_includes/baremetal/instruction-steps/server-lease-step9-bm.md) %}
-      1. Under **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}**, select `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}` in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field.
+      1. Under **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** in the **Interface 2** section, select `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}` in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field.
       1. Under **{{ ui-key.yacloud.baremetal.title_server-access }}**:
 
           {% include [server-lease-access](../_includes/baremetal/server-lease-access.md) %}
@@ -63,7 +63,7 @@ Lease your first [physical server](./concepts/servers.md) and connect to it. All
 
 - Linux/macOS {#linux-macos}
 
-  To establish a server connection, specify the server public IP address which you can get using the management console, in the **{{ ui-key.yacloud.baremetal.field_server-public-ip }}** field under **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}** on the server page.
+  To establish a server connection, specify the server public IP address which you can get using the management console, in the **{{ ui-key.yacloud.baremetal.field_server-public-ip }}** field under **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** on the server page.
 
   In the terminal, run this command:
 
@@ -84,7 +84,7 @@ Lease your first [physical server](./concepts/servers.md) and connect to it. All
 
 - Windows 10/11 {#windows}
 
-  To establish a server connection, specify its public IP address which you can get using the management console, in the **{{ ui-key.yacloud.baremetal.field_server-public-ip }}** field under **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}** on the server page.
+  To establish a server connection, specify its public IP address which you can get using the management console, in the **{{ ui-key.yacloud.baremetal.field_server-public-ip }}** field under **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** on the server page.
 
   Make sure the Windows account has read access to the key folder.
 
@@ -106,7 +106,7 @@ Lease your first [physical server](./concepts/servers.md) and connect to it. All
 
 - Windows 7/8 {#windows7-8}
 
-  To establish a server connection, specify the server public IP address which you can get using the management console, in the **{{ ui-key.yacloud.baremetal.field_server-public-ip }}** field under **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}** on the server page.
+  To establish a server connection, specify the server public IP address which you can get using the management console, in the **{{ ui-key.yacloud.baremetal.field_server-public-ip }}** field under **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** on the server page.
 
   Establish a connection using PuTTY:
 

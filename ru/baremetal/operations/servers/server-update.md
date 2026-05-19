@@ -28,13 +28,13 @@ description: Следуя данной инструкции, вы сможете
 
           {% endnote %}
       
-      * (Опционально) В блоках **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}** и **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}** измените [сетевые настройки](../../concepts/network.md) сервера.
+      * (Опционально) В блоке **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** измените [сетевые настройки](../../concepts/network.md) сервера.
 
-          Чтобы привязать к серверу [дополнительную приватную подсеть](../../concepts/private-network.md#tagged-vlan-subnet), в блоке **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}** нажмите кнопку **{{ ui-key.yacloud.baremetal.addAdditionalSubnet }}** и в появившемся поле выберите дополнительную подсеть или создайте новую.
+          Чтобы привязать к серверу [дополнительную приватную подсеть](../../concepts/private-network.md#tagged-vlan-subnet), в блоке **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** нажмите кнопку **{{ ui-key.yacloud.baremetal.addAdditionalSubnet }}** и в появившемся поле выберите дополнительную подсеть или создайте новую.
 
           {% include [additional-private-subnet-dhcp-notice](../../../_includes/baremetal/additional-private-subnet-dhcp-notice.md) %}
 
-          Чтобы отвязать дополнительную подсеть от сервера, в блоке **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}** нажмите значок ![trash-bin](../../../_assets/console-icons/trash-bin.svg) в строке с соответствующей дополнительной приватной подсетью.
+          Чтобы отвязать дополнительную подсеть от сервера, в блоке **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** нажмите значок ![trash-bin](../../../_assets/console-icons/trash-bin.svg) в строке с соответствующей дополнительной приватной подсетью.
 
           {% note warning %}
 

@@ -1,6 +1,6 @@
 ---
 title: How to manage PySpark jobs in {{ msp-full-name }}
-description: In this tutorial, you will learn how to manage PySpark jobs in {{ msp-full-name }}.
+description: In this guide, you will learn how to manage PySpark jobs in {{ msp-full-name }}.
 ---
 
 # Managing PySpark jobs
@@ -38,7 +38,7 @@ To create a job:
     1. Optionally, configure advanced settings:
 
         * Specify paths to the required files and archives.
-        * In the **{{ ui-key.yacloud.dataproc.jobs.field_properties }}** field, specify component properties as `key-value` pairs.
+        * In the **{{ ui-key.yacloud.dataproc.jobs.field_properties }}** field, specify [{{ SPRK }} properties](../concepts/spark-properties.md) as `key-value` pairs.
         * Specify the coordinates of included and excluded Maven packages as well as URLs of additional repositories for package search.
 
     1. Click **{{ ui-key.yacloud.dataproc.jobs.button_create }}**.
@@ -71,7 +71,7 @@ To create a job:
           --packages <list_of_package_Maven_coordinates> \
           --repositories <list_of_URLs_of_repositories_for_package_search> \
           --exclude-packages <list_of_Maven_coordinates_of_excluded_packages> \
-          --properties <list_of_properties> \
+          --properties <list_of_Apache_Spark™_properties> \
           --args <list_of_arguments> 
         ```
 
@@ -79,7 +79,7 @@ To create a job:
 
         * `--cluster-id`: Cluster ID.
 
-          You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+          You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
         * `--name` (optional): Job name.
         * `--main-python-file-uri`: Path to the application's main PY file.
@@ -90,7 +90,7 @@ To create a job:
         * `--packages`: List of Maven coordinates of packages in `groupId:artifactId:version` format.
         * `--repositories`: List of URLs of additional repositories for package search.
         * `--exclude-packages`: List of Maven coordinates of the packages to exclude, in `groupId:artifactId` format.
-        * `--properties`: List of component properties in `key=value` format.
+        * `--properties`: List of [{{ SPRK }} properties](../concepts/spark-properties.md) in `key=value` format.
         * `--args`: List of application arguments.
 
         Available file formats:
@@ -99,7 +99,7 @@ To create a job:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -131,7 +131,7 @@ To create a job:
                        <list_of_paths_to_archives>
                      ],
                      "properties": {
-                       <list_of_properties>
+                       <list_of_Apache_Spark™_properties>
                      },
                      "main_python_file_uri": "<path_to_main_PY_file>",
                      "python_file_uris": [
@@ -161,7 +161,7 @@ To create a job:
             * `jar_file_uris`: Paths to JAR files.
             * `file_uris`: Paths to files.
             * `file_uris`: Paths to archives.
-            * `properties`: Component properties as `"key":value"` pairs.
+            * `properties`: [{{ SPRK }} properties](../concepts/spark-properties.md) as `"key":"value"` pairs.
             * `main_python_file_uri`: Path to the main PY application file in the following format:
 
                 {% include [jar-file-path-requirements](../../_includes/managed-spark/jar-file-path-requirements.md) %}
@@ -171,7 +171,7 @@ To create a job:
             * `repositories`: URLs of additional repositories for package search.
             * `exclude_packages`: Maven coordinates of the packages to exclude, in `groupId:artifactId` format.
 
-        You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Job/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

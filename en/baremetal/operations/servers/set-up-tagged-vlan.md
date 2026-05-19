@@ -71,7 +71,7 @@ Once you have changed the number or composition of secondary private subnets att
       * {% include [set-up-tagged-vlan-legend-2](../../../_includes/baremetal/set-up-tagged-vlan-legend-2.md) %}
       * `<network_interface_name>`: Name assigned in the Netplan configuration (the `ethernets` section) to the network interface connected to a private network, e.g., `etx1`.
 
-          To find out which of the server's network interfaces is connected to a private network, use its [MAC address](https://en.wikipedia.org/wiki/MAC_address): the MAC address is [indicated](./get-info.md) in the [management console]({{ link-console-main }}) on the server information page under **{{ ui-key.yacloud.baremetal.title_section-server-private-network_xrEye }}**.
+          To find out which of the server's network interfaces is connected to a private network, use its [MAC address](https://en.wikipedia.org/wiki/MAC_address): the MAC address is [indicated](./get-info.md) in the [management console]({{ link-console-main }}) on the server information page under **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}**.
       * {% include [set-up-tagged-vlan-legend-3](../../../_includes/baremetal/set-up-tagged-vlan-legend-3.md) %}
       * {% include [set-up-tagged-vlan-legend-4](../../../_includes/baremetal/set-up-tagged-vlan-legend-4.md) %}
       * {% include [set-up-tagged-vlan-legend-5](../../../_includes/baremetal/set-up-tagged-vlan-legend-5.md) %}

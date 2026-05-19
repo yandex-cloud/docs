@@ -2,11 +2,11 @@
 
 [Yandex 360](https://360.yandex.ru/) is a cloud platform for business offering tools for setting up corporate email addresses, collaboration, and document management. {{ yandex-360 }} supports SAML authentication to provide secure SSO for your organization’s users.
 
-To authenticate your [organization's](../../../organization/concepts/organization.md) users to {{ yandex-360 }} via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-full-name }} and configure it appropriately both in {{ org-full-name }} and {{ yandex-360 }}.
+For the users of your [organization](../../../organization/concepts/organization.md) to be able to authenticate to {{ yandex-360 }} via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-full-name }} and configure it both in {{ org-full-name }} and {{ yandex-360 }}.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
-For the users of your organization to be able to access {{ yandex-360 }}:
+To give access to {{ yandex-360 }} to the users of your organization:
 
 1. [Create an app](#create-app).
 1. [Set up the integration](#setup-integration).
@@ -28,7 +28,7 @@ For the users of your organization to be able to access {{ yandex-360 }}:
         1. Optionally, add [labels](../../../resource-manager/concepts/labels.md):
 
             1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-            1. Enter a label in `key: value` format.
+            1. Add a label in `key: value` format.
             1. Press **Enter**.
         1. Click **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
 
@@ -103,7 +103,7 @@ To set up SSO in {{ yandex-360 }}, you need the following data from your SAML ap
         * **{{ ui-key.yacloud_org.application.overview.saml_field_issuer }}**: IdP entity ID.
         * **{{ ui-key.yacloud_org.application.overview.saml_field_login }}**: Entry point URL address (Login URL).
 
-    1. Under **{{ ui-key.yacloud_org.application.overview.certificate_section_title }}**, click **{{ ui-key.yacloud_org.application.overview.certificate_action_download_cert }}** and save the token signing certificate in X.509 format to your device.
+    1. Under **{{ ui-key.yacloud_org.application.overview.certificate_section_title }}**, click **{{ ui-key.yacloud_org.application.overview.certificate_action_download_cert }}** and save the token signature certificate in X.509 format to your device.
 
 {% endlist %}
 
@@ -137,11 +137,7 @@ Make sure the domain from the `User.EmailAddress` attribute in the SAML response
 
 For your organization's users to be able to authenticate in {{ yandex-360 }} with {{ org-full-name }}'s SAML app, you need to explicitly add these users and/or [user groups](../../../organization/concepts/groups.md) to your SAML application.
 
-{% note info %}
-
-Users and groups added to a SAML application can be managed by a user with the `organization-manager.samlApplications.userAdmin` [role](../../../organization/security/index.md#organization-manager-samlApplications-userAdmin) or higher.
-
-{% endnote %}
+{% include [saml-manage-users](../../../_includes/organization/saml-manage-users.md) %}
 
 Add users to the application:
 
@@ -182,7 +178,7 @@ This error occurs if the administrator of your organization’s user folder has 
 
 #### samlresponse.invalid {#samlresponse-invalid}
 
-This error occurs if either the entry point URL, IdP issuer, or token signing certificate was specified incorrectly. You may also get this error within 14 days prior to the expiration of the token signing certificate or after it expires. Validate your SSO settings in {{ yandex-360 }}.
+This error occurs if either the entry point URL, IdP issuer, or token signing certificate was specified incorrectly. You may also get this error within 14 days prior to the expiration of the token signing certificate or after it expires. Make sure the SSO settings in {{ yandex-360 }} are correct.
 
 #### unsupportable_domain {#unsupportable-domain}
 

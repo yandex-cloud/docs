@@ -55,7 +55,7 @@ Inside the container, the service starts an HTTP server and a {{ GLR }} process,
 
 The service uses the following environment variables:
 
-Variable              | By default         | Required | Description
+Variable              | Default         | Required | Description
 ----------------------- | -------------------- | ----------- | ---
 `RUNNER_TOKEN`          | —                    | Yes          | {{ GLR }} token (project/group/instance)
 `CI_SERVER_URL`         | `https://gitlab.com` | No         | {{ GL }} CI address
@@ -327,6 +327,12 @@ In our example, we mount an ephemeral disk at `/mnt` to expand the available spa
 
 {% endnote %}
 
+{% note info %}
+
+Specifying a network in the container settings creates a service subnet from the `198.19.0.0/16` range in each availability zone. These subnets are not displayed in the {{ yandex-cloud }} interface. Keep this in mind when [configuring](../../managed-gitlab/operations/configure-security-group.md) security group rules. For more information, see [Networking](../../serverless-containers/concepts/networking.md).
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -357,6 +363,7 @@ In our example, we mount an ephemeral disk at `/mnt` to expand the available spa
         1. Under **{{ ui-key.yacloud.serverless-containers.section_parameters }}**:
 
             1. In the **{{ ui-key.yacloud.serverless-containers.label_service-account }}** field, specify `gitlab-runner-lockbox-payload-viewer`.
+            1. Optionally, in the **{{ ui-key.yacloud.vpc.label_network }}** field, specify or [create](../../vpc/operations/network-create.md) a network to host your container.
             1. In the **{{ ui-key.yacloud.serverless-containers.label_timeout }}** field, specify the required value, e.g., `600 {{ ui-key.yacloud.common.units.label_time-sec_many }}`.
 
         1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.title_ephemeral-storage }}**:
@@ -425,7 +432,7 @@ In our example, we mount an ephemeral disk at `/mnt` to expand the available spa
 
       * `--service-account-id`: `gitlab-runner-lockbox-payload-viewer` service account ID.
       * `--execution-timeout`: Timeout, e.g., `600s`.
-      * `--mount`: Ephemeral disk mounting parameters:
+      * `--mount`: Ephemeral disk mount settings:
 
           * `type=ephemeral-disk`: Type of the file system being mounted.
           * `mount-point`: Name of the mount point. The directory the disk will be mounted to will be available at `/mnt`.
@@ -518,7 +525,7 @@ View the available options by running the `gitlab-runner run-single -h` command.
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources you created:
+To stop incurring charges for the resources you created:
 
 1. [Delete](../../serverless-containers/operations/delete.md) the container.
 1. [Delete](../../lockbox/operations/secret-delete.md) the secret.
