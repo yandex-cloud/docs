@@ -399,7 +399,7 @@
 
      * `ingress.alb.yc.io/balancing-panic-threshold` — пороговое значения для активации [режима паники](../../application-load-balancer/concepts/backend-group.md#panic-mode). Режим включится, если процент работоспособных эндпоинтов опустится ниже указанного значения. Значение по умолчанию — `0`, при котором режим паники не активируется никогда.
 
-     * `ingress.alb.yc.io/balancing-locality-aware-routing` — процент входящего трафика, который балансировщик передает бэкендам из своей зоны доступности. Остальной трафик поровну делится между другими зонами. Значение по умолчанию — `0`. [Подробнее о локализации трафика](../../application-load-balancer/concepts/backend-group.md#locality).
+     * `ingress.alb.yc.io/balancing-locality-aware-routing` — процент входящего трафика, который балансировщик передает бэкендам из своей [зоны доступности](../../overview/concepts/geo-scope.md). Остальной трафик поровну делится между другими зонами. Значение по умолчанию — `0`. [Подробнее о локализации трафика](../../application-load-balancer/concepts/backend-group.md#locality).
 
      * `ingress.alb.yc.io/autoscale-max-size` — максимальное суммарное количество ресурсных единиц. По умолчанию количество не ограничено. Значение должно быть не меньше, чем количество зон доступности балансировщика, умноженное на минимальное количество ресурсных единиц в каждой зоне. [Подробнее о настройках автомасштабирования](../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling-settings).
 

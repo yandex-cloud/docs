@@ -1,12 +1,12 @@
 # Setting the number of concurrent container instance calls
 
-The number of concurrent container instance calls (`concurrency`) cannot exceed the relevant [quota](../concepts/limits.md#serverless-containers-quotas).
+Number of concurrent container instance calls (`concurrency`) cannot exceed the relevant [quota](../concepts/limits.md#serverless-containers-quotas).
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder with your container.
+    1. In the [management console]({{ link-console-main }}), select the folder with your container.
     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Select the container.
     1. Navigate to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
@@ -30,10 +30,10 @@ The number of concurrent container instance calls (`concurrency`) cannot exceed 
     ```
 
     Where:
-    * `--container-id`: Container ID. To find out the ID, [get](list.md) a list of containers.
+    * `--container-id`: Container ID. To find out the ID, [get](list.md) the list of containers.
     * `--image`: [Docker image](../../container-registry/concepts/docker-image.md) URL.
-    * `--concurrency`: Maximum number of concurrent requests to a single container instance.
-    * `--service-account-id`: [ID of the service account](../../iam/operations/sa/get-id.md) with permissions to download a Docker image.
+    * `--concurrency`: Maximum number of concurrent invocations per container instance.
+    * `--service-account-id`: [ID of the service account](../../iam/operations/sa/get-id.md) with Docker image download permissions.
 
     Result:
 
@@ -60,7 +60,7 @@ The number of concurrent container instance calls (`concurrency`) cannot exceed 
     metadata_options: {}
     ```
 
-    To learn more about the command, see the [CLI reference](../../../cli/cli-ref/managed-services/serverless/container/revision/deploy).
+    To learn more about the command, see the [CLI reference](../../../cli/cli-ref/serverless/cli-ref/container/revision/deploy).
 
 - {{ TF }} {#tf}
   
@@ -86,12 +86,12 @@ The number of concurrent container instance calls (`concurrency`) cannot exceed 
 
         Where:
         * `name`: Container name.
-        * `service_account_id`: [ID of the service account](../../iam/operations/sa/get-id.md) with permissions to download a Docker image.
+        * `service_account_id`: [ID of the service account](../../iam/operations/sa/get-id.md) with Docker image download permissions.
         * `memory`: Required memory. The default value is 128 MB.
-        * `concurrency`: Maximum number of concurrent requests to a single container instance.
+        * `concurrency`: Maximum number of concurrent invocations per container instance.
         * `url`: [Docker image](../../container-registry/concepts/docker-image.md) URL.
        
-       For more information about the `yandex_serverless_container` properties, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
+       For more information about `yandex_serverless_container` properties, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
 
     1. Run a check using the following command:
 
@@ -99,7 +99,7 @@ The number of concurrent container instance calls (`concurrency`) cannot exceed 
         terraform plan
         ```
 
-        A list of resource parameters will be displayed in the terminal. This is a test step: the resource will not be changed. Otherwise, {{ TF }} will show any detected errors.
+        A list of resource parameters will be displayed in the terminal. This is a test step: the resource will not be changed. {{ TF }} will show any errors in the configuration.
 
     1. Apply the configuration changes:
 
@@ -107,7 +107,7 @@ The number of concurrent container instance calls (`concurrency`) cannot exceed 
         terraform apply
         ```
 
-    1. Confirm changing the resources by entering `yes` in the terminal window and pressing **Enter**.
+    1. Confirm changing the resources: enter `yes` in the terminal window and press **Enter**.
 
 - API {#api}
 

@@ -339,6 +339,8 @@ items:
           - name: Installing Ghost CMS High Availability using {{ cloud-apps-name }}
             href: tutorials/ghost-cms-cloudapp.md
           - name: Installing WordPress High Availability using {{ cloud-apps-name }}
+            href: tutorials/wordpress-ha-cloudapp.md
+          - name: Installing WordPress using {{ cloud-apps-name }}
             href: tutorials/wordpress-cloudapp.md
           - name: Using {{ marketplace-name }} products in {{ managed-k8s-name }}
             items:

@@ -2,7 +2,7 @@
 
 [{{ OS }}](https://opensearch.org/) is a highly scalable open-source system of search and analysis tools. {{ OS }} comes with the [{{ OS }} Dashboards](https://docs.opensearch.org/latest/dashboards/) data visualization UI. [{{ mos-full-name }}](../../../managed-opensearch/) is an OpenSearch cluster management service for the Yandex Cloud infrastructure. {{ mos-name }} supports SAML authentication for secure single sign-on for users across your organization.
 
-To authenticate your [organization's](../../../organization/concepts/organization.md) users to {{ mos-name }} via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-full-name }} and configure it appropriately both in {{ org-full-name }} and {{ OS }}.
+For the users of your [organization](../../../organization/concepts/organization.md) to be able to authenticate to {{ mos-name }} via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-full-name }} and configure it both in {{ org-full-name }} and the {{ OS }} cluster.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
@@ -16,7 +16,7 @@ In this tutorial, we will use the following URL to access the {{ OS }} Dashboard
 https://c-{{ cluster-id }}.rw.{{ dns-zone }}/
 ```
 
-For the users of your organization to be able to access {{ mos-name }}:
+To give access to {{ mos-name }} to the users of your organization:
 
 1. [Create the app](#create-app).
 1. [Set up the integration](#setup-integration).
@@ -36,7 +36,7 @@ For the users of your organization to be able to access {{ mos-name }}:
         1. Optionally, in the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** field, enter a description for the new app.
         1. Optionally, add [labels](../../../resource-manager/concepts/labels.md):
             1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-            1. Enter a label in `key: value` format.
+            1. Add a label in `key: value` format.
             1. Press **Enter**.
         1. Click **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
 
@@ -155,11 +155,7 @@ For more information about configuring attributes, see [Configure user and group
 
 For your organization's users to be able to authenticate in {{ OS }} Dashboards with the {{ org-full-name }} SAML app, you need to explicitly add these users and user groups to the SAML app.
 
-{% note info %}
-
-Users and groups added to a SAML application can be managed by a user with the `organization-manager.samlApplications.userAdmin` [role](../../../organization/security/index.md#organization-manager-samlApplications-userAdmin) or higher.
-
-{% endnote %}
+{% include [saml-manage-users](../../../_includes/organization/saml-manage-users.md) %}
 
 1. If you have configured role mapping in {{ mos-name }}, [create](../../../organization/operations/create-group.md) the groups as needed:
 

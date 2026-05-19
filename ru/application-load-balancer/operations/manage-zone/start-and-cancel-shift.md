@@ -5,6 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Отключить и включить зону доступности
 
+
 {% include [about-zonal-shift](../../../_includes/application-load-balancer/about-zonal-shift.md) %}
 
 ## Отключить зону доступности {#disable-zones}

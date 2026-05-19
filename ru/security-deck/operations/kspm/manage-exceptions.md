@@ -75,6 +75,8 @@ description: Инструкция по управлению исключения
 
 В результате созданное исключение отобразится в блоке **Контроль {{ k8s }}®** на вкладке **{{ ui-key.yacloud_org.security.controls.ControlsPage.exceptions_kw1u7 }}** страницы **{{ ui-key.yacloud_org.security.controls.ControlsPage.security_control_r4yn7 }}**.
 
+Исключение также можно создать на странице алерта. Подробнее в разделе [{#T}](../alerts/work.md#create-exception).
+
 ## Удалить исключение {#delete-exception}
 
 Чтобы удалить исключение для правил контроля {{ k8s }}:

@@ -126,8 +126,10 @@ Upload the OPNsense and ESXi installation images to your [{{ objstorage-name }}]
 
       1. {% include [server-lease-step5](../../_includes/baremetal/instruction-steps/server-lease-step5.md) %}
       1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select `{{ ui-key.yacloud.baremetal.field_choose-no-os }}`.
-      1. Under **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}**, in the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select the `opnsense-private-subnet-m4` subnet you created earlier.
-      1. Under **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}**, select `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}` in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field.
+      1. Under **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}**:
+          1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, specify `subnet-m3`.
+          1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, specify `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
+
       1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}**, in the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter the server name: `opnsense-master`.
       1. {% include [server-lease-step13](../../_includes/baremetal/instruction-steps/server-lease-step13.md) %}
   1. Similarly, lease one more server named `opnsense-backup` in the `{{ region-id }}-m4` server pool.
@@ -423,7 +425,7 @@ To make the configuration process easier for you, this tutorial uses a previousl
 
     1. Look up the MAC address of the `jump-server` network interface connected to the private subnet.
 
-        You can [look up](../../baremetal/operations/servers/get-info.md) the MAC address of the {{ baremetal-name }} server network interface of your choice on the `jump-server` information page under **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}**.
+        You can [look up](../../baremetal/operations/servers/get-info.md) the MAC address of the {{ baremetal-name }} server network interface of your choice on the `jump-server` information page under **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}**.
 
         Save the MAC address until the next step.
     1. Learn the name of the `jump-server` network interface connected to the private subnet in the SystemRescue graphical shell:

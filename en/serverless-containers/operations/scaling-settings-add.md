@@ -18,7 +18,7 @@ The scaling settings must be within the [quotas](../concepts/limits.md#serverles
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), go to the folder with your container.
+    1. In the [management console]({{ link-console-main }}), select the folder with your container.
     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Select the container.
     1. Navigate to the **{{ ui-key.yacloud.serverless-containers.label_editor }}** tab.
@@ -31,7 +31,7 @@ The scaling settings must be within the [quotas](../concepts/limits.md#serverles
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To configure scaling settings, run this command:
+    To set scaling settings, run this command:
 
     ```bash
     yc serverless container revision deploy \
@@ -44,12 +44,12 @@ The scaling settings must be within the [quotas](../concepts/limits.md#serverles
     ```
 
     Where:
-    * `--container-id`: Container ID. To find out the ID, [get](list.md) a list of containers.
+    * `--container-id`: Container ID. To find out the ID, [get](list.md) the list of containers.
     * `--image`: [Docker image](../../container-registry/concepts/docker-image.md) URL.
     * `--min-instances`: Number of provisioned instances.
     * `--zone-instances-limit`: Maximum number of container instances per availability zone.
     * `--zone-requests-limit`: Maximum number of simultaneous container invocations per availability zone.
-    * `--service-account-id`: [ID of the service account](../../iam/operations/sa/get-id.md) with permissions to download a Docker image.
+    * `--service-account-id`: [ID of the service account](../../iam/operations/sa/get-id.md) with Docker image download permissions.
 
     Result:
 
@@ -81,7 +81,7 @@ The scaling settings must be within the [quotas](../concepts/limits.md#serverles
     metadata_options: {}
     ```
 
-    To learn more about the command, see the [CLI reference](../../../cli/cli-ref/managed-services/serverless/container/revision/deploy).
+    To learn more about the command, see the [CLI reference](../../../cli/cli-ref/serverless/cli-ref/container/revision/deploy).
 
 - {{ TF }} {#tf}
   
@@ -111,12 +111,12 @@ The scaling settings must be within the [quotas](../concepts/limits.md#serverles
 
         Where:
         * `name`: Container name.
-        * `service_account_id`: [ID of the service account](../../iam/operations/sa/get-id.md) with permissions to download a Docker image.
+        * `service_account_id`: [ID of the service account](../../iam/operations/sa/get-id.md) with Docker image download permissions.
         * `memory`: Required memory. The default value is 128 MB.
         * `url`: [Docker image](../../container-registry/concepts/docker-image.md) URL.
         * `min_instances`: Number of provisioned instances.
        
-       For more information about the `yandex_serverless_container` properties, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
+       For more information about `yandex_serverless_container` properties, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
 
     1. Run a check using the following command:
 
@@ -124,7 +124,7 @@ The scaling settings must be within the [quotas](../concepts/limits.md#serverles
         terraform plan
         ```
 
-        The terminal will display a list of resource parameters. This is a verification step: the resource will not be modified. {{ TF }} will show any errors in the configuration.
+        A list of resource parameters will be displayed in the terminal. This is a test step: the resource will not be changed. {{ TF }} will show any errors in the configuration.
 
     1. Apply the configuration changes:
 

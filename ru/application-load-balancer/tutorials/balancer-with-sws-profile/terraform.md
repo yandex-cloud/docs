@@ -6,6 +6,7 @@ canonical: '{{ link-docs }}/tutorials/security/balancer-with-sws-profile/terrafo
 
 # Создание L7-балансировщика {{ alb-name }} с профилем безопасности {{ sws-name }} с помощью {{ TF }}
 
+
 Чтобы создать [L7-балансировщик с профилем безопасности {{ sws-name }}](index.md) с помощью {{ TF }}:
 
 {% include [terraform](../../../_tutorials/_tutorials_includes/balancer-with-sws-profile/terraform.md) %}

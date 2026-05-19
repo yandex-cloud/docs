@@ -831,7 +831,6 @@ default:
   t4i-ice-lake: Intel Ice Lake with T4i
   tag-all: <code><b><small>All interfaces</small></b></code>
   tag-api: <code><b><small>API</small></b></code>
-  tag-center: <code><b><small>Cloud Center</small></b></code>
   tag-cli: <code><b><small>CLI</small></b></code>
   tag-con: <code><b><small>Management console</small></b></code>
   tag-preview: <code><b><small>Preview</small></b></code>
@@ -4948,6 +4947,8 @@ default:
           general:
             section_default-storage_label: Default storage
       security:
+        alerts-base:
+          action_create-exception_kyUtB: Create exception
         alerts:
           comment_form:
             send: Send
@@ -5737,16 +5738,13 @@ default:
         title_section-disk: Disk
         title_section-lease-conditions: Lease conditions
         title_section-location: Location
+        title_section-network-interfaces: Network interfaces
         title_section-resources: Resources
         title_section-server-backups: Backup
         title_section-server-config: Configuration
         title_section-server-info: Server information
         title_section-server-marketplace-app: Marketplace application
-        title_section-server-private-network: Private network
-        title_section-server-private-network_xrEye: Private network
         title_section-server-product: Image
-        title_section-server-public-network: Public network
-        title_section-server-public-network_p7Zhj: Public network
         title_server-access: Access
         title_vrf-interconnect-section: Private connection to cloud networks
         vrfs:
@@ -7140,7 +7138,6 @@ default:
           switch_quotas: Quotas
         connected-federation:
           action_connect: Link
-          action_connect-federation: Link to federation
           field_federation: Workload identity federation
           field_subject: Subject value (sub)
         federations:
@@ -7229,6 +7226,7 @@ default:
           service-account:
             label_add-role: Add role
             overview:
+              action_connect-federation: Link to federation
               action_download-keys-file: Download file with keys
               button_create_api_key: Create API key
               button_create_key: Create authorized key
@@ -8563,10 +8561,11 @@ default:
         label_domain-protection-domains: Domains
         label_search-rule-type: 'Rule type:'
         match-lists:
-          ip-list_add-addresses: Add addresses
           label_create-list: Create list
           label_create-match-list: Create list
           label_match-lists: Lists
+        MatchListTable:
+          button_add-to-list_1kKXh: Add to list
         overview:
           action_attach-to-host: Connect to host
           action_disconnect-host: Disconnect from profile

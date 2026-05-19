@@ -239,8 +239,8 @@ Users from the group of developers (`developers`) will need permissions to do th
 * Download and upload Docker images to registries in {{ container-registry-name }} in the testing environment (`container-registry.images.pusher` [role](../../container-registry/security/index.md#container-registry-images-pusher) for the `testing` cloud).
 * View information about {{ k8s }} clusters in the testing environment (`k8s.viewer` [role](../../managed-kubernetes/security/index.md#k8s-viewer) for the `production` cloud).
 * Manage {{ k8s }} clusters in the testing environment (`k8s.editor` [role](../../managed-kubernetes/security/index.md#k8s-editor) and `k8s.cluster-api.editor` [role](../../managed-kubernetes/security/index.md#k8s-cluster-api-editor) for the `testing` cloud).
-* Connect to {{ compute-name }} VMs via [{{ oslogin }}](../../organization/concepts/os-login.md) in the production environment (`compute.osLogin` [role](../../compute/security/index.md#compute-oslogin) for the `production` cloud).
-* Connect to {{ compute-name }} VMs via {{ oslogin }} as superusers in the testing environment (`compute.osAdminLogin` [role](../../compute/security/index.md#compute-osadminlogin) for the `testing` cloud).
+* Connect to {{ compute-name }} VMs via [{{ oslogin }}](../../organization/concepts/os-login.md) in the production environment (`compute.osLogin` [role](../../compute/security/index.md#compute-oslogin), `resource-manager.auditor` [role](../../resource-manager/security/index.md#resource-manager-auditor) or higher for the `production` cloud).
+* Connect to {{ compute-name }} VMs via {{ oslogin }} as a superuser in the testing environment (`compute.osAdminLogin` [role](../../compute/security/index.md#compute-osadminlogin), `resource-manager.auditor` [role](../../resource-manager/security/index.md#resource-manager-auditor) or higher for the `testing` cloud).
 * View information about {{ monitoring-name }} resources and [metrics](../../monitoring/concepts/data-model.md#metric) in production environment (`monitoring.viewer` [role](../../monitoring/security/index.md#monitoring-viewer) for the `production` cloud).
 * Manage {{ monitoring-name }} resources in the testing environment (`monitoring.editor` [role](../../monitoring/security/index.md#monitoring-editor) for the `testing` cloud).
 
@@ -254,9 +254,9 @@ Assign roles for the clouds to the `developers` user group:
   1. At the top of the screen, go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**. In the window that opens:
 
       1. Go to the **{{ ui-key.yacloud_org.pages.groups }}** tab and select the `developers` group.
-      1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}**, find and select the `container-registry.images.puller`, `k8s.viewer`, `compute.osLogin`, and `monitoring.viewer` roles.
+      1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}**, find and select the `container-registry.images.puller`, `k8s.viewer`, `compute.osLogin`, `monitoring.viewer`, and `resource-manager.auditor` roles.
       1. Click **{{ ui-key.yacloud.common.save }}**.
-  1. In the same way, assign the `developers` user group the `container-registry.images.pusher`, `k8s.editor`, `k8s.cluster-api.editor`, `compute.osAdminLogin`, and `monitoring.editor` roles for the `testing` cloud.
+  1. In the same way, assign the `container-registry.images.pusher`, `k8s.editor`, `k8s.cluster-api.editor`, `compute.osAdminLogin`, `monitoring.editor`, and `resource-manager.auditor` roles for the `testing` cloud to the `developers` user group.
 
 {% endlist %}
 

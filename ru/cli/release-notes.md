@@ -7,6 +7,40 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.8.0 (18.05.26) {#v-1-8-0}
+
+#### Изменения в системных командах CLI {#v-1-8-0-yc}
+
+* В `yc` добавлены деревья команд версий `v0` и `v1` на уровне сервиса. В поддереве `v1` используется новый интерфейс CLI. Деревья `v1` доступны для сервисов `yc cic`, `yc cloudrouter`, `yc smartcaptcha` и `yc smartwebsecurity`.
+* Флаг `--syntax` удален и больше не поддерживается. Для выбора интерфейса используйте версии `v0` и `v1`, а также настройку в конфигурации `services.<service>.version`.
+
+#### {{ mgp-name }} {#v-1-8-0-mgp-name}
+
+* Добавлен флаг `--port` для указания конкретного порта запуска прокси для {{ mgp-name }}:
+  * `yc managed-greenplum connect`.
+
+#### {{ mpg-name }} {#v-1-8-0-mpg-name}
+
+* Добавлен флаг `--port` для указания конкретного порта запуска прокси для {{ mpg-name }}:
+  * `yc managed-postgresql connect`.
+
+#### {{ interconnect-name }} {#v-1-8-0-cic-name}
+
+* Добавлены поля `name`, `url`, `pop_ids` в вывод следующих команд:
+  * `yc cic partner get`;
+  * `yc cic partner list`.
+
+#### {{ sf-name }} {#v-1-8-0-sf-name}
+
+* В команде `yc serverless function version create` параметры `--subnet-id` и `--subnet-name` помечены как **DEPRECATED**. Для указания доступа к сети используйте только `--network-id` или `--network-name`.
+
+#### {{ serverless-containers-name }} {#v-1-8-0-serverless-containers-name}
+
+* Параметр `--subnets` помечен как **DEPRECATED**, для указания доступа к сети используйте только `--network-id` или `--network-name`:
+  * `yc serverless container revision deploy`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.7.0 (12.05.26) {#v-1-7-0}
 
 #### {{ baremetal-name }} {#v-1-7-0-baremetal-name}
@@ -104,8 +138,6 @@ description: На странице представлены релизы CLI, а
   * `yc cic trunk-connection list-public-connections`;
   * `yc cic trunk-connection move`;
   * `yc cic trunk-connection update`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.6.0 (27.04.26) {#v-1-6-0}
 

@@ -29,6 +29,10 @@ There are two available password complexity options:
   * Numbers
   * Special characters, e.g., `!@#$%^&*`
 
+### Password uniqueness {#uniqueness}
+
+The password can be checked against the database of common passwords. If a user tries to set such a password, the system will reject it: these are easily guessed by attackers.
+
 ### Password lifetime {#lifetime}
 
 Password lifetime is the period of time after which users will have to update their passwords. You can specify a lifetime of up to 730 days or set no limit.
@@ -51,6 +55,7 @@ When you create a user pool, it is assigned the following default password polic
   * 2 types: 24
 * Minimum password lifetime: Unlimited.
 * Maximum password lifetime: 365 days.
+* Password check against the database of common passwords is on.
 * Number of wrong password entries before lockout: 15.
 * Interval for counting wrong entries: 10 minutes.
 * Lockout duration: 10 minutes.
