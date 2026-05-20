@@ -5,8 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Аутентификация от имени локального пользователя
 
-{% include [userpools-preview-stage](../../../_includes/iam/userpools-preview-stage.md) %}
-
 Вы можете использовать аккаунт [локального пользователя](../../../iam/concepts/users/accounts.md#local) для работы с {{ yandex-cloud }}, если в вашей [организации](../../../organization/concepts/organization.md) настроен [пул пользователей](../../../organization/concepts/user-pools.md). В этом случае для аутентификации не требуется личный [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport).
 
 {% note info %}

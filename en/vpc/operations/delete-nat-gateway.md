@@ -8,8 +8,8 @@ If you no longer need the [NAT gateway](../concepts/gateways.md), you can [delet
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder where you need to disassociate a NAT gateway.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the NAT gateway you want to dissociate.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
   1. In the list that opens, find the route table with the NAT gateway listed in its **Static routes** column.
   1. In the table row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **Edit**.
@@ -88,7 +88,7 @@ If you no longer need the [NAT gateway](../concepts/gateways.md), you can [delet
      terraform validate
      ```
 
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
 
      ```text
      Success! The configuration is valid.
@@ -100,9 +100,9 @@ If you no longer need the [NAT gateway](../concepts/gateways.md), you can [delet
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
-  1. Apply the changes:
+  1. Apply the configuration changes:
 
      ```bash
      terraform apply
@@ -146,8 +146,8 @@ Before deleting a NAT gateway, [disassociate it](#unlink-route-table) from all r
 - Management console {#console}
 
   To delete a NAT gateway:
-  1. In the [management console]({{ link-console-main }}), go to the folder where you need to delete a NAT gateway.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you need to delete a NAT gateway.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/vpc/gateways.svg) **{{ ui-key.yacloud.vpc.switch_gateways }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the NAT gateway name and select **Delete**.
   1. In the window that opens, click **Delete**.
@@ -217,7 +217,7 @@ Before deleting a NAT gateway, [disassociate it](#unlink-route-table) from all r
      terraform validate
      ```
 
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
 
      ```text
      Success! The configuration is valid.
@@ -229,9 +229,9 @@ Before deleting a NAT gateway, [disassociate it](#unlink-route-table) from all r
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
-  1. Apply the changes:
+  1. Apply the configuration changes:
 
      ```bash
      terraform apply
@@ -239,7 +239,7 @@ Before deleting a NAT gateway, [disassociate it](#unlink-route-table) from all r
 
   1. Type `yes` and press **Enter** to confirm changes.
 
-     You can check updates in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
+     You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
      ```bash
      yc vpc gateway list
@@ -256,3 +256,4 @@ Before deleting a NAT gateway, [disassociate it](#unlink-route-table) from all r
     * `folder_id`: For gRPC API
 
 {% endlist %}
+

@@ -54,12 +54,6 @@ blocks:
 :::
 
 
-{% note warning %}
-
-С 20 апреля 2026 года функциональность [выгрузки метаданных объектов (S3 Inventory)](concepts/s3-inventory.md) тарифицируется.
-
-{% endnote %}
-
 
 {% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
 

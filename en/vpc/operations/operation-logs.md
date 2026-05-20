@@ -1,6 +1,6 @@
 # Viewing operations with {{ vpc-name }} resources
 
-All actions with {{ vpc-name }} resources are logged as a list of operations. Each operation gets its own unique ID.
+The system logs all actions with {{ vpc-name }} resources as a list of operations. Each operation gets its own unique ID.
 
 ## Getting a list of operations {#get-operations}
 
@@ -8,12 +8,12 @@ All actions with {{ vpc-name }} resources are logged as a list of operations. Ea
 
 - Management console {#console}
 
-  To view operations with all the resources, select ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}** in the left-hand panel. In the list that opens, you will also see operations with the resources that were deleted.
+  To view operations with all the resources, select ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}** in the left-hand panel. In the list that opens, you will also see operations for the deleted resources.
 
   You can get a list of operations for a specific resource. The steps below describe how you can do this for a cloud network. The same steps apply to other resources as well.
 
-  1. In the [management console]({{ link-console-main }}), go to the folder where the cloud network is located.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing your cloud network.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Select the network you need.
   1. Go to the ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel.
 
@@ -49,7 +49,7 @@ All actions with {{ vpc-name }} resources are logged as a list of operations. Ea
   +----------------------+---------------------+----------------------+---------------------+--------+----------------+
   ```
 
-  By default, operation information is displayed as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter:
+  By default, information about operations is output as text. To get more details, specify the `yaml` or `json` output data format using `--format`:
 
   ```bash
   yc vpc network list-operations enpgl5o8te3k******** --format yaml
@@ -80,11 +80,11 @@ All actions with {{ vpc-name }} resources are logged as a list of operations. Ea
 
 {% endlist %}
 
-## Getting detailed information about an operation {#get-operations-info}
+## Getting operation details {#get-operations-info}
 
 1. [Get a list of operations](#get-operations) for the resource.
 1. Copy the operation ID.
-1. Get operation details:
+1. Get the operation details:
 
     {% list tabs group=instructions %}
 
@@ -130,3 +130,4 @@ All actions with {{ vpc-name }} resources are logged as a list of operations. Ea
 #### See also {#see-also}
 
 * [{#T}](../../api-design-guide/concepts/about-async.md)
+

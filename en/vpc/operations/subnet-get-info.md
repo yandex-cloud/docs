@@ -2,14 +2,14 @@
 title: How to get information about a subnet in {{ vpc-full-name }}
 ---
 
-# Getting information about a subnet
+# Getting subnet info
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [subnet](../concepts/network.md#subnet).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [subnet](../concepts/network.md#subnet).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.network.overview.section_subnetworks }}**.
   1. Select the subnet you need.
   1. The **{{ ui-key.yacloud.common.overview }}** page will display detailed information about the subnet.
@@ -70,14 +70,14 @@ title: How to get information about a subnet in {{ vpc-full-name }}
      * `data "yandex_vpc_subnet"`: Description of the subnet as a data source:
        * `subnet_id`: Subnet ID.
      * `output "subnet"`: Output variable that contains the name of the subnet's availability zone:
-       * `value`: Returned value.
+       * `value`: Return value.
 
-     You can replace `zone` with any other parameter to get the information you need. For more information about the `yandex_vpc_subnet` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/vpc_subnet).
+     You can replace `zone` with any other parameter to get the information you need. For more information about the `yandex_vpc_subnet` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/vpc_subnet).
   1. Create resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources and display the output variable values in the terminal. To check the results, run this command:
+     {{ TF }} will create all required resources and display their output variables. To check the results, run this command:
 
      ```bash
      terraform output

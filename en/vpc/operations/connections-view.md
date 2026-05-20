@@ -11,8 +11,8 @@ To view the chart of your VM or cluster [network connections](../concepts/monito
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder with the resource you need.
-  1. Select the appropriate service from the list of services, such as **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** for VMs or **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** for clusters.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the resource.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to the service, e.g., **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** for a VM or **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}** for a cluster.
   1. Select the resource from the list.
   1. Navigate to the **{{ ui-key.yacloud.common.monitoring }}** tab.
   1. Find the **Connections quota utilization** chart.
@@ -22,3 +22,4 @@ To view the chart of your VM or cluster [network connections](../concepts/monito
   {% include [conditions-for-deleting-records](../../_includes/vpc/conditions-for-deleting-records.md) %}
 
 {% endlist %}
+

@@ -11,7 +11,7 @@ description: In this article, you will learn how to set up security groups and r
 
 * IP addresses that can access the instance, including web access.
 * Protocol for working with Git repositories in the {{ GL }} instance: SSH or HTTPS.
-* Certificate for HTTPS: [Let's Encrypt]({{ gl.docs }}/omnibus/settings/ssl/#enable-the-lets-encrypt-integration) (default) or [your own certificate]({{ gl.docs }}/omnibus/settings/ssl/#configure-https-manually).
+* Certificate for HTTPS: [Let's Encrypt]({{ gl.docs }}/omnibus/settings/ssl/#enable-the-lets-encrypt-integration) (default) or your own certificate (by submitting a request to [support]({{ link-console-support }})).
 * Whether or not access to [{{ GL }} Container Registry]({{ gl.docs }}/ee/user/packages/container_registry/) is provided.
 
 {% note warning %}
@@ -51,8 +51,8 @@ If you have issues with setting up a security group, contact [support]({{ link-c
 ||
 || For enabling Let’s Encrypt certificate.
 
-This certificate is [used by default]({{ gl.docs }}/omnibus/settings/ssl/#enable-the-lets-encrypt-integration) when accessing Git repositories over HTTPS. If you do not specify this rule, add [your own certificate]({{ gl.docs }}/omnibus/settings/ssl/#configure-https-manually) to work over HTTPS. |
-* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}: `{{ port-http }}` and `{{ port-https }}`. Create a separate rule for each port.
+This certificate is [used by default]({{ gl.docs }}/omnibus/settings/ssl/#enable-the-lets-encrypt-integration) when accessing Git repositories over HTTPS. If you do not specify this rule, add your own certificate to work over HTTPS. To configure it, contact [support]({{ link-console-support }}). |
+* {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}: `{{ port-http }}`.
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}: `{{ ui-key.yacloud.common.label_tcp }}`.
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
 * {{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}: `0.0.0.0/0`.

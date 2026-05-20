@@ -3,7 +3,7 @@ title: FAQ about {{ dns-full-name }}
 description: This page covers questions and answers about {{ dns-name }}.
 ---
 
-# Frequently asked questions about {{ dns-name }}
+# General questions about {{ dns-name }}
 
 #### Why am I being charged for {{ dns-name }} even though I have no DNS zones in my cloud? {#dns-fee-without-usage}
 

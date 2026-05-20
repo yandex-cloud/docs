@@ -12,6 +12,9 @@
       {% include [static-site-index-restriction](static-site-index-restriction.md) %}
 
     * Optionally, in the **{{ ui-key.yacloud.storage.bucket.website.field_error }}** field, specify the absolute path to the file in the bucket to show for 4xx errors, e.g., `pages/error404.html`. By default, {{ objstorage-name }} returns its own page.
+
+      {% include [static-site-error-index](static-site-error-index.md) %}
+
 1. Click **{{ ui-key.yacloud.storage.bucket.website.button_save }}**.
 
 Use the link in **{{ ui-key.yacloud.storage.bucket.website.field_link }}** to check the hosting.

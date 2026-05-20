@@ -14,8 +14,8 @@ To create and set up a NAT gateway:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder where you need to create a gateway.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you need to create a gateway.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select **{{ ui-key.yacloud.vpc.switch_gateways }}**.
   1. Click **{{ ui-key.yacloud.common.create }}**.
   1. Enter a name for the gateway. The naming requirements are as follows:
@@ -38,7 +38,7 @@ To create and set up a NAT gateway:
   1. In the left-hand panel, select ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
   1. In the row with the subnet, click ![image](../../_assets/console-icons/ellipsis.svg).
   1. In the menu that opens, select **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
-  1. In the window that opens, select the created table from the list.
+  1. In the window that opens, select your route table from the list.
   1. Click **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
 - CLI {#cli}
@@ -171,3 +171,4 @@ To create and set up a NAT gateway:
       {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
+

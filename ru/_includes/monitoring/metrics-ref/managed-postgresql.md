@@ -147,32 +147,32 @@ subcluster_name | Имя подкластера
 | `pg_log_counter.fatal_connection_failure`<br/>`DGAUGE`, штуки | Количество фатальных ошибок подключения к {{ PG }}. |
 | `pg_log_counter.fatal_invalid_password`<br/>`DGAUGE`, штуки | Количество фатальных ошибок {{ PG }} из-за неверного пароля. |
 | `postgres.corruption_found`<br/>`DGAUGE`, 0/1 | Признак обнаружения повреждения данных в кластере {{ PG }}<br/>Принимает значение `1`, если повреждение обнаружено, `0` — если нет.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
-| `postgres.slru_Clog_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кэш страницы Clog (журнал фиксации транзакций). |
+| `postgres.slru_Clog_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кеш страницы Clog (журнал фиксации транзакций). |
 | `postgres.slru_Clog_blks_read`<br/>`DGAUGE`, штуки | Количество чтений страниц Clog SLRU из диска. |
 | `postgres.slru_Clog_blks_written`<br/>`DGAUGE`, штуки | Количество записей страниц Clog SLRU на диск. |
-| `postgres.slru_CommitTs_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кэш страницы CommitTs (история коммитов транзакций).<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
+| `postgres.slru_CommitTs_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кеш страницы CommitTs (история коммитов транзакций).<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
 | `postgres.slru_CommitTs_blks_read`<br/>`DGAUGE`, штуки | Количество чтений страниц CommitTs SLRU из диска.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
 | `postgres.slru_CommitTs_blks_written`<br/>`DGAUGE`, штуки | Количество записей страниц CommitTs SLRU на диск.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
-| `postgres.slru_MultiXactMember_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кэш для страниц MultiXactMember.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
+| `postgres.slru_MultiXactMember_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кеш для страниц MultiXactMember.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
 | `postgres.slru_MultiXactMember_blks_read`<br/>`DGAUGE`, штуки | Количество чтений страниц MultiXactMember SLRU из диска.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
 | `postgres.slru_MultiXactMember_blks_written`<br/>`DGAUGE`, штуки | Количество записей страниц MultiXactMember SLRU на диск.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
-| `postgres.slru_MultiXactOffset_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кэш для страниц MultiXactOffset.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
+| `postgres.slru_MultiXactOffset_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кеш для страниц MultiXactOffset.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
 | `postgres.slru_MultiXactOffset_blks_read`<br/>`DGAUGE`, штуки | Количество чтений страниц MultiXactOffset SLRU из диска. |
 | `postgres.slru_MultiXactOffset_blks_written`<br/>`DGAUGE`, штуки | Количество записей страниц MultiXactOffset SLRU на диск. |
-| `postgres.slru_Notify_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кэш для страниц очереди оповещений.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
+| `postgres.slru_Notify_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кеш для страниц очереди оповещений.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
 | `postgres.slru_Notify_blks_read`<br/>`DGAUGE`, штуки | Количество чтений страниц Notify SLRU из диска.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
 | `postgres.slru_Notify_blks_written`<br/>`DGAUGE`, штуки | Количество записей страниц Notify SLRU на диск.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
-| `postgres.slru_other_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кэш для страниц других SLRU-таблиц.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
-| `postgres.slru_other_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кэш для страниц других SLRU-таблиц.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul>
+| `postgres.slru_other_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кеш для страниц других SLRU-таблиц.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
+| `postgres.slru_other_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кеш для страниц других SLRU-таблиц.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul>
 `postgres.slru_other_blks_read`<br/>`DGAUGE`, штуки | Количество чтений страниц других SLRU-таблиц из диска. |
 | `postgres.slru_other_blks_written`<br/>`DGAUGE`, штуки | Количество записей страниц других SLRU-таблиц на диск.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
-| `postgres.slru_Serial_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кэш для страниц последовательностей.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
+| `postgres.slru_Serial_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кеш для страниц последовательностей.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
 | `postgres.slru_Serial_blks_read`<br/>`DGAUGE`, штуки | Количество чтений страниц Serial SLRU из диска.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
 | `postgres.slru_Serial_blks_written`<br/>`DGAUGE`, штуки | Количество записей страниц Serial SLRU на диск.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
-| `postgres.slru_Subtrans_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кэш для страниц журнальных данных подчиненных транзакций.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
+| `postgres.slru_Subtrans_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кеш для страниц журнальных данных подчиненных транзакций.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
 | `postgres.slru_Subtrans_blks_read`<br/>`DGAUGE`, штуки | Количество чтений страниц Subtrans SLRU из диска.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
 | `postgres.slru_Subtrans_blks_written`<br/>`DGAUGE`, штуки | Количество записей страниц Subtrans SLRU на диск.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
-| `postgres.slru_Xact_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кэш для страниц транзакционного журнала.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
+| `postgres.slru_Xact_blks_hit`<br/>`DGAUGE`, штуки | Количество попаданий в SLRU-кеш для страниц транзакционного журнала.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
 | `postgres.slru_Xact_blks_read`<br/>`DGAUGE`, штуки | Количество чтений страниц Xact SLRU из диска.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
 | `postgres.slru_Xact_blks_written`<br/>`DGAUGE`, штуки | Количество записей страниц Xact SLRU на диск.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |
 | `postgres_archive_lag.logid_lag`<br/>`DGAUGE`, штуки | Отставание по архивируемым WAL-сегментам.<br/>Специальные метки:<ul><li>`cid` — идентификатор кластера.</li><li>`fqdn` — FQDN хоста.</li></ul> |

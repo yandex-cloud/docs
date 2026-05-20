@@ -53,7 +53,7 @@ spec:
   * `allowedMethods` — список разрешенных HTTP-методов.
   * `allowedHeaders` — список разрешенных заголовков в preflight-запросах.
   * `exposeHeaders` — список заголовков, доступных браузеру в ответе.
-  * `maxAgeSeconds` — время кэширования preflight-ответа в секундах.
+  * `maxAgeSeconds` — время кеширования preflight-ответа в секундах.
 
 ### Статус бакета {#bucket-status}
 

@@ -16,8 +16,8 @@ You cannot restore a subnet after it is deleted.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder where you need to delete a subnet.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you need to delete a subnet.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the subnet you need and select **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
@@ -93,7 +93,7 @@ You cannot restore a subnet after it is deleted.
      terraform validate
      ```
      
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
      
      ```
      Success! The configuration is valid.
@@ -105,9 +105,9 @@ You cannot restore a subnet after it is deleted.
      terraform plan
      ```
   
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains errors, {{ TF }} will show them.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
-  1. Apply the changes:
+  1. Apply the configuration changes:
 
      ```
      terraform apply
@@ -164,3 +164,4 @@ You cannot restore a subnet after it is deleted.
   ```
 
 {% endlist %}
+

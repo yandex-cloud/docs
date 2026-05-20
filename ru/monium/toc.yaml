@@ -347,6 +347,9 @@ items:
             href: concepts/alerting/escalations.md
       - name: Мьюты
         href: alerts/mutes.md
+      - name: Алерты-выражения
+        href: alerts/alert-expression.md
+        hidden: true
   - name: SLO
     items:
       - name: Обзор

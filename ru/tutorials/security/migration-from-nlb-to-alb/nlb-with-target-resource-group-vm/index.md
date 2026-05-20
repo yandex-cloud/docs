@@ -1,3 +1,8 @@
+---
+title: Миграция сервисов с балансировщика NLB с целевыми ресурсами из группы виртуальных машин (Instance Groups) на L7-балансировщик ALB
+description: В этом руководстве описана миграция сервиса с сетевого балансировщика с целевыми ресурсами из группы виртуальных машин (Instance Groups) на L7-балансировщик {{ alb-full-name }}.
+---
+
 # Миграция сервисов с балансировщика NLB с целевыми ресурсами из группы виртуальных машин (Instance Groups) на L7-балансировщик ALB
 
 {% include notitle [nlb-with-target-resource-group-vm](../../../../_tutorials/security/nlb-with-target-resource-group-vm.md) %}

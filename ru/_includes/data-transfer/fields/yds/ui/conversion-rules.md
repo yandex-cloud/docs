@@ -4,9 +4,10 @@
        * `{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSerializationFormatUI.OBJECT_STORAGE_SERIALIZATION_FORMAT_JSON.title }}` — формат JSON. Для оптимизации пропускной способности поддерживается обработка сообщений JSON, записанных одной строкой — без символов перевода строки `\n`. Пример: `{"attr": "value"}`
        * `{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigCommon.parser_config_audit_trails_v1.title }}` — формат логов сервиса [{{ at-name }}](../../../../../audit-trails/).
        * `{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigCommon.parser_config_common_cloud_logging.title }}` — формат логов сервиса [{{ cloud-logging-short-name }}](../../../../../logging/).
-       * `{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigCommon.parser_config_common_debezium_cdc.title }}` — Debezium CDC. Позволяет указать настройки подключения к Schema Registry: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.confluent_sr.title }}` для [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html), идентификатор [пространства имен](../../../../../metadata-hub/operations/list-name-space.md) для `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.yandex_sr.title }}`. 
-        
-          Для формата **JSON** укажите: 
+       * `{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigCommon.parser_config_common_debezium_cdc.title }}` — Debezium CDC. Позволяет указать настройки подключения к Schema Registry: `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.confluent_sr.title }}` для [Confluent Schema Registry](https://docs.confluent.io/platform/current/schema-registry/index.html), идентификатор [пространства имен](../../../../../metadata-hub/operations/list-name-space.md) для `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.yandex_sr.title }}`.
+       * `{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigCommon.parser_raw_to_table.title }}` — позволяет сохранять сообщения целиком «как есть» в отдельную таблицу приемника.
+
+          Для формата **JSON** укажите:
 
            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.data_schema.title }}** — задайте схему в виде списка полей или загрузите файл с описанием схемы в формате JSON.
             
@@ -15,7 +16,17 @@
            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.GenericParser.null_keys_allowed.title }}** — выберите эту опцию, чтобы разрешить значение `null` в ключевых колонках.
            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.ConvertRecordOptions.add_rest_column.title }}** — выберите эту опцию, чтобы поля, отсутствующие в схеме, попадали в колонку `_rest`.
            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.parsers.GenericParserCommon.unescape_string_values.title }}** — выберите эту опцию, чтобы убрать кавычки из строковых переменных (если этого не сделать, значения строковых полей останутся без изменений).
-           
-         Для **Debezium CDC** укажите: 
+
+         Для **Debezium CDC** укажите:
            * Для `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.confluent_sr.title }}` — URL для Schema Registry, способ аутентификации (с указанием логина и пароля пользователя в случае использования аутентификации) и CA-сертификат.
            * Для `{{ ui-key.yc-data-transfer.data-transfer.console.form.common.console.form.common.Serializer.Debezium.yandex_sr.title }}` — идентификатор [пространства имен](../../../../../metadata-hub/operations/list-name-space.md) реестра схем.
+
+         Для **Raw-to-table** укажите:
+           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigCommon.parser_raw_to_table.table_name.title }}** — имя таблицы, в которую сохраняются сообщения. По умолчанию совпадает с именем топика.
+           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigCommon.parser_raw_to_table.is_key_enabled.title }}** — выберите эту опцию, чтобы записывать ключ сообщения в отдельный столбец.
+           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigCommon.parser_raw_to_table.key_type.title }}** — выберите подходящий формат для записи ключа в таблицу.
+           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigCommon.parser_raw_to_table.value_type.title }}** — выберите подходящий формат для записи значения в таблицу.
+           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigCommon.parser_raw_to_table.advanced.title }}**:
+             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigCommon.parser_raw_to_table.is_timestamp_enabled.title }}** — выберите опцию, чтобы сохранять время записи сообщения в отдельном столбце.
+             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigCommon.parser_raw_to_table.is_headers_enabled.title }}** — выберите опцию, чтобы сохранять заголовки сообщения в отдельном столбце.
+             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigCommon.parser_raw_to_table.dlq_suffix.title }}** — укажите суффикс, который будет использоваться для именования отдельной таблицы с недоставленными сообщениями по схеме `<имя_таблицы_сообщений>_<суффикс>`. По умолчанию применяется суффикс `_dlq`.

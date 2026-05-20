@@ -9,7 +9,14 @@ You can use a custom domain, e.g., `example.com`, to publish your website.
 
 To use a custom domain:
 
-1. [Create](../buckets/create.md) a bucket. Name it the same as your domain, e.g., `example.com`.
+1. [Create](../buckets/create.md) a bucket. 
+
+    {% note warning %}
+
+    The bucket name must be an exact match of your domain, e.g., `example.com`.
+
+    {% endnote %}
+
 1. {% include [setup-bucket.md](../../../_includes/storage/setup-bucket.md) %}
 1. On the DNS server, create a public [DNS zone](../../../dns/concepts/dns-zone.md) and a [resource record](../../../dns/concepts/resource-record.md) to link your domain name to the bucket.
 
@@ -26,7 +33,7 @@ To use a custom domain:
       {% endnote %}
 
       1. In the [management console]({{ link-console-main }}), select a folder.
-      1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+      1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Select the bucket you want to use your own domain for.
       1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}** and go to the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
       1. In **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**, under **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}**, click **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}**.
@@ -104,3 +111,10 @@ To use a custom domain:
 
 
 {% include [objects-access.md](../../../_includes/storage/objects-access.md) %}
+
+### See also {#see-also}
+
+* [{#T}](../../qa.md#qa-mime-type)
+* [{#T}](setup.md)
+* [{#T}](./multiple-domains/index.md)
+* [{#T}](certificate.md)

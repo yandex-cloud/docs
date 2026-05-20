@@ -1,6 +1,6 @@
 ---
 title: Step-by-step guides for {{ backup-full-name }}
-description: This page provides a list of step-by-step guides for {{ backup-name }}.
+description: This page features step-by-step guides for {{ backup-name }}.
 ---
 
 # Step-by-step guides for {{ backup-name }}
@@ -54,6 +54,7 @@ description: This page provides a list of step-by-step guides for {{ backup-name
 * [{#T}](activate-service.md)
 * [{#T}](limit-agent-memory-usage.md)
 * [{#T}](get-stats.md)
+* [{#T}](configure-alerts.md)
 
 ## Getting additional information {#get-additional-info}
 

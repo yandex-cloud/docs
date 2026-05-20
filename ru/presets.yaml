@@ -13,6 +13,7 @@ default:
   airflow-service-address: 10.248.0.0/13
   alb-full-name: Yandex Application Load Balancer
   alb-name: Application Load Balancer
+  alerting-metrics-limit: 1 000
   alerts-name: Алерты
   all-mdb:
     max-databases: 1000
@@ -1643,17 +1644,6 @@ default:
       ram:
         highfreq-v4a: dn2bctm6lff3ssuo8361
         v4a: dn2lsbs5tn54adofb0co
-  pc|datatransfer:
-    compute:
-      cpu:
-        preview:
-          v1: dn2t9ngojstgjojkjroo
-      ram:
-        preview:
-          v1: dn24iq96f11mcuqki01l
-    rows:
-      preview:
-        v1: dn2f241pa1nb8bavgd6o
   pc|iot:
     mqtt:
       basic_ingest: dn2oupl68uvjog57htmo
@@ -4038,6 +4028,7 @@ default:
           save: Сохранить
       alert-template:
         field:
+          delay-key-value: Задержка вычисления
           evaluation-window-key-value: Окно вычисления
         no-metrics-policy:
           alarm: Alarm
@@ -9596,6 +9587,24 @@ default:
                         title: Парсер CloudLogging
                       parser_config_common_debezium_cdc:
                         title: Парсер Debezium CDC
+                      parser_raw_to_table:
+                        advanced:
+                          title: Дополнительные параметры
+                        dlq_suffix:
+                          title: Суффикс имени таблицы DLQ
+                        is_headers_enabled:
+                          title: Сохранять заголовки сообщения
+                        is_key_enabled:
+                          title: Сохранять ключ сообщения
+                        is_timestamp_enabled:
+                          title: Сохранять время записи
+                        key_type:
+                          title: Тип ключа
+                        table_name:
+                          title: Имя целевой таблицы
+                        title: Парсер Raw-to-table
+                        value_type:
+                          title: Тип значения
                     ParserConfigProto:
                       included_fields:
                         title: Включаемые поля

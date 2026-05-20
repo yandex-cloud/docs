@@ -5,6 +5,11 @@ description: This section contains the {{ backup-name }} release notes.
 
 # {{ backup-full-name }} release notes
 
+## Q1 2026 {#q1-2026}
+
+* Improved the process for creating a VM with a connection to {{ backup-name }} in the [management console]({{ link-console-main }}).
+* Added the [backup.auditor](./security/index.md#backup-auditor) role.
+
 ## Q4 2025 {#q4-2025}
 
 * Implemented the ability to [create](./operations/create-vm.md), via the management console, a VM connected to {{ backup-name }} without linking a service account.
@@ -46,7 +51,7 @@ You can now use the [{{ yandex-cloud }} CLI](../cli/quickstart.md) to [delete](.
 
 * Added support for new operating systems:
     * For {{ compute-full-name }} VMs:
-      * [Debian 12](/marketplace/products/yc/debian-12)
+      * [Debian 12](/marketplace/products/yc/debian-12).
       * [Ubuntu 24.04 LTS](/marketplace/products/yc/ubuntu-2404-lts-oslogin).
     * For {{ baremetal-full-name }} servers:
       * Debian 10

@@ -16,6 +16,12 @@ Here is how the Gwin controller works:
 
 To learn how to install the Gwin controller, see [this guide](../../../managed-kubernetes/alb-ref/gwin-quickstart.md).
 
+{% note tip %}
+
+You can use an existing {{ alb-name }} infrastructure for {{ k8s }} resources via Gwin using the [attachment](../../../managed-kubernetes/alb-ref/gwin-alb-attachment.md) mechanism.
+
+{% endnote %}
+
 ## Configuration examples
 
 Below are two configuration examples: one using Gateway API resources and the other, Ingress resources. Both examples create an {{ alb-name }} that:

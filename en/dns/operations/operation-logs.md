@@ -1,3 +1,8 @@
+---
+title: How to view operations with DNS zones in {{ dns-full-name }}
+description: Follow this tutorial to be able to view the list of operations with DNS zones.
+---
+
 # Viewing operations with zones
 
 All {{ dns-name }} zone activities are logged as a list of operations. Each operation gets its own unique ID.

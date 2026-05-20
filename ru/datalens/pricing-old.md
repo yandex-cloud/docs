@@ -1,6 +1,6 @@
 ---
-title: Правила тарификации для {{ datalens-full-name }}
-description: В статье содержатся правила тарификации сервиса {{ datalens-name }}.
+title: Правила тарификации для {{ datalens-full-name }} до 1 декабря 2025 года
+description: В статье содержатся правила тарификации сервиса {{ datalens-name }} до 1 декабря 2025 года.
 editable: false
 ---
 

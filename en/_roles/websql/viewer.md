@@ -1,4 +1,5 @@
-The `websql.viewer` role enables viewing info on all published queries within WebSQL and access permissions assigned to them.
+
+The `websql.viewer` role enables viewing info on all published queries within {{ websql-name }} and access permissions assigned to them.
 
 Users with this role can:
 * View info on the published saved queries and [access permissions](../../iam/concepts/access-control/index.md) assigned to them.

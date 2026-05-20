@@ -34,6 +34,8 @@ To enable hosting, you need [public access](../operations/buckets/bucket-availab
 
 * For redirecting all requests.
 
+  {% include [redirects](../../_includes/storage/redirects.md) %}
+
   {% cut "You can specify the host to which all requests will be redirected, as well as the protocol for transmitting requests" %}
 
   ```xml
@@ -113,8 +115,16 @@ You can manage {{ dns-full-name }} domains in the bucket settings or in [{{ dns-
 
 {% include [public-link](../../_includes/storage/public-link.md) %}
 
+### See also {#see-also}
 
-## Use cases {#examples}
+* [{#T}](../operations/hosting/setup.md)
+* [{#T}](../operations/hosting/own-domain.md)
+* [{#T}](../operations/hosting/multiple-domains/index.md)
+* [{#T}](../operations/hosting/certificate.md)
+* [{#T}](../qa.md#qa-mime-type)
+
+
+### Use cases {#examples}
 
 * [{#T}](../tutorials/user-agent-statistics.md)
 * [{#T}](../tutorials/static/index.md)

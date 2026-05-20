@@ -1,0 +1,1 @@
+If log sending is enabled but neither `log-group-id` nor `folder-id` is specified, logs will be sent to the default log group in the [{{ managed-k8s-name }} cluster folder](../../managed-kubernetes/concepts/index.md#kubernetes-cluster). You cannot specify both `log-group-id` and `folder-id` at the same time.

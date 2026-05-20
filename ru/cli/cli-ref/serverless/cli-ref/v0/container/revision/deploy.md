@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/v0/container/revision/deploy
 editable: false
 ---
 
@@ -88,6 +89,8 @@ Network id to be used in new revision. ||
 Network name to be used in new revision. ||
 || `--subnets` | `value[,value]`
 
+DEPRECATED: specify only the network (--network-name or --network-id), without the list of subnets.
+
 Specifies the subnets for the revision. Can use subnet names or subnet ids, or both.
 
 Example: `--subnets=id1,id2 --subnets=name3'. ||
@@ -171,9 +174,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||

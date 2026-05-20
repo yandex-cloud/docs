@@ -1100,6 +1100,10 @@ For more information, see [{#T}](../data-transfer/security/index.md).
 
 {% include [iam.serviceAccounts.admin](../_roles/iam/serviceAccounts/admin.md) %}
 
+#### iam.serviceAccounts.ephemeralAccessKeyAdmin {#iam-serviceAccounts-ephemeralAccessKeyAdmin}
+
+{% include [iam.serviceAccounts.ephemeralAccessKeyAdmin](../_roles/iam/serviceAccounts/ephemeralAccessKeyAdmin.md) %}
+
 #### iam.serviceAccounts.accessKeyAdmin {#iam-serviceAccounts-accessKeyAdmin}
 
 {% include [iam.serviceAccounts.accessKeyAdmin](../_roles/iam/serviceAccounts/accessKeyAdmin.md) %}

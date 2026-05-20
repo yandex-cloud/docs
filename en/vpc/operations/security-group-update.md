@@ -8,8 +8,8 @@ After creating a [security group](../concepts/security-groups.md), you can chang
 
   To change the name or description of a group:
 
-  1. In the [management console]({{ link-console-main }}), go to the folder where you need to update the security group.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the security group you want to update.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the group you need to update.
   1. In the menu that opens, click **{{ ui-key.yacloud.common.edit }}**.
@@ -41,7 +41,7 @@ After creating a [security group](../concepts/security-groups.md), you can chang
      ...
      ```
 
-     For more information about the `yandex_vpc_security_group` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/vpc_security_group).
+     For more information about `yandex_vpc_security_group` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/vpc_security_group).
 
      {% note info %}
 
@@ -55,7 +55,7 @@ After creating a [security group](../concepts/security-groups.md), you can chang
      terraform validate
      ```
      
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
      
      ```
      Success! The configuration is valid.
@@ -67,14 +67,14 @@ After creating a [security group](../concepts/security-groups.md), you can chang
      terraform plan
      ```
   
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
-  1. Apply the changes:
+  1. Apply the configuration changes:
 
      ```
      terraform apply
      ```
-
+     
   1. Confirm the changes: type `yes` into the terminal and press **Enter**.
 
      You can check the security group update using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
@@ -100,3 +100,4 @@ After creating a [security group](../concepts/security-groups.md), you can chang
   {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
+

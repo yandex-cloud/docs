@@ -106,6 +106,8 @@
 
 Скрипт позволяет избежать необходимости обновлять эфемерный ключ в профиле AWS CLI после истечения срока действия ключа. Как управлять эфемерными ключами вручную — см. в документе [{#T}](../../iam/operations/authentication/manage-ephemeral-keys.md).
 
+Чтобы создать эфемерный ключ доступа, пользователю необходима [роль](../../iam/security/index.md#iam-serviceAccounts-ephemeralAccessKeyAdmin) `iam.serviceAccounts.ephemeralAccessKeyAdmin` или выше на каталог.
+
 {% list tabs group=instructions %}
 
 - {{ yandex-cloud }} CLI {#cli}

@@ -52,8 +52,6 @@ editable: false
 
 ### Пример расчета стоимости API-шлюза {#price-example}
 
-{% include [prices-difference](../_includes/prices-difference.md) %}
-
 {% include [prices-example](../_includes/api-gateway/prices-example.md) %}
 
 ## Цены для региона Россия {#prices}

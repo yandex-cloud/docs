@@ -1160,8 +1160,8 @@ subcluster_name | Тип подкластера: `clickhouse_subcluster`, `zooke
 | `ch_system_async_metrics_NumberOfStuckMutations`<br/>`DGAUGE`, штуки | Число застрявших мутаций. |
 | `ch_system_async_metrics_NumberOfTables`<br/>`DGAUGE`, штуки | Общее количество таблиц, суммированных по базам данных на сервере, исключая базы данных, которые не могут содержать таблицы MergeTree. Исключенные движки баз данных — это те, которые генерируют набор таблиц «на лету», такие как Lazy, {{ MY }}, {{ PG }}, SQLite. |
 | `ch_system_async_metrics_NumberOfTablesSystem`<br/>`DGAUGE`, штуки | Общее количество таблиц в системной базе данных на сервере, хранящихся в таблицах семейства MergeTree. |
-| `ch_system_async_metrics_QueryCacheBytes`<br/>`DGAUGE`, байты | Объем занятой памяти в кэше запросов. |
-| `ch_system_async_metrics_QueryCacheEntries`<br/>`DGAUGE`, штуки | Число записей в кэше запросов. |
+| `ch_system_async_metrics_QueryCacheBytes`<br/>`DGAUGE`, байты | Объем занятой памяти в кеше запросов. |
+| `ch_system_async_metrics_QueryCacheEntries`<br/>`DGAUGE`, штуки | Число записей в кеше запросов. |
 | `ch_system_async_metrics_ReplicasMaxAbsoluteDelay`<br/>`DGAUGE`, секунды | Максимальное время задержки репликации. |
 | `ch_system_async_metrics_ReplicasMaxInsertsInQueue`<br/>`DGAUGE`, штуки | Максимальное количество операций INSERT в очереди (все еще подлежащих репликации) в реплицируемых таблицах. |
 | `ch_system_async_metrics_ReplicasMaxMergesInQueue`<br/>`DGAUGE`, штуки | Максимальное количество операций слияния в очереди (которые еще предстоит применить) для реплицируемых таблиц. |
@@ -1178,8 +1178,8 @@ subcluster_name | Тип подкластера: `clickhouse_subcluster`, `zooke
 | `ch_system_async_metrics_TotalPrimaryKeyBytesInMemoryAllocated`<br/>`DGAUGE`, байты | Общий объем выделенной памяти под значения первичных ключей в оперативной памяти. |
 | `ch_system_async_metrics_TotalRowsOfMergeTreeTables`<br/>`DGAUGE`, штуки | Общее количество строк (записей), хранящихся во всех таблицах семейства MergeTree. |
 | `ch_system_async_metrics_TotalRowsOfMergeTreeTablesSystem`<br/>`DGAUGE`, штуки | Общее количество строк (записей), хранящихся в таблицах семейства MergeTree в системной БД. |
-| `ch_system_async_metrics_UncompressedCacheBytes`<br/>`DGAUGE`, байты | Объем памяти, занятой несжатым кэшом. |
-| `ch_system_async_metrics_UncompressedCacheCells`<br/>`DGAUGE`, штуки | Количество элементов в несжатом кэше. |
+| `ch_system_async_metrics_UncompressedCacheBytes`<br/>`DGAUGE`, байты | Объем памяти, занятой несжатым кешом. |
+| `ch_system_async_metrics_UncompressedCacheCells`<br/>`DGAUGE`, штуки | Количество элементов в несжатом кеше. |
 | `ch_system_async_metrics_Uptime`<br/>`DGAUGE`, секунды | Время безотказной работы сервера в секундах. Включает время, затраченное на инициализацию сервера перед принятием подключений. |
 
 

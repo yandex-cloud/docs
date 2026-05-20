@@ -328,7 +328,7 @@ For more information, see the [ip-masq-agent page on GitHub](https://github.com/
 
 A [_service_](service.md) is an abstraction that provides network load balancing. Traffic rules are configured for pods grouped by a set of labels.
 
-By default, a service is only available within a specific {{ k8s }} cluster, but it can be public and receive [requests from outside](../operations/create-load-balancer.md#lb-create) the {{ k8s }} cluster.
+By default, a service is only available within a specific {{ k8s }} cluster, but it can be public and receive [requests from outside](../operations/create-load-balancer.md#create-lb) the {{ k8s }} cluster.
 
 ## Namespace {#namespace}
 

@@ -1,5 +1,5 @@
 ---
-title: '{{ ycdr-full-name }}'
+title: Обзор {{ ycdr-full-name }}
 description: '{{ ycdr-name }} — это сервис, собирающий данные о настройках инфраструктуры ваших сервисов в {{ yandex-cloud }}.'
 ---
 

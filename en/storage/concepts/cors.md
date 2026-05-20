@@ -10,3 +10,4 @@ To manage a CORS configuration for each bucket, you can use:
     This way, you can manage CORS configurations using [tools](../tools/index.md) that support the Amazon S3 HTTP API.
 
 To manage your CORS configuration via an Amazon S3-compatible HTTP API, define [it in XML format](../s3/api-ref/cors/xml-config.md). Different tools may require different configuration formats. You can find an example for the AWS CLI in [{#T}](../operations/buckets/cors.md).
+

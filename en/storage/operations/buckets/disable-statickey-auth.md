@@ -81,7 +81,7 @@ To disable bucket access with static keys, follow these steps:
 
   To disable bucket access with static keys, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource.
 
-  Run this query:
+  Run this request:
 
   ```bash
   curl -X PATCH \
@@ -135,7 +135,7 @@ To disable bucket access with static keys, follow these steps:
 
   To disable bucket access with static keys, use the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call.
 
-  Run this query:
+  Run this request:
 
   ```bash
   grpcurl \

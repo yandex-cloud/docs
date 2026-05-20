@@ -1,6 +1,8 @@
 ---
 title: Как создать интеллектуального ассистента для Telegram
 description: Следуя данной инструкции, вы сможете создать интеллектуального ассистента для Telegram с помощью {{ ml-sdk-full-name }}.
+canonical: '{{ link-docs }}/tutorials/ml-ai/tg-bot-assistant'
+noIndex: true
 ---
 
 # Создание интеллектуального ассистента для Telegram

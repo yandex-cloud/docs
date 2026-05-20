@@ -28,6 +28,8 @@ items:
             href: operations/servers/server-stop-and-start.md
           - name: Canceling a server rent
             href: operations/servers/server-lease-cancel.md
+          - name: Restoring a server from quarantine
+            href: operations/servers/restore-from-quarantine.md
           - name: Uploading a custom OS image
             href: operations/image-upload.md
           - name: >-
