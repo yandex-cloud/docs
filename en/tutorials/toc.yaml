@@ -909,6 +909,12 @@ items:
                 href: serverless/video-converting-queue/console.md
               - name: '{{ TF }}'
                 href: serverless/video-converting-queue/terraform.md
+          - name: AI auto-replier for Wildberries reviews
+            items:
+              - name: Overview
+                href: serverless/wildberries-review-responder/index.md
+              - name: Management console
+                href: serverless/wildberries-review-responder/console.md
           - name: >-
               Configuring printing from {{ cloud-desktop-name }} to a local
               printer in Linux
@@ -1609,6 +1615,12 @@ items:
                 href: serverless/video-converting-queue/console.md
               - name: Terraform
                 href: serverless/video-converting-queue/terraform.md
+          - name: AI auto-replier for Wildberries reviews
+            items:
+              - name: Overview
+                href: serverless/wildberries-review-responder/index.md
+              - name: Management console
+                href: serverless/wildberries-review-responder/console.md
           - name: Developing a custom integration in {{ api-gw-name }}
             href: serverless/api-gw-integration.md
           - name: URL shortener

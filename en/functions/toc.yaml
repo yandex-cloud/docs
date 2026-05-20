@@ -431,6 +431,12 @@ items:
                 href: tutorials/video-converting-queue/console.md
               - name: '{{ TF }}'
                 href: tutorials/video-converting-queue/terraform.md
+          - name: AI auto-replier for Wildberries reviews
+            items:
+              - name: Overview
+                href: tutorials/wildberries-review-responder/index.md
+              - name: Management console
+                href: tutorials/wildberries-review-responder/console.md
           - name: Developing a custom integration
             href: tutorials/api-gw-integration.md
           - name: URL shortener
