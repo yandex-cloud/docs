@@ -8,8 +8,8 @@ You can open your [cloud network map](../concepts/network.md#map) in your folder
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder with the network you want to explore.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. In the [management console]({{ link-console-main }}), select the folder with the network you want to explore.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the left-hand panel, click **More**, then click **{{ ui-key.yacloud.vpc.title_network-map-page }}**.
 
 {% endlist %}
@@ -32,7 +32,7 @@ To filter resources on the map:
 
 ## Opening a resource page {#resource-page}
 
-The map allows you to navigate directly to the page of the resource you need. For this, follow these steps:
+The map allows you to navigate directly to the page of the resource you need. Follow these steps:
 
 {% list tabs group=instructions %}
 
@@ -42,3 +42,4 @@ The map allows you to navigate directly to the page of the resource you need. Fo
    1. In the pop-up window, click the resource name.
 
 {% endlist %}
+

@@ -214,8 +214,9 @@
    yc config profile get <имя_профиля>
    ```
 
+1. Получите [IAM-токен](../../iam/concepts/authorization/iam-token.md) или [авторизованный ключ](../../iam/concepts/authorization/key.md).
 1. Скопируйте в файл [provider.tf](https://github.com/yandex-cloud-examples/yc-practicum-serverless-web-application-movie-website/blob/main/deploy/provider.tf) полученные параметры:
-   * `token` — [OAuth-токен](../../iam/concepts/authorization/oauth-token.md).
+   * `token` — IAM-токен или авторизованный ключ.
    * `cloud-id` — идентификатор [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud).
    * `folder-id` — идентификатор [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder).
 1. Экспортируйте идентификатор каталога в переменную окружения:

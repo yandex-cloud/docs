@@ -8,7 +8,7 @@ description: To perform operations through the API in {{ objstorage-full-name }}
 You can use the following types of APIs to work with {{ objstorage-name }}:
 
 * [AWS S3 API](#aws-s3-api)
-* [{{ yandex-cloud }} gRPC and REST](#yandex-api)
+* [{{ yandex-cloud }} gRPC and REST APIs](#yandex-api)
 
 ## AWS S3 API {#aws-s3-api}
 
@@ -17,7 +17,7 @@ You can use the following types of APIs to work with {{ objstorage-name }}:
 {% list tabs group=auth_keys %}
 
 
-- IAM token authentication {#iam-token}
+- Authentication with an IAM token {#iam-token}
 
   {% include [s3-api-auth-intro-iam-token](../../_includes/storage/s3-api-auth-intro-iam-token.md) %}
 
@@ -55,7 +55,7 @@ Below are examples of requests for uploading an object to a bucket:
 {% list tabs group=auth_keys %}
 
 
-- IAM token authentication {#iam-token}
+- Authentication with an IAM token {#iam-token}
 
   ```bash
   IAM_TOKEN="<IAM_token_contents>"
@@ -186,8 +186,7 @@ Below are examples of requests for uploading an object to a bucket:
 
 {% endlist %}
 
-
-## {{ yandex-cloud }} gRPC and REST {#yandex-api}
+## {{ yandex-cloud }} gRPC and REST APIs {#yandex-api}
 
 
 For authentication in the {{ yandex-cloud }} gRPC and REST APIs, get an [IAM token](../../iam/concepts/authorization/iam-token.md). Learn more about getting an IAM token for different account types:

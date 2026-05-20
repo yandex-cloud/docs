@@ -21,7 +21,7 @@ To enable object locks:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select any folder.
+  1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you want to configure encryption for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
@@ -109,7 +109,7 @@ To set up default object locks:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select any folder.
+  1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you want to configure default locks for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
@@ -239,7 +239,7 @@ To disable object locks:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select any folder.
+  1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you want to configure encryption for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.

@@ -1,6 +1,6 @@
 ---
-title: Загрузить binary-артефакт в реестр {{ cloud-registry-full-name }}
-description: Следуя данной инструкции, вы загрузите binary-артефакт в реестр {{ cloud-registry-full-name }}.
+title: Binary-артефакт в реестре {{ cloud-registry-full-name }}
+description: 'Binary-артефакт — это файл, содержащий пакет любого типа: скрипт установки, исполняемый файл, файл CSV, документ, картинку и т.д.'
 ---
 
 # Binary-артефакт

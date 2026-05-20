@@ -19,9 +19,9 @@ If deletion protection is enabled for the static address, [disable it](./deletio
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), go to the folder where you need to delete a static address.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
-   1. In the left-hand panel, select ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to delete the static address.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. In the left-hand panel, select ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
    1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the IP address you need:
       * Select ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
       * (Optional) Select ![image](../../_assets/console-icons/lock-open.svg) **{{ ui-key.yacloud.vpc.addresses.button_action-disable-protection }}** if protection is enabled and click **{{ ui-key.yacloud.vpc.addresses.popup-confirm_button_disable-protection }}**.
@@ -92,7 +92,7 @@ If deletion protection is enabled for the static address, [disable it](./deletio
      terraform validate
      ```
 
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
 
      ```
      Success! The configuration is valid.
@@ -104,9 +104,9 @@ If deletion protection is enabled for the static address, [disable it](./deletio
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
-  1. Apply the changes:
+  1. Apply the configuration changes:
 
      ```
      terraform apply

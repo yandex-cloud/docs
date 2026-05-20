@@ -51,7 +51,6 @@ Data delivery for transfers that are at the Preview stage is free of charge. For
 <MDX>
   <PriceList
     serviceIds={['{{ pcs|datatransfer }}']}
-    excludeSkuIds={['{{ pc|datatransfer.compute.ram.preview.v1 }}', '{{ pc|datatransfer.rows.preview.v1 }}', '{{ pc|datatransfer.compute.cpu.preview.v1 }}']}
     installationCode="ru"
     currency="USD"
   />

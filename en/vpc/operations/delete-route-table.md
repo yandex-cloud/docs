@@ -8,8 +8,8 @@ If you no longer need the [route table](../concepts/routing.md), you can [delete
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder where you need to disassociate a route table.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the route table you want to disassociate.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Go to the cloud network the route table belongs to.
 
      {% note info %}
@@ -101,7 +101,7 @@ If you no longer need the [route table](../concepts/routing.md), you can [delete
      terraform validate
      ```
 
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
 
      ```text
      Success! The configuration is valid.
@@ -113,9 +113,9 @@ If you no longer need the [route table](../concepts/routing.md), you can [delete
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
-  1. Apply the changes:
+  1. Apply the configuration changes:
 
      ```bash
      terraform apply
@@ -153,8 +153,8 @@ Before deleting a table, [disassociate it](#unlink-route-table) from all subnets
 - Management console {#console}
 
   To delete a route table:
-  1. In the [management console]({{ link-console-main }}), go to the folder where you need to delete a route table.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the route table you want to delete.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row with the table name and select **Delete**.
   1. In the window that opens, click **Delete**.
@@ -228,7 +228,7 @@ Before deleting a table, [disassociate it](#unlink-route-table) from all subnets
      terraform validate
      ```
 
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
 
      ```text
      Success! The configuration is valid.
@@ -240,9 +240,9 @@ Before deleting a table, [disassociate it](#unlink-route-table) from all subnets
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
-  1. Apply the changes:
+  1. Apply the configuration changes:
 
      ```bash
      terraform apply
@@ -250,7 +250,7 @@ Before deleting a table, [disassociate it](#unlink-route-table) from all subnets
 
   1. Type `yes` and press **Enter** to confirm changes.
 
-     You can check updates in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/quickstart.md) command:
+     You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../cli/quickstart.md) command:
 
      ```bash
      yc vpc subnet list
@@ -267,3 +267,4 @@ Before deleting a table, [disassociate it](#unlink-route-table) from all subnets
     * `folder_id`: For gRPC API
 
 {% endlist %}
+

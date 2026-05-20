@@ -6,8 +6,8 @@ After creating a cloud network, you can change its name, description, and labels
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder where you need to update a [cloud network](../concepts/network.md).
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the [cloud network](../concepts/network.md) you want to update.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the subnet you need and select **{{ ui-key.yacloud.common.edit }}**.
   1. Edit as appropriate.
   1. Click **{{ ui-key.yacloud.vpc.subnetworks.update.button_update }}**.
@@ -94,7 +94,7 @@ After creating a cloud network, you can change its name, description, and labels
      }
      ```
 
-     For more information about `yandex_vpc_network` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/vpc_network).
+     For more information about the `yandex_vpc_network` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/vpc_network).
 
   1. Apply the changes:
 
@@ -156,3 +156,4 @@ You can update a cloud network using its name instead of its ID:
   ```
 
 {% endlist %}
+

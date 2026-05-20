@@ -7,6 +7,41 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.8.1 (20.05.26) {#v-1-8-1}
+
+#### {{ sws-name }} {#v-1-8-1-sws-name}
+
+* Добавлена группа команд `yc sws waf waf-profile` для управления WAF-профилями (create, get, list, update, delete) в syntax-2 CLI:
+  * `yc sws waf waf-profile create`;
+  * `yc sws waf waf-profile get`;
+  * `yc sws waf waf-profile list`;
+  * `yc sws waf waf-profile update`;
+  * `yc sws waf waf-profile delete`.
+
+#### {{ mrd-name }} {#v-1-8-1-mrd-name}
+
+* Добавлен параметр `failover-type` для команды `start-failover`%
+  * `yc redis cluster start-failover`.
+
+#### {{ mpg-name }} {#v-1-8-1-managed-postgresql}
+
+* Добавлены параметры для настройки `folder-id` для создания соединений и их секретов в интеграции Connection Manager для {{ mpg-name }}:
+  * `yc managed-postgresql cluster create`;
+  * `yc managed-postgresql cluster restore`;
+  * `yc managed-postgresql cluster update`;
+  * `yc managed-postgresql user create`.
+
+* При детальном выводе одного пользователя удалено устаревшее поле `connection_manager` и добавлено заменяющее его u`ser_connection_manager`:
+  * `yc managed-postgresql user get`;
+  * `yc managed-postgresql user list`;
+  * `yc managed-postgresql user create`.
+
+* Прекращена поддержка устаревших версий {{ PG }} (13, 13-1c):
+  * `yc managed-postgresql cluster update`;
+  * `yc managed-postgresql cluster create`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.8.0 (18.05.26) {#v-1-8-0}
 
 #### Изменения в системных командах CLI {#v-1-8-0-yc}
@@ -38,8 +73,6 @@ description: На странице представлены релизы CLI, а
 
 * Параметр `--subnets` помечен как **DEPRECATED**, для указания доступа к сети используйте только `--network-id` или `--network-name`:
   * `yc serverless container revision deploy`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.7.0 (12.05.26) {#v-1-7-0}
 

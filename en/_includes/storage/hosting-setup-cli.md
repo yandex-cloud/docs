@@ -21,6 +21,8 @@
 
     * `error`: Absolute path to the file the user will see in case of `4xx` errors.
 
+      {% include [static-site-error-index](static-site-error-index.md) %}
+
 1. Run this command:
 
     ```bash

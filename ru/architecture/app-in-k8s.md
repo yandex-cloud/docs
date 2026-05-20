@@ -95,7 +95,7 @@ keywords:
 В соответствии с [рекомендациями](./fault-tolerance.md) по построению отказоустойчивой инфраструктуры кластер создан в конфигурации:
 
 * Высокодоступный кластер {{ managed-k8s-name }} c [мастерами](../managed-kubernetes/concepts/index.md#master) в трех [зонах доступности](../overview/concepts/geo-scope.md).
-* В кластере включен сервис [NodeLocal DNS Cache](../managed-kubernetes/tutorials/node-local-dns.md) для кэширования запросов DNS.
+* В кластере включен сервис [NodeLocal DNS Cache](../managed-kubernetes/tutorials/node-local-dns.md) для кеширования запросов DNS.
 
 В кластере {{ k8s }} развернут вспомогательный сервис {{ alb-name }} [Ingress-контроллер](../application-load-balancer/tools/k8s-ingress-controller/index.md) для управления конфигурацией L7-балансировщика с помощью объектов [Ingress](../managed-kubernetes/alb-ref/ingress.md).
 

@@ -1642,17 +1642,6 @@ default:
       ram:
         highfreq-v4a: dn2bctm6lff3ssuo8361
         v4a: dn2lsbs5tn54adofb0co
-  pc|datatransfer:
-    compute:
-      cpu:
-        preview:
-          v1: dn2t9ngojstgjojkjroo
-      ram:
-        preview:
-          v1: dn24iq96f11mcuqki01l
-    rows:
-      preview:
-        v1: dn2f241pa1nb8bavgd6o
   pc|iot:
     mqtt:
       basic_ingest: dn2oupl68uvjog57htmo
@@ -4037,6 +4026,7 @@ default:
           save: Save
       alert-template:
         field:
+          delay-key-value: Evaluation delay
           evaluation-window-key-value: Evaluation window
         no-metrics-policy:
           alarm: Alarm
@@ -9587,6 +9577,24 @@ default:
                         title: CloudLogging parser
                       parser_config_common_debezium_cdc:
                         title: Debezium CDC parser
+                      parser_raw_to_table:
+                        advanced:
+                          title: Advanced settings
+                        dlq_suffix:
+                          title: DLQ table name suffix
+                        is_headers_enabled:
+                          title: Store message headers
+                        is_key_enabled:
+                          title: Store message key
+                        is_timestamp_enabled:
+                          title: Store write timestamp
+                        key_type:
+                          title: Key type
+                        table_name:
+                          title: Target table name
+                        title: Raw to table parser
+                        value_type:
+                          title: Value type
                     ParserConfigProto:
                       included_fields:
                         title: Included fields

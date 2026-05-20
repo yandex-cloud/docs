@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/index
 editable: false
 ---
 
@@ -56,11 +57,15 @@ Syntax:
 
   - [yc cic public-connection list](public-connection/list.md) — List publicConnections in a folder.
 
+  - [yc cic public-connection list-operations](public-connection/list-operations.md) — List operations for a publicConnection.
+
   - [yc cic public-connection move](public-connection/move.md) — Move the specified public connection into the folder
 
 - [yc cic trunk-connection](trunk-connection/index.md) — [PREVIEW] Manage trunk connections.
 
   - [yc cic trunk-connection add-labels](trunk-connection/add-labels.md) — Add labels to a trunk connection.
+
+  - [yc cic trunk-connection batch-get](trunk-connection/batch-get.md) — Get information about several trunk connections in one request.
 
   - [yc cic trunk-connection delete](trunk-connection/delete.md) — Delete a trunk connection.
 
@@ -84,6 +89,10 @@ Syntax:
 
 
 
+- [yc cic v1](v1/index.md) — (new command tree) [PREVIEW] Manage Interconnect resources
+
+
+
 #### Global Flags
 
 #|
@@ -99,9 +108,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||

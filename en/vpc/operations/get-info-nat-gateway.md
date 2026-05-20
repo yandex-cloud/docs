@@ -3,14 +3,14 @@ title: How to get information about a NAT gateway in {{ vpc-full-name }}
 description: Follow this guide to get information about a NAT gateway.
 ---
 
-# Getting information about a NAT gateway
+# Getting NAT gateway info
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing your [NAT gateway](../concepts/gateways.md).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [NAT gateway](../concepts/gateways.md).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/arrows-opposite-to-dots.svg) **{{ ui-key.yacloud.vpc.switch_gateways }}**.
   1. Select the NAT gateway you need.
   1. The **{{ ui-key.yacloud.common.overview }}** page will display detailed information about the NAT gateway.
@@ -66,14 +66,14 @@ description: Follow this guide to get information about a NAT gateway.
      * `data "yandex_vpc_gateway"`: Description of the NAT gateway as a data source:
        * `gateway_id`: NAT gateway ID.
      * `output "gateway"`: Output variable containing information about the NAT gateway creation time:
-       * `value`: Returned value.
+       * `value`: Return value.
 
-     You can replace `created_at` with any other parameter to get the information you need. For more information about the `yandex_vpc_gateway` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/vpc_gateway).
+     You can replace `created_at` with any other parameter to get the information you need. For more information about the `yandex_vpc_gateway` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/vpc_gateway).
   1. Create resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources and display the output variable values in the terminal. To check the results, run this command:
+     {{ TF }} will create all required resources and display their output variables. To check the results, run this command:
 
      ```bash
      terraform output

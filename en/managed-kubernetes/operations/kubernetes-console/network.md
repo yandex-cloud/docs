@@ -5,7 +5,13 @@ description: In this tutorial, you will learn how to manage {{ k8s }} Service an
 
 # Managing Service and Ingress resources
 
-The `Service` and `Ingress` resources in {{ k8s }} provide communication between pods and access to applications from outside the cluster. You can use the management console to manage these resources in {{ k8s }} without kubectl.
+The `Service` and `Ingress` resources in {{ k8s }} provide communication between pods and access to applications from outside the cluster. In the management console, you can manage these resources in {{ k8s }} without using kubectl.
+
+{% note info %}
+
+To view cluster resources in the {{ ui-key.yacloud.k8s.network.label_ingress }} section, you need the `alb.auditor` [role](../../../application-load-balancer/security/index.md#alb-auditor) or higher.
+
+{% endnote %}
 
 ## Creating a Service or Ingress resource {#create-service-ingress}
 
@@ -19,7 +25,7 @@ You can create `Service` and `Ingress` resources in the management console in th
   1. Click the cluster name and select ![Network](../../../_assets/console-icons/timestamps.svg) **{{ ui-key.yacloud.k8s.cluster.switch_network }}** in the left-hand panel.
   1. In the top-right corner, click **{{ ui-key.yacloud.common.create }}** and select the resource type.
   1. In the drop-down list, select the **{{ ui-key.yacloud.k8s.cluster.field_namespace }}** to create the resource in.
-  1. Fill out the manifest file according to these {{ k8s }} guides: [Service](https://kubernetes.io/docs/concepts/services-networking/service/), [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/).
+  1. Fill out the manifest file according to the {{ k8s }} guides: [Service](https://kubernetes.io/docs/concepts/services-networking/service/), [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/).
   1. Click **{{ ui-key.yacloud.k8s.cluster.button_create-resource }}**.
 
 {% endlist %}
@@ -36,7 +42,7 @@ The list of editable fields depends on the object type and is available in [this
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the cluster name and select ![Network](../../../_assets/console-icons/timestamps.svg) **{{ ui-key.yacloud.k8s.cluster.switch_network }}** in the left-hand panel.
-  1. Select the tab with the resource type you want to edit.
+  1. Select the tab containing the resource type to edit.
   1. In the row of the resource, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
   1. Edit the manifest file on the right side of the screen. Your changes will be highlighted with color.
   1. In the top-right corner, click **{{ ui-key.yacloud.common.save }}**.

@@ -234,27 +234,12 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-game.git
 
 ### Получите токен доступа {#create-token}
 
-{% list tabs group=authentication %}
+Получите IAM-токен и сохраните его в переменную `YC_IAM_TOKEN:`
 
-- Федеративный аккаунт {#federated-account}
-
-  Получите IAM-токен и сохраните его в переменную `YC_IAM_TOKEN:`
-
-  ```bash
-  echo "export YC_IAM_TOKEN=$(yc iam create-token)" >> ~/.bashrc && . ~/.bashrc
-  echo $YC_IAM_TOKEN
-  ```
-
-- Аккаунт на Яндексе {#yandex-account}
-
-  Получите OAUTH-токен и сохраните его в переменную `OAUTH_TOKEN`:
-
-  ```bash
-  echo "export OAUTH_TOKEN=$(yc config get token)" >> ~/.bashrc && . ~/.bashrc
-  echo $OAUTH_TOKEN
-  ```
-
-{% endlist %}
+```bash
+echo "export YC_IAM_TOKEN=$(yc iam create-token)" >> ~/.bashrc && . ~/.bashrc
+echo $YC_IAM_TOKEN
+```
 
 ### Создайте сервисный аккаунт {#setup-sa}
 

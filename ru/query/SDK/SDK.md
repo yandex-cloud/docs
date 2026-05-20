@@ -1,3 +1,8 @@
+---
+title: Работа с {{ yq-full-name }} через {{ ydb-short-name }} SDK
+description: Аутентификация, подключение, выполнение запросов и получение результатов.
+---
+
 # SDK
 
 {{ yq-full-name }} построен на основе [внешних таблиц {{ ydb-short-name }}]({{ ydb.docs }}/concepts/datamodel/external_table), поэтому для взаимодействия с сервисом используется [{{ ydb-short-name }} SDK]({{ ydb.docs }}/reference/ydb-sdk/).

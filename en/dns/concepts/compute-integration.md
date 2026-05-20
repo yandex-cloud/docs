@@ -36,8 +36,6 @@ To generate unique names, you can use [variables](../../compute/concepts/instanc
 ## Use cases {#examples}
 
 * [{#T}](../tutorials/bind-domain-vm/index.md)
-* [{#T}](../tutorials/bind-domain-vm/index.md)
-
 
 #### See also {#see-also}
 

@@ -67,7 +67,7 @@ It does not match the load balancer name in {{ network-load-balancer-name }}. ||
 
 ### Metadata.annotations {#annotations}
 
-Annotations are collections of `key:value` pairs for assigning metadata to objects. Annotation values have the `string` data type. For more information on annotations, see [this Kubernetes guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).
+Annotations are collections of `key:value` pairs for assigning metadata to objects. Annotation values always have the `string` data type. For more information on annotations, see [this Kubernetes guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/annotations/).
 
 You can add the following annotations to `ObjectMeta`:
 
@@ -98,7 +98,7 @@ You can add the following annotations to `ObjectMeta`:
 
   Number of consecutive failed [checks](../../../network-load-balancer/concepts/health-check.md) to consider a node unhealthy.
 
-  It can range from `2` to `10`.
+  The valid values range from `2` to `10`.
 
 ## ServiceSpec {#servicespec}
 

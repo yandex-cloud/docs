@@ -9,4 +9,11 @@ This guide describes how to set up support for a website's primary domain name a
 
 You can configure support for multiple domain names for a static website in {{ objstorage-name }} using one of these tools:
 * [Management console, CLI, API](console.md): Create your infrastructure step by step from the {{ yandex-cloud }} management console, CLI, or API.
-* [{{ TF }}](terraform.md): Streamline creating and managing your resources using the _Infrastructure as Code_ (IaC) approach. Download a {{ TF }} configuration example from the GitHub repository and then deploy your infrastructure using the [{{ yandex-cloud }} {{ TF }} provider]({{ tf-docs-link }}).
+* [{{ TF }}](terraform.md): Streamline creating and managing your resources with the _infrastructure as code_ (IaC) approach. Download a {{ TF }} configuration example from the GitHub repository and then deploy your infrastructure using the [{{ yandex-cloud }} {{ TF }} provider]({{ tf-docs-link }}).
+
+### See also {#see-also}
+
+* [{#T}](../../../qa.md#qa-mime-type)
+* [{#T}](../setup.md)
+* [{#T}](../own-domain.md)
+* [{#T}](../certificate.md)

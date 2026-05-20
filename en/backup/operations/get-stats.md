@@ -26,6 +26,13 @@ To view the statistics:
 
 {% endlist %}
 
+{% note tip %}
+
+Other than viewing metrics, you can [set up](configure-alerts.md) alerts to get notified about metric updates.
+
+{% endnote %}
+
 #### See also {#see-also}
 
+* [{#T}](configure-alerts.md)
 * [{#T}](../metrics.md)

@@ -18,11 +18,11 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to reserve an IP address.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+   1. In the [management console]({{ link-console-main }}), select the folder where you want to reserve an address.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
    1. Click **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
-   1. In the window that opens, do the following:
+   1. In the window that opens:
        * In the **{{ ui-key.yacloud.vpc.addresses.popup-create_field_zone }}** field, select the availability zone where you want to reserve the address.
        * Optionally, under **{{ ui-key.yacloud.vpc.addresses.popup-create_field_advanced }}**, enable **{{ ui-key.yacloud.common.field_ddos-protection-provider }}** and **{{ ui-key.yacloud.vpc.addresses.popup-create_field_deletion-protection }}**.
        * Optionally, specify labels.
@@ -38,7 +38,7 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
 
    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-   1. See the description of the CLI reserve address command:
+   1. See the description of the CLI command for reserving an address:
 
       ```bash
       yc vpc address create --help
@@ -80,7 +80,7 @@ Make sure to check out our [pricing policy](../pricing.md#prices-public-ip) for 
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, describe the properties of resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      * `name`: Static public IP address name. The name format is as follows:
 

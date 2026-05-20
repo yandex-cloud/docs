@@ -35,6 +35,9 @@ flowchart BT
     iam.serviceAccounts.apiKeyAdmin["`iam.serviceAccounts.
     apiKeyAdmin`"]
     iam.serviceAccounts.apiKeyAdmin --> iam.serviceAccounts.keyAdmin
+    iam.serviceAccounts.ephemeralAccessKeyAdmin["`iam.serviceAccounts.
+    ephemeralAccessKeyAdmin`"]
+    iam.serviceAccounts.ephemeralAccessKeyAdmin --> iam.serviceAccounts.accessKeyAdmin
     iam.serviceAccounts.accessKeyAdmin["`iam.serviceAccounts.
     accessKeyAdmin`"]
     iam.serviceAccounts.accessKeyAdmin --> iam.serviceAccounts.keyAdmin

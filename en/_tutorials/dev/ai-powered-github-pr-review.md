@@ -229,7 +229,7 @@ Create a {{ sw-name }} [workflow](../../serverless-integrations/concepts/workflo
 
     **yawl-spec.yaml**
 
-    ```yml
+    ```yaml
     yawl: '0.1'
     start: GetDiff
     steps:

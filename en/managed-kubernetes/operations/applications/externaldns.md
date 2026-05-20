@@ -1,10 +1,16 @@
 ---
-title: Installing ExternalDNS with a plugin for {{ dns-full-name }}
-description: Follow this guide to install ExternalDNS with a {{ dns-name }} plugin.
+title: Installing ExternalDNS with Webhook {{ dns-full-name }}
+description: Follow this guide to install ExternalDNS with Webhook {{ dns-name }}.
 ---
 
-# Installing ExternalDNS with a plugin for {{ dns-full-name }}
+# Installing ExternalDNS with Webhook {{ dns-full-name }}
 
+
+{% note info %}
+
+[ExternalDNS with Webhook {{ dns-full-name }}](/marketplace/products/yc/external-dns-yc-webhook) is a replacement for ExternalDNS with a plugin for {{ dns-full-name }}, which is no longer supported or updated.
+
+{% endnote %}
 
 [ExternalDNS](https://github.com/kubernetes-sigs/external-dns) allows you to create [DNS records](../../../dns/concepts/resource-record.md) in [{{ dns-full-name }}](../../../dns/) automatically. ExternalDNS makes {{ k8s }} resources discoverable via public DNS servers.
 
@@ -34,7 +40,7 @@ description: Follow this guide to install ExternalDNS with a {{ dns-name }} plug
 1. In the [management console]({{ link-console-main }}), select a folder.
 1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the [{{ managed-k8s-name }} cluster](../../concepts/index.md#kubernetes-cluster) you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
-1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [ExternalDNS with a plugin for {{ dns-full-name }}](/marketplace/products/yc/externaldns) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
+1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [ExternalDNS with Webhook {{ dns-full-name }}](/marketplace/products/yc/external-dns-yc-webhook) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
    * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), e.g., `externaldns-space`. If you leave the default namespace, ExternalDNS may work incorrectly.
    * **Application name**: Specify the application name.
@@ -69,7 +75,7 @@ description: Follow this guide to install ExternalDNS with a {{ dns-name }} plug
 
 ## Features {#features}
 
-To automatically create DNS records using [ExternalDNS with a plugin for {{ dns-full-name }}](/marketplace/products/yc/externaldns):
+To automatically create DNS records using [ExternalDNS with Webhook {{ dns-full-name }}](/marketplace/products/yc/external-dns-yc-webhook):
 * If you have an [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) installed, no additional setup is required.
 * For [LoadBalancer](https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer) type services, use this annotation: `"external-dns.alpha.kubernetes.io/hostname=<your_domain>"`.
 

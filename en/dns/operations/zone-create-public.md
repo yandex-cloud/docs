@@ -45,7 +45,7 @@ To create a public [DNS zone](../concepts/dns-zone.md):
 
      * `--name`: Zone name. Note that the zone name must be unique within a folder. This is an optional setting.
      * `--zone`: Domain zone name. Note that the domain zone name must end with a trailing dot. You cannot create top-level domain (TLD) zones. To create a domain name with non-Latin characters, use [Punycode](https://{{ lang }}.wikipedia.org/wiki/Punycode) encoding. This is a required setting.
-     * `--public-visibility`: Enable this flag to create a public zone.
+     * `--public-visibility`: Enable this parameter to create a public zone.
 
      Result:
 

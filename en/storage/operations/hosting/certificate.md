@@ -39,7 +39,7 @@ The bucket becomes accessible over HTTPS within 30 minutes of uploading the cert
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select any folder.
+    1. In the [management console]({{ link-console-main }}), select a folder.
     1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Select the bucket from the list.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
@@ -117,7 +117,7 @@ The bucket becomes accessible over HTTPS within 30 minutes of uploading the cert
 
      For more information about the `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#bucket-https-certificate).
 
-  1. Create the required resources:
+  1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -147,7 +147,7 @@ To upload a certificate:
 
 - Management console {#console}
 
-   1. In the [management console]({{ link-console-main }}), select any folder.
+   1. In the [management console]({{ link-console-main }}), select a folder.
    1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
    1. Select the bucket from the list.
    1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
@@ -168,3 +168,10 @@ To upload a certificate:
 {% include [public-link](../../../_includes/storage/public-link.md) %}
 
 {% endnote %}
+
+### See also {#see-also}
+
+* [{#T}](../../qa.md#qa-mime-type)
+* [{#T}](setup.md)
+* [{#T}](./own-domain.md)
+* [{#T}](./multiple-domains/index.md)

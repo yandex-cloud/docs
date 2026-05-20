@@ -5,5 +5,3 @@
 * `cluster_autoscaler_enabled`: Flag that enables sending `cluster-autoscaler` logs, `true` or `false`.
 * `events_enabled`: Flag that enables sending {{ k8s }} events, `true` or `false`.
 * `audit_enabled`: Flag that enables sending audit events, `true` or `false`.
-
-If log sending is enabled but neither `log_group_id` nor `folder_id` is specified, logs will be sent to the default log group in the [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) folder. You cannot specify both `log_group_id` and `folder_id` at the same time.

@@ -8,8 +8,9 @@ description: This section describes location rules, which enable targeted overri
 {% include [location-rules-description](../../_includes/cdn/location-rules-description.md) %}
 
 You can use location rules to override the following CDN resource settings:
+* [Origin group](origins.md)
 * [Content caching](./caching.md)
-* [Redirecting requests](./http-rewrite.md)
+* [Request redirect](./http-rewrite.md)
 * [Parameters of access via secure tokens](./secure-tokens.md)
 * [IP-based access policy](./ip-address-acl.md)
 * [HTTP request and response headers](../operations/resources/configure-headers.md)

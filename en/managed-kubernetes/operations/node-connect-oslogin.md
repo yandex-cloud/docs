@@ -25,10 +25,10 @@ description: Follow this guide to connect to a node via {{ oslogin }}.
 1. [Enable access via {{ oslogin }}](../../organization/operations/os-login-access.md) at the organization level.
 1. [Enable access to nodes from the internet](./node-group/node-group-update.md#node-internet-access) for the node group containing the node you need to connect to.
 
-1. Make sure the account you are using to connect to the node [has one of these roles](../../iam/operations/roles/grant.md):
+1. Make sure the account you are using to connect to the node [has the required roles](../../iam/operations/roles/grant.md):
 
-    * `compute.osLogin`: To access the node without sudo permissions.
-    * `compute.osAdminLogin`: To access the node with sudo permissions.
+    * `compute.osLogin` [role](../../compute/security/index.md#compute-oslogin) to access the node without sudo permissions, or `compute.osAdminLogin`, for access with sudo permissions.
+    * `resource-manager.auditor` [role](../../resource-manager/security/index.md#resource-manager-auditor) or higher for the folder containing the node.
 
 ## Configure the node {#configure-node}
 
@@ -44,7 +44,7 @@ Set up your cluster node for connection:
 
     - Management console {#console}
 
-        1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) with the {{ managed-k8s-name }} cluster whose node you need access to.
+        1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the {{ managed-k8s-name }} cluster whose node you need access to.
         1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
         1. Click the name of the {{ managed-k8s-name }} cluster.
         1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
@@ -113,7 +113,7 @@ Set up your cluster node for connection:
 
           {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-      1. Confirm updating the resources.
+      1. Confirm resource changes.
 
           {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

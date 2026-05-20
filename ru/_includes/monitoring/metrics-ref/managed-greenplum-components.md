@@ -25,7 +25,7 @@
 | `managed_greenplum_component.cpu_time_system`<br/>`DGAUGE`, миллисекунды | Время процессора, использованное компонентом в режиме ядра (`system`). |
 | `managed_greenplum_component.cpu_time_user`<br/>`DGAUGE`, миллисекунды | Время процессора, использованное компонентом в пользовательском режиме (`user`). |
 | `managed_greenplum_component.memory_usage`<br/>`DGAUGE`, байты | Текущее потребление памяти компонентом. |
-| `managed_greenplum_component.memory_cache`<br/>`DGAUGE`, байты | Объем памяти, используемый компонентом для кэширования данных. |
+| `managed_greenplum_component.memory_cache`<br/>`DGAUGE`, байты | Объем памяти, используемый компонентом для кеширования данных. |
 | `managed_greenplum_component.memory_rss`<br/>`DGAUGE`, байты | Объем резидентной памяти (RSS), занимаемый компонентом в физической памяти. |
 | `managed_greenplum_component.cpu_quota_us`<br/>`DGAUGE`, микросекунды | Квота процессорного времени (`cgroup CPU quota`) в микросекундах за период. |
 | `managed_greenplum_component.cpu_period_us`<br/>`DGAUGE`, микросекунды | Период планирования процессора (`cgroup CPU period`) в микросекундах. |

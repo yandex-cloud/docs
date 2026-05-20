@@ -6,8 +6,8 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder where you need to update a subnet.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the subnet you want to update.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![subnets](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the subnet you need and select **{{ ui-key.yacloud.common.edit }}**.
   1. Edit as appropriate.
@@ -19,7 +19,7 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command for updating subnet parameters:
+  1. See the description of the CLI command for updating subnet settings:
 
       ```
       yc vpc subnet update --help
@@ -88,7 +88,7 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
      ...
      ```
 
-     For more information about `yandex_vpc_subnet` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/vpc_subnet).
+     For more information about the `yandex_vpc_subnet` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/vpc_subnet).
 
   1. Check the configuration using this command:
 
@@ -96,7 +96,7 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
      terraform validate
      ```
      
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
      
      ```
      Success! The configuration is valid.
@@ -108,9 +108,9 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
      terraform plan
      ```
   
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains errors, {{ TF }} will show them.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
-  1. Apply the changes:
+  1. Apply the configuration changes:
 
      ```
      terraform apply
@@ -197,3 +197,4 @@ After creating a [subnet](../concepts/network.md#subnet), you can change its nam
   ```
 
 {% endlist %}
+

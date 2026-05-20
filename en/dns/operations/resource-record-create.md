@@ -42,7 +42,7 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
 
   * `--name`: Zone name. It must be unique within a folder.
   * `--record`: DNS record containing the domain name, TTL, record type, and record value.
-  * `--description`: Description for the new records. If this flag is not set, the description will be empty. This is an optional setting.
+  * `--description`: Description for the new records. If this parameter is not set, the description will be an empty string. This is an optional setting.
 
   **Example**
 

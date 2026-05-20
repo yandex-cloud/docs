@@ -4,3 +4,5 @@
 * просматривать список [статических ключей доступа](../../../iam/concepts/authorization/access-key.md) сервисных аккаунтов и информацию о таких ключах;
 * создавать, изменять и удалять статические ключи доступа [сервисных аккаунтов](../../../iam/concepts/users/accounts.md#sa);
 * создавать [эфемерные ключи доступа](../../../iam/concepts/authorization/ephemeral-keys.md) сервисных аккаунтов.
+
+Включает разрешения, предоставляемые ролью `iam.serviceAccounts.ephemeralAccessKeyAdmin`.

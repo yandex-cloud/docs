@@ -1,3 +1,8 @@
+---
+title: Справочник {{ TF }} для {{ myt-full-name }}
+description: На этой странице приведен справочник ресурсов и источников данных провайдера {{ TF }}, которые поддерживаются для сервиса {{ myt-name }}.
+---
+
 # Справочник {{ TF }} для {{ myt-full-name }}
 
 {% include [terraform-ref-intro](../_includes/terraform-ref-intro.md) %}

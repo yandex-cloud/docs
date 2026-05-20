@@ -17,7 +17,7 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select any folder.
+  1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. In the bucket row, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
 
@@ -427,6 +427,6 @@ If your [bucket](../../concepts/bucket.md) already has a configured [ACL](../../
 
 - API {#api}
 
-  To edit a bucket ACL, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call, or the [bucketPutAcl](../../s3/api-ref/acl/bucketput.md) S3 API method.
+  To edit a bucket's ACL, use the [update](../../api-ref/Bucket/update.md) REST API method for the [Bucket](../../api-ref/Bucket/index.md) resource, the [BucketService/Update](../../api-ref/grpc/Bucket/update.md) gRPC API call, or the [bucketPutAcl](../../s3/api-ref/acl/bucketput.md) S3 API method.
 
 {% endlist %}
