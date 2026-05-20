@@ -84,7 +84,6 @@
 
 Выберите один из режимов аутентификации:
 
-* [OAuth-токен](../../iam/concepts/authorization/oauth-token.md) — позволяет выполнять команды только от имени [аккаунта в {{ yandex-cloud }}](../../iam/concepts/users/accounts.md#passport). Время жизни токена 1 год. Режим не рекомендуется для продуктовых сред.
 * [IAM-токен](../../iam/concepts/authorization/iam-token.md) — рекомендуется для выполнения разовых операций от имени [аккаунта в {{ yandex-cloud }}](../../iam/concepts/users/accounts.md#passport) или [федеративного аккаунта](../../iam/concepts/users/accounts.md#saml-federation). Время жизни токена не более 12 часов.
 * [Авторизованный ключ доступа](../../iam/concepts/authorization/key.md) — рекомендуется для выполнения команд {{ ydb-short-name }} CLI снаружи {{ yandex-cloud }} от имени [сервисного аккаунта](../../iam/concepts/index#sa).
 * [Сервис метаданных](../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm.md) — наиболее безопасный и производительный режим. Применяется при выполнении команд на виртуальных машинах внутри {{ yandex-cloud }}. Также поддерживается сервисом [{{ sf-full-name }}](../../functions/).
@@ -92,42 +91,6 @@
 Настройте выбранный режим:
 
 {% list tabs %}
-
-- OAuth-токен
-
-  Получите OAuth-токен с помощью [запроса]({{ link-cloud-oauth }}) и сохраните его в файл. При запуске команды {{ ydb-short-name }} CLI в параметре `--yc-token-file` укажите путь к файлу с вашим OAuth-токеном.
-
-  Чтобы не указывать этот параметр при каждом вызове команды, сохраните значение OAuth-токена в переменную окружения `YC_TOKEN` или [настройте профиль]({{ ydb.docs }}/reference/ydb-cli/profile/create) {{ ydb-short-name }} CLI.
-
-  Проверьте корректность подключения, запросив информацию о пользователе:
-
-  ```bash
-  {{ ydb.cli }} \
-    --endpoint <эндпоинт> \
-    --database <имя> \
-    --yc-token-file <путь> \
-    discovery whoami
-  ```
-
-  * `--endpoint` — эндпоинт БД.
-  * `--database` — путь к БД.
-  * `--yc-token-file` — путь к файлу с OAuth-токеном.
-
-  >Пример команды:
-  >
-  >```bash
-  >{{ ydb.cli }} \
-  >  --endpoint {{ ydb.ep-serverless }} \
-  >  --database {{ ydb.path-serverless }} \
-  >  --yc-token-file oauth-token.txt \
-  >  discovery whoami
-  >```
-  >
-  >Результат:
-  >
-  >```text
-  >User SID: aje6o75au36h********@as
-  >```
 
 - IAM-токен
 

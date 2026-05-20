@@ -15,7 +15,7 @@ title: How to get DNS zone information in {{ dns-full-name }}
   1. Navigate to the **{{ ui-key.yacloud.common.overview }}** tab.
   1. You will see DNS zone details on the **{{ ui-key.yacloud.common.overview }}** page.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 

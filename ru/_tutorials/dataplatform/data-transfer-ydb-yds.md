@@ -98,13 +98,13 @@
     - {{ ydb-short-name }} CLI {#cli}
 
         1. [Настройте подключение к базе данных {{ ydb-name }}](../../ydb/operations/connection.md).
-        1. Убедитесь, что можете выполнять запросы с помощью {{ ydb-short-name }} CLI с выбранным режимом аутентификации. Например, для [OAuth-токена](../../iam/concepts/authorization/oauth-token.md):
+        1. Убедитесь, что можете выполнять запросы с помощью {{ ydb-short-name }} CLI с выбранным режимом аутентификации. Например, для [IAM-токена](../../iam/concepts/authorization/iam-token.md):
 
             ```bash
             ydb \
               --endpoint <эндпоинт> \
               --database <имя_БД> \
-              --yc-token-file <путь_к_OAuth-токену> \
+              --iam-token-file <путь_к_IAM-токену> \
               yql -s "SELECT 1;"
             ```
 

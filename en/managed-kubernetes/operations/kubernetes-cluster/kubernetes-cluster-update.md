@@ -94,9 +94,13 @@ Learn how to change a cluster [availability zone](../../../overview/concepts/geo
 
        {% include [security-groups-alert](../../../_includes/managed-kubernetes/security-groups-alert.md) %}
 
-     * `--master-logging`: Sending logs to {{ cloud-logging-name }}:
+     * `--master-logging`: Sending logs to [{{ cloud-logging-full-name }}](../../../logging/):
 
        {% include [master-logging-cli-description.md](../../../_includes/managed-kubernetes/master-logging-cli-description.md) %}
+
+       {% include [note-master-logging-sa](../../../_includes/managed-kubernetes/note-master-logging-sa.md) %}
+
+       {% include [note-master-logging-log-group](../../../_includes/managed-kubernetes/note-master-logging-log-group.md) %}
 
      * `--version`: {{ k8s }} version.
      * `--latest-revision`: Get all available updates for the current [{{ managed-k8s-name }} master](../../concepts/index.md#master) version.
@@ -116,13 +120,17 @@ Learn how to change a cluster [availability zone](../../../overview/concepts/geo
      For more on how to create this file, see [{#T}](kubernetes-cluster-create.md).
   1. Edit the required parameters in the {{ managed-k8s-name }} cluster description.
 
-     To edit the settings for sending logs to {{ cloud-logging-name }}, update the `master_logging` section parameters. If there is no such section, create one.
+     To edit the settings for sending logs to [{{ cloud-logging-full-name }}](../../../logging/), update the `master_logging` section parameters. If there is no such section, create one.
 
      {% include [master-logging-tf.md](../../../_includes/managed-kubernetes/master-logging-tf.md) %}
 
      Where:
 
      {% include [master-logging-tf-description.md](../../../_includes/managed-kubernetes/master-logging-tf-description.md) %}
+
+       {% include [note-master-logging-sa](../../../_includes/managed-kubernetes/note-master-logging-sa.md) %}
+
+       {% include [note-master-logging-log-group](../../../_includes/managed-kubernetes/note-master-logging-log-group.md) %}
 
   1. Validate your configuration files.
 
@@ -141,6 +149,8 @@ Learn how to change a cluster [availability zone](../../../overview/concepts/geo
   To update the {{ managed-k8s-name }} cluster parameters, use the [update](../../managed-kubernetes/api-ref/Cluster/update.md) REST API method for the [Cluster](../../managed-kubernetes/api-ref/Cluster/) resource or the [ClusterService/Update](../../managed-kubernetes/api-ref/grpc/Cluster/update.md) gRPC API call.
 
   To edit the settings for sending logs to {{ cloud-logging-name }}, update their values in the `masterSpec.masterLogging` parameter for the REST API, or `master_spec.master_logging`, for the gRPC API.
+
+  {% include [note-master-logging-sa](../../../_includes/managed-kubernetes/note-master-logging-sa.md) %}
 
 {% endlist %}
 

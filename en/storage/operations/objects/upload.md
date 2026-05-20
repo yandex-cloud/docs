@@ -25,7 +25,7 @@ You can use [tools](../../tools/index.md) that support {{ objstorage-name }} and
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select any folder.
+  1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket to upload the object into.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
@@ -138,7 +138,7 @@ You can use [tools](../../tools/index.md) that support {{ objstorage-name }} and
 
       For more information about the `yandex_storage_object` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_object).
 
-1. Create the required resources:
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -147,6 +147,8 @@ You can use [tools](../../tools/index.md) that support {{ objstorage-name }} and
 - API {#api}
 
   To upload an object, use the [upload](../../s3/api-ref/object/upload.md) S3 API method.
+
+  For more information, see [{#T}](../../s3/s3-api-quickstart.md).
 
 {% endlist %}
 
@@ -158,7 +160,7 @@ For a bucket with enabled [versioning](../buckets/versioning.md) and [object loc
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select any folder.
+  1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket to upload the object into.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.

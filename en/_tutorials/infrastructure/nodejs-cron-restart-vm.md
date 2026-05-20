@@ -150,24 +150,24 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
    const FOLDER_ID = process.env.FOLDER_ID;
    const INSTANCE_ID = process.env.INSTANCE_ID;
    const OAUTHTOKEN = process.env.OAUTHTOKEN;
-
+   
    export const handler = async function (event, context) {
      try {
        const session = new Session({ oauthToken: OAUTHTOKEN });
        const instanceServiceClient = session.client(instanceService.InstanceServiceClient);
-
+       
        const state = await instanceServiceClient.get({
          instanceId: INSTANCE_ID,
        });
-
+   
        const status = state.status;
-
+   
        if (status === 4) {
          await instanceServiceClient.start({
            instanceId: INSTANCE_ID,
          });
        }
-
+   
        return {
          statusCode: 200,
          body: {
@@ -350,7 +350,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
      * `zip_filename`: Path to the `function-js.zip` archive you created earlier.
 
      For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
-  1. Validate your configuration files.
+  1. Make sure the configuration files are correct.
      1. In the terminal, navigate to the directory where you created your configuration file.
      1. Run a check using the following command:
 

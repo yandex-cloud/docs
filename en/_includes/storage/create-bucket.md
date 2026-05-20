@@ -20,7 +20,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
       1. Add [labels](../../storage/concepts/tags.md), if required:
 
           1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-          1. Specify a label in `key: value` format.
+          1. Add a label in `key: value` format.
           1. Press **Enter**.
 
       1. Limit the maximum bucket size, if required.
@@ -193,7 +193,7 @@ To create a [bucket](../../storage/concepts/bucket.md), you need the _minimum_ `
 
         {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+  {{ TF }} will create all the required resources. You can check the new resources and their settings in the [management console]({{ link-console-main }}).
 
 
   **Creating a bucket using a static key**

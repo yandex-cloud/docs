@@ -1,3 +1,8 @@
+---
+title: Сравнение результатов нагрузочных тестов в {{ load-testing-full-name }}
+description: Из статьи вы узнаете, как сравнивать результаты нескольких нагрузочных тестов по графикам распределения времен ответов, квантилям, сетевым и HTTP-кодам ответов в {{ load-testing-name }}.
+---
+
 # Сравнение результатов нагрузочных тестов
 
 {% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}

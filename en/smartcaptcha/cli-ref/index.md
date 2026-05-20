@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartcaptcha/cli-ref/index
 editable: false
 ---
 
@@ -33,6 +34,10 @@ Aliases:
   - [yc smartcaptcha captcha list](captcha/list.md) — Retrieves the list of Captcha resources in the specified folder.
 
   - [yc smartcaptcha captcha update](captcha/update.md) — Updates the specified captcha.
+
+- [yc smartcaptcha v0](v0/index.md) — (legacy command tree) Manage SmartCaptcha resources
+
+
 
 - [yc smartcaptcha v1](v1/index.md) — Manage SmartCaptcha resources
 

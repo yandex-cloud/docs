@@ -8,8 +8,6 @@ description: Из этой инструкции вы узнаете, как уп
 
 В {{ objstorage-name }} вы можете [выгрузить метаданные объектов](../../concepts/s3-inventory.md) (S3 Inventory) из бакетов для дальнейшего анализа и каталогизации.
 
-{% include [s3-inventory-pricing](../../../_includes/storage/s3-inventory-pricing.md) %}
-
 ## Создать конфигурацию выгрузки {#create-inventory}
 
 {% list tabs group=instructions %}
