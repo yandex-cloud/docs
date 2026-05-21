@@ -14,6 +14,6 @@
 
     Если значение параметра не задано, максимальный объем памяти по умолчанию равен половине объема кластерного хранилища.
 
-* `prefer_not_to_merge` — отключить [слияние кусков данных]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) в кластерном и объектном хранилищах: `true` или `false`.
+* `prefer_not_to_merge` — отключить [слияние кусков данных]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/custom-partitioning-key) в кластерном и объектном хранилищах: `true` или `false`.
 
     Чтобы отключить слияние, укажите значение `true`. Чтобы оставить слияние включенным, укажите значение `false`.

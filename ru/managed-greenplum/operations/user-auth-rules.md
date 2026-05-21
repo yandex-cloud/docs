@@ -487,5 +487,3 @@
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/HBARule/delete.md#yandex.cloud.operation.Operation).      
 
 {% endlist %}
-
-{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

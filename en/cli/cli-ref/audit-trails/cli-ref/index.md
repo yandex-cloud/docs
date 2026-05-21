@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/audit-trails/cli-ref/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/audit-trails/cli-ref/
 editable: false
 ---
 

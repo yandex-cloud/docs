@@ -5,7 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Изменение настроек {{ CH }} на уровне запроса
 
-Вы можете задать [настройки {{ CH }} на уровне запроса](https://clickhouse.com/docs/en/operations/settings/query-level), чтобы гибко настроить базы данных в кластере {{ mch-name }}. Указать настройки можно несколькими способами:
+Вы можете задать [настройки {{ CH }} на уровне запроса]({{ ch.docs }}{{ lang }}/operations/settings/query-level), чтобы гибко настроить базы данных в кластере {{ mch-name }}. Указать настройки можно несколькими способами:
 
 * С помощью [интерфейсов {{ yandex-cloud }}](#yandex-cloud-interfaces). Так можно задать только [настройки {{ CH }}, доступные в {{ yandex-cloud }}](../concepts/settings-list.md#user-level-settings).
 * С помощью SQL-запросов. Так можно задать любые настройки {{ CH }} на уровне запроса. Способ, как установить настройки, зависит от их типа:
@@ -14,7 +14,7 @@ description: Следуя данной инструкции, вы сможете
 
       Чтобы воспользоваться этим способом, при [создании](cluster-create.md) или [изменении](update.md#SQL-management) кластера включите опцию **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}**. После этого нельзя будет управлять пользователями через интерфейсы {{ yandex-cloud }}: управление пользователями через SQL невозможно выключить.
 
-   * [Настройки на уровне профиля](#settings-profile). В {{ CH }} [профиль настроек]({{ ch.docs }}/operations/access-rights#settings-profiles-management) содержит их значения и ограничения, а также список ролей и пользователей, к которым применяется профиль. Настройки {{ CH }} передаются в SQL-запросах `CREATE SETTINGS PROFILE` и `ALTER SETTINGS PROFILE`.
+   * [Настройки на уровне профиля](#settings-profile). В {{ CH }} [профиль настроек]({{ ch.docs }}{{ lang }}/operations/access-rights#settings-profiles-management) содержит их значения и ограничения, а также список ролей и пользователей, к которым применяется профиль. Настройки {{ CH }} передаются в SQL-запросах `CREATE SETTINGS PROFILE` и `ALTER SETTINGS PROFILE`.
 
       Чтобы воспользоваться этим способом, при [создании](cluster-create.md) или [изменении](update.md#SQL-management) кластера включите опцию **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}**.
 
@@ -24,7 +24,7 @@ description: Следуя данной инструкции, вы сможете
 
    * [Настройки подключения](#connection). Когда вы подключаетесь к базе данных с помощью утилиты [clickhouse-client](connect/clients.md#clickhouse-client), в команде для подключения можно передать настройки {{ CH }} с помощью флагов. Так можно задать настройки в кластере с любой конфигурацией, но они будут действовать только для установленного подключения.
 
-      Вы можете также указать настройки подключения в различных драйверах для {{ CH }} либо передать настройки в виде URL-параметров при отправке запросов HTTP API {{ CH }}. Подробнее об этих способах см. в [документации {{ CH }}](https://clickhouse.com/docs/en/interfaces/overview).
+      Вы можете также указать настройки подключения в различных драйверах для {{ CH }} либо передать настройки в виде URL-параметров при отправке запросов HTTP API {{ CH }}. Подробнее об этих способах см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/interfaces/overview).
 
 ## Получить список настроек {{ CH }} на уровне запроса {#get-list}
 
@@ -217,7 +217,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [sql-user-name-and-password-limits](../../_includes/mdb/mch/note-sql-info-user-name-and-pass-limits.md) %}
 
-      В параметре `SETTINGS` помимо значения настройки можно указать ее минимальное и максимальное значение. Пример для настройки [idle_connection_timeout](https://clickhouse.com/docs/en/operations/settings/settings#idle_connection_timeout):
+      В параметре `SETTINGS` помимо значения настройки можно указать ее минимальное и максимальное значение. Пример для настройки [idle_connection_timeout]({{ ch.docs }}{{ lang }}/operations/settings/settings#idle_connection_timeout):
 
       ```sql
       CREATE USER <имя_пользователя>
@@ -225,7 +225,7 @@ description: Следуя данной инструкции, вы сможете
          SETTINGS idle_connection_timeout = 60 MIN 5 MAX 120;
       ```
 
-      Подробнее о создании пользователей см. в [документации {{ CH }}]({{ ch.docs }}/sql-reference/statements/create/user/).
+      Подробнее о создании пользователей см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/user).
 
 {% endlist %}
 
@@ -242,7 +242,7 @@ description: Следуя данной инструкции, вы сможете
       ALTER USER <имя_пользователя> SETTINGS <список_настроек_{{ CH }}>;
       ```
 
-      Подробнее об изменении учетных записей см. в [документации {{ CH }}]({{ ch.docs }}/sql-reference/statements/alter/user).
+      Подробнее об изменении учетных записей см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/alter/user).
 
 {% endlist %}
 
@@ -264,7 +264,7 @@ description: Следуя данной инструкции, вы сможете
          SETTINGS <список_настроек_{{ CH }}>;
       ```
 
-      В параметре `SETTINGS` помимо значения настройки можно указать ее минимальное и максимальное значение. Пример для настройки [idle_connection_timeout](https://clickhouse.com/docs/en/operations/settings/settings#idle_connection_timeout):
+      В параметре `SETTINGS` помимо значения настройки можно указать ее минимальное и максимальное значение. Пример для настройки [idle_connection_timeout]({{ ch.docs }}{{ lang }}/operations/settings/settings#idle_connection_timeout):
 
       ```sql
       CREATE SETTINGS PROFILE <название_профиля_настроек>
@@ -279,7 +279,7 @@ description: Следуя данной инструкции, вы сможете
          TO <имя_пользователя>;
       ```
 
-      Подробнее о создании профилей настроек см. в [документации {{ CH }}]({{ ch.docs }}/sql-reference/statements/create/settings-profile).
+      Подробнее о создании профилей настроек см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/settings-profile).
 
 {% endlist %}
 
@@ -297,7 +297,7 @@ description: Следуя данной инструкции, вы сможете
          SETTINGS <список_настроек_{{ CH }}>;
       ```
 
-      В этом запросе можно задать граничные значения настроек и привязать профиль к пользователю. Подробнее об изменении профилей настроек см. в [документации {{ CH }}]({{ ch.docs }}/sql-reference/statements/alter/settings-profile).
+      В этом запросе можно задать граничные значения настроек и привязать профиль к пользователю. Подробнее об изменении профилей настроек см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/alter/settings-profile).
 
 {% endlist %}
 
@@ -345,7 +345,7 @@ description: Следуя данной инструкции, вы сможете
 
       Большинство флагов в выводе команды — это расширенные настройки {{ CH }}.
 
-   1. Выберите флаги с нужными настройками. Для этого соотнесите названия флагов с [названиями настроек {{ CH }}]({{ ch.docs }}/operations/settings/settings).
+   1. Выберите флаги с нужными настройками. Для этого соотнесите названия флагов с [названиями настроек {{ CH }}]({{ ch.docs }}{{ lang }}/operations/settings/settings).
    1. Укажите выбранные флаги в команде на подключение к БД:
 
       * Подключение без SSL:
@@ -373,7 +373,7 @@ description: Следуя данной инструкции, вы сможете
          ```
 
 
-      * Пример подключения без SSL с настройкой [idle_connection_timeout](https://clickhouse.com/docs/en/operations/settings/settings#idle_connection_timeout):
+      * Пример подключения без SSL с настройкой [idle_connection_timeout]({{ ch.docs }}{{ lang }}/operations/settings/settings#idle_connection_timeout):
 
          ```bash
          clickhouse-client --host {{ host-name }}.{{ dns-zone }} \

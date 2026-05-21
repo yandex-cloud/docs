@@ -1,5 +1,5 @@
-{% note info %}
+{% note warning %}
 
-Выбранная конфигурация влияет на [стоимость использования вычислительных ресурсов инстанса](../../managed-gitlab/pricing.md#prices-instance).
+За использование правил ревью кода в {{ mgl-name }} взимается плата в зависимости от используемой [конфигурации](../../managed-gitlab/concepts/approval-rules.md#packages). Подробнее читайте на странице [{#T}](../../managed-gitlab/pricing.md).
 
 {% endnote %}

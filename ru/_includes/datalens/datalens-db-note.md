@@ -1,9 +1,9 @@
 {% note warning %}
               
- У пользователя должно быть установлено одно из следующих значений параметра [readonly]({{ ch.docs }}/operations/settings/permissions-for-queries/#settings_readonly):
+ У пользователя должно быть установлено одно из следующих значений параметра [readonly]({{ ch.docs }}{{ lang }}/operations/settings/permissions-for-queries#settings_readonly):
          
   * `0` — разрешены все запросы.
-  * `1` — разрешены только запросы на чтение данных. В этом случае в [настройках]({{ ch.docs }}/operations/settings/settings) {{ CH }} укажите:
+  * `1` — разрешены только запросы на чтение данных. В этом случае в [настройках]({{ ch.docs }}{{ lang }}/operations/settings/settings) {{ CH }} укажите:
 
     * `join_use_nulls = 1`
     * `send_progress_in_http_headers = 0`

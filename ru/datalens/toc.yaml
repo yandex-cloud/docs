@@ -206,6 +206,8 @@ items:
         href: dataset/add-description.md
       - name: Параметризация источников
         href: dataset/parametrization.md
+      - name: Инвалидация кешей
+        href: dataset/cache-invalidation.md
       - name: Типы данных
         href: dataset/data-types.md
       - name: Соответствие типов данных

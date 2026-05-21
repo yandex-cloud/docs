@@ -4,7 +4,7 @@
 
 #### Как дать пользователю права на создание и удаление таблиц или БД? {#create-delete-role}
 
-Включите в настройках кластера опцию [{#T}](../../managed-clickhouse/operations/cluster-users.md#sql-user-management) и выдайте пользователю нужные права [с помощью выражения]({{ ch.docs }}/sql-reference/statements/grant/) `GRANT`.
+Включите в настройках кластера опцию [{#T}](../../managed-clickhouse/operations/cluster-users.md#sql-user-management) и выдайте пользователю нужные права [с помощью выражения]({{ ch.docs }}{{ lang }}/sql-reference/statements/grant) `GRANT`.
 
 #### Как узнать значение настройки internal_replication? {#internal-replication}
 
@@ -30,7 +30,7 @@ would use 14.10 GiB (attempt to allocate chunk of 4219924 bytes), maximum: 14.10
     SET max_memory_usage = <значение_в_байтах>;
     ```
 
-* Для всех пользователей по умолчанию с помощью создания [профиля настроек]({{ ch.docs }}/operations/access-rights/#settings-profiles-management).
+* Для всех пользователей по умолчанию с помощью создания [профиля настроек]({{ ch.docs }}{{ lang }}/operations/access-rights#settings-profiles-management).
 
 #### Почему в высокодоступном кластере {{ mch-name }} должно быть три или пять хостов {{ ZK }}? {#zookeeper-hosts-number}
 

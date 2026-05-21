@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/
 editable: false
 ---
 

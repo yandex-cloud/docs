@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/broker/certificate/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/broker/certificate/
 editable: false
 ---
 

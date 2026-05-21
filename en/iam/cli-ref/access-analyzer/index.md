@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/access-analyzer/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/access-analyzer/
 editable: false
 ---
 

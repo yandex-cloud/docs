@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/storage/cli-ref/bucket/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/storage/cli-ref/bucket/
 editable: false
 ---
 

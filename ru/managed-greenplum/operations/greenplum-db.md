@@ -9,7 +9,7 @@ description: Следуя данной инструкции, вы сможете
 
 * [gpfdist]({{ gp.docs.broadcom }}/7/greenplum-database/utility_guide-ref-gpfdist.html) — утилита для чтения и записи данных из файлов, расположенных на удаленных серверах. Подробную информацию см. в разделе [{#T}](gpfdist/connect.md).
 * [gpload]({{ gp.docs.broadcom }}/7/greenplum-database/utility_guide-ref-gpload.html) — утилита для запуска задач, описанных в управляющем YAML-файле.
-* [psql]({{ gp.docs.broadcom }}/7/greenplum-database/utility_guide-ref-psql.html) — интерфейс командной строки для работы с {{ GP }}.
+* [psql]({{ gp.docs.broadcom }}/7/greenplum-database/utility_guide-ref-psql.html) — интерфейс командной строки для работы с базой данных.
 
 Чтобы установить Greenplum Database 7 на рабочую или виртуальную машину под управлением OC Ubuntu 22.04 или Ubuntu 20.04:
 
@@ -106,3 +106,5 @@ description: Следуя данной инструкции, вы сможете
 
 {% endnote %}
 
+
+{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/private-connection/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/private-connection/
 editable: false
 ---
 

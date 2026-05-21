@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/dataproc/cli-ref/job/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/dataproc/cli-ref/job/
 editable: false
 ---
 

@@ -82,16 +82,30 @@ description: Различные сценарии использования по
 
 ## Настройка единого входа в приложения (SSO) {#sso}
 
-* [{#T}](single-sign-on/grafana/saml-grafana.md)
-* [{#T}](single-sign-on/grafana/oidc-grafana.md)
-* [{#T}](single-sign-on/oidc-grafana-oss.md)
-* [{#T}](single-sign-on/oidc-1c-enterprise.md)
-* [{#T}](single-sign-on/saml-zabbix.md)
-* [{#T}](single-sign-on/saml-yandex-360.md)
-* [{#T}](single-sign-on/saml-ya-browser-corporate.md)
-* [{#T}](single-sign-on/saml-opensearch.md)
-* [{#T}](single-sign-on/saml-opensearch-self-managed.md)
-* [{#T}](single-sign-on/saml-managed-gitlab.md)
-* [{#T}](single-sign-on/saml-sonarqube.md)
-* [{#T}](single-sign-on/saml-ovpn.md)
-* [{#T}](single-sign-on/oidc-nginx-oauth2-proxy.md)
+* [1С:Предприятие](./single-sign-on/oidc-1c-enterprise.md)
+* Cloud.ru
+    * [{#T}](./single-sign-on/cloud-ru/saml-cloud-ru.md)
+    * [{#T}](./single-sign-on/cloud-ru/oidc-cloud-ru.md)
+* Grafana Cloud
+    * [{#T}](./single-sign-on/grafana/saml-grafana.md)
+    * [{#T}](./single-sign-on/grafana/oidc-grafana.md)
+* [Grafana OSS](./single-sign-on/oidc-grafana-oss.md)
+* [Harbor](./single-sign-on/oidc-harbor.md)
+* Jenkins
+    * [{#T}](./single-sign-on/jenkins/saml-jenkins.md)
+    * [{#T}](./single-sign-on/jenkins/oidc-jenkins.md)
+* [{{ mgl-name }}](./single-sign-on/saml-managed-gitlab.md)
+* [{{ mos-name }}](./single-sign-on/saml-opensearch.md)
+* [MWS](./single-sign-on/oidc-mws.md)
+* [{{ OS }}](./single-sign-on/saml-opensearch-self-managed.md)
+* [OpenVPN Access Server](./single-sign-on/saml-ovpn.md)
+* [Selectel](./single-sign-on/saml-selectel.md)
+* [Sentry](./single-sign-on/saml-sentry.md)
+* [SonarQube](single-sign-on/saml-sonarqube.md)
+* VK Cloud
+    * [{#T}](./single-sign-on/vk-cloud/saml-vk-cloud.md)
+* [Zabbix](./single-sign-on/saml-zabbix.md)
+* [Пассворк](./single-sign-on/saml-passwork.md)
+* [{{ yandex-360 }}](./single-sign-on/saml-yandex-360.md)
+* [Яндекс Браузер для организаций](./single-sign-on/saml-ya-browser-corporate.md)
+* [Настройка единого входа в приложения, не поддерживающие SSO](./single-sign-on/oidc-nginx-oauth2-proxy.md)

@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/network/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/network/
 editable: false
 ---
 

@@ -43,7 +43,7 @@ subcluster_name | Тип подкластера: `clickhouse_subcluster`, `zooke
 
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |
-| `ch_s3_disk_parts_size`<br/>`DGAUGE`, байты | Место, занятое кусками таблиц [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) в сервисе {{ objstorage-full-name }} при настроенном [гибридном хранилище](../../../managed-clickhouse/concepts/storage.md#hybrid-storage-features) {{ mch-name }}. |
+| `ch_s3_disk_parts_size`<br/>`DGAUGE`, байты | Место, занятое кусками таблиц [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) в сервисе {{ objstorage-full-name }} при настроенном [гибридном хранилище](../../../managed-clickhouse/concepts/storage.md#hybrid-storage-features) {{ mch-name }}. |
 | `disk.free_bytes`<br/>`DGAUGE`, байты | Свободное место. |
 | `disk.free_inodes`<br/>`DGAUGE`, штуки | Свободное количество inodes. |
 | `disk.total_bytes`<br/>`DGAUGE`, байты | Доступное место. |
@@ -126,7 +126,7 @@ subcluster_name | Тип подкластера: `clickhouse_subcluster`, `zooke
 
 #### Метрики системных событий {#managed-clickhouse-system-events-metrics}
 
-Нативные метрики {{ CH }} из таблицы [system.events]({{ ch.docs }}/operations/system-tables/events).
+Нативные метрики {{ CH }} из таблицы [system.events]({{ ch.docs }}{{ lang }}/operations/system-tables/events).
 По каждой метрике считается прирост `inc` и скорость изменения `rate` за единицу времени.
 
 | Имя<br/>Тип |
@@ -647,7 +647,7 @@ subcluster_name | Тип подкластера: `clickhouse_subcluster`, `zooke
 
 #### Метрики текущих событий {#managed-clickhouse-system-metrics}
 
-Нативные метрики {{ CH }} из таблицы [system.metrics]({{ ch.docs }}/operations/system-tables/metrics/).
+Нативные метрики {{ CH }} из таблицы [system.metrics]({{ ch.docs }}{{ lang }}/operations/system-tables/metrics).
 
 | Имя<br/>Тип |
 | ----- |
@@ -1093,7 +1093,7 @@ subcluster_name | Тип подкластера: `clickhouse_subcluster`, `zooke
 
 #### Метрики очереди запросов {#managed-clickhouse-query-log-metrics}
 
-Нативные метрики {{ CH }} из таблицы [system.query_log]({{ ch.docs }}/operations/system-tables/query_log).
+Нативные метрики {{ CH }} из таблицы [system.query_log]({{ ch.docs }}{{ lang }}/operations/system-tables/query_log).
 По каждой метрике считается прирост за единицу времени (секунда).
 
 | Имя<br>Тип |
@@ -1137,7 +1137,7 @@ subcluster_name | Тип подкластера: `clickhouse_subcluster`, `zooke
 
 #### Системные метрики {#managed-clickhouse-config-metrics}
 
-Нативные метрики {{ CH }} из таблицы [system.asynchronous_metrics]({{ ch.docs }}/operations/system-tables/asynchronous_metrics).
+Нативные метрики {{ CH }} из таблицы [system.asynchronous_metrics]({{ ch.docs }}{{ lang }}/operations/system-tables/asynchronous_metrics).
 
 | Имя<br/>Тип, единицы измерения | Описание |
 | ----- | ----- |

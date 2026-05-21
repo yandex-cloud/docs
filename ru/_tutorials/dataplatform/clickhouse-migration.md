@@ -73,7 +73,7 @@
    SELECT * FROM <имя_БД>.<имя_таблицы>;
    ```
 
-Подробнее об использовании функции `remote` см. в [документации {{ CH }}]({{ ch.docs }}/sql-reference/table-functions/remote).
+Подробнее об использовании функции `remote` см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/table-functions/remote).
 
 ## Перенос данных при помощи команд BACKUP и RESTORE и бакета {{ objstorage-name }} {#backup-objstorage}
 
@@ -163,4 +163,4 @@
         SHOW DATABASES;
         ```
 
-Подробнее об использовании команд `BACKUP` и `RESTORE` с S3-хранилищем см. в [документации {{ CH }}](https://clickhouse.com/docs/en/operations/backup#backuprestore-using-an-s3-disk).
+Подробнее об использовании команд `BACKUP` и `RESTORE` с S3-хранилищем см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/backup/overview#backuprestore-using-an-s3-disk).

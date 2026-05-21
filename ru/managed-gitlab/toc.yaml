@@ -82,7 +82,12 @@ items:
       - name: Порядок миграции из пользовательской инсталляции {{ GL }}
         href: concepts/migration.md
       - name: Правила ревью кода
-        href: concepts/approval-rules.md
+        expanded: true
+        items:
+          - name: Обзор
+            href: concepts/approval-rules.md
+          - name: Рекомендации и примеры
+            href: concepts/approval-rules-scenarios.md
       - name: Резервные копии
         href: concepts/backup.md
       - name: Безопасность в {{ GL }}

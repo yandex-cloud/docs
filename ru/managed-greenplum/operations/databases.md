@@ -110,7 +110,7 @@
 
 {% endlist %}  
   
-## Изменить настройки {{ GP }} на уровне базы данных {#greenplum-settings}
+## Изменить настройки СУБД на уровне базы данных {#greenplum-settings}
 
 Настройки, заданные на уровне базы данных с помощью SQL-запросов, переопределяют настройки, заданные [на уровне кластера](../concepts/settings-list.md).
 
@@ -169,3 +169,5 @@
   {% endnote %}
 
 {% endlist %}
+
+{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

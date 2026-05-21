@@ -27,6 +27,10 @@ description: Управление доступом партнера в {{ market
 
 {% include [license-manager.saasSubscriptionSupervisor](../../_roles/license-manager/saasSubscriptionSupervisor.md) %}
 
+#### marketplace.productInstances.saasSupervisor {#marketplace-productInstances-saasSupervisor}
+
+{% include [marketplace.productInstances.saasSupervisor](../../_roles/marketplace/productInstances/saasSupervisor.md) %}
+
 #### marketplace.product.creator {#marketplace-product-creator}
 
 {% include [marketplace.product.creator](../../_roles/marketplace/product/creator.md) %}

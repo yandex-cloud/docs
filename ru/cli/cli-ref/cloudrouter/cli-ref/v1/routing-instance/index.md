@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloudrouter/cli-ref/v1/routing-instance/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloudrouter/cli-ref/v1/routing-instance/
 editable: false
 ---
 

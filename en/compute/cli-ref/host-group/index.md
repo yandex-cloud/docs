@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/host-group/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/host-group/
 editable: false
 ---
 

@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/cdn/cli-ref/origin-group/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cdn/cli-ref/origin-group/
 editable: false
 ---
 

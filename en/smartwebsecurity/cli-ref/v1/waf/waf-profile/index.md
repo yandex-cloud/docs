@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartwebsecurity/cli-ref/v1/waf/waf-profile/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartwebsecurity/cli-ref/v1/waf/waf-profile/
 editable: false
 ---
 

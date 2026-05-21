@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/backup/cli-ref/v0/policy/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/backup/cli-ref/v0/policy/
 editable: false
 ---
 

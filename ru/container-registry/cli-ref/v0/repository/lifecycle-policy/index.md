@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/v0/repository/lifecycle-policy/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/v0/repository/lifecycle-policy/
 editable: false
 ---
 

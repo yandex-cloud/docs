@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-ytsaurus/cli-ref/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-ytsaurus/cli-ref/
 editable: false
 ---
 

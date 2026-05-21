@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/v0/eventrouter/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/v0/eventrouter/
 editable: false
 ---
 

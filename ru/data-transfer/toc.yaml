@@ -17,6 +17,10 @@ items:
             href: operations/endpoint/index.md
           - name: Миграция эндпоинтов в другую зону доступности
             href: operations/endpoint/migration-to-an-availability-zone.md
+          - name: Apache Iceberg®
+            items:
+              - name: Приемник
+                href: operations/endpoint/target/iceberg.md
           - name: Apache Kafka®
             items:
               - name: Источник

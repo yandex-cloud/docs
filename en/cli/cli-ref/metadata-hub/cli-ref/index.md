@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/metadata-hub/cli-ref/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/metadata-hub/cli-ref/
 editable: false
 ---
 

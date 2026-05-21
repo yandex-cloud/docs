@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/v0/mqtt/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/v0/mqtt/
 editable: false
 ---
 

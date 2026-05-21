@@ -61,7 +61,7 @@ Use the feedback form in the [support center]({{ link-console-support }}).
 
 
 
-#### How do I contact support? {qa-support-channels}
+#### How do I contact support? {#qa-support-channels}
 
 
 
