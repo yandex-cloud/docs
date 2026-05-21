@@ -27,9 +27,15 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=details %}
 
-- По облакам {#clouds}
+- По рабочим пространствам {#instances}
 
-  Детализацию можно посмотреть по одному или нескольким облакам. Выбранные облака выделяются отметкой напротив названия. По умолчанию отмечены все привязанные облака. Чтобы посмотреть детализацию только по некоторым из них, в списке **{{ ui-key.yacloud_billing.billing.accounts.column_cloud }}** снимите отметки с тех облаков, данные по которым не нужно отображать. Чтобы исключить из детализации потребление по сервисам {{ datalens-full-name }}, {{ tracker-full-name }} или {{ ml-platform-name }}, снимите отметку с пункта **Потребление вне облака** в самом низу списка облаков. Для получения детализации для указанных облаков по специфичным продуктам и меткам, нажмите **{{ ui-key.yacloud_billing.billing.account.detail.filter_label_all-filters }}** и укажите продукты и метки для включения в отчет.
+  Детализацию можно посмотреть по одному или нескольким облакам, [рабочим пространствам](../../organization/concepts/organization.md#service-management) и дополнительным соглашениям (например, по корректировкам и [резервируемому потреблению](../concepts/cvos.md)).
+  
+  По умолчанию отображается информация по всем облакам, рабочим пространствам и дополнительным соглашениям, привязанным к платежному аккаунту. Для просмотра детализации только по некоторым из них, в списке **{{ ui-key.yacloud_billing_account.billing-account-detail.value_empty_service_instances }}** выберите нужные облака, сервисы и дополнительные соглашения.
+  
+  Привязанные рабочие пространства отображаются в сервисе [**{{ billing-name }}**]({{ link-console-billing }}) на странице ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}** в блоке **{{ ui-key.yacloud_billing.billing.account.dashboard-resources.title_section-billable }}**.
+
+  Чтобы получить детализацию для выбранных облаков, рабочих пространств и дополнительных соглашений по определенным продуктам или меткам, нажмите **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-products-all }}** или **{{ ui-key.yacloud_billing_account.billing-account-detail.filter_label-labels-all }}**, укажите необходимые значения и нажмите **{{ ui-key.yacloud_billing.billing.account.overview.button_bind-card-apply }}**.
 
   {% include [usage-details-change-period](../../billing/_includes/usage-details-change-period.md) %}
 
@@ -39,7 +45,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% endnote %}
 
-- По каталогам {#folders}
+- По каталогам облака {#folders}
 
   Детализацию можно посмотреть по одному или нескольким каталогам. Выбранные каталоги выделяются отметкой напротив названия. По умолчанию отмечены все каталоги выбранного облака. Чтобы посмотреть детализацию только по некоторым из них, в списке **{{ ui-key.yacloud_billing.billing.account.detail.value_folders }}** снимите отметки с тех каталогов, данные по которым не нужно отображать. Для получения детализации для указанных каталогов по специфичным продуктам и меткам, нажмите **{{ ui-key.yacloud_billing.billing.account.detail.filter_label_all-filters }}** и укажите продукты и метки для включения в отчет.
 

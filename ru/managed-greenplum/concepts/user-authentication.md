@@ -50,5 +50,3 @@ description: Из статьи вы узнаете про аутентифика
 * `reject` — запрещает подключение пользователя.
 
 Подробнее о настройках см. в [документации {{ PG }}]({{ pg-docs }}/auth-pg-hba-conf.html).
-
-{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

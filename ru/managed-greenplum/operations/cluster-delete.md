@@ -1,9 +1,9 @@
 ---
-title: Как удалить кластер в {{ mgp-full-name }}
-description: Из статьи вы узнаете, как удалить кластер в {{ mgp-name }}.
+title: Как удалить кластер {{ mgp-full-name }}
+description: Из статьи вы узнаете, как удалить кластер {{ mgp-name }}.
 ---
 
-# Удаление кластера {{ GP }}
+# Удаление кластера {{ mgp-name }}
 
 ## Перед удалением кластера {#before-you-delete}
 
@@ -90,5 +90,3 @@ description: Из статьи вы узнаете, как удалить кла
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/delete.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
-
-{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

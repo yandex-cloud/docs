@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/loadtesting/cli-ref/test-config/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/loadtesting/cli-ref/test-config/
 editable: false
 ---
 

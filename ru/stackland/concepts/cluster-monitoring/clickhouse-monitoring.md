@@ -82,8 +82,8 @@
 **Рекомендации**: Проверьте подключение к {{ ZK }}, свободное место на диске и сетевое соединение между репликами.
 
 **Ссылки**:
-* [Восстановление после сбоев](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/replication/#recovery-after-failures)
-* [Восстановление после потери данных](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/replication/#recovery-after-complete-data-loss)
+* [Восстановление после сбоев]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication#recovery-after-failures)
+* [Восстановление после потери данных]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication#recovery-after-complete-data-loss)
 
 ### 6. DNS and Distributed Connection Errors
 
@@ -98,7 +98,7 @@
 **Единица измерения**: количество событий в минуту
 
 **Ссылки**:
-* [Управление распределенными таблицами](https://clickhouse.com/docs/en/sql-reference/statements/system#managing-distributed-tables)
+* [Управление распределенными таблицами]({{ ch.docs }}{{ lang }}/sql-reference/statements/system#managing-distributed-tables)
 * [DNSError на GitHub](https://github.com/clickhouse/clickhouse/search?q=DNSError)
 
 ### 7. Replication and {{ ZK }} Exceptions
@@ -116,8 +116,8 @@
 **Единица измерения**: количество событий в минуту
 
 **Ссылки**:
-* [Рекомендуемые настройки {{ ZK }}](https://clickhouse.com/docs/en/operations/tips#zookeeper)
-* [system.zookeeper](https://clickhouse.com/docs/en/operations/system-tables/zookeeper)
+* [Рекомендуемые настройки {{ ZK }}]({{ ch.docs }}{{ lang }}/operations/tips#zookeeper)
+* [system.zookeeper]({{ ch.docs }}{{ lang }}/operations/system-tables/zookeeper)
 
 ### 8. Delayed/Rejected/Pending Inserts
 
@@ -140,8 +140,8 @@
 **Рекомендации**: Проверьте параметры `parts_to_delay_insert` и `parts_to_throw_insert` в таблице `system.merge_tree_settings`.
 
 **Ссылки**:
-* [system.parts_log](https://clickhouse.com/docs/en/operations/system-tables/part_log)
-* [system.merge_tree_settings](https://clickhouse.com/docs/en/operations/system-tables/merge_tree_settings)
+* [system.parts_log]({{ ch.docs }}{{ lang }}/operations/system-tables/part_log)
+* [system.merge_tree_settings]({{ ch.docs }}{{ lang }}/operations/system-tables/merge_tree_settings)
 
 ### 9. Queries (running)
 
@@ -152,8 +152,8 @@
 **Единица измерения**: количество
 
 **Ссылки**:
-* [max_concurrent_queries](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#max_concurrent_queries)
-* [max_execution_time](https://clickhouse.com/docs/en/operations/settings/query-complexity#max-execution-time)
+* [max_concurrent_queries]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings#max_concurrent_queries)
+* [max_execution_time]({{ ch.docs }}{{ lang }}/operations/settings/query-complexity#max-execution-time)
 
 ### 10. Select Queries (started per sec)
 
@@ -172,7 +172,7 @@
 **Единица измерения**: байты
 
 **Ссылки**:
-* [max_memory_usage](https://clickhouse.com/docs/en/operations/settings/query-complexity#settings_max_memory_usage)
+* [max_memory_usage]({{ ch.docs }}{{ lang }}/operations/settings/query-complexity#settings_max_memory_usage)
 
 ### 12. Insert Queries (running)
 
@@ -218,7 +218,7 @@
 
 
 **Ссылки**:
-* [Как работает репликация](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/replication)
+* [Как работает репликация]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication)
 
 ### 16. Max Replica Delay
 
@@ -233,9 +233,9 @@
 
 
 **Ссылки**:
-* [Архитектура репликации](https://clickhouse.com/docs/en/development/architecture#replication)
-* [ReplicatedMergeTree](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/replication)
-* [max_replica_delay_for_distributed_queries](https://clickhouse.com/docs/en/operations/settings/settings#settings-max_replica_delay_for_distributed_queries)
+* [Архитектура репликации]({{ ch.docs }}{{ lang }}/development/architecture#replication)
+* [ReplicatedMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication)
+* [max_replica_delay_for_distributed_queries]({{ ch.docs }}{{ lang }}/operations/settings/settings#settings-max_replica_delay_for_distributed_queries)
 
 ### 17. Zookeeper Transactions
 
@@ -248,7 +248,7 @@
 
 
 **Ссылки**:
-* [Архитектура репликации](https://clickhouse.com/docs/en/development/architecture#replication)
+* [Архитектура репликации]({{ ch.docs }}{{ lang }}/development/architecture#replication)
 
 ### 18. Merges
 
@@ -261,8 +261,8 @@
 
 
 **Ссылки**:
-* [START/STOP Merges](https://clickhouse.com/docs/en/sql-reference/statements/system#stop-merges)
-* [MergeTree Engine](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree)
+* [START/STOP Merges]({{ ch.docs }}{{ lang }}/sql-reference/statements/system#stop-merges)
+* [MergeTree Engine]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree)
 
 ### 19. Merged Rows
 
@@ -293,7 +293,7 @@
 **Единица измерения**: количество
 
 **Ссылки**:
-* [system.parts](https://clickhouse.com/docs/en/operations/system-tables/parts)
+* [system.parts]({{ ch.docs }}{{ lang }}/operations/system-tables/parts)
 * [parts_to_delay_insert](https://github.com/clickhouse/clickhouse/search?q=parts_to_delay_insert)
 
 ### 22. Detached parts
@@ -313,7 +313,7 @@
 * `ignored` — игнорируемые части.
 
 **Ссылки**:
-* [system.detached_parts](https://clickhouse.com/docs/en/operations/system-tables/detached_parts/)
+* [system.detached_parts]({{ ch.docs }}{{ lang }}/operations/system-tables/detached_parts)
 
 ### 23. Max Part count for Partition
 
@@ -326,9 +326,9 @@
 
 
 **Ссылки**:
-* [Custom Partitioning Key](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/custom-partitioning-key/)
-* [system.parts](https://clickhouse.com/docs/en/operations/system-tables/parts)
-* [system.part_log](https://clickhouse.com/docs/en/operations/system-tables/part-log)
+* [Custom Partitioning Key]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/custom-partitioning-key)
+* [system.parts]({{ ch.docs }}{{ lang }}/operations/system-tables/parts)
+* [system.part_log]({{ ch.docs }}{{ lang }}/operations/system-tables/part_log)
 
 ### 24. clickhouse-server Process Memory
 
@@ -365,7 +365,7 @@
 
 
 **Ссылки**:
-* [Выбор первичного ключа](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree#selecting-the-primary-key)
+* [Выбор первичного ключа]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#selecting-the-primary-key)
 
 ### 26. Dictionary Memory
 
@@ -378,8 +378,8 @@
 
 
 **Ссылки**:
-* [system.dictionaries](https://clickhouse.com/docs/en/operations/system-tables/dictionaries)
-* [CREATE DICTIONARY](https://clickhouse.com/docs/en/sql-reference/statements/create/dictionary)
+* [system.dictionaries]({{ ch.docs }}{{ lang }}/operations/system-tables/dictionaries)
+* [CREATE DICTIONARY]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary)
 
 ### 27. Disk Space Free
 
@@ -392,8 +392,8 @@
 
 
 **Ссылки**:
-* [system.disks](https://clickhouse.com/docs/en/operations/system-tables/disks/)
-* [Multiple Disk Volumes](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-multiple-volumes)
+* [system.disks]({{ ch.docs }}{{ lang }}/operations/system-tables/disks)
+* [Multiple Disk Volumes]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-multiple-volumes)
 
 ### 28. Table Stats
 
@@ -423,7 +423,7 @@
 
 
 **Ссылки**:
-* [system.parts](https://clickhouse.com/docs/en/operations/system-tables/parts)
+* [system.parts]({{ ch.docs }}{{ lang }}/operations/system-tables/parts)
 
 ### 30. Background Tasks
 
@@ -439,10 +439,10 @@
 
 
 **Ссылки**:
-* [FETCH PARTITION](https://clickhouse.com/docs/en/sql-reference/statements/alter/partition#fetch-partitionpart)
-* [Mutations](https://clickhouse.com/docs/en/sql-reference/statements/alter#mutations)
-* [Data TTL](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-ttl)
-* [MOVE PARTITION](https://clickhouse.com/docs/en/sql-reference/statements/alter/partition#move-partitionpart)
+* [FETCH PARTITION]({{ ch.docs }}{{ lang }}/sql-reference/statements/alter/partition#fetch-partitionpart)
+* [Mutations]({{ ch.docs }}{{ lang }}/sql-reference/statements/alter#mutations)
+* [Data TTL]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-ttl)
+* [MOVE PARTITION]({{ ch.docs }}{{ lang }}/sql-reference/statements/alter/partition#move-partitionpart)
 
 ### 31. Mutations
 
@@ -457,9 +457,9 @@
 
 
 **Ссылки**:
-* [Mutations](https://clickhouse.com/docs/en/sql-reference/statements/alter#mutations)
-* [system.mutations](https://clickhouse.com/docs/en/operations/system-tables/mutations)
-* [KILL MUTATION](https://clickhouse.com/docs/en/sql-reference/statements/kill#kill-mutation)
+* [Mutations]({{ ch.docs }}{{ lang }}/sql-reference/statements/alter#mutations)
+* [system.mutations]({{ ch.docs }}{{ lang }}/operations/system-tables/mutations)
+* [KILL MUTATION]({{ ch.docs }}{{ lang }}/sql-reference/statements/kill#kill-mutation)
 
 ### 32. Marks Cache Hit Rate
 
@@ -472,8 +472,8 @@
 
 
 **Ссылки**:
-* [mark_cache_size](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings/#server-mark-cache-size)
-* [MergeTree architecture](https://clickhouse.com/docs/en/development/architecture/#merge-tree)
+* [mark_cache_size]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings#server-mark-cache-size)
+* [MergeTree architecture]({{ ch.docs }}{{ lang }}/development/architecture#merge-tree)
 
 ### 33. CPU Time per second
 
@@ -563,11 +563,11 @@
 
 
 **Ссылки**:
-* [max_connections](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings#max-connections)
-* [max_distributed_connections](https://clickhouse.com/docs/en/operations/settings/settings#max-distributed-connections)
-* [MySQL Protocol](https://clickhouse.com/docs/en/interfaces/mysql/)
-* [HTTP Protocol](https://clickhouse.com/docs/en/interfaces/http/)
-* [Native Protocol](https://clickhouse.com/docs/en/interfaces/tcp/)
+* [max_connections]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings#max-connections)
+* [max_distributed_connections]({{ ch.docs }}{{ lang }}/operations/settings/settings#max-distributed-connections)
+* [MySQL Protocol]({{ ch.docs }}{{ lang }}/interfaces/mysql)
+* [HTTP Protocol]({{ ch.docs }}{{ lang }}/interfaces/http)
+* [Native Protocol]({{ ch.docs }}{{ lang }}/interfaces/tcp)
 
 ## Рекомендации по мониторингу
 
@@ -609,7 +609,7 @@
 
 ## Дополнительные ресурсы
 
-* [Официальная документация {{ CH }}](https://clickhouse.com/docs/);
+* [Официальная документация {{ CH }}]({{ ch.docs }}{{ lang }});
 * [{{ CH }} Operator на GitHub](https://github.com/Altinity/clickhouse-operator);
-* [System Tables Reference](https://clickhouse.com/docs/en/operations/system-tables/);
-* [Server Configuration Parameters](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings).
+* [System Tables Reference]({{ ch.docs }}{{ lang }}/operations/system-tables);
+* [Server Configuration Parameters]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings).

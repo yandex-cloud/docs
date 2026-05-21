@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-redis/cli-ref/user/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-redis/cli-ref/user/
 editable: false
 ---
 

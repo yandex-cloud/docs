@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/backup/cli-ref/vm/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/backup/cli-ref/vm/
 editable: false
 ---
 

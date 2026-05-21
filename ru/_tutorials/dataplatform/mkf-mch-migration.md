@@ -1,7 +1,7 @@
 # Поставка данных из очереди {{ KF }} в {{ CH }} с помощью {{ data-transfer-full-name }}
 
 
-В кластер {{ mch-name }} можно в реальном времени поставлять данные из топиков {{ KF }}. Эти данные будут автоматически вставлены в таблицы {{ CH }} на [движке `Kafka`]({{ ch.docs }}/engines/table-engines/integrations/kafka/).
+В кластер {{ mch-name }} можно в реальном времени поставлять данные из топиков {{ KF }}. Эти данные будут автоматически вставлены в таблицы {{ CH }} на [движке `Kafka`]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/kafka).
 
 Чтобы настроить поставку данных из {{ mkf-name }} в {{ mch-name }}:
 
@@ -108,9 +108,9 @@
 
         Убедитесь, что можете с ее помощью [подключиться к кластерам {{ mkf-name }} через SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
-    * [clickhouse-client]({{ ch.docs }}/interfaces/cli/) — для подключения к базе данных в кластере {{ mch-name }}.
+    * [clickhouse-client]({{ ch.docs }}{{ lang }}/interfaces/cli) — для подключения к базе данных в кластере {{ mch-name }}.
 
-        1. Подключите [DEB-репозиторий]({{ ch.docs }}/getting-started/install/#install-from-deb-packages) {{ CH }}:
+        1. Подключите [DEB-репозиторий]({{ ch.docs }}{{ lang }}/install#install-from-deb-packages) {{ CH }}:
 
             ```bash
             sudo apt update && sudo apt install --yes apt-transport-https ca-certificates dirmngr && \
@@ -155,7 +155,7 @@
 }
 ```
 
-Кластер {{ mch-name }} будет использовать [формат данных JSONEachRow]({{ ch.docs }}/interfaces/formats/#jsoneachrow) при вставке в таблицы на движке `Kafka`. Этот формат преобразует строки из сообщения {{ KF }} в нужные значения столбцов.
+Кластер {{ mch-name }} будет использовать [формат данных JSONEachRow]({{ ch.docs }}{{ lang }}/interfaces/formats#jsoneachrow) при вставке в таблицы на движке `Kafka`. Этот формат преобразует строки из сообщения {{ KF }} в нужные значения столбцов.
 
 1. Создайте файл `sample.json` с тестовыми данными:
 

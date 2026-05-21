@@ -32,3 +32,23 @@ description: Управление доступом пользователя в {
 #### license-manager.subscriptionAgent {#license-manager-subscriptionAgent}
 
 {% include [license-manager.subscriptionAgent](../../_roles/license-manager/subscriptionAgent.md) %}
+
+#### marketplace.productInstances.auditor {#marketplace-productInstances-auditor}
+
+{% include [marketplace.productInstances.auditor](../../_roles/marketplace/productInstances/auditor.md) %}
+
+#### marketplace.productInstances.viewer {#marketplace-productInstances-viewer}
+
+{% include [marketplace.productInstances.viewer](../../_roles/marketplace/productInstances/viewer.md) %}
+
+#### marketplace.productInstances.user {#marketplace-productInstances-user}
+
+{% include [marketplace.productInstances.user](../../_roles/marketplace/productInstances/user.md) %}
+
+#### marketplace.productInstances.editor {#marketplace-productInstances-editor}
+
+{% include [marketplace.productInstances.editor](../../_roles/marketplace/productInstances/editor.md) %}
+
+#### marketplace.productInstances.admin {#marketplace-productInstances-admin}
+
+{% include [marketplace.productInstances.admin](../../_roles/marketplace/productInstances/admin.md) %}

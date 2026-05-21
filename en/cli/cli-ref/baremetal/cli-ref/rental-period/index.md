@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/rental-period/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/rental-period/
 editable: false
 ---
 

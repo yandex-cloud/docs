@@ -43,12 +43,12 @@ keywords:
 
 ### Группы безопасности для работы с {{ mgp-full-name }} {#security-groups-for-greenplum}
 
-Для подключения к кластеру {{ GP }} коннектор {{ TR }} использует протокол GPFDIST:
+Для подключения к кластеру {{ mgp-name }} коннектор использует протокол GPFDIST:
 
-* Координаторы и воркеры {{ TR }} выполняют запросы к мастеру {{ GP }} через TCP-порт {{ port-mgp }}.
-* Сегменты {{ GP }} передают данные на воркеры {{ TR }} через TCP-порт GPFDIST из диапазона 30078–30085.
+* Координаторы и воркеры {{ TR }} выполняют запросы к мастеру {{ mgp-name }} через TCP-порт {{ port-mgp }}.
+* Сегменты {{ mgp-name }} передают данные на воркеры {{ TR }} через TCP-порт GPFDIST из диапазона 30078–30085.
 
-Данные, передающиеся по протоколу GPFDIST между кластерами {{ GP }} и {{ TR }}, не шифруются. Чтобы обеспечить безопасное подключение, настройте группы безопасности [на стороне {{ mgp-name }}](#configuring-security-groups-greenplum) и (опционально) [на стороне {{ mtr-name }}](#configuring-security-groups-trino).
+Данные, передающиеся по протоколу GPFDIST между кластерами {{ mgp-name }} и {{ TR }}, не шифруются. Чтобы обеспечить безопасное подключение, настройте группы безопасности [на стороне {{ mgp-name }}](#configuring-security-groups-greenplum) и (опционально) [на стороне {{ mtr-name }}](#configuring-security-groups-trino).
 
 #### Настройка на стороне {{ mgp-name }} {#configuring-security-groups-greenplum}
 
@@ -56,7 +56,7 @@ keywords:
 
 - Входящий трафик {#incoming}
 
-    * Правило для трафика внутри кластера {{ GP }}:
+    * Правило для трафика внутри кластера {{ mgp-name }}:
 
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
@@ -72,7 +72,7 @@ keywords:
 
 - Исходящий трафик {#outgoing}
 
-    * Правило для трафика внутри кластера {{ GP }}:
+    * Правило для трафика внутри кластера {{ mgp-name }}:
 
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-any }}`.
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` (`Any`).
@@ -90,27 +90,27 @@ keywords:
 
 #### Настройка на стороне {{ mtr-name }} {#configuring-security-groups-trino}
 
-Правила групп безопасности на стороне {{ TR }} настраиваются зеркально правилам на стороне {{ GP }}. Настройка правил для кластера {{ TR }} является опциональной, но позволяет дополнительно обезопасить кластер.
+Правила групп безопасности на стороне {{ TR }} настраиваются зеркально правилам на стороне {{ mgp-name }}. Настройка правил для кластера {{ TR }} является опциональной, но позволяет дополнительно обезопасить кластер.
 
 {% list tabs group=traffic %}
 
 - Входящий трафик {#incoming}
 
-    Правило для приема данных от сегментов {{ GP }}:
+    Правило для приема данных от сегментов {{ mgp-name }}:
 
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `30078-30085`.
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — укажите группу безопасности кластера {{ GP }}.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — укажите группу безопасности кластера {{ mgp-name }}.
 
 - Исходящий трафик {#outgoing}
 
-    Правило для подключения к мастеру {{ GP }}:
+    Правило для подключения к мастеру {{ mgp-name }}:
 
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}** — `{{ port-mgp }}`.
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}** — `{{ ui-key.yacloud.common.label_tcp }}`.
     * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** — `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — укажите группу безопасности кластера {{ GP }}.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}** — укажите группу безопасности кластера {{ mgp-name }}.
 
 {% endlist %}
 

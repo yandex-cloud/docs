@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/ydb/cli-ref/v0/resource-preset/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/ydb/cli-ref/v0/resource-preset/
 editable: false
 ---
 

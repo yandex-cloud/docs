@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/gateway/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/gateway/
 editable: false
 ---
 

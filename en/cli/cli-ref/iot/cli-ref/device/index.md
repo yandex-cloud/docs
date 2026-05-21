@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/device/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/device/
 editable: false
 ---
 

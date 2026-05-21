@@ -37,7 +37,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. Создайте [кластер {{ CH }}](../../../managed-clickhouse/operations/cluster-create.md) в облаке.
 
-   1. В кластере добавьте пользователя БД `datalens` с параметром [readonly = 2]({{ ch.docs }}/operations/settings/permissions-for-queries/#settings_readonly).
+   1. В кластере добавьте пользователя БД `datalens` с параметром [readonly = 2]({{ ch.docs }}{{ lang }}/operations/settings/permissions-for-queries#settings_readonly).
 
       {% note info %}
 

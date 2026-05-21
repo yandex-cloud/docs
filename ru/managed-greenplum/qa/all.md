@@ -21,7 +21,7 @@ description: На странице представлены вопросы и о
 
 {% include [update-minitoc](../../_qa/managed-greenplum/minitoc/update.md) %}
 
-### Кластеры и хосты {{ GP }} {#toc-cluster-hosts}
+### Кластеры и хосты {{ mgp-name }} {#toc-cluster-hosts}
 
 {% include [cluster-hosts-minitoc](../../_qa/managed-greenplum/minitoc/cluster-hosts.md) %}
 
@@ -49,7 +49,7 @@ description: На странице представлены вопросы и о
 
 {% include [update](../../_qa/managed-greenplum/update.md) %}
 
-## Кластеры и хосты {{ GP }} {#cluster-hosts}
+## Кластеры и хосты {{ mgp-name }} {#cluster-hosts}
 
 {% include [cluster-hosts](../../_qa/managed-greenplum/cluster-hosts.md) %}
 
@@ -62,3 +62,5 @@ description: На странице представлены вопросы и о
 {% include [monitoring](../../_qa/managed-greenplum/monitoring.md) %}
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
+
+{% include [cloudberry-trademark](../../_includes/mdb/mgp/trademark-cloudberry.md) %}

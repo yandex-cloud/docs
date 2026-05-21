@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/ssh/certificate/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/ssh/certificate/
 editable: false
 ---
 

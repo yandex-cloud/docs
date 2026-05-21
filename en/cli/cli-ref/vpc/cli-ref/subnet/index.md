@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/subnet/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/subnet/
 editable: false
 ---
 

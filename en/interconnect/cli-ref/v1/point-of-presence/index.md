@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/v1/point-of-presence/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/v1/point-of-presence/
 editable: false
 ---
 

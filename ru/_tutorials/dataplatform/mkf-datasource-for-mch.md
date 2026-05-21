@@ -1,6 +1,6 @@
 
 
-В кластер {{ mch-name }} можно в реальном времени поставлять данные из топиков {{ KF }}. Эти данные будут автоматически вставлены в таблицы {{ CH }} на [движке `Kafka`]({{ ch.docs }}/engines/table-engines/integrations/kafka/).
+В кластер {{ mch-name }} можно в реальном времени поставлять данные из топиков {{ KF }}. Эти данные будут автоматически вставлены в таблицы {{ CH }} на [движке `Kafka`]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/kafka).
 
 Чтобы настроить поставку данных из {{ mkf-name }} в {{ mch-name }}:
 
@@ -13,7 +13,7 @@
 
 {% note warning %}
 
-В руководстве используется однохостовый кластер {{ CH }}. Если в вашем кластере больше одного хоста {{ CH }}, в SQL-запросах, представленных ниже, используйте [распределенный запрос]({{ ch.docs }}/sql-reference/statements/create/table) с подстановкой имени кластера: `CREATE ... ON CLUSTER '{cluster}'`. Также в запросах, где указан табличный движок `MergeTree`, используйте вместо него `ReplicatedMergeTree`.
+В руководстве используется однохостовый кластер {{ CH }}. Если в вашем кластере больше одного хоста {{ CH }}, в SQL-запросах, представленных ниже, используйте [распределенный запрос]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/table) с подстановкой имени кластера: `CREATE ... ON CLUSTER '{cluster}'`. Также в запросах, где указан табличный движок `MergeTree`, используйте вместо него `ReplicatedMergeTree`.
 
 {% endnote %}
 
@@ -119,9 +119,9 @@
 
         Убедитесь, что можете с ее помощью [подключиться к кластерам {{ mkf-name }} через SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
-    - [clickhouse-client]({{ ch.docs }}/interfaces/cli/) — для подключения к базе данных в кластере {{ mch-name }}.
+    - [clickhouse-client]({{ ch.docs }}{{ lang }}/interfaces/cli) — для подключения к базе данных в кластере {{ mch-name }}.
 
-        1. Подключите [DEB-репозиторий]({{ ch.docs }}/getting-started/install/#install-from-deb-packages) {{ CH }}:
+        1. Подключите [DEB-репозиторий]({{ ch.docs }}{{ lang }}/install#install-from-deb-packages) {{ CH }}:
 
             ```bash
             sudo apt update && sudo apt install --yes apt-transport-https ca-certificates dirmngr && \
@@ -192,7 +192,7 @@
 
    {% endlist %}
 
-* Если кластеров {{ KF }} несколько, создайте нужное количество [именованных коллекций]({{ ch.docs }}/operations/named-collections) с данными для аутентификации каждого топика {{ mkf-name }}:
+* Если кластеров {{ KF }} несколько, создайте нужное количество [именованных коллекций]({{ ch.docs }}{{ lang }}/operations/named-collections) с данными для аутентификации каждого топика {{ mkf-name }}:
 
    1. [Подключитесь](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) к базе данных `db1` кластера {{ mch-name }} с помощью `clickhouse-client`.
 
@@ -218,7 +218,7 @@
 {"device_id":"iv9a94th6rzt********","datetime":"2020-06-05 17:27:00","latitude":"55.70329032","longitude":"37.65472196","altitude":"427.5","speed":"0","battery_voltage":"23.5","cabin_temperature":"17","fuel_level":null}
 ```
 
-Кластер {{ mch-name }} будет использовать при вставке в таблицы на движке `Kafka` [формат данных JSONEachRow]({{ ch.docs }}/interfaces/formats/#jsoneachrow), который преобразует строки из сообщения {{ KF }} в нужные значения столбцов.
+Кластер {{ mch-name }} будет использовать при вставке в таблицы на движке `Kafka` [формат данных JSONEachRow]({{ ch.docs }}{{ lang }}/interfaces/formats#jsoneachrow), который преобразует строки из сообщения {{ KF }} в нужные значения столбцов.
 
 Для каждого из топиков {{ KF }} создайте в кластере {{ mch-name }} отдельную таблицу, куда будут заноситься поступающие данные:
 
@@ -270,7 +270,7 @@
 
 Созданные таблицы будут автоматически наполняться сообщениями, считываемыми из топиков {{ mkf-name }}. При чтении данных {{ mch-name }} использует [указанные ранее настройки](#configure-mch-for-kf) для [пользователей с ролью `ACCESS_ROLE_CONSUMER`](#before-you-begin).
 
-Подробнее о создании таблиц на движке `Kafka` см. в [документации {{ CH }}]({{ ch.docs }}/engines/table-engines/integrations/kafka/).
+Подробнее о создании таблиц на движке `Kafka` см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/kafka).
 
 ## Отправьте тестовые данные в топики {{ mkf-name }} {#send-sample-data-to-kf}
 
@@ -377,7 +377,7 @@
 
 Запрос вернет таблицу с данными, отправленными в соответствующий топик {{ mkf-name }}.
 
-Подробнее о работе с данными, поставляемыми из {{ KF }}, см. в [документации {{ CH }}]({{ ch.docs }}/engines/table-engines/integrations/kafka/).
+Подробнее о работе с данными, поставляемыми из {{ KF }}, см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/kafka).
 
 ## Удалите созданные ресурсы {#clear-out}
 

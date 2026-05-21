@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/v0/bind-file/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/v0/bind-file/
 editable: false
 ---
 

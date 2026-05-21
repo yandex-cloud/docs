@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/ydb/cli-ref/v0/database/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/ydb/cli-ref/v0/database/
 editable: false
 ---
 

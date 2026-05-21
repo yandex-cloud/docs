@@ -7,6 +7,26 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.9.0 (21.05.26) {#v-1-9-0}
+
+#### {{ dns-name }} {#v-1-9-0-dns-name}
+
+* Добавлена группа команд `yc dns inbound-endpoint` для управления inbound endpoint:
+  * `yc dns inbound-endpoint get`;
+  * `yc dns inbound-endpoint list`;
+  * `yc dns inbound-endpoint create`;
+  * `yc dns inbound-endpoint update`;
+  * `yc dns inbound-endpoint delete`;
+  * `yc dns inbound-endpoint add-labels`;
+  * `yc dns inbound-endpoint remove-labels`;
+  * `yc dns inbound-endpoint list-access-bindings`;
+  * `yc dns inbound-endpoint set-access-bindings`;
+  * `yc dns inbound-endpoint add-access-binding`;
+  * `yc dns inbound-endpoint remove-access-binding`;
+  * `yc dns inbound-endpoint list-operations`.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.8.1 (20.05.26) {#v-1-8-1}
 
 #### {{ sws-name }} {#v-1-8-1-sws-name}
@@ -39,8 +59,6 @@ description: На странице представлены релизы CLI, а
 * Прекращена поддержка устаревших версий {{ PG }} (13, 13-1c):
   * `yc managed-postgresql cluster update`;
   * `yc managed-postgresql cluster create`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.8.0 (18.05.26) {#v-1-8-0}
 
@@ -1943,7 +1961,7 @@ yc managed-clickhouse cluster add-zookeeper --host type=<host_type>
 Исправлено сообщение об ошибке, которое появлялось после успешного окончания операции перезапуска кластера OpenSearch или смены мастера.
 
 ##### {{ mpg-name }}
-Добавлены команды для управления пользователями в ресурсных группах в {{ GP }}:
+Добавлены команды для управления пользователями в ресурсных группах {{ GP }}:
   * `yc managed-greenplum user create`;
   * `yc managed-greenplum user get`;
   * `yc managed-greenplum user list`;

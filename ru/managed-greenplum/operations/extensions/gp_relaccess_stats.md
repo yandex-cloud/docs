@@ -17,7 +17,7 @@ description: Как использовать расширение gp_relaccess_s
 
 Подробнее о расширении см. в [документации gp_relaccess_stats](https://github.com/open-gpdb/gp_relaccess_stats).
 
-## Установить расширение gp_relaccess_stats в кластер {{ GP }} {#extension-install}
+## Установить расширение gp_relaccess_stats в кластер {{ mgp-name }} {#extension-install}
 
 1. [Подключитесь](../connect/index.md) к базе данных от имени владельца или пользователя, имеющего в базе данных разрешение `CREATE`, и выполните команду:
 
@@ -64,5 +64,3 @@ description: Как использовать расширение gp_relaccess_s
     ```sql
     SELECT * FROM relaccess_stats;
     ```
-
-{% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}

@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/marketplace/cli-ref/v0/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/marketplace/cli-ref/v0/
 editable: false
 ---
 

@@ -12,7 +12,7 @@ description: Следуя данной инструкции, вы сможете
 * `encode_uri(text)` — кодирование URI;
 * `decode_uri(text)` — декодирование URI.
 
-## Установить расширение gp_url_tools в кластер {{ GP }} {#gp-url-tools-install}
+## Установить расширение gp_url_tools в кластер {{ mgp-name }} {#gp-url-tools-install}
 
 1. [Подключитесь](../connect/index.md) к базе данных от имени владельца или пользователя, имеющего в базе данных разрешение `CREATE`, и выполните команду:
 
@@ -77,5 +77,3 @@ description: Следуя данной инструкции, вы сможете
     ```sql
     SELECT name, site, contact FROM companies;
     ```
-
-{% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}

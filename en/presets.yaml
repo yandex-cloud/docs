@@ -82,6 +82,7 @@ default:
   captcha-full-name: Yandex SmartCaptcha
   captcha-mobile-site: https://smartcaptcha.cloud.yandex.ru/webview
   captcha-name: SmartCaptcha
+  CB: Apache Cloudberry™
   cdn-full-name: Yandex Cloud CDN
   cdn-name: Cloud CDN
   cdn-short-name: Cloud CDN
@@ -3699,6 +3700,7 @@ default:
         label_credit-monetaryGrantCredit: Grant
         label_credit-volumeIncentiveCredit: Volume incentive credit
         value_empty_clouds: All clouds and folders
+        value_empty_service_instances: All workspaces
       cloud-billing-account:
         label_card-add: Add card
       create-account:
@@ -4391,6 +4393,7 @@ default:
           oauth_field_redirect_uri: Redirect URI
           oauth_field_token_endpoint: Token endpoint
           oauth_field_user_info_endpoint: Userinfo endpoint
+          oauth_idp_section_title: Identity provider (IdP) configuration
           oauth_service_section_title: Service provider (SP) configuration
           saml_field_issuer: Issuer / IdP EntityID
           saml_field_login: Login URL
@@ -9469,6 +9472,40 @@ default:
                         title: Greenplum cluster segments
                       subnet_id:
                         title: Subnet ID
+            iceberg:
+              console:
+                form:
+                  iceberg:
+                    IcebergCleanupPolicy:
+                      ICEBERG_CLEANUP_POLICY_DISABLED:
+                        title: DISABLED
+                      ICEBERG_CLEANUP_POLICY_DROP:
+                        title: DROP
+                    IcebergManualConnectionSettings:
+                      access_key_id:
+                        title: Access Key ID
+                      bucket:
+                        title: Bucket
+                      endpoint:
+                        title: Endpoint
+                      region:
+                        title: Region
+                      secret_access_key:
+                        title: Secret Access Key
+                    IcebergObjectStorageConnectionSettings:
+                      bucket:
+                        title: Bucket
+                      service_account_id:
+                        title: Service account
+                    IcebergTarget:
+                      cleanup_policy:
+                        title: Cleanup policy
+                      mdb_cluster_id:
+                        title: Apache Hive™ Metastore cluster
+                      prefix:
+                        title: Path prefix
+                      security_group_ids:
+                        title: Security groups
             kafka:
               console:
                 form:

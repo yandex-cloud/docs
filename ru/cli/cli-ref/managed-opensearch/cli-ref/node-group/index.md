@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-opensearch/cli-ref/node-group/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-opensearch/cli-ref/node-group/
 editable: false
 ---
 

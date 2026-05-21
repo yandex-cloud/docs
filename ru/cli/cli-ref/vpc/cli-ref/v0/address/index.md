@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/v0/address/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/v0/address/
 editable: false
 ---
 

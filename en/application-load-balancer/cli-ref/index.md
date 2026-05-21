@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/
 editable: false
 ---
 

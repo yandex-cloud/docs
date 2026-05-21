@@ -1,11 +1,14 @@
----
-title: Чтение логов кластера {{ mgp-full-name }} через SQL
-description: Как получить доступ к логам Greenplum через SQL с помощью представления mdb_toolkit.gp_log
+title: "Чтение логов кластера {{ mgp-full-name }} через SQL"
+description: "Как получить доступ к логам СУБД в кластере {{ mgp-full-name }} через SQL с помощью представления mdb_toolkit.gp_log"
+
 keywords:
   - greenplum logs sql
   - Greenplum external table logs
+  - cloudberry logs sql
+  - Cloudberry external table logs
   - mdb_toolkit gp_log
   - просмотр логов Greenplum SQL
+  - просмотр логов Cloudberry SQL
 ---
 
 # Чтение логов кластера через SQL
@@ -14,7 +17,7 @@ keywords:
 
 {% note info %}
 
-Функция доступна для кластеров на базе {{ GP }} версии 6.29 и выше, а также Apache Cloudberry™.
+Функция доступна для кластеров на базе {{ GP }} версии 6.29 и выше, а также {{ CB }}.
 
 {% endnote %}
 
@@ -173,3 +176,6 @@ LIMIT 10;
 - [{#T}](cluster-logs.md)
 - [{#T}](mgp-to-cloud-logging.md)
 
+{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}
+
+{% include [cloudberry-trademark](../../_includes/mdb/mgp/trademark-cloudberry.md) %}

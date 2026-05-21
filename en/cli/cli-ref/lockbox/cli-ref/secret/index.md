@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/lockbox/cli-ref/secret/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/lockbox/cli-ref/secret/
 editable: false
 ---
 

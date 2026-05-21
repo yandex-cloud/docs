@@ -1,6 +1,6 @@
 # Подключение внешних словарей в {{ mch-name }}
 
-Вы можете подключать к кластеру [внешние словари](../concepts/dictionaries.md#external-dicts) и отключать их. Подробнее о словарях читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/).
+Вы можете подключать к кластеру [внешние словари](../concepts/dictionaries.md#external-dicts) и отключать их. Подробнее о словарях читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary).
 
 {{ mch-name }} поддерживает несколько типов источников словарей:
 
@@ -100,7 +100,7 @@
 - SQL {#sql}
 
     1. [Подключитесь](connect/clients.md) к нужной базе данных кластера {{ mch-name }} с помощью `clickhouse-client`.
-    1. Выполните [запрос]({{ ch.docs }}/sql-reference/statements/show/#show-dictionaries) `SHOW DICTIONARIES`.
+    1. Выполните [запрос]({{ ch.docs }}{{ lang }}/sql-reference/statements/show#show-dictionaries) `SHOW DICTIONARIES`.
 
 {% endlist %}
 
@@ -353,7 +353,7 @@
     {% endnote %}
 
     1. [Подключитесь](connect/clients.md) к нужной базе данных кластера {{ mch-name }} с помощью `clickhouse-client`.
-    1. Выполните [DDL-запрос]({{ ch.docs }}/sql-reference/statements/create/dictionary/):
+    1. Выполните [DDL-запрос]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary):
 
         ```sql
         CREATE DICTIONARY <имя_словаря>(
@@ -380,7 +380,7 @@
           * `complex_key_hashed`,
           * `complex_key_cache`.
 
-    Подробное описание настроек читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/#dbms).
+    Подробное описание настроек читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary).
 
 {% endlist %}
 
@@ -692,7 +692,7 @@
 - SQL {#sql}
 
     1. [Подключитесь](connect/clients.md) к нужной базе данных кластера {{ mch-name }} с помощью `clickhouse-client`.
-    1. Выполните [запрос]({{ ch.docs }}/sql-reference/statements/drop/#drop-dictionary) `DROP DICTIONARY <имя_БД>.<имя_словаря>`.
+    1. Выполните [запрос]({{ ch.docs }}{{ lang }}/sql-reference/statements/drop#drop-dictionary) `DROP DICTIONARY <имя_БД>.<имя_словаря>`.
 
 {% endlist %}
 
@@ -769,16 +769,16 @@
     {% cut "{{ ui-key.yacloud.mdb.cluster.dictionaries.label_source-http }} " %}
 
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_http-url }}** — URL HTTP(s)-источника.
-    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_http-format }}** — [формат]({{ ch.docs }}/interfaces/formats/#formats) файла для HTTP(s)-источника. Подробнее о форматах читайте в [документации {{ CH }}]({{ ch.docs }}/interfaces/formats/#formats).
+    * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_http-format }}** — [формат]({{ ch.docs }}{{ lang }}/interfaces/formats#formats) файла для HTTP(s)-источника. Подробнее о форматах читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/interfaces/formats#formats).
 
     {% endcut %}
 
 
-    Подробнее об источниках словарей и параметрах их подключения читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-source/).
+    Подробнее об источниках словарей и параметрах их подключения читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/sources).
 
-  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_layout-type }}** — способ размещения словаря в памяти. Поддерживаются способы: `flat`, `hashed`, `complex_key_hashed`, `range_hashed`, `cache`, `complex_key_cache`, `sparse_hashed`, `complex_key_sparse_hashed`, `complex_key_range_hashed`, `direct`, `complex_key_direct`, `ip_trie`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
-  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_size-in-cells }}** — количество ячеек кеша для способов `cache`, `complex_key_cache`. Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
-  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_allow-read-expired-keys }}** — определяет, разрешать ли считывать ключи с истекшим сроком действия. Используется для способов `cache` и `complex_key_cache`. Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries#cache).
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_layout-type }}** — способ размещения словаря в памяти. Поддерживаются способы: `flat`, `hashed`, `complex_key_hashed`, `range_hashed`, `cache`, `complex_key_cache`, `sparse_hashed`, `complex_key_sparse_hashed`, `complex_key_range_hashed`, `direct`, `complex_key_direct`, `ip_trie`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts).
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_size-in-cells }}** — количество ячеек кеша для способов `cache`, `complex_key_cache`. Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts/cache).
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_allow-read-expired-keys }}** — определяет, разрешать ли считывать ключи с истекшим сроком действия. Используется для способов `cache` и `complex_key_cache`. Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts/cache).
   * Настройки очереди обновлений, в которой создаются задачи обновления кеша, если ключи не найдены в словаре. Настройки используются для способов `cache` и `complex_key_cache`.
 
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_max-update-queue-size }}** — максимальное количество задач обновления в очереди. Значение по умолчанию — `100000`.
@@ -786,27 +786,27 @@
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_query-wait-timeout-milliseconds }}** — максимальное время ожидания в миллисекундах для завершения задачи обновления. Значение по умолчанию — `60000` (1 минута).
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_max-threads-for-updates }}** — максимальное количество потоков для обновления словаря кеша. Значение по умолчанию — `4`.
 
-    Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries#cache).
+    Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts/cache).
 
   * Настройки размера плоских массивов. Используются для способа `flat`.
 
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_initial-array-size }}** — начальный размер ключа словаря. Значение по умолчанию — `1024`.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_max-array-size }}** — максимальный размер ключа словаря. Определяет размер памяти, который использует словарь, так как этот размер пропорционален значению самого большого ключа. Значение по умолчанию — `500000`.
 
-    Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries#flat).
+    Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts/flat).
 
   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_access-to-key-from-attributes }}** — позволяет получать имя составного ключа с помощью функции `dictGetString`. Используется для способа `ip_trie`. Включение этой настройки увеличивает нагрузку на оперативную память.
-  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-id }}** — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `flat`, `hashed`, `range_hashed`, `cache`, `sparse_hashed`, `direct`. Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
+  * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-id }}** — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `flat`, `hashed`, `range_hashed`, `cache`, `sparse_hashed`, `direct`. Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/attributes#numeric-key).
   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_structure-attributes }}** — описание составного ключа словаря. Составной ключ может состоять из одного или более элементов. Используется для способов `complex_key_*` и `ip_trie`:
 
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-name }}** — имя столбца.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-type }}** — тип данных столбца.
     * (Опционально) **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-nullValue }}** — значение по умолчанию для пустого элемента. При загрузке словаря все пустые элементы будут заменены на это значение. Нельзя указать значение `NULL`.
-    * (Опционально) **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-expression }}** — [выражение]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions), которое {{ CH }} выполняет со значением столбца.
+    * (Опционально) **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-expression }}** — [выражение]({{ ch.docs }}{{ lang }}/sql-reference/syntax#syntax-expressions), которое {{ CH }} выполняет со значением столбца.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-hierarchical }}** — признак поддержки иерархии.
     * **{{ ui-key.yacloud.mdb.cluster.dictionaries.column_attributes-injective }}** — признак инъективности отображения `id` → `attribute`.
 
-    Подробнее о параметрах составного ключа читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#composite-key).
+    Подробнее о параметрах составного ключа читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/attributes#composite-key).
 
   * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_layout-type }}** — настройки частоты обновления словаря:
 
@@ -819,7 +819,7 @@
         * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_range-lifetime-min }}** — минимальное значение периода между обновлениями словаря в секундах.
         * **{{ ui-key.yacloud.mdb.cluster.dictionaries.field_range-lifetime-max }}** — максимальное значение периода между обновлениями словаря в секундах.
 
-    Подробнее об обновлении словарей читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-lifetime/).
+    Подробнее об обновлении словарей читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/lifetime).
 
 - CLI {#cli}
 
@@ -875,7 +875,7 @@
     {% cut "`--http-source` – источник HTTP(s)" %}
 
     * `url` — URL HTTP(s)-источника.
-    * `format` — формат файла для HTTP(s)-источника. Подробнее о форматах читайте в [документации {{ CH }}]({{ ch.docs }}/interfaces/formats/#formats).
+    * `format` — формат файла для HTTP(s)-источника. Подробнее о форматах читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/interfaces/formats#formats).
 
     {% endcut %}
 
@@ -898,9 +898,9 @@
 
   * `--postgresql-invalidate-query` — запрос для проверки изменений словаря {{ PG }}. {{ CH }} будет обновлять словарь только при изменении результата выполнения этого запроса.
 
-  * `--layout-type` — способ размещения словаря в памяти. Поддерживаются способы: `flat`, `hashed`, `complex_key_hashed`, `range_hashed`, `cache`, `complex_key_cache`, `sparse_hashed`, `complex_key_sparse_hashed`, `complex_key_range_hashed`, `direct`, `complex_key_direct`, `ip_trie`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
-  * `--layout-size-in-cells` — количество ячеек кеша для способов `cache`, `complex_key_cache`. Подробнее о кеше читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
-  * `--layout-allow-read-expired-keys` — определяет, разрешать ли считывать ключи с истекшим сроком действия. Используется для способов `cache` и `complex_key_cache`. Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries#cache).
+  * `--layout-type` — способ размещения словаря в памяти. Поддерживаются способы: `flat`, `hashed`, `complex_key_hashed`, `range_hashed`, `cache`, `complex_key_cache`, `sparse_hashed`, `complex_key_sparse_hashed`, `complex_key_range_hashed`, `direct`, `complex_key_direct`, `ip_trie`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts).
+  * `--layout-size-in-cells` — количество ячеек кеша для способов `cache`, `complex_key_cache`. Подробнее о кеше читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts/cache).
+  * `--layout-allow-read-expired-keys` — определяет, разрешать ли считывать ключи с истекшим сроком действия. Используется для способов `cache` и `complex_key_cache`. Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts/cache).
   * Настройки очереди обновлений, в которой создаются задачи обновления кеша, если ключи не найдены в словаре. Настройки используются для способов `cache` и `complex_key_cache`.
 
     * `--layout-max-update-queue-size` — максимальное количество задач обновления в очереди. Значение по умолчанию — `100000`.
@@ -908,27 +908,27 @@
     * `--layout-query-wait-timeout-milliseconds` — максимальное время ожидания в миллисекундах для завершения задачи обновления. Значение по умолчанию — `60000` (1 минута).
     * `--layout-max-threads-for-updates` — максимальное количество потоков для обновления словаря кеша. Значение по умолчанию — `4`.
 
-    Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries#cache).
+    Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts/cache).
 
   * Настройки размера плоских массивов. Используются для способа `flat`.
 
     * `--layout-initial-array-size` — начальный размер ключа словаря. Значение по умолчанию — `1024`.
     * `--layout-max-array-size` — максимальный размер ключа словаря. Определяет размер памяти, который использует словарь, так как этот размер пропорционален значению самого большого ключа. Значение по умолчанию — `500000`.
 
-    Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries#flat).
+    Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts/flat).
 
   * `--layout-access-to-key-from-attributes` — позволяет получать имя составного ключа с помощью функции `dictGetString`. Используется для способа `ip_trie`. Включение этой настройки увеличивает нагрузку на оперативную память.
-  * `--structure-id` — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `flat`, `hashed`, `range_hashed`, `cache`, `sparse_hashed`, `direct`. Подробнее о ключах читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
+  * `--structure-id` — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `flat`, `hashed`, `range_hashed`, `cache`, `sparse_hashed`, `direct`. Подробнее о ключах читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/attributes#numeric-key).
   * `--structure-key` — описание составного ключа словаря. Составной ключ может состоять из одного или более элементов. Используется для способов `complex_key_*` и `ip_trie`:
 
     * `name` — имя столбца.
     * `type` — тип данных столбца.
     * `null-value` — значение по умолчанию для пустого элемента. При загрузке словаря все пустые элементы будут заменены на это значение. Нельзя указать значение `NULL`.
-    * `expression` — [выражение]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions), которое {{ CH }} выполняет со значением столбца.
+    * `expression` — [выражение]({{ ch.docs }}{{ lang }}/sql-reference/syntax#syntax-expressions), которое {{ CH }} выполняет со значением столбца.
     * `hierarchical` — признак поддержки иерархии.
     * `injective` — признак инъективности отображения `id` → `attribute`.
 
-    Подробнее о параметрах составного ключа читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#composite-key).
+    Подробнее о параметрах составного ключа читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/attributes#composite-key).
 
     {% note warning %}
 
@@ -941,7 +941,7 @@
     * `name` — имя столбца.
     * `type` — тип данных столбца.
     * `null-value` — значение по умолчанию для пустого элемента. При загрузке словаря все пустые элементы будут заменены на это значение. Нельзя указать значение `NULL`.
-    * `expression` — [выражение]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions), которое {{ CH }} выполняет со значением столбца.
+    * `expression` — [выражение]({{ ch.docs }}{{ lang }}/sql-reference/syntax#syntax-expressions), которое {{ CH }} выполняет со значением столбца.
     * `hierarchical` — признак поддержки иерархии.
     * `injective` — признак инъективности отображения `id` → `attribute`.
 
@@ -1026,16 +1026,16 @@
       {% cut "`httpSource` – источник HTTP(s)" %}
 
       * `url` — URL HTTP(s)-источника.
-      * `format` — формат файла для HTTP(s)-источника. Подробнее о форматах читайте в [документации {{ CH }}]({{ ch.docs }}/interfaces/formats/#formats).
+      * `format` — формат файла для HTTP(s)-источника. Подробнее о форматах читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/interfaces/formats#formats).
       * `headers` – особые HTTP-заголовки запроса к источнику:
         * `name` – имя заголовка;
         * `value` — значение заголовка.
 
       {% endcut %}
 
-    * `layout.type` — способ размещения словаря в памяти. Поддерживаются способы: `FLAT`, `HASHED`, `COMPLEX_KEY_HASHED`, `RANGE_HASHED`, `CACHE`, `COMPLEX_KEY_CACHE`, `SPARSE_HASHED`, `COMPLEX_KEY_SPARSE_HASHED`, `COMPLEX_KEY_RANGE_HASHED`, `DIRECT`, `COMPLEX_KEY_DIRECT`, `IP_TRIE`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
-    * `layout.sizeInCells` — количество ячеек кеша для способов `CACHE`, `COMPLEX_KEY_CACHE`. Подробнее о кеше читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
-    * `layout.allowReadExpiredKeys` — определяет, разрешать ли считывать ключи с истекшим сроком действия. Используется для способов `CACHE` и `COMPLEX_KEY_CACHE`. Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries#cache).
+    * `layout.type` — способ размещения словаря в памяти. Поддерживаются способы: `FLAT`, `HASHED`, `COMPLEX_KEY_HASHED`, `RANGE_HASHED`, `CACHE`, `COMPLEX_KEY_CACHE`, `SPARSE_HASHED`, `COMPLEX_KEY_SPARSE_HASHED`, `COMPLEX_KEY_RANGE_HASHED`, `DIRECT`, `COMPLEX_KEY_DIRECT`, `IP_TRIE`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts).
+    * `layout.sizeInCells` — количество ячеек кеша для способов `CACHE`, `COMPLEX_KEY_CACHE`. Подробнее о кеше читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts/cache).
+    * `layout.allowReadExpiredKeys` — определяет, разрешать ли считывать ключи с истекшим сроком действия. Используется для способов `CACHE` и `COMPLEX_KEY_CACHE`. Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts/cache).
     * Настройки очереди обновлений, в которой создаются задачи обновления кеша, если ключи не найдены в словаре. Настройки используются для способов `CACHE` и `COMPLEX_KEY_CACHE`.
 
       * `layout.maxUpdateQueueSize` — максимальное количество задач обновления в очереди. Значение по умолчанию — `100000`.
@@ -1043,27 +1043,27 @@
       * `layout.queryWaitTimeoutMilliseconds` — максимальное время ожидания в миллисекундах для завершения задачи обновления. Значение по умолчанию — `60000` (1 минута).
       * `layout.maxThreadsForUpdates` — максимальное количество потоков для обновления словаря кеша. Значение по умолчанию — `4`.
 
-      Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries#cache).
+      Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts/cache).
 
     * Настройки размера плоских массивов. Используются для способа `FLAT`.
 
       * `layout.initialArraySize` — начальный размер ключа словаря. Значение по умолчанию — `1024`.
       * `layout.maxArraySize` — максимальный размер ключа словаря. Определяет размер памяти, который использует словарь, так как этот размер пропорционален значению самого большого ключа. Значение по умолчанию — `500000`.
 
-      Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries#flat).
+      Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts/flat).
 
     * `layout.accessToKeyFromAttributes` — позволяет получать имя составного ключа с помощью функции `dictGetString`. Используется для способа `IP_TRIE`. Включение этой настройки увеличивает нагрузку на оперативную память.
-    * `structure.id.name` — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `FLAT`, `HASHED`, `RANGE_HASHED`, `CACHE`, `SPARSE_HASHED`, `DIRECT`. Подробнее о ключах читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
+    * `structure.id.name` — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `FLAT`, `HASHED`, `RANGE_HASHED`, `CACHE`, `SPARSE_HASHED`, `DIRECT`. Подробнее о ключах читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/attributes#numeric-key).
     * `structure.key.attributes` — описание составного ключа словаря. Составной ключ может состоять из одного или более элементов. Используется для способов `COMPLEX_KEY_*` и `IP_TRIE`:
 
       * `name` — имя столбца.
       * `type` — тип данных столбца.
       * `nullValue` — значение по умолчанию для пустого элемента. При загрузке словаря все пустые элементы будут заменены на это значение. Нельзя указать значение `NULL`.
-      * `expression` — [выражение]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions), которое {{ CH }} выполняет со значением столбца.
+      * `expression` — [выражение]({{ ch.docs }}{{ lang }}/sql-reference/syntax#syntax-expressions), которое {{ CH }} выполняет со значением столбца.
       * `hierarchical` — признак поддержки иерархии.
       * `injective` — признак инъективности отображения `id` → `attribute`.
 
-      Подробнее о параметрах составного ключа читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#composite-key).
+      Подробнее о параметрах составного ключа читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/attributes#composite-key).
 
       {% include [structure](../../_includes/mdb/mch/note-ext-dict-structure.md) %}
 
@@ -1072,7 +1072,7 @@
       * `name` — имя столбца.
       * `type` — тип данных столбца.
       * `nullValue` — значение по умолчанию для пустого элемента. При загрузке словаря все пустые элементы будут заменены на это значение. Нельзя указать значение `NULL`.
-      * `expression` — [выражение]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions), которое {{ CH }} выполняет со значением столбца.
+      * `expression` — [выражение]({{ ch.docs }}{{ lang }}/sql-reference/syntax#syntax-expressions), которое {{ CH }} выполняет со значением столбца.
       * `hierarchical` — признак поддержки иерархии.
       * `injective` — признак инъективности отображения `id` → `attribute`.
 
@@ -1153,16 +1153,16 @@
       {% cut "`http_source` – источник HTTP(s)" %}
 
       * `url` — URL HTTP(s)-источника.
-      * `format` — формат файла для HTTP(s)-источника. Подробнее о форматах читайте в [документации {{ CH }}]({{ ch.docs }}/interfaces/formats/#formats).
+      * `format` — формат файла для HTTP(s)-источника. Подробнее о форматах читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/interfaces/formats#formats).
       * `headers` – особые HTTP-заголовки запроса к источнику:
         * `name` – имя заголовка;
         * `value` — значение заголовка.
 
       {% endcut %}
 
-    * `layout.type` — способ размещения словаря в памяти. Поддерживаются способы: `FLAT`, `HASHED`, `COMPLEX_KEY_HASHED`, `RANGE_HASHED`, `CACHE`, `COMPLEX_KEY_CACHE`, `SPARSE_HASHED`, `COMPLEX_KEY_SPARSE_HASHED`, `COMPLEX_KEY_RANGE_HASHED`, `DIRECT`, `COMPLEX_KEY_DIRECT`, `IP_TRIE`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/).
-    * `layout.size_in_cells` — количество ячеек кеша для способов `CACHE`, `COMPLEX_KEY_CACHE`. Подробнее о кеше читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-layout/#cache).
-    * `layout.allow_read_expired_keys` — определяет, разрешать ли считывать ключи с истекшим сроком действия. Используется для способов `CACHE` и `COMPLEX_KEY_CACHE`. Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries#cache).
+    * `layout.type` — способ размещения словаря в памяти. Поддерживаются способы: `FLAT`, `HASHED`, `COMPLEX_KEY_HASHED`, `RANGE_HASHED`, `CACHE`, `COMPLEX_KEY_CACHE`, `SPARSE_HASHED`, `COMPLEX_KEY_SPARSE_HASHED`, `COMPLEX_KEY_RANGE_HASHED`, `DIRECT`, `COMPLEX_KEY_DIRECT`, `IP_TRIE`. Подробнее о способах размещения словарей в памяти читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts).
+    * `layout.size_in_cells` — количество ячеек кеша для способов `CACHE`, `COMPLEX_KEY_CACHE`. Подробнее о кеше читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts/cache).
+    * `layout.allow_read_expired_keys` — определяет, разрешать ли считывать ключи с истекшим сроком действия. Используется для способов `CACHE` и `COMPLEX_KEY_CACHE`. Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts/cache).
     * Настройки очереди обновлений, в которой создаются задачи обновления кеша, если ключи не найдены в словаре. Настройки используются для способов `CACHE` и `COMPLEX_KEY_CACHE`.
 
       * `layout.max_update_queue_size` — максимальное количество задач обновления в очереди. Значение по умолчанию — `100000`.
@@ -1170,27 +1170,27 @@
       * `layout.query_wait_timeout_milliseconds` — максимальное время ожидания в миллисекундах для завершения задачи обновления. Значение по умолчанию — `60000` (1 минута).
       * `layout.max_threads_for_updates` — максимальное количество потоков для обновления словаря кеша. Значение по умолчанию — `4`.
 
-      Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries#cache).
+      Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts/cache).
 
     * Настройки размера плоских массивов. Используются для способа `FLAT`.
 
       * `layout.initial_array_size` — начальный размер ключа словаря. Значение по умолчанию — `1024`.
       * `layout.max_array_size` — максимальный размер ключа словаря. Определяет размер памяти, который использует словарь, так как этот размер пропорционален значению самого большого ключа. Значение по умолчанию — `500000`.
 
-      Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries#flat).
+      Подробнее читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/layouts/flat).
 
     * `layout.access_to_key_from_attributes` — позволяет получать имя составного ключа с помощью функции `dictGetString`. Используется для способа `IP_TRIE`. Включение этой настройки увеличивает нагрузку на оперативную память.
-    * `structure.id.name` — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `FLAT`, `HASHED`, `RANGE_HASHED`, `CACHE`, `SPARSE_HASHED`, `DIRECT`. Подробнее о ключах читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#ext_dict-numeric-key).
+    * `structure.id.name` — имя ключевого столбца словаря. Ключевой столбец должен иметь тип данных UInt64. Используется для способов `FLAT`, `HASHED`, `RANGE_HASHED`, `CACHE`, `SPARSE_HASHED`, `DIRECT`. Подробнее о ключах читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/attributes#numeric-key).
     * `structure.key.attributes` — описание составного ключа словаря. Составной ключ может состоять из одного или более элементов. Используется для способов `COMPLEX_KEY_*` и `IP_TRIE`:
 
       * `name` — имя столбца.
       * `type` — тип данных столбца.
       * `null_value` — значение по умолчанию для пустого элемента. При загрузке словаря все пустые элементы будут заменены на это значение. Нельзя указать значение `NULL`.
-      * `expression` — [выражение]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions), которое {{ CH }} выполняет со значением столбца.
+      * `expression` — [выражение]({{ ch.docs }}{{ lang }}/sql-reference/syntax#syntax-expressions), которое {{ CH }} выполняет со значением столбца.
       * `hierarchical` — признак поддержки иерархии.
       * `injective` — признак инъективности отображения `id` → `attribute`.
 
-      Подробнее о параметрах составного ключа читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/dictionaries/external-dictionaries/external-dicts-dict-structure/#composite-key).
+      Подробнее о параметрах составного ключа читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary/attributes#composite-key).
 
       {% include [structure](../../_includes/mdb/mch/note-ext-dict-structure.md) %}
 
@@ -1199,7 +1199,7 @@
       * `name` — имя столбца.
       * `type` — тип данных столбца.
       * `null_value` — значение по умолчанию для пустого элемента. При загрузке словаря все пустые элементы будут заменены на это значение. Нельзя указать значение `NULL`.
-      * `expression` — [выражение]({{ ch.docs }}/sql-reference/syntax/#syntax-expressions), которое {{ CH }} выполняет со значением столбца.
+      * `expression` — [выражение]({{ ch.docs }}{{ lang }}/sql-reference/syntax#syntax-expressions), которое {{ CH }} выполняет со значением столбца.
       * `hierarchical` — признак поддержки иерархии.
       * `injective` — признак инъективности отображения `id` → `attribute`.
 
@@ -1382,7 +1382,7 @@
 - SQL {#sql}
 
     1. [Подключитесь](connect/clients.md) к нужной базе данных кластера {{ mch-name }} с помощью `clickhouse-client`.
-    1. Выполните [DDL-запрос]({{ ch.docs }}/sql-reference/statements/create/dictionary/):
+    1. Выполните [DDL-запрос]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/dictionary):
 
         ```sql
         CREATE DICTIONARY mychdict(

@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/v0/function/runtime/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/v0/function/runtime/
 editable: false
 ---
 

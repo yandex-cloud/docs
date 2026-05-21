@@ -1,4 +1,4 @@
-# Просмотр логов кластера {{ GP }}
+# Просмотр логов кластера {{ mgp-name }}
 
 {{ mgp-name }} позволяет [получить фрагмент логов кластера](#get-log) за выбранный период и [просматривать логи в реальном времени](#get-log-stream).
 
@@ -16,7 +16,7 @@
     1. Укажите период времени, за который нужно отобразить логи: введите его вручную или выберите в календаре, нажав на поле ввода дат.
     1. Выберите тип сервиса, для которого требуется вывести логи:
 
-        * `GREENPLUM` — лог операций {{ GP }}.
+        * `GREENPLUM` — лог операций СУБД.
         * `GREENPLUM_POOLER` — лог операций менеджера подключений.
         * `GREENPLUM_PXF` — лог протокола [PXF](../concepts/external-tables.md).
     
@@ -56,7 +56,7 @@
         * {% include [logs output limit](../../_includes/cli/logs/limit.md) %}
         * {% include [logs output format](../../_includes/cli/logs/format.md) %}
         * `--service-type` — тип сервиса, для которого требуется вывести записи:
-            * `greenplum` — лог операций {{ GP }}.
+            * `greenplum` — лог операций СУБД.
             * `greenplum-pooler`— лог операций менеджера подключений.
             * `greenplum-pxf` — лог протокола [PXF](../concepts/external-tables.md).
         * `--columns` — список колонок для вывода информации:
@@ -102,7 +102,7 @@
 
         * `serviceType` — тип сервиса, для которого нужно запросить логи:
 
-            * `GREENPLUM` — операции {{ GP }};
+            * `GREENPLUM` — операции СУБД;
             * `GREENPLUM_POOLER` — операции [менеджера подключений](../concepts/pooling.md);
             * `GREENPLUM_PXF` — протокол [PXF](../concepts/external-tables.md).
 
@@ -163,7 +163,7 @@
 
         * `service_type` — тип сервиса, для которого нужно запросить логи:
 
-            * `GREENPLUM` — операции {{ GP }};
+            * `GREENPLUM` — операции СУБД;
             * `GREENPLUM_POOLER` — операции [менеджера подключений](../concepts/pooling.md);
             * `GREENPLUM_PXF` — протокол [PXF](../concepts/external-tables.md).
 
@@ -236,7 +236,7 @@
 
         * `serviceType` — тип сервиса, для которого нужно запросить логи:
 
-            * `GREENPLUM` — операции {{ GP }};
+            * `GREENPLUM` — операции СУБД;
             * `GREENPLUM_POOLER` — операции [менеджера подключений](../concepts/pooling.md);
             * `GREENPLUM_PXF` — протокол [PXF](../concepts/external-tables.md).
 
@@ -304,7 +304,7 @@
 
         * `service_type` — тип сервиса, для которого нужно запросить логи:
 
-            * `GREENPLUM` — операции {{ GP }};
+            * `GREENPLUM` — операции СУБД;
             * `GREENPLUM_POOLER` — операции [менеджера подключений](../concepts/pooling.md);
             * `GREENPLUM_PXF` — протокол [PXF](../concepts/external-tables.md).
 
@@ -338,5 +338,3 @@
     1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/streamLogs.md#yandex.cloud.mdb.greenplum.v1.StreamLogRecord).
 
 {% endlist %}
-
-{% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

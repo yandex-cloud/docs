@@ -18,11 +18,11 @@
 
 #### Как загружать данные в {{ CH }}? {#load-data}
 
-Используйте запрос `INSERT`, описанный в [документации {{ CH }}]({{ ch.docs }}/sql-reference/statements/insert-into/).
+Используйте запрос `INSERT`, описанный в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/insert-into).
 
 #### Как загрузить в {{ CH }} очень большое количество данных? {#loadalot}
 
-Используйте [CLI]({{ ch.docs }}/interfaces/cli/) для эффективного сжатия данных при передаче (рекомендуемая частота — не больше 1 команды `INSERT` в секунду).
+Используйте [CLI]({{ ch.docs }}{{ lang }}/interfaces/cli) для эффективного сжатия данных при передаче (рекомендуемая частота — не больше 1 команды `INSERT` в секунду).
 
 Перенос данных с физических носителей пока не поддерживается.
 
@@ -30,7 +30,7 @@
 
 Кластеры БД состоят минимум из 2 реплик, поэтому при потере одной ноды кластер продолжит работу.
 
-Данные могут потеряться только если вышла из строя нода с [нереплицируемой таблицей]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/).
+Данные могут потеряться только если вышла из строя нода с [нереплицируемой таблицей]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication).
 
 #### Можно ли развернуть кластер БД {{ CH }} в нескольких зонах доступности? {#multiple-az}
 
@@ -44,17 +44,17 @@
 
 Когда вы создаете кластер {{ CH }} из 2 и более хостов, {{ mch-short-name }} автоматически создает 3 хоста сервиса координации ({{ CK }} или {{ ZK }}, в зависимости от выбора пользователя) для управления репликацией и высокой доступностью. Эти хосты учитываются в расчете использованной [квоты ресурсов]({{ link-console-quotas }}) в облаке и в расчете стоимости кластера. По умолчанию хосты {{ CK }} или {{ ZK }} создаются с минимальным [классом хостов](../../managed-clickhouse/concepts/instance-types.md).
 
-Подробнее об использовании {{ ZK }} см. [документацию {{ CH }}]({{ ch.docs }}/engines/table-engines/mergetree-family/replication).
+Подробнее об использовании {{ ZK }} см. [документацию {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication).
 
 #### Как происходит удаление данных по TTL в {{ CH }}? {#how-ttl-data-processing-works}
 
-Удаление данных по [TTL]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#mergetree-table-ttl) выполняется не построчно, а либо целыми [кусками]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes) (data parts), либо при операциях слияния.
+Удаление данных по [TTL]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#mergetree-table-ttl) выполняется не построчно, а либо целыми [кусками]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-multiple-volumes) (data parts), либо при операциях слияния.
 
-Удаление целыми кусками работает эффективней и потребляет меньше ресурсов сервера, но для этого значение выражения TTL и [ключ партиционирования]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) для всех строк куска данных TTL должны совпадать или хотя бы быть одного порядка.
+Удаление целыми кусками работает эффективней и потребляет меньше ресурсов сервера, но для этого значение выражения TTL и [ключ партиционирования]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/custom-partitioning-key) для всех строк куска данных TTL должны совпадать или хотя бы быть одного порядка.
 
-Удаление при операциях слияния потребляет больше ресурсов и выполняется либо вместе с обычными фоновыми операциями слияния, либо во время внеплановых слияний. Периодичность операций слияния определяется значением параметра `merge_with_ttl_timeout`. Этот параметр задается при [создании]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-creating-a-table) таблицы и указывает минимальное время в секундах перед повторным слиянием для обработки данных с истекшим TTL. По умолчанию — 14400 секунд (4 часа).
+Удаление при операциях слияния потребляет больше ресурсов и выполняется либо вместе с обычными фоновыми операциями слияния, либо во время внеплановых слияний. Периодичность операций слияния определяется значением параметра `merge_with_ttl_timeout`. Этот параметр задается при [создании]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-creating-a-table) таблицы и указывает минимальное время в секундах перед повторным слиянием для обработки данных с истекшим TTL. По умолчанию — 14400 секунд (4 часа).
 
-Рекомендуется организовывать обработку данных по TTL так, чтобы старые данные всегда удалялись целыми кусками. Для этого при создании таблиц установите для настройки [ttl_only_drop_parts]({{ ch.docs }}/operations/settings/settings/#ttl_only_drop_parts) значение `true`.
+Рекомендуется организовывать обработку данных по TTL так, чтобы старые данные всегда удалялись целыми кусками. Для этого при создании таблиц установите для настройки [ttl_only_drop_parts]({{ ch.docs }}{{ lang }}/operations/settings/settings#ttl_only_drop_parts) значение `true`.
 
 #### Могу ли я использовать тип данных JSON для таблиц в {{ CH }}? {#how-to-use-json}
 
@@ -72,7 +72,7 @@ SET allow_experimental_object_type=1;
 
 {% endnote %}
 
-Подробную информацию см. в [документации {{ CH }}](https://clickhouse.com/docs/en/guides/developer/working-with-json/json-semi-structured/#json-object-type).
+Подробную информацию см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/data-types/newjson).
 
 #### Почему кластер работает медленно, хотя вычислительные ресурсы использованы не до предела? {#throttling}
 

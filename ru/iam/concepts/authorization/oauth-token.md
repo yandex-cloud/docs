@@ -6,6 +6,8 @@ description: Из статьи вы узнаете, что такое OAuth-то
 # OAuth-токен
 
 
+{% include [oauth-token-deprecated-soon](../../../_includes/oauth-token-deprecated-soon.md) %}
+
 OAuth-токен необходим для аутентификации в {{ yandex-cloud }} пользователя с аккаунтом на Яндексе: пользователь обменивает OAuth-токен на [{{ iam-short-name }}-токен](iam-token.md).
 
 Получить OAuth-токен для работы с {{ yandex-cloud }} можно с помощью [запроса]({{ link-cloud-oauth }}) к сервису Яндекс OAuth.

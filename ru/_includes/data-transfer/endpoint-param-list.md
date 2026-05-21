@@ -18,6 +18,7 @@
     * [{{ ydb-full-name }}](../../data-transfer/operations/endpoint/source/ydb.md)
     * [{{ ytsaurus-name }}](../../data-transfer/operations/endpoint/target/yt.md)
 * Приемники:
+    * [{{ IBRG }}](../../data-transfer/operations/endpoint/target/iceberg.md)
     * [{{ KF }}](../../data-transfer/operations/endpoint/target/kafka.md)
     * [{{ CH }}](../../data-transfer/operations/endpoint/target/clickhouse.md)
     * [{{ GP }}](../../data-transfer/operations/endpoint/target/greenplum.md)

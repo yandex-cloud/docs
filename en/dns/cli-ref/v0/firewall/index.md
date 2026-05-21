@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/v0/firewall/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/v0/firewall/
 editable: false
 ---
 

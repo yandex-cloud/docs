@@ -4,7 +4,7 @@
 
 Чтобы применить модель, подключите ее к кластеру и вызовите в SQL-запросе с помощью встроенной функции `catboostEvaluate()`. В результате выполнения такого запроса вы получите предсказания модели для каждой строки входных данных.
 
-Подробнее о функции `catboostEvaluate()` читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/functions/other-functions/#catboostevaluatepath_to_model-feature_1-feature_2--feature_n).
+Подробнее о функции `catboostEvaluate()` читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/functions/other-functions#catboostevaluatepath_to_model-feature_1-feature_2--feature_n).
 
 ## Перед подключением модели {#prereq}
 
