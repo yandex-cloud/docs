@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-trino/cli-ref/v0/catalog/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-trino/cli-ref/v0/catalog/
 editable: false
 ---
 

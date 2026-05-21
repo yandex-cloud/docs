@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/oauth-client/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/oauth-client/
 editable: false
 ---
 

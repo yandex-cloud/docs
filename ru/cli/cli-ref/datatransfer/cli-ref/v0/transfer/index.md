@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/datatransfer/cli-ref/v0/transfer/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/datatransfer/cli-ref/v0/transfer/
 editable: false
 ---
 

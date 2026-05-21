@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/resource-manager/cli-ref/v0/folder/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/resource-manager/cli-ref/v0/folder/
 editable: false
 ---
 

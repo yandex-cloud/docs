@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/access-policy-template/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/access-policy-template/
 editable: false
 ---
 

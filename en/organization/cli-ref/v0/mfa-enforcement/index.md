@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/v0/mfa-enforcement/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/v0/mfa-enforcement/
 editable: false
 ---
 

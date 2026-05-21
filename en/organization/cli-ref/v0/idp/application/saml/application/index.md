@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/v0/idp/application/saml/application/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/v0/idp/application/saml/application/
 editable: false
 ---
 

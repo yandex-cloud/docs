@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-opensearch/cli-ref/v0/extension/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-opensearch/cli-ref/v0/extension/
 editable: false
 ---
 

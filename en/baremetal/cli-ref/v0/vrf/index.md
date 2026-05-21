@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/v0/vrf/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/v0/vrf/
 editable: false
 ---
 

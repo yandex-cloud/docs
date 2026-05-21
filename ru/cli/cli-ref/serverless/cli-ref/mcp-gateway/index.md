@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/mcp-gateway/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/mcp-gateway/
 editable: false
 ---
 

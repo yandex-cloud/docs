@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/public-prefix-pool/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/public-prefix-pool/
 editable: false
 ---
 

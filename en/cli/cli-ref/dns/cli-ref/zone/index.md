@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/zone/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/zone/
 editable: false
 ---
 

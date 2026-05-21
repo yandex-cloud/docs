@@ -83,6 +83,7 @@ default:
   captcha-full-name: Yandex SmartCaptcha
   captcha-mobile-site: https://smartcaptcha.cloud.yandex.ru/webview
   captcha-name: SmartCaptcha
+  CB: Apache Cloudberry™
   cdn-full-name: Yandex Cloud CDN
   cdn-name: Cloud CDN
   cdn-short-name: Cloud CDN
@@ -92,7 +93,7 @@ default:
   CH: ClickHouse®
   ch-domain: clickhouse.com
   ch:
-    docs: https://clickhouse.com/docs/ru
+    docs: https://clickhouse.com/docs/
   cic-bgp-asn: 200350
   cic-pbc-subnet: 178.210.118.46/31
   cic-pbc-subnet-client: 178.210.118.46
@@ -3701,6 +3702,7 @@ default:
         label_credit-monetaryGrantCredit: Грант
         label_credit-volumeIncentiveCredit: Скидка за объём потребления
         value_empty_clouds: Все облака и каталоги
+        value_empty_service_instances: Все рабочие пространства
       cloud-billing-account:
         label_card-add: Добавить карту
       create-account:
@@ -4393,6 +4395,7 @@ default:
           oauth_field_redirect_uri: Redirect URI
           oauth_field_token_endpoint: Token endpoint
           oauth_field_user_info_endpoint: Userinfo endpoint
+          oauth_idp_section_title: Конфигурация поставщика удостоверений (IdP)
           oauth_service_section_title: Конфигурация поставщика услуг (SP)
           saml_field_issuer: Issuer / IdP EntityID
           saml_field_login: Login URL
@@ -9479,6 +9482,40 @@ default:
                         title: Сегменты кластера Greenplum
                       subnet_id:
                         title: Идентификатор подсети
+            iceberg:
+              console:
+                form:
+                  iceberg:
+                    IcebergCleanupPolicy:
+                      ICEBERG_CLEANUP_POLICY_DISABLED:
+                        title: Не очищать
+                      ICEBERG_CLEANUP_POLICY_DROP:
+                        title: DROP
+                    IcebergManualConnectionSettings:
+                      access_key_id:
+                        title: Идентификатор статического ключа
+                      bucket:
+                        title: Бакет
+                      endpoint:
+                        title: Эндпоинт
+                      region:
+                        title: Регион
+                      secret_access_key:
+                        title: Содержимое статического ключа
+                    IcebergObjectStorageConnectionSettings:
+                      bucket:
+                        title: Бакет
+                      service_account_id:
+                        title: Сервисный аккаунт
+                    IcebergTarget:
+                      cleanup_policy:
+                        title: Политика очистки
+                      mdb_cluster_id:
+                        title: Кластер Apache Hive™ Metastore
+                      prefix:
+                        title: Префикс пути
+                      security_group_ids:
+                        title: Группы безопасности
             kafka:
               console:
                 form:

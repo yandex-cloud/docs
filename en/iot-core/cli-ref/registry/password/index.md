@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/registry/password/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/registry/password/
 editable: false
 ---
 

@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/desktops/cli-ref/v0/group/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/desktops/cli-ref/v0/group/
 editable: false
 ---
 

@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/ydb/cli-ref/storage-type/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/ydb/cli-ref/storage-type/
 editable: false
 ---
 

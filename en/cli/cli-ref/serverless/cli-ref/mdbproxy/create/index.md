@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/mdbproxy/create/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/mdbproxy/create/
 editable: false
 ---
 

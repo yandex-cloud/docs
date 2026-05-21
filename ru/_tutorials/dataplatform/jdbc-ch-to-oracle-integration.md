@@ -1,7 +1,7 @@
-С помощью [{{ CH }} JDBC Bridge](https://clickhouse.com/docs/integrations/jdbc/jdbc-with-clickhouse) вы можете:
+С помощью [{{ CH }} JDBC Bridge]({{ ch.docs }}{{ lang }}/integrations/jdbc/jdbc-with-clickhouse) вы можете:
 
-* [Запрашивать данные](#jdbc-table-function) с помощью [функции JDBC Table Function](https://clickhouse.com/docs/sql-reference/table-functions/jdbc) из таблицы внешней базы данных Oracle.
-* [Создавать таблицы](#jdbc-table-engine) в {{ CH }} с помощью [JDBC Table Engine](https://clickhouse.com/docs/engines/table-engines/integrations/jdbc), ссылающиеся на таблицу внешней базы данных Oracle.
+* [Запрашивать данные](#jdbc-table-function) с помощью [функции JDBC Table Function]({{ ch.docs }}{{ lang }}/sql-reference/table-functions/jdbc) из таблицы внешней базы данных Oracle.
+* [Создавать таблицы](#jdbc-table-engine) в {{ CH }} с помощью [JDBC Table Engine]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/jdbc), ссылающиеся на таблицу внешней базы данных Oracle.
 
 ## Подготовьте облако к работе {#before-begin}
 

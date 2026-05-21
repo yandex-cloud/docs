@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/v0/target-group/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/v0/target-group/
 editable: false
 ---
 

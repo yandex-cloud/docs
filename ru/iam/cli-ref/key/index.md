@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/key/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/key/
 editable: false
 ---
 

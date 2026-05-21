@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/artifact/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/artifact/
 editable: false
 ---
 

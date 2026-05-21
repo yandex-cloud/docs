@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mongodb/cli-ref/v0/shards/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mongodb/cli-ref/v0/shards/
 editable: false
 ---
 

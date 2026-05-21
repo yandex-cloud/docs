@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/dataproc/cli-ref/v0/subcluster/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/dataproc/cli-ref/v0/subcluster/
 editable: false
 ---
 

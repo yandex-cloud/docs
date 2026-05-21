@@ -40,7 +40,7 @@
 
 Лимиты на максимальное количество объектов в кластере имеют 2 пороговых значения:
 
-* _Soft limit_ — при достижении этого значения в [системной таблице](https://clickhouse.com/docs/en/operations/system-tables/system_warnings) `system.warnings` появляется предупреждение о достижении лимита.
+* _Soft limit_ — при достижении этого значения в [системной таблице]({{ ch.docs }}{{ lang }}/operations/system-tables/system_warnings) `system.warnings` появляется предупреждение о достижении лимита.
 
 * _Hard limit_ — при достижении этого значения создание новых объектов данного типа завершается сообщением об ошибке.
 
@@ -58,5 +58,5 @@
 || Количество внешних словарей | 500 | 1 000 ||
 |#
 
-Все ограничения реализованы на основе [серверных настроек {{ CH }}](https://clickhouse.com/docs/operations/server-configuration-parameters/settings), изменить их нельзя.
+Все ограничения реализованы на основе [серверных настроек {{ CH }}]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings), изменить их нельзя.
 

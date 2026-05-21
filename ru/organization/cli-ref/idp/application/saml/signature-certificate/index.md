@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/idp/application/saml/signature-certificate/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/idp/application/saml/signature-certificate/
 editable: false
 ---
 

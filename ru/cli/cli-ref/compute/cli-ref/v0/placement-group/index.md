@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/v0/placement-group/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/v0/placement-group/
 editable: false
 ---
 

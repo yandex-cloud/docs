@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/disk-type/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/disk-type/
 editable: false
 ---
 

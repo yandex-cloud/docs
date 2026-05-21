@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-postgresql/cli-ref/v0/user/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-postgresql/cli-ref/v0/user/
 editable: false
 ---
 

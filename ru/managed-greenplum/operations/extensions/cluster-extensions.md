@@ -1,6 +1,6 @@
-# Управление расширениями {{ GP }}
+# Управление расширениями в {{ mgp-name}}
 
-{{ mgp-short-name }} поддерживает следующие расширения {{ GP }} и {{ PG }}:
+{{ mgp-name }} поддерживает следующие расширения {{ GP }} и {{ PG }}:
 
 #|
 || **Расширение** | **Версия** ||
@@ -26,10 +26,10 @@
 Содержит функции для определения степени подобия и расстояния между двумя произвольными строками.
 | 1.0 ||
 || [gp_array_agg]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-modules-gp_array_agg.html)
-Добавляет параллельную реализацию агрегатной функции `array_agg` для {{ GP }}.
+Добавляет параллельную реализацию агрегатной функции `array_agg`.
 | 1.0.0 ||
 || [gp_internal_tools]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-managing-monitor.html#creating-the-session_level_memory_consumption-view)
-Содержит различные внутренние утилиты для {{ GP }}.
+Содержит различные внутренние утилиты.
 | 1.0.0 ||
 || [gp_percentile_agg]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-modules-gp_percentile_agg.html)
 Добавляет агрегатную функцию для вычисления процентилей.
@@ -111,7 +111,7 @@
 | 1.0 ||
 || [{{ YZ }}](./yezzey.md). Расширение от {{ yandex-cloud }}
 
-Позволяет перемещать [таблицы AO и AOCO](../../concepts/tables.md) из хранилища кластера в холодное хранилище и наоборот. Чтобы использовать это расширение, включите [гибридное хранилище](../../concepts/hybrid-storage.md) в кластере {{ GP }}.
+Позволяет перемещать [таблицы AO и AOCO](../../concepts/tables.md) из хранилища кластера в холодное хранилище и наоборот. Чтобы использовать это расширение, включите [гибридное хранилище](../../concepts/hybrid-storage.md) в кластере {{ mgp-name }}.
 | 1.8 ||
 || [xml2]({{ pg.docs.org }}/current/xml2.html)
 Добавляет функции для выполнения запросов XPath и преобразований XSLT.

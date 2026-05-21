@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/configuration/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/configuration/
 editable: false
 ---
 

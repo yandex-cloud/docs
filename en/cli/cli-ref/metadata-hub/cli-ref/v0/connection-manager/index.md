@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/metadata-hub/cli-ref/v0/connection-manager/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/metadata-hub/cli-ref/v0/connection-manager/
 editable: false
 ---
 

@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/v0/refresh-token/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/v0/refresh-token/
 editable: false
 ---
 

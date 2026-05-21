@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/private-subnet/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/private-subnet/
 editable: false
 ---
 

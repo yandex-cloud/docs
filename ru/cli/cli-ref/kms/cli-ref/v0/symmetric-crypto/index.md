@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/kms/cli-ref/v0/symmetric-crypto/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/kms/cli-ref/v0/symmetric-crypto/
 editable: false
 ---
 

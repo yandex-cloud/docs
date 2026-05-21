@@ -63,9 +63,9 @@
 | `gp.seg_not_pref_role`<br/>`DGAUGE`, штуки | Количество сегментов, работающих не в предпочтительной роли. |
 | `gp.seg_not_pref_role_warn_limit`<br/>`DGAUGE`, штуки | Пороговое значение предупреждения для сегментов, не находящихся в предпочтительной роли. |
 | `gp.seg_not_synch`<br/>`DGAUGE`, штуки | Количество сегментов в несинхронизированном состоянии. |
-| `gp.log_events_warning_total`<br/>`DGAUGE`, штуки | Общее количество событий уровня `WARNING` в логах {{ GP }}. |
-| `gp.log_events_error_total`<br/>`DGAUGE`, штуки | Общее количество событий уровня `ERROR` в логах {{ GP }}. |
-| `gp.log_events_fatal_total`<br/>`DGAUGE`, штуки | Общее количество событий уровня `FATAL` в логах {{ GP }}. |
+| `gp.log_events_warning_total`<br/>`DGAUGE`, штуки | Общее количество событий уровня `WARNING` в логах СУБД. |
+| `gp.log_events_error_total`<br/>`DGAUGE`, штуки | Общее количество событий уровня `ERROR` в логах СУБД. |
+| `gp.log_events_fatal_total`<br/>`DGAUGE`, штуки | Общее количество событий уровня `FATAL` в логах СУБД. |
 
 ## Метрики компонента Odyssey (Pooler) {#managed-greenplum-odyssey-metrics}
 
@@ -78,7 +78,7 @@
 | `pooler.memory_limit_warn`<br/>`DGAUGE`, байты | Пороговое значение предупреждения о потреблении памяти пулером. |
 | `pooler.bytes_sent`<br/>`DGAUGE`, байт/с | Скорость отправки данных пулером клиентам. |
 | `pooler.bytes_received`<br/>`DGAUGE`, байт/с | Скорость получения данных пулером от клиентов. |
-| `pooler.used_servers`<br/>`DGAUGE`, штуки | Количество активных серверных соединений (пулер → {{ GP }}). |
+| `pooler.used_servers`<br/>`DGAUGE`, штуки | Количество активных серверных соединений (пулер → СУБД). |
 | `pooler.free_servers`<br/>`DGAUGE`, штуки | Количество свободных серверных соединений в пуле. |
 | `pooler.used_clients`<br/>`DGAUGE`, штуки | Количество активных клиентских соединений (клиент → пулер). |
 | `pooler.query_0.5`<br/>`DGAUGE`, миллисекунды | 50-й перцентиль длительности выполнения запросов через пулер. |

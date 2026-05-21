@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/kms/cli-ref/v0/asymmetric-encryption-crypto/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/kms/cli-ref/v0/asymmetric-encryption-crypto/
 editable: false
 ---
 

@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/workload-identity/oidc/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/workload-identity/oidc/
 editable: false
 ---
 

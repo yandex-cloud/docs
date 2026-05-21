@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-gitlab/cli-ref/instance/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-gitlab/cli-ref/instance/
 editable: false
 ---
 

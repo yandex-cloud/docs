@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/workload-identity/oidc/federation/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/workload-identity/oidc/federation/
 editable: false
 ---
 

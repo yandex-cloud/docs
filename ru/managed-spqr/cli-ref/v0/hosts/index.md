@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-sharded-postgresql/cli-ref/v0/hosts/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-sharded-postgresql/cli-ref/v0/hosts/
 editable: false
 ---
 

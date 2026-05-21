@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-greenplum/cli-ref/users/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-greenplum/cli-ref/users/
 editable: false
 ---
 

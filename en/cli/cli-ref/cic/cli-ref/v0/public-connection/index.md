@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/v0/public-connection/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/v0/public-connection/
 editable: false
 ---
 

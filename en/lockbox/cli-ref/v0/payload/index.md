@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/lockbox/cli-ref/v0/payload/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/lockbox/cli-ref/v0/payload/
 editable: false
 ---
 

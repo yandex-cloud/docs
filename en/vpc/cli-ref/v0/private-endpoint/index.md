@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/v0/private-endpoint/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/v0/private-endpoint/
 editable: false
 ---
 

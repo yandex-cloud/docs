@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kafka/cli-ref/connector/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kafka/cli-ref/connector/
 editable: false
 ---
 

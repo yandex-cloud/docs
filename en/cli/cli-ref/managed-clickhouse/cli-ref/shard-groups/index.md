@@ -1,5 +1,5 @@
 ---
-canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-clickhouse/cli-ref/shard-groups/index
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-clickhouse/cli-ref/shard-groups/
 editable: false
 ---
 
