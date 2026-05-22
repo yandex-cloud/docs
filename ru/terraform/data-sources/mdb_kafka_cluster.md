@@ -93,6 +93,7 @@ output "network_id" {
       - `socket_receive_buffer_bytes` (String). The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used.
       - `socket_send_buffer_bytes` (String). The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used.
       - `ssl_cipher_suites` (Set Of String). A list of cipher suites.
+      - `transactional_id_expiration_ms` (String). Timeout for transactional ids to expire in ms.
     - `resources` [Block]. Resources allocated to hosts of the Kafka subcluster.
       - `disk_size` (**Required**)(Number). Volume of the storage available to a Kafka host, in gigabytes.
       - `disk_type_id` (**Required**)(String). Type of the storage of Kafka hosts. For more information see [the official documentation](https://yandex.cloud/docs/managed-kafka/concepts/storage).

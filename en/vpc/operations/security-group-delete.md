@@ -17,8 +17,8 @@ To delete a [security group](../concepts/security-groups.md):
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), go to the folder where you need to delete a security group.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you need to delete a security group.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**. 
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the group you need to delete.
   1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
@@ -105,7 +105,7 @@ To delete a [security group](../concepts/security-groups.md):
      terraform validate
      ```
      
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
      
      ```
      Success! The configuration is valid.
@@ -116,10 +116,10 @@ To delete a [security group](../concepts/security-groups.md):
      ```
      terraform plan
      ```
+  
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
-
-  1. Apply the changes:
+  1. Apply the configuration changes:
 
      ```
      terraform apply
@@ -142,3 +142,4 @@ To delete a [security group](../concepts/security-groups.md):
   {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
 {% endlist %}
+

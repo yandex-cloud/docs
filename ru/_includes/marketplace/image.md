@@ -1,4 +1,4 @@
-Образы продуктов, размещаемых в Marketplace, должны соответствовать [требованиям](../../marketplace/operations/create-image.md#requirements).
+Образы продуктов, размещаемых в Marketplace, должны соответствовать [требованиям](../../marketplace/concepts/compute-product.md#requirements).
 
 Если у вас нет образа ВМ, создайте его:
 

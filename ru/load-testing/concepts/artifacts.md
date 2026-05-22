@@ -11,5 +11,5 @@
 
 Получить доступ к артефактам тестирования можно:
 
-* Зайдя на агент тестирования [с помощью SHH](../../compute/operations/vm-connect/ssh.md#vm-connect) в директорию `/var/lib/ulta/tests`.
+* Зайдя на агент тестирования [с помощью SSH](../../compute/operations/vm-connect/ssh.md#vm-connect) в директорию `/var/lib/ulta/tests`.
 * [Сохранив артефакты тестирования в Object Storage](../operations/save-artifacts.md).

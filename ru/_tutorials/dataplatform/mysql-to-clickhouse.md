@@ -5,6 +5,7 @@
 
 Чтобы перенести данные:
 
+1. [Подготовьте инфраструктуру](#prepare-infrastructure).
 1. [Подготовьте кластер-источник](#prepare-source).
 1. [Подготовьте и активируйте трансфер](#prepare-transfer).
 1. [Проверьте работоспособность трансфера](#verify-transfer).
@@ -13,7 +14,11 @@
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-## Необходимые платные ресурсы {#paid-resources}
+## Перед началом работы {#before-you-begin}
+
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+### Необходимые платные ресурсы {#paid-resources}
 
 * Кластер {{ mmy-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mmy-name }}](../../managed-mysql/pricing.md)).
 * Кластер {{ mch-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mch-name }}](../../managed-clickhouse/pricing.md)).
@@ -21,9 +26,7 @@
 * Каждый трансфер: использование вычислительных ресурсов и количество переданных строк данных (см. [тарифы {{ data-transfer-name }}](../../data-transfer/pricing.md)).
 
 
-## Перед началом работы {#before-you-begin}
-
-Подготовьте инфраструктуру:
+## Подготовьте инфраструктуру {#prepare-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -230,7 +233,7 @@
 
 ## Выполните выборку данных в {{ CH }} {#working-with-data-ch}
 
-На приемнике {{ CH }} с включенной [репликацией](../../managed-clickhouse/concepts/replication.md) для воссоздания таблиц используются движки [ReplicatedReplacingMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/) и [ReplacingMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replacingmergetree/). В каждую таблицу автоматически добавляются столбцы:
+На приемнике {{ CH }} с включенной [репликацией](../../managed-clickhouse/concepts/replication.md) для воссоздания таблиц используются движки [ReplicatedReplacingMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication) и [ReplacingMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replacingmergetree). В каждую таблицу автоматически добавляются столбцы:
 
 * `__data_transfer_commit_time` — время изменения строки на это значение, в формате `TIMESTAMP`;
 * `__data_transfer_delete_time` — время удаления строки в формате `TIMESTAMP`, если строка удалена в источнике. Если строка не удалялась, то устанавливается значение `0`.

@@ -74,10 +74,7 @@ default:
   billing-name: Yandex Cloud Billing
   billing-oferta-url: https://yandex.ru/legal/cloud_oferta/?lang=en
   bitrix24-name: Bitrix24
-  brand-voice-cc: Brand Voice Call Center
-  brand-voice-core: Brand Voice Self Service
   brand-voice-name: SpeechKit Brand Voice
-  brand-voice-premium: Brand Voice Premium
   ca-address: https://storage.yandexcloud.net/mqtt/rootCA.crt
   ca-full-name: SourceCraft Code Assistant
   ca-name: Code Assistant
@@ -85,6 +82,7 @@ default:
   captcha-full-name: Yandex SmartCaptcha
   captcha-mobile-site: https://smartcaptcha.cloud.yandex.ru/webview
   captcha-name: SmartCaptcha
+  CB: Apache Cloudberry™
   cdn-full-name: Yandex Cloud CDN
   cdn-name: Cloud CDN
   cdn-short-name: Cloud CDN
@@ -520,10 +518,10 @@ default:
       pro: https://postgrespro.com/docs
     versions:
       console:
-        str-1c: 13-1c, 14-1c, 15-1c, and 16-1c
+        str-1c: 14-1c, 15-1c, 16-1c, 17-1c, 18-1c
       tf:
-        latest: '17'
-        str: 13, 13-1c, 14, 14-1c, 15, 15-1c, 16, 16-1c, and 17
+        latest: '18'
+        str: 14, 14-1c, 15, 15-1c, 16, 16-1c, 17, 17-1c, 18 and 18-1c
   pgadmin: "pgAdmin\_4"
   php-cli-ver: php82
   php-full-ver: PHP 8.2
@@ -804,6 +802,7 @@ default:
   spqr:
     docs: https://docs.pg-sharding.tech
   SPRK: Apache Spark™
+  SR: StarRocks
   src-full-name: SourceCraft
   src-name: SourceCraft
   stackland-full-name: Yandex Cloud Stackland
@@ -833,7 +832,6 @@ default:
   t4i-ice-lake: Intel Ice Lake with T4i
   tag-all: <code><b><small>All interfaces</small></b></code>
   tag-api: <code><b><small>API</small></b></code>
-  tag-center: <code><b><small>Cloud Center</small></b></code>
   tag-cli: <code><b><small>CLI</small></b></code>
   tag-con: <code><b><small>Management console</small></b></code>
   tag-preview: <code><b><small>Preview</small></b></code>
@@ -1645,17 +1643,6 @@ default:
       ram:
         highfreq-v4a: dn2bctm6lff3ssuo8361
         v4a: dn2lsbs5tn54adofb0co
-  pc|datatransfer:
-    compute:
-      cpu:
-        preview:
-          v1: dn2t9ngojstgjojkjroo
-      ram:
-        preview:
-          v1: dn24iq96f11mcuqki01l
-    rows:
-      preview:
-        v1: dn2f241pa1nb8bavgd6o
   pc|iot:
     mqtt:
       basic_ingest: dn2oupl68uvjog57htmo
@@ -3713,6 +3700,7 @@ default:
         label_credit-monetaryGrantCredit: Grant
         label_credit-volumeIncentiveCredit: Volume incentive credit
         value_empty_clouds: All clouds and folders
+        value_empty_service_instances: All workspaces
       cloud-billing-account:
         label_card-add: Add card
       create-account:
@@ -3983,6 +3971,15 @@ default:
         label_placeholder: Search in cloud resources
         search_filters_all: Everywhere
         search_filters_docs: Documentation
+      security:
+        dspm:
+          action_button_apply: Download file
+          action_button_export_without_validation: Export without validation
+          action_export_with_validation: Validate and export
+          card_title_image: On images
+          card_title_text: In text
+          dialog_select-service-account_create-new-action: Create a new one
+          header_scan_result_sensitive_data: Display sensitive data
       services:
         service_compute: Compute Cloud
       settings:
@@ -4031,6 +4028,7 @@ default:
           save: Save
       alert-template:
         field:
+          delay-key-value: Evaluation delay
           evaluation-window-key-value: Evaluation window
         no-metrics-policy:
           alarm: Alarm
@@ -4395,6 +4393,7 @@ default:
           oauth_field_redirect_uri: Redirect URI
           oauth_field_token_endpoint: Token endpoint
           oauth_field_user_info_endpoint: Userinfo endpoint
+          oauth_idp_section_title: Identity provider (IdP) configuration
           oauth_service_section_title: Service provider (SP) configuration
           saml_field_issuer: Issuer / IdP EntityID
           saml_field_login: Login URL
@@ -4476,6 +4475,7 @@ default:
         overview: Overview
         resource-acl:
           label_invitee-accounts: Invitee accounts
+        save: Save
         section-base: General information
       component:
         form-file-upload:
@@ -4483,8 +4483,6 @@ default:
             method: Method
           method:
             manual: Text
-        subject-select-dialog:
-          action_apply: Save
       dashboard:
         notify:
           action:
@@ -4509,9 +4507,6 @@ default:
           label_create-source: Create source
           label_field-name: Name
           label_source-info: Information about source
-        scan-categories:
-          card_title_image: On images
-          card_title_text: In text
         scan-jobs:
           field_data-sources: Data sources
         scan-resource-group:
@@ -4532,11 +4527,8 @@ default:
           public_buckets: Public buckets
           title_all_buckets: All buckets
         scan:
-          action_button_apply: Download file
-          action_button_export: Validate and export
           action_download-results: Download results
           action_export-results: Export results
-          header_scan-result_sensitive-data: Display sensitive data
           label_data-type: Data type
           label_found-occurrence: Found occurrence
           results_resource-name: Resource
@@ -4668,11 +4660,6 @@ default:
           folders-create:
             button_create: Create
             field_description: Description
-        folder:
-          service-account:
-            popup-robot_button_save: Save
-          service-accounts:
-            dialog_select-service-account_create-new-action: Create a new one
       kspm:
         TopClustersByErrorsWidget:
           table_clusters: Tops clusters with warnings
@@ -4953,6 +4940,8 @@ default:
           general:
             section_default-storage_label: Default storage
       security:
+        alerts-base:
+          action_create-exception_kyUtB: Create exception
         alerts:
           comment_form:
             send: Send
@@ -5052,8 +5041,6 @@ default:
             value_personal-data_w5gVm: Personal data
             value_secrets_4CdGy: Secrets
           label_field-bucket_3mM6u: Bucket
-          ScanExportDialog:
-            action_button_export_without_validation_pFWLZ: Export without validation
           ScanForm:
             action_create-scan_dvakP: Create scan without validation
             table_action_assign_roles_bw4am: Assign roles
@@ -5102,7 +5089,6 @@ default:
           ExceptionsPage:
             create-exception: New exception
           InvestigationPageLayout:
-            copy_wiAxw: Create copy
             fieldDescription_wiAxw: Description
             fieldModified: Modified
             information_cZr8L: Information
@@ -5129,7 +5115,6 @@ default:
             labelServiceAccountField: Service account
           DownloadCspmScanResultsDialog:
             action_download-file_gJ3Vh: Download file
-          label_rule-kind_3PswX: Rule type
           module_dspm_xxxxx: |
             Data Security Posture Management (DSPM)
           module-cspm_gozhj: Configuration Monitoring (CSPM)
@@ -5207,9 +5192,6 @@ default:
       siem:
         SearchActionButtonBlock:
           save: Save
-      storage:
-        value_private-bucket: Private
-        value_public-bucket: Public
       support:
         switch_tickets: Tickets
         tickets:
@@ -5713,14 +5695,12 @@ default:
         label_create-public-subnet-full: Order a public subnet
         label_create-server: Lease server
         label_create-subnetwork: Create subnet
-        label_images: Boot images
         label_images_duoXD: Boot images
         label_kvm-console_37Kma: KVM console
         label_load-image: Upload image
         label_lockbox-key: Key
         label_lockbox-name: Name
         label_lockbox-version: Version
-        label_networks: VRF
         label_networks_kHgng: VRF
         label_password-lockbox: Lockbox secret
         label_password-plain: New password
@@ -5728,7 +5708,6 @@ default:
         label_public-ip-from-dedicated-subnet: From a dedicated subnet
         label_public-ip-no: No address
         label_public-ip-via-dhcp: Assign via DHCP
-        label_public-subnets: Public addresses and subnets
         label_public-subnets_v16CV: Public addresses and subnets
         label_servers_sCNgb: Servers
         label_subnetworks_uU4LH: Private subnets
@@ -5752,16 +5731,13 @@ default:
         title_section-disk: Disk
         title_section-lease-conditions: Lease conditions
         title_section-location: Location
+        title_section-network-interfaces: Network interfaces
         title_section-resources: Resources
         title_section-server-backups: Backup
         title_section-server-config: Configuration
         title_section-server-info: Server information
         title_section-server-marketplace-app: Marketplace application
-        title_section-server-private-network: Private network
-        title_section-server-private-network_xrEye: Private network
         title_section-server-product: Image
-        title_section-server-public-network: Public network
-        title_section-server-public-network_p7Zhj: Public network
         title_server-access: Access
         title_vrf-interconnect-section: Private connection to cloud networks
         vrfs:
@@ -6723,6 +6699,8 @@ default:
           ResourcesSection:
             create-resources_rGA1t: Create resource
             title_7kYbU: Resources
+          ServicesSection:
+            title_ur39b: All services
         FoldersSelector:
           FolderInfoDialog:
             folder-id_6KQJv: Folder ID
@@ -7107,7 +7085,6 @@ default:
           folders:
             button_cancel-deletion: Cancel deletion
             popup-edit_button_save: Save
-            section_folders: Folders
           incident-notifications:
             button_open-dialog: Add
           label_create_cloud: Create cloud
@@ -7154,7 +7131,6 @@ default:
           switch_quotas: Quotas
         connected-federation:
           action_connect: Link
-          action_connect-federation: Link to federation
           field_federation: Workload identity federation
           field_subject: Subject value (sub)
         federations:
@@ -7216,7 +7192,6 @@ default:
             label_monitoring: Monitoring
             label_monium: Monium
             label_postbox: Cloud Postbox
-            label_products: All services
             label_schema-registry: Schema Registry
             label_serverless-containers: Serverless Containers
             label_serverless-functions: Cloud Functions
@@ -7244,6 +7219,7 @@ default:
           service-account:
             label_add-role: Add role
             overview:
+              action_connect-federation: Link to federation
               action_download-keys-file: Download file with keys
               button_create_api_key: Create API key
               button_create_key: Create authorized key
@@ -7280,7 +7256,6 @@ default:
             label_title: Service accounts
             popup-confirm_button_delete: Delete
           switch_dashboard: Folder dashboard
-          switch_service-accounts: Service accounts
           switch_service-notifications: Service notifications
         label_create-wli-federation: Create federation
         label_federations: Workload identity federations
@@ -8009,7 +7984,7 @@ default:
           label_master-subcluster: Master
           label_max-size-units: GB
           label_network: Network
-          maintenance-window-type: Maintenance window
+          maintenance-window-type: Maintenance
           network_field_form-type: Network ID format
           network_field_subnetwork: Subnet
           network_field_zone: Availability zone
@@ -8039,8 +8014,8 @@ default:
           section_zookeeper-resource: ZooKeeper host class
           title_deb-packages: Deb packages
           title_pip-packages: Pip packages
-          value_maintenance-type-anytime: arbitrary
-          value_maintenance-type-weekly: by schedule
+          value_maintenance-type-anytime: At any time
+          value_maintenance-type-weekly: By schedule
         hosts:
           dialog:
             button_choose: Save
@@ -8579,10 +8554,11 @@ default:
         label_domain-protection-domains: Domains
         label_search-rule-type: 'Rule type:'
         match-lists:
-          ip-list_add-addresses: Add addresses
           label_create-list: Create list
           label_create-match-list: Create list
           label_match-lists: Lists
+        MatchListTable:
+          button_add-to-list_1kKXh: Add to list
         overview:
           action_attach-to-host: Connect to host
           action_disconnect-host: Disconnect from profile
@@ -8813,6 +8789,8 @@ default:
           create:
             button_create: Create bucket
           label_title: Buckets
+          value_private-bucket: Restricted
+          value_public-bucket: Public
         button_upload: Upload
         field_perm-object-lock-enabled: Legal hold
         field_temp-object-lock-enabled: Retention
@@ -9095,47 +9073,6 @@ default:
         switch_private-endpoints: Service connections
         switch_route-tables: Routing tables
         title_network-map-page: Cloud network map
-      yagpt:
-        YaGPT:
-          agent_instruction_9oe6q: Instructions
-          AgentForm:
-            add-mcp-tool_gqwmZ: Add MCP
-            save-and-continue_u1Wis: Create and continue
-            select_dPVTq: Select
-            tools_title_9yUpx: Tools
-          agents_2h9Sa: Agents
-          Assistant:
-            model_iyopt: Model
-          AssistantChat:
-            test-assistant-title_6ZNFg: Agent testing
-          ConnectMcpTools:
-            add-mcp-tool_dyEgv: Add tools
-          create-agent_1txyW: Create agent
-          CreateAgentCard:
-            create-agent_button-text_n2qCs: Create agent
-          CreateMcpServerForm:
-            access-type_aPzxZ: Access
-            access-type_private_b4gkg: Private
-            form-view_connect_bS8yQ: Connect
-            service-account_h3ujf: Service account
-            tools_gkQfS: Tools
-            type_dZSaw: Add method
-          mcp-servers-list-title_snWTf: MCP servers
-          mcp-tool_all-tools_gZA6P: Default behavior for all tools
-          mcp-tool_require-approval-policy_never_qPvRW: Confirmation not needed
-          McpCallToolForm:
-            add_47STV: Add
-            add-tools_ih6PU: Add tools
-            connect_xY9Zw: Connect
-            mcp-authorization_header_fdGKe: Access token
-            transport_q3nD6: Transport
-            transport_streamable_eV7Rb: Streamable HTTP
-            url_bUhZ1: URL
-          McpServersList:
-            label_create-mcp-gateway_3o3Vu: Create MCP server
-          name_hTzhB: Name
-          Overview3:
-            action-card_create-ai-agent_ahZQH: Create AI agent
       ydb:
         browse:
           button_create: Create
@@ -9535,6 +9472,40 @@ default:
                         title: Greenplum cluster segments
                       subnet_id:
                         title: Subnet ID
+            iceberg:
+              console:
+                form:
+                  iceberg:
+                    IcebergCleanupPolicy:
+                      ICEBERG_CLEANUP_POLICY_DISABLED:
+                        title: DISABLED
+                      ICEBERG_CLEANUP_POLICY_DROP:
+                        title: DROP
+                    IcebergManualConnectionSettings:
+                      access_key_id:
+                        title: Access Key ID
+                      bucket:
+                        title: Bucket
+                      endpoint:
+                        title: Endpoint
+                      region:
+                        title: Region
+                      secret_access_key:
+                        title: Secret Access Key
+                    IcebergObjectStorageConnectionSettings:
+                      bucket:
+                        title: Bucket
+                      service_account_id:
+                        title: Service account
+                    IcebergTarget:
+                      cleanup_policy:
+                        title: Cleanup policy
+                      mdb_cluster_id:
+                        title: Apache Hive™ Metastore cluster
+                      prefix:
+                        title: Path prefix
+                      security_group_ids:
+                        title: Security groups
             kafka:
               console:
                 form:
@@ -9643,6 +9614,24 @@ default:
                         title: CloudLogging parser
                       parser_config_common_debezium_cdc:
                         title: Debezium CDC parser
+                      parser_raw_to_table:
+                        advanced:
+                          title: Advanced settings
+                        dlq_suffix:
+                          title: DLQ table name suffix
+                        is_headers_enabled:
+                          title: Store message headers
+                        is_key_enabled:
+                          title: Store message key
+                        is_timestamp_enabled:
+                          title: Store write timestamp
+                        key_type:
+                          title: Key type
+                        table_name:
+                          title: Target table name
+                        title: Raw to table parser
+                        value_type:
+                          title: Value type
                     ParserConfigProto:
                       included_fields:
                         title: Included fields

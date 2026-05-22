@@ -1,0 +1,1 @@
+The `postbox.statistics.reader` role enables viewing [statistics](../../../postbox/concepts/statistics.md) on sent emails in the **{{ ui-key.yacloud.postbox.label_statistics }}** section of the [management console]({{ link-console-main }}).

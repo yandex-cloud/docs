@@ -25,7 +25,7 @@ You can [add a description](../operations/dashboard/add-description.md) to a das
 
 You can also set up additional information messages:
 
-* Displayed when [contacting support](../operations/dashboard/add-support-message.md). In this case, if the user clicks ![image](../../_assets/console-icons/circle-question.svg) in the bottom-left corner of the screen and selects **Create request**, they will see an additional message in the **Information** window.
+* Displayed when [contacting support](../operations/dashboard/add-support-message.md). Then, if the user clicks the ![image](../../_assets/console-icons/circle-question.svg) icon in the bottom-left corner of the screen and selects **Create request**, an additional message will appear in the **Information** window.
 * Displayed if a [dashboard access error](../operations/dashboard/add-access-message.md) occurs. In this case, if the user has no dashboard view permission, they will see the saved message.
 
   
@@ -76,6 +76,8 @@ When editing a dashboard, you can undo/redo any change introduced within the cur
 
 * To undo changes, click ![image](../../_assets/console-icons/arrow-uturn-ccw-left.svg) in the top-right corner of the screen or press **Ctrl** (**Cmd**) + **Z**.
 * To redo changes, click ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) or press **Ctrl** (**Cmd**) + **Shift** + **Z**.
+
+You undo and redo changes that result in [creating a new version](./versioning.md#version-create).
 
 Unsaved changes in the current version are reset:
 

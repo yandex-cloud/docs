@@ -12,7 +12,7 @@ You can update the value of a [resource record](../concepts/resource-record.md).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder to modify the DNS zone record in.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Select the zone from the list.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the record you need and select ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Edit the record TTL, value, or description.
@@ -44,7 +44,7 @@ You can update the value of a [resource record](../concepts/resource-record.md).
 
     * `--name`: Zone name. It must be unique within a folder.
     * `--record`: DNS record containing the domain name, TTL, record type, and record value.
-    * `--description`: Description for the new records. If this flag is not set, the description will be empty. This is an optional setting.
+    * `--description`: Description for the new records. If this parameter is not set, the description will be an empty string. This is an optional setting.
 
 
 - {{ TF }} {#tf}
@@ -73,6 +73,10 @@ You can update the value of a [resource record](../concepts/resource-record.md).
      {% endcut %}
 
   1. Check the configuration using this command:
+
+     ```bash
+     terraform validate
+     ```
 
   1. Apply the changes:
 

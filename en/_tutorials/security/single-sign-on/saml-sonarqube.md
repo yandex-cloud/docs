@@ -2,11 +2,11 @@
 
 [SonarQube](https://www.sonarsource.com/products/sonarqube/) is a platform that automatically scans source code to identify errors and vulnerabilities and evaluate test coverage. SonarQube supports SAML authentication to provide secure SSO for your organization's users.
 
-To authenticate your [organization's](../../../organization/concepts/organization.md) users to SonarQube via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-full-name }} and configure it appropriately both in {{ org-full-name }} and SonarQube.
+For the users of your [organization](../../../organization/concepts/organization.md) to be able to authenticate to SonarQube via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-full-name }} and configure it both in {{ org-full-name }} and SonarQube.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
-For the users of your organization to be able to access SonarQube:
+To give access to SonarQube to the users of your organization:
 
 1. [Create an app](#create-app).
 1. [Set up the integration](#setup-integration).
@@ -26,7 +26,7 @@ For the users of your organization to be able to access SonarQube:
         1. Optionally, in the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** field, enter a description for the new app.
         1. Optionally, add [labels](../../../resource-manager/concepts/labels.md):
             1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-            1. Enter a label in `key: value` format.
+            1. Add a label in `key: value` format.
             1. Press **Enter**.
         1. Click **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
 
@@ -161,11 +161,7 @@ For more information about configuring attributes, see [Configure user and group
 
 For your organization's users to be able to authenticate in SonarQube with {{ org-full-name }}'s SAML app, you need to explicitly add these users and/or [user groups](../../../organization/concepts/groups.md) to your SAML app.
 
-{% note info %}
-
-Users and groups added to a SAML application can be managed by a user with the `organization-manager.samlApplications.userAdmin` [role](../../../organization/security/index.md#organization-manager-samlApplications-userAdmin) or higher.
-
-{% endnote %}
+{% include [saml-manage-users](../../../_includes/organization/saml-manage-users.md) %}
 
 1. If you have configured user group mapping on the SonarQube side, [create](../../../organization/operations/create-group.md) the required [group](../../../organization/concepts/groups.md):
 
@@ -182,7 +178,7 @@ Users and groups added to a SAML application can be managed by a user with the `
             1. Navigate to the **{{ ui-key.yacloud_org.entity.group.title_tab-members }}** tab.  
             1. Click **{{ ui-key.yacloud_org.entity.group.action_add-member }}**.
             1. In the window that opens, select the required users.
-            1. Click **{{ ui-key.yacloud_org.component.subject-select-dialog.action_apply }}**.
+            1. Click **{{ ui-key.yacloud.common.save }}**.
 
     {% endlist %}
 

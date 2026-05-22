@@ -236,6 +236,9 @@ output "network_id" {
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
 - `name` (**Required**)(String). Name of the ClickHouse cluster. Provided by the client when the cluster is created.
 - `network_id` (**Required**)(String). The `VPC Network ID` of subnets which resource attached to.
+- `performance_diagnostics` [Block]. Performance diagnostics configuration
+  - `enabled` (Bool). Enabled performance diagnostics.
+  - `processes_refresh_interval` (String). Refresh interval for performance diagnostics data. Specify the value duration format, for example `"15s"`, `"1m0s"`, or `"1h0m0s"`.
 - `security_group_ids` (Set Of String). The list of security groups applied to resource or their components.
 - `service_account_id` (String). [Service account](https://yandex.cloud/docs/iam/concepts/users/service-accounts) which linked to the resource.
 - `shards` [Block]. A shards of the ClickHouse cluster.

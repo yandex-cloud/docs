@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartcaptcha/cli-ref/v1/
 editable: false
 ---
 

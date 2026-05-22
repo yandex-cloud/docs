@@ -268,42 +268,49 @@
   1. Добавьте в конфигурационный файл описание кластера, базы данных и пользователя:
 
      ```hcl
-     resource "yandex_mdb_clickhouse_cluster" "s3-logs" {
+     resource "yandex_mdb_clickhouse_cluster_v2" "s3-logs" {
        name                = "s3-logs"
        environment         = "PRODUCTION"
        network_id          = yandex_vpc_network.<имя_сети_в_{{ TF }}>.id
 
-       clickhouse {
-         resources {
+       clickhouse = {
+         resources = {
            resource_preset_id = "b2.medium"
            disk_type_id       = "{{ disk-type-example }}"
            disk_size          = 10
          }
        }
 
-       host {
-         type      = "CLICKHOUSE"
-         zone      = "<зона_доступности>"
-         subnet_id = yandex_vpc_subnet.<имя_подсети_в_{{ TF }}>.id
+       hosts = {
+         "ch-host1" = {
+           type       = "CLICKHOUSE"
+           zone       = "<зона_доступности>"
+           subnet_id  = yandex_vpc_subnet.<имя_подсети_в_{{ TF }}>.id
+           shard_name = "shard1"
+         }
        }
 
-       access {
-         datalens  = true
-         web_sql   = true
+       shards = {
+         "shard1" = {}
        }
 
-       lifecycle {
-         ignore_changes = [database, user]
+       access = {
+         data_lens  = true
+         web_sql    = true
+       }
+
+       maintenance_window {
+         type = "ANYTIME"
        }
      }
 
      resource "yandex_mdb_clickhouse_database" "s3-data" {
-       cluster_id = yandex_mdb_clickhouse_cluster.s3-logs.id
+       cluster_id = yandex_mdb_clickhouse_cluster_v2.s3-logs.id
        name       = "s3_data"
      }
 
      resource "yandex_mdb_clickhouse_user" "user1" {
-       cluster_id = yandex_mdb_clickhouse_cluster.s3-logs.id
+       cluster_id = yandex_mdb_clickhouse_cluster_v2.s3-logs.id
        name       = "user"
        password   = "<пароль>"
        permission {

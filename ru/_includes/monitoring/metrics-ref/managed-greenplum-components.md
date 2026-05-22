@@ -25,7 +25,7 @@
 | `managed_greenplum_component.cpu_time_system`<br/>`DGAUGE`, миллисекунды | Время процессора, использованное компонентом в режиме ядра (`system`). |
 | `managed_greenplum_component.cpu_time_user`<br/>`DGAUGE`, миллисекунды | Время процессора, использованное компонентом в пользовательском режиме (`user`). |
 | `managed_greenplum_component.memory_usage`<br/>`DGAUGE`, байты | Текущее потребление памяти компонентом. |
-| `managed_greenplum_component.memory_cache`<br/>`DGAUGE`, байты | Объем памяти, используемый компонентом для кэширования данных. |
+| `managed_greenplum_component.memory_cache`<br/>`DGAUGE`, байты | Объем памяти, используемый компонентом для кеширования данных. |
 | `managed_greenplum_component.memory_rss`<br/>`DGAUGE`, байты | Объем резидентной памяти (RSS), занимаемый компонентом в физической памяти. |
 | `managed_greenplum_component.cpu_quota_us`<br/>`DGAUGE`, микросекунды | Квота процессорного времени (`cgroup CPU quota`) в микросекундах за период. |
 | `managed_greenplum_component.cpu_period_us`<br/>`DGAUGE`, микросекунды | Период планирования процессора (`cgroup CPU period`) в микросекундах. |
@@ -59,14 +59,13 @@
 | `gp.percent_xid_wraparound_warn_limit`<br/>`DGAUGE`, % | Пороговое значение для предупреждения об утилизации XID. |
 | `gp.percent_xid_wraparound_crit_limit`<br/>`DGAUGE`, % | Критическое пороговое значение для утилизации XID. |
 | `gp.seg_down`<br/>`DGAUGE`, штуки | Количество недоступных сегментов. |
-
 | `gp.seg_down_warn_limit`<br/>`DGAUGE`, штуки | Пороговое значение предупреждения для количества недоступных сегментов. |
 | `gp.seg_not_pref_role`<br/>`DGAUGE`, штуки | Количество сегментов, работающих не в предпочтительной роли. |
 | `gp.seg_not_pref_role_warn_limit`<br/>`DGAUGE`, штуки | Пороговое значение предупреждения для сегментов, не находящихся в предпочтительной роли. |
 | `gp.seg_not_synch`<br/>`DGAUGE`, штуки | Количество сегментов в несинхронизированном состоянии. |
-| `gp.log_events_warning_total`<br/>`DGAUGE`, штуки | Общее количество событий уровня `WARNING` в логах {{ GP }}. |
-| `gp.log_events_error_total`<br/>`DGAUGE`, штуки | Общее количество событий уровня `ERROR` в логах {{ GP }}. |
-| `gp.log_events_fatal_total`<br/>`DGAUGE`, штуки | Общее количество событий уровня `FATAL` в логах {{ GP }}. |
+| `gp.log_events_warning_total`<br/>`DGAUGE`, штуки | Общее количество событий уровня `WARNING` в логах СУБД. |
+| `gp.log_events_error_total`<br/>`DGAUGE`, штуки | Общее количество событий уровня `ERROR` в логах СУБД. |
+| `gp.log_events_fatal_total`<br/>`DGAUGE`, штуки | Общее количество событий уровня `FATAL` в логах СУБД. |
 
 ## Метрики компонента Odyssey (Pooler) {#managed-greenplum-odyssey-metrics}
 
@@ -79,7 +78,7 @@
 | `pooler.memory_limit_warn`<br/>`DGAUGE`, байты | Пороговое значение предупреждения о потреблении памяти пулером. |
 | `pooler.bytes_sent`<br/>`DGAUGE`, байт/с | Скорость отправки данных пулером клиентам. |
 | `pooler.bytes_received`<br/>`DGAUGE`, байт/с | Скорость получения данных пулером от клиентов. |
-| `pooler.used_servers`<br/>`DGAUGE`, штуки | Количество активных серверных соединений (пулер → {{ GP }}). |
+| `pooler.used_servers`<br/>`DGAUGE`, штуки | Количество активных серверных соединений (пулер → СУБД). |
 | `pooler.free_servers`<br/>`DGAUGE`, штуки | Количество свободных серверных соединений в пуле. |
 | `pooler.used_clients`<br/>`DGAUGE`, штуки | Количество активных клиентских соединений (клиент → пулер). |
 | `pooler.query_0.5`<br/>`DGAUGE`, миллисекунды | 50-й перцентиль длительности выполнения запросов через пулер. |

@@ -35,6 +35,14 @@ In {{ postbox-name }}, you can manage access using both service and primitive ro
 
 {% include [postbox.editor](../../_roles/postbox/editor.md) %}
 
+#### postbox.messages.reader {#postbox-messages-reader}
+
+{% include [postbox.messages.reader](../../_roles/postbox/messages/reader.md) %}
+
+#### postbox.statistics.reader {#postbox-statistics-reader}
+
+{% include [postbox.statistics.reader](../../_roles/postbox/statistics/reader.md) %}
+
 #### postbox.admin {#postbox-admin}
 
 {% include [postbox.admin](../../_roles/postbox/admin.md) %}

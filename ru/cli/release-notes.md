@@ -7,6 +7,91 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.9.0 (21.05.26) {#v-1-9-0}
+
+#### {{ dns-name }} {#v-1-9-0-dns-name}
+
+* Добавлена группа команд `yc dns inbound-endpoint` для управления inbound endpoint:
+  * `yc dns inbound-endpoint get`;
+  * `yc dns inbound-endpoint list`;
+  * `yc dns inbound-endpoint create`;
+  * `yc dns inbound-endpoint update`;
+  * `yc dns inbound-endpoint delete`;
+  * `yc dns inbound-endpoint add-labels`;
+  * `yc dns inbound-endpoint remove-labels`;
+  * `yc dns inbound-endpoint list-access-bindings`;
+  * `yc dns inbound-endpoint set-access-bindings`;
+  * `yc dns inbound-endpoint add-access-binding`;
+  * `yc dns inbound-endpoint remove-access-binding`;
+  * `yc dns inbound-endpoint list-operations`.
+
+## Предыдущие релизы {#previous-release}
+
+### Версия 1.8.1 (20.05.26) {#v-1-8-1}
+
+#### {{ sws-name }} {#v-1-8-1-sws-name}
+
+* Добавлена группа команд `yc sws waf waf-profile` для управления WAF-профилями (create, get, list, update, delete) в syntax-2 CLI:
+  * `yc sws waf waf-profile create`;
+  * `yc sws waf waf-profile get`;
+  * `yc sws waf waf-profile list`;
+  * `yc sws waf waf-profile update`;
+  * `yc sws waf waf-profile delete`.
+
+#### {{ mrd-name }} {#v-1-8-1-mrd-name}
+
+* Добавлен параметр `failover-type` для команды `start-failover`%
+  * `yc redis cluster start-failover`.
+
+#### {{ mpg-name }} {#v-1-8-1-managed-postgresql}
+
+* Добавлены параметры для настройки `folder-id` для создания соединений и их секретов в интеграции Connection Manager для {{ mpg-name }}:
+  * `yc managed-postgresql cluster create`;
+  * `yc managed-postgresql cluster restore`;
+  * `yc managed-postgresql cluster update`;
+  * `yc managed-postgresql user create`.
+
+* При детальном выводе одного пользователя удалено устаревшее поле `connection_manager` и добавлено заменяющее его u`ser_connection_manager`:
+  * `yc managed-postgresql user get`;
+  * `yc managed-postgresql user list`;
+  * `yc managed-postgresql user create`.
+
+* Прекращена поддержка устаревших версий {{ PG }} (13, 13-1c):
+  * `yc managed-postgresql cluster update`;
+  * `yc managed-postgresql cluster create`.
+
+### Версия 1.8.0 (18.05.26) {#v-1-8-0}
+
+#### Изменения в системных командах CLI {#v-1-8-0-yc}
+
+* В `yc` добавлены деревья команд версий `v0` и `v1` на уровне сервиса. В поддереве `v1` используется новый интерфейс CLI. Деревья `v1` доступны для сервисов `yc cic`, `yc cloudrouter`, `yc smartcaptcha` и `yc smartwebsecurity`.
+* Флаг `--syntax` удален и больше не поддерживается. Для выбора интерфейса используйте версии `v0` и `v1`, а также настройку в конфигурации `services.<service>.version`.
+
+#### {{ mgp-name }} {#v-1-8-0-mgp-name}
+
+* Добавлен флаг `--port` для указания конкретного порта запуска прокси для {{ mgp-name }}:
+  * `yc managed-greenplum connect`.
+
+#### {{ mpg-name }} {#v-1-8-0-mpg-name}
+
+* Добавлен флаг `--port` для указания конкретного порта запуска прокси для {{ mpg-name }}:
+  * `yc managed-postgresql connect`.
+
+#### {{ interconnect-name }} {#v-1-8-0-cic-name}
+
+* Добавлены поля `name`, `url`, `pop_ids` в вывод следующих команд:
+  * `yc cic partner get`;
+  * `yc cic partner list`.
+
+#### {{ sf-name }} {#v-1-8-0-sf-name}
+
+* В команде `yc serverless function version create` параметры `--subnet-id` и `--subnet-name` помечены как **DEPRECATED**. Для указания доступа к сети используйте только `--network-id` или `--network-name`.
+
+#### {{ serverless-containers-name }} {#v-1-8-0-serverless-containers-name}
+
+* Параметр `--subnets` помечен как **DEPRECATED**, для указания доступа к сети используйте только `--network-id` или `--network-name`:
+  * `yc serverless container revision deploy`.
+
 ### Версия 1.7.0 (12.05.26) {#v-1-7-0}
 
 #### {{ baremetal-name }} {#v-1-7-0-baremetal-name}
@@ -104,8 +189,6 @@ description: На странице представлены релизы CLI, а
   * `yc cic trunk-connection list-public-connections`;
   * `yc cic trunk-connection move`;
   * `yc cic trunk-connection update`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.6.0 (27.04.26) {#v-1-6-0}
 
@@ -1878,7 +1961,7 @@ yc managed-clickhouse cluster add-zookeeper --host type=<host_type>
 Исправлено сообщение об ошибке, которое появлялось после успешного окончания операции перезапуска кластера OpenSearch или смены мастера.
 
 ##### {{ mpg-name }}
-Добавлены команды для управления пользователями в ресурсных группах в {{ GP }}:
+Добавлены команды для управления пользователями в ресурсных группах {{ GP }}:
   * `yc managed-greenplum user create`;
   * `yc managed-greenplum user get`;
   * `yc managed-greenplum user list`;

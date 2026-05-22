@@ -54,7 +54,8 @@ In this guide, you will set up web resource protection using SWS tools connected
 ## Required paid resources {#paid-resources}
 
 * [Fee for the number of requests](../../smartwebsecurity/pricing.md) to {{ sws-name }}.
-* Fee for the [{{ alb-name }}](../../application-load-balancer/pricing.md) or [{{ api-gw-name }}](../../api-gateway/pricing.md) infrastructure if using one. You will not be charged for the [domain](../../smartwebsecurity/concepts/domain-protect.md) infrastructure.
+* Fee for the [{{ alb-name }}](../../application-load-balancer/pricing.md) or [{{ api-gw-name }}](../../api-gateway/pricing.md) infrastructure if using one.
+* Fee for [proxy server](../../smartwebsecurity/pricing.md) resources when using [domains](../../smartwebsecurity/concepts/domain-protect.md).
 
 ## Get your cloud ready {#before-you-begin}
 
@@ -231,7 +232,7 @@ WAF rules include L7 DDoS protection. If you add a WAF rule to a security profil
      1. In the left-hand panel, select **{{ ui-key.yacloud.smart-web-security.match-lists.label_match-lists }}**.
      1. Click **{{ ui-key.yacloud.smart-web-security.match-lists.label_create-list }}**.
      1. Enter a name for the list, e.g., `my-partners`, and click **{{ ui-key.yacloud.smart-web-security.match-lists.label_create-match-list }}**.
-     1. Click **{{ ui-key.yacloud.smart-web-security.match-lists.ip-list_add-addresses }}**.
+     1. Click **{{ ui-key.yacloud.smart-web-security.MatchListTable.button_add-to-list_1kKXh }}**.
      1. Enter or upload a list of white addresses that you do not need to filter.
      1. Click **{{ ui-key.yacloud.common.save-changes }}**.
      1. If needed, add a list of black addresses.

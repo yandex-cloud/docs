@@ -6,6 +6,7 @@ description: This page contains a list of references for {{ yandex-cloud }} metr
 # {{ yandex-cloud }} metric references
 
 
+* [{{ ai-studio-full-name }}](ai-studio-ref.md)
 * [{{ api-gw-full-name }}](api-gateway-ref.md)
 * [{{ alb-full-name }}](alb-ref.md)
 * [{{ at-full-name }}](at-ref.md)

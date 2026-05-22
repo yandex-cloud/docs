@@ -1,17 +1,17 @@
 ---
-title: How to get information about a CAPTCHA
-description: Follow this guide to get information about a {{ captcha-full-name }}.
+title: How to get CAPTCHA details
+description: In this tutorial, you will learn how to get {{ captcha-full-name }} details.
 ---
 
-# Getting information about a CAPTCHA
+# Getting CAPTCHA details
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing the [CAPTCHA](../concepts/validation.md).
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
-  1. Select a CAPTCHA. The **{{ ui-key.yacloud.common.overview }}** page will display detailed information about the CAPTCHA.
+  1. In the [management console]({{ link-console-main }}), select the folder containing your [CAPTCHA](../concepts/validation.md).
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha }}**.
+  1. Select the CAPTCHA you need. You can check the CAPTCHA details on the **{{ ui-key.yacloud.common.overview }}** page.
 
 - CLI {#cli}
 
@@ -19,7 +19,7 @@ description: Follow this guide to get information about a {{ captcha-full-name }
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View the description of the CLI command for viewing [CAPTCHA](../concepts/validation.md) info:
+  1. See the description of the CLI command for viewing [CAPTCHA](../concepts/validation.md) details:
 
      ```bash
      yc smartcaptcha captcha get --help
@@ -27,7 +27,7 @@ description: Follow this guide to get information about a {{ captcha-full-name }
 
   1. {% include [get-list](../../_includes/smartcaptcha/get-list.md) %}
 
-  1. Get detailed information about a CAPTCHA by specifying its name or ID:
+  1. Get CAPTCHA details by running the CLI command with its name or ID specified:
 
      ```bash
      yc smartcaptcha captcha get <captcha_ID>
@@ -55,9 +55,9 @@ description: Follow this guide to get information about a {{ captcha-full-name }
 
   {% include [terraform-install](../../_includes/terraform-install.md) %}
 
-  To get information about a [CAPTCHA](../concepts/validation.md) using {{ TF }}:
+  To get [CAPTCHA](../concepts/validation.md) details using {{ TF }}:
 
-  1. Add the `data` and `output` sections to the Terraform configuration file:
+  1. Add the `data` and `output` sections to the {{ TF }} configuration file:
 
       ```hcl
       data "yandex_smartcaptcha_captcha" "my-captcha" {
@@ -72,17 +72,17 @@ description: Follow this guide to get information about a {{ captcha-full-name }
       Where:
 
       * `data "yandex_smartcaptcha_captcha"`: Description of the CAPTCHA as a data source:
-         * `resource_id`: Resource ID.
-      * `output "ref_description"`: Output variable with information about the [client key](../concepts/keys) (`client_key`):
+         * `resource_id`: Resource identifier.
+      * `output "ref_description"`: Output variable with the [client key](../concepts/keys.md) (`client_key`) details:
          * `value`: Return value.
 
-     You can replace `client_key` with any other parameter to get the information you need. For more information about the `yandex_smartcaptcha_captcha` data source properties, see [this {{ TF }} provider article]({{ tf-provider-datasources-link }}/smartcaptcha_captcha).
+     You can replace `client_key` with another variable to get the information you need. To learn more about the `yandex_smartcaptcha_captcha` data source properties, see [this {{ TF }} provider guide]({{ tf-provider-datasources-link }}/smartcaptcha_captcha).
 
-  1. Create the resources:
+  1. Create the required resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
+      {{ TF }} will create all required resources and display their output variables. To check the results, run this command:
 
       ```bash
       terraform output
@@ -97,6 +97,6 @@ description: Follow this guide to get information about a {{ captcha-full-name }
 
 - API {#api}
 
-  To get detailed information about a [CAPTCHA](../concepts/validation.md), use the [get](../api-ref/Captcha/get.md) REST API method for the [Captcha](../api-ref/Captcha/index.md) resource or the [CaptchaService/Get](../api-ref/grpc/Captcha/get.md) gRPC API call.
+  To get [CAPTCHA](../concepts/validation.md) details, use the [get](../api-ref/Captcha/get.md) REST API method for the [Captcha](../api-ref/Captcha/index.md) resource or the [CaptchaService/Get](../api-ref/grpc/Captcha/get.md) gRPC API call.
 
 {% endlist %}

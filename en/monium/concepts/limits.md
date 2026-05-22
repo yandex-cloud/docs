@@ -16,6 +16,10 @@ editable: false
 
 {% include [monium-limits.md](../../_includes/monium/monium-limits.md) %}
 
+## Log limits
+
+{% include [logging-limits.md](../../_includes/monium/limits-logs.md) %}
+
 ## Trace limits
 
-{% include [logging-limits.md](../../_includes/monium/limits-traces.md) %}
+{% include [traces-limits.md](../../_includes/monium/limits-traces.md) %}

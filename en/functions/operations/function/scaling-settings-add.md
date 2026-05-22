@@ -28,96 +28,44 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
     1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
     1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Select the function.
-    1. To configure:
-        * Any scaling setting other than the number of calls processed concurrently by a single function instance (`concurrency`):
-            1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-history }}**, hover over the version tag (e.g., ![image](../../../_assets/console-icons/gear.svg) or `$latest`) of the function you want to add scaling settings for.
-            1. In the pop-up window, click **{{ ui-key.yacloud.common.add }}**.
-            1. In the window that opens, specify the following:
-                * **zone_instances_limit**: Number of function instances per availability zone.
-                * **zone_requests_limit**: Number of concurrent function calls per availability zone.
-                * **provisioned_instances_count**: Number of provisioned instances.
-            1. Click **{{ ui-key.yacloud.common.save }}**.
-        * [Number of calls processed concurrently by a single function instance](../../concepts/function.md#concurrency) (`concurrency`):
-            1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
-            1. Under **Additional settings**, in the **Concurrent function instance calls** section, check **Enable** and enter the number of concurrent function instance calls.
-            1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
+    1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-history }}**, hover over the version tag (e.g., ![image](../../../_assets/console-icons/gear.svg) or `$latest`) of the function you want to add scaling settings for.
+    1. In the pop-up window, click **{{ ui-key.yacloud.common.add }}**.
+    1. In the window that opens, specify the following:
+        * **zone_instances_limit**: Number of function instances per availability zone.
+        * **zone_requests_limit**: Number of concurrent function calls per availability zone.
+        * **provisioned_instances_count**: Number of provisioned instances.
+    1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-    To configure:
+    To configure scaling settings, run this command:
 
-    * Any scaling setting other than the number of calls processed concurrently by a single function instance (`concurrency`), run this command:
+    ```bash
+    yc serverless function set-scaling-policy \
+      --id=<function_ID> \
+      --tag=\$latest \
+      --zone-instances-limit=1 \
+      --zone-requests-limit=2 \
+      --provisioned-instances-count=3
+    ```
 
-        ```bash
-        yc serverless function set-scaling-policy \
-          --id=<function_ID> \
-          --tag=\$latest \
-          --zone-instances-limit=1 \
-          --zone-requests-limit=2 \
-          --provisioned-instances-count=3
-        ```
+    Where:
 
-        Where:
+    * `--id`: Function ID. To find out the ID, [get](./function-list.md) the list of functions.
+    * `--tag`: Function version [tag](../../concepts/function.md#tag).
+    * `--zone-instances-limit`: Number of function instances.
+    * `--zone-requests-limit`: Number of calls in progress.
+    * `--provisioned-instances-count`: Number of provisioned instances.
 
-        * `--id`: Function ID. To find out the ID, [get](./function-list.md) the list of functions.
-        * `--tag`: Function version [tag](../../concepts/function.md#tag).
-        * `--zone-instances-limit`: Number of function instances.
-        * `--zone-requests-limit`: Number of calls in progress.
-        * `--provisioned-instances-count`: Number of provisioned instances.
+    Result:
 
-        Result:
-
-        ```bash
-        function_id: d4eokpuol55h********
-        tag: $latest
-        zone_instances_limit: "1"
-        zone_requests_limit: "2"
-        provisioned_instances_count: "3"
-        ```
-
-    * [Number of calls processed concurrently by a single function instance](../../concepts/function.md#concurrency) (`concurrency`), run this command:
-
-        ```bash
-        yc serverless function version create \
-        --function-name=<function_name> \
-        --runtime <runtime> \
-        --entrypoint <entry_point> \
-        --memory 128m \
-        --concurrency 2 \
-        --execution-timeout 3s \
-        --source-path <path_to_ZIP_archive>
-        ```
-
-        Where:
-
-        * `--function-name`: Name of the function whose version you want to create.
-        * `--runtime`: Function [runtime](../../concepts/index.md).
-        * `entrypoint`: Entry point in `<file_name_without_extension>.<handler_name>` format.
-        * `--memory`: Amount of RAM.
-        * `--concurrency`: Maximum number of calls processed concurrently by a single function instance.
-        * `--execution-timeout`: Maximum function execution time before timeout.
-        * `--source-path`: ZIP archive with the function code and required dependencies.
-
-        Result:
-
-        ```bash
-        done (1s)
-        id: d4evvn8obisa********
-        function_id: d4elpv8pft63********
-        created_at: "2020-08-01T19:09:19.531Z"
-        runtime: nodejs18
-        entrypoint: index.handler
-        resources:
-        memory: "134217728"
-        execution_timeout: 3s
-        image_size: "4096"
-        status: ACTIVE
-        tags:
-        - $latest
-        log_options:
-        folder_id: b1g681qpemb4********
-        concurrency: "2"
-        ```
+    ```bash
+    function_id: d4eokpuol55h********
+    tag: $latest
+    zone_instances_limit: "1"
+    zone_requests_limit: "2"
+    provisioned_instances_count: "3"
+    ```
 
 - {{ TF }} {#tf}
 
@@ -129,13 +77,12 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
 
     1. In the configuration file, describe the resources you want to create:
 
-       * `yandex_function`: Description of the new function and its source code.
+       * `yandex_function`: Description of the function being created and its source code.
          * `name`: Function name.
          * `user_hash`: Any string to identify the function version. When you change the function, update this string as well. Updating this string triggers a function update.
          * `runtime`: Function [runtime](../../concepts/runtime/index.md).
          * `entrypoint`: Entry point in `<file_name_without_extension>.<handler_name>` format.
          * `memory`: Amount of memory allocated to the function, in MB.
-         * `concurrency`: [Maximum number of calls processed concurrently by a single function instance](../../concepts/function.md#concurrency).
          * `execution_timeout`: Maximum function execution time before timeout.
          * `service_account_id`: ID of the service account you want to use to invoke the function.
          * `content`: Function source code.
@@ -162,7 +109,6 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
             runtime            = "<runtime>"
             entrypoint         = "<entry_point>"
             memory             = "128"
-            concurrency        = "2"
             execution_timeout  = "10"
             service_account_id = "<service_account_ID>"
             content {
@@ -180,7 +126,7 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
         }
         ```
 
-        For more information about resource properties, see [yandex_function]({{ tf-provider-resources-link }}/function) and [yandex_function_scaling_policy]({{ tf-provider-resources-link }}/function_scaling_policy).
+        For more information about resource properties, see [yandex_function_scaling_policy]({{ tf-provider-resources-link }}/function_scaling_policy).
 
     1. Validate your configuration using this command:
         
@@ -209,19 +155,16 @@ The scaling settings must be within the [quotas](../../concepts/limits.md#functi
        ```
     1. Type `yes` and press **Enter** to confirm the changes.
 
-    You can check that the scaling settings are added using the [management console]({{ link-console-main }}) or these [CLI](../../../cli/quickstart.md) commands:
+    You can check that the scaling settings are added using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
     
     ```
     yc serverless function list-scaling-policies <function_name_or_ID>
-
-    yc serverless function version get <version_ID>
     ```
 
 - API {#api}
 
-    To configure any function scaling setting other than the number of calls processed concurrently by a single function instance (`concurrency`), use the [setScalingPolicy](../../functions/api-ref/Function/setScalingPolicy.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/SetScalingPolicy](../../functions/api-ref/grpc/Function/setScalingPolicy.md) gRPC API call.
+    To set scaling settings, use the [setScalingPolicy](../../functions/api-ref/Function/setScalingPolicy.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/SetScalingPolicy](../../functions/api-ref/grpc/Function/setScalingPolicy.md) gRPC API call.
 
-    To set the number of calls processed concurrently by a single function instance (`concurrency`), create a function version using the [createVersion](../../functions/api-ref/Function/createVersion.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/CreateVersion](../../functions/api-ref/grpc/Function/createVersion.md) gRPC API call. Add the `concurrency` field to the request body.
 
 
 {% endlist %}

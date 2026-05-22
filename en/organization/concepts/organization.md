@@ -70,3 +70,4 @@ To start managing the services:
 * [{#T}](os-login.md)
 * [Getting started with {{ sd-full-name }}](../../security-deck/quickstart-overview.md)
 * [{#T}](../tutorials/user-group-access-control.md)
+* [{#T}](../../security/domains/iam-checklist.md)

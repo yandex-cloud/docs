@@ -12,10 +12,10 @@ Using this guide, you will create a test agent in your cloud, configure a simple
 1. If you do not have a folder yet, [create one](../resource-manager/operations/folder/create.md). While creating a folder, you can also create a default virtual network with subnets in all availability zones.
 1. Create a [service account](../iam/operations/sa/create.md) in the folder where the agents will reside that will generate the load. [Assign](../iam/operations/roles/grant.md) it the `loadtesting.generatorClient` [role](./security/#roles-list).
 1. The agent connects to {{ load-testing-name }} using a public API. For security purposes, [create a security group](../vpc/operations/security-group-create.md). To connect to the control service, make sure the agent allows outbound traffic on port 443. To do this, [add the following rule](../vpc/operations/security-group-add-rule.md) for outbound traffic to your security group:
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `443`
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `TCP`
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `CIDR`
-    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `443`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `TCP`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `CIDR`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
 1. The agent will need access to the subnet hosting the test target. To enable the agent to connect to {{ load-testing-name }}, set up a [NAT gateway](../vpc/operations/create-nat-gateway.md) for the subnet.
 1. If you do not have an SSH key pair yet, [create one](../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
@@ -23,7 +23,7 @@ Using this guide, you will create a test agent in your cloud, configure a simple
 ## Create an agent {#create-agent}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create the agent.
-1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
 1. In the **{{ ui-key.yacloud.load-testing.label_agents-list }}** tab, click **{{ ui-key.yacloud.load-testing.button_create-agent }}**.
 1. Enter a name for the agent: `test-agent`.
 1. Specify the same availability zone where the test target is located.
@@ -43,7 +43,7 @@ This will create a VM in your folder that you will be able to use for load testi
 In this example, we will test a service located at `example.myservice.ru`.
 As a load generator, we will use Pandora, the one best suited for testing cloud applications.
 
-1. Open the ![image](../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** tab in **{{ load-testing-name }}**. Click **{{ ui-key.yacloud.load-testing.button_create-test }}**. Configure the test settings:
+1. Open the ![image](../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** tab in **{{ load-testing-name }}**. Click **{{ ui-key.yacloud.load-testing.button_create-test }}**. Set the test parameters:
    1. **{{ ui-key.yacloud.load-testing.label_agents-list }}**: Select `test-agent`.
    1. **{{ ui-key.yacloud.load-testing.field_settings-type }}**: Select `{{ ui-key.yacloud.load-testing.label_settings-type-form }}`.
    1. **{{ ui-key.yacloud.load-testing.field_load-generator }}**: Select `Pandora` as the generator.

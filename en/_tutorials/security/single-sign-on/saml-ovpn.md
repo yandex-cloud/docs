@@ -1,12 +1,12 @@
 # Creating a SAML app in {{ org-full-name }} for integration with OpenVPN Access Server
 
-For your [organization's](../../../organization/concepts/organization.md) users to be able to authenticate in OpenVPN Access Server via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-full-name }} and configure it on the {{ org-full-name }} side and OpenVPN Access Server side.
+For the users of your [organization](../../../organization/concepts/organization.md) to be able to authenticate to OpenVPN Access Server via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-full-name }} and configure it both in {{ org-full-name }} and OpenVPN Access Server.
 
 [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server) is built on and compatible with the OpenVPN [open-source version](https://github.com/OpenVPN). It provides clients for Windows, Mac, Android, and iOS. You can also use its web UI to manage connections.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
-To grant access to OpenVPN Access Server to the users of your organization:
+To give access to OpenVPN Access Server to the users of your organization:
 
 1. [Get OpenVPN Access Server ready](#prepare-ovpn).
 1. [Create an app in {{ org-full-name }}](#create-app).
@@ -63,7 +63,7 @@ You can use an OpenVPN Access Server installation of your own, an SaaS version, 
       1. Optionally, add [labels](../../../resource-manager/concepts/labels.md):
 
          1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-         1. Enter a label in `key: value` format.
+         1. Add a label in `key: value` format.
          1. Press **Enter**.
       1. Click **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
    1. Save the **{{ ui-key.yacloud_org.application.overview.saml_field_metadata }}** value, you will need it at the next step.
@@ -123,11 +123,7 @@ Add SAML authentication on the OpenVPN server:
 
 For the users of your organization to be able to authenticate in OpenVPN Access Server with {{ org-full-name }}'s SAML app, you need to explicitly add these users and/or [user groups](../../../organization/concepts/groups.md) to the SAML application.
 
-{% note info %}
-
-Users and groups added to a SAML application can be managed by a user with the `organization-manager.samlApplications.userAdmin` [role](../../../organization/security/index.md#organization-manager-samlApplications-userAdmin) or higher.
-
-{% endnote %}
+{% include [saml-manage-users](../../../_includes/organization/saml-manage-users.md) %}
 
 1. Add users to the application:
 
@@ -146,7 +142,7 @@ Users and groups added to a SAML application can be managed by a user with the `
 
 ## Make sure your application works correctly {#validate}
 
-To make sure your SAML app and OpenVPN Access Server integration work correctly, authenticate to OpenVPN Access Server as one of the users you added to the app. Proceed as follows:
+To make sure your SAML app and OpenVPN Access Server integration work correctly, authenticate to OpenVPN Access Server as one of the users you added to the app. Follow these steps:
 
 1. In your browser, go to the OpenVPN Access Server client interface. Its default address is `https://<server_address>:943/`.
 1. On the authentication page, click **Sign In With SAML**.

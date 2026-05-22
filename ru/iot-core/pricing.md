@@ -43,8 +43,6 @@ editable: false
 
 ### Пример расчета стоимости {#price-example}
 
-{% include [prices-difference](../_includes/prices-difference.md) %}
-
 {% include [prices-example](../_includes/iot-core/prices-example.md) %}
 
 ## Тарифицируемые команды {#mqtt-commands}

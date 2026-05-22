@@ -34,11 +34,11 @@ items:
             href: operations/refresh-connection.md
           - name: Reconnecting a Linux VM with {{ oslogin }} to {{ backup-name }}
             href: operations/refresh-connection-oslogin-linux.md
-          - name: Updating or restoring a {{ backup-name }} agent
+          - name: Updating or recovering the {{ backup-name }} agent
             href: operations/update-backup-agent.md
           - name: Viewing a VM connection status
             href: operations/get-connection-status.md
-          - name: Viewing a backup log
+          - name: Viewing the backup log
             href: operations/get-journal.md
           - name: Deleting a VM from {{ backup-name }}
             href: operations/delete-vm.md
@@ -94,13 +94,15 @@ items:
         href: operations/limit-agent-memory-usage.md
       - name: Viewing backup statistics
         href: operations/get-stats.md
+      - name: Setting up {{ monium-name }} alerts
+        href: operations/configure-alerts.md
   - name: Tutorials
     items:
       - name: All tutorials
         href: tutorials/index.md
       - name: Connecting a {{ baremetal-name }} server to {{ backup-name }}
         href: tutorials/backup-baremetal.md
-      - name: Linking a backup policy to a VM automatically
+      - name: Associating a backup policy with a VM automatically
         items:
           - name: Overview
             href: tutorials/vm-with-backup-policy/index.md

@@ -4,6 +4,8 @@ editable: false
 
 # Managed Service for OpenSearch API, gRPC: ClusterService.RescheduleMaintenance
 
+(-- api-linter: yc::1702::method-verb-prefix=disabled
+False positive. "Reschedule" is a verb. --)
 Reschedules a planned maintenance operation.
 
 ## gRPC request
@@ -183,7 +185,17 @@ The value can also point to a moment in the past if [reschedule_type.IMMEDIATE](
         },
         "snapshot_max_age_days": "google.protobuf.Int64Value"
       },
-      "full_version": "string"
+      "full_version": "string",
+      "audit_log": {
+        "compliance_enabled": "google.protobuf.BoolValue",
+        "log_request_body": "google.protobuf.BoolValue",
+        "log_search_queries": "google.protobuf.BoolValue",
+        "log_data_modifications": "google.protobuf.BoolValue",
+        "log_index_metadata_access": "google.protobuf.BoolValue",
+        "log_monitoring_checks": "google.protobuf.BoolValue",
+        "log_index_maintenance": "google.protobuf.BoolValue",
+        "log_backup_operations": "google.protobuf.BoolValue"
+      }
     },
     "network_id": "string",
     "health": "Health",
@@ -402,10 +414,13 @@ Dashboards configuration. ||
 Access policy for external services. ||
 || snapshot_management | **[SnapshotManagement](#yandex.cloud.mdb.opensearch.v1.SnapshotManagement)**
 
-Snapshot management configuration ||
+Snapshot management configuration. ||
 || full_version | **string**
 
-Full version ||
+Full version. ||
+|| audit_log | **[AuditLog](#yandex.cloud.mdb.opensearch.v1.AuditLog)**
+
+Audit log settings. ||
 |#
 
 ## OpenSearch {#yandex.cloud.mdb.opensearch.v1.OpenSearch}
@@ -421,6 +436,8 @@ Names of the cluster plugins. ||
 
 Host groups of the OpenSearch type. ||
 || opensearch_config_set_2 | **[OpenSearchConfigSet2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfigSet2)**
+
+OpenSearch server configuration settings.
 
 Includes only one of the fields `opensearch_config_set_2`. ||
 || keystore_settings[] | **string**
@@ -456,8 +473,11 @@ Determines whether a public IP is assigned to the hosts in the group. ||
 
 Roles of the host group.
 
-- `DATA`
-- `MANAGER` ||
+- `DATA`: Data nodes store indices data.
+- `MANAGER`: Manager nodes perform cluster coordination.
+- `WARM`: Warm nodes provide access to searchable snapshots and store search cache.
+- `INGEST`: Ingest nodes provides indexed data processing.
+If no node groups have INGEST role explicitly set, then all DATA nodes will implicitly have INGEST role. ||
 || disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
@@ -530,7 +550,7 @@ Change of the setting is applied with restart.
 
 For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/index-settings/#dynamic-cluster-level-index-settings).
 
-Acceptable values are 1 to 2147483647, inclusive. ||
+Acceptable values are 32 to 32768, inclusive. ||
 || fielddata_cache_size | **string**
 
 The maximum size of the field data cache.
@@ -719,6 +739,38 @@ Acceptable values are 0 to 23, inclusive. ||
 The minute of the hour at which the backup should be created.
 
 Acceptable values are 0 to 59, inclusive. ||
+|#
+
+## AuditLog {#yandex.cloud.mdb.opensearch.v1.AuditLog}
+
+Audit log settings.
+
+#|
+||Field | Description ||
+|| compliance_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enable compliance audit logging. ||
+|| log_request_body | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Log request body in audit logs. ||
+|| log_search_queries | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Log search queries in audit logs. ||
+|| log_data_modifications | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Log data modifications in audit logs. ||
+|| log_index_metadata_access | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Log index metadata access in audit logs. ||
+|| log_monitoring_checks | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Log monitoring checks in audit logs. ||
+|| log_index_maintenance | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Log index maintenance operations in audit logs. ||
+|| log_backup_operations | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Log backup operations in audit logs. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow}

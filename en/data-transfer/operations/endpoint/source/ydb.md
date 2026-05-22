@@ -88,11 +88,20 @@ To create or edit an endpoint of a managed database, you will need the [`ydb.vie
 
   * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbSource.YdbSourceAdvancedSettings.sharded_snapshot.title }}**:
 
+    {% note warning %}
+
+    For consistent data migration during parallel copying, the transfer first copies the original tables from the source to a temporary folder, reads the data from these copies, and then deletes the temporary copies.
+    The data is copied at the metadata level, which does not take much time. However, the copied tables are fully counted towards the {{ ydb-name }} disk quota.
+    **Therefore, by running a transfer with the sharded snapshot option on you may deplete your disk quota for the source database. So make sure your database has enough disk quota left before you run a transfer.**
+
+
+    {% endnote %}
+
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbShardedSnapshotSettings.is_snapshot_sharded.title }}**: Enable to speed up the transfer with the help of a sharded snapshot.
 
       During the copying stage, tables are divided into partitions. Copying will proceed faster if the number of workers multiplied by the number of threads inside a worker is proportional to the number of partitions.
 
-    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbShardedSnapshotSettings.copy_folder.title }}**: Specify the name of the directory to store the copies of the tables during the copying stage. The directory is created in the root directory of the source base and gets the default name of `data-transfer`. The copies of tables in the directory contain only metadata, so they do not take up much memory. As soon as the copying stage is over, the directory will be deleted.
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbShardedSnapshotSettings.copy_folder.title }}**: Specify the name of the directory to store the copies of the tables during the copying stage. The directory is created in the root directory of the source base and gets the default name of `data-transfer`. As soon as the copying stage is over, the directory will be deleted.
     
     
     To control parallel copying, the service account specified in the endpoint settings must have the [`ydb.editor`](../../../../ydb/security/index.md#ydb-editor) role.

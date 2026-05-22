@@ -44,8 +44,8 @@ Create a [service plan](operations/create-tariff.md) to assign it to your produc
 
 In {{ marketplace-short-name }}, you can place VM images from {{ yandex-cloud }} public images and packages for {{ managed-k8s-name }}. Make sure you read through the image and app requirements and recommendations:
 
-* [{#T}](operations/create-image.md)
-* [{#T}](operations/create-container.md)
+* [{#T}](concepts/compute-product.md)
+* [{#T}](concepts/kubernetes-product.md)
 
 ## Create the first version of the product {#create-version}
 
@@ -53,4 +53,4 @@ For more information on creating the first version of the product in the {{ mark
 
 ## Submit you version for moderation {#moderate-version}
 
-All product versions listed in {{ marketplace-short-name }} undergo technical and content moderation to ensure they meet the {{ marketplace-short-name }} product requirements for [{{ compute-name }}](operations/create-image.md) and [{{ managed-k8s-name }}](operations/create-container.md). Once the moderation process is successfully completed, you will receive a notification and can start offering your product version to users.
+All product versions listed in {{ marketplace-short-name }} undergo technical and content moderation to ensure they meet the {{ marketplace-short-name }} product requirements for [{{ compute-name }}](concepts/compute-product.md) and [{{ managed-k8s-name }}](concepts/kubernetes-product.md). Once the moderation process is successfully completed, you will receive a notification and can start offering your product version to users.

@@ -11,7 +11,7 @@ items:
         href: collector/index.md
       - name: OTLP in {{ monium-name }}
         href: collector/otlp-protocol.md
-      - name: Creating and setting up a project
+      - name: Creating and configuring a project
         href: collector/project.md
       - name: Otel Collector
         items:
@@ -75,50 +75,28 @@ items:
         href: metrics/quickstart.md
       - name: Overview of features
         href: metrics/overview.md
-      - name: Step-by-step guides
+      - name: Metrics search and analysis
+        href: metrics/metric-explorer.md
+      - name: All guides
+        href: operations/index.md
+      - name: Delivering and exporting metrics
         items:
-          - name: All guides
-            href: operations/index.md
-          - name: Working with metrics
-            items:
-              - name: Metrics overview
-                href: operations/metric/metric-explorer.md
-              - name: Delivering Linux system metrics
-                href: operations/unified-agent/linux_metrics.md
-              - name: Delivering custom application metrics
-                href: operations/unified-agent/pull_prometheus.md
-              - name: >-
-                  Delivering metrics from HAProxy and other third-party
-                  applications
-                href: operations/unified-agent/haproxy.md
-              - name: Delivering metrics from hosts outside {{ yandex-cloud }}
-                href: operations/unified-agent/non-yc.md
-              - name: Writing custom metrics via the API
-                href: operations/metric/add.md
-              - name: Getting a list of metrics
-                href: operations/metric/list.md
-              - name: Downloading metrics
-                href: operations/metric/get.md
-              - name: Exporting metrics in Prometheus format
-                href: operations/metric/prometheusExport.md
-          - name: Working with dashboards
-            items:
-              - name: Creating and managing dashboards
-                href: operations/dashboard/create.md
-              - name: Copying dashboards
-                href: operations/dashboard/copy.md
-              - name: Adding a widget to a dashboard
-                href: operations/dashboard/add-widget.md
-              - name: Adding a dashboard parameter
-                href: operations/dashboard/add-parameters.md
-              - name: Managing widgets
-                href: operations/dashboard/widget-management.md
-              - name: Deleting a widget from a dashboard
-                href: operations/dashboard/delete-widget.md
-              - name: Deleting a dashboard
-                href: operations/dashboard/delete-dashboard.md
-              - name: Examples of working with the gRPC API
-                href: operations/dashboard/api-examples.md
+          - name: Delivering Linux system metrics
+            href: operations/unified-agent/linux_metrics.md
+          - name: Delivering custom application metrics
+            href: operations/unified-agent/pull_prometheus.md
+          - name: Delivering metrics from HAProxy and other third-party applications
+            href: operations/unified-agent/haproxy.md
+          - name: Delivering metrics from hosts outside {{ yandex-cloud }}
+            href: operations/unified-agent/non-yc.md
+          - name: Writing custom metrics via the API
+            href: operations/metric/add.md
+          - name: Getting a list of metrics
+            href: operations/metric/list.md
+          - name: Downloading metrics
+            href: operations/metric/get.md
+          - name: Exporting metrics in Prometheus format
+            href: operations/metric/prometheusExport.md
       - name: Tutorials
         items:
           - name: All tutorials
@@ -137,6 +115,8 @@ items:
         items:
           - name: All metric references
             href: metrics-ref/index.md
+          - name: '{{ ai-studio-name }}'
+            href: metrics-ref/ai-studio-ref.md
           - name: '{{ api-gw-name }}'
             href: metrics-ref/api-gateway-ref.md
           - name: '{{ alb-name }}'
@@ -239,7 +219,7 @@ items:
             href: logs/write/converting-data.md
           - name: Fluent Bit
             href: logs/write/fluent-bit.md
-      - name: Log search and analysis
+      - name: Monitoring and analysis of logs
         href: logs/logs-explorer.md
       - name: Concepts
         items:
@@ -253,6 +233,8 @@ items:
             href: logs/concepts/ttl.md
       - name: Log metrics
         href: logs/logs-metrics.md
+      - name: Limits
+        href: logs/limits.md
   - name: Traces
     items:
       - name: Getting started
@@ -273,7 +255,7 @@ items:
             href: traces/instrumentation/rpc.md
           - name: Asynchronous operations
             href: traces/instrumentation/async.md
-          - name: Handling errors
+          - name: Error handling
             href: traces/instrumentation/exceptions.md
           - name: Retries
             href: traces/instrumentation/retries.md
@@ -289,7 +271,7 @@ items:
             href: traces/operations/critical-path.md
           - name: Trace-to-log correlation
             href: traces/operations/traces-logs.md
-          - name: Trace archiving
+          - name: Archiving traces
             href: traces/operations/archiving.md
           - name: Incomplete traces
             href: traces/operations/incomplete-traces.md
@@ -303,7 +285,7 @@ items:
             href: traces/llm/manual_instrumentation.md
           - name: Viewing and analyzing LLM traces
             href: traces/llm/traces.md
-      - name: Limitations
+      - name: Limits
         href: traces/limits.md
   - name: Visualizing data
     items:

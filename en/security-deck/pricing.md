@@ -12,16 +12,34 @@ editable: false
 
 {% include [vat](../_includes/vat.md) %}
 
-The applicable {{ sd-name }} pricing depends on the module you are using:
+In {{ sd-name }}, each module is billed separately. A starter package plan is available, which includes several modules.
 
-* [{{ ciem-full-name }} ({{ ciem-name }})](concepts/ciem.md) is free of charge.
-* For [{{ dspm-name }}](concepts/dspm.md), see [below](#dspm-rules).
-* For [{{ atr-name }}](concepts/access-transparency.md), see [below](#atr-rules).
-* For [{{ kspm-full-name }} ({{ kspm-name }})](concepts/kspm.md), see [below](#kspm-rules).
-* For [{{ cspm-full-name }} ({{ cspm-name }})](concepts/cspm.md), see [below](#cspm-rules).
-* [AI assistant](concepts/ai-assistant.md) is at the [Preview](../overview/concepts/launch-stages.md) stage and free of charge.
+The pricing policy for the following modules and packages is presented below:
+
+* [Starter package](#starter-rules).
+* [Data Security Posture Management ({{ dspm-name }})](concepts/dspm.md).
+* [{{ atr-name }}](concepts/access-transparency.md).
+* [Kubernetes® Security Posture Management ({{ kspm-name }})](concepts/kspm.md).
+* [Cloud Security Posture Management ({{ cspm-name }})](concepts/cspm.md).
+
+{% note info %}
+
+[Cloud Infrastructure Entitlement Management ({{ ciem-name }})](concepts/ciem.md) and [AI assistant](concepts/ai-assistant.md) are provided free of charge.
+
+{% endnote %}
+
 
 ## What goes into the cost of using {{ sd-name }} {#rules}
+
+### Security Deck Starter package {#starter-rules}
+
+This package includes [Cloud Security Posture Management (CSPM)](./concepts/cspm.md) and [Threat Detector (TD)](./concepts/threat-detector.md) modules.
+
+Our subscription plans are priced per calendar month.
+
+A calendar month is defined as the period from 00:00 on the first day of the month to 23:59 on the last day of the same month, UTC+3.
+
+Prices for the number of resources are fixed and do not depend on the number of days in the month.
 
 ### {{ atr-name }} {#atr-rules}
 
@@ -54,6 +72,13 @@ The price does not depend on the number of days in the calendar month.
 ## Prices for the Russia region {#prices}
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
+### Security Deck Starter package {#starter-pricing}
+
+
+
+{% include notitle [usd.md](../_pricing/security-deck/starter/usd.md) %}
+
 
 ### {{ atr-name }} {#atr-pricing}
 
@@ -98,4 +123,5 @@ Let’s assume you set up scanning a bucket with 50 text files, their overall si
 
 
 {% include notitle [usd.md](../_pricing/security-deck/cspm/usd.md) %}
+
 

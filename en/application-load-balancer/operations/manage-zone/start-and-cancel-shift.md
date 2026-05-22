@@ -55,7 +55,7 @@ description: Follow this guide to disable/enable a zonal shift and test traffic 
       
          After this time, the zone will automatically recover. If this parameter is not set, the zonal shift will be on until you [disable](#enable-zones) it manually.
   
-      Here is an example:
+      Example:
 
       ```bash
       yc application-load-balancer load-balancer disable-zones \
@@ -136,7 +136,7 @@ description: Follow this guide to disable/enable a zonal shift and test traffic 
         --zones <availability_zones>
       ```
 
-      Here is an example:
+      Example:
 
       ```bash
       yc application-load-balancer load-balancer enable-zones \

@@ -77,7 +77,7 @@ items:
             href: operations/pxf/settings.md
       - name: Подключение к внешнему файловому серверу (gpfdist)
         href: operations/gpfdist/connect.md
-      - name: Расширения {{ GP }}
+      - name: Расширения
         items:
           - name: Управление расширениями
             href: operations/extensions/cluster-extensions.md
@@ -107,8 +107,6 @@ items:
             href: operations/cluster-logs.md
           - name: Просмотр операций кластера
             href: operations/cluster-operations.md
-          - name: Диагностика производительности
-            href: operations/performance-diagnostics.md
           - name: Мониторинг состояния кластера и хостов
             href: operations/monitoring.md
           - name: Передача логов кластера в {{ cloud-logging-full-name }}
@@ -151,7 +149,7 @@ items:
             href: tutorials/managed-kafka-to-greenplum.md
   - name: Концепции
     items:
-      - name: Обзор СУБД {{ GP }} и сервиса {{ mgp-full-name }}
+      - name: Обзор СУБД {{ GP }} и {{ CB }} в сервисе {{ mgp-full-name }}
         href: concepts/overview.md
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
@@ -197,7 +195,7 @@ items:
         href: concepts/maintenance.md
       - name: Очистка таблиц и системного каталога
         href: concepts/vacuum.md
-      - name: Настройки {{ GP }}
+      - name: Настройки СУБД
         href: concepts/settings-list.md
   - name: Управление доступом
     href: security/index.md
@@ -815,7 +813,7 @@ items:
         href: qa/backup.md
       - name: Изменение кластера
         href: qa/update.md
-      - name: Кластер и хосты {{ GP }}
+      - name: Кластер и хосты
         href: qa/cluster-hosts.md
       - name: Работа с внешними таблицами
         href: qa/pxf.md

@@ -12,9 +12,8 @@ blocks:
   - type: card-layout-block
     animated: false
     colSizes:
-      all: 4
+      all: 12
       sm: 4
-      md: 4
     children:
       - type: basic-card
         title: Price calculator
@@ -78,10 +77,15 @@ Storage usage is measured in GB per month. The amount of data stored for a month
 
 ### Data operations {#rules-operations}
 
-You pay for data operations according to the following policy:
-* The minimum billing unit for `PUT`, `POST`, `PATCH`, `LIST`, and `TRANSITION` operations is 10.
-* The minimum billing unit for `GET`, `HEAD`, and `OPTIONS` operations is 100.
-* You are not charged for deleting data (the `DELETE` operation).
+You pay for the actual number of operations.
+
+You are not charged for deleting data (the `DELETE` operation).
+
+{% note warning %}
+
+If you delete from your [ice storage](./concepts/storage-class.md) an object that had been stored for less than 12 months, the [balance of the storage charge will be debited](#ice-storage) after the deletion.
+
+{% endnote %}
 
 
 
@@ -130,7 +134,7 @@ The first 1 GB of data stored in standard storage per month is free of charge.
 
 #### Ice storage {#ice-storage}
 
-The minimum billable storage duration of an object in ice storage is 12 months. If you delete an object that was stored for less than 12 months, you will be charged the remaining cost after deletion.
+The minimum billable storage duration of an object in ice storage is 12 months. If you delete an object that had been stored for less than 12 months, the balance of the storage charge will be debited after the deletion.
 
 
 
@@ -213,3 +217,7 @@ For standard storage, the first gigabyte of data (1 GB), 10,000 PUT operations
 
 {% include [usd-comparison-3](../_pricing_examples/storage/usd-comparison-3.md) %}
 
+
+### See also {#see-also}
+
+[{#T}](./concepts/limits.md)

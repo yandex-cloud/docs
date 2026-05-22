@@ -2,6 +2,8 @@
 
 This page contains security recommendations from {{ yandex-cloud }} experts.
 
+{% include [30.04.2026 — CVE-2026-31431](../../_includes/security/security-bulletins/cve-2026-31431-copy-fail-linux-distributions.md) %}
+
 {% include [25.12.2025 — CVE-2025-14847](../../_includes/security/security-bulletins/cve-2025-14847-storedoc-reading-uninitialized-memory-zlib.md) %}
 
 {% include [02.04.2025 — CVE-2025-1385](../../_includes/security/security-bulletins/cve-2025-1385-clickhouse-library-bridge-remote-code-execution.md) %}

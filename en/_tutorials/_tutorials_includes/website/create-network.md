@@ -14,7 +14,7 @@ Create a [cloud network](../../../vpc/concepts/network.md) and [subnets](../../.
   1. Keep **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}** enabled.
   1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
 
-- CLI {#cli}
+- {{ yandex-cloud }} CLI {#cli}
 
   {% include [include](../../../_includes/cli-install.md) %}
 

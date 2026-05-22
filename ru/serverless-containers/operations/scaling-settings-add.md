@@ -81,7 +81,7 @@
     metadata_options: {}
     ```
 
-    Более подробную информацию о команде смотрите в [справочнике CLI](../../../cli/cli-ref/serverless/cli-ref/container/revision/deploy).
+    Более подробную информацию о команде смотрите в [справочнике CLI](../../cli/cli-ref/serverless/cli-ref/container/revision/deploy.md).
 
 - {{ TF }} {#tf}
   

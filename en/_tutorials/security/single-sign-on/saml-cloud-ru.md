@@ -2,11 +2,11 @@
 
 [Cloud.ru](https://cloud.ru/) is a Russian provider of cloud services, spanning IaaS, PaaS, AI/ML tools, and solutions for public, private, and hybrid cloud deployments, including support for infrastructure migration and operation.
 
-To authenticate your [organization's](../../../organization/concepts/organization.md) users to Cloud.ru via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-full-name }} and configure it appropriately both in {{ org-full-name }} and Cloud.ru.
+For the users of your [organization](../../../organization/concepts/organization.md) to be able to authenticate to Cloud.ru via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-full-name }} and configure it both in {{ org-full-name }} and Cloud.ru.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
-For the users of your organization to be able to access Cloud.ru:
+To give access to Cloud.ru to the users of your organization:
 
 1. [Create an app](#create-app).
 1. [Set up the integration](#setup-integration).
@@ -28,7 +28,7 @@ For the users of your organization to be able to access Cloud.ru:
         1. Optionally, add [labels](../../../resource-manager/concepts/labels.md):
 
             1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-            1. Enter a label in `key: value` format.
+            1. Add a label in `key: value` format.
             1. Press **Enter**.
         1. Click **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
 
@@ -92,11 +92,7 @@ To configure Cloud.ru integration with the SAML app you created in {{ org-full-n
 
 To enable your organization's users to authenticate in Cloud.ru using the {{ org-full-name }} SAML application, you must explicitly add their accounts both to the application and the Cloud.ru federation.
 
-{% note info %}
-
-Users and groups added to a SAML application can be managed by a user with the `organization-manager.samlApplications.userAdmin` [role](../../../organization/security/index.md#organization-manager-samlApplications-userAdmin) or higher.
-
-{% endnote %}
+{% include [saml-manage-users](../../../_includes/organization/saml-manage-users.md) %}
 
 #### Add users to the {{ org-full-name }} SAML application {#add-app-users}
 
@@ -127,7 +123,7 @@ Users and groups added to a SAML application can be managed by a user with the `
 
 To make sure both your SAML app and its integration with Cloud.ru work correctly, authenticate to Cloud.ru as one of the users you added to the app.
 
-Proceed as follows:
+Follow these steps:
 
 1. In your browser, open the Cloud.ru [console](https://console.cloud.ru/) login page.
 1. If you were logged in, log out.

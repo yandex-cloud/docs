@@ -29,7 +29,7 @@ The infrastructure support costs include:
 * Fee for storing created images (see [{{ compute-name }} pricing](../../compute/pricing.md#prices-storage)).
 * Fee for using a dynamic [public IP address](../../vpc/concepts/address.md#public-addresses) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
-## Configure the environment {#prepare}
+## Set up your environment {#prepare}
 
 Set up the software:
 * [Install](../../cli/operations/install-cli.md) the {{ yandex-cloud }} command line interface.
@@ -65,7 +65,7 @@ Jenkins will get VM image configuration changes from GitHub and then use Packer 
 To create a VM:
 
 1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, go to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab, click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**, and select the [Jenkins](/marketplace/products/yc/jenkins) image.
@@ -104,7 +104,7 @@ To create a VM:
 
         {% note alert %}
 
-        Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
+        Do not use `root` or other OS-reserved usernames. For operations requiring root privileges, use the `sudo` command.
 
         {% endnote %}
 
@@ -277,7 +277,7 @@ When configuring a Jenkins task under **GitHub Hook log**, you may encounter a `
 
 {% endnote %}
 
-As a result, three new images will appear in **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** under **{{ ui-key.yacloud.compute.images_e7RdQ }}**:
+As a result, three new images will appear in **{{ ui-key.yacloud.compute.images_e7RdQ }}** under **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**:
 * `Debian`: Basic image with the latest updates.
 * `Nginx`: `Debian`-based image with an nginx web server.
 * `Django`: `Debian`-based image with the Django framework.
@@ -309,9 +309,9 @@ This will create:
 
 ## Delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for the resources you no longer need, delete them:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 * [Delete the VMs you created](../../compute/operations/vm-control/vm-delete.md).
-* [Delete the images you created](../../compute/operations/image-control/delete.md).
+* [Delete the images](../../compute/operations/image-control/delete.md).
 * [Delete the service account](../../iam/operations/sa/delete.md) and `<username>.json`.
 * [Delete the network and the subnets](../../vpc/operations/network-delete.md).
 

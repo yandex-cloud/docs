@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartwebsecurity/cli-ref/
 editable: false
 ---
 
@@ -32,7 +33,15 @@ Aliases:
 
   - [yc smartwebsecurity security-profile update](security-profile/update.md) — Updates the specified security profile.
 
+- [yc smartwebsecurity v0](v0/index.md) — (legacy command tree) Manage SmartWebSecurity resources
+
+
+
 - [yc smartwebsecurity v1](v1/index.md) — Manage SmartWebSecurity resources
+
+
+
+- [yc smartwebsecurity waf](waf/index.md) — 
 
 
 

@@ -1,13 +1,17 @@
 # Yandex Metrica: data export, post-processing, and visualization
 
 
+
+{% include [datalens-metrica-pro-note](../../_includes/datalens/datalens-metrica-pro-note.md) %}
+
+
 In this tutorial, you will learn how to build conversion funnels, run cohort analysis, calculate the Retention rate for the user base in {{ ml-platform-full-name }}, and visualize the data in {{ datalens-full-name }}.
 
 Yandex Metrica data is used as the data source.
 
 1. [Connect {{ CH }} and {{ ml-platform-short-name }}](#ch-datasphere-connection):
-    1. [Connect {{ CH }}](#ch-connection).
-    1. [Connect {{ ml-platform-short-name }}](#datasphere-connection).
+    1. [Enable {{ CH }}](#ch-connection).
+    1. [Enable {{ ml-platform-short-name }}](#datasphere-connection).
     1. [Clone the repository to {{ ml-platform-short-name }}](#clone-repo-to-datasphere).
 1. [Retrieve and upload data to {{ CH }}](#get-download-data-in-ch):
     1. [Yandex Metrica. Create an app and get an access token](#create-metrica-app-token).
@@ -20,7 +24,7 @@ Yandex Metrica data is used as the data source.
     1. [Create a connection to {{ CH }} in {{ datalens-short-name }}](#creation-datalens-connection-to-ch).
     1. [Create a dataset based on the connection](#creating-dataset-based-on-connection).
     1. [Create an area chart](#creating-area-chart).
-    1. [Create a pivot table chart](#creating-pivot-table).
+    1. [Create a pivot table](#creating-pivot-table).
 1. [Create and configure a dashboard in {{ datalens-short-name }}](#creating-configuring-dashboard):
     1. [Create a dashboard](#creating-dashboard).
     1. [Set up the dashboard](#configuring-dashboard).

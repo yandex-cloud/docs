@@ -119,12 +119,16 @@ items:
             href: tutorials/single-sign-on/saml-sonarqube.md
           - name: Setting up SAML SSO in {{ yandex-360 }}
             href: tutorials/single-sign-on/saml-yandex-360.md
+          - name: Yandex Browser for organizations
+            href: tutorials/single-sign-on/saml-ya-browser-corporate.md
           - name: Setting up SAML SSO in OpenVPN Access Server
             href: tutorials/single-sign-on/saml-ovpn.md
           - name: Setting up SAML SSO in Cloud.ru
             href: tutorials/single-sign-on/saml-cloud-ru.md
           - name: Setting up SAML SSO in VK Cloud
             href: tutorials/single-sign-on/saml-vk-cloud.md
+          - name: Setting up OIDC SSO in Harbor
+            href: tutorials/single-sign-on/oidc-harbor.md
           - name: Setting up SAML SSO in Sentry
             href: tutorials/single-sign-on/saml-sentry.md
           - name: Setting up SAML SSO in Jenkins
@@ -310,10 +314,10 @@ items:
       - name: Application protection
         items:
           - name: >-
-              Installing an NGINX ingress controller with a {{
-              certificate-manager-name }} certificate
+              Installing an NGINX ingress controller with a certificate from {{
+              certificate-manager-name }}
             href: tutorials/app-security/nginx-ingress-certificate-manager.md
-          - name: Building a CI/CD pipeline in {{ GL }} with serverless products
+          - name: Building a CI/CD pipeline in {{ GL }} using serverless products
             href: tutorials/app-security/ci-cd-serverless.md
           - name: Creating an interactive serverless application using WebSocket
             href: tutorials/app-security/websocket-app.md
@@ -329,15 +333,15 @@ items:
                 href: tutorials/app-security/balancer-with-sws-profile/terraform.md
           - name: '{{ api-gw-name }} protection with {{ sws-name }}'
             href: tutorials/app-security/api-gw-sws-integration.md
-          - name: Adding an HTML page to work with {{ captcha-name }}
+          - name: Adding an HTML page for {{ captcha-name }}
             href: tutorials/app-security/website.md
-          - name: '{{ captcha-name }} in Android apps'
+          - name: '{{ captcha-name }} on Android'
             href: tutorials/app-security/quickstart-android.md
-          - name: Invisible {{ captcha-name }} in Android apps
+          - name: Invisible {{ captcha-name }} on Android
             href: tutorials/app-security/invisible-captcha-android.md
-          - name: '{{ captcha-name }} in an Android app on Flutter'
+          - name: '{{ captcha-name }} in Flutter Android apps'
             href: tutorials/app-security/quickstart-android-flutter.md
-          - name: '{{ captcha-name }} in iOS apps'
+          - name: '{{ captcha-name }} on iOS'
             href: tutorials/app-security/quickstart-ios.md
       - name: '{{ k8s }} security'
         items:

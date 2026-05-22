@@ -60,7 +60,7 @@ To use any of the modules, navigate to the [{{ sd-name }} interface]({{ link-sd-
 
 {% include [about-dspm](../_includes/security-deck/about-dspm.md) %}
 
-To get started with the {{ dspm-name }} module, follow the guides on how to [create a data source](./operations/dspm/create-data-source.md) and a [scan](./operations/dspm/create-scan.md) for bucket information.
+To get started with {{ dspm-name }}, [activate](#create-workspace) it in the current {{ sd-name }} [workspace](./concepts/workspace.md) settings and follow the guides on how to [analyze data](./operations/dspm/discovery-mode.md), [create a data source](./operations/dspm/create-data-source.md), and [create a scan](./operations/dspm/create-scan.md) for the information.
 
 For more information, see [{#T}](./concepts/dspm.md).
 
@@ -106,3 +106,4 @@ For more information, see [{#T}](./concepts/access-transparency.md).
 * Learn [how to scan buckets for sensitive information](./operations/dspm/create-scan.md) in {{ sd-name }}.
 * Learn [how to view a subject's access list](./operations/ciem/view-permissions.md) in {{ sd-name }}.
 * Learn about the [required access permissions](./security/index.md) to work with {{ sd-name }}.
+

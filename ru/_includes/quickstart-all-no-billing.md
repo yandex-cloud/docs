@@ -37,7 +37,7 @@
   * [{{ PG }}](../managed-postgresql/quickstart.md).
   * [{{ OS }}](../managed-opensearch/quickstart.md).
   * [{{ KF }}](../managed-kafka/quickstart.md).
-  * [{{ GP }}](../managed-greenplum/quickstart.md).
+  * [{{ mgp-name }}](../managed-greenplum/quickstart.md).
   * [{{ ydb-name }}](../ydb/quickstart.md#create-db).
   * [Копируйте и реплицируйте данные из одной базы в другую с помощью {{ data-transfer-name }}](../data-transfer/quickstart.md).
 * Искусственный интеллект:

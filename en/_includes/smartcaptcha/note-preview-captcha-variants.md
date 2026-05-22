@@ -1,5 +1,5 @@
 {% note info %}
 
-The feature of challenge options and show rules is at the [Preview](../../overview/concepts/launch-stages.md) stage.
+Challenge options and display rules are currently in [Preview](../../overview/concepts/launch-stages.md).
 
 {% endnote %}

@@ -1,5 +1,5 @@
 ---
-title: How to send requests to an external API when an alert triggers in {{ monitoring-full-name }}
+title: How to send requests to an external API when an alert triggers in {{ monium-name }}
 description: Follow this guide to create a webhook that invokes a function in {{ sf-full-name }}.
 ---
 
@@ -111,7 +111,9 @@ To send POST requests when an alert triggers:
   1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, set the version parameters:
       * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `index.handler`.
       * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `sa-alert-webhook`.
-  1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-additional-parameters }}**, enable **{{ ui-key.yacloud.serverless-functions.item.editor.label_async }}**.
+  1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-additional-parameters }}**:
+      1. Enable **{{ ui-key.yacloud.serverless-functions.item.editor.label_async }}**.
+      1. Select **{{ ui-key.yacloud.forms.label_service-account-select }}** `sa-alert-webhook`.
   1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
 
 {% endlist %}
@@ -120,13 +122,14 @@ To send POST requests when an alert triggers:
 
 {% list tabs group=instructions %}
 
-- Management console {#console}
+- {{ monium-name }} UI {#console}
 
   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ monium-name }}** and select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.notification-methods.title }}** on the left.
   1. At the top right, click **Create** → **Notification channel**.
   1. Enter a name for your notification channel, e.g., `channel-function`.
-  1. From the **{{ ui-key.yacloud_monitoring.channel.field_method }}** list, select **{{ sf-name }}**.
-  1. From the **{{ ui-key.yacloud_monitoring.channel.field_service-account_title }}** list, select the account you created when adding your function.
+  1. From the **{{ ui-key.yacloud_monitoring.channel.field_method }}** list, select ![image](../../../_assets/console-icons/code.svg) **{{ sf-name }}**.
+  1. Select `alert-webhook` from the **{{ ui-key.yacloud_monitoring.channel.field_function_title }}** list.
+  1. From the **{{ ui-key.yacloud_monitoring.channel.field_service-account_title }}** list, select the `sa-alert-webhook` account.
   1. Click **{{ ui-key.yacloud_monitoring.actions.common.create }}**.
 
 {% endlist %}
@@ -135,14 +138,14 @@ To send POST requests when an alert triggers:
 
 {% list tabs group=instructions %}
 
-- Management console {#console}
+- {{ monium-name }} UI {#console}
 
   1. Under **{{ monium-name }}**, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.alerts.title }}**.
   1. Click **{{ ui-key.yacloud.common.create }}**.
   1. Enter a name for the alert, e.g., `alert-function`.
   1. Enter the [query](../../concepts/alerting/alert.md#queries) to use for selecting which metrics to track.
   1. Configure the [trigger conditions](../../concepts/alerting/alert.md#condition).
-  1. Under **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}**, click **Edit** and then **{{ ui-key.yacloud.common.add }}**.
+  1. Under **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.notification-channels }}**, click **{{ ui-key.yacloud_monitoring.monitoring-alerts.label.edit-notify-methods }}** and then **{{ ui-key.yacloud_monitoring.actions.common.add }}**.
   1. Select `channel-function`.
   1. Click **{{ ui-key.yacloud.common.add }}**.
   1. Click **{{ ui-key.yacloud.common.create }}**.

@@ -58,7 +58,7 @@ Create a [{{ lockbox-name }}](../../lockbox/) secret to store the [{{ mmy-name }
   1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the secret name: `db-password-secret`.
   1. In the **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** field, select `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.
-  1. In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, enter `db_password`.
+  1. In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, specify `db_password`.
   1. In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, set a password for the {{ mmy-name }} database. Password requirements:
 
       * It must be from 8 to 128 characters long.
@@ -123,7 +123,7 @@ Install [Ghost CMS High Availability](/marketplace/products/yc/ghost-cms-ha) usi
 
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
   1. Click **{{ ui-key.yacloud.cloud-apps.button_empty-install-application }}**.
-  1. In the window that opens, select **Ghost CMS High Availability**.
+  1. Select **Ghost CMS High Availability** and click **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
   1. Configure your application:
 
       #|

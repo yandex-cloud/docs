@@ -39,6 +39,10 @@ items:
             href: operations/resource-record-update.md
           - name: Deleting a record
             href: operations/resource-record-delete.md
+      - name: Filters
+        items:
+          - name: Creating a filter
+            href: operations/filter-create.md
   - name: Concepts
     items:
       - name: Overview
@@ -47,6 +51,10 @@ items:
         href: concepts/dns-zone.md
       - name: Resource records
         href: concepts/resource-record.md
+      - name: DNS filters
+        href: concepts/dns-filter.md
+      - name: DNS resolver
+        href: concepts/dns-resolver.md
       - name: Integration with {{ compute-name }}
         href: concepts/compute-integration.md
       - name: Quotas and limits

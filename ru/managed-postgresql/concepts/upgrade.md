@@ -5,6 +5,8 @@ description: Чтобы обновить мажорную версию {{ PG }} 
 
 # Обновление мажорной версии {{ PG }} в {{ mpg-full-name }}
 
+{% include [auto-update-of-deprecated-cluster](../../_includes/mdb/auto-update-of-deprecated-cluster.md) %}
+
 Чтобы обновить мажорную версию {{ PG }} в {{ mpg-name }}, выберите подходящее время, версию и [запустите обновление](../operations/cluster-version-update.md#start-update).
 
 Для обновления мажорной версии должно быть свободно:

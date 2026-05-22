@@ -53,7 +53,7 @@
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Укажите имя кластера, например `my-pg-database`.
   1. В списке **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** выберите `PRODUCTION`.
-  1. В списке **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите `15`.
+  1. В списке **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите `17`.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** укажите:
 
       * **{{ ui-key.yacloud.mdb.forms.resource_presets_field-generation }}** — `Intel Ice Lake`.

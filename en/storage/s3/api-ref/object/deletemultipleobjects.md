@@ -67,8 +67,8 @@ Tag | Description
 `Delete` | Contains the response body.<br/><br/>Path: `/Delete`.
 `Quiet` | `<Quiet>true</Quiet>` enables <q>quiet</q> mode.<br/><br/>{{ objstorage-name }} will only include deletion errors in the response. If there are no errors, the request will not return the response body. If the specified object does not exist when requested, `Deleted` will be returned.<br/><br/>If the tag is not specified, the default values is `false`.<br/><br/>Path: `/Delete/Quiet`.
 `Object` | Contains object deletion parameters.<br/><br/>Path: `/Delete/Object`.
-`Key` | Object key.<br/><br/>Path: `/Delete/Object/Key`.
-
+`Key` | [Object key](../../../concepts/object.md#key).<br/><br/>Path: `/Delete/Object/Key`.
+`VersionId` | [Object version](../../../concepts/versioning.md) ID. For example, to delete several versions of an object in one go.<br/><br/>Path: `/Delete/Object/VersionId`.
 
 
 ## Response {#response}

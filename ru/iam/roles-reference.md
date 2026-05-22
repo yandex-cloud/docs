@@ -593,6 +593,10 @@ description: В статье приведен полный справочник 
 
 {% include [license-manager.saasSubscriptionSupervisor](../_roles/license-manager/saasSubscriptionSupervisor.md) %}
 
+#### marketplace.productInstances.saasSupervisor {#marketplace-productInstances-saasSupervisor}
+
+{% include [marketplace.productInstances.saasSupervisor](../_roles/marketplace/productInstances/saasSupervisor.md) %}
+
 #### marketplace.product.creator {#marketplace-product-creator}
 
 {% include [marketplace.product.creator](../_roles/marketplace/product/creator.md) %}
@@ -646,6 +650,26 @@ description: В статье приведен полный справочник 
 
 {% include [license-manager.subscriptionAgent](../_roles/license-manager/subscriptionAgent.md) %}
 
+#### marketplace.productInstances.auditor {#marketplace-productInstances-auditor}
+
+{% include [marketplace.productInstances.auditor](../_roles/marketplace/productInstances/auditor.md) %}
+
+#### marketplace.productInstances.viewer {#marketplace-productInstances-viewer}
+
+{% include [marketplace.productInstances.viewer](../_roles/marketplace/productInstances/viewer.md) %}
+
+#### marketplace.productInstances.user {#marketplace-productInstances-user}
+
+{% include [marketplace.productInstances.user](../_roles/marketplace/productInstances/user.md) %}
+
+#### marketplace.productInstances.editor {#marketplace-productInstances-editor}
+
+{% include [marketplace.productInstances.editor](../_roles/marketplace/productInstances/editor.md) %}
+
+#### marketplace.productInstances.admin {#marketplace-productInstances-admin}
+
+{% include [marketplace.productInstances.admin](../_roles/marketplace/productInstances/admin.md) %}
+
 Подробнее см. [{#T}](../marketplace/security/index.md).
 
 
@@ -691,6 +715,14 @@ description: В статье приведен полный справочник 
 #### postbox.editor {#postbox-editor}
 
 {% include [postbox.editor](../_roles/postbox/editor.md) %}
+
+#### postbox.messages.reader {#postbox-messages-reader}
+
+{% include [postbox.messages.reader](../_roles/postbox/messages/reader.md) %}
+
+#### postbox.statistics.reader {#postbox-statistics-reader}
+
+{% include [postbox.statistics.reader](../_roles/postbox/statistics/reader.md) %}
 
 #### postbox.admin {#postbox-admin}
 
@@ -1098,6 +1130,10 @@ description: В статье приведен полный справочник 
 #### iam.serviceAccounts.admin {#iam-serviceAccounts-admin}
 
 {% include [iam.serviceAccounts.admin](../_roles/iam/serviceAccounts/admin.md) %}
+
+#### iam.serviceAccounts.ephemeralAccessKeyAdmin {#iam-serviceAccounts-ephemeralAccessKeyAdmin}
+
+{% include [iam.serviceAccounts.ephemeralAccessKeyAdmin](../_roles/iam/serviceAccounts/ephemeralAccessKeyAdmin.md) %}
 
 #### iam.serviceAccounts.accessKeyAdmin {#iam-serviceAccounts-accessKeyAdmin}
 
@@ -1934,6 +1970,10 @@ description: В статье приведен полный справочник 
 
 
 ## {{ mrd-full-name }} {#mrd-roles}
+
+#### managed-redis.clusters.connector {#managed-redis-clusters-connector}
+
+{% include [managed-redis.clusters.connector](../_roles/managed-redis/clusters/connector.md) %}
 
 #### managed-redis.auditor {#managed-redis-auditor}
 

@@ -1,6 +1,6 @@
 # Изменение настроек PXF
 
-Настройки [PXF](../external-tables.md), которые можно задать средствами {{ yandex-cloud }}, совпадают с настройками в конфигурационном файле {{ GP }} [pxf-application.properties]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/config_files.html#pxfappprops). Он описывает свойства протокола PXF. В кластере {{ GP }} для настроек PXF заданы значения по умолчанию. Чтобы оптимизировать работу с [внешними таблицами](../../concepts/external-tables.md), вы можете изменить настройки PXF с помощью интерфейсов {{ yandex-cloud }} вместо правки файла.
+Настройки [PXF](../external-tables.md), которые можно задать средствами {{ yandex-cloud }}, совпадают с настройками в конфигурационном файле [pxf-application.properties]({{ gp.docs.broadcom }}-platform-extension-framework/6-11/gp-pxf/config_files.html#pxfappprops). Он описывает свойства протокола PXF. В кластере {{ mgp-name }} для настроек PXF заданы значения по умолчанию. Чтобы оптимизировать работу с [внешними таблицами](../../concepts/external-tables.md), вы можете изменить настройки PXF с помощью интерфейсов {{ yandex-cloud }} вместо правки файла.
 
 {% list tabs group=instructions %}
 
@@ -83,7 +83,7 @@
 
         О том, как создать такой файл, см. в разделе [{#T}](../cluster-create.md).
 
-        Полный список доступных для изменения полей конфигурации кластера {{ GP }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mgp }}).
+        Полный список доступных для изменения полей конфигурации кластера {{ mgp-name }} см. в [документации провайдера {{ TF }}]({{ tf-provider-mgp }}).
 
     1. В описании кластера, в блоке `pxf_config`, задайте настройки PXF:
 

@@ -77,21 +77,21 @@ To provide users with more options and expand your video audience, enable AI fea
 
 ### Summarization {#summarization}
 
-Summarization automatically creates a short summary of your video conveying its main points and key message. With summarization enabled, the system automatically adds timecodes to videos. You can adjust the suggested timecodes or [add your own timecodes manually](#timecodes).
+[Summarization](../operations/video/summarization.md#enable) automatically creates a short summary of your video conveying its main points and key message. Summarization is available for videos with duration of no longer than four hours. With summarization enabled, the system automatically adds timecodes to videos. You can adjust the suggested timecodes or [add custom ones manually](#timecodes).
 
 ### Neural translation {#stranslation}
 
-Neural translation enables the automatic translation of video content into multiple languages and voiceover with [diverse voice options](https://habr.com/ru/news/905118/). View the list of supported languages in the [{{ video-name }} interface]({{ link-video-main }}).
+[Neural translation](../operations/video/translation.md) enables the automatic translation of video content into multiple languages and voiceover with [diverse voice options](https://habr.com/ru/news/905118/). View the list of supported languages in the [{{ video-name }} interface]({{ link-video-main }}).
 
 ### Subtitles {#subtitles}
 
-Neural subtitles not only include spoken text but also provide speaker differentiation. Each speaker switch is indicated by a dash and new line, making the dialogue easier to follow. View the list of supported languages in the [{{ video-name }} interface]({{ link-video-main }}).
+Neural [subtitles](../operations/video/subtitles.md) not only include spoken text but also provide speaker differentiation. Each speaker switch is indicated by a dash and new line, making the dialogue easier to follow. View the list of supported languages in the [{{ video-name }} interface]({{ link-video-main }}).
 
 You can also upload custom subtitles in SRT and VTT formats. The maximum subtitle file size is 500 MB. You can load several subtitle files in one or more languages for one video.
 
 ## Timecodes {#timecodes}
 
-You can [split your video into chapters](../operations/video/add-timecodes.md). The time and chapter name formats are as follows:
+[Timecodes](../operations/video/add-timecodes.md) allow you to break the video into chapters that you can navigate while watching. The time and chapter name formats are as follows:
 
 {% include [video-timecodes](../../_includes/video/video-timecodes.md) %}
 

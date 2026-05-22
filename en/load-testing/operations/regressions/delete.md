@@ -14,7 +14,8 @@ If you no longer need a dashboard, delete it.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+  1. In the [management console]({{ link-console-main }}), open the folder where you want to delete a dashboard.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
   1. In the left-hand panel, select ![image](../../../_assets/load-testing/regressions.svg) **{{ ui-key.yacloud.load-testing.label_regressions-title }}**.
   1. To the right of the dashboard name, click ![image](../../../_assets/options.svg) and select **{{ ui-key.yc-ui-datasphere.common.delete }}**.
 

@@ -2,11 +2,11 @@
 
 [{{ OS }}](https://opensearch.org/) is a highly scalable open-source system of search and analysis tools. {{ OS }} comes with the [{{ OS }} Dashboards](https://docs.opensearch.org/latest/dashboards/) data visualization UI. 
 
-To authenticate your [organization's](../../../organization/concepts/organization.md) users to {{ OS }} via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-full-name }} and configure it appropriately both in {{ org-full-name }} and in {{ OS }}.
+For the users of your [organization](../../../organization/concepts/organization.md) to be able to authenticate to {{ OS }} via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-full-name }} and configure it both in {{ org-full-name }} and {{ OS }}.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
-For the users of your organization to be able to access {{ OS }}:
+To give access to {{ OS }} to the users of your organization:
 
 1. [Create an app](#create-app).
 1. [Set up the integration](#setup-integration).
@@ -28,7 +28,7 @@ For the users of your organization to be able to access {{ OS }}:
         1. Optionally, add [labels](../../../resource-manager/concepts/labels.md):
 
             1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-            1. Enter a label in `key: value` format.
+            1. Add a label in `key: value` format.
             1. Press **Enter**.
         1. Click **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
 
@@ -235,11 +235,7 @@ For more information about configuring attributes, see [Configure user and group
 
 For your organization's users to be able to authenticate in {{ OS }} Dashboards with the {{ org-full-name }} SAML app, you need to explicitly add these users and groups to that app.
 
-{% note info %}
-
-Users and groups added to a SAML application can be managed by a user with the `organization-manager.samlApplications.userAdmin` [role](../../../organization/security/index.md#organization-manager-samlApplications-userAdmin) or higher.
-
-{% endnote %}
+{% include [saml-manage-users](../../../_includes/organization/saml-manage-users.md) %}
 
 1. Once you set up role mapping in {{ OS }}, [create](../../../organization/operations/create-group.md) the relevant [groups](../../../organization/concepts/groups.md):
 
@@ -256,7 +252,7 @@ Users and groups added to a SAML application can be managed by a user with the `
             1. Navigate to the **{{ ui-key.yacloud_org.entity.group.title_tab-members }}** tab.  
             1. Click **{{ ui-key.yacloud_org.entity.group.action_add-member }}**.
             1. In the window that opens, select the users.
-            1. Click **{{ ui-key.yacloud_org.component.subject-select-dialog.action_apply }}**.
+            1. Click **{{ ui-key.yacloud.common.save }}**.
 
     {% endlist %}
 

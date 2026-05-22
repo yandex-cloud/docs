@@ -7,6 +7,28 @@ description: This page presents sync agent releases and their updates.
 
 ## Current version {#latest-release}
 
+### Version 0.45.0 (27/04/26) {#version0.45.0}
+
+#### Changes to {{ org-sync-agent-name }} {#changes-version0.45.0}
+
+* Fixed issues with premature termination of `dry-run` when using `use_session_api: true`.
+* Fixed agent freezes when stopping the `password writeback` process.
+* Added support for the `name` attribute.
+
+{% cut "Checksums" %}
+
+#|
+|| **Platform** | **Checksum (SHA-256)** ||
+|| `linux/amd64` | `87406dd51e1bf278ce14cf4cc0ae36bb0dfafe520d360986fe3f099a57ec2d3d` ||
+|| `linux/arm64` | `509c5c9c54b68b878577add6eeb07d4700c1ffdbb368c8f553f3a1181657b8f4` ||
+|| `darwin/amd64` | `2c34aa6d2b8b6ab5b04c448422566ef2e1d669b20c3cf186216770bf490d6a7a` ||
+|| `darwin/arm64` | `9332e029c27cdfdfffa412bc4583b2201761b8d75750735f288a51617f1e4e1f` ||
+|| `windows/amd64` | `4d326909988e6067a030f64c0903d49945a59483a97484dfcc1a8725b3adf4e1` ||
+|| `windows/arm64` | `ba241239f511f800a44080927dd4b33fa390706f552b7d551ede519aa58be23c` ||
+|#
+
+{% endcut %}
+
 ### Version 0.44.0 (20/04/26) {#version0.44.0}
 
 #### Changes to {{ org-sync-agent-name }} {#changes-version0.44.0}

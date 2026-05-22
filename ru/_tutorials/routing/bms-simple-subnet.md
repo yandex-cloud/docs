@@ -76,8 +76,10 @@
       1. {% include [server-lease-step5](../../_includes/baremetal/instruction-steps/server-lease-step5.md) %}
       1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-product }}** выберите образ `Ubuntu 24.04`.
       1. {% include [server-lease-step8](../../_includes/baremetal/instruction-steps/server-lease-step8.md) %}
-      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}** в поле **{{ ui-key.yacloud.baremetal.field_subnet-id }}** выберите созданную ранее подсеть `subnet-m3`.
-      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}** в поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-no }}`.
+      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}**:
+          1. В поле **{{ ui-key.yacloud.baremetal.field_subnet-id }}** выберите созданную ранее подсеть `subnet-m3`.
+          1. В поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-no }}`.
+
       1. В блоке **{{ ui-key.yacloud.baremetal.title_server-access }}**:
 
           {% include [server-lease-access](../../_includes/baremetal/server-lease-access.md) %}
@@ -158,7 +160,7 @@
 
           {% note tip %}
 
-          Убедиться в том, что выбран верный сетевой интерфейс, можно с помощью MAC-адреса. MAC-адрес нужного сетевого интерфейса сервера {{ baremetal-name }} вы можете [посмотреть](../../baremetal/operations/servers/get-info.md) на странице с информацией о сервере в блоке **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}**.
+          Убедиться в том, что выбран верный сетевой интерфейс, можно с помощью MAC-адреса. MAC-адрес нужного сетевого интерфейса сервера {{ baremetal-name }} вы можете [посмотреть](../../baremetal/operations/servers/get-info.md) на странице с информацией о сервере в блоке **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}**.
 
           {% endnote %}
 
@@ -268,7 +270,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-  1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks }}** и нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-network }}**.
+  1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks_kHgng }}** и нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-network }}**.
   1. В поле **{{ ui-key.yacloud.baremetal.field_name }}** задайте имя VRF: `my-vrf`.
   1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-network }}**.
 

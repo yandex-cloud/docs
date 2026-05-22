@@ -18,6 +18,9 @@ For examples of setting up authentication for specific OIDC providers, see these
 
 * [GitHub](../../tutorials/wlif-github-integration.md).
 * [{{ GL }}](../../tutorials/wlif-gitlab-integration.md).
+* [Custom {{ k8s }} installation](../../tutorials/wlif-k8s-integration.md).
+* [{{ managed-k8s-name }}](../../tutorials/wlif-managed-k8s-integration.md).
+* [Configuring CI/CD between {{ sf-name }} and GitHub](../../tutorials/ci-cd-github-functions.md).
 
 ## Get your cloud ready {#prepare-cloud}
 
@@ -79,7 +82,7 @@ To create a workload identity federation, the user needs the `iam.workloadIdenti
 
       Where:
 
-      * `--name`: Name of the new federation, e.g., `sample-iam-federation`. Follow these naming requirements:
+      * `--name`: Name of the new federation, e.g., `sample-iam-federation`. The naming requirements are as follows:
 
           {% include [name-format](../../../_includes/name-format.md) %}
       * `--issuer`: URL of the OIDC provider.
@@ -131,7 +134,7 @@ To create a workload identity federation, the user needs the `iam.workloadIdenti
 
       Where:
 
-      * `name`: Name of the new federation, e.g., `sample-iam-federation`. Follow these naming requirements:
+      * `name`: Name of the new federation, e.g., `sample-iam-federation`. The naming requirements are as follows:
 
           {% include [name-format](../../../_includes/name-format.md) %}
       * `folder_id`: [ID](../../../resource-manager/operations/folder/get-id.md) of the folder to create the workload identity federation in.
@@ -145,7 +148,7 @@ To create a workload identity federation, the user needs the `iam.workloadIdenti
 
           To get this value, refer to the OIDC provider's documentation or contact their support.
 
-      For more information about `yandex_iam_workload_identity_oidc_federation` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_workload_identity_oidc_federation).
+      For more information about the `yandex_iam_workload_identity_oidc_federation` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_workload_identity_oidc_federation).
 
   1. Create the resources:
 
@@ -185,13 +188,12 @@ To create federated credentials, the user needs the following:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder your service account is in.
+  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder containing the service account.
   
       [Create](../sa/create.md) a new service account if you need to.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Select the appropriate service account from the list.
-  1. Navigate to the **{{ ui-key.yacloud.iam.label_federations }}** tab.
-  1. Click **{{ ui-key.yacloud.iam.connected-federation.action_connect-federation }}**.
+  1. In the top panel, click ![image](../../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.action_connect-federation }}**.
   1. In the **{{ ui-key.yacloud.iam.connected-federation.field_federation }}** field, select the federation you created earlier.
   1. In the **{{ ui-key.yacloud.iam.connected-federation.field_subject }}** field, specify the external subject ID.
 
@@ -259,7 +261,7 @@ To create federated credentials, the user needs the following:
 
           To get this value, refer to the OIDC provider's documentation or contact their support.
 
-      For more information about `yandex_iam_workload_identity_federated_credential` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_workload_identity_federated_credential).
+      For more information about the `yandex_iam_workload_identity_federated_credential` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_workload_identity_federated_credential).
 
   1. Create the resources:
 

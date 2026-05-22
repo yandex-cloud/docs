@@ -13,6 +13,7 @@ default:
   airflow-service-address: 10.248.0.0/13
   alb-full-name: Yandex Application Load Balancer
   alb-name: Application Load Balancer
+  alerting-metrics-limit: 1 000
   alerts-name: Алерты
   all-mdb:
     max-databases: 1000
@@ -74,10 +75,7 @@ default:
   billing-name: Yandex Cloud Billing
   billing-oferta-url: https://yandex.ru/legal/cloud_oferta/?lang=ru
   bitrix24-name: Битрикс24
-  brand-voice-cc: Brand Voice Call Center
-  brand-voice-core: Brand Voice Self Service
   brand-voice-name: SpeechKit Brand Voice
-  brand-voice-premium: Brand Voice Premium
   ca-address: https://storage.yandexcloud.net/mqtt/rootCA.crt
   ca-full-name: SourceCraft Code Assistant
   ca-name: Code Assistant
@@ -85,6 +83,7 @@ default:
   captcha-full-name: Yandex SmartCaptcha
   captcha-mobile-site: https://smartcaptcha.cloud.yandex.ru/webview
   captcha-name: SmartCaptcha
+  CB: Apache Cloudberry™
   cdn-full-name: Yandex Cloud CDN
   cdn-name: Cloud CDN
   cdn-short-name: Cloud CDN
@@ -94,7 +93,7 @@ default:
   CH: ClickHouse®
   ch-domain: clickhouse.com
   ch:
-    docs: https://clickhouse.com/docs/ru
+    docs: https://clickhouse.com/docs/
   cic-bgp-asn: 200350
   cic-pbc-subnet: 178.210.118.46/31
   cic-pbc-subnet-client: 178.210.118.46
@@ -519,10 +518,12 @@ default:
       pro: https://postgrespro.ru/docs
     versions:
       console:
+        dpr: '14'
         str-1c: 14-1c, 15-1c, 16-1c, 17-1c, 18-1c
+        str-last: '15'
       tf:
-        latest: '17'
-        str: 13, 13-1c, 14, 14-1c, 15, 15-1c, 16, 16-1c, 17 и 17-1c
+        latest: '18'
+        str: 14, 14-1c, 15, 15-1c, 16, 16-1c, 17, 17-1c, 18 и 18-1c
   pgadmin: "pgAdmin\_4"
   php-cli-ver: php82
   php-full-ver: PHP 8.2
@@ -833,7 +834,6 @@ default:
   t4i-ice-lake: Intel Ice Lake with T4i
   tag-all: <code><b><small>Все интерфейсы</small></b></code>
   tag-api: <code><b><small>API</small></b></code>
-  tag-center: <code><b><small>Cloud Center</small></b></code>
   tag-cli: <code><b><small>CLI</small></b></code>
   tag-con: <code><b><small>Консоль управления</small></b></code>
   tag-preview: <code><b><small>Preview</small></b></code>
@@ -1645,17 +1645,6 @@ default:
       ram:
         highfreq-v4a: dn2bctm6lff3ssuo8361
         v4a: dn2lsbs5tn54adofb0co
-  pc|datatransfer:
-    compute:
-      cpu:
-        preview:
-          v1: dn2t9ngojstgjojkjroo
-      ram:
-        preview:
-          v1: dn24iq96f11mcuqki01l
-    rows:
-      preview:
-        v1: dn2f241pa1nb8bavgd6o
   pc|iot:
     mqtt:
       basic_ingest: dn2oupl68uvjog57htmo
@@ -3713,6 +3702,7 @@ default:
         label_credit-monetaryGrantCredit: Грант
         label_credit-volumeIncentiveCredit: Скидка за объём потребления
         value_empty_clouds: Все облака и каталоги
+        value_empty_service_instances: Все рабочие пространства
       cloud-billing-account:
         label_card-add: Добавить карту
       create-account:
@@ -3983,6 +3973,15 @@ default:
         label_placeholder: Поиск по облачным ресурсам
         search_filters_all: Везде
         search_filters_docs: Документация
+      security:
+        dspm:
+          action_button_apply: Скачать файл
+          action_button_export_without_validation: Экспортировать без проверки
+          action_export_with_validation: Проверить и экспортировать
+          card_title_image: На изображениях
+          card_title_text: В тексте
+          dialog_select-service-account_create-new-action: Создать новый
+          header_scan_result_sensitive_data: Отображение чувствительных данных
       services:
         service_compute: Compute Cloud
       settings:
@@ -4031,6 +4030,7 @@ default:
           save: Сохранить
       alert-template:
         field:
+          delay-key-value: Задержка вычисления
           evaluation-window-key-value: Окно вычисления
         no-metrics-policy:
           alarm: Alarm
@@ -4395,6 +4395,7 @@ default:
           oauth_field_redirect_uri: Redirect URI
           oauth_field_token_endpoint: Token endpoint
           oauth_field_user_info_endpoint: Userinfo endpoint
+          oauth_idp_section_title: Конфигурация поставщика удостоверений (IdP)
           oauth_service_section_title: Конфигурация поставщика услуг (SP)
           saml_field_issuer: Issuer / IdP EntityID
           saml_field_login: Login URL
@@ -4476,6 +4477,7 @@ default:
         overview: Обзор
         resource-acl:
           label_invitee-accounts: Приглашенные аккаунты
+        save: Сохранить
         section-base: Общая информация
       component:
         form-file-upload:
@@ -4483,8 +4485,6 @@ default:
             method: Способ
           method:
             manual: Текст
-        subject-select-dialog:
-          action_apply: Сохранить
       dashboard:
         notify:
           action:
@@ -4509,9 +4509,6 @@ default:
           label_create-source: Создать источник
           label_field-name: Имя
           label_source-info: Информация об источнике
-        scan-categories:
-          card_title_image: На изображениях
-          card_title_text: В тексте
         scan-jobs:
           field_data-sources: Источники данных
         scan-resource-group:
@@ -4532,11 +4529,8 @@ default:
           public_buckets: Публичные бакеты
           title_all_buckets: Все бакеты
         scan:
-          action_button_apply: Скачать файл
-          action_button_export: Проверить и экспортировать
           action_download-results: Скачать результаты
           action_export-results: Экспортировать результаты
-          header_scan-result_sensitive-data: Отображение чувствительных данных
           label_data-type: Тип данных
           label_found-occurrence: Найденное вхождение
           results_resource-name: Ресурс
@@ -4668,11 +4662,6 @@ default:
           folders-create:
             button_create: Создать
             field_description: Описание
-        folder:
-          service-account:
-            popup-robot_button_save: Сохранить
-          service-accounts:
-            dialog_select-service-account_create-new-action: Создать новый
       kspm:
         TopClustersByErrorsWidget:
           table_clusters: Топ кластеров с нарушениями
@@ -4953,6 +4942,8 @@ default:
           general:
             section_default-storage_label: Хранилище по умолчанию
       security:
+        alerts-base:
+          action_create-exception_kyUtB: Создать исключение
         alerts:
           comment_form:
             send: Отправить
@@ -5051,8 +5042,6 @@ default:
             value_personal-data_w5gVm: Персональные данные
             value_secrets_4CdGy: Секреты
           label_field-bucket_3mM6u: Бакет
-          ScanExportDialog:
-            action_button_export_without_validation_pFWLZ: Экспортировать без проверки
           ScanForm:
             action_create-scan_dvakP: Создать сканирование без проверки
             table_action_assign_roles_bw4am: Назначить роли
@@ -5101,7 +5090,6 @@ default:
           ExceptionsPage:
             create-exception: Новое исключение
           InvestigationPageLayout:
-            copy_wiAxw: Создать копию
             fieldDescription_wiAxw: Описание
             fieldModified: Изменено
             information_cZr8L: Информация
@@ -5128,7 +5116,6 @@ default:
             labelServiceAccountField: Сервисный аккаунт
           DownloadCspmScanResultsDialog:
             action_download-file_gJ3Vh: Скачать файл
-          label_rule-kind_3PswX: Тип правила
           module_dspm_xxxxx: Контроль данных (DSPM)
           module-cspm_gozhj: Контроль конфигурации (CSPM)
           namespace-checkbox_85krx: Пространства имен
@@ -5205,9 +5192,6 @@ default:
       siem:
         SearchActionButtonBlock:
           save: Сохранить
-      storage:
-        value_private-bucket: Ограниченный
-        value_public-bucket: Публичный
       support:
         switch_tickets: Обращения
         tickets:
@@ -5715,14 +5699,12 @@ default:
         label_create-public-subnet-full: Заказать публичную подсеть
         label_create-server: Заказать сервер
         label_create-subnetwork: Создать подсеть
-        label_images: Загрузочные образы
         label_images_duoXD: Загрузочные образы
         label_kvm-console_37Kma: KVM-консоль
         label_load-image: Загрузить образ
         label_lockbox-key: Ключ
         label_lockbox-name: Имя
         label_lockbox-version: Версия
-        label_networks: VRF
         label_networks_kHgng: VRF
         label_password-lockbox: Секрет Lockbox
         label_password-plain: Новый пароль
@@ -5730,7 +5712,6 @@ default:
         label_public-ip-from-dedicated-subnet: Из выделенной подсети
         label_public-ip-no: Без адреса
         label_public-ip-via-dhcp: Назначить по DHCP
-        label_public-subnets: Публичные адреса и подсети
         label_public-subnets_v16CV: Публичные адреса и подсети
         label_servers_sCNgb: Серверы
         label_subnetworks_uU4LH: Приватные подсети
@@ -5754,16 +5735,13 @@ default:
         title_section-disk: Диск
         title_section-lease-conditions: Условия аренды
         title_section-location: Расположение
+        title_section-network-interfaces: Сетевые интерфейсы
         title_section-resources: Ресурсы
         title_section-server-backups: Резервное копирование
         title_section-server-config: Конфигурация
         title_section-server-info: Информация о сервере
         title_section-server-marketplace-app: Приложение Marketplace
-        title_section-server-private-network: Приватная сеть
-        title_section-server-private-network_xrEye: Приватная сеть
         title_section-server-product: Образ
-        title_section-server-public-network: Публичная сеть
-        title_section-server-public-network_p7Zhj: Публичная сеть
         title_server-access: Доступ
         title_vrf-interconnect-section: Приватное соединение с облачными сетями
         vrfs:
@@ -6727,6 +6705,8 @@ default:
           ResourcesSection:
             create-resources_rGA1t: Создать ресурс
             title_7kYbU: Ресурсы
+          ServicesSection:
+            title_ur39b: Все сервисы
         FoldersSelector:
           FolderInfoDialog:
             folder-id_6KQJv: Идентификатор каталога
@@ -7111,7 +7091,6 @@ default:
           folders:
             button_cancel-deletion: Отменить удаление
             popup-edit_button_save: Сохранить
-            section_folders: Каталоги
           incident-notifications:
             button_open-dialog: Добавить
           label_create_cloud: Создать облако
@@ -7158,7 +7137,6 @@ default:
           switch_quotas: Квоты
         connected-federation:
           action_connect: Привязать
-          action_connect-federation: Привязать к федерации
           field_federation: Федерация сервисных аккаунтов
           field_subject: Значение Subject (sub)
         federations:
@@ -7220,7 +7198,6 @@ default:
             label_monitoring: Monitoring
             label_monium: Monium
             label_postbox: Cloud Postbox
-            label_products: Все сервисы
             label_schema-registry: Schema Registry
             label_serverless-containers: Serverless Containers
             label_serverless-functions: Cloud Functions
@@ -7248,6 +7225,7 @@ default:
           service-account:
             label_add-role: Добавить роль
             overview:
+              action_connect-federation: Привязать к федерации
               action_download-keys-file: Скачать файл с ключами
               button_create_api_key: Создать API-ключ
               button_create_key: Создать авторизованный ключ
@@ -7284,7 +7262,6 @@ default:
             label_title: Сервисные аккаунты
             popup-confirm_button_delete: Удалить
           switch_dashboard: Дашборд каталога
-          switch_service-accounts: Сервисные аккаунты
           switch_service-notifications: Уведомления сервисов
         label_create-wli-federation: Создать федерацию
         label_federations: Федерации сервисных аккаунтов
@@ -8013,7 +7990,7 @@ default:
           label_master-subcluster: Мастер
           label_max-size-units: ГБ
           label_network: Сеть
-          maintenance-window-type: Окно обслуживания
+          maintenance-window-type: Обслуживание
           network_field_form-type: Формат указания сети
           network_field_subnetwork: Подсеть
           network_field_zone: Зона доступности
@@ -8043,8 +8020,8 @@ default:
           section_zookeeper-resource: Класс хоста ZooKeeper
           title_deb-packages: Deb-пакеты
           title_pip-packages: Pip-пакеты
-          value_maintenance-type-anytime: произвольное
-          value_maintenance-type-weekly: по расписанию
+          value_maintenance-type-anytime: В любое время
+          value_maintenance-type-weekly: По расписанию
         hosts:
           dialog:
             button_choose: Сохранить
@@ -8585,10 +8562,11 @@ default:
         label_domain-protection-domains: Домены
         label_search-rule-type: 'Тип правила:'
         match-lists:
-          ip-list_add-addresses: Добавить адреса
           label_create-list: Создать список
           label_create-match-list: Создать список
           label_match-lists: Списки
+        MatchListTable:
+          button_add-to-list_1kKXh: Добавить в список
         overview:
           action_attach-to-host: Подключить к хосту
           action_disconnect-host: Отключить от профиля
@@ -8819,6 +8797,8 @@ default:
           create:
             button_create: Создать бакет
           label_title: Бакеты
+          value_private-bucket: Ограниченный
+          value_public-bucket: Публичный
         button_upload: Загрузить
         field_perm-object-lock-enabled: Бессрочная блокировка
         field_temp-object-lock-enabled: Временная блокировка
@@ -9101,47 +9081,6 @@ default:
         switch_private-endpoints: Сервисные подключения
         switch_route-tables: Таблицы маршрутизации
         title_network-map-page: Карта облачной сети
-      yagpt:
-        YaGPT:
-          agent_instruction_9oe6q: Инструкция
-          AgentForm:
-            add-mcp-tool_gqwmZ: Добавить MCP
-            save-and-continue_u1Wis: Создать и продолжить
-            select_dPVTq: Выбрать
-            tools_title_9yUpx: Инструменты
-          agents_2h9Sa: Агенты
-          Assistant:
-            model_iyopt: Модель
-          AssistantChat:
-            test-assistant-title_6ZNFg: Тестирование агента
-          ConnectMcpTools:
-            add-mcp-tool_dyEgv: Добавить инструменты
-          create-agent_1txyW: Создать агента
-          CreateAgentCard:
-            create-agent_button-text_n2qCs: Создать агента
-          CreateMcpServerForm:
-            access-type_aPzxZ: Доступ
-            access-type_private_b4gkg: Приватный
-            form-view_connect_bS8yQ: Подключить
-            service-account_h3ujf: Сервисный аккаунт
-            tools_gkQfS: Инструменты
-            type_dZSaw: Способ добавления
-          mcp-servers-list-title_snWTf: MCP-серверы
-          mcp-tool_all-tools_gZA6P: Поведение по умолчанию для всех инструментов
-          mcp-tool_require-approval-policy_never_qPvRW: Подтверждение не нужно
-          McpCallToolForm:
-            add_47STV: Добавить
-            add-tools_ih6PU: Добавление инструментов
-            connect_xY9Zw: Подключиться
-            mcp-authorization_header_fdGKe: Токен доступа
-            transport_q3nD6: Транспорт
-            transport_streamable_eV7Rb: Streamable HTTP
-            url_bUhZ1: URL
-          McpServersList:
-            label_create-mcp-gateway_3o3Vu: Создать MCP-сервер
-          name_hTzhB: Имя
-          Overview3:
-            action-card_create-ai-agent_ahZQH: Создать AI-агента
       ydb:
         browse:
           button_create: Создать
@@ -9543,6 +9482,40 @@ default:
                         title: Сегменты кластера Greenplum
                       subnet_id:
                         title: Идентификатор подсети
+            iceberg:
+              console:
+                form:
+                  iceberg:
+                    IcebergCleanupPolicy:
+                      ICEBERG_CLEANUP_POLICY_DISABLED:
+                        title: Не очищать
+                      ICEBERG_CLEANUP_POLICY_DROP:
+                        title: DROP
+                    IcebergManualConnectionSettings:
+                      access_key_id:
+                        title: Идентификатор статического ключа
+                      bucket:
+                        title: Бакет
+                      endpoint:
+                        title: Эндпоинт
+                      region:
+                        title: Регион
+                      secret_access_key:
+                        title: Содержимое статического ключа
+                    IcebergObjectStorageConnectionSettings:
+                      bucket:
+                        title: Бакет
+                      service_account_id:
+                        title: Сервисный аккаунт
+                    IcebergTarget:
+                      cleanup_policy:
+                        title: Политика очистки
+                      mdb_cluster_id:
+                        title: Кластер Apache Hive™ Metastore
+                      prefix:
+                        title: Префикс пути
+                      security_group_ids:
+                        title: Группы безопасности
             kafka:
               console:
                 form:
@@ -9651,6 +9624,24 @@ default:
                         title: Парсер CloudLogging
                       parser_config_common_debezium_cdc:
                         title: Парсер Debezium CDC
+                      parser_raw_to_table:
+                        advanced:
+                          title: Дополнительные параметры
+                        dlq_suffix:
+                          title: Суффикс имени таблицы DLQ
+                        is_headers_enabled:
+                          title: Сохранять заголовки сообщения
+                        is_key_enabled:
+                          title: Сохранять ключ сообщения
+                        is_timestamp_enabled:
+                          title: Сохранять время записи
+                        key_type:
+                          title: Тип ключа
+                        table_name:
+                          title: Имя целевой таблицы
+                        title: Парсер Raw-to-table
+                        value_type:
+                          title: Тип значения
                     ParserConfigProto:
                       included_fields:
                         title: Включаемые поля

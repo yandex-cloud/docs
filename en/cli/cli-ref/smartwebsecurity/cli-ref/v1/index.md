@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartwebsecurity/cli-ref/v1/
 editable: false
 ---
 
@@ -31,6 +32,10 @@ Aliases:
   - [yc smartwebsecurity v1 security-profile list](security-profile/list.md) — Retrieves the list of SecurityProfile resources in the specified folder.
 
   - [yc smartwebsecurity v1 security-profile update](security-profile/update.md) — Updates the specified security profile.
+
+- [yc smartwebsecurity v1 waf](waf/index.md) — 
+
+
 
 #### Global Flags
 

@@ -1,0 +1,1 @@
+For the master host to preserve its master role after an upgrade, set the highest failover priority for it. You can set failover priority when [creating a cluster](../../../managed-mysql/operations/cluster-create.md) or [updating host settings](../../../managed-mysql/operations/hosts.md#update).

@@ -8,7 +8,7 @@ editable: false
 
 
 
-In this section, you can find the {{ myt-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources. For other {{ yandex-cloud }} resources consumed while using the service you pay as per their pricing plans.
+This section describes the {{ myt-name }} pricing [policy](#rules) and [current prices](#prices) for its resources. For other {{ yandex-cloud }} resources consumed while using the service you pay as per their pricing plans.
 
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
@@ -19,7 +19,7 @@ In this section, you can find the {{ myt-name }} pricing [policy](#rules) and [e
 
 ## Cluster status {#running-stopped}
 
-The prices apply differently depending on the cluster status:
+Pricing applies differently depending on the cluster status:
 
 * For a `Running` cluster, you pay for both the computing resources and storage size.
 * For a `Stopped` cluster, you only pay for your storage size.
@@ -58,7 +58,7 @@ The minimum billing unit is one minute (for example, 90 seconds of the component
 
 ### Disk space usage {#rules-storage}
 
-You are charged for the following:
+You pay for the following:
 * The size of the storage for the exec node, where various jobs are run. 
 * The size of the storage for the service storage nodes that stores chunks and logs of system dynamic tables. This size is applied automatically, with three non-replicated SSDs, 93 GB each.
 * The size of storage for the storage node that houses the data of all {{ ytsaurus-name }} objects that are created during its operation. This storage may consist of one or two disks. The number and size of such disks are defined as per below.
@@ -72,11 +72,11 @@ You are charged for the following:
       * Assuming the storage node is for a `non-replicated SSD` with `N` size, the service disk size is `0,1 × N`, rounded up in increments of 93 GB.
 
 
-The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes costs the same as for 2 minutes.
+The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
 
-### Example of cluster cost calculation {#example}
+### Cluster cost calculation example {#example}
 
-Let's calculate the cost of using a cluster with the following properties for 30 days:
+Suppose we calculate the 30-day usage cost of a cluster with the following configuration:
 
 **Configurable components:**
 * **Exec node**: One `c8-m32` configuration instance: 8 vCPUs and 32 GB RAM.

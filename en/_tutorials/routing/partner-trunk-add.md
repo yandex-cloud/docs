@@ -4,14 +4,7 @@
 
 * See our [guides](../../interconnect/concepts/index.md) to learn how this service works.
 * Contact your {{ yandex-cloud }} manager to choose your pricing plan and [connection capacity](../../interconnect/pricing.md).
-* Using [this list](../../interconnect/concepts/partners.md#list), find a partner that can set up a trunk at your selected [point of presence](../../interconnect/concepts/pops.md) with the required [capacity](../../interconnect/concepts/partners.md#list).
-
-{% note warning %}
-
-To ensure fault tolerance, we recommend setting up trunk links, i.e. direct or partner trunks, at two points of presence.
-
-{% endnote %}
-
+* Using [this list](../../interconnect/concepts/partners.md#list), find a partner that can set up a trunk at your selected [point of presence](../../interconnect/concepts/pops.md) with the required [capacity](../../interconnect/concepts/partners.md#list). To **ensure fault tolerance**, we recommend setting up trunk links at two points of presence.
 * If you work with a {{ yandex-cloud }} solution architect, discuss with them and agree on a {{ interconnect-full-name }} service setup plan.
 
 ### Contacting support for a new partner trunk {#partner-trunk-ticket}
