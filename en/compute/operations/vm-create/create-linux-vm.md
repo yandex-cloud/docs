@@ -282,7 +282,7 @@ description: Use this tutorial to create a Linux VM.
      * `name`: Name the VM will get when created.
      * `zoneId`: Availability zone matching the selected subnet.
      * `platformId`: [Platform](../../concepts/vm-platforms.md).
-     * `resourceSpec`: Resources available to the VM. The values must match the selected platform.
+     * `resourcesSpec`: Resources available to the VM. The values must match the selected platform.
      * `metadata`: In metadata, provide the public key for accessing the VM via SSH. Learn more in [{#T}](../../concepts/vm-metadata.md).
      * `bootDiskSpec`: Boot disk settings. Specify the selected image ID and disk size.
      * `autoDelete`: Auto-delete the boot disk together with the VM. See [{#T}](../../concepts/disk.md#autodelete-disks).

@@ -383,7 +383,7 @@ description: Следуя данной инструкции, вы сможете
           --silent \
           --show-error \
           --location \
-          https://dl.k8s.io/release/v1.3.0/bin/linux/amd64/kubectl \
+          https://dl.k8s.io/release/v1.31.0/bin/linux/amd64/kubectl \
           --output /usr/local/etc/kubectl
         sudo install -o root -g root -m 0755 /usr/local/etc/kubectl /usr/local/bin/kubectl
         sudo rm -rf /usr/local/etc/kubectl

@@ -159,9 +159,10 @@ By default, a [cloud](../../../resource-manager/concepts/resources-hierarchy.md#
      }
 
      resource "yandex_vpc_subnet" "subnet-1" {
-       name       = "subnet1"
-       zone       = "<availability_zone>"
-       network_id = "${yandex_vpc_network.network-1.id}"
+       name           = "subnet1"
+       zone           = "<availability_zone>"
+       v4_cidr_blocks = ["192.168.1.0/24"]
+       network_id     = "${yandex_vpc_network.network-1.id}"
      }
      ```
 
@@ -178,7 +179,6 @@ By default, a [cloud](../../../resource-manager/concepts/resources-hierarchy.md#
      * `yandex_compute_instance`: VM description:
        * `name`: VM name.
        * {% include [terraform-allow-stopping](../../../_includes/compute/terraform-allow-stopping.md) %}
-       * `platform_id`: [Platform](../../concepts/vm-platforms.md) ID:
        * `zone`: Availability zone the VM will reside in.
 
          {% include [gpu-zones](../../../_includes/compute/gpu-zones.md) %}
@@ -220,5 +220,5 @@ By default, a [cloud](../../../resource-manager/concepts/resources-hierarchy.md#
 
 #### See also {#see-also}
 
-* Learn how to update the VM configuration [here](../vm-control/vm-update-resources.md).
+* [Update the VM configuration](../vm-control/vm-update-resources.md)
 * [Questions about GPUs](../../../compute/qa/gpu.md)
