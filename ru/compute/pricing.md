@@ -114,8 +114,6 @@ _{{ price-per-hour-count-per-second }}_
 
 #### Пример расчета стоимости вычислительных ресурсов {#instance-resources-example}
 
-{% include [prices-difference](../_includes/prices-difference.md) %}
-
 Сравним стоимость ВМ для [платформы](concepts/vm-platforms.md) Intel Ice Lake с разным [уровнем производительности vCPU](concepts/performance-levels.md).
 
 Созданы две ВМ с операционной системой Linux:
@@ -198,8 +196,6 @@ _{{ price-per-hour-count-per-second }}_
 
 #### Пример расчета стоимости хранения снимков {#snapshot-example}
 
-{% include [prices-difference](../_includes/prices-difference.md) %}
-
 Рассчитаем стоимость хранения снимка объемом 20 ГБ в течение 60 дней.
 
 
@@ -238,8 +234,6 @@ vCPU и память ВМ, запущенных на выделенном хос
 _{{ price-per-hour-count-per-second }}_
 
 {% cut "Пример расчета стоимости выделенного хоста" %}
-
-{% include [prices-difference](../_includes/prices-difference.md) %}
 
 Работа выделенного хоста типа `intel-6338-c108-m704-n3200x6` в течение одного часа тарифицируется следующим образом:
 

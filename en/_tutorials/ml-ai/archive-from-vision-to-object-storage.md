@@ -68,7 +68,7 @@ To create an {{ objstorage-name }} bucket for storing source images and recognit
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username. Do not use `root` or other reserved usernames. For operations requiring root privileges, use the `sudo` command.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, specify the username. Do not use `root` or other reserved usernames. For operations requiring root privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name. The naming requirements are as follows:
@@ -187,7 +187,7 @@ To create an {{ objstorage-name }} bucket for storing source images and recognit
      ```
 
      Where:
-     * `--service-account-id`.
+     * `--service-account-id`: Service account ID.
      * `--output`: Name of the JSON file containing your authorized key.
 
      Result:
@@ -266,7 +266,7 @@ To create an {{ objstorage-name }} bucket for storing source images and recognit
 
 ## Create an image archive {#create-archive}
 
-1. [Upload](../../storage/operations/objects/upload.md) the images with text you want to recognize to the bucket.
+1. [Upload](../../storage/operations/objects/upload.md) to the bucket the images with text you want to recognize.
 
    {% include [example-image](../../_includes/vision/example-image.md) %}
 

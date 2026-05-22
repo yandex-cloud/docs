@@ -74,7 +74,7 @@ The system will create a bucket named `ocr-recognition-...`.
 
 ## How to delete the resources you created {#clear-out}
 
-To stop incurring charges for the resources you created:
+To stop incurring costs for the resources you created:
 
 1. Delete all files from the bucket.
 1. Open the `main.tf` configuration file and delete your infrastructure description from it.

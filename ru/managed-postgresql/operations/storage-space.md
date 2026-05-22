@@ -370,7 +370,7 @@ description: При заполнении хранилища более чем н
                  "maintenanceWindow": {
                    "weeklyMaintenanceWindow": {
                      "day": "<день_недели>",
-                     "hour": "<порядковый_номер_часового_интервала>"
+                     "hour": "<час>"
                    }
                  }
                }'
@@ -395,7 +395,7 @@ description: При заполнении хранилища более чем н
      * `maintenanceWindow` — расписание окна технического обслуживания. Нужно, только если вы задали параметр `plannedUsageThreshold`. Содержит следующие параметры:
 
        * `weeklyMaintenanceWindow.day` — день недели: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
-       * `weeklyMaintenanceWindow.hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
+       * `weeklyMaintenanceWindow.hour` — час по UTC: от `1` до `24`.
            
          > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
@@ -439,7 +439,7 @@ description: При заполнении хранилища более чем н
              "maintenance_window": {
                "weekly_maintenance_window": {
                  "day": "<день_недели>",
-                 "hour": "<порядковый_номер_часового_интервала>"
+                 "hour": "<час>"
                }
              }
            }' \
@@ -462,7 +462,7 @@ description: При заполнении хранилища более чем н
      * `maintenance_window` — расписание окна технического обслуживания. Нужно, только если вы задали параметр `planned_usage_threshold`. Содержит следующие параметры:
 
        * `weekly_maintenance_window.day` — день недели: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
-       * `weekly_maintenance_window.hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
+       * `weekly_maintenance_window.hour` — час по UTC: от `1` до `24`.
            
          > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 

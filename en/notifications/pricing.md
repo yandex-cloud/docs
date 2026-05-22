@@ -108,6 +108,21 @@ You are charged for push notifications sent to mobile devices and through browse
 </MDX>
 
 
+### SMS notification package pricing {#prices-sms-packages}
+
+{% note warning %}
+
+Starting June 2, 2026, new prices will apply to processing SMS notification sending events.
+
+{% endnote %}
+
+Processing events for sending SMS notifications is billed in packages. The cost depends on the mobile operator, SMS type, and package size.
+
+
+
+{% include [usd-sms-packages](../_pricing/notifications/usd-sms-packages.md) %}
+
+
 
 {% note info %}
 

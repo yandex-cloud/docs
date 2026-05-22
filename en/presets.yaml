@@ -518,7 +518,9 @@ default:
       pro: https://postgrespro.com/docs
     versions:
       console:
+        dpr: '14'
         str-1c: 14-1c, 15-1c, 16-1c, 17-1c, 18-1c
+        str-last: '15'
       tf:
         latest: '18'
         str: 14, 14-1c, 15, 15-1c, 16, 16-1c, 17, 17-1c, 18 and 18-1c
@@ -7452,20 +7454,41 @@ default:
         field_connector-alias: Alias
         field_connector-bootstrap-servers: Bootstrap servers
         field_connector-bucket-name: Bucket
+        field_connector-catalog-uri: Catalog URI
+        field_connector-commit-interval-ms: Commit interval, ms
+        field_connector-commit-threads: Commit threads
+        field_connector-commit-timeout-ms: Commit timeout, ms
         field_connector-compression-type: Compression type
         field_connector-config-mirror-maker-source-cluster: Source cluster
         field_connector-config-mirror-maker-target-cluster: Target cluster
         field_connector-config-mirror-maker-topics: Topics
+        field_connector-control-topic: Control topic
+        field_connector-default-commit-branch: Default commit branch
+        field_connector-default-id-columns: Default column list
+        field_connector-default-partition-by: Default partition
         field_connector-endpoint: Endpoint
+        field_connector-evolve-schema-enabled: Enable automatic schema evolution
         field_connector-file-max-records: Max record per file
+        field_connector-group-id-prefix: Consumer group prefix
+        field_connector-metastore-connection: Metastore connection
         field_connector-region: Region
+        field_connector-route-field: Route field
         field_connector-s3-connection: S3 connection
         field_connector-sasl-mechanism: SASL mechanism
         field_connector-sasl-password: SASL password
         field_connector-sasl-username: SASL username
+        field_connector-schema-case-insensitive: Enable case-insensitive field name matching
+        field_connector-schema-force-optional: Force all columns to be nullable
         field_connector-secret-access-key: Secret access key
         field_connector-security-protocol: Security protocol
         field_connector-ssl-truststore-certificates: Certificate in PEM format
+        field_connector-static-tables: Tables
+        field_connector-table-routing: Table routing
+        field_connector-table-routing-dynamic: Dynamic
+        field_connector-table-routing-static: Static
+        field_connector-topics-source: Topic source
+        field_connector-transactional-prefix: Transactional prefix
+        field_connector-warehouse: Warehouse
         field_kafka-ui: Kafka UI
         field_rest-api-config: Kafka Rest API
         field_schema-registry: Schema registry
@@ -7493,6 +7516,9 @@ default:
         label_topic-retention-bytes: Retention, bytes
         label_topic-retention-ms: Retention, ms
         label_topics: Topics
+        section_iceberg-control-config: Control settings
+        section_iceberg-optional-settings: Optional settings
+        section_iceberg-tables-config: Table settings
         section_kraft-resources: KRaft host class
         section_properties: Additional properties
         section_topic-config: Topic settings

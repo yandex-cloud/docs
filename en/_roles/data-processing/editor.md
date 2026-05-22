@@ -1,21 +1,22 @@
-The `dataproc.editor` role allows you to manage Yandex Data Processing clusters, run jobs, and view information on them. It also grants access to the Data Proc component web interfaces.
+
+The `dataproc.editor` role allows you to manage {{ dataproc-name }} clusters, run jobs, and view information on them. It also grants access to the Data Proc component web interfaces.
 
 {% cut "Users with this role can:" %}
 
-* View info on Yandex Data Processing [clusters](../../data-proc/concepts/index.md#resources), as well as create, modify, run, stop, and delete them.
+* View info on {{ dataproc-name }} [clusters](../../data-proc/concepts/index.md#resources), as well as create, modify, run, stop, and delete them.
 * View info on [jobs](../../data-proc/concepts/jobs.md) and create them.
-* Use the web interface to access the Yandex Data Processing components.
-* View info on [ClickHouse®](../../managed-clickhouse/concepts/index.md), [Greenplum®](../../managed-greenplum/concepts/index.md), [Apache Kafka®](../../managed-kafka/concepts/index.md), [Yandex StoreDoc](../../storedoc/concepts/index.md), [MySQL®](../../managed-mysql/concepts/index.md), [PostgreSQL](../../managed-postgresql/concepts/index.md), [Valkey™](../../managed-valkey/concepts/index.md), [OpenSearch](../../managed-opensearch/concepts/index.md), and SQL Server clusters.
-* View info on [Greenplum®](../../managed-greenplum/concepts/instance-types.md), [Yandex StoreDoc](../../storedoc/concepts/instance-types.md), [MySQL®](../../managed-mysql/concepts/instance-types.md), [PostgreSQL](../../managed-postgresql/concepts/instance-types.md), [Valkey™](../../managed-valkey/concepts/instance-types.md), and SQL Server cluster hosts.
-* View info on database backups for [Greenplum®](../../managed-greenplum/concepts/backup.md), [Yandex StoreDoc](../../storedoc/concepts/backup.md), [MySQL®](../../managed-mysql/concepts/backup.md), [PostgreSQL](../../managed-postgresql/concepts/backup.md), [Valkey™](../../managed-valkey/concepts/backup.md), and SQL Server clusters.
-* View info on [Yandex StoreDoc](../../storedoc/concepts/users-and-roles.md), [MySQL®](../../managed-mysql/concepts/user-rights.md), [PostgreSQL](../../managed-postgresql/concepts/roles.md), and SQL Server cluster users.
-* View info on Yandex StoreDoc, MySQL®, PostgreSQL, and SQL Server DBs.
-* View info on Yandex StoreDoc, MySQL®, PostgreSQL, and Valkey™ alerts.
-* View info on the results of Greenplum®, Yandex StoreDoc, MySQL®, and PostgreSQL cluster performance diagnostics.
-* View info on [Yandex StoreDoc](../../storedoc/concepts/sharding.md) and [Valkey™](../../managed-valkey/concepts/sharding.md) cluster shards.
-* View Greenplum®, Yandex StoreDoc, MySQL®, PostgreSQL, Valkey™, and SQL Server cluster logs.
-* View info on [Managed Service for ClickHouse®](../../managed-clickhouse/concepts/limits.md#mch-quotas), [Managed Service for Apache Kafka®](../../managed-kafka/concepts/limits.md#mkf-quotas), [Managed Service for OpenSearch](../../managed-opensearch/concepts/limits.md#quotas), [Yandex MPP Analytics for PostgreSQL](../../managed-greenplum/concepts/limits.md#quotas), [Yandex StoreDoc](../../storedoc/concepts/limits.md#mmg-quotas), [Managed Service for MySQL®](../../managed-mysql/concepts/limits.md#mmy-quotas), [Managed Service for PostgreSQL](../../managed-postgresql/concepts/limits.md#mpg-quotas), [Yandex Managed Service for Valkey™](../../managed-valkey/concepts/limits.md#mrd-quotas), and SQL Server quotas.
-* View info on resource operations for all Yandex Cloud managed DB services.
+* Use the web interface to access the {{ dataproc-name }} components.
+* View info on [{{ CH }}](../../managed-clickhouse/concepts/index.md), [{{ mgp-name }}](../../managed-greenplum/concepts/index.md), [{{ KF }}](../../managed-kafka/concepts/index.md), [{{ SD }}](../../storedoc/concepts/index.md), [{{ MY }}](../../managed-mysql/concepts/index.md), [{{ PG }}](../../managed-postgresql/concepts/index.md), [{{ VLK }}](../../managed-valkey/concepts/index.md), [{{ OS }}](../../managed-opensearch/concepts/index.md), and {{ MS }} clusters.
+* View info on [{{ mgp-name }}](../../managed-greenplum/concepts/instance-types.md), [{{ SD }}](../../storedoc/concepts/instance-types.md), [{{ MY }}](../../managed-mysql/concepts/instance-types.md), [{{ PG }}](../../managed-postgresql/concepts/instance-types.md), [{{ VLK }}](../../managed-valkey/concepts/instance-types.md), and {{ MS }} cluster hosts.
+* View info on database backups for [{{ mgp-name }}](../../managed-greenplum/concepts/backup.md), [{{ SD }}](../../storedoc/concepts/backup.md), [{{ MY }}](../../managed-mysql/concepts/backup.md), [{{ PG }}](../../managed-postgresql/concepts/backup.md), [{{ VLK }}](../../managed-valkey/concepts/backup.md), and {{ MS }} clusters.
+* View info on [{{ SD }}](../../storedoc/concepts/users-and-roles.md), [{{ MY }}](../../managed-mysql/concepts/user-rights.md), [{{ PG }}](../../managed-postgresql/concepts/roles.md), and {{ MS }} cluster users.
+* View info on {{ SD }}, {{ MY }}, {{ PG }}, and {{ MS }} DBs.
+* View info on {{ SD }}, {{ MY }}, {{ PG }}, and {{ VLK }} alerts.
+* View info on the results of {{ mgp-name }}, {{ SD }}, {{ MY }}, and {{ PG }} cluster performance diagnostics.
+* View info on [{{ SD }}](../../storedoc/concepts/sharding.md) and [{{ VLK }}](../../managed-valkey/concepts/sharding.md) cluster shards.
+* View {{ mgp-name }}, {{ SD }}, {{ MY }}, {{ PG }}, {{ VLK }}, and {{ MS }} cluster logs.
+* View info on [{{ mch-name }}](../../managed-clickhouse/concepts/limits.md#mch-quotas), [{{ mkf-name }}](../../managed-kafka/concepts/limits.md#mkf-quotas), [{{ mos-name }}](../../managed-opensearch/concepts/limits.md#quotas), [{{ mgp-name }}](../../managed-greenplum/concepts/limits.md#quotas), [{{ SD }}](../../storedoc/concepts/limits.md#mmg-quotas), [{{ mmy-name }}](../../managed-mysql/concepts/limits.md#mmy-quotas), [{{ mpg-name }}](../../managed-postgresql/concepts/limits.md#mpg-quotas), [{{ mrd-name }}](../../managed-valkey/concepts/limits.md#mrd-quotas), and {{ MS }} quotas.
+* View info on resource operations for all {{ yandex-cloud }} managed DB services.
 * View info on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
 {% endcut %}

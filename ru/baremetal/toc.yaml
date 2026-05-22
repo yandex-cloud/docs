@@ -46,6 +46,8 @@ items:
                 href: operations/servers/reinstall-os-from-own-image.md
           - name: Настроить дополнительную приватную подсеть
             href: operations/servers/set-up-tagged-vlan.md
+          - name: Изменить тип сети, подключенной к сетевому интерфейсу
+            href: operations/servers/switch-network-type.md
           - name: Настроить группу агрегирования MC-LAG
             href: operations/servers/set-up-mc-lag.md
           - name: Сбросить пароль на сервере

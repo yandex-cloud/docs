@@ -15,14 +15,14 @@ index: 2
 
 ### Adding metadata
 
-Updated {{ captcha-name }} for you to be able to enrich the test with contextual information. Source from the frontend any metadata you believe will help the algorithm better understand the context of the operation and tell real users from bots with more accuracy.
+We updated {{ captcha-name }} to let you provide additional context for verification. You can provide any frontend metadata that will help the algorithm understand the operation context and tell real users from bots with more precision.
 
 For example, you can provide:
-* User data: user ID, trust level, activity history.
-* Request parameters: cart value, target action.
-* Results of internal checks: risk counter of your anti-fraud system, suspicious behavior flags.
+* User data: ID, trust level, activity history.
+* Request variables: cart value, target action.
+* Internal check results: risk score from your anti-fraud system, suspicious behavior flags.
 
-This makes the test more flexible and intelligent, allowing you to selectively reduce the load on trustworthy users and strengthen protection in suspicious cases.
+This makes the verification process more flexible and intelligent, reducing stress for legitimate users while strengthening protection in suspicious cases.
 
 {% endchangelog %}
 
@@ -34,7 +34,7 @@ index: 1
 
 ### 152-FZ , GOST R 57580, and PCI DSS certificates
 
-{{ captcha-name }} is certified for compliance with the following security standards: [152-FZ , GOST R 57580, and PCI DSS](https://yandex.cloud/en/security/standards).
+{{ captcha-name }} is certified for compliance with the following security standards: [152-FZ, GOST R 57580, and PCI DSS](https://yandex.cloud/en/security/standards).
 
 {% endchangelog %}
 
@@ -42,7 +42,7 @@ index: 1
 
 ## December 2025 {#dec-2025}
 
-Added the ability to source [metadata](concepts/captcha-variants.md#metadata), e.g., user information or [anti-fraud](https://en.wikipedia.org/wiki/Fraud_deterrence) system results, from the frontend to the CAPTCHA.
+Added support for including frontend [metadata](concepts/captcha-variants.md#metadata), e.g., user data or [anti-fraud](https://en.wikipedia.org/wiki/Fraud_deterrence) system results, into CAPTCHA requests.
 
 ## January 2025 {#jan-2025}
 
@@ -50,17 +50,17 @@ Added the ability to source [metadata](concepts/captcha-variants.md#metadata), e
 
 ## Q4 2024 {#q4-2024}
 
-{{ captcha-name }} successfully passed an external audit for 152-FZ, GOST R 57580, and PCI DSS compliance.
+{{ captcha-name }} has successfully completed an external audit for 152-FZ, GOST R 57580, and PCI DSS compliance.
 
 ## Q3 2024 {#q3-2024}
 
-* Added [various CAPTCHAs](./concepts/captcha-variants.md) you can show depending on the basic properties of incoming requests. To flexibly split requests, you can use different combinations of [traffic conditions](./concepts/captcha-variants.md#traffic-conditions).
+* Added [CAPTCHA challenge options](./concepts/captcha-variants.md) that can be displayed based on request parameters. You can use combinations of [traffic rules](./concepts/captcha-variants.md#traffic-conditions) for flexible request segmentation.
    
-* Implemented CAPTCHA accessibility criteria in accordance with [GOST R 52 872-2019](https://protect.gost.ru/document1.aspx?control=31&id=233736). In particular, CAPTCHA is now:
-  * Compatible with screen access programs.
-  * Controlled by keyboard or on-screen buttons (relevant for SmartTV).
-  * Contains more explanatory elements.
+* Implemented CAPTCHA accessibility criteria in accordance with [GOST R 52 872-2019](https://protect.gost.ru/document1.aspx?control=31&id=233736). In particular, the CAPTCHA now:
+  * Compatible with screen access software.
+  * Can be operated using a keyboard or on-screen buttons (relevant for SmartTV).
+  * Contains more visual cues and instructions.
 
 ## Q2 2024 {#q2-2024}
 
-For {{ captcha-name }}, the maximum [difficulty level](concepts/tasks.md#task-difficulty) was added. This level requires completing an additional high difficulty challenge.
+A maximum [difficulty level](concepts/tasks.md#task-difficulty) has been added to {{ captcha-name }}. This level requires completing an additional high-difficulty challenge.

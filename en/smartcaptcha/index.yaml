@@ -1,44 +1,44 @@
 title: Yandex SmartCaptcha
 description:
-  - Yandex SmartCaptcha can tell human system users from computers.
+  - Yandex SmartCaptcha lets you identify whether the user is a human or a bot.
 meta:
   title: Yandex SmartCaptcha
-  description: Yandex SmartCaptcha can tell human system users from computers.
+  description: Yandex SmartCaptcha lets you identify whether the user is a human or a bot.
   keywords:
     - keyword: captcha
     - keyword: captcha {{ captcha-name }}
-    - keyword: captcha
-    - keyword: captcha in {{ captcha-name }}
+    - keyword: CAPTCHA
+    - keyword: CAPTCHA in {{ captcha-name }}
     - keyword: smartcaptcha
-    - keyword: captcha widget
+    - keyword: CAPTCHA widget
     - keyword: '{{ captcha-name }}'
     - keyword: '{{ captcha-name }} widget'
     - keyword: user validation
     - keyword: '{{ captcha-name }} validation'
-    - keyword: captcha in {{ yandex-cloud }}
+    - keyword: CAPTCHA in {{ yandex-cloud }}
     - keyword: '{{ captcha-name }} in {{ yandex-cloud }}'
     - keyword: human verification {{ yandex-cloud }}
 links:
   - title: Getting started
-    description: Set up the first widget and check the user
+    description: Set up your first widget and verify a user
     href: quickstart
   - title: Step-by-step guides
     description: How to perform routine operations
     href: operations
   - title: Widget installation methods
-    description: Learn about the methods to add SmartCaptcha to your site
+    description: Learn about ways to integrate SmartCaptcha with your website
     href: concepts/widget-methods
   - title: Invisible CAPTCHA
-    description: Show the CAPTCHA only for queries that the service considers suspicious
+    description: Only display the CAPTCHA for requests flagged as suspicious by the service
     href: concepts/invisible-captcha
   - title: CAPTCHA in React
-    description: React package to work with SmartCaptcha
+    description: React package for SmartCaptcha integration
     href: concepts/react
   - title: Quotas and limits
     description: Technical and organizational limitations
     href: concepts/limits
   - title: Tutorials
-    description: Detailed instructions on how to use SmartCaptcha
+    description: Step-by-step instructions for using SmartCaptcha
     href: tutorials/
   - title: Pricing policy
     description: Service pricing and cost calculation
