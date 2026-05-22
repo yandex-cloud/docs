@@ -63,7 +63,7 @@ keywords:
 1. Выберите тип шардирования:
 
     * **{{ ui-key.yacloud.spqr.section_sharding-type-standard }}** — кластер будет состоять только из инфраструктурных хостов.
-    * **{{ ui-key.yacloud.spqr.section_sharding-type-advanced }}** — кластер будет состоять только из хостов-роутеров и (опционально) хостов-координаторов.
+    * **{{ ui-key.yacloud.spqr.section_sharding-type-advanced }}** — кластер будет состоять только из хостов-роутеров и хостов-координаторов.
 
 1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}**:
 
@@ -87,7 +87,7 @@ keywords:
 
          Если вы собираетесь подключаться к кластеру из интернета, включите для хостов опцию **{{ ui-key.yacloud.mdb.forms.host_column_assign_public_ip }}**.
 
-1. (Опционально) В блоке **{{ ui-key.yacloud.spqr.section_coordinator }}** задайте конфигурацию хостов-координаторов.
+1. В блоке **{{ ui-key.yacloud.spqr.section_coordinator }}** задайте конфигурацию хостов-координаторов.
 
 1. В блоке **{{ ui-key.yacloud.mdb.forms.section_database }}** укажите параметры БД, в которой можно выполнять запросы к таблицам на шардах:
 

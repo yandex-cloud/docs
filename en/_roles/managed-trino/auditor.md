@@ -1,1 +1,1 @@
-The `managed-trino.auditor` role enables viewing info on [Trino clusters](../../managed-trino/concepts/index.md), [access permissions](../../iam/concepts/access-control/index.md) granted for them, and on [quotas](../../managed-trino/concepts/limits.md#quotas) for Managed Service for Trino.
+The `managed-trino.auditor` role enables viewing info on [{{ TR }} clusters](../../managed-trino/concepts/index.md), [access permissions](../../iam/concepts/access-control/index.md) granted for them, and on [quotas](../../managed-trino/concepts/limits.md#quotas) for {{ mtr-name }}.
