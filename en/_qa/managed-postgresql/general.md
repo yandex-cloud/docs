@@ -92,7 +92,7 @@ Learn more in [{#T}](../../managed-postgresql/concepts/maintenance.md).
 
 #### Which {{ PG }} version does {{ mpg-short-name }} use? {#dbms-version}
 
-{{ mpg-short-name }} supports {{ PG }} versions 14-17, and {{ PG }} versions 14-16 for use with 1C.
+{{ mpg-short-name }} supports {{ PG }} versions 14, 15, 16, 17, and 18, and {{ PG }} versions 14, 15, 16, 17, and 18 for 1C.
 
 
 #### What happens when a new DBMS version is released? {#new-version}
@@ -101,9 +101,9 @@ The database software is updated whenever new minor versions are released. Owner
 
 #### What happens when a DBMS version becomes deprecated? {#dbms-deprecated}
 
-One month after a DBMS version becomes deprecated, {{ mpg-short-name }} automatically sends email notifications to the owners of database clusters created with that version.
+Existing clusters based on `Deprecated` versions continue to operate normally. Six months before the end of support, an active notification effort starts about the need to update. From this point on, you cannot create new clusters.
 
-For clusters with a deprecated DBMS version, there is no option to create new hosts or restore from backups. Database clusters are automatically upgraded to the next supported version seven days after notification for minor versions and one month after notification for major versions. Deprecated major versions will be upgraded even if you disabled automatic updates.
+Owners of clusters based on `Deprecated` versions will get a series of official email notifications: the first one 6 months before `EOL`, and then 90, 30, 7, and 1 day before the scheduled forced update.
 
 #### How do you calculate usage cost for a database host? {#db-cost}
 
@@ -167,6 +167,9 @@ To learn about {{ mpg-short-name }} quotas and limits, see [{#T}](../../managed-
 
 See the list of supported {{ PG }} extensions in [{#T}](../../managed-postgresql/operations/extensions/cluster-extensions.md).
 
+#### Which data center stores the {{ PG }} cluster backups? {#data-center}
+
+
 
 #### Can I get superuser privileges in {{ PG }}? {#superuser}
 
@@ -191,6 +194,8 @@ To increase the maximum IOPS and bandwidth values and make throttling less likel
 
 For storage using the `network-hdd` disk type, we recommend switching to `network-ssd` or `network-ssd-nonreplicated` via a [cluster restore](../../managed-postgresql/operations/cluster-backups.md#restore) from backup.
 
+
+When using `local-ssd` storage, cluster hosts may experience a minor increase in CPU load due to the services required for disk operation.
 
 #### What block size is used on the cluster disks? {#block-size}
 

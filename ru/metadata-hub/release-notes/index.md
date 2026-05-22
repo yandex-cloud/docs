@@ -57,6 +57,20 @@ index: 1
 
 ## 2026 год {#2026}
 
+
+### Апрель {#apr26}
+
+* Добавлена возможность [строить связи](../operations/data-catalog/analysis-metadata.md) (lineage) от базы данных до дашборда.
+
+* Теперь в каталоге метаданных есть возможность сравнить разные версии схем и описаний.
+
+* Добавлена возможность просматривать текущий статус источника данных на связях. Например, можно увидеть ошибки в {{ data-transfer-name }} и быстрее обнаружить проблемы с поставкой данных.
+
+### Март {#mar26}
+
+Добавлен новый тип источника данных — [{{ datalens-name }}](../../datalens/index.yaml) — сервис бизнес-аналитики для визуализации данных. Теперь вы можете [настраивать загрузку](../operations/data-catalog/create-ingestion.md) данных из {{ datalens-name }} и [анализировать связи](../quickstart/data-analyst-quickstart.md) между датасетами.
+
+
 ### Январь {#jan26}
 
 Параметры подключения к [{{ schema-registry-name }}](../../metadata-hub/concepts/schema-registry.md) теперь можно указывать в настройках источников данных [{{ KF }}](../../data-transfer/operations/endpoint/source/kafka.md) и [{{ yds-name }}](../../data-transfer/operations/endpoint/source/data-streams.md) в сервисе {{ data-transfer-name }}.

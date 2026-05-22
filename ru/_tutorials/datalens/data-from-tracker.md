@@ -112,7 +112,7 @@
 1. Укажите название функции и нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 1. В открывшемся окне **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** выберите среду выполнения `Python`.
 1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}**.
+1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}**.
 1. Прикрепите [тестовый архив](https://github.com/yandex-cloud-examples/yc-tracker-data-import/blob/main/build/tracker-data-import.zip).
 1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** укажите `tracker_import.handler`.
 1. В разделе **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** укажите:
@@ -161,7 +161,7 @@
 
 ## Создайте подключение в {{ datalens-short-name }} {#connection-create}
 
-1. Откройте [кластер](#database-create) **{{ mch-name}}**.
+1. Откройте [кластер](#database-create) **{{ mch-name }}**.
 1. В левой части окна выберите раздел ![datalens](../../_assets/console-icons/chart-column.svg) **{{ datalens-short-name }}**.
 1. Нажмите кнопку **Создать подключение**.
 1. Укажите настройки подключения:
@@ -181,6 +181,8 @@
 
 ## Создайте датасет {#dataset-create}
 
+1. Перейдите на главную страницу [{{ datalens-short-name }}]({{ link-datalens-main-promo }}).
+1. Нажмите **Начать в облаке**.
 1. Перейдите на [страницу подключений]({{ link-datalens-main }}/connections).
 1. Выберите [подключение](#connection-create).
 1. В правом верхнем углу нажмите кнопку **Создать датасет**.
@@ -193,8 +195,9 @@
 ## Создайте чарт {#chart-create}
 
 
-1. Перейдите на главную страницу [{{ datalens-short-name }}]({{ link-datalens-main }}).
-1. Нажмите кнопку **Создать чарт**.
+1. Перейдите на главную страницу [{{ datalens-short-name }}]({{ link-datalens-main-skip-promo }}).
+1. На панели слева нажмите ![image](../../_assets/console-icons/chart-column.svg) **Чарты**.
+1. Нажмите кнопку **Создать чарт** → **Чарт в Wizard**.
 1. В левом верхнем углу нажмите ![image](../../_assets/console-icons/circles-intersection.svg) **Выберите датасет**.
 1. В выпадающем списке **Датасеты** выберите [датасет](#dataset-create), созданный на предыдущем шаге.
 
@@ -203,7 +206,8 @@
 
 ## Создайте дашборд и добавьте на него чарты {#dashboard-create}
 
-1. На главной странице [{{ datalens-full-name }}]({{ link-datalens-main }}) нажмите **Создать дашборд**.
+1. На панели слева нажмите ![image](../../_assets/console-icons/layout-cells-large.svg) **Дашборды**.
+1. Нажмите кнопку **Создать дашборд**.
 1. В верхней части страницы [дашборда](#dashboard-create) нажмите кнопку **Добавить** → **Чарт**.
 1. Заполните параметры виджета. Обратите внимание на следующие поля:
     * **Название**. Задает имя виджета. Отображается на верхней части виджета.

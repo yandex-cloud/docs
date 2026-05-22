@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/
 editable: false
 ---
 
@@ -79,6 +80,10 @@ Syntax:
   - [yc iot registry remove-labels](registry/remove-labels.md) — Remove labels from specified registry
 
   - [yc iot registry update](registry/update.md) — Update specified registry
+
+- [yc iot v0](v0/index.md) — Manage Yandex IoT Core resources
+
+
 
 #### Global Flags
 

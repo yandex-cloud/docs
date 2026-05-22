@@ -51,6 +51,11 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 {% include [certificate-manager-limits.md](../../_includes/certificate-manager/certificate-manager-limits.md) %}
 
 
+### {{ ai-studio-full-name }} {#ai-studio}
+
+{% include [yandexgpt-limits](../../_includes/yandexgpt-limits.md) %}
+
+
 ### {{ backup-full-name }} {#backup}
 
 {% include [backup-limits.md](../../_includes/backup-limits.md) %}
@@ -79,11 +84,6 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 ### {{ dns-full-name }} {#dns}
 
 {% include [limits](../../_includes/cloud-dns-limits.md) %}
-
-
-### {{ foundation-models-full-name }} {#foundation-models}
-
-{% include [yandexgpt-limits](../../_includes/yandexgpt-limits.md) %}
 
 
 ### {{ sf-full-name }} {#sf}
@@ -244,6 +244,10 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 
 {% include [mpg-limits.md](../../_includes/mdb/mpg-limits.md) %}
 
+### {{ mspqr-full-name}} {#mspqr}
+
+{% include [managed-spqr-limits.md](../../_includes/managed-spqr/limits.md) %}
+
 
 ### {{ mtr-full-name }} {#mtr}
 
@@ -349,7 +353,7 @@ description: В сервисах {{ yandex-cloud }} могут действов�
 
 #### Квоты {#ca-quotas}
 
-{% include [ca-limits](../../_includes/ca-limits.md) %}
+Квоты {{ ca-full-name }} устанавливаются в зависимости от используемого тарифного плана. Подробнее см. на странице [Тарифные планы {{ ca-name }}]({{ link-src-docs }}/sourcecraft/pricing#ca-plans).
 
 
 ### {{ speechkit-full-name }} {#speechkit}

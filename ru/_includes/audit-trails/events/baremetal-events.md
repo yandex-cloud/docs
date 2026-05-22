@@ -5,12 +5,14 @@
 `CreateImage` | Создание загрузочного образа
 `CreatePrivateCloudConnection` | Создание [приватного соединения](../../../baremetal/concepts/private-network.md#private-connection-to-vpc) с подсетями в VPC или в on-prem инфраструктуре
 `CreatePrivateSubnet` | Создание [приватной подсети](../../../baremetal/concepts/private-network.md#private-subnet)
+`CreatePublicPrefixPool` | Создание пула публичных префиксов
 `CreatePublicSubnet` | Создание [публичной подсети](../../../baremetal/concepts/public-network.md)
 `CreateServer` | Аренда сервера {{ baremetal-name }}
 `CreateVRF` | Создание [виртуального сегмента сети](../../../baremetal/concepts/private-network.md#vrf-segment) (VRF)
 `DeleteImage` | Удаление загрузочного образа
 `DeletePrivateCloudConnection` | Удаление приватного соединения с подсетями в VPC или в on-prem инфраструктуре
 `DeletePrivateSubnet` | Удаление приватной подсети
+`DeletePublicPrefixPool` | Удаление пула публичных префиксов
 `DeletePublicSubnet` | Удаление публичной подсети
 `DeleteServer` | Полное удаление сервера {{ baremetal-name }}, очистка дисков и всех пользовательских данных
 `DeleteVRF` | Удаление виртуального сегмента сети (VRF)
@@ -24,6 +26,7 @@
 `UpdateImage` | Изменение загрузочного образа
 `UpdatePrivateCloudConnection` | Изменение приватного соединения с подсетями в VPC или в on-prem инфраструктуре
 `UpdatePrivateSubnet` | Изменение приватной подсети
+`UpdatePublicPrefixPool` | Изменение пула публичных префиксов
 `UpdatePublicSubnet` | Изменение публичной подсети
 `UpdateServer` | Изменение сервера {{ baremetal-name }}
 `UpdateVRF` | Изменение виртуального сегмента сети (VRF)

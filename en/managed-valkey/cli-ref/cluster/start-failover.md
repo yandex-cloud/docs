@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-redis/cli-ref/cluster/start-failover
 editable: false
 ---
 
@@ -19,6 +20,9 @@ Syntax:
 || `--hostnames` | `value[,value]`
 
 A list of hostnames that should not be masters. ||
+|| `--failover-type` | `string`
+
+Failover type for Valkey cluster. Values: 'switch-to-hostnames', 'switch-from-hostnames' ||
 || `--id` | `string`
 
 Redis cluster id. ||

@@ -98,7 +98,7 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Jsonl.unexpected_field_behavior.title }}**: Method for handling JSON fields outside the `explicit_schema` (if specified). See the [PyArrow documentation](https://arrow.apache.org/docs/python/generated/pyarrow.json.ParseOptions.html).
      * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Jsonl.block_size.title }}**: Size of file segments in bytes for concurrent processing in each file memory. When handling large amounts of data where the schema cannot be inferred, increasing this value should solve the problem. Setting the value too high may lead to OOM errors.
 
-- proto
+- {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.proto.title }}
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigProto.proto_desc.title }}**: Upload a descriptor file.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigProto.msg_package_type.title }}**: Specify the message packaging method:
@@ -109,6 +109,24 @@ When [creating](../index.md#create) or [updating](../index.md#update) an endpoin
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigProto.primary_keys.title }}**: List the fields to add to the result as primary keys.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigProto.included_fields.title }}**: List the message fields to transfer. If not specified, the output will include all the message fields.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ProtoParser.null_keys_allowed.title }}**: Select this option to allow the `null` value in key columns.
+
+- {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.nginx.title }}
+
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Nginx.format.title }}**: Log format equivalent to the [log_format](https://nginx.org/en/docs/http/ngx_http_log_module.html#log_format) directive, e.g.:
+
+        ```text
+        "$remote_addr" "$remote_user" "[$time_local]" "$request"
+        ```
+
+        To avoid parsing errors, configure Nginx to wrap tokens in quotes and enable data escaping (`escape=default` or `escape=json`).
+
+        To rename fields in the target table, rename the relevant tokens in the **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Nginx.format.title }}** field. In the above example, to transfer data with the `time_local` token to the `date_time` column of the target table, specify the following log format:
+
+        ```text
+        "$remote_addr" "$remote_user" "[$date_time]" "$request"
+        ```
+
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.block_size.title }}**: Maximum size of a file segment held in memory during reading, in bytes.
 
 {% endlist %}
 

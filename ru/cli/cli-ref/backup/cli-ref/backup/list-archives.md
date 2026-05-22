@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/backup/cli-ref/backup/list-archives
 editable: false
 ---
 

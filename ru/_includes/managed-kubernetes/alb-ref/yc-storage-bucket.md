@@ -2,6 +2,8 @@
 
 Ресурс `YCStorageBucket` содержит параметры бакета {{ objstorage-name }} для настройки бэкенда в ресурсе `HTTPRoute`.
 
+{% include [Gwin-with-preset](../../application-load-balancer/ingress-to-gwin-tip-with-preset.md) %}
+
 ## YCStorageBucket {#yc-storage-bucket}
 
 ```yaml

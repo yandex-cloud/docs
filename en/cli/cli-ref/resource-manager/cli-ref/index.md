@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/resource-manager/cli-ref/
 editable: false
 ---
 
@@ -81,6 +82,10 @@ Aliases:
   - [yc resource-manager folder unbind-access-policy](folder/unbind-access-policy.md) — Unbind access policy from the specified folder
 
   - [yc resource-manager folder update](folder/update.md) — Update the specified folder
+
+- [yc resource-manager v0](v0/index.md) — Manage Yandex Resource Manager resources
+
+
 
 #### Global Flags
 

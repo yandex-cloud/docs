@@ -9,6 +9,8 @@ Users and [service accounts](../users/service-accounts.md) get permissions to pe
 
 For more information about assigning roles and verifying the list of permissions, see [{#T}](../access-control/index.md).
 
+{% include [access-control-sa-general-notice](../../../_includes/iam/access-control-sa-general-notice.md) %}
+
 Use the appropriate credential type for authentication:
 
 * [IAM token](iam-token.md) is the recommended and most secure type. It is suitable for most operations, such as [creating a VM](../../../compute/operations/vm-create/create-linux-vm.md). It does not work with certain services or APIs that require other types of credentials.

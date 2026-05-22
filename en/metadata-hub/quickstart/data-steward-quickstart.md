@@ -29,7 +29,7 @@ The cost of infrastructure support includes a fee for {{ mpg-full-name }} cluste
 
 ## Getting started {#before-you-begin}
 
-1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
+1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if you do not have an account yet.
 
 1. If you do not have a resource folder, create one:
 
@@ -51,7 +51,7 @@ The cost of infrastructure support includes a fee for {{ mpg-full-name }} cluste
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select the resource folder you [prepared earlier](#before-you-begin).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+  1. [Go](../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. Click **{{ ui-key.yacloud.data-catalog.action_create-catalog }}**.
   1. Set a **{{ ui-key.yacloud.common.name }}** for the metadata catalog.

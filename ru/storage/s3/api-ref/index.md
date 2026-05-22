@@ -24,101 +24,101 @@ description: Из статьи вы узнаете, какие методы S3 A
 
 #|
 || **Метод** | **Описание** ||
-|| [create](bucket/create.md) | Создает бакет. ||
-|| [getMeta](bucket/getmeta.md) | Проверяет существование бакета и доступ к нему. ||
-|| [listObjects](bucket/listobjects.md) | Возвращает список объектов в бакете. ||
-|| [listBuckets](bucket/list.md) | Возвращает список бакетов. ||
-|| [deleteBucket](bucket/delete.md) | Удаляет бакет. ||
+|| [CreateBucket](bucket/create.md) | Создает бакет. ||
+|| [HeadBucket](bucket/getmeta.md) | Проверяет существование бакета и доступ к нему. ||
+|| [ListObjects](bucket/listobjects.md) | Возвращает список объектов в бакете. ||
+|| [ListBuckets](bucket/list.md) | Возвращает список бакетов. ||
+|| [DeleteBucket](bucket/delete.md) | Удаляет бакет. ||
 
 
-|| [getBucketEncryption](bucket/getbucketencryption.md) | Проверяет наличие шифрования у бакета. ||
-|| [deleteBucketEncryption](bucket/deletebucketencryption.md) | Убирает шифрование бакета. ||
-|| [putBucketEncryption](bucket/putbucketencryption.md) | Добавляет шифрование бакету. ||
+|| [GetBucketEncryption](bucket/getbucketencryption.md) | Проверяет наличие шифрования у бакета. ||
+|| [DeleteBucketEncryption](bucket/deletebucketencryption.md) | Убирает шифрование бакета. ||
+|| [PutBucketEncryption](bucket/putbucketencryption.md) | Добавляет шифрование бакету. ||
 
 
-|| [putBucketVersioning](bucket/putBucketVersioning.md) | Включает или приостанавливает версионирование бакета. ||
-|| [getBucketVersioning](bucket/getBucketVersioning.md) | Возвращает состояние опции версионирования. ||
-|| [putBucketLogging](bucket/putBucketLogging.md) | Включает и выключает механизм логирования действий с бакетом.
-
-
-||
-|| [getBucketLogging](bucket/getBucketLogging.md) | Возвращает настройки логирования действий с бакетом.
+|| [PutBucketVersioning](bucket/putBucketVersioning.md) | Включает или приостанавливает версионирование бакета. ||
+|| [GetBucketVersioning](bucket/getBucketVersioning.md) | Возвращает состояние опции версионирования. ||
+|| [PutBucketLogging](bucket/putBucketLogging.md) | Включает и выключает механизм логирования действий с бакетом.
 
 
 ||
-|| [listObjectVersions](bucket/listObjectVersions.md) | Возвращает метаданные обо всех версиях объектов в бакете. ||
-|| [putObjectLockConfiguration](bucket/putobjectlockconfiguration.md) | Настраивает механизм [блокировок версий объектов](../../concepts/object-lock.md) в [версионируемом](../../concepts/versioning.md) бакете. ||
-|| [getObjectLockConfiguration](bucket/getobjectlockconfiguration.md) | Возвращает настройки механизма блокировок. ||
-|| [putBucketTagging](bucket/putbuckettagging.md) | Добавляет [метки](../../concepts/tags.md) бакету. ||
-|| [getBucketTagging](bucket/getbuckettagging.md) | Возвращает метки бакета. ||
-|| [deleteBucketTagging](bucket/deletebuckettagging.md) | Удаляет метки бакета. ||
+|| [GetBucketLogging](bucket/getBucketLogging.md) | Возвращает настройки логирования действий с бакетом.
+
+
+||
+|| [ListObjectVersions](bucket/listObjectVersions.md) | Возвращает метаданные обо всех версиях объектов в бакете. ||
+|| [PutObjectLockConfiguration](bucket/putobjectlockconfiguration.md) | Настраивает механизм [блокировок версий объектов](../../concepts/object-lock.md) в [версионируемом](../../concepts/versioning.md) бакете. ||
+|| [GetObjectLockConfiguration](bucket/getobjectlockconfiguration.md) | Возвращает настройки механизма блокировок. ||
+|| [PutBucketTagging](bucket/putbuckettagging.md) | Добавляет [метки](../../concepts/tags.md) бакету. ||
+|| [GetBucketTagging](bucket/getbuckettagging.md) | Возвращает метки бакета. ||
+|| [DeleteBucketTagging](bucket/deletebuckettagging.md) | Удаляет метки бакета. ||
 |#
 
 ### Сервис Object {#object-service}
 
 Метод | Описание
 ----- | -----
-[upload](object/upload.md) | Загружает объект в {{ objstorage-name }}.
-[get](object/get.md) | Выгружает объект из {{ objstorage-name }}.
+[PutObject](object/upload.md) | Загружает объект в {{ objstorage-name }}.
+[GetObject](object/get.md) | Выгружает объект из {{ objstorage-name }}.
 [patch](object/patch.md) | [Частично изменяет](../../concepts/object-patch.md) объект.
-[copy](object/copy.md) | Копирует объект, хранящийся в {{ objstorage-name }}.
-[getObjectMeta](object/getobjectmeta.md) | Выгружает метаданные объекта.
-[delete](object/delete.md) | Удаляет объект.
-[deleteMultipleObjects](object/deletemultipleobjects.md) | Удаляет объекты по списку.
+[CopyObject](object/copy.md) | Копирует объект, хранящийся в {{ objstorage-name }}.
+[HeadObject](object/getobjectmeta.md) | Выгружает метаданные объекта.
+[DeleteObject](object/delete.md) | Удаляет объект.
+[DeleteObjects](object/deletemultipleobjects.md) | Удаляет объекты по списку.
 [options](object/options.md) | Проверяет возможность CORS запроса к объекту.
-[selectObjectContent](object/select.md) | Фильтрует и возвращает содержимое объекта на основе SQL-запроса.
-[putObjectRetention](object/putobjectretention.md) | Устанавливает на версию объекта временную [блокировку](../../concepts/object-lock.md) либо настраивает или снимает уже установленную блокировку.
-[putObjectLegalHold](object/putobjectlegalhold.md) | Устанавливает на версию объекта бессрочную блокировку или снимает ее.
-[getObjectRetention](object/getobjectretention.md) | Возвращает настройки временной блокировки, установленной на версию объекта.
-[getObjectLegalHold](object/getobjectlegalhold.md) | Возвращает настройки бессрочной блокировки, установленной на версию объекта.
-[putObjectTagging](object/putobjecttagging.md) | Добавляет [метки](../../concepts/tags.md) объекту.
-[getObjectTagging](object/getobjecttagging.md) | Возвращает метки объекта.
-[deleteObjectTagging](object/deleteobjecttagging.md) | Удаляет метки объекта.
+[SelectObjectContent](object/select.md) | Фильтрует и возвращает содержимое объекта на основе SQL-запроса.
+[PutObjectRetention](object/putobjectretention.md) | Устанавливает на версию объекта временную [блокировку](../../concepts/object-lock.md) либо настраивает или снимает уже установленную блокировку.
+[PutObjectLegalHold](object/putobjectlegalhold.md) | Устанавливает на версию объекта бессрочную блокировку или снимает ее.
+[GetObjectRetention](object/getobjectretention.md) | Возвращает настройки временной блокировки, установленной на версию объекта.
+[GetObjectLegalHold](object/getobjectlegalhold.md) | Возвращает настройки бессрочной блокировки, установленной на версию объекта.
+[PutObjectTagging](object/putobjecttagging.md) | Добавляет [метки](../../concepts/tags.md) объекту.
+[GetObjectTagging](object/getobjecttagging.md) | Возвращает метки объекта.
+[DeleteObjectTagging](object/deleteobjecttagging.md) | Удаляет метки объекта.
 
 ### Сервис Multipart upload {#multipart-upload-service}
 
 Метод | Описание
 ----- | -----
-[startUpload](multipart/startupload.md) | Инициализирует составную загрузку.
-[uploadPart](multipart/uploadpart.md) | Загружает часть объекта.
-[copyPart](multipart/copypart.md) | Копирует часть объекта.
-[listParts](multipart/listparts.md) | Выдает список загруженных частей.
-[abortUpload](multipart/abortupload.md) | Прерывает составную загрузку.
-[completeUpload](multipart/completeupload.md) | Завершает составную загрузку.
-[listUploads](multipart/listuploads.md) | Выдает список незавершенных загрузок.
+[CreateMultipartUpload](multipart/startupload.md) | Инициализирует составную загрузку.
+[UploadPart](multipart/uploadpart.md) | Загружает часть объекта.
+[UploadPartCopy](multipart/copypart.md) | Копирует часть объекта.
+[ListParts](multipart/listparts.md) | Выдает список загруженных частей.
+[AbortMultipartUpload](multipart/abortupload.md) | Прерывает составную загрузку.
+[CompleteMultipartUpload](multipart/completeupload.md) | Завершает составную загрузку.
+[ListMultipartUploads](multipart/listuploads.md) | Выдает список незавершенных загрузок.
 
 ### Сервис Static Website Hosting {#static-website-hosting-service}
 
 Метод | Описание
 ----- | -----
-[upload](hosting/upload.md) | Загружает конфигурацию бакета для хостинга статических сайтов в {{ objstorage-name }}.
-[get](hosting/get.md) | Возвращает конфигурацию бакета для хостинга статических сайтов из {{ objstorage-name }}.
-[delete](hosting/delete.md) | Удаляет конфигурацию бакета для хостинга статических сайтов.
+[PutBucketWebsite](hosting/upload.md) | Загружает конфигурацию бакета для хостинга статических сайтов в {{ objstorage-name }}.
+[GetBucketWebsite](hosting/get.md) | Возвращает конфигурацию бакета для хостинга статических сайтов из {{ objstorage-name }}.
+[DeleteBucketWebsite](hosting/delete.md) | Удаляет конфигурацию бакета для хостинга статических сайтов.
 
 ### Сервис CORS {#cors-service}
 
 Метод | Описание
 ----- | -----
-[upload](cors/upload.md) | Загружает конфигурацию CORS для бакета.
-[get](cors/get.md) | Возвращает конфигурацию CORS для бакета.
-[delete](cors/delete.md) | Удаляет конфигурацию CORS для бакета.
+[PutBucketCors](cors/upload.md) | Загружает конфигурацию CORS для бакета.
+[GetBucketCors](cors/get.md) | Возвращает конфигурацию CORS для бакета.
+[DeleteBucketCors](cors/delete.md) | Удаляет конфигурацию CORS для бакета.
 
 ### Сервис Lifecycles {#lifecycles-service}
 
 Метод | Описание
 ----- | -----
-[upload](lifecycles/upload.md) | Загружает конфигурацию жизненного цикла объектов в {{ objstorage-name }}.
-[get](lifecycles/get.md) | Возвращает конфигурацию жизненного цикла объектов из {{ objstorage-name }}.
-[delete](lifecycles/delete.md) | Удаляет конфигурацию жизненного цикла объектов из {{ objstorage-name }}.
+[PutBucketLifecycleConfiguration](lifecycles/upload.md) | Загружает конфигурацию жизненного цикла объектов в {{ objstorage-name }}.
+[GetBucketLifecycleConfiguration](lifecycles/get.md) | Возвращает конфигурацию жизненного цикла объектов из {{ objstorage-name }}.
+[DeleteBucketLifecycle](lifecycles/delete.md) | Удаляет конфигурацию жизненного цикла объектов из {{ objstorage-name }}.
 
 ### Сервис ACL {#acl-service}
 
 Метод | Описание
 ----- | -----
-[objectGetAcl](acl/objectget.md) | Возвращает список управления доступом для объекта.
-[objectPutAcl](acl/objectput.md) | Загружает список управления доступом для объекта.
-[bucketGetAcl](acl/bucketget.md) | Возвращает список управления доступом для бакета.
-[bucketPutAcl](acl/bucketput.md) | Загружает список управления доступом для бакета.
+[GetObjectAcl](acl/objectget.md) | Возвращает список управления доступом для объекта.
+[PutObjectAcl](acl/objectput.md) | Загружает список управления доступом для объекта.
+[GetBucketAcl](acl/bucketget.md) | Возвращает список управления доступом для бакета.
+[PutBucketAcl](acl/bucketput.md) | Загружает список управления доступом для бакета.
 
 ### Сервис Bucket Policy {#bucket-policy}
 

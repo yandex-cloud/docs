@@ -101,7 +101,9 @@ To enable access through the management console, you can also use the **{{ ui-ke
 
 ## Bucket access via a chain of reverse proxy servers {#access-via-reverse-proxy}
 
-For {{ objstorage-short-name }} to work with requests sent over a series of [reverse proxy servers](https://en.wikipedia.org/wiki/Reverse_proxy), the `aws:sourceip` [condition](../../../storage/s3/api-ref/policy/conditions.md) checks both the IP address the request came from and the IP addresses of reverse proxy servers, e.g., those provided in the [X-Forwarded-For](https://en.wikipedia.org/wiki/X-Forwarded-For) header.
+For {{ objstorage-short-name }} to work with requests sent over a series of [reverse proxy servers](https://en.wikipedia.org/wiki/Reverse_proxy), the [`aws:sourceip` condition](../../../storage/s3/api-ref/policy/conditions.md#keys) checks not only the IP address the request came from but also the IP addresses of the reverse proxy servers, e.g., those provided in the [X-Forwarded-For](https://en.wikipedia.org/wiki/X-Forwarded-For) header.
+
+If you only need to check the client's source IP address without taking any proxies into account, use the `yc:originip` [condition](../../../storage/s3/api-ref/policy/conditions.md#keys).
 
 First a request is checked against the `Deny` access policy rules. If at least one IP address meets the `Deny` rule criteria, the request is denied. No further checks are performed.
 
@@ -186,6 +188,7 @@ See [configuration examples](#conditional-writes-rules) for setting up condition
 * [Deny downloading objects from a specified IP address](#block-download-specific-ip)
 * [Grant users full access to specific folders](#user-specific-full-folder-access)
 * [Provide each user or service account with full access to a folder](#full-access-user-service-account-folder)
+* [Allow using the bucket only via a specific static key](#specific-static-key-only)
 * [Prohibit tools other than the management console](#allow-only-console)
 * [Allow object writes only as conditional writes](#conditional-writes-rules)
 
@@ -225,13 +228,19 @@ See [configuration examples](#conditional-writes-rules) for setting up condition
         "Resource": "arn:aws:s3:::<bucket_name>/*",
         "Condition": {
           "IpAddress": {
-            "aws:SourceIp": "100.101.102.128/30"
+            "yc:OriginIp": "100.101.102.128/30"
           }
         }
       }
     ]
   }
   ```
+
+  {% note info %}
+
+  The `yc:OriginIp` [condition](../../../storage/s3/api-ref/policy/conditions.md#keys) checks only the source IP address without taking any proxies into account. If you want to check the reverse proxy server IP addresses as well, e.g., those provided in the `X-Forwarded-For` header, use the `aws:SourceIp` condition.
+
+  {% endnote %}
 
 #### Rule that denies downloading objects from a specified IP address: {#block-download-specific-ip}
 
@@ -333,7 +342,31 @@ See [configuration examples](#conditional-writes-rules) for setting up condition
   }
   ```
 
-#### Rule to prohibit all tools except the management console {#allow-only-console}
+#### Rule that allows using the bucket only via a specific static key: {#specific-static-key-only}
+
+  ```json
+  {
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Principal": "*",
+        "Action": "*",
+        "Resource": [
+          "arn:aws:s3:::<bucket_name>/*",
+          "arn:aws:s3:::<bucket_name>"
+        ],
+        "Condition": {
+          "StringEquals": {
+            "yc:access-key-id": "<static_key_ID>"
+          }
+        }
+      }
+    ]
+  }
+  ```
+
+#### Rule to prohibit all tools except the management console: {#allow-only-console}
 
   ```json
   {

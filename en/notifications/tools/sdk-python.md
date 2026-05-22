@@ -147,8 +147,29 @@ print ("Message id:", response["MessageId"])
 ```
 
 Where:
-* `TargetArn`: Mobile endpoint ID (ARN)
-* `Message`: Message
+* `TargetArn`: Mobile endpoint ID (ARN).
+* `Message`: Message.
+
+## Examples {#examples}
+
+### Sending SMS {#sms-sending}
+
+```python
+client.publish(PhoneNumber="<recipient_phone_number>",
+    Message="<notification_text>",
+    MessageAttributes={
+        "AWS.SNS.SMS.SenderID": {
+            "DataType": "String",
+            "StringValue":"<sender's_text_name>"
+        }
+    }
+)
+```
+
+Where:
+* `PhoneNumber`: Russian phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+* `Message`: SMS text.
+* `MessageAttributes`: SMS attributes, where `AWS.SNS.SMS.SenderID.StringValue` is the sender's text name.
 
 ## See also {#see-also}
 

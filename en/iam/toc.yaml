@@ -41,13 +41,13 @@ items:
             href: operations/sa/delete.md
       - name: Access policies
         items:
-          - name: Getting a list of supported policies
+          - name: Getting a list of supported policy templates
             href: operations/access-policies/list.md
-          - name: Assigning a policy for a resource
+          - name: Creating a policy for a resource
             href: operations/access-policies/assign.md
-          - name: Viewing policies assigned for a resource
+          - name: Viewing policies created for a resource
             href: operations/access-policies/view-assigned.md
-          - name: Revoking a policy
+          - name: Delete policy
             href: operations/access-policies/revoke.md
       - name: Roles
         items:
@@ -147,10 +147,10 @@ items:
         items:
           - name: Overview
             href: concepts/access-control/index.md
-          - name: Access policies
-            href: concepts/access-control/access-policies.md
           - name: Roles
             href: concepts/access-control/roles.md
+          - name: Access policies
+            href: concepts/access-control/access-policies.md
           - name: System groups
             href: concepts/access-control/system-group.md
           - name: Public groups
@@ -352,6 +352,220 @@ items:
             href: cli-ref/user-account/index.md
           - name: get
             href: cli-ref/user-account/get.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: access-analyzer
+            items:
+              - name: Overview
+                href: cli-ref/v0/access-analyzer/index.md
+              - name: list-subject-access-bindings
+                href: cli-ref/v0/access-analyzer/list-subject-access-bindings.md
+          - name: access-key
+            items:
+              - name: Overview
+                href: cli-ref/v0/access-key/index.md
+              - name: create
+                href: cli-ref/v0/access-key/create.md
+              - name: delete
+                href: cli-ref/v0/access-key/delete.md
+              - name: get
+                href: cli-ref/v0/access-key/get.md
+              - name: issue-ephemeral
+                href: cli-ref/v0/access-key/issue-ephemeral.md
+              - name: list
+                href: cli-ref/v0/access-key/list.md
+          - name: access-policy-template
+            items:
+              - name: Overview
+                href: cli-ref/v0/access-policy-template/index.md
+              - name: list
+                href: cli-ref/v0/access-policy-template/list.md
+          - name: api-key
+            items:
+              - name: Overview
+                href: cli-ref/v0/api-key/index.md
+              - name: create
+                href: cli-ref/v0/api-key/create.md
+              - name: delete
+                href: cli-ref/v0/api-key/delete.md
+              - name: get
+                href: cli-ref/v0/api-key/get.md
+              - name: list
+                href: cli-ref/v0/api-key/list.md
+              - name: list-scopes
+                href: cli-ref/v0/api-key/list-scopes.md
+              - name: update
+                href: cli-ref/v0/api-key/update.md
+          - name: create-id-token
+            href: cli-ref/v0/create-id-token.md
+          - name: create-token
+            href: cli-ref/v0/create-token.md
+          - name: key
+            items:
+              - name: Overview
+                href: cli-ref/v0/key/index.md
+              - name: create
+                href: cli-ref/v0/key/create.md
+              - name: delete
+                href: cli-ref/v0/key/delete.md
+              - name: get
+                href: cli-ref/v0/key/get.md
+              - name: list
+                href: cli-ref/v0/key/list.md
+          - name: oauth-client
+            items:
+              - name: Overview
+                href: cli-ref/v0/oauth-client/index.md
+              - name: create
+                href: cli-ref/v0/oauth-client/create.md
+              - name: delete
+                href: cli-ref/v0/oauth-client/delete.md
+              - name: get
+                href: cli-ref/v0/oauth-client/get.md
+              - name: list
+                href: cli-ref/v0/oauth-client/list.md
+              - name: update
+                href: cli-ref/v0/oauth-client/update.md
+          - name: oauth-client-secret
+            items:
+              - name: Overview
+                href: cli-ref/v0/oauth-client-secret/index.md
+              - name: create
+                href: cli-ref/v0/oauth-client-secret/create.md
+              - name: delete
+                href: cli-ref/v0/oauth-client-secret/delete.md
+              - name: get
+                href: cli-ref/v0/oauth-client-secret/get.md
+              - name: list
+                href: cli-ref/v0/oauth-client-secret/list.md
+          - name: refresh-token
+            items:
+              - name: Overview
+                href: cli-ref/v0/refresh-token/index.md
+              - name: list
+                href: cli-ref/v0/refresh-token/list.md
+              - name: revoke
+                href: cli-ref/v0/refresh-token/revoke.md
+          - name: revoke-token
+            href: cli-ref/v0/revoke-token.md
+          - name: role
+            items:
+              - name: Overview
+                href: cli-ref/v0/role/index.md
+              - name: get
+                href: cli-ref/v0/role/get.md
+              - name: list
+                href: cli-ref/v0/role/list.md
+          - name: service-account
+            items:
+              - name: Overview
+                href: cli-ref/v0/service-account/index.md
+              - name: add-access-binding
+                href: cli-ref/v0/service-account/add-access-binding.md
+              - name: add-labels
+                href: cli-ref/v0/service-account/add-labels.md
+              - name: create
+                href: cli-ref/v0/service-account/create.md
+              - name: delete
+                href: cli-ref/v0/service-account/delete.md
+              - name: get
+                href: cli-ref/v0/service-account/get.md
+              - name: list
+                href: cli-ref/v0/service-account/list.md
+              - name: list-access-bindings
+                href: cli-ref/v0/service-account/list-access-bindings.md
+              - name: list-operations
+                href: cli-ref/v0/service-account/list-operations.md
+              - name: remove-access-binding
+                href: cli-ref/v0/service-account/remove-access-binding.md
+              - name: remove-labels
+                href: cli-ref/v0/service-account/remove-labels.md
+              - name: set-access-bindings
+                href: cli-ref/v0/service-account/set-access-bindings.md
+              - name: update
+                href: cli-ref/v0/service-account/update.md
+          - name: service-control
+            items:
+              - name: Overview
+                href: cli-ref/v0/service-control/index.md
+              - name: disable
+                href: cli-ref/v0/service-control/disable.md
+              - name: enable
+                href: cli-ref/v0/service-control/enable.md
+              - name: get
+                href: cli-ref/v0/service-control/get.md
+              - name: list
+                href: cli-ref/v0/service-control/list.md
+          - name: user-account
+            items:
+              - name: Overview
+                href: cli-ref/v0/user-account/index.md
+              - name: get
+                href: cli-ref/v0/user-account/get.md
+          - name: whoami
+            href: cli-ref/v0/whoami.md
+          - name: workload-identity
+            items:
+              - name: Overview
+                href: cli-ref/v0/workload-identity/index.md
+              - name: federated-credential
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/workload-identity/federated-credential/index.md
+                  - name: create
+                    href: >-
+                      cli-ref/v0/workload-identity/federated-credential/create.md
+                  - name: delete
+                    href: >-
+                      cli-ref/v0/workload-identity/federated-credential/delete.md
+                  - name: get
+                    href: cli-ref/v0/workload-identity/federated-credential/get.md
+                  - name: list
+                    href: cli-ref/v0/workload-identity/federated-credential/list.md
+              - name: oidc
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/workload-identity/oidc/index.md
+                  - name: federation
+                    items:
+                      - name: Overview
+                        href: cli-ref/v0/workload-identity/oidc/federation/index.md
+                      - name: add-access-binding
+                        href: >-
+                          cli-ref/v0/workload-identity/oidc/federation/add-access-binding.md
+                      - name: add-audiences
+                        href: >-
+                          cli-ref/v0/workload-identity/oidc/federation/add-audiences.md
+                      - name: add-labels
+                        href: >-
+                          cli-ref/v0/workload-identity/oidc/federation/add-labels.md
+                      - name: create
+                        href: cli-ref/v0/workload-identity/oidc/federation/create.md
+                      - name: delete
+                        href: cli-ref/v0/workload-identity/oidc/federation/delete.md
+                      - name: get
+                        href: cli-ref/v0/workload-identity/oidc/federation/get.md
+                      - name: list
+                        href: cli-ref/v0/workload-identity/oidc/federation/list.md
+                      - name: list-access-bindings
+                        href: >-
+                          cli-ref/v0/workload-identity/oidc/federation/list-access-bindings.md
+                      - name: remove-access-binding
+                        href: >-
+                          cli-ref/v0/workload-identity/oidc/federation/remove-access-binding.md
+                      - name: remove-audiences
+                        href: >-
+                          cli-ref/v0/workload-identity/oidc/federation/remove-audiences.md
+                      - name: remove-labels
+                        href: >-
+                          cli-ref/v0/workload-identity/oidc/federation/remove-labels.md
+                      - name: set-access-bindings
+                        href: >-
+                          cli-ref/v0/workload-identity/oidc/federation/set-access-bindings.md
+                      - name: update
+                        href: cli-ref/v0/workload-identity/oidc/federation/update.md
       - name: whoami
         href: cli-ref/whoami.md
       - name: workload-identity

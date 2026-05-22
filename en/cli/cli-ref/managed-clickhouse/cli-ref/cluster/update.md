@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-clickhouse/cli-ref/cluster/update
 editable: false
 ---
 
@@ -45,6 +46,7 @@ New service account for the ClickHouse cluster. ||
 
 A list of security groups for the ClickHouse cluster. ||
 || `--deletion-protection` | Deletion Protection inhibits deletion of the cluster. ||
+|| `--allow-host-recreation` | Allows or denies re-creation of replicas during update of cluster configuration. The option must be enabled for configuration changes including disk type change. NOTE: Only data of replicated tables will be preserved during host re-creation. Data of non-replicated tables will be lost. ||
 || `--clickhouse-resource-preset` | `string`
 
 New resource preset for computational resources available to a ClickHouse host (CPU, RAM etc.). ||
@@ -89,6 +91,10 @@ Limit for cache for data on Yandex Object Storage. ||
 Auto backups retain period in days. ||
 || `--enable-sql-database-management` | Whether database management through SQL commands is enabled. ||
 || `--enable-sql-user-management` | Whether user management through SQL commands is enabled. ||
+|| `--performance-diagnostics-enabled` | Whether to use Performance Diagnostics service in cluster. ||
+|| `--performance-diagnostics-processes-refresh-interval` | `duration`
+
+Time interval to collect data from system.processes table. ||
 || `--admin-password` | `string`
 
 Password for entity. Usage of --read-admin-password is more secure ||

@@ -1,15 +1,15 @@
-Broadcast transcoding cost — `60 minutes`:
+Cost of broadcast transcoding, `60 minutes`:
 
-> 60 × $0.0213 = $1.28
+> 60 × {{ sku|USD|video.transcoding.live.v1|string }} = {% calc [currency=USD] 60 × {{ sku|USD|video.transcoding.live.v1|number }} %}
 
-Broadcast recording storage cost — `3 GB` per month (720 hours):
+Cost of storing a broadcast recording, `3 GB` per month (720 hours):
 
-> 3 × 720 × $0.0000251 = $0.0542
+> 3 × 720 × {{ sku|USD|video.used_space.live.v1|string }} = {% calc [currency=USD] 3 × 720 × {{ sku|USD|video.used_space.live.v1|number }} %}
 
-Outgoing traffic cost — `20 GB`:
+Cost of outgoing traffic, `20 GB`:
 
 > 20 × {{ sku|USD|video.cdn.traffic.egress|string }} = {% calc [currency=USD] 20 × {{ sku|USD|video.cdn.traffic.egress|number }} %}
 
-Total broadcast cost per month:
+The total monthly cost of the broadcast will be:
 
-> $1.28 + $0.0542 + {% calc [currency=USD] 20 × {{ sku|USD|video.cdn.traffic.egress|number }} %} = {% calc [currency=USD] 1.28 + 0.0542 + 20 × {{ sku|USD|video.cdn.traffic.egress|number }} %}
+> {% calc [currency=USD] 60 × {{ sku|USD|video.transcoding.live.v1|number }} %} + {% calc [currency=USD] 3 × 720 × {{ sku|USD|video.used_space.live.v1|number }} %} + {% calc [currency=USD] 20 × {{ sku|USD|video.cdn.traffic.egress|number }} %} = {% calc [currency=USD] 60 × {{ sku|USD|video.transcoding.live.v1|number }} + 3 × 720 × {{ sku|USD|video.used_space.live.v1|number }} + 20 × {{ sku|USD|video.cdn.traffic.egress|number }} %}

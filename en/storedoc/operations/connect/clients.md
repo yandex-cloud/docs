@@ -1,5 +1,5 @@
 ---
-title: Connecting to an {{ SD }} cluster in {{ mmg-full-name }}
+title: Connecting to a {{ SD }} cluster in {{ mmg-full-name }}
 description: In this tutorial, you will learn how to connect to a database in a {{ SD }} cluster via command line tools, graphical IDEs, or Docker container.
 ---
 
@@ -27,7 +27,7 @@ Before connecting, install [MongoDB Shell](index.md#install-mongosh).
 
 {% list tabs group=connection %}
 
-- Connecting over SSL for {{ SD }} version 4.2 and above {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
     For a non-sharded cluster:
 
@@ -47,36 +47,6 @@ Before connecting, install [MongoDB Shell](index.md#install-mongosh).
     mongosh --norc \
             --tls \
             --tlsCAFile ~/.mongodb/root.crt \
-            --host '<MONGOINFRA_or_MONGOS_host_1_FQDN>:27017,...,<MONGOINFRA_or_MONGOS_host_N_FQDN>:27017' \
-            --username <DB_user_name> \
-            --password <DB_user_password> \
-            <DB_name>
-    ```
-
-    {% include [see-fqdn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
-
-    {% include [db-command](../../../_includes/mdb/mmg/db-command.md) %}
-
-- Connecting over SSL for {{ SD }} version 4.0 {#with-ssl-4}
-
-    For a non-sharded cluster:
-
-    ```bash
-    mongosh --norc \
-            --ssl \
-            --sslCAFile ~/.mongodb/root.crt \
-            --host '<Yandex_StoreDoc_host_1_FQDN>:{{ port-mmg }},...,<Yandex_StoreDoc_host_N_FQDN>:{{ port-mmg }}' \
-            --username <DB_user_name> \
-            --password <DB_user_password> \
-            <DB_name>
-    ```
-
-    For a sharded cluster:
-
-    ```bash
-    mongosh --norc \
-            --ssl \
-            --sslCAFile ~/.mongodb/root.crt \
             --host '<MONGOINFRA_or_MONGOS_host_1_FQDN>:27017,...,<MONGOINFRA_or_MONGOS_host_N_FQDN>:27017' \
             --username <DB_user_name> \
             --password <DB_user_password> \
@@ -141,7 +111,7 @@ Before connecting, install [MongoDB Shell](index.md#install-mongosh).
 
 {% list tabs group=connection %}
 
-- Connecting over SSL for {{ SD }} version 4.2 and above {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
     For a non-sharded cluster:
 
@@ -223,7 +193,9 @@ Before connecting, install [MongoDB Shell](index.md#install-mongosh).
 
 {% include [ide-environments](../../../_includes/mdb/mmg-ide-envs.md) %}
 
-From graphical IDEs, you can only connect to public cluster hosts using an [SSL certificate](index.md#get-ssl-cert).
+
+From graphical IDEs, you can only connect to public cluster hosts using an SSL certificate.
+
 
 {% include [note-connection-ide](../../../_includes/mdb/note-connection-ide.md) %}
 
@@ -250,11 +222,11 @@ From graphical IDEs, you can only connect to public cluster hosts using an [SSL 
 
               {% include [see-fdqn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
 
-      1. Click **Download** to download the connection driver.
+      1. Click **Download** to get the database driver.
    1. On the **SSH/SSL** tab:
       1. Enable **Use SSL**.
       1. In the **CA file** field, specify the path to the [SSL certificate for your connection](./index.md#get-ssl-cert).
-1. Click **Test Connection**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
+1. Click **Test Connection**. If the connection is successful, you will see the connection status, DBMS information, and driver details.
 1. Click **OK** to save the data source.
 
 ### DBeaver {#dbeaver}
@@ -290,7 +262,7 @@ To connect to your cluster:
       1. Enable **Use SSL**.
       1. In the **Root certificate** field, specify the path to your saved [SSL certificate](./index.md#get-ssl-cert) file.
       1. Under **Settings**, check **Skip hostname validation**.
-1. Click **Test connection ...**. If the connection is successful, you will see the connection status and information about the DBMS and driver.
+1. Click **Test connection ...**. If the connection is successful, you will see the connection status, DBMS information, and driver details.
 1. Click **Ready** to save the database connection settings.
 
 ## Before you connect from a Docker container {#connection-docker}

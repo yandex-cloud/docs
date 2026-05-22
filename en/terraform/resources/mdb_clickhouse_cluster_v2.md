@@ -117,11 +117,16 @@ resource "yandex_mdb_clickhouse_cluster_v2" "my_cluster" {
     }
 
     hosts = {
-        "h1" = {
-            type      = "CLICKHOUSE"
-            zone      = "ru-central1-a"
-            subnet_id = yandex_vpc_subnet.foo.id
+        "clickhouse-host1" = {
+            type       = "CLICKHOUSE"
+            zone       = "ru-central1-a"
+            shard_name = "shard1"
+            subnet_id  = yandex_vpc_subnet.foo.id
         }
+    }
+
+    shards = {
+        "shard1" = {}
     }
 
     format_schema {
@@ -175,31 +180,37 @@ resource "yandex_mdb_clickhouse_cluster_v2" "my_cluster" {
   }
 
   hosts = {
-    "ka" = {
+    "clickhouse-host1" = {
+      type       = "CLICKHOUSE"
+      zone       = "ru-central1-a"
+      shard_name = "shard1"
+      subnet_id  = yandex_vpc_subnet.foo.id
+    }
+    "clickhouse-host2" = {
+      type       = "CLICKHOUSE"
+      zone       = "ru-central1-b"
+      shard_name = "shard1"
+      subnet_id  = yandex_vpc_subnet.bar.id
+    }
+    "keeper-host1" = {
       type      = "KEEPER"
       zone      = "ru-central1-a"
       subnet_id = yandex_vpc_subnet.foo.id
     }
-    "kb" = {
+    "keeper-host2" = {
       type      = "KEEPER"
       zone      = "ru-central1-b"
       subnet_id = yandex_vpc_subnet.bar.id
     }
-    "kd" = {
+    "keeper-host3" = {
       type      = "KEEPER"
       zone      = "ru-central1-d"
       subnet_id = yandex_vpc_subnet.baz.id
     }
-    "ca" = {
-      type      = "CLICKHOUSE"
-      zone      = "ru-central1-a"
-      subnet_id = yandex_vpc_subnet.foo.id
-    }
-    "cb" = {
-      type      = "CLICKHOUSE"
-      zone      = "ru-central1-b"
-      subnet_id = yandex_vpc_subnet.bar.id
-    }
+  }
+
+  shards = {
+    "shard1" = {}
   }
 
   cloud_storage = {
@@ -267,25 +278,25 @@ resource "yandex_mdb_clickhouse_cluster_v2" "my_cluster" {
   }
 
   hosts = {
-    "c1a" = {
+    "clickhouse-shard1-host1" = {
       type       = "CLICKHOUSE"
       zone       = "ru-central1-a"
       subnet_id  = yandex_vpc_subnet.foo.id
       shard_name = "shard1"
     }
-    "c1b" = {
+    "clickhouse-shard1-host2" = {
       type       = "CLICKHOUSE"
       zone       = "ru-central1-b"
       subnet_id  = yandex_vpc_subnet.bar.id
       shard_name = "shard1"
     }
-    "c2a" = {
+    "clickhouse-shard2-host1" = {
       type       = "CLICKHOUSE"
       zone       = "ru-central1-b"
       subnet_id  = yandex_vpc_subnet.bar.id
       shard_name = "shard2"
     }
-    "c2d" = {
+    "clickhouse-shard2-host2" = {
       type       = "CLICKHOUSE"
       zone       = "ru-central1-d"
       subnet_id  = yandex_vpc_subnet.baz.id
@@ -400,9 +411,11 @@ resource "yandex_vpc_subnet" "baz" {
       - `port` (Number). Port of jdbc bridge. Default value: 9019.
     - `kafka` [Block]. Kafka connection configuration.
       - `auto_offset_reset` (String). Action when no initial offset: 'smallest','earliest','largest','latest','error'.
+      - `batch_size` (Number). Maximum size (in bytes) of all messages batched in one MessageSet, including protocol framing overhead.
       - `debug` (String). A comma-separated list of debug contexts to enable.
       - `enable_ssl_certificate_verification` (Bool). Enable verification of SSL certificates.
       - `max_poll_interval_ms` (Number). Maximum allowed time between calls to consume messages. If exceeded, consumer is considered failed.
+      - `message_max_bytes` (Number). Maximum Kafka protocol request message size.
       - `sasl_mechanism` (String). SASL mechanism used in kafka authentication.
       - `sasl_password` (String). User password on kafka server.
       - `sasl_username` (String). Username on kafka server.
@@ -538,6 +551,13 @@ resource "yandex_vpc_subnet" "baz" {
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
 - `name` (**Required**)(String). Name of the ClickHouse cluster. Provided by the client when the cluster is created.
 - `network_id` (**Required**)(String). The `VPC Network ID` of subnets which resource attached to.
+- `performance_diagnostics` [Block]. Performance diagnostics configuration
+  - `enabled` (Bool). Enabled performance diagnostics.
+  - `processes_refresh_interval` (String). Refresh interval for performance diagnostics data. Specify the value duration format, for example `"15s"`, `"1m0s"`, or `"1h0m0s"`.
+- `restore` [Block]. The cluster will be created from the specified backup.
+  - `backup_id` (**Required**)(String). Backup ID. The cluster will be created from the specified backup.
+  - `exclude_patterns` (List Of String). Tables and databases to exclude from restore.
+  - `include_patterns` (List Of String). Tables and databases to include in restore.
 - `security_group_ids` (Set Of String). The list of security groups applied to resource or their components.
 - `service_account_id` (String). [Service account](https://yandex.cloud/docs/iam/concepts/users/service-accounts) which linked to the resource.
 - `shards` [Block]. A shards of the ClickHouse cluster.
@@ -552,6 +572,10 @@ resource "yandex_vpc_subnet" "baz" {
   - `weight` (Number). The weight of shard.
 - `sql_database_management` (Bool). Grants `admin` user database management permission.
 - `sql_user_management` (Bool). Enables `admin` user with user management permission.
+- `timeouts` [Block]. 
+  - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+  - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+  - `update` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 - `version` (String). Version of the ClickHouse server software.
 - `zookeeper` [Block]. Configuration of the ZooKeeper subcluster.
   - `disk_size_autoscaling` [Block]. Cluster disk size autoscaling settings.
@@ -562,6 +586,9 @@ resource "yandex_vpc_subnet" "baz" {
     - `disk_size` (Number). Volume of the storage available to a host, in gigabytes.
     - `disk_type_id` (String). Type of the storage of hosts. For more information see [the official documentation](https://yandex.cloud/docs/managed-clickhouse/concepts/storage).
     - `resource_preset_id` (String). The ID of the preset for computational resources available to a host (CPU, memory etc.). For more information, see [the official documentation](https://yandex.cloud/docs/managed-clickhouse/concepts).
+- `extension` [Block]. A set of cluster extensions.
+  - `name` (**Required**)(String). The name of the extension.
+  - `version` (String). Version of the extension.
 - `format_schema` [Block]. A set of `protobuf` or `capnproto` format schemas.
   - `name` (**Required**)(String). The name of the format schema.
   - `type` (**Required**)(String). Type of the format schema.

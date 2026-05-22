@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/trunk-connection/
 editable: false
 ---
 
@@ -24,7 +25,7 @@ Aliases:
 
 - [yc cic trunk-connection add-labels](add-labels.md) — Add labels to a trunk connection.
 
-- [yc cic trunk-connection create](create.md) — Create a trunk connection.
+- [yc cic trunk-connection batch-get](batch-get.md) — Get information about several trunk connections in one request.
 
 - [yc cic trunk-connection delete](delete.md) — Delete a trunk connection.
 

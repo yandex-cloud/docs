@@ -48,6 +48,7 @@ description: In this article, you will learn how to work with the managed servic
 * [{#T}](applications/loki.md)
 * [{#T}](applications/metrics-provider.md)
 * [{#T}](applications/node-local-dns.md)
+* [{#T}](applications/node-sitter.md)
 * [{#T}](applications/prometheus-operator.md)
 * [{#T}](applications/thumbor.md)
 * [{#T}](applications/velero-yc-csi.md)
@@ -76,8 +77,8 @@ description: In this article, you will learn how to work with the managed servic
 * [{#T}](kubernetes-cluster/kubernetes-cluster-operation-logs.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-create.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-update.md)
-* [{#T}](kubernetes-cluster/kubernetes-cluster-namespace-create.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-access.md)
+* [{#T}](kubernetes-cluster/kubernetes-cluster-wlif-integration.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-configuration-list.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-get-stats.md)
 * [{#T}](kubernetes-cluster/kubernetes-cluster-delete.md)
@@ -86,6 +87,7 @@ description: In this article, you will learn how to work with the managed servic
 
 * [{#T}](node-group/node-group-list.md)
 * [{#T}](node-group/node-group-create.md)
+* [{#T}](node-group/node-group-create-in-instance-pool.md)
 * [{#T}](node-connect-ssh.md)
 * [{#T}](node-connect-oslogin.md)
 * [{#T}](autoscale.md)
@@ -100,3 +102,14 @@ description: In this article, you will learn how to work with the managed servic
 * [{#T}](external-nodes-connect-wireguard.md)
 * [{#T}](external-nodes-connect-ipsec.md)
 * [{#T}](bms-server-connect.md)
+
+## Working with {{ k8s }} objects from the management console {#kubernetes-console}
+
+* [{#T}](kubernetes-console/pod-terminal.md)
+* [{#T}](kubernetes-console/nodes.md)
+* [{#T}](kubernetes-console/workloads.md)
+* [{#T}](kubernetes-console/storage.md)
+* [{#T}](kubernetes-console/network.md)
+* [{#T}](kubernetes-console/configuration.md)
+* [{#T}](kubernetes-console/access.md)
+* [{#T}](kubernetes-cluster/kubernetes-cluster-namespace-create.md)

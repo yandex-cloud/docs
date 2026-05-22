@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/
 editable: false
 ---
 
@@ -23,6 +24,8 @@ Syntax:
   - [yc cloud-registry artifact delete](artifact/delete.md) — Delete the specified registry artifact
 
   - [yc cloud-registry artifact get](artifact/get.md) — Get information about the artifact
+
+  - [yc cloud-registry artifact get-by-path](artifact/get-by-path.md) — Get information about the artifact by path
 
   - [yc cloud-registry artifact list-access-bindings](artifact/list-access-bindings.md) — Lists access bindings for the specified artifact
 
@@ -61,6 +64,10 @@ Syntax:
   - [yc cloud-registry registry set-ip-permissions](registry/set-ip-permissions.md) — Set ip permissions for the specified registry and delete all existing ip permission if there were any
 
   - [yc cloud-registry registry update](registry/update.md) — Updates the specified registry
+
+- [yc cloud-registry v0](v0/index.md) — [PREVIEW] Manage CloudRegistry resources
+
+  - [yc cloud-registry v0 configure-docker](v0/configure-docker.md) — 
 
 #### Global Flags
 

@@ -12,7 +12,7 @@ To delete a [DNS zone](../concepts/dns-zone.md):
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your DNS zone.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Find the zone you want to delete and click ![image](../../_assets/console-icons/ellipsis.svg) in its row.
   1. In the menu that opens, click **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
@@ -34,7 +34,7 @@ To delete a [DNS zone](../concepts/dns-zone.md):
       yc dns zone list
       ```
   1. Select the zone `ID` or `NAME`.
-  1. Delete the selected zone from the default folder:
+  1. Delete the zone from the default folder:
 
       ```
       yc dns zone delete <zone_name_or_ID>
@@ -74,7 +74,7 @@ To delete a [DNS zone](../concepts/dns-zone.md):
      terraform validate
      ```
      
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
      
      ```
      Success! The configuration is valid.
@@ -85,9 +85,9 @@ To delete a [DNS zone](../concepts/dns-zone.md):
      terraform plan
      ```
   
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains errors, {{ TF }} will show them.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
-  1. Apply the changes:
+  1. Apply the configuration changes:
      ```
      terraform apply
      ```

@@ -1,6 +1,6 @@
 ---
 title: How to configure {{ org-full-name }} branding
-description: Follow this guide to customize the appearance of authentication pages and the login form for access to external applications from {{ org-name }}.
+description: Follow this guide to customize the appearance of authentication pages and the login form for access to external applications from {{ org-full-name }}.
 ---
 
 # Configuring branding

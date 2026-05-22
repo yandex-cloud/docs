@@ -1,4 +1,4 @@
-# Метод completeUpload
+# Object Storage API, REST совместимый с Amazon S3: CompleteMultipartUpload
 
 Запрос завершает составную загрузку.
 
@@ -105,5 +105,11 @@ POST /{bucket}/{key}?uploadId=UploadId HTTP/2
 `Bucket` | Имя бакета, в котором находится объект.<br/><br/>Путь: `/CompleteMultipartUploadResult/Bucket`.
 `Key` | Ключ созданного объекта.<br/><br/>Путь: `/CompleteMultipartUploadResult/Key`.
 `ETag` | Хэш объекта.<br/><br/>ETag может быть, а может и не быть MD5.<br/><br/>Путь: `/CompleteMultipartUploadResult/ETag`.
+
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/multipart.md)
+
+* [Завершение составной загрузки с условием](../../../operations/objects/multipart-upload.md#conditional-writes)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

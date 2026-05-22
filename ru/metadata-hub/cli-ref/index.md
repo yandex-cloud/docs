@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-metastore/cli-ref/
 editable: false
 ---
 
@@ -47,6 +48,10 @@ Aliases:
   - [yc managed-metastore cluster stop](cluster/stop.md) — Stop the specified Metastore cluster
 
   - [yc managed-metastore cluster update](cluster/update.md) — Update the specified Metastore cluster
+
+- [yc managed-metastore v0](v0/index.md) — Manage Metastore clusters.
+
+
 
 #### Global Flags
 

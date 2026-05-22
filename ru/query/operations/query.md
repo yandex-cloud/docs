@@ -73,7 +73,7 @@
 
 ## Посмотреть историю запусков запроса {#log}
 
-{{yq-full-name}} сохраняет [историю запусков](../concepts/glossary.md#jobs) для каждого запроса.
+{{ yq-full-name }} сохраняет [историю запусков](../concepts/glossary.md#jobs) для каждого запроса.
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно посмотреть историю выполнения запроса.
 1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.

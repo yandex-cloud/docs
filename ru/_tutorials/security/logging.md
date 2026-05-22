@@ -26,15 +26,15 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки балансировщика с записью логов входят:
+* Виртуальные машины: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../managed-postgresql/pricing.md)).
+* Функции {{ sf-full-name }}: количество вызовов функции, время простоя подготовленных экземпляров и выделенные для выполнения функции вычислительные ресурсы (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md)).
+* Логи {{ cloud-logging-name }}: объем записываемых данных и время их хранения (см. [тарифы {{ cloud-logging-name }}](../../logging/pricing.md)).
+* Балансировщики {{ alb-name }}: использование вычислительных ресурсов каждого активного балансировщика (см. [тарифы {{ alb-name }}](../../application-load-balancer/pricing.md)).
 
-* плата за постоянно запущенные виртуальные машины (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
-* плата за вычислительные ресурсы, объем хранилища и резервных копий для кластера {{ PG }} (см. [тарифы {{ mpg-full-name }}](../../managed-postgresql/pricing.md));
-* плата за вызовы функции для обработки логов и вычислительные ресурсы, выделенные на выполнение функции (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md));
-* плата за запись и хранение логов (см. [тарифы {{ cloud-logging-full-name }}](../../logging/pricing.md));
-* плата за использование ресурсов {{ alb-name }} (см. [тарифы {{ alb-full-name }}](../../application-load-balancer/pricing.md)).
 
 ## Создайте облачную сеть {#create-network}
 
@@ -147,7 +147,7 @@
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}** введите `alb-logging-cluster`.
   1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** выберите `PRODUCTION`.
-  1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите `12`.
+  1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите `17`.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}**:
 
      * Укажите платформу `Intel Cascade Lake`.
@@ -249,7 +249,7 @@
   1. Откройте вкладку **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**. Нажмите кнопку **{{ ui-key.yacloud.compute.groups.button_create }}**.
   1. Укажите имя группы ВМ: `alb-logging-ig`.
   1. В поле **{{ ui-key.yacloud.compute.groups.create.field_service-account }}** выберите аккаунт, [созданный ранее](#create-sa).
-  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** выберите несколько зон доступности, чтобы обеспечить отказоустойчивость хостинга.
+  1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_allocation }}** выберите несколько [зон доступности](../../overview/concepts/geo-scope.md), чтобы обеспечить отказоустойчивость хостинга.
   1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_instance }}** нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_instance_empty-create }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** откройте вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**. Выберите продукт [LEMP](/marketplace/products/yc/lemp) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}**:

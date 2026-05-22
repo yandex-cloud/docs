@@ -11,7 +11,7 @@ Below is a list of [current](#current-images) and [deprecated](#deprecated-image
 When [creating a cluster](../operations/cluster-create.md#create), you can choose one of the following environments:
 
 * `PRODUCTION`: For stable versions of your apps.
-* `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by the SLA, but it is the first to get new functionalities, improvements, and bug fixes. In the prestable environment, you can test compatibility of new versions with your application.
+* `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
 
 When you create a cluster, the environment affects the choice of the image build, giving its version with accuracy down to the minor one. You start using new image builds:
 
@@ -38,7 +38,7 @@ Access to image 2.2 is provided on request. Contact [support]({{ link-console-su
 | **Component versions**                                     |
 | Hadoop       | 3.3.2        | 3.3.2            |
 | Tez          | 0.10.1       | —                |
-| Spark        | 3.3.2^2^     | 3.5.0            |
+| Spark        | 3.3.2        | 3.5.0            |
 | Zeppelin     | 0.10.0       | —                |
 | Livy         | 0.8.0        | 0.8.0            |
 | **Versions of Python and machine learning libraries**           |

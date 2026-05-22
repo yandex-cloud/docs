@@ -3,7 +3,7 @@ title: Метод putBucketLogging
 description: Из статьи вы узнаете, что такое метод putBucketLogging, как выглядит его запрос и ответ.
 ---
 
-# Метод putBucketLogging
+# Object Storage API, REST совместимый с Amazon S3: PutBucketLogging
 
 
 Включает и выключает [механизм логирования действий с бакетом](../../../concepts/server-logs.md).
@@ -69,5 +69,11 @@ PUT /{bucket}?logging HTTP/2
 Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
 
 Успешный ответ не содержит дополнительных данных.
+
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/bucket.md)
+
+* [Включение механизма логирования действий с бакетом](../../../operations/buckets/enable-logging.md#enable)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

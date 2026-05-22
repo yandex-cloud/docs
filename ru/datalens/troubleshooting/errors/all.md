@@ -13,6 +13,7 @@ description: На странице приведены коды ошибок в {
 [ERR.CHARTS.RUNTIME_TIMEOUT](ERR-CHARTS-RUNTIME_TIMEOUT.md) | Response processing timeout |
 [ERR.CHARTS.REQUEST_SIZE_LIMIT_EXCEEDED](ERR-CHARTS-REQUEST_SIZE_LIMIT_EXCEEDED.md) | Request size limit exceeded |
 [ERR.CK.TOO_MANY_LINES](ERR-CK_TOO_MANY_LINES.md) | Too many series on the chart |
+[ERR.CLIENT.POPUP_BLOCKED](ERR-CLIENT-POPUP_BLOCKED.md) | Ошибка при блокировке всплывающего окна |
 [ERR.DS_API](ERR-DS_API.md) | Internal server error |
 [ERR.DS_API.ACTION_NOT_ALLOWED](ERR-DS_API-ACTION_NOT_ALLOWED.md) | Internal Server Error |
 [ERR.DS_API.AVATAR.NOT_FOUND](ERR-DS_API-AVATAR-NOT_FOUND.md) | Source avatar not found |
@@ -71,6 +72,7 @@ description: На странице приведены коды ошибок в {
 [ERR.DS_API.FORMULA.VALIDATION.WIN_FUNC.BFB_UNSELECTED_DIMENSION](ERR-DS_API-FORMULA-VALIDATION-WIN_FUNC-BFB_UNSELECTED_DIMENSION.md) | Window function has unselected dimension |
 [ERR.DS_API.FORMULA.VALIDATION.WIN_FUNC.NO_AGG](ERR-DS_API-FORMULA-VALIDATION-WIN_FUNC-NO_AGG.md) | Window function has no aggregated expressions among its arguments |
 [ERR.DS_API.INVALID_GROUP_BY_CONFIGURATION](ERR-DS_API-INVALID_GROUP_BY_CONFIGURATION.md) | Invalid grouping configuration |
+[ERR.DS_API.INVALID_QUERY_STRUCTURE.INCONSISTENT_AGGREGATION](ERR-DS_API-INVALID_QUERY_STRUCTURE-INCONSISTENT_AGGREGATION.md) | Inconsistent aggregation status among SELECT items |
 [ERR.DS_API.REFERENCED_ENTRY_ACCESS_DENIED](ERR-DS_API-REFERENCED_ENTRY_ACCESS_DENIED.md) | Referenced connection <идентификатор_подключения> cannot be loaded: access denied |
 [ERR.DS_API.REFERENCED_ENTRY_NOT_FOUND](ERR-DS_API-REFERENCED_ENTRY_NOT_FOUND.md) | Обращение к несуществующему объекту |
 [ERR.DS_API.REQUEST_TIMEOUT](ERR-DS_API-REQUEST_TIMEOUT.md) | Backend app request timeout exceeded |

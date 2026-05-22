@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/
 editable: false
 ---
 
@@ -201,6 +202,10 @@ Aliases:
   - [yc serverless trigger remove-labels](trigger/remove-labels.md) — Remove labels from specified trigger
 
   - [yc serverless trigger resume](trigger/resume.md) — Resume the specified trigger
+
+- [yc serverless v0](v0/index.md) — Manage Serverless resources.
+
+
 
 - [yc serverless workflow](workflow/index.md) — Manage workflows
 

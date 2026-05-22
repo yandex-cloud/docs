@@ -658,16 +658,16 @@
           DST_BUCKET  = "<имя_резервного_бакета>"
           S3_ENDPOINT = "https://{{ s3-storage-host }}"
         }
-        secrets = {
-          id = "<идентификатор_секрета>"
-          version_id = "<идентификатор_версии_секрета>"
-          key = "key_id"
+        secrets {
+          id                   = "<идентификатор_секрета>"
+          version_id           = "<идентификатор_версии_секрета>"
+          key                  = "key_id"
           environment_variable = "AWS_ACCESS_KEY_ID"
         }
-        secrets = {
-          id = "<идентификатор_секрета>"
-          version_id = "<идентификатор_версии_секрета>"
-          key = "secret"
+        secrets {
+          id                   = "<идентификатор_секрета>"
+          version_id           = "<идентификатор_версии_секрета>"
+          key                  = "secret"
           environment_variable = "AWS_SECRET_ACCESS_KEY"
         }
         content {
@@ -742,7 +742,7 @@
   1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_storage }}**:
 
       * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_bucket }}** выберите основной бакет.
-      * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_event-types }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.value_event-type-create-object}}`.
+      * В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_event-types }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.value_event-type-create-object }}`.
 
   1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**:
 

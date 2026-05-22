@@ -1,20 +1,47 @@
 # Log metrics
 
-To ensure log delivery is controllable and measurable, {{ monium-name }}. Logs publishes a set of standard metrics for each project. These metrics are available in all projects receiving logs, regardless of the delivery method.
+{{ monium-logs-name }} publishes a set of standard metrics for each project, regardless of the log delivery method.
 
-Using these metrics, you can estimate the volume of incoming logs (by service and cluster), delivery lag, and the number of `ERROR` log entries (both across the entire project and per service).
+Using these metrics, you can estimate log volume by service and cluster, delivery lag, and the number of `ERROR` log entries for the entire project and per service.
 
-The metrics are aggregated into a service dashboard named **Logging — Logs overview**:
+The metrics are aggregated into a service dashboard named **Logs overview**:
 * Dashboard is created automatically in a project once logs start being written to the system.
 * Dashboard is available at level of the folder storing the logs.
 * Metrics do not have the `host` or `user_cluster` labels.
 * `user_service` label indicates the log group the metrics are calculated for.
 
-## Metric descriptions {#metrics}
+## Viewing the dashboard with log metrics {view-logs-dashboard}
+
+{% list tabs group=instructions %}
+
+- {{ monium-name }} UI {#console}
+
+  1. On the [{{ monium-name }}]({{ link-monium }}) home page, select **{{ ui-key.yacloud_monitoring.aside-navigation.menu-item.dashboards.title }}** on the left.
+  1. Navigate to the **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}** tab.
+  1. Find and select **Logs overview** from the list.
+
+{% endlist %}
+
+## Description of dashboard charts {#dashboards}
+
+* **Top services by logs**: Services by the number of sent logs. Use it to identify services generating the largest number of entries.
+* **Top services by traffic**: Services by traffic amount in bytes. It shows which services are creating the largest load in terms of data size.
+* **Top services by bytes per log record**: Services by average log entry size. It helps you identify services with excessively large entries.
+* **Invalidated logs**: Logs that failed validation as non-compliant with format requirements.
+* **Failed quota checks**: Requests rejected due to exceeding project quotas.
+* **Failed authentications**: Failed authorization attempts.
+* **Attributes kind: Rows with dropped labels**: Rows with attributes prefixed with `labels.` that are discarded or moved to metadata.
+* **Severity**: Log distribution by severity levels:
+  * **Count info logs for services**: Number of INFO-level logs produced by each service.
+  * **Count warn logs for services**: Number of warnings per service.
+  * **Count error logs for services**: Number of errors per service.
+* **Latencies: Average latencies of write logs from service**: Time between sending the log by the application and writing it to the system.
+
+## Description of metrics {#metrics}
 
 ### ingest_processed_logs {#ingest-processed-logs}
 
-Metric tracking logs per second successfully authorized, validated, and about to be written to the database (logs may also remain unprocessed if the user-sent volume exceeds the log quota).
+Number of authorized and validated logs per second. If the number of logs exceeds the quota, some logs remain unprocessed.
 
 Labels:
 * `user_cluster`: Cluster the logs came from (use `total` to view the total across all clusters).
@@ -23,7 +50,7 @@ Labels:
 
 ### ingest_processed_bytes {#ingest-processed-bytes}
 
-Metric tracking bytes in logs per second successfully authorized, validated, and about to be written to the database (logs may also remain unprocessed if the user-sent bytes exceed the byte quota).
+Authorized and validated bytes per second. If the data amount exceeds the quota, some logs remain unprocessed.
 
 Labels:
 * `user_cluster`: Cluster the logs came from (use `total` to view the total across all clusters).
@@ -32,7 +59,7 @@ Labels:
 
 ### logsvalidator_invalidated_logs {#logsvalidator}
 
-Metric tracking logs per second that failed validation.
+Number of non-validated logs per second.
 
 Labels:
 * `user_cluster`: Cluster the logs came from (use `total` to view the total across all clusters).
@@ -40,12 +67,12 @@ Labels:
 * `host`: Host the logs came from (use `cluster` to calculate the total across all data centers or select a specific data center).
 * `reason`: Reason why the log failed [validation](write/converting-data.md).
 
-### Validation errors {#logsvalidator-transcript}
+#### Validation errors {#logsvalidator-transcript}
 
 * `res.attrs.project`: Project not specified.
 * `res.attrs.service`: Service not specified.
 * `res.attrs.invalid`: Resource-level attributes failed [validation](write/converting-data.md).
-* `scope.name`: Scope name is 0 or over 200 characters long or contains non-unicode characters.
+* `scope.name`: Scope name is 0 or more than 200 characters long or contains non-unicode characters.
 * `scope.attrs.invalid`: Attributes failed [validation](write/converting-data.md).
 * `log.attrs.invalid`: Log line attributes failed [validation](write/converting-data.md).
 * `log.body.not.string`: Body type is not text.
@@ -58,7 +85,7 @@ Labels:
 
 ### severity_logs_user_ts {#severity-logs-user-ts}
 
-Metric tracking log volume broken down by log severity (`Level`). This metric’s timestamp derives from the log line’s timestamp and not the data write or send times.
+Number of logs by severity level. This metric uses the time value from the log entry, not the time of the system write.
 
 Labels:
 * `user_cluster`: Cluster the logs came from (use `total` to view the total across all clusters).
@@ -68,7 +95,7 @@ Labels:
 
 ### receiver_auth_processed_logs {#receiver-auth-processed-logs}
 
-Metric tracking user-sent logs per second prior to all system checks (authorization, validation, or quota checks).
+Number of logs per second prior to authorization, validation, and quota checks.
 
 Labels:
 * `user_cluster`: Cluster the logs came from (use `total` to view the total across all clusters).
@@ -77,7 +104,7 @@ Labels:
 
 ### receiver_auth_processed_logs_bytes {#receiver-auth-processed-logs-bytes}
 
-Metric tracking user-sent logs in bytes per second prior to authorization, validation, and quota checks.
+Bytes per second prior to authorization, validation, and quota checks.
 
 Labels:
 * `user_cluster`: Cluster the logs came from (use `total` to view the total across all clusters).
@@ -86,7 +113,7 @@ Labels:
 
 ### receiver_auth_authorizations {#receiver-auth-authorizations}
 
-Metric tracking failed user authorization requests per second.
+Number of failed authorization attempts per second.
 
 Labels:
 * `user_cluster`: Cluster the logs came from (use `total` to view the total across all clusters).
@@ -97,7 +124,7 @@ Labels:
 
 ### lag_from_app_sec {#lag-from-app-sec}
 
-Histogram tracking time between sending logs by the application and writing them.
+Time from when the application sends the log until it is written to the system.
 
 Labels:
 * `user_cluster`: Cluster the logs came from (use `total` to view the total across all clusters).
@@ -107,31 +134,31 @@ Labels:
 
 ### lag_from_agent_sec {#lag-from-agent-sec}
 
-Histogram tracking time between sending logs by the agent and writing them.
+Time from when the agent sends the log until it is written to the system.
 
 Labels:
 * `user_cluster`: Cluster the logs came from (use `total` to view the total across all clusters).
 * `user_service`: Service the logs came from (use `total` to view the total across all services).
 * `host`: Host the logs came from (use `cluster` to calculate the total across all data centers or select a specific data center).
-* `bin`: Buckets in seconds (1, 5, 60, 90, 300, or _inf_).
+* `bin`: Buckets in seconds (1, 5, 60, 90, 300, inf).
 
 ### project_logs_quota {#project-logs-quota}
 
-Metric tracking your project’s log line quota.
+Project quota on log lines.
 
 Labels:
 * `host`: Set to `quota`.
 
 ### project_bytes_logs_quota {#project-bytes-logs-quota}
 
-Metric tracking your project’s byte-per-second quota.
+Project quota on log size in bytes per second.
 
 Labels:
 * `host`: Set to `quota`.
 
 ### ingest_dropped_labels_count {#ingest-dropped-labels-count}
 
-Metric tracking log lines per second in which the attribute prefixed with `labels.` was either written to metadata or discarded.
+Number of lines per second where the attribute prefixed with `labels.` is written to metadata or discarded.
 
 Labels:
 * `user_cluster`: Cluster the logs came from (use `total` to view the total across all clusters).

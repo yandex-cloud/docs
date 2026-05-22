@@ -15,16 +15,16 @@ items:
     items:
       - name: Overview
         href: workbooks-collections/index.md
-      - name: Creating workbooks and collections
-        href: workbooks-collections/workbooks-collections-create.md
-      - name: Migrating objects to workbooks
+      - name: Operations with workbooks
+        href: workbooks-collections/workbooks-operations.md
+      - name: Operations with collections
+        href: workbooks-collections/collections-operations.md
+      - name: Migrating objects to workbooks from directories
         href: workbooks-collections/migrations.md
       - name: Exporting and importing workbooks
         href: workbooks-collections/export-and-import.md
       - name: Errors and warnings during export and import
         href: workbooks-collections/export-import-notifications.md
-      - name: Configuring access
-        href: workbooks-collections/security.md
   - name: DataLens neuroanalyst
     href: concepts/neuroanalyst.md
   - name: Tutorials
@@ -68,7 +68,7 @@ items:
             href: tutorials/data-from-appmetrica-yc-visualization.md
           - name: 'Bitrix24: direct connection'
             href: tutorials/data-from-bitrix24-visualization.md
-          - name: '{{ tracker-full-name }}: data export and visualization'
+          - name: '{{ tracker-full-name }}: Data export and visualization'
             href: tutorials/data-from-tracker.md
           - name: Analyzing {{ objstorage-name }} logs using {{ datalens-name }}
             href: tutorials/storage-logs-analysis.md
@@ -85,9 +85,8 @@ items:
               and analyzing them using {{ datalens-full-name }}
             href: tutorials/events-from-postbox-to-yds.md
           - name: >-
-              Delivering data from {{ forms-full-name }} to {{
-              datalens-full-name }} using {{ sf-full-name }} and {{ yq-full-name
-              }}
+              Delivering {{ forms-full-name }} data to {{ datalens-full-name }}
+              using {{ sf-full-name }} and {{ yq-full-name }}
             items:
               - name: Overview
                 href: tutorials/forms-and-datalens-integration/index.md
@@ -107,6 +106,8 @@ items:
             href: tutorials/data-from-ch-to-sql-chart.md
           - name: Examples of charts created in Editor
             href: tutorials/create-chart-editor.md
+          - name: Example of using the Activities tab in Editor
+            href: tutorials/create-editor-activities.md
   - name: Connections
     items:
       - name: Overview
@@ -143,6 +144,8 @@ items:
             href: operations/connection/create-mssql-server.md
           - name: Creating an Oracle Database connection
             href: operations/connection/create-oracle.md
+          - name: Creating a {{ SR }} connection
+            href: operations/connection/create-starrocks.md
           - name: Creating a {{ prometheus-name }} connection
             href: operations/connection/create-prometheus.md
           - name: Creating a Snowflake connection
@@ -837,6 +840,8 @@ items:
         href: operations/chart/add-description.md
       - name: Opening a chart as a table
         href: operations/chart/open-as-table.md
+      - name: Saving a chart as an image
+        href: operations/chart/save-as-image.md
       - name: Versioning
         href: concepts/chart/versioning.md
       - name: Exporting data from charts
@@ -865,7 +870,7 @@ items:
         href: dashboard/dashboard_parameters.md
       - name: Neuroanalyst on your dashboard
         href: dashboard/insights.md
-      - name: Trends and smoothings in charts on a dashboard
+      - name: Trend and smoothing lines in dashboard charts
         href: dashboard/trends-and-smoothing.md
       - name: Markdown
         href: dashboard/markdown.md
@@ -879,8 +884,10 @@ items:
             href: operations/dashboard/add-selector.md
           - name: Adding text to a dashboard
             href: operations/dashboard/add-text.md
-          - name: Adding a title to a dashboard
+          - name: Adding a header to a dashboard
             href: operations/dashboard/add-title.md
+          - name: Copying widgets on a dashboard
+            href: operations/dashboard/copying-widgets.md
           - name: Adding dashboard info
             href: operations/dashboard/add-description.md
           - name: Adding a message displayed when contacting support
@@ -897,7 +904,7 @@ items:
             href: operations/dashboard/manage-access.md
           - name: Adding parameters to a dashboard
             href: operations/dashboard/add-parameters.md
-          - name: Setting up filtering by charts
+          - name: Setting up cross-chart filtering
             href: operations/dashboard/add-filtration.md
           - name: Dashboard auto-update
             href: operations/dashboard/auto-update.md
@@ -969,16 +976,16 @@ items:
         href: settings/restrictions.md
       - name: Navigation
         href: settings/navigation.md
-  - name: DataLens Gallery
+  - name: Gallery in DataLens
     href: concepts/gallery.md
   - name: Pricing policy
     items:
       - name: Current pricing policy
         href: pricing.md
-      - name: Pricing policy updates as of December 1
-        href: pricing-changes.md
       - name: Archive
         items:
+          - name: Pricing policy updates as of December 1
+            href: pricing-changes.md
           - name: Pricing policy before December 1, 2025
             href: pricing-old.md
           - name: Service plans before December 1, 2025
@@ -1115,20 +1122,26 @@ items:
     href: at-ref.md
   - name: Release notes
     items:
-      - name: January 2026
+      - name: April 2026
         href: release-notes/index.md
+      - name: March 2026
+        href: release-notes/2603.md
+      - name: February 2026
+        href: release-notes/2602.md
+      - name: January 2026
+        href: release-notes/2601.md
       - name: December 2025
         href: release-notes/2512.md
       - name: November 2025
         href: release-notes/2511.md
-      - name: October 2025
-        href: release-notes/2510.md
-      - name: September 2025
-        href: release-notes/2509.md
-      - name: August 2025
-        href: release-notes/2508.md
       - name: Archive
         items:
+          - name: October 2025
+            href: release-notes/2510.md
+          - name: September 2025
+            href: release-notes/2509.md
+          - name: August 2025
+            href: release-notes/2508.md
           - name: July 2025
             href: release-notes/2507.md
           - name: June 2025
@@ -1276,6 +1289,10 @@ items:
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-AGG-INCONSISTENT.md
+      - name: Inconsistent aggregation status among SELECT items
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-INVALID_QUERY_STRUCTURE-INCONSISTENT_AGGREGATION.md
       - name: Internal server error
         hidden: true
         href: troubleshooting/errors/ERR-DS_API.md
@@ -1463,4 +1480,7 @@ items:
       - name: Dataset version mismatch. Refresh the page to continue
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-DATASET_REVISION_MISMATCH.md
+      - name: Pop-up blocking error
+        hidden: true
+        href: troubleshooting/errors/ERR-CLIENT-POPUP_BLOCKED.md
 path: en/datalens/toc.yaml

@@ -1,5 +1,8 @@
 # Артефакты тестирования
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 Артефакты тестирования — это объекты, которые создаются на [агенте](agent.md) во время проведения нагрузочного тестирования.
 
 На основе артефактов тестирования формируются [отчеты](reports.md).
@@ -8,5 +11,5 @@
 
 Получить доступ к артефактам тестирования можно:
 
-* Зайдя на агент тестирования [с помощью SHH](../../compute/operations/vm-connect/ssh.md#vm-connect) в директорию `/var/lib/ulta/tests`.
+* Зайдя на агент тестирования [с помощью SSH](../../compute/operations/vm-connect/ssh.md#vm-connect) в директорию `/var/lib/ulta/tests`.
 * [Сохранив артефакты тестирования в Object Storage](../operations/save-artifacts.md).

@@ -6,12 +6,12 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где находится адрес.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, где находится адрес.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/map-pin.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
-  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке адреса, который требуется переместить, и выберите **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
+  1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке адреса, который требуется переместить, и выберите **{{ ui-key.yacloud.common.move }}**.
   1. В открывшемся окне выберите каталог назначения.
-  1. Нажмите **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.move }}**.
 
 - CLI {#cli}
 

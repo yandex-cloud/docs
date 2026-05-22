@@ -23,6 +23,8 @@ You can [convert](../operations/reserve-public-subnet.md#transform-ephemeral-to-
 
 The lifecycle of an ephemeral public subnet depends on the lifecycle of the server this subnet is assigned to. When a server lease is cancelled, the ephemeral public subnet assigned to it will be automatically deleted and the server’s public IPv4 address will be released back to the {{ baremetal-name }} address pool.
 
+If the ephemeral public subnet has not been assigned to any server within one month of its creation, such a subnet will also be automatically deleted and its public IPv4 address will return to {{ baremetal-name }}'s address pool.
+
 ## Dedicated public subnet {#public-subnet}
 
 A _dedicated public subnet_ is a public subnet made up of an IP address range that will be available to your servers in the selected [pools](./servers.md#server-pools). The IP address range is assigned to the dedicated public subnet automatically.
@@ -45,6 +47,12 @@ You can [order](../operations/reserve-public-subnet.md) a dedicated public subne
 When you cancel the lease of a server which has a dedicated public subnet assigned to it, its public IPv4 address is released back to the dedicated public subnet’s address pool so you can later use it for another server.
 
 In {{ baremetal-full-name }}, dedicated public subnets are [billable](../pricing.md). The minimum lease period for a dedicated public subnet is one month, so you cannot delete such a subnet during the first month after the order date.
+
+{% note info %}
+
+The default gateway in a dedicated public subnet remains inactive (does not respond to `ping` requests) until at least one server is connected to that public subnet.
+
+{% endnote %}
 
 ## IP address distribution in public subnets {#address-distribution}
 
@@ -70,7 +78,7 @@ Within a dedicated public subnet range, IP addresses are distributed as follows:
   * Third to second-last addresses in the range are addresses available for assignment to network interfaces.
   * Last IP address in the range is the [broadcast](https://en.wikipedia.org/wiki/Broadcast_address) (`broadcast`) address.
 
-  Here is an example:
+  For example:
 
   * Subnet CIDR: `198.51.100.104/29`.
   * Network IP address: `198.51.100.104`.

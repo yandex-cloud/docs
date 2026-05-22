@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/ydb/cli-ref/
 editable: false
 ---
 
@@ -75,6 +76,10 @@ Syntax:
   - [yc ydb storage-type get](storage-type/get.md) — Get information about the specified YDB storage type preset.
 
   - [yc ydb storage-type list](storage-type/list.md) — List YDB storage types.
+
+- [yc ydb v0](v0/index.md) — Manage YDB databases.
+
+
 
 #### Global Flags
 

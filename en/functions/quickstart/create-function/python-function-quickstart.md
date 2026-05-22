@@ -80,12 +80,12 @@ Create and execute a [function](../../concepts/function.md) in Python that welco
 
     1. In the [management console]({{ link-console-main }}), select the folder containing the function.
     1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-    1. Select the `python-function` function.
+    1. Select `python-function`.
     1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-latest-version }}**, click **{{ ui-key.yacloud.serverless-functions.item.overview.button_editor-create }}**.
     1. Select the `{{ python-full-ver }}` runtime environment.
     1. Disable the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
     1. Set the version parameters:
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}**: `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}**: Attach `hello-py.zip`
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}**: `hello.handler`
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `3`

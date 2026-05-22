@@ -29,7 +29,7 @@ Make sure the cloud has enough [quotas](../../compute/concepts/limits.md#compute
 
 ### Required paid resources {#paid-resources}
 
-The infrastructure support costs include:
+The infrastructure support cost includes:
 
 * Fee for continuously running VMs and disks (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
@@ -42,7 +42,7 @@ The infrastructure support costs include:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a cluster.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.gpu-cluster.label_title }}**.
    1. Click **{{ ui-key.yacloud.gpu-cluster.action_create-cluster }}**.
    1. In the **{{ ui-key.yacloud.gpu-cluster.field_name }}** field, enter cluster name: `test-gpu-cluster`.
@@ -70,7 +70,7 @@ The infrastructure support costs include:
             * **{{ ui-key.yacloud.component.compute.resources.field_gpu-cluster }}**: Select the `test-gpu-cluster` cluster you created earlier.
       1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-            * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `ubuntu`. Do not use `root` or other names reserved for the OS purposes. To perform operations requiring root privileges, use the `sudo` command.
+            * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `ubuntu`. Do not use `root` or other names reserved for the OS purposes. For operations requiring root privileges, use the `sudo` command.
             * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
       1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
@@ -84,7 +84,7 @@ The infrastructure support costs include:
 Optionally, you can:
 
 
-* [Test cluster physical state](../../compute/operations/gpu-cluster/gpu-cluster-test-physical-state.md).
+* [Test the cluster physical state](../../compute/operations/gpu-cluster/gpu-cluster-test-physical-state.md).
 * [Run parallel jobs in the cluster](../../compute/operations/gpu-cluster/gpu-cluster-mpirun-parallel.md).
 * [Test InfiniBand throughput](../../compute/operations/gpu-cluster/test-infiniband-bandwidth.md).
 
@@ -180,6 +180,10 @@ Optionally, you can:
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources you created:
+To stop incurring charges for the resources you created:
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the VM instances in {{ compute-name }}.
 1. [Delete](../../compute/operations/gpu-cluster/gpu-cluster-delete.md) the GPU cluster in {{ compute-name }}.
+
+#### See also {#see-also}
+
+* [Questions about GPUs](../../compute/qa/gpu.md)

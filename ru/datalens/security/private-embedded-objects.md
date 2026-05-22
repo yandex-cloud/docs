@@ -41,7 +41,7 @@ description: Из статьи вы узнаете, как безопасно в
 
    {% endnote %}
 
-   1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
+   1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
    1. На панели слева выберите ![collections](../../_assets/console-icons/rectangles-4.svg) **Коллекции и воркбуки**.
    1. Откройте воркбук, в котором расположен объект для встраивания.
    1. В верхней части интерфейса нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![key](../../_assets/console-icons/key.svg) **Ключи для встраивания**.

@@ -39,7 +39,7 @@
 
         {% cut "wordpress-mysql.tf" %}
 
-        {% include [wordpress-mysql-tf-config](../../_includes/web/wordpress-mysql-tf-config.md) %}
+        {% include [wordpress-mysql-tf-config](../../_tutorials/_tutorials_includes/wordpress-mysql/wordpress-mysql-tf-config.md) %}
 
         {% endcut %}
 

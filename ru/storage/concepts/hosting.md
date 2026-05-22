@@ -34,6 +34,8 @@ description: Хостинг статических сайтов – позвол
 
 * Для переадресации всех запросов.
 
+  {% include [redirects](../../_includes/storage/redirects.md) %}
+
   {% cut "Вы можете указать хост, на который будут перенаправляться все запросы, а также задать протокол для передачи запросов" %}
 
   ```xml
@@ -113,8 +115,16 @@ http(s)://{{ s3-web-host }}/<имя_бакета>
 
 {% include [public-link](../../_includes/storage/public-link.md) %}
 
+### См. также {#see-also}
 
-## Примеры использования {#examples}
+* [{#T}](../operations/hosting/setup.md)
+* [{#T}](../operations/hosting/own-domain.md)
+* [{#T}](../operations/hosting/multiple-domains/index.md)
+* [{#T}](../operations/hosting/certificate.md)
+* [{#T}](../qa.md#qa-mime-type)
+
+
+### Примеры использования {#examples}
 
 * [{#T}](../tutorials/user-agent-statistics.md)
 * [{#T}](../tutorials/static/index.md)

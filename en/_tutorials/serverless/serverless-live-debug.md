@@ -51,9 +51,9 @@ The infrastructure support costs include:
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-      1. Enter a name for the service account, e.g., `sa-live-debug`.
+      1. Specify the service account name, e.g., `sa-live-debug`.
 
           The naming requirements are as follows:
 
@@ -103,25 +103,25 @@ The infrastructure support costs include:
           Where:
 
           * `name`: Service account name. This is a required parameter.
-          * `description`: Service account description. This is an optional parameter.
-          * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional parameter. It defaults to the value specified in the provider settings.
+          * `description`: Service account description. This is an optional setting.
+          * `folder_id`: [Folder ID](../../resource-manager/operations/folder/get-id.md). This is an optional setting. It defaults to the value specified in the provider settings.
 
           For more information about `yandex_iam_service_account` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iam_service_account).
     
       1. Make sure the configuration files are correct.
 
-          1. In the command line, navigate to the directory where you created the configuration file.
-          1. Run a check using this command:
+          1. In the terminal, navigate to the directory where you created your configuration file.
+          1. Run a check using the following command:
 
               ```bash
               terraform plan
               ```
 
-          If the configuration description is correct, the terminal will display information about the service account. If the configuration contains any errors, {{ TF }} will show them. 
+          If you described the configuration correctly, the terminal will display information about the service account. {{ TF }} will show any errors in the configuration. 
 
       1. Deploy the cloud resources.
 
-          1. If the configuration does not contain any errors, run this command:
+          1. If the configuration is correct, run this command:
 
               ```bash
               terraform apply
@@ -140,10 +140,10 @@ The infrastructure support costs include:
     - Management console {#console}
 
       1. On the management console [home page]({{ link-console-main }}), select your cloud.
-      1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+      1. Navigate to the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
       1. Find the `sa-live-debug` account in the list and click ![image](../../_assets/console-icons/ellipsis.svg).
-      1. Click **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
-      1. Click **{{ ui-key.yacloud_components.acl.action.add-role }}** in the window that opens and select `{{ roles-admin }}`.
+      1. Select ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
+      1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}** in the window that opens and select `{{ roles-admin }}`.
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
     - CLI {#cli}
@@ -175,26 +175,26 @@ The infrastructure support costs include:
 
           Where:
 
-          * `cloud_id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md). This is a required parameter.
-          * `role`: Role being assigned. This is a required parameter.
-          * `member`: User or service account getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required parameter.
+          * `cloud_id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md). This is a required setting.
+          * `role`: Role being assigned. This is a required setting.
+          * `member`: User or service account getting the role. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required setting.
 
-          For more information about `yandex_resourcemanager_folder_iam_member` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/iam_service_account_iam_member).
+          For more information about `yandex_resourcemanager_folder_iam_member` properties, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_iam_member).
 
-      1. Make sure the configuration files are correct.
+      1. Validate your configuration files.
 
-          1. In the command line, navigate to the directory where you created the configuration file.
-          1. Run a check using this command:
+          1. In the terminal, navigate to the directory where you created your configuration file.
+          1. Run a check using the following command:
 
               ```
                terraform plan
               ```
 
-              If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
+              If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors.
 
       1. Deploy the cloud resources.
 
-          1. If the configuration does not contain any errors, run this command:
+          1. If the configuration is correct, run this command:
 
               ```
               terraform apply
@@ -208,7 +208,7 @@ The infrastructure support costs include:
 
 ## Deploy your resources {#create-resources}
 
-1. Set up the CLI profile to run operations on behalf of the service account:
+1. Set up a CLI profile to run operations under the service account:
 
     {% list tabs group=instructions %}
 
@@ -237,7 +237,7 @@ The infrastructure support costs include:
           key_algorithm: RSA_2048
           ```
 
-      1. Create a CLI profile to run operations on behalf of the service account:
+      1. Create a CLI profile to run operations under the service account:
 
           ```
           yc config profile create sa-live-debug

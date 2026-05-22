@@ -12,6 +12,10 @@ Yes. You can connect to {{ CH }} cluster hosts:
 
 SSH connections are not supported.
 
+#### Can I specify a custom port for inter-server communication when running distributed queries? {#connect-port}
+
+{{ mch-short-name }} uses the native/TLS protocol on port 9440 for inter-server communication when running distributed queries. There is no option to change the protocol or port.
+
 #### Why cannot I connect to a host from the internet? {#fail-connection}
 
 Most likely, no public access is enabled for your cluster, so you can only connect to it from a VM in {{ yandex-cloud }}. You can only request public access when [creating a new host](../../managed-clickhouse/concepts/network.md#public-access-to-a-host) in your cluster.
@@ -44,15 +48,15 @@ To learn more about connection methods, see [Connecting to a {{ CH }} cluster](.
 
 {% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}
 
-#### What should I do if I get a revocation check error when using PowerShell to obtain an SSL certificate? {#get-ssl-error}
+#### What should I do if I get a revocation check error when obtaining an SSL certificate via PowerShell? {#get-ssl-error}
 
-Here is the full text of the error:
+Complete error message:
 
 ```text
 curl: (35) schannel: next InitializeSecurityContext failed: Unknown error (0x80092012)
 The revocation function was unable to check revocation for the certificate
 ```
-This means that the service was unable to verify the website certificate against the revocation list when trying to connect.
+This means that, when connecting to the website, the function was unable to check if its certificate was listed as revoked.
 
 To fix this error:
 

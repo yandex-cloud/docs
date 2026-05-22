@@ -1,17 +1,27 @@
-# Basic terms
+# Overview and basic concepts
 
-### Log line {#log-row}
+{{ monium-logs-name }} is a distributed system for storing, searching, visualizing, and analyzing logs.
 
-A _log line_ is the smallest data processing unit in the system. It represents a system event, its description, its timestamp in the user’s system, and labels that identify it.
+Logs are helpful when you need to get insights into your application and infrastructure performance: detect errors and exceptions, investigate incidents, track changes, and find out the causes of degradation.
 
-### Log line size {#log-row-size}
+{{ monium-logs-name }} is part of {{ monium-name }} and shares its basic components such as the project model, access management, data model, and interface.
 
-The log line size is measured in bytes and equals the sum of all top-level field values, as well as the sum of lengths of all keys and values from `labels` and `meta`.
+{{ monium-name }} only accepts OpenTelemetry data. Here is what you can use to send logs:
+* OpenTelemetry SDK in the application.
+* OTel supported agents: [Otel Collector](../../collector/opentelemetry.md) or [Fluent Bit](../write/fluent-bit.md).
 
-### Event lag {#event-lag}
+You can use logs together with [traces](../../traces/index.md). To quickly switch between log entries and traces, use `trace_id` and `span_id`.
 
-Event lag is the latency between when the event was generated in the user system and when it was delivered to the centralized logging system (upstream of the collector).
+**Benefits**
 
-### Observed lag {#observed-lag}
+* Fast log search for real-time error diagnostics.
+* Fault tolerance: data is replicated across data centers.
+* Self-monitoring: the system automatically collects incoming log metrics, including the data amount, delivery delays, and number of errors. For diagnostics, there is a [service dashboard](../logs-metrics.md) available with pre-installed charts.
 
-Observed lag is the latency between when the event was first processed by the agent (the very first one in the chain, if any) and when it was delivered to the centralized logging system (upstream of the collector).
+## Basic terms {#terms}
+
+Below are the key terms for setting up and using the system.
+
+{% include [logs-terms](../../../_includes/monium/logs-terms.md) %}
+
+For all terms, see [{#T}](../concepts/glossary.md).

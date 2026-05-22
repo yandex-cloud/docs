@@ -27,8 +27,9 @@ ID of Cloud Router Routing Instance. ||
 || vrf_id | **string**
 
 ID of VRF that is connected to routing Instance.
+To get the VRF ID, use a [VrfService.List](/docs/baremetal/api-ref/grpc/Vrf/list#List) request.
 
-To get the VRF ID, use a [VrfService.List](/docs/baremetal/api-ref/grpc/Vrf/list#List) request. ||
+The maximum string length in characters is 20. Value must match the regular expression ` [a-z][a-z0-9.-]* `. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -41,21 +42,10 @@ To get the VRF ID, use a [VrfService.List](/docs/baremetal/api-ref/grpc/Vrf/list
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "private_cloud_connection_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "folder_id": "string",
-    "cloud_id": "string",
-    "routing_instance_id": "string",
-    "vrf_id": "string",
-    "status": "Status",
-    "name": "string",
-    "created_at": "google.protobuf.Timestamp"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -83,7 +73,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[CreatePrivateCloudConnectionMetadata](#yandex.cloud.baremetal.v1alpha.CreatePrivateCloudConnectionMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -98,7 +88,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[PrivateCloudConnection](#yandex.cloud.baremetal.v1alpha.PrivateCloudConnection)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -113,52 +103,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## CreatePrivateCloudConnectionMetadata {#yandex.cloud.baremetal.v1alpha.CreatePrivateCloudConnectionMetadata}
-
-#|
-||Field | Description ||
-|| private_cloud_connection_id | **string**
-
-ID of the private cloud connection that is being created. ||
-|#
-
-## PrivateCloudConnection {#yandex.cloud.baremetal.v1alpha.PrivateCloudConnection}
-
-A Private cloud connection resource.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the private cloud connection. ||
-|| folder_id | **string**
-
-ID of the folder that the private cloud connection belongs to. ||
-|| cloud_id | **string**
-
-ID of the cloud that the private cloud connection belongs to. ||
-|| routing_instance_id | **string**
-
-ID of Cloud Router Routing Instance. ||
-|| vrf_id | **string**
-
-ID of VRF that is connected to routing Instance. ||
-|| status | enum **Status**
-
-Status of the private cloud connection.
-
-- `STATUS_UNSPECIFIED`: Unspecified private cloud connection status.
-- `CREATING`: Private cloud connection is waiting for network resources to be allocated.
-- `READY`: Private cloud connection is ready to use.
-- `ERROR`: Private cloud connection encountered a problem and cannot operate.
-- `DELETING`: Private cloud connection is being deleted.
-- `UPDATING`: Private cloud connection is being updated. ||
-|| name | **string**
-
-Name of the private cloud connection. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Creation timestamp. ||
 |#

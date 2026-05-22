@@ -1,6 +1,6 @@
 ---
 title: How to create a {{ metastore-full-name }} cluster
-description: Follow this guide to create a {{ metastore-full-name }} cluster.
+description: In this tutorial, you will learn how to create a {{ metastore-full-name }} cluster.
 ---
 
 # Creating a {{ metastore-full-name }} cluster
@@ -28,7 +28,7 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to create a server.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+    1. [Go](../../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
     1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. Enter a name for the cluster. It must be unique within the folder.
@@ -66,7 +66,7 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
 
   To create a {{ metastore-name }} cluster:
 
-  1. See the description of the CLI command for creating a cluster:
+  1. View the description of the CLI command for creating a cluster:
  
       ```bash
       {{ yc-metastore }} cluster create --help
@@ -182,20 +182,20 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
 
             * `min_level`: Minimum logging level. Possible values: `TRACE`, `DEBUG`, `INFO` (default), `WARN`, `ERROR`, and `FATAL`.
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
-    For more information about the resources you can create with {{ TF }}, see this [provider guide]({{ tf-provider-metastore }}).
+    For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-metastore }}).
 
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -244,7 +244,7 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
 
         * {% include [metastore-maintenance-window-rest](../../../_includes/metadata-hub/metastore-maintenance-window-rest.md) %}
 
-    1. Use the [Cluster.Create](../../api-ref/Cluster/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Create](../../api-ref/Cluster/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -258,7 +258,7 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -310,7 +310,7 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
 
         * {% include [metastore-maintenance-window-grpc](../../../_includes/metadata-hub/metastore-maintenance-window-grpc.md) %}
 
-    1. Use the [ClusterService.Create](../../api-ref/grpc/Cluster/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [ClusterService.Create](../../api-ref/grpc/Cluster/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -325,7 +325,7 @@ To learn more about {{ metastore-name }} clusters in {{ metadata-hub-name }}, se
             < body.json
         ```
 
-    1. View the [server response](../../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

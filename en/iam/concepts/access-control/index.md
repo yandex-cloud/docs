@@ -8,16 +8,23 @@ All operations in {{ yandex-cloud }} are first sent for verification to {{ iam-s
 
 1. A user requests {{ compute-name }} to create a new disk in the <q>default</q> folder.
 1. {{ compute-name }} sends a request to {{ iam-short-name }} to check whether this user is allowed to create disks in this folder.
-1. {{ iam-short-name }} checks if the user is a member of the cloud with the <q>default</q> folder and has the necessary permissions to create a disk in this folder.
-1. If any of the permissions are missing, the operation is not allowed and {{ yandex-cloud }} returns an error.
-    If all the required permissions were granted, {{ iam-short-name }} reports this to the service.
+1. {{ iam-short-name }} checks if the user is a member of the cloud the <q>default</q> folder belogns to and has the required permissions to create a disk in that folder:
+
+    * If any of the permissions are missing, the operation is not allowed and {{ yandex-cloud }} returns an error.
+    * If all the required permissions were granted, {{ iam-short-name }} proceeds to the next check.
+1. {{ iam-short-name }} checks that the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder), [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud), or [organization](../../../organization/concepts/organization.md) has no assigned [access policies](./access-policies.md) that prohibit the requested operation:
+
+    * If such access policies are found, the operation is denied and {{ yandex-cloud }} returns an error.
+    * If no such access policies are found, {{ iam-short-name }} reports this to the service.
 1. The service creates a new disk.
 
 ![checkPermissions.png](../../../_assets/checkPermissions.png)
 
 ## How do I perform access management? {#how-do-i-perform-access-management}
 
-Access management in {{ yandex-cloud }} leverages the [Role Based Access Control](https://en.wikipedia.org/wiki/Role-based_access_control) (RBAC) policy. To grant users access to a resource, you need to specify their [roles](roles.md) for that resource.
+Access management in {{ yandex-cloud }} leverages the [Role Based Access Control](https://en.wikipedia.org/wiki/Role-based_access_control) (RBAC) policy. For more granular control, the platform also supports [access policies](./access-policies.md) and service account API key [scopes](../authorization/api-key.md#scoped-api-keys).
+
+To grant users access to a resource, you need to specify their [roles](roles.md) for that resource. However, access policies configured at the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder), [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud), or [organization](../../../organization/concepts/organization.md) level can prohibit certain actions with resources: such operations will be blocked even if the user has the required roles.
 
 To assign a role, you need to [select a resource](#resource), [choose a role](#role), and [describe the subject](#subject) getting the role. As a result, the subject gets [permissions to access](#access-bindings) the resource.
 
@@ -133,6 +140,8 @@ For more information about managing access to a specific {{ yandex-cloud }} serv
 
 Step-by-step guides and examples:
 
+* [{#T}](../../operations/access-policies/assign.md)
+* [{#T}](../../operations/access-policies/revoke.md)
 * [{#T}](../../operations/roles/grant.md)
 * [{#T}](../../operations/roles/revoke.md)
 * [{#T}](../../operations/sa/assign-role-for-sa.md)

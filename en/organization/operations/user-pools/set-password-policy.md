@@ -1,6 +1,6 @@
 ---
 title: How to set up a password policy in a {{ org-full-name }} user pool
-description: Follow this guide to set up a password policy in a {{ org-name }} user pool.
+description: Follow this guide to set up a password policy in a {{ org-full-name }} user pool.
 ---
 
 # Setting up a password policy
@@ -14,7 +14,7 @@ To set up a [password policy](../../concepts/password-policy.md):
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
   1. In the left-hand panel, click ![userpool](../../../_assets/organization/userpool.svg) **{{ ui-key.yacloud_org.pages.userpools }}** and select the user pool.
-  1. Click **{{ ui-key.yacloud_org.organization.userpools.title_password_policy }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) and select ![gear](../../../_assets/console-icons/gear.svg) **{{ ui-key.yacloud_org.organization.userpools.UserpoolOverviewPage.action_set_password_policy_aaDns }}**.
+  1. On the **{{ ui-key.yacloud_org.organization.userpools.title_userpool_overview }}** tab, click **{{ ui-key.yacloud_org.organization.userpools.title_password_policy }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) and select ![gear](../../../_assets/console-icons/gear.svg) **{{ ui-key.yacloud_org.organization.userpools.UserpoolOverviewPage.action_set_password_policy_aaDns }}**.
   1. Under **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.complexity_oeJs5 }}**, specify the character class settings for the password:
 
      * **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.symbol_classes_any_fqb6f }}**: Configure the minimum length depending on the number of character classes used in the password:
@@ -35,6 +35,7 @@ To set up a [password policy](../../concepts/password-policy.md):
 
        In the **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.min_length_title_mvmiQ }}** field, specify the minimum number of characters in the password but not less than seven.
        
+  1. Optionally, under **Password uniqueness**, in the **Password verification** field, enable **You cannot use passwords included in the database of common passwords**. This will protect users from using passwords that can be easily guessed using a dictionary.
   1. Under **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.lifetime_hnEhW }}**, set the minimum and maximum password lifetime (up to 730 days) or select **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.unlimited_cSfYU }}**.
   1. Under **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.brute_force_protection_msHno }}**, specify:
      * **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.attempts_before_lockout_ay7Le }}**: From 1 to 100.
@@ -71,33 +72,35 @@ To set up a [password policy](../../concepts/password-policy.md):
        --password-allow-similar \
        --password-match-length <match_substring_length> \
        --password-max-length <maximum_password_length> \
+       --password-blacklist-check-common \
        --password-min-days <minimum_lifetime_in_days> \
        --password-max-days <maximum_lifetime_in_days> \
        --bruteforce-attempts <number_of_attempts> \
-       --bruteforce-window <try_count_interval> \
+       --bruteforce-window <count_interval> \
        --bruteforce-block <lockout_duration>
      ```
 
      Where:
 
      * To configure custom character types (smart policy):
-       * `--password-smart-one-class`: Minimum length of a password with one character class (e.g., lowercase letters only).
-       * `--password-smart-two-classes`: Minimum length of a password with two character classes (e.g., lowercase and uppercase letters).
-       * `--password-smart-three-classes`: Minimum length of a password with three character classes (e.g., letters and digits).
-       * `--password-smart-four-classes`: Minimum length of a password with four character classes (letters, digits, and special characters).
+       * `--password-smart-one-class`: Minimum password length if using one character class (e.g., lowercase letters only).
+       * `--password-smart-two-classes`: Minimum password length if using two character classes (e.g., lowercase and uppercase letters).
+       * `--password-smart-three-classes`: Minimum password length if using three character classes (e.g., letters and numbers).
+       * `--password-smart-four-classes`: Minimum password length if using four character classes (letters, numbers, and special characters).
 
      * To configure required character types (fixed policy):
        * `--password-fixed-min-length`: Minimum password length (at least 7 characters).
        * `--password-fixed-lowers-required`: Require lowercase letters.
        * `--password-fixed-uppers-required`: Require uppercase letters.
-       * `--password-fixed-digits-required`: Require digits.
+       * `--password-fixed-digits-required`: Require numbers.
        * `--password-fixed-specials-required`: Require special characters.
 
-     * `--password-allow-similar`: Allow using passwords similar to earlier ones. If the flag is not specified, using similar passwords is forbidden.
-     * `--password-match-length`: Minimum length of a substring to check for similarity with vulnerable sequences.
-     * `--password-max-length`: Maximum password length. A value of `0` means there is no limit.
+     * `--password-allow-similar`: Allow passwords similar to those used earlier. If the flag is not set, you cannot use similar passwords.
+     * `--password-match-length`: Minimum substring length for a similarity check with vulnerable sequences.
+     * `--password-max-length`: Maximum password length. If `0`, there is no limit.
+     * `--password-blacklist-check-common`: Checks the password against the database of common passwords. If the flag is not set, the check is disabled.
      * `--password-min-days`: Minimum number of days before the password should be changed.
-     * `--password-max-days`: Maximum number of days the password remains valid (up to 730 days). A value of `0` means that passwords do not expire.
+     * `--password-max-days`: Maximum number of days the password remains valid (up to 730 days). If `0`, passwords do not expire.
      * `--bruteforce-attempts`: Number of wrong password entries before lockout (1 to 100).
      * `--bruteforce-window`: Interval for counting wrong entries (e.g., `10m` for 10 minutes or `600s` for 600 seconds).
      * `--bruteforce-block`: Lockout duration after exceeding the wrong entry limit (e.g., `10m` or `600s`).
@@ -106,7 +109,7 @@ To set up a [password policy](../../concepts/password-policy.md):
 
      {% list tabs group=examples %}
 
-     - With any character types {#smart}
+     - With custom character types {#smart}
 
        ```bash
        yc organization-manager idp userpool update fpd9mu9gqq12******** \
@@ -118,7 +121,8 @@ To set up a [password policy](../../concepts/password-policy.md):
          --password-max-days 365 \
          --bruteforce-attempts 15 \
          --bruteforce-window 10m \
-         --bruteforce-block 10m
+         --bruteforce-block 10m \
+         --password-blacklist-check-common true
        ```
 
      - With required character types {#fixed}
@@ -133,7 +137,8 @@ To set up a [password policy](../../concepts/password-policy.md):
          --password-max-days 365 \
          --bruteforce-attempts 15 \
          --bruteforce-window 10m \
-         --bruteforce-block 10m
+         --bruteforce-block 10m \
+         --password-blacklist-check-common true
        ```
      {% endlist %}
 
@@ -157,12 +162,12 @@ To set up a [password policy](../../concepts/password-policy.md):
        description       = "<pool_description>"
 
        password_quality_policy = {
-         allow_similar = true
-         max_length    = 128
-         match_length  = 4
+         allow_similar   = true
+         max_length      = 128
+         match_length    = 4
 
          # Use either `smart` or `fixed`
-         # Configuring any character types
+         # Configuring custom character types
          smart = {
            one_class     = 24
            two_classes   = 14
@@ -178,6 +183,10 @@ To set up a [password policy](../../concepts/password-policy.md):
            digits_required   = true
            specials_required = false
          }
+       }
+
+       password_blacklist_policy = {
+         check_common = true
        }
 
        password_lifetime_policy = {
@@ -201,27 +210,30 @@ To set up a [password policy](../../concepts/password-policy.md):
      * `description`: User pool description.
      * `password_quality_policy`: Password complexity settings:
 
-       * `allow_similar`: Allow using passwords similar to earlier ones.
-       * `max_length`: Maximum password length. A value of `0` means there is no limit.
-       * `match_length`: Minimum length of a substring to check for similarity with vulnerable sequences.
+       * `allow_similar`: Allow passwords similar to those used earlier.
+       * `max_length`: Maximum password length. If `0`, there is no limit.
+       * `match_length`: Minimum substring length for a similarity check with vulnerable sequences.
 
        Use either `smart` or `fixed`.
-       * `smart`: Configuring any character types (minimum length depends on how many classes are used).
-         * `one_class`: Minimum length of a password with one character class (e.g., lowercase letters only).
+       * `smart`: Configuring custom character types (minimum length depends on how many classes are used).
+         * `one_class`: Minimum password length if using one character class (e.g., lowercase letters only).
          * `two_classes`: Minimum length of a password with two character classes (e.g., lowercase and uppercase letters).
-         * `three_classes`: Minimum length of a password with three character classes (e.g., letters and digits).
-         * `four_classes`: Minimum length of a password with four character classes (letters, digits, and special characters).
+         * `three_classes`: Minimum password length if using three character classes (e.g., letters and numbers).
+         * `four_classes`: Minimum password length if using four character classes (letters, numbers, and special characters).
 
        * `fixed`: Configuring required character types (use instead of `smart`).
          * `min_length`: Minimum password length (at least 7 characters).
          * `lowers_required`: Require lowercase letters.
          * `uppers_required`: Require uppercase letters.
-         * `digits_required`: Require digits.
+         * `digits_required`: Require numbers.
          * `specials_required`: Require special characters.
+
+     * `password_blacklist_policy`: Password uniqueness setup.
+       * `check_common`: Ban passwords from the common passwords database. The default value is `false`.
 
      * `password_lifetime_policy`: Password lifetime settings.
        * `min_days_count`: Minimum number of days before the password should be changed.
-       * `max_days_count`: Maximum number of days the password remains valid (up to 730 days). A value of `0` means that passwords do not expire.
+       * `max_days_count`: Maximum number of days the password remains valid (up to 730 days). If `0`, passwords do not expire.
 
      * `bruteforce_protection_policy`: Settings for protection against password guessing.
        * `attempts`: Number of wrong password entries before lockout (1 to 100).
@@ -234,7 +246,7 @@ To set up a [password policy](../../concepts/password-policy.md):
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  This will create a user pool with the set password policy in the specified organization. You can check the new pool and its settings using the [{{ cloud-center }} UI]({{ link-org-cloud-center }}) or this CLI command:
+  This will create a user pool subject to your password policy in the specified organization. You can check the new pool and its settings using the [{{ cloud-center }} UI]({{ link-org-cloud-center }}) or this CLI command:
 
   ```bash
   yc organization-manager idp userpool get <pool_ID>
@@ -245,3 +257,5 @@ To set up a [password policy](../../concepts/password-policy.md):
   Use the [update](../../idp/api-ref/Userpool/update.md) REST API method for the [Userpool](../../idp/api-ref/Userpool/index.md) resource or the [UserpoolService/Update](../../idp/api-ref/grpc/Userpool/update.md) gRPC API call.
 
 {% endlist %}
+
+{% include [password-policy-note](../../../_includes/organization/password-policy-note.md) %}

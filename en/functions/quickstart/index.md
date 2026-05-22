@@ -16,6 +16,7 @@ Choose how to explore:
   * [{#T}](create-function/bash-function-quickstart.md)
   * [{#T}](create-function/java-function-quickstart.md)
   * [{#T}](create-function/kotlin-function-quickstart.md)
+  * [{#T}](create-function/dotnet-function-quickstart.md)
 
 * [Creating and enabling a trigger](create-trigger/index.md)
 

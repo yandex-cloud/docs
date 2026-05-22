@@ -2,11 +2,11 @@
 
 {{ mch-full-name }} можно использовать как хранилище данных для [Graphite](https://graphite.readthedocs.io/en/latest/index.html).
 
-Движок таблиц [GraphiteMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/graphitemergetree/) позволяет прореживать и агрегировать или усреднять содержимое БД специально для Graphite. Движок уменьшает объем хранения данных и повышает эффективность запросов от Graphite.
+Движок таблиц [GraphiteMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/graphitemergetree) позволяет прореживать и агрегировать или усреднять содержимое БД специально для Graphite. Движок уменьшает объем хранения данных и повышает эффективность запросов от Graphite.
 
 {% note info %}
 
-Если прореживание и агрегирование или усреднение не требуется, то для хранения данных Graphite можно использовать любой [движок таблиц]({{ ch.docs }}/engines/table-engines/) {{ CH }}.
+Если прореживание и агрегирование или усреднение не требуется, то для хранения данных Graphite можно использовать любой [движок таблиц]({{ ch.docs }}{{ lang }}/engines/table-engines) {{ CH }}.
 
 {% endnote %}
 
@@ -108,7 +108,7 @@
 
 1. В той же [облачной сети](../../vpc/concepts/network.md), где расположен кластер, [создайте](../../compute/operations/vm-create/create-linux-vm.md) ВМ на основе Linux. 
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к ВМ по [SSH](../../glossary/ssh-keygen.md). 
-1. Подключите [DEB-репозиторий]({{ ch.docs }}/getting-started/install/#install-from-deb-packages) {{ CH }}:
+1. Подключите [DEB-репозиторий]({{ ch.docs }}{{ lang }}/install#install-from-deb-packages) {{ CH }}:
 
     ```bash
     sudo apt update && sudo apt install -y apt-transport-https ca-certificates dirmngr && \
@@ -159,7 +159,7 @@
 
 - {{ CH }} CLI {#cli}
 
-  В интерфейсе {{ CH }} CLI выполните запрос на создание таблицы на основе [GraphiteMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/graphitemergetree/). В качестве параметра передайте имя секции `rollup`, описанной ранее:
+  В интерфейсе {{ CH }} CLI выполните запрос на создание таблицы на основе [GraphiteMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/graphitemergetree). В качестве параметра передайте имя секции `rollup`, описанной ранее:
 
     ```sql
     CREATE TABLE GraphiteTable

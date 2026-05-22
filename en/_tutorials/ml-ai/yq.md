@@ -1,4 +1,4 @@
-{{ yq-full-name }} is an interactive service for serverless data analysis. It allows you to process data from various storages using SQL queries without creating a dedicated data processing cluster. {{ yq-full-name}} works with [{{ objstorage-full-name }}](../../storage/), [{{ mpg-name }}](../../managed-postgresql/), and [{{ mch-name }}](../../managed-clickhouse/) data storages.
+{{ yq-full-name }} is an interactive service for serverless data analysis. It allows you to process data from various storages using SQL queries without creating a dedicated data processing cluster. {{ yq-full-name }} works with [{{ objstorage-full-name }}](../../storage/), [{{ mpg-name }}](../../managed-postgresql/), and [{{ mch-name }}](../../managed-clickhouse/) data storages.
 
 To analyze {{ ml-platform-name }} data using {{ yq-name }}:
 

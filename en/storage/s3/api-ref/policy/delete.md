@@ -1,4 +1,4 @@
-# DeleteBucketPolicy method
+# Object Storage API, Amazon S3-compatible REST: DeleteBucketPolicy
 
 Removes the access policy from the specified bucket.
 
@@ -16,7 +16,7 @@ Parameter | Description
 ----- | -----
 `bucket` | Bucket name.
 
-### Request parameters {#request-params}
+### Query parameters {#request-params}
 
 Parameter | Description
 ----- | -----
@@ -33,5 +33,11 @@ If the request is successful, the service will return a response with `HTTP 204`
 ### Response codes {#response-codes}
 
 For a list of possible responses, see [{#T}](../response-codes.md).
+
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/policy.md)
+
+* [Deleting a policy](../../../operations/buckets/policy.md#delete-policy)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

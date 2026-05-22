@@ -5,16 +5,17 @@ description: Follow this tutorial to create scans in {{ sd-full-name }} {{ dspm-
 
 # Creating a {{ dspm-name }} scan
 
-[Data Security Posture Management](../../concepts/dspm.md) (DSPM) scans [data sources](../../concepts/dspm.md#data-source) – {{ objstorage-full-name }} [buckets](../../../storage/concepts/bucket.md) and {{ yandex-360 }} [Disks]({{ link-yandex }}/support/yandex-360/business/disk/web/{{ lang }}/index.html) – for sensitive information in storages.
+[{{ dspm-full-name }}](../../concepts/dspm.md) ({{ dspm-name }}) scans [data sources](../../concepts/dspm.md#data-source) – {{ objstorage-full-name }} [buckets](../../../storage/concepts/bucket.md) and {{ yandex-360 }} [Yandex Disks]({{ link-yandex }}/support/yandex-360/business/disk/web/{{ lang }}/index.html) – to locate sensitive information in storage.
 
-Before you start using {{ dspm-name }}, [set up](../../quickstart-overview.md#configure-sd) the default folder to store {{ sd-name }} data.
+## Getting started {#before-begin}
 
+{% include [dspm-before-begin-section](../../../_includes/security-deck/dspm-before-begin-section.md) %}
 
 ## Creating a scan for {{ objstorage-name }} {#object-storage}
 
 {% list tabs group=instructions %}
 
-- {{ sd-name }} UI {#cloud-sd}
+- {{ sd-name }} UI {#console}
 
   1. Go to [{{ sd-full-name }}]({{ link-sd-main }}).
   1. In the left-hand panel, select ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}** and go to the **{{ ui-key.yacloud_org.security-center.dspm.title_scan-jobs }}** tab.
@@ -22,8 +23,14 @@ Before you start using {{ dspm-name }}, [set up](../../quickstart-overview.md#co
   1. Under **{{ ui-key.yacloud_org.dspm.scan-jobs.field_data-sources }}**, select a data source with [{{ objstorage-name }}](../../../storage/) buckets.
 
       If necessary, [create](./create-data-source.md) a new data source.
+      
+      {% note info %}
 
-  1. Under **{{ ui-key.yacloud_org.dspm.scans.section_access_title }}**, select the [service account](../../../iam/concepts/users/service-accounts.md) to use for scanning. If you need a new service account, click **{{ ui-key.yacloud_org.iam.folder.service-accounts.dialog_select-service-account_create-new-action }}**.
+      If access to the bucket is controlled by a [policy](../../../storage/security/policy.md#conditional-writes-policy), allow access to the {{ sd-name }} IP addresses in the bucket policy settings. For a list of addresses, see [Public IP address ranges](../../../overview/concepts/public-ips.md#security-deck-ips).
+
+      {% endnote %}
+
+  1. Under **{{ ui-key.yacloud_org.dspm.scans.section_access_title }}**, select the [service account](../../../iam/concepts/users/service-accounts.md) to use for scanning. If you need a new service account, click **{{ ui-key.yacloud_components.security.dspm.dialog_select-service-account_create-new-action }}**.
 
       {% include [sa-scan-roles-warning](../../../_includes/security-deck/sa-scan-roles-warning.md) %}
 
@@ -47,7 +54,7 @@ Before you start using {{ dspm-name }}, [set up](../../quickstart-overview.md#co
 
 {% list tabs group=instructions %}
 
-- {{ sd-name }} UI {#cloud-sd}
+- {{ sd-name }} UI {#console}
 
   1. Go to [{{ sd-full-name }}]({{ link-sd-main }}).
   1. In the left-hand panel, select ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}** and go to the **{{ ui-key.yacloud_org.security-center.dspm.title_scan-jobs }}** tab.

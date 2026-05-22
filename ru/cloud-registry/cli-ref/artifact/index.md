@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/artifact/
 editable: false
 ---
 
@@ -19,6 +20,8 @@ Syntax:
 - [yc cloud-registry artifact delete](delete.md) — Delete the specified registry artifact
 
 - [yc cloud-registry artifact get](get.md) — Get information about the artifact
+
+- [yc cloud-registry artifact get-by-path](get-by-path.md) — Get information about the artifact by path
 
 - [yc cloud-registry artifact list-access-bindings](list-access-bindings.md) — Lists access bindings for the specified artifact
 

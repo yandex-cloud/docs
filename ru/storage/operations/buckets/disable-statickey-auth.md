@@ -75,9 +75,10 @@ description: Следуя данной инструкции, вы сможете
       disabled_statickey_auth: true
       ```
 
-- API {#api}
 
-  Чтобы запретить доступ в бакет с помощью статических ключей, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md) или вызовом gRPC API [BucketService/Update](../../api-ref/grpc/Bucket/update.md).
+- REST API {#api}
+
+  Чтобы запретить доступ в бакет с помощью статических ключей, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md).
 
   Выполните запрос:
 
@@ -89,7 +90,7 @@ description: Следуя данной инструкции, вы сможете
          "updateMask":"disabledStatickeyAuth",
          "disabledStatickeyAuth":true
         }' \
-  "https://storage.api.cloud.yandex.net/storage/v1/buckets/first-bucket"
+  "https://storage.{{ api-host }}/storage/v1/buckets/<имя_бакета>"
   ```
 
   Где:
@@ -126,5 +127,58 @@ description: Следуя данной инструкции, вы сможете
   ```
 
   Отслеживайте статус операции по полю `done`.
+
+
+- gRPC API {#grpc-api}
+
+  Чтобы запретить доступ в бакет с помощью статических ключей, воспользуйтесь вызовом gRPC API [BucketService/Update](../../api-ref/grpc/Bucket/update.md).
+
+  Выполните запрос:
+
+  ```bash
+  grpcurl \
+    -H "Authorization: Bearer <IAM-токен>" \
+    -d '{
+      "name": "<имя_бакета>",
+      "update_mask": {
+        "paths": ["disabled_statickey_auth"]
+      },
+      "disabled_statickey_auth": true
+    }' \
+    {{ api-host-storage-grpc }} \
+    yandex.cloud.storage.v1.BucketService/Update
+  ```
+
+  Где:
+  * `<имя_бакета>` — имя бакета, в котором нужно запретить доступ с помощью статических ключей.
+  * `<IAM-токен>` — IAM-токен пользователя с ролью `storage.admin` на бакет.
+
+  Результат:
+
+  ```json
+  {
+    "id": "e3efo38nps32********",
+    "description": "update bucket",
+    "createdAt": "2026-04-27T13:25:02.835201Z",
+    "createdBy": "ajelcjkv67arbc0qe68j",
+    "modifiedAt": "2026-04-27T13:25:02.835201Z",
+    "done": true,
+    "metadata": {
+      "@type": "type.googleapis.com/yandex.cloud.storage.v1.UpdateBucketMetadata",
+      "name": "first-bucket"
+    },
+    "response": {
+      "@type": "type.googleapis.com/yandex.cloud.storage.v1.Bucket",
+      "acl": {},
+      "createdAt": "2024-06-07T13:54:56.127808Z",
+      "defaultStorageClass": "STANDARD",
+      "disabledStatickeyAuth": true,
+      "folderId": "b1gsm0k26v1l********",
+      "name": "first-bucket",
+      "resourceId": "e3ead1djqq0m********",
+      "versioning": "VERSIONING_DISABLED"
+    }
+  }
+  ```
 
 {% endlist %}

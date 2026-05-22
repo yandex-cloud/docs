@@ -15,3 +15,11 @@ Maintenance includes:
 You can set the maintenance window when [creating a cluster](../operations/cluster-create.md) or [updating its settings](../operations/cluster-update.md#change-additional-settings):
 
 {% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}
+
+{% note info %}
+
+To view maintenance task information, you need the `managed-trino.maintenanceTask.viewer` [role](../security.md#managed-trino-maintenanceTask-viewer) or higher.
+
+To manage maintenance tasks, you need the `managed-trino.maintenanceTask.editor` [role](../security.md#managed-trino-maintenanceTask-editor) or higher.
+
+{% endnote %}

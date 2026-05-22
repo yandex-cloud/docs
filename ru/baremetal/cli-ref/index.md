@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/
 editable: false
 ---
 
@@ -135,6 +136,10 @@ Syntax:
   - [yc baremetal server remove-labels](server/remove-labels.md) — Remove labels from specified server
 
   - [yc baremetal server update](server/update.md) — Update the specified server
+
+- [yc baremetal v0](v0/index.md) — Manage  Baremetal resources
+
+
 
 - [yc baremetal vrf](vrf/index.md) — Manage vrf
 

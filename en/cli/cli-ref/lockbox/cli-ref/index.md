@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/lockbox/cli-ref/
 editable: false
 ---
 
@@ -51,6 +52,10 @@ Syntax:
   - [yc lockbox secret set-access-bindings](secret/set-access-bindings.md) — Set access bindings for the specified secret and delete all existing access bindings if there were any
 
   - [yc lockbox secret update](secret/update.md) — Update the specified secret
+
+- [yc lockbox v0](v0/index.md) — Manage Yandex Lockbox resources
+
+
 
 #### Global Flags
 

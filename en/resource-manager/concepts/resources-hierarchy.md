@@ -77,6 +77,12 @@ Resource access permissions are inherited as follows:
 
 For some resources, you cannot assign a role directly, in which case a role should be assigned for a folder, cloud, or organization. If the folder access permissions are missing, {{ iam-name }} checks the cloud and organization access permissions.
 
+{% note info %}
+
+{% include [access-control-vs-roles-notice](../../_includes/iam/access-control-vs-roles-notice.md) %}
+
+{% endnote %}
+
 ## Deleting {{ resmgr-name }} resources {#deleting-resources}
 
 You can delete a [cloud](../operations/cloud/delete.md) or [folder](../operations/folder/delete.md). When deleting one, you can specify whether to delete it immediately or after a certain delay. The default deletion delay is seven days. Throughout this period, the resources will be stopped, and the cloud/folder status will change to `PENDING_DELETION`.

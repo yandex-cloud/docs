@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/logging/cli-ref/sink/remove-access-binding
 editable: false
 ---
 

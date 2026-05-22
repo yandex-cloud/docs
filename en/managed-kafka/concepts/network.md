@@ -1,6 +1,6 @@
 ---
-title: Network and DB clusters in {{ mkf-full-name }}
-description: In this tutorial, you will learn about the basic network interface settings for an {{ KF }} cluster.
+title: Network and database clusters in {{ mkf-full-name }}
+description: In this tutorial, you will learn about the basic network interface settings for a {{ KF }} cluster.
 ---
 
 # Networking in {{ mkf-name }}
@@ -13,17 +13,17 @@ When creating a cluster, you can:
 * Set subnets in all availability zones.
 * Turn on public access to the cluster from outside {{ yandex-cloud }}.
 
-If there are {{ ZK }} hosts in the cluster, each of the three {{ ZK }} hosts will use its dedicated availability zone and the subnet selected in it. For more information, see [Resource relationships in the service](../concepts/index.md).
+If there are {{ ZK }} hosts in the cluster, each of the three {{ ZK }} hosts will use its dedicated availability zone and the subnet selected in it. For more information, see [{#T}](../concepts/index.md).
 
 
 ## Host name and FQDN {#hostname}
 
-{{ mkf-short-name }} generates the name of each cluster host when creating it. This name will be the host's fully qualified domain name (FQDN). The host name and, consequently, FQDN cannot be changed.
+{{ mkf-short-name }} generates a name for each cluster host when creating it. This name will be the host's fully qualified domain name (FQDN). You cannot change the host name and, consequently, FQDN.
 
 For more information on how to get a host FQDN, see [this guide](../operations/connect/index.md#get-fqdn).
 
 
-You can use the FQDN to access the host within a single cloud network. For more information, see the [{{ vpc-full-name }} documentation](../../vpc/).
+You can use the FQDN to access the host within a single cloud network. For more information, see [this {{ vpc-full-name }} guide](../../vpc/).
 
 ## Public access to clusters {#public-access-to-a-cluster}
 
@@ -41,13 +41,13 @@ For information on how to configure security groups, see [{#T}](../operations/co
 
 {% note tip %}
 
-When connecting to a cluster from the same cloud network, configure security groups both for the cluster and the VM you are connecting from.
+When connecting to a cluster from its cloud network, configure security groups both for the cluster and the VM you are connecting from.
 
 {% endnote %}
 
-Specifics of working with security groups:
+Features of using security groups:
 
-* Security group settings only affect whether it will be possible to connect to the cluster. They do not affect cluster operation, such as replication of topic sections by broker hosts, connections between brokers and {{ ZK }} hosts, and other features.
+* Security group settings only determine whether connecting to the cluster is possible. They do not affect cluster operation, such as replication of topic sections by broker hosts, connections between brokers and {{ ZK }} hosts, and other features.
 
 * Even if the cluster and the connecting VM are in the same security group, there will be no connection unless you set up rules within this group that allow traffic between the VM and the cluster.
 

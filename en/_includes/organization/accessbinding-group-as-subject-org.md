@@ -72,9 +72,9 @@
 
      Where:
      
-     * `organization_id`: [Organization ID](../../organization/operations/organization-get-id.md). This is a required parameter.
-     * `role`: Role being assigned. This is a required parameter.
-     * `member`: Group the role is assigned to. Use this format: `group:<group_ID>`. This is a required parameter.
+     * `organization_id`: [Organization ID](../../organization/operations/organization-get-id.md). This is a required setting.
+     * `role`: Role being assigned. This is a required setting.
+     * `member`: Group the role is assigned to. Use this format: `group:<group_ID>`. This is a required setting.
 
          To assign a role to one of the [system groups](../../iam/concepts/access-control/system-group.md), specify the following in the `member` parameter:
 

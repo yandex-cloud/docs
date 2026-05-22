@@ -57,10 +57,10 @@ You can use a VM that has access to an ArcSight instance or create a new one:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket, e.g., `example-folder`.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. On the bucket creation page:
-      1. Enter a name for the bucket as per the [naming requirements](../../storage/concepts/bucket.md#naming).
+      1. Enter a name for the bucket by following the [naming conventions](../../storage/concepts/bucket.md#naming).
       1. Limit the maximum bucket size, if required.
 
          {% include [storage-no-max-limit](../../storage/_includes_service/storage-no-max-limit.md) %}
@@ -78,11 +78,11 @@ You can use a VM that has access to an ArcSight instance or create a new one:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to `example-folder`.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
   1. Click **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** and specify:
      * **{{ ui-key.yacloud.common.name }}**: `arcsight-kms`.
      * **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}**: `AES-256`.
-     * Leave other attributes as default.
+     * Leave the other settings at their defaults.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
@@ -112,7 +112,7 @@ Create a service account named `sa-arcsight`:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to `example-folder`.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for the service account according to the naming requirements:
   
@@ -135,9 +135,9 @@ You will need the key ID and secret key when mounting the bucket.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to `example-folder`.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
-  1. In the list that opens, select the `sa-arcsight-bucket` service account.
+  1. In the list that opens, select `sa-arcsight-bucket`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.
   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
   1. Enter a description for the key and click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
@@ -145,7 +145,7 @@ You will need the key ID and secret key when mounting the bucket.
 
       {% note alert %}
 
-      After you close this dialog, the key value will not be shown again.
+      After you close this dialog, the key value will no longer be available.
 
       {% endnote %}
 
@@ -168,7 +168,7 @@ You will need the key ID and secret key when mounting the bucket.
       secret: JyT*******zMP1
       ```
 
-  1. Save the ID (`key_id`) and secret key (`secret`). You will not be able to get the secret key again.
+  1. Save the `key_id` and `secret` values. You will not be able to get the secret key again.
 
 {% endlist %}
 
@@ -274,7 +274,7 @@ Assign the `storage.viewer` and `kms.keys.encrypterDecrypter` roles to the `sa-a
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to `example-folder`.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. Click **{{ ui-key.yacloud.audit-trails.button_create-trail }}** and specify:
 
      * **{{ ui-key.yacloud.common.name }}**: Name of the trail you want to create, e.g., `arcsight-trail`.
@@ -372,7 +372,7 @@ To complete this stage of the tutorial, you need an ArcSight SmartConnector dist
 
 ## How to delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid unnecessary charges, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete](../../storage/operations/buckets/delete.md) the {{ objstorage-name }} bucket.
 1. [Delete](../../kms/operations/key.md#delete) the {{ kms-name }} key.

@@ -5,7 +5,6 @@ editable: false
 # BareMetal API, gRPC: HardwarePoolService.Get
 
 Returns the specific HardwarePool resource.
-
 To get the list of available HardwarePool resource, make a [List](/docs/baremetal/api-ref/grpc/HardwarePool/list#List) request.
 
 ## gRPC request
@@ -25,8 +24,9 @@ To get the list of available HardwarePool resource, make a [List](/docs/baremeta
 || hardware_pool_id | **string**
 
 ID of the HardwarePool resource to return.
+To get the hardware pool ID, use a [HardwarePoolService.List](/docs/baremetal/api-ref/grpc/HardwarePool/list#List) request.
 
-To get the hardware pool ID, use a [HardwarePoolService.List](/docs/baremetal/api-ref/grpc/HardwarePool/list#List) request. ||
+The maximum string length in characters is 20. ||
 |#
 
 ## HardwarePool {#yandex.cloud.baremetal.v1alpha.HardwarePool}
@@ -48,6 +48,5 @@ ID of the hardware pool. ||
 || zone_id | **string**
 
 ID of the zone where the hardware pool is located.
-
 To get the zone ID use a [ZoneService.List](/docs/baremetal/api-ref/grpc/Zone/list#List) request. ||
 |#

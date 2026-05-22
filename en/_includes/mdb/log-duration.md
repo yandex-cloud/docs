@@ -1,5 +1,5 @@
 {% note info %}
 
-Cluster logs are kept for 30 days.
+Cluster logs are stored for 45 days.
 
 {% endnote %}

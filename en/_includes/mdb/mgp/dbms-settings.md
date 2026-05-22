@@ -20,7 +20,7 @@ The parameters listed bellow can be managed by the user globally at cluster leve
 
 #### gp_add_column_inherits_table_setting {#setting-gp-add-column-inherits-table-setting}
 
-| Available in version | Type     | Acceptable values            | Default value | Context |
+| Available in version | Type     | Valid values            | Default value | Context |
 |-------------------|---------|--------------------------------|-----------------------|----------|
 | 6.25 and higher | Boolean | `true` (`on`), `false` (`off`) | `false` (`off`) | `user` |
 
@@ -40,7 +40,7 @@ For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenpl
 
 #### gp_autostats_mode {#setting-gp-autostats-mode}
 
-| Available in version | Acceptable values | Default value | Context |
+| Available in version | Valid values | Default value | Context |
 |-------------------|-------------------------------------|-----------------------|----------|
 | 6.25 and higher | `none`, `on_change`, `on_no_stats` | `on_no_stats` | `user` |
 
@@ -67,7 +67,7 @@ For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenpl
 
 #### gp_autostats_on_change_threshold {#setting-gp-autostats-on-change-threshold}
 
-| It is available in versions from | Type | Acceptable values | Default value | Context |
+| It is available in versions from | Type | Valid values | Default value | Context |
 |-------------------|---------|---------------------|-----------------------|----------|
 | 6.25 and higher | Integer | from 0 to 2147483647 | 2147483647 | `user` |
 
@@ -77,7 +77,7 @@ For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenpl
 
 #### gp_cached_segworkers_threshold {#setting-gp-cached-segworkers-threshold}
 
-| It is available in versions from | Type | Acceptable values | Default value | Context |
+| It is available in versions from | Type | Valid values | Default value | Context |
 |-------------------|---------|---------------------|-----------------------|----------|
 | 6.25 and higher | Integer | from 1 to 10 | 5 | `user` |
 
@@ -89,7 +89,7 @@ For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenpl
 
 #### gp_enable_global_deadlock_detector {#setting-gp-enable-global-deadlock-detector}
 
-| Available in version | Type     | Acceptable values            | Default value | Context     |
+| Available in version | Type     | Valid values            | Default value | Context     |
 |-------------------|---------|--------------------------------|-----------------------|--------------|
 | 6.25 and higher       | Boolean | `true` (`on`), `false` (`off`) | `true` (`on`)         | `postmaster` |
 
@@ -107,15 +107,18 @@ This is an [open-gpdb](https://github.com/open-gpdb/gpdb) build-specific paramet
 
 {% endnote %}
 
-| Available in version | Type     | Acceptable values            | Default value | Context |
-|-------------------|---------|--------------------------------|-----------------------|----------|
-| 6.28 and higher       | Boolean | `true` (`on`), `false` (`off`) | `true` (`on`)         | `user`   |
+#|
+|| **Available in version** | **Type** | **Valid values** | **Default value** | **Context** ||
+|| 6.28 and higher | Boolean | `true` (`on`), `false` (`off`) | Depends on the version:
+* 6.28: `false` (`off`)
+* 6.29 and higher: `true` (`on`) | `user` ||
+|#
 
 Controls the `ZSTD` memory accounting feature. Enabling it (`true`/`on`) prevents `ZSTD` from exceeding the memory available to the resource manager (a group or a queue) by moving `ZSTD` to a separate `zstd_context` memory context. This reduces the probability of an uncontrolled cluster crash due to out-of-memory errors.
 
 #### gp_global_deadlock_detector_period {#setting-gp-global-deadlock-detector-period}
 
-| Available in version | Type | Acceptable values | Default value | Context |
+| It is available in versions from | Type | Valid values | Default value | Context |
 |-------------------|---------|---------------------|-----------------------|----------|
 | 6.25 and higher | Integer | from 5 to 2147483647 | 120 | `sighup` |
 
@@ -125,7 +128,7 @@ For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenpl
 
 #### gp_max_plan_size {#setting-gp-max-plan-size}
 
-| Available in version | Type | Acceptable values | Default value | Context |
+| Available in version | Type | Valid values | Default value | Context |
 |-------------------|---------|---------------------|-----------------------|-------------|
 | 6.25 and higher | Integer | from 0 to 2147483647 | 0 | `superuser` |
 
@@ -135,7 +138,7 @@ For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenpl
 
 #### gp_max_slices {#setting-gp-max-slices}
 
-| Available in version | Type | Acceptable values | Default value | Context |
+| Available in version | Type | Valid values | Default value | Context |
 |-------------------|---------|---------------------|-----------------------|----------|
 | 6.25 and higher       | Integer | from 10 to 100        | 100                   | `user`   |
 
@@ -153,7 +156,7 @@ For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenpl
 
 #### gp_resource_group_memory_limit {#setting-gp-resource-group-memory-limit}
 
-| Available in version | Type | Acceptable values | Default value | Context |
+| Available in version | Type | Valid values | Default value | Context |
 |-------------------|------|---------------------|-----------------------|--------------|
 | 6.25 and higher | Real | from 0.1 to 0.8 | 0.8 | `postmaster` |
 
@@ -169,7 +172,7 @@ For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenpl
 
 #### gp_vmem_protect_segworker_cache_limit {#setting-gp-vmem-protect-segworker-cache-limit}
 
-| Available in version | Type | Acceptable values | Default value | Context |
+| Available in version | Type | Valid values | Default value | Context |
 |-------------------|------|---------------------|-----------------------|--------------|
 | 6.25 and higher       | Real | from 0 to 4096        | 500                   | `postmaster` |
 
@@ -180,7 +183,7 @@ For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenpl
 
 #### gp_workfile_compression {#setting-gp-workfile-compression}
 
-| Available in version | Type     | Acceptable values            | Default value | Context |
+| Available in version | Type     | Valid values            | Default value | Context |
 |-------------------|---------|--------------------------------|-----------------------|----------|
 | 6.25 and higher | Boolean | `true` (`on`), `false` (`off`) | `false` (`off`) | `user` |
 
@@ -189,11 +192,11 @@ Specifies whether to compress the temporary files created when uploading to disk
 
 For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#gp_workfile_compression).
 
-{% include [requires-restart](../note-requires-restart.md) %}
+{% include [requires-restart](../note-requires-manual-restart.md) %}
 
 #### gp_workfile_limit_files_per_query {#setting-gp-workfile-limit-files-per-query}
 
-| Available in version | Type | Acceptable values | Default value | Context |
+| Available in version | Type | Valid values | Default value | Context |
 |-------------------|---------|---------------------|-----------------------|----------|
 | 6.25 and higher | Integer | from 0 to 100000 | 10000 | `user` |
 
@@ -205,7 +208,7 @@ For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenpl
 
 #### gp_workfile_limit_per_query {#setting-gp-workfile-limit-per-query} 
 
-| Available in version | Type | Acceptable values | Default value | Context |
+| Available in version | Type | Valid values | Default value | Context |
 |-------------------|---------|-----------------------|-----------------------|----------|
 | 6.25 and higher       | Integer | form 0 to 1099511627776 | 0                     | `user`   |
 
@@ -216,7 +219,7 @@ For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenpl
 
 #### gp_workfile_limit_per_segment {#setting-gp-workfile-limit-per-segment}
 
-| Available in version | Type | Acceptable values | Default value | Context |
+| Available in version | Type | Valid values | Default value | Context |
 |-------------------|-----|----------------------|---------------|--------|
 | 6.25 and higher | Integer | from 0 to the segment disk size / 2 | It is calculated dynamically based on the disk size on the segment | `postmaster` |
 
@@ -239,7 +242,7 @@ This is an [open-gpdb](https://github.com/open-gpdb/gpdb) build-specific paramet
 
 {% endnote %}
 
-| Available in version | Type | Acceptable values | Default value | Context |
+| Available in version | Type | Valid values | Default value | Context |
 |-------------------|---------|--------------------|-----------------------|----------|
 | 6.25 and higher       | Integer | from 0 to 2147483647 | 0                     | `user`   |
 
@@ -249,7 +252,7 @@ You can use this parameter to ensure that idle sessions will not be retaining lo
 
 #### lock_timeout {#setting-lock-timeout}
 
-| Available in version | Type | Acceptable values | Default value | Context |
+| Available in version | Type | Valid values | Default value | Context |
 |-------------------|---------|---------------------|-----------------------|----------|
 | 6.25 and higher       | Integer | from 0 to 2147483647  | 0                     | `user`   |
 
@@ -264,7 +267,7 @@ For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenpl
 
 #### log_connections {#setting-log-connections}
 
-| Available in version | Type     | Acceptable values            | Default value | Context  |
+| Available in version | Type     | Valid values            | Default value | Context  |
 |-------------------|---------|--------------------------------|-----------------------|-----------|
 | 6.25 and higher | Boolean | `true` (`on`), `false` (`off`) | `false` (`off`) | `backend` |
 
@@ -274,7 +277,7 @@ For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenpl
 
 #### log_disconnections {#setting-log-disconnections}
 
-| Available in version | Type     | Acceptable values            | Default value | Context  |
+| Available in version | Type     | Valid values            | Default value | Context  |
 |-------------------|---------|--------------------------------|-----------------------|-----------|
 | 6.25 and higher | Boolean | `true` (`on`), `false` (`off`) | `false` (`off`) | `backend` |
 
@@ -284,7 +287,7 @@ For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenpl
 
 #### log_error_verbosity {#setting-log-error-verbosity}
 
-| Available in version | Acceptable values | Default value | Context |
+| Available in version | Valid values | Default value | Context |
 |-------------------|-------------------------------|-----------------------|-------------|
 | 6.25 and higher       | `terse`, `default`, `verbose` | `default`             | `superuser` |
 
@@ -294,7 +297,7 @@ For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenpl
 
 #### log_hostname {#setting-log-hostname} 
 
-| Available in version | Type     | Acceptable values            | Default value | Context |
+| Available in version | Type     | Valid values            | Default value | Context |
 |-------------------|---------|--------------------------------|-----------------------|----------|
 | 6.25 and higher | Boolean | `true` (`on`), `false` (`off`) | `true` (`on`) | `sighup` |
 
@@ -304,7 +307,7 @@ For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenpl
 
 #### log_min_duration_statement {#setting-log-min-duration-statement}
 
-| Available in version | Type | Acceptable values | Default value | Context |
+| Available in version | Type | Valid values | Default value | Context |
 |-------------------|---------|---------------------|-----------------------|-------------|
 | 6.25 and higher | Integer | from -1 to 2147483647 | -1 | `superuser` |
 
@@ -317,7 +320,7 @@ For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenpl
 
 #### log_min_messages {#setting-log-min-messages}
 
-| Available in version | Acceptable values | Default value | Context |
+| Available in version | Valid values | Default value | Context |
 | --- | --- | --- | --- |
 | 6.25 and higher | `debug5`, `debug4`, `debug3`, `debug2`, `debug1`, `info`, `notice`, `warning`, `log`, `error`, `fatal`, `panic` | `warning` | `superuser` |
 
@@ -327,7 +330,7 @@ For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenpl
 
 #### log_statement {#setting-log-statement}
 
-| Available in version | Acceptable values | Default value | Context |
+| Available in version | Valid values | Default value | Context |
 | --- | --- | --- | --- |
 | 6.25 and higher | `none`, `ddl`, `mod`, `all` | `ddl` | `superuser` |
 
@@ -337,7 +340,7 @@ For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenpl
 
 #### log_statement_stats {#setting-log-statement-stat}
 
-| Available in version | Type     | Acceptable values            | Default value | Context    |
+| Available in version | Type     | Valid values            | Default value | Context    |
 |-------------------|---------|--------------------------------|-----------------------|-------------|
 | 6.25 and higher | Boolean | `true` (`on`), `false` (`off`) | `false` (`off`) | `superuser` |
 
@@ -353,7 +356,7 @@ The DBMS itself has only one parameter: `shared_buffers`. On the service side, t
 
 {% endnote %}
 
-| Available in version | Type     | Acceptable values                 | Default value | Context     |
+| Available in version | Type     | Valid values                 | Default value | Context     |
 |-------------------|---------|-------------------------------------|-----------------------|--------------|
 | 6.25 and higher | Integer | from 1048576 to the calculated value | 134217728 (128 MB) | `postmaster` |
 
@@ -367,11 +370,11 @@ Measured in bytes.
 
 For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#shared_buffers).
 
-{% include [requires-restart](../note-requires-restart.md) %}
+{% include [requires-restart](../note-requires-manual-restart.md) %}
 
 #### max_connections {#setting-max-connections}
 
-| Available in version | Type | Acceptable values | Default value | Context |
+| Available in version | Type | Valid values | Default value | Context |
 |-------------------|---------|---------------------|-----------------------|--------------|
 | 6.25 and higher | Integer | from 50 to 1,000 | 200 | `postmaster` |
 
@@ -391,7 +394,7 @@ For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenpl
 
 #### max_locks_per_transaction {#setting-max-locks-per-transaction}
 
-| Available in version | Type | Acceptable values | Default value | Context |
+| Available in version | Type | Valid values | Default value | Context |
 |-------------------|---------|---------------------|-----------------------|--------------|
 | 6.25 and higher       | Integer | from 128 to 2,048      | 128                   | `postmaster` |
 
@@ -401,7 +404,7 @@ For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenpl
 
 #### max_prepared_transactions {#setting-max-prepared-transactions}
 
-| Available in version | Type     | Acceptable values | Default value | Context     |
+| Available in version | Type     | Valid values | Default value | Context     |
 |-------------------|---------|---------------------|-----------------------|--------------|
 | 6.25 and higher       | Integer | from 50 to 10,000      | 200                   | `postmaster` |
 
@@ -411,7 +414,7 @@ For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenpl
 
 #### max_slot_wal_keep_size {#setting-max-slot-wal-keep-size}
 
-| Available in version | Type     | Acceptable values  | Default value | Context |
+| Available in version | Type     | Valid values  | Default value | Context |
 |-------------------|---------|----------------------|-----------------------|----------|
 | 6.25 and higher       | Integer | from 0 to 214748364800 | Calculated           | `sighup` |
 
@@ -425,7 +428,7 @@ For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenpl
 
 #### max_statement_mem {#setting-max-statement-mem}
 
-| Available in version | Type     | Acceptable values           | Default value | Context    |
+| Available in version | Type     | Valid values           | Default value | Context    |
 |-------------------|---------|-------------------------------|-----------------------|-------------|
 | 6.25 and higher       | Integer | from 134217728 to 1099511627776 | 2097152000 (2000 MB)  | `superuser` |
 
@@ -437,7 +440,7 @@ For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenpl
 
 #### runaway_detector_activation_percent {#setting-runaway-detector-activation-percent}
 
-| Available in version | Type     | Acceptable values | Default value | Context     |
+| Available in version | Type     | Valid values | Default value | Context     |
 |-------------------|---------|---------------------|-----------------------|--------------|
 | 6.25 and higher       | Integer | from 0 to 100         | 90                    | `postmaster` |
 
@@ -459,7 +462,7 @@ The DBMS itself has only one parameter: `shared_buffers`. On the service side, t
 
 {% endnote %}
 
-| Available in version | Type     | Acceptable values                 | Default value | Context     |
+| Available in version | Type     | Valid values                 | Default value | Context     |
 |-------------------|---------|-------------------------------------|-----------------------|--------------|
 | 6.25 and higher       | Integer | from 1048576 to the calculated value | 134217728 (128 MB)    | `postmaster` |
 
@@ -472,7 +475,7 @@ max(0.2 × RAM available on the segment / number of segments per host), 16384 ×
 
 For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-config_params-guc-list.html#shared_buffers).
 
-{% include [requires-restart](../note-requires-restart.md) %}
+{% include [requires-restart](../note-requires-manual-restart.md) %}
 
 
 ### Parameters the user can manage locally {#setting-gp-loca}
@@ -481,7 +484,7 @@ This section contains parameters that the user can manage **only** at the sessio
 
 #### gp_default_storage_options {#setting-gp-default-storage-options}
 
-| Available in version | Acceptable values | Default value                                                                    | Context |
+| Available in version | Valid values | Default value                                                                    | Context |
 | --- | --- |------------------------------------------------------------------------------------------| --- |
 | 6.25 and higher | `appendoptimized`: `true`, `false`; `blocksize`: [8192; 2097152]; `checksum`: `true`, `false`; `compresstype`: `zlib`, `zstd`, `quicklz`, `rle_type`, `none`; `compresslevel`: [0; 19]; `orientation`: `row`, `column`. | `appendonly=false, blocksize=32768`, `checksum=true, compresstype=none`, `orientation=row` | `user` |
 
@@ -520,7 +523,7 @@ For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenpl
 
 #### statement_mem {#setting-statement-mem}
 
-| Available in version | Type     | Acceptable values   | Default value | Context |
+| Available in version | Type     | Valid values   | Default value | Context |
 |-------------------|---------|-----------------------|-----------------------|----------|
 | 6.25 and higher       | Integer | from 1000 to 2147483647 | 128000 (125 MB)       | `user`   |
 
@@ -530,7 +533,7 @@ For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenpl
 
 #### statement_timeout {#setting-statement-timeout}
 
-| Available in version | Type     | Acceptable values | Default value | Context |
+| Available in version | Type     | Valid values | Default value | Context |
 |-------------------|---------|---------------------|-----------------------|----------|
 | 6.25 and higher       | Integer | from 0 to 2147483647  | 0                     | `user`   |
 
@@ -544,7 +547,7 @@ This section presents parameters that cannot be managed by the user but are refe
 
 #### deadlock_timeout {#setting-deadlock-timeout}
 
-| Available in version | Type     | Acceptable values | Default value | Context    |
+| Available in version | Type     | Valid values | Default value | Context    |
 |-------------------|---------|--------------------|-----------------------|-------------|
 | 6.25 and higher       | Integer | from 1 to 214748364  | 1000                  | `superuser` |
 
@@ -554,7 +557,7 @@ For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenpl
 
 #### log_min_error_statement {#setting-log-min-error-statement}
 
-| Available in version | Acceptable values | Default value | Context |
+| Available in version | Valid values | Default value | Context |
 | --- | --- | --- | --- |
 | 6.25 and higher | `debug5`, `debug4`, `debug3`, `debug2`, `debug1`, `info`, `notice`, `warning`, `error`, `fatal`, `panic` | `error` | `superuser` |
 
@@ -565,7 +568,7 @@ For more information, see [this {{ GP }} guide]({{ gp.docs.broadcom }}/6/greenpl
 
 #### gp_resource_manager {#setting-gp-resource-manager}
 
-| Available in version | Acceptable values | Default value | Context |
+| Available in version | Valid values | Default value | Context |
 | --- | --- | --- | --- |
 | 6.25 and higher | `group`, `queue` | `group` | `postmaster` |
 

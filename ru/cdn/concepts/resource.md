@@ -14,6 +14,7 @@ _Ресурс_ — это основная логическая сущность
 * HTTP-заголовки и методы (см. [инструкцию](../operations/resources/configure-http.md));
 * обработку [кросс-доменных запросов (CORS)](cors.md);
 * [сжатие](compression.md) и [сегментирование](slicing.md) контента.
+* [нестандартные HTTP-ответы](../operations/resources/configure-response.md).
 
 Доступ к ресурсу можно ограничить с помощью [защищенных токенов](./secure-tokens.md) и [политики доступа по IP-адресам](./ip-address-acl.md).
 

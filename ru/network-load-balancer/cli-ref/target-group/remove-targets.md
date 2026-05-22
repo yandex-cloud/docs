@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/load-balancer/cli-ref/target-group/remove-targets
 editable: false
 ---
 

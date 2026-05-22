@@ -5,7 +5,7 @@ Create a [data stream](../../../data-streams/concepts/glossary.md#stream-concept
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}** and click **{{ ui-key.yacloud.data-streams.button_create-stream }}**.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}** and click **{{ ui-key.yacloud.data-streams.button_create-stream }}**.
   1. In the **{{ ui-key.yacloud.data-streams.label_database }}** field, select the `postbox-events-ydb` database you created earlier.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter the stream name: `postbox-events-stream`.
   1. In the **{{ ui-key.yacloud.data-streams.label_meter-mode }}** field, select `{{ ui-key.yacloud.data-streams.label_request-units }}`.

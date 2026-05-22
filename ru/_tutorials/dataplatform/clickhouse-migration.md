@@ -1,11 +1,11 @@
 # Миграция данных в {{ mch-name }} средствами {{ CH }}
 
-Вы можете перенести данные из вашего кластера {{ CH }} в кластер {{ mch-name}} при помощи:
+Вы можете перенести данные из вашего кластера {{ CH }} в кластер {{ mch-name }} при помощи:
 
 * [Встроенной функции `remote`](#transfer-remote). Этот способ подойдет для переноса отдельных таблиц.
 * [Встроенных команд `BACKUP` и `RESTORE` и бакета {{ objstorage-full-name }}](#backup-objstorage). Этот способ подойдет для переноса как отдельных таблиц, так и базы данных целиком.
 
-Вы также можете перенести базу данных из кластера {{ CH }} в кластер {{ mch-name}} при помощи {{ data-transfer-name }}. О том, как это сделать, см. в [практическом руководстве](../../tutorials/dataplatform/ch-to-mch-migration.md).
+Вы также можете перенести базу данных из кластера {{ CH }} в кластер {{ mch-name }} при помощи {{ data-transfer-name }}. О том, как это сделать, см. в [практическом руководстве](../../tutorials/dataplatform/ch-to-mch-migration.md).
 
 ## Перенос данных при помощи remote {#transfer-remote}
 
@@ -73,7 +73,7 @@
    SELECT * FROM <имя_БД>.<имя_таблицы>;
    ```
 
-Подробнее об использовании функции `remote` см. в [документации {{ CH }}]({{ ch.docs }}/sql-reference/table-functions/remote).
+Подробнее об использовании функции `remote` см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/table-functions/remote).
 
 ## Перенос данных при помощи команд BACKUP и RESTORE и бакета {{ objstorage-name }} {#backup-objstorage}
 
@@ -163,4 +163,4 @@
         SHOW DATABASES;
         ```
 
-Подробнее об использовании команд `BACKUP` и `RESTORE` с S3-хранилищем см. в [документации {{ CH }}](https://clickhouse.com/docs/en/operations/backup#backuprestore-using-an-s3-disk).
+Подробнее об использовании команд `BACKUP` и `RESTORE` с S3-хранилищем см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/backup/overview#backuprestore-using-an-s3-disk).

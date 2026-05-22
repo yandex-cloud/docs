@@ -1,6 +1,6 @@
 ---
 title: Maintenance in {{ mrd-full-name }}
-description: In {{ mrd-name }}, maintenance includes automatic installation of DBMS updates and patches for hosts (including for stopped clusters), changing the host class and storage size, and other maintenance activities.
+description: In {{ mrd-name }}, maintenance means automatic installation of database updates and patches for hosts (including for stopped clusters), host class and storage size modifications, and other maintenance operations.
 ---
 
 # Maintenance in {{ mrd-name }}
@@ -19,6 +19,14 @@ You can set the maintenance window when [creating a cluster](../operations/clust
 
 {% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}
 
+{% note info %}
+
+To view maintenance task information, you need the `managed-redis.maintenanceTask.viewer` [role](../security/index.md#managed-redis-maintenanceTask-viewer) or higher.
+
+To manage maintenance tasks, you need the `managed-redis.maintenanceTask.editor` [role](../security/index.md#managed-redis-maintenanceTask-editor) or higher.
+
+{% endnote %}
+
 ## Maintenance workflow {#maintenance-order}
 
 The {{ mrd-name }} cluster maintenance workflow depends on the number of hosts and [sharding](sharding.md).
@@ -28,7 +36,7 @@ The {{ mrd-name }} cluster maintenance workflow depends on the number of hosts a
 The maintenance procedure is as follows:
 
 1. [Replica hosts](replication.md) undergo maintenance one by one. Such hosts are queued randomly. If a replica needs to be restarted during maintenance, it will become unavailable.
-1. Maintenance is performed on a master host. If the master host needs restarting and becomes unavailable, one of the replicas will assume its role. A single-host cluster will be unavailable during its maintenance.
+1. Maintenance is performed on a master host. If the master host needs to restart and becomes unavailable, one of the replicas will assume its role. A single-host cluster will be unavailable during its maintenance.
 
 ### Sharded cluster
 

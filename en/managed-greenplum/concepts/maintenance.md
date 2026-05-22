@@ -32,6 +32,14 @@ You can set the maintenance window when [creating a cluster](../operations/clust
 
 {% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}
 
+{% note info %}
+
+To view maintenance task information, you need the `managed-greenplum.maintenanceTask.viewer` [role](../security/index.md#managed-greenplum-maintenanceTask-viewer) or higher.
+
+To manage maintenance tasks, you need the `managed-greenplum.maintenanceTask.editor` [role](../security/index.md#managed-greenplum-maintenanceTask-editor) or higher.
+
+{% endnote %}
+
 ### Maintenance workflow {#maintenance-order}
 
 Maintenance related to software updates is performed as follows:
@@ -63,6 +71,8 @@ Two vacuuming modes are supported:
 The default mode is sequential. To switch to concurrent table vacuuming mode, contact [technical support]({{ link-console-support }}).
 
 The start time and timeout of the `VACUUM` operation are set up when [creating](../operations/cluster-create.md) or [updating a cluster](../operations/update.md).
+
+[Learn more about vacuuming tables in {{ mgp-name }}](vacuum.md).
 
 ### Collecting statistics {#get-statistics}
 

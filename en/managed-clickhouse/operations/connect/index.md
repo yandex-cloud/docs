@@ -1,6 +1,6 @@
 ---
 title: Pre-configuring a {{ CH }} cluster connection in {{ mch-full-name }}
-description: Follow this guide to pre-configure a connection to a database in a {{ CH }} cluster.
+description: In this tutorial, you will learn how to pre-configure a database connection in a {{ CH }} cluster.
 ---
 
 # Pre-configuring a {{ CH }} cluster connection
@@ -18,7 +18,7 @@ You can connect to a cluster either with encryption (on ports `{{ port-mch-cli }
 
 {% include [sg-rules](../../../_includes/mdb/sg-rules-connect.md) %}
 
-Rule settings depend on the connection method you select:
+Rule settings depend on the chosen connection method:
 
 {% list tabs group=connection_method %}
 
@@ -46,7 +46,7 @@ Rule settings depend on the connection method you select:
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `8123` (or any of the other ports listed).
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}`.
-        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: If your cluster and VM are in the same security group, select `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`). Otherwise, specify the VM security group.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: If your cluster and VM share the same security group, select `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}` (`Self`). Otherwise, specify the VM security group.
 
        Create a separate rule for each port.
 
@@ -68,15 +68,15 @@ Rule settings depend on the connection method you select:
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
             * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
 
-          This rule allows all outgoing traffic, so that you can connect to the cluster as well as install the certificates and utilities your VM needs for connection.
+          This rule permits all outbound traffic, allowing you to install any necessary certificates and tools on your VM.
 
 {% endlist %}
 
 {% note info %}
 
-You can specify more granular rules for your security groups, e.g., to allow traffic only in specific subnets.
+You can specify more granular security group rules, such as allowing traffic only in specific subnets.
 
-Make sure to configure the security groups properly for all subnets where the cluster hosts will reside. With incomplete or incorrect security group settings, you may lose access to the cluster.
+Make sure to configure the security groups correctly for all subnets where the cluster hosts will reside. With incomplete or incorrect security group settings, you may lose access to the cluster.
 
 {% endnote %}
 

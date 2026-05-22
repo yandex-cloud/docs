@@ -1,1 +1,3 @@
-The `search-api.executor` role enables using Yandex Search API and [running]({{ link-docs }}/search-api/operations/searching) search requests via API v1.
+The `search-api.executor` role was used by an API that is now deprecated.
+
+The `search-api.executor` role is no longer available.

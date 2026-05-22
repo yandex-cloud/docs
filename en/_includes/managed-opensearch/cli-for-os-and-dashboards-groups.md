@@ -9,6 +9,7 @@
       zone-ids=[ru-central1-a,ru-central1-b,ru-central1-d]
       ```
 
+   
    * `subnet-names`: Names of the subnets in the specified availability zones. Separate subnets with commas and enclose them in square brackets, e.g.:
 
       ```bash
@@ -21,16 +22,11 @@
       subnet-ids=[e9bp8qmchqh2********,e2l963gkhobo********,fl8klaabecc3********]
       ```
 
+
    * `roles`: [Host roles](../../managed-opensearch/concepts/host-roles.md). The possible values are:
 
       * `data`: Assigns the `DATA` role only.
       * `manager`: Assigns the `MANAGER` role only.
       * `data+manager` or `manager+data`: Assigns both roles.
-
-      {% note tip %}
-
-      For security reasons, we do not recommend enabling public access to hosts with the `MANAGER` role.
-
-      {% endnote %}
 
 * `--dashboards-node-group`: `Dashboards` host group configuration. It is configured just as the `{{ OS }}` host group, except for the host roles. You do not need to set up any roles for the `Dashboards` group.

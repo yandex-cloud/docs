@@ -3,10 +3,9 @@
 Type of limit | Value
 ----- | -----
 **General quotas** |
-Maximum number of [projects](../speechsense/concepts/resources-hierarchy.md#project) per [space](../speechsense/concepts/resources-hierarchy.md#space) | 100
 Maximum number of [tags](../speechsense/concepts/tags.md) per project | 1,000
 Maximum number of [metadata](../speechsense/concepts/resources-hierarchy.md#connection) entries per connection | 200
-Maximum number of [dictionaries](../speechsense/concepts/dictionaries) per space | 100
+Maximum number of [dictionaries](../speechsense/concepts/dictionaries.md) per space | 100
 Maximum line size in dialog metadata, bytes | 1,024
 Maximum number of files per [knowledge base](../speechsense/concepts/assistants.md#tools) per assistant | 10
 Maximum file size per knowledge base per [assistant](../speechsense/concepts/assistants.md) | 30 MB
@@ -25,3 +24,5 @@ Type of limit | Value
 User data storage period | 3 months
 Recalculation of modified and newly created [dictionary and semantic tags](../speechsense/concepts/tags.md) per month | Once per night
 Number of returned search results | 10,000
+Maximum number of [projects](../speechsense/concepts/resources-hierarchy.md#project) per [space](../speechsense/concepts/resources-hierarchy.md#space) | 100
+Maximum number of [connections](../speechsense/concepts/resources-hierarchy.md#connection) per [space](../speechsense/concepts/resources-hierarchy.md#space) | 20

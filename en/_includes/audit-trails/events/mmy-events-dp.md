@@ -11,6 +11,7 @@ Event name | Description
 `ListDatabases` | Getting a list of databases
 `ListUsers` | Getting a list of users
 `RevokeUserPermission` | Revoking a database user's privileges
+`UpdateDatabase` | Updating a database
 `UpdateUser` | Editing a database user
 
 ^1^ Make sure to enable these [{{ MY }} settings](../../../managed-mysql/concepts/settings-list.md#dbms-cluster-settings): **Audit log** and **Audit log policy**. Enabling these settings may result in additional load on your cluster hosts, so we recommend testing your system in dev/stage environments first. Also, to enable them, you may need to restart your services, so make sure to select a time when the cluster load is minimal.

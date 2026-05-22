@@ -1,6 +1,6 @@
 ---
 title: How to update a SAML app in {{ org-full-name }}
-description: Follow this guide to update a SAML app in {{ org-name }}.
+description: Follow this guide to update a SAML app in {{ org-full-name }}.
 ---
 
 # Updating a SAML app in {{ org-full-name }}
@@ -29,8 +29,8 @@ To update the [SAML app's basic settings](../../concepts/applications.md#saml):
     
   1. Under **{{ ui-key.yacloud_org.organization.apps.OauthAppEditForm.section-service-provider_5d85k }}**:
 
-     1. In the **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-entity-id_snAsX }}** field, enter the unique service provider ID. This value must match on both the service provider side and on the {{ org-name }} side.
-     1. In the **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-acs-urls_eQcJr }}** field, specify the URL {{ org-name }} will send the SAML response to. To provide multiple addresses, click **{{ ui-key.yacloud_org.organization.apps.SamlAppAcsUrlsField.add-acs-url_eMunC }}**. The ACS URL must follow the `https` schema. You can only use an encryption-free protocol for testing purposes on a local host (`http://127.0.0.1` and `http://localhost` values).
+     1. In the **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-entity-id_snAsX }}** field, enter the unique service provider ID. The value must be the same on the service provider's and {{ org-full-name }} side.
+     1. In the **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-acs-urls_eQcJr }}** field, specify the URL {{ org-full-name }} will send the SAML response to. To provide multiple addresses, click **{{ ui-key.yacloud_org.organization.apps.SamlAppAcsUrlsField.add-acs-url_eMunC }}**. The ACS URL must follow the `https` schema. You can only use an encryption-free protocol for testing purposes on a local host (`http://127.0.0.1` and `http://localhost` values).
      1. In the **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-logout-url_sLuRl }}** field, specify the address to which the IdP will send the SAML response after the user successfully logs out.
      1. In the **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-signature-mode_ipXQ7 }}** field, specify the SAML response elements that will be digitally signed:
 
@@ -44,7 +44,7 @@ To update the [SAML app's basic settings](../../concepts/applications.md#saml):
      1. In the window that opens, select the addition method and attach the file or specify the text contents of your certificate.
      1. Click **{{ ui-key.yacloud.common.add }}**.
 
-     To enable this feature, you need to upload the public key certificate you got from the service provider, which will be used for signature verification.
+     You need to upload the public key certificate obtained from the service provider, which will be used to verify the signature to enable this feature.
 
   1. Optionally, enable **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.EncryptResponseSection.field-encrypt-response }}** to encrypt the SAML response using the selected certificate:
 
@@ -55,7 +55,7 @@ To update the [SAML app's basic settings](../../concepts/applications.md#saml):
         1. In the window that opens, select the addition method and attach the file or specify the text contents of your certificate.
         1. Click **{{ ui-key.yacloud.common.add }}**.
 
-     To enable this feature, you need to upload the public key certificate you got from the service provider, which will be used for encryption.
+     You need to upload the public key certificate obtained from the service provider, which will be used for encryption.
 
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -181,8 +181,8 @@ To update the service provider configuration in a SAML app:
      Where:
 
      * `--id`: SAML application ID. This is a required setting.
-     * `--sp-entity-id`: Unique service provider ID. The value must be the same on the service provider's and {{ org-name }} side.
-     * `--acs-urls`: URL or comma-separated URLs to which {{ org-name }} will send the SAML response. The ACS URL must follow the `https` schema. You can only use an encryption-free protocol for testing purposes on a local host (`http://127.0.0.1` and `http://localhost` values).
+     * `--sp-entity-id`: Unique service provider ID. The value must be the same on the service provider's and {{ org-full-name }} side.
+     * `--acs-urls`: URL or comma-separated URLs to which {{ org-full-name }} will send the SAML response. The ACS URL must follow the `https` schema. You can only use an encryption-free protocol for testing purposes on a local host (`http://127.0.0.1` and `http://localhost` values).
      * `--signature-mode`: SAML response elements that will be digitally signed. The possible values are:
        * `assertion_only`: Only the provided user attributes.
        * `response_only`: Full SAML response.
@@ -231,8 +231,8 @@ To update the service provider configuration in a SAML app:
 
      Where:
 
-     * `entity_id`: New unique service provider ID. The value must be the same on the service provider's and {{ org-name }} side.
-     * `acs_urls`: New URLs {{ org-name }} will send the SAML response to. The ACS URL must follow the `https` schema. You can only use an encryption-free protocol for testing purposes on a local host (`http://127.0.0.1` and `http://localhost` values).
+     * `entity_id`: New unique service provider ID. The value must be the same on the service provider's and {{ org-full-name }} side.
+     * `acs_urls`: New URLs {{ org-full-name }} will send the SAML response to. The ACS URL must follow the `https` schema. You can only use an encryption-free protocol for testing purposes on a local host (`http://127.0.0.1` and `http://localhost` values).
      * `signature_mode`: New SAML response elements that will be digitally signed. The possible values are:
        * `ASSERTION_ONLY`: Only the provided user attributes.
        * `RESPONSE_ONLY`: Full SAML response.
@@ -370,7 +370,7 @@ You can issue any number of new digital signature verification key certificates 
 
 ## Update user and group attributes {#update-attributes}
 
-To update the attributes {{ org-name }} will transmit to the service provider:
+To update the attributes {{ org-full-name }} will transmit to the service provider:
 
 {% include [saml-app-update-assertions](../../../_includes/organization/saml-app-update-assertions.md) %}
 

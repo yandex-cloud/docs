@@ -15,3 +15,11 @@ description: Под техническим обслуживанием в {{ msp-
 Предпочтительное время технического обслуживания можно задать при [создании кластера](../operations/cluster-create.md) или [изменении его настроек](../operations/cluster-update.md#change-additional-settings):
 
 {% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}
+
+{% note info %}
+
+Чтобы просматривать информацию о заданиях на техническое обслуживание, необходима [роль](../security.md#managed-spark-maintenanceTask-viewer) `managed-spark.maintenanceTask.viewer` или выше.
+
+Чтобы управлять заданиями на техническое обслуживание, необходима [роль](../security.md#managed-spark-maintenanceTask-editor) `managed-spark.maintenanceTask.editor` или выше.
+
+{% endnote %}

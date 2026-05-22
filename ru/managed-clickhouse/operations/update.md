@@ -21,7 +21,7 @@ description: Следуя данной инструкции, вы сможете
 
 * [Настройка технического обслуживания](cluster-maintenance.md).
 * [Перенос кластера в другую зону доступности](host-migration.md).
-* [Настройка серверов {{ CH }}](change-server-level-settings.md) согласно [документации {{ CH }}]({{ ch.docs }}/operations/server-configuration-parameters/settings).
+* [Настройка серверов {{ CH }}](change-server-level-settings.md) согласно [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings).
 * [Изменение настроек {{ CH }} на уровне запроса](change-query-level-settings.md).
 
 
@@ -51,7 +51,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% note info %}
 
-В кластерах с поддержкой {{ CK }} хосты {{ ZK }} не используются. Подробнее см. в разделе [Репликация](../concepts/replication.md).
+В кластерах с поддержкой {{ CK }} хосты {{ ZK }} не используются. Подробнее см. в разделе [Сервисы координации](../concepts/coordination-system.md).
 
 {% endnote %}
 
@@ -59,13 +59,16 @@ description: Следуя данной инструкции, вы сможете
 
 * Кластер из одного хоста будет недоступен несколько минут, соединения с БД будут прерваны.
 * В кластере из нескольких хостов каждый хост по очереди будет остановлен и обновлен. Остановленный хост будет недоступен несколько минут.
+* Кластер с хранилищем на локальных SSD-дисках может быть недоступен длительное время, т. к. может потребоваться миграция данных на другой физический сервер.
 * Подключение по [особому FQDN](connect/fqdn.md#auto) не гарантирует стабильность соединения с БД: пользовательские сессии могут быть прерваны.
 
 {% include [instance-type-change](../../_includes/mdb/mch/instance-type-change.md) %}
 
+Вы также можете [изменить класс хостов у отдельного шарда](shards.md#shard-update).
+
 Класс хостов влияет на количество оперативной памяти, доступной для использования {{ CH }}. Подробнее см. в разделе [Управление памятью](../concepts/memory-management.md).
 
-Минимальное количество ядер для одного хоста {{ ZK }} зависит от суммарного количества ядер хостов {{ CH }}. Подробнее см. в разделе [Репликация](../concepts/replication.md#zk).
+Минимальное количество ядер для одного хоста {{ ZK }} зависит от суммарного количества ядер хостов {{ CH }}. Подробнее см. в разделе [Сервисы координации](../concepts/coordination-system.md#zk).
 
 {% list tabs group=instructions %}
 
@@ -119,6 +122,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Чтобы изменить класс хостов {{ ZK }}, передайте нужное значение в параметре `--zookeeper-resource-preset`.
 
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -128,16 +132,16 @@ description: Следуя данной инструкции, вы сможете
     1. Измените в описании кластера {{ mch-name }} значение параметра `resource_preset_id` в блоках `clickhouse.resources` и `zookeeper.resources` для хостов {{ CH }} и {{ ZK }} соответственно:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
           ...
-          clickhouse {
-            resources {
+          clickhouse = {
+            resources = {
               resource_preset_id = "<класс_хостов_{{ CH }}>"
               ...
             }
           }
-          zookeeper {
-            resources {
+          zookeeper = {
+            resources = {
               resource_preset_id = "<класс_хостов_{{ ZK }}>"
               ...
             }
@@ -156,6 +160,7 @@ description: Следуя данной инструкции, вы сможете
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -308,13 +313,17 @@ description: Следуя данной инструкции, вы сможете
 
 {% note info %}
 
-В кластерах с поддержкой {{ CK }} хосты {{ ZK }} не используются. Подробнее см. в разделе [Репликация](../concepts/replication.md).
+В кластерах с поддержкой {{ CK }} хосты {{ ZK }} не используются. Подробнее см. в разделе [Сервисы координации](../concepts/coordination-system.md).
 
 {% endnote %}
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
 {% include [note-change-disk-type-data-loss](../../_includes/mdb/mch/note-change-disk-type-data-loss.md) %}
+
+При изменении типа диска или размера хранилища кластер с хранилищем на локальных SSD-дисках может быть недоступен длительное время, т. к. может потребоваться миграция данных на другой физический сервер.
+
+Вы также можете [изменить тип диска и размер хранилища у отдельного шарда](shards.md#shard-update).
 
 {% note info %}
 
@@ -365,6 +374,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Чтобы изменить тип диска и увеличить размер хранилища хостов {{ ZK }}, передайте нужные значения в параметре `--zookeeper-disk-size`.
 
+
 - {{ TF }} {#tf}
 
   Чтобы изменить [тип диска](../concepts/storage.md) и увеличить размер хранилища:
@@ -376,17 +386,17 @@ description: Следуя данной инструкции, вы сможете
     1. Измените в описании кластера {{ mch-name }} значения параметров `disk_size` и `disk_type_id` в блоках `clickhouse.resources` и `zookeeper.resources` для хостов {{ CH }} и {{ ZK }} соответственно:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
           ...
-          clickhouse {
-            resources {
+          clickhouse = {
+            resources = {
               disk_size = <размер_хранилища_ГБ>
               disk_type_id = "<тип_диска>"
               ...
             }
           }
-          zookeeper {
-            resources {
+          zookeeper = {
+            resources = {
               disk_size = <размер_хранилища_ГБ>
               disk_type_id = "<тип_диска>"
               ...
@@ -406,6 +416,7 @@ description: Следуя данной инструкции, вы сможете
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -539,7 +550,11 @@ description: Следуя данной инструкции, вы сможете
 
 ### Включить сервис координации {#enable-coordination}
 
+{% note warning %}
+
 {% include [note-pricing-zk-ck](../../_includes/mdb/mch/note-pricing-zk-ck.md) %}
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -548,7 +563,7 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Нажмите на имя нужного кластера и перейдите на вкладку **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}**.
   1. В правом верхнем углу страницы нажмите кнопку **{{ ui-key.yacloud.mdb.cluster.hosts.button_create-coordinator }}**.
-  1. В блоке **{{ ui-key.yacloud.clickhouse.AddCoordinatorHost.title_main-settings_68Grp }}** выберите [сервис координации](../concepts/replication.md).
+  1. В блоке **{{ ui-key.yacloud.clickhouse.AddCoordinatorHost.title_main-settings_68Grp }}** выберите [сервис координации](../concepts/coordination-system.md).
   1. В зависимости от выбранного сервиса задайте следующие настройки:
       
       * Для сервиса координации **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-zookeeper }}**:
@@ -567,7 +582,7 @@ description: Следуя данной инструкции, вы сможете
 
           * Чтобы преобразовать нереплицируемые таблицы в [реплицируемые](../concepts/replication.md#replicated-tables), включите настройку **{{ ui-key.yacloud.clickhouse.field_convert_tables_to_replicated }}**.
           
-            Нереплицируемые таблицы на движке семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree) будут автоматически преобразованы в реплицируемые на движке [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication).
+            Нереплицируемые таблицы на движке семейства [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) будут автоматически преобразованы в реплицируемые на движке [ReplicatedMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication).
             
             После включения этой настройки ее нельзя отключить.
 
@@ -586,7 +601,7 @@ description: Следуя данной инструкции, вы сможете
 
           * Чтобы преобразовать нереплицируемые таблицы в [реплицируемые](../concepts/replication.md#replicated-tables), включите настройку **{{ ui-key.yacloud.clickhouse.field_convert_tables_to_replicated }}**.
           
-            Нереплицируемые таблицы на движке семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree) будут автоматически преобразованы в реплицируемые на движке [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication).
+            Нереплицируемые таблицы на движке семейства [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) будут автоматически преобразованы в реплицируемые на движке [ReplicatedMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication).
             
             После включения этой настройки ее нельзя отключить.
 
@@ -673,6 +688,7 @@ description: Следуя данной инструкции, вы сможете
            --admin-password "<пароль_пользователя_admin>"
         ```
 
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -694,6 +710,7 @@ description: Следуя данной инструкции, вы сможете
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -896,6 +913,7 @@ description: Следуя данной инструкции, вы сможете
 
     Идентификатор и имя кластера можно [получить со списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -905,9 +923,9 @@ description: Следуя данной инструкции, вы сможете
     1. Чтобы изменить время начала резервного копирования, добавьте к описанию кластера {{ mch-name }} блок `backup_window_start`.
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
           ...
-          backup_window_start {
+          backup_window_start = {
             hours   = <час_начала_резервного_копирования>
             minutes = <минута_начала_резервного_копирования>
           }
@@ -917,11 +935,10 @@ description: Следуя данной инструкции, вы сможете
 
     1. Чтобы разрешить доступ к кластеру из других сервисов и [выполнение SQL-запросов из консоли управления](web-sql-query.md) с помощью {{ websql-full-name }}, измените значения соответствующих полей в блоке `access`:
 
-        
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
           ...
-          access {
+          access = {
             data_lens    = <доступ_из_{{ datalens-name }}>
             metrika      = <доступ_из_Метрики_и_AppMetrika>
             serverless   = <доступ_из_Cloud_Functions>
@@ -932,16 +949,11 @@ description: Следуя данной инструкции, вы сможете
         }
         ```
 
-
         Где:
 
         * `data_lens` — доступ из {{ datalens-name }}: `true` или `false`.
-
-        
         * `metrika` — доступ из Метрики и AppMetrika: `true` или `false`.
         * `serverless` — доступ из {{ sf-name }}: `true` или `false`.
-
-
         * `yandex_query` — доступ из {{ yq-full-name }}: `true` или `false`.
         * `web_sql` — выполнение SQL-запросов из консоли управления: `true` или `false`.
 
@@ -950,7 +962,7 @@ description: Следуя данной инструкции, вы сможете
     1. Чтобы включить защиту кластера от непреднамеренного удаления пользователем вашего облака, добавьте к описанию кластера поле `deletion_protection` со значением `true`:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
           ...
           deletion_protection = <защита_кластера_от_удаления>
         }
@@ -969,6 +981,7 @@ description: Следуя данной инструкции, вы сможете
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -1245,6 +1258,7 @@ description: Следуя данной инструкции, вы сможете
 
         Идентификатор кластера можно получить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -1254,7 +1268,7 @@ description: Следуя данной инструкции, вы сможете
     1. Измените или добавьте в описании кластера {{ mch-name }} значение параметра `folder_id`:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
           ...
           folder_id = "<идентификатор_каталога_назначения>"
         }
@@ -1271,6 +1285,7 @@ description: Следуя данной инструкции, вы сможете
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -1372,7 +1387,7 @@ description: Следуя данной инструкции, вы сможете
     1. Измените значение параметра `security_group_ids` в описании кластера:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
           ...
           security_group_ids = [ <список_идентификаторов_групп_безопасности_кластера> ]
         }
@@ -1389,6 +1404,7 @@ description: Следуя данной инструкции, вы сможете
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 

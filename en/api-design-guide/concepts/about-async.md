@@ -12,7 +12,7 @@ All asynchronous operations support _idempotency_. This means that if the same o
 
 {% note info %}
 
-AI services, such as {{ foundation-models-full-name }}, {{ speechkit-full-name }}, {{ translate-full-name }}, and {{ vision-full-name }}, do no support idempotency.
+AI services, such as {{ ai-studio-full-name }}, {{ speechkit-full-name }}, {{ translate-full-name }}, and {{ vision-full-name }}, do no support idempotency.
 
 {% endnote %}
 

@@ -7,9 +7,6 @@ editable: false
 # {{ mos-name }} pricing policy
 
 
-{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
-
-
 In this section, you can find the {{ mos-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources.
 
 {% note tip %}
@@ -31,7 +28,7 @@ For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=
 
 ## Cluster status {#running-stopped}
 
-The prices apply differently depending on the cluster status:
+Pricing applies differently depending on cluster status:
 
 * For a `Running` cluster, you pay for both the computing resources and storage size.
 * For a `Stopped` cluster, you only pay for your storage size.
@@ -74,9 +71,11 @@ You pay for the following:
 
     * The number of hosts in a cluster does not affect the storage size and, consequently, the amount of free backups.
 
-The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes costs the same as for 2 minutes.
+The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
 
-### Example of cluster cost calculation {#example}
+### Cluster cost calculation example {#example}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 Let's calculate the cost of using a cluster with the following properties for 30 days:
 
@@ -107,11 +106,11 @@ Calculation for the storage cost and total cost:
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ mos-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are going to use in your database clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
+{{ mos-name }} provides two types of CVoS: for vCPUs and for RAM on the hosts you are going to use in your database clusters. In the management console, you can see how much you can potentially save with CVoS at your current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 
-A CVoS discount is only available for certain resource types. For unsupported resource types, the relevant CVoS columns under [Prices](#prices) are blank. Currently, you cannot order storage or web traffic this way.
+A CVoS discount is only available for certain resource types. For unsupported resource types, the relevant CVoS columns under [Prices](#prices) are blank. Storage size and internet traffic cannot currently be reserved via CVoS.
 
 {% endnote %}
 

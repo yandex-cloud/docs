@@ -95,16 +95,16 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
       resource "yandex_kms_symmetric_key_iam_member" "key-viewers" {
         symmetric_encryption_key_id = "<key_ID>"
 
-        role    = "<role>"
-        members = ["<subject_type>:<subject_ID>","<subject_type>:<subject_ID>"]
+        role   = "<role>"
+        member = "<subject_type>:<subject_ID>"
       }
       ```
 
       Where:
 
       * `symmetric_encryption_key_id`: ID of the symmetric encryption key.
-      * `role`: [Role](../security/index.md#roles-list) being assigned.
-      * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) assigned the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `role`: [Role](../security/index.md#roles-list) to assign.
+      * `member`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
       For more information about `yandex_kms_symmetric_key_iam_member` resource properties, see this [provider guide]({{ tf-provider-resources-link }}/kms_symmetric_key_iam_member).
 
@@ -233,24 +233,24 @@ You can grant access to a [symmetric key](../concepts/key.md) to a user, service
       resource "yandex_kms_symmetric_key_iam_member" "key-viewers" {
         symmetric_encryption_key_id = "<key_ID>"
 
-        role    = "<role_1>"
-        members = ["<subject_type>:<subject_ID>"]
+        role   = "<role_1>"
+        member = "<subject_type>:<subject_ID>"
       }
 
       # Role 2
       resource "yandex_kms_symmetric_key_iam_member" "key-editors" {
         symmetric_encryption_key_id = "<key_ID>"
 
-        role    = "<role_2>"
-        members = ["<subject_type>:<subject_ID>"]
+        role   = "<role_2>"
+        member = "<subject_type>:<subject_ID>"
       }
       ```
 
       Where:
 
       * `symmetric_encryption_key_id`: ID of the symmetric encryption key.
-      * `role`: [Role](../security/index.md#roles-list) being assigned.
-      * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) assigned the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `role`: [Role](../security/index.md#roles-list) to assign.
+      * `member`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
       For more information about `yandex_kms_symmetric_key_iam_member` resource properties, see this [provider guide]({{ tf-provider-resources-link }}/kms_symmetric_key_iam_member).
 

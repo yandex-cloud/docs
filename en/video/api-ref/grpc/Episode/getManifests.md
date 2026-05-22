@@ -8,6 +8,9 @@ Retrieves the manifest URLs for the episode's media content.
 Manifests provide players with necessary information
 for streaming the content with different quality levels and formats.
 
+Manifests and its url MUST not be cached.
+The player MUST request a fresh manifest every time playback starts.
+
 ## gRPC request
 
 **rpc GetManifests ([GetEpisodeManifestsRequest](#yandex.cloud.video.v1.GetEpisodeManifestsRequest)) returns ([GetEpisodeManifestsResponse](#yandex.cloud.video.v1.GetEpisodeManifestsResponse))**
@@ -55,6 +58,9 @@ Different manifests may represent different streaming formats (e.g., HLS, DASH) 
 Represents a streaming manifest file that defines how video content is delivered.
 Manifests contain information about available video qualities, audio tracks,
 and other metadata needed by video players to stream content efficiently.
+
+Manifests and its url MUST not be cached.
+The player MUST request a fresh manifest every time playback starts.
 
 #|
 ||Field | Description ||

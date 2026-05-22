@@ -1,4 +1,4 @@
-In this example, you will install [Spring PetClinic](https://github.com/spring-projects/spring-petclinic) and set up telemetry to {{ monium-name }}.
+In this example, you will install [Spring PetClinic](https://github.com/spring-projects/spring-petclinic) and set up sending telemetry data to {{ monium-name }}.
 
 {% list tabs group=instructions %}
 
@@ -29,37 +29,43 @@ In this example, you will install [Spring PetClinic](https://github.com/spring-p
 
         ```yaml
         receivers:
-          otlp:          
-            protocols:   
-              grpc:      
-              http:      
-
-        processors:
-          cumulativetodelta:
-          batch:
-
-        exporters:       
-          otlp/monium:
+          otlp:
+            protocols:
+              grpc:
+              http:
+        
+        exporters:
+          otlp_grpc/monium:
             compression: zstd
             endpoint: {{ api-host-monium }}:443
             headers:
               Authorization: "Api-Key ${env:MONIUM_API_KEY}"
               x-monium-project: "${env:MONIUM_PROJECT}"
-
-        service:         
+            sending_queue:
+              batch:
+        
+        service:
           pipelines:
-            metrics:                 
+            metrics:
               receivers: [ otlp ]
-              processors: [ batch, cumulativetodelta ]
-              exporters: [ otlp/monium ]
-            traces:                 
+              exporters: [ otlp_grpc/monium ]
+            traces:
               receivers: [ otlp ]
-              processors: [ batch ]
-              exporters: [ otlp/monium ]
-            logs:                   
+              exporters: [ otlp_grpc/monium ]
+            logs:
               receivers: [ otlp ]
-              processors: [ batch ]
-              exporters: [ otlp/monium ]
+              exporters: [ otlp_grpc/monium ]
+          telemetry:
+            metrics:
+              level: normal
+              readers:
+                - periodic:
+                    exporter:
+                      otlp:
+                        protocol: http/protobuf
+                        endpoint: http://localhost:4318
+                    interval: 30000
+                    timeout: 5000
         ```
   
   1. Run OTel Collector:
@@ -85,15 +91,11 @@ In this example, you will install [Spring PetClinic](https://github.com/spring-p
      https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/latest/download/opentelemetry-javaagent.jar
      ```
   
-  1. Set this environment variable:
-
-     ```bash
-     export OTEL_SERVICE_NAME=spring-petclinic
-     ```
-  
   1. Run the application with the Java agent to send telemetry to OTel Collector:
 
      ```bash
+     OTEL_SERVICE_NAME=spring-petclinic \
+     OTEL_EXPORTER_OTLP_METRICS_TEMPORALITY_PREFERENCE="delta" \
      java -javaagent:./opentelemetry-javaagent.jar -jar target/*.jar
      ```
 

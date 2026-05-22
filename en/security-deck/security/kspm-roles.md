@@ -1,11 +1,11 @@
 ---
-title: '{{ k8s }}® Security Posture Management service roles in {{ sd-full-name }}'
-description: This page lists the service roles required to control access to {{ k8s }}® Security Posture Management (KSPM) in {{ sd-name }}.
+title: '{{ kspm-full-name }} service roles in {{ sd-full-name }}'
+description: This page lists the service roles required to control access to {{ kspm-full-name }} ({{ kspm-name }}) in {{ sd-name }}.
 ---
 
-# {{ k8s }}® Security Posture Management (KSPM) service roles
+# {{ kspm-full-name }} ({{ kspm-name }}) service roles
 
-With [{{ k8s }}® Security Posture Management](../concepts/kspm.md) (KSPM) service roles, you can manage user access to the KSPM resources and their settings, as well as to the data contained in the control results and alerts.
+With [{{ kspm-full-name }}](../concepts/kspm.md) ({{ kspm-name }}) service roles, you can manage user access to the {{ kspm-name }} resources and their settings, as well as to the data contained in the control results and alerts.
 
 {% include [roles-security-deck-kspm](../../_mermaid/roles/security-deck-kspm.md) %}
 

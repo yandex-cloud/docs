@@ -52,7 +52,6 @@ editable: false
 <MDX>
   <PriceList
     serviceIds={['{{ pcs|datatransfer }}']}
-    excludeSkuIds={['{{ pc|datatransfer.compute.ram.preview.v1 }}', '{{ pc|datatransfer.rows.preview.v1 }}', '{{ pc|datatransfer.compute.cpu.preview.v1 }}']}
     installationCode="ru"
     currency="RUB"
   />

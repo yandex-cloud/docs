@@ -16,7 +16,7 @@
 
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость инфраструктуры для интеграции входит плата за использование {{ agents-atelier-name }}: количество токенов в запросе и ответе (см. [тарифы {{ foundation-models-full-name }}]({{ link-docs-ai }}ai-studio/pricing)). Тарификация за использование агента начинается с момента его включения.
+В стоимость инфраструктуры для интеграции входит плата за использование {{ agents-atelier-name }}: количество токенов в запросе и ответе (см. [тарифы {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/pricing)). Тарификация за использование агента начинается с момента его включения.
 
 
 ## Подготовьте инфраструктуру {#infra}
@@ -143,16 +143,16 @@
 
   1. Перейдите в каталог `data-folder`.
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ai-studio }}**.
-  1. На панели слева выберите ![logo-mcp](../../_assets/console-icons/logo-mcp.svg) **{{ ui-key.yacloud.yagpt.YaGPT.mcp-servers-list-title_snWTf }}** и нажмите кнопку **{{ ui-key.yacloud.yagpt.YaGPT.McpServersList.label_create-mcp-gateway_3o3Vu }}**. В открывшемся окне:
+  1. На панели слева выберите ![logo-mcp](../../_assets/console-icons/logo-mcp.svg) **MCP-серверы** и нажмите кнопку **Создать MCP-сервер**. В открывшемся окне:
 
-      1. В блоке **{{ ui-key.yacloud.yagpt.YaGPT.CreateMcpServerForm.type_dZSaw }}** выберите опцию ![plug-connection](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.yagpt.YaGPT.CreateMcpServerForm.form-view_connect_bS8yQ }}**.
-      1. В блоке **{{ ui-key.yacloud.yagpt.YaGPT.CreateMcpServerForm.tools_gkQfS }}** нажмите кнопку **{{ ui-key.yacloud.yagpt.YaGPT.ConnectMcpTools.add-mcp-tool_dyEgv }}**. В открывшемся окне укажите настройки подключения к MCP-серверу:
+      1. В блоке **Способ добавления** выберите опцию ![plug-connection](../../_assets/console-icons/plug-connection.svg) **Подключить**.
+      1. В блоке **Инструменты** нажмите кнопку **Добавить инструменты**. В открывшемся окне укажите настройки подключения к MCP-серверу:
 
-         * **{{ ui-key.yacloud.yagpt.YaGPT.McpCallToolForm.transport_q3nD6 }}** — **{{ ui-key.yacloud.yagpt.YaGPT.McpCallToolForm.transport_streamable_eV7Rb }}**.
+         * **Транспорт** — **Streamable HTTP**.
 
-         * **{{ ui-key.yacloud.yagpt.YaGPT.McpCallToolForm.url_bUhZ1 }}** — `https://datacatalog-consumer.mcp.cloud.yandex.net/mcp`.
+         * **URL** — `https://datacatalog-consumer.mcp.cloud.yandex.net/mcp`.
 
-         * **Тип авторизации** — `{{ ui-key.yacloud.yagpt.YaGPT.McpCallToolForm.mcp-authorization_header_fdGKe }}`.
+         * **Тип авторизации** — `Токен доступа`.
 
          * В блоке **Заголовок авторизации** укажите в поле **Значение** `Bearer <IAM_токен>`. Для этого получите [IAM-токен](../../iam/concepts/authorization/iam-token.md) для [созданного ранее](#create-sa) сервисного аккаунта, скопируйте его и вставьте в поле.
 
@@ -162,28 +162,28 @@
 
             {% endnote %}
 
-      1. Нажмите кнопку **{{ ui-key.yacloud.yagpt.YaGPT.McpCallToolForm.connect_xY9Zw }}**.
-      1. В открывшемся окне **{{ ui-key.yacloud.yagpt.YaGPT.McpCallToolForm.add-tools_ih6PU }}** выберите все инструменты и нажмите кнопку **{{ ui-key.yacloud.yagpt.YaGPT.McpCallToolForm.add_47STV }}**.
+      1. Нажмите кнопку **Подключиться**.
+      1. В открывшемся окне **Добавление инструментов** выберите все инструменты и нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
 
       1. В блоке **Параметры сервера**:
 
           1. {% include [create-server-console-general-params-ss1](../../_includes/ai-studio/mcp-hub/create-server-console-general-params-ss1.md) %}
           1. {% include [create-server-console-general-params-ss2](../../_includes/ai-studio/mcp-hub/create-server-console-general-params-ss2.md) %}
-          1. В поле **{{ ui-key.yacloud.yagpt.YaGPT.CreateMcpServerForm.access-type_aPzxZ }}** выберите **{{ ui-key.yacloud.yagpt.YaGPT.CreateMcpServerForm.access-type_private_b4gkg }}**.
-          1. В поле **{{ ui-key.yacloud.yagpt.YaGPT.CreateMcpServerForm.service-account_h3ujf }}** выберите сервисный аккаунт, созданный ранее.
+          1. В поле **Доступ** выберите **Приватный**.
+          1. В поле **Сервисный аккаунт** выберите сервисный аккаунт, созданный ранее.
           1. {% include [create-server-console-general-params-ss5](../../_includes/ai-studio/mcp-hub/create-server-console-general-params-ss5.md) %}
       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
-  1. На панели слева выберите ![logo-agent](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.yagpt.YaGPT.agents_2h9Sa }}** и нажмите кнопку **{{ ui-key.yacloud.yagpt.YaGPT.create-agent_1txyW }}**.
+  1. На панели слева выберите ![logo-agent](../../_assets/console-icons/face-robot.svg) **Агенты** и нажмите кнопку **Создать агента**.
   1. Укажите параметры агента:
-     * **{{ ui-key.yacloud.yagpt.YaGPT.name_hTzhB }}** — имя агента.
-     * **{{ ui-key.yacloud.yagpt.YaGPT.Assistant.model_iyopt }}** — языковая модель.
-     * В блоке **{{ ui-key.yacloud.yagpt.YaGPT.agent_instruction_9oe6q }}** выберите готовый шаблон системной инструкции агенту или опишите, как агент должен себя вести и что нужно сделать.
-     * В блоке **{{ ui-key.yacloud.yagpt.YaGPT.AgentForm.tools_title_9yUpx }}**:
-       * Нажмите кнопку **{{ ui-key.yacloud.yagpt.YaGPT.McpCallToolForm.add_47STV }}** и выберите **{{ ui-key.yacloud.yagpt.YaGPT.AgentForm.add-mcp-tool_gqwmZ }}**.
-       * Выберите в списке созданный ранее MCP-сервер и нажмите кнопку **{{ ui-key.yacloud.yagpt.YaGPT.AgentForm.select_dPVTq }}**.
-       * В поле **{{ ui-key.yacloud.yagpt.YaGPT.mcp-tool_all-tools_gZA6P }}** выберите **{{ ui-key.yacloud.yagpt.YaGPT.mcp-tool_require-approval-policy_never_qPvRW }}**.
-       * Нажмите кнопку **{{ ui-key.yacloud.yagpt.YaGPT.AgentForm.save-and-continue_u1Wis }}**.
+     * **{{ ui-key.yacloud.common.name }}** — имя агента.
+     * **Модель** — языковая модель.
+     * В блоке **Инструкция** выберите готовый шаблон системной инструкции агенту или опишите, как агент должен себя вести и что нужно сделать.
+     * В блоке **Инструменты**:
+       * Нажмите кнопку **{{ ui-key.yacloud.common.add }}** и выберите **Добавить MCP**.
+       * Выберите в списке созданный ранее MCP-сервер и нажмите кнопку **Выбрать**.
+       * В поле **Поведение по умолчанию для всех инструментов** выберите **Подтверждение не нужно**.
+       * Нажмите кнопку **Создать и продолжить**.
 
 {% endlist %}
 
@@ -217,7 +217,7 @@
 
 {% note tip %}
 
-Если вы используете агента в {{ ai-studio-name }}, тестируйте диалог в правой панели **{{ ui-key.yacloud.yagpt.YaGPT.AssistantChat.test-assistant-title_6ZNFg }}**.
+Если вы используете агента в {{ ai-studio-name }}, тестируйте диалог в правой панели **Тестирование агента**.
 
 {% endnote %}
 

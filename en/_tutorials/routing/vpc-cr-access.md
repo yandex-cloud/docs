@@ -104,7 +104,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Enter the service account name, e.g., `sa-terraform`.
       1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -142,9 +142,9 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select your service account folder.
-      1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
-      1. Select `sa-terraform` from the account list and click ![image](../../_assets/options.svg) -> ![image](../../_assets/console-icons/pencil.svg)**{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
-      1. In the dialog that opens, click ![image](../../_assets/console-icons/plus.svg)**{{ ui-key.yacloud_components.acl.button.add-role }}** and select the `admin` role.
+      1. Navigate to the ![image](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
+      1. Select `sa-terraform` from the account list and click ![image](../../_assets/options.svg) → ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
+      1. In the dialog that opens, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the `admin` role.
 
    - CLI {#cli}
 
@@ -161,7 +161,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
    {% endlist %}
 
-1. Set up the CLI profile to run operations under the service account:
+1. Set up a CLI profile to run operations under the service account:
 
    {% list tabs group=instructions %}
 
@@ -209,7 +209,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
          * `cloud-id`: [Cloud ID](../../resource-manager/operations/cloud/get-id.md).
          * `folder-id`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
 
-      1. Add your credentials to the environment variables:
+      1. Add the credentials to the environment variables:
          ```
          export YC_TOKEN=$(yc iam create-token)
          ```
@@ -264,7 +264,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    | `trusted_cloud_nets` | Yes | List of the aggregated prefixes of cloud subnets allowed to access {{ container-registry-short-name }}. It is used in the inbound traffic rule for NAT instance security groups.  | `list(string)` | `["10.0.0.0/8", "192.168.0.0/16"]` |
    | `vm_username` | - | NAT instance and test VM username | `string` | `admin` |
    | `cr_ip` | - | {{ container-registry-short-name }} public IP address | `string` | `84.201.171.239` |
-   | `cr_fqdn` | - | {{ container-registry-short-name }} domain name | `string` | `{{registry}}` | 
+   | `cr_fqdn` | - | {{ container-registry-short-name }} domain name | `string` | `{{ registry }}` | 
    | `s3_ip` | - | {{ objstorage-short-name }} public IP address | `string` | `213.180.193.243` |
    | `s3_fqdn` | - | {{ objstorage-short-name }} domain name | `string` | `{{ s3-storage-host }}` |
 
@@ -315,7 +315,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 
 1. In the [management console]({{ link-console-main }}), navigate to the folder with the resources you created.
 
-1. Select **{{ compute-name }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 
 1. Select `test-cr-vm` from the list of VMs.
 
@@ -328,14 +328,14 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 1. Run this command:
 
    ```bash
-   dig {{registry}} {{ s3-storage-host }}
+   dig {{ registry }} {{ s3-storage-host }}
    ```
 
 1. Check the DNS server response and make sure the {{ objstorage-name }} and {{ container-registry-name }} domain names resolve to the IP addresses of the relevant internal load balancers. The command output will show `A`-type resource records as follows:
 
    ```text
    ;; ANSWER SECTION:
-   {{registry}}.               300    IN      A       10.10.1.100
+   {{ registry }}.               300    IN      A       10.10.1.100
 
    ;; ANSWER SECTION:
    {{ s3-storage-host }}. 300    IN      A       10.10.1.200
@@ -366,7 +366,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
    ```text
    REPOSITORY                                   TAG       IMAGE ID       CREATED        SIZE
    golang                                       1.20.5    342*********   8 months ago   777MB
-   {{registry}}/crp1r4h00mj*********/hello-world   demo      9c7*********   9 months ago   13.3kB
+   {{ registry }}/crp1r4h00mj*********/hello-world   demo      9c7*********   9 months ago   13.3kB
    hello-world                                  latest    9c7*********   9 months ago   13.3kB
    ```
 
@@ -379,19 +379,19 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 1. Push the required Docker image to the registry:
 
    ```bash
-   docker push {{registry}}/$REGISTRY_ID/hello-world:demo
+   docker push {{ registry }}/$REGISTRY_ID/hello-world:demo
    ```
 
    Result:
    ```text
-   The push refers to repository [{{registry}}/crp1r4h00mj*********/hello-world]
+   The push refers to repository [{{ registry }}/crp1r4h00mj*********/hello-world]
    01bb4*******: Pushed 
    demo: digest: sha256:7e9b6e7ba284****************** size: 525
    ```
 
 1. In the [management console]({{ link-console-main }}), navigate to the folder with the resources you created.
 
-1. Select **{{ container-registry-name }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
 
 1. Select `test-registry`.
 
@@ -419,7 +419,7 @@ Make sure your cloud has sufficient [quotas](../../overview/concepts/quotas-limi
 - Manually {#manual}
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder with the resources you created.
-    1. Select **{{ container-registry-name }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
     1. Select `test-registry`.
     1. Select the `hello-world` repository.
     1. For each Docker image in the repository, click ![image](../../_assets/console-icons/ellipsis.svg).

@@ -11,11 +11,11 @@ items:
         href: operations/instance/instance-list.md
       - name: Creating and activating an instance
         href: operations/instance/instance-create.md
-      - name: Setting up security groups and access restrictions to an instance
+      - name: Setting up security groups and access restrictions for an instance
         href: operations/configure-security-group.md
       - name: Stopping and starting an instance
         href: operations/instance/instance-stop.md
-      - name: Editing instance settings
+      - name: Updating instance settings
         href: operations/instance/instance-update.md
       - name: Managing backups
         href: operations/instance/instance-backups.md
@@ -27,11 +27,11 @@ items:
         href: operations/instance/clean-up-disk-space.md
       - name: Deleting an instance
         href: operations/instance/instance-delete.md
-      - name: Adding and removing users from a project
+      - name: Creating and adding users to a project
         href: operations/create-user.md
       - name: Setting up approval rules
         href: operations/approval-rules.md
-      - name: Monitoring the instance status
+      - name: Instance state monitoring
         href: operations/instance/monitoring.md
       - name: Setting up OmniAuth
         href: operations/omniauth.md
@@ -43,7 +43,7 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Deploying {{ GLR }} on a {{ compute-full-name }} VM
+      - name: Deploying {{ GLR }} on a {{ compute-full-name }} virtual machine
         href: tutorials/install-gitlab-runner.md
       - name: Secure storage of {{ GL }} CI passwords as {{ lockbox-name }} secrets
         href: tutorials/gitlab-lockbox-integration.md
@@ -69,13 +69,15 @@ items:
         href: tutorials/loadtesting-gitlab-ci.md
       - name: Integration with Argo CD
         href: tutorials/argo-cd.md
+      - name: Managing the MLOps lifecycle with ML Registry
+        href: tutorials/mlops-ml-registry.md
   - name: Concepts
     items:
       - name: Resource relationships
         href: concepts/index.md
       - name: Advantages over a custom {{ GL }} installation
         href: concepts/managed-gitlab-vs-custom-installation.md
-      - name: Running migration from a custom {{ GL }} installation
+      - name: Migration from a custom {{ GL }} installation
         href: concepts/migration.md
       - name: Approval rules
         href: concepts/approval-rules.md
@@ -113,6 +115,28 @@ items:
             href: cli-ref/instance/stop.md
           - name: update
             href: cli-ref/instance/update.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: instance
+            items:
+              - name: Overview
+                href: cli-ref/v0/instance/index.md
+              - name: create
+                href: cli-ref/v0/instance/create.md
+              - name: delete
+                href: cli-ref/v0/instance/delete.md
+              - name: get
+                href: cli-ref/v0/instance/get.md
+              - name: list
+                href: cli-ref/v0/instance/list.md
+              - name: start
+                href: cli-ref/v0/instance/start.md
+              - name: stop
+                href: cli-ref/v0/instance/stop.md
+              - name: update
+                href: cli-ref/v0/instance/update.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference

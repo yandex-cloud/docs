@@ -1,6 +1,6 @@
 ### Ошибка при трансфере из AWS RDS for {{ MY }} {#aws-binlog-time}
 
-В трансферах типа _{{ dt-type-copy-repl}}_ и _{{ dt-type-repl}}_ из источника [Amazon RDS for {{ MY }}](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html) может возникнуть ошибка загрузки таблиц.
+В трансферах типа _{{ dt-type-copy-repl }}_ и _{{ dt-type-repl }}_ из источника [Amazon RDS for {{ MY }}](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_MySQL.html) может возникнуть ошибка загрузки таблиц.
 
 Пример ошибки:
 

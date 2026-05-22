@@ -9,6 +9,7 @@ This section describes issues you may encounter in the service and how to troubl
 
 * [Error when creating a database](#create-db-in-hive)
 * [No permission error when attaching a service account to a cluster](#attach-service-account)
+* [Hive table lock](#lock-tables)
 
 ## Error when creating a database in {{ metastore-full-name }} {#create-db-in-hive}
 
@@ -19,3 +20,7 @@ This section describes issues you may encounter in the service and how to troubl
 {% include notitle [attach-sa-create-update](../../_qa/attach-sa-create-update.md) %}
 
 {% include [metastore-trademark](../../_includes/metadata-hub/metastore-trademark.md) %}
+
+## Hive table lock {#lock-tables}
+
+{% include notitle [lock-tables](../../_qa/metadata-hub/lock-tables.md) %}

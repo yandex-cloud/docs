@@ -11,9 +11,9 @@ The `vpc.securityGroups.admin` role allows you to manage security groups and vie
 * Get a list of [route tables](../../../vpc/concepts/routing.md#rt-vpc) and view information on them.
 * View information on [NAT gateways](../../../vpc/concepts/gateways.md).
 * View information on the IP addresses used in subnets.
-* View information on Virtual Private Cloud [quotas](../../../vpc/concepts/limits.md#vpc-quotas).
-* View information on resource operations for Virtual Private Cloud.
-* View information on resource operations for Compute Cloud.
+* View information on {{ vpc-name }} [quotas](../../../vpc/concepts/limits.md#vpc-quotas).
+* View information on resource operations for {{ vpc-name }}.
+* View information on resource operations for {{ compute-name }}.
 * View information on the relevant [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud).
 * View information on the relevant [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
 

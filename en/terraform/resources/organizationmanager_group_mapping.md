@@ -22,7 +22,12 @@ resource "yandex_organizationmanager_group_mapping" "my_group_map" {
 
 - `enabled` (Bool). Set "true" to enable organization manager group mapping.
 - `federation_id` (**Required**)(String). ID of the SAML Federation.
-- `id` (String).
+- `id` (String). 
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `read` (String). 
+  - `update` (String).
 
 ## Import
 

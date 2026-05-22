@@ -426,8 +426,8 @@ The consumption type goes into the `systag` label.
 | `server_status_admin_wiredTiger.transaction.transaction_checkpoint_most_recent_time_msecs`<br/>`DGAUGE`, ms | Most recent checkpoint creation time | 
 | `server_status_admin_wiredTiger.transaction.transactions_committed_rate`<br/>`DGAUGE`, count | Increase in committed transactions per second | 
 | `server_status_admin_wiredTiger.transaction.transactions_rolled_back_rate`<br/>`DGAUGE`, count | Increase in rolled back transactions per second | 
-| `top_readLock_time_rate`<br/>`DGAUGE`, milliseconds/s | Total read lock retention time per second.<br/>`ns` label: Namespace. |
-| `top_writeLock_time_rate`<br/>`DGAUGE`, milliseconds/s | Total write lock retention time per second.<br/>`ns` label: Namespace. |
+| `top_readLock_time_rate`<br/>`DGAUGE`, microseconds per second | Total read lock retention time per second.<br/>`ns` label: Namespace. |
+| `top_writeLock_time_rate`<br/>`DGAUGE`, microseconds per second | Total write lock retention time per second.<br/>`ns` label: Namespace. |
 
 
 ## Other metrics {#managed-mongodb-other-metrics}

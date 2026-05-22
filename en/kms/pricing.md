@@ -42,7 +42,7 @@ The cost of using {{ kms-name }} is based on:
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-Billing occurs on an hourly basis. The price per month is provided for reference based on 720 hours per month. The value is rounded.
+
 
 
 
@@ -58,6 +58,8 @@ Billing occurs on an hourly basis. The price per month is provided for reference
 
 
 ## Cost calculation examples
+
+In the examples, the price per month is provided for reference based on 720 hours per month.
 
 ### Symmetric encryption {#symmetric}
 

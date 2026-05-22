@@ -14,21 +14,47 @@ editable: false
   "eventTime": "string",
   "authentication": {
     "authenticated": "boolean",
+    // Includes only one of the fields `subjectType`
     "subjectType": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `subjectId`
     "subjectId": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `subjectName`
     "subjectName": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `federationId`
     "federationId": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `federationName`
     "federationName": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `federationType`
     "federationType": "string",
+    // end of the list of possible fields
     "tokenInfo": {
       "maskedIamToken": "string",
+      // Includes only one of the fields `iamTokenId`
       "iamTokenId": "string",
+      // end of the list of possible fields
+      // Includes only one of the fields `impersonatorId`
       "impersonatorId": "string",
+      // end of the list of possible fields
+      // Includes only one of the fields `impersonatorType`
       "impersonatorType": "string",
+      // end of the list of possible fields
+      // Includes only one of the fields `impersonatorName`
       "impersonatorName": "string",
+      // end of the list of possible fields
+      // Includes only one of the fields `impersonatorFederationId`
       "impersonatorFederationId": "string",
+      // end of the list of possible fields
+      // Includes only one of the fields `impersonatorFederationName`
       "impersonatorFederationName": "string",
+      // end of the list of possible fields
+      // Includes only one of the fields `impersonatorFederationType`
       "impersonatorFederationType": "string"
+      // end of the list of possible fields
     }
   },
   "authorization": {
@@ -39,7 +65,9 @@ editable: false
       {
         "resourceType": "string",
         "resourceId": "string",
+        // Includes only one of the fields `resourceName`
         "resourceName": "string"
+        // end of the list of possible fields
       }
     ]
   },
@@ -47,7 +75,9 @@ editable: false
     "remoteAddress": "string",
     "userAgent": "string",
     "requestId": "string",
+    // Includes only one of the fields `remotePort`
     "remotePort": "string"
+    // end of the list of possible fields
   },
   "eventStatus": "string",
   "error": {
@@ -59,20 +89,32 @@ editable: false
   },
   "details": {
     "certificateId": "string",
+    // Includes only one of the fields `certificateName`
     "certificateName": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `certificateType`
     "certificateType": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `certificateStatus`
     "certificateStatus": "string",
+    // end of the list of possible fields
     "domains": [
       "string"
     ],
+    // Includes only one of the fields `serial`
     "serial": "string",
+    // end of the list of possible fields
     "issuedAt": "string",
     "notAfter": "string",
     "notBefore": "string",
     "createdAt": "string",
+    // Includes only one of the fields `description`
     "description": "string",
+    // end of the list of possible fields
     "labels": "object",
+    // Includes only one of the fields `deletionProtection`
     "deletionProtection": "boolean"
+    // end of the list of possible fields
   },
   "requestParameters": "object",
   "response": "object"
@@ -120,16 +162,28 @@ The error result of the operation in case of failure or cancellation. ||
 || authenticated | **boolean** ||
 || subjectType | **enum** (IamSubjectType)
 
+Includes only one of the fields `subjectType`.
+
 - `YANDEX_PASSPORT_USER_ACCOUNT`
 - `SERVICE_ACCOUNT`
 - `FEDERATED_USER_ACCOUNT`
 - `SSH_USER`
 - `KUBERNETES_USER` ||
-|| subjectId | **string** ||
-|| subjectName | **string** ||
-|| federationId | **string** ||
-|| federationName | **string** ||
+|| subjectId | **string**
+
+Includes only one of the fields `subjectId`. ||
+|| subjectName | **string**
+
+Includes only one of the fields `subjectName`. ||
+|| federationId | **string**
+
+Includes only one of the fields `federationId`. ||
+|| federationName | **string**
+
+Includes only one of the fields `federationName`. ||
 || federationType | **enum** (FederationType)
+
+Includes only one of the fields `federationType`.
 
 - `GLOBAL_FEDERATION`
 - `PRIVATE_FEDERATION` ||
@@ -141,19 +195,33 @@ The error result of the operation in case of failure or cancellation. ||
 #|
 ||Field | Description ||
 || maskedIamToken | **string** ||
-|| iamTokenId | **string** ||
-|| impersonatorId | **string** ||
+|| iamTokenId | **string**
+
+Includes only one of the fields `iamTokenId`. ||
+|| impersonatorId | **string**
+
+Includes only one of the fields `impersonatorId`. ||
 || impersonatorType | **enum** (IamSubjectType)
+
+Includes only one of the fields `impersonatorType`.
 
 - `YANDEX_PASSPORT_USER_ACCOUNT`
 - `SERVICE_ACCOUNT`
 - `FEDERATED_USER_ACCOUNT`
 - `SSH_USER`
 - `KUBERNETES_USER` ||
-|| impersonatorName | **string** ||
-|| impersonatorFederationId | **string** ||
-|| impersonatorFederationName | **string** ||
+|| impersonatorName | **string**
+
+Includes only one of the fields `impersonatorName`. ||
+|| impersonatorFederationId | **string**
+
+Includes only one of the fields `impersonatorFederationId`. ||
+|| impersonatorFederationName | **string**
+
+Includes only one of the fields `impersonatorFederationName`. ||
 || impersonatorFederationType | **enum** (FederationType)
+
+Includes only one of the fields `impersonatorFederationType`.
 
 - `GLOBAL_FEDERATION`
 - `PRIVATE_FEDERATION` ||
@@ -179,7 +247,9 @@ The error result of the operation in case of failure or cancellation. ||
 ||Field | Description ||
 || resourceType | **string** ||
 || resourceId | **string** ||
-|| resourceName | **string** ||
+|| resourceName | **string**
+
+Includes only one of the fields `resourceName`. ||
 |#
 
 ## RequestMetadata {#yandex.cloud.audit.RequestMetadata}
@@ -189,7 +259,9 @@ The error result of the operation in case of failure or cancellation. ||
 || remoteAddress | **string** ||
 || userAgent | **string** ||
 || requestId | **string** ||
-|| remotePort | **string** (int64) ||
+|| remotePort | **string** (int64)
+
+Includes only one of the fields `remotePort`. ||
 |#
 
 ## Status {#google.rpc.Status}
@@ -214,11 +286,19 @@ A list of messages that carry the error details. ||
 #|
 ||Field | Description ||
 || certificateId | **string** ||
-|| certificateName | **string** ||
-|| certificateType | **string** ||
-|| certificateStatus | **string** ||
+|| certificateName | **string**
+
+Includes only one of the fields `certificateName`. ||
+|| certificateType | **string**
+
+Includes only one of the fields `certificateType`. ||
+|| certificateStatus | **string**
+
+Includes only one of the fields `certificateStatus`. ||
 || domains[] | **string** ||
-|| serial | **string** ||
+|| serial | **string**
+
+Includes only one of the fields `serial`. ||
 || issuedAt | **string** (date-time)
 
 String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
@@ -251,7 +331,11 @@ String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range
 To work with values in this field, use the APIs described in the
 [Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
 In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
-|| description | **string** ||
+|| description | **string**
+
+Includes only one of the fields `description`. ||
 || labels | **object** (map<**string**, **string**>) ||
-|| deletionProtection | **boolean** ||
+|| deletionProtection | **boolean**
+
+Includes only one of the fields `deletionProtection`. ||
 |#

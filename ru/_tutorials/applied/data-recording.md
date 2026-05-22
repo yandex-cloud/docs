@@ -19,13 +19,13 @@
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
 
+
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входят:
+* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../managed-postgresql/pricing.md)).
+* Реестр {{ iot-name }}: количество отправленных сообщений (см. [тарифы {{ iot-name }}](../../iot-core/pricing.md)).
+* Функции {{ sf-full-name }}: количество вызовов функции, время простоя подготовленных экземпляров и выделенные для выполнения функции вычислительные ресурсы (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md)).
 
-* плата за кластер БД {{ PG }} (см. [тарифы {{ mpg-full-name }}](../../managed-postgresql/pricing.md));
-* плата за обмен сообщениями между ресурсами {{ iot-name }} (см. [тарифы {{ iot-full-name }}](../../iot-core/pricing.md));
-* плата за вызовы функций и вычислительные ресурсы для их выполнения (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md)).
 
 ## Создайте сервисный аккаунт {#create-sa}
 
@@ -118,7 +118,7 @@
     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_name }}** введите `my-pg-database`.
     1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** выберите `PRODUCTION`.
-    1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите `12`.
+    1. В поле **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите `17`.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}**:
         * Укажите платформу `Intel Cascade Lake`.
         * Выберите тип `burstable`.
@@ -262,7 +262,7 @@
     1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-source }}**:
 
         * В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}** выберите `python37`.
-        * В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** оставьте значение по умолчанию: **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}**.
+        * В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** оставьте значение по умолчанию: **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}**.
 
     1. Создайте файл `myfunction.py`.
     1. В области редактирования файла вставьте код функции, размещенный на [Github](https://github.com/yandex-cloud-examples/yc-iot-postgresql/blob/main/myfunction.py).

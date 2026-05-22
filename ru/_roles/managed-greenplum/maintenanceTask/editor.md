@@ -1,0 +1,3 @@
+Роль `managed-greenplum.maintenanceTask.editor` позволяет просматривать информацию о заданиях на [техническое обслуживание](../../../managed-greenplum/concepts/maintenance.md) кластеров {{ mgp-name }} и изменять такие задания, просматривать информацию о [кластерах {{ mgp-name }}](../../../managed-greenplum/concepts/index.md) и назначенных [правах доступа](../../../iam/concepts/access-control/index.md) к ним, о [хостах](../../../managed-greenplum/concepts/instance-types.md) и [резервных копиях](../../../managed-greenplum/concepts/backup.md) кластеров, а также о [квотах](../../../managed-greenplum/concepts/limits.md#quotas) и операциях с ресурсами сервиса {{ mgp-full-name }}.
+
+Включает разрешения, предоставляемые ролью `managed-greenplum.maintenanceTask.viewer`.

@@ -136,7 +136,14 @@ To create a [resource](../../concepts/resource.md):
 
       * Under **{{ ui-key.yacloud.cdn.label_resource-http-headers-http-methods }}**, select **{{ ui-key.yacloud.cdn.label_resource-http-headers-allowed-methods }}** from the drop-down list.
 
+        {% include [post-method](../../../_includes/cdn/http-post-method.md) %}
+
         [Learn more about configuring HTTP methods](configure-http.md).
+
+      * Optionally, under **{{ ui-key.yacloud.cdn.CdnResourceFormWizard.section_wizard-static-response_6DKzY }}**, set up the HTTP response.
+
+          [Learn more about setting up an HTTP response](configure-response.md).
+
   1. Click **Create and continue**.
   1. Optionally, under **Advanced**, do the following:
 

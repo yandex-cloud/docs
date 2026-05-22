@@ -1,0 +1,1 @@
+Use redirects of all requests when you need to automatically forward all bucket requests to another URL or bucket, e.g., when changing your domain. This keeps data available without the need to modify client requests.

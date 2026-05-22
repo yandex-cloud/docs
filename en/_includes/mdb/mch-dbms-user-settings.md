@@ -508,7 +508,7 @@
   * If the value is less than 2, quorum writes are disabled.
   * If the value is greater than or equal to 2, quorum writes are enabled.
 
-  Quorum writes ensure that {{ CH }} writes data error-free to the `Insert quorum` replicas during within a time period not exceeding [Insert quorum timeout](#setting-insert-quorum-timeout) and that data is not lost if one or multiple replicas fail. All replicas in the quorum are consistent, i.e., they contain data from all the previous `INSERT` queries.
+  Quorum writes ensure that {{ CH }} writes data error-free to the `Insert quorum` replicas within a time period not exceeding [Insert quorum timeout](#setting-insert-quorum-timeout) and that data is not lost if one or multiple replicas fail. All replicas in the quorum are consistent, i.e., they contain data from all the previous `INSERT` queries.
 
   You can use the [Select sequential consistency](#setting-select-sequential-consistency) setting to read data written with `Insert quorum`.
 
@@ -615,7 +615,7 @@
 
   The possible values are:
 
-  * `nmap`
+  * `mmap`
   * `pread`
   * `pread_threadpool`
   * `read`
@@ -642,7 +642,7 @@
 
   Enables logging of threads which run queries. Such logs will be saved to the [system.query_thread_log]({{ ch.docs }}/operations/system-tables/query_thread_log) table.
 
-  This setting only applies when the [Query thread log enabled](../../managed-clickhouse/concepts/settings-list.md#setting-query-thread-log-enabled) setting is enabled. This setting is disabled by default.
+  This setting only applies when the [Query thread log enabled](../../managed-clickhouse/concepts/settings-list.md#setting-query-thread-log-enabled) setting is enabled. The setting is disabled by default.
 
   It only applies for some users or queries.
 
@@ -712,7 +712,11 @@
 
 * **Max bytes before external sort**{#setting-max-bytes-before-external-sort} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
-  This setting is similar to the [previous](#setting-max-bytes-before-external-group-by) one, except that it is used for the sorting operation (`ORDER BY`).
+  The amount of RAM you can use for `ORDER BY`. When this value is exceeded, external sorting is used.
+
+  The minimum value is `0`, unlimited. The default value is `0`.
+
+  For more information, see [this {{ CH }} guide](https://clickhouse.com/docs/en/operations/settings/settings#max_bytes_before_external_sort).
 
 * **Max bytes in distinct**{#setting-max-bytes-in-distinct} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -731,6 +735,34 @@
   Maximum amount of uncompressed data, in bytes, occupied by a set created from a subquery in the `IN` section.
 
   The minimum and default value is `0`, i.e., there is no limit.
+
+* **Max bytes ratio before external group by**{#setting-max-bytes-ratio-before-external-group-by} {{ tag-con }} {{ tag-sql }}
+
+  Query memory share available for `GROUP BY`. When this value is exceeded, external memory is used.
+
+  The possible values range from `0` (no limit) to `1`.
+
+  The default value depends on the {{ CH }} version:
+
+  * For versions below `25.1`: `0`.
+  * For versions `25.1` and higher: `0,5`.
+
+  For more information, see [this {{ CH }} guide](https://clickhouse.com/docs/en/operations/settings/settings#max_bytes_ratio_before_external_group_by).
+
+* **Max bytes ratio before external sort**{#setting-max-bytes-ratio-before-external-sort} {{ tag-con }} {{ tag-sql }}
+  
+  Query memory share available for `ORDER BY`.
+
+  This setting, along with the available memory limit set in [Max bytes before external sort](#setting-max-bytes-before-external-sort), restricts in-memory sorting. If the available query memory share is exceeded and the sort block size is greater than **Max bytes before external sort**, external sorting is used.
+
+  The possible values range from `0` (no limit) to `1`.
+
+  The default value depends on the {{ CH }} version:
+
+  * For versions below `25.1`: `0`.
+  * For versions `25.1` and higher: `0,5`.
+
+  For more information, see [this {{ CH }} guide](https://clickhouse.com/docs/en/operations/settings/settings#max_bytes_ratio_before_external_sort).
 
 * **Max bytes to read**{#setting-max-bytes-to-read} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
@@ -856,7 +888,7 @@
 
   For more information, see [this {{ CH }} guide]({{ ch.docs }}/operations/settings/settings#max_parser_depth).
 
-* **Max partitions per insert block**{#setting-partitions-per-insert-block} {{ tag-con }} {{ tag-sql }}
+* **Max partitions per insert block**{#setting-max-partitions-per-insert-block} {{ tag-con }} {{ tag-sql }}
 
   Limits the maximum number of partitions per insert block.
 
@@ -1056,7 +1088,7 @@
 
   It sets the minimum number of structurally identical queries that triggers [compilation](#setting-compile).
 
-  For a value of `0`, compilation is performed in synchronous mode: a query waits for the compilation to finish and then resumes. We recommended setting this value only for testing purposes.
+  For a value of `0`, compilation is performed in synchronous mode: a query waits for the compilation to finish and then resumes. We recommend setting this value only for testing purposes.
 
   For all other values, compilation is performed asynchronously in a separate thread: queries, currently running ones as well, will use the result as soon as it is available.
 
@@ -1066,7 +1098,7 @@
 
   Sets the minimum number of identical expressions that triggers [expression compilation](#setting-compile-expressions).
 
-  For a value of `0`, compilation is performed in synchronous mode: an expression waits for the compilation to finish, then the query resumes. We recommended setting this value only for testing purposes.
+  For a value of `0`, compilation is performed in synchronous mode: an expression waits for the compilation to finish, then the query resumes. We recommend setting this value only for testing purposes.
 
   For all other values, compilation is performed asynchronously in a separate thread: queries, currently running ones as well, will use the result as soon as it is available.
 
@@ -1321,6 +1353,17 @@
 
   By default, no value is set (equivalent to `throw`).
 
+* **Show Data Lake catalogs in system tables**{#setting-show-data-lake-catalogs-in-system_tables} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+  
+  Enables display of Data Lake folders in system tables.
+
+  The default value depends on the {{ CH }} version:
+
+  * For versions below `25.10`: `true`.
+  * For versions `25.10` and higher: `false`.
+
+  For more information, see [this {{ CH }} guide](https://clickhouse.com/docs/en/operations/settings/settings#show_data_lake_catalogs_in_system_tables).
+
 * **Skip unavailable shards**{#setting-skip-unavailable-shards} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
 
   Enables silent skipping of unavailable shards. A shard is considered unavailable if none of its replicas are available.
@@ -1378,6 +1421,17 @@
   This setting is enabled by default.
 
   For more information, see [this {{ CH }} guide](https://clickhouse.com/docs/en/operations/settings/settings#use_hedged_requests).
+
+* **Use hive partitioning**{#setting-use-hive-partitioning} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-sql }}
+
+  If this setting is enabled, {{ CH }} will recognize Hive-style partitioning in `/name=value/` paths for `File/S3/URL/HDFS/AzureBlobStorage` table engines. This enables using partition columns as virtual columns in a query. Virtual columns use the same names as partition columns but prefixed with `_`.
+
+  The default value depends on the {{ CH }} version:
+
+  * For versions below `25.1`: `false`.
+  * For versions `25.1` and higher: `true`.
+
+  For more information, see [this {{ CH }} guide](https://clickhouse.com/docs/en/operations/settings/settings#use_hive_partitioning).
 
 * **Use query cache**{#setting-use-query-cache} {{ tag-con }} {{ tag-cli }} {{ tag-sql }}
 

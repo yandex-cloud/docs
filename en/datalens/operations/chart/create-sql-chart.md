@@ -25,7 +25,7 @@ At each step, you can [undo/redo](../../concepts/chart/settings.md#undo-redo) an
 
 
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
 
 
 1. In the left-hand panel, select ![image](../../../_assets/console-icons/chart-column.svg) **Charts**.
@@ -202,6 +202,10 @@ CASE
     ELSE column IN not_var{{param}}
 END
 ```
+
+## Undoing and redoing changes in charts {#undo-redo}
+
+When editing a QL chart, you can now [undo/redo](../../concepts/chart/settings.md#undo-redo) any change introduced within the current version.
 
 #### See also {#see-also}
 

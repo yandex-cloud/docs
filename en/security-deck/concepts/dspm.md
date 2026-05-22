@@ -1,11 +1,11 @@
 ---
-title: Data Security Posture Management in {{ sd-full-name }}
-description: Data Security Posture Management, or {{ dspm-name }}, is a {{ sd-name }} module that helps you detect sensitive information stored in {{ objstorage-full-name }} buckets for assessment of its security posture impact and compliance with industry standards and regulations.
+title: '{{ dspm-full-name }} in {{ sd-full-name }}'
+description: '{{ dspm-full-name }}, or {{ dspm-name }}, is a {{ sd-name }} module that helps you detect sensitive information stored in {{ objstorage-full-name }} buckets for assessment of its security posture impact and compliance with industry standards and regulations.'
 ---
 
-# Data Security Posture Management ({{ dspm-name }})
+# {{ dspm-full-name }} ({{ dspm-name }})
 
-[Data Security Posture Management]({{ link-sd-main }}dspm/), or {{ dspm-name }}, is a tool that helps quickly detect sensitive information stored in {{ objstorage-full-name }} [buckets](../../storage/concepts/bucket.md) and on {{ yandex-360 }} disks for timely actions to protect it by configuring [access policies](../../storage/concepts/policy.md), anonymizing data, etc.
+[{{ dspm-full-name }}]({{ link-sd-main }}dspm/), or {{ dspm-name }}, is a tool that helps you quickly detect sensitive information stored in {{ objstorage-full-name }} [buckets](../../storage/concepts/bucket.md) and {{ yandex-360 }} disks for timely action to protect it through [access policies](../../storage/concepts/policy.md), anonymization, etc.
 
 {% note info %}
 
@@ -13,6 +13,11 @@ The {{ yandex-360 }} disk scanning feature is at the [Preview](../../overview/co
 
 {% endnote %}
 
+## Data analysis {#discovery-mode}
+
+{% include [analysis-preview-mode](../../_includes/security-deck/analysis-preview-mode.md) %}
+
+{% include [about-discovery](../../_includes/security-deck/about-discovery.md) %}
 
 ## Scanning for sensitive information {#scanning}
 

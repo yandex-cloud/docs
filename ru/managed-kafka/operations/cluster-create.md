@@ -1,6 +1,7 @@
 # Создание кластера {{ KF }}
 
 
+
 [Кластер {{ mkf-name }}](../concepts/index.md) — один или несколько [хостов-брокеров](../concepts/brokers.md), на которых размещены [топики и соответствующие топикам разделы](../concepts/topics.md). [Производители и потребители](../concepts/producers-consumers.md) могут работать с этими топиками, подключившись к хостам [кластера](../../glossary/cluster.md) {{ mkf-name }}.
 
 {% note info %}
@@ -66,27 +67,31 @@
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
      1. Выберите одну или несколько зон доступности, в которых нужно разместить хосты-брокеры {{ KF }}.
 
+        
         {% include notitle [note-warning](../../_includes/mdb/mkf/create-cluster.md#note-warning) %}
+
 
      1. Выберите [сеть](../../vpc/concepts/network.md#network).
      1. Выберите [подсети](../../vpc/concepts/network.md#subnet) в каждой зоне доступности для этой сети. Чтобы [создать новую подсеть](../../vpc/operations/subnet-create.md), нажмите на кнопку **{{ ui-key.yacloud.common.create }}** рядом с нужной зоной доступности.
 
+        
         {% note info %}
 
-        Для кластера {{ KF }}, в котором несколько хостов-брокеров, укажите подсети в каждой зоне доступности, даже если вы планируете разместить хосты-брокеры только в некоторых из них. Эти подсети понадобятся для размещения трех [хостов {{ ZK }}](../concepts/index.md) — по одному в каждой зоне доступности. Подробнее см. в разделе [Взаимосвязь ресурсов сервиса](../concepts/index.md).
+        Для кластера {{ KF }}, в котором несколько хостов-брокеров, укажите подсети в каждой зоне доступности, даже если вы планируете разместить хосты-брокеры только в некоторых из них. Эти подсети понадобятся для размещения трех [хостов {{ ZK }}](../concepts/index.md) — по одному в каждой зоне доступности. Подробнее в разделе [{#T}](../concepts/index.md).
 
         {% endnote %}
 
+
      1. Выберите [группы безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера {{ mkf-name }}.
-     1. Для доступа к хостам-брокерам из интернета выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. В этом случае подключаться к ним можно только с использованием SSL-соединения. Подробнее см. в разделе [Подключение к топикам в кластере](connect/clients.md).
+     1. Для доступа к хостам-брокерам из интернета выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. В этом случае подключаться к ним можно только с использованием SSL-соединения. Подробнее в разделе [{#T}](connect/clients.md).
 
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}**:
      1. Укажите количество хостов-брокеров {{ KF }} для размещения в каждой выбранной зоне доступности.
 
-        При выборе количества хостов учтите следующие особенности:
-        * Добавление в кластер более одного хоста приведет к автоматическому добавлению трех хостов {{ ZK }}.
-        * Репликация возможна при наличии как минимум двух хостов в кластере {{ mkf-name }}.
+        При выборе количества хостов-брокеров учтите следующие особенности:
+        * Добавление в кластер более одного хоста-брокера приведет к автоматическому добавлению трех хостов {{ ZK }}.
+        * Репликация возможна при наличии как минимум двух хостов-брокеров в кластере {{ mkf-name }}.
         * Для высокой доступности кластера {{ mkf-name }} должны выполняться [определенные условия](../concepts/ha-cluster.md).
     
      1. В качестве сервиса координации выберите **{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-zookeeper_pN7ub }}**.
@@ -258,7 +263,7 @@
        {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
 
      
-     * `disk_encryption_key_id` — шифрование диска [пользовательским ключом KMS](../../kms/concepts/key.md). Чтобы зашифровать диск, передайте идентификатор ключа KMS. Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+     * `disk_encryption_key_id` — шифрование диска [пользовательским ключом KMS](../../kms/concepts/key.md). Чтобы зашифровать диск, передайте идентификатор ключа KMS. Подробнее о шифровании дисков в разделе [{#T}](../concepts/storage.md#disk-encryption).
      * `assign_public_ip` — публичный доступ к кластеру: `true` или `false`.
 
 
@@ -302,7 +307,7 @@
 
      После этого в указанном каталоге будут созданы все требуемые ресурсы, а в терминале отобразятся [FQDN хостов кластера {{ mkf-name }}](../concepts/network.md#hostname). Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
+  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
@@ -467,7 +472,7 @@
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
             
             
-            * `diskEncryptionKeyId` — идентификатор [пользовательского ключа KMS](../../kms/concepts/key.md). Чтобы зашифровать диски, передайте идентификатор ключа KMS. Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+            * `diskEncryptionKeyId` — идентификатор [пользовательского ключа KMS](../../kms/concepts/key.md). Чтобы зашифровать диски, передайте идентификатор ключа KMS. Подробнее о шифровании дисков в разделе [{#T}](../concepts/storage.md#disk-encryption).
 
               {% note warning %}
                   
@@ -663,7 +668,7 @@
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
             
             
-            * `disk_encryption_key_id` — идентификатор [пользовательского ключа KMS](../../kms/concepts/key.md). Чтобы зашифровать диски, передайте идентификатор ключа KMS. Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+            * `disk_encryption_key_id` — идентификатор [пользовательского ключа KMS](../../kms/concepts/key.md). Чтобы зашифровать диски, передайте идентификатор ключа KMS. Подробнее о шифровании дисков в разделе [{#T}](../concepts/storage.md#disk-encryption).
 
               {% note warning %}
                   
@@ -732,20 +737,24 @@
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
      1. Выберите одну или несколько зон доступности, в которых нужно разместить хосты-брокеры {{ KF }}.
-        
+
+                
         {% include notitle [note-warning](../../_includes/mdb/mkf/create-cluster.md#note-warning) %}
+
 
      1. Выберите [сеть](../../vpc/concepts/network.md#network).
      1. Выберите [подсети](../../vpc/concepts/network.md#subnet) в каждой зоне доступности для этой сети. Чтобы [создать новую подсеть](../../vpc/operations/subnet-create.md), нажмите на кнопку **{{ ui-key.yacloud.common.create }}** рядом с нужной зоной доступности.
 
+        
         {% note info %}
 
-        Для кластера {{ KF }}, в котором несколько хостов-брокеров, укажите подсети в каждой зоне доступности, даже если вы планируете разместить хосты-брокеры только в некоторых из них. Эти подсети понадобятся для размещения трех [хостов {{ kraft-short-name }}](../concepts/index.md) — по одному в каждой зоне доступности. Подробнее см. в разделе [Взаимосвязь ресурсов сервиса](../concepts/index.md).
+        Для кластера {{ KF }}, в котором несколько хостов-брокеров, укажите подсети в каждой зоне доступности, даже если вы планируете разместить хосты-брокеры только в некоторых из них. Эти подсети понадобятся для размещения трех [хостов {{ kraft-short-name }}](../concepts/index.md) — по одному в каждой зоне доступности. Подробнее в разделе [{#T}](../concepts/index.md).
 
         {% endnote %}
 
+
      1. Выберите [группы безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера {{ mkf-name }}.
-     1. Для доступа к хостам-брокерам из интернета выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. В этом случае подключаться к ним можно только с использованием SSL-соединения. Подробнее см. в разделе [Подключение к топикам в кластере](connect/clients.md).
+     1. Для доступа к хостам-брокерам из интернета выберите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**. В этом случае подключаться к ним можно только с использованием SSL-соединения. Подробнее в разделе [{#T}](connect/clients.md).
 
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}**:
@@ -763,9 +772,12 @@
         
         * **{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-combined-mode_c1zke }}** — на одном хосте {{ KF }} одновременно размещаются брокер и контроллер метаданных {{ kraft-short-name }}.
 
+
+          
           Можно создать кластер только в одной или в трех [зонах доступности](../../overview/concepts/geo-scope.md):
             * Одна зона доступности — три хоста-брокера.
             * Три зоны доступности — один хост-брокер в каждой зоне доступности.
+
 
           Задать количество хостов-брокеров вручную нельзя.
 
@@ -823,11 +835,14 @@
          {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
     
      * `--zone-ids` и `--brokers-count` — зоны доступности и число хостов-брокеров в каждой зоне. 
-     
+
+            
        Если вы создаете кластер с [{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-combined-mode_c1zke }}](../concepts/kraft.md#cluster-topology), укажите одну из доступных конфигураций:
 
        * `--zone-ids={{ region-id }}-a,{{ region-id }}-b,{{ region-id }}-d --brokers-count=1` — три зоны доступности, один хост-брокер в каждой зоне;
        * `--zone-ids=<одна_зона_доступности> --brokers-count=3` — одна зона доступности, три хоста-брокера.
+
+
 
      * `--resource-preset` — [класс хостов](../concepts/instance-types.md).
      * `--disk-type` — [тип диска](../concepts/storage.md).
@@ -936,10 +951,13 @@
      * `version` — версия {{ KF }}. Указывайте версию 3.6 и выше.
      * `zones` и `brokers_count` — зоны доступности и число хостов-брокеров в каждой зоне.
 
+       
        Если вы создаете кластер с [{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-combined-mode_c1zke }}](../concepts/kraft.md#cluster-topology), укажите одну из доступных конфигураций:
 
        * `zones = ["{{ region-id }}-a","{{ region-id }}-b","{{ region-id }}-d"] brokers_count = 1` — три зоны доступности, один хост-брокер в каждой зоне;
        * `zones = ["<одна_зона_доступности>"] brokers_count = 3` — одна зона доступности, три хоста-брокера.
+
+
 
      * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
@@ -989,7 +1007,7 @@
 
      После этого в указанном каталоге будут созданы все требуемые ресурсы, а в терминале отобразятся [FQDN хостов кластера {{ mkf-name }}](../concepts/network.md#hostname). Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
+  Подробнее в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_kafka_cluster).
 
   {% include [Terraform timeouts](../../_includes/mdb/mkf/terraform/cluster-timeouts.md) %}
 
@@ -1122,10 +1140,13 @@
 
                 * `zoneId` и `brokersCount` – зоны доступности и число хостов-брокеров в каждой зоне.
 
+                  
                   Если вы создаете кластер с [{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-combined-mode_c1zke }}](../concepts/kraft.md#cluster-topology), укажите одну из доступных конфигураций:
 
                   * `"zoneId": ["{{ region-id }}-a","{{ region-id }}-b","{{ region-id }}-d"], "brokersCount": "1"` — три зоны доступности, один хост-брокер в каждой зоне;
                   * `"zoneId": ["<одна_зона_доступности>"], "brokersCount": "3"` — одна зона доступности, три хоста-брокера.
+
+
 
                 
                 * `assignPublicIp` — доступность хостов-брокеров из интернета: `true` или `false`.
@@ -1162,7 +1183,7 @@
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
             
             
-            * `diskEncryptionKeyId` — идентификатор [пользовательского ключа KMS](../../kms/concepts/key.md). Чтобы зашифровать диски, передайте идентификатор ключа KMS. Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+            * `diskEncryptionKeyId` — идентификатор [пользовательского ключа KMS](../../kms/concepts/key.md). Чтобы зашифровать диски, передайте идентификатор ключа KMS. Подробнее о шифровании дисков в разделе [{#T}](../concepts/storage.md#disk-encryption).
 
               {% note warning %}
                   
@@ -1325,10 +1346,13 @@
 
                 * `zone_id` и `brokers_count` – зоны доступности и число хостов-брокеров в каждой зоне (число передается в виде объекта с полем `value`).
 
+                  
                   Если вы создаете кластер с [{{ ui-key.yacloud.kafka.FormSections.value_coordination-service-type-kraft-combined-mode_c1zke }}](../concepts/kraft.md#cluster-topology), укажите одну из доступных конфигураций:
 
                   * `"zone_id": ["{{ region-id }}-a","{{ region-id }}-b","{{ region-id }}-d"], "brokers_count": {"value":"1"}` — три зоны доступности, один хост-брокер в каждой зоне;
                   * `"zone_id": ["<одна_зона_доступности>"], "brokers_count": {"value":"3"}` — одна зона доступности, три хоста-брокера.
+
+
 
                 
                 * `assign_public_ip` — доступность хостов-брокеров из интернета: `true` или `false`.
@@ -1365,7 +1389,7 @@
                 {% include notitle [deletion-protection](../../_includes/mdb/mkf/create-cluster.md#protect-from-deletion) %}
             
             
-            * `disk_encryption_key_id` — идентификатор [пользовательского ключа KMS](../../kms/concepts/key.md). Чтобы зашифровать диски, передайте идентификатор ключа KMS. Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+            * `disk_encryption_key_id` — идентификатор [пользовательского ключа KMS](../../kms/concepts/key.md). Чтобы зашифровать диски, передайте идентификатор ключа KMS. Подробнее о шифровании дисков в разделе [{#T}](../concepts/storage.md#disk-encryption).
 
               {% note warning %}
                   
@@ -1589,6 +1613,7 @@
 
 {% endlist %}
 
+
 ### Создание кластера с {{ kraft-short-name }} в комбинированном режиме {#kafka-kraft}
 
 В примере используется [конфигурация](../concepts/kraft.md#cluster-topology) с тремя зонами доступности и одним брокером в каждой зоне.
@@ -1747,6 +1772,8 @@
 
 {% endlist %}  
 
+
+
 ### Создание кластера с {{ kraft-short-name }} на отдельных хостах (многохостовый кластер) {#kafka-kraft-mh}
 
 {% list tabs group=instructions %}
@@ -1904,6 +1931,8 @@
 
 {% endlist %}
 
+
+
 ### Создание кластера с {{ ZK }} на отдельных хостах (многохостовый кластер) {#kafka-zk-mh}
 
 {% list tabs group=instructions %}
@@ -2060,3 +2089,4 @@
 
 
 {% endlist %}  
+

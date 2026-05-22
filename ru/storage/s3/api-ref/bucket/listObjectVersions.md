@@ -1,4 +1,4 @@
-# Метод listObjectVersions
+# Object Storage API, REST совместимый с Amazon S3: ListObjectVersions
 
 Возвращает метаданные обо всех версиях объектов в бакете.
 Также можно использовать параметры запроса в качестве критерия выбора для возврата метаданных о подмножестве версий объекта.
@@ -108,5 +108,13 @@ GET /{bucket}?versions&delimiter=Delimiter&encoding-type=EncodingType&key-marker
 `Prefix` | Значение query параметра `prefix`.<br/><br/>Путь: `/ListBucketResult/Prefix`.
 `Version` | Версия объекта.<br/><br/>Путь: `/ListBucketResult/Version`.
 `VersionIdMarker` | Отмечает последнюю версию ключа, возвращенную в усеченном ответе. <br/><br/>Путь: `/ListBucketResult/VersionIdMarker`.
+
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/bucket.md)
+
+* [{#T}](../../../../storage/concepts/object-lock.md)
+
+* [{#T}](../../../operations/objects/restore-object-version.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

@@ -5,7 +5,7 @@
 
 To allow multiple users to manage the infrastructure, you can [automatically upload {{ TF }} states and store them in {{ objstorage-full-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md).
 
-When multiple users simultaneously try to access one and the same state from {{ objstorage-name }}, this may lead to conflicts. To prevent such conflicts, you can deploy a database in [{{ ydb-full-name }}](../../ydb/) and use it to implement {{ TF }}'s native state locking mechanism. Every time you use {{ TF }} to update the infrastructure, the state will be automatically locked until the update is applied.
+When multiple users try to access the same state uploaded to {{ objstorage-name }} at the same time, conflicts may occur. To prevent such conflicts, you can deploy a database in [{{ ydb-full-name }}](../../ydb/) and use it to implement {{ TF }}'s native state locking mechanism. Every time you use {{ TF }} to update the infrastructure, the state will be automatically locked until the update is applied.
 
 To set up storing {{ TF }} states in {{ objstorage-name }} and locking them with {{ ydb-name }}:
 1. [Get your cloud ready](#before-you-begin).
@@ -14,7 +14,7 @@ To set up storing {{ TF }} states in {{ objstorage-name }} and locking them with
 1. [Create a {{ ydb-name }} database](#db-create).
 1. [Install and configure {{ TF }}](#prepare-terraform).
 1. [Configure your backend](#set-up-backend).
-1. [Deploy the configuration](#deploy).
+1. [Deploy your configuration](#deploy).
 1. [Check the saved state](#check-condition).
 1. [Check whether the state is locked](#check-state-lock).
 
@@ -27,7 +27,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 The infrastructure support cost for {{ TF }} states includes:
-* Fees for data storage (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-storage)).
+* Fee for data storage (see [{{ objstorage-name }} pricing](../../storage/pricing.md#prices-storage)).
 * Fee for running queries against the database (see [{{ ydb-name }} pricing](../../ydb/pricing/serverless.md)).
 
 The cost of support for the sample infrastructure deployed through {{ TF }} in this tutorial includes:
@@ -56,7 +56,7 @@ If you deploy resources from other {{ yandex-cloud }} services, the cost will ch
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where the database is located.
-  1. From the list of services, select **{{ ydb-name }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. From the DB list, select `state-lock-db`.
   1. Go the **Navigation** tab.
   1. In the top-right corner, click **Create** and select **Table**.
@@ -109,29 +109,37 @@ The following backend settings apply in {{ TF }} `1.6.3` and higher.
 
 {% endnote %}
 
+{% note warning %}
+
+Starting with {{ TF }} `1.11`, state locking via the [Document API](../../ydb/docapi/api-ref/) is deprecated and will be removed in a future minor version. If you are on {{ TF }} version `1.11` or higher, refer to the official [{{ TF }} guides](https://developer.hashicorp.com/terraform/language/backend/s3) for updates.
+
+For [OpenTofu](https://opentofu.org/) users, both locking mechanisms are supported with no plans for removal.    
+
+{% endnote %}   
+
 To save the {{ TF }} state in {{ objstorage-name }} and enable state locking:
 1. Add the key ID and secret key [you got earlier](#create-service-account) to environment variables:
 
    {% list tabs group=programming_language %}
-
+   
    - Bash {#bash}
-
-     ```bash
-     export ACCESS_KEY="<key_ID>"
-     export SECRET_KEY="<secret_key>"
-     ```
-
+   
+       ```bash
+       export AWS_ACCESS_KEY="<key_ID>"
+       export AWS_SECRET_KEY="<secret_key>"
+       ```
+   
    - PowerShell {#powershell}
-
-    ```powershell
-    $Env:AWS_ACCESS_KEY_ID="<key_ID>"
-    $Env:AWS_SECRET_ACCESS_KEY="<secret_key>"
-    ```
-
-   {% endlist %}
+   
+       ```powershell
+       $Env:AWS_ACCESS_KEY="<key_ID>"
+       $Env:AWS_SECRET_KEY="<secret_key>"
+       ```
+   {% endlist %}  
 
 1. Add the provider and backend settings to the configuration file:
 
+   
    ```hcl
    terraform {
      required_providers {
@@ -139,7 +147,7 @@ To save the {{ TF }} state in {{ objstorage-name }} and enable state locking:
          source = "yandex-cloud/yandex"
        }
      }
-     required_version = ">= 0.13"
+     required_version = ">= 1.6.3"
 
      backend "s3" {
        endpoints = {
@@ -163,6 +171,8 @@ To save the {{ TF }} state in {{ objstorage-name }} and enable state locking:
      zone = "<default_availability_zone>"
    }
    ```
+
+
 
    Where:
    * `bucket`: [Bucket](../../storage/concepts/bucket.md) name.

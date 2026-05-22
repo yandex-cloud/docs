@@ -1,4 +1,7 @@
 ---
+title: Руководство по записи данных с устройства в базу данных
+description: В этом руководстве вы организуете запись информации с устройства в базу данных на примере {{ mpg-full-name }}.
+noIndex: true
 canonical: '{{ link-docs }}/tutorials/iot/data-recording'
 ---
 

@@ -105,6 +105,8 @@ Local disks are not available for all users by default.
 - `metadata_options` [Block]. Options allow user to configure access to instance's metadata.
   - `aws_v1_http_endpoint` (Number). 
   - `aws_v1_http_token` (Number). 
+  - `aws_v2_http_endpoint` (Number). 
+  - `aws_v2_http_token` (Number). 
   - `gce_http_endpoint` (Number). 
   - `gce_http_token` (Number). 
 - `network_interface` [Block]. Networks to attach to the instance. This can be specified multiple times.
@@ -172,6 +174,10 @@ The [`allow_stopping_for_update`](#allow_stopping_for_update) property must be s
   - `device_name` (String). Name that can be used to access an attached disk under `/dev/disk/by-id/`.
   - `disk_id` (**Required**)(String). ID of the disk that is attached to the instance.
   - `mode` (String). Type of access to the disk resource. By default, a disk is attached in `READ_WRITE` mode.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `update` (String).
 
 ## Import
 

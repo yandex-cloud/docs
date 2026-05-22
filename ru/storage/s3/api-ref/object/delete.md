@@ -1,4 +1,4 @@
-# Метод delete
+# Object Storage API, REST совместимый с Amazon S3: DeleteObject
 
 Удаляет объект.
 
@@ -43,5 +43,11 @@ DELETE /{bucket}/{key} HTTP/2
 ### Коды ответов {#response-codes}
 
 Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
+
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/object.md)
+
+* [{#T}](../../../operations/objects/delete.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

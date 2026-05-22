@@ -13,7 +13,7 @@ When designing your infrastructure in {{ yandex-cloud }}, plan for the maximum l
 
 ## Why quotas are needed {#quotas}
 
-Quotas serve as a soft constraint for requesting resources and allow you to manage cloud service usage: with quotas, new users cannot take up too much resources for testing purposes.
+Quotas serve as a soft constraint for requesting resources and allow you to manage cloud service usage: with quotas, new users cannot take up too many resources for testing purposes.
 
 If ready to use more resources, you can increase your quotas in the following ways:
 
@@ -51,6 +51,11 @@ For each quota, the table provides an ID you can use to manage quotas via {{ quo
 {% include [certificate-manager-limits.md](../../_includes/certificate-manager/certificate-manager-limits.md) %}
 
 
+### {{ ai-studio-full-name }} {#ai-studio}
+
+{% include [yandexgpt-limits](../../_includes/yandexgpt-limits.md) %}
+
+
 ### {{ backup-full-name }} {#backup}
 
 {% include [backup-limits.md](../../_includes/backup-limits.md) %}
@@ -79,11 +84,6 @@ For each quota, the table provides an ID you can use to manage quotas via {{ quo
 ### {{ dns-full-name }} {#dns}
 
 {% include [limits](../../_includes/cloud-dns-limits.md) %}
-
-
-### {{ foundation-models-full-name }} {#foundation-models}
-
-{% include [yandexgpt-limits](../../_includes/yandexgpt-limits.md) %}
 
 
 ### {{ sf-full-name }} {#sf}
@@ -244,6 +244,10 @@ The computing resources consumed by [agents](../../load-testing/concepts/agent.m
 
 {% include [mpg-limits.md](../../_includes/mdb/mpg-limits.md) %}
 
+### {{ mspqr-full-name}} {#mspqr}
+
+{% include [managed-spqr-limits.md](../../_includes/managed-spqr/limits.md) %}
+
 
 ### {{ mtr-full-name }} {#mtr}
 
@@ -291,6 +295,9 @@ There are no limits for {{ metadata-hub-full-name }}.
 
 {% include [monitoring-limits.md](../../_includes/monitoring/monitoring-limits.md) %}
 
+### {{ monium-name }} {#monium}
+
+{% include [monium-limits.md](../../_includes/monium/monium-limits.md) %}
 
 ### {{ network-load-balancer-full-name }} {#load-balancer}
 
@@ -346,7 +353,7 @@ There are no limits for {{ metadata-hub-full-name }}.
 
 #### Quotas {#ca-quotas}
 
-{% include [ca-limits](../../_includes/ca-limits.md) %}
+{{ ca-full-name }} quotas depend on the service plan you are on. For more information, see [{{ ca-name }} service plans]({{ link-src-docs }}/sourcecraft/pricing#ca-plans).
 
 
 ### {{ speechkit-full-name }} {#speechkit}

@@ -3,7 +3,7 @@ title: Метод copyPart. {{ objstorage-name }} API (S3)
 description: Метод copyPart в {{ objstorage-name }} API (S3) копирует часть объекта. Имеет такую же функциональность, как и Метод uploadPart, только данные передаются не в теле запроса, а копируются из существующего объекта.
 ---
 
-# Метод copyPart
+# Object Storage API, REST совместимый с Amazon S3: UploadPartCopy
 
 Копирует часть объекта.
 
@@ -90,5 +90,11 @@ PUT /{bucket}/{key}?partNumber=PartNumber&uploadId=UploadId HTTP/2
 `CopyObjectResult` | Содержит элементы ответа.<br/><br/>Путь: `/CopyObjectResult`.
 `ETag` | `ETag` результирующей части составной загрузки.<br/><br/>Путь: `/CopyObjectResult/ETag`.
 `LastModified` | Дата последнего изменения части составной загрузки.<br/><br/>Путь: `/CopyObjectResult/LastModified`.
+
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/multipart.md)
+
+* [{#T}](../../../operations/objects/copy.md#copy-single-object)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

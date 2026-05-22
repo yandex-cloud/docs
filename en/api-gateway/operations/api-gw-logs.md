@@ -1,6 +1,6 @@
 ---
 title: Viewing the execution log in {{ api-gw-full-name }}
-description: You can view the execution log in {{ api-gw-full-name }} using the management console. To do this, select {{ api-gw-name }}, then select the API gateway for which you want to view the execution log. In the window that opens, go to **Logs** and specify the time period. The default time period is one hour. The execution log uses UTC time.
+description: You can view the execution log in {{ api-gw-full-name }} using the management console. To do this, select {{ api-gw-name }}, then select the API gateway for which you want to view the execution log. Go to the Logs section and specify the time period. The default time period is one hour. The execution log uses UTC time.
 ---
 
 # Viewing the execution log in {{ api-gw-name }}
@@ -14,7 +14,7 @@ The execution log uses [UTC time](https://en.wikipedia.org/wiki/Coordinated_Univ
     1. In the [management console]({{ link-console-main }}), navigate to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the API gateway.
     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Select the API gateway for which you want to view the execution log.
-    1. In the window that opens, go to **{{ ui-key.yacloud.common.logs }}** and specify the time period. The default time period is one hour.
+    1. Go to the **{{ ui-key.yacloud.common.logs }}** tab and specify a time period. The default time period is one hour.
 
 {% endlist %}
 

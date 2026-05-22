@@ -57,7 +57,8 @@
 
 ## Настройте {{ GL }} {#confgure-gitlab}
 
-1. На странице сервиса {{ compute-name }} выберите созданную ВМ `gitlab` и скопируйте ее публичный IP-адрес.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ compute-name }}**.
+1. Выберите созданную ВМ `gitlab` и скопируйте ее публичный IP-адрес.
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ по протоколу SSH.
 1. Получите пароль администратора {{ GL }} с помощью команды ВМ:
 
@@ -285,6 +286,6 @@
 Чтобы перестать платить за развернутый сервер, достаточно удалить созданную ВМ `gitlab`.
 
 Если вы зарезервировали статический публичный IP-адрес специально для этой ВМ:
-1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** в вашем каталоге.
-1. Перейдите на вкладку **{{ ui-key.yacloud.vpc.switch_addresses }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** из вашего каталога.
+1. Откройте вкладку **{{ ui-key.yacloud.vpc.switch_addresses }}**.
 1. Найдите нужный адрес, нажмите значок ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите пункт **{{ ui-key.yacloud.common.delete }}**.

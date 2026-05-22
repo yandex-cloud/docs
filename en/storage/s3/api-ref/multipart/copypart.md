@@ -3,9 +3,9 @@ title: copyPart method. {{ objstorage-name }} API (S3)
 description: The copyPart method in the {{ objstorage-name }} API (S3) copies a part of an object. This method works much the same as the uploadPart method, except that it copies data from an existing object rather than providing it in the request body.
 ---
 
-# copyPart method
+# Object Storage API, Amazon S3-compatible REST: UploadPartCopy
 
-Copies a part of an object.
+Copies part of an object.
 
 This method works much the same as [{#T}](uploadpart.md), except that it copies data from an existing object rather than providing it in the request body.
 
@@ -24,7 +24,7 @@ Parameter | Description
 `bucket` | Name of the bucket.
 `key` | Key of the target object, which is the ID the object is saved with in {{ objstorage-name }}.
 
-### Request parameters {#request-parameters}
+### Query parameters {#request-parameters}
 
 Parameter | Description
 ----- | -----
@@ -40,7 +40,7 @@ The `Content-Length` header is required. The headers listed in the table below a
 
 Header | Description
 --- | ---
-`X-Amz-Copy-Source` | Name of the bucket and the object key whose data will be copied, separated by `/`.<br/><br/>Here is an example: `X-Amz-Copy-Source: /source_bucket/sourceObject`.
+`X-Amz-Copy-Source` | Name of the bucket and key of the object whose data will be copied, separated by `/`.<br/><br/>Here is an example: `X-Amz-Copy-Source: /source_bucket/sourceObject`.
 `X-Amz-Copy-Source-Range` | Byte range to copy from the source object. For example, if you specify `X-Amz-Copy-Source-Range:bytes=10-36`, then {{ objstorage-name }} will copy the 10th to the 36th bytes of the source object.
 
 The `Content-MD5` header is required if [default object locks](../../../concepts/object-lock.md#default) are configured in the bucket.
@@ -88,7 +88,13 @@ Error | Description | HTTP code
 Element | Description
 ----- | -----
 `CopyObjectResult` | Contains response elements.<br/><br/>Path: `/CopyObjectResult`.
-`ETag` | `ETag` of the uploaded part of a multipart upload.<br/><br/>Path: `/CopyObjectResult/ETag`.
-`LastModified` | Date when a part of a multipart upload was last modified.<br/><br/>Path: `/CopyObjectResult/LastModified`.
+`ETag` | `ETag` of the resulting part of a multipart upload.<br/><br/>Path: `/CopyObjectResult/ETag`.
+`LastModified` | Date the part of a multipart upload was last modified.<br/><br/>Path: `/CopyObjectResult/LastModified`.
+
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/multipart.md)
+
+* [{#T}](../../../operations/objects/copy.md#copy-single-object)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

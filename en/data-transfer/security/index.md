@@ -26,7 +26,7 @@ To use the service, log in to the management console with your [Yandex account](
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](../../_assets/data-transfer/security/service-roles-hierarchy.svg)
+{% include [data-transfer](../../_mermaid/roles/data-transfer.md) %}
 
 ### Service roles {#service-roles}
 

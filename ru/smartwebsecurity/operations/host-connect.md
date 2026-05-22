@@ -5,18 +5,20 @@ description: Следуя данной инструкции, вы сможете
 
 # Подключить профиль безопасности к ресурсу
 
+Подключите профиль безопасности к виртуальному хосту, домену или API-шлюзу, чтобы защитить ресурс с помощью {{ sws-name }}.
+
 ## Подключить к виртуальному хосту {#host}
 
-Способ подключения профиля безопасности зависит от того, кто управляет балансировщиком [{{ alb-full-name }}](../../application-load-balancer/concepts/index.md):
+Способ подключения зависит от способа управления балансировщиком [{{ alb-full-name }}](../../application-load-balancer/concepts/index.md):
 
-* Если балансировщик управляется вами, то используйте интерфейсы {{ yandex-cloud }}.
+* Если балансировщик управляется вами, используйте интерфейсы {{ yandex-cloud }}.
 * Если балансировщик управляется [контроллером](../../application-load-balancer/tools/index.md), используйте аннотацию.
 
     {% note warning %}
 
-    Аннотация — единственный способ подключения профиля безопасности для Ingress-контроллера.
+    Для Ingress-контроллера подключайте профиль безопасности только через аннотацию.
 
-    Если вы подключите профиль через интерфейсы {{ yandex-cloud }} и затем обновите ресурс Ingress, из-за отсутствия аннотации Ingress-контроллер отключит поддержку профиля безопасности.
+    Если подключить профиль через интерфейсы {{ yandex-cloud }}, а затем обновить ресурс Ingress, профиль безопасности отключится из‑за отсутствия аннотации.
 
     {% endnote %}
 
@@ -28,20 +30,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужный [профиль безопасности](../concepts/profiles.md).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
-  1. Выберите профиль безопасности, который вы хотите подключить к [виртуальному хосту](../../application-load-balancer/concepts/http-router.md#virtual-host) сервиса [{{ alb-full-name }}](../../application-load-balancer/).
-  1. Нажмите кнопку ![plug](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}** и в открывшемся окне выберите:
-      * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_balancer }}**](../../application-load-balancer/concepts/application-load-balancer.md).
-      * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_http-router }}**](../../application-load-balancer/concepts/http-router.md).
-
-      * **{{ ui-key.yacloud.smart-web-security.attach-dialog.label_virtual-host }}**. Вы можете подключить профиль безопасности сразу к нескольким хостам.
-
-        Чтобы подключить профиль к еще одному L7-балансировщику, нажмите кнопку **{{ ui-key.yacloud.smart-web-security.AttachSecurityProfileDialog.label_add-resource_v4U3g }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**. Если выбранные хосты уже подключены к другому профилю безопасности, подтвердите подключение.
-
-      В разделе ![cubes-3-overlap](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.common.connected_resources }}** появятся подключенные виртуальные хосты.
+  {% include [host-connect](../../_includes/smartwebsecurity/security-profile-host-connect.md) %}
 
 - CLI {#cli}
 
@@ -193,11 +182,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужный [профиль безопасности](../concepts/profiles.md).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. Выберите раздел **Защита доменов** → **Домены**.
-  1. Выберите домен. 
-  1. Нажмите **Подключить профиль безопасности** и выберите профиль.
+   {% include [domain-connect](../../_includes/smartwebsecurity/security-profile-domain-connect.md) %}
 
 {% endlist %}
 
@@ -207,13 +192,7 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится нужный [профиль безопасности](../concepts/profiles.md).
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. На панели слева выберите ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
-  1. Скопируйте идентификатор нужного профиля.
-  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
-  1. При создании API-шлюза или в спецификации уже созданного API-шлюза задайте расширение [x-yc-apigateway:smartWebSecurity](../../api-gateway/concepts/extensions/sws.md).
-  1. Укажите в расширении скопированный идентификатор.
+  {% include [api-gateway-connect](../../_includes/smartwebsecurity/security-profile-api-gateway-connect.md) %}
 
 {% endlist %}
 

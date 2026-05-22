@@ -27,8 +27,6 @@ editable: false
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
-Цены за месяц использования формируются из расчета 720 часов в месяц.
-
 ### Использование вычислительных ресурсов {#use-resources}
 
 Стоимость выделенных вычислительных ресурсов рассчитывается за время использования рабочих столов, начиная с перехода в статус `CREATING` (при создании) или `STARTING` (при запуске) и до полной остановки. Время, которое рабочие столы были выключены, не тарифицируется.
@@ -47,7 +45,6 @@ editable: false
 <MDX>
   <PriceList
     serviceIds={['{{ pcs|cloud_desktop }}']}
-    excludeSkuIds={['{{ pc|cloud_desktop.image.v1 }}']}
     installationCode="ru"
     currency="RUB"
   />

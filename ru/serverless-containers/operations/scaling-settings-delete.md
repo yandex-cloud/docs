@@ -13,48 +13,58 @@ description: Следуя данной инструкции, вы сможете
     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
     1. Выберите контейнер.
     1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-containers.label_editor }}**.
-    1. В блоке **{{ ui-key.yacloud.serverless-containers.section_parameters }}** укажите количество подготовленных экземпляров равным `0`.
+    1. В блоке **{{ ui-key.yacloud.serverless-containers.section_parameters }}** укажите:
+       * **{{ ui-key.yacloud.serverless-containers.label_min-instances }}** — `0`.
+       * **{{ ui-key.yacloud.serverless-containers.label_zone-instances-limit }}** — `0`.
+       * **{{ ui-key.yacloud.serverless-containers.label_zone-requests-limit }}** — `0`.
     1. Нажмите кнопку **{{ ui-key.yacloud.serverless-containers.button_deploy-revision }}**.
 
 - CLI {#cli}
 
-    Чтобы удалить настройки масштабирования для контейнера, создайте новую ревизию контейнера и укажите параметр `min-instances` равным `0`:
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    Чтобы удалить настройки масштабирования, создайте новую ревизию контейнера, не указывая настройки масштабирования:
 
     ```bash
     yc serverless container revision deploy \
-	  --container-id <идентификатор_контейнера> \
-	  --image <URL_Docker-образа> \
-	  --cores 1 \
-	  --memory 1GB \
-	  --execution-timeout 3s \
-	  --service-account-id <идентификатор_сервисного_аккаунта> \
-	  --min-instances 0
+      --container-id <идентификатор_контейнера> \
+      --image <URL_Docker-образа> \
+      --service-account-id <идентификатор_сервисного_аккаунта>
     ```
 
     Где:
     * `--container-id` — идентификатор контейнера. Чтобы узнать идентификатор, [получите](list.md) список контейнеров.
-    * `--cores` — количество ядер, которые доступны контейнеру.
-    * `--memory` — требуемая память. По умолчанию — 128 МБ.
-    * `--execution-timeout` — таймаут. По умолчанию — 3 секунды.
+    * `--image` — URL [Docker-образа](../../container-registry/concepts/docker-image.md).
     * `--service-account-id` — [идентификатор сервисного аккаунта](../../iam/operations/sa/get-id.md), у которого есть права на скачивание образа.
-    * `--min-instances` — количество подготовленных экземпляров.
 
     Результат:
 
-    ```text
-    id: bbajn5q2d74c********
-	container_id: bba3fva6ka5g********
-	created_at: "2021-07-09T15:04:55.135Z"
-	image:
-	  image_url: {{ registry }}/crpd3cicopk7********/test-container:latest
-	  image_digest: sha256:de8e1dce7ceceeafaae122f7670084a1119c961cd9ea1795eae92bd********
-	resources:
-	  memory: "1073741824"
-	  cores: "1"
-	execution_timeout: 3s
-	service_account_id: ajeqnasj95o7********
-	status: ACTIVE
     ```
+    done (2s)
+    id: bbam2cv903iv********
+    container_id: bbab5i36nvda********
+    created_at: "2026-04-01T13:31:11.459Z"
+    image:
+      image_url: cr.yandex/crpp35hht729********/ubuntu:hello
+      image_digest: sha256:f6f34c6cf5f56e594e9828274592f1cc4d9383b1689057ccaf188d41********
+    resources:
+      memory: "134217728"
+      cores: "1"
+      core_fraction: "100"
+    execution_timeout: 3s
+    concurrency: "1"
+    service_account_id: aje07l4q4vmo********
+    status: ACTIVE
+    log_options:
+      folder_id: b1gc1t4cb638********
+    runtime:
+      http: {}
+    metadata_options: {}
+    ```
+
+    Более подробную информацию о команде смотрите в [справочнике CLI](../../cli/cli-ref/serverless/cli-ref/container/revision/deploy.md).
 
 - API {#api}
 

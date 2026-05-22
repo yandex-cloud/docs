@@ -88,6 +88,7 @@ You can use [tools](../../tools/index.md) that support {{ objstorage-name }} and
 
   {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
 
+
   To create an object in an existing bucket:
 
   1. In the configuration file, describe the resources you want to create:
@@ -135,9 +136,9 @@ You can use [tools](../../tools/index.md) that support {{ objstorage-name }} and
 
      * `source`: Relative or absolute path to the file you need to upload to the bucket.
 
-     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_object).
+      For more information about the `yandex_storage_object` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_object).
 
-1. Create the resources:
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -146,6 +147,8 @@ You can use [tools](../../tools/index.md) that support {{ objstorage-name }} and
 - API {#api}
 
   To upload an object, use the [upload](../../s3/api-ref/object/upload.md) S3 API method.
+
+  For more information, see [{#T}](../../s3/s3-api-quickstart.md).
 
 {% endlist %}
 
@@ -399,7 +402,7 @@ You can use [conditions](../../concepts/object.md#conditional-writes) when uploa
       * `--endpoint-url`: {{ objstorage-name }} endpoint.
       * `--body`: Path to the file you need to upload to the bucket, e.g., `./my-folder/my-file.txt`.
       * `--bucket`: Name of your bucket.
-      * `--key`: [Key](../../concepts/object.md#key) by which to store the object in the bucket. For example: `my-folder/my-file.txt`.
+      * `--key`: [Key](../../concepts/object.md#key) by which to store the object in the bucket, e.g., `my-folder/my-file.txt`.
       * `--if-match`: Current object `ETag`, e.g., `\"d41d8cd98f00b204e9800998********\"`. The write will only be performed if an object already exists for the specified key and its current `ETag` matches.
 
 - API {#api}
@@ -433,7 +436,7 @@ You can use [conditions](../../concepts/object.md#conditional-writes) when uploa
       * `--endpoint-url`: {{ objstorage-name }} endpoint.
       * `--body`: Path to the file you need to upload to the bucket, e.g., `./my-folder/my-file.txt`.
       * `--bucket`: Name of your bucket.
-      * `--key`: [Key](../../concepts/object.md#key) by which to store the object in the bucket. For example: `my-folder/my-file.txt`.
+      * `--key`: [Key](../../concepts/object.md#key) by which to store the object in the bucket, e.g., `my-folder/my-file.txt`.
       * `--if-none-match`: Type `"*"` to perform the write only if there is no object with the specified key yet.
 
 - API {#api}

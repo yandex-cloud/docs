@@ -12,13 +12,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* Fee for a {{ GP }} cluster, which includes the use of computing resources allocated to hosts as well as disk storage (see [{{ GP }} pricing](../../../managed-greenplum/pricing/index.md)).
-* Fee for a NAT gateway (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* Fee for an {{ objstorage-name }} bucket, which includes data storage and data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)). 
-* Fee for a VM, which includes using its computing resources, storage, and, optionally, public IP address (see [{{ compute-name }} pricing](../../../compute/pricing.md)).
-* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* {{ mgp-name }} cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ mgp-name }} pricing](../../../managed-greenplum/pricing/index.md)).
+* NAT gateway: hourly use of the gateway and its outgoing traffic (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
+* {{ objstorage-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+* VM instance, which includes the use of computing resources, storage, public IP address, and OS (see [{{ compute-full-name }} pricing](../../../compute/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -34,8 +32,6 @@ Set up your infrastructure:
     
     1. In the cluster subnet, [set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) and [create a security group](../../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
 
-
-    
     1. [Create a virtual machine on Linux](../../../compute/operations/vm-create/create-linux-vm.md) in the same cloud network as the {{ GP }} cluster.
 
 
@@ -47,6 +43,7 @@ Set up your infrastructure:
 
     
     1. [Create a static access key](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the service account.
+
 
 
 - {{ TF }} {#tf}
@@ -107,7 +104,6 @@ Set up your infrastructure:
 
         The command saves to a file named `static-key.txt` the static key ID and the static key you are going to need later.
 
-    
     1. Go to the [management console]({{ link-console-main }}) and [set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) for the subnet hosting your cluster.
 
 
@@ -231,8 +227,10 @@ Some resources are not free of charge. Delete the resources you no longer need t
     1. [Delete the cloud network](../../../vpc/operations/network-delete.md).
 
 
+
 - {{ TF }} {#tf}
 
     {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
+
 
 {% endlist %}

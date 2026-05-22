@@ -71,7 +71,7 @@ To configure the AWS CLI:
      
      {% endnote %}
 
-{% cut "Sample configuration files" %}
+{% cut "Example of configuration files" %}
 
 * `~/.aws/config`:
 
@@ -144,9 +144,9 @@ To create a [mobile endpoint](../concepts/index.md#mobile-endpoints), run the fo
 {% endlist %}
 
 Where:
-* `--target-arn`: Mobile endpoint ID (ARN)
-* `--message-structure`: Message format
-* `--message`: Message
+* `--target-arn`: Mobile endpoint ID (ARN).
+* `--message-structure`: Message format.
+* `--message`: Message.
 
 ### Silent notifications (Silent Push) {#silent-push}
 
@@ -158,11 +158,27 @@ aws sns publish \
 ```
 
 Where:
-* `--target-arn`: Mobile endpoint ID (ARN)
-* `--message-structure`: Message format
-* `--message`: Message
+* `--target-arn`: Mobile endpoint ID (ARN).
+* `--message-structure`: Message format.
+* `--message`: Message.
 
 For more information about the `aws sns publish` command, see the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sns/publish.html).
+
+## Examples {#examples}
+
+### Sending SMS {#sms-sending}
+
+```bash
+aws sns publish \
+  --phone-number "<recipient_phone_number>" \
+  --message "<notification_text>" \
+  --message-attributes '{"AWS.SNS.SMS.SenderID": {"DataType": "String", "StringValue": "<sender's_text_name>"} }'
+```
+
+Where:
+* `--phone-number`: Russian phone number in [E.164](https://en.wikipedia.org/wiki/E.164) format.
+* `--message`: SMS text.
+* `--message-attributes`: SMS attributes, where `AWS.SNS.SMS.SenderID.StringValue` is the sender's text name.
 
 ## See also {#see-also}
 

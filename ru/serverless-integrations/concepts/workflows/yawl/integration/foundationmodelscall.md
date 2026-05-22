@@ -5,7 +5,7 @@ description: В статье описаны поля для интеграцио
 
 # FoundationModelsCall
 
-Интеграция с [{{ foundation-models-full-name }}]({{ link-docs-ai }}ai-studio/).
+Интеграция с [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/).
 
 Поля `generate`, `classify`, `fewShotClassify` и `vision` — взаимоисключающие, можно использовать только одно из них.
 
@@ -16,6 +16,7 @@ description: В статье описаны поля для интеграцио
 `classify` | [FoundationModelsClassify](#FoundationModelsClassify) | Нет | Нет | Нет | Конфигурация действия `classify` — дообученной классификации.
 `fewShotClassify` | [FoundationModelsFewShotClassify](#FoundationModelsFewShotClassify) | Нет | Нет | Нет | Конфигурация действия `fewShotClassify` — классификации по промпту.
 `vision` | [FoundationModelsVision](#FoundationModelsVision) | Нет | Нет | Нет | Конфигурация действия `vision` — работы с изображениями.
+`dataLoggingEnabled` | `boolean` | Нет | `true` | Нет | Включение логирования запросов. Если `false`, логирование отключено. Подробнее в [документации {{ ai-studio-name }}]({{ link-docs-ai }}ai-studio/operations/disable-logging).
 
 ## Объект FoundationModelsGenerate {#FoundationModelsGenerate}
 

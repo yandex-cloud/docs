@@ -11,6 +11,8 @@ Authorized keys are created for [service accounts](../../concepts/users/service-
 
 ## Creating an authorized key {#create-authorized-key}
 
+{% include [access-control-sa-authkey-notice](../../../_includes/iam/access-control-sa-authkey-notice.md) %}
+
 To create a service account authorized key:
 
 {% list tabs group=instructions %}
@@ -110,7 +112,7 @@ To create a service account authorized key:
            * `secret_id`: ID of the {{ lockbox-full-name }} secret to save the private part of the authorized key value to. The secret must be [custom](../../../lockbox/concepts/secret.md#secret-type).
            * `entry_for_secret_key`: Secret key to assign to the private part of the authorized key value you are saving.
 
-       To learn more about resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_key).
+       For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_key).
 
     1. Make sure the configuration files are correct.
 

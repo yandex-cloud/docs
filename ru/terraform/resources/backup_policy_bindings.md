@@ -115,6 +115,11 @@ resource "yandex_backup_policy_bindings" "test_backup_binding" {
 - `instance_id` (**Required**)(String). Compute Cloud instance ID.
 - `policy_id` (**Required**)(String). Backup Policy ID.
 - `processing` (*Read-Only*) (Bool). Flag that specifies whether the policy is in the process of binding to an instance.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `read` (String). 
+  - `update` (String).
 
 ## Import
 

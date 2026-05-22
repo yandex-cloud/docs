@@ -1,5 +1,8 @@
 # Посмотреть операции с ресурсами сервиса {{ load-testing-name }}
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 Все действия с ресурсами сервиса {{ load-testing-name }} сохраняются в виде списка операций. Каждой операции присваивается уникальный идентификатор.
 
 ## Получить список операций {#get-operations}
@@ -9,7 +12,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) откройте каталог, в котором вы хотите посмотреть операции.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
   1. На панели слева выберите ![image](../../_assets/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}**.
 
   В открывшемся списке также отображаются операции для ресурсов, которые были удалены.

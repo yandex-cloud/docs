@@ -41,14 +41,12 @@ When installing an [NGINX Ingress controller](https://kubernetes.github.io/ingre
       ```
 
    
-   {% note tip %}
-
    You can also install an NGINX Ingress controller [using {{ marketplace-full-name }}](../alb-ref/nginx-gwin-migration.md).
-
-   {% endnote %}
 
 
 ## External network load balancer {#external}
+
+{% include [note-nlb](../../_includes/managed-kubernetes/note-nlb.md) %}
 
 To create a network load balancer, the service account attached to your {{ managed-k8s-name }} cluster must have the `load-balancer.admin` role.
 
@@ -72,6 +70,8 @@ You can watch the status by running 'kubectl --namespace default get services -o
 ```
 
 ## Internal network load balancer {#internal}
+
+{% include [note-nlb](../../_includes/managed-kubernetes/note-nlb.md) %}
 
 To create a network load balancer, the service account attached to your {{ managed-k8s-name }} cluster must have the `load-balancer.admin` role.
 

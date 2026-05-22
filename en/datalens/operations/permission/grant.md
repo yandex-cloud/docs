@@ -12,7 +12,10 @@ Before assigning access permissions to a user, [add](../../security/add-new-user
 
 1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the object and select **Permissions**.
 1. In the window that opens, click the button to set up permissions to the respective object: connection, dataset, chart, or dashboard.
+
+
 1. Enter a username or select the **All** group.
+
 
 
    {% include [datalens-workbooks-collections-access-note](../../../_includes/datalens/operations/datalens-workbooks-collections-access-note.md) %}
@@ -38,7 +41,11 @@ Only a user with `{{ permission-admin }}` access to linked objects can assign ac
    - Folder
 
      1. In the window that opens, click **Folder access**.
+
+     
      1. Enter a username or select the **All** group.
+
+
      1. (Optional) Write a comment for the user you are granting permissions to.
      1. Specify the appropriate permissions and click **Add**.
 
@@ -47,13 +54,17 @@ Only a user with `{{ permission-admin }}` access to linked objects can assign ac
    - Folder and content
 
      1. In the window that opens, click **Folder and content access**.
+
+     
      1. Enter a username or select the **All** group.
+
+
      1. (Optional) Write a comment for the user you are granting permissions to.
      1. Specify the appropriate permissions and click **Apply**.
 
         The selected user or group is granted the specified access permissions to the current folder and all nested objects, including connections, datasets, and other folders and files.
 
-        {% include [folder-access-note](../../../_includes/datalens/datalens-folder-access-note.md) %}
+        A user with the `{{ permission-admin }}` access permission for the parent folder can grant access to the folder and its nested objects.
 
    {% endlist %}
 
@@ -80,5 +91,5 @@ To update folder or object permissions:
    {% include [nav-filter-note](../../../_includes/datalens/datalens-nav-filter-note.md) %}
 
 1. Click ![image](../../../_assets/console-icons/ellipsis.svg) next to the object or folder and select **Permissions**.
-1. Select the user with the permission you want to update or choose the **All** group.
+1. Select the user with the access permission you want to update, or select the **All** group.
 1. In the window that opens, specify the appropriate permissions and click **Save**.

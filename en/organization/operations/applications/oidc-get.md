@@ -1,6 +1,6 @@
 ---
 title: How to get information about an OIDC app in {{ org-full-name }}
-description: Follow this guide to get information about an OIDC app in {{ org-name }}.
+description: Follow this guide to get information about an OIDC app in {{ org-full-name }}.
 ---
 
 # Getting information about an OIDC app in {{ org-full-name }}
@@ -49,8 +49,6 @@ description: Follow this guide to get information about an OIDC app in {{ org-na
      updated_at: "2025-10-22T11:53:21.689383Z"
      ```
 
-- API {#api}
-
 - {{ TF }} {#tf}
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
@@ -84,7 +82,7 @@ description: Follow this guide to get information about an OIDC app in {{ org-na
      * `output`: Output variables containing the app info:
        * `value`: Return value.
 
-     You can replace these parameters with any others to get the information you need. For more information about the `yandex_organizationmanager_idp_application_oauth_application` data source properties, see [this {{ TF }} provider article]({{ tf-provider-datasources-link }}/organizationmanager_idp_application_oauth_application).
+     You can replace these parameters with any others to get the information you need. For more information about the `yandex_organizationmanager_idp_application_oauth_application` data source properties, see [this {{ TF }} provider guide]({{ tf-provider-datasources-link }}/organizationmanager_idp_application_oauth_application).
 
   1. Create the resources:
 

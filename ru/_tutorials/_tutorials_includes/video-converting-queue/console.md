@@ -126,7 +126,7 @@
      1. Укажите следующие параметры:
 
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_runtime }}** — `python312`.
-        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** — способ загрузки `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-storage }}`.
+        * **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** — способ загрузки `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-storage }}`.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_bucket }}** — имя созданного ранее бакета.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_object }}** — `src.zip`.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** — `index.handle_process_event`.

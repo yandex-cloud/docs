@@ -1,4 +1,4 @@
-To view the list of access policies assigned for a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud):
+To view the list of [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) access policies:
 
 {% list tabs group=instructions %}
 
@@ -6,7 +6,7 @@ To view the list of access policies assigned for a [cloud](../../resource-manage
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  Run the command, specifying the name or [ID](../../resource-manager/operations/cloud/get-id.md) of the cloud for which you want to view the assigned policies:
+  Run the command, specifying the name or [ID](../../resource-manager/operations/cloud/get-id.md) of the cloud for which you want to view the created policies:
 
   ```bash
   yc resource-manager cloud list-access-policy-bindings <cloud_name_or_ID>

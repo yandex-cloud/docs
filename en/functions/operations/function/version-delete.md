@@ -7,7 +7,7 @@ description: Follow this guide to delete a function version.
 
 {% note info %}
 
-You cannot delete a function version if it has any [tags](../../concepts/function.md#tag). [Remove the tags](tag-delete.md) before deleting a function version.
+You cannot delete a function version if it has any [tags](../../concepts/function.md#tag). [Delete tags](tag-delete.md) before deleting a function version.
 
 {% endnote %}
 

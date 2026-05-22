@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-greenplum/cli-ref/cluster/create
 editable: false
 ---
 
@@ -100,7 +101,7 @@ ID of the service account used for access Yandex Cloud resources. ||
 || `--yandexquery-access` | Allow access for Yandex Query. ||
 || `--greenplum-version` | `string`
 
-Version of Greenplum used in the cluster. Values: 6.28 ||
+Version of Greenplum used in the cluster. Values specific version or "default" ||
 || `--zone-id` | `string`
 
 ID of the availability zone where the host resides. ||

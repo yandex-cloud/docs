@@ -5,12 +5,6 @@ description: In this tutorial, you will learn how to utilize Neuroanalyst when c
 
 # Neuroanalyst for creating calculated fields
 
-{% note info %}
-
-This feature is at the Beta testing stage.
-
-{% endnote %}
-
 Neuroanalyst streamlines the creation and editing of calculated fields. It is available in the calculated field constructor at the chart and dataset levels. You can use it to:
 
 * Quickly write a new formula.

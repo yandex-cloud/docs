@@ -96,9 +96,11 @@ output "network_id" {
       - `port` (Number). Port of jdbc bridge. Default value: 9019.
     - `kafka` [Block]. Kafka connection configuration.
       - `auto_offset_reset` (String). Action when no initial offset: 'smallest','earliest','largest','latest','error'.
+      - `batch_size` (Number). Maximum size (in bytes) of all messages batched in one MessageSet, including protocol framing overhead.
       - `debug` (String). A comma-separated list of debug contexts to enable.
       - `enable_ssl_certificate_verification` (Bool). Enable verification of SSL certificates.
       - `max_poll_interval_ms` (Number). Maximum allowed time between calls to consume messages. If exceeded, consumer is considered failed.
+      - `message_max_bytes` (Number). Maximum Kafka protocol request message size.
       - `sasl_mechanism` (String). SASL mechanism used in kafka authentication.
       - `sasl_password` (String). User password on kafka server.
       - `sasl_username` (String). Username on kafka server.
@@ -234,6 +236,9 @@ output "network_id" {
 - `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
 - `name` (**Required**)(String). Name of the ClickHouse cluster. Provided by the client when the cluster is created.
 - `network_id` (**Required**)(String). The `VPC Network ID` of subnets which resource attached to.
+- `performance_diagnostics` [Block]. Performance diagnostics configuration
+  - `enabled` (Bool). Enabled performance diagnostics.
+  - `processes_refresh_interval` (String). Refresh interval for performance diagnostics data. Specify the value duration format, for example `"15s"`, `"1m0s"`, or `"1h0m0s"`.
 - `security_group_ids` (Set Of String). The list of security groups applied to resource or their components.
 - `service_account_id` (String). [Service account](https://yandex.cloud/docs/iam/concepts/users/service-accounts) which linked to the resource.
 - `shards` [Block]. A shards of the ClickHouse cluster.
@@ -248,6 +253,10 @@ output "network_id" {
   - `weight` (Number). The weight of shard.
 - `sql_database_management` (Bool). Grants `admin` user database management permission.
 - `sql_user_management` (Bool). Enables `admin` user with user management permission.
+- `timeouts` [Block]. 
+  - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+  - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+  - `update` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 - `version` (String). Version of the ClickHouse server software.
 - `zookeeper` [Block]. Configuration of the ZooKeeper subcluster.
   - `disk_size_autoscaling` [Block]. Cluster disk size autoscaling settings.
@@ -258,6 +267,9 @@ output "network_id" {
     - `disk_size` (Number). Volume of the storage available to a host, in gigabytes.
     - `disk_type_id` (String). Type of the storage of hosts. For more information see [the official documentation](https://yandex.cloud/docs/managed-clickhouse/concepts/storage).
     - `resource_preset_id` (String). The ID of the preset for computational resources available to a host (CPU, memory etc.). For more information, see [the official documentation](https://yandex.cloud/docs/managed-clickhouse/concepts).
+- `extension` [Block]. A set of cluster extensions.
+  - `name` (**Required**)(String). The name of the extension.
+  - `version` (String). Version of the extension.
 - `format_schema` [Block]. A set of `protobuf` or `capnproto` format schemas.
   - `name` (**Required**)(String). The name of the format schema.
   - `type` (**Required**)(String). Type of the format schema.

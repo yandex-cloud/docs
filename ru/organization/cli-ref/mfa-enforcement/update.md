@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/mfa-enforcement/update
 editable: false
 ---
 
@@ -16,10 +17,11 @@ Syntax:
 
 #|
 ||Flag | Description ||
-|| `--acr-id` | `string`
+|| `--acr-id` | `any-mfa`
 
 Supported values:
- any-mfa - any MFA factors
+any-mfa - any MFA factors
+`any-except-sms` - any MFA factors except SMS
 phr - phishing-resistant MFA factors ||
 || `--ttl` | `duration`
 

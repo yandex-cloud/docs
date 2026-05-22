@@ -152,7 +152,7 @@ For a Let's Encrypt® certificate, pass an [ownership check](../../certificate-m
    - Manually {#manual}
 
       1. In the [management console]({{ link-console-main }}), select the folder to upload an object to.
-      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+      1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
       1. Click the bucket name.
       1. Click **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
       1. In the window that opens, select the required files and click **Open**.
@@ -206,7 +206,7 @@ For a Let's Encrypt® certificate, pass an [ownership check](../../certificate-m
       --origin source=<Thumbor_IP_address>,enabled=true
    ```
 
-   Example of the result:
+   Result example:
 
    ```text
    id: "123***"

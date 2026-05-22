@@ -115,12 +115,12 @@ You can create a row-oriented table or a [document table](../concepts/dynamodb-t
 
         {% endnote %}
 
-     * **{{ ui-key.yacloud.ydb.table.form.column_not-null}}**. Specify whether the column may contain a `NULL` value.
-     <!-- * **{{ ui-key.yacloud.ydb.table.form.column_default}}**. Specify a default value for the column. -->
+     * **{{ ui-key.yacloud.ydb.table.form.column_not-null }}**. Specify whether the column may contain a `NULL` value.
+     <!-- * **{{ ui-key.yacloud.ydb.table.form.column_default }}**. Specify a default value for the column. -->
   1. Configure the table TTL parameters:
-     * **{{ ui-key.yacloud.ydb.table.form.field_ttl-column}}**. Select the column whose value will be used to calculate the lifetime of rows.
-     * **{{ ui-key.yacloud.ydb.table.form.field_ttl-lifetime}}**. Specify the lifetime of table rows.
-     * **{{ ui-key.yacloud.ydb.table.form.field_ttl-unit}}**. Select the measurement unit for the table row lifetime you specified.
+     * **{{ ui-key.yacloud.ydb.table.form.field_ttl-column }}**. Select the column whose value will be used to calculate the lifetime of rows.
+     * **{{ ui-key.yacloud.ydb.table.form.field_ttl-lifetime }}**. Specify the lifetime of table rows.
+     * **{{ ui-key.yacloud.ydb.table.form.field_ttl-unit }}**. Select the measurement unit for the table row lifetime you specified.
   1. Configure partitioning:
      * **{{ ui-key.yacloud.ydb.table.form.field_partition-key }}**: Specify the column to split the table by.
      * **{{ ui-key.yacloud.ydb.table.form.field_partition-count }}**: Specify the number of partitions for the table.
@@ -214,9 +214,9 @@ To edit row-oriented tables, you can also use the [`ALTER TABLE`]({{ ydb.docs }}
             * Column data **{{ ui-key.yacloud.ydb.table.form.column_type }}**. Regardless of the data type, each column may contain a `NULL` value.
         -  To delete non-key columns from the table, click ![image](../../_assets/cross.svg) in the relevant row. You cannot delete columns that make up a primary key.
         -  Configure the table TTL parameters:
-            * **{{ ui-key.yacloud.ydb.table.form.field_ttl-column}}**. Select the column whose value will be used to calculate the lifetime of rows.
-            * **{{ ui-key.yacloud.ydb.table.form.field_ttl-lifetime}}**. Specify the lifetime of table rows.
-            * **{{ ui-key.yacloud.ydb.table.form.field_ttl-unit}}**. Select the measurement unit for the table row lifetime you specified.
+            * **{{ ui-key.yacloud.ydb.table.form.field_ttl-column }}**. Select the column whose value will be used to calculate the lifetime of rows.
+            * **{{ ui-key.yacloud.ydb.table.form.field_ttl-lifetime }}**. Specify the lifetime of table rows.
+            * **{{ ui-key.yacloud.ydb.table.form.field_ttl-unit }}**. Select the measurement unit for the table row lifetime you specified.
 
    1. Click **{{ ui-key.yacloud.ydb.table.edit.button_update }}**.
 

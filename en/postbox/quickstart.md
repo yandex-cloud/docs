@@ -12,11 +12,6 @@ Use this guide to create your address and send a verification email.
 1. Create a key for the service account:
    * To send an email using the AWS CLI, [create](../iam/operations/authentication/manage-access-keys.md#create-access-key) a static access key. Save the ID and secret key to a secure location. You will not be able to view the secret key parameters again after you close the window.
    * To send an email via SMTP, [create](../iam/operations/authentication/manage-api-keys.md#create-api-key) an API key. When creating an API key, set the scope for `yc.postbox.send`. Save the secret key you got in a secure location. You will not be able to view the secret key parameters again after you close the window.
-1. Generate a key to create a DKIM signature:
-
-    ```
-    openssl genrsa -out privatekey.pem 2048
-    ```
 
 ## Create an address {#create-address}
 
@@ -28,23 +23,27 @@ Use this guide to create your address and send a verification email.
     1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
     1. Click **{{ ui-key.yacloud.postbox.button_create-identity }}**.
     1. Specify the **{{ ui-key.yacloud.postbox.label_address }}** from which you will be sending emails. You can use a domain of any level.
-    1. Specify **{{ ui-key.yacloud.postbox.label_selector }}**: `postbox`.
-
-        {% note info %}
-
-        You can specify a selector other than `postbox`. You should only use the specified selector in a single resource record: the one you create at the [Pass domain ownership verification](#verify-domain) step.
-
-        {% endnote %}
-
-    1. Copy the contents of the `privatekey.pem` file you [created earlier](#service-account-and-keys) and paste it into the **{{ ui-key.yacloud.postbox.label_private-key }}** field.
+    1. Under **{{ ui-key.yacloud.postbox.section_dkim }}**, select **{{ ui-key.yacloud.postbox.label_signing-type-internal }}**.
     1. Optionally, [configure logging](operations/logs-write.md).
     1. Click **{{ ui-key.yacloud.postbox.button_create-identity }}**.
 
 {% endlist %}
 
-## Pass domain ownership verification {#verify-domain}
+## Pass a domain ownership check {#verify-domain}
 
-{% include [check-domain](../_includes/postbox/check-domain.md) %}
+{% include [check-domain-intro](../_includes/postbox/check-domain-intro.md) %}
+
+**Example of creating resource records in {{ dns-full-name }}**
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+    {% include [check-domain-simple](../_includes/postbox/check-domain-simple.md) %}
+
+    DNS server responses are cached, so you may experience delays when updating resource records. If the verification status does not change within 24 hours, click **{{ ui-key.yacloud.postbox.button_run-verification }}**.
+
+{% endlist %}
 
 ## Send a verification email {#send-test-email}
 

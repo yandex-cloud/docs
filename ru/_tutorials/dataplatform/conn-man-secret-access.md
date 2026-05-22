@@ -1,6 +1,6 @@
 # Настройка прав доступа к секрету, созданному {{ connection-manager-full-name }}, для пользователя {{ mpg-full-name }}
 
-Вы можете получить пароль пользователя [{{ mpg-name }}](../../managed-postgresql/index.yaml) из [секрета {{ lockbox-name }}](../../lockbox/concepts/secret.md). Это можно сделать через [{{ yandex-cloud }} CLI](../../cli/index.yaml). Для этого [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), под которым вы авторизованы в {{ yandex-cloud }} CLI, нужно настроить права доступа к секрету пользователя. Информацию о секрете, необходимую для настройки прав, можно получить из подключения [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md).
+Вы можете получить пароль пользователя [{{ mpg-full-name }}](../../managed-postgresql/index.yaml) из [секрета {{ lockbox-name }}](../../lockbox/concepts/secret.md). Это можно сделать через [{{ yandex-cloud }} CLI](../../cli/index.yaml). Для этого [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), под которым вы авторизованы в {{ yandex-cloud }} CLI, нужно настроить права доступа к секрету пользователя. Информацию о секрете, необходимую для настройки прав, можно получить из подключения [{{ connection-manager-name }}](../../metadata-hub/concepts/connection-manager.md).
 
 Чтобы настроить права доступа к секрету пользователя:
 
@@ -13,12 +13,14 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+
 ### Необходимые платные ресурсы {#paid-resources}
 
 * Кластер {{ mpg-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../managed-postgresql/pricing.md)).
-* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 Использование {{ connection-manager-name }}, а также секретов {{ lockbox-name }}, созданных с его помощью, не тарифицируется.
+
 
 ## Настройте права доступа к секрету пользователя {{ mpg-name }} {#set-up-roles}
 

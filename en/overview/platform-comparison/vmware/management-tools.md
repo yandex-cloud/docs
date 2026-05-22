@@ -38,7 +38,7 @@ Monitoring is an integral part of the cloud platform and allows you to collect, 
 
 {{ monitoring-full-name }} collects metrics of your cloud resources automatically and builds charts and dashboards based on them. Service dashboards with the most popular metrics are automatically generated for the platform services.
 
-{{ monitoring-full-name }} supports integration layer with Prometheus through RemoteRead and RemoteWrite; it includes an option to connect Grafana for metrics visualization. You can upload metrics into {{monitoring-name }} from apps installed in {{ yandex-cloud }} or use your local data sources.
+{{ monitoring-full-name }} supports integration layer with Prometheus through RemoteRead and RemoteWrite; it includes an option to connect Grafana for metrics visualization. You can upload metrics into {{ monitoring-name }} from apps installed in {{ yandex-cloud }} or use your local data sources.
 
 The {{ cloud-logging-name }} subsystem is used to collect, analyze, and store logs; it aggregates data about the operation of various resources into a log group. Data for each log group is stored in isolation, while the access is distributed through {{ iam-name }} (IAM). There is also an option to upload and store {{ objstorage-name }} logs. You can add logs from {{ cloud-logging-name }} to the same dashboard where you have diagnostic information from other systems integrated with Grafana using the Grafana plugin.
 

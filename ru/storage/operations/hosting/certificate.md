@@ -95,6 +95,7 @@ description: Следуя данной инструкции, вы сможете
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
+
   Чтобы выбрать сертификат из {{ certificate-manager-name }}:
 
   1. Откройте файл конфигурации {{ TF }} и добавьте блок `https` в описание бакета:
@@ -116,33 +117,9 @@ description: Следуя данной инструкции, вы сможете
 
      Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#bucket-https-certificate).
 
-  1. Проверьте конфигурацию командой:
+  1. Создайте ресурсы:
 
-     ```bash
-     terraform validate
-     ```
-     
-     Если конфигурация является корректной, появится сообщение:
-     
-     ```bash
-     Success! The configuration is valid.
-     ```
-
-  1. Выполните команду:
-
-     ```bash
-     terraform plan
-     ```
-  
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
-
-  1. Примените изменения конфигурации:
-
-     ```bash
-     terraform apply
-     ```
-     
-  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
      Проверить выбранный сертификат можно в [консоли управления]({{ link-console-main }}).
 
@@ -191,3 +168,10 @@ cat domain.pem intermediate.pem rootca.pem > bundle.pem
 {% include [public-link](../../../_includes/storage/public-link.md) %}
 
 {% endnote %}
+
+### См. также {#see-also}
+
+* [{#T}](../../qa.md#qa-mime-type)
+* [{#T}](setup.md)
+* [{#T}](./own-domain.md)
+* [{#T}](./multiple-domains/index.md)

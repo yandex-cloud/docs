@@ -9,11 +9,21 @@ description: '{{ TR }} is a high-performance distributed SQL query engine. With 
 
 {{ TR }} implements separated storage and compute layers. {{ TR }} works only with queries and their results. All data operations are delegated to the external data storage you are querying, so you do not need to upload data from the storage to {{ TR }} to run a query. This approach accelerates query processing and, in combination with the massively parallel architecture, simplifies {{ mtr-name }} cluster scaling for various needs.
 
+Each {{ mtr-name }} cluster runs in a separate {{ k8s }} node group containing the required network infrastructure: a [virtual network](../../vpc/concepts/network.md#network), a [security group](../../vpc/concepts/security-groups.md), and a [service account](../../iam/concepts/users/service-accounts). Node groups are isolated from each other, both through virtual networks and through {{ k8s }} itself. Node groups are managed by a common {{ k8s }} master.
+
+This diagram illustrates the relationship between service resources:
+
+![cluster-architecture](../../_assets/managed-trino/cluster-architecture.svg)
+
 ## Cluster architecture {#cluster-architecture}
 
 The main entity in {{ mtr-name }} is a cluster.
 
-A {{ TR }} cluster consists of the _coordinator_ and _workers_.
+A {{ TR }} cluster consists of the _coordinator_ and _workers_. Workers access data sources via _catalogs_. _Connectors_ are used to establish connections to data sources.
+
+This diagram illustrates how cluster components interact with each other and external services (clients and data sources):
+
+![cluster-architecture](../../_assets/managed-trino/components-interaction.svg)
 
 ### Coordinator {#coordinator}
 
@@ -31,8 +41,6 @@ When [creating a cluster](../operations/cluster-create.md), you can either set a
 
 ### {{ TR }} catalog {#catalog}
 
-The coordinator and workers can access data sources through _catalogs_.
-
 A catalog is a set of parameters describing a connection to a data source. You can [create](../operations/catalog-create.md) one or more catalogs in a {{ mtr-name }} cluster. {{ TR }} supports working with data from multiple catalogs within a single query.
 
 Each catalog describes only one data source. The data source type is determined by the selected _connector_.
@@ -48,6 +56,8 @@ In {{ mtr-name }}, the following connectors are available:
 You select a connector when [creating a {{ TR }} catalog](../operations/catalog-create.md).
 
 ## Running a query in a {{ TR }} cluster {#query-execution}
+
+{% include [query-execution](../../_mermaid/other/managed-trino/query-execution.md) %}
 
 The user works with the {{ TR }} cluster via a client, e.g., the {{ TR }} CLI. The client sends queries to the coordinator and shows their results.
 

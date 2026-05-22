@@ -1,12 +1,13 @@
 ---
 title: '{{ marketplace-full-name }} use cases'
-description: Various {{ marketplace-name }} use cases in {{ yandex-cloud }}.
+description: Various use cases for {{ marketplace-name }} products in {{ yandex-cloud }}.
 ---
 
 # {{ marketplace-name }} tutorials
 
 * [{#T}](s2s-vpn.md)
 * [{#T}](ghost-cms-cloudapp.md)
+* [{#T}](wordpress-ha-cloudapp.md)
 * [{#T}](wordpress-cloudapp.md)
 
 ## Using {{ marketplace-name }} products in {{ managed-k8s-full-name }} {#marketplace-tutorials}

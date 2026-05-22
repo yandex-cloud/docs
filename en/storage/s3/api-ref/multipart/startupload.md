@@ -1,4 +1,4 @@
-# startUpload method
+# Object Storage API, Amazon S3-compatible REST: CreateMultipartUpload
 
 Returns the ID to use in all subsequent operations for uploading objects.
 
@@ -20,7 +20,7 @@ Parameter | Description
 `key` | Object key. The object will be saved in {{ objstorage-name }} with the specified name.
 
 
-### Request parameters {#request-parameters}
+### Query parameters {#request-parameters}
 
 Parameter | Description
 ----- | -----
@@ -35,8 +35,8 @@ You can also use the headers listed in the table below.
 
 Header | Description
 ----- | -----
-`X-Amz-Meta-*` | User-defined object metadata.<br/><br/>{{ objstorage-name }} converts all headers starting with `X-Amz-Meta-` as follows: `X-Amz-Meta-foo-bar_baz` → `X-Amz-Meta-Foo-Bar_baz`.<br/><br/>The total size of user-defined headers must not exceed 2 KB. The size of user-defined data is determined as the length of the UTF-8 encoded string. The size includes header names and their values.
-`X-Amz-Storage-Class` | [Storage class](../../../concepts/storage-class.md) of the object.<br/><br/>It may have any of the following values:<ul><li>`STANDARD`: Standard storage</li><li>`COLD`, `STANDARD_IA`, or `NEARLINE`: Cold storage</li><li>`ICE` or `GLACIER`: Ice storage</li></ul>If the header is not specified, the object storage is defined in the bucket settings.
+`X-Amz-Meta-*` | User-defined object metadata.<br/><br/>{{ objstorage-name }} transforms all headers starting with `X-Amz-Meta-` as follows: `X-Amz-Meta-foo-bar_baz` → `X-Amz-Meta-Foo-Bar_baz`.<br/><br/>Total user-defined header size must not exceed 2 KB. The size of user-defined data is determined as the length of the UTF-8 encoded string. The size includes header names and their values.
+`X-Amz-Storage-Class` | [Object storage class](../../../concepts/storage-class.md).<br/><br/>Possible values:<ul><li>`STANDARD`: Standard storage</li><li>`COLD`, `STANDARD_IA`, or `NEARLINE`: Cold storage</li><li>`ICE` or `GLACIER`: Ice storage</li></ul>If the header is not specified, the object storage is defined in the bucket settings.
 `X-Amz-Object-Lock-Mode` | <p>Type of [retention](../../../concepts/object-lock.md) put on the object (if the bucket is [versioned](../../../concepts/versioning.md) and object lock is enabled in it):</p><ul><li>`GOVERNANCE`: Governance-mode retention.</li><li>`COMPLIANCE`: Compliance-mode retention.</li></ul><p>For an object version, you can use only retention (the `X-Amz-Object-Lock-Mode` and `X-Amz-Object-Lock-Retain-Until-Date` headers), only legal hold (`X-Amz-Object-Lock-Legal-Hold`), or both at the same time. For more information about their combined use, see [{#T}](../../../concepts/object-lock.md#types).</p>
 `X-Amz-Object-Lock-Retain-Until-Date` | Retention end date and time in any format described in the [HTTP standard](https://www.rfc-editor.org/rfc/rfc9110#name-date-time-formats), e.g., `Mon, 12 Dec 2022 09:00:00 GMT`. Specify it only with the `X-Amz-Object-Lock-Mode` header.
 `X-Amz-Object-Lock-Legal-Hold` | <p>Type of [legal hold](../../../concepts/object-lock.md) put on the object (if the bucket is [versioned](../../../concepts/versioning.md) and object lock is enabled in it):</p><ul><li>`ON`: Enabled.</li><li>`OFF`: Disabled.</li></ul><p>For an object version, you can use only retention (the `X-Amz-Object-Lock-Mode` and `X-Amz-Object-Lock-Retain-Until-Date` headers), only legal hold (`X-Amz-Object-Lock-Legal-Hold`), or both at the same time. For more information about their combined use, see [{#T}](../../../concepts/object-lock.md#types).</p>
@@ -74,5 +74,11 @@ Tag | Description
 `Bucket` | Name of the bucket the object is uploaded to.<br/><br/>Path: `/InitiateMultipartUploadResult/Bucket`.
 `Key` | Key associated with the object after the upload is complete.<br/><br/>Path: `/InitiateMultipartUploadResult/Key`.
 `UploadId` | Upload ID.<br/><br/>All subsequent upload operations must provide this ID to {{ objstorage-name }}.<br/><br/>Path: `/InitiateMultipartUploadResult/UploadId`.
+
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/multipart.md)
+
+* [Creating a multipart upload in a bucket](../../../operations/objects/multipart-upload.md#create-multipart-upload)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

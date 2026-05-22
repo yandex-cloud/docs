@@ -17,6 +17,8 @@ items:
             href: operations/zone-update.md
           - name: Configuring DNS zone access permissions
             href: operations/zone-access.md
+          - name: Moving a DNS zone to a different folder
+            href: operations/zone-move-folder.md
           - name: Viewing operations with DNS zones
             href: operations/operation-logs.md
           - name: Deleting a DNS zone
@@ -37,6 +39,10 @@ items:
             href: operations/resource-record-update.md
           - name: Deleting a record
             href: operations/resource-record-delete.md
+      - name: Filters
+        items:
+          - name: Creating a filter
+            href: operations/filter-create.md
   - name: Concepts
     items:
       - name: Overview
@@ -45,6 +51,10 @@ items:
         href: concepts/dns-zone.md
       - name: Resource records
         href: concepts/resource-record.md
+      - name: DNS filters
+        href: concepts/dns-filter.md
+      - name: DNS resolver
+        href: concepts/dns-resolver.md
       - name: Integration with {{ compute-name }}
         href: concepts/compute-integration.md
       - name: Quotas and limits
@@ -65,7 +75,7 @@ items:
           Configuring {{ dns-name }} to access managed database clusters from
           other cloud networks
         href: tutorials/mdb-dns-peering.md
-      - name: Creating an ACME resolver webhook for responses to DNS01 checks
+      - name: Creating an ACME resolver webhook for responses to DNS01 challenges
         href: tutorials/cert-manager-webhook.md
       - name: Assigning a domain name to a web server VM
         items:
@@ -107,6 +117,116 @@ items:
             href: cli-ref/bind-file/index.md
           - name: migrate-to-terraform
             href: cli-ref/bind-file/migrate-to-terraform.md
+      - name: firewall
+        items:
+          - name: Overview
+            href: cli-ref/firewall/index.md
+          - name: add-access-binding
+            href: cli-ref/firewall/add-access-binding.md
+          - name: add-labels
+            href: cli-ref/firewall/add-labels.md
+          - name: create
+            href: cli-ref/firewall/create.md
+          - name: delete
+            href: cli-ref/firewall/delete.md
+          - name: get
+            href: cli-ref/firewall/get.md
+          - name: list
+            href: cli-ref/firewall/list.md
+          - name: list-access-bindings
+            href: cli-ref/firewall/list-access-bindings.md
+          - name: list-operations
+            href: cli-ref/firewall/list-operations.md
+          - name: move
+            href: cli-ref/firewall/move.md
+          - name: remove-access-binding
+            href: cli-ref/firewall/remove-access-binding.md
+          - name: remove-labels
+            href: cli-ref/firewall/remove-labels.md
+          - name: set-access-bindings
+            href: cli-ref/firewall/set-access-bindings.md
+          - name: update
+            href: cli-ref/firewall/update.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: bind-file
+            items:
+              - name: Overview
+                href: cli-ref/v0/bind-file/index.md
+              - name: migrate-to-terraform
+                href: cli-ref/v0/bind-file/migrate-to-terraform.md
+          - name: firewall
+            items:
+              - name: Overview
+                href: cli-ref/v0/firewall/index.md
+              - name: add-access-binding
+                href: cli-ref/v0/firewall/add-access-binding.md
+              - name: add-labels
+                href: cli-ref/v0/firewall/add-labels.md
+              - name: create
+                href: cli-ref/v0/firewall/create.md
+              - name: delete
+                href: cli-ref/v0/firewall/delete.md
+              - name: get
+                href: cli-ref/v0/firewall/get.md
+              - name: list
+                href: cli-ref/v0/firewall/list.md
+              - name: list-access-bindings
+                href: cli-ref/v0/firewall/list-access-bindings.md
+              - name: list-operations
+                href: cli-ref/v0/firewall/list-operations.md
+              - name: move
+                href: cli-ref/v0/firewall/move.md
+              - name: remove-access-binding
+                href: cli-ref/v0/firewall/remove-access-binding.md
+              - name: remove-labels
+                href: cli-ref/v0/firewall/remove-labels.md
+              - name: set-access-bindings
+                href: cli-ref/v0/firewall/set-access-bindings.md
+              - name: update
+                href: cli-ref/v0/firewall/update.md
+          - name: zone
+            items:
+              - name: Overview
+                href: cli-ref/v0/zone/index.md
+              - name: add-access-binding
+                href: cli-ref/v0/zone/add-access-binding.md
+              - name: add-labels
+                href: cli-ref/v0/zone/add-labels.md
+              - name: add-records
+                href: cli-ref/v0/zone/add-records.md
+              - name: create
+                href: cli-ref/v0/zone/create.md
+              - name: delete
+                href: cli-ref/v0/zone/delete.md
+              - name: delete-records
+                href: cli-ref/v0/zone/delete-records.md
+              - name: get
+                href: cli-ref/v0/zone/get.md
+              - name: list
+                href: cli-ref/v0/zone/list.md
+              - name: list-access-bindings
+                href: cli-ref/v0/zone/list-access-bindings.md
+              - name: list-operations
+                href: cli-ref/v0/zone/list-operations.md
+              - name: list-records
+                href: cli-ref/v0/zone/list-records.md
+              - name: move
+                href: cli-ref/v0/zone/move.md
+              - name: remove-access-binding
+                href: cli-ref/v0/zone/remove-access-binding.md
+              - name: remove-labels
+                href: cli-ref/v0/zone/remove-labels.md
+              - name: replace-records
+                href: cli-ref/v0/zone/replace-records.md
+              - name: set-access-bindings
+                href: cli-ref/v0/zone/set-access-bindings.md
+              - name: update
+                href: cli-ref/v0/zone/update.md
+              - name: update-private-networks
+                href: cli-ref/v0/zone/update-private-networks.md
       - name: zone
         items:
           - name: Overview

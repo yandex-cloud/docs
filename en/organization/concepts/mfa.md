@@ -3,7 +3,7 @@ title: Multi-factor authentication (MFA) in {{ org-full-name }}
 description: In {{ org-full-name }}, you can configure MFA for federated and local users to enhance the protection level of their accounts.
 ---
 
-# Multi-factor authentication in {{ org-name }}
+# Multi-factor authentication in {{ org-full-name }}
 
 In {{ org-full-name }}, you can configure [multi-factor authentication](https://en.wikipedia.org/wiki/Multi-factor_authentication) (MFA) for [federated](../../iam/concepts/users/accounts.md#saml-federation) and [local](../../iam/concepts/users/accounts.md#local) user accounts.
 
@@ -21,9 +21,9 @@ _MFA policies_ specify the multi-factor authentication requirements enforced on 
 
     {% include [mfa-create-policy-step6-ss1](../../_includes/organization/mfa-create-policy-step6-ss1.md) %}
 
-You can [create](../operations/mfa/create-policy.md) an MFA policy in the [{{ org-name }}]({{ link-org-cloud-center }}) interface in {{ cloud-center }}.
+You can [create](../operations/mfa/create-policy.md) an MFA policy in the [{{ org-full-name }}]({{ link-org-cloud-center }}) interface in {{ cloud-center }}.
 
-For an MFA policy to apply to specific user accounts, you need to [explicitly add](../operations/mfa/add-users.md) those users or the [groups](./groups.md) to which they belong to the policy's target groups.
+For an MFA policy to apply to specific user accounts, you need to [explicitly add](../operations/mfa/add-users.md) those users or the [groups](./groups.md) to which they belong to the policy's target groups. If needed, you can [exclude](../operations/mfa/excluded-audience.md) certain users or groups from the policy without deleting them from the target groups.
 
 {% include [mfa-policy-applications-acc-type-notice](../../_includes/organization/mfa-policy-applications-acc-type-notice.md) %}
 
@@ -67,6 +67,8 @@ To use WebAuthn, make sure it is supported by your browser and OS. The table bel
 * [{#T}](../operations/mfa/create-policy.md)
 * [{#T}](../operations/mfa/update-policy.md)
 * [{#T}](../operations/mfa/add-users.md)
+* [{#T}](../operations/mfa/excluded-audience.md)
 * [{#T}](../operations/mfa/deactivate-reactivate-policy.md)
 * [{#T}](../operations/mfa/delete-policy.md)
 * [{#T}](../operations/mfa/manage-verification.md)
+* [{#T}](../../security/domains/iam-checklist.md)

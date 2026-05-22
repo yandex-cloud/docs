@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cdn/cli-ref/
 editable: false
 ---
 
@@ -63,6 +64,10 @@ Syntax:
   - [yc cdn resource list](resource/list.md) — List resources in the specified folder
 
   - [yc cdn resource update](resource/update.md) — Update resource
+
+- [yc cdn v0](v0/index.md) — Manage CDN resources
+
+
 
 #### Global Flags
 

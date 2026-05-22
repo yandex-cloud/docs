@@ -82,7 +82,7 @@ description: Следуя данной инструкции, вы научите
 - Интерфейс {{ sd-name }} {#cloud-sd}
 
   1. Перейдите в раздел **{{ ui-key.yacloud_org.security.ycdr.YcdrPageLayout.investigations_wYxSe }}**.
-  1. Нажмите на заголовок столбца **{{ ui-key.yacloud_org.security.ycdr.InvestigationPageLayout.fieldModified }}**.
+  1. Нажмите на заголовок столбца **{{ ui-key.yacloud_org.security.siem.InvestigationPageLayout.fieldModified }}**.
   1. Выберите порядок сортировки:
      * по возрастанию — от старых к новым;
      * по убыванию — от новых к старым.

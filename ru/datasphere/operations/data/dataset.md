@@ -1,5 +1,7 @@
 # Работа с датасетами
 
+{% include [stop-create-dataset](../../../_includes/datasphere/stop-create-datasets.md) %}
+
 Для работы с большими объемами данных в {{ ml-platform-name }} используйте [датасеты](../../concepts/dataset.md). Основные операции с датасетами выполняются в коде ячеек с помощью служебных команд `#pragma dataset`.
 
 ## Создать и инициализировать датасет {#create}
@@ -39,7 +41,7 @@
   #pragma dataset init <имя_датасета> --size 1Gb
 
   set -e
-  cp -r <имя_исходного_каталога> /home/jupyter/mnt/datasets/<имя_датасета>
+  cp -r <имя_исходного_каталога> /home/jupyter/datasets/<имя_датасета>
   ```
 
 {% endlist %}
@@ -57,7 +59,7 @@
   #pragma dataset init <имя_датасета> --size 1Gb
 
   set -e
-  cd /home/jupyter/mnt/datasets/<имя_датасета>
+  cd /home/jupyter/datasets/<имя_датасета>
   wget https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz
   tar -xvf cifar-10-python.tar.gz
   rm -rf cifar-10-python.tar.gz
@@ -74,7 +76,7 @@
 
   file_name = 'cifar-10-python.tar.gz'
   file_url = 'https://www.cs.toronto.edu/~kriz/' + file_name
-  dest_dir = '/home/jupyter/mnt/datasets/<имя_датасета>/'
+  dest_dir = '/home/jupyter/datasets/<имя_датасета>/'
   dest_file = dest_dir + file_name
 
   with urlopen(file_url) as i:
@@ -114,7 +116,7 @@
   bucket_name = "<имя_бакета>"
 
   source_path = ''
-  target_path = '/home/jupyter/mnt/datasets/<имя_датасета>/'
+  target_path = '/home/jupyter/datasets/<имя_датасета>/'
 
   s3r = boto3.resource(service_name='s3', endpoint_url='https://{{ s3-storage-host }}', **S3_CREDS)
   bucket = s3r.Bucket(bucket_name)
@@ -151,7 +153,7 @@
   download_url = response.json()['href']
   response = requests.get(download_url)
 
-  dist_path = '/home/jupyter/mnt/datasets/<имя_датасета>/'
+  dist_path = '/home/jupyter/datasets/<имя_датасета>/'
   zipfile = ZipFile(BytesIO(response.content))
   zipfile.extractall(path=dist_path)
   ```
@@ -174,7 +176,7 @@
      import gdown
 
      gdrive_folder_id = '<идентификатор_папки_Google_Drive>'
-     dst_path = '/home/jupyter/mnt/datasets/<имя_датасета>/'
+     dst_path = '/home/jupyter/datasets/<имя_датасета>/'
 
      gdown.download_folder(id=gdrive_folder_id, output=dst_path, use_cookies=False)
      ```
@@ -185,17 +187,17 @@
 
 ## Активировать датасет {#use}
 
-Сразу после инициализации датасет становится активным в проекте и доступен по адресу `/home/jupyter/mnt/datasets/<имя_датасета>`. Одновременно в проекте может быть активировано до 3 датасетов. Во время работы вы можете активировать датасеты, когда они необходимы, и отключать их, если данные больше не нужны.
+Сразу после инициализации датасет становится активным в проекте и доступен по адресу `/home/jupyter/datasets/<имя_датасета>`. Одновременно в проекте может быть активировано до 3 датасетов. Во время работы вы можете активировать датасеты, когда они необходимы, и отключать их, если данные больше не нужны.
 
 Чтобы активировать датасет:
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![dataset](../../../_assets/console-icons/layers.svg)**{{ ui-key.yc-ui-datasphere.resources.dataset}}**.
-1. В строке с нужным датасетом нажмите значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.activate}}**.
+1. В блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** нажмите ![dataset](../../../_assets/console-icons/layers.svg)**{{ ui-key.yc-ui-datasphere.resources.dataset }}**.
+1. В строке с нужным датасетом нажмите значок ![options](../../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yc-ui-datasphere.common.activate }}**.
 
 ## Посмотреть список датасетов, доступных в проекте {#list}
 
-На странице проекта в блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** выберите ![dataset](../../../_assets/console-icons/layers.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset}}**. Затем перейдите на вкладку **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}**.
+На странице проекта в блоке **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}** выберите ![dataset](../../../_assets/console-icons/layers.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset }}**. Затем перейдите на вкладку **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}**.
 
 ## Поделиться датасетом {#share}
 

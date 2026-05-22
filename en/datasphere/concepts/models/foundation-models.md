@@ -11,8 +11,5 @@ The following foundation models are currently available in {{ ml-platform-name }
   * Large [Mistral](https://mistral.ai/) language model.
   * [Saiga/Mistral](https://huggingface.co/IlyaGusev/saiga_mistral_7b_lora): Fine-tuned Russian version of Mistral.
 
-If you want to fine-tune a model, use [model tuning]({{ link-docs-ai }}ai-studio/concepts/tuning/index) in {{ foundation-models-full-name }}.
+If you want to fine-tune a model, use [model tuning]({{ link-docs-ai }}ai-studio/concepts/tuning/index) in {{ ai-studio-full-name }}.
 
-## Use cases {#examples}
-
-[Model fine-tuning in {{ ml-platform-name }} Notebooks]({{ link-docs-ai }}ai-studio/tutorials/models-fine-tuning)

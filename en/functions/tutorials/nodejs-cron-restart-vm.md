@@ -1,7 +1,8 @@
 ---
 title: How to deploy a fault-tolerant architecture with preemptible VMs
-description: Follow this guide to deploy a fault-tolerant architecture with preemptible VMs.
+description: Follow this tutorial to deploy a fault-tolerant architecture with preemptible VMs.
 author: msokolov93
+noIndex: true
 canonical: '{{ link-docs }}/tutorials/infrastructure/nodejs-cron-restart-vm'
 ---
 

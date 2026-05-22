@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/operation/cli-ref/
 editable: false
 ---
 
@@ -10,7 +11,7 @@ Manage operations
 
 Syntax:
 
-`yc operation <command>`
+`yc operation <group|command>`
 
 Aliases:
 
@@ -21,6 +22,12 @@ Aliases:
 - [yc operation get](get.md) — Get operation
 
 - [yc operation wait](wait.md) — Wait for operation to complete
+
+- [yc operation v0](v0/index.md) — Manage operations
+
+  - [yc operation v0 get](v0/get.md) — Get operation
+
+  - [yc operation v0 wait](v0/wait.md) — Wait for operation to complete
 
 #### Global Flags
 

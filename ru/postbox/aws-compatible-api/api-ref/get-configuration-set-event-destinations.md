@@ -55,7 +55,7 @@ GET /v2/email/configuration-sets/{ConfigurationSetName}/event-destinations HTTP/
 Объект, который определяет место назначения для отправки уведомлений. ||
 || `DeliveryStreamArn` | **Тип**: string.
 
-Поток данных {{yds-full-name}}, в который отправляются уведомления.
+Поток данных {{ yds-full-name }}, в который отправляются уведомления.
 
 Формат: `arn:yc:yds:<регион>::<эндпоинт>:<название потока>`.
 

@@ -8,7 +8,13 @@ If a resource has child resources, all permissions from the parent resource will
 
 For more information on access management in {{ yandex-cloud }}, see the {{ iam-full-name }} documentation, [{#T}](../../iam/concepts/access-control/index.md).
 
-## Resources you can assign a role for {#resources}
+{% note info %}
+
+Even if an [operation](../../api-design-guide/concepts/about-async.md) with resources pertaining to {{ yandex-cloud }} [services](../../overview/concepts/services.md) is allowed by a [role](../../iam/concepts/access-control/roles.md), it may still be blocked if the [organization](../../organization/concepts/organization.md) is subject to an [access policy](../../iam/concepts/access-control/access-policies.md) prohibiting this operation.
+
+{% endnote %}
+
+## Resources supporting role assignment {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
@@ -21,6 +27,7 @@ You can also assign roles for individual resources within the service:
   You can use the [{{ cloud-center }} interface]({{ link-org-cloud-center }}) to assign roles for the following resources:
 
   * [Organization](../operations/security.md)
+  * [User pool](../concepts/user-pools.md)
   * [User group](../operations/access-manage-group.md)
 
 - CLI {#cli}
@@ -52,7 +59,59 @@ You can also assign roles for individual resources within the service:
 
 {% endlist %}
 
-## Roles this service has {#roles-list}
+## Roles available in the service {#roles-list}
+
+The first diagram shows common {{ org-full-name }} roles and a few small role groups for managing certain functions.
+
+With [organization](#organization-manager-auditor) service roles, you can manage access to organization settings, identity federations, user pools, SAML applications, OIDC applications, users and user groups, and users' access permissions to the organization and its resources.
+
+With [{{ oslogin }}](#organization-manager-osLogins-viewer) service roles, you can manage SSH keys, {{ oslogin }} profiles of users and service accounts, and operating mode settings at the organization level.
+
+With service roles for management via [{{ org-full-name }}](#organization-manager-idpInstances-billingViewer), you can manage access to user data on paid feature subscriptions and quota usage statistics for the service.
+
+{% include [organization-manager-common](../../_mermaid/roles/organization-manager-common.md) %}
+
+Below you will find diagrams of roles grouped by use cases. Each diagram shows both group-specific and general service roles.
+
+{% cut "Roles for identity federations" %}
+
+With service roles for [identity federations](#organization-manager-federations-extGroupsViewer), you can manage user access to federations, their settings, as well as user groups linked to federations from external sources.
+
+{% include [organization-manager-federations](../../_mermaid/roles/organization-manager-federations.md) %}
+
+{% endcut %}
+
+{% cut "Roles for user groups" %}
+
+With service roles for [user groups](#organization-manager-groups-viewer), you can manage access to groups, their settings, as well as actions on users and service accounts as group members.
+
+{% include [organization-manager-groups](../../_mermaid/roles/organization-manager-groups.md) %}
+
+{% endcut %}
+
+{% cut "Roles for OIDC apps" %}
+
+With service roles for [OIDC apps](#organization-manager-oauthApplications-auditor), you can manage access to OIDC apps, their settings, and actions on the list of users added to the apps.
+
+{% include [organization-manager-oidcApplications](../../_mermaid/roles/organization-manager-oidcApplications.md) %}
+
+{% endcut %}
+
+{% cut "Roles for SAML apps" %}
+
+With service roles for [SAML apps](#organization-manager-samlApplications-auditor), you can manage user access to SAML apps, their settings, as well as viewing users added to the apps.
+
+{% include [organization-manager-samlApplications](../../_mermaid/roles/organization-manager-samlApplications.md) %}
+
+{% endcut %}
+
+{% cut "Roles for user pools" %}
+
+With service roles for [user pools](#organization-manager-userpools-extGroupsViewer), you can manage access to pools, their settings, as well as actions on local users included in the pools, external groups, and user synchronization.
+
+{% include [organization-manager-userpools](../../_mermaid/roles/organization-manager-userpools.md) %}
+
+{% endcut %}
 
 ### Service roles {#service-roles}
 
@@ -127,6 +186,10 @@ You can also assign roles for individual resources within the service:
 #### organization-manager.groups.externalManager {#organization-manager-groups-externalManager}
 
 {% include [organization-manager.groups.externalManager](../../_roles/organization-manager/groups/externalManager.md) %}
+
+#### organization-manager.groups.viewer {#organization-manager-groups-viewer}
+
+{% include [organization-manager-groups-viewer](../../_roles/organization-manager/groups/viewer.md) %}
 
 #### organization-manager.groups.editor {#organization-manager-groups-editor}
 
@@ -260,7 +323,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
   1. [Get the user ID](../operations/users-get.md).
 
-  1. To assign the role, run the following command:
+  1. Assign the role using this command:
 
       ```bash
       yc <service_name> <resource> add-access-binding <resource_name_or_ID> \
@@ -295,7 +358,7 @@ For information about roles available in {{ yandex-cloud }} and their associated
        * `serviceAccount:{service_account_id}`: Service account ID.
        * `federatedUser:{federated_user_id}`: Federated user ID.
 
-     Here is a configuration file example:
+     Here is an example of the configuration file structure:
 
      ```
      resource "yandex_organizationmanager_organization_iam_binding" "editor" {
@@ -311,18 +374,18 @@ For information about roles available in {{ yandex-cloud }} and their associated
 
   1. Make sure the configuration files are correct.
     
-     1. In the command line, navigate to the directory where you created the configuration file.
-     1. Run a check using this command:
+     1. In the terminal, navigate to the directory where you created your configuration file.
+     1. Run a check using the following command:
  
        ```
        terraform plan
        ```
 
-      If the configuration is described correctly, the terminal will display a list of the assigned roles. If the configuration contains any errors, {{ TF }} will show them. 
+      If the configuration is described correctly, the terminal will display a list of the assigned roles. {{ TF }} will show any errors in the configuration. 
  
   1. Assign roles.
   
-     If the configuration does not contain any errors, run this command:
+     If the configuration is correct, run this command:
 
        ```
        terraform apply
@@ -394,7 +457,7 @@ The role can be revoked by a user with the `organization-manager.admin` or `orga
 
   To revoke a role from a subject, delete access permissions for the appropriate resource:
 
-  1. View the roles and assignees for the resource:
+  1. View the list of users and their roles for the resource:
 
       ```bash
       yc <service_name> <resource> list-access-bindings <resource_name_or_ID>
@@ -522,3 +585,4 @@ In {{ org-full-name }}, you can assign a group a role for an organization, cloud
 ## What roles are assigned in an organization {#list-access-bingings}
 
 {% include [org-list-access-bingings](../../_includes/organization/org-list-access-bingings.md) %}
+

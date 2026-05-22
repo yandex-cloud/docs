@@ -47,7 +47,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 ### Required paid resources {#paid-resources}
 
 The cost of the proposed solution includes: 
-* Fee for leasing the {{ baremetal-name }} servers (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
+* Fee for renting the {{ baremetal-name }} servers (see [{{ baremetal-full-name }} pricing](../../baremetal/pricing.md)).
 * Fee for [data storage](../../storage/concepts/bucket.md) in {{ objstorage-name }} and data [operations](../../storage/operations/index.md) (see [{{ objstorage-full-name }} pricing](../../storage/pricing.md)).
 
 ## Create your boot images in {{ baremetal-name }} {#create-images}
@@ -77,8 +77,8 @@ Upload the OPNsense and ESXi installation images to your [{{ objstorage-name }}]
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are going to create your infrastructure.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-  1. In the left-hand panel, select ![icon](../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.baremetal.label_images }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. In the left-hand panel, select ![icon](../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.baremetal.label_images_duoXD }}**.
   1. Click **{{ ui-key.yacloud.baremetal.label_load-image }}**.
   1. Name your OPNsense image. Follow these naming requirements:
 
@@ -98,7 +98,7 @@ Upload the OPNsense and ESXi installation images to your [{{ objstorage-name }}]
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.baremetal.label_subnetworks_uU4LH }}** and click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
   1. In the **{{ ui-key.yacloud.baremetal.field_hardware-pool-id }}** field, select the `{{ region-id }}-m4` server pool.
   1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter the subnet name: `opnsense-private-subnet-m4`.
@@ -106,7 +106,7 @@ Upload the OPNsense and ESXi installation images to your [{{ objstorage-name }}]
 
 {% endlist %}
 
-## Lease {{ baremetal-name }} servers {#rent-servers}
+## Renting {{ baremetal-name }} servers {#rent-servers}
 
 {% list tabs group=instructions %}
 
@@ -114,17 +114,22 @@ Upload the OPNsense and ESXi installation images to your [{{ objstorage-name }}]
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
   1. {% include [server-lease-step2](../../_includes/baremetal/instruction-steps/server-lease-step2.md) %}
-  1. Click **{{ ui-key.yacloud.baremetal.label_create-server }}** and, in the window that opens, select `{{ ui-key.yacloud_components.baremetal.PresetConfigurations }}` and a suitable {{ baremetal-name }} server [configuration](../../baremetal/concepts/server-configurations.md) in the `{{ region-id }}-m4` server pool.
+  1. Click **{{ ui-key.yacloud.baremetal.label_create-server }}** and, in the window that opens, select `{{ ui-key.yacloud_components.baremetal.StockConfigurations }}` and a suitable {{ baremetal-name }} server [configuration](../../baremetal/concepts/server-configurations.md) in the `{{ region-id }}-m4` server pool.
 
       Do it by selecting the `{{ region-id }}-m4` server pool in the filter on the right side of the window, under **{{ ui-key.yacloud_components.baremetal.poolFilter }}**.
 
       To test the solution, a configuration with minimum hardware specifications will be enough. To select the server configuration that suits you best, click the section with its name in the central part of your screen.
+
+      {% include [server-lease-save-with-assembling-tip](../../_includes/baremetal/instruction-steps/server-lease-save-with-assembling-tip.md) %}
+
   1. In the server configuration window that opens:
 
       1. {% include [server-lease-step5](../../_includes/baremetal/instruction-steps/server-lease-step5.md) %}
       1. Under **{{ ui-key.yacloud.baremetal.title_section-server-product }}**, select `{{ ui-key.yacloud.baremetal.field_choose-no-os }}`.
-      1. Under **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}**, in the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, select the `opnsense-private-subnet-m4` subnet you created earlier.
-      1. Under **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}**, select `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}` in the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field.
+      1. Under **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}**:
+          1. In the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** field, specify `subnet-m3`.
+          1. In the **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** field, specify `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
+
       1. Under **{{ ui-key.yacloud.baremetal.title_section-server-info }}**, in the **{{ ui-key.yacloud.baremetal.field_name }}** field, enter the server name: `opnsense-master`.
       1. {% include [server-lease-step13](../../_includes/baremetal/instruction-steps/server-lease-step13.md) %}
   1. Similarly, lease one more server named `opnsense-backup` in the `{{ region-id }}-m4` server pool.
@@ -420,7 +425,7 @@ To make the configuration process easier for you, this tutorial uses a previousl
 
     1. Look up the MAC address of the `jump-server` network interface connected to the private subnet.
 
-        You can [look up](../../baremetal/operations/servers/get-info.md) the MAC address of the {{ baremetal-name }} server network interface of your choice on the `jump-server` information page under **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}**.
+        You can [look up](../../baremetal/operations/servers/get-info.md) the MAC address of the {{ baremetal-name }} server network interface of your choice on the `jump-server` information page under **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}**.
 
         Save the MAC address until the next step.
     1. Learn the name of the `jump-server` network interface connected to the private subnet in the SystemRescue graphical shell:

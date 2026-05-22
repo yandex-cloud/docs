@@ -372,6 +372,14 @@ If there is only one argument, it must be a dictionary mapping Unicode ordinals 
 
 ### *class* yandex\_ai\_studio\_sdk.\_speechkit.text\_to\_speech.bistream.**TTSBidirectionalStreamTypeT**{#yandex_ai_studio_sdk._speechkit.text_to_speech.bistream.TTSBidirectionalStreamTypeT}
 
+### *class* yandex\_ai\_studio\_sdk.\_speechkit.speech\_to\_text.stt.**SpeechToTextTypeT**{#yandex_ai_studio_sdk._speechkit.speech_to_text.stt.SpeechToTextTypeT}
+
+### *class* yandex\_ai\_studio\_sdk.\_speechkit.speech\_to\_text.bistream.**STTBidirectionalStreamTypeT**{#yandex_ai_studio_sdk._speechkit.speech_to_text.bistream.STTBidirectionalStreamTypeT}
+
+### *class* yandex\_ai\_studio\_sdk.\_speechkit.bistream.**InputTypeT**{#yandex_ai_studio_sdk._speechkit.bistream.InputTypeT}
+
+### *class* yandex\_ai\_studio\_sdk.\_types.result.**ProtoModelResultTypeT**{#yandex_ai_studio_sdk._types.result.ProtoModelResultTypeT}
+
 ## Miscellaneous types
 
 ### *class* yandex\_ai\_studio\_sdk.\_types.misc.**Undefined**{#yandex_ai_studio_sdk._types.misc.Undefined}
@@ -523,6 +531,8 @@ Here we are transforming 1) http\_schema <- schema\_from\_response\_format(respo
 ### *class* yandex\_ai\_studio\_sdk.\_tools.tool\_call\_list.**HttpToolCallList**{#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._tools.tool_call_list.HttpToolCallList}
 
 ### *class* yandex\_ai\_studio\_sdk.\_types.enum.**UnknownEnumValue**{#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.UnknownEnumValue}
+
+### *class* yandex\_ai\_studio\_sdk.\_types.enum.**EnumWithUnknownAlias**{#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._types.enum.EnumWithUnknownAlias}
 
 ### *class* yandex\_ai\_studio\_sdk.\_search\_api.utils.**NestedDict**{#yandex_ai_studio_sdk._types.schemas.yandex_ai_studio_sdk._search_api.utils.NestedDict}
 

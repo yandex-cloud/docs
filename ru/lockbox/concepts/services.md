@@ -53,5 +53,5 @@ description: Из статьи вы узнаете, в каких сервиса
 * [{#T}](../tutorials/websocket-app.md)
 * [{#T}](../tutorials/bucket-to-bucket-copying.md)
 * [{#T}](../tutorials/nodejs-cron-restart-vm.md)
-* [{#T}](../tutorials/secure-password-script.md)
+* [{#T}](../tutorials/secure-password-script/index.md)
 * [{#T}](../tutorials/data-transfer-direct-to-mch.md)

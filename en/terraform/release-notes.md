@@ -6,6 +6,88 @@ editable: false
 
 
 
+## 0.204.0 (May 18, 2026)
+##### FEATURES:
+* compute: add `aws_v2_http_endpoint` and `aws_v2_http_token` options to yandex_compute_instance
+##### BUG FIXES:
+* clickhouse: fix deprecated version in `yandex_mdb_clickhouse_cluster_*` tests
+##### ENHANCEMENTS:
+* postgresql: remove 13 and 13-1c postgresql versions support
+
+## 0.203.0 (May 14, 2026)
+##### FEATURES:
+* alb: add `external_address` support in `Target`
+* smartwebsecurity: Request condition (param/header/cookie/body matchers) in ycp_smartwebsecurity_waf_waf_profile exclusion rules
+##### BUG FIXES:
+* mdb_clickhouse: fix creation of resource `mdb_clickhouse_cluster_v2` with cloud_storage enabled with default params
+##### ENHANCEMENTS:
+* dns: fix documentation for `yandex_dns_firewall`
+
+## 0.202.0 (May 7, 2026)
+##### FEATURES:
+* mdb_clickhouse: add performance diagnostics settings enabled and processes_refresh_interval
+* alb: add `preserve_http1_header_casing` support in `HTTPHandler`
+* organizationmanager: support `labels` for `yandex_organizationmanager_group` resource
+##### BUG FIXES:
+* Valkey: Fixed issue with empty labels in Redis provider
+* redis: fix pending changes after apply by reading user-set values (UserConfig) instead of EffectiveConfig
+* mdb_clickhouse: fix creation of resource `mdb_clickhouse_user` with empty permissions
+##### ENHANCEMENTS:
+* SmartWebSecurity: migration from TF 1.0 to TF 2.0
+
+## 0.201.0 (April 23, 2026)
+##### FEATURES:
+* dns: add new resource and data-source `yandex_dns_firewall` and new resource `yandex_dns_firewall_iam_binding`
+* mdb_clickhouse: support cluster restore from backup
+* postgresql: add `priority` host attribute to mdb_postgresql_cluster_v2
+* postgresql: restore `priority` host attribute for mdb_postgresql_cluster
+* organizationmanager: add `organizationmanager_mfa_enforcement_excluded_audience` resource
+##### ENHANCEMENTS:
+* vpc: added optional address parameter for internal addresses to yandex_vpc_address
+* kafka: Add an option for setting managed kafka `transactional.id.expiration.ms` parameter
+
+## 0.200.0 (April 20, 2026)
+##### BUG FIXES:
+* mdb_clickhouse: fix creation of resource `mdb_clickhouse_cluster_v2` with `default_database`
+
+## 0.199.0 (April 16, 2026)
+##### ENHANCEMENTS:
+* mysql: Disable disk shrinking during autoscaling in MySQL cluster
+
+## 0.198.0 (April 13, 2026)
+##### FEATURES:
+* CloudOrganization: added new password policy to userpool - password blacklist policy
+* lockbox_secret_version_entry: added new data source to retrieve a single secret entry by key
+* Kafka: Terraform Provider: add iceberg sink connector
+
+## 0.197.0 (April 9, 2026)
+##### FEATURES:
+* function_trigger: added `workflow` invocation target support for Workflows
+* ClickHouse: Terraform Provider: add cluster extension management
+##### BUG FIXES:
+* serverless: fix bug with batch_cutoff in triggers
+* postgresql: fix generating update mask for config_spec.disk_size_autoscaling.* parameters
+* mdb_clickhouse: fixed a bug with adding zookeeper/keeper hosts
+
+## 0.196.0 (April 2, 2026)
+##### FEATURES:
+* mysql: add yandex_mdb_mysql_database_v2 resource and datasource
+* metastore: add warehouse_config support to yandex_metastore_cluster resource and data source
+* mdb_clickhouse: add kafka settings message_max_bytes and batch_size
+##### BUG FIXES:
+* mdb_clickhouse: prevent "new element appeared" error for implicitly created shards
+* CDN: fix resource options disable_proxy_force_ranges and proxy_cache_methods_set
+* opensearch: fix subnets compare in special envirionment
+* crypto: fixed plugin crash when trying to create certificate using YC Certificate Manager with incorrect params
+
+## 0.195.0 (March 30, 2026)
+##### FEATURES:
+* datacatalog: new yandex_datacatalog_catalog resource and data-source were added
+
+## 0.194.0 (March 26, 2026)
+##### WARNING:
+* mdb_kafka: deprecate Kafka 3.6 version, use 3.9 instead
+
 ## 0.193.0 (March 19, 2026)
 ##### BUG FIXES:
 * mdb_clickhouse: fixed false positive conflict validation for ClickHouse resources

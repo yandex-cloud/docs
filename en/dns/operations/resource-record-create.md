@@ -14,7 +14,7 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the DNS zone where you want to create a resource record.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Select the zone from the list.
   1. Click **{{ ui-key.yacloud.dns.button_record-set-create }}**.
   1. Specify the record settings:
@@ -34,8 +34,15 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
 
   ```bash
   yc dns zone add-records --name <DNS_zone_name> \
-    --record "<domain_name> <TTL> <record_type> <value>"
+    --record "<domain_name> <TTL> <record_type> <value>" \
+    --description "<description>"
   ```
+
+  Where:
+
+  * `--name`: Zone name. It must be unique within a folder.
+  * `--record`: DNS record containing the domain name, TTL, record type, and record value.
+  * `--description`: Description for the new records. If this parameter is not set, the description will be an empty string. This is an optional setting.
 
   **Example**
 
@@ -44,6 +51,14 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
   > ```bash
   > yc dns zone add-records test-zone \
   >   --record "test-record TXT v=DKIM1;k=rsa;p=MIIBIjAN...gkH2v1NTgQdTKfPmDK...YdRiwIDAQAB"
+  > ```
+
+  Creating a record with a description:
+
+  > ```bash
+  >  yc dns zone add-records test-zone \
+  >   --record "srv.example.com. 600 A 10.1.0.1" \
+  >   --description "Web server"
   > ```
 
   If your TXT record contains multiple values, enclose each one in double quotes (`""`):
@@ -76,11 +91,12 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
      }
      
      resource "yandex_dns_recordset" "rs1" {
-       zone_id = yandex_dns_zone.zone1.id
-       name    = "srv.example.com."
-       type    = "A"
-       ttl     = 200
-       data    = ["10.1.0.1"]
+       zone_id     = yandex_dns_zone.zone1.id
+       name        = "srv.example.com."
+       type        = "A"
+       ttl         = 200
+       data        = ["10.1.0.1"]
+       description = "Web server primary"
      }
      
      resource "yandex_dns_recordset" "rs2" {
@@ -117,8 +133,9 @@ To create a [resource record](../concepts/resource-record.md) in a DNS zone:
         * `zone_id`: ID of the zone that will contain your resource records. This is a required setting.
         * `name`: Domain name. This is a required setting.
         * `type`: DNS record type. This is a required setting.
-        * `ttl`: Record TTL (Time to Live), i.e., time in seconds before the record updates. This is an optional setting.
+        * `ttl`: Record time to live (TTL) in seconds before refreshing the record value. This is an optional setting.
         * `data`: Record value. This is an optional setting.
+        * `description`: Record set description. This is an optional setting.
 
      For more information about resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-link }}).
 

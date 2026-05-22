@@ -22,4 +22,4 @@
 
 #### Limits {#organization-limits}
 
-There are no limits for {{ org-name }}.
+There are no limits for {{ org-full-name }}.

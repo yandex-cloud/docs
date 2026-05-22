@@ -9,6 +9,8 @@ This section describes the {{ mch-name }} metrics delivered to [{{ monitoring-na
 
 {% include [managed-clickhouse](../_includes/monitoring/metrics-ref/managed-clickhouse.md) %}
 
-For more information, see [{#T}](operations/monitoring.md).
+#### See also {#see-also}
+
+[{#T}](./operations/monitoring.md)
 
 {% include [clickhouse-disclaimer](../_includes/clickhouse-disclaimer.md) %}

@@ -1,12 +1,12 @@
 ---
 title: Access management in {{ mch-full-name }}
-description: Access management in {{ CH }}, a database creation and management service. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
+description: Access management in {{ CH }}, a database creation and management service. This section describes the resources you can assign a role for, the roles this service has, and the roles required for specific actions.
 ---
 
 # Access management in {{ mch-name }}
 
 
-In this section, you will learn about:
+In this section, you will learn about the following:
 
 * [Resources you can assign a role for](#resources).
 * [Roles this service has](#roles-list).
@@ -26,9 +26,9 @@ To assign a role for a resource, you need the `mdb.admin` role, `managed-clickho
 
 You can also assign a role for an individual cluster in the [management console]({{ link-console-main }}), via the [CLI](../cli), or [API](./api-ref/authentication.md).
 
-## Roles this service has {#roles-list}
+## Roles existing in this service {#roles-list}
 
-The chart below shows the roles existing in the service and their permission inheritance. For example, `{{ roles-editor }}` inherits all `{{ roles-viewer }}` permissions. You can find the role descriptions below the chart.
+The diagram below shows available service roles and their permission inheritance hierarchy. For example, `{{ roles-editor }}` inherits all `{{ roles-viewer }}` permissions. You can find role descriptions below the diagram.
 
 {% include [roles-managed-clickhouse](../_mermaid/roles/managed-clickhouse.md) %}
 
@@ -46,6 +46,10 @@ The chart below shows the roles existing in the service and their permission inh
 
 {% include [managed-clickhouse.restorer](../_roles/managed-clickhouse/restorer.md) %}
 
+#### managed-clickhouse.user {#managed-clickhouse-user}
+
+{% include [managed-clickhouse.user](../_roles/managed-clickhouse/user.md) %}
+
 #### managed-clickhouse.editor {#managed-clickhouse-editor}
 
 {% include [managed-clickhouse.editor](../_roles/managed-clickhouse/editor.md) %}
@@ -53,6 +57,14 @@ The chart below shows the roles existing in the service and their permission inh
 #### managed-clickhouse.admin {#managed-clickhouse-admin}
 
 {% include [managed-clickhouse.admin](../_roles/managed-clickhouse/admin.md) %}
+
+#### managed-clickhouse.maintenanceTask.viewer {#managed-clickhouse-maintenanceTask-viewer}
+
+{% include [managed-clickhouse.maintenanceTask.viewer](../_roles/managed-clickhouse/maintenanceTask/viewer.md) %}
+
+#### managed-clickhouse.maintenanceTask.editor {#managed-clickhouse-maintenanceTask-editor}
+
+{% include [managed-clickhouse.maintenanceTask.editor](../_roles/managed-clickhouse/maintenanceTask/editor.md) %}
 
 #### mdb.auditor {#mdb-auditor}
 
@@ -70,6 +82,14 @@ The chart below shows the roles existing in the service and their permission inh
 
 {% include [mdb-restorer](../_roles/mdb/restorer.md) %}
 
+#### mdb.maintenanceTask.viewer {#mdb-maintenanceTask-viewer}
+
+{% include [mdb.maintenanceTask.viewer](../_roles/mdb/maintenanceTask/viewer.md) %}
+
+#### mdb.maintenanceTask.editor {#mdb-maintenanceTask-editor}
+
+{% include [mdb.maintenanceTask.editor](../_roles/mdb/maintenanceTask/editor.md) %}
+
 #### vpc.publicAdmin {#vpc-public-admin}
 
 {% include [vpc-publicadmin](../_roles/vpc/publicAdmin.md) %}
@@ -82,11 +102,11 @@ The chart below shows the roles existing in the service and their permission inh
 
 ## Required roles {#required-roles}
 
-To use {{ mch-name }}, you need the [{{ roles.mch.editor }} role or higher](../iam/concepts/access-control/roles.md) for the folder that will contain the new cluster. The `{{ roles.mch.viewer }}` role only allows you to view the list of clusters.
+As a user, you need the [{{ roles.mch.editor }} role or higher](../iam/concepts/access-control/roles.md) for the folder that will contain the new cluster. The `{{ roles.mch.viewer }}` role only allows you to view the list of clusters.
 
 To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the `{{ roles.mch.editor }}` role or higher.
 
-You can always assign a role with more permissions. For example, you can assign the `{{ roles.mch.admin }}` role instead of `{{ roles.mch.editor }}`.
+You can always assign a role with more permissions, e.g., `{{ roles.mch.admin }}` instead of `{{ roles.mch.editor }}`.
 
 ## What's next {#whats-next}
 

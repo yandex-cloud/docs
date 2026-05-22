@@ -20,7 +20,7 @@ description: Следуя данной инструкции, вы сможете
        ```json
        [
          {
-           "path_prefix": "ubuntu.*",
+           "path_prefix": "/ubuntu",
            "delete": {
              "type": "SOFT_DELETE",
              "cooldown_period_days": 10,
@@ -66,7 +66,7 @@ description: Следуя данной инструкции, вы сможете
        name: my-lifecycle-policy
        description: Моя политика жизненного цикла
        rules:
-         - path_prefix: ubuntu.*
+         - path_prefix: /ubuntu
            delete:
              type: SOFT_DELETE
              cooldown_period_days: "10"

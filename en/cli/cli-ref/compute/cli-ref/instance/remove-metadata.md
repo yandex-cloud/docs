@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/instance/remove-metadata
 editable: false
 ---
 

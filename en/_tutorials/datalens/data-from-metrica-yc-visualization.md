@@ -1,15 +1,17 @@
 # Yandex Metrica: data export, post-processing, and visualization
 
 
-{% include [serverless-deprecation-note](../../_includes/datasphere/serverless-deprecation-note.md) %}
+
+{% include [datalens-metrica-pro-note](../../_includes/datalens/datalens-metrica-pro-note.md) %}
+
 
 In this tutorial, you will learn how to build conversion funnels, run cohort analysis, calculate the Retention rate for the user base in {{ ml-platform-full-name }}, and visualize the data in {{ datalens-full-name }}.
 
 Yandex Metrica data is used as the data source.
 
 1. [Connect {{ CH }} and {{ ml-platform-short-name }}](#ch-datasphere-connection):
-    1. [Connect {{ CH }}](#ch-connection).
-    1. [Connect {{ ml-platform-short-name }}](#datasphere-connection).
+    1. [Enable {{ CH }}](#ch-connection).
+    1. [Enable {{ ml-platform-short-name }}](#datasphere-connection).
     1. [Clone the repository to {{ ml-platform-short-name }}](#clone-repo-to-datasphere).
 1. [Retrieve and upload data to {{ CH }}](#get-download-data-in-ch):
     1. [Yandex Metrica. Create an app and get an access token](#create-metrica-app-token).
@@ -22,7 +24,7 @@ Yandex Metrica data is used as the data source.
     1. [Create a connection to {{ CH }} in {{ datalens-short-name }}](#creation-datalens-connection-to-ch).
     1. [Create a dataset based on the connection](#creating-dataset-based-on-connection).
     1. [Create an area chart](#creating-area-chart).
-    1. [Create a pivot table chart](#creating-pivot-table).
+    1. [Create a pivot table](#creating-pivot-table).
 1. [Create and configure a dashboard in {{ datalens-short-name }}](#creating-configuring-dashboard):
     1. [Create a dashboard](#creating-dashboard).
     1. [Set up the dashboard](#configuring-dashboard).
@@ -66,7 +68,7 @@ The cost of the infrastructure deployment includes:
 ### 1.1. Enable {{ CH }} {#ch-connection}
 
 1. In the [management console]({{ link-console-main }}), select a folder to create a {{ CH }} cluster in.
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 1. In the window that opens, click **{{ ui-key.yacloud.clickhouse.button_create-cluster }}**.
 1. Configure your {{ CH }} cluster:
    1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, specify a name for the cluster.
@@ -86,7 +88,6 @@ The cost of the infrastructure deployment includes:
         * **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}**
         * **Access from the management console**
         * **{{ ui-key.yacloud.mdb.forms.additional-field-metrika }}**
-        * **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}**
    1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 ### 1.2. Enable {{ ml-platform-short-name }} {#datasphere-connection}
@@ -95,7 +96,7 @@ The cost of the infrastructure deployment includes:
 1. In the left-hand panel, select ![image](../../_assets/console-icons/circles-concentric.svg) **{{ ui-key.yc-ui-datasphere.common.spaces }}**.
 1. Select the community where you want to create a project.
 1. On the community page, click ![image](../../_assets/console-icons/folder-plus.svg) **{{ ui-key.yc-ui-datasphere.projects.create-project }}**.
-1. In the window that opens, enter a name for the project. You can also add a description as needed. Follow these naming requirements:
+1. In the window that opens, enter a name for the project. You can also add a description as needed. The naming requirements are as follows:
 
    {% include [name-format](../../_includes/name-format.md) %}
 
@@ -282,7 +283,9 @@ In {{ CH }}, the `metrica_data.funnels_by_bro` table will be created with funnel
 
 Create a new dataset based on the new table and the connection to {{ CH }}:
 
-1. Open the [{{ datalens-short-name }}]({{ link-datalens-main }}/) home page (or click ![datalens-console](../../_assets/datalens-console.svg) **DataLens** in the left-hand panel) and click **Create dataset**.
+1. Open the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
+1. In the left-hand panel, click ![image](../../_assets/console-icons/circles-intersection.svg) **Datasets**.
+1. Click **Create dataset**.
 1. Go to **Connections** and click ![image](../../_assets/console-icons/plus.svg) **Add**.
 1. From the list of connections, select the connection name that you created in Step [3.2](#creation-datalens-connection-to-ch).
 1. Drag the new `metrica_data.funnels_by_bro` table to the editing area.
@@ -340,8 +343,10 @@ In {{ CH }}, the `metrica_data.retention_users` table will be created with all t
 
 Create a new dataset based on the new table and the connection to {{ CH }}: 
 
-1. Open the [{{ datalens-short-name }}]({{ link-datalens-main }}/) homepage and click **Create dataset**.
-1. In the **Connections** section, click **Create dataset** and then click ![image](../../_assets/console-icons/plus.svg) **Add**.
+1. Open the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
+1. In the left-hand panel, click ![image](../../_assets/console-icons/circles-intersection.svg) **Datasets**.
+1. Click **Create dataset**.
+1. In the **Connections** section, click ![image](../../_assets/console-icons/plus.svg) **Add**.
 1. From the list, select the [connection](#creation-datalens-connection-to-ch) you created.
 1. Drag the new `metrica_data.retention_users` table into the workspace to connect to it.
 1. Open the **Fields** tab and create a new calculated field named `week_num` equal to `([date]-[min_date])/7`.

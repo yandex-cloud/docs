@@ -1,17 +1,17 @@
 # Renewing a custom certificate
 
-{{ certificate-manager-name }} does not manage [custom certificates](../../concepts/imported-certificate.md). To make your certificate continuously available to your resources, be sure to renew it on time.
+{{ certificate-manager-name }} does not manage [custom certificates](../../concepts/imported-certificate.md). To make your certificate continuously available to your resources, make sure to renew it on time.
 
-To get a new version of a user certificate:
+To get a new version of a custom certificate:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the certificate was added to.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
-  1. In the list, select the certificate you need to update.
-  1. In the window that opens, click **{{ ui-key.yacloud.certificate-manager.overview.action_reimport }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you added the certificate to.
+  1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+  1. Select the certificate you need to renew.
+  1. Click ![arrows-rotate](../../../_assets/console-icons/arrows-rotate-right.svg) **{{ ui-key.yacloud.certificate-manager.overview.action_reimport }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.certificate-manager.import.button_add-certificate }}** in the **{{ ui-key.yacloud.certificate-manager.import.field_certificate }}** field.
      1. Choose how to add it: `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}` or `{{ ui-key.yacloud.component.file-content-dialog.value_manual }}`.
      1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
@@ -61,7 +61,7 @@ To get a new version of a user certificate:
      ```
 
      Where:
-     * `--id`: ID of the certificate you need to update.
+     * `--id`: ID of the certificate you need to renew.
      * `--chain`: Path to the new certificate chain file.
      * `--key`: Path to the certificate's new private key file.
 
@@ -81,9 +81,9 @@ To get a new version of a user certificate:
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. Open the {{ TF }} configuration file and edit the `certificate` and `private_key` certificate parameters:
+  1. Open the {{ TF }} configuration file and edit the `certificate` and `private_key` certificate properties:
 
-     {% cut "Sample certificate description in the {{ TF }} configuration" %}
+     {% cut "Example of a certificate description in the {{ TF }} configuration" %}
 
      ```hcl
      ...
@@ -113,7 +113,7 @@ To get a new version of a user certificate:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check the certificate update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
+  You can check the edited certificate using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
   ```bash
   yc certificate-manager certificate get <certificate_name>

@@ -31,9 +31,17 @@ An SLO, however, is an analytical tool that helps you with managerial decisions 
 There are several approaches to calculating metrics:
 
 * *Event-based SLO*. The calculation is based on the number of events of a given type taking place in the service. The format is: *99.9% of requests for the last 30 days were processed successfully* or *in 99.95% of cases, the service responds within 100 ms*. The data sources for metric calculation consist of:
-    * *Good Events*: Events interpreted as "good", e.g., *HTTP Code 2xx in response* or *request processed in under 100 ms*.
-    * *Bad Events*: Events interpreted as "bad", e.g., *HTTP Code 5xx in response* or *request processed in over 100 ms*.
-    * *Total Events*: Total number of valid events from the service's perspective, e.g., *total number of requests processed by the service*. The event validity criterion is decided by the service itself, e.g., *HTTP Code 500 in response* is a valid event, because request URL was specified correctly, yet the service was unable to process the request due to an internal error or data error. However, if the URL was specified incorrectly, it is most certainly an invalid event, because it remains unknown which part of the service was addressed.
+    * *Good Events*: Events interpreted as _good_, e.g., *HTTP Code 2xx in response* or *request processed in under 100 ms*.
+    * *Bad Events*: Events interpreted as _bad_, e.g., *HTTP Code 5xx in response* or *request processed in over 100 ms*.
+    * *Total Events*: Total number of events classified as valid by the service, e.g., *total requests processed by service*. Event validity is determined by the service. For example, *HTTP Code 500 in response* is a valid event: the request URL is correct even though the service failed to process the request due to an internal or data error. At the same time, an event is invalid if the URL is incorrect, as the system cannot map the request to a specific service component.
+    
+    You can choose one of these SLO calculation methods:
+    
+    * **Good Events / Total Events**: Good events and general events, e.g., successful service responses and total received requests.
+    * **Bad Events / Total Events**: Bad events and general events, e.g., service error responses and total received requests.
+    * **Good Events / Bad Events**: Good events and bad events, e.g., successful service responses and service responses with errors.
+    
+    The system automatically calculates unspecified events for any selected method. For example, if you choose to calculate only good and bad events, the total number of events will be the sum of those two categories.
 * *Time-based SLO*: The metric calculation is based on the service's uptime time interval. The format is: *for the last 30 days, 95% of requests over a 1-minute interval were processed successfully* or *for the last 30 days, the service responded within 100 ms over a 1-minute interval for 99.95% of the time*. The uptime criteria are decided by the service itself.
 * *Alert-based SLO*. The metric calculation is based on the status of the alerts. The format is: *for the last 30 days, the HHTP 5xx rate alert has been in OK status*. The service decides by itself which alerts to use to calculate the metrics.
 
@@ -133,12 +141,6 @@ Let's cover a few basic metrics we can use to conclude about the service's relia
 We recommend selecting a large enough window, e.g., 30 days, to eliminate the impact of peak loads and drops over short periods to make your metrics less noisy.
 
 When calculating *Total Events*, count only valid events (e.g., requests with correct URLs). Invalid events must not affect the SLI.
-
-{% note info %}
-
-If you have no *Good Events* metrics, you can calculate them by extracting *Bad Events* metrics from *Total Events* metrics.
-
-{% endnote %}
 
 {% include [ttl_warning](../../_includes/monium/ttl_warning.md) %}
 

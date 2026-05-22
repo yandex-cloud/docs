@@ -5,7 +5,13 @@ description: Follow this guide to block organization users from viewing informat
 
 # Blocking users from viewing information about organization members
 
-By default, all {{ org-name }} users can view information about all other users in the same organization. You can restrict this access by reserving it for individual users only. User visibility restriction will only apply within {{ yandex-cloud }} and will not affect external services.
+{% note info %}
+
+You can deny viewing the list of organization users by assigning the `organization.denyUserListing` [authorization policy](../../iam/concepts/access-control/access-policies.md) to the [organization](../concepts/organization.md).
+
+{% endnote %}
+
+By default, all {{ org-full-name }} users can view information about all other users in the same organization. You can restrict this access by reserving it for individual users only. User visibility restriction will only apply within {{ yandex-cloud }} and will not affect external services.
 
 Before you block access to the information about organization members, make sure to [grant](./add-role.md) this access to the appropriate users.
 

@@ -1,8 +1,10 @@
 # Installing an {{ alb-name }} ingress controller
 
-{% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
+{% include [Gwin-with-preset](../application-load-balancer/ingress-to-gwin-tip-with-preset.md) %}
 
-To balance the load and distribute traffic between {{ k8s }} applications, you can use an [{{ alb-full-name }} ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md). It will launch the L7 load balancer and its auxiliary resources when you create an `Ingress` resource in a {{ managed-k8s-name }} cluster.
+To balance the load and distribute traffic between {{ k8s }} applications, you can use an [{{ alb-full-name }}]({{ ingress-local-link2 }}/index.md) ingress controller. It will launch the L7 load balancer and its auxiliary resources when you create an `Ingress` resource in a {{ managed-k8s-name }} cluster.
+
+{% include [note-nlb](../../_includes/managed-kubernetes/note-alb.md) %}
 
 ## Getting started {#before-you-begin}
 
@@ -12,7 +14,7 @@ To balance the load and distribute traffic between {{ k8s }} applications, you c
 
 1. {% include [check-sg-prerequsites](./security-groups/check-sg-prerequsites-lvl3.md) %}
 
-    [Make sure](../../application-load-balancer/tools/k8s-ingress-controller/security-groups.md) you have configured security groups for {{ alb-name }} as well.
+    [Make sure]({{ alb-local-link2 }}/security-groups.md) you have configured security groups for {{ alb-name }} as well.
 
     {% include [sg-common-warning](./security-groups/sg-common-warning.md) %}
 
@@ -32,25 +34,31 @@ To balance the load and distribute traffic between {{ k8s }} applications, you c
 
 ## Installation from {{ marketplace-full-name }} {#marketplace-install}
 
-1. Go to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page.
-1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Click the name of the cluster you need and select the ![Marketplace](../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
-1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [ALB ingress controller](/marketplace/products/yc/alb-ingress-controller) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
-1. Configure the application:
+{% list tabs group=instructions %}
 
-   * **Namespace**: Create a new [namespace](../../managed-kubernetes/concepts/index.md#namespace), e.g., `alb-ingress-controller-space`. If you leave the default namespace, the ALB ingress controller may work incorrectly.
-   * **Application name**: Specify the application name.
-   * **Folder ID**: Specify the [folder ID](../../resource-manager/operations/folder/get-id.md).
-   * **Cluster ID**: Specify the [cluster ID](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md).
-   * **Service account key**: Paste the contents of the `sa-key.json` file.
-   * **Enable default health checks**: Select this option to install [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) in the node group network for application health checks.
+- Management console {#console}
 
-      DaemonSet adds pods with traffic monitoring agents to each node. As a result, node and namespace isolation does not affect monitoring process, which means you get accurate traffic monitoring data. If the number of cluster nodes scales up or down, DaemonSet adds or removes monitoring agents, respectively.
+  1. Go to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) page.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Click the name of your cluster and select the ![Marketplace](../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+  1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [ALB ingress controller](/marketplace/products/yc/alb-ingress-controller) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
+  1. Configure the application:
 
-      You can skip this option if you do not need to run cluster health checks or if you are using your own health check solution. For more information on configuring health checks manually, see [{#T}](../../managed-kubernetes/tutorials/custom-health-checks.md).
+     * **Namespace**: Create a new [namespace](../../managed-kubernetes/concepts/index.md#namespace), e.g., `alb-ingress-controller-space`. If you leave the default namespace, the ALB ingress controller may work incorrectly.
+     * **Application name**: Specify the application name.
+     * **Folder ID**: Specify the [folder ID](../../resource-manager/operations/folder/get-id.md).
+     * **Cluster ID**: Specify the [cluster ID](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-list.md).
+     * **Service account key**: Paste the contents of the `sa-key.json` file.
+     * **Enable default health checks**: Select this option to install [DaemonSet](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/) in the node group network for application health checks.
 
-1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+        DaemonSet adds pods with traffic monitoring agents to each node. As a result, node and namespace isolation does not affect monitoring process, which means you get accurate traffic monitoring data. If the number of cluster nodes scales up or down, DaemonSet adds or removes monitoring agents, respectively.
+
+        You can skip this option if you do not need to run cluster health checks or if you are using your own health check solution. For more information on configuring health checks manually, see [{#T}]({{ tutorial-local-link2 }}/custom-health-checks.md).
+
+  1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
+  1. Wait for the application to change its status to `Deployed`.
+
+{% endlist %}
 
 ## Installation using a Helm chart {#install-alb-helm}
 
@@ -98,7 +106,5 @@ To balance the load and distribute traffic between {{ k8s }} applications, you c
 
 ## See also {#see-also}
 
-* Check information about ingress controllers in these guides:
-   * [{{ k8s }}](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
-   * [{{ alb-name }}](../../application-load-balancer/tools/k8s-ingress-controller/index.md).
-* [Restrictions when updating the ALB Ingress Controller](../../application-load-balancer/operations/k8s-ingress-controller-upgrade.md)
+* [Description of Ingress controllers in the {{ k8s }} documentation](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/).
+* [Restrictions when updating the ALB Ingress Controller]({{ ingress-upgrade-local-link2 }})

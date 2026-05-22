@@ -24,7 +24,7 @@ The user must [have](../../../billing/security/index.md#set-role) the `billing.a
 ### Required paid resources {#paid-resources}
 
 * {{ speechsense-name }}: Number of characters in each text conversation (see [{{ speechsense-name }} pricing](../../../speechsense/pricing.md)).
-* AI assistant: Text generation (see [{{ foundation-models-full-name }} pricing]({{ link-docs-ai }}ai-studio/pricing)). Once the assistant is activated, you start paying for it.
+* AI assistant: Text generation (see [{{ ai-studio-full-name }} pricing]({{ link-docs-ai }}ai-studio/pricing)). You start paying for the assistant as soon as you activate it.
 
 ## Set up your infrastructure {#infrastructure-prepare}
 
@@ -34,8 +34,8 @@ The user must [have](../../../billing/security/index.md#set-role) the `billing.a
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the relevant folder.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+    1. In the [management console]({{ link-console-main }}), select the folder.
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
     1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
     1. Name the [service account](../../../iam/concepts/users/service-accounts.md), e.g., `speechsense`.
     1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -48,7 +48,8 @@ The user must [have](../../../billing/security/index.md#set-role) the `billing.a
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. Select the `speechsense` service account.
   1. In the top panel, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
@@ -133,7 +134,7 @@ The user must [have](../../../billing/security/index.md#set-role) the `billing.a
             ```text
             You are analyzing a conversation between a call center agent and customer. Pay close attention when generating a response.
             Determine the subject of the customer’s inquiry by selecting one from this list: Visa, Country, Guided Tours.
-            If nothing of the above suits, specify the "Other" value.
+            If nothing of the above is suitable, specify "Other".
             ```
 
         1. Select the `YandexGPT 5.1 Pro` model.
@@ -356,7 +357,7 @@ Below the dialog line, you will see a line indicating the `Guided Tours` subject
           "model_id": "YGPT_LITE",
           "name": "Dialog subject",
           "description": "",
-          "prompt": "You are analyzing a conversation between a call center agent and customer. Pay close attention when generating a response. \nDetermine the subject of the customer’s inquiry by selecting one from this list: Visa, Country, Guided Tours. \nIf nothing of the above is suitable, put "Other"."
+          "prompt": "You are analyzing a conversation between a call center agent and customer. Pay close attention when generating a response. \nDetermine the subject of the customer’s inquiry by selecting one from this list: Visa, Country, Guided Tours. \nIf nothing of the above is suitable, specify "Other".",
           "fields": [
             {
               "id": "eagldsqk9fp4********",
@@ -404,7 +405,7 @@ Below the dialog line, you will see a line indicating the `Guided Tours` subject
           "projectId": "eags34o1skdi********",
           "modelId": "YGPT_LITE",
           "name": "Dialog subject",
-          "prompt": "You are analyzing a conversation between a call center agent and customer. Pay close attention when generating a response. \nDetermine the subject of the customer’s inquiry by selecting one from this list: Visa, Country, Guided Tours. \nIf nothing of the above is suitable, put "Other"."
+          "prompt": "You are analyzing a conversation between a call center agent and customer. Pay close attention when generating a response. \nDetermine the subject of the customer’s inquiry by selecting one from this list: Visa, Country, Guided Tours. \nIf nothing of the above is suitable, specify "Other".",
           "fields": [
             {
               "id": "eagldsqk9fp4********",

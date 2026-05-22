@@ -73,7 +73,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
        Where:
 
        * `--service-account-id`: [Service account ID](../../../iam/operations/sa/get-id.md).
-       * `--role`: [Role](../../security/index.md#roles-list).
+       * `--role`: [Role](../../security/index.md#roles-list) to assign.
 
 - {{ TF }} {#tf}
 
@@ -97,9 +97,9 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
       * `image_id`: Image ID.
       * `role`: [Role](../../security/index.md#roles-list) to assign.
-      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-      For more information about the `yandex_compute_image_iam_binding` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_image_iam_binding).
+      For more information about `yandex_compute_image_iam_binding` properties, see [this provider guide]({{ tf-provider-resources-link }}/compute_image_iam_binding).
 
   1. Create the resources:
 
@@ -208,9 +208,9 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
       * `image_id`: Image ID.
       * `role`: [Role](../../security/index.md#roles-list) to assign.
-      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-      For more information about the `yandex_compute_image_iam_binding` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_image_iam_binding).
+      For more information about `yandex_compute_image_iam_binding` properties, see [this provider guide]({{ tf-provider-resources-link }}/compute_image_iam_binding).
 
   1. Create the resources:
 

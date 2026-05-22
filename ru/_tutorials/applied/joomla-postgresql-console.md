@@ -14,9 +14,11 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+
 ### Необходимые платные ресурсы {#paid-resources}
 
 {% include [joomla-postgresql-paid-resources](../_tutorials_includes/joomla-postgresql/joomla-postgresql-paid-resources.md) %}
+
 
 ## Создайте и настройте облачную сеть {#setup-network}
 

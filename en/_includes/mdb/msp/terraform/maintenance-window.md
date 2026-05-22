@@ -4,8 +4,8 @@ To set up the [maintenance](../../../../managed-spark/concepts/maintenance.md) w
 resource "yandex_spark_cluster" "<cluster_name>" {
   ...
   maintenance_window {
-    type = <maintenance_type>
-    day  = <day_of_week>
+    type = "<maintenance_type>"
+    day  = "<day_of_week>"
     hour = <hour>
   }
   ...

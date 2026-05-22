@@ -67,6 +67,7 @@ resource "yandex_vpc_subnet" "foo" {
 - `hosts` [Block]. A host configuration of the PostgreSQL cluster.
   - `assign_public_ip` (Bool). Whether the host should get a public IP address.
   - `fqdn` (*Read-Only*) (String). The fully qualified domain name of the host.
+  - `priority` (Number). Host priority in HA group. Must be between 0 and 100.
   - `replication_source` (String). FQDN of the host that is used as a replication source.
   - `subnet_id` (String). ID of the subnet where the host is located.
   - `zone` (**Required**)(String). The availability zone where the host is located.
@@ -85,6 +86,10 @@ resource "yandex_vpc_subnet" "foo" {
 * `false` (default) — the restore point refers to the first backup moment before [time].
 * `true` — the restore point refers to the first backup point after [time].
 - `security_group_ids` (Set Of String). The list of security groups applied to resource or their components.
+- `timeouts` [Block]. 
+  - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+  - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+  - `update` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 - `config` [Block]. Configuration of the PostgreSQL cluster.
   - `access` [Block]. Access policy to the PostgreSQL cluster.
     - `data_lens` (Bool). Allow access for Yandex DataLens.

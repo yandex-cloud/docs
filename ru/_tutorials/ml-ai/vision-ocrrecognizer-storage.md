@@ -1,6 +1,6 @@
 # Регулярное распознавание изображений и PDF-документов из бакета {{ objstorage-short-name }}
 
-В этом руководстве вы с помощью [{{ vision-full-name }}]({{ link-docs-ai }}vision/) настроите автоматическое распознавание изображений в [поддерживаемых форматах]({{ link-docs-ai }}vision/concepts/ocr/index.md#image-requirements) и PDF-документов, регулярно загружаемых в [бакет]({{ link-docs }}/storage/concepts/bucket) [{{ objstorage-full-name }}]({{ link-docs }}/storage/).
+В этом руководстве вы с помощью [{{ vision-full-name }}]({{ link-docs-ai }}vision/concepts/ocr/index) настроите автоматическое распознавание изображений в [поддерживаемых форматах]({{ link-docs-ai }}vision/concepts/ocr/index#image-requirements) и PDF-документов, регулярно загружаемых в [бакет]({{ link-docs }}/storage/concepts/bucket) [{{ objstorage-full-name }}]({{ link-docs }}/storage/).
 
 
 ## Процесс распознавания {#ocr}
@@ -8,7 +8,7 @@
 ![image](../../_assets/vision/ocr-storage-recognizer.svg)
 
 1. Пользователь загружает изображения или документы в бакет {{ objstorage-full-name }}, в директорию ([префикс]({{ link-docs }}/storage/concepts/object#folder)) `input`.
-1. [Триггер]({{ link-docs }}/functions/concepts/trigger/index.md) [{{ sf-full-name }}]({{ link-docs }}/functions/) запускается по таймеру и проверяет наличие файлов в папке `input`. После этого файлы отправляются на распознавание в [контейнер]({{ link-docs }}/serverless-containers/concepts/container) [{{ serverless-containers-full-name }}]({{ link-docs }}/serverless-containers/).
+1. [Триггер]({{ link-docs }}/functions/concepts/trigger/index) [{{ sf-full-name }}]({{ link-docs }}/functions/) запускается по таймеру и проверяет наличие файлов в папке `input`. После этого файлы отправляются на распознавание в [контейнер]({{ link-docs }}/serverless-containers/concepts/container) [{{ serverless-containers-full-name }}]({{ link-docs }}/serverless-containers/).
 1. Идет процесс распознавания файлов, идентификатор операции сохраняется в папке `process` в исходном бакете.
 1. После успешного завершения операции, результаты распознавания сохраняются в папке `result` в виде JSON и TXT файлов. Идентификатор успешно выполненной операции удаляется из папки `process`.
 
@@ -28,13 +28,12 @@
 
 
 
-
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры для регулярного распознавания изображений и документов входят:
 * плата за хранение данных в бакете и операции с ними (см. [тарифы {{ objstorage-name }}]({{ link-docs }}/storage/pricing));
 * плата за использование {{ vision-name }} (см. [тарифы для {{ vision-name }}]({{ link-docs-ai }}vision/pricing));
-* плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик (см. [тарифы {{ serverless-containers-name }}]({{ link-docs }}/serverless-containers/pricing.md));
+* плата за количество вызовов контейнера, вычислительные ресурсы, выделенные для выполнения приложения, и исходящий трафик (см. [тарифы {{ serverless-containers-name }}]({{ link-docs }}/serverless-containers/pricing));
 * плата за хранение и операции с [секретом]({{ link-docs }}/lockbox/concepts/secret) (см. [тарифы {{ lockbox-name }}]({{ link-docs }}/lockbox/pricing)).
 
 

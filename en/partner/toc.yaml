@@ -1,4 +1,4 @@
-title: Yandex Cloud partner program
+title: B2B Tech partner program
 href: index.yaml
 editable: false
 items:
@@ -12,12 +12,12 @@ items:
             href: program/var.md
           - name: Tools
             href: program/var-tools.md
-      - name: Specializations
-        items:
-          - name: Overview
-            href: specializations/index.md
-          - name: Conditions
-            href: specializations/conditions.md
+          - name: '{{ yandex-cloud }} partner statuses'
+            items:
+              - name: Overview
+                href: specializations/index.md
+              - name: Conditions
+                href: specializations/conditions.md
       - name: Referral program
         href: program/referral.md
   - name: Partner portal

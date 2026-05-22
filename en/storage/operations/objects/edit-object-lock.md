@@ -22,7 +22,7 @@ To set or configure an object lock:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select any folder.
   1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you want to configure an object lock for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
@@ -103,6 +103,8 @@ To set or configure an object lock:
 
 {% endlist %}
 
+During the lock period, the object version is protected from deletion and modification. You can still perform actions on the object, but these will create new versions. You will be able to [restore the locked version](restore-object-version.md) until the lock expires.
+
 ## Removing governance-mode retention {#remove-governance-retention}
 
 The minimum required role is `storage.admin`.
@@ -113,7 +115,7 @@ To remove retention:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select any folder.
   1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you need from the list.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
@@ -196,7 +198,7 @@ To set or remove legal hold:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. In the [management console]({{ link-console-main }}), select any folder.
   1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you need from the list.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/folder-tree.svg) **{{ ui-key.yacloud.storage.bucket.switch_files }}**.
@@ -281,6 +283,8 @@ To set or remove legal hold:
   Use the [putObjectLegalHold](../../s3/api-ref/object/putobjectlegalhold.md) S3 API method.
 
 {% endlist %}
+
+If you set a lock, the object version will be protected from deletion and modification. Actions with the object will create new versions, and it will be possible to [restore the locked version](restore-object-version.md) until the lock is removed.
 
 ## Examples {#examples}
 

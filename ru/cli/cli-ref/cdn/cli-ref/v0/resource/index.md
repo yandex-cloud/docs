@@ -1,0 +1,71 @@
+---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cdn/cli-ref/v0/resource/
+editable: false
+---
+
+# yc cdn v0 resource
+
+Manage CDN resources
+
+#### Command Usage
+
+Syntax:
+
+`yc cdn resource <command>`
+
+#### Command Tree
+
+- [yc cdn v0 resource create](create.md) — Create resource
+
+- [yc cdn v0 resource delete](delete.md) — Delete resource.
+
+- [yc cdn v0 resource get](get.md) — Show information about resource
+
+- [yc cdn v0 resource get-provider-cname](get-provider-cname.md) — Get provider CNAME
+
+- [yc cdn v0 resource list](list.md) — List resources in the specified folder
+
+- [yc cdn v0 resource update](update.md) — Update resource
+
+#### Global Flags
+
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom configuration file. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
+|| `--token` | `string`
+
+Set the OAuth token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

@@ -1,15 +1,15 @@
 ---
-title: Viewing authorization policies assigned to a resource
-description: In this tutorial, you will learn how to view {{ iam-full-name }} access policies assigned for a folder, cloud, or organization.
+title: Viewing access policies created for a resource
+description: In this tutorial, you will learn how to view {{ iam-full-name }} access policies created for a folder, cloud, or organization.
 ---
 
-# Viewing assigned access policies
+# Viewing access policies created for a resource
 
 {% include [note-preview-by-request](../../../_includes/note-preview-by-request.md) %}
 
 {% include [access-policies-instruction-intro](../../../_includes/iam/access-policies-instruction-intro.md) %}
 
-You can assign access policies for a [folder](#folder), [cloud](#cloud), or [organization](#organization).
+You can create access policies for a [folder](#folder), [cloud](#cloud), or [organization](#organization).
 
 {% note info %}
 
@@ -17,15 +17,15 @@ You can assign access policies for a [folder](#folder), [cloud](#cloud), or [org
 
 {% endnote %}
 
-## Viewing access policies assigned for a folder {#folder}
+## Viewing access policies created for a folder {#folder}
 
 {% include [access-policies-view-assigned-folder](../../../_includes/iam/access-policies-view-assigned-folder.md) %}
 
-## Viewing access policies assigned for a cloud {#cloud}
+## Viewing access policies created for a cloud {#cloud}
 
 {% include [access-policies-view-assigned-cloud](../../../_includes/iam/access-policies-view-assigned-cloud.md) %}
 
-## Viewing access policies assigned for an organization {#organization}
+## Viewing access policies created for an organization {#organization}
 
 {% include [access-policies-view-assigned-org](../../../_includes/iam/access-policies-view-assigned-org.md) %}
 

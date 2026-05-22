@@ -1,0 +1,124 @@
+# Identity Hub API, REST: Group.ListExternal
+
+Retrieves the list of external group linked subject container
+
+## HTTP request
+
+```
+GET https://organization-manager.api.cloud.yandex.net/organization-manager/v1/external_groups
+```
+
+## Query parameters {#yandex.cloud.organizationmanager.v1.ListExternalGroupsRequest}
+
+#|
+||Field | Description ||
+|| subjectContainerId | **string**
+
+Required field. Id of the subject container that external group belongs to.
+To get subject container, use a [yandex.cloud.organizationmanager.v1.saml.FederationService.List](../../saml/api-ref/Federation/list.md#List) request
+or [yandex.cloud.organizationmanager.v1.idp.UserpoolService.List](../../idp/api-ref/Userpool/list.md#List) request.
+
+The maximum string length in characters is 50. ||
+|| pageSize | **string** (int64)
+
+The maximum number of results per page to return. If the number of available
+results is larger than `pageSize`,
+the service returns a [ListExternalGroupsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.ListExternalGroupsResponse)
+that can be used to get the next page of results in subsequent list requests.
+Default value: 100.
+
+Acceptable values are 0 to 1000, inclusive. ||
+|| pageToken | **string**
+
+Page token. Set `pageToken`
+to the [ListExternalGroupsResponse.nextPageToken](#yandex.cloud.organizationmanager.v1.ListExternalGroupsResponse)
+returned by a previous list external request to get the next page of results.
+
+The maximum string length in characters is 2000. ||
+|| filter | **string**
+
+A filter expression that filters resources listed in the response.
+The expression must specify:
+1. The fields name or id. Currently you can use filtering only on the [Group.name](#yandex.cloud.organizationmanager.v1.Group) or [Group.id](#yandex.cloud.organizationmanager.v1.Group) fields.
+2. An `=` operator.
+3. The value in double quotes (`"`). Must be 3-63 characters long and match the regular expression `[a-z][-a-z0-9]{1,61}[a-z0-9]`.
+
+The maximum string length in characters is 1000. ||
+|#
+
+## Response {#yandex.cloud.organizationmanager.v1.ListExternalGroupsResponse}
+
+**HTTP Code: 200 - OK**
+
+```json
+{
+  "groups": [
+    {
+      "id": "string",
+      "organizationId": "string",
+      "createdAt": "string",
+      "name": "string",
+      "description": "string",
+      "subjectContainerId": "string",
+      "externalId": "string",
+      "labels": "object"
+    }
+  ],
+  "nextPageToken": "string"
+}
+```
+
+#|
+||Field | Description ||
+|| groups[] | **[Group](#yandex.cloud.organizationmanager.v1.Group)**
+
+List of External group resources. ||
+|| nextPageToken | **string**
+
+This token allows you to get the next page of results for list requests. If the number of results
+is larger than [ListExternalGroupsRequest.pageSize](#yandex.cloud.organizationmanager.v1.ListExternalGroupsRequest), use
+the `nextPageToken` as the value
+for the [ListExternalGroupsRequest.pageToken](#yandex.cloud.organizationmanager.v1.ListExternalGroupsRequest) query parameter
+in the next list request. Each subsequent list request will have its own
+`nextPageToken` to continue paging through the results. ||
+|#
+
+## Group {#yandex.cloud.organizationmanager.v1.Group}
+
+A Group resource.
+For more information, see [Groups](../../operations/manage-groups.md).
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the group. ||
+|| organizationId | **string**
+
+ID of the organization that the group belongs to. ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| name | **string**
+
+Name of the group. ||
+|| description | **string**
+
+Description of the group. ||
+|| subjectContainerId | **string**
+
+Id of the subject container that external group belongs to. It is set if group is external. ||
+|| externalId | **string**
+
+Id of the group from external system. It is set if group is external. ||
+|| labels | **object** (map<**string**, **string**>)
+
+Resource labels as `key:value` pairs. ||
+|#

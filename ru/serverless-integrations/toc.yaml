@@ -287,7 +287,7 @@ items:
         href: tutorials/auto-upload.md
       - name: >-
           Настройка интеграций {{ sw-name }} с {{ tracker-full-name }}, {{
-          foundation-models-full-name }} и {{ postbox-full-name }}
+          ai-studio-full-name }} и {{ postbox-full-name }}
         href: tutorials/tracker-yandexgpt-postbox-integrations.md
       - name: Разработка Telegram-бота с поддержкой AI-агента
         href: tutorials/telegram-ai-bot-workflows.md
@@ -690,6 +690,74 @@ items:
                 href: eventrouter/api-ref/Rule/updateAccessBindings.md
               - name: ListOperations
                 href: eventrouter/api-ref/Rule/listOperations.md
+  - name: Справочник API Triggers
+    items:
+      - name: Аутентификация в API
+        href: api-ref/triggers/authentication.md
+      - name: gRPC (англ.)
+        items:
+          - name: Overview
+            href: triggers/api-ref/grpc/index.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: triggers/api-ref/grpc/Operation/index.md
+              - name: Get
+                href: triggers/api-ref/grpc/Operation/get.md
+              - name: Cancel
+                href: triggers/api-ref/grpc/Operation/cancel.md
+          - name: Trigger
+            items:
+              - name: Overview
+                href: triggers/api-ref/grpc/Trigger/index.md
+              - name: Get
+                href: triggers/api-ref/grpc/Trigger/get.md
+              - name: List
+                href: triggers/api-ref/grpc/Trigger/list.md
+              - name: Create
+                href: triggers/api-ref/grpc/Trigger/create.md
+              - name: Update
+                href: triggers/api-ref/grpc/Trigger/update.md
+              - name: Delete
+                href: triggers/api-ref/grpc/Trigger/delete.md
+              - name: Pause
+                href: triggers/api-ref/grpc/Trigger/pause.md
+              - name: Resume
+                href: triggers/api-ref/grpc/Trigger/resume.md
+              - name: ListOperations
+                href: triggers/api-ref/grpc/Trigger/listOperations.md
+      - name: REST (англ.)
+        items:
+          - name: Overview
+            href: triggers/api-ref/index.md
+          - name: Operation
+            items:
+              - name: Overview
+                href: triggers/api-ref/Operation/index.md
+              - name: Get
+                href: triggers/api-ref/Operation/get.md
+              - name: Cancel
+                href: triggers/api-ref/Operation/cancel.md
+          - name: Trigger
+            items:
+              - name: Overview
+                href: triggers/api-ref/Trigger/index.md
+              - name: Get
+                href: triggers/api-ref/Trigger/get.md
+              - name: List
+                href: triggers/api-ref/Trigger/list.md
+              - name: Create
+                href: triggers/api-ref/Trigger/create.md
+              - name: Update
+                href: triggers/api-ref/Trigger/update.md
+              - name: Delete
+                href: triggers/api-ref/Trigger/delete.md
+              - name: Pause
+                href: triggers/api-ref/Trigger/pause.md
+              - name: Resume
+                href: triggers/api-ref/Trigger/resume.md
+              - name: ListOperations
+                href: triggers/api-ref/Trigger/listOperations.md
   - name: Метрики {{ monitoring-name }}
     href: metrics.md
   - name: Публичные материалы

@@ -4,9 +4,9 @@
 
 {% include [assistants-do-not-use](../../_includes/ai-studio/ai-assistant-disclaimer.md) %}
 
-С помощью {{ ml-sdk-full-name }}, [RAG](https://ru.wikipedia.org/wiki/Генерация,_дополненная_поиском) и [{{ assistant-api }}]({{ link-docs-ai }}concepts/assistant/index) языковые модели могут поддерживать контекст диалога и обращаться к поиску в базе знаний.
+С помощью {{ ml-sdk-full-name }}, [RAG](https://ru.wikipedia.org/wiki/Генерация,_дополненная_поиском) и [{{ assistant-api }}]({{ link-docs-ai }}ai-studio/responses/index) языковые модели могут поддерживать контекст диалога и обращаться к поиску в базе знаний.
 
-В этом руководстве вы создадите чат-ассистента по продаже вин на основе модели {{ yagpt-name }} 5. Используя возможности [function calling]({{ link-docs-ai }}concepts/generation/function-call) и RAG, ассистент получит доступ к базе данных по винам и регионам, а также прайс-листу с ценами и данными о наличии вин. Настройка ассистента пройдет в ноутбуке {{ ml-platform-full-name }}, общение с ассистентом будет осуществляться через Telegram.
+В этом руководстве вы создадите чат-ассистента по продаже вин на основе модели {{ yagpt-name }} 5. Используя возможности [function calling]({{ link-docs-ai }}ai-studio/concepts/generation/function-call) и RAG, ассистент получит доступ к базе данных по винам и регионам, а также прайс-листу с ценами и данными о наличии вин. Настройка ассистента пройдет в ноутбуке {{ ml-platform-full-name }}, общение с ассистентом будет осуществляться через Telegram.
 
 Чтобы создать интеллектуального ассистента для Telegram:
 
@@ -57,7 +57,7 @@
 - Консоль управления {#console}
 
   1. Перейдите в каталог `data-folder`.
-  1. На панели слева нажмите ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}** или введите название сервиса в строке поиска на дашборде.
+  1. На панели слева нажмите ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.dashboard.DashboardPage.ServicesSection.title_ur39b }}** и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}** или введите название сервиса в строке поиска на дашборде.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя сервисного аккаунта, например `gpt-user`.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте сервисному аккаунту роль `{{ roles-yagpt-user }}`.
@@ -88,7 +88,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `data-folder`.
-  1. На панели слева нажмите ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}** или введите название сервиса в строке поиска на дашборде.
+  1. На панели слева нажмите ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.dashboard.DashboardPage.ServicesSection.title_ur39b }}** и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}** или введите название сервиса в строке поиска на дашборде.
   1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. В открывшемся списке выберите сервисный аккаунт `gpt-user`.
   1. На панели сверху нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.

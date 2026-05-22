@@ -1,26 +1,26 @@
 ---
 title: Access management in {{ mtr-full-name }}
-description: Access management in {{ TR }}, a cluster creation and management service. This section covers role assignment to resources, available service roles, and required permissions for actions.
+description: Access management in {{ TR }}, a cluster creation and management service. This section describes the resources you can assign a role for, the roles this service has, and the roles required for specific actions.
 ---
 
 # Managing access to {{ mtr-name }}
 
 
-In this section, you will learn about:
+In this section, you will learn about the following:
 
-* [Resources available for role assignment](#resources).
-* [Available service roles](#roles-list).
-* [Roles required](#required-roles) for specific actions.
+* [Resources you can assign a role for](#resources).
+* [Roles this service has](#roles-list).
+* [Roles required for specific actions](#required-roles).
 
 To use the service, log in to the management console with your [Yandex account](../iam/concepts/users/accounts.md#passport), [federated account](../iam/concepts/users/accounts.md#saml-federation), or [local account](../iam/concepts/users/accounts.md#local).
 
 {% include [about-access-management](../_includes/iam/about-access-management.md) %}
 
-To assign a role for a resource, a user should have the `managed-trino.admin` role or one of the following roles for that resource:
+To assign a role for a resource, you need the `managed-trino.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../_includes/iam/roles-list.md) %}
 
-## Resources available for role assignment {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../_includes/iam/basic-resources-for-access-control.md) %}
 
@@ -28,7 +28,7 @@ To allow access to {{ mtr-name }} resources, such as clusters and accounts, give
 
 You can assign a role for an individual cluster in the [management console]({{ link-console-main }}), via the [CLI](../cli), or [API](./api-ref/authentication.md).
 
-## Available service roles {#roles-list}
+## Roles existing in this service {#roles-list}
 
 The list below shows all the roles used for access control in this service.
 
@@ -55,6 +55,14 @@ The list below shows all the roles used for access control in this service.
 #### managed-trino.admin {#managed-trino-admin}
 
 {% include [managed-trino.admin](../_roles/managed-trino/admin.md) %}
+
+#### managed-trino.maintenanceTask.viewer {#managed-trino-maintenanceTask-viewer}
+
+{% include [managed-trino.maintenanceTask.viewer](../_roles/managed-trino/maintenanceTask/viewer.md) %}
+
+#### managed-trino.maintenanceTask.editor {#managed-trino-maintenanceTask-editor}
+
+{% include [managed-trino.maintenanceTask.editor](../_roles/managed-trino/maintenanceTask/editor.md) %}
 
 #### managed-trino.integrationProvider {#managed-trino-integrationProvider}
 

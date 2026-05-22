@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/logging/cli-ref/
 editable: false
 ---
 
@@ -69,6 +70,12 @@ Aliases:
   - [yc logging sink set-access-bindings](sink/set-access-bindings.md) — Set access bindings for the specified log group and delete all existing access bindings if there were any
 
   - [yc logging sink update](sink/update.md) — Update log sink
+
+- [yc logging v0](v0/index.md) — Yandex Cloud Logging
+
+  - [yc logging v0 read](v0/read.md) — Read logs
+
+  - [yc logging v0 write](v0/write.md) — Write to log
 
 #### Global Flags
 

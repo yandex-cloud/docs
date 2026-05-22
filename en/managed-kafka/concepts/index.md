@@ -5,12 +5,13 @@ description: '{{ KF }} is a distributed cross-application communication system t
 
 # Resource relationships in {{ mkf-name }}
 
+
 {{ KF }} is a distributed cross-application communication system that uses the _publication-subscription_ principle.
 
 {{ mkf-full-name }} helps you deploy and maintain clusters of {{ versions.console.str }} {{ KF }} servers in the {{ yandex-cloud }} infrastructure.
 
 
-Each {{ mkf-name }} cluster consists of one or more [broker hosts](brokers.md) that host [topics](topics.md) and their partitions. Cluster hosts may reside in different availability zones. You can learn more about {{ yandex-cloud }} availability zones in [Platform overview](../../overview/concepts/geo-scope.md).
+Each {{ mkf-name }} cluster consists of one or more [broker hosts](brokers.md) that host [topics](topics.md) and their partitions. Cluster hosts may reside in different availability zones. You can learn more about the {{ yandex-cloud }} availability zones in the [Platform overview](../../overview/concepts/geo-scope.md).
 
 If all broker hosts are created in the same availability zone, you cannot change their number.
 

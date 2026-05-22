@@ -13,7 +13,7 @@ There are differences between an escalation and other notification methods:
 * You can start an escalation only for alerts with the **Alarm** status.
 * The system will iterate over the notification sequence until you stop it.
 
-## Concepts {#intro}
+## Basic terms {#intro}
 
 * **Escalation policy**: Sequence of notification steps, delay between them, and other settings.
 
@@ -80,7 +80,7 @@ An escalation may be stopped for the following reasons:
 
 ## My escalations {#my-escalations-popup}
 
-When you start an escalation in which the current user is the notification recipient, you will see an information window for the active escalation in the {{ monitoring-name }} interface. This window is displayed on all {{ monitoring-name }} pages. If you close the window, it will reopen when you start a new escalation.
+When you start an escalation in which the current user is the notification recipient, you will see an information window for the active escalation in the {{ monium-name }} interface. This window is displayed on all {{ monium-name }} pages. If you close the window, it will reopen when you start a new escalation.
 
 {% note info %}
 

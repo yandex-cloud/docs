@@ -50,17 +50,24 @@ description: This page provides a list of step-by-step guides for {{ sws-name }}
 
 * [{#T}](list-create.md)
 
+## Managing response templates {#manage-templates}
+
+* [{#T}](template-create.md)
+* [{#T}](template-attach.md)
+* [{#T}](template-manage.md)
+
 ## Required and recommended rules {#rules}
 
 * [{#T}](captcha-rule.md)
 * [{#T}](black-list-rule.md)
 
-## Service actions
+## Service actions {#service-actions}
 
 * [{#T}](monitoring.md)
 * [{#T}](alerting.md)
 * [{#T}](configure-logging.md)
 * [{#T}](configure-logging-alb.md)
+* [{#T}](waf-migration.md)
 
 ## Getting additional information {#get-additional-info}
 

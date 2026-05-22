@@ -32,7 +32,7 @@ To see what changed in the {{ yandex-cloud }} services and tools, see the links 
 * [{{ mpg-full-name }}](../managed-postgresql/release-notes.md)
 * [{{ mtr-full-name }}](../managed-trino/release-notes.md)
 * [{{ mrd-full-name }}](../managed-valkey/release-notes.md)
-* [{{ myt-full-name}}](../managed-ytsaurus/release-notes.md)
+* [{{ myt-full-name }}](../managed-ytsaurus/release-notes.md)
 * [{{ metadata-hub-full-name }}](../metadata-hub/release-notes/index.md)
 * [{{ websql-full-name }}](../websql/release-notes/index.md)
 
@@ -75,7 +75,7 @@ To see what changed in the {{ yandex-cloud }} services and tools, see the links 
 ## Machine learning {#ml-ai}
 
 * [{{ ml-platform-full-name }}](../datasphere/release-notes.md)
-* [{{ foundation-models-full-name }}]({{ link-docs-ai }}ai-studio/release-notes/index)
+* [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/release-notes/index)
 * [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/release-notes/index)
 * {{ speechkit-full-name }}: [Speech recognition]({{ link-docs-ai }}speechkit/release-notes-stt) and [synthesis]({{ link-docs-ai }}speechkit/release-notes-tts)
 * [{{ sk-hybrid-full-name }}]({{ link-docs-ai }}speechkit-hybrid/release-notes)

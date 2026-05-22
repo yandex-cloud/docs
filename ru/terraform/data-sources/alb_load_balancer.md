@@ -59,6 +59,7 @@ data "yandex_alb_load_balancer" "tf-alb-data" {
       - `http2_options` [Block]. If set, will enable HTTP2 protocol for the handler.
         - `max_concurrent_streams` (Number). Maximum number of concurrent streams.
       - `http_router_id` (String). HTTP router id.
+      - `preserve_http1_header_casing` (Bool). When unset, will preserve the casing of the incoming HTTP headers, otherwise would convert them to lowercase. Works only for HTTP1.1 and HTTP1.0 requests.
       - `rewrite_request_id` (Bool). When unset, will preserve the incoming `x-request-id` header, otherwise would rewrite it with a new value.
     - `redirects` [Block]. Shortcut for adding http -> https redirects.
       - `http_to_https` (Bool). If set redirects all unencrypted HTTP requests to the same URI with scheme changed to `https`.
@@ -75,6 +76,7 @@ data "yandex_alb_load_balancer" "tf-alb-data" {
         - `http2_options` [Block]. If set, will enable HTTP2 protocol for the handler.
           - `max_concurrent_streams` (Number). Maximum number of concurrent streams.
         - `http_router_id` (String). HTTP router id.
+        - `preserve_http1_header_casing` (Bool). When unset, will preserve the casing of the incoming HTTP headers, otherwise would convert them to lowercase. Works only for HTTP1.1 and HTTP1.0 requests.
         - `rewrite_request_id` (Bool). When unset, will preserve the incoming `x-request-id` header, otherwise would rewrite it with a new value.
       - `stream_handler` [Block]. Stream handler resource.
         - `backend_group_id` (String). Backend Group ID.
@@ -87,6 +89,7 @@ data "yandex_alb_load_balancer" "tf-alb-data" {
           - `http2_options` [Block]. If set, will enable HTTP2 protocol for the handler.
             - `max_concurrent_streams` (Number). Maximum number of concurrent streams.
           - `http_router_id` (String). HTTP router id.
+          - `preserve_http1_header_casing` (Bool). When unset, will preserve the casing of the incoming HTTP headers, otherwise would convert them to lowercase. Works only for HTTP1.1 and HTTP1.0 requests.
           - `rewrite_request_id` (Bool). When unset, will preserve the incoming `x-request-id` header, otherwise would rewrite it with a new value.
         - `stream_handler` [Block]. Stream handler resource.
           - `backend_group_id` (String). Backend Group ID.
@@ -108,5 +111,9 @@ data "yandex_alb_load_balancer" "tf-alb-data" {
 - `region_id` (String). The region ID where Load Balancer is located at.
 - `security_group_ids` (Set Of String). The list of security groups applied to resource or their components.
 - `status` (*Read-Only*) (String). Status of the Load Balancer.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `update` (String).
 
 

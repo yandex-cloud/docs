@@ -45,7 +45,7 @@ Required packages:
           {
               using (ApplicationContext db = new ApplicationContext())
               {
-                  var versionStrings = await db.VersionStrings.FromSqlRaw(@"select 1 as id,version() as versionString;").ToListAsync();
+                  var versionStrings = await db.VersionStrings.FromSqlRaw(@"select 1 as id, version() as versionString;").ToListAsync();
                   Console.WriteLine(versionStrings[0].versionString);
               }
           }
@@ -143,7 +143,6 @@ go mod init example && go get github.com/jackc/pgx/v4
       	"crypto/tls"
       	"crypto/x509"
       	"fmt"
-      	"io/ioutil"
       	"os"
 
       	"github.com/jackc/pgx/v4"
@@ -325,7 +324,7 @@ Before connecting:
 
       public class App {
         public static void main(String[] args) {
-          String DB_URL  = "jdbc:postgresql://c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mgp }}/postgres?targetServerType=master&ssl=false&sslmode=disable";
+          String DB_URL  = "jdbc:postgresql://<primary_master_host_FQDN>:{{ port-mgp }},<standby_master_host_FQDN>:{{ port-mgp }}/postgres?targetServerType=master&ssl=false&sslmode=disable";
           String DB_USER = "<username>";
           String DB_PASS = "<user_password>";
 
@@ -366,7 +365,7 @@ Before connecting:
 
       public class App {
         public static void main(String[] args) {
-          String DB_URL  = "jdbc:postgresql://c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mgp }}/postgres?targetServerType=master&ssl=true&sslmode=verify-full";
+          String DB_URL  = "jdbc:postgresql://<primary_master_host_FQDN>:{{ port-mgp }},<standby_master_host_FQDN>:{{ port-mgp }}/postgres?targetServerType=master&ssl=true&sslmode=verify-full";
           String DB_USER = "<username>";
           String DB_PASS = "<user_password>";
 
@@ -427,7 +426,7 @@ npm install pg
     });
     conn.query("SELECT version()", (err, q) => {
         if (err) throw err;
-        console.log(q.rows[0]);
+        console.log(q.rows[0].version);
         conn.end();
     });
     ```
@@ -459,7 +458,7 @@ npm install pg
     });
     conn.query("SELECT version()", (err, q) => {
         if (err) throw err;
-        console.log(q.rows[0]);
+        console.log(q.rows[0].version);
         conn.end();
     });
     ```

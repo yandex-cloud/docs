@@ -327,6 +327,12 @@
 
 {% endnote %}
 
+{% note info %}
+
+Если указать сеть в настройках контейнера, в каждой зоне доступности будет создана служебная подсеть из диапазона `198.19.0.0/16`. Такие подсети не отображаются в интерфейсе {{ yandex-cloud }}. Учитывайте это при [настройке](../../managed-gitlab/operations/configure-security-group.md) правил групп безопасности. Подробнее читайте в разделе [Сетевое взаимодействие](../../serverless-containers/concepts/networking.md).
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
@@ -357,6 +363,7 @@
         1. В блоке **{{ ui-key.yacloud.serverless-containers.section_parameters }}**:
 
             1. В поле **{{ ui-key.yacloud.serverless-containers.label_service-account }}** укажите `gitlab-runner-lockbox-payload-viewer`.
+            1. (Опционально) В поле **{{ ui-key.yacloud.vpc.label_network }}** укажите или [создайте](../../vpc/operations/network-create.md) сеть, в которой будет размещаться контейнер.
             1. В поле **{{ ui-key.yacloud.serverless-containers.label_timeout }}** укажите нужное значение, например `600 {{ ui-key.yacloud.common.units.label_time-sec_many }}`.
 
         1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.title_ephemeral-storage }}**:

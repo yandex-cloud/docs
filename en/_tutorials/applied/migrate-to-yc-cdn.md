@@ -46,7 +46,7 @@ To ensure data encryption when accessing the new CDN resource, add a new [TLS ce
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to add a certificate to.
-      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
       1. Click **{{ ui-key.yacloud.certificate-manager.button_empty-action }}** and select **{{ ui-key.yacloud.certificate-manager.action_request }}**.
       1. In the window that opens, enter a name for your certificate in the **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** field, e.g., `my-cdn-certificate`.
       1. In the **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** field, specify the wildcard for your domain and its subdomains, e.g., `*.example.com`, where `example.com` is your website’s domain name.
@@ -55,7 +55,7 @@ To ensure data encryption when accessing the new CDN resource, add a new [TLS ce
 
     - CLI {#cli}
 
-      1. Request a new wildcard certificate. To do this, run the following command:
+      1. Request a new wildcard certificate. Do it by running this command:
 
           ```bash
           yc certificate-manager certificate request \
@@ -93,7 +93,7 @@ To ensure data encryption when accessing the new CDN resource, add a new [TLS ce
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to which you added the [certificate](../../certificate-manager/concepts/managed-certificate.md).
-      1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
       1. From the list of certificates, select the one you need verified.
       1. In the window that opens, under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, you will see the details required to pass the domain rights check.
 
@@ -155,7 +155,7 @@ Create a CDN resource in {{ cdn-full-name }}:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder you are going to create your CDN resource in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. Click **{{ ui-key.yacloud.cdn.button_resource-create }}**.
   1. Configure the basic CDN resource settings:
       * Under **{{ ui-key.yacloud.cdn.label_section-content }}**:
@@ -170,7 +170,7 @@ Create a CDN resource in {{ cdn-full-name }}:
         * In the **{{ ui-key.yacloud.cdn.label_certificate-type }}** field, select `{{ ui-key.yacloud.cdn.value_certificate-custom }}` and then, from the list that opens, select the certificate you created earlier, such as `my-cdn-certificate`.
         * In the **{{ ui-key.yacloud.cdn.label_host-header }}** field, select `{{ ui-key.yacloud.cdn.value_host-header-default }}`.
   1. Click **{{ ui-key.yacloud.common.continue }}**.
-  1. Under **{{ ui-key.yacloud.cdn.label_resource-cache }}**, **{{ ui-key.yacloud.cdn.label_resource-http-headers }}**, and **Advanced**, leave the default settings. Click **Continue**.
+  1. Under **{{ ui-key.yacloud.cdn.label_resource-cache }}**, **{{ ui-key.yacloud.cdn.label_resource-http-headers }}**, and **Advanced**, leave the default settings, then click **Continue**.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -282,14 +282,14 @@ Once you have confirmed the original CDN resource from your third-party CDN prov
 
 ## Add an additional domain to the CDN resource in {{ cdn-name }} {#add-secondary-domain}
 
-Once you have deleted the third-party CDN resource that was using the original CDN subdomain, you can add that subdomain as an additional domain to your new {{ cdn-name }} resource. To do this:
+Once you have deleted the third-party CDN resource that was using the original CDN subdomain, you can add that subdomain as an additional domain to your new {{ cdn-name }} resource. Proceed as follows:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder with your CDN resource.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cdn }}**.
   1. In the line with the CDN resource you created earlier, click ![ellipsis](../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Under **{{ ui-key.yacloud.cdn.label_section-domain }}**, click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.cdn.button_add-domain }}** and then, in the field that appears, enter the domain name the old CDN resource used, e.g., `cdn.example.com`.
   1. Click **{{ ui-key.yacloud.common.save }}**.

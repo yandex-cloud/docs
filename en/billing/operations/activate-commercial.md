@@ -1,11 +1,10 @@
-# Activating the paid version
+# Activate the paid version
 
-Legal entities can activate the paid version within sixty days after the trial period expires. Otherwise, all of their resources are deleted automatically.
-If you have not spent the full amount of the [initial grant](../concepts/bonus-account.md) during the trial period, you can use its balance to pay for the resources you will consume in the future.
+Businesses can activate the paid version within sixty days after the [trial period](../concepts/trial-period.md) expires. Otherwise, all resources will be deleted. If you have not used up your [initial grant](../concepts/bonus-account.md) during the trial period, you can use its balance to pay for your resources in the future.
 
 {% note info %}
 
-The paid version can be activated by a user who has been assigned the [role](../security/index.md#billing-accounts-owner) `billing.accounts.owner`.
+The paid version can be activated by users with the `billing.accounts.owner` [role](../security/index.md#billing-accounts-owner).
 
 {% endnote %}
 
@@ -17,7 +16,7 @@ To upgrade to the paid version:
   
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Select a billing account.
-  1. On the ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_billing.billing.account.switch_overview }}** page, click **{{ ui-key.yacloud_billing.billing.account.button_billing-payment-action }}**.
+  1. On the ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}** page, click **{{ ui-key.yacloud_billing.billing.account.button_billing-payment-action }}**.
   1. Confirm the action by clicking **{{ ui-key.yacloud_billing.billing.account.button_billing-payment-action }}** again.
 
 {% endlist %}

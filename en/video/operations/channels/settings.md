@@ -20,7 +20,7 @@ description: Follow this guide to set up a {{ video-full-name }} channel and man
      1. Click ![plus-sign](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_video.channels.action_add-domain }}**.
      1. Enter the address of a website or group of websites.
      1. Click **{{ ui-key.yacloud_video.common.action_create }}**.
-     1. Add other domains if required.
+     1. Add other domains as needed.
   1. To play back videos on all websites, disable **{{ ui-key.yacloud_video.channels.label_domains-status }}**. The domains you added will be saved.
   1. Click **{{ ui-key.yacloud_video.common.action_accept }}**.
 
@@ -47,6 +47,7 @@ To configure ads:
 1. [Add](#add-page-id) the `Page ID` to the {{ video-name }} channel settings.
 1. Wait until the moderation process is completed: the video resource status in YAN will change to **Active. No statistics**.
 1. [Configure](https://yandex.ru/support2/partner/ru/video/create-instream) the display of ad blocks for your videos.
+1. [Enable](../video/update.md) ads for each video individually.
 1. [View statistics](https://yandex.ru/support2/partner/ru/statistics/working-with-reports) on advertising and learn about [technologies for increasing advertising efficiency](https://yandex.ru/support2/partner/ru/efficiency/site-quality).
 
 ### Adding Page ID {#add-page-id}

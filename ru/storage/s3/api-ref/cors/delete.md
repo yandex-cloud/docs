@@ -1,4 +1,4 @@
-# Метод delete
+# Object Storage API, REST совместимый с Amazon S3: DeleteBucketCors
 
 Удаляет конфигурацию CORS для бакета.
 
@@ -39,6 +39,10 @@ DELETE /{bucket}?cors HTTP/2
 
 Если конфигурация CORS не существует, то {{ objstorage-name }} ответит кодом `204 No Content`.
 
-{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/cors.md)
 
 * [{#T}](../../../operations/buckets/cors.md)
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

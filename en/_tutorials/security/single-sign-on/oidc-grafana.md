@@ -3,7 +3,7 @@
 
 [Grafana Cloud](https://grafana.com/products/cloud/) is a managed cloud monitoring and observability platform that brings together Grafana, Prometheus, Loki, and other tools for data visualization and analysis. Grafana Cloud supports [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC) authentication to provide secure SSO for your organization's users.
 
-To authenticate your [organization's](../../../organization/concepts/organization.md) users to Grafana Cloud with OpenID Connect SSO, create an [OIDC app](../../../organization/concepts/applications.md#oidc) in {{ org-name }} and configure it appropriately both in {{ org-name }} and Grafana Cloud.
+To authenticate your [organization's](../../../organization/concepts/organization.md) users to Grafana Cloud with OpenID Connect SSO, create an [OIDC app](../../../organization/concepts/applications.md#oidc) in {{ org-full-name }} and configure it appropriately both in {{ org-full-name }} and Grafana Cloud.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
@@ -157,7 +157,7 @@ To configure OIDC in Grafana Cloud, you need organization administrator permissi
 
 ## Set up the integration {#setup-integration}
 
-To integrate Grafana Cloud with the OIDC app you created in {{ org-name }}, complete the setup both on the Grafana Cloud side and in {{ org-name }}.
+To integrate Grafana Cloud with the OIDC app you created in {{ org-full-name }}, complete the setup both on the Grafana Cloud side and in {{ org-full-name }}.
 
 ### Configure your OIDC application in {{ org-full-name }} {#setup-idp}
 
@@ -296,14 +296,14 @@ In the Generic OAuth settings:
 
 1. Under **Name**, specify `OpenID Connect`.
 1. In the **Scopes** field, enter the following, one by one: `openid`, `email`, `profile`.
-1. Under **Client ID**, specify the value you copied from the **{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}** field when setting up the OIDC application in {{ org-name }}.
-1. In the **Client Secret** field, specify the value you copied from the **{{ ui-key.yacloud_org.application.overview.secret_section_title }}** section when setting up the OIDC application in {{ org-name }}.
-1. Click **Enter OpenID Connect Discovery URL** and then, in the window that opens, specify the URL you copied from the **{{ ui-key.yacloud_org.application.overview.oauth_field_open_id }}** field when setting up the OIDC application in {{ org-name }}.
+1. Under **Client ID**, specify the value you copied from the **{{ ui-key.yacloud_org.application.overview.oauth_field_client_id }}** field when setting up the OIDC application in {{ org-full-name }}.
+1. In the **Client Secret** field, specify the value you copied from the **{{ ui-key.yacloud_org.application.overview.secret_section_title }}** section when setting up the OIDC application in {{ org-full-name }}.
+1. Click **Enter OpenID Connect Discovery URL** and then, in the window that opens, specify the URL you copied from the **{{ ui-key.yacloud_org.application.overview.oauth_field_open_id }}** field when setting up the OIDC application in {{ org-full-name }}.
 1. Enable **Allow sign up** to automatically create users on first sign-in.
 
 ### Add a user {#add-user}
 
-For your organization's users to be able to authenticate in Grafana Cloud with {{ org-name }}'s OIDC app, you need to explicitly add these users and/or [user groups](../../../organization/concepts/groups.md) to the OIDC application.
+For your organization's users to be able to authenticate in Grafana Cloud with {{ org-full-name }}'s OIDC app, you need to explicitly add these users and/or [user groups](../../../organization/concepts/groups.md) to the OIDC application.
 
 {% note info %}
 
@@ -374,4 +374,4 @@ Proceed as follows:
 1. If you were logged in to Grafana Cloud, log out.
 1. On the Grafana Cloud sign in page, click **Sign in with OpenID Connect**.
 1. On the {{ yandex-cloud }} sign in page, enter the user email and password. The user or group they belong to must be added to the application.
-1. Make sure you have authenticated in Grafana Cloud.
+1. Make sure you have successfully authenticated in Grafana Cloud.

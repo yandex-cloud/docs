@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/bind-file/migrate-to-terraform
 editable: false
 ---
 

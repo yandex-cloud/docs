@@ -200,4 +200,4 @@ sourcePath: overlay/docapi/api-ref/actions/scan.md
 `RequestLimitExceeded` | Пропускная способность превышает квоту.<br/><br/>**Код состояния HTTP**: 400
 `ResourceNotFoundException` | Указанная таблица не существует.<br/><br/>**Код состояния HTTP**: 400
 
-Также могут возникать [Общие ошибки](../common-errors), одинаковые для всех методов.
+Также могут возникать [Общие ошибки](../../common-errors.md), одинаковые для всех методов.

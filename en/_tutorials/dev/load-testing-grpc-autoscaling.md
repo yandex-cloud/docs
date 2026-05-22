@@ -1,7 +1,9 @@
-# Deploying and load testing a gRPC service with scaling in {{ managed-k8s-full-name }}
+# Deploying and load testing a scalable gRPC service in {{ managed-k8s-full-name }}
+
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
 
 
-Follow this tutorial to deploy an autoscaling [gRPC](https://grpc.io/docs/) service in a [{{ k8s }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) using an [{{ alb-full-name }}](../../application-load-balancer/) [Ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md) to load test the service.
+Follow this tutorial to deploy an autoscalable gRPC service in a [{{ k8s }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) using an [{{ alb-full-name }}](../../application-load-balancer/) [ingress controller](../../application-load-balancer/tools/k8s-ingress-controller/index.md) to load test the service.
 
 {% include [Gwin](../../_includes/application-load-balancer/ingress-to-gwin-tip.md) %}
 
@@ -208,7 +210,7 @@ This tutorial will use a gRPC service as a test target.
 
    The IP address should appear in the `ADDRESS` column. Otherwise, the load balancer was not created or it was created with an error. Check the logs for the `yc-alb-ingress-controller-*` [pod](../../managed-kubernetes/concepts/index.md#pod).
 
-1. If you have no [ExternalDNS with a plugin for {{ dns-name }}](/marketplace/products/yc/externaldns) installed, [create](../../dns/operations/resource-record-create.md) an [A record](../../dns/concepts/resource-record.md#a-a) in {{ dns-name }} pointing to the load balancer's public IP address. If you are using ExternalDNS with the {{ dns-name }} plugin, this record will be created automatically.
+1. If you have not installed [ExternalDNS with Webhook {{ dns-name }}](/marketplace/products/yc/external-dns-yc-webhook), [create](../../dns/operations/resource-record-create.md) an [A record](../../dns/concepts/resource-record.md#a-a) in {{ dns-name }} pointing to the load balancer's public IP address. If you are using ExternalDNS with Webhook {{ dns-name }}, this record will be created automatically.
 
 
 ## Configure horizontal pod autoscaling {#configure-autoscaling}
@@ -342,18 +344,19 @@ This tutorial will use a gRPC service as a test target.
 
 1. Monitor the test:
 
-   1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+   1. Open the [management console]({{ link-console-main }}).
+   1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
    1. Select your {{ managed-k8s-name }} test cluster.
    1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}** tab.
    1. Monitor the changes in the number of application pods as the load increases and decreases.
-   1. After the test is complete, in the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
-   1. Select the created L7 load balancer.
+   1. Once the test is complete, [navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}** in the management console.
+   1. Select the L7 load balancer you created.
    1. Navigate to the **{{ ui-key.yacloud.common.monitoring }}** tab.
    1. View the test load charts.
 
 ## How to delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 1. If you had set up [CNAME records](../../dns/concepts/resource-record.md#cname) in {{ dns-name }}, [delete the DNS zone](../../dns/operations/zone-delete.md).
 1. [Delete the L7 load balancer](../../application-load-balancer/operations/application-load-balancer-delete.md).
 1. [Delete the {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-delete.md).

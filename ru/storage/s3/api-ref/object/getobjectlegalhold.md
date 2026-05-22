@@ -1,4 +1,4 @@
-# Метод getObjectLegalHold
+# Object Storage API, REST совместимый с Amazon S3: GetObjectLegalHold
 
 Возвращает настройки бессрочной [блокировки](../../../concepts/object-lock.md), установленной на версию объекта.
 
@@ -50,5 +50,13 @@ GET /{bucket}/{key}?legal-hold&versionId={versionId} HTTP/2
 Элемент | Описание
 ----- | -----
 `Status` | <p>Статус бессрочной блокировки:</p><ul><li>`ON` — блокировка установлена.</li><li>`OFF` — блокировка не установлена.</li></ul><p>Путь: `LegalHold\Status`.</p>
+
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/object.md)
+
+* [{#T}](../../../concepts/object-lock.md)
+
+* [Настройка блокировок версии объекта](../../../operations/objects/edit-object-lock.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

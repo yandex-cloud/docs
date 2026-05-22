@@ -38,7 +38,7 @@ The cost includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** service.
   1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
   1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_access-read }}** and **{{ ui-key.yacloud.storage.bucket.settings.field_access-list }}** fields, select **{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}**.
@@ -59,6 +59,7 @@ The cost includes:
      ```text
      make_bucket: <bucket_name>
      ```
+
 
 - {{ TF }} {#tf}
 
@@ -91,6 +92,7 @@ The cost includes:
   1. Create a bucket.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 
 - API {#api}
 
@@ -136,6 +138,7 @@ The cost includes:
 
      Where `--bucket` is the name of the bucket to enable action logging for.
 
+
 - {{ TF }} {#tf}
   
   To enable logging for a bucket you want to track:
@@ -174,6 +177,7 @@ The cost includes:
 
         This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
 
+
 - API {#api}
 
   Use the REST API [putBucketLogging](../../storage/s3/api-ref/bucket/putBucketLogging.md) method.
@@ -184,14 +188,16 @@ The cost includes:
 
 ### Create a {{ CH }} cluster {#create-ch-cluster}
 
-To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role along with the [{{ roles.mch.editor }} role or higher](../../managed-clickhouse/security.md#roles-list). To learn more about assigning roles, see [this {{ iam-name }} article](../../iam/operations/roles/grant.md).
+
+To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role along with the [{{ roles.mch.editor }} role or higher](../../managed-clickhouse/security.md#roles-list). For more information on assigning roles, see [this {{ iam-name }} guide](../../iam/operations/roles/grant.md).
+
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
   1. In the window that opens, click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Specify the {{ CH }} cluster settings:
 
@@ -199,9 +205,11 @@ To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      1. Under **{{ ui-key.yacloud.mdb.forms.new_section_resource }}**, select `burstable` in the **{{ ui-key.yacloud.mdb.forms.resource_presets_field-type }}** field.
 
+     
      1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, click ![image](../../_assets/console-icons/pencil.svg) and enable the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** option. Click **{{ ui-key.yacloud.mdb.hosts.dialog.button_choose }}**.
 
         {% include [public-access](../../_includes/mdb/note-public-access.md) %}
+
 
      1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
 
@@ -225,6 +233,7 @@ To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  
   To create a cluster:
 
   1. Check whether the folder has any subnets for the cluster hosts:
@@ -233,7 +242,7 @@ To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      yc vpc subnet list
      ```
 
-     If there are no subnets in the folder, [create the required subnets](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
+     If your folder contains no subnets, [create them](../../vpc/operations/subnet-create.md) in {{ vpc-short-name }}.
 
   1. Specify the cluster properties in the creation command:
 
@@ -251,6 +260,8 @@ To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
         --datalens-access=true \
         --websql-access=true
      ```
+
+
 
 - {{ TF }} {#tf}
 
@@ -303,13 +314,14 @@ To create a {{ mch-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-mch }}).
 
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
   1. Create a cluster:
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 
 - API {#api}
   
@@ -336,9 +348,11 @@ Wait until the cluster status switches to `Alive`.
 
 {% endlist %}
 
+
 ### Create a static key {#create-static-key}
 
 You need a static key to create a table with access to {{ objstorage-name }}. [Create one](../../iam/operations/authentication/manage-access-keys.md#create-access-key) and save its ID and secret part.
+
 
 ### Create a table in the database {#create-table}
 
@@ -371,7 +385,7 @@ You need a static key to create a table with access to {{ objstorage-name }}. [C
         request_path String,        -- Full request path.
         request_time Int64,         -- Request processing time in milliseconds.
         scheme String,              -- Data transfer protocol type.
-                                    -- The possible values are:
+                                    -- The possible values are as follows:
                                     -- * http: Application layer protocol.
                                     -- * https: Application layer protocol with encryption support.
         ssl_protocol String,        -- Security protocol.
@@ -381,7 +395,7 @@ You need a static key to create a table with access to {{ objstorage-name }}. [C
         user_agent String,          -- Client app (user agent) that run the request.
         version_id String,          -- Object version.
         vhost String                -- Virtual host of the request.
-                                    -- The possible values are:
+                                    -- The possible values are as follows:
                                     -- * {{ s3-storage-host }}.
                                     -- * <bucket_name>.{{ s3-storage-host }}.
                                     -- * {{ s3-web-host }}.
@@ -482,7 +496,7 @@ To visualize the distribution of outbound traffic by day, create a bar chart:
 
 ## Create a dashboard in {{ datalens-short-name }} and add charts to it {#create-dashboard}
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. In the left-hand panel, click ![image](../../_assets/console-icons/layout-cells-large.svg) **Dashboards**.
 1. Click **Create dashboard**.
 1. Enter the `S3 Logs Analysis` name for the dashboard and click **Create**.
 1. In the top-right corner, click **Add** and select `Chart`.

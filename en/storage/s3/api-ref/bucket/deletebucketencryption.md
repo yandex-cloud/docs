@@ -1,4 +1,4 @@
-# deleteBucketEncryption method
+# Object Storage API, Amazon S3-compatible REST: DeleteBucketEncryption
 
 Removes encryption from the bucket. For more information about bucket encryption, see [{#T}](../../../concepts/encryption.md).
 
@@ -30,4 +30,12 @@ Responses can only contain [common headers](../common-response-headers.md).
 
 For a list of possible responses, see [{#T}](../response-codes.md).
 
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/bucket.md)
+
+* [Terminating bucket encryption](../../../operations/buckets/encrypt.md#del)
+
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}
+
+

@@ -1,0 +1,3 @@
+Роль `managed-clickhouse.maintenanceTask.editor` позволяет просматривать информацию о заданиях на [техническое обслуживание](../../../managed-clickhouse/concepts/maintenance.md) кластеров {{ CH }} и изменять такие задания, просматривать информацию о [кластерах {{ CH }}](../../../managed-clickhouse/concepts/index.md) и назначенных [правах доступа](../../../iam/concepts/access-control/index.md) к ним, а также о [квотах](../../../managed-clickhouse/concepts/limits.md#mch-quotas) и операциях с ресурсами сервиса {{ mch-name }}.
+
+Включает разрешения, предоставляемые ролью `managed-clickhouse.maintenanceTask.viewer`.

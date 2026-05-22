@@ -1,0 +1,23 @@
+# Устранение ошибки `Failed authentication with /`
+
+
+## Описание проблемы {#issue-description}
+
+В журналах работы кластера Yandex Managed Service for Apache Kafka® появляются ошибки:
+
+```
+{
+ hostname: "[rc1c-sjg**************.mdb.yandexcloud.net](http://rc1c-sjg**************.mdb.yandexcloud.net/)",
+ message: "\[SocketServer listenerType=ZK_BROKER, nodeId=1\] 
+ Failed authentication with /10..X.X (channelId=10.X.X.X:9091-10.X.X.Y:43598-3694) 
+ (SSL handshake failed) (org.apache.kafka.common.network.Selector)",
+ origin: "kafka_server",
+ severity: "INFO"
+ }
+```
+
+## Решение {#issue-resolution}
+
+Наблюдаемые ошибки указывают на проблемы подключения со стороны приложения. Проверьте параметры и логи приложения, запущенного на хосте `10.Х.Х.Х`, на наличие ошибок.
+
+Наиболее популярные причины проблемы могут быть в неправильно указанном протоколе, сертификате или секретах для авторизации в кластере Apache Kafka®. Например, ошибка `SSL handshake failed` указывает на проблемы с сертификатами SSL или TLS.

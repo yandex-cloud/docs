@@ -1,26 +1,26 @@
 ---
 title: Access management in {{ msp-full-name }}
-description: Access management in {{ SPRK }}, a cluster creation and management service. This section covers role assignment to resources, available service roles, and required permissions for actions.
+description: Access management in {{ SPRK }}, a cluster creation and management service. This section describes the resources you can assign a role for, the roles this service has, and the roles required for specific actions.
 ---
 
 # Managing access to {{ msp-full-name }}
 
 
-In this section, you will learn about:
+In this section, you will learn about the following:
 
-* [Resources available for role assignment](#resources).
-* [Available service roles](#roles-list).
+* [Resources you can assign a role for](#resources).
+* [Roles this service has](#roles-list).
 * [Roles required for specific actions](#required-roles).
 
 To use the service, log in to the management console with your [Yandex account](../iam/concepts/users/accounts.md#passport), [federated account](../iam/concepts/users/accounts.md#saml-federation), or [local account](../iam/concepts/users/accounts.md#local).
 
 {% include [about-access-management](../_includes/iam/about-access-management.md) %}
 
-To assign a role for a resource, a user should have the `managed-spark.admin` role or one of the following roles for that resource:
+To assign a role for a resource, you need the `managed-spark.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../_includes/iam/roles-list.md) %}
 
-## Resources available for role assignment {#resources}
+## Resources you can assign a role for {#resources}
 
 {% include [basic-resources](../_includes/iam/basic-resources-for-access-control.md) %}
 
@@ -28,7 +28,7 @@ To allow access to {{ msp-full-name }} resources, such as clusters and accounts,
 
 You can also assign a role for an individual cluster from the [management console]({{ link-console-main }}), via the [CLI](../cli), or [API](api-ref/authentication.md).
 
-## Available service roles {#roles-list}
+## Roles existing in this service {#roles-list}
 
 The list below shows all the roles used for access control in this service.
 
@@ -55,6 +55,14 @@ The list below shows all the roles used for access control in this service.
 #### managed-spark.admin {#managed-spark-admin}
 
 {% include [managed-spark.admin](../_roles/managed-spark/admin.md) %}
+
+#### managed-spark.maintenanceTask.viewer {#managed-spark-maintenanceTask-viewer}
+
+{% include [managed-spark.maintenanceTask.viewer](../_roles/managed-spark/maintenanceTask/viewer.md) %}
+
+#### managed-spark.maintenanceTask.editor {#managed-spark-maintenanceTask-editor}
+
+{% include [managed-spark.maintenanceTask.editor](../_roles/managed-spark/maintenanceTask/editor.md) %}
 
 #### managed-spark.integrationProvider {#managed-spark-integrationProvider}
 

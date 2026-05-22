@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/zone/create
 editable: false
 ---
 
@@ -10,7 +11,7 @@ Create a dns zone in the specified folder.
 
 Syntax:
 
-`yc dns zone create <DNS-ZONE-NAME> [Flags...] [Global Flags...]`
+`yc dns zone create [Flags...] [Global Flags...]`
 
 #### Flags
 

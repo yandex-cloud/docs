@@ -11,8 +11,5 @@
   * Большая языковая модель [Mistral](https://mistral.ai/).
   * [Saiga/Mistral](https://huggingface.co/IlyaGusev/saiga_mistral_7b_lora) — дообученная русскоязычная версия Mistral.
 
-Если вы хотите дообучить модель, воспользуйтесь [дообучением моделей]({{ link-docs-ai }}ai-studio/concepts/tuning/index) в сервисе {{ foundation-models-full-name }}.
+Если вы хотите дообучить модель, воспользуйтесь [дообучением моделей]({{ link-docs-ai }}ai-studio/concepts/tuning/index) в сервисе {{ ai-studio-full-name }}.
 
-## Примеры использования {#examples}
-
-[Дообучение моделей в {{ ml-platform-name }} Notebooks]({{ link-docs-ai }}ai-studio/tutorials/models-fine-tuning)

@@ -30,6 +30,11 @@ resource "yandex_organizationmanager_saml_federation_user_account" "account" {
 - `federation_id` (**Required**)(String). ID of a SAML Federation.
 - `id` (String). 
 - `name_id` (**Required**)(String). Name ID of the SAML federated user.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `read` (String). 
+  - `update` (String).
 
 ## Import
 

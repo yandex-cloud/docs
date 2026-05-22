@@ -38,7 +38,7 @@ default:
   api-host-iot-data: iot-data.api.cloud.yandex.net
   api-host-kms: kms.api.cloud.yandex.net
   api-host-kms-symcrypto: kms.yandex
-  api-host-llm: llm.api.cloud.yandex.net
+  api-host-llm: ai.api.cloud.yandex.net
   api-host-lockbox: lockbox.api.cloud.yandex.net
   api-host-lockbox-payload: payload.lockbox.api.cloud.yandex.net
   api-host-mdb: mdb.api.cloud.yandex.net
@@ -50,6 +50,7 @@ default:
   api-host-quota-manager: quota-manager.api.cloud.yandex.net
   api-host-sk-tts: tts.api.cloud.yandex.net
   api-host-spark: spark.api.cloud.yandex.net
+  api-host-storage-grpc: storage.api.cloud.yandex.net:443
   api-host-trino: trino.api.cloud.yandex.net
   api-host-ytsaurus: ytsaurus.api.cloud.yandex.net
   api-url-prefix: /docs
@@ -73,10 +74,7 @@ default:
   billing-name: Yandex Cloud Billing
   billing-oferta-url: https://yandex.ru/legal/cloud_oferta/?lang=en
   bitrix24-name: Bitrix24
-  brand-voice-cc: Brand Voice Call Center
-  brand-voice-core: Brand Voice Self Service
   brand-voice-name: SpeechKit Brand Voice
-  brand-voice-premium: Brand Voice Premium
   ca-address: https://storage.yandexcloud.net/mqtt/rootCA.crt
   ca-full-name: SourceCraft Code Assistant
   ca-name: Code Assistant
@@ -84,6 +82,7 @@ default:
   captcha-full-name: Yandex SmartCaptcha
   captcha-mobile-site: https://smartcaptcha.cloud.yandex.ru/webview
   captcha-name: SmartCaptcha
+  CB: Apache Cloudberry™
   cdn-full-name: Yandex Cloud CDN
   cdn-name: Cloud CDN
   cdn-short-name: Cloud CDN
@@ -99,6 +98,7 @@ default:
   cic-pbc-subnet-client: 178.210.118.46
   cic-pbc-subnet-cloud: 178.210.118.47
   cic-pbc-svc1-ip: 213.180.193.243/32
+  ciem-full-name: Cloud Infrastructure Entitlement Management
   ciem-name: CIEM
   CK: ClickHouse® Keeper
   cloud-apps-full-name: Yandex Cloud Apps
@@ -152,6 +152,7 @@ default:
   crt-web-path-int: https://storage.yandexcloud.net/cloud-certs/IntermediateCA.pem
   crt-web-path-root: https://storage.yandexcloud.net/cloud-certs/RootCA.pem
   CSI: Container Storage Interface
+  cspm-full-name: Cloud Security Posture Management
   cspm-name: CSPM
   data-catalog-full-name: Yandex Data Catalog
   data-catalog-name: Data Catalog
@@ -185,6 +186,7 @@ default:
   ds-jobs: DataSphere Jobs
   ds-nb: DataSphere Notebook
   ds-node-endpoint: node-api.datasphere.yandexcloud.net
+  dspm-full-name: Data Security Posture Management
   dspm-name: DSPM
   dsvm-name: Data Science Virtual Machine
   dsvm-short-name: DSVM
@@ -275,6 +277,8 @@ default:
   kotlin-full-ver: Kotlin 2.0
   kraft-name: Apache Kafka® Raft
   kraft-short-name: KRaft
+  kspm-full-name: Kubernetes® Security Posture Management
+  kspm-name: KSPM
   lang: en
   lets-encrypt: Let's Encrypt®
   license-manager: License Manager
@@ -309,6 +313,8 @@ default:
   link-console-settings: https://console.yandex.cloud/settings
   link-console-support: https://center.yandex.cloud/support
   link-datalens-main: https://datalens.ru
+  link-datalens-main-promo: https://datalens.ru/promo
+  link-datalens-main-skip-promo: https://datalens.ru/?skipPromo=true
   link-datalens-settings: https://datalens.ru/settings
   link-datalens-wizard: https://datalens.ru/wizard
   link-datasphere-main: https://datasphere.yandex.cloud
@@ -381,12 +387,14 @@ default:
   message-queue-full-name: Yandex Message Queue
   message-queue-name: Message Queue
   message-queue-short-name: Message Queue
+  messenger-full-name: Yandex Messenger
   metadata-hub-full-name: Yandex MetaData Hub
   metadata-hub-name: Yandex MetaData Hub
   metastore-full-name: Apache Hive™ Metastore
   metastore-name: Apache Hive™ Metastore
   metastore:
     integration-version: 3.1
+  metrics-name: Monium Metrics
   metrika: Yandex Metrica
   metrika-endpoint: Metrica
   metrika-link: https://metrika.yandex.com/
@@ -432,6 +440,7 @@ default:
   mmy-full-name: Yandex Managed Service for MySQL®
   mmy-name: Managed Service for MySQL®
   mmy-short-name: Managed Service for MySQL®
+  model-gallery-name: Model Gallery
   monitoring-doc-links: ../monitoring/concepts/index.md
   monitoring-full-name: Yandex Monitoring
   monitoring-name: Monitoring
@@ -509,10 +518,10 @@ default:
       pro: https://postgrespro.com/docs
     versions:
       console:
-        str-1c: 13-1c, 14-1c, 15-1c, and 16-1c
+        str-1c: 14-1c, 15-1c, 16-1c, 17-1c, 18-1c
       tf:
-        latest: '17'
-        str: 13, 13-1c, 14, 14-1c, 15, 15-1c, 16, 16-1c, and 17
+        latest: '18'
+        str: 14, 14-1c, 15, 15-1c, 16, 16-1c, 17, 17-1c, 18 and 18-1c
   pgadmin: "pgAdmin\_4"
   php-cli-ver: php82
   php-full-ver: PHP 8.2
@@ -574,7 +583,6 @@ default:
   roles-datalens-admin: datalens.admin
   roles-datalens-creator: datalens.creator
   roles-datalens-instances-admin: datalens.instances.admin
-  roles-datalens-instances-user: datalens.instances.user
   roles-datalens-visitor: datalens.visitor
   roles-datalens-workbooks-editor: datalens.workbooks.editor
   roles-datasphere-admin: datasphere.admin
@@ -794,6 +802,7 @@ default:
   spqr:
     docs: https://docs.pg-sharding.tech
   SPRK: Apache Spark™
+  SR: StarRocks
   src-full-name: SourceCraft
   src-name: SourceCraft
   stackland-full-name: Yandex Cloud Stackland
@@ -823,12 +832,13 @@ default:
   t4i-ice-lake: Intel Ice Lake with T4i
   tag-all: <code><b><small>All interfaces</small></b></code>
   tag-api: <code><b><small>API</small></b></code>
-  tag-center: <code><b><small>Cloud Center</small></b></code>
   tag-cli: <code><b><small>CLI</small></b></code>
   tag-con: <code><b><small>Management console</small></b></code>
   tag-preview: <code><b><small>Preview</small></b></code>
   tag-sql: <code><b><small>SQL</small></b></code>
   tag-tf: <code><b><small>Terraform</small></b></code>
+  td-full-name: Threat Detector
+  td-name: TD
   terraform-mirror: https://hashicorp-releases.yandexcloud.net/terraform/
   TF: Terraform
   tf-cloud-id: b1gq90dgh25bebiu75o
@@ -887,12 +897,14 @@ default:
   vpc-name: Virtual Private Cloud
   vpc-short-name: VPC
   vuln-man-name: Vulnerability Management
+  vuln-man-short-name: VM
   websql-full-name: Yandex WebSQL
   websql-link: https://websql.yandex.cloud
   websql-name: WebSQL
   wiki-full-name: Yandex Wiki
   wiki-name: Wiki
   wiki-short-name: Wiki
+  wordstat-name: Wordstat
   ya-360: Yandex 360 for Business
   ya-oauth-url: https://oauth.yandex.com
   yagpt-full-name: YandexGPT API
@@ -902,6 +914,7 @@ default:
   yandex-direct: Yandex Direct
   yandex-domain: yandex.com
   yandex-oauth: Yandex.OAuth
+  yandex-siem-full-name: Yandex SIEM
   yandexart-name: YandexART
   yc-compute: yc compute
   yc-compute-ig: yc compute instance-group
@@ -1022,6 +1035,21 @@ default:
   pcs|yt: dn2thrwhzxl2ygay7nvq
   pc|baremetal:
     component:
+      bms_1029p_body:
+        1_month: dn2n6sqhzm4i7eg4w4f5
+        12_month: dn2p6himjfj4hnjshxco
+        3_month: dn2idsw46rbwcnkndlhn
+        6_month: dn2hi7cbvh3bnbkef4up
+      bms_cpu_i6230:
+        1_month: dn2dxqjz3vqfxeq6fqbz
+        12_month: dn25uptp35c3njgv25wn
+        3_month: dn2oxbuy2kziiorp7436
+        6_month: dn27jt4jbpgrabnckmlm
+      bms_cpu_i6230r:
+        1_month: dn2j734aagfsgjhhnst5
+        12_month: dn2pydc6l4pylhxzylql
+        3_month: dn2revpxepujo6i4wvqv
+        6_month: dn2r4dbzpdsyoxjryx7n
       bms-4-body:
         1-month: dn2hf2sf5kjjsy24igas
         12-month: dn26l6yl7fy772frgm57
@@ -1190,42 +1218,12 @@ default:
       subnet_29: dn2tkuvap6istmk4dz5a
       subnet_31: dn2gf7ncn54qfzez6xhp
     server:
-      ba_i100_h:
-        1_day: dn2itj42rjvc71ogavf8
-        1_month: dn242492ooe8t9884pit
-        12_month: dn2kpfi79f38bl6hdpjs
-        3_month: dn2nqpla60m77p6rshuu
-        6_month: dn27o61er1shatjmrf82
-      ba_i101_h:
-        1_day: dn2bv21cnlvsnksqgrta
-        1_month: dn281facl7sfi9ga5o5m
-        12_month: dn2gb7uf15hc3vuf2t6n
-        3_month: dn24flm3irtuk4mheb7u
-        6_month: dn2ssntfp7dcr3213bu1
-      ba_i102_s:
-        1_day: dn2lje1ou5judp2gooai
-        1_month: dn243nnpi79c04cj181o
-        12_month: dn2k8rbi48paspive2co
-        3_month: dn2d089djar2i3humc2g
-        6_month: dn2kfg25ck5a3gkjoog2
       ba_i103_s_10g:
         1_day: dn2d1eocobn8amlmll3r
         1_month: dn2p7pofnj0beukb0erb
         12_month: dn20q66guu76is04nktv
         3_month: dn2mcqi74h70gor1pm4n
         6_month: dn2d06jhdbolrd6osgc2
-      ba_i104_sh:
-        1_day: dn2kvvtf8b4edrq2j4k3
-        1_month: dn213ucd95oojvm9dogd
-        12_month: dn2cqjm2tl3ocejdld92
-        3_month: dn277i5jopu2u3bbhrls
-        6_month: dn2qugeptlh0210ev4i7
-      ba_i105_sh:
-        1_day: dn20mllfiaqcj26n61lu
-        1_month: dn2pa25aki9ot51roaj0
-        12_month: dn2rjpas623nq40gm0tj
-        3_month: dn273o8bqg2dtfi0tfme
-        6_month: dn2hjphr6r37l8f9gekr
       ba_i106_sh_10g:
         1_day: dn247633ncch74qta3t0
         1_month: dn209gne5ncks8amg0sr
@@ -1304,24 +1302,6 @@ default:
         12_month: dn21fsqmbhvseaof5pf6
         3_month: dn2pstl57mu8t3c1qm4q
         6_month: dn2jc74moe4laf8m6m7j
-      ba_i211_8s_25g:
-        1_day: dn2r257e3luaj45oh26w
-        1_month: dn2xasypkkbyq7s2jat6
-        12_month: dn2fysufhjzeuuean7vs
-        3_month: dn2wa5sleev34ncu4d4y
-        6_month: dn2mpw7fjopn3wgbotkb
-      ba_i211_8s_2x25g:
-        1_day: dn2hbnskzu4rq6swqtep
-        1_month: dn2lfxfo6mpv2kpeeeng
-        12_month: dn2z34pojuoef4zyxs3m
-        3_month: dn2ssrruyplpagqetv4e
-        6_month: dn2mxvcaqxemyvapns22
-      ba_i212_10s_10g:
-        1_day: dn22tbvzk6ebajqvpnbt
-        1_month: dn2pmwp6geyfashsuol7
-        12_month: dn2fe2ouwmphq3nzjeex
-        3_month: dn2fsfrgjf4st2kgcqgq
-        6_month: dn2njr2hvobgypizlurn
       ba_i215_ss_10g:
         1_day: dn2h6lrfdk4nac5wgwuq
         1_month: dn2mgkgws5vkgcmx66i7
@@ -1334,6 +1314,12 @@ default:
         12_month: dn2p7j4g65rioh676pec
         3_month: dn2td7drocpwss27prtp
         6_month: dn24m37i7jgimv47zsao
+      ba_i311_s:
+        1_day: dn2pmeuzaf5x5jog4dxl
+        1_month: dn2rx7dxbtooxf6ckpkc
+        12_month: dn2tvhgbuvohlnad2k6x
+        3_month: dn2srbkn5ce5cooadlam
+        6_month: dn2jezaritxjqnxhtgln
       ba_i407_s_10g:
         1_day: dn2ouvd21k0ibt7asnui
         1_month: dn23f47oub924jn942p9
@@ -1400,24 +1386,12 @@ default:
         12_month: dn2o37ubk4t3iaow63jt
         3_month: dn2wch2v5lriafthzrjf
         6_month: dn2s3j7tgubgjk7l5azt
-      ba-i209-ss-1-10g-p1:
-        1_day: dn234x5yvleikg5uygye
-        1_month: dn2lsktejmmm6sjyhmrl
-        12_month: dn2mx27jy4d2vup4zzu2
-        3_month: dn2njr4vnpuiqmalpdko
-        6_month: dn24onufuxs2vhpub2pd
       ba-i217-s-1-10g:
         1_day: dn2r5rks2csdg6435bp4
         1_month: dn25qijyv3bobflplxne
         12_month: dn22un44apyqndj2ei5l
         3_month: dn2dj4l3apo6jbjco3l7
         6_month: dn2loxxtnmlb45n3jmix
-      ba-i523-nh-2x25g-p1:
-        1_day: dn26k67ks64mcijvs4mi
-        1_month: dn2o4kgngionblzgk3vo
-        12_month: dn23p37j3glbg4z4efsq
-        3_month: dn2p7zaa2si3kzzt2pdj
-        6_month: dn2bp7nc54dby4wicpso
       ba-i523-nh-2x25g:
         1_day: dn23mesissp7dp5jufbd
         1_month: dn2su66lkggfhlfilzsh
@@ -1496,6 +1470,80 @@ default:
         12_month: dn2ajehb5v5zgudjtf7n
         3_month: dn2cym764mbfzb5ocdyi
         6_month: dn2ddsgk7wsbw7d2zuol
+      bms_1027r_body:
+        1_month: dn2paaexhgf2bviickkp
+        12_month: dn2oqzoduucamz4ny6ir
+        6_month: dn2bhhmb5x7nnrdhair7
+      bms_cpu_ie5_2650v2:
+        1_month: dn2v7dn7jxq3h4tchgff
+        12_month: dn25yqzqiq7qp7hz4v5r
+        6_month: dn2ivjxagp5bkcqeyh23
+      bms_cpu_ie5_2660:
+        1_month: dn2hgetevoigfobrvogv
+        12_month: dn2q7iyoipkk4h6obmye
+        6_month: dn2kwjai2jd2upnvid7o
+      bms_cpu_ie5_2667v2:
+        1_month: dn2qtcb7z6l6ydpdioff
+        12_month: dn2epyedr37qffbjlmeu
+        6_month: dn25rpnmyjhrt3o2k7tn
+      bms_disk_s0:
+        9t:
+          1_month: dn275ufhbf5ux5he5enr
+          12_month: dn2zxsclnwljubw7wlul
+          6_month: dn2a2ajurq65jgmkoosw
+      bms_disk_s1:
+        9t:
+          1_month: dn2timdwkypwxsfl3l4e
+          12_month: dn2uysyoofbphvg3ubws
+          6_month: dn2mvup6umlyjgnakica
+      bms_disk_s3:
+        8t:
+          1_month: dn2nx7nypgc5nvnmyecx
+          12_month: dn2sayrysfduqvmcqkxs
+          6_month: dn23lsh3xtc5cgmnawjk
+      bms_disk_s7:
+        6t:
+          1_month: dn2iayw7fvwou5uyznp4
+          12_month: dn2bx37k4lluau6kdl6s
+          6_month: dn2wsahke3cpmy5cvv22
+      bms_net_1_10g:
+        1_month: dn2s6amxbjgvsm2r5j55
+        12_month: dn23r7vlp6ntotrexv3n
+        6_month: dn2d7su6ir2rgf2ghird
+      bms_net_2p10g:
+        1_month: dn2sg2gxxpuzwcuswmqq
+        12_month: dn2ryumxa7vh6247dki7
+        6_month: dn2cvyx2kvtgwmncj77a
+      bms_net_2p1g:
+        1_month: dn2w6cnum7kjv42kxmnp
+        12_month: dn2iynyzlnu5lz44i2w5
+        6_month: dn2rgcu46gwquelzyge6
+      bms_net_2x2p10g:
+        1_month: dn26cypvum4o7othokpj
+        12_month: dn22akrrpikbs5y3vwgl
+        6_month: dn2zrlohcdk7mq6w5ebw
+      bms_publicannounce_pi_prefix_any:
+        1_month: dn2waf73ew5izjrkgflw
+      bms_ram3_128:
+        1_month: dn2dspoxf6trcs7xcb3j
+        12_month: dn2aljp6sqk57xc2qebu
+        6_month: dn2mr6vdtoi22hz4nqba
+      bms_ram3_256:
+        1_month: dn2xjjxbpghreoyy2hda
+        12_month: dn2bzamy6wdtzxtefsy4
+        6_month: dn2ahzx6t7b3y5i464cz
+      bms_ram3_32:
+        1_month: dn2wvnr7h3cmwte6yuho
+        12_month: dn2bq5lyymhwp4kipzdi
+        6_month: dn2s5d5d3qhfgacqque5
+      bms_ram3_64:
+        1_month: dn2qf7kdxxn2onpen6di
+        12_month: dn2vln7iq4gfwaa3m3v6
+        6_month: dn225456trqnu374dy6m
+      bms-net-2p25g-mclag:
+        1_month: dn2zhqrrfxokfmmjcbjl
+        12_month: dn2wtcrigbuiy56in5lj
+        6_month: dn2nxqkn3jbcpgraihji
       ha_i302_s_10g:
         1_day: dn2c2vkpanbck1rpp6l8
         1_month: dn26an39ra4lmdlcoea8
@@ -1538,6 +1586,12 @@ default:
         12_month: dn27kmrcjjbe6lrdsgcl
         3_month: dn2v2vb5tlsukuzzn4hx
         6_month: dn2milwf2eoxiskqwh3d
+      la_i113_s:
+        1_day: dn2ayfkvcbcy7ykjr3h5
+        1_month: dn247i2gjig7uj63xdzv
+        12_month: dn24yko6koontg32wjtm
+        3_month: dn2fk5rqjzelrsqlh6zw
+        6_month: dn2plhocvyi3hfzx7uv5
       la-i100-h:
         1_day: dn2t33wjf2qexcjgwqfm
         1_month: dn2a7ztltvaxx4jix3j4
@@ -1580,9 +1634,6 @@ default:
         12_month: dn2o5qnxdn7jxgcatyif
         3_month: dn2mhzsdg7gtb4d4fckw
         6_month: dn2mj2rnkhctk4lzcz4c
-  pc|cloud_desktop:
-    image:
-      v1: dn2dd29vb1490vk3gd27
   pc|compute:
     hostgroup:
       cpu:
@@ -1592,17 +1643,6 @@ default:
       ram:
         highfreq-v4a: dn2bctm6lff3ssuo8361
         v4a: dn2lsbs5tn54adofb0co
-  pc|datatransfer:
-    compute:
-      cpu:
-        preview:
-          v1: dn2t9ngojstgjojkjroo
-      ram:
-        preview:
-          v1: dn24iq96f11mcuqki01l
-    rows:
-      preview:
-        v1: dn2f241pa1nb8bavgd6o
   pc|iot:
     mqtt:
       basic_ingest: dn2oupl68uvjog57htmo
@@ -1756,10 +1796,6 @@ default:
         internal: dn2djih21mipc4jo77uk
       ingress:
         internal: dn2dj452r5cbun6bv52e
-  pc|postbox:
-    email:
-      size:
-        v1: dn2qr63b3orl3cuj3kjb
   pc|security_deck:
     access_transparency:
       subscription:
@@ -1768,31 +1804,11 @@ default:
       resources: dn2muudyflujxdk7e32n
     kspm:
       nodes: dn2ukunmpcmrnab3u5ko
-  pc|serverless-containers:
-    compute:
-      ephemeral_disk: dn2vwduzkfsisbr35uye
-      provision_enabled:
-        ephemeral_disk: dn27almsimyrl6a7ri4g
-      provisioned_request:
-        ephemeral_disk: dn2milq3cs7eibqagm64
   pc|storage:
     api:
       network:
         inet:
           egress: dn2fghbb6nhc0qgc03ta
-  pc|sws:
-    arl:
-      profile:
-        v1: dn2mkbp42irduj73psdf
-      requests:
-        v1: dn2ek1qtnkfte18mbnf6
-      rule:
-        v1: dn2oma528jt89898mj2d
-    waf:
-      exclusion_rule:
-        v1: dn2hf1qf6f44degef6mu
-      profile:
-        v1: dn2mlrae614s6vakq618
   pc|v1:
     commitment:
       selfcheckout:
@@ -1810,13 +1826,6 @@ default:
                 v2: dn2na3cief147jjt20v7
             ram:
               v2: dn2886p1eilq0pn7jisp
-  pc|video:
-    transcoding:
-      live:
-        v1: dn2e4fbl2ulmcsfkorpg
-    used_space:
-      live:
-        v1: dn2n6f6hvsu4uvssegsx
   pc|ydb:
     cluster:
       v1:
@@ -1837,708 +1846,711 @@ default:
   sku|KZT|ai:
     datasphere:
       computing:
-        v1|number: 0.0067
-        v1|string: ₸0.0067
+        v1|number: 0.0065
+        v1|string: ₸0.0065
       datasets:
-        v1|number: 0.0067
-      deployment|number: 0.0067
+        v1|number: 0.0065
+      deployment|number: 0.0065
       disk:
-        v1|number: 0.0067
-      jobs|number: 0.0067
+        v1|number: 0.0065
+      jobs|number: 0.0065
       models:
-        v1|number: 0.0067
+        v1|number: 0.0065
   sku|KZT|airflow:
     cluster:
       generic:
         ram:
-          v1|number: 4.7
-          v1|string: ₸4.70
+          v1|number: 4.842
+          v1|string: ₸4.842
         vcpu:
-          v1|number: 13.98
-          v1|string: ₸13.98
+          v1|number: 14.4
+          v1|string: ₸14.4
   sku|KZT|alb:
     balancer:
-      active|number: 12.42
-      active|string: ₸12.42
+      active|number: 13.15
+      active|string: ₸13.15
   sku|KZT|api-gateway:
     requests:
       v1|pricingRate:
         '0':
-          1|number: 671.14
-          1|string: ₸671.14
+          1|number: 711.5
+          1|string: ₸711.5
   sku|KZT|audit-trails:
     events:
       data_plane:
-        v1|number: 201.34
-        v1|string: ₸201.34
+        v1|number: 197.6
+        v1|string: ₸197.6
   sku|KZT|backup:
     protected_vms:
-      v2|month|number: 1335.57
-      v2|month|string: ₸1335.57
+      v2|month|number: 1404
+      v2|month|string: ₸1404
     used_space:
-      v1|month|number: 23.49
-      v1|month|string: ₸23.49
+      v1|month|number: 24.84
+      v1|month|string: ₸24.84
   sku|KZT|cloud_desktop:
     hdd:
-      v1|month|number: 22.37
-      v1|month|string: ₸22.37
+      v1|month|number: 21.96
+      v1|month|string: ₸21.96
     ram:
-      v1|number: 2.23
-      v1|string: ₸2.23
+      v1|number: 2.1855
+      v1|string: ₸2.1855
     ssd:
-      v1|month|number: 82.03
-      v1|month|string: ₸82.03
+      v1|month|number: 80.28
+      v1|month|string: ₸80.28
     vcpu:
       c50:
-        v1|number: 4.3
-        v1|string: ₸4.30
+        v1|number: 4.2
+        v1|string: ₸4.2
   sku|KZT|cns:
     notification_events:
-      mts_marketing_event|number: 27.71
-      mts_marketing_event|string: ₸27.71
+      mts_marketing_event|number: 27.15
+      mts_marketing_event|string: ₸27.15
       push_event:
         v2|pricingRate:
-          1|number: 512.68
-          1|string: ₸512.68
-      vimpelcom_marketing_1|number: 40.13
-      vimpelcom_marketing_1|string: ₸40.13
-      vimpelcom_marketing_2|number: 39.67
-      vimpelcom_marketing_2|string: ₸39.67
+          1|number: 503.25
+          1|string: ₸503.25
+      vimpelcom_marketing_1|number: 39.35
+      vimpelcom_marketing_1|string: ₸39.35
+      vimpelcom_marketing_2|number: 38.9
+      vimpelcom_marketing_2|string: ₸38.9
     notifications_packet_events:
-      vimpelcom_marketing_1|number: 97.88
-      vimpelcom_marketing_1|string: ₸97.88
-      vimpelcom_marketing_2|number: 72.6
-      vimpelcom_marketing_2|string: ₸72.60
-      vimpelcom_marketing_3|number: 138.58
-      vimpelcom_marketing_3|string: ₸138.58
+      vimpelcom_marketing_1|number: 96.05
+      vimpelcom_marketing_1|string: ₸96.05
+      vimpelcom_marketing_2|number: 71.25
+      vimpelcom_marketing_2|string: ₸71.25
+      vimpelcom_marketing_3|number: 136
+      vimpelcom_marketing_3|string: ₸136
     notifications:
-      sender_name_registration_event|number: 51785.72
-      sender_name_registration_event|string: ₸51785.72
+      sender_name_registration_event|number: 50833.3
+      sender_name_registration_event|string: ₸50833.3
   sku|KZT|compute:
     filesystem:
       hdd:
-        v1|number: 0.0261
-        v1|string: ₸0.0261
+        v1|number: 0.0275
+        v1|string: ₸0.0275
       ssd:
-        v1|number: 0.1064
-        v1|string: ₸0.1064
+        v1|number: 0.1145
+        v1|string: ₸0.1145
     hostgroup:
       cpu:
         c100:
-          v3|number: 6.62
-          v3|string: ₸6.62
+          v3|number: 7
+          v3|string: ₸7
       localssd:
-        v1|number: 0.0684
-        v1|string: ₸0.0684
+        v1|number: 0.067
+        v1|string: ₸0.067
       ram:
-        v3|number: 1.75
-        v3|string: ₸1.75
+        v3|number: 1.85
+        v3|string: ₸1.85
+    snapshot|number: 0.0255
+    snapshot|string: ₸0.0255
     vm:
       cpu:
         c100:
-          v2|number: 6.66
-          v3|number: 5.87
-          v3|string: ₸5.87
+          v2|number: 7.05
+          v3|number: 6.2
+          v3|string: ₸6.2
         c20:
-          v3|number: 2.46
-          v3|string: ₸2.46
+          v3|number: 2.6
+          v3|string: ₸2.6
       ram:
-        v2|number: 1.73
-        v3|number: 1.57
-        v3|string: ₸1.57
+        v2|number: 1.838
+        v3|number: 1.65
+        v3|string: ₸1.65
   sku|KZT|datalens:
     users:
-      v1|string: ₸4950.00
+      v1|string: ₸4950
   sku|KZT|datasphere:
-    docker|number: 0.0067
-    filestores|number: 0.0067
+    docker|number: 0.0065
+    filestores|number: 0.0065
   sku|KZT|datatransfer:
     compute:
       cpu:
-        v1|number: 7.33
-        v1|string: ₸7.33
+        v1|number: 7.55
+        v1|string: ₸7.55
       ram:
-        v1|number: 1.96
-        v1|string: ₸1.96
+        v1|number: 2.0175
+        v1|string: ₸2.0175
     rows:
       v1|pricingRate:
-        100|number: 15.1
-        100|string: ₸15.10
+        100|number: 15.55
+        100|string: ₸15.55
   sku|KZT|dns:
     requests:
       public:
         authoritative:
-          v1|number: 178.97
-          v1|string: ₸178.97
+          v1|number: 189.7
+          v1|string: ₸189.7
         recursive:
           v1|pricingRate:
-            1|number: 178.97
-            1|string: ₸178.97
+            1|number: 189.7
+            1|string: ₸189.7
   sku|KZT|gitlab:
-    backup|month|number: 10.74
-    backup|month|string: ₸10.74
+    backup|month|number: 11.376
+    backup|month|string: ₸11.376
     instance:
-      disk|month|number: 72.76
-      disk|month|string: ₸72.76
+      disk|month|number: 77.04
+      disk|month|string: ₸77.04
       free:
-        cpu|number: 9.4
-        cpu|string: ₸9.40
-        ram|number: 2.52
-        ram|string: ₸2.52
+        cpu|number: 9.95
+        cpu|string: ₸9.95
+        ram|number: 2.668
+        ram|string: ₸2.668
   sku|KZT|identity-hub:
     users:
-      101-500|number: 2536.65
-      501-1000|number: 2276.87
+      101-500|number: 2490
+      501-1000|number: 2235
   sku|KZT|iot:
     mqtt|pricingRate:
-      100000|number: 0.000644
-      1000000|number: 0.000582
+      100000|number: 0.00065
+      1000000|number: 0.0006
   sku|KZT|kms:
     api:
       asymmetric:
         heavy:
-          v1|number: 80.54
-          v1|string: ₸80.54
-        v1|number: 32.21
-        v1|string: ₸32.21
+          v1|number: 79.05
+          v1|string: ₸79.05
+        v1|number: 31.6
+        v1|string: ₸31.6
       v1:
-        encryptdecrypt|number: 16.11
-        encryptdecrypt|string: ₸16.11
+        encryptdecrypt|number: 15.8
+        encryptdecrypt|string: ₸15.8
     storage:
       asymmetric:
-        v1|number: 16.11
-        v1|string: ₸16.11
+        v1|number: 15.8
+        v1|string: ₸15.8
       v1:
-        software|number: 0.0224
-        software|string: ₸0.0224
+        software|number: 0.02195
+        software|string: ₸0.02195
   sku|KZT|load_testing:
     storage:
       test_results:
         v1|number: 0
         v1|pricingRate:
-          2160000|number: 0.28
+          2160000|number: 0.2745
     test_execution:
       v1|number: 0
       v1|pricingRate:
-        180000|number: 2.8
+        180000|number: 2.745
   sku|KZT|lockbox:
     api:
       v1:
-        get|number: 19.33
-        get|string: ₸19.33
+        get|number: 18.95
+        get|string: ₸18.95
     storage:
       v1:
-        active_secrets|number: 0.14
-        active_secrets|string: ₸0.14
+        active_secrets|number: 0.137
+        active_secrets|string: ₸0.137
   sku|KZT|mdb:
     cluster:
       clickhouse:
         v3:
           cpu:
-            c100|number: 9.62
-            c100|string: ₸9.62
-          ram|number: 2.63
-          ram|string: ₸2.63
+            c100|number: 9.9
+            c100|string: ₸9.9
+          ram|number: 2.7
+          ram|string: ₸2.7
       greenplum:
         v2:
           cpu:
             c100:
-              dedicated|number: 6.71
-              dedicated|string: ₸6.71
+              dedicated|number: 6.9
+              dedicated|string: ₸6.9
           ram:
-            dedicated|number: 1.73
-            dedicated|string: ₸1.73
+            dedicated|number: 1.7865
+            dedicated|string: ₸1.7865
         v3:
           cpu:
-            c100|number: 12.02
-            c100|string: ₸12.02
-          ram|number: 3.19
-          ram|string: ₸3.19
+            c100|number: 12.35
+            c100|string: ₸12.35
+          ram|number: 3.2855
+          ram|string: ₸3.2855
       kafka:
         v3:
           cpu:
-            c100|number: 8.45
-            c100|string: ₸8.45
-          ram|number: 2.24
-          ram|string: ₸2.24
+            c100|number: 8.7
+            c100|string: ₸8.7
+          ram|number: 2.3
+          ram|string: ₸2.3
       local-nvme:
-        greenplum|month|number: 72.76
-        greenplum|month|string: ₸72.76
+        greenplum|month|number: 71.28
+        greenplum|month|string: ₸71.28
       mongodb:
         v3:
           cpu:
-            c100|number: 8.95
-            c100|string: ₸8.95
-          ram|number: 5.03
-          ram|string: ₸5.03
+            c100|number: 9.2
+            c100|string: ₸9.2
+          ram|number: 5.188
+          ram|string: ₸5.188
       mysql:
         v3:
           cpu:
-            c100|number: 9.4
-            c100|string: ₸9.40
-          ram|number: 2.57
-          ram|string: ₸2.57
+            c100|number: 9.65
+            c100|string: ₸9.65
+          ram|number: 2.65
+          ram|string: ₸2.65
       network-hdd:
-        ch|month|number: 17.9
-        ch|month|string: ₸17.90
-        greenplum|month|number: 17.9
-        greenplum|month|string: ₸17.90
-        kafka|month|number: 17.9
-        kafka|month|string: ₸17.90
-        mysql|month|number: 17.9
-        mysql|month|string: ₸17.90
-        pg|month|number: 17.9
-        pg|month|string: ₸17.90
+        ch|month|number: 18.72
+        ch|month|string: ₸18.72
+        greenplum|month|number: 18.72
+        greenplum|month|string: ₸18.72
+        kafka|month|number: 18.72
+        kafka|month|string: ₸18.72
+        mysql|month|number: 18.72
+        mysql|month|string: ₸18.72
+        pg|month|number: 18.72
+        pg|month|string: ₸18.72
       network-nvme:
-        ch|month|number: 72.76
-        ch|month|string: ₸72.76
-        kafka|month|number: 72.76
-        kafka|month|string: ₸72.76
-        redis|month|number: 72.76
-        redis|month|string: ₸72.76
+        ch|month|number: 78.48
+        ch|month|string: ₸78.48
+        kafka|month|number: 78.48
+        kafka|month|string: ₸78.48
+        redis|month|number: 78.48
+        redis|month|string: ₸78.48
       opensearch:
         v3:
           cpu:
-            c100|number: 9.4
-            c100|string: ₸9.40
-          ram|number: 3.92
-          ram|string: ₸3.92
+            c100|number: 9.65
+            c100|string: ₸9.65
+          ram|number: 4.035
+          ram|string: ₸4.035
       pg:
         v3:
           cpu:
-            c100|number: 9.12
-            c100|string: ₸9.12
-          ram|number: 2.46
-          ram|string: ₸2.46
+            c100|number: 9.396
+            c100|string: ₸9.396
+          ram|number: 2.536
+          ram|string: ₸2.536
       redis:
         v3:
           cpu:
-            c100|number: 8.45
-            c100|string: ₸8.45
-          ram|number: 2.24
-          ram|string: ₸2.24
+            c100|number: 8.7
+            c100|string: ₸8.7
+          ram|number: 2.3
+          ram|string: ₸2.3
     dataproc:
       v2:
         cpu:
-          c100|number: 0.67
-        ram|number: 0.1678
+          c100|number: 0.6915
+        ram|number: 0.1725
     zk:
       clickhouse:
         v3:
           cpu:
-            c50|number: 3.92
-            c50|string: ₸3.92
-          ram|number: 1.57
-          ram|string: ₸1.57
+            c50|number: 4.035
+            c50|string: ₸4.035
+          ram|number: 1.614
+          ram|string: ₸1.614
       kafka:
         v3:
           cpu:
-            c50|number: 3.92
-            c50|string: ₸3.92
-          ram|number: 1.57
-          ram|string: ₸1.57
+            c50|number: 4.035
+            c50|string: ₸4.035
+          ram|number: 1.614
+          ram|string: ₸1.614
   sku|KZT|monitoring:
     point:
-      api:
-        read|pricingRate:
-          50|string: ₸23.49
-        read|string: ₸39.15
       prometheus:
-        export|number: 39.15
-        export|pricingRate:
-          50|string: ₸23.49
-        export|string: ₸39.15
+        export|number: 38.43
+        export|string: ₸38.43
   sku|KZT|network:
     public_fips:
-      deallocated|number: 1.73
-      deallocated|string: ₸1.73
-    public_fips|number: 1.34
-    public_fips|string: ₸1.34
+      deallocated|number: 1.7019
+      deallocated|string: ₸1.7019
+    public_fips|number: 1.3176
+    public_fips|string: ₸1.3176
   sku|KZT|postbox:
     email:
       count:
         v1|pricingRate:
-          10|number: 357.32
-          10|string: ₸357.32
-          2|number: 409.11
-          2|string: ₸409.11
-          50|number: 305.54
-          50|string: ₸305.54
+          10|number: 350.75
+          10|string: ₸350.75
+          2|number: 401.5833333
+          2|string: ₸401.5833333
+          50|number: 299.91666665
+          50|string: ₸299.91666665
   sku|KZT|security_deck:
     cspm:
-      resources|string: ₸3005.27
+      resources|string: ₸2950
     dspm:
       scanned:
         files:
-          v1|number: 776.79
-          v1|string: ₸776.79
+          v1|number: 762.5
+          v1|string: ₸762.5
         text:
-          v1|number: 2386.29
-          v1|string: ₸2386.29
+          v1|number: 2342.4
+          v1|string: ₸2342.4
     kspm:
       nodes|pricingRate:
-        2|string: ₸41426.88
+        2|string: ₸40665
   sku|KZT|serverless:
     containers:
       compute:
         cpu|pricingRate:
-          5|number: 26.85
-          5|string: ₸26.85
+          5|number: 28.45
+          5|string: ₸28.45
         memory|pricingRate:
-          10|number: 17.9
-          10|string: ₸17.90
+          10|number: 18.95
+          10|string: ₸18.95
       invocations|pricingRate:
-        1|number: 89.49
-        1|string: ₸89.49
+        1|number: 94.85
+        1|string: ₸94.85
     functions:
       compute:
         v1|pricingRate:
-          10|number: 30.59
-          10|string: ₸30.59
+          10|number: 32.4
+          10|string: ₸32.4
       invocations:
         v1|pricingRate:
-          1|number: 89.49
-          1|string: ₸89.49
+          1|number: 94.85
+          1|string: ₸94.85
   sku|KZT|spark:
     cluster:
       generic:
         ram:
-          v2|number: 2.11
-          v2|string: ₸2.11
+          v2|number: 2.073
+          v2|string: ₸2.073
         vcpu:
-          v2|number: 8.01
-          v2|string: ₸8.01
+          v2|number: 7.85
+          v2|string: ₸7.85
   sku|KZT|speechsense:
     analysis:
       assistant:
-        v1|number: 0.78
-        v1|string: ₸0.78
-      audio|number: 0.0518
+        v1|number: 0.7625
+        v1|string: ₸0.7625
+      audio|number: 0.0505
       audio|pricingRate:
-        30000000|number: 0.0259
-        6000000|number: 0.0311
+        30000000|number: 0.0254
+        6000000|number: 0.0305
       text:
-        v2|number: 7.15
+        v2|number: 7.015
         v2|pricingRate:
-          100000|number: 5.28
-          100000|string: ₸5.28
-          1000000|string: ₸2.18
-          2500000|string: ₸1.55
-          500000|number: 3.11
-          500000|string: ₸3.11
-        v2|string: ₸7.15
-      v1|number: 0.12
+          100000|number: 5.185
+          100000|string: ₸5.185
+          1000000|string: ₸2.135
+          2500000|string: ₸1.525
+          500000|number: 3.05
+          500000|string: ₸3.05
+        v2|string: ₸7.015
+      v1|number: 0.1165
       v1|pricingRate:
-        150000000|number: 0.0259
-        30000000|number: 0.0518
-        6000000|number: 0.088
-        60000000|number: 0.0362
+        150000000|number: 0.0254
+        30000000|number: 0.0505
+        6000000|number: 0.086
+        60000000|number: 0.0355
+    reinit:
+      assistant:
+        v1|number: 0.7625
+        v1|string: ₸0.7625
+      tag:
+        v1|string: ₸0.06
   sku|KZT|storage:
     api:
       get:
-        cold|number: 5.43
-        ice|number: 10.85
+        cold|number: 5.75
+        ice|number: 11.5
         standard|pricingRate:
-          10|number: 2.18
-          10|string: ₸2.18
+          10|number: 2.3
+          10|string: ₸2.3
       network:
         inet:
           egress|pricingRate:
-            100|number: 8.56
-            100|string: ₸8.56
+            100|number: 8.3997
+            100|string: ₸8.3997
       put:
-        cold|number: 6.6
-        ice|number: 13.2
+        cold|number: 6.95
+        ice|number: 13.95
         standard|pricingRate:
-          10|number: 2.68
+          10|number: 2.846
     bucket:
       used_space:
-        cold|month|number: 5.98
-        ice|month|number: 2.99
-        ice|month|string: ₸2.99
-        ice|number: 0.004156
-        ice|string: ₸0.004156
+        cold|month|number: 6.336
+        ice|month|number: 3.168
+        ice|month|string: ₸3.168
+        ice|number: 0.0044
+        ice|string: ₸0.0044
         standard|pricingRate:
-          720|month|number: 11.24
-          720|month|string: ₸11.24
-          720|number: 0.0156
-          720|string: ₸0.0156
+          720|month|number: 11.88
+          720|month|string: ₸11.88
+          720|number: 0.0165
+          720|string: ₸0.0165
   sku|KZT|support:
     organization:
       business:
         fixed_consumption:
-          v1|number: 15535.72
-          v1|string: ₸15535.72
+          v1|number: 25000
+          v1|string: ₸25000
   sku|KZT|sws:
     antiddos:
-      traffic|number: 5.64
-      traffic|string: ₸5.64
+      traffic|number: 5.5405
+      traffic|string: ₸5.5405
     proxy-server:
-      v1|number: 12.43
-      v1|string: ₸12.43
+      v1|number: 12.2
+      v1|string: ₸12.2
     requests:
       v1|number: 0
       v1|pricingRate:
         '0':
-          01|number: 139821.44
-          01|string: ₸139821.44
-        1|number: 19575
-        1|string: ₸19575.00
-        10|number: 1118.57
-        10|string: ₸1118.57
-        100|number: 783
-        100|string: ₸783.00
-        1000|number: 279.64
+          01|number: 137250
+          01|string: ₸137250
+        1|number: 19215
+        1|string: ₸19215
+        10|number: 1098
+        10|string: ₸1098
+        100|number: 768.6
+        100|string: ₸768.6
+        1000|number: 274.5
     waf:
       requests:
         v1|pricingRate:
           '0':
-            01|number: 139821.44
-          1|number: 19575
-          10|number: 1118.57
-          100|number: 783
-          1000|number: 279.64
+            01|number: 137250
+          1|number: 19215
+          10|number: 1098
+          100|number: 768.6
+          1000|number: 274.5
   sku|KZT|trino:
     cluster:
       generic:
         ram:
-          v1|number: 2.82
-          v1|string: ₸2.82
+          v1|number: 2.77
+          v1|string: ₸2.77
         vcpu:
-          v1|number: 10.57
-          v1|string: ₸10.57
+          v1|number: 10.35
+          v1|string: ₸10.35
   sku|KZT|video:
     cdn:
       traffic:
-        egress|number: 5.37
-        egress|string: ₸5.37
+        egress|number: 5.27
+        egress|string: ₸5.27
     transcoding:
+      live:
+        v1|number: 13
+        v1|string: ₸13
       vod:
-        v1|number: 5.59
-        v1|string: ₸5.59
+        v1|number: 5.49
+        v1|string: ₸5.49
+    used_space:
+      live:
+        v1|number: 0.015345
+        v1|string: ₸0.015345
   sku|KZT|ydb:
     v1:
       serverless:
         requests|pricingRate:
-          1|number: 119.58
-          1|string: ₸119.58
+          1|number: 123.2
+          1|string: ₸123.2
   sku|KZT|yds:
     events:
       puts|pricingRate:
-        2|number: 6.6
-        2|string: ₸6.60
+        2|number: 6.95
+        2|string: ₸6.95
     reserved_resources:
       128k:
-        12h|number: 0.75
-        12h|string: ₸0.75
-    v1:
-      serverless:
-        requests|pricingRate:
-          1|string: ₸119.58
-        requests|string: Free
-        storage|pricingRate:
-          720|string: ₸0.1661
-        storage|string: Free
+        12h|number: 0.7905
+        12h|string: ₸0.7905
   sku|KZT|yq:
     network:
       ingress:
         v1|pricingRate:
-          10|number: 3.36
-          10|string: ₸3.36
+          10|number: 3.55
+          10|string: ₸3.55
   sku|KZT|yt:
     compute-nodes:
       cpu:
-        v3|number: 7.05
+        v3|number: 6.9
       ram:
-        v3|number: 1.88
+        v3|number: 1.845
     master-nodes:
       cpu:
-        v3|number: 7.05
+        v3|number: 6.9
       ram:
-        v3|number: 1.88
+        v3|number: 1.845
     proxy-nodes:
       cpu:
-        v3|number: 7.05
+        v3|number: 6.9
       ram:
-        v3|number: 1.88
+        v3|number: 1.845
     storage-nodes:
       cpu:
-        v3|number: 7.05
+        v3|number: 6.9
       ram:
-        v3|number: 1.88
+        v3|number: 1.845
     storage:
       hdd:
-        v1|month|number: 19.6
+        v1|month|number: 19.08
       ssd-nonreplicated:
-        v1|month|number: 59.06
+        v1|month|number: 57.96
     system-nodes:
       cpu:
-        v3|number: 7.05
+        v3|number: 6.9
       ram:
-        v3|number: 1.88
+        v3|number: 1.845
     tablet-nodes:
       cpu:
-        v3|number: 7.05
+        v3|number: 6.9
       ram:
-        v3|number: 1.88
+        v3|number: 1.845
   sku|RUB|ai:
     datasphere:
       computing:
-        v1|number: 0.001318
-        v1|string: ₽0.001318
+        v1|number: 0.0013
+        v1|string: ₽0.0013
       datasets:
-        v1|number: 0.001318
-      deployment|number: 0.001318
+        v1|number: 0.0013
+      deployment|number: 0.0013
       disk:
-        v1|number: 0.001318
-      jobs|number: 0.001318
+        v1|number: 0.0013
+      jobs|number: 0.0013
       models:
-        v1|number: 0.001318
+        v1|number: 0.0013
   sku|RUB|airflow:
     cluster:
       generic:
         ram:
-          v1|number: 0.92
-          v1|string: ₽0.92
+          v1|number: 0.9684
+          v1|string: ₽0.9684
         vcpu:
-          v1|number: 2.75
-          v1|string: ₽2.75
+          v1|number: 2.88
+          v1|string: ₽2.88
   sku|RUB|alb:
     balancer:
-      active|number: 2.44
-      active|string: ₽2.44
+      active|number: 2.63
+      active|string: ₽2.63
   sku|RUB|api-gateway:
     requests:
       v1|pricingRate:
         '0':
-          1|number: 131.76
-          1|string: ₽131.76
+          1|number: 142.3
+          1|string: ₽142.3
   sku|RUB|audit-trails:
     events:
       data_plane:
-        v1|number: 39.53
-        v1|string: ₽39.53
+        v1|number: 39.52
+        v1|string: ₽39.52
   sku|RUB|backup:
     protected_vms:
-      v2|month|number: 262.2
-      v2|month|string: ₽262.20
+      v2|month|number: 280.8
+      v2|month|string: ₽280.8
     used_space:
-      v1|month|number: 4.61
-      v1|month|string: ₽4.61
+      v1|month|number: 4.968
+      v1|month|string: ₽4.968
   sku|RUB|cloud_desktop:
     hdd:
-      v1|month|number: 4.39
-      v1|month|string: ₽4.39
+      v1|month|number: 4.392
+      v1|month|string: ₽4.392
     ram:
-      v1|number: 0.44
-      v1|string: ₽0.44
+      v1|number: 0.4371
+      v1|string: ₽0.4371
     ssd:
-      v1|month|number: 16.1
-      v1|month|string: ₽16.10
+      v1|month|number: 16.056
+      v1|month|string: ₽16.056
     vcpu:
       c50:
         v1|number: 0.84
         v1|string: ₽0.84
   sku|RUB|cns:
     notification_events:
-      mts_marketing_event|number: 5.44
-      mts_marketing_event|string: ₽5.44
+      mts_marketing_event|number: 5.43
+      mts_marketing_event|string: ₽5.43
       push_event:
         v2|pricingRate:
           1|number: 100.65
           1|string: ₽100.65
-      vimpelcom_marketing_1|number: 7.88
-      vimpelcom_marketing_1|string: ₽7.88
-      vimpelcom_marketing_2|number: 7.79
-      vimpelcom_marketing_2|string: ₽7.79
+      vimpelcom_marketing_1|number: 7.87
+      vimpelcom_marketing_1|string: ₽7.87
+      vimpelcom_marketing_2|number: 7.78
+      vimpelcom_marketing_2|string: ₽7.78
     notifications_packet_events:
       vimpelcom_marketing_1|number: 19.21
       vimpelcom_marketing_1|string: ₽19.21
       vimpelcom_marketing_2|number: 14.25
       vimpelcom_marketing_2|string: ₽14.25
-      vimpelcom_marketing_3|number: 27.21
-      vimpelcom_marketing_3|string: ₽27.21
+      vimpelcom_marketing_3|number: 27.2
+      vimpelcom_marketing_3|string: ₽27.2
     notifications:
-      sender_name_registration_event|number: 10166.67
-      sender_name_registration_event|string: ₽10166.67
+      sender_name_registration_event|number: 10166.66
+      sender_name_registration_event|string: ₽10166.66
   sku|RUB|compute:
     filesystem:
       hdd:
-        v1|number: 0.0051
-        v1|string: ₽0.0051
+        v1|number: 0.0055
+        v1|string: ₽0.0055
       ssd:
-        v1|number: 0.0209
-        v1|string: ₽0.0209
+        v1|number: 0.0229
+        v1|string: ₽0.0229
     hostgroup:
       cpu:
         c100:
-          v3|number: 1.3
-          v3|string: ₽1.30
+          v3|number: 1.4
+          v3|string: ₽1.4
       localssd:
         v1|number: 0.0134
         v1|string: ₽0.0134
       ram:
-        v3|number: 0.344
-        v3|string: ₽0.3440
+        v3|number: 0.37
+        v3|string: ₽0.37
+    snapshot|number: 0.0051
+    snapshot|string: ₽0.0051
     vm:
       cpu:
         c100:
-          v2|number: 1.31
-          v3|number: 1.15
-          v3|string: ₽1.15
+          v2|number: 1.41
+          v3|number: 1.24
+          v3|string: ₽1.24
         c20:
-          v3|number: 0.48
-          v3|string: ₽0.48
+          v3|number: 0.52
+          v3|string: ₽0.52
       ram:
-        v2|number: 0.34
-        v3|number: 0.31
-        v3|string: ₽0.31
+        v2|number: 0.3676
+        v3|number: 0.33
+        v3|string: ₽0.33
   sku|RUB|datalens:
     users:
       v1|number: 990
-      v1|string: ₽990.00
+      v1|string: ₽990
   sku|RUB|datasphere:
-    docker|number: 0.001318
-    filestores|number: 0.001318
+    docker|number: 0.0013
+    filestores|number: 0.0013
   sku|RUB|datatransfer:
     compute:
       cpu:
-        v1|number: 1.44
-        v1|string: ₽1.44
+        v1|number: 1.51
+        v1|string: ₽1.51
       ram:
-        v1|number: 0.3843
-        v1|string: ₽0.3843
+        v1|number: 0.4035
+        v1|string: ₽0.4035
     rows:
       v1|pricingRate:
-        100|number: 2.96
-        100|string: ₽2.96
+        100|number: 3.11
+        100|string: ₽3.11
   sku|RUB|dns:
     requests:
       public:
         authoritative:
-          v1|number: 35.14
-          v1|string: ₽35.14
+          v1|number: 37.94
+          v1|string: ₽37.94
         recursive:
           v1|pricingRate:
-            1|number: 35.14
-            1|string: ₽35.14
+            1|number: 37.94
+            1|string: ₽37.94
   sku|RUB|gitlab:
-    backup|month|number: 2.11
-    backup|month|string: ₽2.11
+    backup|month|number: 2.2752
+    backup|month|string: ₽2.2752
     instance:
-      disk|month|number: 14.28
-      disk|month|string: ₽14.28
+      disk|month|number: 15.408
+      disk|month|string: ₽15.408
       free:
-        cpu|number: 1.84
-        cpu|string: ₽1.84
-        ram|number: 0.49
-        ram|string: ₽0.49
+        cpu|number: 1.99
+        cpu|string: ₽1.99
+        ram|number: 0.5336
+        ram|string: ₽0.5336
   sku|RUB|identity-hub:
     users:
       101-500|number: 498
-      101-500|string: ₽498.00
+      101-500|string: ₽498
       501-1000|number: 447
-      501-1000|string: ₽447.00
+      501-1000|string: ₽447
   sku|RUB|interconnect:
     trunk:
       direct:
@@ -2546,19 +2558,19 @@ default:
           unmetered:
             monthly_usage:
               v1|number: 44963
-              v1|string: ₽44963.00
+              v1|string: ₽44963
       hosted_connections:
         v1|number: 122
-        v1|string: ₽122.00
+        v1|string: ₽122
       physical_port:
         10gbase_lr:
           monthly_usage:
             v1|number: 2363
-            v1|string: ₽2363.00
+            v1|string: ₽2363
   sku|RUB|iot:
     mqtt|pricingRate:
-      100000|number: 0.000126
-      1000000|number: 0.000114
+      100000|number: 0.00013
+      1000000|number: 0.00012
   sku|RUB|kms:
     api:
       asymmetric:
@@ -2575,8 +2587,8 @@ default:
         v1|number: 3.16
         v1|string: ₽3.16
       v1:
-        software|number: 0.0044
-        software|string: ₽0.0044
+        software|number: 0.00439
+        software|string: ₽0.00439
   sku|RUB|load_testing:
     storage:
       test_results:
@@ -2586,7 +2598,7 @@ default:
     test_execution:
       v1|number: 0
       v1|pricingRate:
-        180000|number: 0.55
+        180000|number: 0.549
   sku|RUB|lockbox:
     api:
       v1:
@@ -2601,189 +2613,183 @@ default:
       clickhouse:
         v3:
           cpu:
-            c100|number: 1.89
-            c100|string: ₽1.89
-          ram|number: 0.52
-          ram|string: ₽0.52
+            c100|number: 1.98
+            c100|string: ₽1.98
+          ram|number: 0.54
+          ram|string: ₽0.54
       greenplum:
         v2:
           cpu:
             c100:
-              dedicated|number: 1.32
-              dedicated|string: ₽1.32
+              dedicated|number: 1.38
+              dedicated|string: ₽1.38
           ram:
-            dedicated|number: 0.34
-            dedicated|string: ₽0.34
+            dedicated|number: 0.3573
+            dedicated|string: ₽0.3573
         v3:
           cpu:
-            c100|number: 2.36
-            c100|string: ₽2.36
-          ram|number: 0.63
-          ram|string: ₽0.63
+            c100|number: 2.47
+            c100|string: ₽2.47
+          ram|number: 0.6571
+          ram|string: ₽0.6571
       kafka:
         v3:
           cpu:
-            c100|number: 1.66
-            c100|string: ₽1.66
-          ram|number: 0.44
-          ram|string: ₽0.44
+            c100|number: 1.74
+            c100|string: ₽1.74
+          ram|number: 0.46
+          ram|string: ₽0.46
       local-nvme:
-        greenplum|month|number: 14.28
-        greenplum|month|string: ₽14.28
+        greenplum|month|number: 14.256
+        greenplum|month|string: ₽14.256
       mongodb:
         v3:
           cpu:
-            c100|number: 1.76
-            c100|string: ₽1.76
-          ram|number: 0.99
-          ram|string: ₽0.99
+            c100|number: 1.84
+            c100|string: ₽1.84
+          ram|number: 1.0376
+          ram|string: ₽1.0376
       mysql:
         v3:
           cpu:
-            c100|number: 1.84
-            c100|string: ₽1.84
-          ram|number: 0.51
-          ram|string: ₽0.51
+            c100|number: 1.93
+            c100|string: ₽1.93
+          ram|number: 0.53
+          ram|string: ₽0.53
       network-hdd:
-        ch|month|number: 3.51
-        ch|month|string: ₽3.51
-        greenplum|month|number: 3.51
-        greenplum|month|string: ₽3.51
-        kafka|month|number: 3.51
-        kafka|month|string: ₽3.51
-        mysql|month|number: 3.51
-        mysql|month|string: ₽3.51
-        pg|month|number: 3.51
-        pg|month|string: ₽3.51
+        ch|month|number: 3.744
+        ch|month|string: ₽3.744
+        greenplum|month|number: 3.744
+        greenplum|month|string: ₽3.744
+        kafka|month|number: 3.744
+        kafka|month|string: ₽3.744
+        mysql|month|number: 3.744
+        mysql|month|string: ₽3.744
+        pg|month|number: 3.744
+        pg|month|string: ₽3.744
       network-nvme:
-        ch|month|number: 14.28
-        ch|month|string: ₽14.28
-        kafka|month|number: 14.28
-        kafka|month|string: ₽14.28
-        redis|month|number: 14.28
-        redis|month|string: ₽14.28
+        ch|month|number: 15.696
+        ch|month|string: ₽15.696
+        kafka|month|number: 15.696
+        kafka|month|string: ₽15.696
+        redis|month|number: 15.696
+        redis|month|string: ₽15.696
       opensearch:
         v3:
           cpu:
-            c100|number: 1.84
-            c100|string: ₽1.84
-          ram|number: 0.77
-          ram|string: ₽0.77
+            c100|number: 1.93
+            c100|string: ₽1.93
+          ram|number: 0.807
+          ram|string: ₽0.807
       pg:
         v3:
           cpu:
-            c100|number: 1.79
-            c100|string: ₽1.79
-          ram|number: 0.48
-          ram|string: ₽0.48
+            c100|number: 1.8792
+            c100|string: ₽1.8792
+          ram|number: 0.5072
+          ram|string: ₽0.5072
       redis:
         v3:
           cpu:
-            c100|number: 1.66
-            c100|string: ₽1.66
-          ram|number: 0.44
-          ram|string: ₽0.44
+            c100|number: 1.74
+            c100|string: ₽1.74
+          ram|number: 0.46
+          ram|string: ₽0.46
     dataproc:
       v2:
         cpu:
-          c100|number: 0.1318
-        ram|number: 0.0329
+          c100|number: 0.1383
+        ram|number: 0.0345
     zk:
       clickhouse:
         v3:
           cpu:
-            c50|number: 0.77
-            c50|string: ₽0.77
-          ram|number: 0.31
-          ram|string: ₽0.31
+            c50|number: 0.807
+            c50|string: ₽0.807
+          ram|number: 0.3228
+          ram|string: ₽0.3228
       kafka:
         v3:
           cpu:
-            c50|number: 0.77
-            c50|string: ₽0.77
-          ram|number: 0.31
-          ram|string: ₽0.31
+            c50|number: 0.807
+            c50|string: ₽0.807
+          ram|number: 0.3228
+          ram|string: ₽0.3228
   sku|RUB|monitoring:
     point:
-      api:
-        read|pricingRate:
-          50|string: ₽4.61
-        read|string: ₽7.69
       prometheus:
-        export|number: 7.69
-        export|pricingRate:
-          50|string: ₽4.61
-        export|string: ₽7.69
+        export|number: 7.686
+        export|string: ₽7.686
       write|number: 0.32
       write|string: ₽0.32
   sku|RUB|network:
     public_fips:
-      deallocated|number: 0.34
-      deallocated|string: ₽0.34
-    public_fips|number: 0.2635
-    public_fips|string: ₽0.2635
+      deallocated|number: 0.34038
+      deallocated|string: ₽0.34038
+    public_fips|number: 0.26352
+    public_fips|string: ₽0.26352
   sku|RUB|postbox:
     email:
       count:
         v1|pricingRate:
           10|number: 70.15
           10|string: ₽70.15
-          2|number: 80.32
-          2|string: ₽80.32
-          50|number: 59.98
-          50|string: ₽59.98
+          2|number: 80.31666666
+          2|string: ₽80.31666666
+          50|number: 59.98333333
+          50|string: ₽59.98333333
   sku|RUB|security_deck:
     access_transparency:
       subscription:
-        v1|string: ₽71167.00
+        v1|string: ₽71167
     cspm:
-      resources|string: ₽590.00
+      resources|string: ₽590
     dspm:
       scanned:
         files:
           v1|number: 152.5
-          v1|string: ₽152.50
+          v1|string: ₽152.5
         text:
           v1|number: 468.48
           v1|string: ₽468.48
     kspm:
       nodes|pricingRate:
-        2|string: ₽8133.00
+        2|string: ₽8133
   sku|RUB|serverless:
     containers:
       compute:
         cpu|pricingRate:
-          5|number: 5.27
-          5|string: ₽5.27
+          5|number: 5.69
+          5|string: ₽5.69
         memory|pricingRate:
-          10|number: 3.51
-          10|string: ₽3.51
+          10|number: 3.79
+          10|string: ₽3.79
       invocations|pricingRate:
-        1|number: 17.57
-        1|string: ₽17.57
+        1|number: 18.97
+        1|string: ₽18.97
     functions:
       compute:
         v1|pricingRate:
-          10|number: 6.01
-          10|string: ₽6.01
+          10|number: 6.48
+          10|string: ₽6.48
       invocations:
         v1|pricingRate:
-          1|number: 17.57
-          1|string: ₽17.57
+          1|number: 18.97
+          1|string: ₽18.97
   sku|RUB|smart_captcha:
     check:
       requests:
         v1|pricingRate:
           10|number: 109.8
-          10|string: ₽109.80
+          10|string: ₽109.8
           100|number: 76.86
           100|string: ₽76.86
   sku|RUB|spark:
     cluster:
       generic:
         ram:
-          v2|number: 0.4147
-          v2|string: ₽0.4147
+          v2|number: 0.4146
+          v2|string: ₽0.4146
         vcpu:
           v2|number: 1.57
           v2|string: ₽1.57
@@ -2792,66 +2798,72 @@ default:
       assistant:
         v1|number: 0.1525
         v1|string: ₽0.1525
-      audio|number: 0.0102
+      audio|number: 0.0101
       audio|pricingRate:
-        30000000|number: 0.0051
+        30000000|number: 0.00508
         6000000|number: 0.0061
       text:
-        v2|number: 1.4
+        v2|number: 1.403
         v2|pricingRate:
-          100000|number: 1.04
-          100000|string: ₽1.04
-          1000000|string: ₽0.43
-          2500000|string: ₽0.3050
+          100000|number: 1.037
+          100000|string: ₽1.037
+          1000000|string: ₽0.427
+          2500000|string: ₽0.305
           500000|number: 0.61
           500000|string: ₽0.61
-        v2|string: ₽1.40
-      v1|number: 0.0234
+        v2|string: ₽1.403
+      v1|number: 0.0233
       v1|pricingRate:
-        150000000|number: 0.0051
-        30000000|number: 0.0102
-        6000000|number: 0.0173
+        150000000|number: 0.00508
+        30000000|number: 0.0101
+        6000000|number: 0.0172
         60000000|number: 0.0071
+    reinit:
+      assistant:
+        v1|number: 0.1525
+        v1|string: ₽0.1525
+      tag:
+        v1|string: ₽0.012
   sku|RUB|storage:
     api:
       get:
-        cold|number: 1.07
-        ice|number: 2.13
+        cold|number: 1.15
+        ice|number: 2.3
         standard|pricingRate:
-          10|number: 0.43
-          10|string: ₽0.43
+          10|number: 0.46
+          10|string: ₽0.46
       network:
         inet:
           egress|pricingRate:
-            100|number: 1.68
-            100|string: ₽1.68
+            100|number: 1.67994
+            100|string: ₽1.67994
       put:
-        cold|number: 1.3
-        ice|number: 2.59
+        cold|number: 1.39
+        ice|number: 2.79
         standard|pricingRate:
-          10|number: 0.53
+          10|number: 0.5692
     bucket:
       used_space:
-        cold|month|number: 1.17
-        ice|month|number: 0.59
-        ice|month|string: ₽0.59
-        ice|number: 0.000816
-        ice|string: ₽0.000816
+        cold|month|number: 1.2672
+        ice|month|number: 0.6336
+        ice|month|string: ₽0.6336
+        ice|number: 0.00088
+        ice|string: ₽0.00088
         standard|pricingRate:
-          720|month|number: 2.21
-          720|month|string: ₽2.21
-          720|number: 0.003065
-          720|string: ₽0.003065
+          720|month|number: 2.376
+          720|month|string: ₽2.376
+          720|number: 0.0033
+          720|string: ₽0.0033
   sku|RUB|support:
     organization:
       business:
         fixed_consumption:
-          v1|number: 3050
-          v1|string: ₽3050.00
+          v1|number: 5000
+          v1|string: ₽5000
   sku|RUB|sws:
     antiddos:
-      traffic|number: 1.11
-      traffic|string: ₽1.11
+      traffic|number: 1.1081
+      traffic|string: ₽1.1081
     proxy-server:
       v1|number: 2.44
       v1|string: ₽2.44
@@ -2860,11 +2872,11 @@ default:
       v1|pricingRate:
         '0':
           01|number: 27450
-          01|string: ₽27450.00
+          01|string: ₽27450
         1|number: 3843
-        1|string: ₽3843.00
+        1|string: ₽3843
         10|number: 219.6
-        10|string: ₽219.60
+        10|string: ₽219.6
         100|number: 153.72
         100|string: ₽153.72
         1000|number: 54.9
@@ -2881,640 +2893,640 @@ default:
     cluster:
       generic:
         ram:
-          v1|number: 0.55
-          v1|string: ₽0.55
+          v1|number: 0.554
+          v1|string: ₽0.554
         vcpu:
-          v1|number: 2.08
-          v1|string: ₽2.08
+          v1|number: 2.07
+          v1|string: ₽2.07
   sku|RUB|video:
     cdn:
       traffic:
-        egress|number: 1.05
-        egress|string: ₽1.05
+        egress|number: 1.054
+        egress|string: ₽1.054
     transcoding:
+      live:
+        v1|number: 2.6
+        v1|string: ₽2.6
       vod:
-        v1|number: 1.1
-        v1|string: ₽1.10
+        v1|number: 1.098
+        v1|string: ₽1.098
+    used_space:
+      live:
+        v1|number: 0.003069
+        v1|string: ₽0.003069
   sku|RUB|ydb:
     v1:
       serverless:
         requests|pricingRate:
-          1|number: 23.48
-          1|string: ₽23.48
+          1|number: 24.64
+          1|string: ₽24.64
   sku|RUB|yds:
     events:
       puts|pricingRate:
-        2|number: 1.3
-        2|string: ₽1.30
+        2|number: 1.39
+        2|string: ₽1.39
     reserved_resources:
       128k:
-        12h|number: 0.1464
-        12h|string: ₽0.1464
-    v1:
-      serverless:
-        requests|pricingRate:
-          1|string: ₽23.48
-        requests|string: Free
-        storage|pricingRate:
-          720|string: ₽0.0326
-        storage|string: Free
+        12h|number: 0.1581
+        12h|string: ₽0.1581
   sku|RUB|yq:
     network:
       ingress:
         v1|pricingRate:
-          10|number: 0.66
-          10|string: ₽0.66
+          10|number: 0.71
+          10|string: ₽0.71
   sku|RUB|yt:
     compute-nodes:
       cpu:
         v3|number: 1.38
       ram:
-        v3|number: 0.37
+        v3|number: 0.369
     master-nodes:
       cpu:
         v3|number: 1.38
       ram:
-        v3|number: 0.37
+        v3|number: 0.369
     proxy-nodes:
       cpu:
         v3|number: 1.38
       ram:
-        v3|number: 0.37
+        v3|number: 0.369
     storage-nodes:
       cpu:
         v3|number: 1.38
       ram:
-        v3|number: 0.37
+        v3|number: 0.369
     storage:
       hdd:
-        v1|month|number: 3.85
+        v1|month|number: 3.816
       ssd-nonreplicated:
-        v1|month|number: 11.6
+        v1|month|number: 11.592
     system-nodes:
       cpu:
         v3|number: 1.38
       ram:
-        v3|number: 0.37
+        v3|number: 0.369
     tablet-nodes:
       cpu:
         v3|number: 1.38
       ram:
-        v3|number: 0.37
+        v3|number: 0.369
   sku|USD|ai:
     datasphere:
       computing:
-        v1|number: 0.0000108
-        v1|string: $0.0000108
+        v1|number: 0.0000106557
+        v1|string: $0.0000106557
       datasets:
-        v1|number: 0.0000108
-      deployment|number: 0.0000108
+        v1|number: 0.0000106557
+      deployment|number: 0.0000106557
       disk:
-        v1|number: 0.0000108
-      jobs|number: 0.0000108
+        v1|number: 0.0000106557
+      jobs|number: 0.0000106557
       models:
-        v1|number: 0.0000108
+        v1|number: 0.0000106557
   sku|USD|airflow:
     cluster:
       generic:
         ram:
-          v1|number: 0.0076
-          v1|string: $0.0076
+          v1|number: 0.0079377036
+          v1|string: $0.0079377036
         vcpu:
-          v1|number: 0.0225
-          v1|string: $0.0225
+          v1|number: 0.0236065536
+          v1|string: $0.0236065536
   sku|USD|alb:
     balancer:
-      active|number: 0.02
-      active|string: $0.02
+      active|number: 0.0215573736
+      active|string: $0.0215573736
   sku|USD|api-gateway:
     requests:
       v1|pricingRate:
         '0':
-          1|number: 1.08
-          1|string: $1.08
+          1|number: 1.166393256
+          1|string: $1.166393256
   sku|USD|audit-trails:
     events:
       data_plane:
-        v1|number: 0.324
-        v1|string: $0.3240
+        v1|number: 0.3239343744
+        v1|string: $0.3239343744
   sku|USD|backup:
     protected_vms:
-      v2|month|number: 2.15
-      v2|month|string: $2.15
+      v2|month|number: 2.301638976
+      v2|month|string: $2.301638976
     used_space:
-      v1|month|number: 0.0378
-      v1|month|string: $0.0378
+      v1|month|number: 0.040721305
+      v1|month|string: $0.040721305
   sku|USD|cloud_desktop:
     hdd:
-      v1|month|number: 0.036
-      v1|month|string: $0.0360
+      v1|month|number: 0.0359999942
+      v1|month|string: $0.0359999942
     ram:
-      v1|number: 0.0036
-      v1|string: $0.0036
+      v1|number: 0.0035827863
+      v1|string: $0.0035827863
     ssd:
-      v1|month|number: 0.132
-      v1|month|string: $0.1320
+      v1|month|number: 0.1316065363
+      v1|month|string: $0.1316065363
     vcpu:
       c50:
-        v1|number: 0.0069
-        v1|string: $0.0069
+        v1|number: 0.0068852448
+        v1|string: $0.0068852448
   sku|USD|cns:
     notification_events:
-      mts_marketing_event|number: 0.0446
-      mts_marketing_event|string: $0.0446
+      mts_marketing_event|number: 0.0445081896
+      mts_marketing_event|string: $0.0445081896
       push_event:
         v2|pricingRate:
-          1|number: 0.82
-          1|string: $0.82
-      vimpelcom_marketing_1|number: 0.0646
-      vimpelcom_marketing_1|string: $0.0646
-      vimpelcom_marketing_2|number: 0.0638
-      vimpelcom_marketing_2|string: $0.0638
+          1|number: 0.824999868
+          1|string: $0.824999868
+      vimpelcom_marketing_1|number: 0.0645081864
+      vimpelcom_marketing_1|string: $0.0645081864
+      vimpelcom_marketing_2|number: 0.0637704816
+      vimpelcom_marketing_2|string: $0.0637704816
     notifications_packet_events:
-      vimpelcom_marketing_1|number: 0.1575
-      vimpelcom_marketing_1|string: $0.1575
-      vimpelcom_marketing_2|number: 0.1168
-      vimpelcom_marketing_2|string: $0.1168
-      vimpelcom_marketing_3|number: 0.223
-      vimpelcom_marketing_3|string: $0.2230
+      vimpelcom_marketing_1|number: 0.1574589912
+      vimpelcom_marketing_1|string: $0.1574589912
+      vimpelcom_marketing_2|number: 0.11680326
+      vimpelcom_marketing_2|string: $0.11680326
+      vimpelcom_marketing_3|number: 0.222950784
+      vimpelcom_marketing_3|string: $0.222950784
     notifications:
-      sender_name_registration_event|number: 83.33
-      sender_name_registration_event|string: $83.33
+      sender_name_registration_event|number: 83.3332653552
+      sender_name_registration_event|string: $83.3332653552
   sku|USD|compute:
     filesystem:
       hdd:
-        v1|number: 0.000042
-        v1|string: $0.000042
+        v1|number: 0.000045082
+        v1|string: $0.000045082
       ssd:
-        v1|number: 0.000171
-        v1|string: $0.000171
+        v1|number: 0.0001877049
+        v1|string: $0.0001877049
     hostgroup:
       cpu:
         c100:
-          v3|number: 0.0106
-          v3|string: $0.0106
+          v3|number: 0.011475408
+          v3|string: $0.011475408
       localssd:
-        v1|number: 0.00011
-        v1|string: $0.000110
+        v1|number: 0.000109836
+        v1|string: $0.000109836
       ram:
-        v3|number: 0.0028
-        v3|string: $0.0028
+        v3|number: 0.0030327864
+        v3|string: $0.0030327864
+    snapshot|number: 0.0000418033
+    snapshot|string: $0.0000418033
     vm:
       cpu:
         c100:
-          v2|number: 0.0107
-          v3|number: 0.0094
-          v3|string: $0.0094
+          v2|number: 0.0115573752
+          v3|number: 0.0101639328
+          v3|string: $0.0101639328
         c20:
-          v3|number: 0.00396
-          v3|string: $0.003960
+          v3|number: 0.0042622944
+          v3|string: $0.0042622944
       ram:
-        v2|number: 0.0028
-        v3|number: 0.0025
-        v3|string: $0.0025
+        v2|number: 0.0030131143
+        v3|number: 0.0027049176
+        v3|string: $0.0027049176
   sku|USD|datalens:
     users:
-      v1|string: $8.25
+      v1|string: $8.1147528
   sku|USD|datasphere:
-    docker|number: 0.0000108
-    filestores|number: 0.0000108
+    docker|number: 0.0000106557
+    filestores|number: 0.0000106557
   sku|USD|datatransfer:
     compute:
       cpu:
-        v1|number: 0.0118
-        v1|string: $0.0118
+        v1|number: 0.0123770472
+        v1|string: $0.0123770472
       ram:
-        v1|number: 0.00315
-        v1|string: $0.003150
+        v1|number: 0.0033073765
+        v1|string: $0.0033073765
     rows:
       v1|pricingRate:
-        100|number: 0.0243
-        100|string: $0.0243
+        100|number: 0.0254917992
+        100|string: $0.0254917992
   sku|USD|dns:
     requests:
       public:
         authoritative:
-          v1|number: 0.29
-          v1|string: $0.29
+          v1|number: 0.3109835568
+          v1|string: $0.3109835568
         recursive:
           v1|pricingRate:
-            1|number: 0.29
-            1|string: $0.29
+            1|number: 0.3109835568
+            1|string: $0.3109835568
   sku|USD|gitlab:
-    backup|month|number: 0.0173
-    backup|month|string: $0.0173
+    backup|month|number: 0.0186491773
+    backup|month|string: $0.0186491773
     instance:
-      disk|month|number: 0.1171
-      disk|month|string: $0.1171
+      disk|month|number: 0.1262950618
+      disk|month|string: $0.1262950618
       free:
-        cpu|number: 0.0151
-        cpu|string: $0.0151
-        ram|number: 0.00405
-        ram|string: $0.004050
+        cpu|number: 0.0163114728
+        cpu|string: $0.0163114728
+        ram|number: 0.0043737698
+        ram|string: $0.0043737698
   sku|USD|identity-hub:
     users:
-      101-500|number: 4.08
-      501-1000|number: 3.66
+      101-500|number: 4.08196656
+      501-1000|number: 3.66393384
   sku|USD|iot:
     mqtt|pricingRate:
-      100000|number: 0.000001037
-      1000000|number: 9.36e-7
+      100000|number: 0.0000010656
+      1000000|number: 9.836e-7
   sku|USD|kms:
     api:
       asymmetric:
         heavy:
-          v1|number: 0.13
-          v1|string: $0.13
-        v1|number: 0.0518
-        v1|string: $0.0518
+          v1|number: 0.1295901432
+          v1|string: $0.1295901432
+        v1|number: 0.0518032704
+        v1|string: $0.0518032704
       v1:
-        encryptdecrypt|number: 0.0259
-        encryptdecrypt|string: $0.0259
+        encryptdecrypt|number: 0.0259016352
+        encryptdecrypt|string: $0.0259016352
     storage:
       asymmetric:
-        v1|number: 0.0259
-        v1|string: $0.0259
+        v1|number: 0.0259016352
+        v1|string: $0.0259016352
       v1:
-        software|number: 0.000036
-        software|string: $0.000036
+        software|number: 0.0000359836
+        software|string: $0.0000359836
   sku|USD|load_testing:
     storage:
       test_results:
         v1|number: 0
         v1|pricingRate:
-          2160000|number: 0.00045
+          2160000|number: 0.0004499999
     test_execution:
       v1|number: 0
       v1|pricingRate:
-        180000|number: 0.0045
+        180000|number: 0.0044999993
   sku|USD|lockbox:
     api:
       v1:
-        get|number: 0.0311
-        get|string: $0.0311
+        get|number: 0.0310655688
+        get|string: $0.0310655688
     storage:
       v1:
-        active_secrets|number: 0.000225
-        active_secrets|string: $0.000225
+        active_secrets|number: 0.0002245901
+        active_secrets|string: $0.0002245901
   sku|USD|mdb:
     cluster:
       clickhouse:
         v3:
           cpu:
-            c100|number: 0.0155
-            c100|string: $0.0155
-          ram|number: 0.0042
-          ram|string: $0.0042
+            c100|number: 0.0162295056
+            c100|string: $0.0162295056
+          ram|number: 0.0044262288
+          ram|string: $0.0044262288
       greenplum:
         v2:
           cpu:
             c100:
-              dedicated|number: 0.0108
-              dedicated|string: $0.0108
+              dedicated|number: 0.0113114736
+              dedicated|string: $0.0113114736
           ram:
-            dedicated|number: 0.0028
-            dedicated|string: $0.0028
+            dedicated|number: 0.0029286881
+            dedicated|string: $0.0029286881
         v3:
           cpu:
-            c100|number: 0.0193
-            c100|string: $0.0193
-          ram|number: 0.0051
-          ram|string: $0.0051
+            c100|number: 0.0202458984
+            c100|string: $0.0202458984
+          ram|number: 0.0053860647
+          ram|string: $0.0053860647
       kafka:
         v3:
           cpu:
-            c100|number: 0.0136
-            c100|string: $0.0136
-          ram|number: 0.0036
-          ram|string: $0.0036
+            c100|number: 0.0142622928
+            c100|string: $0.0142622928
+          ram|number: 0.0037704912
+          ram|string: $0.0037704912
       local-nvme:
-        greenplum|month|number: 0.1171
-        greenplum|month|string: $0.1171
+        greenplum|month|number: 0.1168524403
+        greenplum|month|string: $0.1168524403
       mongodb:
         v3:
           cpu:
-            c100|number: 0.0144
-            c100|string: $0.0144
-          ram|number: 0.0081
-          ram|string: $0.0081
+            c100|number: 0.0150819648
+            c100|string: $0.0150819648
+          ram|number: 0.0085049167
+          ram|string: $0.0085049167
       mysql:
         v3:
           cpu:
-            c100|number: 0.0151
-            c100|string: $0.0151
-          ram|number: 0.0041
-          ram|string: $0.0041
+            c100|number: 0.0158196696
+            c100|string: $0.0158196696
+          ram|number: 0.0043442616
+          ram|string: $0.0043442616
       network-hdd:
-        ch|month|number: 0.0288
-        ch|month|string: $0.0288
-        greenplum|month|number: 0.0288
-        greenplum|month|string: $0.0288
-        kafka|month|number: 0.0288
-        kafka|month|string: $0.0288
-        mysql|month|number: 0.0288
-        mysql|month|string: $0.0288
-        pg|month|number: 0.0288
-        pg|month|string: $0.0288
+        ch|month|number: 0.0306885197
+        ch|month|string: $0.0306885197
+        greenplum|month|number: 0.0306885197
+        greenplum|month|string: $0.0306885197
+        kafka|month|number: 0.0306885197
+        kafka|month|string: $0.0306885197
+        mysql|month|number: 0.0306885197
+        mysql|month|string: $0.0306885197
+        pg|month|number: 0.0306885197
+        pg|month|string: $0.0306885197
       network-nvme:
-        ch|month|number: 0.1171
-        ch|month|string: $0.1171
-        kafka|month|number: 0.1171
-        kafka|month|string: $0.1171
-        redis|month|number: 0.1171
-        redis|month|string: $0.1171
+        ch|month|number: 0.1286557171
+        ch|month|string: $0.1286557171
+        kafka|month|number: 0.1286557171
+        kafka|month|string: $0.1286557171
+        redis|month|number: 0.1286557171
+        redis|month|string: $0.1286557171
       opensearch:
         v3:
           cpu:
-            c100|number: 0.0151
-            c100|string: $0.0151
-          ram|number: 0.0063
-          ram|string: $0.0063
+            c100|number: 0.0158196696
+            c100|string: $0.0158196696
+          ram|number: 0.006614753
+          ram|string: $0.006614753
       pg:
         v3:
           cpu:
-            c100|number: 0.0147
-            c100|string: $0.0147
-          ram|number: 0.00396
-          ram|string: $0.003960
+            c100|number: 0.0154032762
+            c100|string: $0.0154032762
+          ram|number: 0.0041573764
+          ram|string: $0.0041573764
       redis:
         v3:
           cpu:
-            c100|number: 0.0136
-            c100|string: $0.0136
-          ram|number: 0.0036
-          ram|string: $0.0036
+            c100|number: 0.0142622928
+            c100|string: $0.0142622928
+          ram|number: 0.0037704912
+          ram|string: $0.0037704912
     dataproc:
       v2:
         cpu:
-          c100|number: 0.00108
-        ram|number: 0.00027
+          c100|number: 0.0011336064
+        ram|number: 0.0002827868
     zk:
       clickhouse:
         v3:
           cpu:
-            c50|number: 0.0063
-            c50|string: $0.0063
-          ram|number: 0.0025
-          ram|string: $0.0025
+            c50|number: 0.006614753
+            c50|string: $0.006614753
+          ram|number: 0.0026459012
+          ram|string: $0.0026459012
       kafka:
         v3:
           cpu:
-            c50|number: 0.0063
-            c50|string: $0.0063
-          ram|number: 0.0025
-          ram|string: $0.0025
+            c50|number: 0.006614753
+            c50|string: $0.006614753
+          ram|number: 0.0026459012
+          ram|string: $0.0026459012
   sku|USD|monitoring:
     point:
-      api:
-        read|pricingRate:
-          50|string: $0.0378
-        read|string: $0.0630
       prometheus:
-        export|number: 0.063
-        export|pricingRate:
-          50|string: $0.0378
-        export|string: $0.0630
-      write|number: 0.0026
-      write|string: $0.0026
+        export|number: 0.0629999899
+        export|string: $0.0629999899
+      write|number: 0.0026229504
+      write|string: $0.0026229504
   sku|USD|network:
     public_fips:
-      deallocated|number: 0.0028
-      deallocated|string: $0.0028
-    public_fips|number: 0.00216
-    public_fips|string: $0.002160
+      deallocated|number: 0.0027899996
+      deallocated|string: $0.0027899996
+    public_fips|number: 0.0021599997
+    public_fips|string: $0.0021599997
   sku|USD|postbox:
     email:
       count:
         v1|pricingRate:
-          10|number: 0.57
-          10|string: $0.57
-          2|number: 0.66
-          2|string: $0.66
-          50|number: 0.49
-          50|string: $0.49
+          10|number: 0.574999908
+          10|string: $0.574999908
+          2|number: 0.6583332279
+          2|string: $0.6583332279
+          50|number: 0.491666588
+          50|string: $0.491666588
   sku|USD|security_deck:
     access_transparency:
       subscription:
-        v1|number: 583.34
-        v1|string: $583.34
+        v1|number: 583.33597224
+        v1|string: $583.33597224
     cspm:
-      resources|string: $4.84
+      resources|string: $4.8360648
     dspm:
       scanned:
         files:
-          v1|number: 1.25
-          v1|string: $1.25
+          v1|number: 1.2499998
+          v1|string: $1.2499998
         text:
-          v1|number: 3.84
-          v1|string: $3.84
+          v1|number: 3.8399993856
+          v1|string: $3.8399993856
     kspm:
       nodes|pricingRate:
-        2|string: $66.66
+        2|string: $66.66392376
   sku|USD|serverless:
     containers:
       compute:
         cpu|pricingRate:
-          5|number: 0.0432
-          5|string: $0.0432
+          5|number: 0.0466393368
+          5|string: $0.0466393368
         memory|pricingRate:
-          10|number: 0.0288
-          10|string: $0.0288
+          10|number: 0.0310655688
+          10|string: $0.0310655688
       invocations|pricingRate:
-        1|number: 0.144
-        1|string: $0.1440
+        1|number: 0.1554917784
+        1|string: $0.1554917784
     functions:
       compute:
         v1|pricingRate:
-          10|number: 0.0492
-          10|string: $0.0492
+          10|number: 0.0531147456
+          10|string: $0.0531147456
       invocations:
         v1|pricingRate:
-          1|number: 0.144
-          1|string: $0.1440
+          1|number: 0.1554917784
+          1|string: $0.1554917784
   sku|USD|smart_captcha:
     check:
       requests:
         v1|pricingRate:
-          10|number: 0.9
-          10|string: $0.90
-          100|number: 0.63
-          100|string: $0.63
+          10|number: 0.899999856
+          10|string: $0.899999856
+          100|number: 0.6299998992
+          100|string: $0.6299998992
   sku|USD|spark:
     cluster:
       generic:
         ram:
-          v2|number: 0.0034
-          v2|string: $0.0034
+          v2|number: 0.0033983601
+          v2|string: $0.0033983601
         vcpu:
-          v2|number: 0.0129
-          v2|string: $0.0129
+          v2|number: 0.0128688504
+          v2|string: $0.0128688504
   sku|USD|speechsense:
     analysis:
       assistant:
-        v1|number: 0.00125
-        v1|string: $0.001250
-      audio|number: 0.000083
+        v1|number: 0.0012499998
+        v1|string: $0.0012499998
+      audio|number: 0.0000827869
       audio|pricingRate:
-        30000000|number: 0.000042
+        30000000|number: 0.0000416393
         6000000|number: 0.00005
       text:
-        v2|number: 0.0115
+        v2|number: 0.0114999982
         v2|pricingRate:
-          100000|number: 0.0085
-          100000|string: $0.0085
-          1000000|string: $0.0035
-          2500000|string: $0.0025
-          500000|number: 0.005
-          500000|string: $0.0050
-        v2|string: $0.0115
-      v1|number: 0.000192
+          100000|number: 0.0084999986
+          100000|string: $0.0084999986
+          1000000|string: $0.0034999994
+          2500000|string: $0.0024999996
+          500000|number: 0.0049999992
+          500000|string: $0.0049999992
+        v2|string: $0.0114999982
+      v1|number: 0.0001909836
       v1|pricingRate:
-        150000000|number: 0.000042
-        30000000|number: 0.000083
-        6000000|number: 0.000142
-        60000000|number: 0.000058
+        150000000|number: 0.0000416393
+        30000000|number: 0.0000827869
+        6000000|number: 0.0001409836
+        60000000|number: 0.0000581967
+    reinit:
+      assistant:
+        v1|number: 0.0012499998
+        v1|string: $0.0012499998
+      tag:
+        v1|string: $0.0000983606
   sku|USD|storage:
     api:
       get:
-        cold|number: 0.0087
-        ice|number: 0.0175
+        cold|number: 0.009426228
+        ice|number: 0.018852456
         standard|pricingRate:
-          10|number: 0.0035
-          10|string: $0.0035
+          10|number: 0.0037704912
+          10|string: $0.0037704912
       network:
         inet:
           egress|pricingRate:
-            100|number: 0.0138
-            100|string: $0.0138
+            100|number: 0.0137699978
+            100|string: $0.0137699978
       put:
-        cold|number: 0.0106
-        ice|number: 0.0212
+        cold|number: 0.0113934408
+        ice|number: 0.0228688488
         standard|pricingRate:
-          10|number: 0.0043
+          10|number: 0.004665573
     bucket:
       used_space:
-        cold|month|number: 0.0096
-        ice|month|number: 0.0048
-        ice|month|string: $0.0048
-        ice|number: 0.000006687
-        ice|string: $0.000006687
+        cold|month|number: 0.0103868836
+        ice|month|number: 0.0051934418
+        ice|month|string: $0.0051934418
+        ice|number: 0.0000072131
+        ice|string: $0.0000072131
         standard|pricingRate:
-          720|month|number: 0.0181
-          720|month|string: $0.0181
-          720|number: 0.000025
-          720|string: $0.000025
+          720|month|number: 0.0194754067
+          720|month|string: $0.0194754067
+          720|number: 0.0000270492
+          720|string: $0.0000270492
   sku|USD|support:
     organization:
       business:
         fixed_consumption:
-          v1|number: 25
-          v1|string: $25.00
+          v1|number: 40.9836
+          v1|string: $40.9836
   sku|USD|sws:
     antiddos:
-      traffic|number: 0.0091
-      traffic|string: $0.0091
+      traffic|number: 0.0090827854
+      traffic|string: $0.0090827854
     proxy-server:
-      v1|number: 0.02
-      v1|string: $0.02
+      v1|number: 0.0199999968
+      v1|string: $0.0199999968
     requests:
       v1|number: 0
       v1|pricingRate:
         '0':
-          01|number: 225
-          01|string: $225.00
-        1|number: 31.5
-        1|string: $31.50
-        10|number: 1.8
-        10|string: $1.80
-        100|number: 1.26
-        100|string: $1.26
-        1000|number: 0.45
+          01|number: 224.999964
+          01|string: $224.999964
+        1|number: 31.49999496
+        1|string: $31.49999496
+        10|number: 1.799999712
+        10|string: $1.799999712
+        100|number: 1.2599997984
+        100|string: $1.2599997984
+        1000|number: 0.449999928
     waf:
       requests:
         v1|pricingRate:
           '0':
-            01|number: 225
-          1|number: 31.5
-          10|number: 1.8
-          100|number: 1.26
-          1000|number: 0.45
+            01|number: 224.999964
+          1|number: 31.49999496
+          10|number: 1.799999712
+          100|number: 1.2599997984
+          1000|number: 0.449999928
   sku|USD|trino:
     cluster:
       generic:
         ram:
-          v1|number: 0.0045
-          v1|string: $0.0045
+          v1|number: 0.0045409829
+          v1|string: $0.0045409829
         vcpu:
-          v1|number: 0.017
-          v1|string: $0.0170
+          v1|number: 0.0169672104
+          v1|string: $0.0169672104
   sku|USD|video:
     cdn:
       traffic:
-        egress|number: 0.0086
-        egress|string: $0.0086
+        egress|number: 0.0086393429
+        egress|string: $0.0086393429
     transcoding:
+      live:
+        v1|number: 0.021311472
+        v1|string: $0.021311472
       vod:
-        v1|number: 0.009
-        v1|string: $0.0090
+        v1|number: 0.0089999986
+        v1|string: $0.0089999986
+    used_space:
+      live:
+        v1|number: 0.0000251557
+        v1|string: $0.0000251557
   sku|USD|ydb:
     v1:
       serverless:
         requests|pricingRate:
-          1|number: 0.1924
-          1|string: $0.1924
+          1|number: 0.2019671808
+          1|string: $0.2019671808
   sku|USD|yds:
     events:
       puts|pricingRate:
-        2|number: 0.0106
-        2|string: $0.0106
+        2|number: 0.0113934408
+        2|string: $0.0113934408
     reserved_resources:
       128k:
-        12h|number: 0.0012
-        12h|string: $0.0012
-    v1:
-      serverless:
-        requests|pricingRate:
-          1|string: $0.1924
-        requests|string: Free
-        storage|pricingRate:
-          720|string: $0.000267
-        storage|string: Free
+        12h|number: 0.0012959014
+        12h|string: $0.0012959014
   sku|USD|yt:
     compute-nodes:
       cpu:
-        v3|number: 0.0113
+        v3|number: 0.0113114736
       ram:
-        v3|number: 0.003
+        v3|number: 0.0030245897
     master-nodes:
       cpu:
-        v3|number: 0.0113
+        v3|number: 0.0113114736
       ram:
-        v3|number: 0.003
+        v3|number: 0.0030245897
     proxy-nodes:
       cpu:
-        v3|number: 0.0113
+        v3|number: 0.0113114736
       ram:
-        v3|number: 0.003
+        v3|number: 0.0030245897
     storage-nodes:
       cpu:
-        v3|number: 0.0113
+        v3|number: 0.0113114736
       ram:
-        v3|number: 0.003
+        v3|number: 0.0030245897
     storage:
       hdd:
-        v1|month|number: 0.0315
+        v1|month|number: 0.0312786835
       ssd-nonreplicated:
-        v1|month|number: 0.095
+        v1|month|number: 0.0950163782
     system-nodes:
       cpu:
-        v3|number: 0.0113
+        v3|number: 0.0113114736
       ram:
-        v3|number: 0.003
+        v3|number: 0.0030245897
     tablet-nodes:
       cpu:
-        v3|number: 0.0113
+        v3|number: 0.0113114736
       ram:
-        v3|number: 0.003
+        v3|number: 0.0030245897
   ui-key:
     data-catalog:
       console:
@@ -3682,25 +3694,21 @@ default:
           title_ticket_table: Tickets
     yacloud_billing_account:
       billing-account-detail:
-        button_move-to-datalens: Usage details in DataLens
+        filter_label-labels-all: All labels
+        filter_label-products-all: All products
+        label_credit-cudCredit: Committed use discount
+        label_credit-monetaryGrantCredit: Grant
+        label_credit-volumeIncentiveCredit: Volume incentive credit
+        value_empty_clouds: All clouds and folders
+        value_empty_service_instances: All workspaces
       cloud-billing-account:
-        base_label_payer: Payer
         label_card-add: Add card
-        label_wizard-next: Next
-      create-account-wizard:
-        field_country-code: Country
-        field_name: Account name
-        field_organization: Organization
-        field_payment-type: Payment type
-        field_person-type: Account type
-        label_step-company_title: Company information
-        label_step-contacts_title: Contacts
-        label_step-individual_title: Personal data
-        label_step-payment_title: Payment details
       create-account:
         label_option_card: Manual top-up
         label_payment_invoice: Bank transfer
         section_account_type: Account type
+        section_country: Country
+        section_organization: Organization
         section_payment_method: Payment method
     yacloud_billing:
       alb:
@@ -3771,7 +3779,6 @@ default:
             popup-grant-activation_button_activate: Activate
           detail:
             button_create-periodic-export: Periodic export
-            button_download-csv: Export to CSV
             button_export: Export details
             column_cloud-name: Cloud
             column_cost: Consumption cost
@@ -3790,9 +3797,7 @@ default:
             label_title: Usage details
             label_title-usage-short: Consumption for
             label_to: To
-            label_top-cost: Consumption cost
             label_top-total: Due and payable
-            popup-csv_button_download: Download
             tab_label: By labels
             tab_product: By product
             tab_service: By service
@@ -3801,11 +3806,11 @@ default:
           exports:
             button_create-periodic-export: Create periodic export
             button_open-yandex-query: Process in YQ
+            button_resume-export: Resume
             field_bucket: Bucket
             field_detail-type: Usage details
             field_locale: Language
             field_prefix: Directory
-            label_create-export-title: Create periodic export
             label_include-resources: Resource
             label_not-include-resources: General
             locale_value_en-lang: English
@@ -3827,6 +3832,7 @@ default:
             payment-type_label_card: Bank card
             payment-type_label_invoice: Wire transfer
             section_account-data: General information
+            section_contract: Information about the agreement
             usage-type_label_paid: Paid version
           reconciliation-reports:
             action_download-with-facsimile: Download signed report
@@ -3842,7 +3848,6 @@ default:
           switch_exports: Export details
           switch_history: Payment history
           switch_offers: Committed volume
-          switch_overview: Account info
           switch_users: Access management
           tab_acts-title: Closing documents
           tab_reconciliation-reports-title: Reconciliation reports
@@ -3889,6 +3894,9 @@ default:
         folder:
           dashboard:
             label_compute: Compute Cloud
+          service-account:
+            label_add-role: Add role
+            popup-robot_button_add: Create
     yacloud_components:
       acl-filters:
         placeholder:
@@ -3905,22 +3913,26 @@ default:
           add-role: Add role
         label:
           service-accounts: Service accounts
-          title: Configuring access bindings
+          title: Granting access
           user-accounts: User accounts
         resource-acl:
           label_bindings: Roles
           label_subject: User
       baremetal:
         addDiskButton: Add
+        allTemplates: All templates
         amount: Number
+        assemblyDiscountLabel: Cheaper with assembly
         cpuTitle: CPU
         CustomConfiguration: Custom configuration
         disks: Disks
+        goToAssembly: Go to assembly
         networkLabel: Network
         poolFilter: Pool
-        PresetConfigurations: Preset configurations
+        prefillWithTemplate: Prefill with template
         ramLabel: RAM
         size: Size
+        StockConfigurations: Stock configurations
         type: Type
         withReserve: Enable
       cloud-center:
@@ -3959,6 +3971,15 @@ default:
         label_placeholder: Search in cloud resources
         search_filters_all: Everywhere
         search_filters_docs: Documentation
+      security:
+        dspm:
+          action_button_apply: Download file
+          action_button_export_without_validation: Export without validation
+          action_export_with_validation: Validate and export
+          card_title_image: On images
+          card_title_text: In text
+          dialog_select-service-account_create-new-action: Create a new one
+          header_scan_result_sensitive_data: Display sensitive data
       services:
         service_compute: Compute Cloud
       settings:
@@ -3981,6 +4002,7 @@ default:
         label_title_appearance: Appearance
         label_title_communications: Notifications
         label_title_region: Language and region
+        label_yandexMessenger-link: Go to Yandex Messenger bot
         section_email: Email settings
         section_phone: Phone number settings
         section_settings: Notification settings
@@ -4006,6 +4028,7 @@ default:
           save: Save
       alert-template:
         field:
+          delay-key-value: Evaluation delay
           evaluation-window-key-value: Evaluation window
         no-metrics-policy:
           alarm: Alarm
@@ -4076,6 +4099,8 @@ default:
             title: Notification methods
           prometheus:
             title: Prometheus
+          services-map:
+            title: Services map
           shards:
             title: Shards
           slo:
@@ -4085,6 +4110,7 @@ default:
       channel:
         button_create: Create
         button_new-channel: Create channel
+        field_function_title: Cloud function
         field_method: Method
         field_name: Name
         field_recipients: Recipients
@@ -4095,12 +4121,16 @@ default:
         title_method-email: Email
         title_method-push: Push notifications
         title_method-sms: SMS
+        type_cloud-function: Cloud Function
+        type_telegram: Telegram
       component:
         add-to-dashboard-form:
           action:
             add: Add
             add-and-go: Add and edit
             copy-and-go: Copy and edit
+          dash-picker:
+            new-dashboard: New dashboard
         entities-list:
           common-filter-placeholder: Search by entry
         juggler-modal:
@@ -4169,6 +4199,9 @@ default:
         button_dashboards-action: Create dashboard
         title_service-dashboards: Service dashboards
         title_service-features: Features
+      monitoring-alerts-channels:
+        method:
+          ya-chats: Yandex Messenger
       monitoring-alerts:
         button:
           create-custom-title: Custom
@@ -4244,6 +4277,8 @@ default:
           add-query: Add query
           create-alert-from-all-queries: Create alert from all queries
           execute-query: Execute query
+        button:
+          apply-and-parse: Execute
         hint:
           search-hotkey: 'Search hotkey: Cmd/Ctrl + Enter'
       quicklinks:
@@ -4290,6 +4325,8 @@ default:
           sort-by: Sort by
         legend:
           copy-as-csv: Copy as CSV
+        one-graph-per-query:
+          label: One graph per query
         select:
           charts-count:
             label: Graphs in row
@@ -4334,11 +4371,12 @@ default:
         add: Add
         delete: Delete
         edit: Edit
+        end: End
         exclude: Remove
         save-changes: Save
       app:
         security:
-          control_rules_rWmUV: Control rules
+          control_rules_rWmUV: Rules and exceptions
           label_workspace_12Kax: Workspace
       application:
         overview:
@@ -4355,39 +4393,41 @@ default:
           oauth_field_redirect_uri: Redirect URI
           oauth_field_token_endpoint: Token endpoint
           oauth_field_user_info_endpoint: Userinfo endpoint
+          oauth_idp_section_title: Identity provider (IdP) configuration
           oauth_service_section_title: Service provider (SP) configuration
           saml_field_issuer: Issuer / IdP EntityID
           saml_field_login: Login URL
           saml_field_logout: Logout URL
           saml_field_metadata: Metadata URL
           saml_field_request_signing_enabled: Only accept signed requests
+          saml_field_sp_entity: SP EntityID
           secret_section_add_new_secret_action: Add secret
           secret_section_title: App secrets
-      attributes:
-        update_dialog:
-          field_attribute_name: Attribute name
-          field_attribute_value: Value
-          field_group_attribute_value: Transmitted groups
       billing:
         account:
           button_enable-edm-action: Enable EDM
           dashboard-info:
+            contract_label_general: General
+            contract_label_offer: Offer
             section_contract: Information about the agreement
             title_main: Account information
           detail:
             button_create-periodic-export: Periodic export
             button_download-details: Export usage details
+            button_move-to-datalens-header: Usage details in DataLens
             popup-export_button_download: Download
           entities:
             label_title: Clouds and services
             label_type: Type
           exports:
-            field_bucket: Bucket
-            field_detail-type: Usage details
-            field_locale: Language
-            field_prefix: Path within the bucket
+            button_force-reexport: Additional export
+            column_service_account: Service account
+            field_date: Start from
+            field_period: Export historical data
             locale_value_en-lang: English
             locale_value_ru-lang: Русский
+          force-reexport:
+            field_range: Period
           proposals_page:
             type_Error: Application error
           proposals:
@@ -4404,15 +4444,23 @@ default:
         accounts:
           dialog_button_create: Create an account
           listing_button_create: Create an account
+        exports:
+          ServiceAccountAddField:
+            addNewServiceAccount: Create service account
+        providers:
+          button_ca-roles-update: Add roles
       center-layout:
         Layout:
           organization-description_kvoUz: Users & applications
         MyAccountLayout:
           activity_kyqSv: Activity
           groups_pqQRu: Groups
+          logout_nXPin: Log out
           profile_8kyBA: Profile
           security_7zQ3g: Login and security
       cloud-components:
+        AclDashboard:
+          action_assign-roles_41Nj1: Assign roles
         manage-cert-dialog:
           action-generate-new-certificate: Generate new certificate
           table:
@@ -4427,6 +4475,7 @@ default:
         overview: Overview
         resource-acl:
           label_invitee-accounts: Invitee accounts
+        save: Save
         section-base: General information
       component:
         form-file-upload:
@@ -4434,8 +4483,6 @@ default:
             method: Method
           method:
             manual: Text
-        subject-select-dialog:
-          action_apply: Save
       dashboard:
         notify:
           action:
@@ -4449,6 +4496,7 @@ default:
           action:
             delete-button: Delete
             edit-button: Edit
+          label_regions: 'Regions:'
         products:
           action:
             console: Cloud Console
@@ -4459,9 +4507,6 @@ default:
           label_create-source: Create source
           label_field-name: Name
           label_source-info: Information about source
-        scan-categories:
-          card_title_image: On images
-          card_title_text: In text
         scan-jobs:
           field_data-sources: Data sources
         scan-resource-group:
@@ -4481,6 +4526,14 @@ default:
           label_include_in_scan: Include in scan
           public_buckets: Public buckets
           title_all_buckets: All buckets
+        scan:
+          action_download-results: Download results
+          action_export-results: Export results
+          label_data-type: Data type
+          label_found-occurrence: Found occurrence
+          results_resource-name: Resource
+          scan-issue_data-source: Data source
+          scan-issue_object-path: Object path
         scans:
           label_new-scan: New scan
           section_access_title: Access to data in sources
@@ -4540,13 +4593,6 @@ default:
             status: Status
             username: Username
           column_last-auth: Last authentication
-      field-data:
-        attributes:
-          update_dialog:
-            field_group_all: 'All grous '
-            field_group_assigned: Assigned groups only
-            field_nameId_email: 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress '
-            field_nameId_persistent: urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
       form:
         federation:
           action:
@@ -4583,10 +4629,17 @@ default:
         userpool:
           caption:
             domain: Default domain
+            session-lifetime: Lifetime session
             settings-data: Data available for editing
           create:
             action:
               create: Create userpool
+        users:
+          federated:
+            add:
+              field:
+                federation: Federation
+                users: Users
       forms:
         action:
           create: Create
@@ -4607,9 +4660,6 @@ default:
           folders-create:
             button_create: Create
             field_description: Description
-        folder:
-          service-accounts:
-            dialog_select-service-account_create-new-action: Create a new one
       kspm:
         TopClustersByErrorsWidget:
           table_clusters: Tops clusters with warnings
@@ -4617,6 +4667,8 @@ default:
         organization: Identity Hub
       mfa-policy-audiences:
         action_add-users: Add users
+      mfa-policy-exclusions:
+        action_add-exclusion: Add exclusion
       my-account:
         GroupsPageLayout:
           header: My groups
@@ -4626,12 +4678,20 @@ default:
         ProfileEditPageLayout:
           main_breadcrumb: Profile data
         ProfilePage:
+          contacts_subheader: Contacts
           edit_action: Edit
         refresh-tokens:
           action_remove_all: Delete all tokens
         security:
+          action_logout_p3aMC: Log out
           login-confirmation:
             header: Login confirmation
+          option_all_devices_n3iAA: Log out on all devices
+          option_keep_current_iaFpd: Do not log out on this device
+          SecurityDevicesPage:
+            action_logout_everywhere_xqkwM: Log out everywhere
+          SecurityPageLayout:
+            devices_breadcrumb_feYd2: Your devices
         SecurityPageLayout:
           refresh_breadcrumb: Refresh tokens
       myaccount:
@@ -4657,6 +4717,16 @@ default:
             assignments_kKzJS: Users and groups
             attributes_to71e: Attributes
             overview_b5LJQ: Overview
+          AttributeFormDialogNew:
+            field_attribute_value_dgUAv: Value
+          field_group_all_uY9US: All groups
+          field_group_assigned_amGdu: Assigned groups only
+          GroupAttributeFormDialog:
+            field_attribute_name_rPYTn: Attribute name
+            field_group_attribute_value_oxrpu: Transmitted groups
+          NameIdAttributeFormDialog:
+            field_nameId_email_mqNDG: 'urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress '
+            field_nameId_persistent_kZU3P: urn:oasis:names:tc:SAML:2.0:nameid-format:persistent
           OauthAppEditForm:
             field-description_fcXBi: Description
             field-labels_kc4MN: Labels
@@ -4728,6 +4798,8 @@ default:
           mfa-overview-action-suspend: Suspend
           mfa-policies-create-policy-action: Create policy
           MfaPolicyPageLayout:
+            policies_title: MFA policies
+            tab_exclusions: Exclusions
             tab_groups: Users and groups
           OtherSecuritySettingsForm:
             auth_settings_1RoAM: Authentication settings
@@ -4757,10 +4829,11 @@ default:
           title_password_policy: Password policy
           title_personal-info: Personal information
           title_userpool_members: Users
+          title_userpool_overview: Overview
           UserpoolOverviewPage:
             action_set_password_policy_aaDns: Set password policy
           UserpoolPageLayout:
-            title_userpool_acl_5rdMM: Access rights to the userpool
+            title_userpool_acl_5rdMM: Access rights
           UserpoolPasswordPolicyForm:
             attempts_before_lockout_ay7Le: Number of failed password attempts before lockout
             brute_force_protection_msHno: Brute force protection
@@ -4777,13 +4850,20 @@ default:
             symbol_classes_required_1BHUu: Required
             unlimited_cSfYU: Unlimited
         users:
+          action_end-all-sso-sessions_7DUdt: End all sessions
           components:
             title_mfa_5CFwd: MFA
+          created_at_khi1N: Creation date
+          expires_at_adUqM: End date
           Filters:
             placeholder_eu3h7: All operations
+          ip_address_u9ysH: IP address
+          last_used_at_899qR: Date of use
+          user_agent_bHjZs: User-Agent
           UserPageLayout:
             title_audit-log_fGywF: Audit log
             title_auth-audit-log_sajZE: Login log
+            title_sso-sessions_pDJYw: Active sessions
       page:
         acl-diagnostics:
           action_select-subject: Select subject
@@ -4819,21 +4899,53 @@ default:
         userpools: User pools
         users: Users
       security-center:
+        alert:
+          action_alert_analysis: Alert analysis
         alerts:
+          caption_assignee: Assignee
+          caption_category: Threat type
+          caption_classification: Classification
+          caption_created-by: Created by
+          caption_incident: Incident
+          caption_modified-at: Modified at
+          caption_sensor: Source
+          caption_status: Status
+          caption_title: Alert
           sink:
             action_create: Create sink
+          title_alert_comments: Comments
+          title_alert_details: Details
+          title_alert_history: History
+          title_alert_overview: Overview
+          title_alert_recommendations: Recommendations
         dspm:
+          label_dspm: DSPM
+          scan_results-title: Results
+          scan-issues-title: Messages and errors
           title_data-sources: Data sources
           title_scan-jobs: Regular scans
+          title_scans: Scan history
         kspm:
           title_clusters: Clusters
           title_dashboard: Dashboard
         label_acl-diagnostics: CIEM
+        label_alerts: Alerts
         label_comp: Compliance
         label_dspm: DSPM
         label_kspm: KSPM
         label_settings: Security Deck parameters
+        onboarding:
+          label_select-default-folder: Choose your default folder
+        settings:
+          general:
+            section_default-storage_label: Default storage
       security:
+        alerts-base:
+          action_create-exception_kyUtB: Create exception
+        alerts:
+          comment_form:
+            send: Send
+          filters-button: Filters
         comp:
           SetsTable:
             action_disable_5hgkz: Disable verification
@@ -4856,12 +4968,9 @@ default:
             selectResources_bD5MC: Select resources
           ControlsExceptionsPage:
             action_create: Create exception
-            exceptions_header_qJD5D: KSPM
-            exceptions_header_vqsTb: KSPM
             scope_filter_header_7CrSm: Configuration controls
           ControlsExceptionTable:
             field_author: Author
-            field_name: Exception
             field_rules: Rules
             field_status: Status
           ControlsPage:
@@ -4870,6 +4979,9 @@ default:
           ControlsPageLayout:
             configuration_w7Kw7: Configuration
           ExceptionDrawer:
+            header_action_delete: Delete
+            header_action_edit: Edit
+            header_caption: Exception
             resources_field_id: ID
           ExceptionOverview:
             header_caption_cspm_9dTJt: Configuration control
@@ -4895,20 +5007,44 @@ default:
             field_type_exclude_cigcD: Do not scan resource
             field_type_kCG8J: Exception type
             field_type_manual_mbKxp: Resource scanned
+        discovery:
+          header_resource_kDJFW: Resource
+          more_details_button_aPdgv: More details
         dspm:
+          action_button-export_pMSM8: Export
+          AnalyticsPage:
+            buckets_jwots: Buckets
+            label_download-analytics_8mgG8: Download results by file
+            label_export_s4obE: Export
+            label_export-analytics_7ASg9: Export results to bucket
+            mediaTypes_r8ro5: Formats
+            public_2C56E: Public
+            scannable_jWMD6: Scannable
+            searchResource_cGkdQ: Search by resource name
           data-sources:
             bXXxQ: Resources selected
           dataSourceTypes:
             object_storage_meF3x: Object Storage
             yandex_360_1TUsr: Yandex 360
+          DiscoveryPageLayout:
+            header_button_text_hefvE: Configure DSPM
+          DspmPageLayout:
+            settings_wHmWK: Settings
+            title_analytics_vaYT5: Data analytics
+          field_bucket-path_5qRqM: Path to bucket
+          field_file-name_kWRPK: File name
+          field_service-account_rTeXv: Service account
           infoTypes:
             value_financial-data_kTC5e: Financial data
             value_medical-data-images_7EQ2X: Medical data
             value_other_wUrAZ: Other
             value_personal-data_w5gVm: Personal data
             value_secrets_4CdGy: Secrets
+          label_field-bucket_3mM6u: Bucket
           ScanForm:
             action_create-scan_dvakP: Create scan without validation
+            table_action_assign_roles_bw4am: Assign roles
+          tab_issues_title_hLQN2: Parameter validation
           Yandex360DataSourceForm:
             action_add_resources_2qrRH: Add resources
             action_configure-connection_v6Gjm: Configure connection
@@ -4926,16 +5062,45 @@ default:
             connectorsLabel_2NoP9: Connectors
             workspacesLabel_kZyU1: Workspaces
         siem:
+          action_create-exception_bLSu4: Create exception
           action_delete_wM5k5: Delete
           action_insert_into_query_kR3x1: Insert into query
+          action_mark-for-deployment_sUf3V: Mark for deployment
           action_new_folder_qmx81: New folder
           action_new_query_from_template_pL7m2: New query from template
+          action_not-deploy_sPzwj: Do not deploy
           action_rename_vN4w3: Rename
+          action_reset-changes_eXJka: Reset changes
+          action_switch-off_kYx8w: Disable
           cell-result-action-launch_v9v5f: Launch
           cell-result-action-share_i1khy: Share
           cell-result-canceled_fqtbJ: Canceled
           cell-result-running_4S3Mi: Running
+          condition_title_gAfRm: Conditions
+          CorrelationRulesPage:
+            create-correlation-rule: New rule
+          CorrelationRuleTable:
+            category: Category
+          deployment_status_changed: Changed
+          detect-deployment_created_2GEyZ: Will be deployed
+          detect-deployment_deployed_ejgvu: Deployed
+          detect-overview:
+            title-actions-on-trigger_j8dE3: Actions on trigger
+          ExceptionsPage:
+            create-exception: New exception
+          InvestigationPageLayout:
+            fieldDescription_wiAxw: Description
+            fieldModified: Modified
+            information_cZr8L: Information
+            newQuery_mzeBV: New query
+          InvestigationsPage:
+            create-investigation_iCPUP: New investigation
+          label_description_4xXeP: Description
+          label_name_udzhS: Name
           my_8uT22: Personal
+          SiemPageLayout:
+            correlationRules: Correlation rules
+            exceptions: Exceptions
           template_type_global_qSrVE: Global
           template_type_local_77J2t: Instance
           title_ap766: Save query as template
@@ -4948,14 +5113,25 @@ default:
             labelDescriptionField: Description
             labelNameField: Name
             labelServiceAccountField: Service account
-          label_rule-kind_3PswX: Rule type
+          DownloadCspmScanResultsDialog:
+            action_download-file_gJ3Vh: Download file
+          module_dspm_xxxxx: |
+            Data Security Posture Management (DSPM)
           module-cspm_gozhj: Configuration Monitoring (CSPM)
+          namespace-checkbox_85krx: Namespaces
+          section-title_9BLTm: Objects (optional)
           ServiceAccountResourceSelectDialog:
             action_save: Save selection
+          title_security-modules_8MdQg: Control modules
+          title_security-requirements_8r7hd: Sets of requirements
+          TriggeredRunsCheckEnvironmentDialog:
+            action_start-check_w0jM2: Run check
+          TriggeredRunsControl:
+            action_check-environment_k3mP9: Check environment for compliance with control rules
+            action_download-check-report_q7nR2: Download check report
           WorkspaceEditPageLayout:
-            tabGeneralParams_xc2v2: Основные параметры
-            tabKubernetes_rC2uU: KSPM
-            tabResources_vJuSN: Ресурсы
+            tabGeneralParams_xc2v2: Main parameters
+            tabResources_vJuSN: Resources
             tabStandards_wSeaW: Security compliance
           WorkspaceGeneralParamsForm:
             alert_sink_title_pvDBG: Alert sink
@@ -4988,18 +5164,7 @@ default:
             title: Workspace resources
           WorkspacesPlaceholder:
             createWorkspace_8yAnK: Create workspace
-          WorkspaceStandardsForm:
-            modules_title_s8LDi: Control modules
-            standards_title_dBBXP: Rule sets
         ycdr:
-          InvestigationPageLayout:
-            copy_wiAxw: Create copy
-            fieldDescription_wiAxw: Description
-            fieldModified: Modified
-            information_cZr8L: Information
-            newQuery_mzeBV: New query
-          InvestigationsPage:
-            create-investigation_iCPUP: New investigation
           preset_last_1_hour_s5Gq5: Last hour
           preset_last_12_hours_s5Gq5: Last 12 hours
           preset_last_3_hours_s5Gq5: Last 3 hours
@@ -5024,9 +5189,9 @@ default:
           severity_info_biSRh: Remark
           severity_low_tqf9A: Low severity
           severity_medium_8LZ4w: Medium severity
-      storage:
-        value_private-bucket: Private
-        value_public-bucket: Public
+      siem:
+        SearchActionButtonBlock:
+          save: Save
       support:
         switch_tickets: Tickets
         tickets:
@@ -5124,6 +5289,8 @@ default:
       dashboard:
         action_add-user: Add a participant
         action_go-to-org: Go to organization
+      episodes:
+        label_allow-access: Allow access
       organization:
         action_open-cloud-video: Open Cloud Video
       playlists:
@@ -5157,9 +5324,19 @@ default:
         action_create-stream: Create a broadcast
         action_start-stream: Start
         action_stop-stream: Finish
+        label_auto-publish-streams: Auto-start broadcast
         label_episode-autoplay: Auto play video
         label_episode-hidden: Hide controls in player
         label_episode-mute: Play video without sound by default
+        label_episode-type: Episode type
+        label_episode-type-broadcast: Broadcast
+        label_episode-type-live: Live
+        label_player-template: Player template
+        label_rewind-buffer: Rewind buffer (sec)
+        label_start-broadcast: Publish broadcast
+        label_start-broadcast-auto: automatically
+        label_stream-episode-end: Episode end
+        label_stream-episode-start: Episode start
         label_stream-type: Stream type
         label_type-on-demand: On demand
         label_type-schedule: By schedule
@@ -5177,12 +5354,14 @@ default:
         action_create-video: Upload video
         action_generate-subtitles: Generate
         action_subtitles_upload_again: Upload again
+        field_enable-decode-errors-tolerance: Automatically process video file errors
         field_summarization: Summary
         label_access_rights-public: All users
         label_access_rights-sign-url-access: By temporary link
         label_accessRights: Access
         label_allow-access: Grant access
         label_description: Description
+        label_enable-ad: Enable ads
         label_neuro-translation: Neural translation
         label_subtitles: Subtitles
         label_title: Name
@@ -5479,6 +5658,7 @@ default:
         action_reboot-server: Reboot
         action_reinstall-server-os: Re-install
         action_reinstall-server-os-menu: Re-install OS
+        action_server-prolongate-ended-rent: Recover
         action_stop-prolongation-server: Disable autorenewal
         action_stop-prolongation-server-dialog: Disable
         actions_add-partition: Add partition
@@ -5515,23 +5695,27 @@ default:
         label_create-public-subnet-full: Order a public subnet
         label_create-server: Lease server
         label_create-subnetwork: Create subnet
-        label_images: Boot images
+        label_images_duoXD: Boot images
         label_kvm-console_37Kma: KVM console
         label_load-image: Upload image
         label_lockbox-key: Key
         label_lockbox-name: Name
         label_lockbox-version: Version
-        label_networks: VRF
+        label_networks_kHgng: VRF
         label_password-lockbox: Lockbox secret
         label_password-plain: New password
         label_public-ip-ephemeral: From ephemeral subnet
         label_public-ip-from-dedicated-subnet: From a dedicated subnet
         label_public-ip-no: No address
         label_public-ip-via-dhcp: Assign via DHCP
-        label_public-subnets: Public addresses and subnets
+        label_public-subnets_v16CV: Public addresses and subnets
+        label_servers_sCNgb: Servers
         label_subnetworks_uU4LH: Private subnets
         label_vrf-interconnect-direct-type: Connection ID
         label_vrf-interconnect-select-type: Setup method
+        message_confirm-server-prolongate-ended-rent: >-
+          The time spent by the server in quarantine is paid after the server is
+          restored from quarantine.
         private-subnets:
           fields:
             vlan_jew8J: VLAN
@@ -5547,16 +5731,13 @@ default:
         title_section-disk: Disk
         title_section-lease-conditions: Lease conditions
         title_section-location: Location
+        title_section-network-interfaces: Network interfaces
         title_section-resources: Resources
         title_section-server-backups: Backup
         title_section-server-config: Configuration
         title_section-server-info: Server information
         title_section-server-marketplace-app: Marketplace application
-        title_section-server-private-network: Private network
-        title_section-server-private-network_xrEye: Private network
         title_section-server-product: Image
-        title_section-server-public-network: Public network
-        title_section-server-public-network_p7Zhj: Public network
         title_server-access: Access
         title_vrf-interconnect-section: Private connection to cloud networks
         vrfs:
@@ -5579,6 +5760,8 @@ default:
         button_resource-deactivate-raw-logs: Deactivate
         button_resource-locations-empty-action: Add rule
         button_wizard-create: Create and continue
+        CdnResourceFormWizard:
+          section_wizard-static-response_6DKzY: Response settings
         column_location-rule-pattern: Regular expression
         column_name: Name
         colunm_location-weight: Rule weight
@@ -5664,6 +5847,13 @@ default:
         label_status-backup: Backup
         label_use-bucket-site: Use bucket site
         md_value_certificate-le: Let's Encrypt^®^
+        sections:
+          StaticResponseSection:
+            field_static-response-enabled_sPsQU: Custom HTTP response
+            field_static-response-type_5KyYv: Response type
+            option_static-response_data_rLo9U: Set response content
+            option_static-response_redirect_o58we: Configure redirect
+            section_static-response_v3GRn: Response settings
         value_active: Active
         value_backup: Backup
         value_certificate-custom: Use from Certificate Manager
@@ -5683,6 +5873,7 @@ default:
         value_source-type-bucket: Bucket
         value_source-type-url: Server
         value_stepper-additional: Additional
+        value_stepper-main-settings: Main settings
       certificate-manager:
         action_import: User certificate
         action_request: Let's Encrypt certificate
@@ -5699,7 +5890,6 @@ default:
           field_certificate: Certificate
           field_chain: Intermediate certificate chain
           field_privateKey: Private key
-        label_certificates: Certificates
         metadata:
           field_name: Name
         overview:
@@ -5777,6 +5967,12 @@ default:
             action_submit: Create hosts
             field_copy_schema: Copy data schema
             title_additional-settings: Additional settings
+        PerformanceDiagnostics:
+          ClusterDiagnosticsTabs:
+            label_query-groups_w3anM: Query groups
+        RestoreCluster:
+          RestorePatternsField:
+            action_add-pattern_o12PG: Add
         switch_backups: Backups
         switch_list: Clusters
         switch_operations: Operations
@@ -5787,8 +5983,6 @@ default:
         button_empty-install-application: Choose application
         button_install: Install
         label_marketplace: Marketplace
-        label_service-account: Service account
-        section_parameters: Application settings
       cloud-registry:
         action_registry-create: Create registry
         registries:
@@ -5796,6 +5990,7 @@ default:
           registry-kind_docker: Docker
         title_ip-permissions: Access for IP addresses
         title_registries: Registries
+        title_registry-artifacts: Artifacts
       cloud-shell:
         label_service: Cloud Shell
       cloud-tree-list:
@@ -5835,12 +6030,14 @@ default:
         field_token: Device token
         field_vapid: Public VAPID key
         field_web-push-endpoint_params: Endpoint parameters in JSON
+        label_channels: Notification channels
         label_editor-json: JSON
         label_editor-text: Text
         label_endpoints: Endpoints
         label_phone-numbers: Test numbers
         local:
           action_create-topic_qywb9: Create topic
+          label_templates_26VqM: Templates
           label_topics_vhBR3: Topics
         section_logging: Logging
         section_message-sending: Send messages
@@ -5853,6 +6050,16 @@ default:
         shared:
           CnsTopicLayout:
             subscriptions_cp53u: Subscriptions
+        SMSChannel:
+          SelectTemplateType:
+            field_type_furT8: Type
+          TemplateCreateForm:
+            button_create_b5P5S: Create
+            field_message_sijJZ: Example message
+            field_name_c6Q4T: Name
+            field_text_e8S2V: Template
+          Templates:
+            action_create-sms-template_e6hBJ: Create template
         switch_gcm-api-legacy: Legacy
         switch_gcm-api-v1: HTTP v1
         Topics:
@@ -5911,6 +6118,7 @@ default:
         metadata-add-field: Add field
         metric: Metric
         monitoring: Monitoring
+        more: More information
         move: Move
         name: Name
         not-selected: Not selected
@@ -5922,6 +6130,7 @@ default:
         overview: Overview
         password: Password
         remove: Delete
+        reset: Reset
         resource-acl:
           button_cloud-info: Cloud details
           button_configure-access: Configure access
@@ -5946,7 +6155,6 @@ default:
           label_time-min_many: minutes
           label_time-min_zero: minutes
           label_time-sec_many: seconds
-        unspecified: Not specified
         update: Update
         updated-at: Date modified
         user: User
@@ -5998,7 +6206,6 @@ default:
           condition_and: and
           condition_full-trafic: All traffic
           condition_name-authority: Host
-          condition_name-body: HTTP body
           condition_name-cookie: Cookie
           condition_name-header: HTTP header
           condition_name-host: Host
@@ -6090,8 +6297,8 @@ default:
           label_all-services_6sGQy: All services
         BalancerAllocationDialog:
           AllocationForm:
+            disable_block_after_bqnjE: Disable block after
             form_disable_traffic_3z2cs: Block
-            form_timezone_0_6LoEf: Disable block through
         CloudActions:
           button_action-delete-cloud_3simi: Delete cloud
         FolderActions:
@@ -6492,6 +6699,8 @@ default:
           ResourcesSection:
             create-resources_rGA1t: Create resource
             title_7kYbU: Resources
+          ServicesSection:
+            title_ur39b: All services
         FoldersSelector:
           FolderInfoDialog:
             folder-id_6KQJv: Folder ID
@@ -6538,7 +6747,7 @@ default:
         label_search-button-add-filter: Add filter
         label_search-placeholder: Data search
         label_source-data-tab: Uploaded data
-        label_source-database-type: Database type
+        label_source-database-type: Data source type
         label_sources: Data sources
         label_subterms: Child terms
         label_tag-mutual-exclusion: Mutually exclusive
@@ -6876,7 +7085,6 @@ default:
           folders:
             button_cancel-deletion: Cancel deletion
             popup-edit_button_save: Save
-            section_folders: Folders
           incident-notifications:
             button_open-dialog: Add
           label_create_cloud: Create cloud
@@ -6923,7 +7131,6 @@ default:
           switch_quotas: Quotas
         connected-federation:
           action_connect: Link
-          action_connect-federation: Link to federation
           field_federation: Workload identity federation
           field_subject: Subject value (sub)
         federations:
@@ -6983,8 +7190,8 @@ default:
             label_message-queue: Message Queue
             label_metadata-hub: Yandex MetaData Hub
             label_monitoring: Monitoring
+            label_monium: Monium
             label_postbox: Cloud Postbox
-            label_products: All services
             label_schema-registry: Schema Registry
             label_serverless-containers: Serverless Containers
             label_serverless-functions: Cloud Functions
@@ -6997,7 +7204,6 @@ default:
             label_vpc: Virtual Private Cloud
             label_ydb: Managed Service for&nbsp;YDB
             label_ymq: Message Queue
-            label_yq: Query
             label_yq_ru: Yandex Query
             value_audit-trails: Trail
             value_compute: Virtual machine instance
@@ -7013,6 +7219,7 @@ default:
           service-account:
             label_add-role: Add role
             overview:
+              action_connect-federation: Link to federation
               action_download-keys-file: Download file with keys
               button_create_api_key: Create API key
               button_create_key: Create authorized key
@@ -7049,7 +7256,6 @@ default:
             label_title: Service accounts
             popup-confirm_button_delete: Delete
           switch_dashboard: Folder dashboard
-          switch_service-accounts: Service accounts
           switch_service-notifications: Service notifications
         label_create-wli-federation: Create federation
         label_federations: Workload identity federations
@@ -7058,9 +7264,6 @@ default:
           action_disable-access: Disable access
           action_enable-access: Enable access
           label_filter-by-service-placeholder: Filter by service
-        users:
-          popup-add-users-from-federation_field_federation: Federation
-          popup-add-users-from-federation_field_users: Users
       iot:
         button_add-alias: Add alias
         button_add-device: Add device
@@ -7078,11 +7281,13 @@ default:
         label_yds-exports: Export to Data Streams
       k8s:
         access:
+          button_create-sa: Service accounts
           label_title: Access management
-        Cluster:
-          CommonInfo:
-            access-section-title_fW4Au: Access
+          popup-add-sa_field_name: Name
+          popup-add-sa_field_namespace: Namespace
         cluster:
+          button_create-resource: Create
+          field_namespace: Namespace
           marketplace:
             button_install: Install
             button_release-uninstall: Uninstall
@@ -7097,6 +7302,8 @@ default:
             label_status: Status
             label_title: Overview
             section_master: Master configuration
+          switch_access: Access management
+          switch_configuration: Configuration
           switch_custom-resources: Custom resources
           switch_events: Events
           switch_marketplace: Marketplace
@@ -7105,6 +7312,9 @@ default:
           switch_nodes-manager: Node manager
           switch_storage: Storage
           switch_workloads: Workload
+        Cluster:
+          CommonInfo:
+            access-section-title_fW4Au: Access
         clusters:
           button_create: Create cluster
           create:
@@ -7112,7 +7322,7 @@ default:
             field_address-type: Public address
             field_cluster-cidr: CIDR cluster
             field_kms-key: Encryption key
-            field_maintenance-daily: Time (UTC) and duration
+            field_maintenance-daily: Maintenance window start time in UTC
             field_master-type: Type of master
             field_master-version: Kubernetes version
             field_network: Cloud network
@@ -7212,18 +7422,26 @@ default:
             label_labels: Labels
             label_monitoring: Monitoring
         nodes:
+          button_action-cordon: Cordon
+          button_action-uncordon: Uncordon
           label_node-groups: Node group
           label_nodes: Nodes
         pv:
           overview:
             label_zone: Availability zone
         storage:
+          button_action-add-default: Use as default
+          button_action-remove-default: Don't use as default
           label_pv: Persistent Volumes
+          label_storage-classes: Storage classes
         switch_operations: Operations
         workloads:
+          label_cron-jobs: Cron jobs
           label_pods: Pods
           label_tab-logs: Logs
           label_tab-yaml: YAML
+        WorkloadsActions:
+          pod-exec_jwJ3R: Terminal
       kafka:
         button_add-topic: Add topic
         button_create-connector: Create connector
@@ -7766,7 +7984,7 @@ default:
           label_master-subcluster: Master
           label_max-size-units: GB
           label_network: Network
-          maintenance-window-type: Maintenance window
+          maintenance-window-type: Maintenance
           network_field_form-type: Network ID format
           network_field_subnetwork: Subnet
           network_field_zone: Availability zone
@@ -7796,8 +8014,8 @@ default:
           section_zookeeper-resource: ZooKeeper host class
           title_deb-packages: Deb packages
           title_pip-packages: Pip packages
-          value_maintenance-type-anytime: arbitrary
-          value_maintenance-type-weekly: by schedule
+          value_maintenance-type-anytime: At any time
+          value_maintenance-type-weekly: By schedule
         hosts:
           dialog:
             button_choose: Save
@@ -7861,7 +8079,7 @@ default:
         switch_list: Clusters
         switch_operations: Operations
       monitoring:
-        button_open-in-monitoring: Open in Monitoring
+        button_open-in-monitoring: Open in Monium
       mysql:
         cluster:
           label_iam_dgBhy: IAM
@@ -7909,7 +8127,7 @@ default:
         button_create-configuration-set: Create configuration
         button_create-identity: Create address
         button_run-verification: Run verification
-        field_secure-connection: Deliver emails only over a secure connection
+        field_secure-connection: Deliver emails only via secure connection
         label_address: Domain
         label_allowed-senders: Allowed senders
         label_configuration-set: Configuration
@@ -7920,14 +8138,25 @@ default:
         label_dns-record-value: Value
         label_event-destinations: Subscriptions
         label_identities: Addresses
-        label_mail-statuses: Mail statuses
+        label_mail-statuses: Email statuses
+        label_messages: Sent emails
         label_name: Name
         label_private-key: Private key
         label_restrict-senders: Restrict sender list
         label_selector: Selector
         label_signing-type-internal: Simple
+        label_statistics: Statistics
+        label_statistics_bounced-event: Not delivered
+        label_statistics_clicks-event: Clicks
+        label_statistics_complaints-event: Complaints
+        label_statistics_delivered-event: Delivered
+        label_statistics_delivery-group-metrics: Email delivery
+        label_statistics_interaction-group-metrics: Engagement
+        label_statistics_negative-group-metrics: Negative feedback
+        label_statistics_opens-event: Openings
+        label_statistics_sent-event: Sent
+        label_statistics_unsubscribes-event: Unsubscribes
         section_dkim: Email signature configuration (DKIM)
-        section_restrictions: Restrictions
       postgresql:
         cluster:
           additional-field-pooling_mode: Pooling mode
@@ -7990,6 +8219,7 @@ default:
         label_environment: Environment variables
         label_gce_http_endpoint: Access metadata using the Google Compute Engine format
         label_image-url: Image URL
+        label_min-instances: Number of prepared instances
         label_public-container: Public container
         label_runtime-http-server: HTTP server
         label_runtime-task-execution: Command running
@@ -7997,6 +8227,8 @@ default:
         label_timeout: Timeout
         label_url: Link to invoke
         label_working-directory: Working directory
+        label_zone-instances-limit: Number of container instances in availability zone
+        label_zone-requests-limit: Number of concurrent container invocations in availability zone
         popup-confirm-edit-active-revision_button_confirm: Confirm
         section_async: Asynchronous call
         section_general: General information
@@ -8051,10 +8283,11 @@ default:
             create-file: Create file
             create-form-file-path: Name
             field_bucket: Bucket
+            field_code-source: Code source
+            field_concurrency-enable: Enable
             field_entry: Entry point
             field_environment-variables: Environment variables
             field_file: File
-            field_method: Method
             field_object: Object
             field_resources-memory: Memory
             field_runtime: Runtime environment
@@ -8065,6 +8298,7 @@ default:
             label_aws_v1_http_endpoint: Access metadata using the AWS format (IMDSv1)
             label_bucket: Bucket
             label_bucket-prefix: Directory
+            label_concurrency: Concurrent function instance calls
             label_ephemeral-storage-size: Disk size
             label_failed-sa: Destination for unsuccessful result
             label_gce_http_endpoint: Access metadata using the Google Compute Engine format
@@ -8276,7 +8510,15 @@ default:
           label_http-router: HTTP router
           label_virtual-host: Virtual host
         AttachSecurityProfileDialog:
+          ApiGatewayItem:
+            label_api-gateway_5Nttt: API gateway
           label_add-resource_v4U3g: Add resource
+          label_api-gateway_sKMCK: API gateway
+          label_domain_9Bo38: Domain
+          label_virtual-host_tYim5: Virtual host
+          ProxyServerItem:
+            label_domain_1hgsY: Domain
+            label_proxy-server_w9BGG: Proxy server
         baseRulesTitle_xcJEe: Base rules
         CreateDomain:
           createDomain_b2Ykj: Add domain
@@ -8297,8 +8539,6 @@ default:
             protocol_q33c8: Protocol
             sni_mHMUX: SNI
             targetResources_hqBQm: Target resources
-        DomainsTable:
-          connectSecurityProfile_g5MA4: Connect security profile
         DomainTargetStateStatus:
           statusHealthy_5F2ks: Healthy
         form:
@@ -8314,10 +8554,11 @@ default:
         label_domain-protection-domains: Domains
         label_search-rule-type: 'Rule type:'
         match-lists:
-          ip-list_add-addresses: Add addresses
           label_create-list: Create list
           label_create-match-list: Create list
           label_match-lists: Lists
+        MatchListTable:
+          button_add-to-list_1kKXh: Add to list
         overview:
           action_attach-to-host: Connect to host
           action_disconnect-host: Disconnect from profile
@@ -8418,7 +8659,6 @@ default:
         cluster:
           switch_databases: Databases
           switch_users: Users
-        console_password: Password from Sharded PostgreSQL console
         section_coordinator: Coordinator
         section_hosts: Hosts
         section_infra: Infrastructure
@@ -8499,9 +8739,6 @@ default:
             access_value_private: With authorization
             access_value_public: For all
             button_save: Save
-            class_value_cold: Cold
-            class_value_ice: Ice
-            class_value_standard: Standard
             field_access-config-read: Read settings
             field_access-list: Read object list
             field_access-read: Read objects
@@ -8552,6 +8789,8 @@ default:
           create:
             button_create: Create bucket
           label_title: Buckets
+          value_private-bucket: Restricted
+          value_public-bucket: Public
         button_upload: Upload
         field_perm-object-lock-enabled: Legal hold
         field_temp-object-lock-enabled: Retention
@@ -8583,6 +8822,9 @@ default:
           label_role-write: 'READ and WRITE '
         switch_buckets: Buckets
         title_object-lock: Object version lock
+        value_cold: Cold
+        value_ice: Ice
+        value_standard: Standard
       trino:
         catalogs:
           create_action: Create catalog
@@ -8600,9 +8842,30 @@ default:
           label_table-column-add_241Co: Add column
           label_table-columns_68mj2: Column access
           label_table-privileges_2ikK4: Privileges
+          ResourceGroupDialogContent:
+            field_hard-concurrency-limit_hjuBf: Hard concurrency limit
+            field_hard-cpu-limit_eeDrV: Hard CPU limit
+            field_max-queued_aj14k: Max queued
+            field_scheduling-policy_5vhLX: Scheduling policy
+            field_scheduling-weight_fP1ue: Scheduling weight
+            field_soft-concurrency-limit_j5KQC: Soft concurrency limit
+            field_soft-cpu-limit_aUwE5: Soft CPU limit
+            field_soft-memory-limit_1mATZ: Soft memory limit, %
+          ResourceGroupsTable:
+            button_add-group_m99qN: Add group
+          SelectorRulesTable:
+            button_add-rule_3Gide: Add rule
+            label_query-type_69gwq: Query type
+            label_resource-group_qjdHa: Resource group
+            label_source_5knZL: Source
+            label_user_3spf1: User
+            label_user-group_qRK1P: Group
+            label-client-tags_eyQNn: Tags
         ClusterView:
+          label_cpu-quota-period_tD5vD: CPU quota period
           RBACView:
             label_rbac-settings_o2F64: Access settings
+        label_private-access: Private access
         label_rbac-add-rule: Add rule
         label_rbac-catalog: Catalogs
         label_rbac-catalog-access: Catalogs the rule applies to
@@ -8627,6 +8890,7 @@ default:
         rbac-catalog-match-by-name: Name
         rbac-catalog-match-by-name-regexp: Name (regular expression)
         section_rbac: Access settings
+        section_resource-management: Resource management
         title_catalogs: Catalogs
       ui:
         metadata-hub:
@@ -8694,7 +8958,6 @@ default:
           popup-create_field_deletion-protection: Deletion protection
           popup-create_field_internal-v4-address: Internal IPv4 address
           popup-create_field_zone: Availability zone
-        button_move-vpc-object: Move
         gateways:
           button_create-gateway: Create gateway
           field_name: Name
@@ -8810,43 +9073,6 @@ default:
         switch_private-endpoints: Service connections
         switch_route-tables: Routing tables
         title_network-map-page: Cloud network map
-      yagpt:
-        YaGPT:
-          agent_instruction_9oe6q: Instructions
-          AgentForm:
-            add-mcp-tool_gqwmZ: Add MCP
-            save-and-continue_u1Wis: Create and continue
-            select_dPVTq: Select
-            tools_title_9yUpx: Tools
-          agents_2h9Sa: Agents
-          Assistant:
-            model_iyopt: Model
-          AssistantChat:
-            test-assistant-title_6ZNFg: Agent testing
-          ConnectMcpTools:
-            add-mcp-tool_dyEgv: Add tools
-          create-agent_1txyW: Create agent
-          CreateMcpServerForm:
-            access-type_aPzxZ: Access
-            access-type_private_b4gkg: Private
-            form-view_connect_bS8yQ: Connect
-            service-account_h3ujf: Service account
-            tools_gkQfS: Tools
-            type_dZSaw: Add method
-          mcp-servers-list-title_snWTf: MCP servers
-          mcp-tool_all-tools_gZA6P: Default behavior for all tools
-          mcp-tool_require-approval-policy_never_qPvRW: Confirmation not needed
-          McpCallToolForm:
-            add_47STV: Add
-            add-tools_ih6PU: Add tools
-            connect_xY9Zw: Connect
-            mcp-authorization_header_fdGKe: Access token
-            transport_q3nD6: Transport
-            transport_streamable_eV7Rb: Streamable HTTP
-            url_bUhZ1: URL
-          McpServersList:
-            label_create-mcp-gateway_3o3Vu: Create MCP server
-          name_hTzhB: Name
       ydb:
         browse:
           button_create: Create
@@ -9246,6 +9472,40 @@ default:
                         title: Greenplum cluster segments
                       subnet_id:
                         title: Subnet ID
+            iceberg:
+              console:
+                form:
+                  iceberg:
+                    IcebergCleanupPolicy:
+                      ICEBERG_CLEANUP_POLICY_DISABLED:
+                        title: DISABLED
+                      ICEBERG_CLEANUP_POLICY_DROP:
+                        title: DROP
+                    IcebergManualConnectionSettings:
+                      access_key_id:
+                        title: Access Key ID
+                      bucket:
+                        title: Bucket
+                      endpoint:
+                        title: Endpoint
+                      region:
+                        title: Region
+                      secret_access_key:
+                        title: Secret Access Key
+                    IcebergObjectStorageConnectionSettings:
+                      bucket:
+                        title: Bucket
+                      service_account_id:
+                        title: Service account
+                    IcebergTarget:
+                      cleanup_policy:
+                        title: Cleanup policy
+                      mdb_cluster_id:
+                        title: Apache Hive™ Metastore cluster
+                      prefix:
+                        title: Path prefix
+                      security_group_ids:
+                        title: Security groups
             kafka:
               console:
                 form:
@@ -9354,6 +9614,24 @@ default:
                         title: CloudLogging parser
                       parser_config_common_debezium_cdc:
                         title: Debezium CDC parser
+                      parser_raw_to_table:
+                        advanced:
+                          title: Advanced settings
+                        dlq_suffix:
+                          title: DLQ table name suffix
+                        is_headers_enabled:
+                          title: Store message headers
+                        is_key_enabled:
+                          title: Store message key
+                        is_timestamp_enabled:
+                          title: Store write timestamp
+                        key_type:
+                          title: Key type
+                        table_name:
+                          title: Target table name
+                        title: Raw to table parser
+                        value_type:
+                          title: Value type
                     ParserConfigProto:
                       included_fields:
                         title: Included fields
@@ -9578,6 +9856,8 @@ default:
                           region:
                             title: Region
                       ObjectStorageReaderFormat:
+                        block_size:
+                          title: Block size
                         Csv:
                           additional_options:
                             title: Additional reader options
@@ -9602,8 +9882,15 @@ default:
                             title: Unexpected field behavior
                         jsonl:
                           title: JSON Lines
+                        Nginx:
+                          format:
+                            title: Pattern (log_format)
+                        nginx:
+                          title: Nginx logs
                         parquet:
                           title: Parquet
+                        proto:
+                          title: Proto
                       path_pattern:
                         title: Path pattern
                       path_prefix:
@@ -9754,6 +10041,13 @@ default:
                     PostgresTargetAdvancedSettings:
                       save_tx_boundaries:
                         title: Save transaction borders
+                    SnapshotTableShardingSettings:
+                      degree_of_parallelism:
+                        title: Maximum number of table parts
+                      min_table_size:
+                        title: Split threshold in bytes
+                      table_sharding_key_fields:
+                        title: Table parallel copying keys
             transfer:
               console:
                 form:
@@ -10977,16 +11271,15 @@ default:
         nginx:
           repository:
             name: >-
-              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-nginx1771418848696431394901031348572912380488071835858
-            tag: 1.28.2-v1
+              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-nginx1775660129087745327177484940704164668665505295409
+            tag: 1.28.3-v1
         php:
           repository:
             name: >-
-              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-php1771418848696431394901031348572912380488071835858
-            tag: 8.4.18
+              cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/bitrix/bitrix-admin-php1775660129087745327177484940704164668665505295409
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/bitrix-env/chart/bitrix-env
-        tag: 1.0.5+003
+        tag: 1.0.6
     yc_cert-manager-webhook-yandex:
       helmChart:
         name: >-
@@ -11003,7 +11296,7 @@ default:
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3
-        tag: 0.43.3
+        tag: 0.43.6
     yc_external-secrets:
       helmChart:
         name: >-
@@ -11024,7 +11317,7 @@ default:
     yc_fluent-bit:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/fluent-bit/fluent-bit
-        tag: 2.1.7-3
+        tag: 4.2.3-1
     yc_gatekeeper:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gatekeeper/gatekeeper
@@ -11047,7 +11340,7 @@ default:
     yc_gwin:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gwin/gwin-chart
-        tag: v1.0.10
+        tag: v1.3.1
     yc_istio:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/istio/istio
@@ -11079,6 +11372,11 @@ default:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/node-local-dns
         tag: 1.5.1
+    yc_node-sitter:
+      helmChart:
+        name: >-
+          cr.yandex/yc-marketplace/yandex-cloud/node-sitter/node-sitter/chart/node-sitter
+        tag: 0.1.6
     yc_prometheus-operator:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/prometheus/kube-prometheus-stack

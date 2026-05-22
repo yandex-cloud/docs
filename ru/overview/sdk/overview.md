@@ -20,7 +20,7 @@ SDK поддерживают работу с большинством серви
 
 Для некоторых сервисов доступны специальные SDK:
 * [{{ ml-sdk-full-name }}]({{ link-docs-ai }}ai-studio/sdk/index) — для сервисов [{{ ai-studio-full-name }}](/ai-studio).
-* [Python SDK {{ speechkit-name }}]({{ link-docs-ai }}speechkit/sdk/python/index.md) — для [{{ speechkit-full-name }}]({{ link-docs-ai }}speechkit/).
+* [Python SDK {{ speechkit-name }}](https://pypi.org/project/yandex-speechkit/)
 * [SDK видеоплеера](../../video/sdk/index.md) — для [{{ video-full-name }}](../../video/).
 * [YDB SDK](https://ydb.tech/docs/ru/reference/ydb-sdk/) — для [{{ ydb-full-name }}](../../ydb/) и [{{ yq-full-name }}](../../query/).
 

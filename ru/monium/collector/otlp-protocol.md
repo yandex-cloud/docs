@@ -1,10 +1,10 @@
 # Особенности OTLP в {{ monium-name }}
 
-{{ monium-name }} поддерживает прием метрик по протоколу [OTLP](https://opentelemetry.io/docs/specs/otlp/) (OpenTelemetry Protocol), что позволяет напрямую отправлять телеметрию из приложений с OpenTelemetry SDK или через OpenTelemetry Collector.
+{{ monium-name }} поддерживает прием телеметрии по протоколу [OTLP](https://opentelemetry.io/docs/specs/otlp/) (OpenTelemetry Protocol), что позволяет напрямую отправлять данные из приложений с OpenTelemetry SDK или через OpenTelemetry Collector.
 
 ## Эндпоинты {#endpoints}
 
-{{ monium-name }} предоставляет следующие эндпоинты для приема метрик в формате OTLP:
+{{ monium-name }} предоставляет следующие эндпоинты для приема телеметрии в формате OTLP:
 
 #|
 || **Протокол** | **Эндпоинт** | **Описание** ||
@@ -24,7 +24,7 @@
 Authorization: Api-Key <API_ключ>
 ```
 
-API-ключ создается для сервисного аккаунта с ролью `monium.telemetry.writer`. Ключ должен иметь область действия `yc.monium.telemetry.write` для записи любого вида телеметрии, либо одну или несколько из `yc.monium.metrics.write`, `yc.monium.logs.write`, `yc.monium.traces.write` для гранулированного доступа. Подробнее о [создании API-ключа](../../iam/operations/iam-token/create-for-sa.md).
+API-ключ создается для сервисного аккаунта с ролью `monium.telemetry.writer`. Ключ должен иметь область действия `yc.monium.telemetry.write` для записи любого вида телеметрии, либо одну или несколько из `yc.monium.metrics.write`, `yc.monium.logs.write`, `yc.monium.traces.write` для гранулированного доступа. Подробнее о [создании API-ключа](../../iam/operations/authentication/manage-api-keys.md#create-api-key).
 
 ## Заголовки {#headers}
 

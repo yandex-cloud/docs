@@ -1,12 +1,13 @@
 ---
 title: '{{ resmgr-full-name }} release notes'
-description: This section contains {{ resmgr-name }} release notes.
+description: This section contains the {{ resmgr-name }} release notes.
 ---
 
 # {{ resmgr-full-name }} release notes
 
-{% include [Tags-nosql](../_includes/release-notes-tags-nosql.md) %}
+## March 2026 {#march-2026}
 
+* Supported additional parameters for binding an access policy to a [cloud](operations/cloud/manage-access-policies.md) or [folder](operations/folder/manage-access-policies.md).
 
 ## Q2 2025 {#q2-2025}
 

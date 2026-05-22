@@ -1,3 +1,11 @@
-The `managed-opensearch.viewer` role allows you to view information on OpenSearch [clusters](../../managed-opensearch/concepts/index.md) and their logs, as well as on [quotas](../../managed-opensearch/concepts/limits.md#quotas) and resource operations for Managed Service for OpenSearch.
 
-This role includes the `managed-opensearch.auditor` permissions.
+The `managed-opensearch.viewer` role enables viewing info on {{ OS }} clusters, their logs, and info on quotas and resource operations for {{ mos-name }}.
+
+Users with this role can:
+* View info on [{{ OS }} clusters](../../managed-opensearch/concepts/index.md) and [access permissions](../../iam/concepts/access-control/index.md) granted for them.
+* View info on [maintenance](../../managed-opensearch/concepts/maintenance.md) tasks for {{ OS }} clusters.
+* View {{ OS }} cluster logs.
+* View info on [quotas](../../managed-opensearch/concepts/limits.md#quotas) for {{ mos-name }}.
+* View info on resource operations for {{ mos-name }}.
+
+This role includes the `managed-opensearch.auditor` and `managed-opensearch.maintenanceTask.viewer` permissions.

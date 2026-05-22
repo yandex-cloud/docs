@@ -48,6 +48,10 @@ kubectl describe clusterrole <роль_в_{{ k8s }}_RBAC>
 
 {% include [k8s.cluster-api.editor](../../_roles/k8s/cluster-api/editor.md) %}
 
+#### k8s.cluster-api.admin {#k8s-cluster-api-admin}
+
+{% include [k8s.cluster-api.admin](../../_roles/k8s/cluster-api/admin.md) %}
+
 #### k8s.cluster-api.cluster-admin {#k8s-cluster-api-cluster-admin}
 
 {% include [k8s.cluster-api.cluster-admin](../../_roles/k8s/cluster-api/cluster-admin.md) %}
@@ -181,6 +185,8 @@ kubectl describe clusterrole <роль_в_{{ k8s }}_RBAC>
 Комбинация ролей `k8s.viewer` и `k8s.clusters.agent` позволяет просматривать всю информацию о группах узлов, но не об отдельных узлах кластера.
 
 Комбинация ролей `k8s.cluster-api.cluster-admin`, `k8s.clusters.agent` и `monitoring.viewer` дает доступ к просмотру подробной информации о группах узлов и отдельных [узлах кластера](../operations/node-group/node-group-list.md#get-node). В консоли управления для каждого узла становятся доступны все вкладки, включая вкладку **{{ ui-key.yacloud.k8s.node.overview.label_monitoring }}**.
+
+Для просмотра ресурсов кластера [в разделе {{ ui-key.yacloud.k8s.network.label_ingress }}](../operations/kubernetes-console/network.md) нужна [роль](../../application-load-balancer/security/index.md#alb-auditor) `alb.auditor` или выше.
 
 Чтобы предоставить более гранулярный доступ к необходимым ресурсам, вы можете:
 * Настроить дополнительные права в {{ k8s }} RBAC для соответствующих пользователей.

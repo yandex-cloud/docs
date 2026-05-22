@@ -19,12 +19,12 @@ description: Следуя данной инструкции, вы сможете
 
   Чтобы переместить [NAT-шлюз](../concepts/gateways.md) в другой каталог:
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где находится NAT-шлюз.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, где находится NAT-шлюз.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/arrows-opposite-to-dots.svg) **{{ ui-key.yacloud.vpc.switch_gateways }}**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке NAT-шлюза, который требуется переместить, и выберите **{{ ui-key.yacloud.common.move }}**.
   1. В выпадающем списке выберите каталог назначения.
-  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.move }}**.
 
 - CLI {#cli}
 
@@ -128,4 +128,5 @@ description: Следуя данной инструкции, вы сможете
 
 * [{#T}](network-move.md)
 * [{#T}](subnet-move.md)
+
 

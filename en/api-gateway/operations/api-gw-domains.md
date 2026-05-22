@@ -54,7 +54,7 @@ To add a domain to an API gateway:
     1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}** and do the following:
 
         1. Select the API gateway.
-        1. In the window that opens, go to ![image](../../_assets/api-gateway/domain-icon.svg) **{{ ui-key.yacloud.serverless-functions.gateways.item.switch_domains }}**.
+        1. Navigate to the **{{ ui-key.yacloud.serverless-functions.gateways.item.switch_domains }}** tab.
         1. Click **{{ ui-key.yacloud.serverless-functions.gateways.domains.button_add }}**, select a certificate, and enter a domain name (FQDN).
 
     1. If you skipped step 1 and did not add a CNAME record, create an ANAME record in {{ dns-full-name }}:

@@ -1,6 +1,6 @@
 ---
 title: How to set up access to manage a user group in {{ org-full-name }}
-description: Follow this guide to set up access to manage a user group in {{ org-name }}.
+description: Follow this guide to set up access to manage a user group in {{ org-full-name }}.
 ---
 
 # Configuring group management access
@@ -103,7 +103,7 @@ To do this, assign [roles](../../iam/concepts/access-control/roles.md) for the g
            --access-binding role=<role>,subject=group:<group_ID>
          ```
 
-      Provide a separate `--access-binding` parameter for each role. Here is an example:
+      Provide a separate `--access-binding` parameter for each role. Example:
 
       ```bash
       yc organization-manager group set-access-bindings \
@@ -112,6 +112,53 @@ To do this, assign [roles](../../iam/concepts/access-control/roles.md) for the g
         --access-binding role=<role_2>,service-account-id=<service_account_ID> \
         --access-binding role=<role_3>,service-account-id=<service_account_ID>
       ```
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  To assign multiple roles for a user group:
+
+  1. Describe the parameters of the roles you assign in the configuration file:
+
+      ```hcl
+      resource "yandex_organizationmanager_group_iam_binding" "role1" {
+        group_id = "<group_ID>"
+        role     = "<role1>"
+        members  = ["<subject_type>:<subject_ID>"]
+      }
+
+      resource "yandex_organizationmanager_group_iam_binding" "role2" {
+        group_id = "<group_ID>"
+        role     = "<role2>"
+        members  = ["<subject_type>:<subject_ID>"]
+      }
+
+      resource "yandex_organizationmanager_group_iam_binding" "role3" {
+        group_id = "<group_ID>"
+        role     = "<role3>"
+        members  = ["<subject_type>:<subject_ID>"]
+      }
+      ```
+
+      Where:
+
+      * `group_id`: [User group ID](group-get-id.md).
+      * `role`: Role you want to assign. For each role, you can only use one `yandex_organizationmanager_group_iam_binding` resource.
+      * `members`: Array of the IDs of users to assign the role to:
+
+        * `userAccount:<user_ID>`: ID of the user Yandex account or local user ID.
+        * `federatedUser:<user_ID>`: Federated user ID.
+        * `serviceAccount:<service_account_ID>`: Service account ID.
+        * `group:<group_ID>`: User group ID.
+
+      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
+
+  1. Create the required resources:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+   
+  After that, the specified user will be assigned multiple roles for the user group. You can check the new roles using the [{{ cloud-center }} UI]({{ link-org-cloud-center }}).
 
 - API {#api}
 

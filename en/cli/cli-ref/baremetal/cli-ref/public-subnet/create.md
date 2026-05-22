@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/public-subnet/create
 editable: false
 ---
 
@@ -24,7 +25,25 @@ Name of the  public subnet. ||
 Specifies a textual description of the public subnet. ||
 || `--prefix-length` | `int`
 
-Specifies a prefix_length of the public subnet. ||
+Deprecated. Use --cidr-auto-allocation or --cidr-manual-allocation instead. ||
+|| `--cidr-auto-allocation` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+
+Automatic CIDR allocation from the system public prefix pool.
+
+Possible property names:
+
+- `prefix-length`: Prefix length for automatic CIDR allocation (1-31). (required) ||
+|| `--cidr-manual-allocation` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+
+Manual CIDR allocation with explicit CIDR from user's own public prefix pool (BYOIP).
+
+Possible property names:
+
+- `cidr`: CIDR block for manual allocation. (required)
+
+- `public-prefix-pool-id`: Public prefix pool ID.
+
+- `public-prefix-pool-name`: Public prefix pool name. ||
 || `--hardware-pool-id` | `value[,value]`
 
 Specifies one or several hardware pool ids. ||

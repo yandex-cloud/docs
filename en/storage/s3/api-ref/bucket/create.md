@@ -1,4 +1,4 @@
-# Create method
+# Object Storage API, Amazon S3-compatible REST: CreateBucket
 
 Creates a bucket.
 
@@ -14,9 +14,9 @@ PUT /{bucket} HTTP/2
 
 Parameter | Description
 ----- | -----
-`bucket` | Bucket name.<br/><br/>When creating a bucket, follow the [naming conventions](../../../concepts/bucket.md#naming).
+`bucket` | Bucket name.<br/><br/>When creating a bucket, follow the bucket [naming guidelines](../../../concepts/bucket.md#naming).
 
-### Headers {#request-headers}
+### Headings {#request-headers}
 Use [common headers](../common-request-headers.md) in your requests.
 
 The headers below enable you to set the [ACL](../../../concepts/acl.md) for the bucket being created.
@@ -34,5 +34,11 @@ Responses can only contain [common headers](../common-response-headers.md).
 For a list of possible responses, see [{#T}](../response-codes.md).
 
 A successful response does not contain any additional data.
+
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/bucket.md)
+
+* [{#T}](../../../operations/buckets/create.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

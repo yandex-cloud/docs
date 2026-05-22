@@ -65,13 +65,14 @@ To update a {{ sd-name }} [workspace](../../concepts/workspace.md):
       1. Click **{{ ui-key.yacloud.common.save }}** to save your changes.
   1. Optionally, navigate to the **{{ ui-key.yacloud_org.security.workspaces.WorkspaceEditPageLayout.tabStandards_wSeaW }}** tab to update the list of standards against which workspace-controlled resources will be checked:
 
-      1. Under **{{ ui-key.yacloud_org.security.workspaces.WorkspaceStandardsForm.standards_title_dBBXP }}**, select the required standards:
+      1. Under **{{ ui-key.yacloud_org.security.workspaces.title_security-requirements_8r7hd }}**, select the required standards:
       
           {% include [workspace-sec-standard-list](../../../_includes/security-deck/workspace-sec-standard-list.md) %}
       
-          You can select multiple standards at once. The **{{ ui-key.yacloud_org.security.workspaces.WorkspaceStandardsForm.modules_title_s8LDi }}** section will thus get new {{ sd-name }} modules, which will be activated in the new workspace to check your resources for compliance with the selected standards and regulations.
+          You can select several standards at the same time. The **{{ ui-key.yacloud_org.security.workspaces.title_security-modules_8MdQg }}** section will thus get new {{ sd-name }} modules, which will be activated in the new workspace to check your resources for compliance with the selected standards and regulations.
+      1. {% include [workspace-create-step3-additional-modules](../../../_includes/security-deck/workspace-create-step3-additional-modules.md) %}
       1. Click **{{ ui-key.yacloud.common.save }}** to save your changes.
-  1. Optionally, navigate to the **{{ ui-key.yacloud_org.security.workspaces.WorkspaceEditPageLayout.tabKubernetes_rC2uU }}** tab to update the security control settings for {{ k8s }} clusters.
+  1. Optionally, navigate to the **Kubernetes® Security Posture Management** tab to update the security control settings for {{ k8s }} clusters.
 
 {% endlist %}
 

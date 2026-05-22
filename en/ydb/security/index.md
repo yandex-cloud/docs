@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ ydb-full-name }}
-description: Access management in {{ ydb-full-name }}, a solution for creating and managing databases. To allow access to {{ ydb-short-name }} resources (databases and their users), assign to the user the relevant roles from the list.
+description: Access management in the {{ ydb-full-name }} database creation and management service. To allow access to {{ ydb-short-name }} resources (databases and their users), assign to the user the relevant roles from the list.
 sourcePath: overlay/security/start_auth.md
 ---
 
@@ -8,19 +8,15 @@ sourcePath: overlay/security/start_auth.md
 
 {% include [operate-via-roles-paragraph](../../_includes/iam/operate-via-roles-paragraph.md) %}
 
-To allow access to {{ ydb-short-name }} resources (databases and their users), assign relevant roles from the list below to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated](../../iam/concepts/users/accounts.md#saml-federation) or [local](../../iam/concepts/users/accounts.md#local) users, [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). A role can be assigned for a parent resource (folder or cloud) whose roles are inherited by nested resources.
+To allow access to {{ ydb-short-name }} resources (databases and their users), assign the relevant roles from the list below to a Yandex account, [service account](../../iam/concepts/users/service-accounts.md), [federated](../../iam/concepts/users/accounts.md#saml-federation) or [local](../../iam/concepts/users/accounts.md#local) users, [user group](../../organization/operations/manage-groups.md), [system group](../../iam/concepts/access-control/system-group.md), or [public group](../../iam/concepts/access-control/public-group.md). You can assign a role for a parent resource (folder or cloud) whose roles are inherited by nested resources.
 
-You can also grant a role to access a specific database. This will allow a user without any roles in the directory hosting the database to access the database according to the role assigned.
+For more information about role inheritance, see [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) for {{ resmgr-full-name }}.
 
-To assign a role for a resource, a user should have the `ydb.admin` role or one of the following roles for that resource:
+You can also grant a role to access a specific database. This will allow a user without any roles in the folder hosting the database to access the database according to the role assigned.
+
+To assign a role for a resource, you need the `ydb.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
-
-{% note info %}
-
-For more information about role inheritance, see [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-full-name }} guide.
-
-{% endnote %}
 
 ## Assigning roles {#grant-roles}
 
@@ -62,7 +58,7 @@ You can also assign roles for individual resources within the service:
 
 ## Roles this service has {#roles-list}
 
-The list below shows all roles used for access control in {{ ydb-name }}.
+The list below shows all the roles used for access control in {{ ydb-name }}.
 
 {% include [ydb](../../_mermaid/roles/ydb.md) %}
 

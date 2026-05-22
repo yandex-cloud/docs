@@ -1,5 +1,5 @@
-On the **{{ ui-key.yacloud_billing_account.create-account-wizard.label_step-company_title }}** page, enter the INN (Individual Taxpayer Number) of the organization or individual entrepreneur.
+Specify the Taxpayer ID (INN) to automatically load data from the [EGRUL/EGRIP](https://egrul.nalog.ru/) unified registry. 
 
-The system will automatically retrieve the relevant organization or individual entrepreneur info from the Russian Unified State Register of Legal Entities/Individual Entrepreneurs (EGRUL/EGRIP) and display it in the pop-up company card window. Click the card to load this information into the billing account creation form.
+Details about the organization or individual entrepreneur will appear in a pop-up window displaying the company card. Click the card to load this information into the billing account creation form.
 
-Make sure the loaded organization/individual entrepreneur details are current and accurate. Edit the information as needed and click **{{ ui-key.yacloud_billing_account.cloud-billing-account.label_wizard-next }}**.
+To ensure the entered data is up to date, click ![circle-plus-fill](../../_assets/console-icons/chevron-down.svg) on the company card. Correct the data if necessary.

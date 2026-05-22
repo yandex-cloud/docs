@@ -50,4 +50,4 @@
 
 * [{#T}](../tutorials/encrypt/cli-api.md)
 * [{#T}](../tutorials/vault-secret.md)
-* [{#T}](../tutorials/secure-password-script.md)
+* [{#T}](../tutorials/secure-password-script/index.md)

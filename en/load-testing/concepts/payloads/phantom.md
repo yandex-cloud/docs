@@ -1,5 +1,8 @@
 # PHANTOM
 
+{% include [loadtesting-sunset-warning](../../../_includes/load-testing/sunset-warning.md) %}
+
+
 Type of test data for the Phantom load generator. It allows sending any combinations of HTTP requests based on any methods to the server as is. With this format, you can make complex combinations of requests. It is well suited for generating requests from service logs, but not for manual configuration.
 
 The test data type is specified when [creating a test](../../operations/create-test-bucket.md#create-test).

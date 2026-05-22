@@ -5,7 +5,7 @@ description: Access management in {{ managed-k8s-name }}, a containerized applic
 
 # Access management in {{ managed-k8s-name }}
 
-In this section, you will learn about:
+In this section, you will learn about the following:
 * [Resources you can assign a role for](#resources).
 * [Roles this service has](#roles-list).
 * [Roles required for managing {{ managed-k8s-name }}](#required-roles).
@@ -14,17 +14,17 @@ In this section, you will learn about:
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-To assign a role for a resource, a user should have the `k8s.admin` role or one of the following roles for that resource:
+To assign a role for a resource, you need the `k8s.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
-## Resources you can assign a role for {#resources}
+## Resources supporting role assignment {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
 Also, you can assign [roles required to access the {{ k8s }} API](#k8s-api) to a separate cluster via the [{{ yandex-cloud }} CLI](../../cli/cli-ref/managed-kubernetes/cli-ref/cluster/add-access-binding.md), [{{ TF }}]({{ tf-provider-resources-link }}/kubernetes_cluster_iam_binding), or [API](../api-ref/authentication.md). For more information, see [{#T}](../operations/kubernetes-cluster/kubernetes-cluster-access.md).
 
-## Roles this service has {#roles-list}
+## Roles available in the service {#roles-list}
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
@@ -47,6 +47,10 @@ kubectl describe clusterrole <role_in_{{ k8s }}_RBAC>
 #### k8s.cluster-api.editor {#k8s-cluster-api-editor}
 
 {% include [k8s.cluster-api.editor](../../_roles/k8s/cluster-api/editor.md) %}
+
+#### k8s.cluster-api.admin {#k8s-cluster-api-admin}
+
+{% include [k8s.cluster-api.admin](../../_roles/k8s/cluster-api/admin.md) %}
 
 #### k8s.cluster-api.cluster-admin {#k8s-cluster-api-cluster-admin}
 
@@ -151,8 +155,8 @@ Check if you can create resources in the cluster. In other namespaces, you will 
 ## Roles required for creating a {{ managed-k8s-name }} cluster {#required-roles}
 
 When creating a {{ managed-k8s-name }} cluster and a node group, make sure the [account](../../iam/concepts/users/accounts.md) used for this purpose has these [roles](../../iam/concepts/access-control/roles.md):
-* [{{ roles.k8s.editor }}](#k8s-editor) or higher
-* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user)
+* [{{ roles.k8s.editor }}](#k8s-editor) or higher.
+* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user).
 
 To create a {{ managed-k8s-name }} cluster and node group with public access, you will also need the [{{ roles-vpc-public-admin }}](../../vpc/security/index.md#vpc-public-admin) role.
 
@@ -162,7 +166,7 @@ When creating a cluster in {{ managed-k8s-name }}, specify two [service accounts
 * **Cluster service account**: On behalf of this service account, {{ managed-k8s-name }} manages cluster nodes, [subnets](../../vpc/concepts/network.md#subnet) for [pods](../concepts/index.md#pod) and [services](../concepts/index.md#service), [disks](../../compute/concepts/disk.md), [load balancers](../../network-load-balancer/concepts/index.md), encrypts and decrypts [secrets](../../lockbox/concepts/secret.md). The minimum recommended role for such an account is `k8s.clusters.agent`.
 * **Node group service account**: Under this service account, {{ managed-k8s-name }} cluster nodes get authenticated in [{{ container-registry-full-name }}](../../container-registry/concepts/index.md) or [{{ cloud-registry-full-name }}](../../cloud-registry/concepts/index.md). For other container registries, you do not need to assign roles to the service account.
   
-  For nodes to be able to pull Docker images from a registry:
+  To enable nodes to pull Docker images from a registry:
 
   * For {{ container-registry-full-name }}, assign the [container-registry.images.puller](../../container-registry/security/index.md#container-registry-images-puller) role to the service account.
   * For {{ cloud-registry-full-name }}, assign the [cloud-registry.artifacts.puller](../../container-registry/security/index.md#container-registry-images-puller) role to the service account.
@@ -181,6 +185,8 @@ If you use a cloud network from a different folder in a {{ managed-k8s-name }} c
 The combination of the `k8s.viewer` and `k8s.clusters.agent` roles allows you to view all information about node groups, but not about individual cluster nodes.
 
 The combination of the `k8s.cluster-api.cluster-admin`, `k8s.clusters.agent`, and `monitoring.viewer` roles allows you to view detailed information about node groups and individual [cluster nodes](../operations/node-group/node-group-list.md#get-node). All tabs become available for each node in the management console, including the **{{ ui-key.yacloud.k8s.node.overview.label_monitoring }}** tab.
+
+To view cluster resources [in the {{ ui-key.yacloud.k8s.network.label_ingress }} section](../operations/kubernetes-console/network.md), you need the `alb.auditor` [role](../../application-load-balancer/security/index.md#alb-auditor) or higher.
 
 To provide more granular access to resources, you can:
 * Configure additional permissions in the {{ k8s }} RBAC for the appropriate users.

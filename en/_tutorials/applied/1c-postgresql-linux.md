@@ -32,12 +32,12 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+
 ### Required paid resources {#paid-resources}
 
-The infrastructure support cost for 1C-Enterprise in {{ yandex-cloud }} includes:
-* Fee for [disks](../../compute/concepts/disk.md) and continuously running [VMs](../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for a continuously running {{ mpg-name }} cluster (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
-* Fee for using a static [public IP address](../../vpc/concepts/address.md) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
+* VM instance: use of computing resources, storage, public IP address, and OS (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* {{ mpg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+
 
 ## Set up a VPN to access the cloud infrastructure {#setup-vpn}
 
@@ -52,7 +52,7 @@ To create a [cloud network](../../vpc/concepts/network.md) with [subnets](../../
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), go to the folder where you need to create a cloud network.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the top-right corner, click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
   1. In the **{{ ui-key.yacloud.vpc.networks.create.field_name }}** field, enter `my-1c-network`.
   1. Enable **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
@@ -82,10 +82,10 @@ Create a VM to serve as a gateway for VPN connections:
 - Management console {#console}
 
   1. [Reserve](../../vpc/operations/get-static-ip.md) a public IP address for your VPN server.
-  1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard of the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard in the [management console]({{ link-console-main }}), click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, enter `OpenVPN Access Server` in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field and select a public [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md), e.g., `{{ region-id }}-b`.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select the `{{ ui-key.yacloud.compute.value_disk-type-network-hdd_cw9XD }}` [disk type](../../compute/concepts/disk.md#disks_types) and specify the size: `20 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, select the `{{ ui-key.yacloud.compute.value_disk-type-network-hdd_cw9XD }}` [disk type](../../compute/concepts/disk.md#disks_types) and specify its size: `20 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
@@ -151,10 +151,10 @@ Create a VM for the 1C:Enterprise server:
 
 - Management console {#console}
 
-  1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard of the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. On the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard in the [management console]({{ link-console-main }}), click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, in the **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** field, enter `CentOS 7` and select a public [CentOS 7](/marketplace/products/yc/centos-7) image.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the [availability zone](../../overview/concepts/geo-scope.md) hosting the VNP server you created earlier.
-  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and the amount of RAM:
+  1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
       * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
       * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `4`.
@@ -191,7 +191,7 @@ To create a {{ mpg-name }} cluster optimized for 1C:
 
 - Management console {#console}
 
-  1. On the folder page in the [management console]({{ link-console-main }}), click **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_managed-postgresql }}**.
+  1. On the folder dashboard in the [management console]({{ link-console-main }}), click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.value_managed-postgresql }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
       * In the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field, enter the cluster name: `1c-pg`.
@@ -220,7 +220,7 @@ Creating a DB cluster may take a few minutes.
 
 ## Configure a Samba server on 1C servers {#set-up-samba}
 
-1. [Connect](../../compute/operations/vm-connect/ssh.md) to the `server-1c` VM over SSH.
+1. [Connect](../../compute/operations/vm-connect/ssh.md) to `server-1c` over SSH.
 
 1. Install Samba, the required dependencies, and the `nano` text editor:
 
@@ -335,11 +335,11 @@ Similarly, configure the Samba server on the `licensing-server-1c` VM.
     ```
 
     Where:
-    * `<file_name>`: Name of the binary distribution file, e.g., `setup-full-8.3.25.1257-x86_64.run`.
-    * `<username>`: VM username, e.g., `yc-user`.
+    * `<file_name>`: Name of the binary distribution file. For example: `setup-full-8.3.25.1257-x86_64.run`.
+    * `<username>`: VM username. For example: `yc-user`.
     * `<VM_public_IP_address>`: Public IP address of the VM with the 1C server.
 
-1. [Connect](../../compute/operations/vm-connect/ssh.md) to the `server-1c` VM over SSH.
+1. [Connect](../../compute/operations/vm-connect/ssh.md) to `server-1c` over SSH.
 
 1. Install the 1C:Enterprise server on the VM:
 
@@ -348,7 +348,7 @@ Similarly, configure the Samba server on the `licensing-server-1c` VM.
     sudo ./<file_name> --mode unattended --enable-components server,ws,server_admin
     ```
 
-    Where `<file_name>` is the name of the binary distribution file, e.g., `setup-full-8.3.25.1257-x86_64.run`.
+    Where `<file_name>` is the name of the binary distribution file. Here is an example: `setup-full-8.3.25.1257-x86_64.run`.
 
 1. After installation is complete, delete the distribution file by specifying the name of the binary distribution file:
 
@@ -456,8 +456,8 @@ Before getting started with 1C:Enterprise, configure the server roles and add th
 
         - Management console {#console}
 
-          * In the [management console]({{ link-console-main }}), go to the folder page.
-          * In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+          * In the [management console]({{ link-console-main }}), navigate to the folder page.
+          * [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
           * In the window that opens, select the `1c-pg` cluster you created earlier.
           * Select the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab in the left-hand menu.
           * In the **{{ ui-key.yacloud.mdb.cluster.hosts.host_column_name }}** field, hover over the host name (format: `rc1b-cfazv1db********`) and copy the database FQDN by clicking ![copy](../../_assets/copy.svg). The FQDN will be added to the host name, so the **Database server** field should contain a name in `rc1c-cfazv1db********.{{ dns-zone }} port=6432` format.
@@ -470,7 +470,7 @@ Before getting started with 1C:Enterprise, configure the server roles and add th
     * **Database user password**: User password you set when creating the cluster.
     * **Allow license issuing by 1C:Enterprise server**: `Yes`.
     * **Language (Country)**: `English (United States)`.
-    * **Create database if none present**: Disabled.
+    * **Create a database if none exists**: Disabled.
     * **Lock execution of scheduled jobs**: Disabled.
 
    Click **OK**.

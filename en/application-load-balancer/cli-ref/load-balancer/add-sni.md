@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/load-balancer/add-sni
 editable: false
 ---
 
@@ -45,6 +46,7 @@ Certificate ID for the SNI match. ||
 Trusted CA filename (PEM) for the specified listener. ||
 || `--allow-http10` | Allow HTTP1.0 for SNI match. ||
 || `--rewrite-request-id` | Rewrite incoming x-request-id header with new value for SNI match. ||
+|| `--preserve-http1-header-casing` | Preserve HTTP1 header casing for SNI match. ||
 || `--http2-options` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
 
 HTTP2 options for SNI match.

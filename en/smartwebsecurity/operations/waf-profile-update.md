@@ -18,7 +18,7 @@ description: Follow this guide to edit basic WAF profile settings.
       * **{{ ui-key.yacloud.common.description }}**.
       * [**{{ ui-key.yacloud.component.label-set.label_labels }}**](../../resource-manager/concepts/labels.md). To add a label, click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
   1. Enable or disable rule sets for the WAF profile.
-  1. For the [OWASP Core Rule Set](https://coreruleset.org/), select a version.
+  1. Select a rule set version.
   1. If multiple rule sets are enabled:
      * Select the profile trigger conditions:
        * **Verdict returned in at least one selected rule set**: At least one rule set has recognized the request as a threat.
@@ -37,7 +37,7 @@ description: Follow this guide to edit basic WAF profile settings.
 
   1. Open the {{ TF }} configuration file and edit the section describing the WAF profile.
 
-     {% cut "Example of a WAF profile description in the {{ TF }} configuration" %}
+     {% cut "Example of a WAF profile description in the {{ TF }}" %} configuration
 
       ```hcl
       # In the basic set, rules of this paranoia level and below will be enabled
@@ -81,7 +81,7 @@ description: Follow this guide to edit basic WAF profile settings.
 
      {% endcut %}
 
-      For more information about `sws_waf_profile` properties, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/sws_waf_profile).
+      For more information about `sws_waf_profile` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/sws_waf_profile).
 
   1. Apply the changes:
 

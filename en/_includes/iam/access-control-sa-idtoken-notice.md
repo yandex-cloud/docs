@@ -1,0 +1,5 @@
+{% note info %}
+
+Creating ID tokens for service accounts may be prohibited by [access policies](../../iam/concepts/access-control/access-policies.md) at the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), or [organization](../../organization/concepts/organization.md) level.
+
+{% endnote %}

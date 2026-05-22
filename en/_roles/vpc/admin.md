@@ -16,9 +16,9 @@ The `vpc.admin` role allows you to manage cloud networks, subnets, route tables,
 * Configure [DHCP](../../vpc/concepts/dhcp-options.md) in subnets.
 * View the list of [cloud resource addresses](../../vpc/concepts/address.md) and info on them, as well as create, update, and delete internal and public IP addresses.
 * View information on the IP addresses used in subnets.
-* View information on Virtual Private Cloud [quotas](../../vpc/concepts/limits.md#vpc-quotas).
-* View information on resource operations for Virtual Private Cloud.
-* View information on resource operations for Compute Cloud.
+* View information on {{ vpc-name }} [quotas](../../vpc/concepts/limits.md#vpc-quotas).
+* View information on resource operations for {{ vpc-name }}.
+* View information on resource operations for {{ compute-name }}.
 * View information on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud).
 * View info on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 

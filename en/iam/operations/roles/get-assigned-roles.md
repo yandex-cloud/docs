@@ -15,6 +15,12 @@ You can view a list of inherited roles for the folder or the cloud in the manage
 
 [Learn](../../concepts/access-control/resources-with-access-control.md) which resources you can assign a role for.
 
+{% note info %}
+
+{% include [access-control-vs-roles-notice](../../../_includes/iam/access-control-vs-roles-notice.md) %}
+
+{% endnote %}
+
 To view assigned roles:
 
 {% list tabs group=instructions %}

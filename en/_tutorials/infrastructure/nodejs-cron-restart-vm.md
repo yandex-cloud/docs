@@ -48,12 +48,12 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a secret.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret, e.g., `oauth-token`.
   1. In the **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** field, select `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.
   1. Under **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**:
-     * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, enter `key_token`.
+     * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, specify `key_token`.
      * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, enter the [OAuth token]({{ link-cloud-oauth }}) value required for authenticating the function.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -110,22 +110,22 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
 
      {% include [secret-version-tf-note](../../_includes/lockbox/secret-version-tf-note.md) %}
 
-     Learn more about the properties of {{ TF }} resources in the relevant provider guides:
+     For more information about {{ TF }} resource properties, see the relevant provider guides:
 
      * [yandex_lockbox_secret]({{ tf-provider-resources-link }}/lockbox_secret)
      * [yandex_lockbox_secret_version]({{ tf-provider-resources-link }}/lockbox_secret_version)
 
   1. Make sure the configuration files are correct.
-     1. In the command line, navigate to the directory where you created the configuration file.
-     1. Run a check using this command:
+     1. In the terminal, navigate to the directory where you created your configuration file.
+     1. Run a check using the following command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
+     If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors.
   1. Deploy the cloud resources.
-     1. If the configuration does not contain any errors, run this command:
+     1. If the configuration is correct, run this command:
 
         ```bash
         terraform apply
@@ -141,52 +141,49 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
 
 ## Prepare a ZIP archive with the function code {#zip-archive}
 
-1. Save this code to a file named `index.js`:
+1. Save the following code to a file named `index.js`:
 
    ```javascript
-   import { serviceClients, Session, cloudApi } from '@yandex-cloud/nodejs-sdk';
-
-   const {
-     compute: {
-       instance_service: {
-         ListInstancesRequest,
-         GetInstanceRequest,
-         StartInstanceRequest,
-       },
-       instance: {
-         IpVersion,
-       },
-     },
-   } = cloudApi;
-
+   import { Session } from '@yandex-cloud/nodejs-sdk';
+   import { instanceService } from '@yandex-cloud/nodejs-sdk/compute-v1';
+   
    const FOLDER_ID = process.env.FOLDER_ID;
    const INSTANCE_ID = process.env.INSTANCE_ID;
    const OAUTHTOKEN = process.env.OAUTHTOKEN;
-
+   
    export const handler = async function (event, context) {
-     const session = new Session({ oauthToken: OAUTHTOKEN });
-     const instanceClient = session.client(serviceClients.InstanceServiceClient);
-     const list = await instanceClient.list(ListInstancesRequest.fromPartial({
-       folderId: FOLDER_ID,
-     }));
-     const state = await instanceClient.get(GetInstanceRequest.fromPartial({
-       instanceId: INSTANCE_ID,
-     }));
-
-     var status = state.status
-
-     if (status == 4){
-       const startcommand = await instanceClient.start(StartInstanceRequest.fromPartial({
+     try {
+       const session = new Session({ oauthToken: OAUTHTOKEN });
+       const instanceServiceClient = session.client(instanceService.InstanceServiceClient);
+       
+       const state = await instanceServiceClient.get({
          instanceId: INSTANCE_ID,
-       }));
-     }
-
-     return {
-       statusCode: 200,
-       body: {
-         status
+       });
+   
+       const status = state.status;
+   
+       if (status === 4) {
+         await instanceServiceClient.start({
+           instanceId: INSTANCE_ID,
+         });
        }
-     };
+   
+       return {
+         statusCode: 200,
+         body: {
+           status
+         }
+       };
+     } catch (error) {
+       console.error('Error in function:', error);
+       return {
+         statusCode: 500,
+         body: {
+           error: error.message,
+           details: error.toString()
+         }
+       };
+     }
    };
    ```
 
@@ -211,15 +208,15 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create your function.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Create a function:
      1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
      1. In the window that opens, enter `function-restart-vms` as the function name.
      1. Click **{{ ui-key.yacloud.common.create }}**.
   1. Create a [function version](../../functions/concepts/function.md#version):
-     1. Select the `nodejs18` runtime environment, disable the **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** option, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-     1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** field, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
+     1. Select `nodejs22` as the runtime environment, disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+     1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** field, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
      1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}** field, click **Attach file** and select the `function-js.zip` archive you created earlier.
      1. Specify the entry point: `index.handler`.
      1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
@@ -263,7 +260,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
        --function-name function-restart-vms \
        --memory=128m \
        --execution-timeout=3s \
-       --runtime=nodejs18 \
+       --runtime=nodejs22 \
        --entrypoint=index.handler \
        --service-account-id=<service_account_ID> \
        --environment FOLDER_ID=<folder_ID>,INSTANCE_ID=<VM_ID> \
@@ -275,7 +272,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
      Where:
      * `--function-name`: Name of the function whose version you are creating.
      * `--memory`: Amount of RAM.
-     * `--execution-timeout`: Maximum function running time before timeout.
+     * `--execution-timeout`: Maximum function runtime before timeout.
      * `--runtime`: Runtime environment.
      * `--entrypoint`: Entry point.
      * `--service-account-id`: [ID](../../iam/operations/sa/get-id.md) of the service account with permissions to invoke the function.
@@ -311,7 +308,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
      resource "yandex_function" "function-restart-vms" {
        name               = "function-restart-vms"
        user_hash          = "first function"
-       runtime            = "nodejs18"
+       runtime            = "nodejs22"
        entrypoint         = "index.handler"
        memory             = "128"
        execution_timeout  = "3"
@@ -335,7 +332,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
 
      Where:
      * `name`: Function name.
-     * `user_hash`: Custom string to define the function version.
+     * `user_hash`: User-defined string that identifies the function version.
      * `runtime`: Function [runtime environment](../../functions/concepts/runtime/index.md).
      * `entrypoint`: Entry point.
      * `memory`: Amount of memory allocated for the function, in MB.
@@ -354,16 +351,16 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
 
      For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
   1. Make sure the configuration files are correct.
-     1. In the command line, navigate to the directory where you created the configuration file.
-     1. Run a check using this command:
+     1. In the terminal, navigate to the directory where you created your configuration file.
+     1. Run a check using the following command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
+     If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors.
   1. Deploy the cloud resources.
-     1. If the configuration does not contain any errors, run this command:
+     1. If the configuration is correct, run this command:
 
         ```bash
         terraform apply
@@ -406,11 +403,11 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [trigger](../../functions/concepts/trigger/index.md).
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
-     * Enter a name for the trigger: `timer`.
+     * Enter the trigger name: `timer`.
      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}`.
      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_timer }}**, enter `* * ? * * *` or select `{{ ui-key.yacloud.common.button_cron-1min }}`.
@@ -475,16 +472,16 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
 
      For more information about resource parameters in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
   1. Make sure the configuration files are correct.
-     1. In the command line, navigate to the directory where you created the configuration file.
-     1. Run a check using this command:
+     1. In the terminal, navigate to the directory where you created your configuration file.
+     1. Run a check using the following command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
+     If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors.
   1. Deploy the cloud resources.
-     1. If the configuration does not contain any errors, run this command:
+     1. If the configuration is correct, run this command:
 
         ```bash
         terraform apply
@@ -523,7 +520,7 @@ Use an [OAuth token](../../iam/concepts/authorization/oauth-token.md) if you can
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder where you created your preemptible VM.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the VM name and select **{{ ui-key.yacloud.common.stop }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**. The VM status will change to `Stopped`.

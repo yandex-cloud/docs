@@ -1,8 +1,8 @@
-# Setting up Delta Lake in multi-cluster mode
+# Configuring Delta Lake in multi-cluster mode
 
 When in multi-cluster mode, {{ dataproc-name }} uses a [{{ ydb-full-name }}](../../../ydb/index.yaml) database to manage access to Delta Lake tables from different clusters and {{ SPRK }} jobs.
 
-For more information about Delta Lake, see the [Delta Lake in {{ dataproc-name }}](../../concepts/deltalake.md) section and the [Delta Lake documentation](https://docs.delta.io/latest/index.html).
+For more information about Delta Lake, see [Delta Lake in {{ dataproc-name }}](../../concepts/deltalake.md) and [this Delta Lake guide](https://docs.delta.io/latest/index.html).
 
 
 {% include [deltalake-disclaimer](../../../_includes/data-processing/deltalake-disclaimer.md) %}
@@ -11,14 +11,14 @@ For more information about Delta Lake, see the [Delta Lake in {{ dataproc-name }
 ## Set up your infrastructure {#prereq}
 
 1. [Create a serverless {{ ydb-name }} database](../../../ydb/operations/manage-databases.md#create-db-serverless).
-1. [Create a service account](../../../iam/operations/sa/create.md) with the `ydb.editor` role for access to {{ ydb-short-name }}.
+1. [Create a service account](../../../iam/operations/sa/create.md) with the `ydb.editor` role to access {{ ydb-short-name }}.
 1. [Create a static access key](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the service account.
-1. [Create a {{ lockbox-full-name }} secret](../../../lockbox/operations/secret-create.md) and place into it the static key data as two `key-value` pairs:
+1. [Create a {{ lockbox-full-name }} secret](../../../lockbox/operations/secret-create.md) containing the static key data as two `key-value` pairs:
 
-    * Key: `key-id`; value: `<static_key_ID>`.
-    * Key: `key-secret`; value: `<static_key_secret_part>`.
+    * `key-id` as the key and `<static_key_ID>` as the value.
+    * `key-secret` as the key and `<static_key_secret_part>` as the value.
 
-1. Set up one or more {{ dataproc-name }} clusters to work with Delta Lake:
+1. Configure one or more {{ dataproc-name }} clusters to work with Delta Lake:
 
     1. If you do not have a {{ dataproc-name }} cluster, [create one](../cluster-create.md).
     1. If you attached a [{{ objstorage-full-name }} bucket](../../../storage/concepts/bucket.md) to your cluster:
@@ -30,17 +30,17 @@ For more information about Delta Lake, see the [Delta Lake in {{ dataproc-name }
 
 1. Assign the `lockbox.payloadViewer` role to the service account you used to create the {{ dataproc-name }} clusters. You can do this:
 
-    * [Only for the secret you created earlier](../../../lockbox/operations/secret-access.md)
-    * [At the entire folder level](../../../iam/operations/sa/assign-role-for-sa.md)
+    * [Only for the secret you created earlier](../../../lockbox/operations/secret-access.md).
+    * [At the folder level](../../../iam/operations/sa/assign-role-for-sa.md).
 
-## Set up the component properties to work with Delta Lake {#settings}
+## Set the component properties to work with Delta Lake {#settings}
 
 1. Download the archive with the required Delta Lake libraries and add-ons to connect to {{ ydb-name }}:
 
     * [Delta Lake 2.0.2](https://github.com/yandex-cloud/yc-delta/releases/download/v1.1/yc-delta20-multi-dp21-1.1-fatjar.jar) for {{ dataproc-name }} 2.1.0 or 2.1.3
     * [Delta Lake 2.3.0](https://github.com/yandex-cloud/yc-delta/releases/download/v1.1/yc-delta23-multi-dp21-1.1-fatjar.jar) for {{ dataproc-name }} 2.1.4 and higher
 
-    You can check out the source code for add-ons to connect to {{ ydb-short-name }} in the repository:
+    You can check out the source code for add-ons to connect to {{ ydb-short-name }} in these repositories:
 
     * [Add-ons for Delta Lake 2.0.2](https://github.com/yandex-cloud/yc-delta/blob/develop/yc-delta20)
     * [Add-ons for Delta Lake 2.3.0](https://github.com/yandex-cloud/yc-delta/blob/develop/yc-delta23)
@@ -60,8 +60,8 @@ For more information about Delta Lake, see the [Delta Lake in {{ dataproc-name }
     * Set `spark.sql.extensions` to `io.delta.sql.DeltaSparkSessionExtension`.
     * Set `spark.sql.catalog.spark_catalog` to `org.apache.spark.sql.delta.catalog.DeltaCatalog`.
     * Set `spark.delta.logStore.s3a.impl` to `ru.yandex.cloud.custom.delta.YcS3YdbLogStore`.
-    * Set `spark.io.delta.storage.S3DynamoDBLogStore.ddb.endpoint` to the Document API endpoint value available on the **{{ ui-key.yacloud.common.overview }}** tab of your database in the [management console]({{ link-console-cloud }}).
-    * Set `spark.io.delta.storage.S3DynamoDBLogStore.ddb.lockbox` to the {{ lockbox-short-name }} secret ID value available on the **{{ ui-key.yacloud.lockbox.label_section-overview}}** tab of your {{ lockbox-short-name }} in the [management console]({{ link-console-cloud }}).
+    * Set `spark.io.delta.storage.S3DynamoDBLogStore.ddb.endpoint` to the Document API endpoint value. You can find it on the **{{ ui-key.yacloud.common.overview }}** tab of your database in the [management console]({{ link-console-cloud }}).
+    * Set `spark.io.delta.storage.S3DynamoDBLogStore.ddb.lockbox` to the {{ lockbox-short-name }} secret ID value. You can find it on the **{{ ui-key.yacloud.lockbox.label_section-overview }}** tab of your {{ lockbox-short-name }} in the [management console]({{ link-console-cloud }}).
 
 You can now use Delta Lake in multi-cluster mode.
 
@@ -69,7 +69,7 @@ You can now use Delta Lake in multi-cluster mode.
 
 This use case was tested on a {{ dataproc-name }} cluster of version 2.1.7.
 
-1. [Use SSH to connect](../connect-ssh.md) to the {{ dataproc-name }} cluster's master host.
+1. [Use SSH to connect](../connect-ssh.md) to the {{ dataproc-name }} cluster master host.
 
 1. Run an {{ SPRK }} session in the cluster by providing the required parameters:
 
@@ -97,7 +97,7 @@ This use case was tested on a {{ dataproc-name }} cluster of version 2.1.7.
     INSERT INTO tab1 VALUES (1,'One'), (2,'Two'), (3,'Three');
     ```
 
-1. Replace the `b` column values by adding to them the `a` column values converted to a string:
+1. Update the `b` column by concatenating it with the `a` column values converted to a string:
 
     ```sql
     UPDATE tab1 SET b=b || ' ** ' || CAST(a AS VARCHAR(10));
@@ -121,30 +121,30 @@ To improve Delta Lake performance and streamline data storage when using multi-c
 
 ### Setting up {{ ydb-name }} throughput {#throughput}
 
-By default, a {{ ydb-short-name }} in serverless mode is created with a [throughput](../../../ydb/concepts/serverless-and-dedicated.md#capacity) of 10 request units per second. This may be insufficient for intensive use of Delta Lake tables.
+By default, a {{ ydb-short-name }} in serverless mode is created with a [throughput](../../../ydb/concepts/serverless-and-dedicated.md#capacity) of 10 request units per second. This may not be enough for heavy use of Delta Lake tables.
 
-To avoid Delta Lake performance degradation due to insufficient {{ ydb-short-name }} throughput, track the **Document API units overflow** parameter on the chart when [monitoring {{ ydb-short-name }}](../../../ydb/operations/monitoring.md). Increase the throughput limit if needed.
+To avoid Delta Lake performance degradation due to insufficient {{ ydb-short-name }} throughput, monitor the **Document API units overflow** metric on the [{{ ydb-short-name }}](../../../ydb/operations/monitoring.md) monitoring chart. Increase the throughput limit, if required.
 
-There is a total throughput limit that applies to all {{ ydb-short-name }} databases in the cloud, which depends on the quota. If necessary, contact [support]({{ link-console-support }}) to have your quota increased.
+There is a total throughput limit that applies to all {{ ydb-short-name }} databases in the cloud, which depends on the quota. Contact [support]({{ link-console-support }}) to request a quota increase, if required.
 
-### Setting up auto cleanup {#auto-vacuum}
+### Setting up automatic cleanup {#auto-vacuum}
 
-When working with Delta Lake, metadata versions that are not in use may accumulate in a {{ ydb-short-name }} table or {{ objstorage-name }} buckets. You can streamline storage use and boost Delta Lake performance using a [ready-made script](https://github.com/yandex-cloud/yc-delta/blob/develop/cf-cleanup/cfunc.py) that will automatically clean up outdated metadata from the {{ ydb-short-name }} table and bucket on a regular basis.
+When working with Delta Lake, metadata versions that are not in use may accumulate in a {{ ydb-short-name }} table and {{ objstorage-name }} buckets. You can streamline storage use and boost Delta Lake performance using a [ready-made script](https://github.com/yandex-cloud/yc-delta/blob/develop/cf-cleanup/cfunc.py) that will automatically clean up outdated metadata from the {{ ydb-short-name }} table and bucket on a regular basis.
 
 The script is installed in the cloud as two [serverless functions](../../../functions/concepts/index.md):
 
-* Function for cleaning up data in the {{ ydb-short-name }} table. It is invoked automatically once an hour.
-* Function for cleaning up data in the buckets. It is invoked automatically once a day.
+* Function for cleaning up data in the {{ ydb-short-name }} table. It is called automatically once an hour.
+* Function for cleaning up data in the buckets. It is called automatically once a day.
 
 To add these cleanup functions to your cloud:
 
 1. {% include [cli-install](../../../_includes/cli-install.md) %}
-1. Download files from the [cf-cleanup](https://github.com/yandex-cloud/yc-delta/tree/develop/cf-cleanup) folder:
+1. Download these files from the [cf-cleanup](https://github.com/yandex-cloud/yc-delta/tree/develop/cf-cleanup) folder:
 
     * `cfunc.py`: Cleanup script source code.
     * `delta-prefixes.txt`: File with prefixes of paths to temporary Delta Lake files in buckets.
     * `pack.sh`: ZIP archive creation script.
-    * `requirements.txt`: File with environment requirements to install functions.
+    * `requirements.txt`: File with environment requirements to set up functions.
 
     Save these files to the `cf-cleanup` folder in the working directory.
 
@@ -154,7 +154,7 @@ To add these cleanup functions to your cloud:
     chmod +x ./cf-cleanup/pack.sh
     ```
 
-1. In the `delta-prefixes.txt` file, specify the paths to the {{ objstorage-name }} bucket folders with temporary Delta Lake files. Make sure to provide each path in a new line in the following format:
+1. In the `delta-prefixes.txt` file, specify the paths to the {{ objstorage-name }} bucket folders with temporary Delta Lake files. Make sure to provide each path on a new line in the following format:
 
     ```txt
     BucketName Mode PathPrefix
@@ -164,9 +164,9 @@ To add these cleanup functions to your cloud:
 
     * `W`: Warehouse, path for storing multiple databases.
     * `D`: Database, path for storing a single database.
-    * `T`: Table, path for storing a specific single table.
+    * `T`: Table, path for storing a specific table.
 
-    Example:
+    Here is an example:
 
     ```txt
     mybucket1 W warehouse/
@@ -175,7 +175,7 @@ To add these cleanup functions to your cloud:
     ```
 
 1. Place the `delta-prefixes.txt` file to your {{ objstorage-name }} bucket.
-1. Download and save the files for managing the cleanup functions to the working directory:
+1. Download and save the following files for managing the cleanup functions to the working directory:
 
     * [ddb-maint-config.sh](https://github.com/yandex-cloud/yc-delta/blob/develop/ddb-maint-config.sh): Setup parameters
     * [ddb-maint-setup.sh](https://github.com/yandex-cloud/yc-delta/blob/develop/ddb-maint-setup.sh): Setup script
@@ -183,11 +183,11 @@ To add these cleanup functions to your cloud:
 
 1. In the `ddb-maint-config.sh` file, specify the following parameters:
 
-    * `sa_name`: Name of the service account that will be created to use the functions.
-    * `cf_ddb_name`: Name of the serverless database cleanup function; it must be unique within the folder.
-    * `cf_s3_name`: Name of the serverless bucket cleanup function; it must be unique within the folder.
+    * `sa_name`: Name of the service account that will be created for running the functions.
+    * `cf_ddb_name`: Name of the serverless database cleanup function. It must be unique within the folder.
+    * `cf_s3_name`: Name of the serverless bucket cleanup function. It must be unique within the folder.
     * `docapi_endpoint`: Document API endpoint. You can find it on the **{{ ui-key.yacloud.common.overview }}** tab of your {{ ydb-short-name }} database in the [management console]({{ link-console-cloud }}).
-    * `docapi_table`: Name of the Delta Lake table to clean.
+    * `docapi_table`: Name of the Delta Lake table to clean up.
     * `s3_prefix_file`: Path to the `delta-prefixes.txt` file in the {{ objstorage-name }} bucket, e.g., `s3://<bucket_name>/delta-prefixes.txt`.
 
 1. Run the setup script in your local directory:
@@ -204,4 +204,4 @@ If you no longer need the cleanup functions, run this script to remove them:
 bash ./ddb-maint-remove.sh
 ```
 
-The `spark.io.delta.storage.S3DynamoDBLogStore.ddb.ttl` Spark property sets the TTL for metadata records, which is `86400` seconds (24 hours) by default. The actual TTL for a specific record may be longer, as it depends on when the cleanup function was run.
+The `spark.io.delta.storage.S3DynamoDBLogStore.ddb.ttl` Spark property sets the TTL for metadata records, which is `86400` seconds (24 hours) by default. The actual TTL for a specific record may be longer as it depends on when the cleanup function runs.

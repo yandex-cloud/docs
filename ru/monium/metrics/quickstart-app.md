@@ -30,10 +30,10 @@
    1. Нажмите **{{ ui-key.yacloud_monitoring.querystring.action.execute-query }}**.
 1. Чтобы посмотреть детали метрики, наведите курсор на график.
 
-Дополнительные возможности работы с метриками см. в разделе [{#T}](../operations/metric/metric-explorer.md).
+Дополнительные возможности работы с метриками см. в разделе [{#T}](../metrics/metric-explorer.md).
 
 #### См. также {#see-also}
 
-* [{#T}](../operations/metric/metric-explorer.md)
+* [{#T}](../metrics/metric-explorer.md)
 * [{#T}](../logs/quickstart.md)
 * [{#T}](../traces/index.md)

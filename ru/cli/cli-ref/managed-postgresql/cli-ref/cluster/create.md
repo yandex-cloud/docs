@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-postgresql/cli-ref/cluster/create
 editable: false
 ---
 
@@ -80,9 +81,15 @@ Possible property names:
 
 - `idle-in-transaction-session-timeout`: Idle in transaction session timeout in milliseconds.
 
+- `idle-session-timeout`: Idle session timeout in milliseconds.
+
 - `wal-sender-timeout`: WAL sender timeout in milliseconds.
 
-- `pgaudit.log`: Enable audit events for user ||
+- `pgaudit.log`: Enable audit events for user
+
+- `connection-folder-id`: ID of the folder where connection for the user is created.
+
+- `secret-folder-id`: ID of the folder where connection secret is created. ||
 || `--database` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
 
 Descriptions of databases to be created in the PostgresSQL cluster.
@@ -103,7 +110,7 @@ Possible property names:
 || `--yandexquery-access` | Allow access for Yandex Query ||
 || `--postgresql-version` | `string`
 
-Version of PostgreSQL used in the cluster. Values: 18, 17, 16, 15, 14, 13, 18-1c, 17-1c, 16-1c, 15-1c, 14-1c, 13-1c ||
+Version of PostgreSQL used in the cluster. Values: 18, 17, 16, 15, 14, 18-1c, 17-1c, 16-1c, 15-1c, 14-1c ||
 || `--resource-preset` | `string`
 
 ID of the preset for computational resources available to a host (CPU, memory etc.). ||
@@ -154,6 +161,15 @@ Possible property names:
 - `planned-usage-threshold`: Planned usage threshold
 
 - `emergency-usage-threshold`: Emergency usage threshold ||
+|| `--connection-manager` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+
+Connection Manager cluster integration settings
+
+Possible property names:
+
+- `connections-folder-id`: ID of the folder where connections for the cluster are created
+
+- `secrets-folder-id`: ID of the folder where connection secrets are created. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 

@@ -7,6 +7,440 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.9.0 (21.05.26) {#v-1-9-0}
+
+#### {{ dns-name }} {#v-1-9-0-dns-name}
+
+* Добавлена группа команд `yc dns inbound-endpoint` для управления inbound endpoint:
+  * `yc dns inbound-endpoint get`;
+  * `yc dns inbound-endpoint list`;
+  * `yc dns inbound-endpoint create`;
+  * `yc dns inbound-endpoint update`;
+  * `yc dns inbound-endpoint delete`;
+  * `yc dns inbound-endpoint add-labels`;
+  * `yc dns inbound-endpoint remove-labels`;
+  * `yc dns inbound-endpoint list-access-bindings`;
+  * `yc dns inbound-endpoint set-access-bindings`;
+  * `yc dns inbound-endpoint add-access-binding`;
+  * `yc dns inbound-endpoint remove-access-binding`;
+  * `yc dns inbound-endpoint list-operations`.
+
+## Предыдущие релизы {#previous-release}
+
+### Версия 1.8.1 (20.05.26) {#v-1-8-1}
+
+#### {{ sws-name }} {#v-1-8-1-sws-name}
+
+* Добавлена группа команд `yc sws waf waf-profile` для управления WAF-профилями (create, get, list, update, delete) в syntax-2 CLI:
+  * `yc sws waf waf-profile create`;
+  * `yc sws waf waf-profile get`;
+  * `yc sws waf waf-profile list`;
+  * `yc sws waf waf-profile update`;
+  * `yc sws waf waf-profile delete`.
+
+#### {{ mrd-name }} {#v-1-8-1-mrd-name}
+
+* Добавлен параметр `failover-type` для команды `start-failover`%
+  * `yc redis cluster start-failover`.
+
+#### {{ mpg-name }} {#v-1-8-1-managed-postgresql}
+
+* Добавлены параметры для настройки `folder-id` для создания соединений и их секретов в интеграции Connection Manager для {{ mpg-name }}:
+  * `yc managed-postgresql cluster create`;
+  * `yc managed-postgresql cluster restore`;
+  * `yc managed-postgresql cluster update`;
+  * `yc managed-postgresql user create`.
+
+* При детальном выводе одного пользователя удалено устаревшее поле `connection_manager` и добавлено заменяющее его u`ser_connection_manager`:
+  * `yc managed-postgresql user get`;
+  * `yc managed-postgresql user list`;
+  * `yc managed-postgresql user create`.
+
+* Прекращена поддержка устаревших версий {{ PG }} (13, 13-1c):
+  * `yc managed-postgresql cluster update`;
+  * `yc managed-postgresql cluster create`.
+
+### Версия 1.8.0 (18.05.26) {#v-1-8-0}
+
+#### Изменения в системных командах CLI {#v-1-8-0-yc}
+
+* В `yc` добавлены деревья команд версий `v0` и `v1` на уровне сервиса. В поддереве `v1` используется новый интерфейс CLI. Деревья `v1` доступны для сервисов `yc cic`, `yc cloudrouter`, `yc smartcaptcha` и `yc smartwebsecurity`.
+* Флаг `--syntax` удален и больше не поддерживается. Для выбора интерфейса используйте версии `v0` и `v1`, а также настройку в конфигурации `services.<service>.version`.
+
+#### {{ mgp-name }} {#v-1-8-0-mgp-name}
+
+* Добавлен флаг `--port` для указания конкретного порта запуска прокси для {{ mgp-name }}:
+  * `yc managed-greenplum connect`.
+
+#### {{ mpg-name }} {#v-1-8-0-mpg-name}
+
+* Добавлен флаг `--port` для указания конкретного порта запуска прокси для {{ mpg-name }}:
+  * `yc managed-postgresql connect`.
+
+#### {{ interconnect-name }} {#v-1-8-0-cic-name}
+
+* Добавлены поля `name`, `url`, `pop_ids` в вывод следующих команд:
+  * `yc cic partner get`;
+  * `yc cic partner list`.
+
+#### {{ sf-name }} {#v-1-8-0-sf-name}
+
+* В команде `yc serverless function version create` параметры `--subnet-id` и `--subnet-name` помечены как **DEPRECATED**. Для указания доступа к сети используйте только `--network-id` или `--network-name`.
+
+#### {{ serverless-containers-name }} {#v-1-8-0-serverless-containers-name}
+
+* Параметр `--subnets` помечен как **DEPRECATED**, для указания доступа к сети используйте только `--network-id` или `--network-name`:
+  * `yc serverless container revision deploy`.
+
+### Версия 1.7.0 (12.05.26) {#v-1-7-0}
+
+#### {{ baremetal-name }} {#v-1-7-0-baremetal-name}
+
+Добавлены параметры `--network-interface-id` и `--configuration-network-interface-id` в команды:
+* `yc baremetal server create`;
+* `yc baremetal server update`.
+
+#### {{ dns-name }} {#v-1-7-0-dns-name}
+
+Исправлено описание команд:
+* `yc dns zone create`;
+* `yc dns firewall create`.
+
+#### {{ cr-name }} {#v-1-7-0-cloudrouter-name}
+
+Команды сервиса `yc cloudrouter` доступны в новом синтаксисе. Для вызова используйте `yc --syntax=2 cloudrouter ...` либо задайте `default-syntax: 2` или `services.cloudrouter.syntax: 2` в профиле:
+  * `yc cloudrouter routing-instance add-private-connection`;
+  * `yc cloudrouter routing-instance create`;
+  * `yc cloudrouter routing-instance delete`;
+  * `yc cloudrouter routing-instance get`;
+  * `yc cloudrouter routing-instance get-by-cic-private-connection-id`;
+  * `yc cloudrouter routing-instance get-by-vpc-network-id`;
+  * `yc cloudrouter routing-instance list`;
+  * `yc cloudrouter routing-instance list-operations`;
+  * `yc cloudrouter routing-instance move`;
+  * `yc cloudrouter routing-instance move-prefix`;
+  * `yc cloudrouter routing-instance remove-prefixes`;
+  * `yc cloudrouter routing-instance remove-private-connection`;
+  * `yc cloudrouter routing-instance update`;
+  * `yc cloudrouter routing-instance update-networks`;
+  * `yc cloudrouter routing-instance update-prefix-mask`;
+  * `yc cloudrouter routing-instance upsert-prefixes`.
+
+#### {{ mgp-name }} {#v-1-7-0-mgp-name}
+
+В команде `yc managed-greenplum cluster create` удалена зависимость от версии {{ GP }}.
+
+#### {{ alb-name }} {#v-1-7-0-alb-name}
+
+Добавлен параметр `--external-address` в команды:
+  * `yc application-load-balancer target-group create`;
+  * `yc application-load-balancer target-group update`;
+  * `yc application-load-balancer target-group add-targets`.
+
+#### {{ mch-name }} {#v-1-7-0-mch-name}
+
+Добавлены параметры `--performance-diagnostics-enabled` и `--performance-diagnostics-processes-refresh-interval` в команды:
+  * `yc managed-clickhouse cluster create`;
+  * `yc managed-clickhouse cluster update`;
+  * `yc managed-clickhouse cluster restore`.
+
+#### {{ interconnect-name }} {#v-1-7-0-cic-name}
+
+* Добавлен параметр `--trunk-connection-id` в команды:
+  * `yc cic get`;
+  * `yc cic listoperations`.
+
+* Удален параметр `--private-connection-id` в командах:
+  * `yc cic get`;
+  * `yc cic listoperations`.
+
+* Удалено поле `cloud_bgp_asn` параметра `--ipv4-peering` в командах:
+  * `yc cic private-connection create`;
+  * `yc cic private-connection update`.
+
+* В вывод команд `yc cic point-of-presence get` и `yc cic point-of-presence list` добавлены поля `name`, `address` и `connection points` с дополнительной информацией о точках присутствия.
+
+* Изменен вывод команд:
+  * `yc cic get`;
+  * `yc cic list`.
+
+* Команды сервиса `yc cic` доступны в новом синтаксисе. Для вызова используйте `yc --syntax=2 cic ...` либо задайте `default-syntax: 2` или `services.cic.syntax: 2` в профиле:
+  * `yc cic partner get`;
+  * `yc cic partner list`;
+  * `yc cic point-of-presence get`;
+  * `yc cic point-of-presence list`;
+  * `yc cic private-connection create`;
+  * `yc cic private-connection delete`;
+  * `yc cic private-connection get`;
+  * `yc cic private-connection list`;
+  * `yc cic private-connection list-operations`;
+  * `yc cic private-connection move`;
+  * `yc cic private-connection remove-static-route`;
+  * `yc cic private-connection update`;
+  * `yc cic private-connection upsert-static-route`;
+  * `yc cic public-connection get`;
+  * `yc cic public-connection list`;
+  * `yc cic public-connection move`;
+  * `yc cic trunk-connection delete`;
+  * `yc cic trunk-connection get`;
+  * `yc cic trunk-connection list`;
+  * `yc cic trunk-connection list-operations`;
+  * `yc cic trunk-connection list-private-connections`;
+  * `yc cic trunk-connection list-public-connections`;
+  * `yc cic trunk-connection move`;
+  * `yc cic trunk-connection update`.
+
+### Версия 1.6.0 (27.04.26) {#v-1-6-0}
+
+#### {{ cloud-registry-name }} {#v-1-6-0-cloud-registry-name}
+
+Добавлена команда `yc cloud-registry registry lifecycle-policy dry-run` для симуляции выполнения политики жизненного цикла.
+
+#### {{ iam-name }} {#v-1-6-0-iam-name}
+
+В вывод команды `yc iam api-key list` добавлено поле `MASKED KEY`, содержащее последние 6 символов секретной части ключа.
+
+### Версия 1.5.0 (23.04.26) {#v-1-5-0}
+
+#### Изменения в системных командах CLI {#v-1-5-0-yc}
+
+* В командах CLI появилось версионирование. Оно реализовано посервисно в виде дерева дочерних команд c номером версии, например `yc compute v0`.
+
+#### {{ interconnect-name }} {#v-1-5-0-cic-name}
+
+* Удален параметр `--region` в командах:
+  * `yc cic private-connection create`;
+  * `yc cic private-connection update`;
+  * `yc cic trunk-connection update`.
+
+* Удален параметр `--point_of_presence_id` в команде `yc cic trunk-connection update`.
+
+* Удалено значение `cloud-bgp-asn` параметра `--ipv4-peering` в командах:
+  * `yc cic private-connection create`;
+  * `yc cic private-connection update`.
+
+
+#### {{ cr-name }} {#v-1-5-0-cr-name}
+
+* Удален параметр `--region` в командах:
+  * `yc cloudrouter routing-instance create`;
+  * `yc cloudrouter routing-instance update`.
+
+#### {{ mkf-name }} {#v-1-5-0-mkf-name}
+
+* Добавлен параметр `--transactional-id-expiration-ms` в команды:
+  * `yc kafka cluster create`;
+  * `yc kafka cluster update`.
+
+### Версия 1.4.0 (20.04.26) {#v-1-4-0}
+
+#### {{ cloud-registry-name }} {#v-1-4-0-cloud-registry-name}
+
+* Добавлена команда `yc cloud-registry artifact get-by-path` для получения артефакта по его пути в реестре.
+
+* Добавлены команды для управления политиками сканирований реестров в {{ cloud-registry-name }}:
+  * `yc cloud-registry registry scan-policy get`;
+  * `yc cloud-registry registry scan-policy get-by-registry`;
+  * `yc cloud-registry registry scan-policy create`;
+  * `yc cloud-registry registry scan-policy upd`.
+
+### Версия 1.3.0 (16.04.26) {#v-1-3-0}
+
+#### {{ mos-name }} {#v-1-3-0-mos-name}
+
+* Добавлены команды для управления плагинами:
+  * `yc managed-opensearch plugins add`;
+  * `yc managed-opensearch plugins delete`.
+
+#### {{ alb-name }} {#v-1-3-0-alb-name}
+
+* Добавлен параметр `--preserve-http1-header-casing` для сохранения регистра HTTP/1-заголовков для определенного обработчика в команды:
+  * `yc application-load-balancer add-listener`;
+  * `yc application-load-balancer add-http-listener`;
+  * `yc application-load-balancer update-listener`;
+  * `yc application-load-balancer update-http-listener`;
+  * `yc application-load-balancer add-sni`;
+  * `yc application-load-balancer add-http-sni`;
+  * `yc application-load-balancer update-sni`;
+  * `yc application-load-balancer update-http-sni`.
+
+#### {{ quota-manager-name }} {#v-1-3-0-quota-manager-name}
+
+* В команде `yc quota-manager quota-request list` изменен способ вывода на постраничную загрузку.
+
+#### {{ org-full-name }} {#v-1-3-0-org-name}
+
+* В командах `yc organization-manager idp user list`, `yc organization-manager idp userpool list` и `yc organization-manager idp userpool domain list` изменен способ вывода на постраничную загрузку.
+* Добавлен параметр `--password-blacklist-check-common` для установки ограничений на использование пользователями утекших паролей в команды:
+  * `yc organization-manager idp userpool create`;
+  * `yc organization-manager idp userpool update`.
+
+#### {{ mmy-name }} {#v-1-3-0-mmy-name}
+
+* В команду `yc managed-mysql cluster create` добавлена поддержка версии MySQL 8.4.
+
+#### {{ dns-name }} {#v-1-3-0-Cloud DNS}
+
+* Добавлены команды для работы с DNS Firewall:
+  * `yc dns firewall get`;
+  * `yc dns firewall list`;
+  * `yc dns firewall create`;
+  * `yc dns firewall move`;
+  * `yc dns firewall update`;
+  * `yc dns firewall delete`;
+  * `yc dns firewall add-labels`;
+  * `yc dns firewall remove-labels`;
+  * `yc dns firewall list-access-bindings`;
+  * `yc dns firewall set-access-bindings`;
+  * `yc dns firewall add-access-binding`;
+  * `yc dns firewall remove-access-binding`;
+  * `yc dns firewall list-operations`.
+
+#### {{ interconnect-name }} {#v-1-3-0-cic-name}
+
+* Удалена команда `yc cic trunk-connection create`.
+
+#### {{ mch-name }} {#v-1-3-0-mch-name}
+
+* В команду `yc managed-clickhouse cluster restore` добавлены параметры `--include-patterns` и `--exclude-patterns` для частичного восстановления кластера.
+
+### Версия 1.2.0 (13.04.26) {#v-1-2-0}
+
+#### {{ mkf-name }} {#v-1-2-0-mkf-name}
+
+* Добавлены команды для управления коннектором Iceberg Sink:
+  * `yc managed-kafka connector-iceberg-sink create`;
+  * `yc managed-kafka connector-iceberg-sink update`.
+
+#### {{ org-full-name }} {#v-1-2-0-org-name}
+
+* Добавлены команды для управления метками групп организации:
+  * `yc organization-manager group add-labels`;
+  * `yc organization-manager group remove-labels`.
+* В команды `yc organization-manager group create` и `yc organization-manager group update` добавлен параметр `--labels` для управления метками групп организации.
+
+#### {{ vpc-name }} {#v-1-2-0-vpc-name}
+
+* В команде `yc vpc security-group` удалена проверка длины CIDR-блоков.
+
+#### {{ mch-name }} {#v-1-2-0-mch}
+
+* В команде `yc managed-clickhouse cluster add-zookeeper` параметр `--convert-tables-to-replicated` включен по умолчанию. 
+
+#### {{ mmy-name }} {#v-1-2-0-mmy}
+
+* Добавлен новый режим работы прокси `--daemon` для `yc managed-mysql connect`.
+
+### Версия 1.1.0 (06.04.26) {#v-1-1-0}
+
+#### {{ sf-name }} {#v-1-1-0-sf-name}
+
+* В команду `yc serverless trigger create` для запуска {{ sw-name }} по событию триггера добавлены параметры `--start-workflow-id`, `--start-workflow-name`, `--start-workflow-service-account-id` и `--start-workflow-service-account-name` :
+  * `yc serverless trigger create timer`;
+  * `yc serverless trigger create message-queue`;
+  * `yc serverless trigger create object-storage`;
+  * `yc serverless trigger create conteiner-registry`;
+  * `yc serverless trigger create logging`;
+  * `yc serverless trigger create billing-budget`;
+  * `yc serverless trigger create yds`;
+  * `yc serverless trigger create mail`.
+
+#### Сервисы управляемых баз данных {#v-1-1-0-managed-db}
+
+Добавлен параметр конфигурации `idle_session_timeout`.
+
+#### {{ managed-k8s-name }} {#v-1-1-0-managed-k8s-name}
+
+* В команды `yc managed-kubernetes marketplace helm-release install` и `yc managed-kubernetes marketplace helm-release update` добавлены параметры `--value` и `--value-from-file` для передачи значений Helm Release; параметр `--values` помечен устаревшим:
+  * `yc managed-kubernetes marketplace helm-release install --value --value-from-file`;
+  * `yc managed-kubernetes marketplace helm-release update --value --value-from-file`.
+
+* В команду `yc managed-kubernetes marketplace helm-release install` добавлены параметры `--name` и `--namespace`: `yc managed-kubernetes marketplace helm-release install --name --namespace`.
+
+* В команды `yc managed-kubernetes marketplace helm-release install` и `yc managed-kubernetes marketplace helm-release update` добавлены примеры передачи сложных значений (списков, объектов) через `--value` и `--value-from-file`:
+  * `yc managed-kubernetes marketplace helm-release install`;
+  * `yc managed-kubernetes marketplace helm-release update`.
+
+### Версия 1.0.0 (02.04.26) {#version1.0.0}
+
+#### Изменения в системных командах CLI {#yc-1.0.0}
+
+* Отключен gRPC Service Discovery для ускорения работы CLI у пользователей с большим количеством поисковых доменов в {{ dns-name }}.
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services-1.0.0}
+
+##### {{ compute-name }} {#compute-1.0.0}
+
+В команды `yc compute instance create` и `yc compute instance update` добавлен параметр `--metadata-options` для получения метаданных IMDSv2 экземпляра, например `--metadata-options aws-v2-http-endpoint=enabled,aws-v2-http-token=enabled`.
+
+##### {{ mch-name }} {#mch-1.0.0}
+
+Опция `--copy-schema` форсированно включена и объявлена `deprecated` в команде `yc managed-clickhouse host add`.
+
+##### {{ mos-name }} {#mos-1.0.0}
+
+Добавлена возможность изменения `disk-type-id` в команде `yc managed-opensearch node-group update`.
+
+##### {{ captcha-name }} {#captcha-1.0.0}
+
+Команды `yc smartcaptcha` переведены на новый синтаксис. Для использования старого синтаксиса используйте параметр `--syntax=1` при выполнении команд:
+* `yc smartcaptcha captcha create`;
+* `yc smartcaptcha captcha delete`;
+* `yc smartcaptcha captcha get`;
+* `yc smartcaptcha captcha get-secret-key`;
+* `yc smartcaptcha captcha list`;
+* `yc smartcaptcha captcha update`.
+
+##### {{ sws-name }} {#sws-1.0.0}
+
+* Команды `yc smartwebsecurity` переведены на новый синтаксис. Для использования старого синтаксиса используйте параметр `--syntax=1` при выполнении команд:
+  * `yc smartwebsecurity security-profile create`;
+  * `yc smartwebsecurity security-profile delete`;
+  * `yc smartwebsecurity security-profile get`;
+  * `yc smartwebsecurity security-profile list`;
+  * `yc smartwebsecurity security-profile update`.
+* Изменен вывод команды `yc smartwebsecurity get`.
+
+##### {{ metadata-hub-name }} {#metadata-hub-1.0.0}
+
+Добавлены параметры `--warehouse-bucket` и `--warehouse-path` для настройки бакета {{ objstorage-name }}, который будет использоваться в качестве хранилища данных Hive Metastore (`warehouse`):
+* `yc managed-metastore cluster create --warehouse-bucket --warehouse-path`;
+* `yc managed-metastore cluster update --warehouse-bucket --warehouse-path`.
+
+### Версия 0.204.0 (30.03.26) {#version0.204.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services-0.204.0}
+
+##### {{ org-full-name }} {#organizations-0.204.0}
+
+Добавлены команды для просмотра и обновления списка пользователей и групп, к которым не применяется политика MFA:
+* `yc organization-manager mfa-enforcement list-excluded-audience`;
+* `yc organization-manager mfa-enforcement update-excluded-audience`.
+
+### Версия 0.203.0 (26.03.26) {#version0.203.0}
+
+#### Изменения в CLI {#cli-0.203.0}
+
+* Исправлена ошибка при инициализации CLI, связанная с лимитом количества облаков и каталогов.
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services-0.203.0}
+
+##### {{ baremetal-name }} {#baremetal-0.203.0}
+
+Добавлены параметры для выбора метода аллокации CIDR-блока при создании публичной подсети:
+* `yc baremetal public-subnet create --cidr-auto-allocation`;
+* `yc baremetal public-subnet create --cidr-manual-allocation`.
+
+### Версия 0.202.0 (23.03.26) {#version0.202.0}
+
+#### Изменения в сервисах {{ yandex-cloud }} {#services-0.202.0}
+
+##### {{ mch-name }} {#mch-0.202.0}
+
+Добавлен параметр `--allow-host-recreation` для пересоздания хостов в следующие команды:
+* `yc managed-clickhouse cluster update`;
+* `yc managed-clickhouse shard update`.
+
 ### Версия 0.201.0 (19.03.26) {#version0.201.0}
 
 #### Изменения в сервисах {{ yandex-cloud }}
@@ -14,8 +448,6 @@ description: На странице представлены релизы CLI, а
 ##### {{ baremetal-name }}
 
 Добавлена команда `yc baremetal vrf update` для управления статическими маршрутами VRF.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 0.200.0 (18.03.26) {#version0.200.0}
 
@@ -767,7 +1199,7 @@ yc managed-clickhouse cluster add-zookeeper --host type=<host_type>
 
 #### Изменения в CLI {#cli}
 
-* Добавлена поддержка сервиса {{ mspqr-full-name}}. Используйте команды `yc managed-sharded-postgresql`.
+* Добавлена поддержка сервиса {{ mspqr-full-name }}. Используйте команды `yc managed-sharded-postgresql`.
 * В `yc init` добавлен параметр `userpool-id`.
 
 ### Версия 0.172.0 (27.10.25) {#version0.172.0}
@@ -1529,7 +1961,7 @@ yc managed-clickhouse cluster add-zookeeper --host type=<host_type>
 Исправлено сообщение об ошибке, которое появлялось после успешного окончания операции перезапуска кластера OpenSearch или смены мастера.
 
 ##### {{ mpg-name }}
-Добавлены команды для управления пользователями в ресурсных группах в {{ GP }}:
+Добавлены команды для управления пользователями в ресурсных группах {{ GP }}:
   * `yc managed-greenplum user create`;
   * `yc managed-greenplum user get`;
   * `yc managed-greenplum user list`;
@@ -2023,7 +2455,7 @@ yc managed-greenplum cluster create --cloud-storage enabled=true
    * `yc managed-kubernetes marketplace helm-release get` — получение информации о Helm-чарте продукта {{ marketplace-name }}.
    * `yc managed-kubernetes marketplace helm-release list` — получение списка Helm-чартов {{ marketplace-name }}, установленных в кластере {{ managed-k8s-name }}.
 
-##### {{load-testing-name}}
+##### {{ load-testing-name }}
 
 * В команду `yc loadtesting agent create` добавлены параметры `log-group-id` и `log-group-name` для указания целевой лог-группы для отправки логов агента нагрузочного тестирования.
 

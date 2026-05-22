@@ -48,7 +48,7 @@ Get started with {{ yandex-cloud }}:
 
   Create a {{ mch-name }} cluster and connect to its database.
 
-* [{{ ydb-full-name}}](../../ydb/quickstart.md).
+* [{{ ydb-full-name }}](../../ydb/quickstart.md).
 
   Create a {{ ydb-name }} database and run queries against it.
 
@@ -84,9 +84,9 @@ Get started with {{ yandex-cloud }}:
 
 ### AI {#ai}
 
-* [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/index):
+* [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/index):
 
-  * [{{ gpt-lite }} and {{ gpt-pro }}]({{ link-docs-ai }}ai-studio/quickstart/yandexgpt).
+  * [{{ gpt-lite }} and {{ gpt-pro }}]({{ link-docs-ai }}ai-studio/concepts/generation/index#yandex).
 
     Leverage {{ yagpt-name }} to generate text synchronously without additional context.
 

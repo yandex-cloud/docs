@@ -11,6 +11,7 @@ For more information, see [{{ yandex-cloud }} API concepts](../api-design-guide/
 
 | Service name | API references |
 | ---------------- | --------------- |
+| {{ ai-studio-full-name }}       | [Text generation gRPC API]({{ link-docs-ai }}ai-studio/text-generation/api-ref/grpc/)<br>[Text generation REST API]({{ link-docs-ai }}ai-studio/text-generation/api-ref/)<br>[Embeddings gRPC]({{ link-docs-ai }}ai-studio/embeddings/api-ref/grpc/)<br>[Embeddings REST]({{ link-docs-ai }}ai-studio/embeddings/api-ref/)<br>[YandexART gRPC]({{ link-docs-ai }}ai-studio/image-generation/api-ref/grpc/)<br>[YandexART REST]({{ link-docs-ai }}ai-studio/image-generation/api-ref/) |
 | {{ api-gw-full-name }}                  | [gRPC](../api-gateway/apigateway/api-ref/grpc/)<br>[REST](../api-gateway/apigateway/api-ref/)<br>[WebSocket gRPC](../api-gateway/apigateway/websocket/api-ref/grpc/)<br>[WebSocket REST](../api-gateway/apigateway/websocket/api-ref/) |
 | {{ alb-full-name }}                     | [gRPC](../application-load-balancer/api-ref/grpc/)<br>[REST](../application-load-balancer/api-ref/) |
 | {{ at-full-name }}                      | [gRPC](../audit-trails/api-ref/grpc)<br>[REST](../audit-trails/api-ref/) |
@@ -33,7 +34,6 @@ For more information, see [{{ yandex-cloud }} API concepts](../api-design-guide/
 | {{ data-transfer-full-name }}           | [gRPC](../data-transfer/api-ref/grpc/)<br>[REST](../data-transfer/api-ref/) |
 | {{ iam-full-name }}                     | [gRPC](../iam/api-ref/grpc/)<br>[REST](../iam/api-ref/) |
 | {{ iot-full-name }}                     | [Devices gRPC](../iot-core/api-ref/grpc/)<br>[Devices REST](../iot-core/api-ref/)<br>[Broker gRPC](../iot-core/broker/api-ref/grpc/)<br>[Broker REST](../iot-core/broker/api-ref/) |
-| {{ foundation-models-full-name }}       | [Text generation gRPC API]({{ link-docs-ai }}ai-studio/text-generation/api-ref/grpc/)<br>[Text generation REST API]({{ link-docs-ai }}ai-studio/text-generation/api-ref/)<br>[{{ assistant-api }} gRPC]({{ link-docs-ai }}ai-studio/assistants/api-ref/grpc/)<br>[{{ assistant-api }} REST]({{ link-docs-ai }}ai-studio/assistants/api-ref/)<br>[Embeddings gRPC]({{ link-docs-ai }}ai-studio/embeddings/api-ref/grpc/)<br>[Embeddings REST]({{ link-docs-ai }}ai-studio/embeddings/api-ref/)<br>[YandexART gRPC]({{ link-docs-ai }}ai-studio/image-generation/api-ref/grpc/)<br>[YandexART REST]({{ link-docs-ai }}ai-studio/image-generation/api-ref/) |
 | {{ kms-full-name }}                     | [gRPC](../kms/api-ref/grpc/)<br>[REST](../kms/api-ref/) |
 | {{ load-testing-full-name }}            | [gRPC](../load-testing/user/api-ref/grpc/)<br>[REST](../load-testing/user/api-ref/) |
 | {{ lockbox-name }} {{ tag-preview }} | [gRPC](../lockbox/api-ref/grpc/)<br>[REST](../lockbox/api-ref/) |
@@ -61,7 +61,7 @@ For more information, see [{{ yandex-cloud }} API concepts](../api-design-guide/
 | {{ captcha-full-name }}                 | [gRPC](../smartcaptcha/api-ref/grpc/)<br>[REST](../smartcaptcha/api-ref/) |
 | {{ sws-full-name }}                     | [gRPC](../smartwebsecurity/api-ref/grpc/)<br>[REST](../smartwebsecurity/api-ref/) |
 | {{ speechkit-full-name }}               | [Synchronous recognition v2 REST]({{ link-docs-ai }}{{ speechkit-slug }}/stt/api/request-api)<br>[Asynchronous recognition v2 REST]({{ link-docs-ai }}{{ speechkit-slug }}/stt/api/transcribation-api)<br>[Streaming recognition v2 gRPC]({{ link-docs-ai }}{{ speechkit-slug }}/stt/api/streaming-api)<br>[Streaming recognition v3 gRPC]({{ link-docs-ai }}{{ speechkit-slug }}/stt-v3/api-ref/grpc/)<br>[Synthesis v1 REST]({{ link-docs-ai }}{{ speechkit-slug }}/tts/request)<br>[Synthesis v3 gRPC]({{ link-docs-ai }}{{ speechkit-slug }}/tts-v3/api-ref/grpc/) |
-| {{ sk-hybrid-full-name }}               | [Speech synthesis gRPC](../{{ speechkit-slug }}/tts-v3/api-ref/grpc/)<br>[Streaming recognition gRPC](../speechkit-hybrid/api-ref/stt/v3/grpc/) |
+| {{ sk-hybrid-full-name }}               | [{{ sk-hybrid-name }} API]({{ link-docs-ai }}/speechkit-hybrid/auth) |
 | {{ speechsense-full-name }}             | [gRPC](../speechsense/api-ref/grpc/) |
 | {{ translate-full-name }}               | [gRPC]({{ link-docs-ai }}translate/api-ref/grpc/)<br>[REST]({{ link-docs-ai }}translate/api-ref/) |
 | {{ vision-full-name }}                  | [gRPC]({{ link-docs-ai }}vision/ocr/api-ref/grpc/)<br>[REST]({{ link-docs-ai }}vision/ocr/api-ref/) |

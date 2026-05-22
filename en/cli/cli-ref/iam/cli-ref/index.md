@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/
 editable: false
 ---
 
@@ -139,6 +140,16 @@ Syntax:
 - [yc iam user-account](user-account/index.md) — Manage user accounts
 
   - [yc iam user-account get](user-account/get.md) — Show information about the specified user account
+
+- [yc iam v0](v0/index.md) — Manage Yandex Identity and Access Manager resources
+
+  - [yc iam v0 create-id-token](v0/create-id-token.md) — Create ID token and print to STDOUT
+
+  - [yc iam v0 create-token](v0/create-token.md) — Create IAM token and print to STDOUT
+
+  - [yc iam v0 revoke-token](v0/revoke-token.md) — Revoke IAM token
+
+  - [yc iam v0 whoami](v0/whoami.md) — Print currently authenticated subject to STDOUT
 
 - [yc iam workload-identity](workload-identity/index.md) — Manage workload identity
 

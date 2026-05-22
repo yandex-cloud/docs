@@ -1,10 +1,42 @@
 title: '{{ ycdr-full-name }}'
 href: index.yaml
 items:
+  - name: Getting started
+    href: quickstart.md
+  - name: Step-by-step guides
+    items:
+      - name: All guides
+        href: operations/index.md
+      - name: Investigations
+        items:
+          - name: Overview
+            href: operations/investigations/index.md
+          - name: Investigation management
+            href: operations/investigations/manage-investigations.md
+          - name: Working with the investigations list
+            href: operations/investigations/investigations-list.md
+      - name: Queries
+        items:
+          - name: Overview
+            href: operations/queries/index.md
+          - name: Managing queries
+            href: operations/queries/manage-queries.md
+          - name: Working with templates
+            href: operations/queries/work-with-templates.md
+          - name: Working with a database schema and datasets
+            href: operations/queries/work-with-schema-datasets.md
+          - name: History
+            href: operations/queries/query-history.md
   - name: Concepts
     items:
       - name: About {{ ycdr-full-name }}
         href: concepts/index.md
+      - name: Investigations
+        href: concepts/investigations.md
+      - name: Queries
+        href: concepts/queries.md
+  - name: KQL reference
+    href: kql-reference.md
   - name: Access management
     href: security/index.md
 path: en/ycdr/toc.yaml

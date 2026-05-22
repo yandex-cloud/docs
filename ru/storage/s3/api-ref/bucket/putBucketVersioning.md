@@ -1,4 +1,4 @@
-# Метод putBucketVersioning
+# Object Storage API, REST совместимый с Amazon S3: PutBucketVersioning
 
 Включает или приостанавливает версионирование бакета.
 
@@ -55,5 +55,11 @@ PUT /{bucket}?versioning HTTP/2
 Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
 
 Успешный ответ не содержит дополнительных данных.
+
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/bucket.md)
+
+* [{#T}](../../../operations/buckets/versioning.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

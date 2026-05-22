@@ -11,18 +11,32 @@ items:
         href: collector/index.md
       - name: OTLP in {{ monium-name }}
         href: collector/otlp-protocol.md
+      - name: Creating and configuring a project
+        href: collector/project.md
       - name: Otel Collector
         items:
           - name: OTel Collector setup
             href: collector/opentelemetry.md
           - name: OpenTelemetry SDK
             href: collector/otlp-sdk.md
-          - name: Java demo application example
+          - name: Java demo application example without an agent
+            href: collector/otel-clinic-standalone-example.md
+          - name: Java demo application example with an agent
             href: collector/otel-clinic-example.md
-          - name: '{{ k8s }} demo application example'
+          - name: Example of monitoring a microservice suite in {{ k8s }}
             href: collector/otel-k8s-example.md
+          - name: Example of Nginx monitoring in {{ k8s }}
+            href: collector/otel-k8s-nginx.md
           - name: Data delivery troubleshooting
             href: collector/troubleshooting.md
+      - name: Fluent Bit
+        items:
+          - name: Configuring Fluent Bit
+            href: collector/fluentbit.md
+          - name: Example for a Java demo application with Fluent Bit
+            href: collector/otel-clinic-fluentbit-example.md
+          - name: Processing logs
+            href: logs/write/fluent-bit.md
       - name: '{{ unified-agent-short-name }}'
         items:
           - name: Overview
@@ -55,54 +69,34 @@ items:
             href: concepts/data-collection/unified-agent/delete.md
   - name: Metrics
     items:
-      - name: Getting started
+      - name: Getting started with application metrics
+        href: metrics/quickstart-app.md
+      - name: Getting started with {{ yandex-cloud }} resource metrics
         href: metrics/quickstart.md
       - name: Overview of features
         href: metrics/overview.md
-      - name: Step-by-step guides
+      - name: Metrics search and analysis
+        href: metrics/metric-explorer.md
+      - name: All guides
+        href: operations/index.md
+      - name: Delivering and exporting metrics
         items:
-          - name: All guides
-            href: operations/index.md
-          - name: Working with metrics
-            items:
-              - name: Metrics overview
-                href: operations/metric/metric-explorer.md
-              - name: Delivering Linux system metrics
-                href: operations/unified-agent/linux_metrics.md
-              - name: Delivering custom application metrics
-                href: operations/unified-agent/pull_prometheus.md
-              - name: >-
-                  Delivering metrics from HAProxy and other third-party
-                  applications
-                href: operations/unified-agent/haproxy.md
-              - name: Delivering metrics from hosts outside {{ yandex-cloud }}
-                href: operations/unified-agent/non-yc.md
-              - name: Writing custom metrics via the API
-                href: operations/metric/add.md
-              - name: Getting a list of metrics
-                href: operations/metric/list.md
-              - name: Downloading metrics
-                href: operations/metric/get.md
-              - name: Exporting metrics in Prometheus format
-                href: operations/metric/prometheusExport.md
-          - name: Working with dashboards
-            items:
-              - name: Creating and managing dashboards
-                href: operations/dashboard/create.md
-              - name: Copying dashboards
-                href: operations/dashboard/copy.md
-              - name: Adding a widget to a dashboard
-                href: operations/dashboard/add-widget.md
-              - name: Adding a dashboard parameter
-                href: operations/dashboard/add-parameters.md
-              - name: Managing widgets
-                href: operations/dashboard/widget-management.md
-              - name: Deleting a widget from a dashboard
-                href: operations/dashboard/delete-widget.md
-              - name: Deleting a dashboard
-                href: operations/dashboard/delete-dashboard.md
-              - name: Examples of working with the gRPC API
-                href: operations/dashboard/api-examples.md
+          - name: Delivering Linux system metrics
+            href: operations/unified-agent/linux_metrics.md
+          - name: Delivering custom application metrics
+            href: operations/unified-agent/pull_prometheus.md
+          - name: Delivering metrics from HAProxy and other third-party applications
+            href: operations/unified-agent/haproxy.md
+          - name: Delivering metrics from hosts outside {{ yandex-cloud }}
+            href: operations/unified-agent/non-yc.md
+          - name: Writing custom metrics via the API
+            href: operations/metric/add.md
+          - name: Getting a list of metrics
+            href: operations/metric/list.md
+          - name: Downloading metrics
+            href: operations/metric/get.md
+          - name: Exporting metrics in Prometheus format
+            href: operations/metric/prometheusExport.md
       - name: Tutorials
         items:
           - name: All tutorials
@@ -121,6 +115,8 @@ items:
         items:
           - name: All metric references
             href: metrics-ref/index.md
+          - name: '{{ ai-studio-name }}'
+            href: metrics-ref/ai-studio-ref.md
           - name: '{{ api-gw-name }}'
             href: metrics-ref/api-gateway-ref.md
           - name: '{{ alb-name }}'
@@ -139,6 +135,8 @@ items:
             href: metrics-ref/functions-ref.md
           - name: '{{ cloud-logging-name }}'
             href: metrics-ref/logging-ref.md
+          - name: '{{ postbox-name }}'
+            href: metrics-ref/postbox-ref.md
           - name: '{{ compute-name }}'
             href: metrics-ref/compute-ref.md
           - name: '{{ container-registry-name }}'
@@ -185,6 +183,8 @@ items:
             href: metrics-ref/managed-valkey-ref.md
           - name: '{{ ydb-name }}'
             href: metrics-ref/ydb-ref.md
+          - name: '{{ myt-name }}'
+            href: metrics-ref/managed-ytsaurus-ref.md
           - name: '{{ message-queue-name }}'
             href: metrics-ref/message-queue-ref.md
           - name: '{{ monitoring-name }}'
@@ -209,64 +209,92 @@ items:
         href: concepts/ttl.md
   - name: Logs
     items:
-      - name: Getting started
+      - name: Getting started with application logs
         href: logs/quickstart.md
-      - name: Overview
-        href: logs/index.md
-      - name: Data collection
+      - name: Getting started with {{ yandex-cloud }} resource logs
+        href: logs/quickstart-resources.md
+      - name: Data delivery
         items:
           - name: Data conversions
             href: logs/write/converting-data.md
           - name: Fluent Bit
             href: logs/write/fluent-bit.md
-      - name: View logs
+      - name: Monitoring and analysis of logs
         href: logs/logs-explorer.md
-      - name: Query language
-        href: logs/query.md
       - name: Concepts
         items:
-          - name: Basic terms
+          - name: Overview and basic concepts
             href: logs/concepts/glossary.md
+          - name: Query language
+            href: logs/query.md
           - name: Log annotation recommendations
             href: logs/concepts/attributes-guide.md
           - name: Data retention period (TTL)
             href: logs/concepts/ttl.md
-          - name: Quotas and limits
-            href: logs/concepts/limits.md
       - name: Log metrics
         href: logs/logs-metrics.md
+      - name: Limits
+        href: logs/limits.md
   - name: Traces
     items:
       - name: Getting started
-        href: traces/quickstart.md
-      - name: Overview
         href: traces/index.md
-      - name: Instrumentation
+      - name: Basic terms
+        href: traces/concepts.md
+      - name: Application instrumentation
         items:
-          - name: Instrumentation types
-            href: traces/tools/index.md
+          - name: Auto-instrumentation
+            href: traces/instrumentation/auto.md
+          - name: Manual instrumentation
+            href: traces/instrumentation/manual.md
+          - name: HTTP communication
+            href: traces/instrumentation/http.md
+          - name: Working with databases
+            href: traces/instrumentation/database.md
+          - name: RPC calls
+            href: traces/instrumentation/rpc.md
+          - name: Asynchronous operations
+            href: traces/instrumentation/async.md
+          - name: Error handling
+            href: traces/instrumentation/exceptions.md
+          - name: Retries
+            href: traces/instrumentation/retries.md
       - name: Working with traces
         items:
-          - name: Searching traces
+          - name: Searching for traces and spans
             href: traces/operations/traces-explorer.md
           - name: Viewing and analyzing traces
-            href: traces/operations/traces-explorer.md
+            href: traces/operations/trace-view.md
           - name: Query language
-            href: traces/operations/traces-explorer.md
+            href: traces/operations/query-language.md
           - name: Critical path analysis
-            href: traces/operations/traces-explorer.md
+            href: traces/operations/critical-path.md
           - name: Trace-to-log correlation
-            href: traces/operations/traces-explorer.md
-          - name: Archiving
-            href: traces/operations/traces-explorer.md
+            href: traces/operations/traces-logs.md
+          - name: Archiving traces
+            href: traces/operations/archiving.md
+          - name: Incomplete traces
+            href: traces/operations/incomplete-traces.md
       - name: LLM monitoring
-        href: traces/operations/llm-traces.md
-      - name: Limitations
-        href: traces/constraint.md
+        items:
+          - name: Getting started
+            href: traces/llm/quickstart.md
+          - name: Auto-instrumentation of LLM applications
+            href: traces/llm/auto_instrumentation.md
+          - name: Manual instrumentation of LLM applications
+            href: traces/llm/manual_instrumentation.md
+          - name: Viewing and analyzing LLM traces
+            href: traces/llm/traces.md
+      - name: Limits
+        href: traces/limits.md
   - name: Visualizing data
     items:
       - name: Overview
         href: visualization/index.md
+      - name: Dashboard
+        href: concepts/visualization/dashboard.md
+      - name: Widgets
+        href: concepts/visualization/widget.md
       - name: Working with dashboards
         items:
           - name: Creating and managing dashboards
@@ -285,18 +313,6 @@ items:
             href: operations/dashboard/delete-dashboard.md
           - name: Examples of working with the gRPC API
             href: operations/dashboard/api-examples.md
-      - name: Concepts
-        items:
-          - name: Data model
-            href: concepts/data-model.md
-          - name: Query string
-            href: concepts/visualization/query-string.md
-          - name: Widgets
-            href: concepts/visualization/widget.md
-          - name: Dashboard
-            href: concepts/visualization/dashboard.md
-          - name: Query language
-            href: concepts/querying.md
   - name: Alerts
     items:
       - name: Step-by-step guides
@@ -367,8 +383,6 @@ items:
         href: operations/prometheus/read-write-for-kubernetes.md
   - name: Concepts
     items:
-      - name: Overview
-        href: concepts/index.md
       - name: Basic terms
         href: concepts/glossary.md
       - name: Object configuration
@@ -377,6 +391,8 @@ items:
         href: concepts/data-model.md
       - name: Query language
         href: concepts/querying.md
+      - name: Query string
+        href: concepts/visualization/query-string.md
       - name: Functions for searching metrics
         href: concepts/querying-functions.md
       - name: Data retention period (TTL)

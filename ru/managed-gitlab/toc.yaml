@@ -11,7 +11,7 @@ items:
         href: operations/instance/instance-list.md
       - name: Создание и активация инстанса
         href: operations/instance/instance-create.md
-      - name: Настройка групп безопасности и ограничение доступа к инстансу
+      - name: Настройка групп безопасности
         href: operations/configure-security-group.md
       - name: Остановка и запуск инстанса
         href: operations/instance/instance-stop.md
@@ -82,7 +82,12 @@ items:
       - name: Порядок миграции из пользовательской инсталляции {{ GL }}
         href: concepts/migration.md
       - name: Правила ревью кода
-        href: concepts/approval-rules.md
+        expanded: true
+        items:
+          - name: Обзор
+            href: concepts/approval-rules.md
+          - name: Рекомендации и примеры
+            href: concepts/approval-rules-scenarios.md
       - name: Резервные копии
         href: concepts/backup.md
       - name: Безопасность в {{ GL }}
@@ -117,6 +122,28 @@ items:
             href: cli-ref/instance/stop.md
           - name: update
             href: cli-ref/instance/update.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: instance
+            items:
+              - name: Overview
+                href: cli-ref/v0/instance/index.md
+              - name: create
+                href: cli-ref/v0/instance/create.md
+              - name: delete
+                href: cli-ref/v0/instance/delete.md
+              - name: get
+                href: cli-ref/v0/instance/get.md
+              - name: list
+                href: cli-ref/v0/instance/list.md
+              - name: start
+                href: cli-ref/v0/instance/start.md
+              - name: stop
+                href: cli-ref/v0/instance/stop.md
+              - name: update
+                href: cli-ref/v0/instance/update.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

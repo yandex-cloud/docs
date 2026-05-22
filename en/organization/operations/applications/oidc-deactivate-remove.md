@@ -1,6 +1,6 @@
 ---
 title: How to deactivate or delete an OIDC application in {{ org-full-name }}
-description: Follow this guide to deactivate, reactivate, and delete an OIDC application in {{ org-name }}.
+description: Follow this guide to deactivate, reactivate, and delete an OIDC application in {{ org-full-name }}.
 ---
 
 # Deactivating and deleting an OIDC application in {{ org-full-name }}
@@ -10,7 +10,7 @@ description: Follow this guide to deactivate, reactivate, and delete an OIDC app
 
 ## Deactivate the application {#deactivate}
 
-If you need to temporarily disable authentication in an external app using the [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC) single sign-on for your [organization’s](../../concepts/organization.md) users, deactivate the relevant [OIDC application](../../concepts/applications.md#oidc) in {{ org-name }}:
+If you need to temporarily disable authentication in an external app using the [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC) single sign-on for your [organization’s](../../concepts/organization.md) users, deactivate the relevant [OIDC application](../../concepts/applications.md#oidc) in {{ org-full-name }}:
 
 {% list tabs group=instructions %}
 
@@ -66,7 +66,7 @@ This will deactivate the OIDC application and switch its status to `Suspended`, 
 
 ## Activate the application {#reactivate}
 
-If you need to restore the ability of your organization’s users to authenticate in an external app using the OIDC single sign-on, activate the OIDC application in {{ org-name }}:
+If you need to restore the ability of your organization’s users to authenticate in an external app using the OIDC single sign-on, activate the OIDC application in {{ org-full-name }}:
 
 {% list tabs group=instructions %}
 

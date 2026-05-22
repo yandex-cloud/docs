@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-clickhouse/cli-ref/shards/update
 editable: false
 ---
 
@@ -47,6 +48,7 @@ Emergency usage threshold of the shard in the cluster. ||
 || `--weight` | `int`
 
 New weight of a ClickHouse host in the shard. ||
+|| `--allow-host-recreation` | Allows or denies re-creation of replicas during update of cluster configuration. The option must be enabled for configuration changes including disk type change. NOTE: Only data of replicated tables will be preserved during host re-creation. Data of non-replicated tables will be lost. ||
 |#
 
 #### Global Flags

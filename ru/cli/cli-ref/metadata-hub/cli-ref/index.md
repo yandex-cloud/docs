@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/metadata-hub/cli-ref/
 editable: false
 ---
 
@@ -19,6 +20,10 @@ Aliases:
 #### Command Tree
 
 - [yc metadata-hub connection-manager](connection-manager/index.md) — Manage Connection Manager connections.
+
+
+
+- [yc metadata-hub v0](v0/index.md) — Manage Metadata Hub resources.
 
 
 

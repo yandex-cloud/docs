@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/datatransfer/cli-ref/
 editable: false
 ---
 
@@ -41,6 +42,10 @@ Aliases:
   - [yc datatransfer transfer list](transfer/list.md) — List transfers in folder
 
   - [yc datatransfer transfer update](transfer/update.md) — Update transfer
+
+- [yc datatransfer v0](v0/index.md) — Manage Data Transfer endpoints and transfers
+
+
 
 #### Global Flags
 

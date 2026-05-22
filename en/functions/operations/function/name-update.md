@@ -1,9 +1,9 @@
 ---
-title: Changing the name of a function
+title: Updating a function name
 description: Follow this guide to update a function name.
 ---
 
-# Changing the name of a function
+# Updating a function name
 
 {% list tabs group=instructions %}
 
@@ -11,9 +11,9 @@ description: Follow this guide to update a function name.
 
     1. In the [management console]({{ link-console-main }}), go to the folder where you want to update a [function](../../concepts/function.md) name.
     1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-    1. Select a function.
+    1. Select the function.
     1. In the top-right corner, click **{{ ui-key.yacloud.serverless-functions.list.button_action-edit }}**.
-    1. In the window that opens, enter the desired function name.
+    1. In the window that opens, enter a new function name.
     1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -22,7 +22,7 @@ description: Follow this guide to update a function name.
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
     
-    To change the function name, run the command:
+    To update a function name, run this command:
 
     ```
     yc serverless function update <function_name> --new-name <new_function_name>
@@ -47,9 +47,9 @@ description: Follow this guide to update a function name.
 
     {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-    To change the name of a function:
+    To update a function name:
 
-    1. Open the {{ TF }} configuration file and edit the `name` field in the function description fragment.
+    1. Open the {{ TF }} configuration file and edit the `name` field in the function description.
 
         Example of a function description in the {{ TF }} configuration:
       
@@ -70,15 +70,15 @@ description: Follow this guide to update a function name.
         }
         ```
 
-        For more information about `yandex_function` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function).
+        For more information about `yandex_function` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
-    1. Check the configuration using this command:
+    1. Validate your configuration using this command:
         
        ```
        terraform validate
        ```
 
-       If the configuration is correct, you will get this message:
+       If the configuration is valid, you will get this message:
         
        ```
        Success! The configuration is valid.
@@ -90,9 +90,9 @@ description: Follow this guide to update a function name.
        terraform plan
        ```
         
-       You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them. 
+       You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration. 
          
-    1. Apply the changes:
+    1. Apply the configuration changes:
 
        ```
        terraform apply
@@ -107,7 +107,7 @@ description: Follow this guide to update a function name.
 
 - API {#api}
 
-    To rename a function, use the [update](../../functions/api-ref/Function/update.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/Update](../../functions/api-ref/grpc/Function/update.md) gRPC API call.
+    To update a function name, use the [update](../../functions/api-ref/Function/update.md) REST API method for the [Function](../../functions/api-ref/Function/index.md) resource or the [FunctionService/Update](../../functions/api-ref/grpc/Function/update.md) gRPC API call.
 
 
 {% endlist %}

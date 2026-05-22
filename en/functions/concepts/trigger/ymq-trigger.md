@@ -33,7 +33,7 @@ After the trigger picks up a message from the queue, it sends it to the function
 ## Use cases {#examples}
 
 * [{#T}](../../tutorials/serverless-trigger-budget-queue-vm-tg.md)
-* [{#T}](../../tutorials/video-converting-queue.md)
+* [{#T}](../../tutorials/video-converting-queue/index.md)
 
 ## See also {#see-also}
 

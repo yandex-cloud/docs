@@ -213,7 +213,7 @@
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан сервисный аккаунт.
       1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
       1. Нажмите **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
-      1. В открывшемся окне выберите раздел **{{ ui-key.yacloud_components.acl.label.service-accounts}}**.
+      1. В открывшемся окне выберите раздел **{{ ui-key.yacloud_components.acl.label.service-accounts }}**.
       1. Выберите сервисный аккаунт, созданный ранее.
       1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите [роль](../../lockbox/security/index.md#lockbox-payloadViewer) `{{ roles-lockbox-payloadviewer }}`.
       1. Нажмите **{{ ui-key.yacloud_components.acl.action.apply }}**.
@@ -304,8 +304,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором был создан сервисный аккаунт.
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. В списке выберите сервисный аккаунт `sa-lockbox`.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.iam.label_federations }}**.
-  1. Нажмите **{{ ui-key.yacloud.iam.connected-federation.action_connect-federation }}**.
+  1. На верхней панели нажмите ![image](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.action_connect-federation }}**.
   1. В поле **{{ ui-key.yacloud.iam.connected-federation.field_federation }}** выберите ранее созданную федерацию.
   1. В поле **{{ ui-key.yacloud.iam.connected-federation.field_subject }}** укажите идентификатор сервисного аккаунта {{ k8s }}, созданного ранее, в формате `system:serviceaccount:<пространство_имен>:<имя_сервисного_аккаунта_{{ k8s }}>`, где:
       * `пространство_имен` — значение поля `Namespace` сервисного аккаунта {{ k8s }}, например `default`.
@@ -584,9 +583,9 @@
           projected:
             sources:
               - serviceAccountToken:
-                path: sa-token
-                expirationSeconds: 7200
-                audience: https://{{ s3-storage-host }}/mk8s-oidc/v1/clusters/c49i54tk66ob********
+                  path: sa-token
+                  expirationSeconds: 7200
+                  audience: https://{{ s3-storage-host }}/mk8s-oidc/v1/clusters/c49i54tk66ob********
     ```
 
     Где:

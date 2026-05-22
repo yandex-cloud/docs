@@ -1,8 +1,8 @@
-# Editing instance settings
+# Updating instance settings
 
-After creating a [{{ GL }} instance](../../concepts/index.md#instance), you can edit the general and advanced instance settings yourself.
+After creating a [{{ GL }} instance](../../concepts/index.md#instance), you can update the general and advanced instance settings yourself.
 
-## Changing general and advanced instance settings {#change-settings}
+## Updating general and advanced instance settings {#change-settings}
 
 {% note warning %}
 
@@ -14,14 +14,14 @@ During [instance type](../../concepts/index.md#config) or disk size update, your
 
 - Management console {#console}
 
-  1. In the management console, select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where the [{{ GL }} instance](../../concepts/index.md#instance) is located.
+  1. In the management console, select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) with your [{{ GL }} instance](../../concepts/index.md#instance).
   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
   1. Select the instance and click ![image](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}** at the top of the page.
   1. At the top of the page:
 
       * Specify a new instance name and description.
-      * Add [tags](../../../resource-manager/concepts/labels.md) to break instances into logical groups.
-      * Set or remove instance protection against accidental deletion by the user.
+      * Add [labels](../../../resource-manager/concepts/labels.md) to break instances into logical groups.
+      * Enable or disable instance protection against accidental deletion by users.
 
   1. Under **{{ ui-key.yacloud.gitlab.label_configuration-section }}**:
 
@@ -34,13 +34,13 @@ During [instance type](../../concepts/index.md#config) or disk size update, your
 
         {% include [sg-notes](../../../_includes/managed-gitlab/sg-notes.md) %}
 
-      * Specify the disk size. You can increase the disk size or keep the same size. You cannot reduce the disk size.
+      * Specify the disk size. You can increase the disk size or leave it as is. Reducing the disk size is not supported.
       * Change the automatic backup retention period, in days.
       * Select the appropriate [configuration](../../concepts/approval-rules.md#packages) for approval rules.
 
           {% include [note-approval-rules-pricing](../../../_includes/managed-gitlab/note-approval-rules-pricing.md) %}
 
-      * To activate the approval rules, specify a [{{ GL }} token](../approval-rules.md#gitlab-token).
+      * To activate the approval rules, provide the [{{ GL }} token](../approval-rules.md#gitlab-token).
 
   1. Under **{{ ui-key.yacloud.gitlab.label_additional-section }}**, enable or disable deletion of untagged images. This setting affects the amount of free disk space on the instance.
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -51,7 +51,7 @@ During [instance type](../../concepts/index.md#config) or disk size update, your
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  1. View the description of the [CLI](../../../cli) command to update the {{ mgl-name }} instance settings:
+  1. View the description of the [CLI](../../../cli) command for updating {{ mgl-name }} instance settings:
 
       ```bash
       {{ yc-mdb-gl }} instance update --help
@@ -74,15 +74,15 @@ During [instance type](../../concepts/index.md#config) or disk size update, your
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
-      * `--resource-preset-id`: Host class. Represents the configuration of the virtual machine to host the {{ GL }} instance. The possible values are:
+      * `--resource-preset-id`: Host class. It determines the configuration of the VM to host the {{ GL }} instance. The possible values are:
 
           * `s2.micro`: 2 vCPUs, 8 GB RAM
           * `s2.small`: 4 vCPUs, 16 GB RAM
           * `s2.medium`: 8 vCPUs, 32 GB RAM
           * `s2.large`: 16 vCPUs, 64 GB RAM
 
-      * `--disk-size`: Disk size in GB.
-      * `--deletion-protection`: Instance protection against accidental deletion by the user.
+      * `--disk-size`: Disk size, in GB.
+      * `--deletion-protection`: Instance protection against accidental deletion by users.
 
           {% note info %}
 
@@ -143,13 +143,13 @@ During [instance type](../../concepts/index.md#config) or disk size update, your
 
       Where:
 
-      * `resource_preset_id`: Host class. Represents the configuration of the virtual machine to host the {{ GL }} instance. The possible values are:
+      * `resource_preset_id`: Host class. It determines the configuration of the VM to host the {{ GL }} instance. The possible values are:
           * `s2.micro`: 2 vCPUs, 8 GB RAM
           * `s2.small`: 4 vCPUs, 16 GB RAM
           * `s2.medium`: 8 vCPUs, 32 GB RAM
           * `s2.large`: 16 vCPUs, 64 GB RAM
 
-      * `disk_size`: Disk size in GB.
+      * `disk_size`: Disk size, in GB.
       * `approval_rules_id`: [Approval rule](../../concepts/approval-rules.md) configuration. The possible values are:
 
           * `BASIC`
@@ -159,9 +159,9 @@ During [instance type](../../concepts/index.md#config) or disk size update, your
           {% include [note-approval-rules-pricing](../../../_includes/managed-gitlab/note-approval-rules-pricing.md) %}
 
       * `backup_retain_period_days`: Automatic backup retention period, in days.
-      * `deletion_protection`: Instance protection against accidental deletion by the user. The possible values are `true` or `false`.
+      * `deletion_protection`: Instance protection against accidental deletion by users. The possible values are `true` or `false`.
 
-      For more information about `yandex_gitlab_instance` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/gitlab_instance).
+      For more information about `yandex_gitlab_instance` properties, see [this provider guide]({{ tf-provider-resources-link }}/gitlab_instance).
 
   1. Make sure the settings are correct.
 
@@ -177,7 +177,7 @@ During [instance type](../../concepts/index.md#config) or disk size update, your
       {{ yc-mdb-gl }} instance list
       ```
 
-  For more information, see this [{{ TF }} provider guide]({{ tf-provider-resources-link }}/gitlab_instance).
+  For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/gitlab_instance).
 
 - API {#api}
 

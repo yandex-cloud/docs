@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-clickhouse/cli-ref/cluster/restore
 editable: false
 ---
 
@@ -113,6 +114,10 @@ Limit for cache for data on Yandex Object Storage. ||
 || `--backup-retain-period-days` | `int`
 
 Auto backups retain period in days. ||
+|| `--performance-diagnostics-enabled` | Whether to use Performance Diagnostics service in cluster. ||
+|| `--performance-diagnostics-processes-refresh-interval` | `duration`
+
+Time interval to collect data from system.processes table. ||
 || `--labels` | `key=value[,key=value...]`
 
 A list of labels as key-value pairs to add for the cluster being restored. ||
@@ -127,6 +132,12 @@ A list of security groups for the ClickHouse cluster. ||
 || `--disk-encryption-key-id` | `string`
 
 ID of the KMS key for cluster disk encryption. Empty input will remove the use of encryption. ||
+|| `--include-patterns` | `value[,value]`
+
+A comma separated list of tables and databases that will be included in restored cluster. Possible formats: db1.table1, db1.* or db1.table* ||
+|| `--exclude-patterns` | `value[,value]`
+
+A comma separated list of tables and databases that will be excluded from restored cluster. Possible formats: db1.table1, db1.* or db1.table* ||
 || `--admin-password` | `string`
 
 Password for entity. Usage of --read-admin-password is more secure ||

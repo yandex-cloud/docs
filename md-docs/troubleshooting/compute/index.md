@@ -1,0 +1,40 @@
+# Решения для Compute Cloud
+
+## Примеры конфигураций и сценариев Compute Cloud {#configuration-examples}
+
+* [Варианты миграции образа виртуальной машины в Yandex Cloud](how-to/possible-vm-migration-scenarios.md)
+* [Как узнать о потреблении оперативной памяти виртуальными машинами в Compute Cloud](how-to/view-ram-usage-in-monitoring.md)
+* [Как уменьшить объем диска виртуальной машины](how-to/shrink-instance-disk.md)
+* [Как настроить GUI и графическое окружение на виртуальных машин с Linux](how-to/access-gui-and-xorg-on-linux-vm.md)
+* [Как экспортировать образы дисков виртуальных машин Compute Cloud](how-to/export-disk-image.md)
+* [Как перенести виртуальную машину между разными каталогами или облаками](how-to/transfer-vm-between-clouds.md)
+* [Как использовать ISO-образ для развертывания виртуальных машин](how-to/using-iso-to-deploy-vm-is-not-supported.md)
+* [Как изменить тип загрузочного диска виртуальной машины](how-to/migrate-data-from-hdd-to-ssd.md)
+* [Как получить входящий или исходящий трафик виртуальной машины](how-to/incoming-and-outcoming-traffic-logs.md)
+* [Как подключиться к виртуальной машине Linux в Yandex Cloud через WinSCP со сгенерированным при создании ключом](how-to/winscp-and-key-authorization.md)
+* [Как создать бэкап виртуальной машины с возможностью отката](how-to/create-vm-backups.md)
+* [Как подключиться по SSH от root с паролем или ключом](how-to/ssh-root-authorization.md)
+* [Как отслеживать объем потребляемой памяти](how-to/ram-monitoring.md)
+* [Как читать график `Connections quota utilization`](how-to/connections-quota-utilization.md)
+* [Как узнать скорость доступа к дискам виртуальной машины](how-to/disk-access-speed.md)
+* [Как создать виртуальную машину с доступом по паролю](how-to/create-password-protected-vm.md)
+* [Как настроить защиту RDP-подключения на Microsoft Windows®](how-to/rdp-protection-for-windows.md)
+
+## Решения для известных проблем Compute Cloud {#known-issues-resolving}
+
+* [Устранение ошибки `Permission denied` при подключении к виртуальной машине после ее создания средствами Terraform](known-issues/permission-denied-error-when-connected-as-user-created-from-terraform-manifest.md)
+* [Не поддерживается вложенная виртуализация](known-issues/nested-virtualisation-is-not-supported.md)
+* [Нет доступа к ВМ по SSH и ping после обновления cloud-init](known-issues/no-ssh-access-and-ping-after-cloud-init-update.md)
+* [Восстановление доступа к виртуальной машине с утерянным SSH-ключом](known-issues/restore-access-to-vm.md)
+* [Устранение ошибки `Not enough resources` при запуске виртуальной машины](known-issues/not-enough-resources.md)
+* [Не увеличился размер загрузочного диска](known-issues/disk-volume-did-not-increase.md)
+* [Виртуальная машина выключается операцией `Instance guest stop processing`](known-issues/instance-guest-stop-processing.md)
+* [Устранение ошибки `WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED`](known-issues/warning-remote-host-identification-has-changed.md)
+* [Устранение поломки нереплицируемого диска](known-issues/non-replicated-disk-broke-down.md)
+* [Недоступна CUDA на платформе GPU](known-issues/cuda-unavailable.md)
+* [Устранение проблем при подключении к Kosmos VM](known-issues/kosmos-vm-connection-issues.md)
+* [Устранение проблем со сбросом пароля для виртуальной машины на базе образа Kosmos VM](known-issues/kosmos-vm-password-reseting-issue.md)
+* [Устранение проблем с производительностью дискового и сетевого ввода-вывода на виртуальной машине](known-issues/throttling-and-vm-perfomance-issues.md)
+* [Устранение проблем с созданием снимков дисков](known-issues/snapshots-creation-issue.md)
+* [Устранение ошибки `The limit on maximum number of cores has exceeded`](known-issues/the-limit-on-maximum-number-of-cores-has-exceeded.md)
+* [Устранение ошибки `FAILED_PRECONDITION: Relocation to zone "ru-central1-a/b/c" is disabled`](known-issues/failed-precondition-relocation-to-zone-is-disabled.md)

@@ -16,6 +16,14 @@ description: Под техническим обслуживанием в {{ maf-
 
 {% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}
 
+{% note info %}
+
+Чтобы просматривать информацию о заданиях на техническое обслуживание, необходима [роль](../security/index.md#managed-airflow-maintenanceTask-viewer) `managed-airflow.maintenanceTask.viewer` или выше.
+
+Чтобы управлять заданиями на техническое обслуживание, необходима [роль](../security/index.md#managed-airflow-maintenanceTask-editor) `managed-airflow.maintenanceTask.editor` или выше.
+
+{% endnote %}
+
 ## См. также {#see-also}
 
 * [Управление техническим обслуживанием в кластере {{ maf-name }}](../operations/cluster-maintenance.md)

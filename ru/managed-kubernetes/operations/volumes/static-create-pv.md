@@ -248,17 +248,23 @@ description: Следуя данной инструкции, вы сможете
 
 ## Как удалить том {#delete-volume}
 
-Диски в {{ compute-name }} не удаляются автоматически при удалении `PersistentVolume`. Чтобы полностью удалить том:
+Прежде чем удалить том, надо удалить под, который его использует. Диски в {{ compute-name }} удаляются автоматически при удалении `PersistentVolume`, только если у `PersistentVolume` политика `persistentVolumeReclaimPolicy: Delete`. В общем случае, чтобы полностью удалить том:
+1. Удалите под:
+
+   ```bash
+   kubectl delete pod <имя_пода>
+   ```
+
 1. Удалите объект `PersistentVolumeClaim`:
 
    ```bash
-   kubectl delete pvc <идентификатор_объекта_PersistentVolumeClaim>
+   kubectl delete pvc <имя_PersistentVolumeClaim>
    ```
 
 1. Удалите объект `PersistentVolume`:
 
    ```bash
-   kubectl delete pv <идентификатор_объекта_PersistentVolume>
+   kubectl delete pv <имя_PersistentVolume>
    ```
 
 1. [Удалите диск](../../../compute/operations/disk-control/delete.md) в {{ compute-name }}, связанный с объектом `PersistentVolume`.

@@ -7,7 +7,7 @@ keywords:
   - keyword: '{{ SPQR }}'
 ---
 
-# Deleting an {{ SPQR }} cluster
+# Deleting a {{ SPQR }} cluster
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
@@ -22,13 +22,13 @@ Before deleting a cluster, disable its deletion protection if it is enabled.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder where you want to delete a cluster.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}** service.
     1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the cluster in question and select **{{ ui-key.yacloud.mdb.cluster.overview.button_action-delete }}**.
     1. In the window that opens, confirm the deletion and click **{{ ui-key.yacloud.mdb.dialogs.popup-confirm-delete-cluster_button }}**.
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -46,7 +46,7 @@ Before deleting a cluster, disable its deletion protection if it is enabled.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

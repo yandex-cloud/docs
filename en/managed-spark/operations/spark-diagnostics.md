@@ -90,4 +90,4 @@ Issue: Inefficient utilization of vCPU resources due to insufficient number of t
 
 #### Solution
 
-To fix the issue, we recommend breaking the stages down into smaller sub-operations. Increase the number of partitions for shuffle operations by configuring the `spark.sql.shuffle.partitions` property to achieve a more even work distribution.
+To fix the issue, we recommend breaking the stages down into smaller sub-operations. Increase the number of partitions for shuffle operations by configuring the `spark.sql.shuffle.partitions` [property](../concepts/spark-properties.md) to achieve a more even work distribution.

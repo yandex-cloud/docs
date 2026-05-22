@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/target-group/remove-targets
 editable: false
 ---
 
@@ -34,7 +35,9 @@ Possible property names:
 
 - `ip-address`: IP Address.
 
-- `private-ip-address`: Private IPv4 address. ||
+- `private-ip-address`: Private IPv4 address.
+
+- `external-address`: External address. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 

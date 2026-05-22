@@ -1,9 +1,15 @@
 ```mermaid
+%%{
+  init: {
+    "flowchart": { "defaultRenderer": "elk" },
+    "elk": { "nodePlacementStrategy": "NETWORK_SIMPLEX" }
+  }
+}%%
 flowchart BT
     iam.serviceAccounts.admin ---> iam.admin
     iam.workloadIdentityFederations.admin["`iam.workloadIdentityFederations.
     admin`"]
-    iam.workloadIdentityFederations.admin ------> iam.admin
+    iam.workloadIdentityFederations.admin --> iam.admin
     iam.workloadIdentityFederations.user["`iam.workloadIdentityFederations.
     user`"]
     iam.workloadIdentityFederations.user --> iam.workloadIdentityFederations.admin
@@ -29,6 +35,9 @@ flowchart BT
     iam.serviceAccounts.apiKeyAdmin["`iam.serviceAccounts.
     apiKeyAdmin`"]
     iam.serviceAccounts.apiKeyAdmin --> iam.serviceAccounts.keyAdmin
+    iam.serviceAccounts.ephemeralAccessKeyAdmin["`iam.serviceAccounts.
+    ephemeralAccessKeyAdmin`"]
+    iam.serviceAccounts.ephemeralAccessKeyAdmin --> iam.serviceAccounts.accessKeyAdmin
     iam.serviceAccounts.accessKeyAdmin["`iam.serviceAccounts.
     accessKeyAdmin`"]
     iam.serviceAccounts.accessKeyAdmin --> iam.serviceAccounts.keyAdmin
@@ -44,7 +53,7 @@ flowchart BT
     iam.userAccounts.refreshTokenRevoker["`iam.userAccounts.
     refreshTokenRevoker`"]
     iam.userAccounts.refreshTokenRevoker --> iam.editor
-    iam.viewer ---> iam.editor
+    iam.viewer --> iam.editor
     iam.auditor --> iam.viewer
     iam.serviceAccounts.keyAdmin["`iam.serviceAccounts.
     keyAdmin`"]

@@ -2308,7 +2308,8 @@ POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters
             "mirrorReads": {
               "samplingRate": "number",
               "maxTimeMs": "string"
-            }
+            },
+            "redactClientLogData": "boolean"
           },
           "oplog": {
             "maxSizePercent": "string",
@@ -2346,7 +2347,8 @@ POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters
           },
           "setParameter": {
             "enableFlowControl": "boolean",
-            "auditAuthorizationSuccess": "boolean"
+            "auditAuthorizationSuccess": "boolean",
+            "redactClientLogData": "boolean"
           },
           "auditLog": {
             "filter": "string"
@@ -2391,7 +2393,8 @@ POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters
             "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
             "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
             "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
-            "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
+            "shardingTaskExecutorPoolMinSizeForConfigServers": "string",
+            "redactClientLogData": "boolean"
           },
           "auditLog": {
             "filter": "string"
@@ -2432,7 +2435,8 @@ POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters
             "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
             "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
             "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
-            "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
+            "shardingTaskExecutorPoolMinSizeForConfigServers": "string",
+            "redactClientLogData": "boolean"
           },
           "auditLog": {
             "filter": "string"
@@ -2457,7 +2461,8 @@ POST https://{{ api-host-mdb }}/managed-mongodb/v1/clusters
           },
           "setParameter": {
             "enableFlowControl": "boolean",
-            "auditAuthorizationSuccess": "boolean"
+            "auditAuthorizationSuccess": "boolean",
+            "redactClientLogData": "boolean"
           },
           "auditLog": {
             "filter": "string"
@@ -6353,6 +6358,12 @@ The minimum value is 0. ||
 || mirrorReads | **[MirrorReads](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter.MirrorReads)**
 
 Specifies the settings for mirrored reads for the mongod instance ||
+|| redactClientLogData | **boolean**
+
+Enables redacting any message accompanying a given log event before logging.
+This prevents the mongod or mongos from writing potentially sensitive data
+stored on the database to the diagnostic log.
+https://mongo-db.ru/reference/configuration-options/index.html#mongodb-setting-security.redactClientLogData ||
 |#
 
 ## MirrorReads {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter.MirrorReads}
@@ -6497,6 +6508,12 @@ lag under a configurable maximum value. ||
 
 Enables the auditing of authorization successes
 https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess ||
+|| redactClientLogData | **boolean**
+
+Enables redacting any message accompanying a given log event before logging.
+This prevents the mongod or mongos from writing potentially sensitive data
+stored on the database to the diagnostic log.
+https://mongo-db.ru/reference/configuration-options/index.html#mongodb-setting-security.redactClientLogData ||
 |#
 
 ## AuditLog {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.AuditLog}
@@ -6631,6 +6648,12 @@ Optional override for ShardingTaskExecutorPoolMaxSize to set the maximum number 
 || shardingTaskExecutorPoolMinSizeForConfigServers | **string** (int64)
 
 Optional override for ShardingTaskExecutorPoolMinSize to set the minimum number of outbound connections each TaskExecutor connection pool can open to a configuration server. ||
+|| redactClientLogData | **boolean**
+
+Enables redacting any message accompanying a given log event before logging.
+This prevents the mongod or mongos from writing potentially sensitive data
+stored on the database to the diagnostic log.
+https://mongo-db.ru/reference/configuration-options/index.html#mongodb-setting-security.redactClientLogData ||
 |#
 
 ## AuditLog {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.AuditLog}
@@ -9814,7 +9837,8 @@ Acceptable values are 1 to 24, inclusive. ||
                 "mirrorReads": {
                   "samplingRate": "number",
                   "maxTimeMs": "string"
-                }
+                },
+                "redactClientLogData": "boolean"
               },
               "oplog": {
                 "maxSizePercent": "string",
@@ -9882,7 +9906,8 @@ Acceptable values are 1 to 24, inclusive. ||
                 "mirrorReads": {
                   "samplingRate": "number",
                   "maxTimeMs": "string"
-                }
+                },
+                "redactClientLogData": "boolean"
               },
               "oplog": {
                 "maxSizePercent": "string",
@@ -9950,7 +9975,8 @@ Acceptable values are 1 to 24, inclusive. ||
                 "mirrorReads": {
                   "samplingRate": "number",
                   "maxTimeMs": "string"
-                }
+                },
+                "redactClientLogData": "boolean"
               },
               "oplog": {
                 "maxSizePercent": "string",
@@ -9990,7 +10016,8 @@ Acceptable values are 1 to 24, inclusive. ||
               },
               "setParameter": {
                 "enableFlowControl": "boolean",
-                "auditAuthorizationSuccess": "boolean"
+                "auditAuthorizationSuccess": "boolean",
+                "redactClientLogData": "boolean"
               },
               "auditLog": {
                 "filter": "string"
@@ -10019,7 +10046,8 @@ Acceptable values are 1 to 24, inclusive. ||
               },
               "setParameter": {
                 "enableFlowControl": "boolean",
-                "auditAuthorizationSuccess": "boolean"
+                "auditAuthorizationSuccess": "boolean",
+                "redactClientLogData": "boolean"
               },
               "auditLog": {
                 "filter": "string"
@@ -10048,7 +10076,8 @@ Acceptable values are 1 to 24, inclusive. ||
               },
               "setParameter": {
                 "enableFlowControl": "boolean",
-                "auditAuthorizationSuccess": "boolean"
+                "auditAuthorizationSuccess": "boolean",
+                "redactClientLogData": "boolean"
               },
               "auditLog": {
                 "filter": "string"
@@ -10095,7 +10124,8 @@ Acceptable values are 1 to 24, inclusive. ||
                 "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
                 "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
                 "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
-                "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
+                "shardingTaskExecutorPoolMinSizeForConfigServers": "string",
+                "redactClientLogData": "boolean"
               },
               "auditLog": {
                 "filter": "string"
@@ -10124,7 +10154,8 @@ Acceptable values are 1 to 24, inclusive. ||
                 "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
                 "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
                 "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
-                "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
+                "shardingTaskExecutorPoolMinSizeForConfigServers": "string",
+                "redactClientLogData": "boolean"
               },
               "auditLog": {
                 "filter": "string"
@@ -10153,7 +10184,8 @@ Acceptable values are 1 to 24, inclusive. ||
                 "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
                 "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
                 "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
-                "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
+                "shardingTaskExecutorPoolMinSizeForConfigServers": "string",
+                "redactClientLogData": "boolean"
               },
               "auditLog": {
                 "filter": "string"
@@ -10196,7 +10228,8 @@ Acceptable values are 1 to 24, inclusive. ||
                 "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
                 "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
                 "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
-                "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
+                "shardingTaskExecutorPoolMinSizeForConfigServers": "string",
+                "redactClientLogData": "boolean"
               },
               "auditLog": {
                 "filter": "string"
@@ -10225,7 +10258,8 @@ Acceptable values are 1 to 24, inclusive. ||
                 "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
                 "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
                 "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
-                "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
+                "shardingTaskExecutorPoolMinSizeForConfigServers": "string",
+                "redactClientLogData": "boolean"
               },
               "auditLog": {
                 "filter": "string"
@@ -10254,7 +10288,8 @@ Acceptable values are 1 to 24, inclusive. ||
                 "warmMinConnectionsInShardingTaskExecutorPoolOnStartup": "boolean",
                 "warmMinConnectionsInShardingTaskExecutorPoolOnStartupWaitMs": "string",
                 "shardingTaskExecutorPoolMaxSizeForConfigServers": "string",
-                "shardingTaskExecutorPoolMinSizeForConfigServers": "string"
+                "shardingTaskExecutorPoolMinSizeForConfigServers": "string",
+                "redactClientLogData": "boolean"
               },
               "auditLog": {
                 "filter": "string"
@@ -10281,7 +10316,8 @@ Acceptable values are 1 to 24, inclusive. ||
               },
               "setParameter": {
                 "enableFlowControl": "boolean",
-                "auditAuthorizationSuccess": "boolean"
+                "auditAuthorizationSuccess": "boolean",
+                "redactClientLogData": "boolean"
               },
               "auditLog": {
                 "filter": "string"
@@ -10310,7 +10346,8 @@ Acceptable values are 1 to 24, inclusive. ||
               },
               "setParameter": {
                 "enableFlowControl": "boolean",
-                "auditAuthorizationSuccess": "boolean"
+                "auditAuthorizationSuccess": "boolean",
+                "redactClientLogData": "boolean"
               },
               "auditLog": {
                 "filter": "string"
@@ -10339,7 +10376,8 @@ Acceptable values are 1 to 24, inclusive. ||
               },
               "setParameter": {
                 "enableFlowControl": "boolean",
-                "auditAuthorizationSuccess": "boolean"
+                "auditAuthorizationSuccess": "boolean",
+                "redactClientLogData": "boolean"
               },
               "auditLog": {
                 "filter": "string"
@@ -14838,6 +14876,12 @@ The minimum value is 0. ||
 || mirrorReads | **[MirrorReads](#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter.MirrorReads2)**
 
 Specifies the settings for mirrored reads for the mongod instance ||
+|| redactClientLogData | **boolean**
+
+Enables redacting any message accompanying a given log event before logging.
+This prevents the mongod or mongos from writing potentially sensitive data
+stored on the database to the diagnostic log.
+https://mongo-db.ru/reference/configuration-options/index.html#mongodb-setting-security.redactClientLogData ||
 |#
 
 ## MirrorReads {#yandex.cloud.mdb.mongodb.v1.config.MongodConfig.SetParameter.MirrorReads2}
@@ -14998,6 +15042,12 @@ lag under a configurable maximum value. ||
 
 Enables the auditing of authorization successes
 https://www.mongodb.com/docs/manual/reference/parameters/#mongodb-parameter-param.auditAuthorizationSuccess ||
+|| redactClientLogData | **boolean**
+
+Enables redacting any message accompanying a given log event before logging.
+This prevents the mongod or mongos from writing potentially sensitive data
+stored on the database to the diagnostic log.
+https://mongo-db.ru/reference/configuration-options/index.html#mongodb-setting-security.redactClientLogData ||
 |#
 
 ## AuditLog {#yandex.cloud.mdb.mongodb.v1.config.MongoCfgConfig.AuditLog2}
@@ -15148,6 +15198,12 @@ Optional override for ShardingTaskExecutorPoolMaxSize to set the maximum number 
 || shardingTaskExecutorPoolMinSizeForConfigServers | **string** (int64)
 
 Optional override for ShardingTaskExecutorPoolMinSize to set the minimum number of outbound connections each TaskExecutor connection pool can open to a configuration server. ||
+|| redactClientLogData | **boolean**
+
+Enables redacting any message accompanying a given log event before logging.
+This prevents the mongod or mongos from writing potentially sensitive data
+stored on the database to the diagnostic log.
+https://mongo-db.ru/reference/configuration-options/index.html#mongodb-setting-security.redactClientLogData ||
 |#
 
 ## AuditLog {#yandex.cloud.mdb.mongodb.v1.config.MongosConfig.AuditLog2}

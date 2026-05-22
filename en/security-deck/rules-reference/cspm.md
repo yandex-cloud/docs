@@ -1,12 +1,48 @@
 ---
-title: CSPM — Cloud Security Posture Management
+title: '{{ cspm-name }} — {{ cspm-full-name }}'
 description: Rules for checking cloud resource configuration
 editable: false
 ---
 
-## CSPM — Cloud Security Posture Management
+## {{ cspm-name }} — {{ cspm-full-name }}
 
 Rules for checking cloud resource configuration.
+
+{% include [access.user-groups-access](../../_security-deck-rules/rules/cspm/access.user-groups-access.md) %}
+
+{% include [access.sa-privileges-org-roles](../../_security-deck-rules/rules/cspm/access.sa-privileges-org-roles.md) %}
+
+{% include [access.sa-privileges-service-roles](../../_security-deck-rules/rules/cspm/access.sa-privileges-service-roles.md) %}
+
+{% include [access.check-privileged-roles](../../_security-deck-rules/rules/cspm/access.check-privileged-roles.md) %}
+
+{% include [o11y.labeled-resources](../../_security-deck-rules/rules/cspm/o11y.labeled-resources.md) %}
+
+{% include [access.bucket-access-policy](../../_security-deck-rules/rules/cspm/access.bucket-access-policy.md) %}
+
+{% include [backup.compute-disks](../../_security-deck-rules/rules/cspm/backup.compute-disks.md) %}
+
+{% include [access.kms-keys-access](../../_security-deck-rules/rules/cspm/access.kms-keys-access.md) %}
+
+{% include [appsec.registry-recently-scan](../../_security-deck-rules/rules/cspm/appsec.registry-recently-scan.md) %}
+
+{% include [k8s.api-security](../../_security-deck-rules/rules/cspm/k8s.api-security.md) %}
+
+{% include [k8s.secure-configuration](../../_security-deck-rules/rules/cspm/k8s.secure-configuration.md) %}
+
+{% include [k8s.access](../../_security-deck-rules/rules/cspm/k8s.access.md) %}
+
+{% include [o11y.gitlab-audited](../../_security-deck-rules/rules/cspm/o11y.gitlab-audited.md) %}
+
+{% include [o11y.audit-trails-no-errors.en](../../_security-deck-rules/rules/cspm/o11y.audit-trails-no-errors.en.md) %}
+
+{% include [k8s.kspm.en](../../_security-deck-rules/rules/cspm/k8s.kspm.en.md) %}
+
+{% include [access.user-groups-mapping.en](../../_security-deck-rules/rules/cspm/access.user-groups-mapping.en.md) %}
+
+{% include [access.privileged-sa-access.en](../../_security-deck-rules/rules/cspm/access.privileged-sa-access.en.md) %}
+
+{% include [access.check-bindings.en](../../_security-deck-rules/rules/cspm/access.check-bindings.en.md) %}
 
 {% include [access.acl-container-registry](../../_security-deck-rules/rules/cspm/access.acl-container-registry.md) %}
 
@@ -30,10 +66,6 @@ Rules for checking cloud resource configuration.
 
 {% include [access.serial-console](../../_security-deck-rules/rules/cspm/access.serial-console.md) %}
 
-{% include [access.uses-federation](../../_security-deck-rules/rules/cspm/access.uses-federation.md) %}
-
-{% include [active.ip-vulnerability-scan](../../_security-deck-rules/rules/cspm/active.ip-vulnerability-scan.md) %}
-
 {% include [appsec.alb-https](../../_security-deck-rules/rules/cspm/appsec.alb-https.md) %}
 
 {% include [appsec.api-gateway-https](../../_security-deck-rules/rules/cspm/appsec.api-gateway-https.md) %}
@@ -42,9 +74,9 @@ Rules for checking cloud resource configuration.
 
 {% include [appsec.ddos-protection.l7](../../_security-deck-rules/rules/cspm/appsec.ddos-protection.l7.md) %}
 
-{% include [appsec.periodic-scan](../../_security-deck-rules/rules/cspm/appsec.periodic-scan.md) %}
+{% include [appsec.ddos-protection.l3](../../_security-deck-rules/rules/cspm/appsec.ddos-protection.l3.md) %}
 
-{% include [appsec.upload-policy](../../_security-deck-rules/rules/cspm/appsec.upload-policy.md) %}
+{% include [appsec.periodic-scan](../../_security-deck-rules/rules/cspm/appsec.periodic-scan.md) %}
 
 {% include [appsec.use-arl](../../_security-deck-rules/rules/cspm/appsec.use-arl.md) %}
 
@@ -58,11 +90,9 @@ Rules for checking cloud resource configuration.
 
 {% include [aws-token](../../_security-deck-rules/rules/cspm/aws-token.md) %}
 
-{% include [compute.snapshot](../../_security-deck-rules/rules/cspm/compute.snapshot.md) %}
+{% include [backup.compute-disks](../../_security-deck-rules/rules/cspm/backup.compute-disks.md) %}
 
 {% include [crypto.certificate-validity](../../_security-deck-rules/rules/cspm/crypto.certificate-validity.md) %}
-
-{% include [crypto.data.application-encryption](../../_security-deck-rules/rules/cspm/crypto.data.application-encryption.md) %}
 
 {% include [crypto.keys-deletion-protection](../../_security-deck-rules/rules/cspm/crypto.keys-deletion-protection.md) %}
 
@@ -73,8 +103,6 @@ Rules for checking cloud resource configuration.
 {% include [crypto.managed-vm-kms](../../_security-deck-rules/rules/cspm/crypto.managed-vm-kms.md) %}
 
 {% include [crypto.sa-key-rotation](../../_security-deck-rules/rules/cspm/crypto.sa-key-rotation.md) %}
-
-{% include [crypto.secrets-coi](../../_security-deck-rules/rules/cspm/crypto.secrets-coi.md) %}
 
 {% include [crypto.secrets-lockbox](../../_security-deck-rules/rules/cspm/crypto.secrets-lockbox.md) %}
 
@@ -88,17 +116,11 @@ Rules for checking cloud resource configuration.
 
 {% include [cookie-timeout.organization](../../_security-deck-rules/rules/cspm/cookie-timeout.organization.md) %}
 
-{% include [k8s.audit-logs](../../_security-deck-rules/rules/cspm/k8s.audit-logs.md) %}
-
-{% include [k8s.backup](../../_security-deck-rules/rules/cspm/k8s.backup.md) %}
-
 {% include [k8s.kubernetes-safe-config](../../_security-deck-rules/rules/cspm/k8s.kubernetes-safe-config.md) %}
 
 {% include [k8s.network-firewall-scope](../../_security-deck-rules/rules/cspm/k8s.network-firewall-scope.md) %}
 
 {% include [k8s.network-policy](../../_security-deck-rules/rules/cspm/k8s.network-policy.md) %}
-
-{% include [k8s.version-update](../../_security-deck-rules/rules/cspm/k8s.version-update.md) %}
 
 {% include [iam.group-membership-admin](../../_security-deck-rules/rules/cspm/iam.group-membership-admin.md) %}
 
@@ -106,35 +128,19 @@ Rules for checking cloud resource configuration.
 
 {% include [network.db-security-group](../../_security-deck-rules/rules/cspm/network.db-security-group.md) %}
 
-{% include [network.ddos-protection.l3](../../_security-deck-rules/rules/cspm/network.ddos-protection.l3.md) %}
-
 {% include [network.firewall](../../_security-deck-rules/rules/cspm/network.firewall.md) %}
 
 {% include [network.network-firewall-scope](../../_security-deck-rules/rules/cspm/network.network-firewall-scope.md) %}
 
 {% include [network.network-firewall](../../_security-deck-rules/rules/cspm/network.network-firewall.md) %}
 
-{% include [network.recursive-dns-resolvers](../../_security-deck-rules/rules/cspm/network.recursive-dns-resolvers.md) %}
-
 {% include [network.serverless-uses-vpc](../../_security-deck-rules/rules/cspm/network.serverless-uses-vpc.md) %}
 
 {% include [network.ydb-public](../../_security-deck-rules/rules/cspm/network.ydb-public.md) %}
 
-{% include [o11y.application-logs-audited](../../_security-deck-rules/rules/cspm/o11y.application-logs-audited.md) %}
-
 {% include [o11y.audit-trails](../../_security-deck-rules/rules/cspm/o11y.audit-trails.md) %}
 
-{% include [o11y.logs-exported-to-siem](../../_security-deck-rules/rules/cspm/o11y.logs-exported-to-siem.md) %}
-
-{% include [o11y.os-logs-audited](../../_security-deck-rules/rules/cspm/o11y.os-logs-audited.md) %}
-
 {% include [o11y.data-plane-events](../../_security-deck-rules/rules/cspm/o11y.data-plane-events.md) %}
-
-{% include [procedure.admin-secrets-leak-mitigation](../../_security-deck-rules/rules/cspm/procedure.admin-secrets-leak-mitigation.md) %}
-
-{% include [procedure.organization-contacts](../../_security-deck-rules/rules/cspm/procedure.organization-contacts.md) %}
-
-{% include [runtime.vm-environment-integrity](../../_security-deck-rules/rules/cspm/runtime.vm-environment-integrity.md) %}
 
 {% include [s3.used-object-lock](../../_security-deck-rules/rules/cspm/s3.used-object-lock.md) %}
 

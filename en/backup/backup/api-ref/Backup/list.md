@@ -215,7 +215,6 @@ format is "createdAt desc". "createdAt desc" if omitted. ||
 Filter list by various parameters.
 Supported parameters are:
 * created_at
-
 Supported logic operators:
 * AND ||
 || type | **enum** (ResourceType)

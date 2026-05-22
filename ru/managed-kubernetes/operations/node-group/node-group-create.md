@@ -60,7 +60,8 @@ description: Следуя данной инструкции, вы сможете
        --node-taints <taint-политики> \
        --container-network-settings pod-mtu=<значение_MTU_для_подов_группы> \
        --max-expansion <предел_расширения_группы_узлов> \
-       --max-unavailable <предел_недоступных_узлов>
+       --max-unavailable <предел_недоступных_узлов> \
+       --reserved-instance-pool-id <идентификатор_пула_резервов>
      ```
 
      Где:
@@ -112,6 +113,11 @@ description: Следуя данной инструкции, вы сможете
      * `--platform-id` — [платформа](../../../compute/concepts/vm-platforms.md) для узлов {{ managed-k8s-name }}.
      * `--container-runtime` — среда запуска контейнеров [containerd](https://containerd.io/).
      * `--preemptible` — флаг, который указывается, если виртуальные машины должны быть [прерываемыми](../../../compute/concepts/preemptible-vm.md).
+
+        
+        {% include [preemtible-vm](../../../_includes/managed-kubernetes/note-preemtible-vm.md) %}
+
+
      * `--public-ip` — флаг, который указывается, если группе узлов {{ managed-k8s-name }} требуется [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses).
      * `--template-labels` — [облачные метки](../../concepts/index.md#node-labels) группы узлов. Можно указать несколько меток через запятую.
      * `--node-labels` — [{{ k8s }}-метки](../../concepts/index.md#node-labels) группы узлов.
@@ -122,6 +128,7 @@ description: Следуя данной инструкции, вы сможете
 
      * `--node-taints` — [taint-политики](../../concepts/index.md#taints-tolerations) {{ k8s }}. Можно указать несколько политик.
      * `--container-network-settings` — значение [MTU](https://ru.wikipedia.org/wiki/Maximum_transmission_unit) для сетевых соединений с подами группы. Настройка не применима для кластеров с контроллерами сетевых политик Calico или Cilium.
+     * `--reserved-instance-pool-id` — [идентификатор](../../../compute/cli-ref/reserved-instance-pool/list.md) пула резервов ВМ. Подробнее читайте на странице [{#T}](./node-group-create-in-instance-pool.md).
      * Параметры [политики развертывания](../../concepts/node-group/deploy-policy.md) (deploy policy):
 
         {% include [deploy-policy-parameters-cli](../../../_includes/managed-kubernetes/deploy-policy/parameters-cli.md) %}
@@ -249,7 +256,8 @@ description: Следуя данной инструкции, вы сможете
 
        * `labels` — [облачные метки](../../concepts/index.md#node-labels) группы узлов. Можно указать несколько меток через запятую.
        * `node_labels` — [{{ k8s }}-метки](../../concepts/index.md#node-labels) группы узлов.
-       * `scale_policy` — настройки масштабирования. 
+       * `reserved_instance_pool_id` — [идентификатор](../../../compute/cli-ref/reserved-instance-pool/list.md) пула резервов ВМ. Подробнее читайте на странице [{#T}](./node-group-create-in-instance-pool.md).
+       * `scale_policy` — настройки масштабирования.
 
          Тип масштабирования нельзя изменить после создания группы узлов.
 
@@ -293,7 +301,24 @@ description: Следуя данной инструкции, вы сможете
          }
        }
        ```
+
+     * Чтобы создать группу узлов {{ managed-k8s-name }} с [прерываемыми ВМ](../../../compute/concepts/preemptible-vm.md), добавьте блок `scheduling_policy`:
+
+       ```hcl
+       resource "yandex_kubernetes_node_group" "<имя_группы_узлов>" {
+         ...
+         instance_template {
+           scheduling_policy {
+             preemptible = true
+           }
+         }
+       }
+       ```
+
        
+       {% include [preemtible-vm](../../../_includes/managed-kubernetes/note-preemtible-vm.md) %}
+
+
      * Чтобы добавить метаданные для узлов, передайте их в параметре `instance_template.metadata`.
 
         {% include [connect-metadata-list](../../../_includes/managed-kubernetes/connect-metadata-list.md) %}
@@ -360,6 +385,7 @@ description: Следуя данной инструкции, вы сможете
   * Среду запуска контейнеров [containerd](https://containerd.io/) в параметре `nodeTemplate.containerRuntimeSettings.type`.
   * [Облачные метки](../../concepts/index.md#node-labels) группы узлов в параметре `nodeTemplate.labels`.
   * [{{ k8s }}-метки](../../concepts/index.md#node-labels) группы узлов в параметре `nodeLabels`.
+  * Идентификатор [пула резервов виртуальных машин](../../../compute/concepts/reserved-pools.md) в параметре `nodeTemplate.reservedInstancePoolId`. Подробнее читайте на странице [{#T}](./node-group-create-in-instance-pool.md).
   * [Настройки масштабирования](../../concepts/autoscale.md#ca) в параметре `scalePolicy`.
   
     Тип масштабирования нельзя изменить после создания группы узлов.
@@ -403,6 +429,12 @@ description: Следуя данной инструкции, вы сможете
   * Чтобы задать шаблон имени узлов {{ managed-k8s-name }}, передайте его в параметре `nodeTemplate.name`. Для уникальности имени шаблон должен содержать хотя бы одну переменную:
 
     {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
+
+  * Чтобы создать группу узлов с [прерываемыми ВМ](../../../compute/concepts/preemptible-vm.md), передайте параметр `nodeTemplate.schedulingPolicy.preemptible`.
+
+    
+    {% include [preemtible-vm](../../../_includes/managed-kubernetes/note-preemtible-vm.md) %}
+
 
   * Чтобы указать [группу размещения](../../../compute/concepts/placement-groups.md) для узлов {{ managed-k8s-name }}, передайте идентификатор группы размещения в параметре `nodeTemplate.placementPolicy.placementGroupId`.
 
@@ -566,3 +598,8 @@ description: Следуя данной инструкции, вы сможете
       {% include [terraform-create-cluster-step-3](../../../_includes/mdb/terraform-create-cluster-step-3.md) %}
 
 {% endlist %}
+
+### См. также {#see-also}
+
+* [{#T}](./node-group-create-in-instance-pool.md)
+* [{#T}](../../concepts/index.md#node-group)

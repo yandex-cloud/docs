@@ -250,6 +250,10 @@ resource "yandex_vpc_subnet" "foo" {
 - `restore` [Block]. The cluster will be created from the specified backup.
   - `backup_id` (**Required**)(String). Backup ID. The cluster will be created from the specified backup. [How to get a list of PostgreSQL backups](https://yandex.cloud/docs/managed-mongodb/operations/cluster-backups).
   - `time` (String). Timestamp of the moment to which the MongoDB cluster should be restored. (Format: `2006-01-02T15:04:05` - UTC). When not set, current time is used.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `update` (String). 
 - `user` [Block]. A user of the MongoDB cluster.
   - `name` (**Required**)(String). The name of the user.
   - `password` (**Required**)(String). The password of the user.

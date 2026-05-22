@@ -1,16 +1,18 @@
-The `managed-mongodb.viewer` role allows you to view information about clusters, hosts, shards, databases, Yandex StoreDoc users, cluster logs, as well as about quotas and service resource operations.
+
+The `managed-mongodb.viewer` role enables viewing info on {{ SD }} clusters, hosts, shards, databases, users, cluster logs, quotas, and resource operations.
 
 Users with this role can:
-* View information about [Yandex StoreDoc clusters](../../storedoc/concepts/index.md).
-* View information about Yandex StoreDoc cluster [hosts](../../storedoc/concepts/instance-types.md).
-* View information about Yandex StoreDoc cluster [shards](../../storedoc/concepts/sharding.md).
-* View information about Yandex StoreDoc databases.
-* View information about Yandex StoreDoc [users](../../storedoc/concepts/users-and-roles.md).
-* View information about Yandex StoreDoc cluster [backups](../../storedoc/concepts/backup.md).
-* View information about Yandex StoreDoc alerts.
-* View Yandex StoreDoc cluster [logs](../../storedoc/operations/cluster-logs.md).
-* View information about the results of Yandex StoreDoc cluster performance diagnostics.
-* View information about [quotas](../../storedoc/concepts/limits.md#mmg-quotas) of Yandex StoreDoc.
-* View information about resource operations for Yandex StoreDoc.
+* View info on [{{ SD }} clusters](../../storedoc/concepts/index.md) and [access permissions](../../iam/concepts/access-control/index.md) granted for them.
+* View info on [maintenance](../../storedoc/concepts/maintenance.md) tasks for {{ SD }} clusters and modify such tasks.
+* View info on {{ SD }} cluster [hosts](../../storedoc/concepts/instance-types.md).
+* View info on {{ SD }} cluster [shards](../../storedoc/concepts/sharding.md).
+* View info on {{ SD }} databases.
+* View info on {{ SD }} [users](../../storedoc/concepts/users-and-roles.md).
+* View info on {{ SD }} cluster [backups](../../storedoc/concepts/backup.md).
+* View info on {{ SD }} alerts.
+* View {{ SD }} cluster [logs](../../storedoc/operations/cluster-logs.md).
+* View info on the results of {{ SD }} cluster performance diagnostics.
+* View info on {{ mmg-name }} [quotas](../../storedoc/concepts/limits.md#mmg-quotas).
+* View info on resource operations for {{ mmg-name }}.
 
-This role includes the `managed-mongodb.auditor` permissions.
+This role includes the `managed-mongodb.auditor` and `managed-mongodb.maintenanceTask.viewer` permissions.

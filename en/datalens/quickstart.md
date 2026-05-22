@@ -26,7 +26,8 @@ This section outlines how you can connect to a data source, create your first [d
 To create a connection:
 
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
+1. In the left-hand panel, click ![image](../_assets/console-icons/thunderbolt.svg) **Connections**.
 1. Click **Create connection**.
 1. Under **Databases**, select the **{{ CH }}** connection.
 
@@ -283,7 +284,7 @@ You can grant access to your dashboard to other users:
 
       ![image](../_assets/datalens/settings/users-settings.png)
 
-1. [Configure access permissions](./workbooks-collections/security.md) for a workbook:
+1. [Configure access permissions](./workbooks-collections/workbooks-operations.md#security) for a workbook:
 
    1. In the left-hand panel, select ![collections](../_assets/console-icons/rectangles-4.svg) **Collections and workbooks**.
    1. Click ![image](../_assets/console-icons/ellipsis.svg) next to the `Quick start` workbook and select **Access**.

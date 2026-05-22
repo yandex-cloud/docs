@@ -1,0 +1,125 @@
+# yandex_vpc_address (Resource)
+
+Manages a address within the Yandex Cloud. You can only create a reserved (static) address via this resource. An ephemeral address could be obtained via implicit creation at a compute instance creation only. For more information, see [the official documentation](../../vpc/concepts/address.md).
+
+* How-to Guides
+  * [Cloud Networking](../../vpc/index.md)
+  * [VPC Addressing](../../vpc/concepts/address.md)
+
+## Example usage
+
+```terraform
+//
+// Create a new VPC regular IPv4 Address.
+//
+resource "yandex_vpc_address" "addr" {
+  name = "exampleAddress"
+
+  external_ipv4_address {
+    zone_id = "ru-central1-a"
+  }
+}
+```
+```terraform
+//
+// Create a new VPC IPv4 Address with DDoS Protection.
+//
+resource "yandex_vpc_address" "vpnaddr" {
+  name = "vpnaddr"
+
+  external_ipv4_address {
+    zone_id                  = "ru-central1-a"
+    ddos_protection_provider = "qrator"
+  }
+}
+```
+```terraform
+//
+// Create a new VPC internal IPv4 Address.
+// The address can be used in compute_instance, vpc_private_endpoint or lb_network_load_balancer resources.
+//
+resource "yandex_vpc_address" "internal_addr" {
+  name = "internalAddress"
+
+  internal_ipv4_address {
+    subnet_id = yandex_vpc_subnet.foo.id
+  }
+}
+
+// Auxiliary resources for VPC Address
+resource "yandex_vpc_network" "foo" {}
+
+resource "yandex_vpc_subnet" "foo" {
+  zone           = "ru-central1-a"
+  network_id     = yandex_vpc_network.foo.id
+  v4_cidr_blocks = ["10.5.0.0/24"]
+}
+```
+
+## Arguments & Attributes Reference
+
+- `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
+- `deletion_protection` (Bool). The `true` value means that resource is protected from accidental deletion.
+- `description` (String). The resource description.
+- `folder_id` (String). The folder identifier that resource belongs to. If it is not provided, the default provider `folder-id` is used.
+- `id` (String). 
+- `labels` (Map Of String). A set of key/value label pairs which assigned to resource.
+- `name` (String). The resource name.
+- `reserved` (*Read-Only*) (Bool). `false` means that address is ephemeral.
+- `used` (*Read-Only*) (Bool). `true` if address is used.
+- `dns_record` [Block]. DNS record specification of address.
+  - `dns_zone_id` (**Required**)(String). DNS zone id to create record at.
+  - `fqdn` (**Required**)(String). FQDN for record to address.
+  - `ptr` (Bool). If PTR record is needed.
+  - `ttl` (Number). TTL of DNS record.
+- `external_ipv4_address` [Block]. Specification of IPv4 address.
+
+{% note warning %}
+
+Either one `address` or `zone_id` arguments can be specified.
+
+{% endnote %}
+
+
+{% note warning %}
+
+Either one `ddos_protection_provider` or `outgoing_smtp_capability` arguments can be specified.
+
+{% endnote %}
+
+
+{% note warning %}
+
+Change any argument in `external_ipv4_address` will cause an address recreate.
+
+{% endnote %}
+
+
+  - `address` (*Read-Only*) (String). Allocated IP address.
+  - `ddos_protection_provider` (String). Enable DDOS protection. Possible values are: `qrator`
+  - `outgoing_smtp_capability` (String). Wanted outgoing smtp capability.
+  - `zone_id` (String). The [availability zone](../../overview/concepts/geo-scope.md) where resource is located. If it is not provided, the default provider zone will be used.
+- `internal_ipv4_address` [Block]. Specification of internal IPv4 address.
+
+{% note warning %}
+
+Change any argument in `internal_ipv4_address` will cause an address recreate.
+
+{% endnote %}
+
+
+  - `address` (String). Allocated IP address. If not specified, an address will be automatically allocated from the subnet.
+  - `subnet_id` (**Required**)(String). Subnet ID from which the address will be allocated.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `update` (String).
+
+## Import
+
+The resource can be imported by using their `resource ID`. For getting it you can use Yandex Cloud [Web Console](https://console.yandex.cloud) or Yandex Cloud [CLI](../../cli/quickstart.md).
+
+```shell
+# terraform import yandex_vpc_address.<resource Name> <resource Id>
+terraform import yandex_vpc_address.addr ...
+```

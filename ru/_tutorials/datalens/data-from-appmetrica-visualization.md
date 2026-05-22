@@ -32,7 +32,7 @@
 
 {% endnote %}
 
-1. Перейдите в [{{ datalens-short-name }}]({{ link-datalens-main }}).
+1. Перейдите в [{{ datalens-short-name }}]({{ link-datalens-main-skip-promo }}).
 1. На панели слева выберите ![image](../../_assets/console-icons/thunderbolt.svg) **Подключения** и нажмите кнопку **Создать подключение**.
 1. Выберите подключение **AppMetrica**.
 

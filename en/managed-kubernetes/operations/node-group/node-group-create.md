@@ -60,7 +60,8 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
        --node-taints <taints> \
        --container-network-settings pod-mtu=<MTU_value_for_group_pods> \
        --max-expansion <node_group_expansion_limit> \
-       --max-unavailable <unavailable_nodes_limit>
+       --max-unavailable <unavailable_nodes_limit> \
+       --reserved-instance-pool-id <reserved_instance_pool_ID>
      ```
 
      Where:
@@ -95,6 +96,8 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
        {% include [assign-public-ip-addresses](../../../_includes/managed-kubernetes/assign-public-ip-addresses.md) %}
 
+       {% include [note-vpc-resources](../../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
      * `--memory`: Amount of memory allocated for {{ managed-k8s-name }} nodes.
      * `--name`: {{ managed-k8s-name }} node group name.
      * `--network-acceleration-type`: Select the [network acceleration](../../../compute/concepts/software-accelerated-network.md) type:
@@ -110,6 +113,11 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
      * `--platform-id`: {{ managed-k8s-name }} node [platform](../../../compute/concepts/vm-platforms.md).
      * `--container-runtime`: [containerd](https://containerd.io/) runtime environment.
      * `--preemptible`: Flag you set for [preemptible](../../../compute/concepts/preemptible-vm.md) VMs.
+
+        
+        {% include [preemtible-vm](../../../_includes/managed-kubernetes/note-preemtible-vm.md) %}
+
+
      * `--public-ip`: Flag you set if the {{ managed-k8s-name }} node group needs a [public IP address](../../../vpc/concepts/address.md#public-addresses).
      * `--template-labels`: Node group [cloud labels](../../concepts/index.md#node-labels). You can specify multiple labels separated by commas.
      * `--node-labels`: Node group [{{ k8s }} labels](../../concepts/index.md#node-labels).
@@ -120,6 +128,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
      * `--node-taints`: {{ k8s }} [taints](../../concepts/index.md#taints-tolerations). You can specify multiple values.
      * `--container-network-settings`: [MTU](https://en.wikipedia.org/wiki/Maximum_transmission_unit) value for network connections to group pods. This setting is not applicable for clusters with the Calico or Cilium network policy controllers.
+     * `--reserved-instance-pool-id`: Reserved instance pool [ID](../../../compute/cli-ref/reserved-instance-pool/list.md). For more information, see [{#T}](./node-group-create-in-instance-pool.md).
      * [Deployment policy](../../concepts/node-group/deploy-policy.md) parameters:
 
         {% include [deploy-policy-parameters-cli](../../../_includes/managed-kubernetes/deploy-policy/parameters-cli.md) %}
@@ -193,6 +202,9 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
          container_runtime {
            type = "containerd"
          }
+         network_interface {
+           nat = <assign_public_IP_addresses>
+         }
          labels {
            "<cloud_label_name>"="<cloud_label_value>"
          }
@@ -238,8 +250,13 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
          {% include [note-software-accelerated-network](../../../_includes/managed-kubernetes/note-software-accelerated-network.md) %}
 
        * `container_runtime`, `type`: [containerd](https://containerd.io/) runtime environment.
+       * `network_interface.nat`: Assign random public [IP addresses](../../../vpc/concepts/address.md) from the {{ yandex-cloud }} pool to the nodes, `true` or `false`.
+
+         {% include [public-ip](../../../_includes/managed-kubernetes/public-ip.md) %}
+
        * `labels`: Node group [cloud labels](../../concepts/index.md#node-labels). You can specify multiple labels separated by commas.
        * `node_labels`: Node group [{{ k8s }} labels](../../concepts/index.md#node-labels).
+       * `reserved_instance_pool_id`: Reserved instance pool [ID](../../../compute/cli-ref/reserved-instance-pool/list.md). For more information, see [{#T}](./node-group-create-in-instance-pool.md).
        * `scale_policy`: Scaling settings.
 
          You cannot change the scaling type after creating a node group.
@@ -254,6 +271,8 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
        * `allocation_policy`: Placement settings. These contain the `location` section with the `zone` parameter, i.e., the [availability zone](../../../overview/concepts/geo-scope.md) where you want to place the group nodes. You can place nodes of a group with the fixed scaling type across multiple availability zones. To do this, specify each availability zone you need in a separate `location` section.
 
          {% include [autoscaled-node-group-restriction](../../../_includes/managed-kubernetes/autoscaled-node-group-restriction.md) %}
+
+         {% include [note-vpc-resources](../../../_includes/managed-kubernetes/note-vpc-resources.md) %}
 
      * To create a node group with a fixed number of nodes, add the `fixed_scale` section:
 
@@ -282,7 +301,24 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
          }
        }
        ```
+
+     * To create a {{ managed-k8s-name }} node group with [preemptible VMs](../../../compute/concepts/preemptible-vm.md), add the `scheduling_policy` section:
+
+       ```hcl
+       resource "yandex_kubernetes_node_group" "<node_group_name>" {
+         ...
+         instance_template {
+           scheduling_policy {
+             preemptible = true
+           }
+         }
+       }
+       ```
+
        
+       {% include [preemtible-vm](../../../_includes/managed-kubernetes/note-preemtible-vm.md) %}
+
+
      * To add metadata for nodes, provide it in the `instance_template.metadata` parameter.
 
         {% include [connect-metadata-list](../../../_includes/managed-kubernetes/connect-metadata-list.md) %}
@@ -325,7 +361,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
        {% include [node-name](../../../_includes/managed-kubernetes/tf-node-name.md) %}
 
      For more information, see [this {{ TF }} provider guide]({{ tf-provider-k8s-nodegroup }}).
-  1. Make sure the configuration files are correct.
+  1. Validate your configuration files.
 
      {% include [terraform-create-cluster-step-2](../../../_includes/mdb/terraform-create-cluster-step-2.md) %}
 
@@ -349,6 +385,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
   * [containerd](https://containerd.io/) runtime environment in the `nodeTemplate.containerRuntimeSettings.type` parameter.
   * Node group [cloud labels](../../concepts/index.md#node-labels) in the `nodeTemplate.labels` parameter.
   * Node group [{{ k8s }} labels](../../concepts/index.md#node-labels) in the `nodeLabels` parameter.
+  * [Reserved instance pool](../../../compute/concepts/reserved-pools.md) ID in the `nodeTemplate.reservedInstancePoolId` parameter. For more information, see [{#T}](./node-group-create-in-instance-pool.md).
   * [Scaling settings](../../concepts/autoscale.md#ca) in the `scalePolicy` parameter.
   
     You cannot change the scaling type after creating a node group.
@@ -364,6 +401,8 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
     {% include [autoscaled-node-group-restriction](../../../_includes/managed-kubernetes/autoscaled-node-group-restriction.md) %}
 
+    {% include [note-vpc-resources](../../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
   * [Maintenance](../../concepts/release-channels-and-updates.md#updates) window settings in the `maintenancePolicy` parameters.
   * [Deployment policy](../../concepts/node-group/deploy-policy.md) parameters:
 
@@ -372,6 +411,10 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
   * List of settings to update in the `updateMask` parameter.
 
     {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
+
+  * To assign random public [IP addresses](../../../vpc/concepts/address.md) from the {{ yandex-cloud }} pool to the nodes, provide the `IPV4` value in the `nodeTemplate.networkInterfaceSpecs.primaryV4AddressSpec.oneToOneNatSpec.ipVersion` parameter.
+
+    {% include [public-ip](../../../_includes/managed-kubernetes/public-ip.md) %}
 
   * For nodes to use [non-replicated disks](../../../compute/concepts/disk.md#disks_types), provide `network-ssd-nonreplicated` for the `nodeTemplate.bootDiskSpec.diskTypeId` parameter.
 
@@ -386,6 +429,12 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
   * To set a template for {{ managed-k8s-name }} node names, provide it in the `nodeTemplate.name` parameter. The name is unique if the template contains at least one of the following variables:
 
     {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
+
+  * To create a node group with [preemptible VMs](../../../compute/concepts/preemptible-vm.md), provide the `nodeTemplate.schedulingPolicy.preemptible` parameter:
+
+    
+    {% include [preemtible-vm](../../../_includes/managed-kubernetes/note-preemtible-vm.md) %}
+
 
   * To specify a [placement group](../../../compute/concepts/placement-groups.md) for {{ managed-k8s-name }} nodes, provide the placement group ID in the `nodeTemplate.placementPolicy.placementGroupId` parameter.
 
@@ -407,7 +456,7 @@ Before creating a node group, [create](../kubernetes-cluster/kubernetes-cluster-
 
     {% include [node-group-metadata-postponed-update-note](../../../_includes/managed-kubernetes/node-group-metadata-postponed-update-note.md) %}
 
-  * To add [DNS records](../../../dns/concepts/resource-record.md), provide their settings in the `nodeTemplate.v4AddressSpec.dnsRecordSpecs` parameter. In a DNS record's FQDN, you can use the `nodeTemplate.name` node name template with variables.
+  * To add [DNS records](../../../dns/concepts/resource-record.md), provide their settings in the `nodeTemplate.networkInterfaceSpecs.primaryV4AddressSpec.dnsRecordSpecs` parameter. In a DNS record's FQDN, you can use the `nodeTemplate.name` node name template with variables.
 
 {% endlist %}
 
@@ -549,3 +598,8 @@ Create a node group for the {{ managed-k8s-name }} cluster with the following te
       {% include [terraform-create-cluster-step-3](../../../_includes/mdb/terraform-create-cluster-step-3.md) %}
 
 {% endlist %}
+
+### See also {#see-also}
+
+* [{#T}](./node-group-create-in-instance-pool.md)
+* [{#T}](../../concepts/index.md#node-group)

@@ -118,7 +118,7 @@ description: Из статьи вы узнаете, как задать наст
 
 ### Особенности работы с источником Greenplum {#advanced}
 
-{{ data-transfer-name }} поддерживает только {{ GP }} версии 6. {{ GP }} версий 4 и 5 не поддерживается.
+{{ data-transfer-name }} поддерживает только {{ GP }} версий 6.28 и выше. {{ GP }} других версий не поддерживается.
 
 Сервис выполняет операции с кластером {{ GP }} в транзакциях с [уровнем изоляции]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-sql_commands-SET_TRANSACTION.html) `READ COMMITTED`.
 

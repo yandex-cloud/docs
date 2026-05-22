@@ -285,7 +285,7 @@ You can use the management console or {{ yandex-cloud }} CLI to:
   1. In the [management console]({{ link-console-main }}), select the folder for your database.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Click **{{ ui-key.yacloud.ydb.databases.button_create }}**.
-  1. Specify a **{{ ui-key.yacloud.ydb.forms.label_field_name }}** for the database. The naming requirements are as follows:
+  1. Specify a **{{ ui-key.yacloud.ydb.forms.label_field_name }}** for the database. Follow these naming requirements:
 
       {% include [name-format](../../_includes/name-format.md) %}
 

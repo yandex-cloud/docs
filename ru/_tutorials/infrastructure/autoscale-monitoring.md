@@ -379,41 +379,7 @@
      
      {% endcut %}
      
-   * В поле `folder_id` укажите идентификатор каталога в {{ yandex-cloud }}.
-   
-     {% cut "Как узнать идентификатор каталога" %}
-     
-     {% list tabs group=instructions %}
-     
-     - Консоль управления {#console}
-     
-       На [странице облака]({{ link-console-cloud }}) в списке **{{ ui-key.yacloud.iam.cloud.folders.section_folders }}** найдите каталог `example-folder` и скопируйте его **{{ ui-key.yacloud.common.id }}**.
-     
-     - CLI {#cli}
-     
-       Выполните следующую команду:
-       
-       ```bash
-       yc resource-manager folder get example-folder
-       ```
-       
-       Результат:
-       
-       ```
-       id: b1g9hv2loamq********
-       cloud_id: b1g2y61sxwqx********
-       created_at: "2021-10-04T13:21:32.788067492Z"
-       name: example-folder
-       status: ACTIVE
-       ```
-       
-     - API {#api}
-     
-       Воспользуйтесь методом REST API [list](../../resource-manager/api-ref/Folder/list.md) для ресурса [Folder](../../resource-manager/api-ref/Folder/index.md) или вызовом gRPC API [FolderService/List](../../resource-manager/api-ref/grpc/Folder/list.md).
-     
-     {% endlist %}
-     
-     {% endcut %}
+   * В поле `folder_id` укажите [идентификатор каталога](../../resource-manager/operations/folder/get-id.md) в {{ yandex-cloud }}.
      
    * В поле `subnet_id` укажите идентификатор подсети `queue-autoscale-subnet-d`.
    

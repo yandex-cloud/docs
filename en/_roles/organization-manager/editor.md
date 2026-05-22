@@ -5,15 +5,16 @@ The `organization-manager.editor` role enables managing organization settings, i
 * View and edit info on the relevant Identity Hub [organization](../../organization/concepts/organization.md).
 * View and edit organization settings.
 * View info on [access permissions](../../iam/concepts/access-control/index.md) granted for the organization.
-* List access policies assigned to the organization.
+* View [access policies](../../iam/concepts/access-control/access-policies.md) assigned to the organization.
+* View and edit the organization's [branding](../../organization/concepts/branding.md) settings.
 * View the list of the organization's [users](../../organization/concepts/mfa.md), info on them (including their phone number), their latest authentication date, and the latest verification date for federated and local accounts via [two-factor authentication](../../organization/concepts/mfa.md).
-* View info on access permissions granted for [entities](../../iam/concepts/access-control/index.md#subject) in the Identity Hub organization.
-* View info on the [identity federations](../../organization/concepts/add-federation.md) in an organization and create, modify, and delete such federations.
+* View info on access permissions granted for [entities](../../iam/concepts/access-control/index.md#subject) in an Identity Hub organization.
+* View info on [identity federations](../../organization/concepts/add-federation.md) in an organization and create, modify, and delete such federations.
 * Add and remove federated users.
 * View info on identity federation [certificates](../../organization/concepts/add-federation.md#build-trust) and add, modify, and delete them.
 * Configure [federated user](../../iam/concepts/users/accounts.md#saml-federation) group [mapping](../../organization/concepts/add-federation.md#group-mapping).
 * View the lists of federated user group mappings and info on them, as well as create, edit, and delete such lists.
-* View info on the attributes of [federated](../../iam/concepts/users/accounts.md#saml-federation) user, as well as create, modify, and delete such attributes.
+* View info on the attributes of [federated](../../iam/concepts/users/accounts.md#saml-federation) users, as well as create, modify, and delete such attributes.
 * View info on [user pools](../../organization/concepts/user-pools.md) and access permissions granted for them.
 * Create, modify, and delete user pools.
 * View info on [domains](../../organization/concepts/domains.md) linked to user pools, as well as add, confirm, and remove domains.
@@ -24,7 +25,7 @@ The `organization-manager.editor` role enables managing organization settings, i
 * View info on SAML and OIDC applications, as well as access permissions granted for them.
 * Create, deactivate, activate, modify, and delete SAML and OIDC applications.
 * View the list of users added to SAML and OIDC applications.
-* Get certificates of SAML applications and create, modify, and delete such certificates.
+* Get the certificates of SAML applications and create, modify, and delete such certificates.
 * View the list of organization users that are [subscribed](../../organization/operations/subscribe-user-for-notifications.md) to technical notifications on organization events, as well as edit this list.
 * View info on [MFA policies](../../organization/concepts/mfa.md#mfa-policies) and create, modify, activate, deactivate, and delete such policies.
 * Delete [MFA factors](../../iam/concepts/users/accounts.md#saml-federation) for federated and [local](../../iam/concepts/users/accounts.md#saml-federation) user accounts.
@@ -37,13 +38,14 @@ The `organization-manager.editor` role enables managing organization settings, i
 * View the list of groups a certain user is a member of, as well as the list of users that are members of a certain group.
 * View the list of and info on Identity Hub user groups associated with identity federations and user pools through synchronization with user groups in Active Directory or another external source.
 * View info on a subscription to the paid-for Identity Hub features.
-* View info on stats regarding the use of the quotes within a subscription to the paid-for Identity Hub features.
+* View stats regarding the use of quotes within a subscription to the paid-for Identity Hub features.
 * View the list of users who employ the Identity Hub authentication quota in the current [reporting period](../../billing/concepts/reporting-period.md).
 * View and edit the [refresh token](../../iam/concepts/authorization/refresh-token.md) settings in an organization.
-* View the info on the refresh tokens of the organization's users, as well as revoke such tokens.
-* View info on the Identity Hub quotas.
+* View info on the organization users' refresh tokens, as well as revoke such tokens.
+* View and terminate federated and local users' [sessions](../../organization/concepts/sessions.md).
+* View info on Identity Hub quotas.
 * View info on the effective tech support [service plan](../../support/pricing.md#effective-plans).
-* View the list of technical support [requests](../../support/overview.md) and the info on them, as well as create and close such requests, leave comments, and attach files to them.
+* View the list of technical support [requests](../../support/overview.md) and info on them, as well as create and close such requests, leave comments, and attach files to them.
 
 {% endcut %}
 

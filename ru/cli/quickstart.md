@@ -31,19 +31,23 @@ _Интерфейс командной строки {{ yandex-cloud }} (CLI)_ �
 {% list tabs group=authentication %}
 
 - Аккаунт на Яндексе {#yandex-account}
-
-  {% include [include](../_includes/cli/create-profile.md) %}
-
+  
+  {% include [include](../_includes/cli/passport-profile-create.md) %}
+  
 - Федеративный аккаунт {#federated-account}
 
   {% include [include](../_includes/cli/auth-federated-user.md) %}
+
+- Аккаунт локального пользователя {#local-account}
+
+  {% include [include](../_includes/cli/auth-local-user.md) %}
 
 {% endlist %}
 
 
 ## Примеры команд {#example}
 
-Ниже описана последовательность действий для создания [облачной сети](../vpc/concepts/network.md#network), [подсети](../vpc/concepts/network.md#subnet) и [виртуальной машины](../compute/concepts/vm.md), подключенной к этой подсети.
+Ниже описано, как создать [облачную сеть](../vpc/concepts/network.md#network), [подсеть](../vpc/concepts/network.md#subnet) и [виртуальную машину](../compute/concepts/vm.md), подключенную к этой подсети.
 1. Посмотрите описание команд CLI для работы с облачными сетями:
 
    ```bash

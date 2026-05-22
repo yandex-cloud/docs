@@ -1,24 +1,24 @@
-# Search API domain
+# Yandex Search API domain
 
 ## *class* yandex\_ai\_studio\_sdk.\_search\_api.domain.**AsyncSearchAPIDomain**{#yandex_ai_studio_sdk._search_api.domain.AsyncSearchAPIDomain}
 
-Domain for working with [Yandex Search API](https://yandex.cloud/docs/search-api) services.
+Domain for working with [Yandex Search API service](https://aistudio.yandex.ru/docs/search-api/concepts/index).
 
 **generative**\: *[AsyncGenerativeSearchFunction](#yandex_ai_studio_sdk._search_api.generative.function.AsyncGenerativeSearchFunction)*{#yandex_ai_studio_sdk._search_api.domain.AsyncSearchAPIDomain.generative}
 
-API for [generative response](https://yandex.cloud/docs/search-api/concepts/generative-response) service
+API for [generative response](https://aistudio.yandex.ru/docs/search-api/concepts/generative-response) service
 
 **web**\: *[AsyncWebSearchFunction](#yandex_ai_studio_sdk._search_api.web.function.AsyncWebSearchFunction)*{#yandex_ai_studio_sdk._search_api.domain.AsyncSearchAPIDomain.web}
 
-API for [web search](https://yandex.cloud/ru/docs/search-api/concepts/web-search) service
+API for [web search](https://aistudio.yandex.ru/docs/search-api/concepts/web-search) service
 
 **image**\: *[AsyncImageSearchFunction](#yandex_ai_studio_sdk._search_api.image.function.AsyncImageSearchFunction)*{#yandex_ai_studio_sdk._search_api.domain.AsyncSearchAPIDomain.image}
 
-API for [text image search](https://yandex.cloud/ru/docs/search-api/concepts/image-search#search-by-text-query) service
+API for [text image search](https://aistudio.yandex.ru/docs/search-api/concepts/image-search#search-by-text-query) service
 
 **by\_image**\: *[AsyncByImageSearchFunction](#yandex_ai_studio_sdk._search_api.by_image.function.AsyncByImageSearchFunction)*{#yandex_ai_studio_sdk._search_api.domain.AsyncSearchAPIDomain.by_image}
 
-API for [search by image](https://yandex.cloud/ru/docs/search-api/concepts/image-search#search-by-image) service
+API for [search by image](https://aistudio.yandex.ru/docs/search-api/concepts/image-search#search-by-image) service
 
 ## Generative search
 
@@ -32,7 +32,7 @@ Creates generative search object which provides methods for invoking generative 
 
 Not to be confused with **sdk.tools.generative\_search**. Tools domain is for creating tools for using in LLMs/Assistants and search\_api domain is for using Search API directly.
 
-To learn more about parameters and their formats and possible values, refer to [generative search documentation](https://yandex.cloud/docs/search-api/concepts/generative-response#body)
+To learn more about parameters and their formats and possible values, refer to [generative search documentation](https://aistudio.yandex.ru/docs/search-api/concepts/generative-response#body)
 
 NB: All of the **site**, **host**, **url** parameters are mutually exclusive.
 
@@ -59,7 +59,7 @@ NB: All of the **site**, **host**, **url** parameters are mutually exclusive.
 
 ### *class* yandex\_ai\_studio\_sdk.\_search\_api.generative.generative.**AsyncGenerativeSearch**{#yandex_ai_studio_sdk._search_api.generative.generative.AsyncGenerativeSearch}
 
-Generative search class which provides concrete methods for working with Search API and incapsulates search setting.
+Generative search class which provides concrete methods for working with Yandex Search API and encapsulates search setting.
 
 *async* **run**(*request*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *timeout=60*){#yandex_ai_studio_sdk._search_api.generative.generative.AsyncGenerativeSearch.run}
 
@@ -80,7 +80,7 @@ To change initial search settings use **.configure** method:
 Also message could be one of the data formats:
 - **"string"** – in case of string input message will be passed to a model with a **role="user"**;
 - **{"text": "text", "role": "user"}** – in case of dict input, it will be passed with corresponding **"text"** and **"role"** dict keys;
-- **MessageObject** – you could also pass any object which have a **text: str** and **role: str** attributes, allowing to reuse various result object, for example object you getting from compltions model run or result object from generative search itself;
+- **MessageObject** – you could also pass any object which have a **text: str** and **role: str** attributes, allowing to reuse various result object, for example object you getting from completions model run or result object from generative search itself;
 - **["string"/dict/object]** – list or any other sequence of any above described formats.
 
 - **timeout** ([*float*](https://docs.python.org/3/library/functions.html#float)) – timeout, or the maximum time to wait for the request to complete in seconds. ||
@@ -102,9 +102,9 @@ Converts generative search instance to [**GenerativeSearchTool**](../types/tools
 
 Returns the new object with config fields overrode by passed values.
 
-To learn more about parameters and their formats and possible values, refer to [generative search documentation](https://yandex.cloud/docs/search-api/concepts/generative-response#body)
+To learn more about parameters and their formats and possible values, refer to [generative search documentation](https://aistudio.yandex.ru/docs/search-api/concepts/generative-response#body)
 
-NB: All of the **site**, **host**, **url** parameters are mutually exclusive and using one of them is mandatory.
+NB: All of the **site**, **host**, **url** parameters are mutually exclusive
 
 #|
 || Parameters | 
@@ -168,7 +168,7 @@ To learn more about parameters and their formats and possible values, refer to [
 
 ### *class* yandex\_ai\_studio\_sdk.\_search\_api.web.web.**AsyncWebSearch**{#yandex_ai_studio_sdk._search_api.web.web.AsyncWebSearch}
 
-Web search class which provides concrete methods for working with Web Search API and incapsulates search setting.
+Web search class which provides concrete methods for working with web search and encapsulates search setting.
 
 *async* **run**(*query\: [str](https://docs.python.org/3/library/stdtypes.html#str)*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *format\: [Literal](https://docs.python.org/3/library/typing.html#typing.Literal)['parsed'] = 'parsed'*, *page\: [int](https://docs.python.org/3/library/functions.html#int) = 0*, *timeout\: [float](https://docs.python.org/3/library/functions.html#float) = 60*) → [AsyncWebSearchResult](#yandex_ai_studio_sdk._search_api.web.result.AsyncWebSearchResult){#yandex_ai_studio_sdk._search_api.web.web.AsyncWebSearch.run}
 
@@ -329,7 +329,7 @@ To learn more about parameters and their formats and possible values, refer to [
 
 ### *class* yandex\_ai\_studio\_sdk.\_search\_api.image.image.**AsyncImageSearch**{#yandex_ai_studio_sdk._search_api.image.image.AsyncImageSearch}
 
-Image search class which provides concrete methods for working with Image Search API and incapsulates search setting.
+Image search class which provides concrete methods for working with image search and encapsulates search setting.
 
 *async* **run**(*query\: [str](https://docs.python.org/3/library/stdtypes.html#str)*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *format\: [Literal](https://docs.python.org/3/library/typing.html#typing.Literal)['parsed'] = 'parsed'*, *page\: [int](https://docs.python.org/3/library/functions.html#int) = 0*, *timeout\: [float](https://docs.python.org/3/library/functions.html#float) = 60*) → [AsyncImageSearchResult](#yandex_ai_studio_sdk._search_api.image.result.AsyncImageSearchResult){#yandex_ai_studio_sdk._search_api.image.image.AsyncImageSearch.run}
 
@@ -447,7 +447,7 @@ To learn more about parameters and their formats and possible values, refer to [
 
 ### *class* yandex\_ai\_studio\_sdk.\_search\_api.by\_image.by\_image.**AsyncByImageSearch**{#yandex_ai_studio_sdk._search_api.by_image.by_image.AsyncByImageSearch}
 
-ByImage search class which provides concrete methods for working with ByImage Search API and incapsulates search setting.
+ByImage search class which provides concrete methods for working with ByImage Yandex Search API and encapsulates search setting.
 
 *async* **run**(*image\_data*, *<span title="Keyword-only parameters separator (PEP 3102)">\*</span>*, *page=0*, *timeout=60*){#yandex_ai_studio_sdk._search_api.by_image.by_image.AsyncByImageSearch.run}
 

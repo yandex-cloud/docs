@@ -1,5 +1,5 @@
 ---
-title: '{{ kafka-ui }} for {{ KF }}'
+title: '{{ kafka-ui }} for {{ mkf-name }}'
 description: In this tutorial, you will learn about the features of {{ kafka-ui }}, a web UI for {{ KF }}.
 ---
 
@@ -42,5 +42,5 @@ Main web UI features:
 For more information on using the web UI, see the [{{ kafka-ui }} for {{ KF }} documentation]({{ kafka-ui-kafbat }}).
 
 
-For a step-by-step guide on how to enable {{ kafka-ui }}, see [{#T}](../operations/kafka-ui-enable.md).
+For a step-by-step guide on how to enable {{ kafka-ui }}, see [here](../operations/kafka-ui-enable.md).
 

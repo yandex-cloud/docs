@@ -1,3 +1,8 @@
+---
+title: Pushing a Helm chart to a {{ cloud-registry-name }}
+description: In this tutorial, you will learn how to push Helm charts to a {{ cloud-registry-name }}.
+---
+
 # Pushing a Helm chart to a registry
 
 You can push a [Helm chart](https://helm.sh/docs/topics/charts/) to a [registry](../../concepts/registry.md) in {{ cloud-registry-name }}. {{ cloud-registry-name }} stores Helm charts as [Docker images](../../concepts/artifacts/docker.md).
@@ -129,7 +134,7 @@ To push a Helm chart:
   1. Push the Helm chart to {{ cloud-registry-name }}:
 
      ```bash
-     helm push my-chart-3.11.2.tgz oci://{{ cloud-registry}}/<registry_ID>
+     helm push my-chart-3.11.2.tgz oci://{{ cloud-registry }}/<registry_ID>
      ```
 
      Result:

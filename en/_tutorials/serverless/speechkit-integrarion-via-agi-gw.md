@@ -1,11 +1,11 @@
 # Using {{ api-gw-full-name }} to set up speech synthesis in {{ speechkit-full-name }}
 
 
-With serverless technology, you can create your own integration with {{ yandex-cloud }} services.
+With serverless technology, you can create your own integration with the {{ yandex-cloud }} services.
 
 In this tutorial, you will create a custom setup with an [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification)-based [API gateway](../../api-gateway/concepts/index.md) with [HTTP integration](../../api-gateway/concepts/extensions/http.md). 
 
-The users' speech synthesis requests run through the API gateway that uses HTTP integration to call the [{{ speechkit-name }} API]({{ link-docs-ai }}speechkit/concepts/api) and retrieve the synthesized speech from {{ speechkit-name }}.
+Users’ speech synthesis requests run through the API gateway that uses HTTP integration to call the [{{ speechkit-name }} API]({{ link-docs-ai }}speechkit/concepts/api) and retrieve the synthesized speech from {{ speechkit-name }}.
 
 To set up {{ speechkit-name }} speech synthesis using {{ api-gw-full-name }}:
 
@@ -39,9 +39,9 @@ The new infrastructure support cost includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter the service account name: `speechkit-sa`.
+  1. Name the service account: `speechkit-sa`.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `ai.speechkit-tts.user`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -96,7 +96,7 @@ The new infrastructure support cost includes:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create an API gateway.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter `speechkit-api-gw`.
   1. Under **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}**, add the following specification and provide the `speechkit-sa` service account [ID](../../iam/operations/sa/get-id.md) in the `service_account_id` parameter:

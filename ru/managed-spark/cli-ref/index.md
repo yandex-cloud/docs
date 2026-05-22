@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-spark/cli-ref/
 editable: false
 ---
 
@@ -59,6 +60,10 @@ Aliases:
   - [yc managed-spark job list](job/list.md) — List Spark jobs for a cluster.
 
   - [yc managed-spark job log](job/log.md) — List logs for Spark job.
+
+- [yc managed-spark v0](v0/index.md) — Manage Spark clusters.
+
+
 
 #### Global Flags
 

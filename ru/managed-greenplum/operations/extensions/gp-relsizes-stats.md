@@ -5,7 +5,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Использование gp_relsizes_stats в {{ mgp-name }}
 
-Расширение `gp_relsizes_stats` предназначено для сбора статистики о физических размерах файлов и таблиц на всех сегментах кластера {{ GP }}.
+Расширение `gp_relsizes_stats` предназначено для сбора статистики о физических размерах файлов и таблиц на всех сегментах кластера {{ mgp-name }}.
 
 Ключевые возможности:
 
@@ -53,7 +53,7 @@ description: Следуя данной инструкции, вы сможете
 
 Чтобы изменить настройки, обратитесь в [службу технической поддержки]({{ link-console-support }}).
 
-## Установка расширения gp_relsizes_stats в кластер {{ GP }} {#extension-install}
+## Установка расширения gp_relsizes_stats в кластер {{ mgp-name }} {#extension-install}
 
 1. [Подключитесь](../connect/index.md) к базе данных от имени владельца или пользователя, имеющего в базе данных разрешение `CREATE`, и выполните команду:
 
@@ -75,6 +75,10 @@ description: Следуя данной инструкции, вы сможете
      ...
      gp_relsizes_stats
     ```
+
+1. Обратитесь [службу технической поддержки]({{ link-console-support }}) для применения расширения.
+
+1. [Перезапустите](../cluster-stop.md) кластер.
 
 ## Примеры использования {#examples}
 
@@ -161,5 +165,3 @@ FROM relsizes_stats_schema.table_sizes_history
 WHERE nspname='call_center' AND relname='operators'
 ORDER BY insert_date;
 ```
-
-{% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}

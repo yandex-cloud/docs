@@ -2,14 +2,14 @@
 title: Getting information about a route table in {{ vpc-full-name }}
 ---
 
-# Getting information about a route table
+# Getting route table info
 
 {% list tabs %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing your [route table](../concepts/routing.md).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the [route table](../concepts/routing.md).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.switch_route-tables }}**.
   1. Select the route table you need.
   1. The **{{ ui-key.yacloud.common.overview }}** page will display detailed information about the route table.
@@ -69,15 +69,15 @@ title: Getting information about a route table in {{ vpc-full-name }}
      * `data "yandex_vpc_route_table"`: Description of the route table as a data source:
        * `route_table_id`: Route table ID.
      * `output "route-table"`: Output variable containing information about static routes of the route table:
-       * `value`: Returned value.
+       * `value`: Return value.
 
-     You can replace `static_route` with any other parameter to get the information you need. For more information about the `yandex_vpc_route_table` data source parameters, see the [relevant provider documentation]({{ tf-provider-datasources-link }}/vpc_route_table).
+     You can replace `static_route` with any other parameter to get the information you need. For more information about the `yandex_vpc_route_table` data source properties, see [this provider guide]({{ tf-provider-datasources-link }}/vpc_route_table).
 
   1. Create resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources and display the output variable values in the terminal. To check the results, run this command:
+     {{ TF }} will create all required resources and display their output variables. To check the results, run this command:
 
      ```bash
      terraform output

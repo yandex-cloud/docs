@@ -1,12 +1,12 @@
 ---
 title: Access management in {{ mkf-full-name }}
-description: Access management in Apache Kafka, a database creation and management service. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
+description: Access management in Apache Kafka, a database creation and management service. This section describes the resources you can assign a role for, the roles this service has, and the roles required for specific actions.
 ---
 
 # Access management in {{ mkf-name }}
 
 
-In this section, you will learn about:
+In this section, you will learn about the following:
 
 * [Resources you can assign a role for](#resources).
 * [Roles this service has](#roles-list).
@@ -28,7 +28,7 @@ You can also assign a role for an individual cluster in the [management console]
 
 ## Roles this service has {#roles-list}
 
-The chart below shows the roles existing in the service and their permission inheritance. For example, `{{ roles-editor }}` inherits all `{{ roles-viewer }}` permissions. You can find the role descriptions below the chart.
+The diagram below shows available service roles and their permission inheritance hierarchy. For example, `{{ roles-editor }}` inherits all `{{ roles-viewer }}` permissions. You can find role descriptions below the diagram.
 
 {% include [roles-managed-kafka](../../_mermaid/roles/managed-kafka.md) %}
 
@@ -43,6 +43,10 @@ The chart below shows the roles existing in the service and their permission inh
 {% include [managed-kafka.viewer](../../_roles/managed-kafka/viewer.md) %}
 
 
+#### managed-kafka.user {#managed-kafka-user}
+
+{% include [managed-kafka.user](../../_roles/managed-kafka/user.md) %}
+
 #### managed-kafka.editor {#managed-kafka-editor}
 
 {% include [managed-kafka.editor](../../_roles/managed-kafka/editor.md) %}
@@ -50,6 +54,14 @@ The chart below shows the roles existing in the service and their permission inh
 #### managed-kafka.admin {#managed-kafka-admin}
 
 {% include [managed-kafka.admin](../../_roles/managed-kafka/admin.md) %}
+
+#### managed-kafka.maintenanceTask.viewer {#managed-kafka-maintenanceTask-viewer}
+
+{% include [managed-kafka.maintenanceTask.viewer](../../_roles/managed-kafka/maintenanceTask/viewer.md) %}
+
+#### managed-kafka.maintenanceTask.editor {#managed-kafka-maintenanceTask-editor}
+
+{% include [managed-kafka.maintenanceTask.editor](../../_roles/managed-kafka/maintenanceTask/editor.md) %}
 
 #### managed-kafka.interfaceUser {#managed-kafka-interface-user}
 
@@ -68,6 +80,14 @@ The chart below shows the roles existing in the service and their permission inh
 {% include [mdb-admin](../../_roles/mdb/admin.md) %}
 
 
+#### mdb.maintenanceTask.viewer {#mdb-maintenanceTask-viewer}
+
+{% include [mdb.maintenanceTask.viewer](../../_roles/mdb/maintenanceTask/viewer.md) %}
+
+#### mdb.maintenanceTask.editor {#mdb-maintenanceTask-editor}
+
+{% include [mdb.maintenanceTask.editor](../../_roles/mdb/maintenanceTask/editor.md) %}
+
 #### vpc.publicAdmin {#vpc-public-admin}
 
 {% include [vpc-publicadmin](../../_roles/vpc/publicAdmin.md) %}
@@ -84,7 +104,7 @@ As a user, you need the [{{ roles.mkf.editor }} role or higher](../../iam/concep
 
 To create a {{ mkf-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mkf.editor }}` role or higher.
 
-You can always assign a role with more permissions. For example, you can assign the `{{ roles.mkf.admin }}` role instead of `{{ roles.mkf.editor }}`.
+You can always assign a role with more permissions, e.g., `{{ roles.mkf.admin }}` instead of `{{ roles.mkf.editor }}`.
 
 ## What's next {#whats-next}
 

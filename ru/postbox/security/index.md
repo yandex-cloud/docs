@@ -1,6 +1,6 @@
 ---
 title: Управление доступом в {{ postbox-full-name }}
-description: Управление доступом в сервисе для отправки транзакционных почтовых сообщений {{ postbox-full-name }}. Чтобы разрешить доступ к ресурсам сервиса {{ postbox-full-name }}, назначьте пользователю нужные роли из приведенного списка.
+description: Управление доступом в сервисе для отправки почтовых сообщений {{ postbox-full-name }}. Чтобы разрешить доступ к ресурсам сервиса {{ postbox-full-name }}, назначьте пользователю нужные роли из приведенного списка.
 ---
 
 # Управление доступом в {{ postbox-full-name }}
@@ -34,6 +34,14 @@ description: Управление доступом в сервисе для от
 #### postbox.editor {#postbox-editor}
 
 {% include [postbox.editor](../../_roles/postbox/editor.md) %}
+
+#### postbox.messages.reader {#postbox-messages-reader}
+
+{% include [postbox.messages.reader](../../_roles/postbox/messages/reader.md) %}
+
+#### postbox.statistics.reader {#postbox-statistics-reader}
+
+{% include [postbox.statistics.reader](../../_roles/postbox/statistics/reader.md) %}
 
 #### postbox.admin {#postbox-admin}
 

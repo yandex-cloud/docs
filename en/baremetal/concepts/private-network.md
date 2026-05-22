@@ -57,15 +57,38 @@ After a secondary private subnet is attached, you should manually configure the 
 
 ## Virtual network segment (VRF) {#vrf-segment}
 
-To provide L3 routing, private subnets with configured routing are aggregated into virtual network segments (VRFs).
+To have L3 routing between [private subnets](#private-subnet) with routing configured, such subnets are aggregated into virtual network segments (VRFs).
 
 Servers from the same or different pools connected to different private subnets, grouped together under VRF, will be able to maintain L3 networking between them. To configure such networking, select the same VRF for the relevant subnets under **{{ ui-key.yacloud.baremetal.title_routing-settings }}**.
 
 {% include [internal-addressing-rules](../../_includes/baremetal/internal-addressing-rules.md) %}
 
+### Static routes {#static-routes}
+
+{% include [static-routes-to-vpc-ri-notice2](../../_includes/baremetal/static-routes-to-vpc-ri-notice2.md) %}
+
+For routing inside a private {{ baremetal-full-name }} network, you can use _static routes_.
+
+The number of static routes per cloud is limited by [quotas](./limits.md#baremetal-quotas). In addition to that, {{ baremetal-full-name }} enforces the following static route limitations:
+
+* The destination prefix may either be `0.0.0.0/0` or must be a valid range of private IPv4 addresses in the [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) notation belonging to any of the following ranges:
+
+    * `10.0.0.0/8`
+    * `172.16.0.0/12`
+    * `192.168.0.0/16`
+* The destination prefix cannot match or overlap the IP address range of a private subnet forming part of this VRF.
+* The destination prefix cannot match or overlap the IP address range of another static route in this VRF.
+* The `Next hop` value must be an IPv4 address belonging to the range of any private subnet in this VRF.
+
+    To announce a static route in {{ vpc-name }}, a [private connection](#private-connection-to-vpc) with cloud networks must be configured in the VRF. When [setting up](../operations/create-static-route.md) the static route, make sure the **{{ ui-key.yacloud.baremetal.vrfs.VrfStaticRoutesField.column_is-console-enabled_hiCs9 }}** option is on in the VRF.
+
+    {% include [static-routes-to-vpc-ri-notice](../../_includes/baremetal/static-routes-to-vpc-ri-notice.md) %}
+
 ## Private connection to cloud networks {#private-connection-to-vpc}
 
-To set up network connectivity between {{ baremetal-name }} [servers](./servers.md), {{ vpc-full-name }} private [subnets](../../vpc/concepts/network.md#subnet), and private subnets in the on-premise infrastructure, use [{{ interconnect-full-name }}](../../interconnect/concepts/priv-con.md).
+To set up network connectivity between {{ baremetal-name }} [servers](./servers.md), {{ vpc-name }} private [subnets](../../vpc/concepts/network.md#subnet), and private subnets in the on-premise infrastructure, use [{{ interconnect-full-name }}](../../interconnect/concepts/priv-con.md).
+
+[Static routes](#static-routes) created in the VRF can be announced in {{ vpc-name }}. For that, make sure the **{{ ui-key.yacloud.baremetal.vrfs.VrfStaticRoutesField.column_is-console-enabled_hiCs9 }}** option is on in the VRF when [configuring](../operations/create-static-route.md) the static route.
 
 #### See also {#see-also}
 
@@ -76,3 +99,4 @@ To set up network connectivity between {{ baremetal-name }} [servers](./servers.
 * [{#T}](../operations/network-create.md)
 * [{#T}](../operations/subnet-create.md)
 * [{#T}](../operations/create-vpc-connection.md)
+* [{#T}](../operations/create-static-route.md)

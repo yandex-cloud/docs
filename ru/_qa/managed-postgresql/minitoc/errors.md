@@ -16,7 +16,7 @@
 
 * [Почему не удается подключиться к хостам кластера?](#host-error)
 
-* [Почему я не могу остановить кластер?](#stop-cluster)
+* [Почему возникает ошибка при остановке кластера?](#stop-cluster-error)
 
 * [Почему при изменении кластера возникает ошибка `max_connections is less than sum of users connection limit`?](#max-connections-error)
 
@@ -35,3 +35,5 @@
 * [Что делать, если в логах отображается ошибка `too many connections for role "monitor"`?](#monitor-role-error)
 
 * [Почему установка нескольких расширений в CLI заканчивается ошибкой?](#cli-extensions-errors)
+
+* [Почему возникает ошибка `could not open extension control file "<путь_к_расширению>/vector.control": No such file or directory` при обращении к расширению `vector`?](#vector-error)

@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/
 editable: false
 ---
 
@@ -56,13 +57,15 @@ Syntax:
 
   - [yc cic public-connection list](public-connection/list.md) — List publicConnections in a folder.
 
+  - [yc cic public-connection list-operations](public-connection/list-operations.md) — List operations for a publicConnection.
+
   - [yc cic public-connection move](public-connection/move.md) — Move the specified public connection into the folder
 
 - [yc cic trunk-connection](trunk-connection/index.md) — [PREVIEW] Manage trunk connections.
 
   - [yc cic trunk-connection add-labels](trunk-connection/add-labels.md) — Add labels to a trunk connection.
 
-  - [yc cic trunk-connection create](trunk-connection/create.md) — Create a trunk connection.
+  - [yc cic trunk-connection batch-get](trunk-connection/batch-get.md) — Get information about several trunk connections in one request.
 
   - [yc cic trunk-connection delete](trunk-connection/delete.md) — Delete a trunk connection.
 
@@ -81,6 +84,14 @@ Syntax:
   - [yc cic trunk-connection remove-labels](trunk-connection/remove-labels.md) — Remove labels from a trunk connection.
 
   - [yc cic trunk-connection update](trunk-connection/update.md) — Modify configuration or attributes of a trunk connection.
+
+- [yc cic v0](v0/index.md) — [PREVIEW] Manage Yandex Cloud Interconnect resources
+
+
+
+- [yc cic v1](v1/index.md) — (new command tree) [PREVIEW] Manage Interconnect resources
+
+
 
 #### Global Flags
 

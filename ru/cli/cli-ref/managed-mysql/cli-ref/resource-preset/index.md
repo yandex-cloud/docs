@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mysql/cli-ref/resource-preset/
 editable: false
 ---
 

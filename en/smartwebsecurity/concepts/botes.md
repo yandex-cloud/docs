@@ -96,9 +96,9 @@ Below is a list of bots used by various businesses for content indexing, deliver
 1. `MicrosoftPreview`: Generates page previews for Microsoft services.
 1. `Amazonbot`: Amazon search bot used to improve service quality, e.g., helping Alexa to provide more accurate answers to customer questions.
 1. `Applebot`: Collects data for tools integrated into user experiences in Appleʼs ecosystem (Spotlight, Siri, Safari), e.g., the search technology.
-1. `FacebookExternalHit`: Collects, caches, and displays website or app metadata, including its title, description, and icon (thumbnail image).
-1. `MetaExternalAgent`: Crawls web content to train AI models and improve products through direct indexing.
-1. `Meta‑ExternalFetcher`: Enables Meta AI to provide users with up-to-date information beyond its training data.
+1. `FacebookExternalHit`^1^: Collects, caches, and displays website or app metadata, including its title, description, and icon (thumbnail image).
+1. `MetaExternalAgent`^2^: Crawls web content to train AI models and improve products through direct indexing.
+1. `Meta‑ExternalFetcher`^2^: Enables Meta AI to provide users with up-to-date information beyond its training data.
 1. `Pinterestbot`: Crawls publicly accessible websites to index content and drive traffic, checks that pin data, e.g., its price and title, is up-to-date, and removes broken links.
 1. `Qwantbot`: Indexes web content for Qwant.
 1. `CCBot`: Archives web pages for `commoncrawl.org`.
@@ -146,9 +146,12 @@ Below is a list of bots used by various businesses for content indexing, deliver
 1. `SvnBot`: Monitors site availability.
 1. `TestomatoBot`: Monitors site availability.
 1. `PingAdminBot`: Monitors site availability.
-1. `Meta‑WebIndexerBot`: Crawls web resources to improve the quality of Meta AI search results for users.
-1. `Meta‑ExternalAdsBot`: Crawls web content for use cases such as improving advertising and other business-related products and services.
+1. `Meta‑WebIndexerBot`^2^: Crawls web resources to improve the quality of Meta AI search results for users.
+1. `Meta‑ExternalAdsBot`^2^: Crawls web content for use cases such as improving advertising and other business-related products and services.
 
+
+^1^ Facebook is a service by  Meta, Inc., an organization declared extremist.
+^2^ Meta, Inc. has been declared extremist and banned in the Russian Federation.
 
 {% endcut %}
 
@@ -175,7 +178,7 @@ For final tuning, apply the rule in `only logging` mode and analyze logs to dete
 
 ## FingerPrints {#fingerprint}
 
-[FingerPrint](https://developers.cloudflare.com/bots/additional-configurations/ja3-ja4-fingerprint/) is an SSL/TLS connection's [JA3](https://github.com/salesforce/ja3) or [JA4](https://github.com/FoxIO-LLC/ja4) fingerprint collected by a load balancer or proxy server. Generated based on TLS version, cipher sets, extensions, signature algorithms, and other parameters.
+[FingerPrint](https://developers.cloudflare.com/bots/additional-configurations/ja3-ja4-fingerprint/) is an SSL/TLS connection's [JA3](https://github.com/salesforce/ja3) or [JA4](https://github.com/FoxIO-LLC/ja4) fingerprint collected by a load balancer or proxy server. It is generated based on TLS version, cipher sets, extensions, signature algorithms, and other parameters.
 
 The use cases for fingerprints include:
 
@@ -188,17 +191,16 @@ You can use fingerprints to identify certain clients by analyzing their hello pa
 
 {{ sws-name }} uses the JA3 and JA4 methods to identify clients:
 
-* JA3 is a passive fingerprinting method which collects value IDs from the client hello packet fields in `TLSVersion,Ciphers,Extensions,EllipticCurves,EllipticCurvePointFormats` format and generates an MD5 hash to create a 32-character fingerprint.
+* JA3 is a passive fingerprinting method based on the first TLS handshake message (ClientHello) the client sends to the server in `TLSVersion,Ciphers,Extensions,EllipticCurves,EllipticCurvePointFormats` format. The original JA3 string is used without MD5 hashing.
 
-    Here are some examples of JA3 fingerprints:
+    Here are some examples of JA3 fingerprints (strings):
 
-    * Standard Tor client: `e7d705a3286e19ea42f587b344ee6865`
-    * Trickbot malware: `6734f37431670b3ab4292b8f60f29984`
-    * Emotet malware: `4d7a28d6f2263ed61de88ca66eb011e3`
+    * `771,4865-4866-4867,0-11-10-35-16-5-13,29-23-24,0`
+    * `771,49195-49199-49196-49200,0-23-65281-10-11,23-24-25,0`
+    * `771,4866-4867-4865,0-11-10-13-16,29-23-24,0`
 
-* JA4 is a suite of network fingerprinting methods with deeper analysis. {{ sws-name }} supports one JA4 method, TLS client fingerprinting.
+* JA4 is a suite of network fingerprinting methods for deeper analysis. {{ sws-name }} supports one JA4 option: TLS client fingerprint.
 
-
-    All JA4 fingerprints are in `a_b_c` format, where the separators mark different parts of the identifier, e.g., `t13d3812h2_8a4b5c6d_7e8f9a0b`. This enables you to flexibly search and detect traffic by fingerprint parts.
+    A JA4 fingerprint is formatted as `a_b_c` with separators marking different parts of the identifier, e.g., `t13d3812h2_8a4b5c6d_7e8f9a0b`. This format enables search and correlation either by the full fingerprint or its individual parts.
 
 There are no fingerprints in unencrypted HTTP traffic or internal traffic of {{ yandex-cloud }} services, and updating the client application may change its fingerprint. Therefore, we recommend you arrange alternative filtering conditions and regularly update security rules.

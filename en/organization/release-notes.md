@@ -1,33 +1,42 @@
 ---
 title: '{{ org-full-name }} release notes'
-description: This section contains the {{ org-name }} release notes.
+description: This section contains the {{ org-full-name }} release notes.
 ---
 
 
 # {{ org-full-name }} release notes
 
-{% include [Tags-nosql](../_includes/release-notes-tags-nosql.md) %}
+## April 2026 {#april-2026}
+
+* Added label management for organization user groups.
+
+
+## March 2026 {#march-2026}
+
+* Added MFA policy exception [management](operations/mfa/excluded-audience.md) functions.
+* Supported additional parameters for binding an access policy to a cloud or folder.
+
+
 
 ## January 2026 {#january-2026}
 
-* Added support for SMS as an [MFA](concepts/mfa.md) factor. {{ tag-con }}
-
+* Added support for SMS as an [MFA](concepts/mfa.md) factor.
 
 ## December 2025 {#december-2025}
 
-* Added a list of supported values for the `--acr-id` parameter in the `yc organization-manager mfa-enforcement create` and `yc organization-manager mfa-enforcement update` commands. {{ tag-cli }}
+* Added a list of allowed `--acr-id` values when configuring an MFA policy in the CLI.
 
 
 ## November 2025 {#november-2025}
 
-* Implemented the [My account](concepts/my-account.md) portal for user account management. {{ tag-con }}
+* Implemented the [My account](concepts/my-account.md) portal for user account management.
 
 
 ## October 2025 {#october-2025}
 
-* Implemented [MFA policy](./concepts/mfa.md#mfa-policies) management in an organization using the [CLI](../cli/cli-ref/organization-manager/cli-ref/mfa-enforcement/) and [API](./api-ref/grpc/MfaEnforcement/). {{ tag-cli }} {{ tag-api }}
-* Added CLI and [API](saml/api-ref/Federation/reactivateUserAccounts.md) commands for [suspending](../cli/cli-ref/organization-manager/cli-ref/federation/saml/suspend-user-accounts.md) and [reactivating](../cli/cli-ref/organization-manager/cli-ref/federation/saml/reactivate-user-accounts.md) SAML federation users. {{ tag-cli }} {{ tag-api }}
-* Now you can use the [CLI](../cli/cli-ref/organization-manager/cli-ref/group/list-effective.md) to [view](operations/get-users-groups.md#cli_1) which groups a given user belongs to within an organization. {{ tag-cli }}
+* Implemented [MFA policy](./concepts/mfa.md#mfa-policies) management in organizations.
+* Enabled suspension and reactivation of SAML federation users.
+* Now you can [view](operations/get-users-groups.md) which groups a given user belongs to within an organization.
 
 
 ## Q3 2025 {#q3-2025}
@@ -39,7 +48,7 @@ description: This section contains the {{ org-name }} release notes.
 
 ## Q2 2025 {#q2-2025}
 
-* {{ org-name }} is now in [Public Preview](../overview/concepts/launch-stages.md).
+* {{ org-full-name }} is now in [Public Preview](../overview/concepts/launch-stages.md).
 * Enabled the use of [refresh tokens](../iam/concepts/authorization/refresh-token.md#token-enabling) in the {{ yandex-cloud }} CLI. {{ tag-cli }}
 
 ## Q1 2025 {#q1-2025}
@@ -53,7 +62,7 @@ description: This section contains the {{ org-name }} release notes.
 * [{{ oslogin }}](../organization/concepts/os-login.md) package building script is now available on VMs running Ubuntu 24.04.
 * [Added](../iam/roles-reference.md#organization-manager-passportUserAdmin) the `organization-manager.passportUserAdmin` role to manage organization [users](../organization/concepts/membership.md) with [Yandex accounts](https://yandex.ru/id/about).
 * In [{{ at-full-name }}](../audit-trails/), [added](../audit-trails/concepts/events.md#organization) events for federated user group management: `CreateGroupMapping`, `DeleteGroupMapping`, and `UpdateGroupMapping`.
-* Implemented user notification about the expiration of their {{ yandex-cloud}} SAML certificates.
+* Implemented user notification about the expiration of their {{ yandex-cloud }} SAML certificates.
 
 
 ## Q3 2024 {#q3-2024}

@@ -3,9 +3,25 @@
 # This is a template - please update with your actual values
 
 userpool_id: "<идентификатор_пула_пользователей>"
-cloud_credentials_file_path: "<путь_к_файлу_с_авторизованным_ключом>"
 replication_tokens_path: "<путь_к_директории_с_токенами_процессов>"
 working_directory: "<путь_к_рабочей_директории_агента>"
+
+# {{ yandex-cloud }} authentication settings
+
+# Use the cloud_credentials_file_path parameter for authentication via an authorized key.
+# If you want the agent to authenticate via IAM tokens, remove the cloud_credentials_file_path line.
+cloud_credentials_file_path: "<путь_к_файлу_с_авторизованным_ключом>"
+
+# Enable the use_metadata_service parameter for authentication via IAM tokens
+# (only available when the agent is installed on a {{ compute-name }} VM).
+# If `true`, the cloud_credentials_file_path parameter will be ignored.
+use_metadata_service: true|false
+
+# Enable the Dry Run mode.
+# If `true`, no changes will be applied to users or groups in {{ org-full-name }}.
+# Instead, all pending operations will be saved to the current log file location.
+dry_run:
+  enabled: true|false
 
 # Active Directory replication API client settings
 drsr:

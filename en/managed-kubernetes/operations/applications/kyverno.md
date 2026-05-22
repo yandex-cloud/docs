@@ -103,4 +103,4 @@ If you no longer need Kyverno, uninstall it:
 
 ## See also {#see-also}
 
-* [Kyverno documentation](https://kyverno.io/docs/).
+* [Kyverno documentation](https://kyverno.io/docs/)

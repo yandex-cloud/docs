@@ -388,7 +388,10 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
 
       Where:
 
+      
       * `assign_public_ip`: Public access to cluster hosts, `true` or `false`.
+
+
       * `deletion_protection`: Cluster deletion protection, `true` or `false`.
 
           {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
@@ -407,7 +410,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
 
 
 
-      To learn more about resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-mgp }}).
+      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-mgp }}).
 
   
   1. Optionally, specify [dedicated host](../../compute/concepts/dedicated-host.md) groups to place master or segment hosts on dedicated hosts:
@@ -458,7 +461,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
               Specify either `folder_id` or `log_group_id`.
 
 
-  1. Validate your {{ TF }} configuration files:
+  1. Validate your {{ TF }} configuration:
 
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -560,7 +563,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
             * `version`: {{ GP }} version.
 
             
-            * `access`: Cluster access settings for the following {{ yandex-cloud }} services:
+            * `access`: Settings for access to the cluster from the following {{ yandex-cloud }} services:
 
                 * `dataLens`: [{{ datalens-full-name }}](../../datalens/index.yaml), `true` or `false`.
                 * `yandexQuery`: [{{ yq-full-name }}](../../query/concepts/index.md), `true` or `false`.
@@ -737,7 +740,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
             * `version`: {{ GP }} version.
 
             
-            * `access`: Cluster access settings for the following {{ yandex-cloud }} services:
+            * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
 
                 * `data_lens`: [{{ datalens-full-name }}](../../datalens/index.yaml), `true` or `false`.
                 * `yandex_query`: [{{ yq-full-name }}](../../query/concepts/index.md), `true` or `false`.
@@ -745,8 +748,11 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
 
 
             * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
+
+            
             * `subnet_id`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
             * `assign_public_ip`: Public access to cluster hosts, `true` or `false`.
+
 
         * `master_config.resources`, `segment_config.resources`: Master and segment host configuration in the cluster:
 
@@ -867,9 +873,9 @@ To create a {{ GP }} cluster copy:
         terraform show
         ```
 
-    1. Copy it from the terminal and paste it into the `.tf` file.
-    1. Place the file in the new `imported-cluster` directory.
-    1. Edit the copied configuration so that you can create a new cluster from it:
+    1. Copy it from your terminal and paste it into the `.tf` file.
+    1. Create a new directory `imported-cluster` and move your configuration file there.
+    1. Modify the configuration so that you can use it to create a new cluster:
 
         * Specify the new cluster name in the `resource` string and the `name` parameter.
         * Delete the `created_at`, `health`, `id`, `status`, `master_hosts`, and `segment_hosts` parameters.
@@ -881,7 +887,7 @@ To create a {{ GP }} cluster copy:
 
     1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Instead of manually creating the provider configuration file, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
-    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
+    1. Move the configuration file to the `imported-cluster` directory and [specify the arguments](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
 
     1. Validate your {{ TF }} configuration:
 
@@ -913,7 +919,7 @@ To create a {{ GP }} cluster copy:
     * Name: `gp-cluster`
     * Version: `{{ versions.cli.latest }}`
     * Environment: `PRODUCTION`
-    * Network: `default`
+    * Network: `{{ network-name }}`
     * User: `user1`
     * Password: `user1user1`
     * Master and segment hosts:
@@ -935,7 +941,7 @@ To create a {{ GP }} cluster copy:
        --name=gp-cluster \
        --greenplum-version={{ versions.cli.latest }} \
        --environment=PRODUCTION \
-       --network-name=default \
+       --network-name={{ network-name }} \
        --user-name=user1 \
        --user-password=user1user1 \
        --master-config resource-id=s2.medium,`

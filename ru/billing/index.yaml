@@ -22,30 +22,107 @@ meta:
     - keyword: оплата {{ yandex-cloud }}
     - keyword: оплатить {{ yandex-cloud }}
     - keyword: потребление ресурсов {{ yandex-cloud }}
-links:
-  - title: Начало работы
-    description: Создайте первый платежный аккаунт
-    href: quickstart/
-  - title: Пошаговые инструкции
-    description: Инструкции по выполнению рутинных операций
-    href: operations/
-  - title: Концепции
-    description: Узнайте термины и понятия, используемые в сервисе
-    href: concepts/
-  - title: Оплата ресурсов
+blocks:
+  - type: card-layout-block
+    title: Yandex Cloud Billing
     description: >-
-      Узнайте про способы оплаты, циклы оплаты для физических лиц, организаций и
-      ИП
-    href: payment/
-  - title: Управление доступом
-    description: Настройте права доступа для управления платежным аккаунтом
-    href: security/
-  - title: Правила тарификации
-    description: Цены и тарифы на использование сервисов Yandex Cloud
-    href: pricing
-  - title: Вопросы и ответы
-    description: Ответы на часто задаваемые вопросы
-    href: qa/all
-  - title: Справочник API (англ.)
-    description: Описание методов HTTP API
-    href: api-ref/
+      Yandex Cloud Billing позволяет получать информацию об объеме
+      использованных ресурсов, проверять расходы денежных средств и оплачивать
+      потребление ресурсов.
+    colSizes:
+      all: 12
+      lg: 4
+      md: 6
+      sm: 12
+      xl: 4
+    children:
+      - type: basic-card
+        title: Начало работы
+        text: Создайте первый платежный аккаунт
+        urlTitle: Регистрация аккаунта в Yandex Cloud
+        url: quickstart/index
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/rocket.svg
+          dark: assets/icons/rocket.svg
+      - type: basic-card
+        title: Пошаговые инструкции
+        text: Следуйте инструкциям для выполнения рутинных операций
+        urlTitle: Все инструкции для сервиса Yandex Cloud Billing
+        url: operations/index
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/list-ol.svg
+          dark: assets/icons/list-ol.svg
+      - type: basic-card
+        title: Концепции
+        text: Изучите основные термины и понятия, используемые в сервисе
+        urlTitle: Все понятия
+        url: concepts/index
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/bookmark.svg
+          dark: assets/icons/bookmark.svg
+      - type: basic-card
+        title: Оплата ресурсов
+        text: >-
+          Узнайте о способах и циклах оплаты для физических лиц, организаций и
+          ИП
+        urlTitle: Оплата ресурсов
+        url: payment/index
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/receipt.svg
+          dark: assets/icons/receipt.svg
+      - type: basic-card
+        title: Управление доступом
+        text: Настройте права доступа для управления платежным аккаунтом
+        urlTitle: Управление доступом в сервисе Yandex Cloud Billing
+        url: security/index
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/persons-lock.svg
+          dark: assets/icons/persons-lock.svg
+      - type: basic-card
+        title: Правила тарификации
+        text: Изучите цены и тарифы на использование сервисов Yandex Cloud
+        urlTitle: Правила тарификации Yandex Cloud
+        url: pricing
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/calculator.svg
+          dark: assets/icons/calculator.svg
+      - type: basic-card
+        title: Вопросы и ответы
+        text: Узнайте ответы на часто задаваемые вопросы
+        urlTitle: Все вопросы про сервис Yandex Cloud Billing
+        url: qa/all
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/circle-question.svg
+          dark: assets/icons/circle-question.svg
+      - type: basic-card
+        title: Справочник API (англ.)
+        text: Используйте REST API для управления платежным аккаунтом
+        urlTitle: 'Billing API: REST reference'
+        url: api-ref
+        border: shadow
+        controlPosition: content
+        animated: false
+        icon:
+          light: assets/icons/code.svg
+          dark: assets/icons/code.svg
+links: []

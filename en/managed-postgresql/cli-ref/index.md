@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-postgresql/cli-ref/
 editable: false
 ---
 
@@ -129,6 +130,10 @@ Aliases:
   - [yc managed-postgresql user revoke-permission](user/revoke-permission.md) — Revoke permission from the specified PostgreSQL user
 
   - [yc managed-postgresql user update](user/update.md) — Update the specified PostgreSQL user
+
+- [yc managed-postgresql v0](v0/index.md) — Manage PostgreSQL clusters, hosts, databases, backups and users.
+
+  - [yc managed-postgresql v0 connect](v0/connect.md) — Connect to Postgresql cluster with iam-auth
 
 #### Global Flags
 

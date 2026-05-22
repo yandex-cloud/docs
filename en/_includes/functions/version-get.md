@@ -2,11 +2,11 @@
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), select the folder containing the function.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/curly-brackets-function.svg) **{{ ui-key.yacloud.serverless-functions.switch_list }}**.
-    1. Select the function to get a list of versions for.
-    1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-history }}**, you can find the list of function versions and their details.
+    1. Select the function for which you want to get the list of versions.
+    1. Under **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-history }}**, you will see the list of function versions and their details.
 
 - CLI {#cli}
 
@@ -14,11 +14,11 @@
 
     {% include [default-catalogue](../default-catalogue.md) %}
 
-    To find out the name or unique ID of a function version, get a [list of function versions](../../functions/operations/function/version-list.md) in the folder.
+    To find out the name or ID of a function version, get the [list of function versions](../../functions/operations/function/version-list.md) in the folder.
 
     To get detailed information about a function version by:
 
-    * For `ID`, run this command:
+    * `ID`, run this command:
         ```
         yc serverless function version get <version_ID>
         ```
@@ -40,7 +40,7 @@
         log_group_id: eolv6578frac********
         ```
 
-    * For `TAGS`, run this command:
+    * `TAGS`, run this command:
         ```
         yc serverless function version get-by-tag --function-name <function_name> --tag <tag>
         ```

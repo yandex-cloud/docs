@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-postgresql/cli-ref/user/update
 editable: false
 ---
 
@@ -67,6 +68,9 @@ Statement timeout in milliseconds. ||
 || `--idle-in-transaction-session-timeout` | `int`
 
 Idle in transaction session timeout in milliseconds. ||
+|| `--idle-session-timeout` | `int`
+
+Idle session timeout in milliseconds. ||
 || `--wal-sender-timeout` | `int`
 
 WAL sender timeout in milliseconds. ||

@@ -62,7 +62,7 @@ output "fqdn" {
     - `disk_size` (**Required**)(Number). Volume of the storage available to a PostgreSQL host, in gigabytes.
     - `disk_type_id` (String). Type of the storage of PostgreSQL hosts.
     - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a PostgreSQL host (CPU, memory etc.). For more information, see [the official documentation](https://yandex.cloud/docs/managed-postgresql/concepts/instance-types).
-  - `version` (**Required**)(String). Version of the PostgreSQL cluster. (allowed versions are: 13, 13-1c, 14, 14-1c, 15, 15-1c, 16, 17).
+  - `version` (**Required**)(String). Version of the PostgreSQL cluster. (allowed versions are: 14, 14-1c, 15, 15-1c, 16, 16-1c, 17, 17-1c, 18, 18-1c).
 - `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
 - `database` [Block]. 
 
@@ -88,7 +88,7 @@ output "fqdn" {
 - `host` [Block]. A host of the PostgreSQL cluster.
   - `assign_public_ip` (Bool). Whether the host should get a public IP address.
   - `fqdn` (*Read-Only*) (String). The fully qualified domain name of the host.
-  - `priority` (Number). Host priority in HA group. It works only when `name` is set.
+  - `priority` (Number). Host priority in HA group. It works only when `name` is set. Must be between 0 and 100.
   - `replication_source` (*Read-Only*) (String). Host replication source (fqdn), when replication_source is empty then host is in HA group.
   - `replication_source_name` (String). Host replication source name points to host's `name` from which this host should replicate. When not set then host in HA group. It works only when `name` is set.
   - `role` (*Read-Only*) (String). Host's role (replica|primary), computed by server.

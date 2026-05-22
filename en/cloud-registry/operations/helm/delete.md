@@ -1,3 +1,8 @@
+---
+title: Deleting a Helm chart from a {{ cloud-registry-name }}
+description: Follow this guide to delete a Helm chart from a {{ cloud-registry-name }}.
+---
+
 # Deleting a Helm chart from a registry
 
 You can delete a [Helm chart](https://helm.sh/docs/topics/charts/) from a [registry](../../concepts/registry.md) in {{ cloud-registry-name }}. Helm charts in {{ cloud-registry-name }} are stored as [Docker images](../../concepts/artifacts/docker.md).

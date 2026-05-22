@@ -1,5 +1,7 @@
 # Нагрузочное тестирование с нескольких агентов
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
 
 {{ load-testing-name }} можно использовать для тестирования сервиса с помощью нескольких [агентов тестирования](../../load-testing/concepts/agent.md).
 
@@ -80,7 +82,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет создан агент.
-     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
      1. На вкладке ![image](../../_assets/load-testing/agent.svg) **{{ ui-key.yacloud.load-testing.label_agents-list }}** нажмите **{{ ui-key.yacloud.load-testing.button_create-agent }}**.
      1. Укажите имя агента, например, `agent-008`.
      1. Выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет размещен агент.
@@ -123,7 +125,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+  1. Откройте [консоль управления]({{ link-console-main }}).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
   1. На панели слева выберите ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**.
   1. Нажмите **{{ ui-key.yacloud.load-testing.button_create-test }}**.
   1. В блоке **Конфигурация 1** укажите параметры тестирования для первого агента:
@@ -195,7 +198,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+  1. Откройте [консоль управления]({{ link-console-main }}).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
   1. На панели слева перейдите на вкладку ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**.
   1. Выберите тест, созданный ранее. Тесты с несколькими агентами отображаются с меткой `Multi`.
   1. Чтобы посмотреть обобщенные результаты, перейдите на вкладку ![image](../../_assets/load-testing/results.svg) **{{ ui-key.yacloud.load-testing.label_test-report }}**.

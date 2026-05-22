@@ -43,13 +43,13 @@ The {{ managed-k8s-name }} services used as backends must be of the `NodePort` t
     * `certificate` (for `HTTPS`): Path to the self-signed custom certificate.
     * `private_key` (for `HTTPS`): Path to the private key file.
 
-1. Make sure the {{ TF }} configuration files are correct using this command:
+1. Validate your {{ TF }} configuration files using this command:
 
     ```bash
     terraform validate
     ```
 
-    {{ TF }} will show any errors found in your configuration files.
+    {{ TF }} will display any configuration errors detected in your files.
 
 1. Create the required infrastructure:
 
@@ -101,7 +101,7 @@ Select one of these migration options:
 1. Navigate to the L7 load balancer:
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder with the {{ managed-k8s-name }} cluster.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
     1. Select the cluster.
     1. Select ![image](../../_assets/console-icons/timestamps.svg) **{{ ui-key.yacloud.k8s.cluster.switch_network }}** on the left and then the **{{ ui-key.yacloud.k8s.network.label_ingress }}** tab on the right. For your `Ingress` resource, follow the L7 load balancer link in the **Load balancer** column.
     1. Monitor the L7 load balancer's user traffic on the [load balancer statistics](../../application-load-balancer/operations/application-load-balancer-get-stats.md) charts.

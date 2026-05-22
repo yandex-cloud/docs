@@ -5,15 +5,16 @@ description: Из этой инструкции вы узнаете, как уп
 
 # Управление выгрузкой метаданных объектов (S3 Inventory) в бакете
 
-В {{ objstorage-name }} вы можете [выгрузить метаданные объектов](../../concepts/s3-inventory.md) (S3 Inventory) из бакетов для дальнейшего анализа и каталогизации.
 
-{% include [s3-inventory-pricing](../../../_includes/storage/s3-inventory-pricing.md) %}
+В {{ objstorage-name }} вы можете [выгрузить метаданные объектов](../../concepts/s3-inventory.md) (S3 Inventory) из бакетов для дальнейшего анализа и каталогизации.
 
 ## Создать конфигурацию выгрузки {#create-inventory}
 
 {% list tabs group=instructions %}
 
 - {{ yandex-cloud }} CLI {#cli}
+
+  {% include [s3-inventory-cli-version.md](../../../_includes/storage/s3-inventory-cli-version.md) %}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -67,12 +68,17 @@ description: Из этой инструкции вы узнаете, как уп
       Где:
 
       * `--name` — имя бакета, метаданные объектов которого нужно выгрузить.
-      * `--configuration` — параметры конфигурации выгрузки:      
+      * `--configuration` — параметры конфигурации выгрузки:
         * `id` — идентификатор конфигурации. Обязательный параметр.
         * `is_enabled` — флаг включения или отключения конфигурации.
         * `frequency` — периодичность выгрузки. Обязательный параметр. Возможные значения:
-          * `DAILY` — раз в день;
-          * `WEEKLY` — раз в неделю.
+          * `DAILY` — раз в день. Выгрузка начинается в 03:00 UTC каждый день.
+          * `WEEKLY` — раз в неделю. Выгрузка начинается в 03:00 UTC каждое воскресенье.
+          
+            Например, если создать конфигурацию с ежедневной выгрузкой в 12:00 UTC, то первая выгрузка начнется только в 03:00 UTC следующего дня.
+          
+            {% include [s3-inventory-schedule-note](../../../_includes/storage/s3-inventory-schedule-note.md) %}
+          
         * `destination` — информация о том, где и как публиковать результаты выгрузки:
           * `bucket` — имя бакета, в который будут выгружаться метаданные. Исходный и целевой бакеты должны находиться в одном [облаке](../../../resource-manager/concepts/resources-hierarchy.md#cloud). Обязательный параметр.
           * `format` — формат результатов выгрузки. Поддерживается только `CSV`. Обязательный параметр.
@@ -173,6 +179,8 @@ description: Из этой инструкции вы узнаете, как уп
 
 - {{ yandex-cloud }} CLI {#cli}
 
+  {% include [s3-inventory-cli-version.md](../../../_includes/storage/s3-inventory-cli-version.md) %}
+
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
@@ -229,6 +237,8 @@ description: Из этой инструкции вы узнаете, как уп
 {% list tabs group=instructions %}
 
 - {{ yandex-cloud }} CLI {#cli}
+
+  {% include [s3-inventory-cli-version.md](../../../_includes/storage/s3-inventory-cli-version.md) %}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -287,6 +297,8 @@ description: Из этой инструкции вы узнаете, как уп
 {% list tabs group=instructions %}
 
 - {{ yandex-cloud }} CLI {#cli}
+
+  {% include [s3-inventory-cli-version.md](../../../_includes/storage/s3-inventory-cli-version.md) %}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 

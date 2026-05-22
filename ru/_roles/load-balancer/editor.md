@@ -11,9 +11,9 @@
 * просматривать список [групп безопасности](../../vpc/concepts/security-groups.md) и информацию о них;
 * просматривать информацию о [NAT-шлюзах](../../vpc/concepts/gateways.md);
 * просматривать информацию об использованных IP-адресах, а также создавать [внутренние](../../vpc/concepts/address.md#internal-addresses) адреса и использовать их;
-* просматривать информацию об операциях с ресурсами сервисов Virtual Private Cloud и Compute Cloud;
-* просматривать список операций с ресурсами сервиса Network Load Balancer;
+* просматривать информацию об операциях с ресурсами сервисов {{ vpc-name }} и {{ compute-name }};
+* просматривать список операций с ресурсами сервиса {{ network-load-balancer-name }};
 * просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder);
-* просматривать информацию о квотах сервисов [Network Load Balancer](../../network-load-balancer/concepts/limits.md#load-balancer-quotas) и [Virtual Private Cloud](../../vpc/concepts/limits.md#vpc-quotas).
+* просматривать информацию о квотах сервисов [{{ network-load-balancer-name }}](../../network-load-balancer/concepts/limits.md#load-balancer-quotas) и [{{ vpc-name }}](../../vpc/concepts/limits.md#vpc-quotas).
 
 Включает разрешения, предоставляемые ролью `load-balancer.privateAdmin`.

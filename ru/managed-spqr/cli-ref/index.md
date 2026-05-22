@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-sharded-postgresql/cli-ref/
 editable: false
 ---
 
@@ -93,6 +94,10 @@ Aliases:
   - [yc managed-sharded-postgresql user list](user/list.md) — List users for the specified Sharded PostgreSQL cluster
 
   - [yc managed-sharded-postgresql user update](user/update.md) — Update the specified Sharded PostgreSQL user
+
+- [yc managed-sharded-postgresql v0](v0/index.md) — Manage Sharded PostgreSQL clusters, hosts, databases, backups and users.
+
+  - [yc managed-sharded-postgresql v0 resource-preset](v0/resource-preset.md) — Manage Sharded PostgreSQL resource presets
 
 #### Global Flags
 

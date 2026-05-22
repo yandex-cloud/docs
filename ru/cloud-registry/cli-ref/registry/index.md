@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/registry/
 editable: false
 ---
 
@@ -51,6 +52,8 @@ Syntax:
   - [yc cloud-registry registry lifecycle-policy create](lifecycle-policy/create.md) — Create a lifecycle policy.
 
   - [yc cloud-registry registry lifecycle-policy delete](lifecycle-policy/delete.md) — Deletes the specified lifecycle policy
+
+  - [yc cloud-registry registry lifecycle-policy dry-run](lifecycle-policy/dry-run.md) — Simulate the lifecycle policy execution and show the number of artifacts to be deleted
 
   - [yc cloud-registry registry lifecycle-policy get](lifecycle-policy/get.md) — Get information about a lifecycle policy.
 

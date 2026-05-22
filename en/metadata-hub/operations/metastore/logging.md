@@ -3,7 +3,7 @@ title: Transferring {{ metastore-full-name }} cluster logs to {{ cloud-logging-f
 description: Follow this guide to set up the transfer of {{ metastore-name }} cluster logs to {{ cloud-logging-name }}.
 ---
 
-# Transferring {{ metastore-name }} cluster logs to {{ cloud-logging-full-name }}
+# Transferring a {{ metastore-name }} cluster's logs to {{ cloud-logging-full-name }}
 
 You can set up regular collection of {{ metastore-name }} cluster performance logs. Logs will be delivered to a [log group](../../../logging/concepts/log-group.md) in {{ cloud-logging-full-name }}. You can choose between these two types of log groups:
 
@@ -25,8 +25,8 @@ You can set up regular collection of {{ metastore-name }} cluster performance lo
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the folder you need.
-      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+      1. In the [management console]({{ link-console-main }}), select the folder.
+      1. [Go](../../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
       1. In the left-hand panel, select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
       1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
       1. Specify `metastore-cluster` as the cluster name.
@@ -74,9 +74,9 @@ You can set up regular collection of {{ metastore-name }} cluster performance lo
 
       [Learn more about creating a cluster](cluster-create.md).
 
-    - REST API {#api}
+   - REST API {#api}
 
-        1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
+        1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
             {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -115,7 +115,7 @@ You can set up regular collection of {{ metastore-name }} cluster performance lo
 
             [Learn more about creating a cluster](cluster-create.md).
 
-        1. Use the [Cluster.Create](../../api-ref/Cluster/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+        1. Call the [Cluster.Create](../../api-ref/Cluster/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
             ```bash
             curl \
@@ -127,9 +127,9 @@ You can set up regular collection of {{ metastore-name }} cluster performance lo
 
         1. View the [server response](../../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
-    - gRPC API {#grpc-api}
+   - gRPC API {#grpc-api}
 
-        1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
+        1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
             {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -170,7 +170,7 @@ You can set up regular collection of {{ metastore-name }} cluster performance lo
 
             [Learn more about creating a cluster](cluster-create.md).
 
-        1. Use the [ClusterService.Create](../../api-ref/grpc/Cluster/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+        1. Call the [ClusterService.Create](../../api-ref/grpc/Cluster/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
             ```bash
             grpcurl \
@@ -185,7 +185,7 @@ You can set up regular collection of {{ metastore-name }} cluster performance lo
                 < body.json
             ```
 
-        1. View the [server response](../../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+        1. Check the [server response](../../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
    {% endlist %}
 
@@ -196,7 +196,7 @@ You can set up regular collection of {{ metastore-name }} cluster performance lo
    - Management console {#console}
 
       1. In the management console, navigate to the relevant folder.
-      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+      1. [Go](../../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
       1. Click the row with the `default` log group.
 
       The page that opens will show the log group entries.
@@ -257,8 +257,8 @@ You can set up regular collection of {{ metastore-name }} cluster performance lo
 
    - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select the folder you need.
-      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+      1. In the [management console]({{ link-console-main }}), select the folder.
+      1. [Go](../../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
       1. In the left-hand panel, select ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**.
       1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
       1. Specify `metastore-cluster` as the cluster name.
@@ -306,9 +306,9 @@ You can set up regular collection of {{ metastore-name }} cluster performance lo
 
       [Learn more about creating a cluster](cluster-create.md).
 
-    - REST API {#api}
+   - REST API {#api}
 
-        1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
+        1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
             {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -347,7 +347,7 @@ You can set up regular collection of {{ metastore-name }} cluster performance lo
 
             [Learn more about creating a cluster](cluster-create.md).
 
-        1. Use the [Cluster.Create](../../api-ref/Cluster/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+        1. Call the [Cluster.Create](../../api-ref/Cluster/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
             ```bash
             curl \
@@ -359,9 +359,9 @@ You can set up regular collection of {{ metastore-name }} cluster performance lo
 
         1. View the [server response](../../api-ref/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
-    - gRPC API {#grpc-api}
+   - gRPC API {#grpc-api}
 
-        1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and save it as an environment variable:
+        1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
             {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
@@ -396,13 +396,13 @@ You can set up regular collection of {{ metastore-name }} cluster performance lo
 
             * `service_account_id`: ID of the `metastore-logging-sa` service account you created [earlier](#before-you-begin).
             * `logging.log_group_id`: `metastore-log-group` log group ID.
-            * `logging.min_level`: Logging level. The execution log will contain logs of this level or higher. The available levels are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`. The default is `INFO`.
+            * `logging.min_level`: Logging level, The execution log will contain logs of this level or higher. The available levels are `TRACE`, `DEBUG`, `INFO`, `WARN`, `ERROR`, and `FATAL`. The default is `INFO`.
             * `network.subnet_ids`: ID of the subnet where you set up the NAT gateway.
             * `network.security_group_ids`: ID of the security group you configured [earlier](#before-you-begin).
 
             [Learn more about creating a cluster](cluster-create.md).
 
-        1. Use the [ClusterService.Create](../../api-ref/grpc/Cluster/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+        1. Call the [ClusterService.Create](../../api-ref/grpc/Cluster/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
             ```bash
             grpcurl \
@@ -417,7 +417,7 @@ You can set up regular collection of {{ metastore-name }} cluster performance lo
                 < body.json
             ```
 
-        1. View the [server response](../../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+        1. Check the [server response](../../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
    {% endlist %}
 
@@ -428,7 +428,7 @@ You can set up regular collection of {{ metastore-name }} cluster performance lo
    - Management console {#console}
 
       1. In the management console, navigate to the relevant folder.
-      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+      1. [Go](../../../console/operations/select-service#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
       1. Click the row with the `metastore-log-group` log group.
 
       The page that opens will show the log group entries.

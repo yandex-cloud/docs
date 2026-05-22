@@ -5,6 +5,8 @@ description: Follow this guide to get information about an organization user in 
 
 # Getting user info
 
+{% include [organization-deny-user-listing](../../_includes/organization/organization-deny-user-listing.md) %}
+
 {% note info %}
 
 Only users with the `organization-manager.admin` or `organization-manager.organizations.owner` role can get a user ID or email. To learn how to grant a role to a user, see the [Roles](../security/index.md#add-role) section.

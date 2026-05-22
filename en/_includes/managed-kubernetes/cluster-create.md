@@ -51,6 +51,8 @@
 
       {% include [note-another-catalog-network](note-another-catalog-network.md) %}
 
+      {% include [note-vpc-resources](note-vpc-resources.md) %}
+
    * For a highly available master, select the master host placement in the **Distribution of masters across availability zones** field:
      * `One zone`: In one availability zone and one subnet. Choose this type if you want to ensure high availability of the cluster and reduce its internal network latency.
      * `Different zones`: In three different availability zones. This master ensures the best fault tolerance: if one zone becomes unavailable, the master will continue to function.

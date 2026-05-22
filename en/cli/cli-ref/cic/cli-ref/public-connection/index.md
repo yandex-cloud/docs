@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/public-connection/
 editable: false
 ---
 
@@ -23,6 +24,8 @@ Aliases:
 - [yc cic public-connection get](get.md) — Get information about an publicConnection.
 
 - [yc cic public-connection list](list.md) — List publicConnections in a folder.
+
+- [yc cic public-connection list-operations](list-operations.md) — List operations for a publicConnection.
 
 - [yc cic public-connection move](move.md) — Move the specified public connection into the folder
 

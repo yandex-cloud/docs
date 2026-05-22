@@ -14,6 +14,7 @@ yc config set <parameter_name> <parameter_value>
 ```
 
 For example, change the default folder:
+
 1. [Get information about the current profile parameters](profile-list.md#profile-get).
 1. Change the default folder (the `folder-id` parameter): 
 
@@ -34,11 +35,17 @@ For example, change the default folder:
    Result:
 
    ```text
-   token: y0_AgAAA...Njwvs7N4
+   subject-id: ajea53egl28l********
    cloud-id: b1gj9ja2h4ct********
    folder-id: b1g5bhjofg7o********
    organization-id: bpfaidqca8vd********
    ```
+   
+{% note info %}
+
+In the CLI, you have access to the default folder resources. If you often use resources residing in a particular folder, make it your default folder so you do not have to specify `--folder-id` or `--folder-name` each time. When using the resource ID, there is no need to specify the folder.
+
+{% endnote %}
     
 View the full [list of profile parameters](../../concepts/core-properties.md). You can also change your profile parameters using the [profile wizard](profile-create.md#interactive-create).
 
@@ -67,7 +74,7 @@ For example, unlink the default organization from a profile:
     Result:
 
     ```text
-    token: y0_AgAAA...Njwvs7N4
+    subject-id: ajea53egl28l********
     cloud-id: b1gj9ja2h4ct********
     folder-id: b1g5bhjofg7o********
     ```
@@ -85,7 +92,7 @@ yc config list --profile test
 Result:
 
 ```text
-token: y0_AgAAA...Kjwgs7h3
+subject-id: ajea53egl28l********
 cloud-id: b15jlj22h4ct********
 folder-id: b1grb2jo7g7o********
 ```

@@ -17,7 +17,7 @@ You can create multiple shards in a cluster in one go.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and navigate to the **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}** tab.
   1. Click **{{ ui-key.yacloud.clickhouse.Cluster.Shards.action_add-shards_iULX7 }}**.
   1. Click ![pencil](../../_assets/console-icons/pencil.svg) next to the new shard to update its parameters:
@@ -89,27 +89,33 @@ You can create multiple shards in a cluster in one go.
 
           {% include [warning-schema-copy](../../_includes/managed-clickhouse/warning-schema-copy.md) %}
 
+
 - {{ TF }} {#tf}
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
      For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
-  1. To the {{ mch-name }} cluster description, add one or more `shard` sections and `host` sections of the `CLICKHOUSE` type with `shard_name` specified:
+  1. In the {{ mch-name }} cluster description, add a new shard to the `shards` section and a {{ CH }} host on that shard to the `hosts` section:
 
      ```hcl
-     resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+     resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
        ...
-       shard {
-         name   = "<shard_name>"
-         weight = <shard_weight>
+       shards = {
+         ...
+         "<shard_name>" = {
+           weight = <shard_weight>
+         }
        }
 
-       host {
-         type       = "CLICKHOUSE"
-         zone       = "<availability_zone>"
-         subnet_id  = yandex_vpc_subnet.<subnet_in_availability_zone>.id
-         shard_name = "<shard_name>"
+       hosts = {
+         ...
+         <host_name> = {
+           type       = "CLICKHOUSE"
+           zone       = "<availability_zone>"
+           subnet_id  = yandex_vpc_subnet.<subnet_in_availability_zone>.id
+           shard_name = "<shard_name>"
+         }
        }
      }
      ```
@@ -118,7 +124,7 @@ You can create multiple shards in a cluster in one go.
 
      {% include [warning-schema-copy](../../_includes/managed-clickhouse/warning-schema-copy.md) %}
 
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -129,6 +135,7 @@ You can create multiple shards in a cluster in one go.
   For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -194,14 +201,14 @@ You can create multiple shards in a cluster in one go.
           * `zoneId`: Availability zone.
           * `type`: Host type. You can only add `CLICKHOUSE` hosts to your shards.
           * `subnetId`: Subnet ID.
-          * `assignPublicIp`: Controls whether the host is accessible via a public IP address, `true` or `false`.
+          * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
           * `shardName`: Shard name.
 
         * `copySchema`: Copying the data schema from a random replica of one of the shards to the hosts of the new shard. The possible values are `true` or `false`.
 
           {% include [warning-schema-copy](../../_includes/managed-clickhouse/warning-schema-copy.md) %}
 
-     1. Run this query:
+     1. Run this request:
 
         ```bash
         curl \
@@ -212,7 +219,7 @@ You can create multiple shards in a cluster in one go.
           --data '@body.json'
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/addShards.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -283,14 +290,14 @@ You can create multiple shards in a cluster in one go.
           * `zone_id`: Availability zone.
           * `type`: Host type. You can only add `CLICKHOUSE` hosts to your shards.
           * `subnet_id`: Subnet ID.
-          * `assign_public_ip`: Controls whether the host is accessible via a public IP address, `true` or `false`.
+          * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
           * `shard_name`: Shard name.
 
         * `copy_schema`: Copying the data schema from a random replica of one of the shards to the hosts of the new shard. The possible values are `true` or `false`.
 
           {% include [warning-schema-copy](../../_includes/managed-clickhouse/warning-schema-copy.md) %}
 
-     1. Run this query:
+     1. Run this request:
 
         ```bash
         grpcurl \
@@ -316,7 +323,7 @@ You can create multiple shards in a cluster in one go.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}** tab.
 
 - CLI {#cli}
@@ -348,7 +355,7 @@ You can create multiple shards in a cluster in one go.
        --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/shards'
      ```
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/listShards.md#yandex.cloud.mdb.clickhouse.v1.ListClusterShardsResponse) to make sure your request was successful.
 
@@ -375,7 +382,7 @@ You can create multiple shards in a cluster in one go.
        yandex.cloud.mdb.clickhouse.v1.ClusterService.ListShards
      ```
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. View the [server response](../api-ref/grpc/Cluster/listShards.md#yandex.cloud.mdb.clickhouse.v1.ListClusterShardsResponse) to make sure your request was successful.
 
@@ -398,7 +405,7 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}** tab.
   1. Click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
 
@@ -473,7 +480,7 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
 
      Where:
 
-     * `updateMask`: Comma-separated list of settings you want to update.
+     * `updateMask`: Comma-separated string of settings to update.
      * `configSpec.clickhouse`: Shard parameters to update:
 
        * `config`: [{{ CH }} settings](../concepts/settings-list.md). For a list of available settings, see the [method description](../api-ref/Cluster/updateShard.md#yandex.cloud.mdb.clickhouse.v1.UpdateClusterShardRequest).
@@ -582,7 +589,7 @@ Deleting a shard will delete all tables and data stored on that shard.
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_shards }}** tab.
     1. Delete one or multiple shards:
         * To delete one shard, click ![image](../../_assets/console-icons/ellipsis.svg) in its row, and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
@@ -607,14 +614,15 @@ Deleting a shard will delete all tables and data stored on that shard.
 
   You can get the shard names from the [list of cluster shards](#list-shards), and the cluster name, from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
      For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
-  1. Delete the relevant `shard` and `host` sections from the {{ mch-name }} cluster description.
-  1. Make sure the settings are correct.
+  1. In the {{ mch-name }} cluster description, delete the shard from the `shards` section, and all {{ CH }} hosts on that shard, from the `hosts` section.
+  1. Validate your configuration.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -625,6 +633,7 @@ Deleting a shard will delete all tables and data stored on that shard.
   For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -648,7 +657,7 @@ Deleting a shard will delete all tables and data stored on that shard.
 
      Where `shardNames` is an array of strings. Each string is the name of a shard to delete. You can get the shard names with the [list of shards in the cluster](#list-shards).
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/deleteShard.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -680,7 +689,7 @@ Deleting a shard will delete all tables and data stored on that shard.
 
      Where `shard_names` is an array of strings. Each string is the name of a shard to delete. You can get the shard names with the [list of shards in the cluster](#list-shards).
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/deleteShards.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

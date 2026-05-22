@@ -3,19 +3,15 @@ title: How to analyze the status of a {{ baremetal-name }} server
 description: Follow this guide to use the HWCheck utility to generate a status report for the server, its disks, and peripherals.
 ---
 
-# HWCheck: {{ baremetal-name }} server diagnostic utility
+# Analyzing {{ baremetal-name }} server status with HWCheck
 
-If you encounter disk read/write errors, disk or [RAID](https://{{ lang }}.wikipedia.org/wiki/RAID) array failures while using with the {{ baremetal-name }} [server](../../concepts/servers.md), you can run [server diagnostics](../../concepts/smart-disk-analysis.md) to identify the source of the problem and generate a [report]({{ link-console-support }}/tickets/create) for support.
+If you encounter disk read/write errors, disk or [RAID](../../concepts/disks/raid.md) array failures while using with the {{ baremetal-name }} [server](../../concepts/servers.md), you can run [server diagnostics](../../concepts/smart-disk-analysis.md#hwcheck) to identify the source of the problem and generate a [report]({{ link-console-support }}/tickets/create) for support.
 
-{% note info %}
-
-You can only use `HWCheck` on [Linux](https://en.wikipedia.org/wiki/Linux) servers.
-
-{% endnote %}
+{% include [hwcheck-only-on-linux](../../../_includes/baremetal/hwcheck-only-on-linux.md) %}
 
 ## Generate a report {#generate-report}
 
-To generate a system status report using `HWCheck`:
+To generate a system status report using [HWCheck](../../../baremetal/concepts/smart-disk-analysis.md#hwcheck):
 
 1. Connect to a Linux server over SSH by running the following command in the terminal:
 
@@ -101,7 +97,7 @@ To generate a system status report using `HWCheck`:
     ...
     ``` 
 
-    You can either [analyze](../../concepts/smart-disk-analysis.md) the results yourself or [contact](#report-issue) support for assistance.
+    You can either [analyze](../../concepts/smart-disk-analysis.md#hwcheck) the results yourself or [contact](#report-issue) support for assistance.
 
 ## Send a report to support {#report-issue}
 

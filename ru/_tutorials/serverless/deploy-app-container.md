@@ -397,7 +397,7 @@
 {% endlist %}
 
 
-## Создайте секрет {{ lockbox-name}} {#secret-create}
+## Создайте секрет {{ lockbox-name }} {#secret-create}
 
 В [секрете {{ lockbox-name }}](../../lockbox/concepts/secret.md) в зашифрованном виде будут храниться данные для аутентификации.
 

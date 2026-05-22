@@ -1,12 +1,6 @@
 Where:
 
-* `userpool_id`: ID of the [user pool](../../organization/concepts/user-pools.md) in {{ org-name }}.
-* `cloud_credentials_file_path`: Path to the file containing the [authorized key](../../iam/concepts/authorization/key.md) of the service account in {{ yandex-cloud }}. Here is an example:
-
-    * `/etc/yc-identityhub-sync-agent/authorized_key.json` (for Linux)
-    * `C:\\ProgramData\\YcIdentityHubSyncAgent\\authorized_key.json` (for Windows)
-
-    In the `cloud_credentials_file_path` parameter, you can provide only the file name instead of the full path. In this case, the system will save that file in the working directory specified in `working_directory` or, if none is specified, in the directory the agent's executable is in.
+* `userpool_id`: ID of the [user pool](../../organization/concepts/user-pools.md) in {{ org-full-name }}.
 * `replication_tokens_path`: Path to the directory storing tokens with info about the current progress of [full synchronization](../../organization/concepts/ad-sync.md#full-sync) processes. This is an optional setting.
 
     If this parameter is not set, the system will be saving the tokens in the agent's working directory specified in `working_directory` or, if none is specified, in the directory the agent's executable is in.
@@ -17,12 +11,33 @@ Where:
     * `/etc/yc-identityhub-sync-agent/` (for Linux)
     * `C:\\ProgramData\\YcIdentityHubSyncAgent\\` (for Windows)
 
+* `cloud_credentials_file_path`: Path to the file containing the [authorized key](../../iam/concepts/authorization/key.md) of the service account in {{ yandex-cloud }}. This is an optional setting used only for agent authentication in the {{ yandex-cloud }} API with an authorized key.
+
+    Examples of values:
+
+    * `/etc/yc-identityhub-sync-agent/authorized_key.json` (for Linux)
+    * `C:\\ProgramData\\YcIdentityHubSyncAgent\\authorized_key.json` (for Windows)
+
+    In the `cloud_credentials_file_path` parameter, you can provide only the file name instead of the full path. In this case, the system will save that file in the working directory specified in `working_directory` or, if none is specified, in the directory the agent's executable is in.
+
     {% note info %}
 
-    If the `cloud_credentials_file_path`, `replication_tokens_path`, and/or `logger.level` parameters specify paths other than that specified in `working_directory`, the system use the paths specified in `cloud_credentials_file_path`, `replication_tokens_path`, and/or `logger.level`.
+    If the `cloud_credentials_file_path`, `replication_tokens_path`, and/or `logger.file.filename` parameters specify paths other than that specified in `working_directory`, the system will use the paths specified in the `cloud_credentials_file_path`, `replication_tokens_path`, and/or `logger.file.filename` parameters for the selected entities.
 
     {% endnote %}
 
+* `use_metadata_service`: Controls agent authentication in the {{ yandex-cloud }} API using an [IAM token](../../iam/concepts/authorization/iam-token.md) and enables the agent to obtain IAM tokens via the VM [metadata service](../../compute/concepts/vm-metadata.md).
+
+    The possible values are:
+
+    * `true`: Synchronization agent will use the VM metadata service to obtain the service account IAM tokens for authentication in the {{ yandex-cloud }} API The `cloud_credentials_file_path` value will be ignored.
+
+        To obtain IAM tokens, the agent must run on a {{ compute-full-name }} VM instance to which a service account with the [relevant access permissions](../../organization/concepts/ad-sync.md#yc-setup) is attached.
+    * `false`: Synchronization agent will not obtain IAM tokens; to authenticate in the {{ yandex-cloud }} API, it will use the authorized key specified in `cloud_credentials_file_path`.
+* `dry_run`: [Dry run](../../organization/concepts/ad-sync.md#dry-run) settings for the agent:
+
+    * `enabled: true`: Dry run mode on. The agent does not make any changes to {{ org-full-name }} user or group data. Instead, it tests all operations from the agent’s configuration, and [logs](../../organization/concepts/ad-sync.md#logging) the results of these tests.
+    * `enabled: false`: The agent runs normally, making the required changes to {{ org-full-name }} user and group data.
 * `drsr`: [DRSR](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-drsr/) protocol settings for {{ microsoft-idp.ad-short }} authentication of a [user](#dc-setup) with permissions to replicate folder data.
 * `ldap`: [LDAPS](https://learn.microsoft.com/en-us/troubleshoot/windows-server/active-directory/enable-ldap-over-ssl-3rd-certification-authority)/[LDAP](https://learn.microsoft.com/en-us/windows/win32/api/_ldap/) protocol settings for {{ microsoft-idp.ad-short }} authentication:
 
@@ -76,15 +91,15 @@ Where:
 
         {% endnote %}
 
-    * `allow_to_capture_users`: Enables updating an existing user in the {{ org-name }} user pool if their login matches that of a {{ microsoft-idp.ad-short }} user being synchronized. The possible values are:
+    * `allow_to_capture_users`: Enables updating an existing user in the {{ org-full-name }} user pool if their login matches that of a {{ microsoft-idp.ad-short }} user being synchronized. The possible values are:
 
-        * `true`: Synchronization agent will update existing {{ org-name }} users to match their corresponding {{ microsoft-idp.ad-short }} accounts.
-        * `false`: Synchronization agent will not update existing {{ org-name }} users. If it detects matching logins in the user pool and {{ microsoft-idp.ad-short }}, the synchronization will throw an error.
-    * `allow_to_capture_groups`: Enables updating an existing {{ org-name }} user group if its name matches that of a {{ microsoft-idp.ad-short }} group being synchronized. The possible values are:
+        * `true`: Synchronization agent will update existing {{ org-full-name }} users to match their corresponding {{ microsoft-idp.ad-short }} accounts.
+        * `false`: Synchronization agent will not update existing {{ org-full-name }} users. If it detects matching logins in the user pool and {{ microsoft-idp.ad-short }}, the synchronization will throw an error.
+    * `allow_to_capture_groups`: Enables updating an existing {{ org-full-name }} user group if its name matches that of a {{ microsoft-idp.ad-short }} group being synchronized. The possible values are:
 
-        * `true`: Synchronization agent will update existing {{ org-name }} user groups to match their corresponding {{ microsoft-idp.ad-short }} groups.
-        * `false`: Synchronization agent will not update existing {{ org-name }} groups. If it detects matching group names in the pool and {{ microsoft-idp.ad-short }}, the synchronization will throw an error.
-    * `replacement_domain`: [Domain](../../organization/concepts/domains.md) associated with the {{ org-name }} user pool to which synchronized users and groups belong, e.g., `newdomain.idp.{{ dns-ns-host-sld }}`.
+        * `true`: Synchronization agent will update existing {{ org-full-name }} user groups to match their corresponding {{ microsoft-idp.ad-short }} groups.
+        * `false`: Synchronization agent will not update existing {{ org-full-name }} groups. If it detects matching group names in the pool and {{ microsoft-idp.ad-short }}, the synchronization will throw an error.
+    * `replacement_domain`: [Domain](../../organization/concepts/domains.md) associated with the {{ org-full-name }} user pool to which synchronized users and groups belong, e.g., `newdomain.idp.{{ dns-ns-host-sld }}`.
 
         This is an optional setting. Specify the `replacement_domain` value only if the domain name associated with the user pool does not match the domain name on the {{ microsoft-idp.ad-short }} domain controller.
     * `user_attribute_mapping`: User attribute mapping settings:
@@ -126,11 +141,11 @@ Where:
         If object filtering is not configured, {{ ad-sync-agent }} will attempt to synchronize all [available objects](../../organization/concepts/ad-sync.md#sync-objects) in the {{ microsoft-idp.ad-short }} folder.
     * `remove_user_behavior`: Controls what action should be applied to users on the {{ yandex-cloud }} side if the corresponding ones on the {{ microsoft-idp.ad-short }} side were deleted or ceased to satisfy the conditions specified in `sync_settings.filter` (e.g., if moved to another organization unit). This is an optional setting. The possible values are:
 
-        * `remove`: Users who were deleted ceased to satisfy the filter criteria will be deleted on the {{ org-name }} side. This is the default action.
-        * `block`: Users who were deleted ceased to satisfy the filter criteria will be deactivated on the {{ org-name }} side.
+        * `remove`: Users who were deleted ceased to satisfy the filter criteria will be deleted on the {{ org-full-name }} side. This is the default action.
+        * `block`: Users who were deleted ceased to satisfy the filter criteria will be deactivated on the {{ org-full-name }} side.
 
     {% note info %}
 
-    If synchronization reveals that a {{ microsoft-idp.ad-short }} user group was deleted or ceased to satisfy the filter criteria (e.g., if moved to another organization unit), such a group will be deleted on the {{ org-name }} side.
+    If synchronization reveals that a {{ microsoft-idp.ad-short }} user group was deleted or ceased to satisfy the filter criteria (e.g., if moved to another organization unit), such a group will be deleted on the {{ org-full-name }} side.
 
     {% endnote %}

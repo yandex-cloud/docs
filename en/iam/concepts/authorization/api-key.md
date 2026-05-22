@@ -6,6 +6,8 @@ description: In this article, you will learn what an API key is, about its purpo
 # API key
 
 
+{% include [access-control-sa-apikey-notice](../../../_includes/iam/access-control-sa-apikey-notice.md) %}
+
 The _API key_ is a secret key only used for simplified authorization of [service accounts](../users/service-accounts.md) with the {{ yandex-cloud }} API.
 
 {% include [api-keys-disclaimer](../../../_includes/iam/api-keys-disclaimer.md) %}
@@ -33,9 +35,9 @@ Additionally, when creating an API key, you can limit its validity period. You c
 Available scopes are listed below:
 
 
-* `yc.ai.foundationModels.execute`: To send requests to [{{ assistant-api }}]({{ link-docs-ai }}ai-studio/assistants/api-ref/index), [Image Generation API]({{ link-docs-ai }}ai-studio/image-generation/api-ref/index), [Text Generation API]({{ link-docs-ai }}ai-studio/text-generation/api-ref/index), [{{ speechkit-name }}]({{ link-docs-ai }}speechkit/concepts/api) API, [{{ translate-full-name }}]({{ link-docs-ai }}translate/concepts/api) API, and [{{ vision-name }} API]({{ link-docs-ai }}vision/ocr/api-ref/index).
-* `yc.ai.imageGeneration.execute`: To send requests to image generation models in {{ foundation-models-full-name }} via the [Image Generation API]({{ link-docs-ai }}ai-studio/image-generation/api-ref/index).
-* `yc.ai.languageModels.execute`: To send requests to text generation models in {{ foundation-models-full-name }} via the [Text Generation API]({{ link-docs-ai }}ai-studio/text-generation/api-ref/index).
+* `yc.ai.foundationModels.execute`: For requests to the [{{ ai-studio-name }} API]({{ link-docs-ai }}ai-studio/concepts/api.html#yc), [{{ speechkit-name }} API]({{ link-docs-ai }}speechkit/concepts/api), [{{ translate-full-name }} API]({{ link-docs-ai }}translate/concepts/api), and [{{ vision-name }} API]({{ link-docs-ai }}vision/ocr/api-ref/index).
+* `yc.ai.imageGeneration.execute`: For requests to image generation models in {{ ai-studio-full-name }} via the [Image Generation API]({{ link-docs-ai }}ai-studio/image-generation/api-ref/index).
+* `yc.ai.languageModels.execute`: For requests to text generation models in {{ ai-studio-full-name }} via the [Text Generation API]({{ link-docs-ai }}ai-studio/text-generation/api-ref/index).
 * `yc.ai.speechkitStt.execute`: To [recognize speech]({{ link-docs-ai }}speechkit/stt/index) via the [{{ speechkit-name }} API]({{ link-docs-ai }}speechkit/concepts/api).
 * `yc.ai.speechkitTts.execute`: To [synthesize speech]({{ link-docs-ai }}speechkit/tts/index) via the [{{ speechkit-name }} API]({{ link-docs-ai }}speechkit/concepts/api).
 * `yc.ai.translate.execute`: To translate text via the [{{ translate-full-name }} API]({{ link-docs-ai }}translate/concepts/api).
@@ -45,11 +47,15 @@ Available scopes are listed below:
 * `yc.managed-ytsaurus.cluster.use`: To work with [clusters](../../../managed-ytsaurus/concepts/component-types.md) via the [{{ myt-full-name }} API](../../../managed-ytsaurus/api-ref/authentication.md).
 * `yc.monitoring.manage`: To view and write data in {{ monitoring-full-name }} via the [{{ monitoring-name }} API](../../../monitoring/api-ref/index.md).
 * `yc.monitoring.read`: To view data in {{ monitoring-full-name }} via the [{{ monitoring-name }} API](../../../monitoring/api-ref/index.md).
+* `yc.monium.logs.write`: To write [logs](../../../monium/logs/quickstart.md) to [{{ monium-name }}](../../../monium/index.yaml).
+* `yc.monium.metrics.write`: To write [metrics](../../../monium/metrics/overview.md) to [{{ monium-name }}](../../../monium/index.yaml).
+* `yc.monium.traces.write`: To write [distributed traces](../../../monium/traces/index.md) to [{{ monium-name }}](../../../monium/index.yaml).
+* `yc.monium.telemetry.write`: To write any type of telemetry to [{{ monium-name }}](../../../monium/index.yaml) over [OTLP](https://opentelemetry.io/docs/specs/otlp/) (OpenTelemetry Protocol).
 * `yc.postbox.send`: To send emails via the [{{ postbox-name }}](../../../postbox/index.yaml) API.
 * `yc.search-api.execute`: To send search queries to [{{ search-api-name }}]({{ link-docs-ai }}search-api/api-ref/index).
 * `yc.serverless.containers.invoke`: To invoke containers via the [{{ serverless-containers-short-name }} API](../../../serverless-containers/containers/api-ref/index.md).
 * `yc.serverless.functions.invoke`: To invoke functions via the [{{ sf-short-name }} API](../../../functions/functions/api-ref/index.md).
-* `yc.serverless.mcpGateways.invoke`: To invoke MCP servers via the [{{ foundation-models-full-name }} {{ mcp-hub-name }}]({{ link-docs-ai }}ai-studio/concepts/mcp-hub/index).
+* `yc.serverless.mcpGateways.invoke`: To invoke MCP servers via the [{{ ai-studio-full-name }} {{ mcp-hub-name }}]({{ link-docs-ai }}ai-studio/concepts/mcp-hub/index).
 * `yc.speech-sense.use`: To work with {{ speechsense-name }} [resources](../../../speechsense/concepts/resources-hierarchy.md) via the [{{ speechsense-full-name }} API](../../../speechsense/api-ref/authentication.md).
 * `yc.ydb.tables.manage`: For accessing {{ ydb-short-name }} in {{ PG }}-compatible mode.
 * `yc.ydb.topics.manage`: For accessing the [Kafka API](../../../data-streams/kafkaapi/auth.md) in {{ yds-full-name }}.
@@ -57,6 +63,12 @@ Available scopes are listed below:
 When creating an API key in the [management console]({{ link-console-main }}), scope is a required parameter. When creating an API key using the [{{ yandex-cloud }} CLI](../../../cli/cli-ref/iam/cli-ref/api-key/create.md), [{{ TF }}]({{ tf-provider-resources-link }}/iam_service_account_api_key), or [API](../../api-ref/ApiKey/create.md), scope is optional. If you do not specify a scope for the new API key, it will get the following scopes by default:
 
 {% include [default-scope-list](../../../_includes/iam/default-scope-list.md) %}
+
+## Identifying an API key {#identify-key}
+
+The [list](../../operations/authentication/manage-api-keys.md#list-api-keys) of API keys in the {{ yandex-cloud }} CLI includes the `MASKED KEY` field which shows the last six characters of the key’s secret part. This helps you match the API key to its ID. Displaying the six characters is secure as the entire key is not revealed.
+
+Use the `MASKED KEY` field to quickly identify a key, e.g., when searching for a key in leak databases or mapping keys in other systems with keys in {{ yandex-cloud }}.
 
 ## Using an API key {#use}
 
@@ -70,11 +82,12 @@ Authorization: Api-Key <API_key>
 
 The following services support authentication based on API keys:
 
+* [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/api-ref/authentication)
 * [{{ sf-full-name }}](../../../functions/operations/function/auth.md)
 * [{{ ml-platform-full-name }}](../../../datasphere/api-ref/authentication.md)
 * [{{ monitoring-full-name }}](../../../monitoring/api-ref/authentication.md)
 * [{{ postbox-full-name }}](../../../postbox/api-ref/authentication.md)
-* [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/operations/auth)
+* [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/api-ref/authentication)
 * [{{ serverless-containers-full-name }}](../../../serverless-containers/)
 * [{{ speechkit-full-name }}]({{ link-docs-ai }}{{ speechkit-slug }}/concepts/auth)
 * [{{ speechsense-full-name }}](../../../speechsense/api-ref/authentication.md)
@@ -83,7 +96,7 @@ The following services support authentication based on API keys:
 * {{ yds-full-name }}: [Kafka API](../../../data-streams/kafkaapi/index.md).
 * {{ ydb-full-name }}: Only in {{ PG }}-compatible mode. Use a suitable [authentication method](../../../ydb/operations/connection.md#auth) for other modes.
 * [{{ metadata-hub-full-name }}](../../../metadata-hub/concepts/index.md): Within [{{ schema-registry-full-name }}](../../../metadata-hub/operations/connect-to-namespace.md).
-* [{{ cloud-registry }}](../../../cloud-registry/)
+* [{{ cloud-registry-full-name }}](../../../cloud-registry/)
 
 ## Use cases {#examples}
 

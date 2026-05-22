@@ -7,7 +7,7 @@ description: In this section, you will learn how to view active {{ k8s }} contro
 
 {% include [note-preview](../../../_includes/note-preview.md) %}
 
-To view {{ k8s }} control rules, you need the `security-deck.viewer` role or higher for the folder containing the KSPM module resources.
+To view {{ k8s }} control rules, you need the `security-deck.viewer` role or higher for the folder containing the {{ kspm-name }} module resources.
 
 To view active {{ k8s }} control rules:
 
@@ -36,7 +36,7 @@ To view active {{ k8s }} control rules:
           * ![cspm-high-severity-icon](../../../_assets/security-deck/cspm-high-severity-icon.svg): {{ ui-key.yacloud_org.shared.components.severity_high_cahHH }}
       * **{{ ui-key.yacloud_org.security.controls.rule-result.controlRule_kr2Bv }}**: Rule name and brief summary.
       * **{{ ui-key.yacloud_org.security.controls.rule-result.standards_iv6a5 }}**: Icon(s) for the [security standards](../../../security-deck/concepts/workspace.md#standards) that are using this rule. If the icon is colored, it means the rule is checked for the corresponding standard. If the icon is gray, it means it is not.
-      * **{{ ui-key.yacloud_org.security.workspaces.label_rule-kind_3PswX }}**: How the infrastructure controlled in the workspace is checked for compliance with this rule:      
+      * **{{ ui-key.yacloud_org.security.controls.rule-result.verificationMethod_dS9B2 }}**: How the infrastructure controlled in the workspace is checked for compliance with this rule:
           * `runtime`
           * `admission`
       * **{{ ui-key.yacloud_org.security.controls.ExceptionDrawer.resources_field_id }}**: Rule ID in {{ yandex-cloud }}.

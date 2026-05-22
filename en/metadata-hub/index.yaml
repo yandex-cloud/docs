@@ -1,9 +1,9 @@
 title: Yandex MetaData Hub
 description:
   - >-
-    Yandex MetaData Hub is a Yandex Cloud service clients can use to manage
-    database connections, store data exchange schemas and dataset descriptions,
-    as well as manage metadata.
+    Yandex MetaData Hub is a Yandex Cloud service that allows customers to
+    manage database connections, store data exchange schemas, and describe
+    datasets, while also providing a metadata management system.
   - >-
     <em>Apache® and <a href="https://hive.apache.org/">Apache Hive™</a> are
     either registered trademarks or trademarks of the Apache Software Foundation
@@ -11,8 +11,9 @@ description:
 meta:
   title: Yandex MetaData Hub
   description: >-
-    Yandex MetaData Hub is a Yandex Cloud service that enables managing database
-    connections, storing data exchange workflows, and describing datasets.
+    Yandex MetaData Hub is a Yandex Cloud service that allows customers to
+    manage database connections, store data exchange schemas, and describe
+    datasets.
   keywords:
     - keyword: '{{ metadata-hub-name }}'
     - keyword: '{{ metadata-hub-name }}'
@@ -27,9 +28,9 @@ blocks:
     textContent:
       title: Yandex MetaData Hub
       text: >-
-        Yandex MetaData Hub is a Yandex Cloud service clients can use to manage
-        database connections, store data exchange schemas and dataset
-        descriptions, as well as manage metadata.
+        Yandex Cloud service for database connection management, storage of data
+        exchange schemas and dataset descriptions, plus a metadata management
+        system.
     size: l
   - type: card-layout-block
     colSizes:
@@ -44,31 +45,31 @@ blocks:
         text: Technical and organizational limitations
         icon: _assets/icons/sliders.svg
         urlTitle: Quotas in Yandex MetaData Hub
-        url: concepts/limits.md
+        url: concepts/limits
         centered: true
         size: s
       - type: basic-card
         title: Access management
-        text: Configuring access permissions for the service
+        text: How to configure access permissions to use the service
         icon: _assets/icons/lock.svg
         urlTitle: Access management in Yandex MetaData Hub
-        url: security/index.md
+        url: security/index
         centered: true
         size: s
       - type: basic-card
         title: Pricing policy
-        text: Service pricing and cost calculation
+        text: Pricing and cost calculations
         icon: _assets/icons/tag-ruble.svg
-        urlTitle: Yandex MetaData Hub pricing policy
-        url: pricing.md
+        urlTitle: Pricing policy for Yandex MetaData Hub
+        url: pricing
         centered: true
         size: s
       - type: basic-card
         title: Release notes
-        text: Releases and updates
+        text: Updates and changes
         icon: _assets/icons/timeline.svg
         urlTitle: Yandex MetaData Hub release notes
-        url: release-notes/index.md
+        url: release-notes/index
         centered: true
         size: s
   - type: card-layout-block
@@ -83,14 +84,14 @@ blocks:
         title: Connection Manager
         text: Automatically creating and managing database connection settings.
         urlTitle: Connection
-        url: concepts/connection-manager.md
+        url: concepts/connection-manager
         size: s
         icon: _assets/icons/plug-connection.svg
       - type: basic-card
         title: Apache Hive™ Metastore
         text: Creating and managing Apache Hive™ Metastore clusters.
         urlTitle: Apache Hive™ Metastore clusters
-        url: concepts/metastore.md
+        url: concepts/metastore
         size: s
         icon: _assets/icons/database.svg
       - type: basic-card
@@ -99,7 +100,7 @@ blocks:
           Centralized repository for managing and validating data schemas. The
           service is at the Preview stage.
         urlTitle: Data schema registry
-        url: concepts/schema-registry.md
+        url: concepts/schema-registry
         size: s
         icon: _assets/icons/layout-cells.svg
       - type: basic-card
@@ -108,14 +109,14 @@ blocks:
           Tool for collecting, analyzing, and marking up metadata from various
           sources. The service is at the Preview stage.
         urlTitle: Metadata catalog
-        url: concepts/data-catalog.md
+        url: concepts/data-catalog
         size: s
         icon: _assets/icons/folder-magnifier.svg
   - type: content-layout-block
     textContent:
       title: ''
       text: >-
-        Apache® и Apache Hive™ are either registered trademarks or trademarks of
-        the Apache Software Foundation in the United States and/or other
+        Apache® and Apache Hive™ are either registered trademarks or trademarks
+        of the Apache Software Foundation in the United States and/or other
         countries.
 links: []

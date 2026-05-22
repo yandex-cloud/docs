@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/registry/create
 editable: false
 ---
 
@@ -27,7 +28,7 @@ Registry description ||
 Registry kind Values: 'maven', 'npm', 'docker', 'nuget', 'debian', 'pypi', 'binary' ||
 || `--registry-type` | `string`
 
-Registry type Values: 'local', 'remote', 'virtual' ||
+Registry type Values: 'local', 'remote', 'virtual', 'transitional' ||
 || `--labels` | `key=value[,key=value...]`
 
 List of label KEY=VALUE pairs to add. ||

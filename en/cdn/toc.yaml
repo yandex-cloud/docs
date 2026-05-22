@@ -2,7 +2,13 @@ title: Yandex Cloud CDN
 href: index.yaml
 items:
   - name: Getting started
-    href: quickstart.md
+    items:
+      - name: Overview
+        href: quickstart/index.md
+      - name: Creating a CDN resource with an origin bucket
+        href: quickstart/bucket.md
+      - name: Creating a CDN resource with an origin server
+        href: quickstart/server.md
   - name: Step-by-step guides
     items:
       - name: All guides
@@ -21,7 +27,7 @@ items:
             href: operations/resources/configure-caching.md
           - name: Configuring log export
             href: operations/resources/configure-logs.md
-          - name: Prefetching files to CDN servers
+          - name: Prefetching files to the CDN server cache
             href: operations/resources/prefetch-files.md
           - name: Purging resource cache
             href: operations/resources/purge-cache.md
@@ -31,6 +37,8 @@ items:
             href: operations/resources/configure-cors.md
           - name: Configuring HTTP methods
             href: operations/resources/configure-http.md
+          - name: Setting up an HTTP response
+            href: operations/resources/configure-response.md
           - name: Enabling file compression
             href: operations/resources/enable-compression.md
           - name: Enabling file segmentation
@@ -47,10 +55,16 @@ items:
             href: operations/resources/enable-secure-token.md
           - name: Setting up location rules
             href: operations/resources/location-rules.md
+          - name: Setting up a server name for SNI
+            href: operations/resources/configure-server-name.md
           - name: Disabling a resource
             href: operations/resources/disable-resource.md
           - name: Managing resource labels
             href: operations/resources/labeling.md
+          - name: Configuring dedicated IP addressing
+            href: operations/resources/dedicated-ip-addressing.md
+          - name: Configuring a TLS profile
+            href: operations/resources/configure-tls-profile.md
           - name: Deleting a resource
             href: operations/resources/delete-resource.md
           - name: Viewing resource statistics
@@ -140,7 +154,7 @@ items:
             href: concepts/origins-shielding.md
           - name: Following request redirects
             href: concepts/follow-redirects.md
-          - name: Hiding origin headers
+          - name: Hiding of origin headers
             href: concepts/hiding-headers.md
       - name: Request redirect
         href: concepts/http-rewrite.md
@@ -150,6 +164,8 @@ items:
         href: concepts/secure-tokens.md
       - name: IP-based access policy
         href: concepts/ip-address-acl.md
+      - name: Dedicated IP addressing
+        href: concepts/dedicated-ip-addressing.md
       - name: Location rules
         href: concepts/location-rules.md
       - name: Log export
@@ -226,6 +242,70 @@ items:
             href: cli-ref/resource/list.md
           - name: update
             href: cli-ref/resource/update.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: cache
+            items:
+              - name: Overview
+                href: cli-ref/v0/cache/index.md
+              - name: prefetch
+                href: cli-ref/v0/cache/prefetch.md
+              - name: purge
+                href: cli-ref/v0/cache/purge.md
+          - name: origin
+            items:
+              - name: Overview
+                href: cli-ref/v0/origin/index.md
+              - name: create
+                href: cli-ref/v0/origin/create.md
+              - name: delete
+                href: cli-ref/v0/origin/delete.md
+              - name: get
+                href: cli-ref/v0/origin/get.md
+              - name: list
+                href: cli-ref/v0/origin/list.md
+              - name: update
+                href: cli-ref/v0/origin/update.md
+          - name: origin-group
+            items:
+              - name: Overview
+                href: cli-ref/v0/origin-group/index.md
+              - name: create
+                href: cli-ref/v0/origin-group/create.md
+              - name: delete
+                href: cli-ref/v0/origin-group/delete.md
+              - name: get
+                href: cli-ref/v0/origin-group/get.md
+              - name: list
+                href: cli-ref/v0/origin-group/list.md
+              - name: update
+                href: cli-ref/v0/origin-group/update.md
+          - name: provider
+            items:
+              - name: Overview
+                href: cli-ref/v0/provider/index.md
+              - name: activate
+                href: cli-ref/v0/provider/activate.md
+              - name: list-activated
+                href: cli-ref/v0/provider/list-activated.md
+          - name: resource
+            items:
+              - name: Overview
+                href: cli-ref/v0/resource/index.md
+              - name: create
+                href: cli-ref/v0/resource/create.md
+              - name: delete
+                href: cli-ref/v0/resource/delete.md
+              - name: get
+                href: cli-ref/v0/resource/get.md
+              - name: get-provider-cname
+                href: cli-ref/v0/resource/get-provider-cname.md
+              - name: list
+                href: cli-ref/v0/resource/list.md
+              - name: update
+                href: cli-ref/v0/resource/update.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
@@ -454,42 +534,16 @@ items:
     href: at-ref.md
   - name: Audit log reference
     items:
-      - name: CachePrefetch
-        href: events-ref/CachePrefetch.md
-      - name: CachePurge
-        href: events-ref/CachePurge.md
-      - name: OriginCreate
-        href: events-ref/OriginCreate.md
-      - name: OriginDelete
-        href: events-ref/OriginDelete.md
-      - name: OriginGroupCreate
-        href: events-ref/OriginGroupCreate.md
-      - name: OriginGroupDelete
-        href: events-ref/OriginGroupDelete.md
-      - name: OriginGroupUpdate
-        href: events-ref/OriginGroupUpdate.md
-      - name: OriginUpdate
-        href: events-ref/OriginUpdate.md
-      - name: ProviderActivate
-        href: events-ref/ProviderActivate.md
-      - name: RawLogsActivate
-        href: events-ref/RawLogsActivate.md
-      - name: RawLogsDeactivate
-        href: events-ref/RawLogsDeactivate.md
-      - name: RawLogsUpdate
-        href: events-ref/RawLogsUpdate.md
-      - name: ResourceCreate
-        href: events-ref/ResourceCreate.md
-      - name: ResourceDelete
-        href: events-ref/ResourceDelete.md
-      - name: ResourceRuleCreate
-        href: events-ref/ResourceRuleCreate.md
-      - name: ResourceRuleDelete
-        href: events-ref/ResourceRuleDelete.md
-      - name: ResourceRuleUpdate
-        href: events-ref/ResourceRuleUpdate.md
-      - name: ResourceUpdate
-        href: events-ref/ResourceUpdate.md
+      - name: Overview
+        href: events-ref/index.md
+      - name: Operation
+        items:
+          - name: Overview
+            href: events-ref/Operation/index.md
+          - name: Get
+            href: events-ref/Operation/get.md
+          - name: Cancel
+            href: events-ref/Operation/cancel.md
   - name: Release notes
     href: release-notes.md
   - name: Troubleshooting

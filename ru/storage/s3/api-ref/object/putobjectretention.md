@@ -1,4 +1,4 @@
-# Метод putObjectRetention
+# Object Storage API, REST совместимый с Amazon S3: PutObjectRetention
 
 Устанавливает на версию объекта временную [блокировку](../../../concepts/object-lock.md) либо настраивает или снимает уже установленную блокировку.
 
@@ -62,5 +62,13 @@ PUT /{bucket}/{key}?retention&versionId={versionId} HTTP/2
 ### Коды ответов {#response-codes}
 
 Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
+
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/object.md)
+
+* [{#T}](../../../concepts/object-lock.md)
+
+* [Настройка блокировок версии объекта](../../../operations/objects/edit-object-lock.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

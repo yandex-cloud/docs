@@ -1,8 +1,3 @@
-The `search-api.admin` role enables running search requests in Yandex Search API.
+The `search-api.admin` role was used by an API that is now deprecated. The role enables viewing Yandex Search API quotas, as well as information on the relevant cloud and folder.
 
-Users with this role can:
-* Run search requests.
-* View info on Yandex Search API [quotas]({{ link-docs-ai }}search-api/concepts/limits#search-api-quotas).
-* View info on [clouds]({{ link-docs }}/resource-manager/concepts/resources-hierarchy#cloud) and [folders]({{ link-docs }}/resource-manager/concepts/resources-hierarchy#folder).
-
-This role includes the `search-api.editor` permissions.
+The `search-api.admin` role should no longer be used.

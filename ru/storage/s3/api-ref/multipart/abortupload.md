@@ -1,4 +1,4 @@
-# Метод abortUpload
+# Object Storage API, REST совместимый с Amazon S3: AbortMultipartUpload
 
 Прерывает загрузку и удаляет все уже сохраненные части объекта из {{ objstorage-name }}. Если запрос на прерывание загрузки поступил в процессе загрузки какой-либо из частей, то результат не гарантирован.
 
@@ -48,5 +48,10 @@ DELETE /{bucket}/{key}?uploadId=UploadId HTTP/2
 ----- | ----- | -----
 `NoSuchUpload` | Указанная загрузка не существует. Возможно указан неверный идентификатор загрузки или загрузка была завершена или удалена. | 404 Not Found
 
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/multipart.md)
+
+* [{#T}](../../../operations/objects/deleting-multipart.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

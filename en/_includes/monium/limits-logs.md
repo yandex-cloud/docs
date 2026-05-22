@@ -1,24 +1,17 @@
-#### Quotas {#loggs-quotas}
-
-#|
-|| Type of limit | Value ||
-|| Log stream size per project | 32,500 Bytes/sec (~31 Kbps) ||
-|#
-
-#### Limits {#loggs-limits}
-
-**Data model limits**
+### Limits {#loggs-limits}
 
 Type of limit | Value
 --------------- | --------
-Maximum number of labels (`labels`) per log entry | 16
-Log entry timestamp precision | Nanosecond precision
-Maximum size of a single `meta` key value (larger values will be truncated to this limit) | 32 KB
+Maximum size of one log batch | 8 MB
+Maximum log start time in the past (`time_unix_nano`) | 24 hours ago
+Maximum log time in the future (`time_unix_nano`) | 5 minutes ahead
+Maximum [label](../../monium/concepts/data-model.md#label) name length | 64 bytes
+Maximum label value length | 256 bytes
+Maximum [metadata](../../monium/concepts/data-model.md#meta) name length | 400 bytes
+Maximum metadata value length | 1 MB
 
-**Query language limits**
+{% note info %}
 
-Type of limit | Value
---------------- | --------
-Maximum number of values per grouping expression/key | 10
-Minimum window for calculating a grouping function | 15 seconds
-Maximum number of time series resulting from grouping | 10,000
+Allowed log batch size is up to 16 MB, but receipt this big is not guaranteed.
+
+{% endnote %}

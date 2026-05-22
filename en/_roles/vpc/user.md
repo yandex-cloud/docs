@@ -9,9 +9,9 @@ The `vpc.user` role allows you to use cloud networks, subnets, route tables, gat
 * View the list of [security groups](../../vpc/concepts/security-groups.md) and info on them, as well as use them.
 * View information on [NAT gateways](../../vpc/concepts/gateways.md) and connect them to route tables.
 * View information on the IP addresses used in subnets.
-* View information on Virtual Private Cloud [quotas](../../vpc/concepts/limits.md#vpc-quotas).
-* View information on resource operations for Virtual Private Cloud.
-* View information on resource operations for Compute Cloud.
+* View information on {{ vpc-name }} [quotas](../../vpc/concepts/limits.md#vpc-quotas).
+* View information on resource operations for {{ vpc-name }}.
+* View information on resource operations for {{ compute-name }}.
 * View information on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud).
 * View info on the relevant [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 

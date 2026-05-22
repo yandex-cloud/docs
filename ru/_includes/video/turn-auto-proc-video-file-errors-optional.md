@@ -1,0 +1,1 @@
+(Опционально) Включите опцию **{{ ui-key.yacloud_video.videos.field_enable-decode-errors-tolerance }}**, если ваш файл поврежден или возникли [ошибки обработки](../../video/troubleshooting/video-processing.md).

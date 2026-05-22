@@ -26,10 +26,8 @@ With a local Hive catalog, you can access tables by name without specifying a pa
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* {{ objstorage-name }} bucket fee for using storage and performing data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* {{ cloud-logging-name }} fee for the amount of data written and the time of its retention (see [{{ cloud-logging-name }} pricing](../../logging/pricing.md)).
+* {{ objstorage-name }} buckets: use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* {{ cloud-logging-full-name }}: amount of written data and its retention time (see [{{ cloud-logging-name }} pricing](../../logging/pricing.md)).
 
 
 ## Set up your infrastructure {#infra}
@@ -94,7 +92,8 @@ Prepare a script file:
 
 - Management console {#console}
 
-    1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+    1. In the [management console]({{ link-console-main }}), select any folder.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
     1. Click the name of your cluster and select the **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}** tab.
     1. Wait for the PySpark job you created to change its status to **Done**.
     1. Make sure the `warehouse` folder in `<bucket_for_PySpark_job_output_data>` now contains `database_1`. The data from the new DB is now stored in the {{ objstorage-name }} bucket in JSON format.

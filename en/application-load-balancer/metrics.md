@@ -10,3 +10,7 @@ This section describes the {{ alb-name }} metrics delivered to [{{ monitoring-na
 {% include [alb](../_includes/monitoring/metrics-ref/alb.md) %}
 
 For more information about metrics, see the [Statistics](./concepts/monitoring.md#stats) section.
+
+#### See also {#see-also}
+
+[{#T}](./operations/application-load-balancer-get-stats.md)

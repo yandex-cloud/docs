@@ -4,6 +4,8 @@ In {{ iam-short-name }}, you can create [_service accounts_](concepts/users/serv
 
 This guide is intended for [cloud owners](../resource-manager/concepts/resources-hierarchy.md#owner) and users with the [administrator](./roles-reference.md#admin) role for a cloud or folder. Users with the [`editor`](./roles-reference.md#editor) role can also create service accounts, but they cannot assign roles, so they cannot allow a service account to perform operations in {{ yandex-cloud }}.
 
+{% include [access-control-sa-general-notice](../_includes/iam/access-control-sa-general-notice.md) %}
+
 Checking for required roles is described in the [Getting started](#before-you-begin) section.
 
 You will learn how to:
@@ -53,7 +55,7 @@ yc resource-manager folder list
 
 ## Delete the service account {#delete-sa}
 
-If you no longer need the service account, delete it:
+Delete the service account if you no longer need it:
 
 {% include [delete-sa-via-console](../_includes/iam/delete-sa-via-console.md) %}
 
@@ -62,3 +64,4 @@ If you no longer need the service account, delete it:
 * The [step-by-step guides](operations/index.md) will help you perform specific tasks in {{ iam-name }}.
 * [Read more about service accounts](concepts/users/service-accounts.md) in the concepts section.
 * See the [best practices for using service accounts securely](best-practices/using-iam-securely.md#use-sa).
+* Use [authentication and authorization security checklist](../security/domains/iam-checklist.md).

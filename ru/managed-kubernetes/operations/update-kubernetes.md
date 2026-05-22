@@ -132,7 +132,7 @@
 
        ```hcl
        resource "yandex_kubernetes_cluster" "<имя_кластера>" {
-         name = <имя_кластера>
+         name = "<имя_кластера>"
          ...
          maintenance_policy {
            auto_upgrade = true
@@ -153,7 +153,7 @@
 
        ```hcl
        resource "yandex_kubernetes_cluster" "<имя_кластера>" {
-         name = <имя_кластера>
+         name = "<имя_кластера>"
          ...
          maintenance_policy {
            auto_upgrade = true
@@ -306,9 +306,12 @@
 
      ```hcl
      resource "yandex_kubernetes_cluster" "<имя_кластера>" {
-       name = <имя_кластера>
+       name = "<имя_кластера>"
        ...
-       version = "<новая_версия>"
+       master {
+         version = "<новая_версия>"
+         ...
+       }
      }
      ```
 
@@ -322,7 +325,7 @@
 
      {% include [Terraform timeouts](../../_includes/managed-kubernetes/terraform-timeout-cluster.md) %}
 
-  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-cluster}}).
+  Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-cluster }}).
 
 - API {#api}
 
@@ -445,7 +448,7 @@
 
        ```hcl
        resource "yandex_kubernetes_node_group" "<имя_группы_узлов>" {
-         name = <имя_группы_узлов>
+         name = "<имя_группы_узлов>"
          ...
          maintenance_policy {
            auto_upgrade = true
@@ -466,7 +469,7 @@
 
        ```hcl
        resource "yandex_kubernetes_node_group" "<имя_группы_узлов>" {
-         name = <имя_группы_узлов>
+         name = "<имя_группы_узлов>"
          ...
          maintenance_policy {
            auto_upgrade = true
@@ -495,7 +498,7 @@
 
        ```hcl
        resource "yandex_kubernetes_node_group" "<имя_группы_узлов>" {
-         name = <имя_группы_узлов>
+         name = "<имя_группы_узлов>"
          ...
          deploy_policy {
            max_expansion   = <расширение_размера_группы_при_обновлении>
@@ -670,7 +673,7 @@
 
      ```hcl
      resource "yandex_kubernetes_node_group" "<имя_группы_узлов>" {
-       name = <имя_группы_узлов>
+       name = "<имя_группы_узлов>"
        ...
        version = "<новая_версия>"
      }
@@ -723,7 +726,7 @@
   1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
   1. В поле **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** выберите `Получить последние улучшения и исправления для версии...`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save}}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -762,7 +765,7 @@
   1. Выберите нужную группу узлов {{ managed-k8s-name }} в списке.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
   1. В поле **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** выберите `Получить последние улучшения и исправления для версии...`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.common.save}}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 

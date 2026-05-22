@@ -81,13 +81,13 @@ In addition to the common control fields, the following is available:
 
 ## Calendar (date interval) {#calendar-interval}
 
-Control with `type: "range-datepicker"`. If the `param` field is used instead of `paramFrom` and `paramTo`, its value must be an [interval](../tabs.md#interval). The value of the linked parameter must be a string with an ISO date or relative date.
+Control with `type: "range-datepicker"`. You can use either `param` or `paramTo`, and/or `paramFrom`. If `paramTo` and/or `paramFrom` are present, the `param` field will not work. The value of the linked parameter must be a string with an ISO date or relative date. If the `param` field is used instead of `paramFrom` and `paramTo`, its value must be an [interval](../tabs.md#interval).
 
 In addition to the common control fields, the following is available:
 
-* `paramFrom`: Name of the linked interval start parameter (instead of the `param` field). Required field; string value type in ISO format or [relative date](../tabs.md#relativedate).
-* `aramTo`: Name of the linked interval end parameter (instead of the `param` field). Required field; string value type in ISO format or [relative date](../tabs.md#relativedate).
-* `minDate`: Minimum possible value in ISO format. Optional field; string or `null` value type, e.g., `'2024-09-30'`.
+* `paramFrom`: Name of the linked interval start parameter (instead of the `param` field). Required field; ISO string or [relative date](../tabs.md#relativedate) value type.
+* `paramTo`: Name of the linked interval end parameter (instead of the `param` field). Required field; ISO string or [relative date](../tabs.md#relativedate) value type.
+* `minDate`: Maximum possible value in ISO format. Optional field; string or `null` value type, e.g., `'2024-09-30'`.
 * `maxDate`: Maximum possible value in ISO format. Optional field; string or `null` value type, e.g., `'2025-09-30'`.
 
 
@@ -133,7 +133,7 @@ Control with `type: "button"`.
 
 In addition to the common control fields, the following is available:
 
-* `theme`: Button theme. Optional field. String value type from the [possible values](https://preview.gravity-ui.com/uikit/?path=/story/components-inputs-button--view) of the `view` field of the Gravity UI design system `Button` component. The default value is `action`. [Example of how it may look like](https://datalens.yandex/nvkfwnekf9xy9?tab=jEx#Селектор%20с%20кнопкой%2C%20выбор%20внешнего%20вида).
+* `theme`: Button theme. This is an optional field. String value type from the [possible values](https://preview.gravity-ui.com/uikit/?path=/story/components-inputs-button--view) of the `view` field of the Gravity UI design system `Button` component. The default value is `action`. [Example of how it may look like](https://datalens.yandex/nvkfwnekf9xy9?tab=jEx#Селектор%20с%20кнопкой%2C%20выбор%20внешнего%20вида).
 * `onClick`: Action on click. Required field; object type:
 
   ```json

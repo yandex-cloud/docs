@@ -1,6 +1,6 @@
 ---
-title: Справочник правил
-description: Справочник правил безопасности Security Deck
+title: Справочник правил {{ sd-full-name }}
+description: Правила безопасности {{ sd-name }}
 editable: false
 ---
 
@@ -10,7 +10,8 @@ editable: false
 
 ## Правила по категориям {#by-category}
 
-* [CSPM — Cloud Security Posture Management](cspm.md)
+* [{{ cspm-name }} — {{ cspm-full-name }}](cspm.md)
+* [{{ kspm-name }} — {{ kspm-full-name }}](kspm.md)
 
 ## Все правила {#all-rules}
 

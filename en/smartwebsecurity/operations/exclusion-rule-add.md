@@ -53,9 +53,35 @@ description: Follow this guide to create a WAF exclusion rule.
         # Exclusion rule
         exclusion_rule {
           name = "<exclusion_rule_name>"
+          condition {
+            source_ip {
+              ip_ranges_match {
+                ip_ranges = [
+                  "<IP_address_range_1>",
+                  "<IP_address_range_2>",
+                  ...
+                  "<IP_address_range_n>"
+                ]
+              }
+              ip_ranges_not_match {
+                ip_ranges = [
+                  "<IP_address_range_3>",
+                  "<IP_address_range_4>",
+                  ...
+                  "<IP_address_range_y>"
+                ]
+              }
+            }
+          }
+
           exclude_rules {
             exclude_all = <true_or_false>
-            rule_ids    = ["rule_1_ID","rule_2_ID"]
+            rule_ids    = [
+              "rule_ID_1",
+              "rule_ID_2",
+              ...
+              "rule_ID_n",
+            ]
           }
         }
       }
@@ -64,11 +90,14 @@ description: Follow this guide to create a WAF exclusion rule.
       Where:
       * `exclusion_rule`:
          * `name`: Exclusion rule name.
+         * `condition`: [Conditions](../concepts/conditions.md) for the exception rule to trigger. The above example uses a condition based on the traffic source IP address .
+
+            Under `condition`, you can specify multiple different condition types at the same time.
          * `exclude_rules`: Exclusion rule settings:
             * `exclude_all`: Exclusion will apply to all rules. It can be either `false` or `true`.
             * `rule_ids`: List of IDs of rules from the basic set to which the exclusion will apply. To specify individual rules, set `exclude_all` to `false`.
 
-      For more information about `sws_waf_profile` properties, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/sws_waf_profile).
+      For more information about `sws_waf_profile` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/sws_waf_profile).
 
   1. Create the resources:
 

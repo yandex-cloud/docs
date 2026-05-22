@@ -37,6 +37,8 @@ After receiving and verifying the SAML token signature, {{ iam-short-name }} cre
 * Static keys used to access {{ message-queue-short-name }} (YMQ) and {{ objstorage-full-name }}. Copies of static keys are issued to the user immediately after they're created by {{ iam-short-name }}. Static keys are stored in {{ iam-short-name }} and used to check the integrity of requests to YMQ and {{ objstorage-full-name }}. See [Static access keys compatible with the AWS API](../iam/concepts/authorization/access-key.md). 
 * API keys used to access the {{ yandex-cloud }} API. API keys are used in some services for simplified authentication. See [API key](../iam/concepts/authorization/api-key.md). 
 
+{% include [access-control-sa-general-notice](../_includes/iam/access-control-sa-general-notice.md) %}
+
 ## Network security {#network-sec}
 
 To protect the cloud network infrastructure hosted in {{ yandex-cloud }}, we recommend managing incoming and outgoing traffic and dividing the virtual networks of the {{ yandex-cloud }} environment into segments based on tasks.

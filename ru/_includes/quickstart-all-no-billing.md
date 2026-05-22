@@ -5,7 +5,7 @@
   * [Создайте облачную сеть в {{ vpc-name }}](../vpc/quickstart.md).
   * [Настройте сетевой балансировщик в {{ network-load-balancer-name }}](../network-load-balancer/quickstart.md).
   * [Настройте L7-балансировщик в {{ alb-name }}](../application-load-balancer/quickstart.md).
-  * [Настройте раздачу контента через CDN](../cdn/quickstart.md).
+  * [Настройте раздачу контента через CDN](../cdn/quickstart/index.md).
   * [Создайте зоны DNS](../dns/quickstart.md).
   * [Загрузите Docker-образ в реестр в {{ container-registry-name }}](../container-registry/quickstart/index.md).
 * Безопасность:
@@ -37,7 +37,7 @@
   * [{{ PG }}](../managed-postgresql/quickstart.md).
   * [{{ OS }}](../managed-opensearch/quickstart.md).
   * [{{ KF }}](../managed-kafka/quickstart.md).
-  * [{{ GP }}](../managed-greenplum/quickstart.md).
+  * [{{ mgp-name }}](../managed-greenplum/quickstart.md).
   * [{{ ydb-name }}](../ydb/quickstart.md#create-db).
   * [Копируйте и реплицируйте данные из одной базы в другую с помощью {{ data-transfer-name }}](../data-transfer/quickstart.md).
 * Искусственный интеллект:

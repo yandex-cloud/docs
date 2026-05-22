@@ -118,7 +118,9 @@ The metadata `key:value` pairs that will be added or updated to this instance. |
       "gceHttpEndpoint": "string",
       "awsV1HttpEndpoint": "string",
       "gceHttpToken": "string",
-      "awsV1HttpToken": "string"
+      "awsV1HttpToken": "string",
+      "awsV2HttpEndpoint": "string",
+      "awsV2HttpToken": "string"
     },
     "bootDisk": {
       "mode": "string",
@@ -543,6 +545,18 @@ Enabled access to IAM credentials with GCE flavored metadata
 || awsV1HttpToken | **enum** (MetadataOption)
 
 Enabled access to IAM credentials with AWS flavored metadata (IMDSv1)
+
+- `ENABLED`: Option is enabled
+- `DISABLED`: Option is disabled ||
+|| awsV2HttpEndpoint | **enum** (MetadataOption)
+
+Enabled access to AWS flavored metadata with session token (IMDSv2)
+
+- `ENABLED`: Option is enabled
+- `DISABLED`: Option is disabled ||
+|| awsV2HttpToken | **enum** (MetadataOption)
+
+Enabled access to STS credentials with AWS flavored metadata with session token (IMDSv2)
 
 - `ENABLED`: Option is enabled
 - `DISABLED`: Option is disabled ||

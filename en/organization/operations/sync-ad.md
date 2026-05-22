@@ -10,17 +10,19 @@ description: Follow this guide to sync {{ org-full-name }} users and groups with
 
 If your company uses [{{ microsoft-idp.ad-full }}](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) for user management and you want your users to be able to access {{ yandex-cloud }}, you do not need to create {{ yandex-cloud }} accounts for your users manually. Instead, you can [sync](../concepts/ad-sync.md) users and groups created in your {{ microsoft-idp.ad-short }} folder with {{ org-full-name }}.
 
-## Prepare {{ org-name }} for synchronization {#prepare-org}
+## Prepare {{ org-full-name }} for synchronization {#prepare-org}
 
 1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or create a new account.
 1. On the **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** page, make sure you have a [billing account](../../billing/concepts/billing-account.md) linked and its [status](../../billing/concepts/billing-account-statuses.md) is `ACTIVE` or `TRIAL_ACTIVE`. If you do not have a billing account, [create one](../../billing/quickstart/index.md) and [link](../../billing/operations/pin-cloud.md) a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) to it.
-1. [Create](./user-pools/create-userpool.md) a user pool in {{ org-name }} and [associate](./user-pools/add-domain.md#userpool) with it a [domain](../concepts/domains.md) identical to the one used in the {{ microsoft-idp.ad-short }} [domain controller](https://en.wikipedia.org/wiki/Domain_controller_(Windows)).
+1. [Create](./user-pools/create-userpool.md) a user pool in {{ org-full-name }} and [associate](./user-pools/add-domain.md#userpool) with it a [domain](../concepts/domains.md) identical to the one used in the {{ microsoft-idp.ad-short }} [domain controller](https://en.wikipedia.org/wiki/Domain_controller_(Windows)).
 
     Associating your own domain with a [user pool](../concepts/user-pools.md) is optional. You can choose to associate another domain or the default one instead. In which case you will have to set up domain replacement in the `replacement_domain` parameter when configuring the [synchronization agent](../concepts/ad-sync.md#sync-agent). For more information, see [{#T}](../concepts/ad-sync.md#agent-config).
 1. [Create](../../iam/operations/sa/create.md) a service account and [assign](../../iam/operations/sa/assign-role-for-sa.md#binding-role-organization) to it the following roles for the [organization](../concepts/organization.md) the user pool is in:
 
     {% include [ad-synk-sa-roles](../../_includes/organization/ad-synk-sa-roles.md) %}
-1. [Create](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) and save an [authorized key](../../iam/concepts/authorization/key.md) for your [service account](../../iam/concepts/users/service-accounts.md).
+1. Optionally, [create](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) and save an [authorized key](../../iam/concepts/authorization/key.md) for your [service account](../../iam/concepts/users/service-accounts.md).
+
+    {% include [ad-synk-iam-via-metadata-warning](../../_includes/organization/ad-synk-iam-via-metadata-warning.md) %}
 
 ## Prepare your {{ microsoft-idp.ad-short }} domain controller {#dc-setup}
 
@@ -29,6 +31,8 @@ If your company uses [{{ microsoft-idp.ad-full }}](https://learn.microsoft.com/e
 ## Configure and start the synchronization agent {#setup-agent}
 
 You can install the [synchronization agent](../concepts/ad-sync.md#sync-agent) on any [Linux](https://en.wikipedia.org/wiki/Linux) or [Windows](https://en.wikipedia.org/wiki/Microsoft_Windows) server.
+
+If you are installing a sync agent on a {{ compute-full-name }} [VM](../../compute/concepts/vm.md), [connect](../../compute/operations/vm-control/vm-connect-sa.md) the service account you created [earlier](#prepare-org) to that VM.
 
 Before you start syncing, open the following [TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol) ports for incoming and outgoing network traffic on the server you are going to run the synchronization agent on:
 
@@ -64,7 +68,7 @@ To start syncing users and groups:
       To check service status: sudo systemctl status yc-identityhub-sync-agent
       yc-identityhub-sync-agent is installed to /usr/bin/yc-identityhub-sync-agent
       ```
-  1. Copy to your server the file with service account's authorized key you saved earlier.
+  1. Optionally, if you are going to use the authorized key of the service account to authenticate the agent in the {{ yandex-cloud }} API, copy the previously saved authorized key file to your server.
 
       Do it using the `scp` command or any other suitable tool.
   1. Use any text editor to open the [YAML](https://yaml.org/) file containing the synchronization agent's configuration. This example uses the `nano` editor:
@@ -82,7 +86,7 @@ To start syncing users and groups:
       ```bash
       sudo systemctl start yc-identityhub-sync-agent
       ```
-  1. To make sure syncing is in progress, look up the agent's log file. Here is an example:
+  1. To make sure syncing is in progress, look up the agent's log file. For example:
 
       ```bash
       sudo cat /etc/yc-identityhub-sync-agent/identity_hub.log
@@ -134,7 +138,7 @@ To start syncing users and groups:
       ```powershell
       Start-Service yc-identityhub-sync-agent
       ```
-  1. To make sure syncing is in progress, look up the agent's log file. Here is an example:
+  1. To make sure syncing is in progress, look up the agent's log file. For example:
 
       ```bash
       cat C:\ProgramData\YcIdentityHubSyncAgent\identity_hub.log
@@ -149,6 +153,84 @@ To start syncing users and groups:
       ```
 
       This will stop user and group syncing.
+
+{% endlist %}
+
+## Test the agent configuration changes {#dry-run}
+
+{{ ad-sync-agent }} agents can be [dry run](../concepts/ad-sync.md#dry-run). Use this mode to try out the changes you make to the agent's configuration before applying them.
+
+To dry-run an agent:
+
+{% list tabs group=operating_system %}
+
+- Linux {#linux}
+
+  1. In the Linux terminal, stop the synchronization agent service:
+
+      ```bash
+      sudo systemctl stop yc-identityhub-sync-agent
+      ```
+  1. Make the changes you want to test to the agent configuration.
+  1. In the `dry_run` section of the agent configuration file, enable dry run mode:
+
+      ```yml
+      ...
+      dry_run:
+        enabled: true
+      ...
+      ```
+  1. In the Linux terminal, run the agent executable manually and wait for it to complete:
+
+      ```bash
+      ./yc-identityhub-sync-agent \
+        --config /etc/yc-identityhub-sync-agent/config.yaml
+      ```
+
+      {% include [ad-synk-dry-run-output](../../_includes/organization/ad-synk-dry-run-output.md) %}
+
+  1. Review the log file. If there are no unexpected changes and the operations contain no errors, the changes made to the agent configuration are correct, and you can run the agent in production:
+
+      1. Disable dry run mode by setting the field value to `enabled: false` in the `dry_run` section of the configuration file.
+      1. In the Linux terminal, run {{ ad-sync-agent }} to start syncing:
+
+          ```bash
+          sudo systemctl start yc-identityhub-sync-agent
+          ```
+
+- Windows {#windows}
+
+  1. In the PowerShell terminal, stop the sync agent service:
+
+      ```powershell
+      Stop-Service yc-identityhub-sync-agent
+      ```
+  1. Make the changes you want to test to the agent configuration.
+  1. In the `dry_run` section of the agent configuration file, enable dry run mode:
+
+      ```yml
+      ...
+      dry_run:
+        enabled: true
+      ...
+      ```
+  1. In the PowerShell terminal, run the agent executable manually and wait for it to complete:
+
+      ```powershell
+      ./yc-identityhub-sync-agent.exe \
+        --config C:\ProgramData\YcIdentityHubSyncAgent\config.yaml
+      ```
+
+      {% include [ad-synk-dry-run-output](../../_includes/organization/ad-synk-dry-run-output.md) %}
+
+  1. Review the log file. If there are no unexpected changes and the operations contain no errors, the changes made to the agent configuration are correct, and you can run the agent in production:
+
+      1. Disable dry run mode by setting the field value to `enabled: false` in the `dry_run` section of the configuration file.
+      1. In the PowerShell terminal, run {{ ad-sync-agent }} to start syncing:
+
+          ```powershell
+          Start-Service yc-identityhub-sync-agent
+          ```
 
 {% endlist %}
 

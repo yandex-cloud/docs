@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/
 editable: false
 ---
 
@@ -135,6 +136,10 @@ Aliases:
   - [yc application-load-balancer target-group remove-targets](target-group/remove-targets.md) — Remove targets from the specified target group
 
   - [yc application-load-balancer target-group update](target-group/update.md) — Update the specified target group
+
+- [yc application-load-balancer v0](v0/index.md) — Manage Yandex Application Load Balancer resources
+
+
 
 - [yc application-load-balancer virtual-host](virtual-host/index.md) — Manage http router virtual host
 

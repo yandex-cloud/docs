@@ -28,6 +28,8 @@ items:
             href: operations/servers/server-stop-and-start.md
           - name: Отказаться от аренды сервера
             href: operations/servers/server-lease-cancel.md
+          - name: Восстановить сервер из карантина
+            href: operations/servers/restore-from-quarantine.md
           - name: Загрузить свой образ ОС
             href: operations/image-upload.md
           - name: >-
@@ -54,8 +56,6 @@ items:
             href: operations/servers/add-new-ssh-key.md
           - name: Восстановить загрузчик ОС
             href: operations/servers/restore-grub.md
-          - name: Анализ состояния дисков
-            href: concepts/smart-disk-analysis.md
           - name: Проанализировать состояние сервера с помощью HWCheck
             href: operations/servers/use-hwatcher.md
       - name: Сеть
@@ -84,8 +84,16 @@ items:
             href: concepts/server-configurations.md
           - name: Своя конфигурация сервера
             href: concepts/server-custom-configurations.md
-          - name: Конфигурация сервера под заказ
+          - name: Конфигурация сервера по запросу
             href: concepts/server-individual-configurations.md
+          - name: Диски и RAID
+            items:
+              - name: Типы дисков
+                href: concepts/disks/disk-types.md
+              - name: Оценка состояния дисков
+                href: concepts/smart-disk-analysis.md
+              - name: RAID
+                href: concepts/disks/raid.md
       - name: Сеть
         expanded: true
         items:
@@ -99,9 +107,6 @@ items:
             href: concepts/dhcp.md
           - name: MC-LAG
             href: concepts/mc-lag.md
-          - name: Заблокированные сетевые порты
-            hidden: true
-            href: concepts/traffic-restrictions.md
           - name: Ограничения в сетях {{ baremetal-name }}
             href: concepts/network-restrictions.md
       - name: Настройка и управление
@@ -112,67 +117,79 @@ items:
           - name: Образы
             href: concepts/images.md
           - name: Аудитные логи {{ at-name }}
-            href: at-ref.md
-          - name: Справочник аудитных логов
             items:
-              - name: ApplyUpdatePrivateCloudConnection
-                href: events-ref/ApplyUpdatePrivateCloudConnection.md
-              - name: BatchCreateServer
-                href: events-ref/BatchCreateServer.md
-              - name: CreateImage
-                href: events-ref/CreateImage.md
-              - name: CreatePrivateCloudConnection
-                href: events-ref/CreatePrivateCloudConnection.md
-              - name: CreatePrivateSubnet
-                href: events-ref/CreatePrivateSubnet.md
-              - name: CreatePublicSubnet
-                href: events-ref/CreatePublicSubnet.md
-              - name: CreateServer
-                href: events-ref/CreateServer.md
-              - name: CreateVRF
-                href: events-ref/CreateVRF.md
-              - name: DeleteImage
-                href: events-ref/DeleteImage.md
-              - name: DeletePrivateCloudConnection
-                href: events-ref/DeletePrivateCloudConnection.md
-              - name: DeletePrivateSubnet
-                href: events-ref/DeletePrivateSubnet.md
-              - name: DeletePublicSubnet
-                href: events-ref/DeletePublicSubnet.md
-              - name: DeleteServer
-                href: events-ref/DeleteServer.md
-              - name: DeleteVRF
-                href: events-ref/DeleteVRF.md
-              - name: PowerOffServer
-                href: events-ref/PowerOffServer.md
-              - name: PowerOnServer
-                href: events-ref/PowerOnServer.md
-              - name: RebootServer
-                href: events-ref/RebootServer.md
-              - name: RegisterServerBackupAgent
-                href: events-ref/RegisterServerBackupAgent.md
-              - name: ReinstallServer
-                href: events-ref/ReinstallServer.md
-              - name: StartServerProlongation
-                href: events-ref/StartServerProlongation.md
-              - name: StopServerProlongation
-                href: events-ref/StopServerProlongation.md
-              - name: UpdateImage
-                href: events-ref/UpdateImage.md
-              - name: UpdatePrivateCloudConnection
-                href: events-ref/UpdatePrivateCloudConnection.md
-              - name: UpdatePrivateSubnet
-                href: events-ref/UpdatePrivateSubnet.md
-              - name: UpdatePublicSubnet
-                href: events-ref/UpdatePublicSubnet.md
-              - name: UpdateServer
-                href: events-ref/UpdateServer.md
-              - name: UpdateVRF
-                href: events-ref/UpdateVRF.md
+              - name: Обзор
+                href: at-ref.md
+              - name: Справочник аудитных логов
+                items:
+                  - name: ApplyUpdatePrivateCloudConnection
+                    href: events-ref/ApplyUpdatePrivateCloudConnection.md
+                  - name: BatchCreateServer
+                    href: events-ref/BatchCreateServer.md
+                  - name: CreateImage
+                    href: events-ref/CreateImage.md
+                  - name: CreatePrivateCloudConnection
+                    href: events-ref/CreatePrivateCloudConnection.md
+                  - name: CreatePrivateSubnet
+                    href: events-ref/CreatePrivateSubnet.md
+                  - name: CreatePublicPrefixPool
+                    href: events-ref/CreatePublicPrefixPool.md
+                  - name: CreatePublicSubnet
+                    href: events-ref/CreatePublicSubnet.md
+                  - name: CreateServer
+                    href: events-ref/CreateServer.md
+                  - name: CreateVRF
+                    href: events-ref/CreateVRF.md
+                  - name: DeleteImage
+                    href: events-ref/DeleteImage.md
+                  - name: DeletePrivateCloudConnection
+                    href: events-ref/DeletePrivateCloudConnection.md
+                  - name: DeletePrivateSubnet
+                    href: events-ref/DeletePrivateSubnet.md
+                  - name: DeletePublicPrefixPool
+                    href: events-ref/DeletePublicPrefixPool.md
+                  - name: DeletePublicSubnet
+                    href: events-ref/DeletePublicSubnet.md
+                  - name: DeleteServer
+                    href: events-ref/DeleteServer.md
+                  - name: DeleteVRF
+                    href: events-ref/DeleteVRF.md
+                  - name: ExternalFlow
+                    href: events-ref/ExternalFlow.md
+                  - name: PowerOffServer
+                    href: events-ref/PowerOffServer.md
+                  - name: PowerOnServer
+                    href: events-ref/PowerOnServer.md
+                  - name: RebootServer
+                    href: events-ref/RebootServer.md
+                  - name: RegisterServerBackupAgent
+                    href: events-ref/RegisterServerBackupAgent.md
+                  - name: ReinstallServer
+                    href: events-ref/ReinstallServer.md
+                  - name: StartServerProlongation
+                    href: events-ref/StartServerProlongation.md
+                  - name: StopServerProlongation
+                    href: events-ref/StopServerProlongation.md
+                  - name: UpdateImage
+                    href: events-ref/UpdateImage.md
+                  - name: UpdatePrivateCloudConnection
+                    href: events-ref/UpdatePrivateCloudConnection.md
+                  - name: UpdatePrivateSubnet
+                    href: events-ref/UpdatePrivateSubnet.md
+                  - name: UpdatePublicPrefixPool
+                    href: events-ref/UpdatePublicPrefixPool.md
+                  - name: UpdatePublicSubnet
+                    href: events-ref/UpdatePublicSubnet.md
+                  - name: UpdateServer
+                    href: events-ref/UpdateServer.md
+                  - name: UpdateVRF
+                    href: events-ref/UpdateVRF.md
           - name: Управление доступом
             href: security/index.md
           - name: Дополнительные настройки серверов
             href: concepts/server-advanced-settings.md
+          - name: Консоль управления
+            href: concepts/console.md
           - name: Справочник CLI (англ.)
             items:
               - name: Overview
@@ -319,6 +336,180 @@ items:
                     href: cli-ref/server/remove-labels.md
                   - name: update
                     href: cli-ref/server/update.md
+              - name: v0
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/index.md
+                  - name: boot-image
+                    items:
+                      - name: Overview
+                        href: cli-ref/v0/boot-image/index.md
+                      - name: add-labels
+                        href: cli-ref/v0/boot-image/add-labels.md
+                      - name: create
+                        href: cli-ref/v0/boot-image/create.md
+                      - name: delete
+                        href: cli-ref/v0/boot-image/delete.md
+                      - name: get
+                        href: cli-ref/v0/boot-image/get.md
+                      - name: list
+                        href: cli-ref/v0/boot-image/list.md
+                      - name: list-operations
+                        href: cli-ref/v0/boot-image/list-operations.md
+                      - name: remove-labels
+                        href: cli-ref/v0/boot-image/remove-labels.md
+                      - name: update
+                        href: cli-ref/v0/boot-image/update.md
+                  - name: configuration
+                    items:
+                      - name: Overview
+                        href: cli-ref/v0/configuration/index.md
+                      - name: get
+                        href: cli-ref/v0/configuration/get.md
+                      - name: list
+                        href: cli-ref/v0/configuration/list.md
+                  - name: hardware-pool
+                    items:
+                      - name: Overview
+                        href: cli-ref/v0/hardware-pool/index.md
+                      - name: get
+                        href: cli-ref/v0/hardware-pool/get.md
+                      - name: list
+                        href: cli-ref/v0/hardware-pool/list.md
+                  - name: image
+                    items:
+                      - name: Overview
+                        href: cli-ref/v0/image/index.md
+                      - name: get
+                        href: cli-ref/v0/image/get.md
+                      - name: list
+                        href: cli-ref/v0/image/list.md
+                  - name: private-cloud-connection
+                    items:
+                      - name: Overview
+                        href: cli-ref/v0/private-cloud-connection/index.md
+                      - name: create
+                        href: cli-ref/v0/private-cloud-connection/create.md
+                      - name: delete
+                        href: cli-ref/v0/private-cloud-connection/delete.md
+                      - name: get
+                        href: cli-ref/v0/private-cloud-connection/get.md
+                      - name: list
+                        href: cli-ref/v0/private-cloud-connection/list.md
+                      - name: update
+                        href: cli-ref/v0/private-cloud-connection/update.md
+                  - name: private-subnet
+                    items:
+                      - name: Overview
+                        href: cli-ref/v0/private-subnet/index.md
+                      - name: add-labels
+                        href: cli-ref/v0/private-subnet/add-labels.md
+                      - name: create
+                        href: cli-ref/v0/private-subnet/create.md
+                      - name: delete
+                        href: cli-ref/v0/private-subnet/delete.md
+                      - name: get
+                        href: cli-ref/v0/private-subnet/get.md
+                      - name: list
+                        href: cli-ref/v0/private-subnet/list.md
+                      - name: list-operations
+                        href: cli-ref/v0/private-subnet/list-operations.md
+                      - name: remove-labels
+                        href: cli-ref/v0/private-subnet/remove-labels.md
+                      - name: update
+                        href: cli-ref/v0/private-subnet/update.md
+                  - name: public-prefix-pool
+                    items:
+                      - name: Overview
+                        href: cli-ref/v0/public-prefix-pool/index.md
+                      - name: get
+                        href: cli-ref/v0/public-prefix-pool/get.md
+                      - name: list
+                        href: cli-ref/v0/public-prefix-pool/list.md
+                      - name: list-operations
+                        href: cli-ref/v0/public-prefix-pool/list-operations.md
+                      - name: update
+                        href: cli-ref/v0/public-prefix-pool/update.md
+                  - name: public-subnet
+                    items:
+                      - name: Overview
+                        href: cli-ref/v0/public-subnet/index.md
+                      - name: add-labels
+                        href: cli-ref/v0/public-subnet/add-labels.md
+                      - name: create
+                        href: cli-ref/v0/public-subnet/create.md
+                      - name: delete
+                        href: cli-ref/v0/public-subnet/delete.md
+                      - name: get
+                        href: cli-ref/v0/public-subnet/get.md
+                      - name: list
+                        href: cli-ref/v0/public-subnet/list.md
+                      - name: list-operations
+                        href: cli-ref/v0/public-subnet/list-operations.md
+                      - name: remove-labels
+                        href: cli-ref/v0/public-subnet/remove-labels.md
+                      - name: update
+                        href: cli-ref/v0/public-subnet/update.md
+                  - name: rental-period
+                    items:
+                      - name: Overview
+                        href: cli-ref/v0/rental-period/index.md
+                      - name: list
+                        href: cli-ref/v0/rental-period/list.md
+                  - name: server
+                    items:
+                      - name: Overview
+                        href: cli-ref/v0/server/index.md
+                      - name: add-labels
+                        href: cli-ref/v0/server/add-labels.md
+                      - name: create
+                        href: cli-ref/v0/server/create.md
+                      - name: get
+                        href: cli-ref/v0/server/get.md
+                      - name: list
+                        href: cli-ref/v0/server/list.md
+                      - name: list-operations
+                        href: cli-ref/v0/server/list-operations.md
+                      - name: power-off
+                        href: cli-ref/v0/server/power-off.md
+                      - name: power-on
+                        href: cli-ref/v0/server/power-on.md
+                      - name: reboot
+                        href: cli-ref/v0/server/reboot.md
+                      - name: reinstall
+                        href: cli-ref/v0/server/reinstall.md
+                      - name: remove-labels
+                        href: cli-ref/v0/server/remove-labels.md
+                      - name: update
+                        href: cli-ref/v0/server/update.md
+                  - name: vrf
+                    items:
+                      - name: Overview
+                        href: cli-ref/v0/vrf/index.md
+                      - name: add-labels
+                        href: cli-ref/v0/vrf/add-labels.md
+                      - name: create
+                        href: cli-ref/v0/vrf/create.md
+                      - name: delete
+                        href: cli-ref/v0/vrf/delete.md
+                      - name: get
+                        href: cli-ref/v0/vrf/get.md
+                      - name: list
+                        href: cli-ref/v0/vrf/list.md
+                      - name: list-operations
+                        href: cli-ref/v0/vrf/list-operations.md
+                      - name: remove-labels
+                        href: cli-ref/v0/vrf/remove-labels.md
+                      - name: update
+                        href: cli-ref/v0/vrf/update.md
+                  - name: zone
+                    items:
+                      - name: Overview
+                        href: cli-ref/v0/zone/index.md
+                      - name: get
+                        href: cli-ref/v0/zone/get.md
+                      - name: list
+                        href: cli-ref/v0/zone/list.md
               - name: vrf
                 items:
                   - name: Overview
@@ -425,6 +616,18 @@ items:
                         href: api-ref/grpc/PrivateSubnet/delete.md
                       - name: ListOperations
                         href: api-ref/grpc/PrivateSubnet/listOperations.md
+                  - name: PublicPrefixPool
+                    items:
+                      - name: Overview
+                        href: api-ref/grpc/PublicPrefixPool/index.md
+                      - name: Get
+                        href: api-ref/grpc/PublicPrefixPool/get.md
+                      - name: List
+                        href: api-ref/grpc/PublicPrefixPool/list.md
+                      - name: Update
+                        href: api-ref/grpc/PublicPrefixPool/update.md
+                      - name: ListOperations
+                        href: api-ref/grpc/PublicPrefixPool/listOperations.md
                   - name: PublicSubnet
                     items:
                       - name: Overview
@@ -469,12 +672,12 @@ items:
                         href: api-ref/grpc/Server/reboot.md
                       - name: Reinstall
                         href: api-ref/grpc/Server/reinstall.md
+                      - name: ListOperations
+                        href: api-ref/grpc/Server/listOperations.md
                       - name: StartProlongation
                         href: api-ref/grpc/Server/startProlongation.md
                       - name: StopProlongation
                         href: api-ref/grpc/Server/stopProlongation.md
-                      - name: ListOperations
-                        href: api-ref/grpc/Server/listOperations.md
                   - name: StandardImage
                     items:
                       - name: Overview
@@ -633,12 +836,12 @@ items:
                         href: api-ref/Server/reboot.md
                       - name: Reinstall
                         href: api-ref/Server/reinstall.md
+                      - name: ListOperations
+                        href: api-ref/Server/listOperations.md
                       - name: StartProlongation
                         href: api-ref/Server/startProlongation.md
                       - name: StopProlongation
                         href: api-ref/Server/stopProlongation.md
-                      - name: ListOperations
-                        href: api-ref/Server/listOperations.md
                   - name: StandardImage
                     items:
                       - name: Overview

@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/trigger/add-labels
 editable: false
 ---
 

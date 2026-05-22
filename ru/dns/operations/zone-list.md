@@ -9,7 +9,7 @@ title: Как получить список зон DNS
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите посмотреть список [зон DNS](../concepts/dns-zone.md).
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. На странице **{{ ui-key.yacloud.dns.label_zones-list }}** отобразится список зон DNS.
 
 - CLI {#cli}

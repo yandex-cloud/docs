@@ -122,7 +122,7 @@ Learn how to change the [availability zone](../../../overview/concepts/geo-scope
   To update a {{ managed-k8s-name }} node group:
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more on how to create such a file, see [{#T}](node-group-create.md).
+     For more on how to create this file, see [{#T}](node-group-create.md).
   1. Edit the {{ managed-k8s-name }} node group description properties.
 
      * To change the scaling settings, edit the `scale_policy` section as follows:
@@ -158,11 +158,11 @@ Learn how to change the [availability zone](../../../overview/concepts/geo-scope
 
        {% include [node-name](../../../_includes/managed-kubernetes/tf-node-name.md) %}
 
-  1. Make sure the configuration files are correct.
+  1. Validate your configuration files.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -236,7 +236,7 @@ Using a [deployment policy](../../concepts/node-group/deploy-policy.md), you can
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-      For more on how to create such a file, see [{#T}](./node-group-create.md).
+      For more on how to create this file, see [{#T}](./node-group-create.md).
 
   1. Specify the settings under `deploy_policy`. If there is no such section, add it first.
 
@@ -256,11 +256,11 @@ Using a [deployment policy](../../concepts/node-group/deploy-policy.md), you can
 
       {% include [deploy-policy-parameters-tf](../../../_includes/managed-kubernetes/deploy-policy/parameters-tf.md) %}
 
-  1. Make sure the configuration files are correct.
+  1. Validate your configuration files.
 
       {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
       {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -284,7 +284,9 @@ Using a [deployment policy](../../concepts/node-group/deploy-policy.md), you can
 
 {% endlist %}
 
-## Enabling access to nodes from the internet {#node-internet-access}
+## Assigning public IP addresses to nodes {#node-internet-access}
+
+{% include [public-ip](../../../_includes/managed-kubernetes/public-ip.md) %}
 
 {% list tabs group=instructions %}
 
@@ -297,7 +299,7 @@ Using a [deployment policy](../../concepts/node-group/deploy-policy.md), you can
   1. Select the node group you need.
   1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
   1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**, in the **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** field, select the `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}` IP address assignment method. Nodes will get random public IP addresses from the {{ yandex-cloud }} address pool.
-  1. Click **{{ ui-key.yacloud.common.save }}**.   
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -305,7 +307,8 @@ Using a [deployment policy](../../concepts/node-group/deploy-policy.md), you can
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  To enable access to [{{ managed-k8s-name }} nodes](../../concepts/index.md#node-group) from the internet:
+  To assign random public IP addresses from the {{ yandex-cloud }} address pool to [{{ managed-k8s-name }} nodes](../../concepts/index.md#node-group):
+
   1. Get detailed information about the command to update the {{ managed-k8s-name }} node group:
 
      ```bash
@@ -322,19 +325,53 @@ Using a [deployment policy](../../concepts/node-group/deploy-policy.md), you can
 
      You can get the names and IDs of {{ managed-k8s-name }} node groups with the [list of node groups in the folder](node-group-list.md#list).
 
+- {{ TF }} {#tf}
+
+  To assign random public IP addresses from the {{ yandex-cloud }} address pool to nodes:
+
+  1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
+
+     For more on how to create this file, see [{#T}](node-group-create.md).
+
+  1. Add `instance_template.network_interface.nat` set to `true` to the node group description:
+
+     ```hcl
+     resource "yandex_kubernetes_node_group" "<node_group_name>" {
+       ...
+       instance_template {
+         ...
+         network_interface {
+           nat = true
+         }
+       }
+     }
+     ```
+
+  1. Make sure the configuration files are correct.
+
+     {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm resource changes.
+
+     {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+     {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
+
+     For more information, see [this {{ TF }} provider guide]({{ tf-provider-k8s-nodegroup }}).
+
 - API {#api}
 
-  Use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) REST API method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup) resource or the [NodeGroupService/Update](../../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) gRPC API call.
+  {% include [api-parameters-case](../../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
+  Use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) REST API method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup) resource or the [NodeGroupService/Update](../../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) gRPC API call, and provide the following in the request:
+
+  * `nodeTemplate.networkInterfaceSpecs.primaryV4AddressSpec.oneToOneNatSpec.ipVersion` in the `updateMask` parameter.
+
+     {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
+
+  * `IPV4` in the `nodeTemplate.networkInterfaceSpecs.primaryV4AddressSpec.oneToOneNatSpec.ipVersion` parameter.
 
 {% endlist %}
-
-Alternatively, you can grant internet access permission to {{ managed-k8s-name }} cluster nodes by creating and setting up a [NAT gateway](../../../vpc/operations/create-nat-gateway.md) or [NAT instance](../../../vpc/tutorials/nat-instance/index.md). As a result, through [static routing](../../../vpc/concepts/routing.md), traffic will be routed via a gateway or a separate NAT instance.
-
-{% note info %}
-
-If you assigned public IP addresses to the cluster nodes and then configured the NAT gateway or NAT instance, internet access via the public IP addresses will be disabled. For more information, see [our {{ vpc-full-name }} article](../../../vpc/concepts/routing.md#internet-routes).
-
-{% endnote %}
 
 ## Recreating a node group with a new taint {#assign-taint}
 
@@ -352,7 +389,7 @@ Adding [taints](../../concepts/index.md#taints-tolerations) results in removing 
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more on how to create such a file, see [{#T}](node-group-create.md).
+     For more on how to create this file, see [{#T}](node-group-create.md).
 
   1. Add the `node_taints` section to the node group description:
 
@@ -375,11 +412,11 @@ Adding [taints](../../concepts/index.md#taints-tolerations) results in removing 
 
      You can place multiple taints by specifying them separated by commas.
 
-  1. Make sure the configuration files are correct.
+  1. Validate your configuration files.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -405,15 +442,15 @@ Removing [taints](../../concepts/index.md#taints-tolerations) results in removin
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more on how to create such a file, see [{#T}](node-group-create.md).
+     For more on how to create this file, see [{#T}](node-group-create.md).
 
   1. In the node group description, remove the taints you no longer need under `node_taints`.
 
-  1. Make sure the configuration files are correct.
+  1. Validate your configuration files.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -469,7 +506,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more on how to create such a file, see [{#T}](node-group-create.md).
+     For more on how to create this file, see [{#T}](node-group-create.md).
   1. Add the `labels` property to the {{ managed-k8s-name }} node group description:
 
      ```hcl
@@ -487,7 +524,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -512,8 +549,8 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
     1. Select the node group you need.
     1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
     1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click the cross next to the label to remove it.
-    1. Click **{{ui-key.yacloud.component.label-set.button_add-label }}** and enter a new key and/or value for the label.
-    1. Press **Enter**, then click **{{ ui-key.yacloud.common.save }}**.
+    1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}** and enter a new key and/or value for the label.
+    1. Press **Enter** and click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -538,7 +575,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more on how to create such a file, see [{#T}](node-group-create.md).
+     For more on how to create this file, see [{#T}](node-group-create.md).
   1. Edit the `labels` property in the {{ managed-k8s-name }} node group description:
 
      ```hcl
@@ -557,7 +594,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -605,11 +642,11 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
      For more on how to create this file, see [{#T}](node-group-create.md).
   1. In the {{ managed-k8s-name }} node group description, remove the cloud labels you no longer need under `labels`.
-  1. Make sure the configuration files are correct.
+  1. Validate your configuration files.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
@@ -800,11 +837,11 @@ After you update the metadata, the node group status will temporarily change to 
 
         {% endnote %}
 
-    1. Make sure the configuration files are correct.
+    1. Validate your configuration files.
 
         {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 

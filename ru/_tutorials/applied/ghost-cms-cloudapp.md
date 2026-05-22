@@ -1,5 +1,6 @@
 # Установка Ghost CMS High Availability с помощью {{ cloud-apps-name }}
 
+
 В этом руководстве вы установите и настроите [Ghost CMS High Availability](https://ghost.org/) — платформу для публикации контента и ведения блогов. Приложение будет развернуто с помощью [{{ cloud-apps-full-name }}](../../cloud-apps/) на виртуальной машине с автоматической настройкой всех необходимых ресурсов, включая базу данных, веб-сервер и интеграцию с почтовым сервисом.
 
 Чтобы установить Ghost CMS High Availability:
@@ -114,7 +115,7 @@
 
 ## Установите Ghost CMS High Availability {#install-ghost}
 
-Установите [Ghost CMS High Availability](marketplace/products/yc/ghost-cms-ha) с помощью {{ cloud-apps-name }}.
+Установите [Ghost CMS High Availability](/marketplace/products/yc/ghost-cms-ha) с помощью {{ cloud-apps-name }}.
 
 {% list tabs group=instructions %}
 
@@ -122,7 +123,7 @@
 
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-apps }}**.
   1. Нажмите **{{ ui-key.yacloud.cloud-apps.button_empty-install-application }}**.
-  1. В открывшемся окне выберите приложение **Ghost CMS High Availability**.
+  1. Выберите приложение **Ghost CMS High Availability** и нажмите **{{ ui-key.yacloud.marketplace-v2.button_use }}**.
   1. Задайте параметры приложения:
 
       #|

@@ -16,15 +16,16 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [terraform-definition](../_tutorials_includes/terraform-definition.md) %}
 
-To create an infrastructure using {{ TF }}:
-1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [get the credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing {{ yandex-cloud }} (see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1).
+
+To create your infrastructure via {{ TF }}:
+1. [Install {{ TF }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform), [obtain authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials), and specify the source for installing the {{ yandex-cloud }} provider. For details, see [{#T}](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider), step 1.
 1. Set up your infrastructure description files:
 
     {% list tabs group=infrastructure_description %}
 
     - Ready-made configuration {#ready}
 
-      1. Clone the repository with configuration files:
+      1. Clone the repository containing the configuration files:
 
          ```bash
          git clone https://github.com/yandex-cloud-examples/cdn-storage-integration-config
@@ -61,7 +62,7 @@ To create an infrastructure using {{ TF }}:
 
     {% endlist %}
 
-    Learn more about the properties of {{ TF }} resources in the relevant provider guides:
+    For more information about {{ TF }} resource properties, see the relevant provider guides:
 
     * [Network](../../vpc/concepts/network.md#network): [yandex_vpc_network]({{ tf-provider-resources-link }}/vpc_network).
     * [Subnet](../../vpc/concepts/network.md#subnet): [yandex_vpc_subnet]({{ tf-provider-resources-link }}/vpc_subnet).
@@ -86,7 +87,7 @@ To create an infrastructure using {{ TF }}:
         To use domain names in the public DNS zone, you need to delegate it to authoritative name servers. Specify the addresses of the `ns1.{{ dns-ns-host-sld }}` and `ns2.{{ dns-ns-host-sld }}` servers in your account on your domain name registrar's website.
     * `index_file_path`: Local path to the `index.html` file that contains your test service contents, e.g., `/Users/MyUser/Repos/cdn-storage-integration/index.html`.
 
-1. Create the resources:
+1. Create the required resources:
 
    {% include [terraform-validate-plan-apply](../_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -104,7 +105,7 @@ Before deleting the infrastructure, [delete](../../storage/operations/objects/de
 
 {% endnote %}
 
-To stop paying for the resources you created:
+To stop incurring charges for the resources you created:
 
 1. Open the `cdn-storage-integration-config.tf` file and delete your infrastructure description from it.
 1. Apply the changes:

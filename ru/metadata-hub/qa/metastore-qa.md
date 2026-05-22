@@ -7,8 +7,9 @@ description: Как исправить ошибку при создании БД
 
 В этом разделе описаны проблемы, возникающие в сервисе, а также способы их устранения.
 
-* [Ошибка при создании базы данны](#create-db-in-hive)
+* [Ошибка при создании базы данных](#create-db-in-hive)
 * [Отсутствие прав при подключении сервисного аккаунта к кластеру](#attach-service-account)
+* [Блокировка таблиц Hive](#lock-tables)
 
 ## Ошибка при создании базы данных в {{ metastore-full-name }} {#create-db-in-hive}
 
@@ -19,3 +20,7 @@ description: Как исправить ошибку при создании БД
 {% include notitle [attach-sa-create-update](../../_qa/attach-sa-create-update.md) %}
 
 {% include [metastore-trademark](../../_includes/metadata-hub/metastore-trademark.md) %}
+
+## Блокировка таблиц Hive {#lock-tables}
+
+{% include notitle [lock-tables](../../_qa/metadata-hub/lock-tables.md) %}

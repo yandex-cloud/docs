@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-gitlab/cli-ref/
 editable: false
 ---
 
@@ -33,6 +34,10 @@ Aliases:
   - [yc managed-gitlab instance stop](instance/stop.md) — Stop the specified Gitlab instance
 
   - [yc managed-gitlab instance update](instance/update.md) — Update the specified Gitlab instance
+
+- [yc managed-gitlab v0](v0/index.md) — Manage Gitlab resources.
+
+
 
 #### Global Flags
 

@@ -1,4 +1,4 @@
-# Метод DeleteBucketPolicy
+# Object Storage API, REST совместимый с Amazon S3: DeleteBucketPolicy
 
 Удаляет политику доступа заданного бакета.
 
@@ -33,5 +33,11 @@ DELETE /{bucket}?policy HTTP/2
 ### Коды ответов {#response-codes}
 
 Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
+
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/policy.md)
+
+* [Удаление политики](../../../operations/buckets/policy.md#delete-policy)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

@@ -1,7 +1,8 @@
 # Поля ресурса GRPCRoute
 
-В ресурсе `GRPCRoute` определяются правила маршрутизации трафика по бэкендам — сервисам {{ k8s }} (ресурсам [Service](../../../application-load-balancer/k8s-ref/service-for-gateway.md)) или перенаправления трафика. `GRPCRoute` получает входящий трафик от тех [ресурсов `Gateway`](../../../application-load-balancer/k8s-ref/gateway.md), требованиям которых соответствует.
+В ресурсе `GRPCRoute` определяются правила маршрутизации трафика по бэкендам — сервисам {{ k8s }} (ресурсам [Service]({{ configuration-local-link }}/service-for-gateway.md)) или перенаправления трафика. `GRPCRoute` получает входящий трафик от тех [ресурсов `Gateway`]({{ configuration-local-link }}/gateway.md), требованиям которых соответствует.
 
+{% include [Gwin-with-preset](../../application-load-balancer/ingress-to-gwin-tip-with-preset.md) %}
 
 `GRPCRoute` предназначен для разработчиков приложений. Оператор кластера должен использовать `Gateway`.
 
@@ -112,9 +113,9 @@ rules:
 
 * `parentRefs` (`[]ParentReference`, обязательное)
 
-  Список ресурсов `Gateway` (или их обработчиков из поля `spec.listeners` — см. [справочник](../../../application-load-balancer/k8s-ref/gateway.md#spec)), к которым должен быть привязан `GRPCRoute`.
+  Список ресурсов `Gateway` (или их обработчиков из поля `spec.listeners` — см. [справочник]({{ configuration-local-link }}/gateway.md#spec)), к которым должен быть привязан `GRPCRoute`.
 
-  Также маршрут должен удовлетворять правилам, описанным в [конфигурации](../../../application-load-balancer/k8s-ref/gateway.md#spec) `Gateway` (поле `spec.listeners.allowedRoutes`).
+  Также маршрут должен удовлетворять правилам, описанным в [конфигурации]({{ configuration-local-link }}/gateway.md#spec) `Gateway` (поле `spec.listeners.allowedRoutes`).
   
   * `namespace` (`string`)
     
@@ -224,7 +225,7 @@ rules:
       
      * `name` (`string`)
 
-       Имя сервиса {{ k8s }}. Ресурс `Service`, на который указывает это поле, должен быть описан по [принятой конфигурации](../../../application-load-balancer/k8s-ref/service-for-gateway.md). 
+       Имя сервиса {{ k8s }}. Ресурс `Service`, на который указывает это поле, должен быть описан по [принятой конфигурации]({{ configuration-local-link }}/service-for-gateway.md). 
 
      * `namespace` (`string`)
   
@@ -234,7 +235,7 @@ rules:
 
        Номер порта сервиса.
 
-       Номер должен совпадать с одним из номеров портов, указанных в полях `spec.ports.port` ресурса `Service`. Подробнее см. в [конфигурации ресурса](../../../application-load-balancer/k8s-ref/service-for-gateway.md).
+       Номер должен совпадать с одним из номеров портов, указанных в полях `spec.ports.port` ресурса `Service`. Подробнее см. в [конфигурации ресурса]({{ configuration-local-link }}/service-for-gateway.md).
        
      * `weight` (`int32`)
 

@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/lockbox/cli-ref/secret/create
 editable: false
 ---
 

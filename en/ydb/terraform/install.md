@@ -5,7 +5,7 @@ description: This is a step-by-step guide for installing and configuring {{ TF }
 
 # Installing and configuring {{ TF }} and a provider to connect to {{ ydb-short-name }}
 
-You can download {{ TF }} from the official [HashiCorp](https://developer.hashicorp.com/terraform/downloads) website. If the site is unavailable, use our specially created [mirror](https://hashicorp-releases.yandexcloud.net/terraform/). Download the {{ TF }} distribution for your platform and add the path to the folder with the executable to the `PATH: export PATH=$PATH:/path/to/terraform` variable.
+You can download {{ TF }} from the official [HashiCorp](https://developer.hashicorp.com/terraform/downloads) website. If the website is unavailable, use our [mirror](https://hashicorp-releases.yandexcloud.net/terraform/). Download the {{ TF }} distribution for your platform and add the path to the folder with the executable to the `PATH: export PATH=$PATH:/path/to/terraform` variable.
 
 
 ## Installing {{ TF }} for Windows, Linux, and macOS from the HashiCorp website {#terraform-install-on-dif-os}
@@ -19,21 +19,21 @@ You can download {{ TF }} from the official [HashiCorp](https://developer.hashic
 - macOS {#macos}
 
     * Download the [{{ TF }} distribution](https://developer.hashicorp.com/terraform/downloads) and follow [this guide](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli?in=terraform%2Faws-get-started) to install it.
-    * Install {{ TF }} using the [Homebrew](https://brew.sh) package manager by running this command: `brew install terraform`.
+    * Install {{ TF }} using the [Homebrew](https://brew.sh) package manager by running the `brew install terraform` command.
 
 - Windows {#windows}
 
     * Download {{ TF }} from the [official website](https://developer.hashicorp.com/terraform/downloads) and follow [this guide](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli?in=terraform%2Faws-get-started) to install it.
-    * Install {{ TF }} using the [Chocolatey](https://chocolatey.org/install) package manager by running this command: `choco install terraform`.
+    * Install {{ TF }} using the [Chocolatey](https://chocolatey.org/install) package manager by running the `choco install terraform` command.
 
 {% endlist %}
 
 Once you have installed {{ TF }}, configure it to access {{ ydb-short-name }}. First, install a provider to connect to {{ ydb-short-name }} and provide API methods.
 
 
-## Installing a {{ ydb-short-name }} provider {#provider-install}
+## Installing a provider for {{ ydb-short-name }} {#provider-install}
 
-{{ TF }} will download and install a provider from the URL specified by the user in the `provider_installation` section of the `.terraformrc` file.
+{{ TF }} will download and install a provider from the URL you specified in the `provider_installation` section of the `.terraformrc` file.
 
 {% list tabs group=operating_system %}
 
@@ -76,4 +76,4 @@ Once you have installed {{ TF }}, configure it to access {{ ydb-short-name }}. F
 		
 {% endlist %}
 
-This completes the installation and configuration of {{ TF }} and the provider for connection to {{ ydb-short-name }}. You can move on to creating [configuration files](./configure.md) for {{ ydb-short-name }} access.
+This completes the installation and configuration of {{ TF }} and the provider for connecting to {{ ydb-short-name }}. You can move on to creating [configuration files](./configure.md) for {{ ydb-short-name }} access.

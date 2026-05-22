@@ -13,7 +13,7 @@ After you create an [API gateway](../concepts/index.md), you can change any of i
 
   1. In the [management console]({{ link-console-main }}), go to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update an API gateway.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
-  1. In the API gateway row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
+  1. In the API gateway row, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
   1. Edit the API gateway parameters or OpenAPI specification, if needed.
 
       {% include [add-extentions-constructor](../../_includes/api-gateway/add-extentions-constructor.md) %}
@@ -61,7 +61,7 @@ After you create an [API gateway](../concepts/index.md), you can change any of i
   To change the name, description, or specification of the API gateway:
   1. Open the {{ TF }} configuration file and edit the `name`, `description`, `execution_timeout`, or `spec` properties, respectively.
 
-     Here is the configuration file example:
+     Here is an example of the configuration file structure:
 
      ```hcl
      ...
@@ -110,7 +110,7 @@ After you create an [API gateway](../concepts/index.md), you can change any of i
      ...
      ```
 
-     For more information about `yandex_api_gateway` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/api_gateway).
+     For more information about `yandex_api_gateway` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/api_gateway).
   1. Check the configuration using this command:
 
      ```bash
@@ -129,7 +129,7 @@ After you create an [API gateway](../concepts/index.md), you can change any of i
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+     You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
   1. Apply the changes:
 
      ```bash

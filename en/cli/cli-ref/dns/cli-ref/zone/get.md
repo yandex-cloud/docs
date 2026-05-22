@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/dns/cli-ref/zone/get
 editable: false
 ---
 
@@ -10,7 +11,7 @@ Get information about a dns zone.
 
 Syntax:
 
-`yc dns zone get <DNS-ZONE-NAME>|<DNS-ZONE-ID> [<DNS-ZONE-NAME>|<DNS-ZONE-ID>...] [Global Flags...]`
+`yc dns zone get <DNS-ZONE-NAME>|<DNS-ZONE-ID> [Global Flags...]`
 
 Aliases:
 

@@ -49,10 +49,8 @@ description: Следуя данной инструкции, вы сможете
    * (Опционально) **Ключ безопасности** — укажите ключ безопасности для подписывания URL.
    * **Разрешить URL без подписи (unsafe)** — выберите эту опцию, если вы не указывали ключ безопасности на предыдущем шаге.
    * **Подкаталог в бакете** — укажите имя каталога в бакете (без завершающего символа `/`), в котором находятся изображения.
+   * (Опционально) **Публичный IP-адрес** — выберите эту опцию, чтобы выделить для сервиса публичный IP-адрес. Для обеспечения работы Thumbor будет автоматически создан сервис {{ k8s }} типа `LoadBalancer` и соответствующий ему [балансировщик {{ network-load-balancer-full-name }}](../../../network-load-balancer).
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-
-    Для обеспечения работы Thumbor будет автоматически создан сервис {{ k8s }} типа `LoadBalancer` и соответствующий ему [балансировщик {{ network-load-balancer-full-name }}](../../../network-load-balancer).
-
 1. Дождитесь перехода приложения в статус `Deployed`.
 
 ## Установка с помощью Helm-чарта {#helm-install}
@@ -78,6 +76,7 @@ description: Следуя данной инструкции, вы сможете
        --set allow_unsafe_url='true' \
        --set root_path='<имя_подкаталога_в_бакете>' \
        --set-file saAccessKeyFile='sa-key.json' \
+       --set public_address='true' \
       thumbor ./thumbor
      ```
 
@@ -99,6 +98,7 @@ description: Следуя данной инструкции, вы сможете
        --set security_key='<ключ_безопасности_для_подписывания_URL>' \
        --set root_path='<имя_подкаталога_в_бакете>' \
        --set-file saAccessKeyFile='sa-key.json' \
+       --set public_address='true' \
       thumbor ./thumbor/
      ```
 
@@ -108,7 +108,7 @@ description: Следуя данной инструкции, вы сможете
 
    {% endlist %}
 
-    Для обеспечения работы Thumbor будет автоматически создан сервис {{ k8s }} типа `LoadBalancer` и соответствующий ему [балансировщик {{ network-load-balancer-full-name }}](../../../network-load-balancer).
+    Если в параметр `public_address` передано `true`, то для обеспечения работы Thumbor будет автоматически создан сервис {{ k8s }} типа `LoadBalancer` и соответствующий ему [балансировщик {{ network-load-balancer-name }}](../../../network-load-balancer).
 
 ## Получение доступа к приложению {#app-access}
 

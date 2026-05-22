@@ -19,13 +19,13 @@
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin-datasphere.md) %}
 
+
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры для работы с данными {{ mpg-name }} входит:
+* Проект {{ ml-platform-name }}: использование вычислительных ресурсов и хранилища (см. [тарифы {{ ml-platform-name }}](../../datasphere/pricing.md)).
+* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../managed-postgresql/pricing.md)).
+* Сервис {{ yq-name }}: объем считанных данных при исполнении запросов (см. [тарифы {{ yq-name }}](../../query/pricing.md)).
 
-* плата за использование [вычислительных ресурсов {{ ml-platform-name }}](../../datasphere/pricing.md);
-* плата за запущенный [кластер {{ mpg-name }}](../../managed-postgresql/pricing.md);
-* плата за объем считанных данных при исполнении [запросов {{ yq-name }}](../../query/pricing.md).
 
 ## Подготовьте инфраструктуру {#infra}
 

@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-postgresql/cli-ref/user/create
 editable: false
 ---
 
@@ -43,6 +44,12 @@ Authentication method for the user. Values: 'auth-method-password', 'auth-method
 || `--user-password-encryption` | `string`
 
 Password-based authentication method for user. Values: 'user-password-encryption-md5', 'user-password-encryption-scram-sha-256' ||
+|| `--connection-folder-id` | `string`
+
+ID of the folder where connection for the user is created. ||
+|| `--secret-folder-id` | `string`
+
+ID of the folder where connection secret is created. ||
 || `--lock-timeout` | `int`
 
 Lock timeout in milliseconds. ||
@@ -67,6 +74,9 @@ Statement timeout in milliseconds. ||
 || `--idle-in-transaction-session-timeout` | `int`
 
 Idle in transaction session timeout in milliseconds. ||
+|| `--idle-session-timeout` | `int`
+
+Idle session timeout in milliseconds. ||
 || `--wal-sender-timeout` | `int`
 
 WAL sender timeout in milliseconds. ||

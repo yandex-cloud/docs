@@ -58,6 +58,11 @@ resource "yandex_mdb_kafka_cluster" "my_cluster" {
 - `name` (**Required**)(String). The resource name.
 - `partitions` (**Required**)(Number). The number of the topic's partitions.
 - `replication_factor` (**Required**)(Number). Amount of data copies (replicas) for the topic in the cluster.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `read` (String). 
+  - `update` (String). 
 - `topic_config` [Block]. User-defined settings for the topic. For more information, see [the official documentation](https://yandex.cloud/docs/managed-kafka/concepts/settings-list#topic-settings) and [the Kafka documentation](https://kafka.apache.org/documentation/#topicconfigs).
   - `cleanup_policy` (String). Retention policy to use on log segments.
   - `compression_type` (String). Compression type of kafka topic.

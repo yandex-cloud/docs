@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kafka/cli-ref/user/create
 editable: false
 ---
 

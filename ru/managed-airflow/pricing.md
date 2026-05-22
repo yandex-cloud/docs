@@ -44,6 +44,8 @@ editable: false
 
 ### Пример расчета стоимости кластера {#example}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 Стоимость использования кластера со следующими параметрами в течение 30 дней:
 
 * **Веб-сервер**: 1 экземпляр конфигурации `standard`: 1 × 100% vCPU, 4 ГБ RAM.
@@ -70,8 +72,6 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-
-{% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
 
 <MDX>

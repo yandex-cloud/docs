@@ -21,7 +21,7 @@
 Чтобы начать работать с {{ datalens-short-name }}:
 
 1. [Войдите]({{ link-passport-login }}) в ваш аккаунт на Яндексе.
-1. Откройте [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
+1. Откройте [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
 1. Нажмите **Открыть DataLens**.
 1. Выберите один из вариантов:
 
@@ -105,11 +105,8 @@
 
 Создайте [дашборд](../../datalens/concepts/dashboard.md), на который будут добавлены чарты.
 
-1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
-
+1. На панели слева нажмите ![image](../../_assets/console-icons/layout-cells-large.svg) **Дашборды**.
 1. Нажмите кнопку **Создать дашборд**.
-
-    ![image](../../_assets/datalens/monitoring-visualization/create-dashboard.png)
 
 ## Добавьте QL-чарт на дашборд {#add-sql-chart-to-dashboard}
 

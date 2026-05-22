@@ -11,6 +11,12 @@ For example, impersonation can help you out when the user has no permissions to 
 
 The administrator can revoke the `iam.serviceAccounts.tokenCreator` role from the user whenever needed. The user will then lose the ability to view the folder under the service account.
 
+{% note info %}
+
+{% include [access-control-impersonation-notice](../../../_includes/iam/access-control-impersonation-notice.md) %}
+
+{% endnote %}
+
 #### See also {#see-also}
 
 * [{#T}](../../operations/sa/impersonate-sa.md)

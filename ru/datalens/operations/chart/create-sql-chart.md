@@ -25,7 +25,7 @@ description: Следуя данной инструкции, вы сможете
 
 
 
-1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
+1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
 
 
 1. На рабочей панели слева выберите ![image](../../../_assets/console-icons/chart-column.svg) **Чарты**.
@@ -202,6 +202,10 @@ CASE
     ELSE column IN not_var{{param}}
 END
 ```
+
+## Отмена и восстановление изменений в чартах {#undo-redo}
+
+При редактировании QL-чарта можно [отменить или повторно выполнить](../../concepts/chart/settings.md#undo-redo) внесенные изменения в пределах текущей версии.
 
 #### См. также {#see-also}
 

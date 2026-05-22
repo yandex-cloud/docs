@@ -5,18 +5,21 @@ description: Follow this guide to create a test with data from a bucket.
 
 # Creating a test with data from a bucket
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 You can upload test data to {{ load-testing-name }} from a [bucket](../../storage/concepts/bucket.md) in [{{ objstorage-full-name }}](../../storage/). This method enables you to:
 * Handle large payloads (over 100 MB).
 * Store payloads and reuse them easily.
 * Ensure maximum security (payloads remain in the user's cloud and associated networks).
 
-## Setting up your infrastructure {#infrastructure-prepare}
+## Setting up the infrastructure {#infrastructure-prepare}
 
 1. [Create](create-agent.md) a test agent.
 1. [Create](../../storage/operations/buckets/create.md) a bucket and [upload](../../storage/operations/objects/upload.md) the payload file to it.
 1. Grant the service account linked to the [agent](../concepts/agent.md) read permissions for the bucket. To do this, edit the bucket [ACL](../../storage/concepts/acl.md):
     1. In the [management console]({{ link-console-main }}), select the folder with the bucket.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Click ![image](../../_assets/horizontal-ellipsis.svg) next to the bucket and select **{{ ui-key.yacloud.storage.buckets.button_permissions }}**.
     1. In the window that opens, enter the service account name, select `READ` for bucket permissions, and click **{{ ui-key.yacloud.common.add }}**.
     1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -39,7 +42,7 @@ You can upload test data to {{ load-testing-name }} from a [bucket](../../storag
 
 - Management console {#console}
   1. In the [management console]({{ link-console-main }}), select the folder for testing.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. In the ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** tab, click **{{ ui-key.yacloud.load-testing.button_create-test }}**.
   1. [Select](../concepts/agent-select.md) a test agent or create a new one.
   1. Under **Attached files**:
@@ -72,7 +75,7 @@ You can upload test data to {{ load-testing-name }} from a [bucket](../../storag
      yc loadtesting test-config create --from-yaml-file <file_path>
      ```
 
-  1. Upload the [payload](../../load-testing/concepts/payload). To do this, create an [IAM token](../../ydb/terraform/credentials):
+  1. Upload the [payload](../../load-testing/concepts/payload.md). To do this, create an [IAM token](../../ydb/terraform/credentials.md):
 
      ```bash
      export YC_TOKEN=$(yc iam create-token)

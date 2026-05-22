@@ -58,7 +58,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
        Where:
 
        * `--user-account-id`: [User ID](../../../organization/operations/users-get.md).
-       * `--role`: [Role](../../security/index.md#roles-list).
+       * `--role`: [Role](../../security/index.md#roles-list) to assign.
 
      * To a service account:
 
@@ -95,9 +95,9 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
       * `disk_id`: Disk ID.
       * `role`: [Role](../../security/index.md#roles-list) to assign.
-      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-      For more information about the `yandex_compute_disk_iam_binding` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_disk_iam_binding).
+      For more information about `yandex_compute_disk_iam_binding` properties, see [this provider guide]({{ tf-provider-resources-link }}/compute_disk_iam_binding).
 
   1. Create the resources:
 
@@ -205,9 +205,9 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
       * `disk_id`: Disk ID.
       * `role`: [Role](../../security/index.md#roles-list) to assign.
-      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-      For more information about the `yandex_compute_disk_iam_binding` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_disk_iam_binding).
+      For more information about `yandex_compute_disk_iam_binding` properties, see [this provider guide]({{ tf-provider-resources-link }}/compute_disk_iam_binding).
 
   1. Create the resources:
 
@@ -302,7 +302,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      You can check the updates in the [management console]({{ link-console-main }}) or using this [CLI](../../../cli/) command:
+      You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
       ```bash
       yc compute disk list-access-bindings <disk_ID>

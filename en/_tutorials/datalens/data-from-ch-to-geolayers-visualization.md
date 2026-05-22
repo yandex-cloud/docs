@@ -1,4 +1,4 @@
-# Analyzing sales and locations of pizzerias based on data from {{ CH }} and {{ datalens-gallery }} databases
+# Analyzing sales and locations of pizzerias based on data from a {{ CH }} database and {{ datalens-short-name }} Gallery
 
 
 In this tutorial, you will prepare a dashboard for selecting locations to open new Dodo pizzerias.
@@ -9,13 +9,13 @@ With {{ datalens-short-name }}, you will analyze locations based on real data:
 * Search queries to pizzerias by location (Yandex data).
 * Number of all pizzerias by location (Yandex data).
 
-We will use a {{ CH }} demo DB and a demo workbook from [Companies: supply and demand]({{ link-datalens-main }}/gallery/euma77kb36nc0) in {{ datalens-gallery }}.
+We will use a {{ CH }} demo database and a demo workbook from [Companies: supply and demand]({{ link-datalens-main }}/gallery/euma77kb36nc0) in the Gallery.
 
 You can also [watch](https://www.youtube.com/watch?v=cw6PotbQYng) this tutorial on the {{ yandex-cloud }} YouTube channel.
 
 To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-begin) and follow the steps below:
 
-1. [Deploy a demo workbook from {{ datalens-gallery }}](#create-template).
+1. [Deploy a demo workbook from the Gallery](#create-template).
 1. [Review the dashboard](#view-dashboard).
 1. [Create a connection](#create-connection).
 1. [Create a dataset](#create-dataset).
@@ -32,7 +32,7 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 ## Deploy a demo workbook {#create-template}
 
-1. In {{ datalens-gallery }}, open [Companies: supply and demand]({{ link-datalens-main }}/gallery/euma77kb36nc0).
+1. In the Gallery, open the dashboard titled [Companies: supply and demand]({{ link-datalens-main }}/gallery/euma77kb36nc0).
 1. In the top-right corner, click **Use** → ![collections](../../_assets/console-icons/file-arrow-up.svg) **Expand**.
 1. Choose where to save the workbook: workbook and collection root, existing collection, or new collection. Navigate to the saving destination and click **Deploy**. The workbook name must be unique, so edit the name if you need to.
 1. Click **Create**.
@@ -317,7 +317,7 @@ Choose `Moscow` in the selector. If the map focus remains at the same location, 
 
 1. Click the **DODO** dataset name.
 1. Click ![image](../../_assets/console-icons/plus.svg) **Add dataset**.
-1. Select the `Companies` dataset [imported from {{ datalens-gallery }}](#create-template).
+1. Select the `Companies` dataset [imported from the Gallery](#create-template).
 
    ![organizations](../../_assets/datalens/solution-09/32-add-dataset.png)
 
@@ -384,6 +384,6 @@ If the map focus remains at the same location when changing the city in the filt
 
 Here are some ideas you might want to work on by yourself:
 
-1. Adding a geolayer with businesses from the `Where to eat` category (restaurants and fast food chains in general, not only pizzerias).
-1. Adding [Audience: interests and social demographics](https://datalens.ru/gallery/zf7wou4zyhtml) from {{ datalens-gallery }} to display the city audience data on the map in a similar way.
+1. Adding a geolayer with `Where to eat` category businesses (restaurants and fast food chains in general, not just pizzerias).
+1. Adding from the Gallery the dashboard titled [Audience: interests and social demographics](https://datalens.ru/gallery/zf7wou4zyhtml) to map the city's audience data in a similar way.
 1. You can use the [Basic city and region geoanalytics](https://datalens.ru/gallery/eulugmmyio7s0) demo dataset to study the free geolayers provided by Geointellect.
