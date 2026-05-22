@@ -18,9 +18,8 @@ This API reference is organized around CDN resources. Actions are performed by m
 || [Origin](Origin/index.md) | Origin management service.
 Origin is not a standalone entity. It can live only within origin group. ||
 || [Provider](Provider/index.md) | A set of methods for managing Provider Service resources. ||
-|| [RawLogs](RawLogs/index.md) |  ||
+|| [RawLogs](RawLogs/index.md) | Raw logs management service. ||
 || [ResourceRules](ResourceRules/index.md) | Rules management service.
-
 Used for Resources Rules management. ||
 || [Resource](Resource/index.md) | Provider's resources management service. ||
 || [Shielding](Shielding/index.md) | Shielding management service. ||

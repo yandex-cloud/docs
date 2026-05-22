@@ -31,7 +31,7 @@ The support cost for this solution includes:
 
             {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
-        1. If using security groups in your cluster, make sure they are [configured correctly](../../managed-opensearch/operations/connect.md#configuring-security-groups) and allow connecting to the cluster.
+        1. If there are security groups in your cluster, make sure they are [configured correctly](../../managed-opensearch/operations/connect/index.md#configuring-security-groups) and allow connections to the cluster.
 
     * Using {{ TF }} {#tf}
 
@@ -68,28 +68,11 @@ The support cost for this solution includes:
 
     {% endlist %}
 
-1. [Install an SSL certificate](../../managed-opensearch/operations/connect.md#ssl-certificate).
+1. [Install an SSL certificate](../../managed-opensearch/operations/connect/index.md#ssl-certificate).
 
 1. Check the connection to the cluster using [cURL](https://curl.haxx.se/):
 
-    {% include [default-connstring](../../_includes/mdb/mos/default-connstring.md) %}
-
-    You can get the host FQDN with the [list of hosts in the cluster](../../managed-opensearch/operations/host-groups.md#list-hosts).
-
-    If the connection is successful, you will see a message like this:
-
-    ```bash
-    {
-      "name" : "....{{ dns-zone }}",
-      "cluster_name" : "...",
-      "cluster_uuid" : "...",
-      "version" : {
-      "distribution" : "opensearch",
-      ...
-      },
-      "tagline" : "The OpenSearch Project: https://opensearch.org/"
-    }
-    ```
+    {% include [default-connstring](../../_tutorials/_tutorials_includes/opensearch/check-connection.md) %}
 
 ## Run a search without yandex-lemmer {#search-without-yandex-lemmer}
 
@@ -355,7 +338,7 @@ To use additional filters:
                 }'
     ```
 
-    Here, the letter `и` (code 1048) and the `˘` [breve](https://ru.wikipedia.org/wiki/Кратка) (code 774) are used instead of `й`.
+    Here, the letter `и` (code 1048) and the `˘` [breve](https://en.wikipedia.org/wiki/Breve) (code 774) are used instead of `й`.
 
 1. Run this search:
 

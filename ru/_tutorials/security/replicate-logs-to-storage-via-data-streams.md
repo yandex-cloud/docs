@@ -50,7 +50,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится лог группа.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. Напротив лог-группы, в которую поступают логи, нажмите ![options](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. В поле **{{ ui-key.yacloud.data-streams.label_data-stream }}** выберите поток `logs-stream`, созданный ранее.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.

@@ -23,7 +23,7 @@ To get started with {{ managed-k8s-name }}:
    * Service account with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](security/index.md#yc-api) for the folder where you want to create a {{ managed-k8s-name }} cluster. This service account will be used to create the resources for the {{ managed-k8s-name }} cluster.
    * Service account with the [{{ roles-cr-puller }}](../container-registry/security/index.md#container-registry-images-puller) role for the folder containing the [Docker image](../container-registry/concepts/docker-image.md) registry in [{{ container-registry-full-name }}](../container-registry/concepts/index.md). The {{ managed-k8s-name }} nodes will use this account to pull the required Docker images from the registry.
 
-     If you want to use the [Docker image](../cloud-registry/concepts/docker-image.md) registry in [{{ cloud-registry-full-name }}](../cloud-registry/concepts/index.md), assign the [cloud-registry.artifacts.puller](../cloud-registry/security/index.md#cloud-registry-artifacts-puller) role to the service account.
+     If you want to use the [Docker image](../cloud-registry/concepts/artifacts/docker.md) registry in [{{ cloud-registry-full-name }}](../cloud-registry/concepts/index.md), assign the [cloud-registry.artifacts.puller](../cloud-registry/security/index.md#cloud-registry-artifacts-puller) role to the service account.
 
    You can use the same service account for both operations.
 
@@ -33,7 +33,7 @@ To get started with {{ managed-k8s-name }}:
 ## Create a {{ managed-k8s-name }} cluster {#kubernetes-cluster-create}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a {{ managed-k8s-name }} cluster.
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click **{{ ui-key.yacloud.k8s.clusters.button_create }}**.
 1. Enter the {{ managed-k8s-name }} cluster name. It must be unique within the folder.
 1. Optionally, enter a description for the {{ managed-k8s-name }} cluster.
@@ -48,6 +48,9 @@ To get started with {{ managed-k8s-name }}:
    * **{{ ui-key.yacloud.k8s.clusters.create.field_master-type }}**: Select the master type:
      * `{{ ui-key.yacloud.k8s.clusters.create.option_master-type-basic }}`: To create a single master host in the selected availability zone. Specify the cloud network and select the subnet for the master host.
      * `{{ ui-key.yacloud.k8s.clusters.create.option_master-type-highly-available }}`: To create a single master host in each availability zone. Specify the cloud network and subnet for each availability zone.
+
+     {% include [note-vpc-resources](../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
    * Select [security groups](operations/connect/security-groups.md) for the {{ managed-k8s-name }} cluster's network traffic.
 1. Under **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}**:
    * **{{ ui-key.yacloud.k8s.clusters.create.field_cluster-cidr }}**: Specify the IP address range to allocate addresses to [pods](concepts/index.md#pod) from.
@@ -61,7 +64,7 @@ For more information, see [this step-by-step guide for creating a {{ managed-k8s
 
 To create a {{ managed-k8s-name }} node group:
 1. In the [management console]({{ link-console-main }}), select the folder where you created the required {{ managed-k8s-name }} cluster.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. [Go](../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Select the {{ managed-k8s-name }} cluster to create a node group for.
 1. On the {{ managed-k8s-name }} cluster page, go to the ![nodes-management.svg](../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
 1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
@@ -101,6 +104,9 @@ To create a {{ managed-k8s-name }} node group:
 
    * Select [security groups](operations/connect/security-groups.md).
    * Select the availability zone and subnet to place the {{ managed-k8s-name }} group nodes in.
+
+     {% include [note-vpc-resources](../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}**, specify the access credentials for the {{ managed-k8s-name }} group nodes over SSH:
    * **{{ ui-key.yacloud.compute.instances.create.field_user }}**: Enter the username.
    * **{{ ui-key.yacloud.compute.instances.create.field_key }}**: Paste the contents of the [public key](operations/node-connect-ssh.md#creating-ssh-keys) file.

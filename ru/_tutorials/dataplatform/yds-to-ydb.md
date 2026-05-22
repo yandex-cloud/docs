@@ -216,7 +216,7 @@
     - Консоль управления {#console}
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором база данных.
-        1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
         1. Выберите базу из списка.
         1. Перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
         1. Проверьте, что в таблицу `<название_потока>` добавились тестовые данные.

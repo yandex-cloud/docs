@@ -1,9 +1,9 @@
 ---
-title: '{{ datalens-full-name }} release notes: December 2025'
-description: Check out the {{ datalens-full-name }} release notes for December 2025.
+title: '{{ datalens-full-name }} release notes: April 2026'
+description: Check out {{ datalens-full-name }} release notes for April 2026.
 ---
 
-# {{ datalens-full-name }} release notes: December 2025
+# {{ datalens-full-name }} release notes: April 2026
 
 * [Changes in basic features](#base)
 * [Fixes and improvements](#fixes)
@@ -11,63 +11,47 @@ description: Check out the {{ datalens-full-name }} release notes for December 2
 ## Changes in basic features {#base}
 
 
-* The annual [{{ datalens-short-name }} Fest]({{ link-datalens-main }}/festival), held from December 8 to 16, 2025, presented a series of offline and online activities – videos, live broadcasts, use cases, and contests – for participants to explore the all-new {{ datalens-short-name }} features, including [AI tools](../concepts/neuroanalyst.md), [customization](../settings/appearance.md), on-premises, and migration.
-* New works available in [{{ datalens-gallery }}]({{ link-datalens-main }}/gallery). For more information, see the [{{ datalens-short-name }}](https://t.me/YandexDataLens/28631/145412) Telegram chat.
-* [Neuroanalyst on your dashboard](../dashboard/insights.md) can now search for insights within an entire dashboard tab. It will analyze your question and dashboard contents, select relevant charts, draw data from them, and come up with the final insight. For context, it uses descriptions of dashboards, charts, datasets, and connections, as well as the data you upload.
-  To try it, click **Neuroanalyst** at the top of the dashboard to open the **Neuroanalyst** tab on the right.
+* In Editor, added the [Activities](../charts/editor/tabs.md#activities) tab where you can set up interactive actions for dashboard elements, such as:
+
+  * Send an HTTP request by clicking a button, chart, or table row.
+  * Process a response and show the result in a pop-up window or toast, or update your dashboard parameters.
+
+  Available for the following visualization types: [selector](../charts/editor/widgets/controls.md), [table](../charts/editor/widgets/table.md), and [chart (Gravity UI Charts)](../charts/editor/widgets/chart.md).
+
+* Added a dashboard setting to adjust the spacing between charts.
 
 
-* Added the option to add [connection](../operations/connection/add-description.md) and [dataset](../dataset/add-description.md) info.
-* Added the following to the [calculated field](../concepts/calculations/index.md) formula editor:
-
-  * [Hash functions](../function-ref/hash-functions.md): `MD5`, `SHA256`, `CITYHASH64` and others.
-  * `DB_CALL` [native functions](../function-ref/native-functions.md) for access to database functions. The `DB_CALL` functions allow you to:
-    
-    * Securely use string and aggregate functions from any databases.
-    * Access types not currently supported by {{ datalens-short-name }}.
-    * Streamline your workflow and optimize source workloads.
-
-    {% note info %}
-    
-    Use these native functions for specific point operations {{ datalens-short-name }} does not support yet. For standard operations, e.g., aggregations, math operations, use the built-in {{ datalens-short-name }} functions for better optimization.
-
-    {% endnote %}
-
-
-* Implemented the option to save a chart as a `PNG` image. To do this:
-
-  1. Open the chart and click ![image](../../_assets/console-icons/ellipsis.svg) → ![icon](../../_assets/console-icons/arrow-down-to-line.svg) **Save as** → **Image** in its top-right corner.
-
-  1. Select resolution:
-
-     * Standard, 800x600.
-     * Widescreen, 1600x720.
-     * Specify manually.
-  
-  1. Optionally, enable **Display interface elements**.
-  1. Click **Download**.
-
-
+* Moved dashboard settings to a right-side panel. To open settings, click ![image](../../_assets/console-icons/gear.svg) at the top while in edit mode. Visual changes apply immediately after saving new settings.
+* Updated UI colors for consistent styling: removed purple tones in dark mode and deepened black shades.
 
 ## Fixes and improvements {#fixes}
 
-* Fixed the issue of incorrectly saved original background when copying a dashboard widget. Earlier, if set to `Basic chart background`, the original widget background would reset to transparent when copying.
-* Updated the appearance of the selector and chart setup window.
+
+* Removed the legacy [Google Sheets](../operations/connection/create-google-sheets.md) connection.
+* Now you can select {{ datalens-short-name }} On-premises when creating a {{ datalens-short-name }} [support](../qa/index.md#how-to-resolve-problem) ticket.
+* Fixed an error that occurred when [switching color palettes](../settings/appearance.md#default-palette).
 
 
-* Restored the display of `Request-id` and `Trace-Id` in the [private embedding](../security/private-embedded-objects.md) errors.
+* Fixed an issue where version history timestamps for [connections](../concepts/chart/versioning.md), [datasets](../dataset/versioning.md), [charts](../concepts/chart/versioning.md), [dashboards](../dashboard/versioning.md), and [reports](../reports/versioning.md) did not reflect the user's time zone.
+* Implemented handling for browser pop-up blocking errors with error code and description.
+* Fixed an issue in [report exports](../reports/report-operations.md#report-export) where line breaks immediately following emojis in tables were lost.
 
 
+### Dashboard fixes {#dashboard-fixes}
 
-### Fixes in Neuroanalyst {#neuroanalyst-fixes}
 
-* Now charts save the context of your chat with [Neuroanalyst for creating calculated fields](../concepts/calculations/formulas-helper.md):
+* Fixed inconsistent behavior of global selectors on dashboards with [public access](../concepts/datalens-public.md).
 
-  * When changing a formula.
-  * When closing the chat.
+
+* Fixed an issue where clicking a link in the dashboard or chart table of contents while holding **Ctrl** (**Cmd**) would take you from the current tab to the one that opened.
+* Fixed a preview rendering issue for [Mermaid](../dashboard/markdown.md#mermaid) diagrams.
 
 
 ### Fixes in charts {#chart-fixes}
 
-* Fixed the [pie chart](../visualization-ref/pie-chart.md) colors issue. Now colors are as per your selection in the [dataset field settings](../dataset/create-dataset.md#setup-fields).
+
+* In [tables](../visualization-ref/table-chart.md#additional-settings), added support for right-aligning linear indicators when manually setting a value range consisting entirely of positive or negative values.
+
+
+* In [tables](../visualization-ref/table-chart.md), fixed an issue where a selected cell fill color palette reset to the default one after selecting a different cell.
 

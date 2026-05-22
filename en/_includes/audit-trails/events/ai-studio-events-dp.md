@@ -1,7 +1,8 @@
 Event name | Description
 --- | ---
-`foundationmodels.CancelBatchInference` | Stopping a model in batch mode
-`foundationmodels.DeleteBatchInference` | Deleting a processing result in batch mode
 `foundationmodels.GetTextProcessingResult` | Request for the generation result
-`foundationmodels.StartBatchInference` | Running a model in batch mode
 `foundationmodels.TextProcessing` | Generation request
+`searchindex.CreateSearchIndex` | Creating a search index
+`searchindex.DeleteFilesFromSearchIndex` | Deleting files from a search index
+`searchindex.DeleteSearchIndex` | Deleting a search index
+`searchindex.UploadFilesToSearchIndex` | Uploading files to a search index

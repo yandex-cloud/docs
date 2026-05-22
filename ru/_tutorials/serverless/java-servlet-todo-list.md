@@ -1,3 +1,4 @@
+# Развертывание веб-приложения с использованием Java Servlet API
 
 
 Узнайте, как с помощью serverless-технологий и Java Servlet API создать небольшое веб-приложение для управления списком задач.
@@ -46,7 +47,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать бакет.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. На странице создания бакета:
      1. Введите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming).
@@ -69,7 +70,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создали бакет.
-     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.ydb.databases.button_create }}**.
      1. Введите **{{ ui-key.yacloud.ydb.forms.label_field_name }}** базы. Требования к имени:
 
@@ -90,7 +91,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создали базу данных.
-     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
      1. На странице **{{ ui-key.yacloud.ydb.databases.label_title }}** выберите базу.
      1. Чтобы открыть корневую директорию базы, перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
      1. Для создания запроса к базе в правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.ydb.browse.button_sql-query }}**. Откроется страница **{{ ui-key.yacloud.ydb.sql.label_query }}**.
@@ -136,12 +137,12 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором создали бакет и базу данных.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
   1. Введите имя `add-task` и описание функции.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** выберите среду выполнения `java21`, выключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-  1. Подготовьте код функции. Для этого в поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
+  1. Подготовьте код функции. Для этого в поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
   1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}** нажмите кнопку **Прикрепить файл** и выберите созданный ранее архив `servlet.zip`.
   1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** введите `yandex.cloud.examples.serverless.todo.AddTaskServlet`.
   1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}** установите значение `10`.
@@ -240,7 +241,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создали бакет, базу данных и функции.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. Введите имя шлюза и описание.
   1. В поле **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** добавьте спецификацию:
@@ -258,7 +259,7 @@
              bucket: <бакет>
              object: index.html
              presigned_redirect: false
-             service_account: <сервисный_аккаунт>
+             service_account_id: <идентификатор_сервисного_аккаунта>
            operationId: static
        /add:
           post:
@@ -283,7 +284,7 @@
        Где:
 
        * `bucket` — имя бакета, в котором лежит файл `index.html`.
-       * `service_account` — идентификатор сервисного аккаунта, созданного при [подготовке окружения](#prepare).
+       * `service_account_id` — идентификатор сервисного аккаунта, созданного при [подготовке окружения](#prepare).
        * Блок `/add`, параметр `function_id` — идентификатор функции `add-task`.
        * Блок `/list`, параметр `function_id` — идентификатор функции `list-tasks`.
        * Блок `/delete`, параметр `function_id` — идентификатор функции `delete-task`.
@@ -307,7 +308,7 @@
              bucket: <бакет>
              object: index.html
              presigned_redirect: false
-             service_account: <сервисный_аккаунт>
+             service_account_id: <идентификатор_сервисного_аккаунта>
            operationId: static
        /add:
          post:
@@ -332,7 +333,7 @@
      Где:
 
      * `bucket` — имя бакета, в котором лежит файл `index.html`.
-     * `service_account` — идентификатор сервисного аккаунта, созданного при [подготовке окружения](#prepare).
+     * `service_account_id` — идентификатор сервисного аккаунта, созданного при [подготовке окружения](#prepare).
      * Блок `/add`, параметр `function_id` — идентификатор функции `add-task`.
      * Блок `/list`, параметр `function_id` — идентификатор функции `list-tasks`.
      * Блок `/delete`, параметр `function_id` — идентификатор функции `delete-task`.

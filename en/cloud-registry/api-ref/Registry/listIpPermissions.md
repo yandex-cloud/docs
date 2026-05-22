@@ -10,6 +10,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the Registry to return ip permission list.
+            The maximum string length in characters is 50.
           type: string
       required:
         - registryId
@@ -35,7 +36,9 @@ GET https://registry.{{ api-host }}/cloud-registry/v1/registries/{registryId}:li
 ||Field | Description ||
 || registryId | **string**
 
-Required field. ID of the Registry to return ip permission list. ||
+Required field. ID of the Registry to return ip permission list.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Response {#yandex.cloud.cloudregistry.v1.ListIpPermissionsResponse}
@@ -66,7 +69,6 @@ List of ip permissions for registry ||
 ||Field | Description ||
 || action | **enum** (Action)
 
-- `ACTION_UNSPECIFIED`
 - `PULL`
 - `PUSH` ||
 || ip | **string** ||

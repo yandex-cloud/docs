@@ -18,13 +18,15 @@
 
 ## Создайте воркбук {#create-workbook}
 
-1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
+1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
 1. На панели слева выберите ![collections](../../_assets/console-icons/rectangles-4.svg) **Коллекции и воркбуки**.
 1. В правом верхнем углу нажмите **Создать** → **Создать воркбук**.
 1. Введите название [воркбука](../../datalens/workbooks-collections/index.md) — `Битрикс24`.
 1. Нажмите кнопку **Создать**.
 
 ## Создайте подключение к Битрикс24 {#create-connection-bitrix24}
+
+{% include [datalens-bitrix24-connection-note](../../_includes/datalens/operations/datalens-bitrix24-connection-note.md) %}
 
 1. В правом верхнем углу воркбука нажмите **Создать** → ![image](../../_assets/console-icons/thunderbolt.svg) **Подключение**.
 1. В разделе **Партнерские подключения** выберите подключение **Битрикс24**.

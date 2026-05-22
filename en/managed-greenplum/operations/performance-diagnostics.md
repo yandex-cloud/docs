@@ -5,10 +5,10 @@ description: Follow this guide to run performance diagnostics.
 
 # Performance diagnostics
 
-For performance diagnostics, the {{ GP }} cluster uses:
+For performance diagnostics, a {{ GP }} cluster uses:
 
-* In versions 6.22 and lower, a dedicated `gpperfmon` database.
-* In versions 6.25 or higher, the [{{ GP }} command center](../concepts/command-center.md).
+* In versions 6.22 and lower, a dedicated `gpperfmon` database.
+* In versions 6.25 or higher, [{{ GP }} Command Center](../concepts/command-center.md).
 
 {% note info %}
 
@@ -16,7 +16,7 @@ Access to the `gpperfmon` database is available on request. Contact [support]({{
 
 {% endnote %}
 
-The `gpperfmon` database saves the statistics on the system queries and states. The `gpperfmon` database can be accessed by:
+The `gpperfmon` database saves statistics on system queries and states. The `gpperfmon` database can be accessed by:
 
 * Admin user.
 * User with the `mdb_admin` [role](../concepts/cluster-users.md#mdb_admin).
@@ -34,12 +34,12 @@ The `gpperfmon` database contains the following information tables:
 * `socket_history`: Use of {{ GP }} database sockets.
 * `system_history`: System usage.
 
-To view the table, [connect to the `gpperfmon` database](../operations/connect.md) and run this query:
+To view the table, [connect to the `gpperfmon` database](../operations/connect/index.md) and run this query:
 
 ```sql
 SELECT * FROM <table_name>;
 ```
 
-To learn more about information tables of the `gpperfmon` database, see the [{{ GP }} documentation]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-gpperfmon-dbref.html).
+To learn more about information tables of the `gpperfmon` database, see the [{{ GP }} guide]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-gpperfmon-dbref.html).
 
 {% include [greenplum-trademark](../../_includes/mdb/mgp/trademark.md) %}

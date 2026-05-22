@@ -1,6 +1,5 @@
 # Partner portal
 
-
 {% include [referral-program-closure](../_includes/partner/referral-program-closure.md) %}
 
 
@@ -37,7 +36,7 @@ This section contains links to application forms and other useful links for part
 
 * Presale request form.
 * Application form for registering a partner deal or project.
-* Application form for registering a partner deal on Yandex Tracker.
+* Application form for registering a partner deal on {{ tracker-full-name }}.
 * Partner Kit.
 * Telegram channel for partners.
 * Links to legal documents.

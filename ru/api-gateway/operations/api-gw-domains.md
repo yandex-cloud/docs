@@ -54,7 +54,7 @@
     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}** и в нем:
 
         1. Выберите API-шлюз.
-        1. В открывшемся окне перейдите в раздел ![image](../../_assets/api-gateway/domain-icon.svg) **{{ ui-key.yacloud.serverless-functions.gateways.item.switch_domains }}**.
+        1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.gateways.item.switch_domains }}**.
         1. Нажмите **{{ ui-key.yacloud.serverless-functions.gateways.domains.button_add }}**, выберите сертификат и введите имя домена ([FQDN](../../glossary/fqdn.md)).           
 
     1. Если вы пропустили шаг 1 и не разместили CNAME-запись, создайте ANAME-запись в {{ dns-full-name }}:

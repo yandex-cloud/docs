@@ -9,6 +9,7 @@
 | **{{ TF }} resource** | **{{ yandex-cloud }} resource** |
 | --- | --- |
 | [yandex_trino_cluster]({{ tf-provider-resources-link }}/trino_cluster) | Cluster |
+| [yandex_trino_cluster_iam_binding]({{ tf-provider-resources-link }}/trino_cluster_iam_binding) | [Configuring](../iam/concepts/access-control/index.md#access-bindings) cluster access permissions |
 | [yandex_trino_catalog]({{ tf-provider-resources-link }}/trino_catalog) | Catalog |
 
 ## Data sources {#data-sources}

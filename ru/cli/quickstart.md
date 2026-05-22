@@ -12,6 +12,18 @@ _Интерфейс командной строки {{ yandex-cloud }} (CLI)_ �
 
 ## Установка {#install}
 
+{% include [interactive-install-cli-intro](../_includes/cli/interactive-install-cli-intro.md) %}
+
+{% note tip %}
+
+Чтобы вручную настроить директорию установки CLI, автодополнение, скрипт автозапуска оболочки и добавить CLI в переменную окружения `PATH`, воспользуйтесь [неинтерактивной установкой CLI с помощью скрипта](./operations/install-cli.md#non-interactive).
+
+
+Также вы можете самостоятельно загрузить и установить исполняемый файл с последней стабильной версией CLI. Подробнее см. в разделе [{#T}](./operations/install-cli.md#bin).
+
+
+{% endnote %}
+
 {% include [install-cli](../_includes/cli/install-cli.md) %}
 
 ## Создание профиля {#initialize}
@@ -19,19 +31,23 @@ _Интерфейс командной строки {{ yandex-cloud }} (CLI)_ �
 {% list tabs group=authentication %}
 
 - Аккаунт на Яндексе {#yandex-account}
-
-  {% include [include](../_includes/cli/create-profile.md) %}
-
+  
+  {% include [include](../_includes/cli/passport-profile-create.md) %}
+  
 - Федеративный аккаунт {#federated-account}
 
   {% include [include](../_includes/cli/auth-federated-user.md) %}
+
+- Аккаунт локального пользователя {#local-account}
+
+  {% include [include](../_includes/cli/auth-local-user.md) %}
 
 {% endlist %}
 
 
 ## Примеры команд {#example}
 
-Ниже описана последовательность действий для создания [облачной сети](../vpc/concepts/network.md#network), [подсети](../vpc/concepts/network.md#subnet) и [виртуальной машины](../compute/concepts/vm.md), подключенной к этой подсети.
+Ниже описано, как создать [облачную сеть](../vpc/concepts/network.md#network), [подсеть](../vpc/concepts/network.md#subnet) и [виртуальную машину](../compute/concepts/vm.md), подключенную к этой подсети.
 1. Посмотрите описание команд CLI для работы с облачными сетями:
 
    ```bash

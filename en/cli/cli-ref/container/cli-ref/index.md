@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/
 editable: false
 ---
 
@@ -145,6 +146,10 @@ Syntax:
   - [yc container repository remove-access-binding](repository/remove-access-binding.md) — Remove access binding for the specified repository
 
   - [yc container repository set-access-bindings](repository/set-access-bindings.md) — Set access bindings for the specified repository and delete all existing access bindings if there were any
+
+- [yc container v0](v0/index.md) — Manage Container resources.
+
+
 
 #### Global Flags
 

@@ -106,13 +106,10 @@ apiPlayground:
             description: |-
               **string** (int64)
               Defines the maximum product of fields and terms that are queryable simultaneously.
-              Before OpenSearch 2.16, a cluster restart was required in order to apply this static setting.
-              Now dynamic, existing search thread pools may use the old static value initially, causing **TooManyClauses** exceptions.
-              New thread pools use the updated value.
               Default value: **1024**.
               Change of the setting is applied with restart.
               For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/index-settings/#dynamic-cluster-level-index-settings).
-              Acceptable values are 1 to 2147483647, inclusive.
+              Acceptable values are 32 to 32768, inclusive.
             type: string
             format: int64
           fielddataCacheSize:
@@ -125,12 +122,30 @@ apiPlayground:
               Change of the setting is applied with restart.
               For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/index-settings/#dynamic-cluster-level-index-settings).
             type: string
+          searchMaxBuckets:
+            description: |-
+              **string** (int64)
+              The maximum number of aggregation buckets allowed in a single response. Default is 65535
+              Default value: **65535**.
+              Change of the setting is applied with restart.
+              For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/search-settings).
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
           reindexRemoteWhitelist:
             description: |-
               **string**
               Allowed remote hosts
               Change of the setting is applied with restart.
               For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/api-reference/document-apis/reindex/#remote-cluster-allow-list).
+            type: string
+          httpMaxInitialLineLength:
+            description: |-
+              **string**
+              Sets the maximum length allowed for HTTP URLs in the initial request line. URLs exceeding this limit will be rejected. Default is **4kb**.
+              Default value: **4kb**.
+              Change of the setting is applied with restart.
+              For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/network-settings/#advanced-http-settings).
             type: string
       KeystoreSetting:
         type: object
@@ -158,6 +173,7 @@ apiPlayground:
           opensearchConfig_2:
             description: |-
               **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig2)**
+              OpenSearch server configuration settings.
               Includes only one of the fields `opensearchConfig_2`.
             $ref: '#/definitions/OpenSearchConfig2'
           setKeystoreSettings:
@@ -301,6 +317,49 @@ apiPlayground:
               The minimum value is 7.
             type: string
             format: int64
+      AuditLog:
+        type: object
+        properties:
+          complianceEnabled:
+            description: |-
+              **boolean**
+              Enable compliance audit logging.
+            type: boolean
+          logRequestBody:
+            description: |-
+              **boolean**
+              Log request body in audit logs.
+            type: boolean
+          logSearchQueries:
+            description: |-
+              **boolean**
+              Log search queries in audit logs.
+            type: boolean
+          logDataModifications:
+            description: |-
+              **boolean**
+              Log data modifications in audit logs.
+            type: boolean
+          logIndexMetadataAccess:
+            description: |-
+              **boolean**
+              Log index metadata access in audit logs.
+            type: boolean
+          logMonitoringChecks:
+            description: |-
+              **boolean**
+              Log monitoring checks in audit logs.
+            type: boolean
+          logIndexMaintenance:
+            description: |-
+              **boolean**
+              Log index maintenance operations in audit logs.
+            type: boolean
+          logBackupOperations:
+            description: |-
+              **boolean**
+              Log backup operations in audit logs.
+            type: boolean
       ConfigUpdateSpec:
         type: object
         properties:
@@ -332,8 +391,13 @@ apiPlayground:
           snapshotManagement:
             description: |-
               **[SnapshotManagement](#yandex.cloud.mdb.opensearch.v1.SnapshotManagement)**
-              Snapshot management configuration
+              Snapshot management configuration.
             $ref: '#/definitions/SnapshotManagement'
+          auditLog:
+            description: |-
+              **[AuditLog](#yandex.cloud.mdb.opensearch.v1.AuditLog)**
+              Audit log settings.
+            $ref: '#/definitions/AuditLog'
         required:
           - adminPassword
       AnytimeMaintenanceWindow:
@@ -432,7 +496,9 @@ The maximum string length in characters is 50. ||
       "opensearchConfig_2": {
         "maxClauseCount": "string",
         "fielddataCacheSize": "string",
-        "reindexRemoteWhitelist": "string"
+        "searchMaxBuckets": "string",
+        "reindexRemoteWhitelist": "string",
+        "httpMaxInitialLineLength": "string"
       },
       // end of the list of possible fields
       "setKeystoreSettings": [
@@ -468,6 +534,16 @@ The maximum string length in characters is 50. ||
         // end of the list of possible fields
       },
       "snapshotMaxAgeDays": "string"
+    },
+    "auditLog": {
+      "complianceEnabled": "boolean",
+      "logRequestBody": "boolean",
+      "logSearchQueries": "boolean",
+      "logDataModifications": "boolean",
+      "logIndexMetadataAccess": "boolean",
+      "logMonitoringChecks": "boolean",
+      "logIndexMaintenance": "boolean",
+      "logBackupOperations": "boolean"
     }
   },
   "name": "string",
@@ -563,7 +639,10 @@ Dashboards configuration. ||
 Access policy for external services. ||
 || snapshotManagement | **[SnapshotManagement](#yandex.cloud.mdb.opensearch.v1.SnapshotManagement)**
 
-Snapshot management configuration ||
+Snapshot management configuration. ||
+|| auditLog | **[AuditLog](#yandex.cloud.mdb.opensearch.v1.AuditLog)**
+
+Audit log settings. ||
 |#
 
 ## OpenSearchClusterUpdateSpec {#yandex.cloud.mdb.opensearch.v1.OpenSearchClusterUpdateSpec}
@@ -574,6 +653,8 @@ Snapshot management configuration ||
 
 Names of the cluster plugins. ||
 || opensearchConfig_2 | **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig2)**
+
+OpenSearch server configuration settings.
 
 Includes only one of the fields `opensearchConfig_2`. ||
 || setKeystoreSettings[] | **[KeystoreSetting](#yandex.cloud.mdb.opensearch.v1.KeystoreSetting)**
@@ -593,9 +674,6 @@ OpenSearch server configuration settings.
 || maxClauseCount | **string** (int64)
 
 Defines the maximum product of fields and terms that are queryable simultaneously.
-Before OpenSearch 2.16, a cluster restart was required in order to apply this static setting.
-Now dynamic, existing search thread pools may use the old static value initially, causing **TooManyClauses** exceptions.
-New thread pools use the updated value.
 
 Default value: **1024**.
 
@@ -603,7 +681,7 @@ Change of the setting is applied with restart.
 
 For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/index-settings/#dynamic-cluster-level-index-settings).
 
-Acceptable values are 1 to 2147483647, inclusive. ||
+Acceptable values are 32 to 32768, inclusive. ||
 || fielddataCacheSize | **string**
 
 The maximum size of the field data cache.
@@ -614,6 +692,17 @@ This value should be smaller than the **indices.breaker.fielddata.limit**
 Change of the setting is applied with restart.
 
 For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/index-settings/#dynamic-cluster-level-index-settings). ||
+|| searchMaxBuckets | **string** (int64)
+
+The maximum number of aggregation buckets allowed in a single response. Default is 65535
+
+Default value: **65535**.
+
+Change of the setting is applied with restart.
+
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/search-settings).
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || reindexRemoteWhitelist | **string**
 
 Allowed remote hosts
@@ -621,6 +710,15 @@ Allowed remote hosts
 Change of the setting is applied with restart.
 
 For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/api-reference/document-apis/reindex/#remote-cluster-allow-list). ||
+|| httpMaxInitialLineLength | **string**
+
+Sets the maximum length allowed for HTTP URLs in the initial request line. URLs exceeding this limit will be rejected. Default is **4kb**.
+
+Default value: **4kb**.
+
+Change of the setting is applied with restart.
+
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/network-settings/#advanced-http-settings). ||
 |#
 
 ## KeystoreSetting {#yandex.cloud.mdb.opensearch.v1.KeystoreSetting}
@@ -748,6 +846,38 @@ Acceptable values are 0 to 23, inclusive. ||
 The minute of the hour at which the backup should be created.
 
 Acceptable values are 0 to 59, inclusive. ||
+|#
+
+## AuditLog {#yandex.cloud.mdb.opensearch.v1.AuditLog}
+
+Audit log settings.
+
+#|
+||Field | Description ||
+|| complianceEnabled | **boolean**
+
+Enable compliance audit logging. ||
+|| logRequestBody | **boolean**
+
+Log request body in audit logs. ||
+|| logSearchQueries | **boolean**
+
+Log search queries in audit logs. ||
+|| logDataModifications | **boolean**
+
+Log data modifications in audit logs. ||
+|| logIndexMetadataAccess | **boolean**
+
+Log index metadata access in audit logs. ||
+|| logMonitoringChecks | **boolean**
+
+Log monitoring checks in audit logs. ||
+|| logIndexMaintenance | **boolean**
+
+Log index maintenance operations in audit logs. ||
+|| logBackupOperations | **boolean**
+
+Log backup operations in audit logs. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow}
@@ -883,17 +1013,23 @@ Acceptable values are 1 to 24, inclusive. ||
           "effectiveConfig": {
             "maxClauseCount": "string",
             "fielddataCacheSize": "string",
-            "reindexRemoteWhitelist": "string"
+            "searchMaxBuckets": "string",
+            "reindexRemoteWhitelist": "string",
+            "httpMaxInitialLineLength": "string"
           },
           "userConfig": {
             "maxClauseCount": "string",
             "fielddataCacheSize": "string",
-            "reindexRemoteWhitelist": "string"
+            "searchMaxBuckets": "string",
+            "reindexRemoteWhitelist": "string",
+            "httpMaxInitialLineLength": "string"
           },
           "defaultConfig": {
             "maxClauseCount": "string",
             "fielddataCacheSize": "string",
-            "reindexRemoteWhitelist": "string"
+            "searchMaxBuckets": "string",
+            "reindexRemoteWhitelist": "string",
+            "httpMaxInitialLineLength": "string"
           }
         },
         // end of the list of possible fields
@@ -949,7 +1085,17 @@ Acceptable values are 1 to 24, inclusive. ||
         },
         "snapshotMaxAgeDays": "string"
       },
-      "fullVersion": "string"
+      "fullVersion": "string",
+      "auditLog": {
+        "complianceEnabled": "boolean",
+        "logRequestBody": "boolean",
+        "logSearchQueries": "boolean",
+        "logDataModifications": "boolean",
+        "logIndexMetadataAccess": "boolean",
+        "logMonitoringChecks": "boolean",
+        "logIndexMaintenance": "boolean",
+        "logBackupOperations": "boolean"
+      }
     },
     "networkId": "string",
     "health": "string",
@@ -1246,10 +1392,13 @@ Dashboards configuration. ||
 Access policy for external services. ||
 || snapshotManagement | **[SnapshotManagement](#yandex.cloud.mdb.opensearch.v1.SnapshotManagement2)**
 
-Snapshot management configuration ||
+Snapshot management configuration. ||
 || fullVersion | **string**
 
-Full version ||
+Full version. ||
+|| auditLog | **[AuditLog](#yandex.cloud.mdb.opensearch.v1.AuditLog2)**
+
+Audit log settings. ||
 |#
 
 ## OpenSearch {#yandex.cloud.mdb.opensearch.v1.OpenSearch}
@@ -1265,6 +1414,8 @@ Names of the cluster plugins. ||
 
 Host groups of the OpenSearch type. ||
 || opensearchConfigSet_2 | **[OpenSearchConfigSet2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfigSet2)**
+
+OpenSearch server configuration settings.
 
 Includes only one of the fields `opensearchConfigSet_2`. ||
 || keystoreSettings[] | **string**
@@ -1300,8 +1451,11 @@ Determines whether a public IP is assigned to the hosts in the group. ||
 
 Roles of the host group.
 
-- `DATA`
-- `MANAGER` ||
+- `DATA`: Data nodes store indices data.
+- `MANAGER`: Manager nodes perform cluster coordination.
+- `WARM`: Warm nodes provide access to searchable snapshots and store search cache.
+- `INGEST`: Ingest nodes provides indexed data processing.
+If no node groups have INGEST role explicitly set, then all DATA nodes will implicitly have INGEST role. ||
 || diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
@@ -1367,9 +1521,6 @@ OpenSearch server configuration settings.
 || maxClauseCount | **string** (int64)
 
 Defines the maximum product of fields and terms that are queryable simultaneously.
-Before OpenSearch 2.16, a cluster restart was required in order to apply this static setting.
-Now dynamic, existing search thread pools may use the old static value initially, causing **TooManyClauses** exceptions.
-New thread pools use the updated value.
 
 Default value: **1024**.
 
@@ -1377,7 +1528,7 @@ Change of the setting is applied with restart.
 
 For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/index-settings/#dynamic-cluster-level-index-settings).
 
-Acceptable values are 1 to 2147483647, inclusive. ||
+Acceptable values are 32 to 32768, inclusive. ||
 || fielddataCacheSize | **string**
 
 The maximum size of the field data cache.
@@ -1388,6 +1539,17 @@ This value should be smaller than the **indices.breaker.fielddata.limit**
 Change of the setting is applied with restart.
 
 For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/index-settings/#dynamic-cluster-level-index-settings). ||
+|| searchMaxBuckets | **string** (int64)
+
+The maximum number of aggregation buckets allowed in a single response. Default is 65535
+
+Default value: **65535**.
+
+Change of the setting is applied with restart.
+
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/search-settings).
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || reindexRemoteWhitelist | **string**
 
 Allowed remote hosts
@@ -1395,6 +1557,15 @@ Allowed remote hosts
 Change of the setting is applied with restart.
 
 For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/api-reference/document-apis/reindex/#remote-cluster-allow-list). ||
+|| httpMaxInitialLineLength | **string**
+
+Sets the maximum length allowed for HTTP URLs in the initial request line. URLs exceeding this limit will be rejected. Default is **4kb**.
+
+Default value: **4kb**.
+
+Change of the setting is applied with restart.
+
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/network-settings/#advanced-http-settings). ||
 |#
 
 ## Dashboards {#yandex.cloud.mdb.opensearch.v1.Dashboards}
@@ -1546,6 +1717,38 @@ Acceptable values are 0 to 23, inclusive. ||
 The minute of the hour at which the backup should be created.
 
 Acceptable values are 0 to 59, inclusive. ||
+|#
+
+## AuditLog {#yandex.cloud.mdb.opensearch.v1.AuditLog2}
+
+Audit log settings.
+
+#|
+||Field | Description ||
+|| complianceEnabled | **boolean**
+
+Enable compliance audit logging. ||
+|| logRequestBody | **boolean**
+
+Log request body in audit logs. ||
+|| logSearchQueries | **boolean**
+
+Log search queries in audit logs. ||
+|| logDataModifications | **boolean**
+
+Log data modifications in audit logs. ||
+|| logIndexMetadataAccess | **boolean**
+
+Log index metadata access in audit logs. ||
+|| logMonitoringChecks | **boolean**
+
+Log monitoring checks in audit logs. ||
+|| logIndexMaintenance | **boolean**
+
+Log index maintenance operations in audit logs. ||
+|| logBackupOperations | **boolean**
+
+Log backup operations in audit logs. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow2}

@@ -12,7 +12,7 @@ description: Для создания дашборда в {{ datalens-full-name }
 {% include [datalens-workbooks-collections-note](../../../_includes/datalens/operations/datalens-workbooks-collections-note.md) %}
 
 
-1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
+1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
 1. На панели слева нажмите ![image](../../../_assets/console-icons/layout-cells-large.svg) **Дашборды**.
 1. Нажмите кнопку **Создать дашборд**.
 1. Добавьте на дашборд необходимые [виджеты](../../dashboard/widget.md).

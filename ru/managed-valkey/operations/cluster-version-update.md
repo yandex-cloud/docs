@@ -92,11 +92,11 @@
 
         ```hcl
         resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
+          ...
+          config = {
+            version  = "<номер_новой_версии>"
             ...
-            config {
-                version  = "<номер_новой_версии>"
-                ...
-            }
+          }
         }
         ```
 

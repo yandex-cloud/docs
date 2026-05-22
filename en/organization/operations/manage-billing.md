@@ -1,15 +1,15 @@
 ---
 title: How to manage billing in {{ org-full-name }}
-description: In this guide, you will learn how to manage billing for {{ org-name }} user connections to external applications through the {{ org-full-name }} interface.
+description: In this guide, you will learn how to manage billing for {{ org-full-name }} user connections to external applications through the {{ org-full-name }} interface.
 ---
 
 # Billing management in {{ org-full-name }}
 
-Connecting {{ org-name }} users to external applications is [billable](../pricing.md#rules). You can [manage](../pricing.md#pricing-management) {{ org-name }} billing through the [{{ cloud-center }} interface]({{ link-org-cloud-center }}).
+Connecting {{ org-full-name }} users to external applications is [billable](../pricing.md#rules). You can [manage](../pricing.md#pricing-management) {{ org-full-name }} billing through the [{{ cloud-center }} interface]({{ link-org-cloud-center }}).
 
-## Linking a billing account to {{ org-name }} {#add-billing-account}
+## Linking a billing account to {{ org-full-name }} {#add-billing-account}
 
-By default, an {{ org-name }} [organization](../concepts/organization.md) has a non-billable connection limit of 15 users who can authenticate to external applications within the calendar month. To use {{ org-name }}'s billable features and [change](#modify-limit) this connection limit, link a [billing account](../../billing/concepts/billing-account.md) to {{ org-name }}:
+By default, an {{ org-full-name }} [organization](../concepts/organization.md) has a non-billable connection limit of 15 users who can authenticate to external applications within the calendar month. To use {{ org-full-name }}'s billable features and [change](#modify-limit) this connection limit, link a [billing account](../../billing/concepts/billing-account.md) to {{ org-name }}:
 
 {% list tabs group=instructions %}
 
@@ -29,7 +29,7 @@ By default, an {{ org-name }} [organization](../concepts/organization.md) has a 
               If you do not have a billing account or would like to create a new one, click **{{ ui-key.yacloud_org.billing.accounts.dialog_button_create }}** and follow [this guide](../../billing/operations/create-new-account.md) to create a new billing account.
           1. Click **{{ ui-key.yacloud_billing.billing.account.bind-cloud.button_bind }}**.
 
-  1. To change a billing account linked to {{ org-name }}:
+  1. To change a billing account linked to {{ org-full-name }}:
 
       1. In the top-right corner, click **{{ ui-key.yacloud_org.organization.billing.layout.change_account_action }}** and do the following in the window that opens:
 
@@ -40,7 +40,7 @@ By default, an {{ org-name }} [organization](../concepts/organization.md) has a 
 
 {% endlist %}
 
-This will link your billing account to {{ org-name }}, and you will be able to use and manage {{ org-name }}'s billable features.
+This will link your billing account to {{ org-full-name }}, and you will be able to use and manage {{ org-full-name }}'s billable features.
 
 ## Viewing limit usage statistics {#view-stats}
 
@@ -80,7 +80,7 @@ To edit the connection limit:
       {% include [idp-connection-limit-modifying-role](../../_includes/organization/idp-connection-limit-modifying-role.md) %}
 
   1. In the left-hand panel, select ![credit-card](../../_assets/console-icons/credit-card.svg) **{{ ui-key.yacloud_org.pages.organization-billing }}**.
-  1. If your [billing account](../../billing/concepts/billing-account.md) is not linked to {{ org-name }} yet, [link](#add-billing-account) it to be able to use {{ org-name }}'s billable features.
+  1. If your [billing account](../../billing/concepts/billing-account.md) is not linked to {{ org-full-name }} yet, [link](#add-billing-account) it to be able to use {{ org-name }}'s billable features.
   1. Click **{{ ui-key.yacloud_org.organization.billing.ChangeLimitsBlock.change_limit_action }}**, and in the window that opens:
 
       1. To increase the connection limit:

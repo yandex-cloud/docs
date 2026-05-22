@@ -20,13 +20,13 @@ To create a cloud:
 - Management console {#console}
 
   1. On the [**{{ ui-key.yacloud_billing.billing.label_service }}**]({{ link-console-billing }}) page, make sure that the [billing account](../../../billing/concepts/billing-account.md) is in the `ACTIVE` or `TRIAL_ACTIVE` status. If you do not have a billing account, [create one](../../../billing/quickstart/index.md#create_billing_account) or ask your administrator to assign you the `billing.accounts.member` role for a billing account.
-  1. In the [management console]({{ link-console-main }}), in the top panel, click ![image](../../../_assets/console-icons/chevron-down.svg) and select the [organization](../../../organization/concepts/organization.md).
+  1. In the [management console]({{ link-console-main }}), in the top panel, click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) and select the [organization](../../../organization/concepts/organization.md).
   1. Click ![image](../../../_assets/console-icons/ellipsis.svg) to the right of the organization name.
   1. Select ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.cloud.label_create_cloud }}**.
   
      ![create-cloud1](../../../_assets/resource-manager/create-cloud-1.png)
   
-  1. Enter a name for [your cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud). Follow these naming requirements:
+  1. Enter a name for [your cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud). The naming requirements are as follows:
   
       {% include [name-format](../../../_includes/name-format.md) %}
   
@@ -69,7 +69,7 @@ To create a cloud:
 
       Where:
 
-      * `--name`: Name of the new cloud. Follow these naming requirements:
+      * `--name`: Name of the new cloud. The naming requirements are as follows:
 
           {% include [name-format.md](../../../_includes/name-format.md) %}
       * `--billing-account-id`: ID of the [billing account](../../../billing/concepts/billing-account.md) to link the new cloud to.
@@ -116,7 +116,7 @@ To create a cloud:
 
       Where:
 
-      * `name`: Cloud name. Follow these naming requirements:
+      * `name`: Cloud name. The naming requirements are as follows:
       
         {% include [name-format.md](../../../_includes/name-format.md) %}
         

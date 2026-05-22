@@ -106,7 +106,7 @@ description: Follow this guide to delete a user SSH key.
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will delete all the resources as appropriate. You can check the availability of resources in the [management console]({{ link-console-main }}) or using this [CLI](../../cli/) command:
+     {{ TF }} will delete all the resources as appropriate. You can check the resources for availability in the [{{ cloud-center }} UI]({{ link-org-cloud-center }}) or using this [CLI](../../cli/) command:
 
       ```bash
       yc organization-manager user-ssh-key list \

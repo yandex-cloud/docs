@@ -58,7 +58,10 @@ description: Следуя данной инструкции, вы сможете
        --version <версия_{{ k8s }}_на_узлах_группы> \
        --node-name <шаблон_имени_узлов> \
        --node-taints <taint-политики> \
-       --container-network-settings pod-mtu=<значение_MTU_для_подов_группы>
+       --container-network-settings pod-mtu=<значение_MTU_для_подов_группы> \
+       --max-expansion <предел_расширения_группы_узлов> \
+       --max-unavailable <предел_недоступных_узлов> \
+       --reserved-instance-pool-id <идентификатор_пула_резервов>
      ```
 
      Где:
@@ -93,6 +96,8 @@ description: Следуя данной инструкции, вы сможете
 
        {% include [assign-public-ip-addresses](../../../_includes/managed-kubernetes/assign-public-ip-addresses.md) %}
 
+       {% include [note-vpc-resources](../../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
      * `--memory` — количество памяти для узлов {{ managed-k8s-name }}.
      * `--name` — имя группы узлов {{ managed-k8s-name }}.
      * `--network-acceleration-type` — выбор типа [ускорения сети](../../../compute/concepts/software-accelerated-network.md):
@@ -108,6 +113,11 @@ description: Следуя данной инструкции, вы сможете
      * `--platform-id` — [платформа](../../../compute/concepts/vm-platforms.md) для узлов {{ managed-k8s-name }}.
      * `--container-runtime` — среда запуска контейнеров [containerd](https://containerd.io/).
      * `--preemptible` — флаг, который указывается, если виртуальные машины должны быть [прерываемыми](../../../compute/concepts/preemptible-vm.md).
+
+        
+        {% include [preemtible-vm](../../../_includes/managed-kubernetes/note-preemtible-vm.md) %}
+
+
      * `--public-ip` — флаг, который указывается, если группе узлов {{ managed-k8s-name }} требуется [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses).
      * `--template-labels` — [облачные метки](../../concepts/index.md#node-labels) группы узлов. Можно указать несколько меток через запятую.
      * `--node-labels` — [{{ k8s }}-метки](../../concepts/index.md#node-labels) группы узлов.
@@ -118,6 +128,10 @@ description: Следуя данной инструкции, вы сможете
 
      * `--node-taints` — [taint-политики](../../concepts/index.md#taints-tolerations) {{ k8s }}. Можно указать несколько политик.
      * `--container-network-settings` — значение [MTU](https://ru.wikipedia.org/wiki/Maximum_transmission_unit) для сетевых соединений с подами группы. Настройка не применима для кластеров с контроллерами сетевых политик Calico или Cilium.
+     * `--reserved-instance-pool-id` — [идентификатор](../../../compute/cli-ref/reserved-instance-pool/list.md) пула резервов ВМ. Подробнее читайте на странице [{#T}](./node-group-create-in-instance-pool.md).
+     * Параметры [политики развертывания](../../concepts/node-group/deploy-policy.md) (deploy policy):
+
+        {% include [deploy-policy-parameters-cli](../../../_includes/managed-kubernetes/deploy-policy/parameters-cli.md) %}
 
      Результат:
 
@@ -188,6 +202,9 @@ description: Следуя данной инструкции, вы сможете
          container_runtime {
            type = "containerd"
          }
+         network_interface {
+           nat = <назначить_публичные_IP-адреса>
+         }
          labels {
            "<имя_облачной_метки>"="<значение_облачной_метки>"
          }
@@ -233,9 +250,14 @@ description: Следуя данной инструкции, вы сможете
          {% include [note-software-accelerated-network](../../../_includes/managed-kubernetes/note-software-accelerated-network.md) %}
 
        * `container_runtime`, `type` — среда запуска контейнеров [containerd](https://containerd.io/).
+       * `network_interface.nat` — назначение узлам случайных публичных [IP-адресов](../../../vpc/concepts/address.md) из пула адресов {{ yandex-cloud }}: `true` или `false`.
+
+         {% include [public-ip](../../../_includes/managed-kubernetes/public-ip.md) %}
+
        * `labels` — [облачные метки](../../concepts/index.md#node-labels) группы узлов. Можно указать несколько меток через запятую.
        * `node_labels` — [{{ k8s }}-метки](../../concepts/index.md#node-labels) группы узлов.
-       * `scale_policy` — настройки масштабирования. 
+       * `reserved_instance_pool_id` — [идентификатор](../../../compute/cli-ref/reserved-instance-pool/list.md) пула резервов ВМ. Подробнее читайте на странице [{#T}](./node-group-create-in-instance-pool.md).
+       * `scale_policy` — настройки масштабирования.
 
          Тип масштабирования нельзя изменить после создания группы узлов.
 
@@ -249,6 +271,8 @@ description: Следуя данной инструкции, вы сможете
        * `allocation_policy` — настройки размещения. Содержат блок `location` с параметром `zone` — [зона доступности](../../../overview/concepts/geo-scope.md), в которой вы хотите разместить узлы группы. Вы можете разместить узлы группы с фиксированным типом масштабирования в нескольких зонах доступности, для этого укажите каждую зону доступности в отдельном блоке `location`.
 
          {% include [autoscaled-node-group-restriction](../../../_includes/managed-kubernetes/autoscaled-node-group-restriction.md) %}
+
+         {% include [note-vpc-resources](../../../_includes/managed-kubernetes/note-vpc-resources.md) %}
 
      * Чтобы создать группу с фиксированным количеством узлов, добавьте блок `fixed_scale`:
 
@@ -277,7 +301,24 @@ description: Следуя данной инструкции, вы сможете
          }
        }
        ```
+
+     * Чтобы создать группу узлов {{ managed-k8s-name }} с [прерываемыми ВМ](../../../compute/concepts/preemptible-vm.md), добавьте блок `scheduling_policy`:
+
+       ```hcl
+       resource "yandex_kubernetes_node_group" "<имя_группы_узлов>" {
+         ...
+         instance_template {
+           scheduling_policy {
+             preemptible = true
+           }
+         }
+       }
+       ```
+
        
+       {% include [preemtible-vm](../../../_includes/managed-kubernetes/note-preemtible-vm.md) %}
+
+
      * Чтобы добавить метаданные для узлов, передайте их в параметре `instance_template.metadata`.
 
         {% include [connect-metadata-list](../../../_includes/managed-kubernetes/connect-metadata-list.md) %}
@@ -334,7 +375,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [api-parameters-case](../../../_includes/managed-kubernetes/api-parameters-case.md) %}
 
-  Воспользуйтесь методом REST API [create](../../managed-kubernetes/api-ref/NodeGroup/create.md) для ресурса [NodeGroup](../managed-kubernetes/api-ref/NodeGroup) или вызовом gRPC API [NodeGroupService/Create](../../managed-kubernetes/api-ref/grpc/NodeGroup/create.md) и передайте в запросе:
+  Воспользуйтесь методом REST API [create](../../managed-kubernetes/api-ref/NodeGroup/create.md) для ресурса [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/index.md) или вызовом gRPC API [NodeGroupService/Create](../../managed-kubernetes/api-ref/grpc/NodeGroup/create.md) и передайте в запросе:
   * Идентификатор [кластера {{ managed-k8s-name }}](../../concepts/index.md#kubernetes-cluster) в параметре `clusterId`. Его можно получить со [списком кластеров {{ managed-k8s-name }} в каталоге](../kubernetes-cluster/kubernetes-cluster-list.md#list).
   * [Конфигурацию группы узлов {{ managed-k8s-name }}](../../concepts/index.md#config) в параметре `nodeTemplate`.
   * Тип [ускорения сети](../../../compute/concepts/software-accelerated-network.md) в параметре `nodeTemplate.networkSettings.type`.
@@ -344,6 +385,7 @@ description: Следуя данной инструкции, вы сможете
   * Среду запуска контейнеров [containerd](https://containerd.io/) в параметре `nodeTemplate.containerRuntimeSettings.type`.
   * [Облачные метки](../../concepts/index.md#node-labels) группы узлов в параметре `nodeTemplate.labels`.
   * [{{ k8s }}-метки](../../concepts/index.md#node-labels) группы узлов в параметре `nodeLabels`.
+  * Идентификатор [пула резервов виртуальных машин](../../../compute/concepts/reserved-pools.md) в параметре `nodeTemplate.reservedInstancePoolId`. Подробнее читайте на странице [{#T}](./node-group-create-in-instance-pool.md).
   * [Настройки масштабирования](../../concepts/autoscale.md#ca) в параметре `scalePolicy`.
   
     Тип масштабирования нельзя изменить после создания группы узлов.
@@ -359,10 +401,20 @@ description: Следуя данной инструкции, вы сможете
 
     {% include [autoscaled-node-group-restriction](../../../_includes/managed-kubernetes/autoscaled-node-group-restriction.md) %}
 
+    {% include [note-vpc-resources](../../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
   * Настройки окна [обновлений](../../concepts/release-channels-and-updates.md#updates) в параметрах `maintenancePolicy`.
+  * Параметры [политики развертывания](../../concepts/node-group/deploy-policy.md) (deploy policy):
+
+    {% include [deploy-policy-parameters-api](../../../_includes/managed-kubernetes/deploy-policy/parameters-api.md) %}
+
   * Список изменяемых настроек в параметре `updateMask`.
 
     {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
+
+  * Чтобы назначить узлам случайные публичные [IP-адреса](../../../vpc/concepts/address.md) из пула адресов {{ yandex-cloud }}, передайте значение `IPV4` в параметре `nodeTemplate.networkInterfaceSpecs.primaryV4AddressSpec.oneToOneNatSpec.ipVersion`.
+
+    {% include [public-ip](../../../_includes/managed-kubernetes/public-ip.md) %}
 
   * Чтобы узлы использовали [нереплицируемые диски](../../../compute/concepts/disk.md#disks_types), передайте значение `network-ssd-nonreplicated` для параметра `nodeTemplate.bootDiskSpec.diskTypeId`.
 
@@ -377,6 +429,12 @@ description: Следуя данной инструкции, вы сможете
   * Чтобы задать шаблон имени узлов {{ managed-k8s-name }}, передайте его в параметре `nodeTemplate.name`. Для уникальности имени шаблон должен содержать хотя бы одну переменную:
 
     {% include [node-name](../../../_includes/managed-kubernetes/node-name.md) %}
+
+  * Чтобы создать группу узлов с [прерываемыми ВМ](../../../compute/concepts/preemptible-vm.md), передайте параметр `nodeTemplate.schedulingPolicy.preemptible`.
+
+    
+    {% include [preemtible-vm](../../../_includes/managed-kubernetes/note-preemtible-vm.md) %}
+
 
   * Чтобы указать [группу размещения](../../../compute/concepts/placement-groups.md) для узлов {{ managed-k8s-name }}, передайте идентификатор группы размещения в параметре `nodeTemplate.placementPolicy.placementGroupId`.
 
@@ -398,7 +456,7 @@ description: Следуя данной инструкции, вы сможете
 
     {% include [node-group-metadata-postponed-update-note](../../../_includes/managed-kubernetes/node-group-metadata-postponed-update-note.md) %}
 
-  * Чтобы добавить [DNS-записи](../../../dns/concepts/resource-record.md), передайте их настройки в параметре `nodeTemplate.v4AddressSpec.dnsRecordSpecs`. В [FQDN](../../../glossary/fqdn.md) записи DNS можно использовать шаблон с переменными для имени узлов `nodeTemplate.name`.
+  * Чтобы добавить [DNS-записи](../../../dns/concepts/resource-record.md), передайте их настройки в параметре `nodeTemplate.networkInterfaceSpecs.primaryV4AddressSpec.dnsRecordSpecs`. В [FQDN](../../../glossary/fqdn.md) записи DNS можно использовать шаблон с переменными для имени узлов `nodeTemplate.name`.
 
 {% endlist %}
 
@@ -423,8 +481,9 @@ description: Следуя данной инструкции, вы сможете
 * [Размер диска](../../../compute/concepts/disk.md#maximum-disk-size) — 64 ГБ.
 * [Тип диска](../../../compute/concepts/disk.md#disks_types) — `network-ssd`.
 * Количество узлов — один.
-* Количество узлов, которое сервис {{ managed-k8s-name }} может создать в группе при ее [обновлении](../../concepts/release-channels-and-updates.md#node-group), — не более трех.
-* Количество узлов, которое сервис может удалить из группы при ее обновлении, — не более одного.
+* [Политика развертывания](../../concepts/node-group/deploy-policy.md):
+    * Максимальное количество узлов, на которое можно расширить группу при ее изменении или обновлении — `3`.
+    * Максимальное количество узлов, которые могут быть недоступны в ходе изменения или обновления группы — `1`.
 * Объем RAM — два ГБ.
 * Время для [обновления](../../concepts/release-channels-and-updates.md#updates) — в период с 22:00 до 08:00 UTC.
 * Тип [ускорения сети](../../../compute/concepts/software-accelerated-network.md) — `standard` (без ускорения).
@@ -539,3 +598,8 @@ description: Следуя данной инструкции, вы сможете
       {% include [terraform-create-cluster-step-3](../../../_includes/mdb/terraform-create-cluster-step-3.md) %}
 
 {% endlist %}
+
+### См. также {#see-also}
+
+* [{#T}](./node-group-create-in-instance-pool.md)
+* [{#T}](../../concepts/index.md#node-group)

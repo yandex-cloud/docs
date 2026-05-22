@@ -91,20 +91,20 @@
     - Консоль управления {#console}
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится нужная база данных.
-        1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
         1. Выберите базу из списка и перейдите на вкладку **{{ ui-key.yacloud.ydb.database.switch_browse }}**.
         1. Нажмите кнопку **{{ ui-key.yacloud.ydb.browse.button_sql-query }}**.
 
     - {{ ydb-short-name }} CLI {#cli}
 
         1. [Настройте подключение к базе данных {{ ydb-name }}](../../ydb/operations/connection.md).
-        1. Убедитесь, что можете выполнять запросы с помощью {{ ydb-short-name }} CLI с выбранным режимом аутентификации. Например, для [OAuth-токена](../../iam/concepts/authorization/oauth-token.md):
+        1. Убедитесь, что можете выполнять запросы с помощью {{ ydb-short-name }} CLI с выбранным режимом аутентификации. Например, для [IAM-токена](../../iam/concepts/authorization/iam-token.md):
 
             ```bash
             ydb \
               --endpoint <эндпоинт> \
               --database <имя_БД> \
-              --yc-token-file <путь_к_OAuth-токену> \
+              --iam-token-file <путь_к_IAM-токену> \
               yql -s "SELECT 1;"
             ```
 

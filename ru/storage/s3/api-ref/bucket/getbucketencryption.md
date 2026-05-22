@@ -1,4 +1,4 @@
-# Метод getBucketEncryption
+# Object Storage API, REST совместимый с Amazon S3: GetBucketEncryption
 
 Возвращает информацию о шифровании бакета. Подробнее о шифровании бакета читайте в разделе [{#T}](../../../concepts/encryption.md).
 
@@ -53,5 +53,11 @@ GET /{bucket}?encryption HTTP/2
 `Rule` | Правило шифрования на стороне сервера. <br/><br/>Шифрование определяется элементами `KMSMasterKeyID` и `SSEAlgorithm`.<br/><br/>Путь: `ServerSideEncryptionConfiguration\Rule`.
 `ServerSideEncryptionConfiguration` | Конфигурация шифрования, по умолчанию применяемая к новым объектам в бакете.<br/><br/>Путь: `ServerSideEncryptionConfiguration`.
 `SSEAlgorithm` | Алгоритм шифрования. Доступные значения: `aws:kms`.<br/><br/>Путь: `ServerSideEncryptionConfiguration\Rule\ApplyServerSideEncryptionByDefault\SSEAlgorithm`.
+
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/bucket.md)
+
+* [{#T}](../../../operations/buckets/encrypt.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

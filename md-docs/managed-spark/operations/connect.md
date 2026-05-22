@@ -1,0 +1,49 @@
+# Подключение к кластеру Apache Spark™
+
+В этом разделе представлены настройки для подключения к кластеру Yandex Managed Service for Apache Spark™ с помощью [Spark Connect](https://spark.apache.org/docs/3.5.6/spark-connect-overview.html).
+
+## Подключение с помощью Spark Connect {#connection-spark-connect}
+
+1. Создайте [IAM-токен](../../iam/concepts/authorization/iam-token.md) и сохраните его в переменной окружения:
+
+   ```bash
+   export TOKEN=$(yc iam create-token)
+   ```
+
+1. [Создайте задание SparkConnect](jobs-sparkconnect.md#create) без указания параметров в вашем кластере.
+1. Скопируйте эндпоинт Spark Connect Server созданного задания для подключения.
+
+   Эндпоинт можно получить с [информацией о задании](jobs-sparkconnect.md#get-info). Его значение указано в поле **URL подключения** в консоли управления или в поле `connect_url` в CLI и API.
+
+1. Установите пакет `pyspark` и [необходимые зависимости](https://spark.apache.org/docs/3.5.6/api/python/getting_started/install.html#dependencies) в вашем окружении с помощью менеджера пакетов [pip](https://pip.pypa.io/en/stable/).
+
+   {% note warning %}
+
+   Версия PySpark в вашем окружении должна соответствовать версии Apache Spark™ в кластере. В настоящее время поддерживается подключение с версиями PySpark `3.5.6` и `3.5.7`.
+
+   {% endnote %}
+
+1. Выполните код для подключения к кластеру:
+
+   ```python
+   import os
+   from pyspark.sql import SparkSession
+
+   url_spark = "<эндпоинт_для_подключения_к_кластеру>"
+   TOKEN = os.environ.get("TOKEN")
+
+   spark = SparkSession.builder.remote(f"{url_spark}/;use_ssl=true;token={TOKEN}").getOrCreate()
+   df = spark.createDataFrame([(1, "Sarah"), (2, "Maria")]).toDF(*["id", "name"])
+   df.show()
+   ```
+
+   Результат:
+
+   ```text
+   +---+-----+
+   | id| name|
+   +---+-----+
+   |  1|Sarah|
+   |  2|Maria|
+   +---+-----+
+   ```

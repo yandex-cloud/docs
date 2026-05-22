@@ -1,6 +1,11 @@
+---
+title: Protecting web applications in an external infrastructure
+description: Protecting web applications deployed outside {{ yandex-cloud }} using {{ sws-name }}.
+---
+
 # Protecting web applications in an external infrastructure
 
-{% include [preview-domain](../../_includes/smartwebsecurity/preview-domain.md)%}
+{% include [preview-domain](../../_includes/smartwebsecurity/preview-domain.md) %}
 
 {{ sws-name }} enables protection of web applications deployed both in and beyond {{ yandex-cloud }}, e.g., in your internal infrastructure or on another hosting service. {{ sws-name }} provides various means to protect your infrastructure against cybersecurity threats at the application layer (L7) of the OSI model. These may include DDoS attacks, [bot](https://en.wikipedia.org/wiki/Botnet) attacks, [SQL injections](https://en.wikipedia.org/wiki/SQL_injection), [cross-site scripting](https://en.wikipedia.org/wiki/Cross-site_scripting), etc.
 
@@ -17,6 +22,8 @@ The web application admin has access to real-time traffic statistics, such as th
 Incoming traffic is filtered with reverse proxying. All HTTP requests from website visitors or a web app are redirected to the target resource via a {{ sws-name }} proxy server. One or more domains of the protected resource connect to the proxy server. You can assign a domain a [security profile](profiles.md) where you will set up anti-DDoS protection, a web application firewall (WAF) and, if you need to, limit the app load using Advanced Rate Limiter (ARL).
 
 Essentially, to implement protection of web applications or backends, you need to configure a proxy server and a domain and also add a certificate for decrypting and checking HTTPS traffic.
+
+Domain protection is subject to the [pricing policy](../pricing.md#requests).
 
 ### Proxy server {#proxy}
 
@@ -40,7 +47,7 @@ You can configure logging for each proxy server. You can write all logs or filte
 
 You can connect multiple domains to a proxy server. For details on the number of domains, see [{#T}](limits.md).
 
-{% include [roles-for-creating-proxy-notice](../../_includes/smartwebsecurity/roles-for-creating-proxy-notice.md)%}
+{% include [roles-for-creating-proxy-notice](../../_includes/smartwebsecurity/roles-for-creating-proxy-notice.md) %}
 
 ### Domain {#domain}
 

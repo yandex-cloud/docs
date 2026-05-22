@@ -19,7 +19,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. Navigate to the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab.
   1. Select the schedule from the list.
   1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
-  1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+  1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. In the window that opens, select the group, user, or service account you want to grant access to the schedule.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required [roles](../../security/index.md#roles-list).
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -59,7 +59,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
        Where:
 
        * `--user-account-id`: [User ID](../../../organization/operations/users-get.md).
-       * `--role`: [Role](../../security/index.md#roles-list).
+       * `--role`: [Role](../../security/index.md#roles-list) to assign.
 
      * To a service account:
 
@@ -95,10 +95,10 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
       Where:
 
       * `snapshot_schedule_id`: Schedule ID.
-      * `role`: [Role](../../security/index.md#roles-list).
-      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `role`: [Role](../../security/index.md#roles-list) to assign.
+      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-      For more information about the `yandex_compute_snapshot_schedule_iam_binding` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_snapshot_schedule_iam_binding).
+      For more information about `yandex_compute_snapshot_schedule_iam_binding` properties, see [this provider guide]({{ tf-provider-resources-link }}/compute_snapshot_schedule_iam_binding).
 
   1. Create the resources:
 
@@ -128,7 +128,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. Navigate to the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab.
   1. Select the schedule from the list.
   1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
-  1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+  1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. In the window that opens, select the group, user, or service account you want to grant access to the schedule.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required [roles](../../security/index.md#roles-list).
   1. To add another role, click **{{ ui-key.yacloud_components.acl.button.add-role }}**.
@@ -204,10 +204,10 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
       Where:
 
       * `snapshot_schedule_id`: Schedule ID.
-      * `role`: [Role](../../security/index.md#roles-list).
-      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `role`: [Role](../../security/index.md#roles-list) to assign.
+      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-      For more information about the `yandex_compute_snapshot_schedule_iam_binding` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_snapshot_schedule_iam_binding).
+      For more information about `yandex_compute_snapshot_schedule_iam_binding` properties, see [this provider guide]({{ tf-provider-resources-link }}/compute_snapshot_schedule_iam_binding).
 
   1. Create the resources:
 
@@ -237,7 +237,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. Navigate to the **{{ ui-key.yacloud.compute.snapshots-schedules.label_title }}** tab.
   1. Select the schedule from the list.
   1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
-  1. In the line with the user in question, click ![icon-context-menu](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
+  1. In the line with the user in question, click ![icon-context-menu](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
   1. Click ![cross](../../../_assets/console-icons/xmark.svg) next to a role to delete it.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 

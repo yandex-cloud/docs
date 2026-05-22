@@ -7,7 +7,7 @@
 1. Войдите в [консоль управления]({{ link-console-main }}). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
 1. Убедитесь, что у вас есть нужные [роли](./concepts/access-control/roles.md):
 
-    1. В консоли управления на панели сверху нажмите ![image](../_assets/console-icons/chevron-down.svg) и выберите нужное облако.
+    1. В консоли управления на панели сверху нажмите ![image](../_assets/console-icons/layout-side-content-left.svg) или ![image](../_assets/console-icons/chevron-down.svg) и выберите нужное облако.
     1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
     1. В строке поиска введите свою учетную запись.
     1. Проверьте, что для вашей учетной записи указаны роли:
@@ -28,7 +28,7 @@
     1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../_assets/console-icons/layout-side-content-left.svg) или ![image](../_assets/console-icons/chevron-down.svg) и выберите нужное облако.
     1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
     1. В правом верхнем углу нажмите на значок ![icon-users](../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.resource-acl.button_invite-users }}**.
-    1. Введите почтовые адреса пользователей, которых вы хотите пригласить в организацию (например, `{{login-example}}`).
+    1. Введите почтовые адреса пользователей, которых вы хотите пригласить в организацию (например, `{{ login-example }}`).
 
         {% include [send-invitation](../_includes/organization/send-invitation.md) %}
 
@@ -79,7 +79,8 @@
 * [Пошаговые инструкции](operations/index.md) помогут вам решить конкретные задачи, возникающие при использовании {{ iam-name }}.
 * Прочитайте, [как устроено управление доступом в {{ yandex-cloud }}](concepts/access-control/index.md).
 * Посмотрите [рекомендации по безопасному использованию {{ yandex-cloud }}](best-practices/using-iam-securely.md).
-* Узнайте, [как начать работать с сервисом {{ org-name }}](../organization/quickstart.md).
+* Узнайте, [как начать работать с сервисом {{ org-full-name }}](../organization/quickstart.md).
 * Узнайте, [как происходит аутентификация в {{ yandex-cloud }}](concepts/authorization/index.md#authentication).
 * [Научитесь работать с сервисными аккаунтами](quickstart-sa.md).
+* Используйте [чеклист безопасности аутентификации и авторизации](../security/domains/iam-checklist.md).
 * Посмотрите [ответы на часто задаваемые вопросы](qa/index.md).

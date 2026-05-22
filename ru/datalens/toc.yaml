@@ -15,16 +15,16 @@ items:
     items:
       - name: Обзор
         href: workbooks-collections/index.md
-      - name: Создание воркбука и коллекции
-        href: workbooks-collections/workbooks-collections-create.md
-      - name: Миграция объектов в воркбуки
+      - name: Работа с воркбуком
+        href: workbooks-collections/workbooks-operations.md
+      - name: Работа с коллекцией
+        href: workbooks-collections/collections-operations.md
+      - name: Миграция объектов в воркбуки из папок
         href: workbooks-collections/migrations.md
       - name: Экспорт и импорт воркбуков
         href: workbooks-collections/export-and-import.md
       - name: Ошибки и предупреждения при экспорте и импорте
         href: workbooks-collections/export-import-notifications.md
-      - name: Настройка доступа
-        href: workbooks-collections/security.md
   - name: Нейроаналитик DataLens
     href: concepts/neuroanalyst.md
   - name: Практические руководства
@@ -45,7 +45,7 @@ items:
             href: tutorials/data-from-csv-geo-visualization.md
           - name: >-
               Анализ продаж и локаций пиццерий на данных из БД {{ CH }} и
-              Marketplace
+              Галереи {{ datalens-short-name }}
             href: tutorials/data-from-ch-to-geolayers-visualization.md
           - name: >-
               Геокодинг с помощью API Яндекс Карт для визуализации в {{
@@ -104,6 +104,10 @@ items:
             href: tutorials/data-from-ch-dataset-parametrization.md
           - name: Примеры создания QL-чартов
             href: tutorials/data-from-ch-to-sql-chart.md
+          - name: Примеры создания чартов в Editor
+            href: tutorials/create-chart-editor.md
+          - name: Пример использования вкладки Activities в Editor
+            href: tutorials/create-editor-activities.md
   - name: Подключения
     items:
       - name: Обзор
@@ -140,6 +144,8 @@ items:
             href: operations/connection/create-mssql-server.md
           - name: Создание подключения к Oracle Database
             href: operations/connection/create-oracle.md
+          - name: Создание подключения к {{ SR }}
+            href: operations/connection/create-starrocks.md
           - name: Создание подключения к {{ prometheus-name }}
             href: operations/connection/create-prometheus.md
           - name: Создание подключения к Snowflake
@@ -200,6 +206,8 @@ items:
         href: dataset/add-description.md
       - name: Параметризация источников
         href: dataset/parametrization.md
+      - name: Инвалидация кешей
+        href: dataset/cache-invalidation.md
       - name: Типы данных
         href: dataset/data-types.md
       - name: Соответствие типов данных
@@ -834,6 +842,8 @@ items:
         href: operations/chart/add-description.md
       - name: Открытие чарта как таблицы
         href: operations/chart/open-as-table.md
+      - name: Сохранение чарта как изображения
+        href: operations/chart/save-as-image.md
       - name: Версионирование
         href: concepts/chart/versioning.md
       - name: Экспорт данных из чартов
@@ -862,6 +872,8 @@ items:
         href: dashboard/dashboard_parameters.md
       - name: Нейроаналитик на дашборде
         href: dashboard/insights.md
+      - name: Тренды и сглаживания в чартах на дашборде
+        href: dashboard/trends-and-smoothing.md
       - name: Markdown
         href: dashboard/markdown.md
       - name: Пошаговые инструкции
@@ -876,8 +888,12 @@ items:
             href: operations/dashboard/add-text.md
           - name: Добавление заголовка на дашборд
             href: operations/dashboard/add-title.md
+          - name: Копирование виджетов на дашборде
+            href: operations/dashboard/copying-widgets.md
           - name: Добавление информации о дашборде
             href: operations/dashboard/add-description.md
+          - name: Добавление рассылки для дашборда
+            href: operations/dashboard/add-maillists.md
           - name: Добавление сообщения при обращении в поддержку
             href: operations/dashboard/add-support-message.md
           - name: Добавление сообщения при ошибке доступа
@@ -916,6 +932,12 @@ items:
         href: reports/versioning.md
       - name: Нейроаналитик в отчетах
         href: reports/insights.md
+  - name: Встраивание объектов
+    items:
+      - name: Публичное встраивание
+        href: security/embedded-objects.md
+      - name: Непубличное встраивание
+        href: security/private-embedded-objects.md
   - name: Управление доступом
     items:
       - name: Обзор
@@ -942,12 +964,6 @@ items:
         href: security/row-level-security.md
       - name: Публичный доступ
         href: concepts/datalens-public.md
-      - name: Встраивание объектов
-        items:
-          - name: Публичное встраивание
-            href: security/embedded-objects.md
-          - name: Непубличное встраивание
-            href: security/private-embedded-objects.md
   - name: Настройки сервиса
     items:
       - name: Обзор
@@ -964,16 +980,16 @@ items:
         href: settings/restrictions.md
       - name: Навигация
         href: settings/navigation.md
-  - name: DataLens Gallery
+  - name: Галерея в DataLens
     href: concepts/gallery.md
   - name: Правила тарификации
     items:
       - name: Действующие правила
         href: pricing.md
-      - name: Изменения в правилах тарификации 1 декабря
-        href: pricing-changes.md
       - name: Архив
         items:
+          - name: Изменения в правилах тарификации 1 декабря
+            href: pricing-changes.md
           - name: Правила тарификации до 1 декабря 2025
             href: pricing-old.md
           - name: Тарифные планы до 1 декабря 2025
@@ -986,6 +1002,26 @@ items:
         items:
           - name: Overview
             href: openapi-ref/index.md
+          - name: createCollection
+            href: openapi-ref/createCollection.md
+          - name: deleteCollection
+            href: openapi-ref/deleteCollection.md
+          - name: deleteCollections
+            href: openapi-ref/deleteCollections.md
+          - name: getCollectionBreadcrumbs
+            href: openapi-ref/getCollectionBreadcrumbs.md
+          - name: getCollection
+            href: openapi-ref/getCollection.md
+          - name: getCollectionContent
+            href: openapi-ref/getCollectionContent.md
+          - name: getRootCollectionPermissions
+            href: openapi-ref/getRootCollectionPermissions.md
+          - name: moveCollection
+            href: openapi-ref/moveCollection.md
+          - name: moveCollections
+            href: openapi-ref/moveCollections.md
+          - name: updateCollection
+            href: openapi-ref/updateCollection.md
           - name: getConnection
             href: openapi-ref/getConnection.md
           - name: createConnection
@@ -1020,10 +1056,36 @@ items:
             href: openapi-ref/getQlChart.md
           - name: deleteQLChart
             href: openapi-ref/deleteQlChart.md
+          - name: updateQLChart
+            href: openapi-ref/updateQlChart.md
+          - name: createQLChart
+            href: openapi-ref/createQlChart.md
           - name: getWizardChart
             href: openapi-ref/getWizardChart.md
           - name: deleteWizardChart
             href: openapi-ref/deleteWizardChart.md
+          - name: updateWizardChart
+            href: openapi-ref/updateWizardChart.md
+          - name: createWizardChart
+            href: openapi-ref/createWizardChart.md
+          - name: createWorkbook
+            href: openapi-ref/createWorkbook.md
+          - name: deleteWorkbook
+            href: openapi-ref/deleteWorkbook.md
+          - name: deleteWorkbooks
+            href: openapi-ref/deleteWorkbooks.md
+          - name: getWorkbook
+            href: openapi-ref/getWorkbook.md
+          - name: getWorkbooksList
+            href: openapi-ref/getWorkbooksList.md
+          - name: moveWorkbook
+            href: openapi-ref/moveWorkbook.md
+          - name: moveWorkbooks
+            href: openapi-ref/moveWorkbooks.md
+          - name: updateWorkbook
+            href: openapi-ref/updateWorkbook.md
+          - name: getWorkbookEntries
+            href: openapi-ref/getWorkbookEntries.md
           - name: getEditorChart
             href: openapi-ref/getEditorChart.md
           - name: deleteEditorChart
@@ -1032,30 +1094,58 @@ items:
             href: openapi-ref/createEditorChart.md
           - name: updateEditorChart
             href: openapi-ref/updateEditorChart.md
+          - name: createEmbed
+            href: openapi-ref/createEmbed.md
+          - name: listEmbeds
+            href: openapi-ref/listEmbeds.md
+          - name: deleteEmbed
+            href: openapi-ref/deleteEmbed.md
+          - name: updateEmbed
+            href: openapi-ref/updateEmbed.md
           - name: getEntriesPermissions
             href: openapi-ref/getEntriesPermissions.md
+          - name: createEmbeddingSecret
+            href: openapi-ref/createEmbeddingSecret.md
+          - name: listEmbeddingSecrets
+            href: openapi-ref/listEmbeddingSecrets.md
+          - name: deleteEmbeddingSecret
+            href: openapi-ref/deleteEmbeddingSecret.md
+          - name: getEmbeddingSecret
+            href: openapi-ref/getEmbeddingSecret.md
           - name: getAuditEntriesUpdates
             href: openapi-ref/getAuditEntriesUpdates.md
+          - name: updateCollectionAccessBindings
+            href: openapi-ref/updateCollectionAccessBindings.md
+          - name: createFolder
+            href: openapi-ref/createFolder.md
           - name: listDirectory
             href: openapi-ref/listDirectory.md
+          - name: updateWorkbookAccessBindings
+            href: openapi-ref/updateWorkbookAccessBindings.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: История изменений
     items:
-      - name: Январь 2026
+      - name: Апрель 2026
         href: release-notes/index.md
+      - name: Март 2026
+        href: release-notes/2603.md
+      - name: Февраль 2026
+        href: release-notes/2602.md
+      - name: Январь 2026
+        href: release-notes/2601.md
       - name: Декабрь 2025
         href: release-notes/2512.md
       - name: Ноябрь 2025
         href: release-notes/2511.md
-      - name: Октябрь 2025
-        href: release-notes/2510.md
-      - name: Сентябрь 2025
-        href: release-notes/2509.md
-      - name: Август 2025
-        href: release-notes/2508.md
       - name: Архив
         items:
+          - name: Октябрь 2025
+            href: release-notes/2510.md
+          - name: Сентябрь 2025
+            href: release-notes/2509.md
+          - name: Август 2025
+            href: release-notes/2508.md
           - name: Июль 2025
             href: release-notes/2507.md
           - name: Июнь 2025
@@ -1203,6 +1293,10 @@ items:
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-AGG-INCONSISTENT.md
+      - name: Inconsistent aggregation status among SELECT items
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-INVALID_QUERY_STRUCTURE-INCONSISTENT_AGGREGATION.md
       - name: Internal server error
         hidden: true
         href: troubleshooting/errors/ERR-DS_API.md
@@ -1344,4 +1438,55 @@ items:
       - name: Обращение к несуществующему объекту
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-REFERENCED_ENTRY_NOT_FOUND.md
+      - name: Got an unexpected response from an external API
+        hidden: true
+        href: troubleshooting/errors/ERR-AUTH_API-UNEXPECTED_RESPONSE.md
+      - name: Internal Server Error
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-ACTION_NOT_ALLOWED.md
+      - name: Field references an unknown source avatar
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-AVATAR-NOT_FOUND-FIELD_REF.md
+      - name: Source avatar not found
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-AVATAR-NOT_FOUND.md
+      - name: Source avatar title conflicts with another avatar
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-AVATAR-TITLE-CONFLICT.md
+      - name: Invalid connection type value
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-BAD_CONN_TYPE.md
+      - name: Got items with incompatible roles in block
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-BLOCK-ITEM_COMPATIBILITY.md
+      - name: Got more than one block with root placement
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-BLOCK-MULTIPLE_ROOTS.md
+      - name: This API does not support multiple query blocks
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-BLOCK-MULTIPLE_UNSUPPORTED.md
+      - name: Got no blocks with root placement
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-BLOCK-NO_ROOT.md
+      - name: Failed to load description of table columns
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-COLUMN_SCHEMA_FAILED.md
+      - name: Internal server error
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-CONNECTION_CONFIG.md
+      - name: Internal server error
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DASHSQL-PARAMETER.md
+      - name: Internal server error
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DASHSQL.md
+      - name: There are too many fields in the dataset
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DATASET-TOO_MANY_FIELDS.md
+      - name: Dataset version mismatch. Refresh the page to continue
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DATASET_REVISION_MISMATCH.md
+      - name: Ошибка при блокировке всплывающего окна
+        hidden: true
+        href: troubleshooting/errors/ERR-CLIENT-POPUP_BLOCKED.md
 path: ru/datalens/toc.yaml

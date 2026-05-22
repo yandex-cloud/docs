@@ -15,9 +15,11 @@ description:
     данных</a> ({{ dspm-name }}).</li> <li><a
     href="/docs/security-deck/concepts/cspm">Контроля конфигурации</a> ({{
     cspm-name }}).</li> <li><a href="/docs/security-deck/concepts/kspm">Контроля
-    {{ k8s }}</a> (KSPM).</li> <li><a
+    {{ k8s }}</a> ({{ kspm-name }}).</li> <li><a
     href="/docs/security-deck/concepts/ciem">Диагностики доступов</a> ({{
     ciem-name }}).</li> <li><a
+    href="/docs/security-deck/concepts/vulnerability-management">Управления
+    уязвимостями</a>.</li> <li><a
     href="/docs/security-deck/concepts/alerts">Просмотра алертов</a>.</li>
     <li><a href="/docs/security-deck/concepts/compliance">Портал соответствия
     требованиям</a>.</li></ul>
@@ -27,20 +29,21 @@ description:
     {{ yagpt-name }} для получения рекомендаций по безопасности.
   - >-
     Предоставляемые сервисом инструменты позволяют вести мониторинг и
-    реагировать на инциденты, обнаруживать уязвимости, контролировать
-    конфигурацию облачной инфраструктуры и безопасность контейнеризованных
-    приложений, отслеживать и защищать доступ к данным, а также контролировать
-    соблюдение нормативных актов и отраслевых стандартов. Управление настройками
-    и ресурсами модулей осуществляется через <a
+    реагировать на инциденты, обнаруживать уязвимости в контейнерных образах,
+    контролировать конфигурацию облачной инфраструктуры и безопасность
+    контейнеризованных приложений, отслеживать и защищать доступ к данным, а
+    также контролировать соблюдение нормативных актов и отраслевых стандартов.
+    Управление настройками и ресурсами модулей осуществляется через <a
     href="/docs/security-deck/concepts/workspace">окружения</a> (Workspaces).
 meta:
   title: Yandex Security Deck
   description: >-
     Yandex Security Deck — это комплексный сервис CNAPP, включающий в себя
     модули контроля данных ({{ dspm-name }}), контроля конфигурации ({{
-    cspm-name }}), контроля {{ k8s }} (KSPM), диагностики доступов ({{ ciem-name
-    }}), {{ alerts-name }}, {{ atr-name }}, AI-ассистентом для обеспечения
-    безопасности облачной инфраструктуры и Порталом соответствия требованиям.
+    cspm-name }}), контроля {{ k8s }} ({{ kspm-name }}), диагностики доступов
+    ({{ ciem-name }}), {{ alerts-name }}, {{ atr-name }}, AI-ассистентом для
+    обеспечения безопасности облачной инфраструктуры и Порталом соответствия
+    требованиям.
   keywords:
     - keyword: '{{ sd-name }}'
     - keyword: '{{ sd-full-name }}'
@@ -55,16 +58,20 @@ meta:
     - keyword: информационная безопасность {{ yandex-cloud }}
     - keyword: диагностика доступа в {{ yandex-cloud }}
     - keyword: уязвимости {{ yandex-cloud }}
+    - keyword: управление уязвимостями {{ yandex-cloud }}
+    - keyword: сканирование образов на уязвимости
+    - keyword: vulnerability management {{ yandex-cloud }}
     - keyword: защита данных в {{ yandex-cloud }}
     - keyword: мониторинг инцидентов {{ yandex-cloud }}
     - keyword: реагирование на инциденты {{ yandex-cloud }}
     - keyword: SOC {{ yandex-cloud }}
     - keyword: контроль конфигурации {{ cspm-name }}
     - keyword: '{{ cspm-name }}'
-    - keyword: Cloud Security Posture Management
-    - keyword: контроль {{ k8s }} KSPM
-    - keyword: KSPM {{ yandex-cloud }}
-    - keyword: Kubernetes Security Posture Management
+    - keyword: '{{ cspm-full-name }}'
+    - keyword: контроль {{ k8s }} {{ kspm-name }}
+    - keyword: '{{ kspm-name }} {{ yandex-cloud }}'
+    - keyword: '{{ kspm-full-name }}'
+    - keyword: '{{ k8s }} Security Posture Management'
     - keyword: безопасность контейнеров {{ yandex-cloud }}
     - keyword: '{{ alerts-name }}'
     - keyword: алерты безопасности {{ yandex-cloud }}

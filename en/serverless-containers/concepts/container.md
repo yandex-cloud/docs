@@ -92,7 +92,7 @@ In some cases, the service may [forcibly terminate](long-lived-containers.md#pos
 
 {{ serverless-containers-name }} supports the following container operation modes:
 
-Operation mode | How it works | Result returned when a container is invoked successfully | Data on the HTTP request to a container | Constraints
+Operation mode | How it works | Result returned when a container is invoked successfully | Data on the HTTP request to a container | Limitations
 --- | --- | --- | --- | ---
 **HTTP server** | HTTP requests to the container are received by an HTTP server, which must be running on the port specified in the `PORT` [environment variable](runtime.md#environment-variables). {{ serverless-containers-name }} sets the variable value automatically. | An HTTP response received from the HTTP server. When forwarded to the container, some HTTP response headers [get modified](invoke.md#filter) | Provided in an HTTP request to the HTTP server | —
 **Commands** | Each HTTP request to the container initiates the `ENTRYPOINT` instructions from a Dockerfile or the commands set when [creating a revision](../operations/manage-revision.md). If the commands are set, they will override the `ENTRYPOINT` instructions from Dockerfile | Response code 200 and termination code in the `X-Task-Exit-Code` response header | Specified in the file located at the path from the`REQUEST_PATH` environment variable | Maximum number of concurrent requests to a single container instance: 1
@@ -103,9 +103,19 @@ A container instance processes one container invocation at a single point in tim
 
 To reduce the number of cold starts, {{ serverless-containers-name }} creates container instances in the background, not for the purpose of processing user requests. The number of instances created this way does not exceed the quota.
 
-In addition, in {{ serverless-containers-name }}, you can [change](../operations/manage-revision.md#create) the maximum number of concurrent invocations of a single container instance and [specify](../operations/scaling-settings-add.md) the number of provisioned container instances.
+In addition, you can set the following scaling settings in {{ serverless-containers-name }}:
+
+{% include [scaling-settings](../../_includes/serverless-containers/scaling-settings.md) %}
+
+{% note info %}
+
+Calls are distributed across availability zones randomly. {{ serverless-containers-name }} does not guarantee the even distribution of calls across the zones. For example, all calls, no matter how many, may end up in the same zone.
+
+{% endnote %}
 
 {% include [provisioned-instances-time](../../_includes/functions/provisioned-instances-time.md) %}
+
+When the number of container instances reaches the value specified in the `Number of container instances per availability zone` parameter, {{ serverless-containers-name }} stops scaling the container. If there are more container calls than the instances can handle, the new call is queued and treated as a call in progress. When the number of calls in progress reaches the value specified in the `Number of concurrent container invocations per availability zone`, the service stops queuing calls and returns the `429 TooManyRequests` error.
 
 ### Provisioned instances {#provisioned-instances}
 
@@ -124,6 +134,18 @@ Provisioned instances count towards the following [quotas](limits.md) even when 
 * Total RAM for all running container instances per availability zone.	
 * Number of provisioned container instances per cloud.
 
+## Concurrent container instance calls {#concurrency}
+
+To allow a single container instance to handle multiple function calls concurrently, you can set the `concurrency` parameter when creating a container revision. 
+
+The `concurrency` parameter cannot be greater than 1 if the `Commands` [operation mode](#runtime) is selected.
+
+If the user specifies call IDs (`RequestID`) themselves, they must ensure these are unique; otherwise, an error will be returned when the instance attempts to process a call with a duplicate ID.
+
+When a container instance processes multiple calls simultaneously, only the ID of the last one is written to the logs. To ensure that the logs record the IDs of all calls that a container handles, use [structured logs](logs.md#structured-logs).
+
+If at least one call reaches a timeout, that call and all the others handled by the same container instance will be aborted. For more information about the timeout, see [{#T}](limits.md#serverless-containers-limits).
+
 ## Use cases {#examples}
 
 * [{#T}](../tutorials/movies-database.md)
@@ -135,4 +157,4 @@ Provisioned instances count towards the following [quotas](limits.md) even when 
 
 * [Creating a container revision](../operations/manage-revision.md#create)
 * [Adding scaling settings](../operations/scaling-settings-add.md)
-
+* [{#T}](../operations/concurrency.md)

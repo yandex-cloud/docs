@@ -14,7 +14,7 @@ The system logs all actions with {{ api-gw-name }} resources as a list of operat
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/branches-right.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-gateways }}**.
   1. Select the API gateway you need.
-  1. Go to the ![image](../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud.common.operations-key-value }}** panel for the selected API gateway.
+  1. Navigate to the **{{ ui-key.yacloud.common.operations-key-value }}** tab for the selected API gateway.
 
      You will see a list of operations with the selected API gateway.
 
@@ -49,7 +49,7 @@ The system logs all actions with {{ api-gw-name }} resources as a list of operat
   +----------------------+---------------------+----------------------+---------------------+--------+------------------+
   ```
 
-  By default, information about operations is output as text. To get more detailed information, specify the `yaml` or `json` output data format using the `--format` parameter:
+  By default, information about operations is output as text. To get more detailed information, specify the `yaml` or `json` output data format using `--format`:
 
   ```bash
   yc serverless api-gateway list-operations <API_gateway_name_or_ID> --format yaml
@@ -78,11 +78,11 @@ The system logs all actions with {{ api-gw-name }} resources as a list of operat
 
 {% endlist %}
 
-## Getting detailed information about an operation {#get-operations-info}
+## Getting operation details {#get-operations-info}
 
 1. [Get a list of operations](#get-operations) for the API gateway.
 1. Copy the operation ID.
-1. Get the operation details:
+1. Get operation details:
 
     {% list tabs group=instructions %}
 

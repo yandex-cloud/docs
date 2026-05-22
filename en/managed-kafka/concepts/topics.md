@@ -17,7 +17,7 @@ For example, if the data producer is an online store, you can create separate to
 - Message compression.
 - Log purging [in accordance with the policy](../operations/cluster-topics.md#create-topic) when partition messages become outdated or the specified log size is reached.
 
-You can learn more about topics in the [{{ KF }} documentation](https://kafka.apache.org/documentation/#intro_concepts_and_terms).
+You can learn more about topics in the [{{ KF }} documentation](https://kafka.apache.org/42/getting-started/introduction/#main-concepts-and-terminology).
 
 ### Service topics {#service-topics}
 
@@ -36,15 +36,15 @@ Using partitions, you can:
 - Distribute the message storage and request processing load among multiple [{{ KF }} brokers](brokers.md).
 - Provide fault tolerance: a partition can be replicated to a specified number of brokers.
 
-You can learn more about partitions in the [{{ KF }} documentation](https://kafka.apache.org/documentation/#intro_concepts_and_terms).
+You can learn more about partitions in the [{{ KF }} documentation](https://kafka.apache.org/42/getting-started/introduction/#main-concepts-and-terminology).
 
 ## Managing topics and partitions {#management}
 
 A {{ mkf-name }} cluster provides two ways for you to manage topics and partitions:
 
-* Using native {{ yandex-cloud }} interfaces, such as the management console, CLI, {{ TF }}, or API. Use this method if you want to create, delete, and configure topics and partitions using {{ mkf-name }} features.
+* Native {{ yandex-cloud }} interfaces, such as the management console, CLI, {{ TF }}, or API. Select this method if you want to create, delete, and configure topics and partitions using {{ mkf-name }} features.
 
-* Using the [{{ KF }} Admin API](https://kafka.apache.org/documentation/#adminapi). The method will suit you if you already have your own solution for managing topics and partitions. When using the Admin API, the following restrictions apply:
+* [{{ KF }} Admin API](https://kafka.apache.org/42/apis/#admin-api). The method will suit you if you already have your own solution for managing topics and partitions. When using the Admin API, the following restrictions apply:
 
     {% include [admin-api-limits](../../_includes/mdb/mkf/admin-api-limits.md) %}
 

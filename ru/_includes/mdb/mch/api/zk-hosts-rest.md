@@ -44,7 +44,7 @@
       * `zoneId` — зона доступности;
       * `subnetId` — идентификатор подсети.
 
-    * `convertTablesToReplicated` — преобразование нереплицируемых таблиц в [реплицируемые](../../../../managed-clickhouse/concepts/replication.md#replicated-tables): `true` или `false`. Нереплицируемые таблицы на движке семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree) будут автоматически преобразованы в реплицируемые на движке [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication).
+    * `convertTablesToReplicated` — преобразование нереплицируемых таблиц в [реплицируемые](../../../../managed-clickhouse/concepts/replication.md#replicated-tables): `true` или `false`. Нереплицируемые таблицы на движке семейства [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) будут автоматически преобразованы в реплицируемые на движке [ReplicatedMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication).
 
       {% note warning %}
 

@@ -41,7 +41,7 @@ You can only select a backend group's type when creating it. You cannot change t
 
 ## Backend types {#types}
 
-Based on the backend group type, backends can be of the following types:
+Based on the backend group type, there are the following possible types of backends:
 * **{{ ui-key.yacloud.alb.label_proto-http }}**:
 
   * [_Target groups_](target-group.md): IP addresses of {{ compute-name }} VMs that your network applications are running on. Multiple target groups can belong to a single backend. Traffic between all VMs in target groups belonging to the same backend is distributed evenly based on the [backend settings](#settings) and results of [health checks](#health-checks).
@@ -88,6 +88,8 @@ For backends consisting of target groups, you can configure:
 The load balancer can establish unencrypted backend connections and backend connections with TLS encryption. When using TLS, the load balancer does not validate certificates returned by backends. However, you can specify certificates from Certificate Authorities that the load balancer will trust when establishing a secure connection with backend endpoints.
 
 If the backend group type is **{{ ui-key.yacloud.alb.label_proto-http }}**, you can use HTTP 1.1 or 2 to exchange data between the load balancer and backend endpoints. **{{ ui-key.yacloud.alb.label_proto-grpc }}** backend groups only support the HTTP/2 protocol.
+
+{% include [supported-certificates](../../_includes/application-load-balancer/supported-certificates.md) %}
 
 ### Balancing mode {#balancing-mode}
 
@@ -152,7 +154,7 @@ The following health check settings are supported:
   * Request body.
   * Substring in the response that indicates that the health check was successful. If the request body or response body is not specified, a successful connection to the backend is checked.
 
-Note that if the backend is configured to use TLS with the target group endpoints, health checks also use TLS. For example:
+Note that if the backend is configured to use TLS with the target group endpoints, health checks also use TLS. Here is an example:
 
 * If the type of a health check is HTTP, it will be made over HTTPS. 
 
@@ -165,7 +167,7 @@ Note that if the backend is configured to use TLS with the target group endpoint
 * [{#T}](../tutorials/tls-termination/index.md)
 * [{#T}](../tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/index.md)
 * [{#T}](../tutorials/migration-from-nlb-to-alb/nlb-with-target-resource-group-vm/index.md)
-* [{#T}](../tutorials/cdn-storage-integration.md)
+* [{#T}](../tutorials/cdn-storage-integration/index.md)
 * [{#T}](../tutorials/blue-green-canary-deployment.md)
 * [{#T}](../tutorials/logging.md)
 

@@ -1,5 +1,5 @@
-1. In the [management console]({{ link-console-main }}), click ![image](../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder housing the service account.
-1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+1. In the [management console]({{ link-console-main }}), click ![image](../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder the service account belongs to.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
 1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
 1. Select the service account to create an API key for. [Create](../../iam/operations/sa/create.md) a new service account if you need to.
 1. In the top panel, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.

@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Получение ID-токена сервисного аккаунта
 
+{% include [access-control-sa-idtoken-notice](../../../_includes/iam/access-control-sa-idtoken-notice.md) %}
+
 Чтобы аутентифицироваться с помощью {{ iam-full-name }} во внешней системе, поддерживающей аутентификацию по стандарту [OIDC](https://openid.net/specs/openid-connect-core-1_0.html), необходим [ID-токен](../../concepts/authorization/id-token.md). ID-токен можно получить только для [сервисного аккаунта](../../concepts/users/service-accounts.md).
 
 Чтобы получить ID-токен:

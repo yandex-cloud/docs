@@ -10,6 +10,8 @@ A _password policy_ brings together rules on creating and updating passwords for
 
 ## Password policy settings {#settings}
 
+{% include [password-policy-note](../../_includes/organization/password-policy-note.md) %}
+
 Users with an administrator or organization owner account have access to [password policy settings](../operations/user-pools/set-password-policy.md).
 
 ### Password complexity {#complexity}
@@ -18,7 +20,7 @@ There are two available password complexity options:
 
 * **Any character types**: Minimum length depends on the number of character types used in a password. For example, for a password made up of lowercase and uppercase letters, you can set the length of 14 characters, and for a more complex one, 10 characters.
 
-  This is the preferred option as it does not require specific characters and allows users to create strong, yet more memorable passwords.
+  This is the preferred option because it does not require particular characters and allows users to create passwords that are stronger yet easier to remember.
 
 * **Required character types**: Password must contain all specified character types and meet the required length. You can specify the following types of characters:
 
@@ -26,6 +28,10 @@ There are two available password complexity options:
   * Uppercase letters
   * Numbers
   * Special characters, e.g., `!@#$%^&*`
+
+### Password uniqueness {#uniqueness}
+
+The password can be checked against the database of common passwords. If a user tries to set such a password, the system will reject it: these are easily guessed by attackers.
 
 ### Password lifetime {#lifetime}
 
@@ -49,6 +55,7 @@ When you create a user pool, it is assigned the following default password polic
   * 2 types: 24
 * Minimum password lifetime: Unlimited.
 * Maximum password lifetime: 365 days.
+* Password check against the database of common passwords is on.
 * Number of wrong password entries before lockout: 15.
 * Interval for counting wrong entries: 10 minutes.
 * Lockout duration: 10 minutes.

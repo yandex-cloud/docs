@@ -3,7 +3,7 @@ title: Multi-factor authentication (MFA) in {{ org-full-name }}
 description: In {{ org-full-name }}, you can configure MFA for federated and local users to enhance the protection level of their accounts.
 ---
 
-# Multi-factor authentication in {{ org-name }}
+# Multi-factor authentication in {{ org-full-name }}
 
 In {{ org-full-name }}, you can configure [multi-factor authentication](https://en.wikipedia.org/wiki/Multi-factor_authentication) (MFA) for [federated](../../iam/concepts/users/accounts.md#saml-federation) and [local](../../iam/concepts/users/accounts.md#local) user accounts.
 
@@ -21,9 +21,9 @@ _MFA policies_ specify the multi-factor authentication requirements enforced on 
 
     {% include [mfa-create-policy-step6-ss1](../../_includes/organization/mfa-create-policy-step6-ss1.md) %}
 
-You can [create](../operations/mfa/create-policy.md) an MFA policy in the [{{ org-name }}]({{ link-org-cloud-center }}) interface in {{ cloud-center }}.
+You can [create](../operations/mfa/create-policy.md) an MFA policy in the [{{ org-full-name }}]({{ link-org-cloud-center }}) interface in {{ cloud-center }}.
 
-For an MFA policy to apply to specific user accounts, you need to [explicitly add](../operations/mfa/add-users.md) those users or the [groups](./groups.md) to which they belong to the policy's target groups.
+For an MFA policy to apply to specific user accounts, you need to [explicitly add](../operations/mfa/add-users.md) those users or the [groups](./groups.md) to which they belong to the policy's target groups. If needed, you can [exclude](../operations/mfa/excluded-audience.md) certain users or groups from the policy without deleting them from the target groups.
 
 {% include [mfa-policy-applications-acc-type-notice](../../_includes/organization/mfa-policy-applications-acc-type-notice.md) %}
 
@@ -45,11 +45,30 @@ Users must repeat the verification with the selected additional authentication f
 
 The organization administrator may [remove](../operations/mfa/manage-verification.md#remove-mfa-factor) an existing user authentication factor. For example, this may be necessary if the user is unable to access the authenticator app or lost their hardware key used for identity verification.
 
+## WebAuthn browser and OS compatibility {#webauthn-support}
+
+To use WebAuthn, make sure it is supported by your browser and OS. The table below lists the earliest browser and OS versions with WebAuthn support. It is also supported in later versions.
+
+#|
+|| **Browser** | **Android 14** | **iOS 16** | **Windows 10** | **macOS 13 (Ventura)** | **Desktop Linux** ||
+|| **Chromium**^1^ | Full support | Full support | Full support^2^ | Full support | Only hardware keys^3^ ||
+|| **Safari** | No information | Full support | No information | Full support | No information ||
+|| **Firefox** | Full support^4^ | Full support | Full support^2^ | Full support^5^ | Only hardware keys ||
+|#
+
+^1^ This also applies to [Chromium](https://{{ lang }}.wikipedia.org/wiki/Chromium)-based Yandex Browser, Google Chrome, Opera, Vivaldi, Brave, and Microsoft Edge.
+^2^ For platform-specific authenticators with Windows Hello only.
+^3^ To use Rutoken in Yandex Browser, you need the Rutoken plugin.
+^4^ Use of biometrics may be restricted on some devices.
+^5^ Platform authenticators, e.g., Touch ID, may not be fully available due to the Gecko engine features.
+
 #### See also {#see-also}
 
 * [{#T}](../operations/mfa/create-policy.md)
 * [{#T}](../operations/mfa/update-policy.md)
 * [{#T}](../operations/mfa/add-users.md)
+* [{#T}](../operations/mfa/excluded-audience.md)
 * [{#T}](../operations/mfa/deactivate-reactivate-policy.md)
 * [{#T}](../operations/mfa/delete-policy.md)
 * [{#T}](../operations/mfa/manage-verification.md)
+* [{#T}](../../security/domains/iam-checklist.md)

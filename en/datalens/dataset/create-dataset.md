@@ -18,6 +18,7 @@ In this section, you will learn how to work with a dataset:
 * [Disabling data export](#data-export-disable)
 * [Configuring access](#access)
 * [Deleting a dataset](#delete)
+* [Undoing and redoing changes to a dataset](#undo-redo)
 
 ## Creating a dataset {#create}
 
@@ -28,10 +29,11 @@ You can create a new dataset using one of the following methods:
 
 - Home page
 
-  1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+  1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
 
   
-  1. Click **Create dataset**.
+  1. In the left-hand panel, click ![image](../../_assets/console-icons/circles-intersection.svg) **Datasets**.
+  1. In the top-right corner, click **Create dataset**.
 
 
 
@@ -142,7 +144,8 @@ You can join data from source tables.
 
    ![screenshot](../../_assets/datalens/dataset/dataset-table-join-type.png)
 
-1. Select the fields to join the tables on. You can only link fields with the same [data type](./data-types.md). {{ datalens-short-name }} gets information about the field's data type directly from the connection. If you need to join tables by fields with different data types, use one of these options:
+1. Select the fields to join the tables on. Hovering over a field displays a tooltip with the field full name. You can search fields by name.
+   You can only link fields with the same [data type](./data-types.md). {{ datalens-short-name }} gets information about the field's data type directly from the connection. If you need to join tables by fields with different data types, use one of these options:
    
    * Convert all the fields to the same data type at the source level.
    * [Describe the dataset with an SQL query](#add-data). Use the [CAST or CONVERT](https://dev.mysql.com/doc/refman/8.0/en/cast-functions.html) functions to convert the data type. Here is an example:
@@ -214,7 +217,7 @@ You can add fields to a dataset from data source tables or create [calculated fi
 
 ### Duplicating fields {#dublicate-fields}
 
-You can duplicate any dataset field, including the calculated field you previously created. To do this:
+You can duplicate any dataset field, including the calculated field you previously created. Follow these steps:
 
 1. On the right side of the field row, click ![image](../../_assets/console-icons/ellipsis.svg) (the icon appears when you hover over the row) and select **Duplicate**. In the list on the left, you will see a new field with the same type and settings as the original one.
 1. Optionally, rename the duplicated field, change its type or formula.
@@ -324,7 +327,7 @@ Parameters added at the dataset level are available in all charts created based 
 
    * **Name**: Sets the parameter name.
    * **Type**: Parameter [data type](./data-types.md).
-   * **Default value**. This is a required value. It is used when no parameter value is set in the dashboard, chart URL, or chart settings.
+   * **Default value**. This is a required value. It is used when no parameter value is set on the dashboard, chart URL, or chart settings.
 
    
    * **Allow use in source settings**. Enable the option if you plan to use the parameter to access the [dataset source](./parametrization.md).
@@ -377,7 +380,7 @@ Before assigning access permissions to a user, [add](../security/add-new-user.md
 
 - Workbook
 
-  A dataset inherits all access permissions from a workbook. [Assign the user permissions](../workbooks-collections/security.md#wb-coll-grant) for the appropriate workbook and they will apply to your dataset.
+  A dataset inherits all access permissions from a workbook. [Assign the user permissions](../workbooks-collections/workbooks-operations.md#wb-coll-grant) for the appropriate workbook and they will apply to your dataset.
 
 - Directory
 
@@ -411,3 +414,18 @@ To delete a dataset:
 #### See also {#see-also}
 
 * [{#T}](./settings.md)
+
+## Undoing and redoing changes to a dataset {#undo-redo}
+
+When editing a dataset, you can now undo or redo any change introduced within the current [version](./versioning.md):
+
+* To undo changes, click ![image](../../_assets/console-icons/arrow-uturn-ccw-left.svg) in the top-right corner of the screen or press **Ctrl** (**Cmd**) + **Z**.
+* To redo changes, click ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) or press **Ctrl** (**Cmd**) + **Shift** + **Z**.
+
+You undo and redo changes that result in [creating a new version](./versioning.md#version-create).
+
+Unsaved changes in the current version are reset:
+
+* When refreshing the page.
+* When saving a dataset.
+* When switching to another version.

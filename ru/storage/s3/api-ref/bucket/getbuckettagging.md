@@ -1,4 +1,4 @@
-# Метод getBucketTagging
+# Object Storage API, REST совместимый с Amazon S3: GetBucketTagging
 
 Возвращает [метки](../../../concepts/tags.md) бакета.
 
@@ -61,5 +61,11 @@ GET /{bucket}?tagging HTTP/2
 `Tag` | Контейнер для метки.
 `Key` | Ключ метки.<br>Тип: string.
 `Value` | Значение метки.<br>Тип: string.
+
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/bucket.md)
+
+* [Просмотр меток бакета](../../../operations/buckets/tagging.md#get-tag)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

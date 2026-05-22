@@ -55,7 +55,7 @@ description: При заполнении хранилища более чем н
 
 Чтобы отключить режим read-only:
 
-1. [Подключитесь к БД](../operations/connect.md) любым удобным способом.
+1. [Подключитесь к БД](../operations/connect/index.md) любым удобным способом.
 
 1. Откройте транзакцию и внутри нее выполните команду:
 
@@ -82,9 +82,9 @@ description: При заполнении хранилища более чем н
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
+{% include [storage-resize-process](../../_includes/mdb/mpg/storage-resize-process.md) %}
 
-{% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
-
+{% include [local-ssd-steal](../../_includes/mdb/mpg/note-local-ssd-disk.md) %}
 
 {% list tabs group=instructions %}
 
@@ -256,6 +256,8 @@ description: При заполнении хранилища более чем н
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
+{% include [storage-resize-process](../../_includes/mdb/mpg/storage-resize-process.md) %}
+
 
 {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
 
@@ -306,7 +308,7 @@ description: При заполнении хранилища более чем н
                                    `emergency-usage-threshold=<процент_для_незамедлительного_увеличения>
         ```
 
-        Если настроено увеличение хранилища в окно обслуживания, настройте расписание окна обслуживания.
+        Если настроено увеличение хранилища в окно обслуживания, [настройте расписание окна обслуживания](cluster-maintenance.md#set-maintenance-window).
 
         Подробнее об условиях для увеличения хранилища см. в [соответствующем разделе](../concepts/storage.md#auto-rescale).
         
@@ -328,7 +330,7 @@ description: При заполнении хранилища более чем н
         
         {% endnote %}
     
-    1. Если задан параметр `planned_usage_threshold`, настройте [расписание окна технического обслуживания](cluster-maintenance.md#set-maintenance-window).
+    1. Если задан параметр `planned_usage_threshold`, [настройте расписание окна обслуживания](cluster-maintenance.md#set-maintenance-window).
     
     1. Проверьте корректность настроек.
 
@@ -368,7 +370,7 @@ description: При заполнении хранилища более чем н
                  "maintenanceWindow": {
                    "weeklyMaintenanceWindow": {
                      "day": "<день_недели>",
-                     "hour": "<час_дня>"
+                     "hour": "<порядковый_номер_часового_интервала>"
                    }
                  }
                }'
@@ -392,8 +394,10 @@ description: При заполнении хранилища более чем н
 
      * `maintenanceWindow` — расписание окна технического обслуживания. Нужно, только если вы задали параметр `plannedUsageThreshold`. Содержит следующие параметры:
 
-       * `day` — день недели в формате `DDD`, когда должно проходить обслуживание.
-       * `hour` — час дня в формате `HH`, когда должно проходить обслуживание. Возможные значения: от `1` до `24`.
+       * `weeklyMaintenanceWindow.day` — день недели: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
+       * `weeklyMaintenanceWindow.hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
+           
+         > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
@@ -435,7 +439,7 @@ description: При заполнении хранилища более чем н
              "maintenance_window": {
                "weekly_maintenance_window": {
                  "day": "<день_недели>",
-                 "hour": "<час_дня>"
+                 "hour": "<порядковый_номер_часового_интервала>"
                }
              }
            }' \
@@ -457,8 +461,10 @@ description: При заполнении хранилища более чем н
 
      * `maintenance_window` — расписание окна технического обслуживания. Нужно, только если вы задали параметр `planned_usage_threshold`. Содержит следующие параметры:
 
-       * `day` — день недели в формате `DDD`, когда должно проходить обслуживание.
-       * `hour` — час дня в формате `HH`, когда должно проходить обслуживание. Возможные значения: от `1` до `24`.
+       * `weekly_maintenance_window.day` — день недели: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
+       * `weekly_maintenance_window.hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
+           
+         > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
      Идентификатор кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 

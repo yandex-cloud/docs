@@ -3,7 +3,7 @@ When creating a cluster, you can select the following disk types for data storag
 * **Network SSDs** (`network-ssd`): Compromise solution: slower than local SSDs, network SSDs ensure data integrity in the event of {{ yandex-cloud }} hardware failure.
 * **Non-replicated SSDs** (`network-ssd-nonreplicated`): Network SSDs with higher performance achieved by eliminating redundancy.
 
-  This disk type is only available for **Intel Cascade Lake** and **Intel Ice Lake**. For a list of host classes and associated platforms, see [{#T}](../../../managed-valkey/concepts/instance-types.md).
+  This disk type is unavailable for **Intel Broadwell**. For a list of host classes and associated platforms, see [{#T}](../../../managed-valkey/concepts/instance-types.md).
 
   You can only expand this type of storage in 93 GB increments.
 
@@ -22,5 +22,7 @@ When creating a cluster, you can select the following disk types for data storag
   For a list of host classes and associated platforms, see [{#T}](../../../managed-valkey/concepts/instance-types.md).
 
   {% include [zone-d-disk-restrictions](../ru-central1-d-local-ssd.md) %}
+
+{% include [disk-block-size](../disk-block-size.md) %}
 
 {% include [available-storage](../available-storage.md) %}

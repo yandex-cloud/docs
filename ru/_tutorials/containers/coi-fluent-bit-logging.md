@@ -259,7 +259,7 @@ yc compute instance create \
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится лог-группа `default`, идентификатор которой вы указали в файле `spec.yaml`.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
   1. Выберите лог-группу `default`. На открывшейся странице отобразятся записи.
 
 - CLI {#cli}

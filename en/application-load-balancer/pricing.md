@@ -6,6 +6,7 @@ editable: false
 
 # {{ alb-full-name }} pricing policy
 
+
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
@@ -27,6 +28,8 @@ You can limit the number of load balancer resource units in its [autoscaling set
 The load balancer usage is billed hourly. You are charged for the maximum number of resource units that were running for an hour. When [creating](operations/application-load-balancer-create.md) an L7 load balancer, you can see its cost calculation in the [management console]({{ link-console-main }}) on the right.
 
 ### Cost calculation example {#example}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 A load balancer operates within a single availability zone. We use the default auto-scaling settings with the minimum of two resource units per zone and no limit on the maximum total number of units.
 

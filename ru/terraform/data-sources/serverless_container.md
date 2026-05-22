@@ -1,5 +1,5 @@
 ---
-subcategory: Cloud Logging
+subcategory: Serverless Containers
 ---
 
 # yandex_serverless_container (DataSource)

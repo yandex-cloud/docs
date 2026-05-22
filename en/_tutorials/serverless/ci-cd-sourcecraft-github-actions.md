@@ -32,7 +32,7 @@ You will use this [service account](../../iam/concepts/users/service-accounts.md
 
   1. Log in to the {{ yandex-cloud }} [management console]({{ link-console-main }}).
   1. On the left side of the screen, click the line with the name of the folder where you want to deploy your container.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `github-action`.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select these roles:
@@ -202,21 +202,15 @@ The repository will be created from the [yc-ci-cd-serverless]({{ link-src-main }
       * Folder where you previously deployed the cloud infrastructure and assigned a role to the service account.
       * `github-action` service account.
 
-        {% note tip %}
-
-        To re-request the list of clouds, folders, and service accounts from {{ yandex-cloud }}, click ![image](../../_assets/console-icons/arrow-rotate-right.svg) **Synchronize**. This can be of use if alongside creating a service connection you also created a folder or service account.
-
-        {% endnote %}
+        {% include [service-connection-synchronization](../../_includes/sourcecraft/service-connection-synchronization.md) %}
 
   1. Click **{{ ui-key.sourcecraft.serviceConnections.button_create-connection_uyK29 }}**.
 
-      Wait for the operation to complete. The page that opens will display the service connection details.
-
-      A {{ iam-full-name }} [workload identity federation](../../iam/concepts/workload-identity.md) will be automatically created in {{ yandex-cloud }}.
-
-      To view the parameters of the new OIDC provider, click the federation name under ![image](../../_assets/console-icons/cpus.svg) **{{ ui-key.sourcecraft.serviceConnections.title_oidc-federation_eC6Jw }}**.
-
 {% endlist %}
+
+{% include [service-connection-details](../../_includes/sourcecraft/service-connection-details.md) %}
+
+{% include [service-connection-repository-level](../../_includes/sourcecraft/service-connection-repository-level.md) %}
 
 ## Configure CI/CD {#config-ci-cd}
 
@@ -267,7 +261,8 @@ After saving the changes, the `demo-service-connection-workflow` workflow will s
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. Open the [management console]({{ link-console-main }}).
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. In the list, you should see `demo-serverless-container1`; select it.
 
       Under **{{ ui-key.yacloud.serverless-containers.section-revisions }}**, you should now see the container revision with the same timestamp as the [CI/CD process execution](#check-ci-cd).
@@ -301,7 +296,7 @@ After saving the changes, the `demo-service-connection-workflow` workflow will s
 
 ## Delete the resources you created {#clear-out}
 
-To stop paying for the resources you created:
+To stop incurring charges for the resources you created:
 1. [Delete](../../serverless-containers/operations/delete.md) the container.
 1. [Delete](../../container-registry/operations/docker-image/docker-image-delete.md) the Docker image.
 1. [Delete](../../container-registry/operations/registry/registry-delete.md) the registry.
@@ -309,8 +304,11 @@ To stop paying for the resources you created:
 ## See also {#see-also}
 
 * [Configuring CI/CD between {{ src-name }} and {{ sf-full-name }}](../../tutorials/serverless/ci-cd-sourcecraft-functions.md)
+* [Service connections]({{ link-src-docs }}/sourcecraft/concepts/service-connections)
 * [Configuring a service connection to {{ yandex-cloud }}]({{ link-src-docs }}/sourcecraft/operations/service-connections) in {{ src-name }}
 * [Integration with GitHub Actions in {{ src-name }}]({{ link-src-docs }}/sourcecraft/concepts/gh-actions)
+* [Using GitHub Actions in {{ src-full-name }} CI/CD]({{ link-src-docs }}/sourcecraft/operations/gh-actions)
+* [{{ GL }} pipelines in {{ src-name }} CI/CD]({{ link-src-docs }}/sourcecraft/concepts/gl-pipelines)
+* [Using a {{ GL }} pipeline in the {{ src-name }}]({{ link-src-docs }}/sourcecraft/operations/gl-pipelines) CI/CD
 * [serverless-functions repository in {{ src-name }}]({{ link-src-main }}/yandex-cloud-examples/serverless-functions)
 * [yc-ci-cd-serverless repository in {{ src-name }}]({{ link-src-main }}/sourcecraft/yc-ci-cd-serverless)
-* [Using a {{ GL }} pipeline in the {{ src-name }}]({{ link-src-docs }}/sourcecraft/operations/gl-pipelines) CI/CD

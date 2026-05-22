@@ -100,14 +100,71 @@ resource "yandex_datatransfer_transfer" "pgpg_transfer" {
 - `on_create_activate_mode` (String). Activation action on create a new incremental transfer. It is not part of the transfer parameter and is used only on create. One of `sync_activate`, `async_activate`, `dont_activate`. The default is `async_activate`.
 - `source_id` (String). Identifier of the source endpoint.
 - `target_id` (String). Identifier of the target endpoint.
+- `timeouts` [Block]. 
+  - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+  - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+  - `read` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+  - `update` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 - `transfer_id` (String). Identifier of the transfer to be returned.
  
  To get the list of all available transfers, make a [List] request.
 - `type` (String). Type of the transfer. One of SNAPSHOT_ONLY, INCREMENT_ONLY,
  SNAPSHOT_AND_INCREMENT
 - `warning` (*Read-Only*) (String). Error description if transfer has any errors.
+- `data_objects` [Block]. package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto
+
+  - `include_objects` (List Of String). package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto
+
+- `regular_snapshot` [Block]. Regular snapshots for the transfer, applicable only if transfer type is
+ SNAPSHOT_ONLY
+  - `disabled` [Block]. package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto
+
+  - `settings` [Block]. package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto
+
+    - `cron_expression` (String). Use a cron expression to schedule transfer regular snapshots in UTC time. 
+ The used cron expression format is 5 columns specifying the execution time
+ (minute, hour, day, month, day of the week), 
+ they can contain a numeric list separated by commas, a range of numbers
+ separated by a hyphen, symbols * or /.
+ only one of schedule or cron_expression should be set
+    - `increment_delay_seconds` (Number). Wait for transaction completion time, in seconds
+ Set load delay time to insure that current transactions on source are completed
+ and thus full data is visible for snapshot. 
+ This may be useful if source cannot guarantee that cursor values grows
+ monotonically - 
+ due to transaction race or well-known problem that serial id sequence does not
+ actually guarantee the order
+    - `schedule` (String). User predefined periods to schedule regular snapshots:
+ REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_15MIN,
+ REGULAR_SNAPSHOT_SCHEDULE_INTERVAL_HOUR, etc.
+ only one of schedule or cron_expression should be set
+    - `retry_config` [Block]. Regular snapshot retries, only for cloud installation
+      - `max_attempts` (Number). Number of attempts to retry regular snapshot in case of failure. Applicable only
+ for cloud installation.
+    - `tables` [Block]. Incremental tables configuration for regular snapshot. 
+ If not empty, each snapshot will copy only data changed since last snapshot
+ based on cursor column value.
+      - `cursor_column` (String). package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto
+
+      - `initial_state` (String). package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto
+
+      - `table_name` (String). package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto
+
+      - `table_namespace` (String). package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto
+
 - `replication_runtime` [Block]. Replication runtime parameters for the transfer
   - `yc_runtime` [Block]. package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto
+
+    - `flavor` (String). package: yandex.cloud.datatransfer.v1
 filename: yandex/cloud/datatransfer/v1/transfer.proto
 
     - `job_count` (Number). Number of workers in parallel replication.
@@ -116,6 +173,9 @@ filename: yandex/cloud/datatransfer/v1/transfer.proto
       - `process_count` (Number). Number of threads.
 - `runtime` [Block]. Runtime parameters for the transfer
   - `yc_runtime` [Block]. package: yandex.cloud.datatransfer.v1
+filename: yandex/cloud/datatransfer/v1/transfer.proto
+
+    - `flavor` (String). package: yandex.cloud.datatransfer.v1
 filename: yandex/cloud/datatransfer/v1/transfer.proto
 
     - `job_count` (Number). Number of workers in parallel replication.

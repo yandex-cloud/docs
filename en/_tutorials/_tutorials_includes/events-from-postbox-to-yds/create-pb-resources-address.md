@@ -17,7 +17,7 @@
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+      1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
       1. In the left-hand panel, select ![at](../../../_assets/console-icons/at.svg) **{{ ui-key.yacloud.postbox.label_identities }}** and click **{{ ui-key.yacloud.postbox.button_create-identity }}**.
       1. In the **{{ ui-key.yacloud.postbox.label_address }}** field, specify the domain you will use to send emails. You can use a domain of any level, as long as you own it.
       1. In the **{{ ui-key.yacloud.postbox.label_selector }}** field, specify a selector, e.g., `postbox`. Make sure to only use this selector in the resource record you create when [verifying domain ownership](#domain).

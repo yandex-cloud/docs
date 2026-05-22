@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/kms/cli-ref/
 editable: false
 ---
 
@@ -113,6 +114,10 @@ Syntax:
   - [yc kms symmetric-key set-primary-version](symmetric-key/set-primary-version.md) — Set primary version of the specified symmetric key
 
   - [yc kms symmetric-key update](symmetric-key/update.md) — Update the specified symmetric key
+
+- [yc kms v0](v0/index.md) — Manage Yandex Key Management Service resources
+
+
 
 #### Global Flags
 

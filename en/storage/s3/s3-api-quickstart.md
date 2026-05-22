@@ -19,7 +19,8 @@ With the AWS S3 API, you will create a bucket, upload an object to it, get a lis
 
 {% list tabs group=auth_keys %}
 
-- IAM token authentication {#iam-token}
+
+- Authentication with an IAM token {#iam-token}
 
   {% include [s3-api-auth-intro-iam-token](../../_includes/storage/s3-api-auth-intro-iam-token.md) %}
 
@@ -57,7 +58,8 @@ With the AWS S3 API, you will create a bucket, upload an object to it, get a lis
 
 {% list tabs group=auth_keys %}
 
-- IAM token authentication {#iam-token}
+
+- Authentication with an IAM token {#iam-token}
 
   1. Set the variables containing the required data:
 
@@ -94,6 +96,7 @@ With the AWS S3 API, you will create a bucket, upload an object to it, get a lis
       <
       * Connection #0 to host {{ s3-storage-host }} left intact
       ```
+
 
 - Static key authentication {#static-key}
 
@@ -198,7 +201,8 @@ With the AWS S3 API, you will create a bucket, upload an object to it, get a lis
 
 {% list tabs group=auth_keys %}
 
-- IAM token authentication {#iam-token}
+
+- Authentication with an IAM token {#iam-token}
 
   1. Set the variables containing the required data:
 
@@ -240,6 +244,7 @@ With the AWS S3 API, you will create a bucket, upload an object to it, get a lis
       <
       * Connection #0 to host {{ s3-storage-host }} left intact
       ```
+
 
 - Static key authentication {#static-key}
 
@@ -354,7 +359,8 @@ With the AWS S3 API, you will create a bucket, upload an object to it, get a lis
 
 {% list tabs group=auth_keys %}
 
-- IAM token authentication {#iam-token}
+
+- Authentication with an IAM token {#iam-token}
 
   1. Set the variables containing the required data:
 
@@ -412,6 +418,7 @@ With the AWS S3 API, you will create a bucket, upload an object to it, get a lis
           </Contents>
       </ListBucketResult>
       ```
+
 
 - Static key authentication {#static-key}
 
@@ -558,7 +565,8 @@ With the AWS S3 API, you will create a bucket, upload an object to it, get a lis
 
 {% list tabs group=auth_keys %}
 
-- IAM token authentication {#iam-token}
+
+- Authentication with an IAM token {#iam-token}
 
   1. Set the variables containing the required data:
 
@@ -605,6 +613,7 @@ With the AWS S3 API, you will create a bucket, upload an object to it, get a lis
       100    13  100    13    0     0     69      0 --:--:-- --:--:-- --:--:--    69
       * Connection #0 to host {{ s3-storage-host }} left intact
       ```
+
 
 - Static key authentication {#static-key}
 
@@ -731,7 +740,8 @@ The downloaded object was saved to the file whose path is specified in the `LOCA
 
 {% list tabs group=auth_keys %}
 
-- IAM token authentication {#iam-token}
+
+- Authentication with an IAM token {#iam-token}
 
   1. Set the variables containing the required data:
 
@@ -768,6 +778,7 @@ The downloaded object was saved to the file whose path is specified in the `LOCA
       <
       * Connection #0 to host {{ s3-storage-host }} left intact
       ```
+
 
 - Static key authentication {#static-key}
 
@@ -872,7 +883,8 @@ The downloaded object was saved to the file whose path is specified in the `LOCA
 
 {% list tabs group=auth_keys %}
 
-- IAM token authentication {#iam-token}
+
+- Authentication with an IAM token {#iam-token}
 
   1. Set the variables containing the required data:
 
@@ -907,6 +919,7 @@ The downloaded object was saved to the file whose path is specified in the `LOCA
       <
       * Connection #0 to host {{ s3-storage-host }} left intact
       ```
+
 
 - Static key authentication {#static-key}
 

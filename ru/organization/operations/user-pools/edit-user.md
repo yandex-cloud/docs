@@ -6,6 +6,8 @@ description: Следуя данной инструкции, вы сможете
 # Изменить данные пользователя
 
 
+{% include [organization-deny-user-listing](../../../_includes/organization/organization-deny-user-listing.md) %}
+
 Изменять пользовательские данные можно только у [локальных](../../../iam/concepts/users/accounts.md#local) пользователей.
 
 Чтобы изменить данные локального пользователя:
@@ -23,6 +25,7 @@ description: Следуя данной инструкции, вы сможете
       1. Измените имя пользователя, [домен](../../concepts/domains.md) и полное имя.
       1. Добавьте или измените адрес электронной почты.
       1. Разверните блок **{{ ui-key.yacloud_org.organization.userpools.title_personal-info }}** и измените имя, фамилию и номер телефона пользователя.
+      1. Разверните блок **Организационная информация** и укажите название компании, подразделение, должность и табельный номер пользователя.
       1. Нажмите кнопку **{{ ui-key.yacloud_org.organization.userpools.action_update-user }}**.
 
 - CLI {#cli}

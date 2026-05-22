@@ -2,6 +2,13 @@
 
 С помощью этой инструкции вы перенесете приложения {{ k8s }} с Ingress-контроллера {{ alb-name }} на новый контроллер Gwin для {{ managed-k8s-name }}.
 
+
+<iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/video/vplvlpozyvdp5qph62ue?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+[Смотреть видео на YouTube](https://www.youtube.com/watch?v=ohDONlU9pUs)
+
+
+
 Чтобы мигрировать приложение с Ingress-контроллера {{ alb-name }} на контроллер Gwin:
 
 1. [Установите Gwin](#gwin-install).
@@ -10,6 +17,10 @@
 1. [Проверьте корректность балансировки нагрузки](#check-load-balancing).
 1. [Перенаправьте трафик на новый балансировщик нагрузки](#dns-switch).
 1. [Удалите ненужные ресурсы](#clear-out).
+
+## Перед началом работы {#before-you-begin}
+
+Для работы скрипта конвертации в кластере должны быть описаны все [custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) из группы API `ingress.alb.yc.io`. Убедитесь, что установленный Helm-чарт с Ingress-контроллером имеет версию `0.2.9` или выше, либо установите [актуальные конфигурации ресурсов](../../../managed-kubernetes/alb-ref/index.md#ingress) вручную.
 
 ## Установите Gwin {#gwin-install}
 

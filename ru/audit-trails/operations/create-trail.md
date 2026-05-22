@@ -146,6 +146,8 @@ description: Следуя данной инструкции, вы сможете
 
       Чтобы настроить **{{ ui-key.yacloud.audit-trails.label_event-filter-section }}**:
 
+      {% include [events-by-default](../../_includes/audit-trails/events-by-default.md) %}
+
       1. Выберите один или несколько сервисов, с которых будут собираться события.
 
       1. Для каждого такого сервиса выберите [область сбора логов](../concepts/trail.md) — `Организация`, `Облако` или `Каталог`. События, которые попадут в логи, будут собираться в указанной области.
@@ -184,7 +186,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% cut "В YAML-спецификации:" %}
 
-  Создайте YAML-спецификацию, содержащую параметры трейла, и укажите этот файл в команде для создания трейла.
+  [Создайте YAML-спецификацию](prepare-spec.md#spec-for-create), содержащую параметры трейла, и укажите этот файл в команде для создания трейла.
   
   Этот способ упрощает работу с параметрами трейла и снижает вероятность ошибки. Кроме того, настроить регистрацию [событий уровня сервисов](../concepts/control-plane-vs-data-plane.md#data-plane-events) можно только с помощью YAML-спецификации.
 
@@ -314,6 +316,8 @@ description: Следуя данной инструкции, вы сможете
 - API {#api}
 
   Воспользуйтесь методом REST API [create](../api-ref/Trail/create.md) для ресурса [Trail](../api-ref/Trail/index.md) или вызовом gRPC API [TrailService/Create](../api-ref/grpc/Trail/create.md).
+
+  Чтобы упростить создание спецификации трейла, вы можете получить параметры существующего трейла с помощью метода REST API [get](../api-ref/Trail/get.md) для ресурса [Trail](../api-ref/Trail/index.md) или вызова gRPC API [TrailService/Get](../api-ref/grpc/Trail/get.md).
 
 {% endlist %}
 

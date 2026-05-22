@@ -22,6 +22,16 @@
 
 {% endnote %}
 
+## Queries-privileges-REST {#queries-privileges-rest}
+
+Если параметр `privileges` не указан, правило запрещает выполнение любых действий над запросами.
+
+{% note warning %}
+
+Нельзя указать разрешение `EXECUTE`, если в этом же правиле используется параметр `queryOwners`.
+
+{% endnote %}
+
 ## Tables-privileges {#table-ownership}
 
 Если параметр `privileges` не указан, правило запрещает выполнение любых действий над таблицами.

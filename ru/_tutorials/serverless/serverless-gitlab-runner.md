@@ -105,7 +105,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы будете создавать инфраструктуру.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Нажмите **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя [секрета](../../lockbox/concepts/secret.md) `gitlab-runner-token`.
   1. В блоке **{{ ui-key.yacloud.lockbox.forms.title_secret-data-section }}**:
@@ -178,7 +178,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Откройте [консоль управления]({{ link-console-main }}).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Укажите имя сервисного аккаунта `gitlab-runner-caller`.
   1. Нажмите ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роль `{{ roles-serverless-containers-invoker }}`.
@@ -186,10 +187,11 @@
   1. Аналогичным способом создайте сервисный аккаунт `gitlab-runner-lockbox-payload-viewer` без назначения роли.
   1. Назначьте сервисному аккаунту `gitlab-runner-lockbox-payload-viewer` роль на секрет:
 
-      1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+      1. Откройте [консоль управления]({{ link-console-main }}).
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
       1. Выберите секрет `gitlab-runner-token`.
       1. На панели слева выберите ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
-      1. Нажмите **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+      1. Нажмите **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
       1. Найдите и выберите сервисный аккаунт `gitlab-runner-lockbox-payload-viewer`.
       1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** и выберите роль `{{ roles-lockbox-payloadviewer }}`.
       1. Нажмите **{{ ui-key.yacloud.common.save }}**.
@@ -271,7 +273,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Откройте [консоль управления]({{ link-console-main }}).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Выберите созданный ранее сервисный аккаунт `gitlab-runner-caller`.
   1. На панели сверху нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
   1. В поле **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** выберите [область действия](../../iam/concepts/authorization/api-key.md#scoped-api-keys) `yc.serverless.containers.invoke`.
@@ -324,11 +327,18 @@
 
 {% endnote %}
 
+{% note info %}
+
+Если указать сеть в настройках контейнера, в каждой зоне доступности будет создана служебная подсеть из диапазона `198.19.0.0/16`. Такие подсети не отображаются в интерфейсе {{ yandex-cloud }}. Учитывайте это при [настройке](../../managed-gitlab/operations/configure-security-group.md) правил групп безопасности. Подробнее читайте в разделе [Сетевое взаимодействие](../../serverless-containers/concepts/networking.md).
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) в списке сервисов выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. Откройте [консоль управления]({{ link-console-main }}).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Нажмите **{{ ui-key.yacloud.serverless-containers.button_create-container }}**.
   1. Укажите имя контейнера `serverless-gitlab-runner`.
   1. Нажмите **{{ ui-key.yacloud.common.create }}**.
@@ -353,6 +363,7 @@
         1. В блоке **{{ ui-key.yacloud.serverless-containers.section_parameters }}**:
 
             1. В поле **{{ ui-key.yacloud.serverless-containers.label_service-account }}** укажите `gitlab-runner-lockbox-payload-viewer`.
+            1. (Опционально) В поле **{{ ui-key.yacloud.vpc.label_network }}** укажите или [создайте](../../vpc/operations/network-create.md) сеть, в которой будет размещаться контейнер.
             1. В поле **{{ ui-key.yacloud.serverless-containers.label_timeout }}** укажите нужное значение, например `600 {{ ui-key.yacloud.common.units.label_time-sec_many }}`.
 
         1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.title_ephemeral-storage }}**:

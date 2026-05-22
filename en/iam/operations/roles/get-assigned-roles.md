@@ -15,6 +15,12 @@ You can view a list of inherited roles for the folder or the cloud in the manage
 
 [Learn](../../concepts/access-control/resources-with-access-control.md) which resources you can assign a role for.
 
+{% note info %}
+
+{% include [access-control-vs-roles-notice](../../../_includes/iam/access-control-vs-roles-notice.md) %}
+
+{% endnote %}
+
 To view assigned roles:
 
 {% list tabs group=instructions %}
@@ -27,7 +33,7 @@ To view assigned roles:
 
   To view the roles of a [service account](../../concepts/users/service-accounts.md) for a folder and its child resources:
 
-  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder the service account belongs to.
+  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder the service account belongs to.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. The service account roles are listed in the **{{ ui-key.yacloud.iam.folder.service-accounts.column_roles }}** field.

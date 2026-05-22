@@ -11,13 +11,21 @@ description: Под техническим обслуживанием в {{ mkf-
 * плановое [автоматическое увеличение](./storage.md#auto-rescale) размера хранилища;
 * другие сервисные работы.
 
-Техническое обслуживание включает изменения в рамках одной мажорной версии {{ KF }}. О том, как происходит переход между мажорными версиями см. в разделе [{#T}](../operations/cluster-version-update.md).
+Техническое обслуживание включает изменения в рамках одной мажорной версии {{ KF }}. О том, как происходит переход между мажорными версиями, в разделе [{#T}](../operations/cluster-version-update.md).
 
 ## Окно обслуживания {#maintenance-window}
 
 Предпочтительное время технического обслуживания можно задать при [создании кластера](../operations/cluster-create.md) или [изменении его настроек](../operations/cluster-update.md):
 
 {% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}
+
+{% note info %}
+
+Чтобы просматривать информацию о заданиях на техническое обслуживание, необходима [роль](../security/index.md#managed-kafka-maintenanceTask-viewer) `managed-kafka.maintenanceTask.viewer` или выше.
+
+Чтобы управлять заданиями на техническое обслуживание, необходима [роль](../security/index.md#managed-kafka-maintenanceTask-editor) `managed-kafka.maintenanceTask.editor` или выше.
+
+{% endnote %}
 
 ## Порядок обслуживания {#maintenance-order}
 

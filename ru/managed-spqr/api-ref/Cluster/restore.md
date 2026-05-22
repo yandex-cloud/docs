@@ -19,18 +19,21 @@ apiPlayground:
             **string**
             Required field. Name of the new SPQR cluster. The name must be unique within the folder.
             The name can't be changed after the SPQR cluster is created.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
           pattern: '[a-zA-Z0-9_-]*'
           type: string
         description:
           description: |-
             **string**
             Description of the new SPQR cluster.
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
             **object** (map<**string**, **string**>)
             Custom labels for the SPQR cluster as `` key:value `` pairs. Maximum 64 per resource.
             For example, "project": "mvp" or "source": "dictionary".
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -46,7 +49,6 @@ apiPlayground:
           description: |-
             **enum** (Environment)
             Required field. Deployment environment of the new SPQR cluster.
-            - `ENVIRONMENT_UNSPECIFIED`
             - `PRODUCTION`: Stable environment with a conservative update policy: only hotfixes
             are applied during regular maintenance.
             - `PRESTABLE`: Environment with more aggressive update policy: new versions
@@ -66,6 +68,7 @@ apiPlayground:
             **[HostSpec](#yandex.cloud.mdb.spqr.v1.HostSpec)**
             Configurations for SPQR hosts that should be created for
             the cluster that is being created from the backup.
+            The number of elements must be greater than 0.
           type: array
           items:
             $ref: '#/definitions/HostSpec'
@@ -73,11 +76,13 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the network to create the SPQR cluster in.
+            The maximum string length in characters is 150.
           type: string
         folderId:
           description: |-
             **string**
             Required. ID of the folder to create the SPQR cluster in.
+            The maximum string length in characters is 50.
           type: string
         securityGroupIds:
           description: |-
@@ -133,7 +138,6 @@ apiPlayground:
           defaultRouteBehavior:
             description: |-
               **enum** (DefaultRouteBehavior)
-              - `DEFAULT_ROUTE_BEHAVIOR_UNSPECIFIED`
               - `BLOCK`
               - `ALLOW`
             type: string
@@ -144,6 +148,37 @@ apiPlayground:
           preferSameAvailabilityZone:
             description: '**boolean**'
             type: boolean
+          enhancedMultishardProcessing:
+            description: '**boolean**'
+            type: boolean
+          defaultTargetSessionAttrs:
+            description: |-
+              **enum** (TargetSessionAttrs)
+              - `READ_WRITE`
+              - `SMART_READ_WRITE`
+              - `READ_ONLY`
+              - `PREFER_STANDBY`
+              - `ANY`
+            type: string
+            enum:
+              - TARGET_SESSION_ATTRS_UNSPECIFIED
+              - READ_WRITE
+              - SMART_READ_WRITE
+              - READ_ONLY
+              - PREFER_STANDBY
+              - ANY
+          defaultCommitStrategy:
+            description: |-
+              **enum** (CommitStrategy)
+              - `BEST_EFFORT`
+              - `ONE_PC`
+              - `TWO_PC`
+            type: string
+            enum:
+              - COMMIT_STRATEGY_UNSPECIFIED
+              - BEST_EFFORT
+              - ONE_PC
+              - TWO_PC
       Resources:
         type: object
         properties:
@@ -289,13 +324,11 @@ apiPlayground:
           logLevel:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `DEBUG`
               - `INFO`
               - `WARNING`
               - `ERROR`
               - `FATAL`
-              - `PANIC`
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -304,7 +337,6 @@ apiPlayground:
               - WARNING
               - ERROR
               - FATAL
-              - PANIC
           balancer:
             description: |-
               **[BalancerSettings](#yandex.cloud.mdb.spqr.v1.BalancerSettings)**
@@ -396,7 +428,7 @@ apiPlayground:
           clusterId:
             description: |-
               **string**
-              Required field. 
+              Required field.
             type: string
         required:
           - clusterId
@@ -408,6 +440,7 @@ apiPlayground:
               **string**
               ID of the availability zone where the host resides.
               To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
+              The maximum string length in characters is 50.
             type: string
           subnetId:
             description: |-
@@ -415,6 +448,7 @@ apiPlayground:
               ID of the subnet that the host should belong to. This subnet should be a part
               of the network that the cluster belongs to.
               The network ID is set in the [Cluster.networkId](#yandex.cloud.mdb.spqr.v1.Cluster) field.
+              The maximum string length in characters is 50.
             type: string
           assignPublicIp:
             description: |-
@@ -430,7 +464,6 @@ apiPlayground:
             description: |-
               **enum** (Type)
               Required field. Type of the host to be deployed.
-              - `TYPE_UNSPECIFIED`
               - `ROUTER`: A SPQR Router host.
               - `COORDINATOR`: A SPQR Coordinator host.
               - `INFRA`: A SPQR Infra host (router+coordinator)
@@ -451,6 +484,7 @@ apiPlayground:
               **string**
               Name of the shard that the host belongs to.
               If empty, host doesn't belong to any shard
+              The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
             pattern: '[a-zA-Z0-9_-]*'
             type: string
           mdbPostgresql:
@@ -488,7 +522,10 @@ POST https://{{ api-host-mdb }}/managed-spqr/v1/clusters:restore
             "string"
           ],
           "defaultRouteBehavior": "string",
-          "preferSameAvailabilityZone": "boolean"
+          "preferSameAvailabilityZone": "boolean",
+          "enhancedMultishardProcessing": "boolean",
+          "defaultTargetSessionAttrs": "string",
+          "defaultCommitStrategy": "string"
         },
         "resources": {
           "resourcePresetId": "string",
@@ -524,7 +561,10 @@ POST https://{{ api-host-mdb }}/managed-spqr/v1/clusters:restore
             "string"
           ],
           "defaultRouteBehavior": "string",
-          "preferSameAvailabilityZone": "boolean"
+          "preferSameAvailabilityZone": "boolean",
+          "enhancedMultishardProcessing": "boolean",
+          "defaultTargetSessionAttrs": "string",
+          "defaultCommitStrategy": "string"
         },
         "coordinator": "object"
       },
@@ -586,19 +626,24 @@ To get the backup ID, use a [ClusterService.ListBackups](/docs/managed-spqr/api-
 || name | **string**
 
 Required field. Name of the new SPQR cluster. The name must be unique within the folder.
-The name can't be changed after the SPQR cluster is created. ||
+The name can't be changed after the SPQR cluster is created.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || description | **string**
 
-Description of the new SPQR cluster. ||
+Description of the new SPQR cluster.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
 Custom labels for the SPQR cluster as `` key:value `` pairs. Maximum 64 per resource.
-For example, "project": "mvp" or "source": "dictionary". ||
+For example, "project": "mvp" or "source": "dictionary".
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 || environment | **enum** (Environment)
 
 Required field. Deployment environment of the new SPQR cluster.
 
-- `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`: Stable environment with a conservative update policy: only hotfixes
 are applied during regular maintenance.
 - `PRESTABLE`: Environment with more aggressive update policy: new versions
@@ -609,13 +654,19 @@ Required field. Configuration for the SPQR cluster to be created. ||
 || hostSpecs[] | **[HostSpec](#yandex.cloud.mdb.spqr.v1.HostSpec)**
 
 Configurations for SPQR hosts that should be created for
-the cluster that is being created from the backup. ||
+the cluster that is being created from the backup.
+
+The number of elements must be greater than 0. ||
 || networkId | **string**
 
-Required field. ID of the network to create the SPQR cluster in. ||
+Required field. ID of the network to create the SPQR cluster in.
+
+The maximum string length in characters is 150. ||
 || folderId | **string**
 
-Required. ID of the folder to create the SPQR cluster in. ||
+Required. ID of the folder to create the SPQR cluster in.
+
+The maximum string length in characters is 50. ||
 || securityGroupIds[] | **string**
 
 User security groups ||
@@ -682,13 +733,11 @@ Configuration and resource allocation for SPQR Infra (router+coordinator) hosts.
 Password of the SPQR console. ||
 || logLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `DEBUG`
 - `INFO`
 - `WARNING`
 - `ERROR`
-- `FATAL`
-- `PANIC` ||
+- `FATAL` ||
 || balancer | **[BalancerSettings](#yandex.cloud.mdb.spqr.v1.BalancerSettings)**
 
 Configuration for SPQR Balancer. ||
@@ -716,10 +765,22 @@ Configuration of a SPQR router.
 || timeQuantiles[] | **string** ||
 || defaultRouteBehavior | **enum** (DefaultRouteBehavior)
 
-- `DEFAULT_ROUTE_BEHAVIOR_UNSPECIFIED`
 - `BLOCK`
 - `ALLOW` ||
 || preferSameAvailabilityZone | **boolean** ||
+|| enhancedMultishardProcessing | **boolean** ||
+|| defaultTargetSessionAttrs | **enum** (TargetSessionAttrs)
+
+- `READ_WRITE`
+- `SMART_READ_WRITE`
+- `READ_ONLY`
+- `PREFER_STANDBY`
+- `ANY` ||
+|| defaultCommitStrategy | **enum** (CommitStrategy)
+
+- `BEST_EFFORT`
+- `ONE_PC`
+- `TWO_PC` ||
 |#
 
 ## Resources {#yandex.cloud.mdb.spqr.v1.Resources}
@@ -843,12 +904,16 @@ NOTE: Do not propagate to public API until Serverless integration is required. |
 || zoneId | **string**
 
 ID of the availability zone where the host resides.
-To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request. ||
+To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/Zone/list#List) request.
+
+The maximum string length in characters is 50. ||
 || subnetId | **string**
 
 ID of the subnet that the host should belong to. This subnet should be a part
 of the network that the cluster belongs to.
-The network ID is set in the [Cluster.networkId](#yandex.cloud.mdb.spqr.v1.Cluster) field. ||
+The network ID is set in the [Cluster.networkId](#yandex.cloud.mdb.spqr.v1.Cluster) field.
+
+The maximum string length in characters is 50. ||
 || assignPublicIp | **boolean**
 
 Whether the host should get a public IP address on creation.
@@ -863,7 +928,6 @@ Possible values:
 
 Required field. Type of the host to be deployed.
 
-- `TYPE_UNSPECIFIED`
 - `ROUTER`: A SPQR Router host.
 - `COORDINATOR`: A SPQR Coordinator host.
 - `INFRA`: A SPQR Infra host (router+coordinator)
@@ -873,7 +937,9 @@ Required field. Type of the host to be deployed.
 || shardName | **string**
 
 Name of the shard that the host belongs to.
-If empty, host doesn't belong to any shard ||
+If empty, host doesn't belong to any shard
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || mdbPostgresql | **[MDBPostgreSQL](#yandex.cloud.mdb.spqr.v1.MDBPostgreSQL)** ||
 |#
 
@@ -886,7 +952,7 @@ Configuration for MDB PostgreSQL host
 ||Field | Description ||
 || clusterId | **string**
 
-Required field.  ||
+Required field. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -937,7 +1003,10 @@ Required field.  ||
               "string"
             ],
             "defaultRouteBehavior": "string",
-            "preferSameAvailabilityZone": "boolean"
+            "preferSameAvailabilityZone": "boolean",
+            "enhancedMultishardProcessing": "boolean",
+            "defaultTargetSessionAttrs": "string",
+            "defaultCommitStrategy": "string"
           },
           "resources": {
             "resourcePresetId": "string",
@@ -973,7 +1042,10 @@ Required field.  ||
               "string"
             ],
             "defaultRouteBehavior": "string",
-            "preferSameAvailabilityZone": "boolean"
+            "preferSameAvailabilityZone": "boolean",
+            "enhancedMultishardProcessing": "boolean",
+            "defaultTargetSessionAttrs": "string",
+            "defaultCommitStrategy": "string"
           },
           "coordinator": "object"
         },
@@ -1164,7 +1236,6 @@ Custom labels for the SPQR cluster as `` key:value `` pairs. Maximum 64 per reso
 
 Deployment environment of the SPQR cluster.
 
-- `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`: Stable environment with a conservative update policy: only hotfixes
 are applied during regular maintenance.
 - `PRESTABLE`: Environment with more aggressive update policy: new versions
@@ -1268,13 +1339,11 @@ SPQR Infra (router+coordinator) settings. ||
 
 SPQR default log level
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `DEBUG`
 - `INFO`
 - `WARNING`
 - `ERROR`
-- `FATAL`
-- `PANIC` ||
+- `FATAL` ||
 || balancer | **[BalancerSettings](#yandex.cloud.mdb.spqr.v1.BalancerSettings2)**
 
 SPQR Balancer settings. ||
@@ -1298,10 +1367,22 @@ Configuration of a SPQR router.
 || timeQuantiles[] | **string** ||
 || defaultRouteBehavior | **enum** (DefaultRouteBehavior)
 
-- `DEFAULT_ROUTE_BEHAVIOR_UNSPECIFIED`
 - `BLOCK`
 - `ALLOW` ||
 || preferSameAvailabilityZone | **boolean** ||
+|| enhancedMultishardProcessing | **boolean** ||
+|| defaultTargetSessionAttrs | **enum** (TargetSessionAttrs)
+
+- `READ_WRITE`
+- `SMART_READ_WRITE`
+- `READ_ONLY`
+- `PREFER_STANDBY`
+- `ANY` ||
+|| defaultCommitStrategy | **enum** (CommitStrategy)
+
+- `BEST_EFFORT`
+- `ONE_PC`
+- `TWO_PC` ||
 |#
 
 ## Resources {#yandex.cloud.mdb.spqr.v1.Resources2}
@@ -1436,7 +1517,6 @@ Weelky maintenance window settings.
 
 Day of the week (in `DDD` format).
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`
 - `TUE`
 - `WED`
@@ -1446,7 +1526,9 @@ Day of the week (in `DDD` format).
 - `SUN` ||
 || hour | **string** (int64)
 
-Hour of the day in UTC (in `HH` format). ||
+Hour of the day in UTC (in `HH` format).
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## MaintenanceOperation {#yandex.cloud.mdb.spqr.v1.MaintenanceOperation}
@@ -1457,7 +1539,9 @@ A planned maintenance operation.
 ||Field | Description ||
 || info | **string**
 
-Information about this maintenance operation. ||
+Information about this maintenance operation.
+
+The maximum string length in characters is 256. ||
 || delayedUntil | **string** (date-time)
 
 Time until which this maintenance operation is delayed.

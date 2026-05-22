@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/mfa-enforcement/create
 editable: false
 ---
 
@@ -23,6 +24,7 @@ Set the ID of the organization to use. ||
 
 Supported values:
 any-mfa - any MFA factors
+`any-except-sms` - any MFA factors except SMS
 `phr` - phishing-resistant MFA factors ||
 || `--ttl` | `duration`
 

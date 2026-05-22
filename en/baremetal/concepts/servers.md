@@ -2,15 +2,19 @@
 
 A {{ baremetal-name }} server is a physical server connected to the [network](./network.md) via two or more 1 Gbps, 10 Gbps, or 25 Gbps [network interfaces](#network-interfaces). Its hardware and network resources are physically isolated and can be accessed only by their lessee.
 
-Servers come either in one of the [stock configurations](./server-configurations.md#standard) or a [configuration](./server-configurations.md#custom) built as per the user's [specification](../operations/servers/custom-server-lease.md).
+The server can be provided to the user in one of the [stock configurations](./server-configurations.md), a [custom configuration](./server-custom-configurations.md) built as per the user's [specification](../operations/servers/custom-server-lease.md), or an [on-request configuration](./server-individual-configurations.md) with individual hardware characteristics.
 
 {% include [bios-settings-warning](../../_includes/baremetal/bios-settings-warning.md) %}
 
-## Server lease {#server-lease}
+{% include [bmc-settings-change-warning](../../_includes/baremetal/bmc-settings-change-warning.md) %}
 
-You can lease a stock configuration server for one day, one month, three months, six months, or one year. You can view the configurations available for lease in each [pool](#server-pools) when ordering a server in the [management console]({{ link-console-main }}). 
+## Renting servers {#server-lease}
 
-You can lease a custom-configured server for one month, six months, or one year.
+You can rent a stock configuration server for one day, one month, three months, six months, or one year. You can view the configurations available for rent in each [pool](#server-pools) when ordering a server in the [management console]({{ link-console-main }}).
+
+You can rent a [custom-configured](./server-custom-configurations.md) server for one month, six months, or one year.
+
+The terms and conditions of renting an [on-request configuration](./server-individual-configurations.md) are determined on case-by-case basis.
 
 ## Server access {#server-access}
 
@@ -36,8 +40,8 @@ When leasing a sever, you can select your configurations based on redundant powe
 
 Any {{ baremetal-name }} server [configuration](./server-configurations.md) includes at least two [network interfaces](https://en.wikipedia.org/wiki/Network_interface_controller):
 
-* [Public](./network.md#public-network) network interface.
-* [Private](./network.md#private-network) network interface.
+* [Public](./public-network.md) network interface.
+* [Private](./private-network.md) network interface.
 
 In total, there may be more than two network interfaces:
 * In configurations with 10 Gbps and 25 Gbp NICs, in addition to the primary (high-speed) network interfaces, server diagnostic tools may display two more (inactive) network interfaces.
@@ -47,12 +51,18 @@ In total, there may be more than two network interfaces:
 
     Network interfaces connected to the same network are combined into aggregation groups at the OS level, which increases the network connection speed and ensures fault tolerance.
 
+{% note info %}
+
+You can [attach](../operations/servers/set-up-tagged-vlan.md) several [private subnets](./private-network.md#private-subnet) to the server's network interface (or MC-LAG aggregation group) connected to a [private network](./private-network.md) at the same time.
+
+{% endnote %}
+
 ## Server statuses {#server-status}
 
 A server can have one of the following statuses:
 
 * `PROVISIONING`: Server is being prepared to be issued to the user. You get your stock configuration server within anywhere from 30 seconds to several minutes. A custom-configured server takes up to four calendar days to be built and started.
-* `RUNNING`: Leased server is fully available to the user. In this status, the server's power supply can be turned on or off.
+* `RUNNING`: Rented server is fully available to the user. In this status, the server's power supply can be turned on or off.
 * `STARTING`: Server is being powered up.
 * `STOPPING`: Server is being powered down.
 * `RESTARTING`: Server is rebooting.
@@ -61,19 +71,22 @@ A server can have one of the following statuses:
 * `QUARANTINING`: Server is being [quarantined](#quarantine).
 * `QUARANTINED`: Server is quarantined. Users cannot access quarantined servers over the network or through a KVM console.
 * `RETURNING_FROM_QUARANTINE`: Server is returning from quarantine, with access being restored over the network and through a KVM console.
-* `ERROR`: Error has occurred, the KVM console is unavailable. Please contact [support]({{ link-console-support }}).
+* `DELETING`: Server deletion is in progress. It may take several hours to completely delete the server and wipe all disks.
+* `ERROR`: Error has occurred, the KVM console is unavailable. Contact [support]({{ link-console-support }}).
 
 ## Quarantine {#quarantine}
 
 Quarantine: A transition state before server lease is fully terminated. In this state, the server is still listed in the user's directory. Users cannot access quarantined servers over the network or through a KVM console, but the server retains all user data and settings. The quarantine period is 72 hours. Following this period, the settings and data get completely deleted from the server, and the server itself gets removed from the user's directory.
 
-At any time during the quarantine period, you can restore the server for further use. To restore the server, contact [support]({{ link-console-support }}).
+At any time during the quarantine period, you can restore the server for further use. For more information, see [support]({{ link-console-support }}).
 
 {% note info %}
 
-A quarantined server does consume the server number [quota](./limits.md) but is [free of charge](../pricing.md).
+Servers with the `QUARANTINING`, `QUARANTINED`, `RETURNING_FROM_QUARANTINE`, or `DELETING` status are counted towards the [total quota](./limits.md) for the number of servers.
 
-If a server is not restored for further use during the quarantine period, its quarantine time will be included into the paid lease term. 
+Servers with the `QUARANTINING`, `QUARANTINED`, `RETURNING_FROM_QUARANTINE`, or `DELETING` status are not billable.
+
+If a server is restored for further use during the quarantine period, its quarantine time will be included into the paid rent period. 
 
 {% endnote %}
 

@@ -5,64 +5,73 @@ description: This article provides a checklist of measures for authentication, a
 
 # Authentication and authorization security checklist
 
-This section provides recommendations on how to make the best use of {{ yandex-cloud }} services for secure authentication, authorization, and resource access control.
+This section provides recommendations for protecting authentication, authorization, and access to {{ yandex-cloud }} resources.
 
 ## Accounts {#accounts}
 
-&#x2713; **Yandex account protection**:
+&#x2713; **Protect your Yandex accounts**:
 
-   * Enable [two-factor authentication](https://yandex.ru/support/passport/authorization/twofa.html) for your Yandex ID and for user accounts within your organization.
-   * Keep your [OAuth token](../../iam/concepts/authorization/oauth-token.md) confidential. If someone might have discovered your OAuth token, [invalidate it](https://yandex.ru/dev/oauth/doc/dg/reference/token-invalidate-docpage/) and issue a new one. Avoid using your OAuth token for authentication if you can use an IAM token. OAuth tokens are valid for 1 year while IAM tokens are valid for {{ iam-token-lifetime }}.
+   * Enable [two-factor authentication](https://yandex.ru/support/passport/authorization/twofa.html) for your [Yandex ID](../../iam/concepts/users/accounts.md#passport) and for user accounts within the organization.
+   * Store your [OAuth token](../../iam/concepts/authorization/oauth-token.md) in a secret. If your token has been compromised, [revoke it](https://yandex.ru/dev/oauth/doc/dg/reference/token-invalidate-docpage/) and issue a new one. Where possible, use an IAM token: it is valid for {{ iam-token-lifetime }}, whereas an OAuth token, for one year.
 
-&#x2713; **Identity federation (Single Sign-On, SSO)**: For the purpose of centralized account management, use [SAML-compatible identity federations](../../organization/concepts/add-federation.md). By using identity federations, a business can set up Single Sign-On to {{ yandex-cloud }} via their IdP server. This will allow your employees to use their corporate accounts for accessing {{ yandex-cloud }} services and enable you to manage users via the {{ yandex-cloud }} management console. Configure two-factor authentication on the identity provider side.
+&#x2713; **Configure MFA for federated and local accounts**: Enable [multi-factor authentication](../../organization/concepts/mfa.md) (MFA) for [federated](../../iam/concepts/users/accounts.md#saml-federation) and [local](../../iam/concepts/users/accounts.md#local) accounts and set requirements in MFA policies.
+
+&#x2713; **Use an identity federation**: Configure a [SAML-compatible identity federation](../../organization/concepts/add-federation.md) to allow your employees to log in to {{ yandex-cloud }} using external corporate accounts.
+
+&#x2713; **Use user pools for local accounts**: [User pools](../../organization/concepts/user-pools.md) allow you to manage local users, domains, access permissions, and authentication settings in a centralized way.
+
+&#x2713; **Configure SSO for external systems**: Use [{{ org-full-name }} applications](../../organization/concepts/applications.md), if you want {{ yandex-cloud }} to act as an identity provider (IdP) for external services.
 
 ## Roles and resources {#resources-and-roles}
 
-&#x2713; **Least privilege principle**: [Assign service roles (e.g., `compute.images.user`) instead of primitive ones (e.g., `auditor`, `viewer`, `editor`, or `admin`). See the [list of all roles](../../iam/roles-reference.md) for details.
+&#x2713; **Adhere to the least privilege principle**: [Assign](../../iam/operations/roles/grant.md) service roles instead of primitive ones and grant only those permissions that are currently required. Keep [role inheritance](../../iam/concepts/access-control/index.md#inheritance) in mind and assign the [administrator](../../iam/roles-reference.md#admin), [owner](../../resource-manager/security/index.md#resource-manager-clouds-owner), and `editor` roles only to those users who really need them.
 
-   * Assign only roles you need right now. Do not assign roles you may only need in the future.
-   * Note that when you assign a role for a folder, cloud, or organization, [all the nested resources will inherit](../../iam/concepts/access-control/index.md#inheritance) this role's permissions.
-   * Assign the [admin](../../iam/roles-reference.md#admin) role only to users whose duties involve managing access to resources. 
-   * Assign the cloud or organization [owner](../../resource-manager/security/index.md#resource-manager-clouds-owner) role only to users whose duties involve performing any actions with resources. An administrator can take away another administrator's access permissions, and an owner can revoke a role from another owner.
-   * Assign users service and primitive level `editor` roles to enable them to create and delete resources.
-   * Use [impersonation](../../iam/concepts/access-control/impersonation.md) to allow users to manage cloud resources on behalf of a service account. Use service accounts with the required roles rather than assigning roles to specific users. This approach temporarily expands user permissions without generating static credentials for the user.
+&#x2713; **Use access policies**: Manage permissions for operations in a folder, cloud, or organization for all subject types using [access policies](../../iam/concepts/access-control/access-policies.md).
 
-&#x2713; **Using the {{ roles-auditor }} role to prevent access to user data**: Assign the `{{ roles-auditor }}` role (the role with least privilege and without access to service data) to users who need no access to data, such as external contractors or auditors. To control access more selectively and implement the principle of least privilege, use the `{{ roles-auditor }}` role by default.
+&#x2713; **Assign `{{ roles-auditor }}` where data access is not required**: This role suits, e.g., external contractors and auditors, helping you observe the least privilege principle.
 
-&#x2713; **billing.accounts.owner protection**: After performing the initial operations, do not use an account with this role. To manage a billing account, assign the `admin`, `editor`, or `viewer` role for the billing account to a dedicated employee with a federated account.
+&#x2713; **Protect privileged roles**: Assign these roles to federated or local accounts but not Yandex acccounts. This way, you can apply MFA and achieve centralized access management.
 
-&#x2713; **organization-manager.organizations.owner protection**: Grant the `organization-manager.organizations.owner` role to a federated account, then delete the Yandex account with this role from your organization. To mitigate the risks of possible federation failures, follow the steps described in [Deleting a Yandex account from an organization](../operations/account-deletion.md).
+   * **Limit the use of `billing.accounts.owner`**: Use this role only for initial setup and occasional changes. For day-to-day billing account management, assign the `admin`, `editor`, or `viewer` role to an employee. For a Yandex ID with the `billing.accounts.owner` role, enable 2FA, set a complex password, and use it only if you have to.
 
-&#x2713; **Using a correct resource model**: When developing an access model for your infrastructure, use the following approach:
+   * **Protect `organization-manager.organizations.owner`**: Delegate the role to a federated or local account, then delete the Yandex account with this role from your organization. To protect your reserved Yandex ID, use a complex password and log in only if the federation operates abnormally. See the steps in [Deleting a Yandex account from an organization](../operations/account-deletion.md).
 
-   * Group resources by purpose and store them in separate folders. To ensure the strictest isolation, place them in a separate cloud.
-   * Place any critical resources in a separate folder or cloud. These include resources related to the processing of payment data, personal data, and trade secret data.
-   * Put shared resources (e.g., network and security groups) into a separate shared resource folder (if you separate components into folders).
+&#x2713; **Audit access permissions on a regular basis**: Check permissions of users and service accounts using [{{ ciem-name }}](../../security-deck/concepts/ciem.md) or the [{{ yandex-cloud }} CLI](../../cli/), revoke excessive roles, and block or delete unused accounts that are over 30 days old.
+
+&#x2713; **Use a correct resource model**:
+
+   * Group resources by purpose and place them in separate folders or, for stricter isolation, separate clouds.
+   * Isolate critical resources (e.g., related to payment or personal data) in separate folders or clouds.
+   * Place shared resources (e.g., network and security groups) in a separate folder for shared resources.
 
 ## Service accounts {#service-accounts}
 
-&#x2713; **Using impersonation where feasible**: [Impersonation](../../iam/operations/sa/impersonate-sa.md) allows a user to perform actions under a service account and to temporarily extend user permissions without generating static credentials for the user.
+&#x2713; **Use service accounts for automation**: You can check the date and time of the last authentication on the service account page in the management console.
 
-&#x2713; **Using a service account for operations from within a virtual machine**: [Link a service account to the VM](../../compute/operations/vm-connect/auth-inside-vm.md). Thus, you will no longer need to store your service account keys on the VM for authentication: your IAM token will be available via a [metadata service link](../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm).
+&#x2713; **Create separate service accounts for different tasks**: This makes it easier to limit roles and revoke access without affecting other processes.
 
-&#x2713; **Using an IAM token for authentication**: If you need to use static credentials, consider using an [IAM token](../../iam/concepts/authorization/iam-token.md). Keys have an unlimited lifetime, while IAM tokens are valid for {{ iam-token-lifetime }}. If the IAM token has been [compromised](../../iam/operations/compromised-credentials.md) or you no longer plan to use it, [revoke](../../iam/operations/iam-token/revoke-iam-token.md) it.
+&#x2713; **Use impersonation where possible**: [Impersonation](../../iam/operations/sa/impersonate-sa.md) allows you to temporarily act under a service account without generating static credentials.
 
-&#x2713; **Using service accounts**: Use [service accounts](../../iam/concepts/users/service-accounts.md) to automate your work with {{ yandex-cloud }}. You can check the date and time of the last authentication on the service account information page in the management console: this information allows you to track cases of unauthorized use of service accounts.
+&#x2713; **Use IAM tokens**: An [IAM token](../../iam/concepts/authorization/iam-token.md) is valid for {{ iam-token-lifetime }} and, therefore, is more secure than long-lived keys. Compromised or excessive tokens should be [revoked](../../iam/operations/iam-token/revoke-iam-token.md). For more on issuing a token, see [this guide](../../iam/operations/iam-token/create-for-sa.md).
 
-&#x2713; **Dedicated service accounts for different tasks**: This will enable you to assign to service accounts only the roles you really need. You can revoke roles from a service account or delete it without affecting other service accounts.
+&#x2713; **Control the use of keys**: On the service account page in the [management console]({{ link-console-main }}), track the date and time of the last use of the keys and delete unused ones.
 
-&#x2713; **Key usage monitoring**: In the [management console]({{ link-console-main }}), the page with the service account information shows the last use date and time for each key. This information allows you to track down unauthorized use of keys and to delete unused keys without the risk of disrupting {{ yandex-cloud }} services.
+&#x2713; **Limit scopes and validity periods of API keys**: Create keys only with required [scopes](../../iam/concepts/authorization/api-key.md#scoped-api-keys) and minimum validity periods.
 
-&#x2713; **Storing service account keys in secrets**: If using static keys, [store them in {{ lockbox-name }} secrets](../../lockbox/tutorials/static-key-in-lockbox/index.md).
+&#x2713; **Rotate service account keys regularly**: Make sure you rotate [authorized](../../iam/concepts/authorization/key.md) and [static](../../iam/concepts/authorization/access-key.md) keys without a validity period manually at least every 90 days. Consider using [ephemeral keys](../../iam/concepts/authorization/ephemeral-keys.md) or a [secure token service](../../iam/concepts/authorization/sts.md) to access {{ objstorage-name }}.
 
-&#x2713; **Periodic rotation of service account keys**: Keys with no expiration date ([authorized keys](../../iam/concepts/authorization/key.md) and [static keys](../../iam/concepts/authorization/access-key.md)) require [manual rotation](../../iam/operations/compromised-credentials.md#key-reissue). You can check out the date when a key was created in its properties. Perform key rotation at least once in 90 days.
+&#x2713; **Use workload identity federations**: [Workload identity federations](../../iam/concepts/workload-identity.md) allow you to exchange tokens from external OIDC-compatible systems for IAM tokens without using long-lived credentials.
+
+&#x2713; **Use ID tokens for external systems**: You can use [ID tokens](../../iam/concepts/authorization/id-token.md) to authenticate service accounts in external OIDC-compatible systems.
+
+&#x2713; **Associate a service account with a virtual machine for operations from within the VM**: This way, you will not need to store keys on the VM, and the IAM token will be available via the [metadata service](../../compute/operations/vm-connect/auth-inside-vm.md#auth-inside-vm).
 
 ## Secrets {#secrets}
 
-&#x2713; **Scanning for {{ yandex-cloud }} secrets in public sources**: {{ yandex-cloud }} can scan open sources for multiple types of secrets: API keys, {{ iam-short-name }} cookies, {{ iam-short-name }} tokens, static access keys, OAuth tokens and {{ captcha-name }} server keys. You can learn more about scanning for various types of secrets [here](../operations/search-secrets.md).
+&#x2713; **Track {{ yandex-cloud }} secrets in public sources**: The service allows detecting API keys, {{ iam-short-name }} cookies, IAM tokens, static access keys, OAuth tokens, and {{ captcha-full-name }} server keys. [Read more](../operations/search-secrets.md).
 
-&#x2713; **Handling compromised secrets**: If secrets were compromised, revoke them and issue new ones; check for unauthorized actions and delete unauthorized resources. Report the incident to the [support]({{ link-console-support }}) team and protect your secrets against vulnerabilities. You can learn more about action plan for handling compromised secrets [here](../../iam/operations/compromised-credentials.md).
+&#x2713; **Revoke publicly exposed secrets**: Revoke and reissue them, check for unauthorized actions, delete redundant resources, and report incidents to [support]({{ link-console-support }}). [Read more](../../iam/operations/compromised-credentials.md).
 
-&#x2713; **Using {{ lockbox-name }} secrets for storing access keys and tokens**: Store keys and tokens in [{{ lockbox-name }} secrets](../../lockbox/tutorials/static-key-in-lockbox/index.md) and use their payload when you need to apply a key or token.
+&#x2713; **Store keys and tokens in {{ lockbox-name }}**: Store them in [{{ lockbox-name }} secrets](../../lockbox/tutorials/static-key-in-lockbox/index.md) and use the secret payload when accessing them.
 
-&#x2713; **Using API keys with limited access**: create API keys with minimum required [scope](../../iam/concepts/authorization/api-key.md#scoped-api-keys) and validity period for working with the list of required services to lower the risk of unauthorized use of the keys.
+&#x2713; **Use {{ oslogin }} for centralized SSH access**: [{{ oslogin }}](../../organization/concepts/os-login.md) enables you to manage access to VMs via {{ iam-full-name }} and store SSH keys in {{ org-full-name }} profiles. To use the service, [enable access](../../organization/operations/os-login-access.md) at the organization level.

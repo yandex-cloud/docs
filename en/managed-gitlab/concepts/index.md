@@ -10,14 +10,14 @@ How {{ mgl-name }} works:
 
 ## {{ GL }} instance {#instance}
 
-A {{ GL }} _instance_ is the service's primary entity. It is a VM deployed in {{ yandex-cloud }}. {{ mgl-name }} takes care of its routine maintenance, such as storage fault tolerance, security updates, automated {{ GL }} version upgrades, and so on.
+A {{ GL }} _instance_ is the main entity in {{ mgl-name }}. It is a VM deployed in {{ yandex-cloud }}. {{ mgl-name }} takes care of its routine maintenance, such as ensuring storage fault tolerance, applying security patches, automatically upgrading the {{ GL }} version, and more.
 
 Users can mange instances from the [{{ yandex-cloud }} management console]({{ link-console-main }}), [CLI](../cli-ref/index.md), and [API](../api-ref/authentication.md).
 
 ## Instance configuration {#config}
 
 When creating an instance, you specify:
-* Instance type: [The number of vCPUs and the amount of RAM](../../compute/concepts/vm-platforms.md). Available instance types:
+* Instance type: [Number of vCPUs and RAM amount](../../compute/concepts/vm-platforms.md). Below are available instance types:
 
   | Type            | Computing resources |
   |----------------|------------------------|
@@ -26,7 +26,7 @@ When creating an instance, you specify:
   | s2.medium      | 8 vCPUs, 32 GB RAM      |
   | s2.large       | 16 vCPUs, 64 GB RAM     |
 
-  After you create an instance, you can [change its type](../operations/instance/instance-update.md) to a higher performing one.
+  After you create an instance, you can [upgrade its type](../operations/instance/instance-update.md) to a higher performing one.
 * [Subnet](../../vpc/concepts/network.md#subnet).
 
   {% include [GL CIDR Warning](../../_includes/managed-gitlab/cidr-note.md) %}
@@ -41,36 +41,68 @@ When creating an instance, you specify:
 
 ## {{ GLR }} {#runners}
 
-[{{ GLR }}](https://docs.gitlab.com/runner/) is an open-source application which executes {{ GL }} [CI/CD](https://en.wikipedia.org/wiki/CI/CD) pipeline jobs based on instructions from a special file named `.gitlab-ci.yml`. It helps run automated builds in [{{ managed-k8s-name }} clusters](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and on [{{ compute-name }} VMs](../../compute/concepts/vm.md).
+[{{ GLR }}](https://docs.gitlab.com/runner/) is an open-source application that runs {{ GL }} [CI/CD](https://en.wikipedia.org/wiki/CI/CD) pipeline jobs based on instructions from a special file named `.gitlab-ci.yml`. It helps run automated builds in [{{ managed-k8s-name }} clusters](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) and on [{{ compute-name }} VMs](../../compute/concepts/vm.md).
 
 You can get started with {{ GLR }} in the following ways:
 
 * [Install {{ GLR }} in a {{ managed-k8s-name }} cluster](../../managed-kubernetes/operations/applications/gitlab-runner.md).
 * Create a {{ compute-name }} VM and [install {{ GLR }} on it manually](../tutorials/install-gitlab-runner.md#install).
-* [Use the management console to create a runner](../tutorials/install-gitlab-runner.md#create-runner) that will automatically deploy the specified number of {{ compute-name }} VMs.
+* [Create a runner managed by {{ yandex-cloud }}](#managed-runners).
 
-    When creating a runner from the management console, you can select the following 15 to 500 GB disk types for the VM storage:
+### Managed runners {#managed-runners}
 
-    * HDD
-    * SSD
+{% include [gl-runners-preview](../../_includes/managed-gitlab/gl-runners-preview.md) %}
 
-    The following computing resource configurations are available:
+{% include [gl-runners-intro](../../_includes/managed-gitlab/gl-runners-intro.md) %}
 
+{% include [note-payment](../../_includes/managed-gitlab/note-payment.md) %}
+
+You can specify the following managed runner settings:
+* Scaling settings:
+
+    {% include [runner-workers](../../_includes/managed-gitlab/runner-workers.md) %}
+
+* Worker VM settings:
+  * Worker computing resource configuration:
     * 2 vCPUs, 4 GB RAM
     * 2 vCPUs, 8 GB RAM
     * 4 vCPUs, 16 GB RAM
     * 8 vCPUs, 64 GB RAM
     * 16 vCPUs, 128 GB RAM
+  * Disk type (HDD or SSD) and size. For more information, see [{#T}](../../compute/concepts/disk.md#disks-types).
+  * [Service account](../../iam/concepts/users/service-accounts.md).
 
-    {% include [gl-runners-preview](../../_includes/managed-gitlab/gl-runners-preview.md) %}
+    {% include [sa-worker-info](../../_includes/managed-gitlab/sa-worker-info.md) %}
+
+  * [Security group](../../vpc/concepts/security-groups.md).
+
+For more on managed runners, see these pages:
+* [{#T}](../operations/runner.md)
+* [{#T}](../tutorials/install-gitlab-runner.md)
+
+### Networking between {{ GL }} and managed runners {#networking-gl-mr}
+
+The subnet of the instance the managed runner is connected to must have internet access via a [NAT gateway](../../vpc/concepts/gateways.md) or [NAT instance](../../vpc/tutorials/nat-instance/index.md).
+
+To set up networking between {{ GL }} and managed runners, you need to configure required, recommended, and optional security group settings.
+
+![image](../../_assets/managed-gitlab/networking.svg)
+
+#### Rules for incoming traffic {#ingress-rules-runner}
+
+{% include [mr-ingress-rules](../../_includes/managed-gitlab/mr-ingress-rules.md) %}
+
+#### Rules for outgoing traffic {#egress-rules-runner}
+
+{% include [mr-egress-rules](../../_includes/managed-gitlab/mr-egress-rules.md) %}
 
 ## {{ GL }} Pages {#pages}
 
-{{ GL }} Pages is a tool for publishing static websites composed of files residing in a {{ GL }} repository. Websites are deployed by {{ GL }} CI/CD jobs. {{ GL }} Pages works with static website generators and standard HTML, CSS, and JavaScript files.
+{{ GL }} Pages is a tool for publishing static websites composed of files residing in a {{ GL }} repository. Websites are deployed via {{ GL }} CI/CD jobs. {{ GL }} Pages works with static website generators and standard HTML, CSS, and JavaScript files.
 
 {{ GL }} Pages enables you to use your own domains and SSL/TLS certificates and to configure access to websites.
 
-[For more information, see the official {{ GL }} documentation](https://docs.gitlab.com/user/project/pages/).
+For more information, see [this {{ GL }} article](https://docs.gitlab.com/user/project/pages/).
 
 {% include [note-preview-by-request](../../_includes/note-preview-by-request.md) %}
 

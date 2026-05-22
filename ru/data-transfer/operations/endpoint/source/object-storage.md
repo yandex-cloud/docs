@@ -86,7 +86,7 @@ description: Следуя данной инструкции, вы сможете
      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.encoding.title }}** — [кодировка](https://docs.python.org/3/library/codecs.html#standard-encodings).
      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.double_quote.title }}** — выберите, чтобы заменять двойные кавычки на одинарные.
      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.newlines_in_values.title }}** — выберите, если значения текстовых данных могут содержать символы переноса строки.
-     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.block_size.title }}** — максимальная длина части файла, размещаемой в памяти во время чтения.
+     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Csv.block_size.title }}** — максимальная длина части файла, размещаемой в памяти во время чтения.
      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageTarget.advanced_settings.title }}** — необходимые CSV [ConvertOptions](https://arrow.apache.org/docs/python/generated/pyarrow.csv.ConvertOptions.html#pyarrow.csv.ConvertOptions) для редактирования. Указываются в виде JSON-строки.
      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Csv.additional_options.title }}** — необходимые CSV [ReadOptions](https://arrow.apache.org/docs/python/generated/pyarrow.csv.ReadOptions.html#pyarrow.csv.ReadOptions) для редактирования. Указываются в виде JSON-строки.
 
@@ -96,9 +96,9 @@ description: Следуя данной инструкции, вы сможете
   
      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Jsonl.newlines_in_values.title }}** — разрешить использовать символы новой строки в значениях JSON. Использование этого параметра может повлиять на производительность. Оставьте пустым, чтобы по умолчанию было установлено значение `FALSE`.
      * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Jsonl.unexpected_field_behavior.title }}** — метод обработки полей JSON за пределами `explicit_schema` (если указано). См. [документацию PyArrow](https://arrow.apache.org/docs/python/generated/pyarrow.json.ParseOptions.html).
-     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Jsonl.block_size.title }}** — размер фрагмента в байтах для одновременной обработки в памяти каждого файла. Если объем данных большой, и не удается обнаружить схему, увеличение этого значения должно решить проблему. Слишком большое значение может привести к ошибкам OOM.
+     * **{{ ui-key.yc-data-transfer.data-transfer.endpoint.airbyte.s3_source.endpoint.airbyte.s3_source.S3Source.Jsonl.block_size.title }}** — размер фрагмента в байтах для одновременной обработки в памяти каждого файла. Если объем данных большой, и не удается обнаружить схему, увеличение этого значения должно решить проблему. Слишком большое значение может привести к ошибкам OOM.
 
-- proto
+- {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.proto.title }}
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigProto.proto_desc.title }}** — загрузите файл-дескриптор.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigProto.msg_package_type.title }}** — укажите способ упаковки сообщений:
@@ -109,6 +109,24 @@ description: Следуя данной инструкции, вы сможете
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigProto.primary_keys.title }}** — перечислите поля, чтобы они добавились в результат как первичные ключи.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ParserConfigProto.included_fields.title }}** — перечислите поля сообщения для передачи. Если не задано, выводятся все поля сообщения.
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.logbroker.console.form.logbroker.ProtoParser.null_keys_allowed.title }}** — выберите эту опцию, чтобы разрешить значение `null` в ключевых колонках.
+
+- {{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.nginx.title }}
+
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Nginx.format.title }}** — формат лога, аналогичный директиве [log_format](https://nginx.org/en/docs/http/ngx_http_log_module.html#log_format), например:
+
+        ```text
+        "$remote_addr" "$remote_user" "[$time_local]" "$request"
+        ```
+
+        Чтобы избежать ошибок парсинга, настройте Nginx так, чтобы токены были заключены в кавычки, и включите экранирование данных (`escape=default` или `escape=json`).
+
+        Чтобы переименовать поля в целевой таблице, переименуйте необходимые токены в поле **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.Nginx.format.title }}**. На примере выше — чтобы перенести данные с токеном `time_local` в колонку `date_time` целевой таблицы, укажите следующий формат лога:
+
+        ```text
+        "$remote_addr" "$remote_user" "[$date_time]" "$request"
+        ```
+
+    * **{{ ui-key.yc-data-transfer.data-transfer.console.form.object_storage.console.form.object_storage.ObjectStorageSource.ObjectStorageReaderFormat.block_size.title }}** — максимальный размер части файла, размещаемой в памяти во время чтения (в байтах).
 
 {% endlist %}
 

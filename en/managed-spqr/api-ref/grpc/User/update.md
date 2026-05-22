@@ -29,7 +29,8 @@ Updates the specified SPQR user.
   },
   "grants": [
     "string"
-  ]
+  ],
+  "deletion_protection": "google.protobuf.BoolValue"
 }
 ```
 
@@ -38,17 +39,23 @@ Updates the specified SPQR user.
 || cluster_id | **string**
 
 Required field. ID of the SPQR cluster the user belongs to.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/grpc/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || user_name | **string**
 
 Required field. Name of the user to be updated.
-To get the name of the user, use a [UserService.List](/docs/managed-spqr/api-ref/grpc/User/list#List) request. ||
+To get the name of the user, use a [UserService.List](/docs/managed-spqr/api-ref/grpc/User/list#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_]* `. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the SPQR User resource should be updated. ||
 || password | **string**
 
-New password for the user. ||
+New password for the user.
+
+The string length in characters must be 8-128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.spqr.v1.Permission)**
 
 New set of permissions for the user. ||
@@ -57,7 +64,12 @@ New set of permissions for the user. ||
 New settings for this user ||
 || grants[] | **string**
 
-New user grants ||
+New user grants
+
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+|| deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Deletion Protection inhibits deletion of the user ||
 |#
 
 ## Permission {#yandex.cloud.mdb.spqr.v1.Permission}
@@ -107,7 +119,8 @@ Name of the database that the permission grants access to. ||
     },
     "grants": [
       "string"
-    ]
+    ],
+    "deletion_protection": "google.protobuf.BoolValue"
   }
   // end of the list of possible fields
 }
@@ -201,7 +214,12 @@ Set of permissions granted to the user. ||
 SPQR Settings for this user ||
 || grants[] | **string**
 
-User grants ||
+User grants
+
+The maximum string length in characters for each value is 63. Each value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+|| deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Deletion Protection inhibits deletion of the user ||
 |#
 
 ## Permission {#yandex.cloud.mdb.spqr.v1.Permission2}

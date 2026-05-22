@@ -26,18 +26,24 @@ Retrieves the list of Registry resources in the specified folder.
 
 Required field. ID of the folder to list registries in.
 
-To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
+To get the folder ID use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListRegistriesResponse.next_page_token](#yandex.cloud.cloudregistry.v1.ListRegistriesResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value: 10. ||
+Default value: 10.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
-[ListRegistriesResponse.next_page_token](#yandex.cloud.cloudregistry.v1.ListRegistriesResponse) returned by a previous list request. ||
+[ListRegistriesResponse.next_page_token](#yandex.cloud.cloudregistry.v1.ListRegistriesResponse) returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListRegistriesResponse {#yandex.cloud.cloudregistry.v1.ListRegistriesResponse}
@@ -97,7 +103,6 @@ Name of the registry. ||
 
 Kind of the registry.
 
-- `KIND_UNSPECIFIED`
 - `MAVEN`: Registry kind is maven.
 - `NPM`: Registry kind is npm.
 - `DOCKER`: Registry kind is docker.
@@ -109,7 +114,6 @@ Kind of the registry.
 
 Type of the registry.
 
-- `TYPE_UNSPECIFIED`
 - `LOCAL`: Registry type is local.
 - `REMOTE`
 - `VIRTUAL` ||
@@ -117,7 +121,6 @@ Type of the registry.
 
 Output only. Status of the registry.
 
-- `STATUS_UNSPECIFIED`
 - `CREATING`: Registry is being created.
 - `ACTIVE`: Registry is ready to use.
 - `DELETING`: Registry is being deleted. ||

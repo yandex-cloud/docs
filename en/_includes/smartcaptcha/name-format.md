@@ -1,3 +1,3 @@
-* It must be 2 to 63 characters long.
-* It may contain lowercase Latin letters, numbers, and hyphens.
-* The first character must be a letter, the last one cannot be a hyphen.
+* It must be between 2 and 63 characters in length.
+* It can only contain lowercase Latin letters, numbers, and hyphens.
+* It must start with a letter and cannot end with a hyphen.

@@ -1,15 +1,17 @@
-The `managed-greenplum.admin` role allows you to manage Greenplum® clusters within Yandex MPP Analytics for PostgreSQL, view cluster logs, as well as get information about quotas and service resource operations.
+
+The `managed-greenplum.admin` role enables managing {{ mgp-name }} clusters and access to them in {{ mgp-full-name }}.
 
 Users with this role can:
-* Manage access to Greenplum® clusters.
-* View information about [Greenplum® clusters](../../managed-greenplum/concepts/index.md), as well as create, modify, delete, run, and stop them.
-* View information about Greenplum® cluster [hosts](../../managed-greenplum/concepts/instance-types.md), as well as create, modify, and delete them.
-* View information about Greenplum® cluster [backups](../../managed-greenplum/concepts/backup.md), create and delete such backups, as well as restore clusters from backups.
-* View Greenplum® cluster logs.
-* View information about the results of Greenplum® cluster performance diagnostics.
-* View information about [quotas](../../managed-greenplum/concepts/limits.md#quotas) of Yandex MPP Analytics for PostgreSQL.
-* View information about resource operations for Yandex MPP Analytics for PostgreSQL.
+* View info on [access permissions](../../iam/concepts/access-control/index.md) granted for [{{ mgp-name }} clusters](../../managed-greenplum/concepts/index.md) and modify such permissions.
+* View info on {{ mgp-name }} clusters, as well as create, use, modify, delete, run, and stop them.
+* View info on [maintenance](../../managed-greenplum/concepts/maintenance.md) tasks for {{ mgp-name }} clusters and modify such tasks.
+* View info on {{ mgp-name }} cluster [hosts](../../managed-greenplum/concepts/instance-types.md), as well as create, modify, and delete them.
+* View info on {{ mgp-name }} cluster [backups](../../managed-greenplum/concepts/backup.md), create and delete such backups, as well as restore clusters from backups.
+* View {{ mgp-name }} cluster logs.
+* View info on the results of {{ mgp-name }} cluster performance diagnostics.
+* View info on [quotas](../../managed-greenplum/concepts/limits.md#quotas) for {{ mgp-full-name }}.
+* View info on resource operations for {{ mgp-full-name }}.
 
 This role includes the `managed-greenplum.editor` permissions.
 
-To create Greenplum® clusters within Yandex MPP Analytics for PostgreSQL, you also need the `vpc.user` role.
+To create {{ mgp-name }} clusters within {{ mgp-full-name }}, you also need the `vpc.user` role.

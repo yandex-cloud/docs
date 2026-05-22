@@ -27,16 +27,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The infrastructure support cost includes:
-
-* Fee for the {{ dataproc-name }} cluster computing resources and storage (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
-* Fee for the {{ metastore-name }} cluster computing resources (see [{{ metadata-hub-full-name }} pricing](../../../metadata-hub/pricing.md#metastore)).
-* Fee for data storage and operations in a bucket (see [{{ objstorage-full-name }} pricing](../../../storage/pricing.md)).
-* Fee for NAT gateway usage and outbound traffic (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md#nat-gateways)).
+* {{ dataproc-name }} cluster: use of computing resources with a {{ dataproc-name }} markup, use of network drives, retrieval and storage of logs, volume of outgoing traffic (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
+* {{ metastore-name }} cluster: computing resources of cluster components (see [{{ metadata-hub-name }} pricing](../../../metadata-hub/pricing.md)).
+* {{ objstorage-full-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+* NAT gateway: hourly use of the gateway and its outgoing traffic (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
 ## Getting started {#before-you-begin}
 
-Set up the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -131,6 +129,8 @@ Set up the infrastructure:
         * **{{ ui-key.yacloud.mdb.forms.host_column_subnetwork }}** for the {{ dataproc-name }} subclusters: `dataproc-subnet`.
         * **{{ ui-key.yacloud.mdb.forms.field_assign-public-ip }}** for the master host: Enabled.
 
+            {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
+
 
 - {{ TF }} {#tf}
 
@@ -152,18 +152,18 @@ Set up the infrastructure:
         * Bucket.
         * Two {{ dataproc-name }} clusters.
 
-    1. Specify the following in `metastore-import.tf`:
+    1. In `metastore-import.tf`, specify the following:
 
         * `folder_id`: Cloud folder ID, same as in the provider settings.
         * `dp_ssh_key`: Absolute path to the public key for the {{ dataproc-name }} clusters. Learn more about connecting to a {{ dataproc-name }} host over SSH [here](../../../data-proc/operations/connect-ssh.md).
 
-    1. Make sure the {{ TF }} configuration files are correct using this command:
+    1. Validate your {{ TF }} configuration files using this command:
 
         ```bash
         terraform validate
         ```
 
-        {{ TF }} will show any errors found in your configuration files.
+        {{ TF }} will display any configuration errors detected in your files.
 
     1. Create the required infrastructure:
 
@@ -178,7 +178,8 @@ Set up the infrastructure:
 
 In the `dataproc-source` cluster, create a test table named `countries`:
 
-1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_data-proc }}**.
 1. Open the `dataproc-source` cluster page.
 1. Click the **Zeppelin Web UI** link under **{{ ui-key.yacloud.mdb.cluster.overview.section_ui-proxy }}**.
 1. Select **Notebook**, then select ![image](../../../_assets/console-icons/plus.svg) **Create new note**.
@@ -301,7 +302,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
 1. [Delete the {{ metastore-name }} cluster](../../../metadata-hub/operations/metastore/cluster-delete.md).
 1. [Delete the objects](../../../storage/operations/objects/delete.md) from the bucket.
-1. Delete other resources depending on how they were created:
+1. Delete the rest of the resources depending on how you created them:
 
     {% list tabs group=instructions %}
 

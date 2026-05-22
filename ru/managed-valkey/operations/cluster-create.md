@@ -6,6 +6,7 @@ description: Следуя данной инструкции, вы сможете
 # Создание кластера {{ VLK }}
 
 
+
 [Кластер](../../glossary/cluster.md) {{ VLK }} — это один или несколько хостов базы данных, между которыми можно настроить репликацию. Репликация работает по умолчанию в любом кластере из более чем 1 хоста: хост-мастер принимает запросы на запись, асинхронно дублируя изменения в репликах.
 
 Подробнее об устройстве кластера {{ mrd-name }} см. в разделе [Взаимосвязь ресурсов сервиса](../concepts/index.md).
@@ -119,14 +120,14 @@ description: Следуя данной инструкции, вы сможете
        * Группы безопасности для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
 
 
-   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** задайте конфигурацию хостов:
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** задайте конфигурацию хостов:
 
       * Чтобы изменить настройки отдельного хоста, нажмите на значок ![pencil](../../_assets/console-icons/pencil.svg) в строке с его именем.
 
           * **{{ ui-key.yacloud.mdb.forms.host_column_zone }}** — выберите [зону доступности](../../overview/concepts/geo-scope.md).
-          * **{{ ui-key.yacloud.mdb.forms.host_column_subnetwork }}** — укажите [подсеть](../../vpc/concepts/network.md#subnet) в выбранной зоне доступности.
 
           
+          * **{{ ui-key.yacloud.mdb.forms.host_column_subnetwork }}** — укажите [подсеть](../../vpc/concepts/network.md#subnet) в выбранной зоне доступности.
           * **{{ ui-key.yacloud.mdb.forms.host_column_assign_public_ip }}** — разрешает доступ к хосту из интернета, если кластер создается с включенной настройкой **{{ ui-key.yacloud.redis.field_tls-support }}**.
 
 
@@ -137,7 +138,7 @@ description: Следуя данной инструкции, вы сможете
 
       Если вы включили шардирование в кластере и выбрали тип диска **local-ssd**, добавьте не менее двух хостов на шард.
 
-   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
+  1. В блоке **{{ ui-key.yacloud.mdb.forms.section_settings }}**:
 
       * В поле **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}** укажите пароль пользователя.
 
@@ -148,6 +149,12 @@ description: Следуя данной инструкции, вы сможете
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_service-settings }}** задайте дополнительные настройки кластера:
 
       {% include [mrd-extra-settings](../../_includes/mdb/mrd-extra-settings-web-console.md) %}
+
+  1. В блоке **{{ ui-key.yacloud.redis.local.valkey_modules_aQacT }}** подключите необходимые [модули {{ VLK }}](../../managed-valkey/concepts/modules.md).
+
+      Для модуля **{{ ui-key.yacloud.redis.local.valkey_search_vfqdy }}** настройте параметры **{{ ui-key.yacloud.redis.ModulesFormCard.valkey_search_reader_threads_fNBHR }}** и **{{ ui-key.yacloud.redis.ModulesFormCard.valkey_search_writer_threads_6HRjb }}**.
+
+      {% include [modules-warn](../../_includes/mdb/mvk/enable-modules-note.md) %}
 
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
@@ -219,17 +226,18 @@ description: Следуя данной инструкции, вы сможете
       Где:
       * `--environment` — окружение: `prestable` или `production`.
       * `--redis-version` — версия {{ VLK }}: {{ versions.cli.str }}.
-
-      
       * `--host` — параметры хоста:
          * `zone-id` — [зона доступности](../../overview/concepts/geo-scope.md).
+
+         
          * `subnet-id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet). Необходимо указывать, если в выбранной зоне доступности создано две или больше подсетей.
          * `assign-public-ip` — доступность хоста из интернета по публичному IP-адресу: `true` или `false`.
+
+
          * `replica-priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover).
       * `--disk-type-id` — тип диска.
 
       * `--websql-access` — разрешает [выполнять SQL-запросы](web-sql-query.md) к базам данных кластера из консоли управления {{ yandex-cloud }} с помощью сервиса {{ websql-full-name }}. Значение по умолчанию — `false`.
-
 
       * `--disk-size-autoscaling` — настройки автоматического увеличения размера хранилища:
 
@@ -263,7 +271,9 @@ description: Следуя данной инструкции, вы сможете
 
          {% include [modules-warn](../../_includes/mdb/mvk/enable-modules-note.md) %}
 
+      
       Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной зоне доступности создано 2 и больше подсетей.
+
 
       {% include [requirements-to-password](../../_includes/mdb/mvk/requirements-to-password.md) %}
 
@@ -274,6 +284,7 @@ description: Следуя данной инструкции, вы сможете
       По умолчанию при создании кластера устанавливается режим [технического обслуживания](../concepts/maintenance.md) `anytime` — в любое время. Вы можете установить конкретное время обслуживания при [изменении настроек кластера](update.md#change-additional-settings).
 
       {% endnote %}
+
 
 - {{ TF }} {#tf}
 
@@ -286,15 +297,11 @@ description: Следуя данной инструкции, вы сможете
     1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
        * Кластер базы данных — описание кластера и его хостов. При необходимости здесь же можно задать [настройки СУБД](../concepts/settings-list.md).
-
-       
        * Сеть — описание [облачной сети](../../vpc/concepts/network.md#network), в которой будет расположен кластер. Если подходящая сеть у вас уже есть, описывать ее повторно не нужно.
        * Подсети — описание [подсетей](../../vpc/concepts/network.md#network), к которым будут подключены хосты кластера. Если подходящие подсети у вас уже есть, описывать их повторно не нужно.
 
-
        Пример структуры конфигурационного файла для создания нешардированного кластера с поддержкой SSL:
 
-       
        ```hcl
        resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
          name                = "<имя_кластера>"
@@ -306,28 +313,30 @@ description: Следуя данной инструкции, вы сможете
          announce_hostnames  = <использование_FQDN_вместо_IP-адресов>
          persistence_mode    = "<режим_персистентности>"
 
-         disk_size_autoscaling {
+         disk_size_autoscaling = {
            planned_usage_threshold   = "<процент_для_планового_увеличения>"
            emergency_usage_threshold = "<процент_для_незамедлительного_увеличения>"
            disk_size_limit           = "<максимальный_размер_хранилища_в_гибибайтах>"
          }
 
-         config {
+         config = {
            password = "<пароль>"
            version  = "<версия_{{ VLK }}>"
          }
 
-         resources {
+         resources = {
            resource_preset_id = "<класс_хоста>"
            disk_type_id       = "<тип_диска>"
            disk_size          = <размер_хранилища_ГБ>
          }
 
-         host {
-           zone             = "<зона_доступности>"
-           subnet_id        = "<идентификатор_подсети>"
-           assign_public_ip = <публичный_доступ>
-           replica_priority = <приоритет_хоста>
+         hosts = {
+           "host1" = {
+             zone             = "<зона_доступности>"
+             subnet_id        = "<идентификатор_подсети>"
+             assign_public_ip = <публичный_доступ>
+             replica_priority = <приоритет_хоста>
+           }
          }
        }
 
@@ -341,53 +350,79 @@ description: Следуя данной инструкции, вы сможете
        }
        ```
 
-
        Где:
        * `environment` — окружение: `PRESTABLE` или `PRODUCTION`.
        * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
-            {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
+           {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
        * `disk_size_autoscaling` — настройки автоматического увеличения размера хранилища:
 
-            {% include [autoscale-description](../../_includes/mdb/mvk/terraform/terraform-autoscaling.md) %}
+           {% include [autoscale-description](../../_includes/mdb/mvk/terraform/terraform-autoscaling.md) %}
 
        * `announce_hostnames` — настройка, определяющая, [использовать ли FQDN вместо IP-адресов](../concepts/network.md#fqdn-ip-setting): `true` или `false`.
 
-            {% include [fqdn-option-compatibility-note](../../_includes/mdb/mvk/connect/fqdn-option-compatibility-note.md) %}
+           {% include [fqdn-option-compatibility-note](../../_includes/mdb/mvk/connect/fqdn-option-compatibility-note.md) %}
 
        * `persistence_mode` — режим [персистентности данных](../concepts/replication.md#persistence).
 
-            {% include [persistence-modes](../../_includes/mdb/mvk/persistence-modes.md) %}
+           {% include [persistence-modes](../../_includes/mdb/mvk/persistence-modes.md) %}
 
        * `version` — версия {{ VLK }}: {{ versions.tf.str }}.
-       * `host` — параметры хоста:
-         * `zone_id` — зона доступности.
-         * `subnet_id` — идентификатор подсети в выбранной зоне доступности.
-         * `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
-         * `replica_priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover).
+       * `hosts` — список хостов и их параметров в формате `"<имя_хоста>" = { <настройки_хоста> }`. Имя хоста должно быть уникальным в кластере.
+
+           Для каждого хоста доступны следующие параметры:
+
+           * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md).
+           * `subnet_id` — [идентификатор подсети](../../vpc/concepts/network.md#subnet) в выбранной зоне доступности.
+           * `assign_public_ip` — публичный доступ к хосту: `true` или `false`.
+           * `replica_priority` — приоритет назначения хоста мастером при [выходе из строя основного мастера](../concepts/replication.md#master-failover).
 
        {% include [requirements-to-password](../../_includes/mdb/mvk/requirements-to-password.md) %}
 
-       Если вы создаёте шардированный кластер с типом диска **local-ssd**, укажите в конфигурационном файле не менее двух хостов на шард.
+       Если вы создаете шардированный кластер с типом диска **local-ssd**, укажите в конфигурационном файле не менее двух хостов на шард.
 
-       {% include [Maintenance window](../../_includes/mdb/mvk/terraform/maintenance-window.md) %}
+    1. {% include [Maintenance window](../../_includes/mdb/mvk/terraform/maintenance-window.md) %}
 
-       
-       Чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md), добавьте параметр `disk_encryption_key_id`:
+    1. Чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md), добавьте в описание кластера параметр `disk_encryption_key_id`:
 
-         ```hcl
-         resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
-           ...
-           disk_encryption_key_id = <идентификатор_ключа_KMS>
-           ...
-         }
-         ```
+        ```hcl
+        resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
+          ...
+          disk_encryption_key_id = "<идентификатор_ключа_KMS>"
+        }
+        ```
 
-         Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
+        Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
 
+    1. Чтобы подключить [модули {{ VLK }}](../concepts/modules.md), добавьте в описание кластера блок `modules`:
 
-       Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mrd }}).
+        ```hcl
+        resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
+          ...
+          modules = {
+            valkey_bloom = {
+              enabled = <включить_модуль_Valkey-Bloom>
+            }
+            valkey_json = {
+              enabled = <включить_модуль_Valkey-JSON>
+            }
+            valkey_search = {
+              enabled        = <включить_модуль_Valkey-Search>
+              reader_threads = <количество_потоков_обработки_запросов>
+              writer_threads = <количество_потоков_индексации>
+            }
+          }
+        }
+        ```
+
+       Где:
+
+        * `valkey_bloom.enabled` — подключить модуль `Valkey-Bloom`: `true` или `false`.
+        * `valkey_json.enabled` — подключить модуль `Valkey-JSON`: `true` или `false`.
+        * `valkey_search.enabled` — подключить модуль `Valkey-Search`: `true` или `false`.
+        * `valkey_search.reader_threads` — количество потоков обработки запросов в модуле `Valkey-Search`.
+        * `valkey_search.writer_threads` — количество потоков индексации в модуле `Valkey-Search`.
 
     1. Проверьте корректность настроек.
 
@@ -397,9 +432,12 @@ description: Следуя данной инструкции, вы сможете
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-       После этого в указанном каталоге будут созданы все требуемые ресурсы, а в терминале отобразятся [FQDN хостов кластера](../concepts/network.md#hostname). Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+    После этого в указанном каталоге будут созданы все требуемые ресурсы, а в терминале отобразятся [FQDN хостов кластера](../concepts/network.md#hostname). Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
-       {% include [Terraform timeouts](../../_includes/mdb/mvk/terraform/timeouts.md) %}
+    Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mrd }}).
+
+    {% include [Terraform timeouts](../../_includes/mdb/mvk/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -796,7 +834,7 @@ description: Следуя данной инструкции, вы сможете
         * Удалите параметры `created_at`, `health`, `id` и `status`.
         * В блоке `config` добавьте параметр `password`.
         * Если в блоке `config` указано значение параметра `notify_keyspace_events = "\"\""`, удалите этот параметр.
-        * Если указано значение параметра `sharded = false`, в блоках `host` удалите параметры `shard_name`.
+        * Если указано значение параметра `sharded = false`, в блоке `hosts` удалите параметры `shard_name`.
         * Если в блоке `maintenance_window` указано значение параметра `type = "ANYTIME"`, удалите параметр `hour`.
         * (Опционально) Внесите дополнительные изменения, если вам нужна не идентичная, а кастомизированная копия.
 
@@ -836,15 +874,17 @@ description: Следуя данной инструкции, вы сможете
 
   Создайте кластер {{ mrd-name }} с тестовыми характеристиками:
 
+  
   * Имя `myredis`.
   * Версия `{{ versions.cli.latest }}`.
   * Окружение — `production`.
-  * Сеть `default`.
+  * Сеть `{{ network-name }}`.
   * Один хост класса `{{ mrd-host-class }}` в подсети `b0rcctk2rvtr********`, в зоне доступности `{{ region-id }}-a` и группе безопасности с идентификатором `{{ security-group }}`, с публичным доступом и [приоритетом хоста](../concepts/replication.md#master-failover) `50`.
   * С поддержкой SSL-соединений.
   * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) размером 16 ГБ.
   * Пароль `user1user1`.
   * С защитой от непреднамеренного удаления.
+
 
   Выполните следующую команду:
 
@@ -854,7 +894,7 @@ description: Следуя данной инструкции, вы сможете
     --name myredis \
     --redis-version {{ versions.cli.latest }} \
     --environment production \
-    --network-name default \
+    --network-name {{ network-name }} \
     --resource-preset {{ mrd-host-class }} \
     --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr********,assign-public-ip=true,replica-priority=50 \
     --security-group-ids {{ security-group }} \
@@ -864,6 +904,7 @@ description: Следуя данной инструкции, вы сможете
     --password=user1user1 \
     --deletion-protection
   ```
+
 
 
 - {{ TF }} {#tf}
@@ -885,7 +926,6 @@ description: Следуя данной инструкции, вы сможете
 
   Конфигурационный файл для такого кластера выглядит так:
 
-  
   ```hcl
   resource "yandex_mdb_redis_cluster_v2" "myredis" {
     name                = "myredis"
@@ -895,22 +935,24 @@ description: Следуя данной инструкции, вы сможете
     tls_enabled         = true
     deletion_protection = true
 
-    config {
+    config = {
       password = "user1user1"
       version  = "{{ versions.tf.latest }}"
     }
 
-    resources {
+    resources = {
       resource_preset_id = "{{ mrd-host-class }}"
       disk_type_id       = "{{ disk-type-example }}"
       disk_size          = 16
     }
 
-    host {
-      zone             = "{{ region-id }}-a"
-      subnet_id        = yandex_vpc_subnet.mysubnet.id
-      assign_public_ip = true
-      replica_priority = 50
+    hosts = {
+      "host1" = {
+        zone             = "{{ region-id }}-a"
+        subnet_id        = yandex_vpc_subnet.mysubnet.id
+        assign_public_ip = true
+        replica_priority = 50
+      }
     }
   }
 
@@ -947,18 +989,20 @@ description: Следуя данной инструкции, вы сможете
 
   Создайте [шардированный](../concepts/sharding.md) кластер {{ mrd-name }} с тестовыми характеристиками:
 
+  
   * Имя `myredis`.
   * Версия `{{ versions.cli.latest }}`.
   * Окружение `production`.
   * С включенным шардированием.
   * С поддержкой SSL-соединений.
   * С защитой от непреднамеренного удаления.
-  * Сеть `default`.
+  * Сеть `{{ network-name }}`.
   * Группа безопасности с идентификатором `{{ security-group }}`.
   * Класс хостов `{{ mrd-host-class }}`.
   * Один хост в шарде `shard1`, в подсети `b0rcctk2rvtr********`, в зоне доступности `{{ region-id }}-a`, с публичным доступом и [приоритетом хоста](../concepts/replication.md#master-failover) `50`.
   * Хранилище на сетевых SSD-дисках (`{{ disk-type-example }}`) размером 16 ГБ.
   * Пароль `user1user1`.
+
 
   Выполните следующую команду:
 
@@ -971,7 +1015,7 @@ description: Следуя данной инструкции, вы сможете
     --sharded \
     --enable-tls \
     --deletion-protection \
-    --network-name default \
+    --network-name {{ network-name }} \
     --security-group-ids {{ security-group }} \
     --resource-preset {{ mrd-host-class }} \
     --host shard-name=shard1,subnet-id=b0rcctk2rvtr********,zone-id=ru-central1-a,assign-public-ip=true,replica-priority=50 \
@@ -979,6 +1023,7 @@ description: Следуя данной инструкции, вы сможете
     --disk-size 16 \
     --password user1user1
   ```
+
 
 
 - {{ TF }} {#tf}
@@ -1000,7 +1045,6 @@ description: Следуя данной инструкции, вы сможете
 
   Конфигурационный файл для такого кластера выглядит так:
 
-  
   ```hcl
   resource "yandex_mdb_redis_cluster_v2" "myredis" {
     name                = "myredis"
@@ -1010,24 +1054,26 @@ description: Следуя данной инструкции, вы сможете
     deletion_protection = true
     network_id          = yandex_vpc_network.mynet.id
     security_group_ids  = [yandex_vpc_security_group.redis-sg.id]
-  
-    config {
+
+    config = {
       version  = "{{ versions.tf.latest }}"
       password = "user1user1"
     }
-  
-    resources {
+
+    resources = {
       resource_preset_id = "{{ mrd-host-class }}"
       disk_type_id       = "{{ disk-type-example }}"
       disk_size          = 16
     }
-  
-    host {
-      shard_name = "shard1"
-      subnet_id  = yandex_vpc_subnet.mysubnet.id
-      zone       = "ru-central1-a"
-      assign_public_ip = true
-      replica_priority = 50
+
+    hosts = {
+      "host1" = {
+        shard_name       = "shard1"
+        subnet_id        = yandex_vpc_subnet.mysubnet.id
+        zone             = "ru-central1-a"
+        assign_public_ip = true
+        replica_priority = 50
+      }
     }
   }
   
@@ -1056,6 +1102,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
+
 ### Создание шардированного кластера с тремя шардами {#creating-a-sharded-cluster}
 
 
@@ -1083,7 +1130,6 @@ description: Следуя данной инструкции, вы сможете
 
     Конфигурационный файл для такого кластера выглядит так:
 
-    
     ```hcl
     resource "yandex_mdb_redis_cluster_v2" "myredis" {
       name                = "myredis"
@@ -1093,33 +1139,35 @@ description: Следуя данной инструкции, вы сможете
       sharded             = true
       deletion_protection = true
 
-      config {
+      config = {
         password = "user1user1"
         version  = "{{ versions.tf.latest }}"
       }
 
-      resources {
+      resources = {
         resource_preset_id = "{{ mrd-host-class }}"
         disk_type_id       = "{{ disk-type-example }}"
         disk_size          = 16
       }
 
-      host {
-        zone       = "{{ region-id }}-a"
-        subnet_id  = yandex_vpc_subnet.subnet-a.id
-        shard_name = "shard1"
-      }
+      hosts = {
+        "host1" = {
+          zone       = "{{ region-id }}-a"
+          subnet_id  = yandex_vpc_subnet.subnet-a.id
+          shard_name = "shard1"
+        }
 
-      host {
-        zone       = "{{ region-id }}-b"
-        subnet_id  = yandex_vpc_subnet.subnet-b.id
-        shard_name = "shard2"
-      }
+        "host2" = {
+          zone       = "{{ region-id }}-b"
+          subnet_id  = yandex_vpc_subnet.subnet-b.id
+          shard_name = "shard2"
+        }
 
-      host {
-        zone       = "{{ region-id }}-d"
-        subnet_id  = yandex_vpc_subnet.subnet-d.id
-        shard_name = "shard3"
+        "host3" = {
+          zone       = "{{ region-id }}-d"
+          subnet_id  = yandex_vpc_subnet.subnet-d.id
+          shard_name = "shard3"
+        }
       }
     }
 
@@ -1174,5 +1222,5 @@ description: Следуя данной инструкции, вы сможете
     }
     ```
 
-
 {% endlist %}
+

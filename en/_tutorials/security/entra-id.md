@@ -28,7 +28,7 @@ The identity provider's (IdP) role is played by Microsoft Azure with Single Sign
 1. On the left-hand panel, select **Enterprise applications** → **All applications**.
 1. Click **New application**.
 1. On the **Browse {{ microsoft-idp.entra-full }}** gallery page, click **Create your own application**.
-1. In the window that opens, do the following:
+1. In the window that opens:
     1. Name your app, e.g., `yandex-cloud-saml`.
     1. Select **Integrate any other application you don't find in the gallery**.
     1. Click **Create**.
@@ -83,7 +83,7 @@ Do not close the configuration tab in your browser.
 
   1. In the left-hand panel, select ![icon-federation](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
-  1. Click ![Circles3Plus](../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.form.federation.action.create }}** in the top-right corner of the page. In the window that opens, do the following:
+  1. Click ![Circles3Plus](../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.form.federation.action.create }}** in the top-right corner of the page. In the window that opens:
 
       1. Enter a name for the federation, e.g., `demo-federation`. It must be unique within the folder.
 
@@ -115,7 +115,7 @@ Do not close the configuration tab in your browser.
 
 ## Add the Azure app's SAML certificate to the federation {#add-certificate}
 
-To enable {{ org-name }} to verify the app's SAML certificate during authentication, add the certificate to the federation:
+To enable {{ org-full-name }} to verify the app's SAML certificate during authentication, add the certificate to the federation:
 
 {% list tabs group=instructions %}
 
@@ -267,7 +267,7 @@ Configure the application for the new group to have access to it.
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
-  1. [Create a user group](../../organization/operations/create-group.md) named `yc-demo-group` in {{ org-name }} and [authorize it](../../organization/operations/access-group.md) to view resources in the cloud or a separate folder (the `viewer` role).
+  1. [Create a user group](../../organization/operations/create-group.md) named `yc-demo-group` in {{ org-full-name }} and [authorize it](../../organization/operations/access-group.md) to view resources in the cloud or a separate folder (the `viewer` role).
 
   1. In the left-hand panel, select ![VectorSquare](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud_org.pages.federations }}**.
 
@@ -337,7 +337,7 @@ Configure the application for the new group to have access to it.
 
          {% endnote %}
 
-      For more information, see [yandex_organizationmanager_group_mapping]({{ tf-provider-resources-link }}/organizationmanager_group_mapping) and [yandex_organizationmanager_group_mapping_item]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item) in the {{ TF }} provider documentation.
+      For more information, see [yandex_organizationmanager_group_mapping]({{ tf-provider-resources-link }}/organizationmanager_group_mapping) and [yandex_organizationmanager_group_mapping_item]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item) in the {{ TF }} provider guides.
 
   1. Create the resources:
 
@@ -361,7 +361,7 @@ Configure the application for the new group to have access to it.
 
     {% endcut %}
 
-    If you have set up everything correctly, the browser will redirect you to the authentication page in {{ microsoft-idp.entra-id-short }}.
+    If you have set up everything correctly, the browser will redirect you to the {{ microsoft-idp.entra-id-short }} authentication page.
 
 1. Enter the credentials of the `az_demo_user@example.com` user [you created earlier in {{ microsoft-idp.entra-id-short }}](#create-user) and click **Sign in**.
 

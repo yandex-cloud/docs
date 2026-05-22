@@ -85,6 +85,8 @@
 
    {% endlist %}
 
+   {% include [note-vpc-resources](../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
 1. {% include [kubectl-install-links](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
 1. [Создайте сервисный аккаунт](../../iam/operations/sa/create.md), необходимый для работы Gateway API.
@@ -502,11 +504,9 @@
    yc application-load-balancer load-balancer list
    ```
 
-   {% note info %}
-
    Создание балансировщика нагрузки может занять несколько минут.
 
-   {% endnote %}
+   {% include [note-alb](../../_includes/managed-kubernetes/note-alb.md) %}
 
 ## Проверьте работу Gateway API {#check-apps}
 

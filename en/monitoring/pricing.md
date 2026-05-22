@@ -52,8 +52,8 @@ The minimum billing unit is one metric value. The cost is rounded to the nearest
 
 <MDX>
   <PriceList
-    serviceIds={['{{ pcs|monitoring }}']}
-    excludeSkuIds={['{{ pc|monitoring.alerts.notifications.sms }}', '{{ pc|monitoring.alerts.notifications.phone }}', '{{ pc|monitoring.prometheus.point.remote_api.read }}', '{{ pc|monitoring.point.ui.read }}', '{{ pc|monitoring.metrics.stored }}']}
+    serviceIds={['{{ pcs|monium }}']}
+    excludeSkuIds={['{{ pc|monitoring.alerts.notifications.sms }}', '{{ pc|monitoring.alerts.notifications.phone }}', '{{ pc|monitoring.prometheus.point.remote_api.read }}', '{{ pc|monitoring.point.ui.read }}', '{{ pc|monium.traces.ingested.traffic }}', '{{ pc|monium.logs.ingested.traffic }}', '{{ pc|monitoring.metrics.stored }}']}
     installationCode="ru"
     currency="USD"
   />

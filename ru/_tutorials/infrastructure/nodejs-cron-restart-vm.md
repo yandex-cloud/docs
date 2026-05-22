@@ -48,7 +48,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать секрет.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета, например `oauth-token`.
   1. В поле **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** выберите `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.
@@ -144,49 +144,46 @@
 1. Сохраните следующий код в файл с названием `index.js`:
 
    ```javascript
-   import { serviceClients, Session, cloudApi } from '@yandex-cloud/nodejs-sdk';
-
-   const {
-     compute: {
-       instance_service: {
-         ListInstancesRequest,
-         GetInstanceRequest,
-         StartInstanceRequest,
-       },
-       instance: {
-         IpVersion,
-       },
-     },
-   } = cloudApi;
-
+   import { Session } from '@yandex-cloud/nodejs-sdk';
+   import { instanceService } from '@yandex-cloud/nodejs-sdk/compute-v1';
+   
    const FOLDER_ID = process.env.FOLDER_ID;
    const INSTANCE_ID = process.env.INSTANCE_ID;
    const OAUTHTOKEN = process.env.OAUTHTOKEN;
-
+   
    export const handler = async function (event, context) {
-     const session = new Session({ oauthToken: OAUTHTOKEN });
-     const instanceClient = session.client(serviceClients.InstanceServiceClient);
-     const list = await instanceClient.list(ListInstancesRequest.fromPartial({
-       folderId: FOLDER_ID,
-     }));
-     const state = await instanceClient.get(GetInstanceRequest.fromPartial({
-       instanceId: INSTANCE_ID,
-     }));
-
-     var status = state.status
-
-     if (status == 4){
-       const startcommand = await instanceClient.start(StartInstanceRequest.fromPartial({
+     try {
+       const session = new Session({ oauthToken: OAUTHTOKEN });
+       const instanceServiceClient = session.client(instanceService.InstanceServiceClient);
+       
+       const state = await instanceServiceClient.get({
          instanceId: INSTANCE_ID,
-       }));
-     }
-
-     return {
-       statusCode: 200,
-       body: {
-         status
+       });
+   
+       const status = state.status;
+   
+       if (status === 4) {
+         await instanceServiceClient.start({
+           instanceId: INSTANCE_ID,
+         });
        }
-     };
+   
+       return {
+         statusCode: 200,
+         body: {
+           status
+         }
+       };
+     } catch (error) {
+       console.error('Error in function:', error);
+       return {
+         statusCode: 500,
+         body: {
+           error: error.message,
+           details: error.toString()
+         }
+       };
+     }
    };
    ```
 
@@ -212,14 +209,14 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать функцию.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Создайте функцию:
      1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
      1. В открывшемся окне введите имя функции `function-restart-vms`.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. Создайте [версию функции](../../functions/concepts/function.md#version):
-     1. Выберите среду выполнения `nodejs18`, отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-     1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
+     1. Выберите среду выполнения `nodejs22`, отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+     1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
      1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}** нажмите кнопку **Прикрепить файл** и выберите архив `function-js.zip`, который создали ранее.
      1. Укажите точку входа `index.handler`.
      1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** укажите:
@@ -227,7 +224,7 @@
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
         * **{{ ui-key.yacloud.forms.label_service-account-select }}** — выберите созданный ранее сервисный аккаунт с правами на вызов функции.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
-          * `FOLDER_ID` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором вы хотите запускать остановленные ВМ.
+          * `FOLDER_ID` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором вы хотите запускать остановленную ВМ.
           * `INSTANCE_ID` — [идентификатор ВМ](../../compute/operations/vm-info/get-info.md#outside-instance), которую вы хотите запускать при прерывании.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}**:
           * В поле **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-env-key }}** укажите `OAUTHTOKEN`.
@@ -263,7 +260,7 @@
        --function-name function-restart-vms \
        --memory=128m \
        --execution-timeout=3s \
-       --runtime=nodejs18 \
+       --runtime=nodejs22 \
        --entrypoint=index.handler \
        --service-account-id=<идентификатор_сервисного_аккаунта> \
        --environment FOLDER_ID=<идентификатор_каталога>,INSTANCE_ID=<идентификатор_ВМ> \
@@ -280,7 +277,7 @@
      * `--entrypoint` — точка входа.
      * `--service-account-id` — [идентификатор](../../iam/operations/sa/get-id.md) сервисного аккаунта с правами на вызов функции.
      * `--environment` — переменные окружения:
-       * `FOLDER_ID` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором вы хотите запускать остановленные ВМ.
+       * `FOLDER_ID` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором вы хотите запускать остановленную ВМ.
        * `INSTANCE_ID` — [идентификатор ВМ](../../compute/operations/vm-info/get-info.md#outside-instance), которую вы хотите запускать при прерывании.
      * `--secret` — данные секрета {{ lockbox-name }}:
        * `name` — имя секрета.
@@ -311,7 +308,7 @@
      resource "yandex_function" "function-restart-vms" {
        name               = "function-restart-vms"
        user_hash          = "first function"
-       runtime            = "nodejs18"
+       runtime            = "nodejs22"
        entrypoint         = "index.handler"
        memory             = "128"
        execution_timeout  = "3"
@@ -343,7 +340,7 @@
      * `service_account_id` — [идентификатор](../../iam/operations/sa/get-id.md) сервисного аккаунта с правами на вызов функции.
      * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором вы создаете функцию.
      * `environment` — переменные окружения:
-       * `FOLDER_ID` — идентификатор каталога, в котором вы хотите запускать остановленные ВМ.
+       * `FOLDER_ID` — идентификатор каталога, в котором вы хотите запускать остановленную ВМ.
        * `INSTANCE_ID` — [идентификатор ВМ](../../compute/operations/vm-info/get-info.md#outside-instance), которую вы хотите запускать при прерывании.
      * `secrets` — данные секрета {{ lockbox-name }}:
        * `id` — идентификатор секрета.
@@ -406,7 +403,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать [триггер](../../functions/concepts/trigger/index.md).
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
@@ -523,7 +520,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором создана ваша прерываемая ВМ.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Напротив имени нужной ВМ нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud.common.stop }}**.
   1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**. Статус ВМ изменится на `Stopped`.

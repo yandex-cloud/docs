@@ -94,8 +94,8 @@ If empty, no filtering by folder ID is applied. ||
 
 Optional. Page size for paginated results.
 Specifies the maximum number of Folder objects to return per page.
-Lack of page size value means 0 page size (0 label values in response)
-Maximum allowed value: 10000. ||
+If not specified or set to 0, defaults to 10.
+If greater than 10000, will be coerced down to 10000. ||
 || page_token | **string**
 
 Optional. Page token for paginated results.
@@ -112,7 +112,8 @@ The token encodes the pagination state. ||
     {
       "cloud": {
         "id": "string",
-        "name": "string"
+        "name": "string",
+        "billing_account_id": "string"
       },
       "folders": [
         {
@@ -135,6 +136,7 @@ Response for cloud metadata request
 List of clouds matching the request criteria
 Contains CloudInfo objects for each cloud that matches the specified
 filtering criteria
+The list is sorted by cloud name in ascending order.
 
 Note: only clouds with at least one folder are included in the response. ||
 || next_page_token | **string**
@@ -162,7 +164,7 @@ Cloud information ||
 List of folders belonging to this cloud
 Contains folder entities that belong to this cloud
 and match any folder ID filtering criteria from the request.
-The list is sorted by folder ID in ascending order.
+The list is sorted by folder name in ascending order.
 
 Only folders that had usage during the specified date range are included. ||
 |#
@@ -179,6 +181,9 @@ Unique identifier of the cloud entity. ||
 || name | **string**
 
 Human-readable display name of the cloud. ||
+|| billing_account_id | **string**
+
+Optional billing account identifier associated with this cloud. ||
 |#
 
 ## Folder {#yandex.cloud.billing.usage_records.v1.Folder}

@@ -4,12 +4,12 @@ title: Обеспечение доступа к приложению, запущ
 
 # Обеспечение доступа к приложению, запущенному в кластере {{ k8s }}
 
-Для предоставления доступа к приложению, запущенному в кластере {{ k8s }}, вы можете использовать публичные и внутренние [сервисы различных типов](../concepts/service.md).
+В примере ниже рассматривается приложение {{ k8s }}, которое отвечает на HTTP-запросы на порт 8080. Для предоставления доступа к приложению используйте публичные или внутренние [сервисы](../concepts/service.md). Их IP-адреса не меняются в отличие от адресов подов и узлов кластера.
 
-Чтобы опубликовать приложение, воспользуйтесь сервисом типа `LoadBalancer`. Возможны следующие варианты:
+Чтобы опубликовать приложение, воспользуйтесь сервисом типа `LoadBalancer`. Вы можете организовать два вида доступа:
 
-* Публичный доступ по IP-адресу с [сетевым балансировщиком нагрузки](../../network-load-balancer/concepts/index.md).
-* Доступ из внутренних сетей по IP-адресу с [внутренним сетевым балансировщиком нагрузки](../../network-load-balancer/concepts/nlb-types.md).
+* Публичный доступ по IP-адресу с внешним сетевым балансировщиком нагрузки [{{ network-load-balancer-full-name }}](../../network-load-balancer/concepts/index.md).
+* Доступ из внутренних сетей по IP-адресу с [внутренним](../../network-load-balancer/concepts/nlb-types.md) сетевым балансировщиком.
 
   Приложение будет доступно:
   * Из [подсетей](../../vpc/concepts/network.md#subnet) {{ vpc-full-name }}.
@@ -32,15 +32,12 @@ title: Обеспечение доступа к приложению, запущ
 
 {% endnote %}
 
-
-Подготовьте и запустите в кластере {{ k8s }} приложение, к которому необходимо предоставить доступ с помощью сервиса типа `LoadBalancer`. В качестве примера используйте приложение, которое отвечает на HTTP-запросы на порт 8080.
-
-1. [Создайте простое приложение](#simple-app).
-1. [Создайте сервис типа LoadBalancer с публичным IP-адресом](#lb-create).
-1. [Создайте сервис типа LoadBalancer с внутренним IP-адресом](#lb-int-create).
-1. [Укажите дополнительные параметры сервиса](#advanced).
-1. [Укажите параметры проверки состояния узлов](#healthcheck).
-1. (Опционально) [Создайте объект NetworkPolicy](#network-policy).
+Чтобы обеспечить доступ к приложению {{ k8s }}:
+1. [Подготовьтесь к работе](#before-you-begin)
+1. [{#T}](#create-application)
+1. [{#T}](#create-lb)
+1. [{#T}](#check-result)
+1. [{#T}](#network-policy)
 
 {% cut "Как обеспечить доступ к приложению с помощью HTTPS?" %}
 
@@ -57,62 +54,62 @@ title: Обеспечение доступа к приложению, запущ
 
 ## Перед началом работы {#before-you-begin}
 
-Подготовьте необходимую инфраструктуру:
+1. {% include [Install and configure kubectl](../../_includes/managed-kubernetes/kubectl-install.md) %}
 
-{% list tabs group=instructions %}
+1. Подготовьте инфраструктуру:
 
-- Вручную {#manual}
+    {% list tabs group=instructions %}
 
-  1. Создайте [облачную сеть](../../vpc/operations/network-create.md) и [подсеть](../../vpc/operations/subnet-create.md).
-  1. Создайте [сервисный аккаунт](../../iam/operations/sa/create.md) с [ролями](../../iam/concepts/access-control/roles.md) `k8s.clusters.agent`, `vpc.publicAdmin` и `load-balancer.admin`. Роль `load-balancer.admin` нужна для создания [сетевого балансировщика нагрузки](../../network-load-balancer/concepts/index.md).
-  1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
+    - Вручную {#manual}
 
-        {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+      1. Создайте [облачную сеть](../../vpc/operations/network-create.md) и [подсеть](../../vpc/operations/subnet-create.md).
+      1. Создайте [сервисный аккаунт](../../iam/operations/sa/create.md) с [ролями](../../iam/concepts/access-control/roles.md) `k8s.clusters.agent`, `vpc.publicAdmin` и `load-balancer.admin`. Роль `load-balancer.admin` нужна для создания [сетевого балансировщика нагрузки](../../network-load-balancer/concepts/index.md).
+      1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
-  1. [Создайте кластер {{ managed-k8s-name }}](kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](node-group/node-group-create.md) с публичным доступом в интернет и с группами безопасности, подготовленными ранее.
+          {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-- {{ TF }} {#tf}
+      1. [Создайте кластер {{ managed-k8s-name }}](kubernetes-cluster/kubernetes-cluster-create.md) и [группу узлов](node-group/node-group-create.md) с публичным доступом в интернет и с группами безопасности, подготовленными ранее.
 
-  1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
-  1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
-  1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
-  1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+    - {{ TF }} {#tf}
 
-  1. Скачайте в ту же рабочую директорию файл конфигурации кластера {{ managed-k8s-name }} [k8s-load-balancer.tf](https://github.com/yandex-cloud-examples/yc-mk8s-load-balancer/blob/main/k8s-load-balancer.tf). В файле описаны:
-     * [Сеть](../../vpc/concepts/network.md#network).
-     * [Подсеть](../../vpc/concepts/network.md#subnet).
-     * Кластер {{ managed-k8s-name }}.
-     * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для работы кластера и [группы узлов {{ managed-k8s-name }}](../concepts/index.md#node-group).
-     * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
+      1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+      1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+      1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+      1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
-        {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
+      1. Скачайте в ту же рабочую директорию файл конфигурации кластера {{ managed-k8s-name }} [k8s-load-balancer.tf](https://github.com/yandex-cloud-examples/yc-mk8s-load-balancer/blob/main/k8s-load-balancer.tf). В файле описаны:
+          * [Сеть](../../vpc/concepts/network.md#network).
+          * [Подсеть](../../vpc/concepts/network.md#subnet).
+          * Кластер {{ managed-k8s-name }}.
+          * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для работы кластера и [группы узлов {{ managed-k8s-name }}](../concepts/index.md#node-group).
+          * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}
 
-  1. Укажите в файле конфигурации:
-     * [Идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
-     * [Версию {{ k8s }}](../concepts/release-channels-and-updates.md) для кластера и групп узлов {{ managed-k8s-name }}.
-     * Имя сервисного аккаунта кластера {{ managed-k8s-name }}.
-  1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+            {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
 
-     ```bash
-     terraform validate
-     ```
+      1. Укажите в файле конфигурации:
+          * [Идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
+          * [Версию {{ k8s }}](../concepts/release-channels-and-updates.md) для кластера и групп узлов {{ managed-k8s-name }}.
+          * Имя сервисного аккаунта кластера {{ managed-k8s-name }}.
+      1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
 
-     Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-  1. Создайте необходимую инфраструктуру:
+          ```bash
+          terraform validate
+          ```
 
-     {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+          Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+      1. Создайте необходимую инфраструктуру:
 
-     {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+          {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-     {% include [Terraform timeouts](../../_includes/managed-kubernetes/terraform-timeout-both.md) %}
+          {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
-{% endlist %}
+          {% include [Terraform timeouts](../../_includes/managed-kubernetes/terraform-timeout-both.md) %}
 
-## Создайте простое приложение {#simple-app}
+    {% endlist %}
 
-1. Сохраните следующую спецификацию для создания приложения в YAML-файл с именем `hello.yaml`.
+## Создайте приложение {{ k8s }} {#create-application}
 
-   [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) — объект API {{ k8s }}, который управляет реплицированным приложением.
+1. Создайте файл `hello.yaml` и добавьте в него спецификацию ресурса [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/) для создания приложения:
 
    ```yaml
    apiVersion: apps/v1
@@ -136,134 +133,187 @@ title: Обеспечение доступа к приложению, запущ
 
 1. Создайте приложение:
 
-   {% list tabs group=instructions %}
-
-   - CLI {#cli}
-
-     {% include [cli-install](../../_includes/cli-install.md) %}
-
-     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
-
-     ```bash
-     kubectl apply -f hello.yaml
-     ```
-
-     Результат:
-
-     ```bash
-     deployment.apps/hello created
-     ```
-
-   {% endlist %}
-
-1. Посмотрите информацию о созданном приложении:
-
-   {% list tabs group=instructions %}
-
-   - CLI {#cli}
-
-     ```bash
-     kubectl describe deployment hello
-     ```
-
-     Результат:
-
-     ```text
-     Name:                   hello
-     Namespace:              default
-     CreationTimestamp:      Wed, 28 Oct 2020 23:15:25 +0300
-     Labels:                 <none>
-     Annotations:            deployment.kubernetes.io/revision: 1
-     Selector:               app=hello
-     Replicas:               2 desired | 2 updated | 2 total | 1 available | 1 unavailable
-     StrategyType:           RollingUpdate
-     MinReadySeconds:        0
-     RollingUpdateStrategy:  25% max unavailable, 25% max surge
-     Pod Template:
-       Labels:  app=hello
-       Containers:
-        hello-app:
-         Image:        {{ registry }}/crpjd37scfv653nl11i9/hello:1.1
-         Port:         <none>
-         Host Port:    <none>
-         Environment:  <none>
-         Mounts:       <none>
-       Volumes:        <none>
-     Conditions:
-       Type           Status  Reason
-       ----           ------  ------
-       Available      False   MinimumReplicasUnavailable
-       Progressing    True    ReplicaSetUpdated
-     OldReplicaSets:  <none>
-     NewReplicaSet:   hello-******** (2/2 replicas created)
-     Events:
-       Type    Reason             Age   From                   Message
-       ----    ------             ----  ----                   -------
-       Normal  ScalingReplicaSet  10s   deployment-controller  Scaled up replica set hello-******** to 2
-     ```
-
-   {% endlist %}
-
-## Создайте сервис типа LoadBalancer с публичным IP-адресом {#lb-create}
-
-Когда вы создаете сервис типа `LoadBalancer`, контроллер {{ yandex-cloud }} создает в вашем каталоге и настраивает для вас [сетевой балансировщик нагрузки](../../network-load-balancer/concepts/index.md) с публичным IP-адресом.
-
-{% note warning %}
-
-* Созданный сетевой балансировщик тарифицируется согласно установленным [правилам тарификации](../../network-load-balancer/pricing.md).
-* Не изменяйте и не удаляйте сетевой балансировщик нагрузки и целевые группы, которые будут автоматически созданы в вашем каталоге после создания сервиса с типом `LoadBalancer`.
-
-{% endnote %}
-
-1. Сохраните следующую спецификацию для создания сервиса типа `LoadBalancer` в YAML-файл с именем `load-balancer.yaml`:
-
-   ```yaml
-   apiVersion: v1
-   kind: Service
-   metadata:
-     name: hello
-   spec:
-     type: LoadBalancer
-     ports:
-     - port: 80
-       name: plaintext
-       targetPort: 8080
-     # {{ k8s }}-метки селектора, использованные в шаблоне подов при создании объекта Deployment.
-     selector:
-       app: hello
+   ```bash
+   kubectl apply -f hello.yaml
    ```
 
-   Подробнее см. в [справочнике](../nlb-ref/service.md) ресурса `Service` для {{ network-load-balancer-full-name }}.
+1. Убедитесь, что приложение создано:
+
+   ```bash
+   kubectl get deployment 
+   ```
+
+   Результат:
+
+   ```text
+   NAME    READY   UP-TO-DATE   AVAILABLE   AGE
+   hello   2/2     2            2           17h
+   ```
+
+## Создайте сервис типа LoadBalancer {#create-lb}
+
+Когда вы создаете сервис типа `LoadBalancer`, контроллер {{ yandex-cloud }} в вашем каталоге устанавливает сетевой балансировщик нагрузки. Он тарифицируется по установленным в {{ network-load-balancer-name }} [правилам тарификации](../../network-load-balancer/pricing.md).
+
+{% include [note-nlb](../../_includes/managed-kubernetes/note-nlb.md) %}
+
+Чтобы создать сервис типа `LoadBalancer`:
+
+1. Выберите и подготовьте спецификацию сервиса в зависимости от нужного типа балансировщика:
+
+   {% list tabs group=instructions %}
+
+   * Внешний балансировщик {#external-balancer}
+
+      1. Создайте файл `load-balancer.yaml` и добавьте в него следующую спецификацию сервиса:
+
+         ```yaml
+         apiVersion: v1
+         kind: Service
+         metadata:
+           name: hello
+         spec:
+           type: LoadBalancer
+           ports:
+           - port: <порт_приложения>
+             name: plaintext
+             targetPort: 8080
+           selector:
+             <{{ k8s }}-метки>
+         ```
+
+         В спецификации укажите:
+
+         * `spec.ports.port` — порт приложения.
+
+            В примере предполагается, что приложение {{ k8s }} доступно по протоколу HTTP, поэтому укажите значение `80`. Если нужен доступ к приложению по HTTPS, укажите значение `443`.
+
+         * `spec.selector` — {{ k8s }}-метки, заданные в поле `spec.selector.matchLabels` ресурса `Deployment`.
+
+            В созданном ранее ресурсе `Deployment` используется метка `app: hello`, поэтому укажите ее.
+
+         Подробнее о спецификации см. в [справочнике сервиса](../nlb-ref/service.md).
+
+      1. (Опционально) [Зарезервируйте статический публичный IP-адрес](../../vpc/operations/get-static-ip.md) и добавьте его в спецификацию:
+
+         ```yaml
+         ...
+         spec:
+           loadBalancerIP: <статический_IP-адрес>
+           ...
+         ```
+
+         {% note info %}
+
+         Если не указать статический IP-адрес, сетевому балансировщику нагрузки будет назначен динамический IP-адрес.
+
+         {% endnote %}
+
+   * Внутренний балансировщик {#internal-balancer}
+
+      1. Создайте файл `load-balancer.yaml` и добавьте в него следующую спецификацию сервиса:
+
+         ```yaml
+         apiVersion: v1
+         kind: Service
+         metadata:
+           name: hello
+           annotations:
+             yandex.cloud/load-balancer-type: internal
+             yandex.cloud/subnet-id: <идентификатор_подсети_кластера>
+         spec:
+           type: LoadBalancer
+           ports:
+           - port: <порт_приложения>
+             name: plaintext
+             targetPort: 8080
+           selector:
+             <{{ k8s }}-метки>
+         ```
+
+         В спецификации укажите:
+
+         * `yandex.cloud/subnet-id` — идентификатор подсети, в которой расположен кластер. Идентификатор можно [получить вместе с информацией о подсети](../../vpc/operations/subnet-get-info.md).
+         * `spec.ports.port` — порт приложения.
+
+            В примере предполагается, что приложение {{ k8s }} доступно по протоколу HTTP, поэтому укажите значение `80`. Если нужен доступ к приложению по HTTPS, укажите значение `443`.
+
+         * `spec.selector` — {{ k8s }}-метки, заданные в поле `spec.selector.matchLabels` ресурса `Deployment`.
+
+            В созданном ранее ресурсе `Deployment` используется метка `app: hello`, поэтому укажите ее.
+
+         Подробнее о спецификации см. в [справочнике сервиса](../nlb-ref/service.md).
+
+      1. (Опционально) [Зарезервируйте статический внутренний IP-адрес](../../vpc/operations/private-ip-reserve.md) и добавьте его в спецификацию:
+
+         ```yaml
+         ...
+         spec:
+           loadBalancerIP: <статический_IP-адрес>
+           ...
+         ```
+
+         {% note info %}
+
+         Если не указать статический IP-адрес, сетевому балансировщику нагрузки будет назначен динамический IP-адрес.
+
+         {% endnote %}
+
+   {% endlist %}
+
+1. (Опционально) Добавьте политику управления трафиком:
+
+   ```yaml
+   ...
+   spec:
+     externalTrafficPolicy: <Cluster_или_Local>
+     ...
+   ```
+
+   Возможные значения:
+
+   {% include [externalTrafficPolicy-description](../../_includes/managed-kubernetes/externalTrafficPolicy.md) %}
+
+1. (Опционально) Подключите [проверки доступности узлов](../../network-load-balancer/concepts/health-check.md) (health checks).
+
+   Сервисы типа `LoadBalancer` в {{ managed-k8s-name }} могут выполнять запросы на проверку состояния [целевой группы](../../network-load-balancer/concepts/target-resources.md). На основе полученных метрик {{ managed-k8s-name }} принимает решение о доступности узлов.
+
+   Чтобы включить проверки доступности узлов, укажите следующие аннотации в спецификации сервиса:
+
+   ```yaml
+   ...
+   metadata:
+     ...
+     annotations:
+       yandex.cloud/load-balancer-healthcheck-healthy-threshold: "2"
+       yandex.cloud/load-balancer-healthcheck-interval: "2s"
+   ```
+
+   Используемые аннотации:
+
+   * `yandex.cloud/load-balancer-healthcheck-healthy-threshold` — количество последовательных удачных проверок, при достижении которого узел кластера считается доступным.
+   * `yandex.cloud/load-balancer-healthcheck-interval` — интервал выполнения проверок в секундах.
 
 1. Создайте сетевой балансировщик нагрузки:
 
-   {% list tabs group=instructions %}
+   ```bash
+   kubectl apply -f load-balancer.yaml
+   ```
 
-   - CLI {#cli}
+## Проверьте доступность приложения {#check-result}
 
-     ```bash
-     kubectl apply -f load-balancer.yaml
-     ```
-
-     Результат:
-
-     ```bash
-     service/hello created
-     ```
-
-   {% endlist %}
-
-1. Посмотрите информацию о созданном сетевом балансировщике нагрузки:
+1. Посмотрите информацию о созданном сетевом балансировщике нагрузки и получите его IP-адрес:
 
    {% list tabs group=instructions %}
 
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите ваш каталог по умолчанию.
-     1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
      1. На вкладке **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_list }}** отображен сетевой балансировщик нагрузки с префиксом `k8s` в имени и уникальным идентификатором вашего кластера {{ k8s }} в описании.
 
-   - CLI {#cli}
+        Скопируйте адрес балансировщика в столбце **{{ ui-key.yacloud.load-balancer.network-load-balancer.column_ip-address }}**.
+
+   - kubectl {#kubectl}
 
      ```bash
      kubectl describe service hello
@@ -293,146 +343,56 @@ title: Обеспечение доступа к приложению, запущ
        Normal  EnsuredLoadBalancer   2m17s  service-controller  Ensured load balancer
      ```
 
+     Скопируйте адрес балансировщика в поле `LoadBalancer Ingress`.
+
    {% endlist %}
 
-1. Убедитесь, что приложение доступно из интернета:
+1. Убедитесь, что приложение доступно. Процесс проверки зависит от типа балансировщика:
 
    {% list tabs group=instructions %}
 
-   - CLI {#cli}
+   * Внешний балансировщик {#external-balancer}
 
-     ```bash
-     curl http://130.193.50.111
-     ```
+      Выполните команду:
 
-     Где `130.193.50.111` — публичный IP-адрес из поля `LoadBalancer Ingress`.
+      ```bash
+      curl http://<IP-адрес_балансировщика>
+      ```
 
-     Результат:
+      Результат:
 
-     ```text
-     Hello, world!
-     Running in 'hello-********'
-     ```
+      ```text
+      Hello, world!
+      Running in 'hello-********'
+      ```
+
+   * Внутренний балансировщик {#internal-balancer}
+
+      1. В подсети кластера {{ managed-k8s-name }} [создайте виртуальную машину Linux](../../compute/operations/vm-create/create-linux-vm.md).
+
+         Так как вы развернули внутренний сетевой балансировщик нагрузки, проверить доступ к приложению {{ k8s }} можно только из подсети кластера.
+
+      1. [Подключитесь к ВМ по SSH](../../compute/operations/vm-connect/ssh.md).
+      1. Проверьте доступность приложения {{ k8s }}:
+
+         ```bash
+         curl http://<IP-адрес_балансировщика>
+         ```
+
+         Результат:
+
+         ```text
+         Hello, world!
+         Running in 'hello-********'
+         ```
 
    {% endlist %}
 
    {% include [Настройка групп безопасности при недоступности ресурса](../../_includes/managed-kubernetes/security-groups/check-sg-if-url-unavailable-lvl3.md) %}
 
-## Создайте сервис типа LoadBalancer с внутренним IP-адресом {#lb-int-create}
+## (Опционально) Создайте объект NetworkPolicy {#network-policy}
 
-1. Измените спецификацию в файле `load-balancer.yaml`:
-
-   ```yaml
-   apiVersion: v1
-   kind: Service
-   metadata:
-     name: hello
-     annotations:
-       # Тип балансировщика.
-       yandex.cloud/load-balancer-type: internal
-       # Идентификатор подсети для внутреннего сетевого балансировщика нагрузки.
-       yandex.cloud/subnet-id: e1b23q26ab1c********
-   spec:
-     type: LoadBalancer
-     ports:
-     - port: 80
-       name: plaintext
-       targetPort: 8080
-     # {{ k8s }}-метки селектора, использованные в шаблоне подов при создании объекта Deployment.
-     selector:
-       app: hello
-   ```
-
-   Подробнее см. в [справочнике](../nlb-ref/service.md#annotations) ресурса `Service` для {{ network-load-balancer-full-name }}.
-
-1. Удалите созданный ранее внешний сетевой балансировщик нагрузки:
-
-   {% list tabs %}
-
-   - CLI
-
-     ```bash
-     kubectl delete service hello
-     ```
-
-     Результат:
-
-     ```bash
-     service "hello" deleted
-     ```
-
-   {% endlist %}
-
-1. Создайте внутренний сетевой балансировщик нагрузки:
-
-   {% list tabs %}
-
-   - CLI
-
-     ```bash
-     kubectl apply -f load-balancer.yaml
-     ```
-
-     Результат:
-
-     ```bash
-     service/hello created
-     ```
-
-   {% endlist %}
-
-## Укажите дополнительные параметры сервиса {#advanced}
-
-В {{ managed-k8s-name }} для сервиса типа `LoadBalancer` можно указать дополнительные параметры:
-
-* `loadBalancerIP` — заранее зарезервированный (статический) [публичный](../../vpc/concepts/address.md#public-addresses) IP-адрес.
-* `externalTrafficPolicy` — [политика управления трафиком]({{ k8s-api-link }}#servicespec-v1-core).
-
-{% cut "Пример" %}
-
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: hello
-spec:
-  type: LoadBalancer
-  ports:
-  - port: 80
-    name: plaintext
-    targetPort: 8080
-  selector:
-    app: hello
-  loadBalancerIP: 159.161.32.22
-  externalTrafficPolicy: Cluster
-```
-
-{% endcut %}
-
-Подробнее см. в [справочнике](../nlb-ref/service.md#servicespec) ресурса `Service` для {{ network-load-balancer-full-name }}.
-
-## Укажите параметры проверки состояния узлов {#healthcheck}
-
-Сервисы типа `LoadBalancer` в {{ managed-k8s-name }} могут выполнять запросы проверки состояния [целевой группы](../../network-load-balancer/concepts/target-resources.md) узлов {{ k8s }}. На основании полученных метрик {{ managed-k8s-name }} принимает решение о доступности узлов.
-
-Чтобы включить режим проверки состояния узлов, укажите аннотации `yandex.cloud/load-balancer-healthcheck-*` в спецификации сервиса, например:
-
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: hello
-  annotations:
-    # Параметры проверки состояния узлов
-    yandex.cloud/load-balancer-healthcheck-healthy-threshold: "2"
-    yandex.cloud/load-balancer-healthcheck-interval: "2s"
-```
-
-Подробнее см. в [справочнике](../nlb-ref/service.md#annotations) ресурса `Service` для {{ network-load-balancer-full-name }}.
-
-## Создайте объект NetworkPolicy {#network-policy}
-
-Для подключения к сервисам, опубликованным через {{ network-load-balancer-name }}, с определенных IP-адресов, в кластере должны быть включены [сетевые политики](../concepts/network-policy.md). Для настройки доступа через балансировщик создайте объект [NetworkPolicy]({{ k8s-api-link }}#networkpolicy-v1-networking-k8s-io) с политикой типа `Ingress`.
+Чтобы подключиться с определенных IP-адресов к сервисам, опубликованным через {{ network-load-balancer-name }}, включите [сетевые политики](../concepts/network-policy.md) в кластере. Для настройки доступа через балансировщик создайте объект [NetworkPolicy](https://kubernetes.io/docs/concepts/services-networking/network-policies/#networkpolicy-resource) с политикой типа `Ingress`.
 
 {% cut "Пример настройки объекта NetworkPolicy" %}
 
@@ -464,7 +424,7 @@ spec:
 
 {% endcut %}
 
-Подробнее см. в [справочнике](../nlb-ref/networkpolicy.md) ресурса `NetworkPolicy` для {{ network-load-balancer-full-name }}.
+Подробнее см. в [справочнике](../nlb-ref/networkpolicy.md) ресурса `NetworkPolicy`.
 
 ## Удалите созданные ресурсы {#clear-out}
 

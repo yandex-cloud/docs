@@ -1,6 +1,6 @@
 ---
 title: How to deactivate a user in {{ org-full-name }}
-description: Follow this guide to deactivate a user in {{ org-name }}.
+description: Follow this guide to deactivate a user in {{ org-full-name }}.
 ---
 
 # Deactivating a user
@@ -68,7 +68,7 @@ To deactivate a federated user account:
      * `<federation_ID>`: ID of the federation to deactivate users in.
      * `--subject-ids`: List of user IDs for deactivation.
      * `--organization-id`: ID of the organization the federation belongs to.
-     * `--reason`: Reason for deactivation. This is an optional parameter.
+     * `--reason`: Reason for deactivation. This is an optional setting.
 
 - API {#api}
 
@@ -107,7 +107,7 @@ To deactivate a local user account:
        --reason <reason_for_deactivation>
      ```
 
-     Where `--reason` is the reason for deactivation. This is an optional parameter.
+     Where `--reason` is the reason for deactivation. This is an optional setting.
 
 - {{ TF }} {#tf}
 
@@ -133,13 +133,13 @@ To deactivate a local user account:
      * `full_name`: User’s full name.
      * `is_active`: Activation flag. Set to `false` to deactivate the user.
 
-     For more information about `yandex_organizationmanager_idp_user` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/organizationmanager_idp_user).
+     For more information about `yandex_organizationmanager_idp_user` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_user).
 
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new resources and their settings either in [{{ org-full-name }}]({{ link-org-cloud-center }}) or using this [CLI](../../../cli/) command:
+     {{ TF }} will create all the required resources. You can check the new resources and their settings in [{{ org-full-name }}]({{ link-org-cloud-center }}) or using this [CLI](../../../cli/) command:
 
      ```bash
      yc organization-manager idp user get <user_ID>

@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-postgresql/cli-ref/connect
 editable: false
 ---
 
@@ -25,6 +26,9 @@ PostgreSQL cluster name. ||
 || `--db` | `string`
 
 The name of the database to connect to. ||
+|| `--port` | `int`
+
+Port to listen on for PostgreSQL proxy connections. ||
 |#
 
 #### Global Flags

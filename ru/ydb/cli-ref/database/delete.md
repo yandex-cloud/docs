@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/ydb/cli-ref/database/delete
 editable: false
 ---
 

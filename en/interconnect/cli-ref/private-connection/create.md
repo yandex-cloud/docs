@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/private-connection/create
 editable: false
 ---
 
@@ -25,9 +26,6 @@ Description of the privateConnection. ||
 || `--labels` | `key=value[,key=value...]`
 
 A list of privateConnection labels as key-value pairs. ||
-|| `--region` | `string`
-
-Region of the privateConnection. ||
 || `--trunk-id` | `string`
 
 Id of a trunk connection of the privateConnection. ||
@@ -36,7 +34,14 @@ Id of a trunk connection of the privateConnection. ||
 VLAN id that the privateConnection uses in multiplexing. ||
 || `--ipv4-peering` | `key=value[,key=value...]`
 
-A list of IPv4 peering parameters of the privateConnection. ||
+A list of IPv4 peering parameters of the privateConnection.
+
+Supported peering parameters:
+   peering-subnet: ip with format ipPrefix/length where address part of ipPrefix is 0.
+   peer-ip: ip with just an ipAddress format without mask.
+   cloud-ip: Ip with just an ipAddress format without mask.
+   peer-bgp-asn: PeerAsn excluding rfc5398 (excluding 64496 - 64511 and 65536 - 65551).
+   peer-bgp-md5-key: (optional) MD5 key of the peer. ||
 || `--ipv4-static-routes` | `value[,value]`
 
 IPv4 static routes (in ipPrefix/length format) of the privateConnection. ||

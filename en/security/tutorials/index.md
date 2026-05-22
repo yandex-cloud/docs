@@ -25,6 +25,7 @@ description: Various {{ yandex-cloud }} security tutorials
 
 * [{#T}](single-sign-on/oidc-grafana.md)
 * [{#T}](single-sign-on/oidc-1c-enterprise.md)
+* [{#T}](single-sign-on/oidc-cloud-ru.md)
 * [{#T}](single-sign-on/saml-grafana.md)
 * [{#T}](single-sign-on/saml-managed-gitlab.md)
 * [{#T}](single-sign-on/saml-zabbix.md)
@@ -32,6 +33,9 @@ description: Various {{ yandex-cloud }} security tutorials
 * [{#T}](single-sign-on/saml-opensearch-self-managed.md)
 * [{#T}](single-sign-on/saml-sonarqube.md)
 * [{#T}](single-sign-on/saml-yandex-360.md)
+* [{#T}](single-sign-on/saml-ya-browser-corporate.md)
+* [{#T}](single-sign-on/saml-cloud-ru.md)
+* [{#T}](single-sign-on/saml-vk-cloud.md)
 
 
 ## Network security {#network-security}
@@ -72,6 +76,7 @@ description: Various {{ yandex-cloud }} security tutorials
 * [{#T}](data-encryption-and-key-management/static-key-in-lockbox/index.md)
 * [{#T}](data-encryption-and-key-management/wlif-github-integration.md)
 * [{#T}](data-encryption-and-key-management/wlif-gitlab-integration.md)
+* [{#T}](data-encryption-and-key-management/ephemeral-key-storage.md)
 
 
 ## Collecting, monitoring, and analyzing audit logs {#audit-logs}
@@ -83,7 +88,7 @@ description: Various {{ yandex-cloud }} security tutorials
 * [{#T}](audit-logs/logging-functions.md)
 * [{#T}](audit-logs/audit-trails.md)
 * Exporting audit logs to SIEM systems
-    * [{#T}](audit-logs/maxpatrol.md)
+    * [{#T}](audit-logs/maxpatrol/index.md)
     * [{#T}](audit-logs/export-logs-to-splunk.md)
     * [{#T}](audit-logs/export-logs-to-arcsight.md)
     * [{#T}](audit-logs/audit-trails-events-to-kuma/index.md)

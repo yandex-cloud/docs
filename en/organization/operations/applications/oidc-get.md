@@ -1,6 +1,6 @@
 ---
 title: How to get information about an OIDC app in {{ org-full-name }}
-description: Follow this guide to get information about an OIDC app in {{ org-name }}.
+description: Follow this guide to get information about an OIDC app in {{ org-full-name }}.
 ---
 
 # Getting information about an OIDC app in {{ org-full-name }}
@@ -47,6 +47,51 @@ description: Follow this guide to get information about an OIDC app in {{ org-na
      status: ACTIVE
      created_at: "2025-10-21T10:51:28.790866Z"
      updated_at: "2025-10-22T11:53:21.689383Z"
+     ```
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Add the `data` and `output` sections to the {{ TF }} configuration file:
+
+     ```hcl
+     data "yandex_organizationmanager_idp_application_oauth_application" "app" {
+       application_id = "<app_ID>"
+     }
+     
+     output "my_app_name" {
+       value = data.yandex_organizationmanager_idp_application_oauth_application.app.name
+     }
+     
+     output "my_app_status" {
+       value = data.yandex_organizationmanager_idp_application_oauth_application.app.status
+     }
+     
+     output "my_app_client_id" {
+       value = data.yandex_organizationmanager_idp_application_oauth_application.app.client_grant.client_id
+     }
+     ```
+
+     Where:
+
+     * `data "yandex_organizationmanager_idp_application_oauth_application"`: Description of the OIDC app as a data source.
+       * `application_id`: App ID.
+     * `output`: Output variables containing the app info:
+       * `value`: Return value.
+
+     You can replace these parameters with any others to get the information you need. For more information about the `yandex_organizationmanager_idp_application_oauth_application` data source properties, see [this {{ TF }} provider guide]({{ tf-provider-datasources-link }}/organizationmanager_idp_application_oauth_application).
+
+  1. Create the resources:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} will create the required resources and display their output variables. To check the results, run this command:
+
+     ```bash
+     terraform output
      ```
 
 - API {#api}

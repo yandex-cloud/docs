@@ -1,4 +1,4 @@
-# Метод putBucketTagging
+# Object Storage API, REST совместимый с Amazon S3: PutBucketTagging
 
 Добавляет [метки](../../../concepts/tags.md) бакету. При этом перезаписываются все имеющиеся у бакета метки.
 
@@ -60,5 +60,11 @@ PUT /{bucket}?tagging HTTP/2
 Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
 
 Успешный ответ не содержит дополнительных данных.
+
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/bucket.md)
+
+* [Добавление или изменение меток бакета](../../../operations/buckets/tagging.md#add-edit-tag)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

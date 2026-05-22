@@ -15,7 +15,13 @@ You can connect the following to {{ backup-name }}:
 
 For more information about connecting to {{ backup-name }}, see these [guides](../operations/index.md).
 
-For the {{ backup-name }} connection to work correctly, link a [service account](#sa) (with the `backup.editor` role for the VM and the `baremetal.editor` and the `backup.editor` roles for the {{ baremetal-name }} server) to the resource and configure [network access](#vm-network-access).
+For the {{ backup-name }} connection to work correctly, link to the resource a [service account](#sa) (with the `backup.user` role or higher for the VM or the `baremetal.editor` and the `backup.user` roles or higher for the {{ baremetal-name }} server) and configure [network access](#vm-network-access).
+
+{% note tip %}
+
+{% include [user-console-vm-creation-notice](../../_includes/backup/user-console-vm-creation-notice.md) %}
+
+{% endnote %}
 
 After connecting to {{ backup-name }}, [add](../operations/policy-vm/attach-and-detach-vm.md#attach-vm) the VM or the {{ baremetal-name }} server to the [backup policy](policy.md).
 
@@ -161,11 +167,17 @@ To update the Linux kernel header versions, follow these guides: [Restoring the 
 
 ## Service account {#sa}
 
+{% note info %}
+
+{% include [user-console-vm-creation-notice](../../_includes/backup/user-console-vm-creation-notice.md) %}
+
+{% endnote %}
+
 [Service account](../../iam/concepts/users/service-accounts.md) is a special account the {{ backup-name }} agent uses to get registered with the Cyberprotect provider.
 
-When creating a VM you want to configure backups for in {{ backup-name }}, you need to link to it a service account with the [`backup.editor`](../security/index.md#backup-editor) role.
+When creating a VM you want to configure backups for in {{ backup-name }}, you need to link to it a service account with the [`backup.user`](../security/index.md#backup-user) role or higher.
 
-When ordering a {{ baremetal-name }} server you want to configure backups for in {{ backup-name }}, you need to link to it a service account with the [`baremetal.editor`](../../baremetal/security/index.md#baremetal-editor) and [`backup.editor`](../security/index.md#backup-editor) roles.
+When ordering a {{ baremetal-name }} server you want to configure backups for in {{ backup-name }}, you need to link to it a service account with the [`baremetal.editor`](../../baremetal/security/index.md#baremetal-editor) and [`backup.user`](../security/index.md#backup-user) roles or higher.
 
 You can [assign the role](../../iam/operations/sa/assign-role-for-sa.md) to an existing service account or [create](../../iam/operations/sa/create.md) a new service account with required roles.
 

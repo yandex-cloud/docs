@@ -5,6 +5,16 @@ description: This section contains the {{ sws-name }} release notes.
 
 # {{ sws-full-name }} release notes
 
+## Q1 2026 {#q1-2026}
+
+* Added [response page templates](concepts/response-templates.md), i.e., customizable pages {{ sws-name }} returns to the client if the request is blocked. With a template, you can set page response code, format (HTML, JSON, XML), and content. You can assign a template to a security profile, ARL profile, or specific rule.
+
+* Added support for [fingerprints](concepts/botes.md#fingerprint), i.e., JA3 and JA4 SSL/TLS connection IDs. You can use fingerprints in traffic filtering to block malicious bots and reduce false positives.
+
+* Released a new version of [Yandex Ruleset 0.1.1](concepts/waf.md#version-0-1-1). This version includes 129 rules, 34 of which are new rules targeting critical CVEs in widely used technologies. Expanded coverage for LFI, RCE, and SQLi attacks; reduced the false positive rate.
+
+* All resources that can be protected by {{ sws-name }} have been added to the security profile page. This allows you to attach the profile to a [virtual host, domain, or API gateway](operations/host-connect.md) in the same place.
+
 ## Q4 2025 {#q4-2025}
 
 * For an ARL profile, added new [available actions](concepts/arl.md#over-limit-actions) when exceeding the request limit:
@@ -15,7 +25,7 @@ description: This section contains the {{ sws-name }} release notes.
 
 * Added tools for [bot traffic management](concepts/botes.md) and malicious bot detection:
 
-  * List of verified bot categories by intended use or type of activity (AcademicResearchBot, AISearchBot).
+  * List of verified bot categories based on their purpose or nature of action (AcademicResearchBot, AISearchBot).
   * Up-to-date lists of legitimate bots used by various services and companies (e.g., Yandex, Googlebot, or Bing).
   * Specific attribute to distinguish a verified bot.
   * Configurable bot score thresholds from 0 to 100 for rule customization.

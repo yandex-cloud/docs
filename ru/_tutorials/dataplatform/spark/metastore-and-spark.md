@@ -27,12 +27,10 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входят:
-
-* Плата за бакеты {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
-* Плата за сервис {{ cloud-logging-full-name }}: объем записываемых данных и время их хранения (см. [тарифы {{ cloud-logging-name }}](../../../logging/pricing.md)).
-* Плата за вычислительные ресурсы компонентов кластера {{ msp-full-name }} (см. [тарифы {{ msp-full-name }}](../../../managed-spark/pricing.md)).
-* Плата за вычислительные ресурсы компонентов кластера {{ metastore-name }} (см. [тарифы {{ metadata-hub-full-name }}](../../../metadata-hub/pricing.md)).
+* Бакеты {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
+* Сервис {{ cloud-logging-full-name }}: объем записываемых данных и время их хранения (см. [тарифы {{ cloud-logging-name }}](../../../logging/pricing.md)).
+* Кластер {{ msp-full-name }}: вычислительные ресурсы компонентов кластера (см. [тарифы {{ msp-full-name }}](../../../managed-spark/pricing.md)).
+* Кластер {{ metastore-name }}: вычислительные ресурсы компонентов кластера (см. [тарифы {{ metadata-hub-full-name }}](../../../metadata-hub/pricing.md)).
 
 
 ## Подготовьте инфраструктуру {#infra}
@@ -137,7 +135,8 @@
 
 - Консоль управления {#console}
 
-    1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+    1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spark }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.mdb.cluster.switch_jobs }}**.
     1. Дождитесь, когда созданное PySpark-задание перейдет в статус **Done**.
     1. Убедитесь, что в бакете для выходных данных, в папке `warehouse`, появился файл с данными из БД `database_1`.

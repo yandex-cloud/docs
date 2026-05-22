@@ -1,3 +1,12 @@
-Роль `managed-clickhouse.viewer` позволяет просматривать информацию о [кластерах ClickHouse®](../../managed-clickhouse/concepts/index.md) и логи их работы, а также данные о [квотах](../../managed-clickhouse/concepts/limits.md#mch-quotas) и операциях с ресурсами сервиса Managed Service for ClickHouse®.
 
-Включает разрешения, предоставляемые ролью `managed-clickhouse.auditor`.
+Роль `managed-clickhouse.viewer` позволяет просматривать информацию о кластерах {{ CH }} и логи их работы, а также данные о квотах и операциях с ресурсами сервиса {{ mch-name }}.
+
+Пользователи с этой ролью могут:
+* просматривать информацию о [кластерах {{ CH }}](../../managed-clickhouse/concepts/index.md) и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним;
+* просматривать информацию о заданиях на [техническое обслуживание](../../managed-clickhouse/concepts/maintenance.md) кластеров {{ CH }};
+* просматривать логи работы кластеров {{ CH }};
+* просматривать информацию о результатах диагностики производительности кластеров {{ CH }};
+* просматривать информацию о [квотах](../../managed-clickhouse/concepts/limits.md#mch-quotas) сервиса {{ mch-name }};
+* просматривать информацию об операциях с ресурсами сервиса {{ mch-name }}.
+
+Включает разрешения, предоставляемые ролями `managed-clickhouse.auditor` и `managed-clickhouse.maintenanceTask.viewer`.

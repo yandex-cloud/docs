@@ -92,7 +92,7 @@ The following master configurations are available for Intel Cascade Lake with a 
 
 * **Standard**: Standard hosts with 4:1 RAM to vCPU ratio: {#master-standard}
 
-  ID | Number of vCPUs | RAM
+  ID | Number of vCPUs | RAM, GB
   --- | --- | ---
   s-c2-m8    | 2 | 8
   s-c4-m16   | 4 | 16
@@ -104,7 +104,7 @@ The following master configurations are available for Intel Cascade Lake with a 
 
 * **CPU-optimized**: Hosts with a decreased RAM to vCPU ratio of 2:1: {#master-cpu-optimized}
 
-  ID | Number of vCPUs | RAM
+  ID | Number of vCPUs | RAM, GB
   --- | --- | ---
   c-c4-m8   | 4 | 8
   c-c8-m16  | 8 | 16
@@ -113,7 +113,7 @@ The following master configurations are available for Intel Cascade Lake with a 
 
 * **Memory-optimized**: Hosts with an increased RAM to vCPU ratio of 8:1: {#master-memory-optimized}
 
-  ID | Number of vCPUs | RAM
+  ID | Number of vCPUs | RAM, GB
   --- | --- | ---
   m-c2-m16 | 2 | 16
   m-c4-m32 | 4 | 32
@@ -135,18 +135,38 @@ A _node group_ is a {{ compute-full-name }} [instance group](../../compute/conce
 
 See also the [description of instance groups during a zonal incident and our mitigation guidelines](../../compute/concepts/instance-groups/zonal-inc/overview.md).
 
-### Configuration {#config}
+For a node group, you can specify the following settings:
+* Name and description
+* [{{ k8s }} version](./k8s-supported-versions.md)
+* [Node group cloud labels](../../resource-manager/concepts/labels.md)
+* [Scaling parameters](./node-group/cluster-autoscaler.md)
+* [Deployment policy](./node-group/deploy-policy.md)
+* [Reserved instance pools](./node-group/reserved-pools.md)
+* [Variables in a node template](./node-group/variables-in-the-template.md)
+* [{#T}](#config)
+* [{#T}](#taints-tolerations)
+* [{#T}](#node-labels)
+
+For {{ managed-k8s-name }}, only [containerd](https://containerd.io/) is available as a container runtime environment.
+
+### VM configuration {#config}
 
 
 When creating a node group, you can configure the following VM parameters:
-* VM type.
+
+* VM type. To pay less for your cluster, consider [preemptible VMs](../../compute/concepts/preemptible-vm.md).
+
+   
+   {% include [preemtible-vm](../../_includes/managed-kubernetes/note-preemtible-vm.md) %}
+   
+
 * Type and number of cores (vCPUs).
 * Amount of memory (RAM) and disk space.
 * [Placement group](../../compute/concepts/placement-groups.md).
 
   {% include [placement-groups](../../_includes/managed-kubernetes/placement-groups.md) %}
 
-* Kernel parameters.
+* Kernel parameters:
   * _Safe_ kernel parameters are isolated between pods.
   * _Unsafe_ parameters affect the operation of the pods and the node as a whole. In {{ managed-k8s-name }}, you cannot change unsafe kernel parameters unless you explicitly specified their names when [creating a node group](../operations/node-group/node-group-create.md).
 
@@ -160,14 +180,6 @@ When creating a node group, you can configure the following VM parameters:
 
 You can create groups with different configurations in a single {{ k8s }} cluster and spread them across multiple availability zones.
 
-For {{ managed-k8s-name }}, only [containerd](https://containerd.io/) is available as a container runtime environment.
-
-### Connecting to group nodes {#node-connect-ssh}
-
-You can connect to nodes in a group in the following ways:
-* Via an SSH client using a standard SSH key pair, see [{#T}](../operations/node-connect-ssh.md).
-* Via an SSH client and the CLI using {{ oslogin }}, see [{#T}](../operations/node-connect-oslogin.md).
-
 ### Taints and tolerations {#taints-tolerations}
 
 _Taints_ are special policies placed on nodes in the group. Using taints, you can ensure that certain pods are not scheduled onto inappropriate nodes. For example, you can allow the rendering pods to schedule only on [nodes with GPU](node-group/node-group-gpu.md).
@@ -177,7 +189,13 @@ Taints give you the following advantages:
 * When adding nodes to a group, taints are placed on the node automatically.
 * Taints are automatically placed on new nodes when [scaling a node group](autoscale.md).
 
-You can place a taint on a node group when [creating](../operations/node-group/node-group-create.md) or [updating the group](../operations/node-group/node-group-update.md#assign-taints). If you place a taint on a previously created node group or remove a taint from it, such group will be recreated. First, all nodes in the group are deleted, then nodes with the new configuration are added to the group.
+You can place a taint on a node group only when [creating](../operations/node-group/node-group-create.md) it. 
+
+{% note tip %}
+
+You can use {{ TF }} to [add](../operations/node-group/node-group-update.md#assign-taints) or [remove](../operations/node-group/node-group-update.md#remove-taint) a taint for a {{ TF }} node group resource; however, this will also delete the node group itself and recreate it with the new configuration.
+
+{% endnote %}
 
 Each taint has three parts:
 
@@ -269,11 +287,17 @@ You can group nodes in {{ managed-k8s-name }} using _node labels_. There are two
 
 You can use both types of labels concurrently, e.g., when [creating a node group](../operations/node-group/node-group-create.md) via the CLI or {{ TF }}.
 
+### Connecting to group nodes {#node-connect-ssh}
+
+You can connect to nodes in a group in the following ways:
+* Via an SSH client using a standard SSH key pair, see [{#T}](../operations/node-connect-ssh.md).
+* Via an SSH client and the CLI using {{ oslogin }}, see [{#T}](../operations/node-connect-oslogin.md).
+
 ## Pod {#pod}
 
 A _pod_ is a request to run one or multiple containers on a group node. In a {{ k8s }} cluster, each pod has its unique IP address so that applications do not conflict when using ports.
 
-Containers are described in pods via JSON or YAML objects.
+Containers are described in pods via JSON or YAML objects. You can connect to running container terminals using [kubectl](https://kubernetes.io/ru/docs/tasks/tools/install-kubectl/) or directly from the [management console](../operations/kubernetes-console/pod-terminal.md).
 
 ### Masquerading IP addresses for pods {#pod-ip-masquerade}
 
@@ -304,7 +328,7 @@ For more information, see the [ip-masq-agent page on GitHub](https://github.com/
 
 A [_service_](service.md) is an abstraction that provides network load balancing. Traffic rules are configured for pods grouped by a set of labels.
 
-By default, a service is only available within a specific {{ k8s }} cluster, but it can be public and receive [requests from outside](../operations/create-load-balancer.md#lb-create) the {{ k8s }} cluster.
+By default, a service is only available within a specific {{ k8s }} cluster, but it can be public and receive [requests from outside](../operations/create-load-balancer.md#create-lb) the {{ k8s }} cluster.
 
 ## Namespace {#namespace}
 

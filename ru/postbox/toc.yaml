@@ -21,8 +21,12 @@ items:
         href: operations/create-configuration.md
       - name: Привязка конфигурации к адресу
         href: operations/bind-configuration.md
+      - name: Ограничение списка отправителей
+        href: operations/restrict-senders.md
       - name: Запись логов
         href: operations/logs-write.md
+      - name: Просмотр информации об отправленных письмах
+        href: operations/messages.md
   - name: Концепции
     items:
       - name: Обзор
@@ -138,6 +142,8 @@ items:
                   aws-compatible-api/api-ref/delete-configuration-set-event-destination.md
           - name: Заголовки запросов
             href: aws-compatible-api/api-ref/request-headers.md
+  - name: Метрики {{ monitoring-name }}
+    href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
   - name: Публичные материалы

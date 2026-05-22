@@ -7,7 +7,7 @@ description: I cannot log in to the partner portal. How do I fix it? How do I co
 
 #### I cannot log in to the partner portal. What should I do? {#login}
 
-If you received a welcome email on being accepted into the program with a link to the [partner portal]({{ link-cloud-partners }}) but you cannot log in:
+If you received a partner program welcome email with a link to the [partner portal]({{ link-cloud-partners }}), but you cannot log in:
 
 1. Make sure you are logged in with the Yandex ID to which your billing account with the partner status is linked.
 1. Check whether your billing account is activated and its status is `Active`.
@@ -27,7 +27,7 @@ To change the account administrator login:
 
 {% note warning %}
 
-You will need to [register](https://yandex.ru/support/id/authorization/registration.html) a new account on Yandex (Yandex ID) that you will not use it for authorization in other Yandex services. You will also need to log in and authorize with this Yandex ID in {{ yandex-cloud }} without creating new billing accounts.
+You must [register](https://yandex.ru/support/id/authorization/registration.html) a new account with Yandex (Yandex ID) and not use it for authentication in other Yandex services. You need to log in and authenticate with this Yandex ID in {{ yandex-cloud }} without creating new billing accounts.
 
 {% endnote %}
 

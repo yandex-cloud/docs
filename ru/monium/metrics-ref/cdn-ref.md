@@ -1,0 +1,14 @@
+---
+title: Метрики {{ cdn-full-name }}
+description: Из статьи вы узнаете про метрики {{ cdn-name }}.
+editable: false
+---
+
+# Метрики {{ cdn-full-name }}
+
+
+В этом разделе описаны метрики сервиса [{{ cdn-name }}](../../cdn/), поставляемые в {{ monitoring-name }}.
+
+{% include [metrics-note](../../_includes/cdn/metrics-note.md) %}
+
+{% include [cdn-yc.md](../../_includes/monitoring/metrics-ref/cdn-yc.md) %}

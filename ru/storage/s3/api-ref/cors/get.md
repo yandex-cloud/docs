@@ -1,4 +1,4 @@
-# Метод get
+# Object Storage API, REST совместимый с Amazon S3: GetBucketCors
 
 Возвращает конфигурацию CORS для бакета.
 
@@ -42,6 +42,10 @@ GET /{bucket}?cors HTTP/2
 
 Возвращаемые данные имеют ту же структуру, которую имеют данные, передаваемые методом [upload](upload.md).
 
-{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/cors.md)
 
 * [{#T}](../../../operations/buckets/cors.md)
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

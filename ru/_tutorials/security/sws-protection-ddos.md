@@ -46,7 +46,7 @@ _Профиль безопасности_ — основной элемент {{
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находятся защищаемые ресурсы.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/profiles.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Нажмите **{{ ui-key.yacloud.smart-web-security.action_empty }}** и выберите **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
   1. Введите имя профиля, например `anti-ddos`.
@@ -67,17 +67,7 @@ _Профиль безопасности_ — основной элемент {{
 
 - Консоль управления {#console}
 
-  1. На странице свойств профиля безопасности вверху справа нажмите кнопку ![plug](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.smart-web-security.overview.action_attach-to-host }}**.
-  1. Последовательно выберите:
-      * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_balancer }}**](../../application-load-balancer/concepts/application-load-balancer.md).
-      * [**{{ ui-key.yacloud.smart-web-security.attach-dialog.label_http-router }}**](../../application-load-balancer/concepts/http-router.md).
-
-      * **{{ ui-key.yacloud.smart-web-security.attach-dialog.label_virtual-host }}**. Вы можете подключить профиль безопасности сразу к нескольким хостам.
-
-        Чтобы подключить другой L7-балансировщик, нажмите кнопку **{{ ui-key.yacloud.smart-web-security.AttachSecurityProfileDialog.label_add-resource_v4U3g }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.attach-dialog.action_connect }}**.
-
-      В разделе ![cubes-3-overlap](../../_assets/console-icons/cubes-3-overlap.svg) **{{ ui-key.yacloud.common.connected_resources }}** появятся подключенные виртуальные хосты.
+  {% include [host-connect](../../_includes/smartwebsecurity/security-profile-host-connect.md) %}
 
 {% endlist %}
 
@@ -108,7 +98,7 @@ _Профиль безопасности_ — основной элемент {{
 
 - Консоль управления {#console}
 
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Выберите раздел **{{ ui-key.yacloud.common.monitoring }}**.
   1. Посмотрите информацию на графиках:
      * **Denied by Security Profile RPS** — количество входящих запросов в секунду, которые были проверены и заблокированы профилем безопасности.
@@ -126,7 +116,7 @@ _Профиль безопасности_ — основной элемент {{
 - Консоль управления {#console}
 
   1. Убедитесь, что для L7-балансировщика настроено [логирование](../../smartwebsecurity/operations/configure-logging.md).
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Выберите балансировщик, к которому привязан профиль безопасности.
   1. Выберите раздел **{{ ui-key.yacloud.common.logs }}**.
   1. Выберите количество сообщений на одной странице и период. Например, `1 час`.
@@ -158,7 +148,7 @@ _Профиль безопасности_ — основной элемент {{
 
 - Консоль управления {#console}
 
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. На панели слева выберите ![image](../../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.smart-web-security.arl.label_create-profile }}**.
   1. Введите имя профиля, например `anti-ddos-arl`.
@@ -183,7 +173,7 @@ _Профиль безопасности_ — основной элемент {{
 
 - Консоль управления {#console}
 
-   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
    1. На панели слева выберите ![image](../../_assets/smartwebsecurity/profiles.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
    1. Выберите профиль безопасности `anti-ddos`.
    1. Нажмите кнопку ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.

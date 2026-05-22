@@ -7,8 +7,26 @@ items:
     items:
       - name: Все инструкции
         href: operations/index.md
-      - name: Создание реестра
-        href: operations/registry/create.md
+      - name: Управление реестром
+        items:
+          - name: Создание реестра
+            href: operations/registry/create.md
+          - name: Управление правами доступа к реестру
+            items:
+              - name: Посмотреть роли, назначенные на реестр
+                href: operations/registry/list-role.md
+              - name: Назначить роль
+                href: operations/registry/add-role.md
+              - name: Отозвать роль
+                href: operations/registry/remove-role.md
+          - name: Политика доступа для IP-адресов
+            items:
+              - name: Получить информацию о политике доступа
+                href: operations/registry/list-access-policy.md
+              - name: Настроить политику доступа
+                href: operations/registry/create-access-policy.md
+              - name: Удалить политику доступа
+                href: operations/registry/remove-access-policy.md
       - name: Управление артефактами
         items:
           - name: Docker-образ
@@ -49,18 +67,32 @@ items:
             items:
               - name: Настроить PyPI
                 href: operations/pypi/installation.md
+              - name: Создать Python-пакет
+                href: operations/pypi/create.md
+              - name: Загрузить Python-пакет в реестр
+                href: operations/pypi/push.md
+              - name: Скачать Python-пакет из реестра
+                href: operations/pypi/pull.md
+              - name: Удалить Python-пакет из реестра
+                href: operations/pypi/delete.md
+              - name: Примеры работы с PyPI-реестрами
+                href: operations/pypi/examples.md
           - name: Binary-артефакт
             items:
               - name: Загрузить binary-артефакт в реестр
                 href: operations/binary/push.md
               - name: Скачать binary-артефакт из реестра
                 href: operations/binary/pull.md
+      - name: Создание политики жизненного цикла
+        href: operations/lifecycle-policy/create.md
   - name: Практические руководства
     items:
       - name: >-
           Запуск Docker-образа на виртуальной машине с помощью {{
           cloud-registry-name }}
         href: tutorials/docker-cloud-registry.md
+      - name: Настройка политик жизненного цикла
+        href: tutorials/lifecycle-policy-examples.md
   - name: Концепции
     items:
       - name: Обзор
@@ -83,6 +115,10 @@ items:
             href: concepts/artifacts/python.md
           - name: Binary-артефакт
             href: concepts/artifacts/binary.md
+      - name: Политика жизненного цикла
+        href: concepts/lifecycle-policy.md
+      - name: Квоты и лимиты
+        href: concepts/limits.md
   - name: Управление доступом
     href: security/index.md
   - name: Правила тарификации
@@ -101,6 +137,8 @@ items:
             href: cli-ref/artifact/delete.md
           - name: get
             href: cli-ref/artifact/get.md
+          - name: get-by-path
+            href: cli-ref/artifact/get-by-path.md
           - name: list-access-bindings
             href: cli-ref/artifact/list-access-bindings.md
           - name: remove-access-binding
@@ -135,6 +173,8 @@ items:
                 href: cli-ref/registry/lifecycle-policy/create.md
               - name: delete
                 href: cli-ref/registry/lifecycle-policy/delete.md
+              - name: dry-run
+                href: cli-ref/registry/lifecycle-policy/dry-run.md
               - name: get
                 href: cli-ref/registry/lifecycle-policy/get.md
               - name: list
@@ -159,6 +199,82 @@ items:
             href: cli-ref/registry/set-ip-permissions.md
           - name: update
             href: cli-ref/registry/update.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: artifact
+            items:
+              - name: Overview
+                href: cli-ref/v0/artifact/index.md
+              - name: add-access-binding
+                href: cli-ref/v0/artifact/add-access-binding.md
+              - name: delete
+                href: cli-ref/v0/artifact/delete.md
+              - name: get
+                href: cli-ref/v0/artifact/get.md
+              - name: get-by-path
+                href: cli-ref/v0/artifact/get-by-path.md
+              - name: list-access-bindings
+                href: cli-ref/v0/artifact/list-access-bindings.md
+              - name: remove-access-binding
+                href: cli-ref/v0/artifact/remove-access-binding.md
+              - name: set-access-bindings
+                href: cli-ref/v0/artifact/set-access-bindings.md
+          - name: configure-docker
+            href: cli-ref/v0/configure-docker.md
+          - name: registry
+            items:
+              - name: Overview
+                href: cli-ref/v0/registry/index.md
+              - name: add-access-binding
+                href: cli-ref/v0/registry/add-access-binding.md
+              - name: add-ip-permissions
+                href: cli-ref/v0/registry/add-ip-permissions.md
+              - name: create
+                href: cli-ref/v0/registry/create.md
+              - name: delete
+                href: cli-ref/v0/registry/delete.md
+              - name: force-delete
+                href: cli-ref/v0/registry/force-delete.md
+              - name: get
+                href: cli-ref/v0/registry/get.md
+              - name: lifecycle-policy
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/registry/lifecycle-policy/index.md
+                  - name: change-state
+                    href: cli-ref/v0/registry/lifecycle-policy/change-state.md
+                  - name: create
+                    href: cli-ref/v0/registry/lifecycle-policy/create.md
+                  - name: delete
+                    href: cli-ref/v0/registry/lifecycle-policy/delete.md
+                  - name: dry-run
+                    href: cli-ref/v0/registry/lifecycle-policy/dry-run.md
+                  - name: get
+                    href: cli-ref/v0/registry/lifecycle-policy/get.md
+                  - name: list
+                    href: cli-ref/v0/registry/lifecycle-policy/list.md
+                  - name: update
+                    href: cli-ref/v0/registry/lifecycle-policy/update.md
+              - name: list
+                href: cli-ref/v0/registry/list.md
+              - name: list-access-bindings
+                href: cli-ref/v0/registry/list-access-bindings.md
+              - name: list-artifacts
+                href: cli-ref/v0/registry/list-artifacts.md
+              - name: list-ip-permissions
+                href: cli-ref/v0/registry/list-ip-permissions.md
+              - name: remove-access-binding
+                href: cli-ref/v0/registry/remove-access-binding.md
+              - name: remove-ip-permissions
+                href: cli-ref/v0/registry/remove-ip-permissions.md
+              - name: set-access-bindings
+                href: cli-ref/v0/registry/set-access-bindings.md
+              - name: set-ip-permissions
+                href: cli-ref/v0/registry/set-ip-permissions.md
+              - name: update
+                href: cli-ref/v0/registry/update.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API
@@ -177,6 +293,12 @@ items:
                 href: api-ref/grpc/Artifact/get.md
               - name: Delete
                 href: api-ref/grpc/Artifact/delete.md
+              - name: ListAccessBindings
+                href: api-ref/grpc/Artifact/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/grpc/Artifact/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/grpc/Artifact/updateAccessBindings.md
           - name: LifecyclePolicy
             items:
               - name: Overview
@@ -215,6 +337,8 @@ items:
                 href: api-ref/grpc/Registry/update.md
               - name: Delete
                 href: api-ref/grpc/Registry/delete.md
+              - name: ForceDelete
+                href: api-ref/grpc/Registry/forceDelete.md
               - name: ListAccessBindings
                 href: api-ref/grpc/Registry/listAccessBindings.md
               - name: SetAccessBindings
@@ -241,6 +365,12 @@ items:
                 href: api-ref/Artifact/get.md
               - name: Delete
                 href: api-ref/Artifact/delete.md
+              - name: ListAccessBindings
+                href: api-ref/Artifact/listAccessBindings.md
+              - name: SetAccessBindings
+                href: api-ref/Artifact/setAccessBindings.md
+              - name: UpdateAccessBindings
+                href: api-ref/Artifact/updateAccessBindings.md
           - name: LifecyclePolicy
             items:
               - name: Overview
@@ -279,6 +409,8 @@ items:
                 href: api-ref/Registry/update.md
               - name: Delete
                 href: api-ref/Registry/delete.md
+              - name: ForceDelete
+                href: api-ref/Registry/forceDelete.md
               - name: ListAccessBindings
                 href: api-ref/Registry/listAccessBindings.md
               - name: SetAccessBindings

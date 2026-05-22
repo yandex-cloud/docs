@@ -4,7 +4,8 @@ Make sure the data from the source has been moved to the {{ yds-name }} stream:
 
   - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}**.
+      1. In the [management console]({{ link-console-main }}), select a folder.
+      1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}** service.
       1. Select the target stream from the list and navigate to ![image](../../_assets/console-icons/bars.svg) **{{ ui-key.yacloud.data-streams.label_data-introspection }}**.
       1. Make sure `shard-000000` now contains messages with the source table rows. For a closer look at the messages, click ![image](../../_assets/console-icons/eye.svg).
 

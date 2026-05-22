@@ -6,9 +6,11 @@ description: Следуя данной инструкции, вы сможете
 # Изменить пароль локального пользователя
 
 
+{% include [organization-deny-user-listing](../../../_includes/organization/organization-deny-user-listing.md) %}
+
 ## Сбросить пароль {#reset}
 
-Чтобы задать пароль [локального](../../../iam/concepts/users/accounts.md#local) пользователя:
+Чтобы сбросить пароль [локального](../../../iam/concepts/users/accounts.md#local) пользователя:
 
 {% list tabs group=instructions %}
 
@@ -57,6 +59,12 @@ description: Следуя данной инструкции, вы сможете
 {% endlist %}
 
 Пользователь должен будет изменить этот пароль при первом входе в {{ yandex-cloud }}.
+
+{% note info %}
+
+Если для пула пользователей настроена [парольная политика](../../concepts/password-policy.md), она не будет применяться к автоматически сгенерированным паролям.
+
+{% endnote %}
 
 ## Задать пароль {#set}
 

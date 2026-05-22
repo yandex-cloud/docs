@@ -17,7 +17,7 @@
 
       1. Click **{{ ui-key.yacloud.common.save }}**.
 
-  1. To revoke all roles, in the row with the user, service account, or group, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![TrashBin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.resource-acl.button_remove-bindings }}**. Confirm the action.
+  1. To revoke all roles, in the row with the user, service account, or group, click ![image](../../_assets/console-icons/ellipsis.svg) and select ![TrashBin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_components.acl.action.revoke-access }}**. Confirm the action.
 
 - CLI {#cli}
 
@@ -62,6 +62,30 @@
          * `--federation-users`: Federated user ID.
          * `--service-account-id`: Service account ID.
          * `--subject group`: Group ID.
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-install](../terraform-install.md) %}
+
+  To revoke a role from a user, service account, or user group:
+
+  1. Open the {{ TF }} configuration file and remove the part containing the `yandex_organizationmanager_group_iam_binding` resource for the role you want to revoke.
+
+      ```hcl
+      resource "yandex_organizationmanager_group_iam_binding" "editor" {
+        group_id = "<group_ID>"
+        role     = "<role_ID>"
+        members  = [
+          "<subject_type>:<subject_ID>",
+        ]
+      }
+      ```
+
+  1. Apply the changes:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+   
+  The role will be revoked from the subject you indicated. You can check the role is no longer assigned using the [{{ cloud-center }} UI]({{ link-org-cloud-center }}).
 
 - API {#api}
 

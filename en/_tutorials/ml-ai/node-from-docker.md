@@ -58,7 +58,7 @@ In our example, both the {{ yandex-cloud }} infrastructure and the deployed serv
 - Management console {#console}
 
   1. Navigate to `data-folder`.
-  1. In the list of services, select **{{ container-registry-name }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_container-registry }}**.
   1. Click **{{ ui-key.yacloud.cr.overview.button_create }}**.
   1. Specify a name for the registry, e.g., `datasphere-registry`, and click **{{ ui-key.yacloud.cr.overview.popup-create_button_create }}**.
   
@@ -72,7 +72,7 @@ In our example, both the {{ yandex-cloud }} infrastructure and the deployed serv
 - Management console {#console}
 
    1. Navigate to `data-folder`.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
    1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
    1. Name the [service account](../../iam/concepts/users/service-accounts.md), e.g., `sa-for-datasphere`.
    1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the following [roles](../../iam/concepts/access-control/roles.md) to the service account:
@@ -95,7 +95,7 @@ To allow your service account to [get authenticated in {{ container-registry-ful
 - Management console {#console}
 
   1. Navigate to `data-folder`.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the list that opens, select the `sa-for-datasphere` service account.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel.

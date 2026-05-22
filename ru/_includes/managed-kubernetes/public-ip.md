@@ -1,0 +1,5 @@
+Публичные IP-адреса необходимы для [подключения](../../managed-kubernetes/operations/connect/index.md) к узлам из интернета и для подключения узлов к внешним ресурсам, например реестрам Docker-образов ([{{ container-registry-name }}](../../container-registry/concepts/index.md), [{{ cloud-registry-name }}](../../cloud-registry/concepts/index.md) или [Docker Hub](https://hub.docker.com/)), а также бакетам [{{ objstorage-name }}](../../storage/concepts/bucket.md).
+
+Чтобы обеспечить узлам доступ в интернет, назначьте им публичный IP-адрес и [настройте](../../managed-kubernetes/operations/connect/security-groups.md#rules-internal-nodegroup) группу безопасности. Также в качестве альтернативы публичным IP-адресам можно создать и настроить в подсети узлов [NAT-шлюз](../../vpc/operations/create-nat-gateway.md) или [NAT-инстанс](../../vpc/tutorials/nat-instance/index.md).
+
+Если вы назначили узлам кластера публичные IP-адреса и затем настроили NAT-шлюз или NAT-инстанс, доступ в интернет через публичные адреса пропадет. Подробнее см. в [документации {{ vpc-full-name }}](../../vpc/concepts/routing.md#internet-routes).

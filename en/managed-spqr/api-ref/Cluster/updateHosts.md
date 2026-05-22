@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the SPQR cluster to update hosts in.
             To get the SPQR cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -23,6 +24,7 @@ apiPlayground:
           description: |-
             **[UpdateHostSpec](#yandex.cloud.mdb.spqr.v1.UpdateHostSpec)**
             New configurations to apply to hosts.
+            Must contain exactly 1 element.
           type: array
           items:
             $ref: '#/definitions/UpdateHostSpec'
@@ -75,7 +77,9 @@ POST https://{{ api-host-mdb }}/managed-spqr/v1/clusters/{clusterId}/hosts:batch
 || clusterId | **string**
 
 Required field. ID of the SPQR cluster to update hosts in.
-To get the SPQR cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request. ||
+To get the SPQR cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.spqr.v1.UpdateClusterHostsRequest}
@@ -96,7 +100,9 @@ To get the SPQR cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-r
 ||Field | Description ||
 || updateHostSpecs[] | **[UpdateHostSpec](#yandex.cloud.mdb.spqr.v1.UpdateHostSpec)**
 
-New configurations to apply to hosts. ||
+New configurations to apply to hosts.
+
+Must contain exactly 1 element. ||
 |#
 
 ## UpdateHostSpec {#yandex.cloud.mdb.spqr.v1.UpdateHostSpec}

@@ -1,12 +1,12 @@
 ---
 title: How to create an OIDC application in {{ org-full-name }}
-description: Follow this guide to create an OIDC application in {{ org-name }} to authenticate your organization’s users in external apps using OpenID Connect SSO.
+description: Follow this guide to create an OIDC application in {{ org-full-name }} to authenticate your organization’s users in external apps using OpenID Connect SSO.
 ---
 
 # Creating an OIDC application in {{ org-full-name }}
 
 
-To authenticate your [organization’s](../../concepts/organization.md) users in external apps using [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC) single sign-on, create an [OIDC application](../../concepts/applications.md#oidc) in {{ org-name }} and configure it appropriately both in {{ org-name }} and on your service provider’s side.
+To authenticate your [organization’s](../../concepts/organization.md) users in external apps using [OpenID Connect](https://en.wikipedia.org/wiki/OpenID#OpenID_Connect_(OIDC)) (OIDC) single sign-on, create an [OIDC application](../../concepts/applications.md#oidc) in {{ org-full-name }} and configure it appropriately both in {{ org-full-name }} and on your service provider’s side.
 
 {% include [oidc-app-admin-role](../../../_includes/organization/oidc-app-admin-role.md) %}
 
@@ -144,6 +144,104 @@ To authenticate your [organization’s](../../concepts/organization.md) users in
      updated_at: "2025-10-21T12:37:19.274522Z"
      ```
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Describe the [OAuth client](../../concepts/applications.md) parameters in the {{ TF }} configuration file:
+
+     ```hcl
+     resource "yandex_iam_oauth_client" "example_oauth_client" {
+       name      = "<OAuth_client_name>"
+       folder_id = "<folder_ID>"
+       scopes    = ["<attribute_1>", "<attribute_2>"]
+     }
+     ```
+
+     Where:
+
+     * `name`: OAuth client name.
+     * `folder_id`: ID of the folder where you want to create your OAuth server.
+     * `scopes`: User attributes that will be available to the service provider. Specify one or more attributes in square brackets. Possible attributes:
+       * `openid`: User ID. Required attribute.
+       * `profile`: Additional user details, such as first name, last name, and avatar.
+       * `email`: User email address.
+       * `address`: User home address.
+       * `phone`: User phone number.
+       * `groups`: User groups in the organization.
+
+     For more information about `yandex_iam_oauth_client` properties, see [this provider guide]({{ tf-provider-resources-link }}/iam_oauth_client).
+
+  1. In the {{ TF }} configuration file, describe the OAuth client [secret](../../concepts/applications.md#oidc-secret) parameters:
+
+     ```hcl
+     resource "yandex_iam_oauth_client_secret" "example_oauth_client_secret" {
+       oauth_client_id = "<OAuth_client_ID>"
+     }
+     ```
+
+     Where:
+
+     * `oauth_client_id`: ID of the OAuth client for which you are creating the secret.
+
+     For more information about `yandex_iam_oauth_client_secret` properties, see [this provider guide]({{ tf-provider-resources-link }}/iam_oauth_client_secret).
+
+  1. Describe the [OIDC application](../../concepts/applications.md#oidc) parameters in the {{ TF }} configuration file:
+
+     ```hcl
+     resource "yandex_organizationmanager_idp_application_oauth_application" "example_oidc_app" {
+       organization_id = "<organization_ID>"
+       name            = "<application_name>"
+       description     = "<application_description>"
+       
+       client_grant = {
+         client_id         = "<OAuth_client_ID>"
+         authorized_scopes = ["<attribute_1>", "<attribute_2>"]
+       }
+       
+       group_claims_settings = {
+         group_distribution_type = "ALL_GROUPS"
+       }
+       
+       labels = {
+         "<key_1>" = "<value_1>"
+         "<key_2>" = "<value_2>"
+       }
+     }
+     ```
+
+     Where:
+
+     * `organization_id`: [ID of the organization](../organization-get-id.md) you want to create your OIDC app in. This is a required setting.
+     * `name`: OIDC app name. This is a required setting. The name must be unique within the organization and follow the naming requirements:
+
+       {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
+
+     * `description`: OIDC app description. This is an optional setting.
+     * `client_grant`: OAuth client connection settings:
+       * `client_id`: OAuth client ID. This is a required setting.
+       * `authorized_scopes`: Specify the same attributes as when creating the OAuth client.
+     * `group_claims_settings`: Settings for sending user group claims to the service provider:
+       * `group_distribution_type`: If you provided the `groups` attribute when creating the OAuth client, specify which user groups you want to go to the service provider. The possible values are:
+         * `ALL_GROUPS`: Service provider will get all groups the user belongs to.
+         * `ASSIGNED_GROUPS`: Of all the user's groups, the service provider will only get the ones explicitly specified.
+         * `NONE`: Service provider will not get any of the groups the user belongs to.
+     * `labels`: List of [labels](../../../resource-manager/concepts/labels.md). This is an optional setting.
+
+     For more information about `yandex_organizationmanager_idp_application_oauth_application` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_application_oauth_application).
+
+  1. Create the resources:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} will create all the required resources. You can check the new resources and their settings in the [{{ cloud-center }} UI]({{ link-org-cloud-center }}) or using this [CLI](../../../cli/) command:
+
+     ```bash
+     yc organization-manager idp application oauth application list --organization-id <organization_ID>
+     ```
+
 - API {#api}
 
   1. Use the [OAuthClient.Create](../../../iam/api-ref/OAuthClient/create.md) REST API method for the [OAuthClient](../../../iam/api-ref/grpc/OAuthClient/index.md) resource or the [OAuthClientService/Create](../../../iam/api-ref/grpc/OAuthClient/create.md) gRPC API call.
@@ -154,7 +252,7 @@ To authenticate your [organization’s](../../concepts/organization.md) users in
 
 ## Set up your application {#setup-application}
 
-To integrate an external application with the OIDC application you created in {{ org-name }}, complete the setup both on the service provider side and in {{ org-name }}.
+To integrate an external application with the OIDC application you created in {{ org-full-name }}, complete the setup both on the service provider side and in {{ org-full-name }}.
 
 ### Set up integration on the service provider side {#setup-sp}
 
@@ -173,7 +271,7 @@ Depending on the options supported by your service provider, you can configure t
       {% include [oidc-app-sp-parameter-list](../../../_includes/organization/oidc-app-sp-parameter-list.md) %}
 
   1. {% include [oidc-generate-secret](../../../_includes/organization/oidc-generate-secret.md) %}
-  1. On the service provider side, set up integration with your {{ org-name }} OIDC application by specifying the parameters you copied and the generated secret. If you need help, refer to your service provider's documentation or support team.
+  1. On the service provider side, set up integration with your {{ org-full-name }} OIDC application by specifying the parameters you copied and the generated secret. If you need help, refer to your service provider's documentation or support team.
 
 - Configuration URL
 
@@ -183,13 +281,13 @@ Depending on the options supported by your service provider, you can configure t
 
       This URL exposes all configuration values required on the service provider side (except for the secret).
   1. {% include [oidc-generate-secret](../../../_includes/organization/oidc-generate-secret.md) %}
-  1. If your service provider supports using a configuration URL to configure the application, set up integration with your {{ org-name }} OIDC application on the service provider side by specifying the copied link and secret. If you need help, refer to your service provider's documentation or support team.
+  1. If your service provider supports using a configuration URL to configure the application, set up integration with your {{ org-full-name }} OIDC application on the service provider side by specifying the copied link and secret. If you need help, refer to your service provider's documentation or support team.
 
 {% endlist %}
 
-### Configure your OIDC application in {{ org-name }} {#setup-idp}
+### Configure your OIDC application in {{ org-full-name }} {#setup-idp}
 
-Before configuring your OIDC application in {{ org-name }}, get the redirect URI from your service provider. Then, navigate to the OIDC application settings in {{ org-name }}:
+Before configuring your OIDC application in {{ org-full-name }}, get the redirect URI address (addresses) from your service provider. Then, navigate to the OIDC application settings in {{ org-full-name }}:
 
 {% list tabs group=instructions %}
 
@@ -236,6 +334,44 @@ Before configuring your OIDC application in {{ org-name }}, get the redirect URI
      status: ACTIVE
      ```
 
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. In the {{ TF }} configuration file, specify the `redirect_uris` parameter for the `yandex_iam_oauth_client` resource:
+
+     ```hcl
+     resource "yandex_iam_oauth_client" "example_oauth_client" {
+       name          = "<OAuth_client_name>"
+       folder_id     = "<folder_ID>"
+
+       ...
+
+       redirect_uris = ["<address_1>", "<address_2>"]
+     }
+     ```
+
+     Where:
+
+     * `name`: OAuth client name.
+     * `folder_id`: ID of the folder where you want to create your OAuth server.
+     * `redirect_uris`: Specify the address or addresses you got from the service provider in square brackets.
+
+     For more information about `yandex_iam_oauth_client` properties, see [this provider guide]({{ tf-provider-resources-link }}/iam_oauth_client).
+
+  1. Apply the changes:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     You can check the updates of resources and their settings either in the [{{ cloud-center }} interface]({{ link-org-cloud-center }}) or using this [CLI](../../../cli/) command:
+
+     ```bash
+     yc iam oauth-client get <OAuth_client_ID>
+     ```
+
 - API {#api}
 
   Use the [OAuthClient.Update](../../../iam/api-ref/OAuthClient/update.md) REST API method for the [OAuthClient](../../../iam/api-ref/grpc/OAuthClient/index.md) resource or the [OAuthClientService/Update](../../../iam/api-ref/grpc/OAuthClient/update.md) gRPC API call.
@@ -244,7 +380,7 @@ Before configuring your OIDC application in {{ org-name }}, get the redirect URI
 
 ### Configure users and groups {#users-and-groups}
 
-For your organization's users to be able to authenticate in an external app with a {{ org-name }} OIDC application, you need to explicitly add these users and/or [user groups](../../concepts/groups.md) to this OIDC application:
+For your organization's users to be able to authenticate in an external app with a {{ org-full-name }} OIDC application, you need to explicitly add these users and/or [user groups](../../concepts/groups.md) to this OIDC application:
 
 {% note info %}
 

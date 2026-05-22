@@ -12,7 +12,7 @@ description: Следуя данной инструкции, вы сможете
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит секрет.
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Нажмите на имя нужного секрета.
-  1. На панели слева выберите раздел ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+  1. На панели слева выберите раздел ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. В открывшемся окне нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.select-subject }}**.
   1. Выберите группу, пользователя или [сервисный аккаунт](../../iam/concepts/users/service-accounts.md), которым нужно предоставить доступ к секрету.
   1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые [роли](../security/index.md#roles-list).
@@ -66,11 +66,7 @@ description: Следуя данной инструкции, вы сможете
       resource "yandex_lockbox_secret_iam_member" "secret-viewer" {
         secret_id = "<идентификатор_секрета>"
         role      = "<роль>"
-
-        members = [
-          "serviceAccount:<идентификатор_сервисного_аккаунта_1>",
-          "serviceAccount:<идентификатор_сервисного_аккаунта_2>"
-        ]
+        member    = "<тип_субъекта>:<идентификатор_субъекта>"
       }
       ```
 
@@ -78,7 +74,7 @@ description: Следуя данной инструкции, вы сможете
 
       * `secret_id` — идентификатор секрета.
       * `role` — назначаемая [роль](../security/index.md#roles-list).
-      * `members` — список типов и идентификаторов [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
+      * `member` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
       Более подробную информацию о параметрах ресурса `yandex_lockbox_secret_iam_member` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/lockbox_secret_iam_member).
 

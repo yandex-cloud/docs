@@ -1,6 +1,13 @@
-After validating a request, {{ captcha-name }} assigns it an ID: a one-time token. You can use the token to retrieve the result of a user request validation from the service. The token is valid for five minutes. After this time expires, it becomes invalid and the user has to go through the validation process again.
+After verifying the request, {{ captcha-name }} assigns it a unique identifier: a one-time token with a limited TTL. You can use this token to get the request’s verification result from the service.
 
-After validation, the token is loaded into the `<input type="hidden" name="smart-token" value="<token>" ...>` element on the user page. For example:
+{% note warning %}
+
+* The token remains valid for five minutes. After this time expires, the token becomes invalid, and the user needs to go through verification again.
+* The token can only be used once to request the verification result. If you try to validate this token again, you will get a `"status": "failed"` response with the following message: `Invalid or expired Token`.
+
+{% endnote %}
+
+After validation, the token is placed into an `<input type="hidden" name="smart-token" value="<token>" ...>` tag on the user’s page. For example:
 
 ```HTML
 <div id="captcha-container" class="smart-captcha" ...>
@@ -11,10 +18,10 @@ After validation, the token is loaded into the `<input type="hidden" name="smart
 
 Where:
 
-* `<div id="captcha-container" class="smart-captcha" ...>`: `div` element with a widget.
+* `<div id="captcha-container" class="smart-captcha" ...>`: `div` tag containing the widget.
 * `value`: Token value.
 
-To find out the result of the validation, send a POST request to `https://{{ captcha-domain }}/validate` providing parameters in `x-www-form-urlencoded` format:
+To obtain the verification result, send a POST request to `https://{{ captcha-domain }}/validate` providing the following variables in `x-www-form-urlencoded` format:
 
 ```
 secret=<server_key>&token=<token>&ip=<user_IP_address>
@@ -26,9 +33,9 @@ Where:
 
 ## Service response {#service-response}
 
-In its response, the service will return a JSON object containing the `status` and `message` fields. If the `status` field value is `ok`, the `host` field is added to the JSON object. It shows on what website the validation was passed. For example:
+The service will respond with a JSON object containing the `status` and `message` fields. If the `status` field is set to `ok`, the system adds the `host` field to the JSON object. This field indicates the website where the verification has been completed. For example:
 
-1. It is a human. User validation was passed on the `example.com` website:
+1. It is a human. Verification has been completed on the `example.com` website:
 
     ```json
     {
@@ -38,7 +45,7 @@ In its response, the service will return a JSON object containing the `status` a
     }
     ```
 
-1. It is a human. User validation was passed on the `example.com` website via port `8080`:
+1. It is a human. Verification has been completed on `example.com` via port `8080`:
 
     ```json
     {
@@ -48,7 +55,7 @@ In its response, the service will return a JSON object containing the `status` a
     }
     ```
 
-1. Empty `host` field. This may indicate that the cloud is blocked or an internal service failure occurred:
+1. Empty `host` field. This may indicate that access to the cloud is blocked or that an internal service failure has occurred:
 
     ```json
     {
@@ -67,20 +74,36 @@ In its response, the service will return a JSON object containing the `status` a
     }
     ```
 
-1. Request with a fake or damaged token. It is a robot:
+1. Request with a fake or corrupted token. It is a robot:
 
     ```json
     {
         "status": "failed",
-        "message": "Token invalid or expired."
+        "message": "Invalid or expired Token."
     }
     ```
 
+### Response processing {#response-handling}
+
+To process responses correctly, refer to their `status` field:
+
+* `ok`: Request processed successfully.
+* `failed`: An error occurred.
+
+There are two types of errors:
+
+* **This is a robot**: `"status": "failed"`, the `message` field is empty.
+* **Error in request**: `"status": "failed"`, the `message` field contains a description of the error.
+
+Errors in the request may be due to an invalid token or a missing server key. We recommend that you detect and fix such errors during the development and testing step.
+
+The `message` field is not for processing in code using conditions or comparisons. Use it for diagnostic purposes only.
+
 ## Request errors {#errors}
 
-If your request to `https://{{ captcha-domain }}/validate` is incorrect, the service will return an error. Here is an example:
+If your request to `https://{{ captcha-domain }}/validate` is malformed, it will return an error. For example:
 
-1. Request missing the server key:
+1. Request with no server key:
 
     ```JSON
     {
@@ -89,17 +112,17 @@ If your request to `https://{{ captcha-domain }}/validate` is incorrect, the ser
     }
     ```
 
-1. Request with a missing or damaged token:
+1. Request with a missing or corrupted token:
 
     ```JSON
     {
         "status": "failed",
-        "message": "Token invalid or expired."
+        "message": "Invalid or expired Token."
     }
     ```
 
 {% note info %}
 
-To avoid delays in user request processing, we recommend processing HTTP errors (response codes other than 200) as the `"status": "ok"` service response.
+To avoid delays when processing user requests, we recommend that you handle HTTP errors, i.e., non-200 response codes, as the `"status": "ok"` service response.
 
 {% endnote %}

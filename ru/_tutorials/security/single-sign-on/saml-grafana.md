@@ -2,7 +2,7 @@
 
 [Grafana Cloud](https://grafana.com/products/cloud/) — это управляемая облачная платформа для мониторинга и наблюдаемости (observability), которая включает в себя Grafana, Prometheus, Loki и другие инструменты визуализации и анализа данных. Grafana Cloud поддерживает SAML-аутентификацию для обеспечения безопасного единого входа пользователей организации.
 
-Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в Grafana Cloud с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications.md#saml) в {{ org-name }} и настройте его на стороне {{ org-name }} и на стороне Grafana Cloud.
+Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в Grafana Cloud с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications.md#saml) в {{ org-full-name }} и настройте его на стороне {{ org-full-name }} и на стороне Grafana Cloud.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
@@ -56,7 +56,7 @@
 
 ## Настройте интеграцию {#setup-integration}
 
-Чтобы настроить интеграцию Grafana Cloud с созданным SAML-приложением в {{ org-name }}, выполните настройки на стороне Grafana Cloud и на стороне {{ org-name }}.
+Чтобы настроить интеграцию Grafana Cloud с созданным SAML-приложением в {{ org-full-name }}, выполните настройки на стороне Grafana Cloud и на стороне {{ org-full-name }}.
 
 ### Настройте SAML-приложение на стороне Grafana Cloud {#setup-sp}
 
@@ -81,10 +81,10 @@
 
 #### Подключение Grafana к IdP {#conect-idp}
 
-Настройте связь между Grafana Cloud и {{ org-name }}:
+Настройте связь между Grafana Cloud и {{ org-full-name }}:
 
-1. В блоке **Configure IdP using Grafana metadata** скопируйте и сохраните адреса эндпоинтов для получения метаданных (*Metadata URL*) и отправки запросов на аутентификацию пользователей (*Assertion Consumer Service URL*). В дальнейшем вам понадобится второй из этих адресов при настройке интеграции на стороне {{ org-name }}.
-1. Настройте адрес эндпоинта для получения метаданных из {{ org-name }}:
+1. В блоке **Configure IdP using Grafana metadata** скопируйте и сохраните адреса эндпоинтов для получения метаданных (*Metadata URL*) и отправки запросов на аутентификацию пользователей (*Assertion Consumer Service URL*). В дальнейшем вам понадобится второй из этих адресов при настройке интеграции на стороне {{ org-full-name }}.
+1. Настройте адрес эндпоинта для получения метаданных из {{ org-full-name }}:
 
     1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
     1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное SAML-приложение.
@@ -93,7 +93,7 @@
 
 #### Сопоставление атрибутов пользователей {#user-mapping}
 
-Настройте соответствие между полями объектов пользователей в Grafana Cloud и {{ org-name }}:
+Настройте соответствие между полями объектов пользователей в Grafana Cloud и {{ org-full-name }}:
 
 1. В блоке **Assertion attributes mappings** укажите:
 
@@ -115,11 +115,11 @@
     - В поле **Editor**: `grafana-editor`;
     - В поле **Admin**: `grafana-admin`.
 
-    Группы необходимо будет создать при настройке приложения на стороне {{ org-name }}.
+    Группы необходимо будет создать при настройке приложения на стороне {{ org-full-name }}.
 
 1. Ниже, в поле **Name identifier format** выберите `Email address`.
 
-    Имена атрибутов пользователей в {{ org-name }} можно посмотреть и настроить в вашем приложении на вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.attributes_to71e }}**.
+    Имена атрибутов пользователей в {{ org-full-name }} можно посмотреть и настроить в вашем приложении на вкладке **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.attributes_to71e }}**.
 
 1. Сохраните настройки, нажав кнопку **Save and enable**.
 
@@ -159,8 +159,8 @@
     1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.attributes_to71e }}**.
     1. В правом верхнем углу страницы нажмите ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.action_add_attribute }}** и в открывшемся окне:
 
-        1. В поле **{{ ui-key.yacloud_org.attributes.update_dialog.field_attribute_name }}** введите `login`.
-        1. В поле **{{ ui-key.yacloud_org.attributes.update_dialog.field_attribute_value }}** выберите `SubjectClaims.preferred_username`.
+        1. В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** введите `login`.
+        1. В поле **{{ ui-key.yacloud_org.organization.apps.AttributeFormDialogNew.field_attribute_value_dgUAv }}** выберите `SubjectClaims.preferred_username`.
         1. Нажмите **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}
@@ -172,7 +172,7 @@
 - Интерфейс {{ cloud-center }} {#cloud-center}
 
     1. В правом верхнем углу страницы нажмите ![circles-3-plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.action_add_group_attribute }}** и в открывшемся окне:
-    1. В поле **{{ ui-key.yacloud_org.attributes.update_dialog.field_group_attribute_value }}** выберите `{{ ui-key.yacloud_org.field-data.attributes.update_dialog.field_group_assigned }}`.
+    1. В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_group_attribute_value_oxrpu }}** выберите `{{ ui-key.yacloud_org.organization.apps.field_group_assigned_amGdu }}`.
     1. Нажмите **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}
@@ -181,13 +181,9 @@
 
 ### Добавьте пользователя {#add-user}
 
-Чтобы пользователи вашей организации могли аутентифицироваться в Grafana Cloud с помощью SAML-приложения {{ org-name }}, необходимо явно добавить в SAML-приложение нужных пользователей и/или [группы пользователей](../../../organization/concepts/groups.md).
+Чтобы пользователи вашей организации могли аутентифицироваться в Grafana Cloud с помощью SAML-приложения {{ org-full-name }}, необходимо явно добавить в SAML-приложение нужных пользователей и/или [группы пользователей](../../../organization/concepts/groups.md).
 
-{% note info %}
-
-Управлять пользователями и группами, добавленными в SAML-приложение, может пользователь, которому назначена [роль](../../../organization/security/index.md#organization-manager-samlApplications-userAdmin) `organization-manager.samlApplications.userAdmin` или выше.
-
-{% endnote %}
+{% include [saml-manage-users](../../../_includes/organization/saml-manage-users.md) %}
 
 1. Если вы настроили сопоставление ролей на стороне Grafana Cloud, [создайте](../../../organization/operations/create-group.md) нужные [группы](../../../organization/concepts/groups.md):
 
@@ -204,7 +200,7 @@
             1. Перейдите на вкладку **{{ ui-key.yacloud_org.entity.group.title_tab-members }}**.  
             1. Нажмите **{{ ui-key.yacloud_org.entity.group.action_add-member }}**.
             1. В открывшемся окне выберите нужных пользователей.
-            1. Нажмите **{{ ui-key.yacloud_org.component.subject-select-dialog.action_apply }}**.
+            1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
     {% endlist %}
 

@@ -1,0 +1,1 @@
+The `--exclude` and `--include` parameters are applied in the order they are specified. To only copy objects matching a pattern, first exclude all objects using `--exclude "*"`, then include the required ones using `--include`. To exclude objects with a specific prefix, use only `--exclude`, e.g., `--exclude "prefix/*"`.

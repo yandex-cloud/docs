@@ -5,17 +5,18 @@ description: With {{ at-full-name }}, you can collect audit logs about {{ yandex
 
 # {{ at-full-name }} overview
 
-{{ at-full-name }} allows you to collect [management event audit logs](./events.md) and [data event audit logs](./events-data-plane.md) for {{ yandex-cloud }} resources and upload them to a {{ objstorage-name }} bucket, {{ yds-name }} stream, or {{ cloud-logging-name }} log group:
+{{ at-full-name }} allows you to collect [management event audit logs](./events.md) and [data event audit logs](./events-data-plane.md) for {{ yandex-cloud }} resources and upload them to a [bucket](../../storage/concepts/bucket.md) in {{ objstorage-name }}, [log group](../../logging/concepts/log-group.md) in {{ cloud-logging-name }}, data stream in {{ yds-name }}, or [bus](../../serverless-integrations/concepts/eventrouter/bus.md) in {{ er-full-name }}:
 
-* [Uploading audit logs to a bucket](../operations/index.md#bucket).
-* [Uploading audit logs to Cloud Logging](../operations/index.md#logging).
-* [Uploading audit logs to a data stream](../operations/index.md#data-streams).
+* [Uploading audit logs to a bucket](../operations/create-trail.md#bucket_1).
+* [Uploading audit logs to Cloud Logging](../operations/create-trail.md#logging_1).
+* [Uploading audit logs to a data stream](../operations/create-trail.md#data-streams_1).
+* [Uploading audit logs to a bus](../operations/create-trail.md#eventrouter_1).
 
 Collecting audit logs enables you to use analytical tools and promptly respond to {{ yandex-cloud }} events:
 
 * [Searching for events in audit logs](../tutorials/search-events-audit-logs/index.md).
 * [Exporting audit logs to SIEM systems](./export-siem.md).
-* [Alert settings in {{ monitoring-full-name }}](../tutorials/alerts-monitoring.md).
+* [Setting up alerts in {{ monitoring-full-name }}](../tutorials/alerts-monitoring.md).
 
 The following [management events](./events.md) are logged:
 

@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the SPQR Cluster resource to update.
             To get the SPQR cluster ID use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request.
+            The maximum string length in characters is 50.
           type: string
       required:
         - clusterId
@@ -35,12 +36,14 @@ apiPlayground:
           description: |-
             **string**
             New name for the cluster.
+            The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `.
           pattern: '[a-zA-Z0-9_-]*'
           type: string
         description:
           description: |-
             **string**
             New description of the SPQR cluster.
+            The maximum string length in characters is 256.
           type: string
         labels:
           description: |-
@@ -49,6 +52,7 @@ apiPlayground:
             For example, "project": "mvp" or "source": "dictionary".
             The new set of labels will completely replace the old ones. To add a label, request the current
             set with the [ClusterService.Get](/docs/managed-spqr/api-ref/Cluster/get#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set.
+            No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `.
           type: object
           additionalProperties:
             type: string
@@ -86,6 +90,7 @@ apiPlayground:
           description: |-
             **string**
             ID of the network to move the cluster to.
+            The maximum string length in characters is 150.
           type: string
       additionalProperties: false
     definitions:
@@ -103,7 +108,6 @@ apiPlayground:
           defaultRouteBehavior:
             description: |-
               **enum** (DefaultRouteBehavior)
-              - `DEFAULT_ROUTE_BEHAVIOR_UNSPECIFIED`
               - `BLOCK`
               - `ALLOW`
             type: string
@@ -114,6 +118,37 @@ apiPlayground:
           preferSameAvailabilityZone:
             description: '**boolean**'
             type: boolean
+          enhancedMultishardProcessing:
+            description: '**boolean**'
+            type: boolean
+          defaultTargetSessionAttrs:
+            description: |-
+              **enum** (TargetSessionAttrs)
+              - `READ_WRITE`
+              - `SMART_READ_WRITE`
+              - `READ_ONLY`
+              - `PREFER_STANDBY`
+              - `ANY`
+            type: string
+            enum:
+              - TARGET_SESSION_ATTRS_UNSPECIFIED
+              - READ_WRITE
+              - SMART_READ_WRITE
+              - READ_ONLY
+              - PREFER_STANDBY
+              - ANY
+          defaultCommitStrategy:
+            description: |-
+              **enum** (CommitStrategy)
+              - `BEST_EFFORT`
+              - `ONE_PC`
+              - `TWO_PC`
+            type: string
+            enum:
+              - COMMIT_STRATEGY_UNSPECIFIED
+              - BEST_EFFORT
+              - ONE_PC
+              - TWO_PC
       Resources:
         type: object
         properties:
@@ -259,13 +294,11 @@ apiPlayground:
           logLevel:
             description: |-
               **enum** (LogLevel)
-              - `LOG_LEVEL_UNSPECIFIED`
               - `DEBUG`
               - `INFO`
               - `WARNING`
               - `ERROR`
               - `FATAL`
-              - `PANIC`
             type: string
             enum:
               - LOG_LEVEL_UNSPECIFIED
@@ -274,7 +307,6 @@ apiPlayground:
               - WARNING
               - ERROR
               - FATAL
-              - PANIC
           balancer:
             description: |-
               **[BalancerSettings](#yandex.cloud.mdb.spqr.v1.BalancerSettings)**
@@ -370,7 +402,6 @@ apiPlayground:
             description: |-
               **enum** (WeekDay)
               Day of the week (in `DDD` format).
-              - `WEEK_DAY_UNSPECIFIED`
               - `MON`
               - `TUE`
               - `WED`
@@ -392,6 +423,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Hour of the day in UTC (in `HH` format).
+              Acceptable values are 1 to 24, inclusive.
             type: string
             format: int64
       MaintenanceWindow:
@@ -435,7 +467,9 @@ PATCH https://{{ api-host-mdb }}/managed-spqr/v1/clusters/{clusterId}
 || clusterId | **string**
 
 Required field. ID of the SPQR Cluster resource to update.
-To get the SPQR cluster ID use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request. ||
+To get the SPQR cluster ID use a [ClusterService.List](/docs/managed-spqr/api-ref/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Body parameters {#yandex.cloud.mdb.spqr.v1.UpdateClusterRequest}
@@ -455,7 +489,10 @@ To get the SPQR cluster ID use a [ClusterService.List](/docs/managed-spqr/api-re
             "string"
           ],
           "defaultRouteBehavior": "string",
-          "preferSameAvailabilityZone": "boolean"
+          "preferSameAvailabilityZone": "boolean",
+          "enhancedMultishardProcessing": "boolean",
+          "defaultTargetSessionAttrs": "string",
+          "defaultCommitStrategy": "string"
         },
         "resources": {
           "resourcePresetId": "string",
@@ -491,7 +528,10 @@ To get the SPQR cluster ID use a [ClusterService.List](/docs/managed-spqr/api-re
             "string"
           ],
           "defaultRouteBehavior": "string",
-          "preferSameAvailabilityZone": "boolean"
+          "preferSameAvailabilityZone": "boolean",
+          "enhancedMultishardProcessing": "boolean",
+          "defaultTargetSessionAttrs": "string",
+          "defaultCommitStrategy": "string"
         },
         "coordinator": "object"
       },
@@ -552,17 +592,23 @@ Fields specified in the request will be updated to provided values.
 The rest of the fields will be reset to the default. ||
 || name | **string**
 
-New name for the cluster. ||
+New name for the cluster.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || description | **string**
 
-New description of the SPQR cluster. ||
+New description of the SPQR cluster.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
 Custom labels for the SPQR cluster as `` key:value `` pairs. Maximum 64 per resource.
 For example, "project": "mvp" or "source": "dictionary".
 
 The new set of labels will completely replace the old ones. To add a label, request the current
-set with the [ClusterService.Get](/docs/managed-spqr/api-ref/Cluster/get#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set. ||
+set with the [ClusterService.Get](/docs/managed-spqr/api-ref/Cluster/get#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 || configSpec | **[ConfigSpec](#yandex.cloud.mdb.spqr.v1.ConfigSpec)**
 
 New configuration and resources for hosts in the cluster. ||
@@ -577,7 +623,9 @@ User security groups ||
 Deletion Protection inhibits deletion of the cluster ||
 || networkId | **string**
 
-ID of the network to move the cluster to. ||
+ID of the network to move the cluster to.
+
+The maximum string length in characters is 150. ||
 |#
 
 ## ConfigSpec {#yandex.cloud.mdb.spqr.v1.ConfigSpec}
@@ -620,13 +668,11 @@ Configuration and resource allocation for SPQR Infra (router+coordinator) hosts.
 Password of the SPQR console. ||
 || logLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `DEBUG`
 - `INFO`
 - `WARNING`
 - `ERROR`
-- `FATAL`
-- `PANIC` ||
+- `FATAL` ||
 || balancer | **[BalancerSettings](#yandex.cloud.mdb.spqr.v1.BalancerSettings)**
 
 Configuration for SPQR Balancer. ||
@@ -654,10 +700,22 @@ Configuration of a SPQR router.
 || timeQuantiles[] | **string** ||
 || defaultRouteBehavior | **enum** (DefaultRouteBehavior)
 
-- `DEFAULT_ROUTE_BEHAVIOR_UNSPECIFIED`
 - `BLOCK`
 - `ALLOW` ||
 || preferSameAvailabilityZone | **boolean** ||
+|| enhancedMultishardProcessing | **boolean** ||
+|| defaultTargetSessionAttrs | **enum** (TargetSessionAttrs)
+
+- `READ_WRITE`
+- `SMART_READ_WRITE`
+- `READ_ONLY`
+- `PREFER_STANDBY`
+- `ANY` ||
+|| defaultCommitStrategy | **enum** (CommitStrategy)
+
+- `BEST_EFFORT`
+- `ONE_PC`
+- `TWO_PC` ||
 |#
 
 ## Resources {#yandex.cloud.mdb.spqr.v1.Resources}
@@ -806,7 +864,6 @@ Weelky maintenance window settings.
 
 Day of the week (in `DDD` format).
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`
 - `TUE`
 - `WED`
@@ -816,7 +873,9 @@ Day of the week (in `DDD` format).
 - `SUN` ||
 || hour | **string** (int64)
 
-Hour of the day in UTC (in `HH` format). ||
+Hour of the day in UTC (in `HH` format).
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -866,7 +925,10 @@ Hour of the day in UTC (in `HH` format). ||
               "string"
             ],
             "defaultRouteBehavior": "string",
-            "preferSameAvailabilityZone": "boolean"
+            "preferSameAvailabilityZone": "boolean",
+            "enhancedMultishardProcessing": "boolean",
+            "defaultTargetSessionAttrs": "string",
+            "defaultCommitStrategy": "string"
           },
           "resources": {
             "resourcePresetId": "string",
@@ -902,7 +964,10 @@ Hour of the day in UTC (in `HH` format). ||
               "string"
             ],
             "defaultRouteBehavior": "string",
-            "preferSameAvailabilityZone": "boolean"
+            "preferSameAvailabilityZone": "boolean",
+            "enhancedMultishardProcessing": "boolean",
+            "defaultTargetSessionAttrs": "string",
+            "defaultCommitStrategy": "string"
           },
           "coordinator": "object"
         },
@@ -1090,7 +1155,6 @@ Custom labels for the SPQR cluster as `` key:value `` pairs. Maximum 64 per reso
 
 Deployment environment of the SPQR cluster.
 
-- `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`: Stable environment with a conservative update policy: only hotfixes
 are applied during regular maintenance.
 - `PRESTABLE`: Environment with more aggressive update policy: new versions
@@ -1194,13 +1258,11 @@ SPQR Infra (router+coordinator) settings. ||
 
 SPQR default log level
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `DEBUG`
 - `INFO`
 - `WARNING`
 - `ERROR`
-- `FATAL`
-- `PANIC` ||
+- `FATAL` ||
 || balancer | **[BalancerSettings](#yandex.cloud.mdb.spqr.v1.BalancerSettings2)**
 
 SPQR Balancer settings. ||
@@ -1224,10 +1286,22 @@ Configuration of a SPQR router.
 || timeQuantiles[] | **string** ||
 || defaultRouteBehavior | **enum** (DefaultRouteBehavior)
 
-- `DEFAULT_ROUTE_BEHAVIOR_UNSPECIFIED`
 - `BLOCK`
 - `ALLOW` ||
 || preferSameAvailabilityZone | **boolean** ||
+|| enhancedMultishardProcessing | **boolean** ||
+|| defaultTargetSessionAttrs | **enum** (TargetSessionAttrs)
+
+- `READ_WRITE`
+- `SMART_READ_WRITE`
+- `READ_ONLY`
+- `PREFER_STANDBY`
+- `ANY` ||
+|| defaultCommitStrategy | **enum** (CommitStrategy)
+
+- `BEST_EFFORT`
+- `ONE_PC`
+- `TWO_PC` ||
 |#
 
 ## Resources {#yandex.cloud.mdb.spqr.v1.Resources2}
@@ -1362,7 +1436,6 @@ Weelky maintenance window settings.
 
 Day of the week (in `DDD` format).
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`
 - `TUE`
 - `WED`
@@ -1372,7 +1445,9 @@ Day of the week (in `DDD` format).
 - `SUN` ||
 || hour | **string** (int64)
 
-Hour of the day in UTC (in `HH` format). ||
+Hour of the day in UTC (in `HH` format).
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## MaintenanceOperation {#yandex.cloud.mdb.spqr.v1.MaintenanceOperation}
@@ -1383,7 +1458,9 @@ A planned maintenance operation.
 ||Field | Description ||
 || info | **string**
 
-Information about this maintenance operation. ||
+Information about this maintenance operation.
+
+The maximum string length in characters is 256. ||
 || delayedUntil | **string** (date-time)
 
 Time until which this maintenance operation is delayed.

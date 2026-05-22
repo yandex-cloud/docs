@@ -136,7 +136,7 @@ output "dkim_record" {
 
 Убедитесь, что адрес успешно создан, и отправьте тестовое письмо:
 1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором создавали адрес.
-1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
 1. Выберите созданный адрес и убедитесь, что статус проверки на странице адреса изменился на `Success`.
 1. [Отправьте](../../postbox/operations/send-email.md) тестовое письмо.
 

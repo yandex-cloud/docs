@@ -1,4 +1,4 @@
-# getObjectLockConfiguration method
+# Object Storage API, Amazon S3-compatible REST: GetObjectLockConfiguration
 
 Returns the settings of [object locks](../../../concepts/object-lock.md) for a [versioned bucket](../../../concepts/versioning.md).
 
@@ -55,5 +55,13 @@ Element | Description
 `Mode` | <p>Default retention [type](../../../concepts/object-lock.md#types):</p><ul><li>`GOVERNANCE`: Governance-mode retention.</li><li>`COMPLIANCE`: Compliance-mode retention.</li></ul><p>Path: `ObjectLockConfiguration\Rule\DefaultRetention\Mode`.</p>
 `Days` | <p>Default retention period in days since the object version upload. It must be a positive integer.</p><p>Path: `ObjectLockConfiguration\Rule\DefaultRetention\Days`.</p>
 `Years` | <p>Default retention period in years since the object version upload. It must be a positive integer.</p><p>Path: `ObjectLockConfiguration\Rule\DefaultRetention\Years`.</p>
+
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/bucket.md)
+
+* [Object lock](../../../concepts/object-lock.md)
+
+* [Managing object locks in a bucket](../../../operations/buckets/configure-object-lock.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

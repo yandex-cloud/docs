@@ -8,6 +8,7 @@ editable: false
 
 
 
+
 In this section, you can find the {{ maf-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources. Other {{ yandex-cloud }} resources you may employ while using {{ maf-name }} are charged based on their pricing plans.
 
 {% note tip %}
@@ -41,6 +42,8 @@ Using {{ objstorage-full-name }} for [storing DAG files](operations/upload-dags.
 
 ### Example of cluster cost calculation {#example}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 Let's calculate the cost of using a cluster with the following properties for 30 days:
 
 * **Web server**: One `standard` configuration instance: 1 × 100% vCPU, 4 GB RAM.
@@ -54,8 +57,6 @@ Let's calculate the cost of using a cluster with the following properties for 30
 
 ## Prices for the Russia region {#prices}
 
-
-{% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
 
 

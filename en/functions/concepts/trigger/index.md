@@ -53,7 +53,7 @@ For more information about message batching, see the guides for creating the rel
 
 ## Function invocation retries {#invoke-retry}
 
-You can configure invoking a function again if the current attempt fails. Specify the following in the trigger parameters:
+You can configure invoking a function again if the current attempt fails. To do this, in the trigger parameters, specify as follows:
 
 * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_retry-interval }}**: Invocation retry interval.
 * **{{ ui-key.yacloud.serverless-functions.triggers.form.field_retry-attempts }}**: Number of invocation retries before the trigger sends a message to the [dead letter queue](../dlq.md).
@@ -70,7 +70,7 @@ For more information about invocation retries, see the guide for creating the re
 * [{#T}](../../tutorials/logging.md)
 * [{#T}](../../tutorials/regular-launch-datasphere.md)
 * [{#T}](../../tutorials/serverless-trigger-budget-vm.md)
-* [{#T}](../../tutorials/video-converting-queue.md)
+* [{#T}](../../tutorials/video-converting-queue/index.md)
 
 ## See also {#see-also}
 

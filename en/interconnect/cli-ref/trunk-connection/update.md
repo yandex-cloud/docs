@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/trunk-connection/update
 editable: false
 ---
 
@@ -32,9 +33,6 @@ New description for the trunkConnection. ||
 || `--labels` | `key=value[,key=value...]`
 
 New set of labels for the trunkConnection as key-value pairs. Existing set of labels will be completely overwritten. ||
-|| `--region` | `string`
-
-Region of the trunkConnection. ||
 || `--deletion-protection` | Flag protecting the trunkConnection from deletion. ||
 |#
 

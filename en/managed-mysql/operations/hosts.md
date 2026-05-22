@@ -44,7 +44,7 @@ You can add and remove cluster hosts, as well as manage their settings. To learn
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -57,13 +57,13 @@ You can add and remove cluster hosts, as well as manage their settings. To learn
           --url 'https://{{ api-host-mdb }}/managed-mysql/v1/clusters/<cluster_ID>/hosts'
       ```
 
-      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/listHosts.md#yandex.cloud.mdb.mysql.v1.ListClusterHostsResponse) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -84,7 +84,7 @@ You can add and remove cluster hosts, as well as manage their settings. To learn
           yandex.cloud.mdb.mysql.v1.ClusterService.ListHosts
       ```
 
-      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/listHosts.md#yandex.cloud.mdb.mysql.v1.ListClusterHostsResponse) to make sure your request was successful.
 
@@ -99,7 +99,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
 - Management console {#console}
 
   1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-mysql }}** service.
-  1. Click the cluster name and go to the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
+  1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mysql.cluster.switch_hosts }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.action_add-host }}**.
   1. Specify the following host settings:
 
@@ -119,6 +119,8 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
   To add a host to a cluster:
+
+  
   1. To choose a subnet for your new host, get the list of all cluster subnets:
 
      ```bash
@@ -138,11 +140,10 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
      +----------------------+-----------+-----------------------+---------------+------------------+
      ```
 
-     
      If the required subnet is not on the list, [create it](../../vpc/operations/subnet-create.md).
 
 
-  1. See the description of the CLI command for adding a host:
+  1. See the description of the CLI command for adding new hosts:
 
      ```bash
      {{ yc-mdb-my }} host add --help
@@ -150,6 +151,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
 
   1. Run this command (our example does not use all available parameters):
 
+     
      ```bash
      {{ yc-mdb-my }} host add \
        --cluster-name=<cluster_name> \
@@ -158,15 +160,20 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
          `assign-public-ip=<allow_public_access_to_host>,`
          `replication-source=<source_host_name>,`
          `backup-priority=<host_backup_priority>,`
-         `priority=<host_priority_for_promotion_to_master>
+         `priority=<host_priority_for_assignment_as_master>
      ```
+
 
      Where:
      * `--cluster-name`: {{ mmy-name }} cluster name.
      * `--host`: Host settings:
        * `zone-id`: [Availability zone](../../overview/concepts/geo-scope.md).
+
+       
        * `subnet-id`: [Subnet ID](../../vpc/concepts/network.md#subnet). You must specify this setting if the selected availability zone has more than one subnet.
        * `assign-public-ip`: Internet access to the host, `true` or `false.`.
+
+
        * `replication-source`: [Replication](../concepts/replication.md) source for the host.
        * `backup-priority`: Host's [backup](../concepts/backup.md#size) priority, between `0` and `100`.
        * `priority`: Host priority for promotion to master if the [primary master fails](../concepts/replication.md#master-failover), between `0` and `100`.
@@ -177,9 +184,10 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     To learn how to create this file, see [Creating a cluster](cluster-create.md).
+     For more on how to create this file, see [Creating a cluster](cluster-create.md).
   1. Add the `host` section to the {{ mmy-name }} cluster description:
 
+     
      ```hcl
      resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
        ...
@@ -193,6 +201,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
      }
      ```
 
+
      Where:
 
      * `assign_public_ip`: Public access to the host, `true` or `false`.
@@ -202,7 +211,7 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -212,12 +221,13 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. Call the [Cluster.addHosts](../api-ref/Cluster/addHosts.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
+      
       ```bash
       curl \
           --request POST \
@@ -238,28 +248,34 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
                   }'
       ```
 
+
       Where `hostSpecs` is the array of new hosts. Each array element contains the configuration for a single host and has the following structure:
 
       * `zoneId`: Availability zone.
+
+      
       * `subnetId`: Subnet ID.
-      * `assignPublicIp`: Internet access to the host via a public IP address, `true` or `false`.
-      * `replicationSource`: Host’s replication source for [manual replication stream management](../concepts/replication.md#manual-source). Specify the [FQDN of the host](./connect/fqdn.md) that will be used as the replication source.
+      * `assignPublicIp`: Host accessibility from the internet via a public IP address, `true` or `false`.
+
+
+      * `replicationSource`: Host’s replication source for [manual replication stream management](../concepts/replication.md#manual-source). Specify the [FQDN of the host](connect/fqdn.md) that will be used as the replication source.
       * `backupPriority`: Host’s [backup](../concepts/backup.md#size) priority, between `0` and `100`.
       * `priority`: Host priority for promotion to master if the [primary master fails](../concepts/replication.md#master-failover), between `0` and `100`.
 
-      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
   1. Call the [ClusterService/AddHosts](../api-ref/grpc/Cluster/addHosts.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
+      
       ```bash
       grpcurl \
           -format json \
@@ -284,16 +300,21 @@ The number of hosts in {{ mmy-name }} clusters is limited by the CPU and RAM quo
           yandex.cloud.mdb.mysql.v1.ClusterService.AddHosts
       ```
 
+
       Where `host_specs` is the array of new hosts. Each array element contains the configuration for a single host and has the following structure:
 
       * `zone_id`: Availability zone.
+
+      
       * `subnet_id`: Subnet ID.
-      * `assign_public_ip`: Internet access to the host via a public IP address, `true` or `false`.
-      * `replication_source`: Host’s replication source for [manual replication stream management](../concepts/replication.md#manual-source). Specify the [FQDN of the host](./connect/fqdn.md) that will be used as the replication source.
+      * `assign_public_ip`: Host accessibility from the internet via a public IP address, `true` or `false`.
+
+
+      * `replication_source`: Host’s replication source for [manual replication stream management](../concepts/replication.md#manual-source). Specify the [FQDN of the host](connect/fqdn.md) that will be used as the replication source.
       * `backup_priority`: Host’s [backup](../concepts/backup.md#size) priority, between `0` and `100`.
       * `priority`: Host priority for promotion to master if the [primary master fails](../concepts/replication.md#master-failover), between `0` and `100`.
 
-      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -333,7 +354,7 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
      1. Select the host’s replication source for manual replication stream management.
 
      
-     1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** to make the host accessible from outside {{ yandex-cloud }}, if required.
+     1. Enable **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** to make the host accessible from outside of {{ yandex-cloud }}.
 
 
      1. Set the **{{ ui-key.yacloud.mysql.field_priority }}** field.
@@ -348,19 +369,25 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
 
   To update host settings, run the command below (our example does not use all available settings):
 
+  
   ```bash
   {{ yc-mdb-my }} host update <host_name> \
     --cluster-name=<cluster_name> \
     --replication-source=<source_host_name> \
     --assign-public-ip=<allow_public_access_to_host> \
     --backup-priority=<host_backup_priority> \
-    --priority=<host_priority_for_promotion_to_master>
+    --priority=<host_priority_for_assignment_as_master>
   ```
+
 
   Where:
   * `--cluster-name`: {{ mmy-name }} cluster name.
   * `--replication-source`: [Replication](../concepts/replication.md) source for the host.
+
+  
   * `--assign-public-ip`: Internet access to the host, `true` or `false`.
+
+
   * `--backup-priority`: Host’s [backup](../concepts/backup.md#size) priority, between `0` and `100`.
   * `--priority`: Host priority for promotion to master if the [primary master fails](../concepts/replication.md#master-failover), between `0` and `100`.
 
@@ -371,9 +398,10 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
   To change the cluster host settings:
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     To learn how to create this file, see [Creating a cluster](cluster-create.md).
+     For more on how to create this file, see [Creating a cluster](cluster-create.md).
   1. In the {{ mmy-name }} cluster description, change the attributes of the `host` section referring to the host you want to update.
 
+     
      ```hcl
      resource "yandex_mdb_mysql_cluster" "<cluster_name>" {
        ...
@@ -385,6 +413,7 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
      }
      ```
 
+
      Where:
 
      * `assign_public_ip`: Public access to the host, `true` or `false`.
@@ -394,7 +423,7 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -404,12 +433,13 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. Call the [Cluster.updateHosts](../api-ref/Cluster/updateHosts.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
+      
       ```bash
       curl \
           --request POST \
@@ -430,28 +460,34 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
                   }'
       ```
 
+
       Where `updateHostSpecs` is the array of hosts you are updating. Each array element contains the configuration for a single host and has the following structure:
 
-      * `updateMask`: Comma-separated string of settings you want to update.
-      * `hostName`: [FQDN of the host being updated](./connect/fqdn.md).
-      * `assignPublicIp`: Controls whether the host is accessible via a public IP address, `true` or `false`.
-      * `replicationSource`: Host’s replication source for [manual replication stream management](../concepts/replication.md#manual-source). Specify the [FQDN of the host](./connect/fqdn.md) that will be used as the replication source.
+      * `updateMask`: Comma-separated string of settings to update.
+      * `hostName`: [FQDN of the host being updated](connect/fqdn.md).
+
+      
+      * `assignPublicIp`: Host accessibility from the internet via a public IP address, `true` or `false`.
+
+
+      * `replicationSource`: Host’s replication source for [manual replication stream management](../concepts/replication.md#manual-source). Specify the [FQDN of the host](connect/fqdn.md) that will be used as the replication source.
       * `backupPriority`: Host’s [backup](../concepts/backup.md#size) priority, between `0` and `100`.
       * `priority`: Host priority for promotion to master if the [primary master fails](../concepts/replication.md#master-failover), between `0` and `100`.
 
-      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/updateHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
   1. Call the [ClusterService/UpdateHosts](../api-ref/grpc/Cluster/updateHosts.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
+      
       ```bash
       grpcurl \
           -format json \
@@ -480,16 +516,21 @@ You cannot restart a separate cluster host. To restart hosts, [stop and restart 
           yandex.cloud.mdb.mysql.v1.ClusterService.UpdateHosts
       ```
 
+
       Where `update_host_specs` is the array of hosts you are updating. Each array element contains the configuration for a single host and has the following structure:
 
       * `update_mask`: List of settings to update as an array of strings (`paths[]`).
-      * `host_name`: [FQDN of the host being updated](./connect/fqdn.md).
-      * `assign_public_ip`: Controls whether the host is accessible via a public IP address, `true` or `false`.
-      * `replication_source`: Host’s replication source for [manual replication stream management](../concepts/replication.md#manual-source). Specify the [FQDN of the host](./connect/fqdn.md) that will be used as the replication source.
+      * `host_name`: [FQDN of the host being updated](connect/fqdn.md).
+
+      
+      * `assign_public_ip`: Host accessibility from the internet via a public IP address, `true` or `false`.
+
+
+      * `replication_source`: Host’s replication source for [manual replication stream management](../concepts/replication.md#manual-source). Specify the [FQDN of the host](connect/fqdn.md) that will be used as the replication source.
       * `backup_priority`: Host’s [backup](../concepts/backup.md#size) priority, between `0` and `100`.
       * `priority`: Host priority for promotion to master if the [primary master fails](../concepts/replication.md#master-failover), between `0` and `100`.
 
-      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -536,7 +577,7 @@ If you are deleting the master host, {{ mmy-name }} will automatically promote t
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     To learn how to create this file, see [Creating a cluster](cluster-create.md).
+     For more on how to create this file, see [Creating a cluster](cluster-create.md).
   1. Delete the `host` section from the {{ mmy-name }} cluster description.
   1. Validate your configuration.
 
@@ -552,7 +593,7 @@ If you are deleting the master host, {{ mmy-name }} will automatically promote t
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -575,13 +616,13 @@ If you are deleting the master host, {{ mmy-name }} will automatically promote t
 
       You can provide only one host FQDN per request. If you need to delete multiple hosts, send a separate request for each one.
 
-      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/deleteHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -609,7 +650,7 @@ If you are deleting the master host, {{ mmy-name }} will automatically promote t
 
       You can only specify one host FQDN per request. If you need to delete multiple hosts, send a separate request for each one.
 
-      You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
+      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

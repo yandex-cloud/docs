@@ -19,13 +19,14 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входят:
-* плата за использование [публичного IP-адреса](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md));
-* плата за количество [сообщений](../../message-queue/concepts/message.md) (см. [тарифы {{ iot-full-name }}](../../iot-core/pricing.md));
-* плата за количество вызовов [функции](../../functions/concepts/function.md) {{ sf-name }} (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md));
-* плата за вычислительные ресурсы и хранилище [кластера](../../managed-postgresql/concepts/index.md) {{ mpg-name }} (см. [тарифы {{ mpg-full-name }}](../../managed-postgresql/pricing.md)).
+* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../managed-postgresql/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Реестр {{ iot-name }}: количество отправленных сообщений (см. [тарифы {{ iot-name }}](../../iot-core/pricing.md)).
+* Функции {{ sf-full-name }}: количество вызовов функции, время простоя подготовленных экземпляров и выделенные для выполнения функции вычислительные ресурсы (см. [тарифы {{ sf-full-name }}](../../functions/pricing.md)).
+
 
 ## Подготовьте облако к работе {#configure-cloud}
 
@@ -48,11 +49,11 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Укажите имя кластера, например `my-pg-database`.
   1. В списке **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** выберите `PRODUCTION`.
-  1. В списке **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите `15`.
+  1. В списке **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите `17`.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** укажите:
 
       * **{{ ui-key.yacloud.mdb.forms.resource_presets_field-generation }}** — `Intel Ice Lake`.
@@ -104,7 +105,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы выполняете руководство.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iot.button_create-registry }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите имя реестра. Например, `my-registry`.
   1. В поле **{{ ui-key.yacloud.common.password }}** задайте пароль доступа к реестру. Пароль должен быть длиной не менее 14 символов, должен содержать строчные буквы, заглавные буквы и цифры. Для создания пароля можно воспользоваться [генератором паролей](https://passwordsgenerator.net/).
@@ -126,7 +127,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iot-core }}**.
   1. Выберите реестр, созданный на предыдущем шаге.
   1. В меню слева выберите **{{ ui-key.yacloud.iot.label_devices }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iot.button_add-device }}**.
@@ -164,7 +165,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Создайте функцию:
 
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
@@ -176,7 +177,7 @@
       1. В открывшемся окне **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** выберите `Node.js 18`.
       1. Отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-      1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}`.
+      1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}`.
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}**:
 
           * Имя файла — `device-emulator.js`.
@@ -259,7 +260,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
       1. Выберите функцию `my-device-emulator-function`.
       1. В меню слева выберите **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
       1. В списке **{{ ui-key.yacloud.serverless-functions.item.testing.field_tag }}** выберите `$latest` — последнюю созданную версию функции.
@@ -303,7 +304,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. На панели слева выберите **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}** введите имя триггера. Например, `my-emulator-function-trigger`.
@@ -337,7 +338,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. На панели слева выберите **{{ ui-key.yacloud.serverless-functions.switch_list }}**.
   1. Создайте функцию:
 
@@ -350,7 +351,7 @@
       1. В открывшемся окне **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** выберите `Python 3.12`.
       1. Отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-      1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}`.
+      1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-editor }}`.
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.create-file }}**:
 
           * Имя файла — `myfunction.py`.
@@ -384,7 +385,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Выберите функцию `my-db-function`.
   1. В меню слева выберите **{{ ui-key.yacloud.serverless-functions.item.switch_testing }}**.
   1. В списке **{{ ui-key.yacloud.serverless-functions.item.testing.field_tag }}** выберите `$latest` — последнюю созданную версию функции.
@@ -433,7 +434,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Выберите кластер `my-pg-database`.
   1. В меню слева выберите **SQL**.
   1. В поле **Пароль** введите пароль, который вы задали для доступа к БД, и нажмите кнопку **Подключиться**.
@@ -451,7 +452,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. На панели слева выберите **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}** введите имя триггера. Например, `my-db-func-trigger`.
@@ -488,7 +489,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Выберите кластер `my-pg-database`.
   1. В меню слева выберите **SQL**.
   1. В поле **Пароль** укажите пароль, который вы задали для доступа к БД, и нажмите кнопку **Подключиться**.
@@ -508,7 +509,7 @@
 - Интерфейс {{ datalens-short-name }} {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_datalens }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_datalens }}**.
   1. Нажмите кнопку **Создать подключение**.
   1. Выберите коннектор **{{ PG }}**.
 
@@ -531,7 +532,7 @@
 - Интерфейс {{ datalens-short-name }} {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_datalens }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_datalens }}**.
   1. Нажмите кнопку **Создать датасет**.
   1. На панели слева нажмите ![image](../../_assets/console-icons/plus.svg) **Добавить**.
   1. Выберите подключение `MyPGConnection`.
@@ -550,7 +551,7 @@
 - Интерфейс {{ datalens-short-name }} {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_datalens }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_datalens }}**.
   1. Нажмите кнопку **Создать чарт**.
   1. На панели слева нажмите кнопку ![image](../../_assets/console-icons/circles-intersection.svg) **Выберите датасет** и выберите датасет `My-pg-dataset`, который вы создали ранее.
   1. Выберите [тип чарта](../../datalens/visualization-ref/line-chart.md) **Линейная диаграмма**.
@@ -573,7 +574,7 @@
 - Интерфейс {{ datalens-short-name }} {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_datalens }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_datalens }}**.
   1. Создайте поле для определения координат устройств:
       1. В меню слева выберите **Датасеты**.
       1. В списке выберите датасет `My-pg-dataset`.
@@ -603,7 +604,7 @@
 - Интерфейс {{ datalens-short-name }} {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы выполняете руководство.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_datalens }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_datalens }}**.
   1. Нажмите кнопку **Создать дашборд**.
   1. Добавьте на дашборд чарты `My-pg-dataset — Карта` и `My-pg-dataset — Линейная диаграмма`, которые вы создали ранее:
       1. На нижней панели нажмите **Чарт**.

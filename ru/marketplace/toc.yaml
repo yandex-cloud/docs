@@ -46,9 +46,9 @@ items:
             expanded: true
             items:
               - name: Создание образа продукта на базе Linux
-                href: operations/create-image.md
+                href: concepts/compute-product.md
               - name: Создание продукта для {{ managed-k8s-name }}
-                href: operations/create-container.md
+                href: concepts/kubernetes-product.md
           - name: Тарификация продуктов на основе метрик издателя
             href: concepts/api-usage.md
           - name: Пробный период
@@ -339,12 +339,14 @@ items:
           - name: Развертывание S2S VPN с помощью strongSwan в {{ yandex-cloud }}
             href: tutorials/s2s-vpn.md
           - name: >-
-              Установка Ghost CMS в {{ objstorage-name }} с помощью {{
-              cloud-apps-name }}
+              Установка Ghost CMS High Availability с помощью {{ cloud-apps-name
+              }}
             href: tutorials/ghost-cms-cloudapp.md
           - name: >-
               Установка WordPress High Availability с помощью {{ cloud-apps-name
               }}
+            href: tutorials/wordpress-ha-cloudapp.md
+          - name: Установка WordPress с помощью {{ cloud-apps-name }}
             href: tutorials/wordpress-cloudapp.md
           - name: >-
               Использование продуктов {{ marketplace-name }} в {{
@@ -376,8 +378,6 @@ items:
                   Проверка состояния приложений в кластере {{ managed-k8s-name
                   }} с помощью L7-балансировщика {{ alb-name }}
                 href: tutorials/custom-health-checks.md
-              - name: Использование Jaeger для трассировки запросов в {{ ydb-name }}
-                href: tutorials/jaeger-over-ydb.md
               - name: Настройка Kyverno & Kyverno Policies
                 href: tutorials/kyverno.md
               - name: Использование {{ MP }} для трансляции метрик

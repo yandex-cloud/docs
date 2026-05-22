@@ -22,7 +22,7 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды редактирования группы пользователей {{ org-name }}:
+  1. Посмотрите описание команды редактирования группы пользователей {{ org-full-name }}:
 
       ```bash
       yc organization-manager group update --help

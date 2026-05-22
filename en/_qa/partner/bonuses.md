@@ -27,7 +27,7 @@ The discount does not apply to:
 
 * Grants credited to subaccounts.
 
-You can view the absolute and relative discounts for a reporting month under **Partner bonus** on the [partner portal]({{ link-cloud-partners }}).
+You can see the absolute and relative discount amount for the reporting month in the **Partner bonus** section of the [partner portal]({{ link-cloud-partners }}).
 
 #### Why are resources from {{ marketplace-full-name }} not included when calculating a partner bonus? {#marketplace}
 

@@ -78,7 +78,6 @@ You can use {{ managed-k8s-name }} to deploy, scale, and manage your containeriz
 * [{#T}](alb-ingress-controller-log-options.md)
 * [{#T}](custom-health-checks.md)
 * [{#T}](alb-ingress-with-sws-profile.md)
-* [{#T}](marketplace/jaeger-over-ydb.md)
 * [{#T}](marketplace/kyverno.md)
 * [{#T}](marketplace/metrics-provider.md)
 * [{#T}](marketplace/thumbor.md)

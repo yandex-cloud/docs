@@ -61,7 +61,7 @@
     * `spark.sql.catalog.spark_catalog` в значение `org.apache.spark.sql.delta.catalog.DeltaCatalog`;
     * `spark.delta.logStore.s3a.impl` в значение `ru.yandex.cloud.custom.delta.YcS3YdbLogStore`;
     * `spark.io.delta.storage.S3DynamoDBLogStore.ddb.endpoint` в значение Document API эндпоинта, доступное на вкладке **{{ ui-key.yacloud.common.overview }}** вашей базы данных в [консоли управления]({{ link-console-cloud }});
-    * `spark.io.delta.storage.S3DynamoDBLogStore.ddb.lockbox` в значение идентификатора секрета {{ lockbox-short-name }}, который доступен на вкладке **{{ ui-key.yacloud.lockbox.label_section-overview}}** вашего {{ lockbox-short-name }} в [консоли управления]({{ link-console-cloud }}).
+    * `spark.io.delta.storage.S3DynamoDBLogStore.ddb.lockbox` в значение идентификатора секрета {{ lockbox-short-name }}, который доступен на вкладке **{{ ui-key.yacloud.lockbox.label_section-overview }}** вашего {{ lockbox-short-name }} в [консоли управления]({{ link-console-cloud }}).
 
 Теперь вы можете использовать Delta Lake в мультикластерном режиме.
 

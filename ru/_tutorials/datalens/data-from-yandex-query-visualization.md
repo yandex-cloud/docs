@@ -38,7 +38,7 @@
 
    ![select-catalog](../../_assets/datalens/yandex-query-visualization/select-catalog.png)
 
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
 
    ![select-yq](../../_assets/datalens/yandex-query-visualization/select-yq.png)
 
@@ -50,7 +50,7 @@
 
 Чтобы создать подключение к {{ yq-full-name }}:
 
-1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
+1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
 1. На панели слева выберите ![image](../../_assets/console-icons/thunderbolt.svg) **Подключения** и нажмите кнопку **Создать подключение**.
 1. Выберите подключение **{{ yq-full-name }}**.
 1. Укажите параметры подключения:

@@ -26,7 +26,7 @@ Furthermore, {{ mrd-short-name }} ensures data replication across database hosts
 
 {% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}
 
-#### Not sure whether to use {{ mrd-short-name }} or VMs with databases? {#mdb-advantage}
+#### When to use {{ mrd-short-name }} and when database VMs? {#mdb-advantage}
 
 {{ yandex-cloud }} offers two ways to work with databases:
 
@@ -47,14 +47,14 @@ A _database cluster_ consists of one or more database hosts with configurable re
 
 Before you create a database cluster in {{ mrd-short-name }}, you need to decide on its specifications:
 
-- [Host class](../../managed-valkey/concepts/instance-types.md) that will determine your host performance by specifying its resources, such as the number of vCPUs, RAM size, etc.
+- [Host class](../../managed-valkey/concepts/instance-types.md) that will determine your computing power, i.e., vCPUs, RAM, etc.
 - [Disk type](../../managed-valkey/concepts/storage.md) and size (fully reserved when creating the cluster).
 - Your cluster network.
 - Number of hosts in your cluster and availability zone for each host.
 
 For more information, see [Getting started](../../managed-valkey/quickstart.md).
 
-#### How many database hosts can there be in a cluster? {#how-many-hosts}
+#### How many database hosts can a cluster contain? {#how-many-hosts}
 
 The minimum cluster size depends on the following:
 * Your chosen [platform and host class](../../managed-valkey/concepts/instance-types.md).
@@ -160,8 +160,8 @@ For `disk.used_bytes`, use notification thresholds. Their recommended values are
 
 Thresholds are set in bytes only. For example, the recommended values for a 100 GB disk are as follows:
 
-* `Alarm`: `96636764160` bytes (90%).
-* `Warning`: `85899345920` bytes (80%).
+* `Alarm`: `96636764160` bytes (90%)
+* `Warning`: `85899345920` bytes (80%)
 
 {% include [fz-152.md](../fz-152.md) %}
 
@@ -180,30 +180,33 @@ Maximum IOPS and bandwidth increase by a fixed increment for each storage expans
 | `network-ssd`               | 32      | 1,000/1,000                          | 15/15                                         |
 | `network-ssd-nonreplicated` | 93      | 28,000/5,600                         | 110/82                                        |
 
-To increase the maximum IOPS and bandwidth values and make throttling less likely, expand the storage when [updating your cluster](../../managed-valkey/operations/update.md#change-disk-size).
+To increase the maximum IOPS and bandwidth and reduce the risk of throttling, expand the storage size when [updating your cluster](../../managed-valkey/operations/update.md#change-disk-size).
 
 Consider switching to a higher-speed disk type by [restoring the cluster](../../managed-valkey/operations/cluster-backups.md#restore) from a backup.
 
-#### Can I connect to cluster hosts over SSH or get superuser privileges on hosts? {#connect-ssh}
+#### Can I connect to cluster hosts over SSH or get superuser privileges on them? {#connect-ssh}
 
 {% include [connect-via-ssh](../../_includes/mdb/connect-via-ssh.md) %}
 
-#### What should I do if I get a revocation check error when using PowerShell to obtain an SSL certificate? {#get-ssl-error}
+#### What should I do if I get a revocation check error when obtaining an SSL certificate via PowerShell? {#get-ssl-error}
 
-Here is the full text of the error:
+Complete error message:
 
 ```text
 curl: (35) schannel: next InitializeSecurityContext failed: Unknown error (0x80092012)
 The revocation function was unable to check revocation for the certificate
 ```
-This means that when connecting to the website, the service was unable to check whether or not its certificate was listed among revoked ones.
+This indicates that the verification of the website’s certificate against the revocation list failed during the connection attempt.
 
 To fix this error:
 
-* Make sure your corporate network policies are not blocking the check.
+* Make sure your corporate network policies are not blocking the verification.
 * Run the following command with the `--ssl-no-revoke` parameter:
 
    ```powershell
    mkdir $HOME\.redis; curl.exe --ssl-no-revoke -o $HOME\.redis\{{ crt-local-file }} {{ crt-web-path }}
    ```
 
+#### What block size is used on the cluster disks? {#block-size}
+
+{% include [disk-block-size](../../_includes/mdb/disk-block-size.md) %}

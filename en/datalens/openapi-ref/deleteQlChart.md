@@ -6,10 +6,8 @@ editable: false
 
 ## HTTP request
 
-Deletes the specified QL chart.
-
 ```
-POST https://api.datalens.yandex.net/rpc/deleteQLChart
+POST https://api.datalens.tech/rpc/deleteQLChart
 ```
 
 ## Body parameters
@@ -26,7 +24,7 @@ POST https://api.datalens.yandex.net/rpc/deleteQLChart
 ||Field | Description ||
 || chartId | **string**
 
-Required field. ID of the QL chart to delete. ||
+Required field.  ||
 |#
 
 ## Response {#200}

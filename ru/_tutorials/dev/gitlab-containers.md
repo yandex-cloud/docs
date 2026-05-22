@@ -212,9 +212,9 @@
               - mkdir -p /kaniko/.docker
               - echo "{\"auths\":{\"${CI_REGISTRY}\":{\"auth\":\"$(echo -n "json_key:${CI_REGISTRY_KEY}" | base64 | tr -d '\n' )\"}}}" > /kaniko/.docker/config.json
               - >-
-                /kaniko/executor
-                --context "${CI_PROJECT_DIR}"
-                --dockerfile "${CI_PROJECT_DIR}/Dockerfile"
+                /kaniko/executor \
+                --context "${CI_PROJECT_DIR}" \
+                --dockerfile "${CI_PROJECT_DIR}/Dockerfile" \
                 --destination "${CI_REGISTRY}/${CI_PROJECT_PATH}:${CI_COMMIT_SHORT_SHA}"
 
           deploy:

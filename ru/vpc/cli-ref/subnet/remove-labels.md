@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/subnet/remove-labels
 editable: false
 ---
 

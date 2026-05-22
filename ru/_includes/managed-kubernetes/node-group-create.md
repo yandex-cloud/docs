@@ -1,6 +1,6 @@
 Чтобы создать [группу узлов {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#node-group):
 1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создан [кластер {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Выберите кластер {{ managed-k8s-name }}, для которого необходимо создать группу узлов.
 1. На странице кластера {{ managed-k8s-name }} перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
@@ -34,6 +34,11 @@
    * Выберите [платформу](../../compute/concepts/vm-platforms.md).
    * Укажите необходимое количество [GPU](../../compute/concepts/gpus.md), vCPU и [гарантированную долю vCPU](../../compute/concepts/performance-levels.md), а также объем RAM.
    * (Опционально) Укажите, что ВМ должна быть [прерываемой](../../compute/concepts/preemptible-vm.md).
+
+      
+      {% include [preemtible-vm](note-preemtible-vm.md) %}
+      
+
    * (Опционально) Включите [программно ускоренную сеть](../../compute/concepts/software-accelerated-network.md).
 
      {% include [note-software-accelerated-network](note-software-accelerated-network.md) %}
@@ -62,16 +67,10 @@
    * Укажите размер диска узла {{ managed-k8s-name }}.
 1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**:
    * В поле **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** выберите способ назначения адреса:
-     * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}` — чтобы назначить случайный [IP-адрес](../../vpc/concepts/address.md) из пула адресов {{ yandex-cloud }}.
-     * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}` — чтобы не назначать публичный IP-адрес.
+     * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}` — чтобы назначить узлам случайные [IP-адреса](../../vpc/concepts/address.md) из пула адресов {{ yandex-cloud }}.
+     * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}` — чтобы не назначать публичные IP-адреса.
 
-     {% note info %}
-
-     {% include [nodes-internet-access](nodes-internet-access.md) %}
-
-     {% include [nodes-internet-access-additional](nodes-internet-access-additional.md) %}
-
-     {% endnote %}
+     {% include [public-ip](public-ip.md) %}
 
    * Выберите [группы безопасности](../../vpc/concepts/security-groups.md).
 
@@ -79,6 +78,9 @@
 
 1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**:
    * Укажите [зону доступности](../../overview/concepts/geo-scope.md) и [подсеть](../../vpc/concepts/network.md#subnet), в которых вы хотите разместить узлы группы.
+
+       {% include [note-vpc-resources](note-vpc-resources.md) %}
+
    * (Опционально) Вы можете разместить узлы группы с фиксированным типом масштабирования в нескольких зонах доступности, для этого нажмите кнопку **{{ ui-key.yacloud.k8s.node-groups.create.label_add-location }}** и укажите дополнительную зону доступности и подсеть.
 
    {% include [autoscaled-node-group-restriction](autoscaled-node-group-restriction.md) %}

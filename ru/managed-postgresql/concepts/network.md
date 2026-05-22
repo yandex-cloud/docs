@@ -36,7 +36,7 @@ description: При создании кластера {{ PG }} вы можете
 
 {% include [sg-rules-limits](../../_includes/mdb/sg-rules-limits.md) %}
 
-Подробнее о том, как настроить группы безопасности, читайте в разделе [{#T}](../operations/connect.md#configuring-security-groups).
+Подробнее о том, как настроить группы безопасности, читайте в разделе [{#T}](../operations/connect/index.md#configuring-security-groups).
 
 {% note tip %}
 

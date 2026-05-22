@@ -9,7 +9,7 @@ description: Follow this guide to navigate to a {{ yandex-cloud }} folder of you
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), in the top panel, click ![image](../../../_assets/console-icons/chevron-down.svg).
+  1. In the [management console]({{ link-console-main }}), in the top panel, click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg).
   1. Select the folder you need.
 
      You can also pin the panel with the list of clouds and folders by clicking ![image](../../../_assets/console-icons/layout-side-content-left.svg) **{{ ui-key.yacloud.dashboard.TogglCloudTreeButton.tooltip__pin_panel }}**.

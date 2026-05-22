@@ -6,6 +6,10 @@ editable: false
 
 # Правила тарификации для {{ alb-full-name }}
 
+
+{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
+
+
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
@@ -26,6 +30,8 @@ editable: false
 Использование балансировщика тарифицируется почасно. Плата берется за наибольшее количество ресурсных единиц, работавших в течение часа. При [создании](operations/application-load-balancer-create.md) L7-балансировщика в [консоли управления]({{ link-console-main }}) расчет стоимости отображается справа.
 
 ### Пример расчета стоимости {#example}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 Балансировщик размещен в одной зоне доступности. Автомасштабирование настроено по умолчанию: минимум 2 ресурсные единицы в зоне, максимальное суммарное количество не ограничено.
 
@@ -72,7 +78,6 @@ editable: false
 
 
 
- 
 
 
 ## Цены для региона Россия {#prices}

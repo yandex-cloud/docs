@@ -17,13 +17,13 @@
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+
 ### Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки отказоустойчивой архитектуры {{ yandex-cloud }} входит:
+* Виртуальные машины: использование вычислительных ресурсов, хранилища, публичных IP-адресов и операционной системы (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../managed-postgresql/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
 
-* Плата за [диски](../../compute/concepts/disk.md) и постоянно запущенные [ВМ](../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Плата за постоянно запущенный [кластер {{ mpg-full-name }}](../../managed-postgresql/concepts/index.md) (см. [тарифы {{ mpg-name }}](../../managed-postgresql/pricing.md)).
-* Плата за использование динамического или статического [публичного IP-адреса](../../vpc/concepts/address.md) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 ## Настройте тестовый стенд {#prepare}
 
@@ -203,7 +203,7 @@
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог с вашей группой ВМ.
-  1. В списке сервисов выберите **{{ compute-name }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Выберите группу `todo-ig`.
   1. Перейдите на панель **{{ ui-key.yacloud.compute.placement-group.switch_instances }}**.
@@ -273,7 +273,7 @@ fail_random_host.sh <идентификатор_группы_ВМ>
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог с вашей группой ВМ.
-  1. В списке сервисов выберите **{{ compute-name }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Выберите группу `todo-ig`.
   1. В правом верхнем углу нажмите **{{ ui-key.yacloud.common.edit }}**.
@@ -303,7 +303,7 @@ fail_random_host.sh <идентификатор_группы_ВМ>
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог с вашей группой ВМ.
-  1. В списке сервисов выберите **{{ compute-name }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Выберите группу `todo-ig`.
   1. В правом верхнем углу нажмите **{{ ui-key.yacloud.common.edit }}**.
@@ -346,7 +346,7 @@ fail_random_host.sh <идентификатор_группы_ВМ>
 - Консоль управления
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог с вашим кластером БД.
-  1. В списке сервисов выберите **{{ mpg-name }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Выберите кластер `todo-postgresql`.
   1. Нажмите кнопку ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** выберите `s2.medium`.

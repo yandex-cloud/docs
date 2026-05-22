@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/audit-trails/cli-ref/trail/create
 editable: false
 ---
 

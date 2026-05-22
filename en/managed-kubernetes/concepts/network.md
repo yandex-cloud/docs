@@ -15,6 +15,8 @@ You can also:
 * Request a [public IP address](../../vpc/concepts/ips.md) to access the [cluster](./index.md#kubernetes-cluster) from outside {{ yandex-cloud }}.
 * Configure [network policy controllers](network-policy.md) to manage the address space within the cluster.
 
+{% include [note-vpc-resources](../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
 ## Network resources {#network-resources}
 
 {{ k8s }} clusters in the {{ yandex-cloud }} infrastructure use the following resources:
@@ -81,7 +83,7 @@ If you enable public access for the master or nodes in a node group, they will b
 
 You can enable public access:
 * For the master, only when [creating a cluster](../operations/kubernetes-cluster/kubernetes-cluster-create.md).
-* For nodes in a group, when [creating](../operations/node-group/node-group-create.md) or [updating](../operations/node-group/node-group-update.md#update-settings) the group.
+* For nodes in a group, when [creating](../operations/node-group/node-group-create.md) or [updating](../operations/node-group/node-group-update.md#node-internet-access) the group.
 
 If you disable public access for the master or nodes, they will be accessible only via their [private IP addresses](../../vpc/concepts/address.md#internal-addresses) from the cloud network the cluster resides in.
 

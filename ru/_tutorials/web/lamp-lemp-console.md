@@ -28,7 +28,8 @@
 
 - Консоль управления {#console} 
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ vpc-name }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Нажмите кнопку **Создать сеть**.
   1. Укажите **Имя** сети: `web-network`.
   1. В поле **Дополнительно** выберите опцию **Создать подсети**.
@@ -46,7 +47,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ vpc-name }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Откройте вкладку **Группы безопасности**.
   1. Создайте группу безопасности для ВМ:
       1. Нажмите кнопку **Создать группу**.
@@ -59,6 +61,7 @@
           | `Исходящий` | `any` | `Весь` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}` | `CIDR` | `0.0.0.0/0` |
           | `Входящий` | `ext-http` | `80` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
           | `Входящий` | `ext-https` | `443` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |
+          | `Входящий` | `ext-ssh` | `22` | `{{ ui-key.yacloud.common.label_tcp }}` | `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}` | `0.0.0.0/0` |         
 
           1. Выберите вкладку **Исходящий трафик** или **Входящий трафик**.
           1. Нажмите кнопку **Добавить правило**.
@@ -78,7 +81,7 @@
 
 - Консоль управления {#console}
 
-  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите ![image](../../_assets/console-icons/cpu.svg) `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `LAMP` или `LEMP` и выберите образ ВМ с нужным набором компонентов: 
       * [LAMP](/marketplace/products/yc/lamp) для Linux, Apache, {{ MY }}, PHP.
       * [LEMP](/marketplace/products/yc/lemp) для Linux, Nginx, {{ MY }}, PHP.
@@ -141,7 +144,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. Скопируйте IP-адрес созданной ВМ.
   1. На сайте компании, которая предоставляет вам услуги DNS-хостинга, перейдите в настройки DNS.
   1. Создайте или измените [A-запись](../../dns/concepts/resource-record.md#a) для `example.com` таким образом, чтобы она указывала на скопированный IP-адрес:
@@ -156,7 +160,8 @@
 
       {% cut "Инструкция по настройке DNS-записей для {{ dns-name }}" %}
 
-      1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
       1. Если у вас нет публичной [зоны DNS](../../dns/concepts/dns-zone.md), создайте ее:
           1. Нажмите кнопку **{{ ui-key.yacloud.dns.button_zone-create }}**.
           1. Укажите **{{ ui-key.yacloud.common.name }}** зоны: `example-zone-1`.

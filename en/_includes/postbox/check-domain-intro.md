@@ -1,0 +1,1 @@
+To send emails, confirm domain ownership. After creating an address, DKIM signature settings will be generated on its page. Specify them as the values of the resource records you need to add to your domain zone. You can add the records via your registrar or in [{{ dns-full-name }}](../../dns/), if you have delegated your {{ yandex-cloud }} domain.

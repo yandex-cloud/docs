@@ -29,11 +29,12 @@ description: Various security use cases in {{ yandex-cloud }}.
 * [{#T}](distributed-secured-infrastructure.md)
 * [{#T}](different-folders-services.md)
 * [{#T}](alerts-monitoring.md)
-* [{#T}](maxpatrol.md)
+* [{#T}](maxpatrol/index.md)
 * [{#T}](export-logs-to-splunk.md)
 * [{#T}](export-logs-to-arcsight.md)
 * [{#T}](mgp-to-cloud-logging.md)
 * [{#T}](info-for-federal-ip-whitelist.md)
+* [{#T}](ephemeral-key-storage.md)
 
 ## Managing identity federations {#federations}
 
@@ -87,6 +88,7 @@ description: Various security use cases in {{ yandex-cloud }}.
 * [{#T}](single-sign-on/oidc-1c-enterprise.md)
 * [{#T}](single-sign-on/saml-zabbix.md)
 * [{#T}](single-sign-on/saml-yandex-360.md)
+* [{#T}](single-sign-on/saml-ya-browser-corporate.md)
 * [{#T}](single-sign-on/saml-opensearch.md)
 * [{#T}](single-sign-on/saml-opensearch-self-managed.md)
 * [{#T}](single-sign-on/saml-managed-gitlab.md)

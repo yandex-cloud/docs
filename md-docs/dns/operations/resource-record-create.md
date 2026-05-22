@@ -1,0 +1,179 @@
+# Создать ресурсную запись
+
+Значение [TXT-записи](../concepts/resource-record.md#txt) должно быть не более 1024 знаков.
+
+Чтобы создать [ресурсную запись](../concepts/resource-record.md) в зоне DNS:
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, где находится зона DNS, в которой требуется создать запись.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud DNS**.
+  1. Выберите зону из списка.
+  1. Нажмите кнопку **Создать запись**.
+  1. Задайте параметры записи:
+     1. В поле **Имя** укажите доменное имя записи.
+     1. Выберите [тип записи](../concepts/resource-record.md#rr-types) в выпадающем списке.
+     1. В поле **TTL (в секундах)** укажите время жизни записи или выберите из предложенных.
+     1. Введите **Значение** записи.
+  1. Нажмите кнопку **Создать**.
+
+- CLI {#cli}
+
+  Если у вас еще нет интерфейса командной строки Yandex Cloud (CLI), [установите и инициализируйте его](../../cli/quickstart.md#install).
+
+  По умолчанию используется каталог, указанный при [создании](../../cli/operations/profile/profile-create.md) профиля CLI. Чтобы изменить каталог по умолчанию, используйте команду `yc config set folder-id <идентификатор_каталога>`. Также для любой команды вы можете указать другой каталог с помощью параметров `--folder-name` или `--folder-id`. Если вы обращаетесь к ресурсу по имени, поиск будет выполнен в каталоге по умолчанию. Если вы обращаетесь к ресурсу по идентификатору, поиск будет выполнен глобально — во всех каталогах с учетом прав доступа.
+
+  Выполните команду:
+
+  ```bash
+  yc dns zone add-records --name <имя_зоны_DNS> \
+    --record "<доменное_имя> <TTL> <тип_записи> <значение>" \
+    --description "<описание>"
+  ```
+
+  Где:
+
+  * `--name` — имя зоны. Должно быть уникальным внутри каталога.
+  * `--record` — DNS-запись, содержащая доменное имя, время жизни, тип и значение записи.
+  * `--description` — описание для новых записей. Если параметр не указан, описание будет пустой строкой. Необязательный параметр.
+
+  **Пример**
+
+  Создание TXT-записи с DKIM-подписью:
+
+  > ```bash
+  > yc dns zone add-records test-zone \
+  >   --record "test-record TXT v=DKIM1;k=rsa;p=MIIBIjAN...gkH2v1NTgQdTKfPmDK...YdRiwIDAQAB"
+  > ```
+
+  Создание записи с описанием:
+
+  > ```bash
+  >  yc dns zone add-records test-zone \
+  >   --record "srv.example.com. 600 A 10.1.0.1" \
+  >   --description "Web server"
+  > ```
+
+  Если значение TXT-записи содержит несколько значений, то следует заключить каждое значение в двойные кавычки `""`:
+
+  > ```bash
+  > yc dns zone add-records test-zone \
+  >   --record "test-record TXT v=DKIM1;k=rsa;p=MIIBIjAN""gkH2v1NTgQdTKfPmDK""YdRiwIDAQAB"
+  > ```
+
+- Terraform {#tf}
+
+  Если у вас еще нет Terraform, [установите его и настройте провайдер Yandex Cloud](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+
+  1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать. Вы можете добавить несколько записей одновременно.
+
+     ```hcl
+     resource "yandex_vpc_network" "foo" {}
+     
+     resource "yandex_dns_zone" "zone1" {
+       name        = "my-private-zone"
+       description = "desc"
+     
+       labels = {
+         label1 = "label-1-value"
+       }
+     
+       zone             = "example.com."
+       public           = false
+       private_networks = [yandex_vpc_network.foo.id]
+     }
+     
+     resource "yandex_dns_recordset" "rs1" {
+       zone_id     = yandex_dns_zone.zone1.id
+       name        = "srv.example.com."
+       type        = "A"
+       ttl         = 200
+       data        = ["10.1.0.1"]
+       description = "Web server primary"
+     }
+     
+     resource "yandex_dns_recordset" "rs2" {
+       zone_id = yandex_dns_zone.zone1.id
+       name    = "srv2"
+       type    = "A"
+       ttl     = 200
+       data    = ["10.1.0.2"]
+     }
+
+     resource "yandex_dns_recordset" "rs_dkim" {
+       zone_id = yandex_dns_zone.zone1.id
+       name    = "dkim"
+       type    = "TXT"
+       ttl     = 200
+       data    = ["v=DKIM1;k=rsa;t=s;p=MIIBIjAN...gkH2v1NTgQdTKfPmDK...YdRiwIDAQAB"]
+     }
+     ```
+
+     Где:
+
+     1. Параметры `yandex_dns_zone`:
+
+        * `zone` — доменная зона. Название зоны должно заканчиваться точкой. Публичные зоны верхнего уровня (TLD-зоны) создавать нельзя. Обязательный параметр.
+        * `folder_id` — идентификатор каталога, в котором будет создана зона. Если он не указан, используется каталог по умолчанию. Необязательный параметр.
+        * `name` — имя зоны. Должно быть уникальное внутри каталога. Необязательный параметр.
+        * `description` — описание зоны. Необязательный параметр.
+        * `labels` — набор меток зоны DNS. Необязательный параметр.
+        * `public` — видимость зоны: публичная или внутренняя зона. Необязательный параметр.
+        * `private_networks` — для публичных зон указываются ресурсы Virtual Private Cloud, которым эта зона видна. Необязательный параметр.
+
+     1. Параметры `yandex_dns_recordset`:
+
+        * `zone_id` — идентификатор зоны, в которой будет находиться этот набор записей. Обязательный параметр.
+        * `name` — доменное имя. Обязательный параметр.
+        * `type` — тип DNS-записи. Обязательный параметр.
+        * `ttl` — время жизни записи (TTL, Time to live) в секундах до актуализации информации о значении записи. Необязательный параметр.
+        * `data` — значение записи. Необязательный параметр.
+        * `description` — описание набора записей. Необязательный параметр.
+
+     Более подробную информацию о ресурсах, которые вы можете создать с помощью Terraform, смотрите в [документации провайдера](../../terraform/index.md).
+
+  1. Примените изменения:
+
+      1. В терминале перейдите в директорию с конфигурационным файлом.
+      1. Проверьте корректность конфигурации с помощью команды:
+      
+         ```bash
+         terraform validate
+         ```
+      
+         Если конфигурация является корректной, появится сообщение:
+      
+         ```bash
+         Success! The configuration is valid.
+         ```
+      
+      1. Выполните команду:
+      
+         ```bash
+         terraform plan
+         ```
+      
+         В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+      1. Примените изменения конфигурации:
+      
+         ```bash
+         terraform apply
+         ```
+      
+      1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
+  
+     Terraform создаст все требуемые ресурсы. Проверить появление ресурсов можно в [консоли управления](https://console.yandex.cloud) или с помощью команды [CLI](../../cli/quickstart.md):
+
+     ```bash
+     yc dns zone list-records <имя_зоны>
+     ```
+
+- API {#api}
+
+  Чтобы создать ресурсную запись в зоне DNS, воспользуйтесь методом REST API [updateRecordSets](../api-ref/DnsZone/updateRecordSets.md) для ресурса [DnsZone](../api-ref/DnsZone/index.md) или вызовом gRPC API [DnsZoneService/UpdateRecordSets](../api-ref/grpc/DnsZone/updateRecordSets.md).
+
+{% endlist %}
+
+При создании ресурсных AAAA-записей сервис автоматически производит нормализацию адресов IPv6, заменяя пропуски между `:` нулями, например: `2001:db8::` → `2001:db8:0:0:0:0:0:0`.

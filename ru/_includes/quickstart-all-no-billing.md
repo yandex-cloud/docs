@@ -5,7 +5,7 @@
   * [Создайте облачную сеть в {{ vpc-name }}](../vpc/quickstart.md).
   * [Настройте сетевой балансировщик в {{ network-load-balancer-name }}](../network-load-balancer/quickstart.md).
   * [Настройте L7-балансировщик в {{ alb-name }}](../application-load-balancer/quickstart.md).
-  * [Настройте раздачу контента через CDN](../cdn/quickstart.md).
+  * [Настройте раздачу контента через CDN](../cdn/quickstart/index.md).
   * [Создайте зоны DNS](../dns/quickstart.md).
   * [Загрузите Docker-образ в реестр в {{ container-registry-name }}](../container-registry/quickstart/index.md).
 * Безопасность:
@@ -16,7 +16,7 @@
   * [Безопасно храните конфиденциальные данные в {{ lockbox-name }}](../lockbox/quickstart.md).
 * Ресурсы и управление:
   * [Управляйте ресурсами в каталогах и облаках с помощью {{ resmgr-name }}](../resource-manager/quickstart.md).
-  * [Настраивайте корпоративные аккаунты в {{ org-name }}](../organization/quickstart.md).
+  * [Настраивайте корпоративные аккаунты в {{ org-full-name }}](../organization/quickstart.md).
   * [Задавайте метрики и следите за состоянием ресурсов с помощью {{ monitoring-name }}](../monitoring/quickstart.md).
   * [Визуализируйте данные в {{ datalens-name }}](../datalens/quickstart.md).
   * [Собирайте логи работы ресурсов с помощью {{ cloud-logging-name }}](../logging/quickstart.md).
@@ -37,11 +37,12 @@
   * [{{ PG }}](../managed-postgresql/quickstart.md).
   * [{{ OS }}](../managed-opensearch/quickstart.md).
   * [{{ KF }}](../managed-kafka/quickstart.md).
-  * [{{ GP }}](../managed-greenplum/quickstart.md).
+  * [{{ mgp-name }}](../managed-greenplum/quickstart.md).
   * [{{ ydb-name }}](../ydb/quickstart.md#create-db).
   * [Копируйте и реплицируйте данные из одной базы в другую с помощью {{ data-transfer-name }}](../data-transfer/quickstart.md).
-* Машинное обучение:
-  * [Преобразуйте текст в речь и наоборот с помощью {{ speechkit-name }}](../{{ speechkit-slug }}/quickstart/index.md).
-  * [Переведите текст в {{ translate-name }}](../translate/quickstart.md).
-  * [Анализируйте изображение с помощью компьютерного зрения в {{ vision-name }}](../vision/quickstart.md).
+* Искусственный интеллект:
+  * [Преобразуйте текст в речь и наоборот с помощью {{ speechkit-name }}]({{ link-docs-ai }}/speechkit/quickstart/index).
+  * [Переведите текст в {{ translate-name }}]({{ link-docs-ai }}/translate/quickstart).
+  * [Анализируйте изображение с помощью компьютерного зрения в {{ vision-name }}]({{ link-docs-ai }}/vision/quickstart).
   * [Обучайте и запускайте модели машинного обучения в {{ ml-platform-name }}](../datasphere/quickstart.md).
+  * [Создайте AI-агента для своего бизнеса]({{ link-docs-ai }})

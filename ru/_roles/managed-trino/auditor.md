@@ -1,1 +1,1 @@
-Роль `managed-trino.auditor` позволяет просматривать информацию о кластерах Trino и квотах сервиса Managed Service for Trino.
+Роль `managed-trino.auditor` позволяет просматривать информацию о [кластерах Trino](../../managed-trino/concepts/index.md) и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним, а также о [квотах](../../managed-trino/concepts/limits.md#quotas) сервиса Managed Service for Trino.

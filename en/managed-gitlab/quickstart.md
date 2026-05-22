@@ -1,23 +1,23 @@
 ---
-title: How to get started with {{ mgl-full-name }}
-description: Follow this guide to set up and configure an {{ GL }} cluster.
+title: Getting started with {{ mgl-full-name }}
+description: In this guide, you will learn how to create and configure a {{ GL }} cluster.
 ---
 
 # Getting started with {{ mgl-name }}
 
 To get started:
 1. [Create an instance](#instance-create).
-1. [Set up a working environment](#configure-mgl).
+1. [Set up the runtime environment](#configure-mgl).
 1. [Add SSH keys to {{ GL }}](#ssh).
 1. [Start using the repository](#start-work-with-git).
 
 {% note warning %}
 
-To start working with {{ mgl-name }}, check [this guide](operations/instance/migration.md) on how to migrate your projects from a {{ GL }} custom installation to the service.
+Before you begin, check [this guide](operations/instance/migration.md) on how to migrate your projects from a custom {{ GL }} installation to {{ mgl-name }}.
 
 {% endnote %}
 
-For more information about the differences between {{ mgl-name }} and the {{ GL }} Community Edition custom installation, see the [Service advantages over a {{ GL }} custom installation](concepts/managed-gitlab-vs-custom-installation.md) section.
+For more information about the differences between {{ mgl-name }} and the custom {{ GL }} Community Edition installation, see [Advantages over a custom {{ GL }} installation](concepts/managed-gitlab-vs-custom-installation.md).
 
 ## Getting started {#before-you-begin}
 
@@ -25,7 +25,7 @@ For more information about the differences between {{ mgl-name }} and the {{ GL 
 
 - Management console {#console}
 
-  1. Navigate to the [management console]({{ link-console-main }}) and either log in to {{ yandex-cloud }} or sign up if you do not have an account yet.
+  1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if you do not have an account yet.
   1. If you do not have a folder yet, create one:
 
      {% include [create-folder](../_includes/create-folder.md) %}
@@ -54,21 +54,21 @@ For more information about the differences between {{ mgl-name }} and the {{ GL 
 
 {% include [HTTPS info](../_includes/managed-gitlab/note-https.md) %}
 
-## Set up a working environment {#configure-mgl}
+## Set up the runtime environment {#configure-mgl}
 
-1. Activate the {{ mgl-name }} instance:
+1. Activate your {{ mgl-name }} instance:
    1. Follow the link you received in your administrator mailbox after creating the instance.
    1. Change the administrator password.
    1. Log in using the administrator username and password.
-1. (Optional) [Create a group](https://docs.gitlab.com/ee/user/group/#create-a-group) to host the repository project.
+1. Optionally, [create a group](https://docs.gitlab.com/ee/user/group/#create-a-group) to host the repository project.
 
-   If there are several projects, you might want to group users together. This will allow you to:
+   When working with multiple projects, consider grouping users together. This will allow you to:
 
-   * Grant rights for specific projects to each group.
+   * Grant permissions for specific projects to each group.
    * View issues and merge requests by group.
-   * View analytics on group's activities.
+   * View group activity analytics.
 
-   For more information, see [this {{ GL }} article](https://docs.gitlab.com/ee/user/group/).
+   For more information, see [this {{ GL }} guide](https://docs.gitlab.com/ee/user/group/).
 
 1. [Create an empty project](https://docs.gitlab.com/ee/user/project/) to host the repository.
 1. [Create users and add](operations/create-user.md) them to a group or project with the `Maintainer` or `Owner` role.
@@ -115,7 +115,7 @@ For more information about the differences between {{ mgl-name }} and the {{ GL 
    ssh -T git@example.gitlab.yandexcloud.net
    ```
 
-   If connecting for the first time, you will get this or similar message:
+   If this is your first time connecting, you will see a message like this:
 
    ```text
    The authenticity of host 'gitlab.example.com (35.231.145.151)' can't be established.
@@ -126,26 +126,26 @@ For more information about the differences between {{ mgl-name }} and the {{ GL 
 
    Type `yes` and press **Enter**.
 
-   If it is not your first time, you will get this upon a successful connection:
+   If you have connected before, you will get this message upon successful connection:
 
    ```text
    Welcome to GitLab, @<login>!
    ```
 
-   In case of an error, run the connection in Verbose mode to get the logs:
+   In case of an error, start the connection in verbose mode to get the logs:
 
    ```bash
    ssh -Tvvv git@<{{ GL }}_instance_domain>
    ```
 
-Ask each member of your group or project to create an SSH key pair this way and assign the public key to their account in {{ GL }}.
+Ask each member of your group or project to create an SSH key pair in this manner and assign the public key to their account in {{ GL }}.
 
 ## Start using the repository {#start-work-with-git}
 
 To start working with a local copy of your repository using the account you created, follow the steps below on your local computer:
 
-1. [Install the Git client](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html#install-git).
-1. [Clone the repository](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html#clone-a-repository) using the SSH protocol.
+1. [Install Git](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html#install-git).
+1. [Clone the repository](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html#clone-a-repository) over SSH.
 
    {% cut "What to do if you get the `Permission denied (publickey)` error" %}
 
@@ -162,13 +162,13 @@ To start working with a local copy of your repository using the account you crea
 
    If you get this error:
 
-   1. Create and open a configuration file to set up SSH keys:
+   1. Create and open a configuration file for SSH key setup:
 
       ```bash
       nano ~/.ssh/config
       ```
 
-   1. Add content to it:
+   1. Add this content to it:
 
       ```bash
       Host <{{ GL }}_instance_domain>
@@ -178,18 +178,18 @@ To start working with a local copy of your repository using the account you crea
       In the `IdentityFile` parameter, specify the absolute path to the private key you created for the {{ GL }} project.
 
    1. Save the file.
-   1. Clone the repository again via SSH.
+   1. Clone the repository over SSH again.
 
    {% endcut %}
 
-1. Go to the repository folder:
+1. Go to the repository directory:
 
    ```bash
    cd <project_name>
    ```
 
 1. Make changes to the repository files.
-1. [Index and apply the changes](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html#add-and-commit-local-changes) in the local repository:
+1. [Index and commit the changes](https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html#add-and-commit-local-changes) in the local repository:
 
    ```bash
    git add . && git commit -m "<commit_name>"

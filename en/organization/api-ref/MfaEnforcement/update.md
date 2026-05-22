@@ -22,7 +22,7 @@ apiPlayground:
         acrId:
           description: |-
             **string**
-            acr id for the MFA enforcement. one of 'any-mfa' or 'phr',
+            acr id for the MFA enforcement. one of 'any-mfa', 'any-except-sms' or 'phr',
             specification https://yandex.cloud/en/docs/organization/concepts/mfa?utm_referrer=https%3A%2F%2Fa.yandex-team.ru%2F#mfa-factors
             The maximum string length in characters is 50.
           type: string
@@ -132,7 +132,7 @@ The maximum string length in characters is 50. ||
 ||Field | Description ||
 || acrId | **string**
 
-acr id for the MFA enforcement. one of 'any-mfa' or 'phr',
+acr id for the MFA enforcement. one of 'any-mfa', 'any-except-sms' or 'phr',
 specification https://yandex.cloud/en/docs/organization/concepts/mfa?utm_referrer=https%3A%2F%2Fa.yandex-team.ru%2F#mfa-factors
 
 The maximum string length in characters is 50. ||

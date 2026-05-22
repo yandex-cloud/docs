@@ -1,61 +1,64 @@
-# Условия получения технологических специализаций
+# Условия получения партнерских статусов с технологической специализацией
 
-Включение и квалификация партнеров в [специализации](./index.md) проходит 2 раза в год: в апреле и октябре.
+Включение и квалификация партнеров в статусную систему проходит 2 раза в год:
+* в апреле — основной стрим;
+* в октябре — [фаст-трек](#fast-track).
 
-Как правило, партнерская команда самостоятельно информирует партнера о потенциальной возможности получения той или иной специализации, но вы всегда можете подать заявку при выполнении всех условий. Для этого обратитесь к вашему партнерскому менеджеру.
+Как правило, партнерская команда самостоятельно информирует партнера о потенциальной возможности получения того или иного статуса, но вы всегда можете подать заявку при выполнении всех условий. Для этого обратитесь к вашему партнерскому менеджеру.
 
-## Общие условия для всех специализаций {#common}
+## Общие условия для всех статусов {#common}
 
-Эти условия должны быть выполнены для включения в каждую из специализаций:
+Эти условия должны быть выполнены для получения каждого из статусов:
 
 * Заключено партнерское соглашение.
 * Есть реализованные и подтвержденные решения с использованием технологии специализации.
 * Есть защищенный бизнес-план.
 
-## Условия для отдельных специализаций {#additional}
+## Условия для отдельных статусов с технологической специализацией {#additional}
 
-Кроме общих условий, обязательных для всех специализаций, для каждой специализации существуют свои дополнительные условия:
+Кроме общих условий, обязательных для всех статусов, для каждого уровня и технологической специализации существуют свои дополнительные условия:
 
-* [Infrastructure](./index.md#infra-spec)
+#|
+||                  | **{{ yandex-cloud }} Expert** | **{{ yandex-cloud }} Professional** || 
+|| **Infrastructure & DevOps** (по треку **Infrastructure**) | Потребление на [сабаккаунтах](../terms.md#sub-account) и зарегистрированных [проектах](../program/var-tools.md#project-reg) сервисов Infrastructure — не менее 5 000 000 рублей в год без НДС и без партнерского вознаграждения. | Потребление на [сабаккаунтах](../terms.md#sub-account) и зарегистрированных [проектах](../program/var-tools.md#project-reg) сервисов Infrastructure — не менее 20 000 000 рублей в год без НДС и без партнерского вознаграждения. ||
+|| ^              | 
+* Первый сотрудник: [Инженер облачных сервисов](https://practicum.yandex.ru/ycloud)
+* Второй сотрудник: [Инженер облачных сервисов](https://practicum.yandex.ru/ycloud) | 
+* Первый сотрудник: сертификат [Yandex Cloud Certified Engineer Associate](https://yandex.cloud/ru/certification/engineer)
+* Второй сотрудник: сертификат [Yandex Cloud Certified Engineer Associate](https://yandex.cloud/ru/certification/engineer) ||
+|| ^              |           | Пройдено собеседование с архитектором {{ yandex-cloud }}. ||
+|| **Infrastructure & DevOps** (по треку **DevOps**) | Потребление на [сабаккаунтах](../terms.md#sub-account) и зарегистрированных [проектах](../program/var-tools.md#project-reg) сервисов DevOps — не менее 1 000 000 рублей в год без НДС и без партнерского вознаграждения. | Потребление на [сабаккаунтах](../terms.md#sub-account) и зарегистрированных [проектах](../program/var-tools.md#project-reg) сервисов DevOps — не менее 2 000 000 рублей в год без НДС и без партнерского вознаграждения. ||
+|| ^               | 
+* Первый сотрудник: курс [Managed Service for Kubernetes®](https://yandex.cloud/ru/training/kubernetes)
+* Второй сотрудник: курс [Managed Service for Kubernetes®](https://yandex.cloud/ru/training/kubernetes) | 
+* Первый сотрудник: сертификат [Yandex Cloud Certified DevOps Engineer](https://yandex.cloud/ru/certification/devops)
+* Второй сотрудник: сертификат [Yandex Cloud Certified DevOps Engineer](https://yandex.cloud/ru/certification/devops) ||
+|| ^               |           | Пройдено собеседование с архитектором {{ yandex-cloud }}. ||
+|| **Data Platform** | Потребление на [сабаккаунтах](../terms.md#sub-account) и зарегистрированных [проектах](../program/var-tools.md#project-reg) сервисов Data Platform — не менее 1 500 000 рублей в год без НДС и без партнерского вознаграждения. | Потребление на [сабаккаунтах](../terms.md#sub-account) и зарегистрированных [проектах](../program/var-tools.md#project-reg) сервисов Data Platform — не менее 3 000 000 рублей в год без НДС и без партнерского вознаграждения. ||
+|| ^                |
+* Первый сотрудник: [Managed Service for ClickHouse®](https://yandex.cloud/ru/training/clickhouse)
+* Второй сотрудник: [Основы Managed Greenplum®](https://yandex.cloud/ru/training/greenplum) |
+* Первый сотрудник: сертификация [Yandex Cloud Certified Engineer Associate](https://yandex.cloud/ru/certification/engineer-competencies)
+* Второй сотрудник: [Managed Service for ClickHouse®](https://yandex.cloud/ru/training/clickhouse) или [Основы Managed Greenplum®](https://yandex.cloud/ru/training/greenplum) ||
+|| ^                |            | Пройдено собеседование с архитектором {{ yandex-cloud }} ||
+|| **Security** | Потребление на [сабаккаунтах](../terms.md#sub-account) и зарегистрированных [проектах](../program/var-tools.md#project-reg) сервисов Security — не менее 1 000 000 рублей в год без НДС и без партнерского вознаграждения. | Потребление на [сабаккаунтах](../terms.md#sub-account) и зарегистрированных [проектах](../program/var-tools.md#project-reg) сервисов Security — не менее 2 000 000 рублей в год без НДС и без партнерского вознаграждения. ||
+|| ^            | 
+* Первый сотрудник: обучение [Погружение в сетевую безопасность](https://yandex.cloud/ru/training/network-security?from=training-pro)
+* Второй сотрудник: обучение [Аутентификация и управление доступами](https://yandex.cloud/ru/training/authentication?from=training-pro) | 
+* Первый сотрудник: сертификат [Yandex Cloud Certified Security Specialist](https://yandex.cloud/ru/certification/security)
+* Второй сотрудник: сертификат [Yandex Cloud Certified Security Specialist](https://yandex.cloud/ru/certification/security) ||
+|| ^            |           | Пройдено собеседование с архитектором {{ yandex-cloud }} ||
+|| **ML & AI** | Потребление на партнерском аккаунте и [сабаккаунтах](../terms.md#sub-account) сервисов ML & AI — не менее 500 000 рублей в год без НДС, из которых не менее 300 000 рублей приходится на сервис {{ ai-studio-full-name }} | Потребление на партнерском аккаунте и [сабаккаунтах](../terms.md#sub-account) сервисов ML & AI — не менее 5 000 000 рублей в год без НДС, используется не менее двух сервисов продуктовой группы с потреблением каждого более 499 999 руб. ||
+|| ^                | 
+* Первый сотрудник: обучение [ML сервисы: ключевые решения](https://yandex.cloud/ru/training/ml-solutions)
+* Второй сотрудник: обучение [Создание AI-агентов в Yandex Cloud](https://yandex.cloud/ru/training/training-pro#ml) | 
+* Первый сотрудник: обучение [ML сервисы: ключевые решения](https://yandex.cloud/ru/training/ml-solutions)
+* Второй сотрудник: обучение [Создание AI-агентов в Yandex Cloud](https://yandex.cloud/ru/training/training-pro#ml)
+* Третий сотрудник: обучение [Создание AI-агентов в Yandex Cloud](https://yandex.cloud/ru/training/training-pro#ml) ||
+|| ^                |           | Пройдено собеседование с архитектором {{ yandex-cloud }}. ||
+|#
 
-  * Потребление на [сабаккаунтах](../terms.md#sub-account) и зарегистрированных [проектах](../program/var-tools.md#project-reg) сервисов Infrastructure — не менее 12 000 000 рублей в год без НДС и без партнерского вознаграждения.
-  * Минимум два специалиста компании прошли профильные курсы и получили подтверждение об их успешном окончании:
-    * Первый специалист — ["Инженер облачных сервисов"](https://practicum.yandex.ru/ycloud/).
-    * Второй специалист — ["Инженер облачных сервисов"](https://practicum.yandex.ru/ycloud/) и ["Защита облачной инфраструктуры"](https://yandex.cloud/ru/training/infrastructure-protection).
 
-  * Пройдено собеседование с архитектором {{ yandex-cloud }}.
+## Фаст-трек {#fast-track}
 
-* [DevOps](./index.md#devops-spec)
-
-  * Потребление на сабаккаунтах и зарегистрированных проектах сервисов DevOps — не менее 2 000 000 рублей в год без НДС и без партнерского вознаграждения.
-  * Минимум два специалиста компании прошли профильные курсы и получили подтверждение об их успешном окончании:
-    * Первый специалист — ["Инженер облачных сервисов"](https://practicum.yandex.ru/ycloud/).
-    * Второй специалист — ["Инженер облачных сервисов"](https://practicum.yandex.ru/ycloud/), ["Деплой инфраструктуры по модели GitOps"](https://yandex.cloud/ru/training/deploy) и ["DevSecOps в облачном CI/CD"](https://yandex.cloud/ru/training/devsecops).
-
-  * Пройдено собеседование с архитектором {{ yandex-cloud }}.
-
-* [Data Platform](./index.md#platform-spec)
-
-  * Потребление на сабаккаунтах и зарегистрированных проектах сервисов Data Platform — не менее 2 000 000 рублей в год без НДС и без партнерского вознаграждения.
-  * Минимум два специалиста компании прошли профильные курсы и получили подтверждение об их успешном окончании:
-    * Первый специалист — ["Инженер облачных сервисов"](https://practicum.yandex.ru/ycloud/) и ["Построение корпоративной аналитической платформы"](https://yandex.cloud/ru/training/corpplatform).
-    * Второй специалист — ["{{ mch-name }}"](https://yandex.cloud/ru/training/clickhouse) или ["{{ mgp-name }}"](https://yandex.cloud/ru/training/greenplum).
-
-  * Пройдено собеседование с архитектором {{ yandex-cloud }}.
-
-* [ML & AI](./index.md#ml-spec)
-
-  Выполнено одно из условий:
-
-  * Реализация не менее одного проекта с использованием сервиса [{{ brand-voice-premium }}](../../speechkit/tts/brand-voice/index.md#premium).
-  * Реализация не менее одного проекта с использованием сервиса [{{ brand-voice-core }}](../../speechkit/tts/brand-voice/index.md#ss).
-  * Реализация проекта (проектов) с использованием сервиса [{{ brand-voice-cc }}](../../speechkit/tts/brand-voice/index.md#cc) и объемом потребления свыше 100 000 рублей в месяц без НДС и партнерской премии.
-
-* [Security Compliance](./index.md#secom-spec)
-
-  * 2 и более реализованных проекта в год.
-  * Минимум один специалист компании прошел профильные курсы и получил подтверждение об их успешном окончании:
-    * ["Защита облачной инфраструктуры"](https://yandex.cloud/ru/training/infrastructure-protection).
-    * ["Compliance в облачной инфраструктуре"](https://yandex.cloud/ru/training/compliance).
-
-  * Пройдено собеседование с архитектором {{ yandex-cloud }}.
+_Фаст-трек_ — это механизм, который позволяет получить партнерский статус вне основного трека присвоения статусов. Присвоение статуса в рамках фасттрека происходит в октябре по результатам первого полугодия. Требования для участия соответствуют требованиям основного трека получения партнерского статуса в части объема NR, прохождения обучения и/или сертификации, а также ассесмента — для статуса **{{ yandex-cloud }} Professional**.

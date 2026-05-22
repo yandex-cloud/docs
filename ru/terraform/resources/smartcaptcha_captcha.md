@@ -174,6 +174,10 @@ resource "yandex_smartcaptcha_captcha" "demo-captcha-advanced" {
   - `pre_check_type` (String). Basic check type of the captcha.
   - `uuid` (String). Unique identifier of the variant.
 - `security_rule` [Block]. List of security rules.
+  - `description` (String). Optional description of the rule. 0-512 characters long.
+  - `name` (**Required**)(String). Name of the rule. The name is unique within the captcha. 1-50 characters long.
+  - `override_variant_uuid` (String). Variant UUID to show in case of match the rule. Keep empty to use defaults.
+  - `priority` (Number). Priority of the rule. Lower value means higher priority.
   - `condition` [Block]. The condition for matching the rule.
     - `headers` [Block]. Captcha request headers.
       - `name` (**Required**)(String). Name of header (case insensitive).
@@ -274,10 +278,11 @@ filename: yandex/cloud/smartcaptcha/v1/captcha.proto
           - `prefix_not_match` (String). package: yandex.cloud.smartcaptcha.v1
 filename: yandex/cloud/smartcaptcha/v1/captcha.proto
 
-  - `description` (String). Optional description of the rule. 0-512 characters long.
-  - `name` (**Required**)(String). Name of the rule. The name is unique within the captcha. 1-50 characters long.
-  - `override_variant_uuid` (String). Variant UUID to show in case of match the rule. Keep empty to use defaults.
-  - `priority` (Number). Priority of the rule. Lower value means higher priority.
+- `timeouts` [Block]. 
+  - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+  - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+  - `read` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+  - `update` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 
 ## Import
 

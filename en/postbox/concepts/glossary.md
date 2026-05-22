@@ -13,7 +13,7 @@ To send emails from subdomains, add them as separate addresses. {{ postbox-name 
 
 ## Configuration {#configuration}
 
-A configuration is a group of [rules](#rules) that can be applied to an outgoing email. If you apply a configuration, all the rules configured within it will apply to your email. You cannot apply individual rules separately.
+A configuration is a group of [rules](#rules) you can [apply to an outgoing email](#usage). If you apply a configuration, all the rules configured within it will apply to your email. You cannot apply individual rules separately.
 
 ### Rules {#rules}
 
@@ -64,9 +64,9 @@ You can apply a configuration to an email using the following methods:
 
     The configuration must reside in the same folder as the address. If no configuration of the given name is found in the folder the address is in, you will get an error when sending your email. The configuration provided in the `X-Ses-Configuration-Set` header overrides the configuration associated with the address.
 
-* By providing the configuration name in the `ConfigurationSetName` field, if using the AWS-compatible API [`SendEmail` method](../aws-compatible-api/api-ref/send-email).
+* By providing the configuration name in the `ConfigurationSetName` field, if using the AWS-compatible API [`SendEmail`](../aws-compatible-api/api-ref/send-email) method.
 
-    The configuration must reside in the same folder as the address. If no configuration of the given name is found in the folder the address is in, you will get an error when sending your email. The configuration provided in the `X-Ses-Configuration-Set` field overrides the configuration associated with the address.
+    The configuration must reside in the same folder as the address. If no configuration of the given name is found in the folder the address is in, you will get an error when sending your email. The configuration provided in the `ConfigurationSetName` field overrides the configuration associated with the address.
 
 {% note info %}
 
@@ -76,8 +76,16 @@ The configuration settings are applied to the email the moment you send it. If y
 
 ## Sender {#sender}
 
-A sender is a confirmed domain mailbox used to send emails. You can limit the list of allowed senders when [creating](../operations/create-address.md) or editing an address.
+A sender is a confirmed domain mailbox used to send emails. You can [limit the list of allowed senders](../../postbox/operations/restrict-senders.md) when creating or editing an address.
 
 ## Subscription {#subscription}
 
 A subscription is a destination for [notifications about operations with emails](notification.md).
+
+## DKIM signature {#dkim}
+
+A DKIM signature is a digital signature added to email headers to verify that the message was sent from the specified domain.
+
+{{ postbox-name }} supports Easy DKIM for simplified DKIM signature setup, where the system automatically creates and manages DKIM keys for the user's domain. The user does not need to manually generate keys or refresh them upon expiration.
+
+If you opted for Easy DKIM when [creating your address](../operations/create-address.md), you must add two CNAME records to your DNS provider to allow {{ postbox-name }} to sign emails.

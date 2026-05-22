@@ -58,7 +58,10 @@ The maximum string length in characters is 100. ||
       "type": "BackupCreationType",
       "method": "BackupMethod",
       "journal_size": "int64",
-      "status": "BackupStatus"
+      "status": "BackupStatus",
+      "retention_policy_id": "string",
+      "retention_policy_name": "string",
+      "retain_until": "google.protobuf.Timestamp"
     }
   ],
   "next_page_token": "string"
@@ -127,4 +130,13 @@ Status of backup
 
 - `DONE`: Backup is done
 - `CREATING`: Backup is creating ||
+|| retention_policy_id | **string**
+
+ID of assigned BackupRetentionPolicy. ||
+|| retention_policy_name | **string**
+
+Name of assigned BackupRetentionPolicy. ||
+|| retain_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
+
+Expiration timestamp of the backup set by the BackupRetentionPolicy. ||
 |#

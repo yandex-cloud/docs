@@ -32,7 +32,7 @@ The owner of the affected clusters receives an advance email notice of the updat
 
 [Create an alert](../../managed-opensearch/operations/monitoring.md#monitoring-integration) for the `disk.used_bytes` metric in {{ monitoring-full-name }}. This metric shows the disk space usage in the {{ mos-name }} cluster.
 
-For `disk.used_bytes`, use notification thresholds. Their recommended values are as follows:
+For `disk.used_bytes`, use notification thresholds. with the following recommended values:
 
 * `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: 90% of disk space
 * `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: 80% of disk space
@@ -60,7 +60,7 @@ Complete error message:
 curl: (35) schannel: next InitializeSecurityContext failed: Unknown error (0x80092012)
 The revocation function was unable to check revocation for the certificate
 ```
-This indicates that the verification of the website’s certificate against the revocation list failed during the connection attempt.
+This means that, when connecting to the website, the function was unable to check if its certificate was listed as revoked.
 
 To fix this error:
 
@@ -95,7 +95,7 @@ Use one of these methods:
 * Configure internet access to hosts with the `DATA` and `MANAGER` roles:
 
     1. [Enable](../../managed-opensearch/operations/host-groups.md#update-host-group) the **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}** option in the `DATA`/`MANAGER` host group settings.
-    1. [Configure all cluster security groups](../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on port `{{ port-mos }}`. To do this, create the following ingress rule:
+    1. [Configure all cluster security groups](../../vpc/operations/security-group-add-rule.md) to allow incoming traffic on port `{{ port-mos }}`. To do this, create the following inbound rule:
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mos }}`.
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
         * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
@@ -110,3 +110,12 @@ Use one of these methods:
 #### What is the role of {{ mos-short-name }} in database management and maintenance? {#services}
 
 {% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}
+
+#### What block size is used on the cluster disks? {#block-size}
+
+{% include [disk-block-size](../../_includes/mdb/disk-block-size.md) %}
+
+#### What restrictions apply when creating or deleting host groups? {#host-group-limits}
+
+* If you add a host group with the `MANAGER` role to a cluster where this role is assigned to hosts with the `DATA` role, you will be unable to delete that group. The only way to revert to the previous host configuration is to [restore the cluster from a backup](../../managed-opensearch/operations/cluster-backups.md#restore).
+* When deleting a host group, you cannot delete a single host group with the `DATA` role.

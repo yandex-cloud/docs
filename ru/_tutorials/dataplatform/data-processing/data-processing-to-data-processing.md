@@ -20,12 +20,10 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки инфраструктуры входит:
-
-* плата за вычислительные ресурсы кластера {{ dataproc-name }} и объем хранилища (см. [тарифы {{ dataproc-name }}](../../../data-proc/pricing.md));
-* плата за вычислительные ресурсы кластера {{ metastore-name }} (см. [тарифы {{ metadata-hub-full-name }}](../../../metadata-hub/pricing.md#metastore));
-* плата за хранение данных и операции с данными в бакете (см. [тарифы {{ objstorage-full-name }}](../../../storage/pricing.md));
-* плата за использование NAT-шлюза и исходящий через шлюз трафик (см. [тарифы {{ vpc-full-name }}](../../../vpc/pricing.md#nat-gateways)).
+* Кластер {{ dataproc-name }}: использование вычислительных ресурсов с наценкой за сервис {{ dataproc-name }}, использование сетевых дисков, получение и хранение логов, объем исходящего трафика (см. [тарифы {{ dataproc-name }}](../../../data-proc/pricing.md)).
+* Кластер {{ metastore-name }}: вычислительные ресурсы компонентов кластера (см. тарифы [{{ metadata-hub-name }}](../../../metadata-hub/pricing.md)).
+* Бакеты {{ objstorage-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../../storage/pricing.md)).
+* NAT-шлюз: почасовое использование шлюза и исходящий через него трафик (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
 
 ## Перед началом работы {#before-you-begin}
 
@@ -107,7 +105,7 @@
 
 1. [Добавьте в настройки кластеров](../../../data-proc/operations/cluster-update.md) {{ dataproc-name }} свойство `spark:spark.hive.metastore.uris` со значением `thrift://<IP-адрес_кластера_{{ metastore-name }}>:{{ port-metastore }}`.
 
-   Чтобы узнать IP-адрес кластера {{ metastore-name }}, в [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** и на левой панели выберите страницу ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**. Для нужного кластера скопируйте значение из колонки **{{ ui-key.yacloud.metastore.field_metastore-endpoint-ip }}**.
+   Чтобы узнать IP-адрес кластера {{ metastore-name }}, откройте [консоль управления]({{ link-console-main }}), затем [перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}** и на левой панели выберите страницу ![image](../../../_assets/console-icons/database.svg) **{{ ui-key.yacloud.metastore.label_metastore }}**. Для нужного кластера скопируйте значение из колонки **{{ ui-key.yacloud.metastore.field_metastore-endpoint-ip }}**.
 
 ## Создайте тестовую таблицу {#create-table}
 

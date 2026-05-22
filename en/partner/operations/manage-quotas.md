@@ -17,7 +17,7 @@ For more information about quotas, see the _Quotas and limits_ of a relevant ser
 
 Quotas are only available for clouds associated with your subaccount.  
 
-You can reduce the service quota yourself without contacting support. If the new value is higher than the current quota, the system will automatically create a support request.
+You can reduce the service quota yourself without contacting support. If the new value is higher than the current quota, the system will automatically create a support ticket.
 
 To reset quotas to their original values, contact [support]({{ link-console-support }}).
 

@@ -1,63 +1,16 @@
-### 1C:Предприятие {#1c}
+## 1C:Предприятие {#1c}
 
 Если кластер использует версию {{ PG }}, оптимизированную для работы с системой <q>1С:Предприятие</q>, укажите в настройках:
 
 * **Защищенное соединение** — отключено.
 * **Тип СУБД** — `PostgreSQL`.
-* **Сервер баз данных** — `с-<идентификатор_кластера>.rw.{{ dns-zone }} port={{ port-mpg }}`.
+* **Сервер баз данных** — `<особый_FQDN> port={{ port-mpg }}`.
 * **Имя базы данных** — `<имя_БД>`.
 * **Пользователь базы данных** — `<имя_пользователя>`.
 * **Пароль пользователя** — `<пароль>`.
 * **Создать базу данных в случае ее отсутствия** — отключено.
 
-### Bash {#bash}
-
-Перед подключением установите зависимости:
-
-```bash
-sudo apt update && sudo apt install --yes postgresql-client
-```
-
-{% list tabs group=connection %}
-
-- Подключение без SSL {#without-ssl}
-
-  1. Подключитесь к базе данных:
-
-      ```bash
-      psql "host=c-<идентификатор_кластера>.rw.{{ dns-zone }} \
-            port=6432 \
-            sslmode=disable \
-            dbname=<имя_БД> \
-            user=<имя_пользователя> \
-            target_session_attrs=read-write"
-      ```
-
-      После выполнения команды введите пароль пользователя для завершения процедуры подключения.
-
-  1. Для проверки успешности подключения выполните запрос:
-
-      ```bash
-      SELECT version();
-      ```
-
-- Подключение с SSL {#with-ssl}
-
-  1. Подключитесь к базе данных:
-
-      {% include [default-connstring](./mpg/default-connstring.md) %}
-
-      После выполнения команды введите пароль пользователя для завершения процедуры подключения.
-
-  1. Для проверки успешности подключения выполните запрос:
-
-      ```bash
-      SELECT version();
-      ```
-
-{% endlist %}
-
-### C++ (фреймворк userver) {#cpp-userver}
+## C++ (фреймворк userver) {#cpp-userver}
 
 Асинхронный фреймворк [userver](https://userver.tech/) предоставляет богатый набор абстракций для создания утилит, сервисов и микросервисов на языке C++. В том числе фреймворк предоставляет возможности для взаимодействия с {{ PG }}.
 
@@ -75,7 +28,7 @@ sudo apt update && sudo apt install --yes postgresql-client
     1. Измените конфигурационный файл `configs/config_vars.yaml`. В качестве значения переменной `dbconnection` укажите строку подключения к кластеру {{ PG }}:
 
         ```url
-        postgres://<имя_пользователя>:<пароль_пользователя>@c-<идентификатор_кластера>.rw.{{ dns-zone }}:{{ port-mpg }}/<имя_БД>
+        postgres://<имя_пользователя>:<пароль_пользователя>@<особый_FQDN>:{{ port-mpg }}/<имя_БД>
         ```
 
     1. Соберите проект и запустите сервис:
@@ -92,7 +45,7 @@ sudo apt update && sudo apt install --yes postgresql-client
     1. Измените конфигурационный файл `configs/config_vars.yaml`. В качестве значения переменной `dbconnection` укажите строку подключения к кластеру {{ PG }}:
 
         ```url
-        postgres://<имя_пользователя>:<пароль_пользователя>@c-<идентификатор_кластера>.rw.{{ dns-zone }}:{{ port-mpg }}/<имя_БД>?ssl=true&sslmode=verify-full
+        postgres://<имя_пользователя>:<пароль_пользователя>@<особый_FQDN>:{{ port-mpg }}/<имя_БД>?ssl=true&sslmode=verify-full
         ```
 
     1. Соберите проект и запустите сервис:
@@ -114,13 +67,13 @@ tskv ... level=INFO      module=MakeQuerySpan ( userver/postgresql/src/storages/
 db_statement=SELECT 1 AS ping
 db_type=postgres
 db_instance=********
-peer_address=c-********.rw.{{ dns-zone }}:{{ port-mpg }}
+peer_address={{ host-name }}.{{ dns-zone }}:{{ port-mpg }}
 ...
 ```
 
 {% endcut %}
 
-### C# EF Core {#csharpefcore}
+## C# EF Core {#csharpefcore}
 
 Для подключения к кластеру необходим пакет [Npgsql](https://www.nuget.org/packages/Npgsql/).
 
@@ -137,7 +90,7 @@ peer_address=c-********.rw.{{ dns-zone }}:{{ port-mpg }}
       {
           static async Task Main(string[] args)
           {
-              var host       = "c-<идентификатор_кластера>.rw.{{ dns-zone }}";
+              var host       = "<список_хостов>";
               var port       = "{{ port-mpg }}";
               var db         = "<имя_БД>";
               var username   = "<имя_пользователя>";
@@ -162,7 +115,9 @@ peer_address=c-********.rw.{{ dns-zone }}:{{ port-mpg }}
 
 {% endlist %}
 
-### Go {#go}
+В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>:{{ port-mgp }}` (пример: `{{ host-name }}:{{ port-mgp }}.{{ dns-zone }}`).
+
+## Go {#go}
 
 Перед подключением установите зависимости:
 
@@ -191,7 +146,7 @@ go mod init example && go get github.com/jackc/pgx/v4
       )
 
       const (
-        host     = "c-<идентификатор_кластера>.rw.{{ dns-zone }}"
+        host     = "<список_хостов>"
         port     = 6432
         user     = "<имя_пользователя>"
         password = "<пароль_пользователя>"
@@ -229,6 +184,8 @@ go mod init example && go get github.com/jackc/pgx/v4
           fmt.Println(version)
       }
       ```
+    
+    В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>:{{ port-mgp }}` (пример: `{{ host-name }}:6432.{{ dns-zone }}`).
 
   1. Подключение:
 
@@ -257,7 +214,7 @@ go mod init example && go get github.com/jackc/pgx/v4
       )
 
       const (
-        host     = "c-<идентификатор_кластера>.rw.{{ dns-zone }}"
+        host     = "<список_хостов>"
         port     = 6432
         user     = "<имя_пользователя>"
         password = "<пароль_пользователя>"
@@ -289,7 +246,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
           connConfig.TLSConfig = &tls.Config{
               RootCAs:            rootCertPool,
-              ServerName: "c-<идентификатор_кластера>.rw.{{ dns-zone }}",
+              ServerName: "<список_хостов>",
           }
 
           conn, err := pgx.ConnectConfig(context.Background(), connConfig)
@@ -312,6 +269,8 @@ go mod init example && go get github.com/jackc/pgx/v4
       }
       ```
 
+      В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>:{{ port-mgp }}` (пример: `{{ host-name }}:{{ port-mgp }}.{{ dns-zone }}`).
+
       При этом способе подключения в коде необходимо указывать полный путь к сертификату `root.crt` для {{ PG }} в переменной `ca`.
 
   1. Подключение:
@@ -322,7 +281,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
 {% endlist %}
 
-### Java {#java}
+## Java {#java}
 
 Перед подключением:
 
@@ -432,7 +391,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
       public class App {
         public static void main(String[] args) {
-          String DB_URL     = "jdbc:postgresql://c-<идентификатор_кластера>.rw.{{ dns-zone }}:6432/<имя_БД>?targetServerType=master&ssl=false&sslmode=disable";
+          String DB_URL     = "jdbc:postgresql://<список_хостов>/<имя_БД>?targetServerType=master&ssl=false&sslmode=disable";
           String DB_USER    = "<имя_пользователя>";
           String DB_PASS    = "<пароль_пользователя>";
 
@@ -449,6 +408,8 @@ go mod init example && go get github.com/jackc/pgx/v4
         }
       }
       ```
+
+     В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>:{{ port-mgp }}` (пример: `{{ host-name }}:{{ port-mgp }}.{{ dns-zone }}`).
 
   1. Сборка и подключение:
 
@@ -470,7 +431,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
       public class App {
         public static void main(String[] args) {
-          String DB_URL     = "jdbc:postgresql://c-<идентификатор_кластера>.rw.{{ dns-zone }}:6432/<имя_БД>?targetServerType=master&ssl=true&sslmode=verify-full";
+          String DB_URL     = "jdbc:postgresql://<список_хостов>:{{ port-mgp }}/<имя_БД>?targetServerType=master&ssl=true&sslmode=verify-full";
           String DB_USER    = "<имя_пользователя>";
           String DB_PASS    = "<пароль_пользователя>";
 
@@ -488,6 +449,8 @@ go mod init example && go get github.com/jackc/pgx/v4
       }
       ```
 
+     В параметре `host` указываются хосты кластера через запятую в формате `<зона_доступности>-<идентификатор_хоста>.<зона_DNS>:{{ port-mgp }}` (пример: `{{ host-name }}:{{ port-mgp }}.{{ dns-zone }}`).
+
   1. Сборка и подключение:
 
       ```bash
@@ -497,7 +460,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
 {% endlist %}
 
-### Node.js {#nodejs}
+## Node.js {#nodejs}
 
 Перед подключением установите зависимости:
 
@@ -518,7 +481,7 @@ npm install pg
 
     const config = {
         connectionString:
-            "postgres://<имя_пользователя>:<пароль_пользователя>@c-<идентификатор_кластера>.rw.{{ dns-zone }}:6432/<имя_БД>"
+            "postgres://<имя_пользователя>:<пароль_пользователя>@<особый_FQDN>:{{ port-mgp }}/<имя_БД>"
     };
 
     const conn = new pg.Client(config);
@@ -544,7 +507,7 @@ npm install pg
 
     const config = {
         connectionString:
-            "postgres://<имя_пользователя>:<пароль_пользователя>@c-<идентификатор_кластера>.rw.{{ dns-zone }}:6432/<имя_БД>",
+            "postgres://<имя_пользователя>:<пароль_пользователя>@<особый_FQDN>:{{ port-mgp }}/<имя_БД>",
         ssl: {
             rejectUnauthorized: true,
             ca: fs
@@ -577,7 +540,7 @@ npm install pg
 node app.js
 ```
 
-### ODBC {#odbc}
+## ODBC {#odbc}
 
 Перед подключением установите зависимости:
 
@@ -598,11 +561,11 @@ sudo apt update && sudo apt install --yes unixodbc odbc-postgresql
       ```ini
       [postgresql]
       Driver=PostgreSQL Unicode
-      Servername=c-<идентификатор_кластера>.rw.{{ dns-zone }}
+      Servername=<особый_FQDN>
       Username=<имя_пользователя>
       Password=<пароль_пользователя>
       Database=<имя_БД>
-      Port=6432
+      Port={{ port-mgp }}
       Pqopt=target_session_attrs=read-write
       ```
 
@@ -623,11 +586,11 @@ sudo apt update && sudo apt install --yes unixodbc odbc-postgresql
       ```ini
       [postgresql]
       Driver=PostgreSQL Unicode
-      Servername=c-<идентификатор_кластера>.rw.{{ dns-zone }}
+      Servername=<особый_FQDN>
       Username=<имя_пользователя>
       Password=<пароль_пользователя>
       Database=<имя_БД>
-      Port=6432
+      Port={{ port-mgp }}
       Pqopt=target_session_attrs=read-write
       Sslmode=verify-full
       ```
@@ -642,7 +605,7 @@ sudo apt update && sudo apt install --yes unixodbc odbc-postgresql
 
 {% endlist %}
 
-### PHP {#php}
+## PHP {#php}
 
 Перед подключением установите зависимости:
 
@@ -661,8 +624,8 @@ sudo apt update && sudo apt install --yes php php-pgsql
       ```php
       <?php
         $conn = pg_connect("
-            host=c-<идентификатор_кластера>.rw.{{ dns-zone }}
-            port=6432
+            host=<особый_FQDN>
+            port={{ port-mgp }}
             sslmode=disable
             dbname=<имя_БД>
             user=<имя_пользователя>
@@ -693,8 +656,8 @@ sudo apt update && sudo apt install --yes php php-pgsql
       ``` php
       <?php
         $conn = pg_connect("
-            host=c-<идентификатор_кластера>.rw.{{ dns-zone }}
-            port=6432
+            host=<особый_FQDN>
+            port={{ port-mgp }}
             sslmode=verify-full
             dbname=<имя_БД>
             user=<имя_пользователя>
@@ -718,67 +681,7 @@ sudo apt update && sudo apt install --yes php php-pgsql
 
 {% endlist %}
 
-### PowerShell {#powershell}
-
-Перед подключением установите [{{ PG }} для Windows](https://www.postgresql.org/download/windows/) той же версии, которая используется в кластере. Выберите только установку *Command Line Tools*.
-
-{% list tabs group=connection %}
-
-- Подключение без SSL {#without-ssl}
-
-  1. Установите переменные окружения для подключения:
-
-     ```powershell
-     $Env:PGSSLMODE="disable"; $Env:PGTARGETSESSIONATTRS="read-write"
-     ```
-
-  1. Подключитесь к базе данных:
-
-     ```powershell
-     & "C:\Program Files\PostgreSQL\<версия>\bin\psql.exe" `
-           --host=c-<идентификатор_кластера>.rw.{{ dns-zone }} `
-           --port={{ port-mpg }} `
-           --username=<имя_пользователя> `
-           <имя_БД>
-     ```
-
-     После выполнения команды введите пароль пользователя для завершения процедуры подключения.
-
-  1. Для проверки успешности подключения выполните запрос:
-
-     ```sql
-     SELECT version();
-     ```
-
-- Подключение с SSL {#with-ssl}
-
-  1. Установите переменные окружения для подключения:
-
-      ```powershell
-      $Env:PGSSLMODE="verify-full"; $Env:PGTARGETSESSIONATTRS="read-write"
-      ```
-
-  1. Подключитесь к базе данных:
-
-      ```powershell
-      & "C:\Program Files\PostgreSQL\<версия>\bin\psql.exe" `
-        --host=c-<идентификатор_кластера>.rw.{{ dns-zone }} `
-        --port={{ port-mpg }} `
-        --username<имя_пользователя> `
-        <имя_БД>
-      ```
-
-      После выполнения команды введите пароль пользователя для завершения процедуры подключения.
-
-  1. Для проверки успешности подключения выполните запрос:
-
-     ```sql
-     SELECT version();
-     ```
-
-{% endlist %}
-
-### Python {#python}
+## Python {#python}
 
 Перед подключением установите зависимости:
 
@@ -799,8 +702,8 @@ pip3 install psycopg2-binary
       import psycopg2
 
       conn = psycopg2.connect("""
-          host=c-<идентификатор_кластера>.rw.{{ dns-zone }}
-          port=6432
+          host=<список_хостов>
+          port={{ port-mgp }}
           sslmode=disable
           dbname=<имя_БД>
           user=<имя_пользователя>
@@ -815,6 +718,8 @@ pip3 install psycopg2-binary
 
       conn.close()
       ```
+
+     {% include [host lists](../managed-postgresql/host-list.md) %}
 
   1. Подключение:
 
@@ -832,8 +737,8 @@ pip3 install psycopg2-binary
       import psycopg2
 
       conn = psycopg2.connect("""
-          host=c-<идентификатор_кластера>.rw.{{ dns-zone }}
-          port=6432
+          host=<список_хостов>
+          port={{ port-mgp }}
           sslmode=verify-full
           dbname=<имя_БД>
           user=<имя_пользователя>
@@ -849,6 +754,8 @@ pip3 install psycopg2-binary
       conn.close()
       ```
 
+     {% include [host lists](../managed-postgresql/host-list.md) %}
+
   1. Подключение:
 
       ```bash
@@ -857,7 +764,7 @@ pip3 install psycopg2-binary
 
 {% endlist %}
 
-### R {#r}
+## R {#r}
 
 Перед подключением:
 
@@ -888,7 +795,7 @@ pip3 install psycopg2-binary
 
         conn <- dbConnect(RPostgres::Postgres(),
             dbname="<имя_БД>",
-            host="c-<идентификатор_кластера>.rw.{{ dns-zone }}",
+            host="<особый_FQDN>",
             port={{ port-mpg }},
             user="<имя_пользователя>",
             password="<пароль_пользователя>"
@@ -918,7 +825,7 @@ pip3 install psycopg2-binary
 
         conn <- dbConnect(RPostgres::Postgres(),
             dbname="<имя_БД>",
-            host="c-<идентификатор_кластера>.rw.{{ dns-zone }}",
+            host="<особый_FQDN>",
             port={{ port-mpg }},
             sslmode="verify-full",
             user="<имя_пользователя>",
@@ -940,7 +847,7 @@ pip3 install psycopg2-binary
 
 {% endlist %}
 
-### Ruby {#ruby}
+## Ruby {#ruby}
 
 Перед подключением установите зависимости:
 
@@ -960,8 +867,8 @@ sudo apt update && sudo apt install --yes ruby ruby-pg
       require "pg"
 
       conn = PG.connect("
-              host=c-<идентификатор_кластера>.rw.{{ dns-zone }}
-              port=6432
+              host=<особый_FQDN>
+              port={{ port-mgp }}
               dbname=<имя_БД>
               user=<имя_пользователя>
               password=<пароль_пользователя>
@@ -991,8 +898,8 @@ sudo apt update && sudo apt install --yes ruby ruby-pg
       require "pg"
 
       conn = PG.connect("
-              host=c-<идентификатор_кластера>.rw.{{ dns-zone }}
-              port=6432
+              host=<особый_FQDN>
+              port={{ port-mgp }}
               dbname=<имя_БД>
               user=<имя_пользователя>
               password=<пароль_пользователя>

@@ -39,3 +39,4 @@ description: 'Различные сценарии использования {{ 
 * [{#T}](yq-clickhouse.md)
 * [{#T}](yq-postgre.md)
 * [{#T}](yq-federative-queries.md)
+* [{#T}](spark-and-datasphere.md)

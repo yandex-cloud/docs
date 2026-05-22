@@ -30,10 +30,6 @@ items:
           account usage details
         href: >-
           billing/known-issues/cloud-logging-unexpectedly-charges-in-billing-account-details.md
-      - name: >-
-          You are unable to add a committed volume of services (CVoS) for {{
-          compute-short-name }}
-        href: billing/known-issues/unable-to-issue-a-new-cvos-position.md
       - name: You are still billed for your deleted {{ kms-short-name }} keys
         href: billing/known-issues/kms-keys-are-charged-in-billing-after-deletion.md
       - name: Fixing the `Unauthorized` error when creating a billing account
@@ -87,8 +83,6 @@ items:
           Cloud stuck in the `CREATING` status or it takes too long to create a
           cloud
         href: billing/known-issues/cloud-stuck-in-creating-status.md
-      - name: Fixing the `message Unauthorized; description Unauthorized` error
-        href: billing/known-issues/error-unauthorized.md
       - name: Fixing the `PROHIBITED_BILLING_ACCOUNT_USAGE_STATUS` error
         href: billing/known-issues/error-prohibited-user-account-usage-status.md
       - name: >-
@@ -126,8 +120,6 @@ items:
         href: billing/how-to/getting-reporting-docs.md
       - name: How to change the email address
         href: billing/how-to/change-email.md
-      - name: What services support tag-based billing
-        href: billing/how-to/services-with-tags-available.md
       - name: Closing documents format in EDM
         href: billing/how-to/closing-documents-format.md
       - name: Negative balance limit for wire transfers
@@ -168,15 +160,9 @@ items:
       - name: Solutions for known {{ mch-name }} issues
         href: clickhouse/known-issues/index.md
         hidden: true
-      - name: >-
-          Resolving the `Exception Memory limit (total) exceeded` error when
-          running a query
-        href: clickhouse/known-issues/error-memory-limit-total-exceeded.md
       - name: Sample {{ mch-name }} configurations and use cases
         href: clickhouse/how-to/index.md
         hidden: true
-      - name: How to set `max_execution_time`
-        href: clickhouse/how-to/set-max-execution-time.md
   - name: '{{ cdn-name }}'
     items:
       - name: All solutions for {{ cdn-name }}
@@ -224,10 +210,6 @@ items:
       - name: Solutions for known {{ compute-name }} issues
         href: compute/known-issues/index.md
         hidden: true
-      - name: >-
-          You are unable to add a committed volume of services (CVoS) for {{
-          compute-short-name }}
-        href: compute/known-issues/unable-to-issue-a-new-cvos-position.md
       - name: >-
           Resolving the `Permission denied` error when connecting to a VM
           created with {{ TF }}
@@ -278,8 +260,6 @@ items:
         href: compute/how-to/migrate-data-from-hdd-to-ssd.md
       - name: "How to get details about\_RAM consumption for {{ compute-name }} VMs"
         href: compute/how-to/view-ram-usage-in-monitoring.md
-      - name: How to create VMs with multiple network interfaces
-        href: compute/how-to/creating-instances-with-multiple-network-interfaces.md
       - name: How to reduce the VM disk size
         href: compute/how-to/shrink-instance-disk.md
       - name: How to export {{ compute-name }} VM disk images
@@ -302,16 +282,12 @@ items:
         href: compute/how-to/ssh-root-authorization.md
       - name: How to monitor memory usage
         href: compute/how-to/ram-monitoring.md
-      - name: How to change an internal IP address
-        href: compute/how-to/change-ip-address.md
       - name: How to read the `Connections quota utilization` chart
         href: compute/how-to/connections-quota-utilization.md
       - name: How to check the disk access speed for a VM
         href: compute/how-to/disk-access-speed.md
       - name: How to create a VM instance with password access
         href: compute/how-to/create-password-protected-vm.md
-      - name: How to increase the number of network connections
-        href: compute/how-to/increase-network-connections.md
       - name: How to secure RDP connections on Microsoft Windows®
         href: compute/how-to/rdp-protection-for-windows.md
   - name: '{{ container-registry-name }}'
@@ -324,8 +300,6 @@ items:
       - name: Exceeded limits on images uploaded from a Docker Hub folder
         href: >-
           container-registry/known-issues/docker-pull-limit-reached-in-dockerhub.md
-      - name: Workaround for pulling images from Docker Hub
-        href: container-registry/known-issues/docker-pull-forbidden-from-russia.md
         hidden: true
       - name: Sample {{ container-registry-name }} configurations and use cases
         href: container-registry/how-to/index.md
@@ -375,8 +349,6 @@ items:
           datalens/known-issues/values-in-total-fields-dont-match-with-data-from-ymetrics.md
       - name: Resolving the `ERR.DS_API.US Not correct folder_id` error
         href: datalens/known-issues/err-ds-api-us-not-correct-folder-id.md
-      - name: Resolving issues with joined tables when connecting to Bitrix24
-        href: datalens/known-issues/bitrix24-linking-talbes-issue.md
       - name: Resolving the `ERR.DS_API.FORMULA.TRANSLATION.DATA_TYPE` error
         href: datalens/known-issues/err-ds-api-formula-translation-data-type.md
       - name: >-
@@ -425,10 +397,6 @@ items:
           has been created
         href: >-
           data-processing/known-issues/hosts-of-data-processing-cluster-are-in-status-unknown-after-creation.md
-      - name: >-
-          Resolving the error of access to S3 buckets from a {{ dataproc-name }}
-          1.4 cluster
-        href: data-processing/known-issues/cannot-access-buckets.md
       - name: No logs in YARN Resource Manager Web UI after running jobs
         href: >-
           data-processing/known-issues/yarn-resource-manager-does-not-display-logs.md
@@ -444,14 +412,6 @@ items:
         hidden: true
       - name: Resolving project startup errors in {{ ml-platform-name }}
         href: datasphere/known-issues/datasphere-projects-starting-issue.md
-      - name: Resolving the `Failed to deserialize variable` error
-        href: >-
-          datasphere/known-issues/failed-to-deserialize-variable-in-yandex-datasphere.md
-      - name: >-
-          `Table of Contents` extension is missing in the {{ jlab }}Lab
-          extension catalog
-        href: >-
-          datasphere/known-issues/toc-extension-is-missing-in-jupyterlab-extensions-catalog.md
       - name: >-
           Getting access to GPU g1.1 and higher configurations in {{
           ml-platform-name }}
@@ -464,14 +424,6 @@ items:
           Resolving the `Servant not allocated` error when running code within
           {{ ml-platform-name }} project cells
         href: datasphere/known-issues/servant-not-allocated-issue.md
-      - name: Resolving the `TestsFailure` error
-        href: datasphere/known-issues/tests-failure-error.md
-      - name: Resolving the `Token authentication is enabled` error
-        href: datasphere/known-issues/error-token-authentication-is-enabled.md
-      - name: Resolving errors with project access or login
-        href: datasphere/known-issues/opening-project-issues.md
-      - name: Resolving the `KernelNotResponding The kernel died unexpectedly` error
-        href: datasphere/known-issues/error-kernel-not-responding.md
       - name: >-
           Fixing the `ConnectTimeoutError` error when installing packages
           through pip
@@ -500,8 +452,6 @@ items:
         hidden: true
       - name: How to delegate a domain to {{ dns-name }} servers
         href: dns/how-to/delegate-public-zone.md
-      - name: How to transfer {{ dns-name }} to a different folder or cloud
-        href: dns/how-to/transferring-to-another-cloud.md
   - name: '{{ data-transfer-name }}'
     items:
       - name: All solutions for {{ data-transfer-name }}
@@ -535,10 +485,6 @@ items:
           serverless-containers-name }} container
         href: functions/known-issues/errors-499-in-function-or-container-logs.md
       - name: >-
-          Troubleshooting the connection to {{ ydb-short-name }} from {{ sf-name
-          }} function code
-        href: functions/known-issues/ydb-connection-issues-after-function-update.md
-      - name: >-
           Resolving the `No node can serve the request (Too many reschedules)`
           error
         href: functions/known-issues/too-many-reschedules.md
@@ -549,16 +495,12 @@ items:
       - name: Sample {{ sf-name }} configurations and use cases
         href: functions/how-to/index.md
         hidden: true
-      - name: How to get the number of function calls for a certain period
-        href: functions/how-to/get-function-invokes-count.md
       - name: How to access a function from MDB
         href: functions/how-to/accessing-function-from-mdb.md
       - name: How to set up a static IP address
         href: functions/how-to/static-ip-address.md
       - name: How to call cloud functions asynchronously
         href: functions/how-to/async-functions-invokes.md
-      - name: How to set up `boto3` authentication
-        href: functions/how-to/boto3-authentification.md
   - name: '{{ iam-name }}'
     items:
       - name: All solutions for {{ iam-short-name }}
@@ -667,9 +609,6 @@ items:
           `RECONCILING` status for a long time
         href: >-
           managed-kubernetes/known-issues/node-group-hosts-are-in-reconciling-status-for-a-long-time.md
-      - name: Cyclical restarts of the `kube-dns-autoscaler` pod
-        href: >-
-          managed-kubernetes/known-issues/pod-kube-dns-autoscaler-constantly-restarting.md
       - name: Cannot reduce the number of nodes in a {{ managed-k8s-name }} group
         href: managed-kubernetes/known-issues/cannot-reduce-the-number-of-nodes.md
       - name: Cannot increase the number of nodes in a {{ managed-k8s-name }} group
@@ -695,33 +634,13 @@ items:
       - name: Troubleshooting HPA issues in {{ managed-k8s-name }}
         href: managed-kubernetes/known-issues/hpa-and-metrics-server-issues.md
       - name: >-
-          Resolving the `Can't use allocation_policy.locations.subnet_id
-          together with node_template.network_interface_specs` error
-        href: >-
-          managed-kubernetes/known-issues/cant-use-allocation-policy-locations-subnet-id-together-with-node-template-network-interface-specs.md
-      - name: >-
           Troubleshooting issues when mounting volumes to {{ managed-k8s-name }}
           cluster pods using Container Storage Interface for S3
         href: >-
           managed-kubernetes/known-issues/unable-to-mount-volume-to-pods-via-csi-s3.md
-      - name: >-
-          {{ managed-k8s-name }} cluster remains `STARTING` for too long after
-          renaming
-        href: >-
-          managed-kubernetes/known-issues/cluster-stuck-in-starting-after-renaming.md
       - name: Sample {{ managed-k8s-name }} configurations and use cases
         href: managed-kubernetes/how-to/index.md
         hidden: true
-      - name: >-
-          How to add and update Linux SSH keys on {{ managed-k8s-name }} node
-          group hosts
-        href: >-
-          managed-kubernetes/how-to/adding-and-changing-ssh-keys-for-linux-users-on-node-groups.md
-      - name: >-
-          How to assign static external IP addresses to {{ managed-k8s-name }}
-          cluster nodes
-        href: >-
-          managed-kubernetes/how-to/assign-static-ip-address-for-worker-nodes-mk8s.md
       - name: How to provide {{ k8s }} nodes with internet access
         href: managed-kubernetes/how-to/providing-internet-access-for-mk8s-nodes.md
       - name: How to create an internal Ingress controller
@@ -772,12 +691,8 @@ items:
       - name: Sample {{ mgl-name }} configurations and use cases
         href: managed-gitlab/how-to/index.md
         hidden: true
-      - name: How to change the {{ mgl-name }} instance type
-        href: managed-gitlab/how-to/change-gitlab-instance-flavour.md
       - name: How to update the {{ mgl-name }} instance software
         href: managed-gitlab/how-to/update-gitlab-software-version.md
-      - name: How to set up a cleanup policy when running out of space
-        href: managed-gitlab/how-to/cleanup-policy.md
       - name: How to set up project migration
         href: managed-gitlab/how-to/migrate-projects.md
   - name: '{{ ydb-name }}'
@@ -936,9 +851,6 @@ items:
           status if it has deletion protection enabled
         href: >-
           managed-postgresql/known-issues/unable-to-remove-cluster-in-dead-state-if-delete-protection-is-activated.md
-      - name: '{{ mpg-name }} cluster switches to `UNKNOWN` once created'
-        href: >-
-          managed-postgresql/known-issues/cluster-with-b1-nano-flavor-goes-into-unknown-status-after-creation.md
       - name: >-
           Resolving issues with updating configurations of clusters with
           `local-ssd` disks
@@ -1040,10 +952,6 @@ items:
           How to get information about the number of challenges used over a
           certain period
         href: smartcaptcha/how-to/learning-about-monitoring-and-tarification.md
-      - name: >-
-          Lifetime of the token returned by the `check` method in {{
-          captcha-name }}
-        href: smartcaptcha/how-to/check-token-expiration-time.md
   - name: '{{ speechkit-name }}'
     items:
       - name: All solutions for {{ speechkit-name }}
@@ -1053,8 +961,6 @@ items:
         hidden: true
       - name: Resolving the `audio duration should be less than 30s` error
         href: speechkit/known-issues/error-audio-duration-should-be-less-then-30s.md
-      - name: Resolving the `Invalid audio received` error
-        href: speechkit/known-issues/invalid-audio-received.md
       - name: Sample {{ speechkit-name }} configurations and use cases
         href: speechkit/how-to/index.md
         hidden: true
@@ -1083,10 +989,6 @@ items:
           Resolving issues with sending emails via SMTP from external IP
           addresses
         href: vpc/known-issues/issues-with-outgoing-emails-on-external-ips.md
-      - name: >-
-          Resolving the `Quota limit vpc.externalStaticAddresses.count exceeded`
-          error
-        href: vpc/known-issues/error-quota-limit-exceeded.md
       - name: Resolving the `Quota limit vpc.routeTables.count exceeded` error
         href: vpc/known-issues/error-quota-limit-vpc-routetables-count-exceeded.md
       - name: Sample {{ vpc-short-name }} configurations and use cases
@@ -1098,10 +1000,6 @@ items:
         href: vpc/how-to/move-external-ip-between-cloud.md
       - name: How to view incoming or outgoing traffic logs for a VM
         href: vpc/how-to/incoming-and-outcoming-traffic-logs.md
-      - name: How to determine the speed of communication channels
-        href: vpc/how-to/connection-speed.md
-      - name: Checking for traffic, connection speed, and bandwidth limitations
-        href: vpc/how-to/connection-speed-bandwidth-restriction.md
       - name: How to change the network or subnet for an MDB cluster
         href: vpc/how-to/changing-net-or-subnet.md
       - name: How to read the `Connections quota utilization` chart
@@ -1112,8 +1010,6 @@ items:
         href: vpc/how-to/activate-egress-nat.md
       - name: How to route traffic between two cloud networks
         href: vpc/how-to/routing-traffic-between-two-vpcs.md
-      - name: How to enable advanced DDoS protection
-        href: vpc/how-to/enable-advanced-anti-ddos-protection.md
       - name: How to use IPv6 addresses
         href: vpc/how-to/using-ipv6.md
       - name: How to use a fault-tolerant VPN or NGFW

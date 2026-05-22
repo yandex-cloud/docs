@@ -51,7 +51,10 @@ The basic service plan is provided to all {{ yandex-cloud }} users at no charge.
 ### Business {#business}
 
 This plan is good for business projects requiring 24/7 support.
-The price is calculated based on the amount of resources consumed over the current reporting period (calendar month). For a cost calculation, use [our calculator](/prices#calculator) or read about the calculation methods in the sections below.
+
+The cost is made up of the fixed and the percentage part. The percentage part is calculated several times per day based on the volume of consumed resources. For information on your consumption and charges, refer to {{ billing-name }} [usage details](../billing/operations/check-charges.md).
+
+The price is calculated based on the fixed part and your consumption in the current reporting period (calendar month). To calculate the fixed part, use [our calculator](/prices#calculator) or read about the calculation methods in the sections below.
 
 #### Service plan cost {#business-price}
 
@@ -63,7 +66,10 @@ The price is calculated based on the amount of resources consumed over the curre
 
 Calculating the support fee (5% of the cost of consumed resources) includes your adjustments, subscriptions, and a committed volume of services under the billing account linked to your organization and paying for support services. When calculating the support fee (5% of the cost of consumed resources), the cost of {{ marketplace-name }} products is excluded. See [this example of cost calculation](#business-example-one-ba-cvos).
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 #### Example of calculating the cost for an organization whose resources are paid from a single billing account {#business-example-one-ba}
+
 
 
 

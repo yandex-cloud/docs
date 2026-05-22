@@ -259,8 +259,8 @@
 
     - Консоль управления {#console}
 
-      1. Выберите каталог, которому принадлежит ВМ. 
-      1. На дашборде каталога перейдите в сервис {{ compute-name }}.
+      1. В [консоли управления]({{ link-console-main }}) выберите каталог, которому принадлежит ВМ. 
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
       1. Выберите виртуальную машину → нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) → выберите пункт **Удалить**.
       1. Подтвердите удаление.
 

@@ -30,7 +30,7 @@ For more information, see [Connecting to a VM over SSH](../../compute/operations
 
 ## Create SSH key pairs {#creating-ssh-keys}
 
-Prepare the keys to use with your {{ managed-k8s-name }} cluster node. To do this:
+Prepare the keys to use with your {{ managed-k8s-name }} cluster node. Proceed as follows:
 
 {% list tabs group=operating_system %}
 
@@ -124,8 +124,9 @@ Here is an example:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Select your {{ managed-k8s-name }} cluster.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Select {{ managed-k8s-name }}.
   1. In the left-hand panel, select **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
   1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
   1. Set the node group parameters.
@@ -210,7 +211,7 @@ Here is an example:
 
   Use the [create](../managed-kubernetes/api-ref/NodeGroup/create.md) REST API method for the [NodeGroup](../managed-kubernetes/api-ref/NodeGroup/index.md) resource or the [NodeGroupService/Create](../managed-kubernetes/api-ref/grpc/NodeGroup/create.md) gRPC API call.
 
-  Credentials for connecting over SSH are provided in the `nodeTemplate.metadata` parameter in `ssh-keys`.
+  SSH connection credentials are provided in the `nodeTemplate.metadata` parameter for the REST API or in `node_template.metadata` for the gRPC API using the `ssh-keys` key.
 
 {% endlist %}
 
@@ -236,8 +237,9 @@ The credentials for connecting over SSH will be completely overwritten. You will
 
   {% endnote %}
 
-  1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Select your {{ managed-k8s-name }} cluster.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Select {{ managed-k8s-name }}.
   1. In the left-hand panel, select **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
   1. On the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab, select the node group in which you want to update the credentials.
   1. In the top panel, click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
@@ -267,7 +269,7 @@ The credentials for connecting over SSH will be completely overwritten. You will
 
   1. Open the {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-      For more information about creating this file, see [{#T}](./node-group/node-group-create.md).
+      For more on how to create such a file, see [{#T}](./node-group/node-group-create.md).
 
   1. In the node group description, change the value of the `ssh-keys` metadata key for the `instance_template.metadata` parameter:
 
@@ -298,6 +300,8 @@ The credentials for connecting over SSH will be completely overwritten. You will
 
 - API {#api}
 
+  {% include [api-parameters-case](../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
   1. To provide multiple credentials for connecting over SSH, convert the contents of the credentials file to a single line and separate the credentials from each other with a sequence of special CRLF characters (`\r\n`). You cannot use multiline messages in an API request with a JSON body.
 
       Example of converted credentials:
@@ -308,7 +312,7 @@ The credentials for connecting over SSH will be completely overwritten. You will
 
   1. {% include [get-metadata-via-api](../../_includes/managed-kubernetes/get-metadata-via-api.md) %}
 
-  1. Use the [update](../managed-kubernetes/api-ref/NodeGroup/update.md) REST API method for the [NodeGroup](../managed-kubernetes/api-ref/NodeGroup/index.md) resource and provide the following in the request:
+  1. Use the [update](../managed-kubernetes/api-ref/NodeGroup/update.md) REST API method for the [NodeGroup](../managed-kubernetes/api-ref/NodeGroup/index.md) resource or the [NodeGroupService/Update](../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) gRPC API call, and provide the following in the request:
 
       * Node group ID in the `nodeGroupId` parameter.
 
@@ -316,7 +320,7 @@ The credentials for connecting over SSH will be completely overwritten. You will
 
           {% include [Note API updateMask](../../_includes/note-api-updatemask.md) %}
 
-      * `nodeTemplate.metadata` parameter listing all current node group metadata as `key=value` pairs without any changes.
+      * `nodeTemplate.metadata` listing all existing node group metadata as `key=value` pairs without any changes.
 
           For `ssh-keys`, replace the current value with the line with credentials you created.
 

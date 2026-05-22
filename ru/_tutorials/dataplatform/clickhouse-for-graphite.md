@@ -2,11 +2,11 @@
 
 {{ mch-full-name }} можно использовать как хранилище данных для [Graphite](https://graphite.readthedocs.io/en/latest/index.html).
 
-Движок таблиц [GraphiteMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/graphitemergetree/) позволяет прореживать и агрегировать или усреднять содержимое БД специально для Graphite. Движок уменьшает объем хранения данных и повышает эффективность запросов от Graphite.
+Движок таблиц [GraphiteMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/graphitemergetree) позволяет прореживать и агрегировать или усреднять содержимое БД специально для Graphite. Движок уменьшает объем хранения данных и повышает эффективность запросов от Graphite.
 
 {% note info %}
 
-Если прореживание и агрегирование или усреднение не требуется, то для хранения данных Graphite можно использовать любой [движок таблиц]({{ ch.docs }}/engines/table-engines/) {{ CH }}.
+Если прореживание и агрегирование или усреднение не требуется, то для хранения данных Graphite можно использовать любой [движок таблиц]({{ ch.docs }}{{ lang }}/engines/table-engines) {{ CH }}.
 
 {% endnote %}
 
@@ -35,8 +35,10 @@
 
 ## Создайте кластер {#cluster-create}
 
-1. [Создайте кластер {{ mch-name }}](../../managed-clickhouse/operations/cluster-create.md) любой подходящей вам конфигурации с БД `db1` и публичным доступом ко всем его хостам. Сохраните имя БД, имя пользователя БД и пароль.
-1. В [консоли управления]({{ link-console-main }}) выберите сервис {{ mch-name }}, перейдите в созданный кластер. На вкладке **{{ ui-key.yacloud.common.overview }}** сохраните идентификатор кластера. 
+1. [Создайте кластер **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**](../../managed-clickhouse/operations/cluster-create.md) любой подходящей вам конфигурации с БД `db1` и публичным доступом ко всем его хостам. Сохраните имя БД, имя пользователя БД и пароль.
+1. Откройте [консоль управления]({{ link-console-main }}).
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис {{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}.
+1. Выберите созданный кластер и на вкладке **{{ ui-key.yacloud.common.overview }}** сохраните идентификатор кластера.
 1. В правом верхнем углу нажмите **{{ ui-key.yacloud.mdb.clusters.button_action-connect }}**, на вкладке **Shell** из поля **Пример строки подключения** сохраните параметр `--host`, например `rc1a-2sqal8f0********.{{ dns-zone }}`, это FQDN хоста кластера, он потребуется в дальнейшем.
 
 ## Зарегистрируйте конфигурацию rollup в кластере {#rollup-config}
@@ -106,7 +108,7 @@
 
 1. В той же [облачной сети](../../vpc/concepts/network.md), где расположен кластер, [создайте](../../compute/operations/vm-create/create-linux-vm.md) ВМ на основе Linux. 
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к ВМ по [SSH](../../glossary/ssh-keygen.md). 
-1. Подключите [DEB-репозиторий]({{ ch.docs }}/getting-started/install/#install-from-deb-packages) {{ CH }}:
+1. Подключите [DEB-репозиторий]({{ ch.docs }}{{ lang }}/install#install-from-deb-packages) {{ CH }}:
 
     ```bash
     sudo apt update && sudo apt install -y apt-transport-https ca-certificates dirmngr && \
@@ -125,7 +127,7 @@
 
     {% include [ClickHouse client config](../../_includes/mdb/mch/client-config.md) %}
 
-1. Получите SSL-сертификат:
+1. Получите [SSL-сертификат](../../glossary/ssl-certificate.md):
 
     ```bash
     sudo mkdir --parents {{ crt-local-dir }} && \
@@ -157,7 +159,7 @@
 
 - {{ CH }} CLI {#cli}
 
-  В интерфейсе {{ CH }} CLI выполните запрос на создание таблицы на основе [GraphiteMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/graphitemergetree/). В качестве параметра передайте имя секции `rollup`, описанной ранее:
+  В интерфейсе {{ CH }} CLI выполните запрос на создание таблицы на основе [GraphiteMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/graphitemergetree). В качестве параметра передайте имя секции `rollup`, описанной ранее:
 
     ```sql
     CREATE TABLE GraphiteTable

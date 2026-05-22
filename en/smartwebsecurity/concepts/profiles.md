@@ -1,6 +1,6 @@
 # Security profiles
 
-_Security profile_ is the main {{ sws-name }} component. A security profile consists of a set of HTTP traffic processing [rules](rules.md). The rules contain filtering [conditions](conditions.md) and [actions](rules.md#rule-action) that apply to your web resource's incoming traffic. Security profiles also allow configuring a [CAPTCHA](https://en.wikipedia.org/wiki/CAPTCHA) and request limits based on various conditions. 
+_Security profile_ is the main {{ sws-name }} component. A security profile consists of a set of HTTP traffic processing [rules](rules.md). The rules contain filtering [conditions](conditions.md) and [actions](rules.md#rule-action) that apply to your web resource's incoming traffic. Security profiles also allow configuring a [CAPTCHA](https://en.wikipedia.org/wiki/CAPTCHA) and request limits based on various conditions. To standardize client response pages for triggered profile rules, you can create your own [response templates](response-templates.md).
 
 {% include [user-data-to-ml](../../_includes/smartwebsecurity/user-data-to-ml.md)%}
 

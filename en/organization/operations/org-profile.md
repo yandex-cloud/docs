@@ -1,6 +1,6 @@
 ---
 title: Editing organization data in {{ org-full-name }}
-description: In this tutorial, you will learn how to edit organization data in {{ org-name }}.
+description: In this tutorial, you will learn how to edit organization data in {{ org-full-name }}.
 ---
 
 # Editing organization data

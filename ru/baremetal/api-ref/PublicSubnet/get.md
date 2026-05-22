@@ -23,7 +23,6 @@ apiPlayground:
 # BareMetal API, REST: PublicSubnet.Get
 
 Returns the specific PublicSubnet resource.
-
 To get the list of available PublicSubnet resources, make a [List](/docs/baremetal/api-ref/PublicSubnet/list#List) request.
 
 ## HTTP request
@@ -39,7 +38,6 @@ GET https://baremetal.{{ api-host }}/baremetal/v1alpha/publicSubnets/{publicSubn
 || publicSubnetId | **string**
 
 Required field. ID of the PublicSubnet resource to return.
-
 To get the public subnet ID use a [PublicSubnetService.List](/docs/baremetal/api-ref/PublicSubnet/list#List) request. ||
 |#
 
@@ -66,8 +64,10 @@ To get the public subnet ID use a [PublicSubnetService.List](/docs/baremetal/api
     "endIp": "string"
   },
   "gatewayIp": "string",
+  "publicPrefixPoolId": "string",
   "createdAt": "string",
-  "labels": "object"
+  "labels": "object",
+  "deletionUnlockedAt": "string"
 }
 ```
 
@@ -101,7 +101,6 @@ IDs of the hardware pool that the public subnet belongs to. ||
 
 Type of the public subnet (static or ephemeral).
 
-- `PUBLIC_SUBNET_TYPE_UNSPECIFIED`: Unspecified public subnet type.
 - `DEDICATED`: Dedicated public subnet.
 - `EPHEMERAL`: Ephemeral public subnet. ||
 || prefixLength | **string** (int64)
@@ -116,6 +115,9 @@ DHCP options for the public subnet. ||
 || gatewayIp | **string**
 
 Gateway IP address for the public subnet. ||
+|| publicPrefixPoolId | **string**
+
+ID of the public prefix pool that the public subnet belongs to. ||
 || createdAt | **string** (date-time)
 
 Creation timestamp.
@@ -129,6 +131,16 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || labels | **object** (map<**string**, **string**>)
 
 Resource labels as `key:value` pairs. ||
+|| deletionUnlockedAt | **string** (date-time)
+
+Timestamp when deletion of the public subnet is allowed.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
 |#
 
 ## DhcpOptions {#yandex.cloud.baremetal.v1alpha.DhcpOptions}

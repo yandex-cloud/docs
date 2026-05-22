@@ -2,22 +2,25 @@
 
 Вы можете перенести базу данных из {{ mpg-full-name }} в {{ mos-full-name }} с помощью сервиса {{ data-transfer-full-name }}. Для этого:
 
+1. [Подготовьте инфраструктуру](#prepare-infrastructure).
 1. [Подготовьте трансфер](#prepare-transfer).
 1. [Проверьте работоспособность трансфера](#verify-transfer).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
 
 
-## Необходимые платные ресурсы {#paid-resources}
-
-* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../../managed-postgresql/pricing.md)).
-* Кластер {{ mos-name }}: использование вычислительных ресурсов и объем хранилища (см. [тарифы {{ mos-name }}](../../../managed-opensearch/pricing.md)).
-* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
-
-
 ## Перед началом работы {#before-you-begin}
 
-Подготовьте инфраструктуру:
+{% include [before-you-begin](../../_tutorials_includes/before-you-begin.md) %}
+
+### Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mpg-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../../managed-postgresql/pricing.md)).
+* Кластер {{ mos-name }}: использование вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mos-name }}](../../../managed-opensearch/pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
+
+
+## Подготовьте инфраструктуру {#prepare-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -34,7 +37,7 @@
 
     1. [Получите SSL-сертификат](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) для подключения к кластеру-приемнику {{ mos-name }}.
 
-    1. Настройте группы безопасности для подключения к [кластеру-источнику {{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups) и [кластеру-приемнику {{ mos-name }}](../../../managed-opensearch/operations/connect/index.md#configuring-security-groups).
+    1. Настройте группы безопасности для подключения к [кластеру-источнику {{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups) и [кластеру-приемнику {{ mos-name }}](../../../managed-opensearch/operations/connect/index.md#configuring-security-groups).
 
 - {{ TF }} {#tf}
 
@@ -83,7 +86,7 @@
 
 ## Подготовьте трансфер {#prepare-transfer}
 
-1. [Подключитесь к кластеру {{ mpg-name }}](../../../managed-postgresql/operations/connect.md), создайте в базе данных `db1` таблицу `x_tab` и заполните ее данными:
+1. [Подключитесь к кластеру {{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md), создайте в базе данных `db1` таблицу `x_tab` и заполните ее данными:
 
      ```sql
      CREATE TABLE x_tab

@@ -1,0 +1,52 @@
+# Key Management Service API, gRPC: AsymmetricSignatureCryptoService.SignHash
+
+Signs hash value specified KMS key.
+
+## gRPC request
+
+**rpc SignHash ([AsymmetricSignHashRequest](#yandex.cloud.kms.v1.asymmetricsignature.AsymmetricSignHashRequest)) returns ([AsymmetricSignHashResponse](#yandex.cloud.kms.v1.asymmetricsignature.AsymmetricSignHashResponse))**
+
+## AsymmetricSignHashRequest {#yandex.cloud.kms.v1.asymmetricsignature.AsymmetricSignHashRequest}
+
+```json
+{
+  "key_id": "string",
+  "hash": "bytes"
+}
+```
+
+#|
+||Field | Description ||
+|| key_id | **string**
+
+Required field. ID of the asymmetric KMS key to use for signature.
+
+The maximum string length in characters is 50. ||
+|| hash | **bytes**
+
+Required field. Hash value to be signed.
+Should be encoded with base64.
+
+The maximum string length in characters is 4096. ||
+|#
+
+## AsymmetricSignHashResponse {#yandex.cloud.kms.v1.asymmetricsignature.AsymmetricSignHashResponse}
+
+```json
+{
+  "key_id": "string",
+  "signature": "bytes"
+}
+```
+
+#|
+||Field | Description ||
+|| key_id | **string**
+
+ID of the asymmetric KMS key that was used for signature. ||
+|| signature | **bytes**
+
+Value of signature.
+Signature value is produced in accordance with RFC 8017 for RSA
+and is a DER-encoded object as defined by ANSI X9.62-2005 and RFC 3279 Section 2.2.3 for ECDSA. ||
+|#

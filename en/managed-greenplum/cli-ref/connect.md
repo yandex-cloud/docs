@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-greenplum/cli-ref/connect
 editable: false
 ---
 
@@ -25,6 +26,9 @@ Greenplum cluster name. ||
 || `--db` | `string`
 
 The name of the database to connect to. ||
+|| `--port` | `int`
+
+Port to listen on for Greenplum proxy connections. ||
 |#
 
 #### Global Flags

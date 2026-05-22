@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/image/get-scan-result
 editable: false
 ---
 

@@ -1,6 +1,14 @@
 # Inviting a new user and assigning roles
 
-In this tutorial, you will learn how to invite a new user to your organization and grant them permissions to create a VM in a folder. The tutorial includes instructions for both the administrator and the user. For the steps the user must complete, see [User actions](#user-actions).
+This tutorial will instruct you how to invite a new Yandex account user to your organization and grant them permissions to create a VM in a folder. The tutorial includes instructions for both the administrator and the user. For the steps the user must complete, see [User actions](#user-actions).
+
+
+{% note info %}
+
+To invite Yandex account users, see [{#T}](../../organization/operations/add-account.md). For federated and local users, see [{#T}](../../organization/operations/user-account/index.md).
+
+{% endnote %}
+
 
 To invite a user to your organization and grant them access to a folder and other resources:
 
@@ -133,6 +141,14 @@ Then instruct the user to complete [these steps](#user-actions).
 
 ## User actions {#user-actions}
 
+
+{% note info %}
+
+For detailed user instructions on first-time login and account management, see [{#T}](../../organization/operations/user-account/index.md).
+
+{% endnote %}
+
+
 ### Accept the invitation to the organization {#accept-invitation}
 
 1. In the invitation email, click **Accept invitation**.
@@ -140,6 +156,10 @@ Then instruct the user to complete [these steps](#user-actions).
 1. Select an account to log in.
 
 You now have access to `Example organization` and its resources.
+
+
+For more on first-time login for different user types, see [{#T}](../../organization/operations/user-account/first-login.md).
+
 
 ### Check access to the cloud {#cloud-access-user-action}
 
@@ -166,7 +186,7 @@ Make sure you have access to `test-folder`. Once you open the folder, create a V
   1. Go to the [management console]({{ link-console-main }}) and click your profile image in the left-hand panel.
   1. Select `Example organization`.
   1. In the left-hand panel, select `test-folder`.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** service.
   1. Select ![image](../../_assets/console-icons/server.svg) **Virtual machines**.
   1. Click **{{ ui-key.yacloud.compute.instances.button_create }}** and set the VM parameters:
 

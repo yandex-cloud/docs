@@ -23,7 +23,7 @@ To use the examples, install these utilities:
 * [cURL](https://curl.haxx.se) (if using the [REST API](../api-ref/))
 * [cURL](https://curl.haxx.se), [gRPCurl](https://github.com/fullstorydev/grpcurl) and [jq](https://stedolan.github.io/jq) (if using the [gRPC API](../api-ref/grpc/))
 
-### Set up a service account {#configure-account}
+### Configure a service account {#configure-account}
 
 To access your organization and work with the {{ video-name }} API, you will need a [service account](../../iam/concepts/users/service-accounts.md) with the `video.admin` or `video.editor` [role](../../iam/concepts/access-control/roles.md) and an [IAM token](../../iam/concepts/authorization/iam-token.md).
 
@@ -52,13 +52,13 @@ Create a service account you will use to authenticate in the {{ video-name }} AP
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  Run the following command to create a service account:
+  To create a service account, run the following command:
 
   ```bash
   yc iam service-account create --name sa-video-api
   ```
 
-  Where `--name` is the service account name in the following format:
+  Where `--name` is the service account name, formatted as follows:
 
   {% include [name-format](../../_includes/name-format.md) %}
 
@@ -91,9 +91,9 @@ To grant a service account permissions to access an organization, you need the `
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}) using an administrator or organization owner account.
   1. In the left-hand panel, select ![persons-lock](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud_org.pages.acl }}**.
-  1. In the **{{ ui-key.yacloud.common.resource-acl.placeholder_filter-by-type }}** filter, select `{{ ui-key.yacloud_components.acl.label.service-accounts}}`.
-  1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}** in the top-right corner of the page.
-  1. In the window that opens, go to **{{ ui-key.yacloud_components.acl.label.service-accounts}}** and select the previously created service account from the list or use the search bar to locate it.
+  1. In the **{{ ui-key.yacloud_components.acl-filters.placeholder.account-type-filter }}** filter, select `{{ ui-key.yacloud_components.acl.label.service-accounts }}`.
+  1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}** in the top-right corner of the page.
+  1. In the window that opens, go to **{{ ui-key.yacloud_components.acl.label.service-accounts }}** and select the previously created service account from the list or use the search bar to locate it.
   1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}** and select the `video.admin` or `video.editor` role.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 

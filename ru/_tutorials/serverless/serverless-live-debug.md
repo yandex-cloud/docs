@@ -51,7 +51,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
       1. Введите имя сервисного аккаунта, например `sa-live-debug`.
 
@@ -117,7 +117,7 @@
               terraform plan
               ```
 
-          Если конфигурация описана верно, в терминале отобразится информация о сервисном аккаунте. Если в конфигурации есть ошибки, Terraform на них укажет. 
+          Если конфигурация описана верно, в терминале отобразится информация о сервисном аккаунте. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
 
       1. Разверните облачные ресурсы.
 
@@ -140,10 +140,10 @@
     - Консоль управления {#console}
 
       1. На [стартовой странице]({{ link-console-main }}) консоли управления выберите облако.
-      1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+      1. Перейдите на вкладку ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
       1. Найдите аккаунт `sa-live-debug` в списке и нажмите значок ![image](../../_assets/console-icons/ellipsis.svg).
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
-      1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud_components.acl.action.add-role }}** и выберите роль `{{ roles-admin }}`.
+      1. Выберите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
+      1. В открывшемся окне нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}** и выберите роль `{{ roles-admin }}`.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
     - CLI {#cli}

@@ -25,6 +25,12 @@ Service name: `apploadbalancer`.
 
 {% include [alb-events-dp](../../_includes/audit-trails/events/alb-events-dp.md) %}
 
+## {{ baremetal-full-name }} {#baremetal}
+
+Service name: `baremetal`.
+
+{% include [baremetal-events-dp](../../_includes/audit-trails/events/baremetal-events-dp.md) %}
+
 ## {{ certificate-manager-full-name }} {#certificate-manager}
 
 Service name: `certificatemanager`.
@@ -79,6 +85,12 @@ Service name: `lockbox`.
 
 {% include [lockbox-events-dp](../../_includes/audit-trails/events/lockbox-events-dp.md) %}
 
+## {{ mkf-full-name }} {#mkf}
+
+Service name: `mdb.kafka`.
+
+{% include [mkf-events-dp](../../_includes/audit-trails/events/mkf-events-dp.md) %}
+
 ## {{ mch-full-name }} {#mch}
 
 Service name: `mdb.clickhouse`.
@@ -102,6 +114,12 @@ Service name: `mdb.mongodb`.
 Service name: `mdb.mysql`.
 
 {% include [mmy-events-dp](../../_includes/audit-trails/events/mmy-events-dp.md) %}
+
+## {{ mos-full-name }} {#mos}
+
+Service name: `mdb.opensearch`.
+
+{% include [mos-events-dp](../../_includes/audit-trails/events/mos-events-dp.md) %}
 
 ## {{ mgp-full-name }} {#mgp}
 
@@ -149,13 +167,13 @@ Module name: `securitydeck.alerts`.
 
 {% include [sd-alerts-events-dp](../../_includes/audit-trails/events/sd-alerts-events-dp.md) %}
 
-### Cloud Security Posture Management ({{ cspm-name }}) {#sd-cspm}
+### {{ cspm-full-name }} ({{ cspm-name }}) {#sd-cspm}
 
 Module name: `securitydeck.cspm`.
 
 {% include [sd-cspm-events-dp](../../_includes/audit-trails/events/sd-cspm-events-dp.md) %}
 
-### {{ k8s }}® Security Posture Management (KSPM) {#sd-kspm}
+### {{ kspm-full-name }} ({{ kspm-name }}) {#sd-kspm}
 
 Module name: `securitydeck.kspm`.
 
@@ -208,3 +226,9 @@ Service name: `wiki`.
 Service name: `websql`.
 
 {% include [websql-events-dp](../../_includes/audit-trails/events/websql-events-dp.md) %}
+
+## {{ ydb-full-name }} {#ydb}
+
+Service name: `ydb`.
+
+{% include [ydb-events-dp](../../_includes/audit-trails/events/ydb-events-dp.md) %}

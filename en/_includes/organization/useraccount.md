@@ -6,6 +6,12 @@ You can invite a user to an organization via the management console or the {{ cl
 
 Users with any of the following [roles](../../organization/security/index.md) can invite new users with Yandex accounts to an organization and delete such invitations: `organization-manager.passportUserAdmin`, `organization-manager.admin`, or `organization-manager.organizations.owner`.
 
+{% note info %}
+
+Inviting users with a Yandex account to an organization may be prohibited by the `organization.denyMemberInvitation` [access policy](../../iam/concepts/access-control/access-policies.md) assigned for the [organization](../../organization/concepts/organization.md).
+
+{% endnote %}
+
 ### Send an invitation {#send-invitation}
 
 {% list tabs group=instructions %}
@@ -18,7 +24,7 @@ Users with any of the following [roles](../../organization/security/index.md) ca
 
     1. Log in to the [management console]({{ link-console-main }}) with the cloud administrator account.
 
-    1. In the top panel, click ![image](../../_assets/console-icons/chevron-down.svg) and select the cloud.
+    1. Click ![image](../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../_assets/console-icons/chevron-down.svg) in the top panel and select the cloud.
 
     1. In the top-right corner, click ![icon-users](../../_assets/console-icons/ellipsis.svg) and select ![person-plus](../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud.common.resource-acl.button_invite-users }}**.
 
@@ -32,7 +38,7 @@ Users with any of the following [roles](../../organization/security/index.md) ca
 
 The user will be able to log in to the organization upon accepting the invitation via the emailed link and selecting an account for log-in. To access the services enabled for the organization, the users you invited simply need to log in to their Yandex account.
 
-You can delete or resend your invitation only via {{ org-name }}.
+You can delete or resend your invitation only via {{ org-full-name }}.
 
 ### Delete the invitation {#delete-invitation}
 

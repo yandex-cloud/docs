@@ -1,12 +1,8 @@
----
-canonical: '{{ link-docs }}/tutorials/ml-ai/models-fine-tuning'
----
-
 # Дообучение моделей в {{ ml-platform-name }} Notebooks
 
-Вы можете [дообучать](../../ai-studio/concepts/tuning/index.md) языковые модели {{ foundation-models-full-name }}, чтобы они лучше понимали специфику ваших задач, через API или {{ ml-sdk-name }}. Дообучение удобно запускать в ноутбуках [{{ ml-platform-full-name }}](../../datasphere/).
+Вы можете [дообучать]({{ link-docs-ai }}ai-studio/concepts/tuning/index) языковые модели {{ ai-studio-full-name }}, чтобы они лучше понимали специфику ваших задач, через API или {{ ml-sdk-name }}. Дообучение удобно запускать в ноутбуках [{{ ml-platform-full-name }}](../../datasphere/).
 
-В этом руководстве вы дообучите модель в {{ ml-platform-name }} с помощью SDK. Вы также можете склонировать [репозиторий](https://github.com/yandex-cloud-examples/yc-foundation-models-datasphere-tuning) и запустить ноутбук локально, изменив [параметры аутентификации](../../ai-studio/sdk/index.md).
+В этом руководстве вы дообучите модель в {{ ml-platform-name }} с помощью SDK. Вы также можете склонировать [репозиторий](https://github.com/yandex-cloud-examples/yc-foundation-models-datasphere-tuning) и запустить ноутбук локально, изменив [параметры аутентификации]({{ link-docs-ai }}ai-studio/sdk/index).
 
 Чтобы дообучить модель:
 
@@ -26,7 +22,7 @@ canonical: '{{ link-docs }}/tutorials/ml-ai/models-fine-tuning'
 В стоимость поддержки инфраструктуры для дообучения модели входит:
 
 * плата за использование [вычислительных ресурсов {{ ml-platform-name }}](../../datasphere/pricing.md);
-* плата за [генерацию текста](../../ai-studio/pricing.md) моделью.
+* плата за [генерацию текста]({{ link-docs-ai }}ai-studio/pricing) моделью.
 
 ## Подготовьте инфраструктуру {#infra}
 
@@ -53,7 +49,7 @@ canonical: '{{ link-docs }}/tutorials/ml-ai/models-fine-tuning'
 - Консоль управления {#console}
 
   1. Перейдите в каталог `data-folder`.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), например `gpt-user`.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте сервисному аккаунту роль `{{ roles-yagpt-user }}`.
@@ -84,7 +80,7 @@ canonical: '{{ link-docs }}/tutorials/ml-ai/models-fine-tuning'
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `data-folder`.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. В открывшемся списке выберите сервисный аккаунт `gpt-user`.
   1. На панели сверху нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите пункт **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
@@ -107,7 +103,7 @@ canonical: '{{ link-docs }}/tutorials/ml-ai/models-fine-tuning'
 
 ## Дообучите модель {#fine-tuning}
 
-Код для дообучения запускается из ноутбука {{ ml-platform-name }}. [Данные для дообучения](../../ai-studio/concepts/resources/dataset.md#generating) хранятся в формате [JSON Lines](https://jsonlines.org/).
+Код для дообучения запускается из ноутбука {{ ml-platform-name }}. [Данные для дообучения]({{ link-docs-ai }}ai-studio/concepts/resources/dataset#generating) хранятся в формате [JSON Lines](https://jsonlines.org/).
 
 1. Откройте ноутбук с кодом по ссылке ниже:
 

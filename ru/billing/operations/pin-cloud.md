@@ -13,7 +13,7 @@ description: Следуя данной инструкции, вы сможете
 1. [Платежный аккаунт](../concepts/billing-account.md) прошел активацию (находится в [статусе](../concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`).
 1. Пользователь обладает одновременно [ролями](../../iam/concepts/access-control/roles.md):
    * [resource-manager.clouds.owner](../../resource-manager/security/index.md#resource-manager-clouds-owner) на облако;
-   * [billing.accounts.editor](../security/index.md##billing-accounts-editor) и выше в платежном аккаунте.
+   * [billing.accounts.editor](../security/index.md#billing-accounts-editor) и выше в платежном аккаунте.
 
 ## Как привязать облако {#bind-cloud}
 
@@ -62,7 +62,7 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  После этого облако будет привязано к платежному аккаунту. Проверить привязку облака к аккаунту можно на странице платежного аккаунта в [сервисе {{ billing-name }}]({{ link-console-billing }}).
+  После этого облако будет привязано к платежному аккаунту.
 
 - API {#api}
 
@@ -70,15 +70,31 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-Если вы хотите перестать использовать старый платежный аккаунт, проверьте, что в нем подключен бесплатный тарифный план «Базовый», чтобы предотвратить списания. В противном случае, даже если у аккаунта не останется привязанных облаков, начисления за платный тарифный план продолжат списываться.
-
 {% note warning %}
 
 Привязка облака или другого контейнера к [заблокированному аккаунту](../concepts/billing-account-statuses.md) приведет к остановке всех ваших ресурсов.
 
 {% endnote %}
 
+## Как проверить привязку облака {#check-binding}
+
+Чтобы проверить привязку облака или сервиса к платежному аккаунту:
+
+{% list tabs group=instructions %}
+
+- {{ billing-interface }} {#billing}
+  
+  1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+  1. Выберите платежный аккаунт, к которому привязали новое облако или сервис.
+  1. На панели слева выберите ![image](../../_assets/console-icons/cloud.svg) **{{ ui-key.yacloud_org.billing.account.entities.label_title }}**.
+
+  В списке должна появиться новая строка с идентификатором привязанного облака или сервиса.
+
+{% endlist %}
+
 ## Особенности управления ресурсами в организациях {#bind-cloud-organization}
 
 1. {% include [cloud-to-pin.md](../_includes/clouds-to-pin.md) %}
 1. {% include [account_scope.md](../_includes/account-scope.md) %}
+
+Если вы хотите перестать использовать старый платежный аккаунт, проверьте, что в нем подключен бесплатный тарифный план «Базовый», чтобы предотвратить списания. В противном случае, даже если у аккаунта не останется привязанных облаков, начисления за платный тарифный план продолжат списываться.

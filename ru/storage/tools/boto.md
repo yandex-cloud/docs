@@ -78,7 +78,7 @@ description: Из статьи вы узнаете, что такое boto3 и b
 
 - {{ sf-full-name }} {#functions}
 
-  См. пример в [руководстве по конвертации видео](../tutorials/video-converting-queue.md).
+  См. пример в [руководстве по конвертации видео](../tutorials/video-converting-queue/index.md).
 
 {% endlist %}
 

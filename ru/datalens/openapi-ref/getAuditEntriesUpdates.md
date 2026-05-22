@@ -6,10 +6,8 @@ editable: false
 
 ## HTTP request
 
-Returns the updated DataLens entries for audit.
-
 ```
-POST https://api.datalens.yandex.net/rpc/getAuditEntriesUpdates
+POST https://api.datalens.tech/rpc/getAuditEntriesUpdates
 ```
 
 ## Body parameters
@@ -29,16 +27,16 @@ POST https://api.datalens.yandex.net/rpc/getAuditEntriesUpdates
 ||Field | Description ||
 || from | **string** (date-time)
 
-Required field. Start date for filtering entries by `updatedAt`. ||
+Required field. Start date for filtering entries by updatedAt ||
 || to | **string** (date-time)
 
-End date for filtering entries by `updatedAt`. ||
+End date for filtering entries by updatedAt ||
 || limit | **number**
 
-Maximum number of entries to return. ||
+Maximum number of entries to return ||
 || pageToken | **string**
 
-Token for pagination. ||
+Token for pagination ||
 |#
 
 ## Response {#200}
@@ -72,10 +70,10 @@ Response
 ||Field | Description ||
 || entries[] | **[EntriesItem](#EntriesItem)**
 
-Required field. List of entries. ||
+Required field.  ||
 || nextPageToken | **string**
 
-Token for retrieving the next page of results. ||
+Token for the next page of results ||
 |#
 
 ## EntriesItem {#EntriesItem}
@@ -84,36 +82,36 @@ Token for retrieving the next page of results. ||
 ||Field | Description ||
 || entryId | **string**
 
-Required field. Unique identifier of the entry. ||
+Required field. Unique identifier of the entry ||
 || key | **string \| null**
 
-Required field. Entry key identifier. ||
+Required field. Entry key identifier ||
 || isDeleted | **boolean**
 
-Required field. Flag indicating if the entry is deleted. ||
+Required field. Flag indicating if the entry is deleted ||
 || workbookId | **string \| null**
 
-Required field. ID of the workbook the entry belongs to. ||
+Required field. ID of the associated workbook ||
 || collectionId | **string \| null**
 
-Required field. ID of the collection the entry belongs to. ||
+Required field. ID of the associated collection ||
 || scope | **enum**
 
-Required field. Type of the entry:
+Required field. Scope of the entry
 
-- `dash` — dashboard;
-- `widget` — chart;
-- `dataset` — dataset;
-- `folder` — folder;
-- `connection` — connection;
-- `report` — report. ||
+- `dash`
+- `widget`
+- `dataset`
+- `folder`
+- `connection`
+- `report` ||
 || type | **string \| null**
 
-Required field. Specified type of the entry from scope (e.g. type of the connection or visualization type for charts). ||
+Required field. Type of the entry ||
 || updatedAt | **string**
 
-Required field. Timestamp of the last update. ||
+Required field. Timestamp of the last update ||
 || userId | **string**
 
-Required field. ID of the user who made the change. ||
+Required field. ID of the user who made the change ||
 |#

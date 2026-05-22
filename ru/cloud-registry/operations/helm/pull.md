@@ -1,3 +1,8 @@
+---
+title: Скачать Helm-чарт из реестра {{ cloud-registry-name }}
+description: Следуя данной инструкции, вы можете скачать Helm-чарт из реестра {{ cloud-registry-name }}.
+---
+
 # Скачать Helm-чарт из реестра
 
 Вы можете скачать [Helm-чарт](https://helm.sh/docs/topics/charts/) из [реестра](../../concepts/registry.md) {{ cloud-registry-name }}. В {{ cloud-registry-name }} Helm-чарты хранятся как [Docker-образы](../../../container-registry/concepts/docker-image.md).

@@ -10,7 +10,7 @@ Accessing the {{ tracker-full-name }} API. The `getIssue`, `createIssue`, `updat
 Field name | Type | Required | Default value | [Templating](../../templating.md) is supported | Description
 --- | --- | --- | --- | --- | ---
 `endpoint` | `string` | No | `api.tracker.yandex.net` | Yes | Host for calling the {{ tracker-full-name }} API.
-`oauthToken` | `string` | Yes | No | Yes | [OAuth token](../../../../../iam/concepts/authorization/oauth-token.md) to be used for authorization when accessing the {{ tracker-short-name }} API.
+`oauthToken` | `string` | Yes | No | Yes | [OAuth token](../../../../../iam/concepts/authorization/oauth-token.md) for authentication when accessing the {{ tracker-short-name }} API.
 `organization` | [Organization](#tracker-organization) | Yes | No | No | Organization ID.
 `getIssue` | [TrackerGetIssue](#trackergetissue) | No | No | No | Description of the action to get an issue.
 `createIssue` | [TrackerCreateIssue](#trackercreateissue) | No | No | No | Description of the action to create an issue.

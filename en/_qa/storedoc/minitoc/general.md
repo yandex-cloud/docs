@@ -35,3 +35,13 @@
 * [What metrics and processes can be monitored?](#monitoring)
 
 * [How can I configure an alert for when disk usage reaches a certain percentage?](#disk-space-percentage)
+
+* [What is the role of {{ mmg-short-name }} in database management and maintenance?](#services)
+
+* [What block size is used on the cluster disks?](#block-size)
+
+* [Does the service comply with the Russian Federal Law 152-FZ on personal data?](#fz-152)
+
+* [How do I get the logs of my activity in the Yandex Cloud services?](#logs)
+
+* [How longs are logs retained?](#log-keeping)

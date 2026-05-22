@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-greenplum/cli-ref/pxf-datasource/update/
 editable: false
 ---
 
@@ -14,7 +15,7 @@ Syntax:
 
 #### Command Tree
 
-- [yc managed-greenplum pxf-datasource update jdbc](jdbc.md) — Get jdbc pxf-datasource for specified Greenplum cluster
+- [yc managed-greenplum pxf-datasource update jdbc](jdbc.md) — Update jdbc pxf-datasource for specified Greenplum cluster
 
 - [yc managed-greenplum pxf-datasource update s3](s3.md) — Update s3 pxf-datasource for specified Greenplum cluster
 

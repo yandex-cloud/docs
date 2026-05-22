@@ -18,6 +18,7 @@ editable: false
 Расчет стоимости использования {{ container-registry-name }} учитывает:
 * Объем хранилища, занятый данными.
 * Объем исходящего трафика.
+* Количество сканирований Docker-образов на наличие уязвимостей.
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 

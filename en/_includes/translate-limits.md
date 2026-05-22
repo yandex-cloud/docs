@@ -1,13 +1,13 @@
 #### Quotas {#translate-quotas}
 
-| Type of limit | Value |
+Type of limit | Value
 ----- | -----
-| Calls of one API method per second | 20 |
-| Characters sent for translation or language detection, per hour | 1 million |
+Calls of one API method per second | 20
+Characters sent for translation or language detection, per hour | 1 million
 
 #### Limits {#translate-limits}
 
-For limitations on the field values in the request body, see the [API reference](../translate/api-ref/Translation/index.md).
+For limitations on the field values in the request body, see the API reference.
 
 The limits for using glossaries are as follows:
 

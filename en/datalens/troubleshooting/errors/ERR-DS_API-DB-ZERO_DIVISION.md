@@ -8,8 +8,10 @@ description: This page describes the Division by zero {{ datalens-full-name }} e
 `ERR.DS_API.DB.ZERO_DIVISION`
 
 An error occurred when dividing by zero in a query.
+
 The data source does not support dividing by zero.
-Check your formulas and fix them.
+
+To fix the error, check and correct the formulas.
 
 For example, if the error was caused by this formula:
 ```

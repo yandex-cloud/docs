@@ -5,6 +5,12 @@ description: Различные сценарии использования {{ s
 
 # Практические руководства {{ metadata-hub-full-name }}
 
+
+## {{ connection-manager-name }} {#connection-manager}
+
+* [{#T}](conn-man-secret-access.md)
+
+
 ## {{ schema-registry-name }} {{ preview-stage }} {#schema-registry}
 
 * [{#T}](./schema-registry-cdc-debezium-kafka.md)

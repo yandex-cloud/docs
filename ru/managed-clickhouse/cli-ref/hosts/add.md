@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-clickhouse/cli-ref/hosts/add
 editable: false
 ---
 
@@ -40,7 +41,6 @@ Possible property names:
 - `shard-name`: Host shard name.
 
 - `type`: Type of the host to be created. Supported values: 'clickhouse', 'zookeeper'. ||
-|| `--copy-schema` | Copy schema from replica ||
 |#
 
 #### Global Flags

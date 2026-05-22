@@ -1,11 +1,11 @@
 ---
 title: Yandex Cloud and managed database service user zones of control
-description: In this article you will learn what falls into the zone of control of managed database service users and what is under Yandex Cloud's responsibility.
+description: In this article, you will learn about the zones of control between managed database service users and Yandex Cloud.
 ---
 
 # Zones of control between managed database (MDB) service users and {{ yandex-cloud }}
 
-When using managed database (MDB) services, i.e., {{ mpg-short-name }}, {{ mch-short-name }}, {{ mgp-full-name }}, {{ mmg-full-name }}, {{ mrd-short-name }}, {{ mmy-short-name }}, {{ mos-short-name }}, and {{ mkf-short-name }}, it is important to bear in mind what is controlled by the [MDB service](#cloud-responsibilities), and what by the [{{ yandex-cloud }} customer](#customer-responsibilities). Understanding these areas of management helps you use your cloud resources efficiently and avoid potential database-related issues.
+When using managed database (MDB) services, such as {{ mpg-short-name }}, {{ mch-short-name }}, {{ mgp-full-name }}, {{ mmg-full-name }}, {{ mrd-short-name }}, {{ mmy-short-name }}, and {{ mos-short-name }}, one should be aware of the zones of control between the [MDB service](#cloud-responsibilities) and the [{{ yandex-cloud }} customer](#customer-responsibilities). Understanding these zones of control makes you an efficient user of cloud resources and helps avoid potential database-related issues.
 
 ## {{ yandex-cloud }} control zone {#cloud-responsibilities}
 
@@ -38,6 +38,7 @@ When using managed database (MDB) services, i.e., {{ mpg-short-name }}, {{ mch-s
   | {{ mmy-short-name }} | [Operations with clusters](../../managed-mysql/operations/index.md)</br>[Backups](../../managed-mysql/concepts/backup.md)</br>[High cluster availability](../../managed-mysql/concepts/high-availability.md)</br>[Maintenance](../../managed-mysql/concepts/maintenance.md)</br>[Performance diagnostics](../../managed-mysql/operations/performance-diagnostics.md)</br>[Cluster state monitoring](../../managed-mysql/operations/monitoring.md)</br>[Viewing logs](../../managed-mysql/operations/cluster-logs.md) |
   | {{ mos-short-name }} | [Operations with clusters](../../managed-opensearch/operations/index.md)</br>[Backups](../../managed-opensearch/concepts/backup.md)</br>[Maintenance](../../managed-opensearch/concepts/maintenance.md)</br>[Cluster state monitoring](../../managed-opensearch/operations/monitoring.md)</br>[Viewing logs](../../managed-opensearch/operations/cluster-logs.md)</br>[Versioning policy](../../managed-opensearch/concepts/update-policy.md) |
   | {{ mkf-short-name }} | [Operations with clusters](../../managed-kafka/operations/index.md)</br>[High cluster availability](../../managed-kafka/concepts/ha-cluster.md)</br>[Maintenance](../../managed-kafka/concepts/maintenance.md)</br>[Cluster state monitoring](../../managed-kafka/operations/monitoring.md)</br>[Viewing logs](../../managed-kafka/operations/cluster-logs.md)</br>[Versioning policy](../../managed-kafka/concepts/update-policy.md) |
+  | {{ mspqr-name }} | [Operations with clusters](../../managed-spqr/operations/index.md)</br>[Selecting a sharding strategy](../../managed-spqr/concepts/sharding-method.md)</br>[Cluster state monitoring](../../managed-spqr/metrics.md)</br>[Audit logs](../../managed-spqr/at-ref) |
 
   {% endcut %}
 

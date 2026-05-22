@@ -9,15 +9,15 @@ description: Follow this guide to add a broadcast to a playlist in {{ video-name
 
 - {{ video-name }} UI {#console}
 
-   1. Open the {{ video-name }} [home page]({{ link-video-main }}).
-   1. Select a channel.
-   1. On the ![image](../../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud_video.playlists.title_playlists }}** tab, click ![image](../../../_assets/console-icons/ellipsis.svg) in the row with the playlist you want to add a broadcast to and select **{{ ui-key.yacloud_video.common.action_edit }}**.
+  1. Open the {{ video-name }} [home page]({{ link-video-main }}).
+  1. Select a channel.
+  1. On the ![image](../../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud_video.playlists.title_playlists }}** tab, click ![image](../../../_assets/console-icons/ellipsis.svg) in the row with the playlist you want to add a broadcast to and select **{{ ui-key.yacloud_video.common.action_edit }}**.
+  
+     If the list does not contain the playlist you need, [create](../playlists/create.md) it.
 
-      If the list does not contain the playlist you need, [create](../playlists/create.md) it.
-
-   1. Under **{{ ui-key.yacloud_video.playlists.title_playlists-video-list }}**, click **{{ ui-key.yacloud_video.playlists.action_add-playlist-video }}**.
-   1. In the window that opens, click the **{{ ui-key.yacloud_video.playlists.switch_stream-select }}** tab and select the completed broadcasts you need. To create a new broadcast, click **{{ ui-key.yacloud_video.playlists.action_create-stream }}**.
-   1. Click **{{ ui-key.yacloud_video.common.action_add }}**.
+  1. Under **{{ ui-key.yacloud_video.playlists.title_playlists-video-list }}**, click **{{ ui-key.yacloud_video.playlists.action_add-playlist-video }}**.
+  1. In the window that opens, click the **{{ ui-key.yacloud_video.playlists.switch_stream-select }}** tab and select the completed broadcasts you need. To create a new broadcast, click **{{ ui-key.yacloud_video.playlists.action_create-stream }}**.
+  1. Click **{{ ui-key.yacloud_video.common.action_add }}**.
 
 {% endlist %}
 

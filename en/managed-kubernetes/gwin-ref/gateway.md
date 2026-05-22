@@ -135,6 +135,13 @@ metadata:
     # Specific listener configuration
     gwin.yandex.cloud/listener.http-listener.http.protocolSettings.allowHTTP10: "true"  # per-listener HTTP setting
     gwin.yandex.cloud/listener.stream-listener.stream.idleTimeout: "300s"  # per-listener timeout
+
+    # ALB resource naming
+    # Custom names for ALB resources created by the controller.
+    gwin.yandex.cloud/albBalancerName: "my-balancer"  # custom balancer name
+    gwin.yandex.cloud/listener.http-listener.albListenerName: "my-http-listener"  # custom listener name
+    gwin.yandex.cloud/listener.http-listener.albHTTPRouterName: "my-http-router"  # custom HTTP router name
+    # Virtual host and route naming are configured via RoutePolicy (see HTTPRoute/GRPCRoute docs)
     ...
 ```
 
@@ -208,6 +215,20 @@ For example: `gwin.yandex.cloud/listener.http-listener.rbac.action: "ALLOW"`.
 | `gwin.yandex.cloud/listeners.rbac.action` <br> _(string)_ <br> RBAC action (ALLOW/DENY) for HTTP router access control for all listeners. <br> Example: `ALLOW` |
 
 For detailed RBAC configuration patterns, see: [RBAC Configuration](#rbac-configuration)
+
+#### ALB resource naming
+
+Custom names for ALB resources created by the controller. By default, the controller generates names automatically.
+
+| Annotation and description |
+|------------|
+| `gwin.yandex.cloud/albBalancerName` <br> _(string)_ <br> Custom name for the ALB load balancer. Applied on the Gateway resource. <br> Example: `my-balancer` |
+| `gwin.yandex.cloud/listener.{listener-name}.albListenerName` <br> _(string)_ <br> Custom name for the ALB listener associated with the specified Gateway listener. <br> Example: `my-http-listener` |
+| `gwin.yandex.cloud/listener.{listener-name}.albHTTPRouterName` <br> _(string)_ <br> Custom name for the ALB HTTP router associated with the specified Gateway listener. <br> Example: `my-http-router` |
+
+Virtual host and route naming (virtual host, route, backend group, backend) are configured via annotations or [RoutePolicy](./routepolicy.md) on HTTPRoute/GRPCRoute resources. See [HTTPRoute ALB resource naming](./httproute.md#alb-resource-naming).
+
+For the target group name, see [`gwin.yandex.cloud/albTargetGroupName`](./service.md) on the Service resource.
 
 #### RBAC configuration
 

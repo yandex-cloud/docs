@@ -3,8 +3,8 @@
 You can set up a data transfer from a {{ mpg-name }} database to a {{ mmy-name }} database using {{ data-transfer-name }}. Proceed as follows:
 
 1. [Prepare your test data](#prepare-data).
-1. [Set up and activate the transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -40,9 +40,9 @@ Set up your infrastructure:
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-login }}**: `mmy_user`.
         * **{{ ui-key.yacloud.mdb.forms.database_field_user-password }}**: `<target_password>`.
 
-    1. Make sure the cluster security groups are properly configured and allow inbound cluster connections:
+    1. Make sure the cluster security groups are configured correctly and allow inbound cluster connections:
 
-        * [{{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups).
+        * [{{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
         * [{{ mmy-name }}](../../../managed-mysql/operations/connect/index.md#configuring-security-groups).
 
 - {{ TF }} {#tf}
@@ -86,7 +86,7 @@ Set up your infrastructure:
 
 ## Prepare your test data {#prepare-data}
 
-1. [Connect to the database in the {{ mpg-name }} source cluster](../../../managed-postgresql/operations/connect.md).
+1. [Connect to the database in the {{ mpg-name }} source cluster](../../../managed-postgresql/operations/connect/index.md).
 
 1. Populate the database with test data. In this example, we will use a simple table with car sensor information.
 
@@ -115,7 +115,7 @@ Set up your infrastructure:
     ('rhibbh3y08qm********', '2022-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32);
     ```
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate the transfer {#prepare-transfer}
 
 {% list tabs group=instructions %}
 
@@ -169,7 +169,7 @@ If the transfer activation fails with the `Unable to push DDL` error:
 
 {% endnote %}
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
 Make sure the transfer works correctly by testing copying and replication.
 
@@ -184,7 +184,7 @@ Make sure the transfer works correctly by testing copying and replication.
 
 ### Test replication {#verify-replication}
 
-1. [Connect to the database in the {{ mpg-name }} source cluster](../../../managed-postgresql/operations/connect.md).
+1. [Connect to the database in the {{ mpg-name }} source cluster](../../../managed-postgresql/operations/connect/index.md).
 1. Populate the `measurements` table with data:
 
     ```sql
@@ -205,7 +205,7 @@ Make sure the transfer works correctly by testing copying and replication.
 
 {% note info %}
 
-Before deleting the resources, [deactivate the transfer](../../../data-transfer/operations/transfer.md#deactivate).
+Before deleting any resources, [deactivate the transfer](../../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 

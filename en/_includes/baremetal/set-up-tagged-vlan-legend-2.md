@@ -1,0 +1,1 @@
+`<VLAN_ID>`: Unique VLAN ID assigned to the private subnet. You can look up the VLAN ID in the {{ ui-key.yacloud.baremetal.private-subnets.fields.vlan_jew8J }} field on the private subnet info page in the [management console]({{ link-console-main }}).

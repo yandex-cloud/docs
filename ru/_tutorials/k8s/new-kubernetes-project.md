@@ -53,6 +53,8 @@
      --zone {{ region-id }}-a
    ```
 
+{% include [note-vpc-resources](../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
 ### Зарегистрируйте доменную зону и добавьте сертификат {#register-domain}
 
 1. {% include [create-zone](../../_includes/managed-kubernetes/create-public-zone.md) %}

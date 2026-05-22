@@ -1,11 +1,11 @@
 Чтобы настроить время [технического обслуживания](../../../../managed-clickhouse/concepts/maintenance.md) (в т. ч. для выключенных кластеров), добавьте к описанию кластера блок `maintenance_window`:
 
 ```hcl
-resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
   ...
   maintenance_window {
-    type = <тип_технического_обслуживания>
-    day  = <день_недели>
+    type = "<тип_технического_обслуживания>"
+    day  = "<день_недели>"
     hour = <час_дня>
   }
   ...

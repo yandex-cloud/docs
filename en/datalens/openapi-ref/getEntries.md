@@ -4,12 +4,12 @@ editable: false
 
 # DataLens API: Get entries
 
-## HTTP request
-
 Returns the specified DataLens entry.
 
+## HTTP request
+
 ```
-POST https://api.datalens.yandex.net/rpc/getEntries
+POST https://api.datalens.tech/rpc/getEntries
 ```
 
 ## Body parameters

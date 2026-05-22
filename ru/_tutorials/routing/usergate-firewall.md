@@ -37,10 +37,10 @@
 
 - Консоль управления {#console}
 
-  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку **Создать ресурс** и выберите пункт **Сеть**.
+  1. На странице каталога в [консоли управления]({{ link-console-main }}) нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите ![image](../../_assets/vpc/vpc-icon.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_vpc }}**.
   1. Задайте имя сети: `usergate-network`.
-  1. Включите опцию **Создать подсети**.
-  1. Нажмите кнопку **Создать сеть**.
+  1. Включите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
 - CLI {#cli}
 
@@ -148,11 +148,11 @@
 - Консоль управления {#console}
   
   1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога, в котором нужно зарезервировать адрес.
-  1. В списке сервисов выберите **{{ vpc-name }}**.
-  1. На панели слева выберите ![image](../../_assets/vpc/ip-addresses.svg) **IP-адреса**.
-  1. Нажмите кнопку **Зарезервировать адрес**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. На панели слева выберите ![image](../../_assets/vpc/ip-addresses.svg) **{{ ui-key.yacloud.vpc.switch_addresses }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.button_create }}**.
   1. В открывшемся окне выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`.
-  1. Нажмите кнопку **Зарезервировать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.addresses.popup-create_button_create }}**.
   
 - CLI {#cli}
 
@@ -200,7 +200,7 @@
 
 - Консоль управления {#console}
 
-  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите ![image](../../_assets/console-icons/cpu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `UserGate NGFW` и выберите образ [UserGate NGFW](/marketplace/products/usergate/ngfw).
   1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
@@ -431,28 +431,27 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где нужно создать статический маршрут.
-  1. В списке сервисов выберите **{{ vpc-name }}**.
-  1. На панели слева выберите ![image](../../_assets/vpc/route-tables.svg) **Таблицы маршрутизации**.
-  1. Нажмите кнопку **Создать**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. На панели слева выберите ![image](../../_assets/vpc/route-tables.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.network.overview.button_create_route-table }}**.
   1. Задайте имя таблицы маршрутизации. Требования к имени:
 
      {% include [name-format](../../_includes/name-format.md) %}
 
   1. (Опционально) Добавьте описание таблицы маршрутизации.
   1. Выберите сеть `usergate-network`.
-  1. Нажмите кнопку **Добавить маршрут**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.route-table-form.label_add-static-route }}**.
   1. В открывшемся окне введите префикс подсети назначения `0.0.0.0` и выберите `0` в выпадающем списке.
-  1. Укажите **next hop** — внутренний IP-адрес виртуальной машины UserGate `usergate-firewall`.
-  1. Нажмите кнопку **Добавить**.
-  1. Нажмите кнопку **Создать таблицу маршрутизации**.
+  1. Укажите **{{ ui-key.yacloud.vpc.add-static-route.field_next-hop-address }}** — внутренний IP-адрес виртуальной машины UserGate `usergate-firewall`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.add-static-route.button_add }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.route-table.create.button_create }}**.
 
   Чтобы использовать статические маршруты, необходимо привязать таблицу маршрутизации к подсети:
 
-  1. На панели слева выберите ![image](../../_assets/vpc/subnets.svg) **Подсети**.
-  1. В строке подсети `usergate-subnet-{{ region-id }}-d` нажмите кнопку ![image](../../_assets/options.svg).
-  1. В открывшемся меню выберите пункт **Привязать таблицу маршрутизации**.
+  1. На панели слева выберите ![image](../../_assets/vpc/subnets.svg) **{{ ui-key.yacloud.vpc.switch_networks }}**.
+  1. В строке подсети `usergate-subnet-{{ region-id }}-d` нажмите кнопку ![image](../../_assets/options.svg) → ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.vpc.subnetworks.button_action-add-route-table }}**.
   1. В открывшемся окне выберите созданную таблицу в списке.
-  1. Нажмите кнопку **Привязать**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.vpc.subnet.add-route-table.button_add }}**.
 
 - CLI {#cli}
 

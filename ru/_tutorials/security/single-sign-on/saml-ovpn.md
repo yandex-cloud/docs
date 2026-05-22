@@ -1,6 +1,6 @@
 # Создать SAML-приложение в {{ org-full-name }} для интеграции с OpenVPN Access Server
 
-Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в OpenVPN Access Server с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications.md#saml) в {{ org-name }} и настройте его на стороне {{ org-name }} и на стороне OpenVPN Access Server.
+Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в OpenVPN Access Server с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications.md#saml) в {{ org-full-name }} и настройте его на стороне {{ org-full-name }} и на стороне OpenVPN Access Server.
 
 ПО [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server) совместимо с [открытой версией](https://github.com/OpenVPN) OpenVPN и построено на ее основе. Продукт предоставляет клиенты для Windows, Mac, Android и iOS, а также позволяет управлять подключениями с помощью веб-интерфейса.
 
@@ -9,7 +9,7 @@
 Чтобы дать доступ пользователям вашей организации в OpenVPN Access Server:
 
 1. [Подготовьте OpenVPN Access Server](#prepare-ovpn).
-1. [Создайте приложение в {{ org-name }}](#create-app).
+1. [Создайте приложение в {{ org-full-name }}](#create-app).
 1. [Настройте интеграцию](#setup-integration).
 1. [Убедитесь в корректной работе приложения](#validate).
 
@@ -24,7 +24,7 @@
 - Консоль управления {#console}
 
    1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. На панели слева выберите ![image](../../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
    1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `OpenVPN Access Server` и выберите образ [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server).
@@ -47,7 +47,7 @@
 
 {% endcut %}
 
-## Создайте приложение в {{ org-name }} {#create-app}
+## Создайте приложение в {{ org-full-name }} {#create-app}
 
 {% list tabs group=instructions %}
 
@@ -121,13 +121,9 @@
 
 ### Добавьте пользователя {#add-user}
 
-Чтобы пользователи вашей организации могли аутентифицироваться в OpenVPN Access Server с помощью SAML-приложения {{ org-name }}, необходимо явно добавить в SAML-приложение нужных пользователей и/или [группы пользователей](../../../organization/concepts/groups.md).
+Чтобы пользователи вашей организации могли аутентифицироваться в OpenVPN Access Server с помощью SAML-приложения {{ org-full-name }}, необходимо явно добавить в SAML-приложение нужных пользователей и/или [группы пользователей](../../../organization/concepts/groups.md).
 
-{% note info %}
-
-Управлять пользователями и группами, добавленными в SAML-приложение, может пользователь, которому назначена [роль](../../../organization/security/index.md#organization-manager-samlApplications-userAdmin) `organization-manager.samlApplications.userAdmin` или выше.
-
-{% endnote %}
+{% include [saml-manage-users](../../../_includes/organization/saml-manage-users.md) %}
 
 1. Добавьте пользователей в приложение:
 

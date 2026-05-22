@@ -1,19 +1,19 @@
 ---
 title: Access management in {{ maf-full-name }}
-description: Access management in {{ AF }}, a database creation and management service. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
+description: Access management in {{ AF }}, a database creation and management service. This section describes the resources you can assign a role for, the roles this service has, and the roles required for specific actions.
 ---
 
 # Access management in {{ maf-name }}
 
 
-In this section, you will learn:
+In this section, you will learn about the following:
 
-* [What resources you can assign a role for](#resources).
-* [What roles exist in this service](#roles-list).
+* [Resources you can assign a role for](#resources).
+* [Roles this service has](#roles-list).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-To assign a role for a resource, a user should have the `managed-airflow.admin` role or one of the following roles for that resource:
+To assign a role for a resource, you need the `managed-airflow.admin` role or one of the following roles for that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
@@ -25,7 +25,7 @@ To allow access to {{ maf-name }} resources, assign the user the appropriate rol
 
 You can also assign a role for an individual cluster in the [management console]({{ link-console-main }}), via the [CLI](../../cli), or [API](../api-ref/authentication.md).
 
-## Roles this service has {#roles-list}
+## Roles existing in this service {#roles-list}
 
 {% include [roles-managed-airflow](../../_mermaid/roles/managed-airflow.md) %}
 
@@ -52,6 +52,14 @@ The list below shows all the roles used for access control in {{ maf-name }}.
 #### managed-airflow.admin {#managed-airflow-admin}
 
 {% include [managed-airflow.admin](../../_roles/managed-airflow/admin.md) %}
+
+#### managed-airflow.maintenanceTask.viewer {#managed-airflow-maintenanceTask-viewer}
+
+{% include [managed-airflow.maintenanceTask.viewer](../../_roles/managed-airflow/maintenanceTask/viewer.md) %}
+
+#### managed-airflow.maintenanceTask.editor {#managed-airflow-maintenanceTask-editor}
+
+{% include [managed-airflow.maintenanceTask.editor](../../_roles/managed-airflow/maintenanceTask/editor.md) %}
 
 #### managed-airflow.integrationProvider {#managed-airflow-integrationProvider}
 
@@ -81,7 +89,7 @@ As a user, you need the [{{ roles.maf.editor }} role or higher](../../iam/concep
 
 To create a {{ maf-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.maf.editor }}` role or higher.
 
-You can always assign a role with more permissions. For example, you can assign the `{{ roles.maf.admin }}` role instead of `{{ roles.maf.editor }}`.
+You can always assign a role with more permissions, e.g., `{{ roles.maf.admin }}` instead of `{{ roles.maf.editor }}`.
 
 ## What's next {#whats-next}
 

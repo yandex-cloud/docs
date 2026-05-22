@@ -49,6 +49,7 @@ Security groups can be used in the following {{ yandex-cloud }} service objects:
 | [{{ mmg-name }}](../../storedoc) | [Cluster](../../storedoc/concepts/network.md#security-groups) |
 | [{{ mkf-name }}](../../managed-kafka/) | [Cluster](../../managed-kafka/concepts/network.md#security-groups) |
 | [{{ mos-name }}](../../managed-opensearch/) | [Cluster](../../managed-opensearch/concepts/network.md#security-groups) |
+| [{{ mtr-name }}](../../managed-trino/) | [Cluster](../../managed-trino/concepts/network.md#security-groups) |
 | [{{ dataproc-name }}](../../data-proc/) | [Cluster](../../data-proc/concepts/network.md#security-groups) |
 | [{{ data-transfer-name }}](../../data-transfer/) | [Endpoint](../../data-transfer/concepts/network.md#security-groups) |
 | [{{ load-testing-name }}](../../load-testing/) | [Test agent](../../load-testing/concepts/agent.md) |
@@ -62,7 +63,7 @@ For more information about using security groups in a specific {{ yandex-cloud }
 
 ## Security group structure {#security-groups-structure}
 
-Security groups consist of a list of `rules`. A security group with no rules blocks any network traffic between objects it applies to. This happens because the list of security group rules always implicitly ends with the "prohibit all" rule.
+Security groups consist of a list of `rules`. A security group with no rules blocks any network traffic between objects it applies to. This happens because the list of security group rules always implicitly ends with the _prohibit all_ rule.
 
 Security group rules for `ingress` and `egress` traffic are set separately. One group may have up to [50 rules](./limits.md#vpc-limits) in total for ingress and egress traffic.
 
@@ -131,7 +132,7 @@ So you can refer to different types of objects in rules, such as:
 
 Using reference rules in security groups helps maintain the consistency of network access rules during autoscaling of cloud resources.
 
-Here is an example of a service that consists of two components:
+Let’s consider a service which has two components:
 
 * [Instance group](../../compute/concepts/instance-groups/) with web servers behind a load balancer
 * [{{ mpg-name }}](../../managed-postgresql/) cluster

@@ -1,13 +1,14 @@
 ---
-title: '{{ yandex-cloud }} role reference'
-description: The article provides a full reference and description of roles for {{ yandex-cloud }} services.
+title: Role reference {{ yandex-cloud }}
+description: This article provides a full reference and description of roles for {{ yandex-cloud }} services.
 ---
 
-# {{ yandex-cloud }} role reference
+# Role reference {{ yandex-cloud }}
+
 
 ## Primitive roles {#primitive-roles}
 
-The chart below shows which primitive roles are available in {{ yandex-cloud }} and how they inherit each other's permissions. For example, the `{{ roles-editor }}` role includes all the permissions of the `{{ roles-viewer }}` role. You can find the description of each role under the chart.
+The chart below shows which primitive roles are available in {{ yandex-cloud }} and how they inherit each other's permissions. For example, the `{{ roles-editor }}` role inherits all the `{{ roles-viewer }}` role permissions. You can find role descriptions below the diagram.
 
 ![image](../_assets/iam/security/primitive-roles-hierarchy.svg)
 
@@ -90,7 +91,7 @@ The chart below shows which primitive roles are available in {{ yandex-cloud }} 
 
 {% include [billing.accounts.partnerAdmin](../_roles/billing/accounts/partnerAdmin.md) %}
 
-For more information, see [Access management in {{ yandex-cloud }} partner program](../partner/security/index.md).
+For more information, see [Managing access in the {{ yandex-cloud }} partner program](../partner/security/index.md).
 
 
 ## {{ api-gw-full-name }} {#api-gateway-roles}
@@ -197,6 +198,148 @@ For more information, see [{#T}](../audit-trails/security/index.md).
 For more information, see [{#T}](../baremetal/security/index.md).
 
 
+## {{ certificate-manager-full-name }} {#certificate-manager-roles}
+
+#### certificate-manager.auditor {#certificate-manager-auditor}
+
+{% include [certificate-manager.auditor](../_roles/certificate-manager/auditor.md) %}
+
+#### certificate-manager.viewer {#certificate-manager-viewer}
+
+{% include [certificate-manager.viewer](../_roles/certificate-manager/viewer.md) %}
+
+#### certificate-manager.editor {#certificate-manager-editor}
+
+{% include [certificate-manager.editor](../_roles/certificate-manager/editor.md) %}
+
+#### certificate-manager.admin {#certificate-manager-admin}
+
+{% include [certificate-manager.admin](../_roles/certificate-manager/admin.md) %}
+
+#### certificate-manager.certificates.downloader {#certificate-manager-certificates-downloader}
+
+{% include [certificate-manager.certificates.downloader](../_roles/certificate-manager/certificates/downloader.md) %}
+
+For more information, see [{#T}](../certificate-manager/security/index.md).
+
+
+## {{ ai-studio-full-name }} {#fm-roles}
+
+#### ai.playground.user {#ai-playground-user}
+
+{% include [ai-playground-user](../_roles/ai/playground/user.md) %}
+
+#### ai.languageModels.user {#languageModels-user}
+
+{% include [yandexgpt-user](../_roles/ai/languageModels/user.md) %}
+
+#### ai.imageGeneration.user {#imageGeneration-user}
+
+{% include [yandexart-user](../_roles/ai/imageGeneration/user.md) %}
+
+#### ai.assistants.auditor {#ai-assistants-auditor}
+
+{% include [assistants-auditor](../_roles/ai/assistants/auditor.md) %}
+
+#### ai.assistants.viewer {#ai-assistants-viewer}
+
+{% include [assistants-viewer](../_roles/ai/assistants/viewer.md) %}
+
+#### ai.assistants.editor {#ai-assistants-editor}
+
+{% include [assistants-editor](../_roles/ai/assistants/editor.md) %}
+
+#### ai.assistants.admin {#ai-assistants-admin}
+
+{% include [assistants-admin](../_roles/ai/assistants/admin.md) %}
+
+#### ai.datasets.auditor {#ai-datasets-auditor}
+
+{% include [ai-datasets-auditor](../_roles/ai/datasets/auditor.md) %}
+
+#### ai.datasets.viewer {#ai-datasets-viewer}
+
+{% include [ai-datasets-viewer](../_roles/ai/datasets/viewer.md) %}
+
+#### ai.datasets.user {#ai-datasets-user}
+
+{% include [ai-datasets-user](../_roles/ai/datasets/user.md) %}
+
+#### ai.datasets.editor {#ai-datasets-editor}
+
+{% include [ai-datasets-editor](../_roles/ai/datasets/editor.md) %}
+
+#### ai.datasets.admin {#ai-datasets-admin}
+
+{% include [ai-datasets-admin](../_roles/ai/datasets/admin.md) %}
+
+#### ai.models.auditor {#ai-models-auditor}
+
+{% include [ai-models-auditor](../_roles/ai/models/auditor.md) %}
+
+#### ai.models.viewer {#ai-models-viewer}
+
+{% include [ai-models-viewer](../_roles/ai/models/viewer.md) %}
+
+#### ai.models.user {#ai-models-user}
+
+{% include [ai-models-user](../_roles/ai/models/user.md) %}
+
+#### ai.models.editor {#ai-models-editor}
+
+{% include [ai-models-editor](../_roles/ai/models/editor.md) %}
+
+#### ai.models.admin {#ai-models-admin}
+
+{% include [ai-models-admin](../_roles/ai/models/admin.md) %}
+
+#### ai.guardrails.auditor {#ai-guardrails-auditor}
+
+{% include [ai.guardrails.auditor](../_roles/ai/guardrails/auditor.md) %}
+
+#### ai.guardrails.viewer {#ai-guardrails-viewer}
+
+{% include [ai.guardrails.viewer](../_roles/ai/guardrails/viewer.md) %}
+
+#### ai.guardrails.user {#ai-guardrails-user}
+
+{% include [ai.guardrails.user](../_roles/ai/guardrails/user.md) %}
+
+#### ai.guardrails.editor {#ai-guardrails-editor}
+
+{% include [ai.guardrails.editor](../_roles/ai/guardrails/editor.md) %}
+
+#### ai.guardrails.admin {#ai-guardrails-admin}
+
+{% include [ai.guardrails.admin](../_roles/ai/guardrails/admin.md) %}
+
+#### serverless.mcpGateways.auditor {#serverless-mcpGateways-auditor}
+
+{% include [serverless-mcpGateways-auditor](../_roles/serverless/mcpGateways/auditor.md) %}
+
+#### serverless.mcpGateways.viewer {#serverless-mcpGateways-viewer}
+
+{% include [serverless-mcpGateways-viewer](../_roles/serverless/mcpGateways/viewer.md) %}
+
+#### serverless.mcpGateways.invoker {#serverless-mcpGateways-invoker}
+
+{% include [serverless-mcpGateways-invoker](../_roles/serverless/mcpGateways/invoker.md) %}
+
+#### serverless.mcpGateways.anonymousInvoker {#serverless-mcpGateways-anonymousInvoker}
+
+{% include [serverless-mcpGateways-anonymousInvoker](../_roles/serverless/mcpGateways/anonymousInvoker.md) %}
+
+#### serverless.mcpGateways.editor {#serverless-mcpGateways-editor}
+
+{% include [serverless-mcpGateways-editor](../_roles/serverless/mcpGateways/editor.md) %}
+
+#### serverless.mcpGateways.admin {#serverless-mcpGateways-admin}
+
+{% include [serverless-mcpGateways-admin](../_roles/serverless/mcpGateways/admin.md) %}
+
+Learn more in [Access management in {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/security/index).
+
+
 ## {{ interconnect-full-name }} {#interconnect-roles}
 
 #### cic.auditor {#cic-auditor}
@@ -251,31 +394,6 @@ For more information, see [{#T}](../interconnect/security/index.md).
 For more information, see [{#T}](../cloud-router/security/index.md).
 
 
-## {{ certificate-manager-full-name }} {#certificate-manager-roles}
-
-#### certificate-manager.auditor {#certificate-manager-auditor}
-
-{% include [certificate-manager.auditor](../_roles/certificate-manager/auditor.md) %}
-
-#### certificate-manager.viewer {#certificate-manager-viewer}
-
-{% include [certificate-manager.viewer](../_roles/certificate-manager/viewer.md) %}
-
-#### certificate-manager.editor {#certificate-manager.editor}
-
-{% include [certificate-manager.editor](../_roles/certificate-manager/editor.md) %}
-
-#### certificate-manager.admin {#certificate-manager-admin}
-
-{% include [certificate-manager.admin](../_roles/certificate-manager/admin.md) %}
-
-#### certificate-manager.certificates.downloader {#certificate-manager-certificates-downloader}
-
-{% include [certificate-manager.certificates.downloader](../_roles/certificate-manager/certificates/downloader.md) %}
-
-For more information, see [{#T}](../certificate-manager/security/index.md).
-
-
 ## {{ backup-full-name }} {#backup-roles}
 
 #### backup.auditor {#backup-auditor}
@@ -285,6 +403,10 @@ For more information, see [{#T}](../certificate-manager/security/index.md).
 #### backup.viewer {#backup-viewer}
 
 {% include [backup.viewer](../_roles/backup/viewer.md) %}
+
+#### backup.user {#backup-user}
+
+{% include [backup.user](../_roles/backup/user.md) %}
 
 #### backup.editor {#backup-editor}
 
@@ -314,6 +436,7 @@ For more information, see [{#T}](../backup/security/index.md).
 #### billing.accounts.accountant {#billing-accounts-accountant}
 
 {% include [billing.accounts.accountant](../_roles/billing/accounts/accountant.md) %}
+
 #### billing.accounts.editor {#billing-accounts-editor}
 
 {% include [billing.accounts.editor](../_roles/billing/accounts/editor.md) %}
@@ -375,6 +498,13 @@ For more information, see [{#T}](../cdn/security/index.md).
 For more information, see [{#T}](../cloud-desktop/security/index.md).
 
 
+## {{ ycdr-full-name }} {#ycdr-roles}
+
+#### ycdr.admin {#ycdr-admin}
+
+{% include [ycdr.admin](../_roles/ycdr/admin.md) %}
+
+
 ## {{ dns-full-name }} {#dns-roles}
 
 #### dns.auditor {#dns-auditor}
@@ -388,6 +518,14 @@ For more information, see [{#T}](../cloud-desktop/security/index.md).
 #### dns.editor {#dns-editor}
 
 {% include [roles-dns-editor](../_roles/dns/editor.md) %}
+
+#### dns.firewallUser {#dns-firewallUser}
+
+{% include [dns.firewallUser](../_roles/dns/firewallUser.md) %}
+
+#### dns.firewallEditor {#dns-firewallEditor}
+
+{% include [dns.firewallEditor](../_roles/dns/firewallEditor.md) %}
 
 #### dns.admin {#dns-admin}
 
@@ -474,6 +612,10 @@ For more information, see [{#T}](../logging/security/index.md).
 
 {% include [license-manager.saasSubscriptionSupervisor](../_roles/license-manager/saasSubscriptionSupervisor.md) %}
 
+#### marketplace.productInstances.saasSupervisor {#marketplace-productInstances-saasSupervisor}
+
+{% include [marketplace.productInstances.saasSupervisor](../_roles/marketplace/productInstances/saasSupervisor.md) %}
+
 #### marketplace.product.creator {#marketplace-product-creator}
 
 {% include [marketplace.product.creator](../_roles/marketplace/product/creator.md) %}
@@ -527,188 +669,52 @@ For more information, see [{#T}](../marketplace/security/partners.md).
 
 {% include [license-manager.subscriptionAgent](../_roles/license-manager/subscriptionAgent.md) %}
 
+#### marketplace.productInstances.auditor {#marketplace-productInstances-auditor}
+
+{% include [marketplace.productInstances.auditor](../_roles/marketplace/productInstances/auditor.md) %}
+
+#### marketplace.productInstances.viewer {#marketplace-productInstances-viewer}
+
+{% include [marketplace.productInstances.viewer](../_roles/marketplace/productInstances/viewer.md) %}
+
+#### marketplace.productInstances.user {#marketplace-productInstances-user}
+
+{% include [marketplace.productInstances.user](../_roles/marketplace/productInstances/user.md) %}
+
+#### marketplace.productInstances.editor {#marketplace-productInstances-editor}
+
+{% include [marketplace.productInstances.editor](../_roles/marketplace/productInstances/editor.md) %}
+
+#### marketplace.productInstances.admin {#marketplace-productInstances-admin}
+
+{% include [marketplace.productInstances.admin](../_roles/marketplace/productInstances/admin.md) %}
+
 For more information, see [{#T}](../marketplace/security/index.md).
 
 
-## {{ org-full-name }} {#organization-roles}
+## {{ cns-full-name }} {#cns-roles}
 
-#### organization-manager.auditor {#organization-manager-auditor}
+#### notifications.auditor {#notifications-auditor}
 
-{% include [organizationmanager-auditor](../_roles/organization-manager/auditor.md) %}
+{% include [notifications.auditor](../_roles/notifications/auditor.md) %}
 
-#### organization-manager.viewer {#organization-manager-viewer}
+#### notifications.viewer {#notifications-viewer}
 
-{% include [organizationmanager-viewer](../_roles/organization-manager/viewer.md) %}
+{% include [notifications.viewer](../_roles/notifications/viewer.md) %}
 
-#### organization-manager.editor {#organization-manager-editor}
+#### notifications.publisher {#notifications-publisher}
 
-{% include [organizationmanager-editor](../_roles/organization-manager/editor.md) %}
+{% include [notifications.publisher](../_roles/notifications/publisher.md) %}
 
-#### organization-manager.admin {#organization-manager-admin}
+#### notifications.editor {#notifications-editor}
 
-{% include [organizationmanager-admin](../_roles/organization-manager/admin.md) %}
+{% include [notifications.editor](../_roles/notifications/editor.md) %}
 
-#### organization-manager.organizations.owner {#organization-manager-organizations-owner}
+#### notifications.admin {#notifications-admin}
 
-{% include [organizationmanager-organizations-owner](../_roles/organization-manager/organizations/owner.md) %}
+{% include [notifications.admin](../_roles/notifications/admin.md) %}
 
-#### organization-manager.federations.extGroupsViewer {#organization-manager-federations-extGroupsViewer}
-
-{% include [organization-manager.federations.extGroupsViewer](../_roles/organization-manager/federations/extGroupsViewer.md) %}
-
-#### organization-manager.federations.extGroupsManager {#organization-manager-federations-extGroupsManager}
-
-{% include [organization-manager.federations.extGroupsManager](../_roles/organization-manager/federations/extGroupsManager.md) %}
-
-#### organization-manager.federations.extGroupsCleaner {#organization-manager-federations-extGroupsCleaner}
-
-{% include [organization-manager.federations.extGroupsCleaner](../_roles/organization-manager/federations/extGroupsCleaner.md) %}
-
-#### organization-manager.federations.auditor {#organization-manager-federations-auditor}
-
-{% include [organization-manager.federations.auditor](../_roles/organization-manager/federations/auditor.md) %}
-
-#### organization-manager.federations.viewer {#organization-manager-federations-viewer}
-
-{% include [organization-manager.federations.viewer](../_roles/organization-manager/federations/viewer.md) %}
-
-#### organization-manager.federations.editor {#organization-manager-federations-editor}
-
-{% include [organization-manager.federations.editor](../_roles/organization-manager/federations/editor.md) %}
-
-#### organization-manager.federations.userAdmin {#organization-manager-federations-userAdmin}
-
-{% include [organization-manager.federations.userAdmin](../_roles/organization-manager/federations/userAdmin.md) %}
-
-#### organization-manager.federations.admin {#organization-manager-federations-admin}
-
-{% include [organization-manager.federations.admin](../_roles/organization-manager/federations/admin.md) %}
-
-#### organization-manager.osLogins.viewer {#organization-manager-osLogins-viewer}
-
-{% include [organizationmanager-oslogins-viewer](../_roles/organization-manager/osLogins/viewer.md) %}
-
-#### organization-manager.osLogins.admin {#organization-manager-osLogins-admin}
-
-{% include [organizationmanager-oslogins-admin](../_roles/organization-manager/osLogins/admin.md) %}
-
-#### organization-manager.groups.externalCreator {#organization-manager-groups-externalCreator}
-
-{% include [organization-manager-groups-externalCreator](../_roles/organization-manager/groups/externalCreator.md) %}
-
-#### organization-manager.groups.externalConverter {#organization-manager-groups-externalConverter}
-
-{% include [organization-manager-groups-externalConverter](../_roles/organization-manager/groups/externalConverter.md) %}
-
-#### organization-manager.groups.externalManager {#organization-manager-groups-externalManager}
-
-{% include [organization-manager.groups.externalManager](../_roles/organization-manager/groups/externalManager.md) %}
-
-#### organization-manager.groups.editor {#organization-manager-groups-editor}
-
-{% include [organization-manager-groups-editor](../_roles/organization-manager/groups/editor.md) %}
-
-#### organization-manager.groups.memberAdmin {#organization-manager-groups-memberAdmin}
-
-{% include [organizationmanager-groups-memberAdmin](../_roles/organization-manager/groups/memberAdmin.md) %}
-
-#### organization-manager.groups.admin {#organization-manager-groups-admin}
-
-{% include [organization-manager-groups-admin](../_roles/organization-manager/groups/admin.md) %}
-
-#### organization-manager.users.viewer {#organization-manager-users-viewer}
-
-{% include [organizationmanager-users-viewer](../_roles/organization-manager/users/viewer.md) %}
-
-#### organization-manager.passportUserAdmin {#organization-manager-passportUserAdmin}
-
-{% include [organizationmanager-passportUserAdmin](../_roles/organization-manager/passportUserAdmin.md) %}
-
-#### organization-manager.oauthApplications.auditor {#organization-manager-oauthApplications-auditor}
-
-{% include [organizationmanager-oauthApplications-auditor](../_roles/organization-manager/oauthApplications/auditor.md) %}
-
-#### organization-manager.oauthApplications.viewer {#organization-manager-oauthApplications-viewer}
-
-{% include [organizationmanager-oauthApplications-viewer](../_roles/organization-manager/oauthApplications/viewer.md) %}
-
-#### organization-manager.oauthApplications.editor {#organization-manager-oauthApplications-editor}
-
-{% include [organizationmanager-oauthApplications-editor](../_roles/organization-manager/oauthApplications/editor.md) %}
-
-#### organization-manager.oauthApplications.userAdmin {#organization-manager-oauthApplications-userAdmin}
-
-{% include [organizationmanager-oauthApplications-userAdmin](../_roles/organization-manager/oauthApplications/userAdmin.md) %}
-
-#### organization-manager.oauthApplications.admin {#organization-manager-oauthApplications-admin}
-
-{% include [organizationmanager-oauthApplications-admin](../_roles/organization-manager/oauthApplications/admin.md) %}
-
-#### organization-manager.samlApplications.auditor {#organization-manager-samlApplications-auditor}
-
-{% include [organizationmanager-samlApplications-auditor](../_roles/organization-manager/samlApplications/auditor.md) %}
-
-#### organization-manager.samlApplications.viewer {#organization-manager-samlApplications-viewer}
-
-{% include [organizationmanager-samlApplications-viewer](../_roles/organization-manager/samlApplications/viewer.md) %}
-
-#### organization-manager.samlApplications.editor {#organization-manager-samlApplications-editor}
-
-{% include [organizationmanager-samlApplications-editor](../_roles/organization-manager/samlApplications/editor.md) %}
-
-#### organization-manager.samlApplications.userAdmin {#organization-manager-samlApplications-userAdmin}
-
-{% include [organizationmanager-samlApplications-userAdmin](../_roles/organization-manager/samlApplications/userAdmin.md) %}
-
-#### organization-manager.samlApplications.admin {#organization-manager-samlApplications-admin}
-
-{% include [organizationmanager-samlApplications-admin](../_roles/organization-manager/samlApplications/admin.md) %}
-
-#### organization-manager.userpools.extGroupsViewer {#organization-manager-userpools-extGroupsViewer}
-
-{% include [organization-manager.userpools.extGroupsViewer](../_roles/organization-manager/userpools/extGroupsViewer.md) %}
-
-#### organization-manager.userpools.extGroupsManager {#organization-manager-userpools-extGroupsManager}
-
-{% include [organization-manager.userpools.extGroupsManager](../_roles/organization-manager/userpools/extGroupsManager.md) %}
-
-#### organization-manager.userpools.extGroupsCleaner {#organization-manager-userpools-extGroupsCleaner}
-
-{% include [organization-manager.userpools.extGroupsCleaner](../_roles/organization-manager/userpools/extGroupsCleaner.md) %}
-
-#### organization-manager.userpools.syncAgent {#organization-manager-userpools-syncAgent}
-
-{% include [organizationmanager-userpools-syncAgent](../_roles/organization-manager/userpools/syncAgent.md) %}
-
-#### organization-manager.userpools.auditor {#organization-manager-userpools-auditor}
-
-{% include [organizationmanager-userpools-auditor](../_roles/organization-manager/userpools/auditor.md) %}
-
-#### organization-manager.userpools.viewer {#organization-manager-userpools-viewer}
-
-{% include [organizationmanager-userpools-viewer](../_roles/organization-manager/userpools/viewer.md) %}
-
-#### organization-manager.userpools.editor {#organization-manager-userpools-editor}
-
-{% include [organizationmanager-userpools-editor](../_roles/organization-manager/userpools/editor.md) %}
-
-#### organization-manager.userpools.userAdmin {#organization-manager-userpools-userAdmin}
-
-{% include [organizationmanager-userpools-userAdmin](../_roles/organization-manager/userpools/userAdmin.md) %}
-
-#### organization-manager.userpools.admin {#organization-manager-userpools-admin}
-
-{% include [organizationmanager-userpools-admin](../_roles/organization-manager/userpools/admin.md) %}
-
-#### organization-manager.idpInstances.billingViewer {#organization-manager-idpInstances-billingViewer}
-
-{% include [organization-manager.idpInstances.billingViewer](../_roles/organization-manager/idpInstances/billingViewer.md) %}
-
-#### organization-manager.idpInstances.billingAdmin {#organization-manager-idpInstances-billingAdmin}
-
-{% include [organization-manager.idpInstances.billingAdmin](../_roles/organization-manager/idpInstances/billingAdmin.md) %}
-
-For more information, see [{#T}](../organization/security/index.md).
+For more information, see [{#T}](../notifications/security/index.md).
 
 
 ## {{ postbox-full-name }} {#postbox-roles}
@@ -728,6 +734,14 @@ For more information, see [{#T}](../organization/security/index.md).
 #### postbox.editor {#postbox-editor}
 
 {% include [postbox.editor](../_roles/postbox/editor.md) %}
+
+#### postbox.messages.reader {#postbox-messages-reader}
+
+{% include [postbox.messages.reader](../_roles/postbox/messages/reader.md) %}
+
+#### postbox.statistics.reader {#postbox-statistics-reader}
+
+{% include [postbox.statistics.reader](../_roles/postbox/statistics/reader.md) %}
 
 #### postbox.admin {#postbox-admin}
 
@@ -851,7 +865,7 @@ For more information, see [{#T}](../compute/security/index.md).
 
 {% include [connection-manager.admin](../_roles/connection-manager/admin.md) %}
 
-For more information, see [Access management in {{ connection-manager-name }}](../metadata-hub/security/index.md).
+Learn more in [Access management in {{ connection-manager-name }}](../metadata-hub/security/index.md).
 
 
 ## {{ container-registry-full-name }} {#cr-roles}
@@ -917,6 +931,10 @@ For more information, see [{#T}](../container-registry/security/index.md).
 
 {% include [datalens.collections.admin](../_roles/datalens/collections/admin.md) %}
 
+#### datalens.metaReader {#datalens-metaReader}
+
+{% include [datalens-metaReader](../_roles/datalens/metaReader.md) %}
+
 #### datalens.visitor {#datalens-visitor}
 
 {% include [datalens-visitor](../_roles/datalens/visitor.md) %}
@@ -974,23 +992,23 @@ For more information, see [{#T}](../datalens/security/roles.md).
 
 {% include [mdb.dataproc.agent](../_roles/mdb/dataproc/agent.md) %}
 
-#### managed-metastore.auditor {#managed-metastore-auditor}
+#### {{ roles.metastore.auditor }} {#managed-metastore-auditor}
 
 {% include [managed-metastore.auditor](../_roles/managed-metastore/auditor.md) %}
 
-#### managed-metastore.viewer {#managed-metastore-viewer}
+#### {{ roles.metastore.viewer }} {#managed-metastore-viewer}
 
 {% include [managed-metastore.viewer](../_roles/managed-metastore/viewer.md) %}
 
-#### managed-metastore.editor {#managed-metastore-editor}
+#### {{ roles.metastore.editor }} {#managed-metastore-editor}
 
 {% include [managed-metastore.editor](../_roles/managed-metastore/editor.md) %}
 
-#### managed-metastore.admin {#managed-metastore-admin}
+#### {{ roles.metastore.admin }} {#managed-metastore-admin}
 
 {% include [managed-metastore.admin](../_roles/managed-metastore/admin.md) %}
 
-#### managed-metastore.integrationProvider {#managed-metastore-integrationProvider}
+#### {{ roles.metastore.integrationProvider }} {#managed-metastore-integrationProvider}
 
 {% include [managed-metastore.integrationProvider](../_roles/managed-metastore/integrationProvider.md) %}
 
@@ -1050,13 +1068,6 @@ For more information, see [{#T}](../data-proc/security/index.md).
 For more information, see [{#T}](../datasphere/security/index.md).
 
 
-## {{ ycdr-full-name }} roles {#ycdr-roles}
-
-#### ycdr.admin {#ycdr-admin}
-
-{% include [ycdr.admin](../_roles/ycdr/admin.md) %}
-
-
 ## {{ yds-full-name }} {#yds-roles}
 
 #### yds.auditor {#yds-auditor}
@@ -1112,6 +1123,10 @@ For more information, see [{#T}](../data-transfer/security/index.md).
 #### iam.serviceAccounts.admin {#iam-serviceAccounts-admin}
 
 {% include [iam.serviceAccounts.admin](../_roles/iam/serviceAccounts/admin.md) %}
+
+#### iam.serviceAccounts.ephemeralAccessKeyAdmin {#iam-serviceAccounts-ephemeralAccessKeyAdmin}
+
+{% include [iam.serviceAccounts.ephemeralAccessKeyAdmin](../_roles/iam/serviceAccounts/ephemeralAccessKeyAdmin.md) %}
 
 #### iam.serviceAccounts.accessKeyAdmin {#iam-serviceAccounts-accessKeyAdmin}
 
@@ -1188,6 +1203,191 @@ For more information, see [{#T}](../data-transfer/security/index.md).
 For more information, see [{#T}](../iam/security/index.md).
 
 
+## {{ org-full-name }} {#organization-roles}
+
+#### organization-manager.auditor {#organization-manager-auditor}
+
+{% include [organizationmanager-auditor](../_roles/organization-manager/auditor.md) %}
+
+#### organization-manager.viewer {#organization-manager-viewer}
+
+{% include [organizationmanager-viewer](../_roles/organization-manager/viewer.md) %}
+
+#### organization-manager.editor {#organization-manager-editor}
+
+{% include [organizationmanager-editor](../_roles/organization-manager/editor.md) %}
+
+#### organization-manager.admin {#organization-manager-admin}
+
+{% include [organizationmanager-admin](../_roles/organization-manager/admin.md) %}
+
+#### organization-manager.organizations.owner {#organization-manager-organizations-owner}
+
+{% include [organizationmanager-organizations-owner](../_roles/organization-manager/organizations/owner.md) %}
+
+#### organization-manager.federations.extGroupsViewer {#organization-manager-federations-extGroupsViewer}
+
+{% include [organization-manager.federations.extGroupsViewer](../_roles/organization-manager/federations/extGroupsViewer.md) %}
+
+#### organization-manager.federations.extGroupsManager {#organization-manager-federations-extGroupsManager}
+
+{% include [organization-manager.federations.extGroupsManager](../_roles/organization-manager/federations/extGroupsManager.md) %}
+
+#### organization-manager.federations.extGroupsCleaner {#organization-manager-federations-extGroupsCleaner}
+
+{% include [organization-manager.federations.extGroupsCleaner](../_roles/organization-manager/federations/extGroupsCleaner.md) %}
+
+#### organization-manager.federations.auditor {#organization-manager-federations-auditor}
+
+{% include [organization-manager.federations.auditor](../_roles/organization-manager/federations/auditor.md) %}
+
+#### organization-manager.federations.viewer {#organization-manager-federations-viewer}
+
+{% include [organization-manager.federations.viewer](../_roles/organization-manager/federations/viewer.md) %}
+
+#### organization-manager.federations.editor {#organization-manager-federations-editor}
+
+{% include [organization-manager.federations.editor](../_roles/organization-manager/federations/editor.md) %}
+
+#### organization-manager.federations.userAdmin {#organization-manager-federations-userAdmin}
+
+{% include [organization-manager.federations.userAdmin](../_roles/organization-manager/federations/userAdmin.md) %}
+
+#### organization-manager.federations.admin {#organization-manager-federations-admin}
+
+{% include [organization-manager.federations.admin](../_roles/organization-manager/federations/admin.md) %}
+
+#### organization-manager.osLogins.viewer {#organization-manager-osLogins-viewer}
+
+{% include [organizationmanager-oslogins-viewer](../_roles/organization-manager/osLogins/viewer.md) %}
+
+#### organization-manager.osLogins.admin {#organization-manager-osLogins-admin}
+
+{% include [organizationmanager-oslogins-admin](../_roles/organization-manager/osLogins/admin.md) %}
+
+#### organization-manager.groups.externalCreator {#organization-manager-groups-externalCreator}
+
+{% include [organization-manager-groups-externalCreator](../_roles/organization-manager/groups/externalCreator.md) %}
+
+#### organization-manager.groups.externalConverter {#organization-manager-groups-externalConverter}
+
+{% include [organization-manager-groups-externalConverter](../_roles/organization-manager/groups/externalConverter.md) %}
+
+#### organization-manager.groups.externalManager {#organization-manager-groups-externalManager}
+
+{% include [organization-manager.groups.externalManager](../_roles/organization-manager/groups/externalManager.md) %}
+
+#### organization-manager.groups.viewer {#organization-manager-groups-viewer}
+
+{% include [organization-manager-groups-viewer](../_roles/organization-manager/groups/viewer.md) %}
+
+#### organization-manager.groups.editor {#organization-manager-groups-editor}
+
+{% include [organization-manager-groups-editor](../_roles/organization-manager/groups/editor.md) %}
+
+#### organization-manager.groups.memberAdmin {#organization-manager-groups-memberAdmin}
+
+{% include [organizationmanager-groups-memberAdmin](../_roles/organization-manager/groups/memberAdmin.md) %}
+
+#### organization-manager.groups.admin {#organization-manager-groups-admin}
+
+{% include [organization-manager-groups-admin](../_roles/organization-manager/groups/admin.md) %}
+
+#### organization-manager.users.viewer {#organization-manager-users-viewer}
+
+{% include [organizationmanager-users-viewer](../_roles/organization-manager/users/viewer.md) %}
+
+#### organization-manager.passportUserAdmin {#organization-manager-passportUserAdmin}
+
+{% include [organizationmanager-passportUserAdmin](../_roles/organization-manager/passportUserAdmin.md) %}
+
+#### organization-manager.oauthApplications.auditor {#organization-manager-oauthApplications-auditor}
+
+{% include [organizationmanager-oauthApplications-auditor](../_roles/organization-manager/oauthApplications/auditor.md) %}
+
+#### organization-manager.oauthApplications.viewer {#organization-manager-oauthApplications-viewer}
+
+{% include [organizationmanager-oauthApplications-viewer](../_roles/organization-manager/oauthApplications/viewer.md) %}
+
+#### organization-manager.oauthApplications.editor {#organization-manager-oauthApplications-editor}
+
+{% include [organizationmanager-oauthApplications-editor](../_roles/organization-manager/oauthApplications/editor.md) %}
+
+#### organization-manager.oauthApplications.userAdmin {#organization-manager-oauthApplications-userAdmin}
+
+{% include [organizationmanager-oauthApplications-userAdmin](../_roles/organization-manager/oauthApplications/userAdmin.md) %}
+
+#### organization-manager.oauthApplications.admin {#organization-manager-oauthApplications-admin}
+
+{% include [organizationmanager-oauthApplications-admin](../_roles/organization-manager/oauthApplications/admin.md) %}
+
+#### organization-manager.samlApplications.auditor {#organization-manager-samlApplications-auditor}
+
+{% include [organizationmanager-samlApplications-auditor](../_roles/organization-manager/samlApplications/auditor.md) %}
+
+#### organization-manager.samlApplications.viewer {#organization-manager-samlApplications-viewer}
+
+{% include [organizationmanager-samlApplications-viewer](../_roles/organization-manager/samlApplications/viewer.md) %}
+
+#### organization-manager.samlApplications.editor {#organization-manager-samlApplications-editor}
+
+{% include [organizationmanager-samlApplications-editor](../_roles/organization-manager/samlApplications/editor.md) %}
+
+#### organization-manager.samlApplications.userAdmin {#organization-manager-samlApplications-userAdmin}
+
+{% include [organizationmanager-samlApplications-userAdmin](../_roles/organization-manager/samlApplications/userAdmin.md) %}
+
+#### organization-manager.samlApplications.admin {#organization-manager-samlApplications-admin}
+
+{% include [organizationmanager-samlApplications-admin](../_roles/organization-manager/samlApplications/admin.md) %}
+
+#### organization-manager.userpools.extGroupsViewer {#organization-manager-userpools-extGroupsViewer}
+
+{% include [organization-manager.userpools.extGroupsViewer](../_roles/organization-manager/userpools/extGroupsViewer.md) %}
+
+#### organization-manager.userpools.extGroupsManager {#organization-manager-userpools-extGroupsManager}
+
+{% include [organization-manager.userpools.extGroupsManager](../_roles/organization-manager/userpools/extGroupsManager.md) %}
+
+#### organization-manager.userpools.extGroupsCleaner {#organization-manager-userpools-extGroupsCleaner}
+
+{% include [organization-manager.userpools.extGroupsCleaner](../_roles/organization-manager/userpools/extGroupsCleaner.md) %}
+
+#### organization-manager.userpools.syncAgent {#organization-manager-userpools-syncAgent}
+
+{% include [organizationmanager-userpools-syncAgent](../_roles/organization-manager/userpools/syncAgent.md) %}
+
+#### organization-manager.userpools.auditor {#organization-manager-userpools-auditor}
+
+{% include [organizationmanager-userpools-auditor](../_roles/organization-manager/userpools/auditor.md) %}
+
+#### organization-manager.userpools.viewer {#organization-manager-userpools-viewer}
+
+{% include [organizationmanager-userpools-viewer](../_roles/organization-manager/userpools/viewer.md) %}
+
+#### organization-manager.userpools.editor {#organization-manager-userpools-editor}
+
+{% include [organizationmanager-userpools-editor](../_roles/organization-manager/userpools/editor.md) %}
+
+#### organization-manager.userpools.userAdmin {#organization-manager-userpools-userAdmin}
+
+{% include [organizationmanager-userpools-userAdmin](../_roles/organization-manager/userpools/userAdmin.md) %}
+
+#### organization-manager.userpools.admin {#organization-manager-userpools-admin}
+
+{% include [organizationmanager-userpools-admin](../_roles/organization-manager/userpools/admin.md) %}
+
+#### organization-manager.idpInstances.billingViewer {#organization-manager-idpInstances-billingViewer}
+
+{% include [organization-manager.idpInstances.billingViewer](../_roles/organization-manager/idpInstances/billingViewer.md) %}
+
+#### organization-manager.idpInstances.billingAdmin {#organization-manager-idpInstances-billingAdmin}
+
+{% include [organization-manager.idpInstances.billingAdmin](../_roles/organization-manager/idpInstances/billingAdmin.md) %}
+
+For more information, see [{#T}](../organization/security/index.md).
+
+
 ## {{ iot-full-name }} {#iot-core-roles}
 
 #### iot.devices.writer {#iot-devices-writer}
@@ -1211,103 +1411,6 @@ For more information, see [{#T}](../iam/security/index.md).
 {% include [iot-editor](../_roles/iot/editor.md) %}
 
 For more information, see [{#T}](../iot-core/security/index.md).
-
-
-## {{ foundation-models-full-name }} {#fm-roles}
-
-#### ai.playground.user {#ai-playground-user}
-
-{% include [ai-playground-user](../_roles/ai/playground/user.md) %}
-
-#### ai.languageModels.user {#languageModels-user}
-
-{% include [yandexgpt-user](../_roles/ai/languageModels/user.md) %}
-
-#### ai.imageGeneration.user {#imageGeneration-user}
-
-{% include [yandexart-user](../_roles/ai/imageGeneration/user.md) %}
-
-#### ai.assistants.auditor {#ai-assistants-auditor}
-
-{% include [assistants-auditor](../_roles/ai/assistants/auditor.md) %}
-
-#### ai.assistants.viewer {#ai-assistants-viewer}
-
-{% include [assistants-viewer](../_roles/ai/assistants/viewer.md) %}
-
-#### ai.assistants.editor {#ai-assistants-editor}
-
-{% include [assistants-editor](../_roles/ai/assistants/editor.md) %}
-
-#### ai.assistants.admin {#ai-assistants-admin}
-
-{% include [assistants-admin](../_roles/ai/assistants/admin.md) %}
-
-#### ai.datasets.auditor {#ai-datasets-auditor}
-
-{% include [ai-datasets-auditor](../_roles/ai/datasets/auditor.md) %}
-
-#### ai.datasets.viewer {#ai-datasets-viewer}
-
-{% include [ai-datasets-viewer](../_roles/ai/datasets/viewer.md) %}
-
-#### ai.datasets.user {#ai-datasets-user}
-
-{% include [ai-datasets-user](../_roles/ai/datasets/user.md) %}
-
-#### ai.datasets.editor {#ai-datasets-editor}
-
-{% include [ai-datasets-editor](../_roles/ai/datasets/editor.md) %}
-
-#### ai.datasets.admin {#ai-datasets-admin}
-
-{% include [ai-datasets-admin](../_roles/ai/datasets/admin.md) %}
-
-#### ai.models.auditor {#ai-models-auditor}
-
-{% include [ai-models-auditor](../_roles/ai/models/auditor.md) %}
-
-#### ai.models.viewer {#ai-models-viewer}
-
-{% include [ai-models-viewer](../_roles/ai/models/viewer.md) %}
-
-#### ai.models.user {#ai-models-user}
-
-{% include [ai-models-user](../_roles/ai/models/user.md) %}
-
-#### ai.models.editor {#ai-models-editor}
-
-{% include [ai-models-editor](../_roles/ai/models/editor.md) %}
-
-#### ai.models.admin {#ai-models-admin}
-
-{% include [ai-models-admin](../_roles/ai/models/admin.md) %}
-
-#### serverless.mcpGateways.auditor {#serverless-mcpGateways-auditor}
-
-{% include [serverless-mcpGateways-auditor](../_roles/serverless/mcpGateways/auditor.md) %}
-
-#### serverless.mcpGateways.viewer {#serverless-mcpGateways-viewer}
-
-{% include [serverless-mcpGateways-viewer](../_roles/serverless/mcpGateways/viewer.md) %}
-
-#### serverless.mcpGateways.invoker {#serverless-mcpGateways-invoker}
-
-{% include [serverless-mcpGateways-invoker](../_roles/serverless/mcpGateways/invoker.md) %}
-
-#### serverless.mcpGateways.anonymousInvoker {#serverless-mcpGateways-anonymousInvoker}
-
-{% include [serverless-mcpGateways-anonymousInvoker](../_roles/serverless/mcpGateways/anonymousInvoker.md) %}
-
-#### serverless.mcpGateways.editor {#serverless-mcpGateways-editor}
-
-{% include [serverless-mcpGateways-editor](../_roles/serverless/mcpGateways/editor.md) %}
-
-#### serverless.mcpGateways.admin {#serverless-mcpGateways-admin}
-
-{% include [serverless-mcpGateways-admin](../_roles/serverless/mcpGateways/admin.md) %}
-
-For more information, see [{#T}](../ai-studio/security/index.md).
 
 
 ## {{ kms-full-name }} {#kms-roles}
@@ -1435,6 +1538,19 @@ For more information, see [{#T}](../lockbox/security/index.md).
 
 {% include [mdb-restorer](../_roles/mdb/restorer.md) %}
 
+#### mdb.switcher {#mdb-switcher}
+
+{% include [mdb.switcher](../_roles/mdb/switcher.md) %}
+
+#### mdb.maintenanceTask.viewer {#mdb-maintenanceTask-viewer}
+
+{% include [mdb.maintenanceTask.viewer](../_roles/mdb/maintenanceTask/viewer.md) %}
+
+#### mdb.maintenanceTask.editor {#mdb-maintenanceTask-editor}
+
+{% include [mdb.maintenanceTask.editor](../_roles/mdb/maintenanceTask/editor.md) %}
+
+
 ## {{ maf-full-name }} {#managed-airflow-roles}
 
 #### managed-airflow.auditor {#managed-airflow-auditor}
@@ -1457,6 +1573,14 @@ For more information, see [{#T}](../lockbox/security/index.md).
 
 {% include [managed-airflow.admin](../_roles/managed-airflow/admin.md) %}
 
+#### managed-airflow.maintenanceTask.viewer {#managed-airflow-maintenanceTask-viewer}
+
+{% include [managed-airflow.maintenanceTask.viewer](../_roles/managed-airflow/maintenanceTask/viewer.md) %}
+
+#### managed-airflow.maintenanceTask.editor {#managed-airflow-maintenanceTask-editor}
+
+{% include [managed-airflow.maintenanceTask.editor](../_roles/managed-airflow/maintenanceTask/editor.md) %}
+
 #### managed-airflow.integrationProvider {#managed-airflow-integrationProvider}
 
 {% include [managed-airflow.integrationProvider](../_roles/managed-airflow/integrationProvider.md) %}
@@ -1474,9 +1598,10 @@ For more information, see [{#T}](../managed-airflow/security/index.md).
 
 {% include [managed-kafka.viewer](../_roles/managed-kafka/viewer.md) %}
 
-#### managed-kafka.restorer {#managed-kafka-restorer}
 
-{% include [managed-kafka.restorer](../_roles/managed-kafka/restorer.md) %}
+#### managed-kafka.user {#managed-kafka-user}
+
+{% include [managed-kafka.user](../_roles/managed-kafka/user.md) %}
 
 #### managed-kafka.editor {#managed-kafka-editor}
 
@@ -1486,11 +1611,56 @@ For more information, see [{#T}](../managed-airflow/security/index.md).
 
 {% include [managed-kafka.admin](../_roles/managed-kafka/admin.md) %}
 
+#### managed-kafka.maintenanceTask.viewer {#managed-kafka-maintenanceTask-viewer}
+
+{% include [managed-kafka.maintenanceTask.viewer](../_roles/managed-kafka/maintenanceTask/viewer.md) %}
+
+#### managed-kafka.maintenanceTask.editor {#managed-kafka-maintenanceTask-editor}
+
+{% include [managed-kafka.maintenanceTask.editor](../_roles/managed-kafka/maintenanceTask/editor.md) %}
+
 #### managed-kafka.interfaceUser {#managed-kafka-interface-user}
 
 {% include [managed-kafka.interfaceUser](../_roles/managed-kafka/interfaceUser.md) %}
 
 For more information, see [{#T}](../managed-kafka/security/index.md).
+
+
+## {{ msp-full-name }} {#msp-roles}
+
+#### managed-spark.auditor {#managed-spark-auditor}
+
+{% include [managed-spark.auditor](../_roles/managed-spark/auditor.md) %}
+
+#### managed-spark.viewer {#managed-spark-viewer}
+
+{% include [managed-spark.viewer](../_roles/managed-spark/viewer.md) %}
+
+#### managed-spark.user {#managed-spark-user}
+
+{% include [managed-spark.user](../_roles/managed-spark/user.md) %}
+
+#### managed-spark.editor {#managed-spark-editor}
+
+{% include [managed-spark.editor](../_roles/managed-spark/editor.md) %}
+
+#### managed-spark.admin {#managed-spark-admin}
+
+{% include [managed-spark.admin](../_roles/managed-spark/admin.md) %}
+
+#### managed-spark.maintenanceTask.viewer {#managed-spark-maintenanceTask-viewer}
+
+{% include [managed-spark.maintenanceTask.viewer](../_roles/managed-spark/maintenanceTask/viewer.md) %}
+
+#### managed-spark.maintenanceTask.editor {#managed-spark-maintenanceTask-editor}
+
+{% include [managed-spark.maintenanceTask.editor](../_roles/managed-spark/maintenanceTask/editor.md) %}
+
+#### managed-spark.integrationProvider {#managed-spark-integrationProvider}
+
+{% include [managed-spark.integrationProvider](../_roles/managed-spark/integrationProvider.md) %}
+
+For more information, see [{#T}](../managed-spark/security.md).
 
 
 ## {{ mch-full-name }} {#managed-clickhouse-roles}
@@ -1507,6 +1677,10 @@ For more information, see [{#T}](../managed-kafka/security/index.md).
 
 {% include [managed-clickhouse.restorer](../_roles/managed-clickhouse/restorer.md) %}
 
+#### managed-clickhouse.user {#managed-clickhouse-user}
+
+{% include [managed-clickhouse.user](../_roles/managed-clickhouse/user.md) %}
+
 #### managed-clickhouse.editor {#managed-clickhouse-editor}
 
 {% include [managed-clickhouse.editor](../_roles/managed-clickhouse/editor.md) %}
@@ -1514,6 +1688,14 @@ For more information, see [{#T}](../managed-kafka/security/index.md).
 #### managed-clickhouse.admin {#managed-clickhouse-admin}
 
 {% include [managed-clickhouse.admin](../_roles/managed-clickhouse/admin.md) %}
+
+#### managed-clickhouse.maintenanceTask.viewer {#managed-clickhouse-maintenanceTask-viewer}
+
+{% include [managed-clickhouse.maintenanceTask.viewer](../_roles/managed-clickhouse/maintenanceTask/viewer.md) %}
+
+#### managed-clickhouse.maintenanceTask.editor {#managed-clickhouse-maintenanceTask-editor}
+
+{% include [managed-clickhouse.maintenanceTask.editor](../_roles/managed-clickhouse/maintenanceTask/editor.md) %}
 
 For more information, see [{#T}](../managed-clickhouse/security.md).
 
@@ -1557,6 +1739,10 @@ For more information, see [{#T}](../managed-gitlab/security/index.md).
 
 {% include [managed-greenplum.restorer](../_roles/managed-greenplum/restorer.md) %}
 
+#### managed-greenplum.user {#managed-greenplum-user}
+
+{% include [managed-greenplum.user](../_roles/managed-greenplum/user.md) %}
+
 #### managed-greenplum.editor {#managed-greenplum-editor}
 
 {% include [managed-greenplum.editor](../_roles/managed-greenplum/editor.md) %}
@@ -1564,6 +1750,14 @@ For more information, see [{#T}](../managed-gitlab/security/index.md).
 #### managed-greenplum.admin {#managed-greenplum-admin}
 
 {% include [managed-greenplum.admin](../_roles/managed-greenplum/admin.md) %}
+
+#### managed-greenplum.maintenanceTask.viewer {#managed-greenplum-maintenanceTask-viewer}
+
+{% include [managed-greenplum.maintenanceTask.viewer](../_roles/managed-greenplum/maintenanceTask/viewer.md) %}
+
+#### managed-greenplum.maintenanceTask.editor {#managed-greenplum-maintenanceTask-editor}
+
+{% include [managed-greenplum.maintenanceTask.editor](../_roles/managed-greenplum/maintenanceTask/editor.md) %}
 
 For more information, see [{#T}](../managed-greenplum/security/index.md).
 
@@ -1590,6 +1784,10 @@ For more information, see [{#T}](../managed-greenplum/security/index.md).
 
 {% include [k8s.cluster-api.editor](../_roles/k8s/cluster-api/editor.md) %}
 
+#### k8s.cluster-api.admin {#k8s-cluster-api-admin}
+
+{% include [k8s.cluster-api.admin](../_roles/k8s/cluster-api/admin.md) %}
+
 #### k8s.cluster-api.cluster-admin {#k8s-cluster-api-cluster-admin}
 
 {% include [k8s.cluster-api.cluster-admin](../_roles/k8s/cluster-api/cluster-admin.md) %}
@@ -1603,31 +1801,6 @@ For more information, see [{#T}](../managed-greenplum/security/index.md).
 {% include [k8s.clusters.agent](../_roles/k8s/clusters/agent.md) %}
 
 For more information, see [{#T}](../managed-kubernetes/security/index.md).
-
-
-## {{ mmg-full-name }} {#managed-mongodb-roles}
-
-#### managed-mongodb.auditor {#managed-mongodb-auditor}
-
-{% include [managed-mongodb.auditor](../_roles/managed-mongodb/auditor.md) %}
-
-#### managed-mongodb.viewer {#managed-mongodb-viewer}
-
-{% include [managed-mongodb.viewer](../_roles/managed-mongodb/viewer.md) %}
-
-#### managed-mongodb.restorer {#managed-mongodb-restorer}
-
-{% include [managed-mongodb.restorer](../_roles/managed-mongodb/restorer.md) %}
-
-#### managed-mongodb.editor {#managed-mongodb-editor}
-
-{% include [managed-mongodb.editor](../_roles/managed-mongodb/editor.md) %}
-
-#### managed-mongodb.admin {#managed-mongodb-admin}
-
-{% include [managed-mongodb.admin](../_roles/managed-mongodb/admin.md) %}
-
-For more information, see [{#T}](../storedoc/security/index.md).
 
 
 ## {{ mmy-full-name }} {#managed-mysql-roles}
@@ -1648,6 +1821,14 @@ For more information, see [{#T}](../storedoc/security/index.md).
 
 {% include [managed-mysql.restorer](../_roles/managed-mysql/restorer.md) %}
 
+#### managed-mysql.user {#managed-mysql-user}
+
+{% include [managed-mysql.user](../_roles/managed-mysql/user.md) %}
+
+#### managed-mysql.switcher {#managed-mysql-switcher}
+
+{% include [managed-mysql.switcher](../_roles/managed-mysql/switcher.md) %}
+
 #### managed-mysql.editor {#managed-mysql-editor}
 
 {% include [managed-mysql.editor](../_roles/managed-mysql/editor.md) %}
@@ -1655,6 +1836,14 @@ For more information, see [{#T}](../storedoc/security/index.md).
 #### managed-mysql.admin {#managed-mysql-admin}
 
 {% include [managed-mysql.admin](../_roles/managed-mysql/admin.md) %}
+
+#### managed-mysql.maintenanceTask.viewer {#managed-mysql-maintenanceTask-viewer}
+
+{% include [managed-mysql.maintenanceTask.viewer](../_roles/managed-mysql/maintenanceTask/viewer.md) %}
+
+#### managed-mysql.maintenanceTask.editor {#managed-mysql-maintenanceTask-editor}
+
+{% include [managed-mysql.maintenanceTask.editor](../_roles/managed-mysql/maintenanceTask/editor.md) %}
 
 For more information, see [{#T}](../managed-mysql/security/index.md).
 
@@ -1673,6 +1862,10 @@ For more information, see [{#T}](../managed-mysql/security/index.md).
 
 {% include [opensearch.restorer](../_roles/managed-opensearch/restorer.md) %}
 
+#### managed-opensearch.user {#managed-opensearch-user}
+
+{% include [managed-opensearch.user](../_roles/managed-opensearch/user.md) %}
+
 #### managed-opensearch.editor {#managed-opensearch-editor}
 
 {% include [opensearch.editor](../_roles/managed-opensearch/editor.md) %}
@@ -1680,6 +1873,14 @@ For more information, see [{#T}](../managed-mysql/security/index.md).
 #### managed-opensearch.admin {#managed-opensearch-admin}
 
 {% include [opensearch.admin](../_roles/managed-opensearch/admin.md) %}
+
+#### managed-opensearch.maintenanceTask.viewer {#managed-opensearch-maintenanceTask-viewer}
+
+{% include [managed-opensearch.maintenanceTask.viewer](../_roles/managed-opensearch/maintenanceTask/viewer.md) %}
+
+#### managed-opensearch.maintenanceTask.editor {#managed-opensearch-maintenanceTask-editor}
+
+{% include [managed-opensearch.maintenanceTask.editor](../_roles/managed-opensearch/maintenanceTask/editor.md) %}
 
 For more information, see [{#T}](../managed-opensearch/security/index.md).
 
@@ -1702,6 +1903,14 @@ For more information, see [{#T}](../managed-opensearch/security/index.md).
 
 {% include [managed-postgresql.restorer](../_roles/managed-postgresql/restorer.md) %}
 
+#### managed-postgresql.user {#managed-postgresql-user}
+
+{% include [managed-postgresql.user](../_roles/managed-postgresql/user.md) %}
+
+#### managed-postgresql.switcher {#managed-postgresql-switcher}
+
+{% include [managed-postgresql.switcher](../_roles/managed-postgresql/switcher.md) %}
+
 #### managed-postgresql.editor {#managed-postgresql-editor}
 
 {% include [managed-postgresql.editor](../_roles/managed-postgresql/editor.md) %}
@@ -1709,6 +1918,14 @@ For more information, see [{#T}](../managed-opensearch/security/index.md).
 #### managed-postgresql.admin {#managed-postgresql-admin}
 
 {% include [managed-postgresql.admin](../_roles/managed-postgresql/admin.md) %}
+
+#### managed-postgresql.maintenanceTask.viewer {#managed-postgresql-maintenanceTask-viewer}
+
+{% include [managed-postgresql.maintenanceTask.viewer](../_roles/managed-postgresql/maintenanceTask/viewer.md) %}
+
+#### managed-postgresql.maintenanceTask.editor {#managed-postgresql-maintenanceTask-editor}
+
+{% include [managed-postgresql.maintenanceTask.editor](../_roles/managed-postgresql/maintenanceTask/editor.md) %}
 
 For more information, see [{#T}](../managed-postgresql/security/index.md).
 
@@ -1735,10 +1952,22 @@ For more information, see [{#T}](../managed-postgresql/security/index.md).
 
 {% include [managed-spqr.admin](../_roles/managed-spqr/admin.md) %}
 
+#### managed-spqr.maintenanceTask.viewer {#managed-spqr-maintenanceTask-viewer}
+
+{% include [managed-spqr.maintenanceTask.viewer](../_roles/managed-spqr/maintenanceTask/viewer.md) %}
+
+#### managed-spqr.maintenanceTask.editor {#managed-spqr-maintenanceTask-editor}
+
+{% include [managed-spqr.maintenanceTask.editor](../_roles/managed-spqr/maintenanceTask/editor.md) %}
+
 For more information, see [{#T}](../managed-spqr/security.md).
 
 
 ## {{ mrd-full-name }} {#mrd-roles}
+
+#### managed-redis.clusters.connector {#managed-redis-clusters-connector}
+
+{% include [managed-redis.clusters.connector](../_roles/managed-redis/clusters/connector.md) %}
 
 #### managed-redis.auditor {#managed-redis-auditor}
 
@@ -1752,6 +1981,14 @@ For more information, see [{#T}](../managed-spqr/security.md).
 
 {% include [managed-redis.restorer](../_roles/managed-redis/restorer.md) %}
 
+#### managed-redis.user {#managed-redis-user}
+
+{% include [managed-redis.user](../_roles/managed-redis/user.md) %}
+
+#### managed-redis.switcher {#managed-redis-switcher}
+
+{% include [managed-redis.switcher](../_roles/managed-redis/switcher.md) %}
+
 #### managed-redis.editor {#managed-redis-editor}
 
 {% include [managed-redis.editor](../_roles/managed-redis/editor.md) %}
@@ -1760,9 +1997,15 @@ For more information, see [{#T}](../managed-spqr/security.md).
 
 {% include [managed-redis.admin](../_roles/managed-redis/admin.md) %}
 
+#### managed-redis.maintenanceTask.viewer {#managed-redis-maintenanceTask-viewer}
+
+{% include [managed-redis.maintenanceTask.viewer](../_roles/managed-redis/maintenanceTask/viewer.md) %}
+
+#### managed-redis.maintenanceTask.editor {#managed-redis-maintenanceTask-editor}
+
+{% include [managed-redis.maintenanceTask.editor](../_roles/managed-redis/maintenanceTask/editor.md) %}
+
 For more information, see [{#T}](../managed-valkey/security/index.md).
-
-
 
 
 ## {{ mms-full-name }} {#mms-roles}
@@ -1788,6 +2031,68 @@ For more information, see [{#T}](../managed-valkey/security/index.md).
 {% include [managed-sqlserver.admin](../_roles/managed-sqlserver/admin.md) %}
 
 
+## {{ mtr-full-name }} {#mtr-roles}
+
+#### managed-trino.auditor {#managed-trino-auditor}
+
+{% include [managed-trino.auditor](../_roles/managed-trino/auditor.md) %}
+
+#### managed-trino.viewer {#managed-trino-viewer}
+
+{% include [managed-trino.viewer](../_roles/managed-trino/viewer.md) %}
+
+#### managed-trino.user {#managed-trino-user}
+
+{% include [managed-trino.user](../_roles/managed-trino/user.md) %}
+
+#### managed-trino.editor {#managed-trino-editor}
+
+{% include [managed-trino.editor](../_roles/managed-trino/editor.md) %}
+
+#### managed-trino.admin {#managed-trino-admin}
+
+{% include [managed-trino.admin](../_roles/managed-trino/admin.md) %}
+
+#### managed-trino.maintenanceTask.viewer {#managed-trino-maintenanceTask-viewer}
+
+{% include [managed-trino.maintenanceTask.viewer](../_roles/managed-trino/maintenanceTask/viewer.md) %}
+
+#### managed-trino.maintenanceTask.editor {#managed-trino-maintenanceTask-editor}
+
+{% include [managed-trino.maintenanceTask.editor](../_roles/managed-trino/maintenanceTask/editor.md) %}
+
+#### managed-trino.integrationProvider {#managed-trino-integrationProvider}
+
+{% include [managed-trino.integrationProvider](../_roles/managed-trino/integrationProvider.md) %}
+
+For more information, see [{#T}](../managed-trino/security.md).
+
+
+## {{ myt-full-name }} {#myt-roles}
+
+#### managed-ytsaurus.auditor {#managed-ytsaurus-auditor}
+
+{% include [managed-ytsaurus.auditor](../_roles/managed-ytsaurus/auditor.md) %}
+
+#### managed-ytsaurus.viewer {#managed-ytsaurus-viewer}
+
+{% include [managed-ytsaurus.viewer](../_roles/managed-ytsaurus/viewer.md) %}
+
+#### managed-ytsaurus.user {#managed-ytsaurus-user}
+
+{% include [managed-ytsaurus.user](../_roles/managed-ytsaurus/user.md) %}
+
+#### managed-ytsaurus.editor {#managed-ytsaurus-editor}
+
+{% include [managed-ytsaurus.editor](../_roles/managed-ytsaurus/editor.md) %}
+
+#### managed-ytsaurus.admin {#managed-ytsaurus-admin}
+
+{% include [managed-ytsaurus.admin](../_roles/managed-ytsaurus/admin.md) %}
+
+For more information, see [{#T}](../managed-ytsaurus/security/index.md).
+
+
 ## {{ ydb-full-name }} {#ydb-roles}
 
 #### ydb.auditor {#ydb-auditor}
@@ -1811,6 +2116,47 @@ For more information, see [{#T}](../managed-valkey/security/index.md).
 {% include [ydb.kafkaApi.client](../_roles/ydb/kafkaApi/client.md) %}
 
 For more information, see [{#T}](../ydb/security/index.md).
+
+
+## {{ mmg-full-name }} {#storedoc-roles}
+
+#### managed-mongodb.auditor {#managed-mongodb-auditor}
+
+{% include [managed-mongodb.auditor](../_roles/managed-mongodb/auditor.md) %}
+
+#### managed-mongodb.viewer {#managed-mongodb-viewer}
+
+{% include [managed-mongodb.viewer](../_roles/managed-mongodb/viewer.md) %}
+
+#### managed-mongodb.restorer {#managed-mongodb-restorer}
+
+{% include [managed-mongodb.restorer](../_roles/managed-mongodb/restorer.md) %}
+
+#### managed-mongodb.user {#managed-mongodb-user}
+
+{% include [managed-mongodb.user](../_roles/managed-mongodb/user.md) %}
+
+#### managed-mongodb.switcher {#managed-mongodb-switcher}
+
+{% include [managed-mongodb.switcher](../_roles/managed-mongodb/switcher.md) %}
+
+#### managed-mongodb.editor {#managed-mongodb-editor}
+
+{% include [managed-mongodb.editor](../_roles/managed-mongodb/editor.md) %}
+
+#### managed-mongodb.admin {#managed-mongodb-admin}
+
+{% include [managed-mongodb.admin](../_roles/managed-mongodb/admin.md) %}
+
+#### managed-mongodb.maintenanceTask.viewer {#managed-mongodb-maintenanceTask-viewer}
+
+{% include [managed-mongodb.maintenanceTask.viewer](../_roles/managed-mongodb/maintenanceTask/viewer.md) %}
+
+#### managed-mongodb.maintenanceTask.editor {#managed-mongodb-maintenanceTask-editor}
+
+{% include [managed-mongodb.maintenanceTask.editor](../_roles/managed-mongodb/maintenanceTask/editor.md) %}
+
+For more information, see [{#T}](../storedoc/security/index.md).
 
 
 ## {{ message-queue-full-name }} {#message-queue-roles}
@@ -1981,12 +2327,12 @@ For more information, see [{#T}](../resource-manager/security/index.md).
 
 {% include [searchapi-admin](../_roles/search-api/admin.md) %}
 
-For more information, see [{#T}](../search-api/security/index.md).
+Learn more in [Access management in {{ search-api-full-name }}]({{ link-docs-ai }}search-api/security/index).
 
 
 ## {{ sd-full-name }} {#security-deck-roles}
 
-### General {{ sd-full-name }} roles {#general-sd-roles}
+### Common {{ sd-name }} roles {#general-sd-roles}
 
 #### security-deck.worker {#security-deck-worker}
 
@@ -2008,9 +2354,9 @@ For more information, see [{#T}](../search-api/security/index.md).
 
 {% include [security-deck.admin](../_roles/security-deck/admin.md) %}
 
-For more information, see [General {{ sd-full-name }} roles](../security-deck/security/index.md).
+For more information, see [Common {{ sd-full-name }} roles](../security-deck/security/index.md).
 
-### {{ dspm-name }} roles {#dspm-roles}
+### {{ dspm-full-name }} ({{ dspm-name }}) service roles {#dspm-roles}
 
 #### dspm.worker {#dspm-worker}
 
@@ -2036,9 +2382,9 @@ For more information, see [General {{ sd-full-name }} roles](../security-deck/se
 
 {% include [dspm.admin](../_roles/dspm/admin.md) %}
 
-For more information, see [Access management in {{ dspm-name }}](../security-deck/security/dspm-roles.md).
+Learn more in [Access management in {{ dspm-name }}](../security-deck/security/dspm-roles.md).
 
-### KSPM roles {#kspm-roles}
+### {{ kspm-full-name }} ({{ kspm-name }}) service roles {#kspm-roles}
 
 #### kspm.worker {#kspm-worker}
 
@@ -2060,9 +2406,9 @@ For more information, see [Access management in {{ dspm-name }}](../security-dec
 
 {% include [kspm.admin](../_roles/kspm/admin.md) %}
 
-For more information, see [Access management in KSPM](../security-deck/security/kspm-roles.md).
+Learn more in [Access management in {{ kspm-name }}](../security-deck/security/kspm-roles.md).
 
-### {{ cspm-name }} roles {#cspm-roles}
+### {{ cspm-full-name }} ({{ cspm-name }}) service roles {#cspm-roles}
 
 #### cspm.worker {#cspm-worker}
 
@@ -2084,9 +2430,9 @@ For more information, see [Access management in KSPM](../security-deck/security/
 
 {% include [cspm.admin](../_roles/cspm/admin.md) %}
 
-For more information, see [Access management in {{ cspm-name }}](../security-deck/security/cspm-roles.md).
+Learn more in [Access management in {{ cspm-name }}](../security-deck/security/cspm-roles.md).
 
-### Access Transparency roles {#access-transparency-roles}
+### Service roles for {{ atr-name }} data analysis {#access-transparency-roles}
 
 #### access-transparency.viewer {#access-transparency-viewer}
 
@@ -2108,9 +2454,9 @@ For more information, see [Access management in {{ cspm-name }}](../security-dec
 
 {% include [access-transparency.subscriptionManager](../_roles/access-transparency/subscriptionManager.md) %}
 
-For more information, see [Access management in Access Transparency](../security-deck/security/access-transparency-roles.md).
+Learn more in [Access management in {{ atr-name }}](../security-deck/security/access-transparency-roles.md).
 
-### {{ alerts-name }} roles {#alerts-roles}
+### Service roles for {{ alerts-name }} {#alerts-roles}
 
 #### security-deck.alertSinks.user {#security-deck-alertSinks-user}
 
@@ -2175,9 +2521,10 @@ For more information, see [Access management in Alerts](../security-deck/securit
 
 For more information, see [{#T}](../serverless-containers/security/index.md).
 
+
 ## {{ si-full-name }} {#serverless-integrations-roles}
 
-### {{ er-full-name }} roles {#eventrouter-roles}
+### {{ er-full-name }} service roles {#eventrouter-roles}
 
 #### serverless.eventrouter.auditor {#serverless-eventrouter-auditor}
 
@@ -2199,9 +2546,9 @@ For more information, see [{#T}](../serverless-containers/security/index.md).
 
 {% include [serverless.eventrouter.admin](../_roles/serverless/eventrouter/admin.md) %}
 
-For more information, see [Access management in {{ er-name }}](../serverless-integrations/security/eventrouter.md).
+Learn more in [Access management in {{ er-name }}](../serverless-integrations/security/eventrouter.md).
 
-### {{ sw-full-name }} roles {#workflows-roles}
+### {{ sw-full-name }} service roles {#workflows-roles}
 
 #### serverless.workflows.auditor {#serverless-workflows-auditor}
 
@@ -2223,7 +2570,21 @@ For more information, see [Access management in {{ er-name }}](../serverless-int
 
 {% include [serverless.workflows.admin](../_roles/serverless/workflows/admin.md) %}
 
-For more information, see [Access management in {{ sw-name }}](../serverless-integrations/security/workflows.md).
+Learn more in [Access management in {{ sw-name }}](../serverless-integrations/security/workflows.md).
+
+
+## {{ yandex-siem-full-name }} {#yandex-siem-roles}
+
+#### ycem.inspector {#ycem-inspector}
+
+{% include [ycem.inspector](../_roles/ycem/inspector.md) %}
+
+#### ycem.executor {#ycem-executor}
+
+{% include [ycem.executor](../_roles/ycem/executor.md) %}
+
+For more information, see [{#T}](../yandex-siem/security/index.md).
+
 
 ## {{ captcha-full-name }} {#captcha-roles}
 
@@ -2281,7 +2642,7 @@ For more information, see [{#T}](../smartwebsecurity/security/index.md).
 
 {% include [speechkit-tts-user](../_roles/ai/speechkit-tts/user.md) %}
 
-For more information, see [{#T}](../speechkit/security/index.md).
+Learn more in [Access management in {{ speechkit-name }}]({{ link-docs-ai }}speechkit/security/index).
 
 
 ## {{ speechsense-full-name }} {#speechsense-roles}
@@ -2323,7 +2684,7 @@ For more information, see [{#T}](../speechsense/security/index.md).
 
 {% include [translate-user](../_roles/ai/translate/user.md) %}
 
-For more information, see [{#T}](../translate/security/index.md).
+Learn more in [Access management in {{ translate-name }}]({{ link-docs-ai }}translate/security/index).
 
 
 ## {{ vpc-full-name }} {#vpc-roles}
@@ -2401,7 +2762,7 @@ For more information, see [{#T}](../vpc/security/index.md).
 
 {% include [vision-user](../_roles/ai/vision/user.md) %}
 
-For more information, see [{#T}](../vision/security/index.md).
+Learn more in [Access management in {{ vision-name }}]({{ link-docs-ai }}vision/security/index).
 
 
 ## {{ websql-full-name }} {#websql-roles}

@@ -2,8 +2,11 @@
 
 Эфемерные ключи доступа создаются для [аккаунтов на Яндексе](../../iam/concepts/users/accounts.md#passport), [федеративных аккаунтов](../../iam/concepts/users/accounts.md#saml-federation), [локальных пользователей](../../iam/concepts/users/accounts.md#local) и [сервисных аккаунтов](../../iam/concepts/users/service-accounts.md).
 
+Чтобы создать эфемерный ключ доступа, пользователю необходима [роль](../../iam/security/index.md#iam-serviceAccounts-ephemeralAccessKeyAdmin) `iam.serviceAccounts.ephemeralAccessKeyAdmin` или выше на каталог.
 
 ## Создать эфемерный ключ доступа {#create}
+
+{% include [access-control-sa-ephemeralkey-notice](./access-control-sa-ephemeralkey-notice.md) %}
 
 {% list tabs group=instructions %}
 

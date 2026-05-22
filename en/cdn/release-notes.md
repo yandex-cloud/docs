@@ -5,6 +5,26 @@ description: This section contains the {{ cdn-name }} release notes.
 
 # {{ cdn-full-name }} release notes
 
+## Q1 2026 {#q1-2026}
+
+* Now you can specify a different [origin](./concepts/origins.md) for a [CDN resource](./concepts/resource.md) in [location rules](./concepts/location-rules.md) without inheriting settings from the main configuration.
+* Implemented [TLS security profiles](./concepts/clients-to-servers-tls.md#tls-profiles) for a CDN resource, containing certain allowed TLS ciphers.
+* Added support for [configuring a custom server name for SNI](./operations/resources/configure-server-name.md).
+* In the [management console]({{ link-console-main }}), implemented the ability to configure for a CDN resource the allowed HTTP `POST` method in client requests as well as [WebSocket](https://{{ lang }}.wikipedia.org/wiki/WebSocket) support. To activate these options, contact [support]({{ link-console-support }}). For more information, see [{#T}](./troubleshooting.md#post-responses) and [{#T}](./troubleshooting.md#websocket-support).
+* Added an [HTTP response configuration](./operations/resources/configure-response.md) option to set a code for a CDN resource redirect or a static response code with a predefined response body.
+* Added a CDN resource blocking status indicator to the management console. The status is displayed if the CDN resource has been blocked for violating the terms of use.
+* Now you can set a custom [content caching](./concepts/caching.md) duration.
+* Now you can set up how to [follow request redirects](./concepts/follow-redirects.md) in the management console.
+
+## Q4 2025 {#q4-2025}
+
+* Implemented [location rules](./concepts/location-rules.md), a mechanism used to selectively redefine CDN resource settings for requests whose paths match a specific pattern.
+* Now you can enable a CDN resource to [follow request redirects](./concepts/follow-redirects.md) from the origin. With this feature on, {{ cdn-name }} sends a request to the address specified in the origin response and then returns content from the target address to the client.
+* Added support for the [WebSocket](https://en.wikipedia.org/wiki/WebSocket) protocol. To enable the feature, contact [support]({{ link-console-support }}).
+* Added new [points of presence](./concepts/points-of-presence.md).
+* Supported the [pricing calculator for {{ cdn-name }}](https://yandex.cloud/en/prices?state=cc0daabb430b#calculator).
+* Added an [{{ at-name }} management event](./at-ref.md), `ResourceDelete`, for deleting a CDN resource.
+
 ## Q3 2025 {#q3-2025}
 
 * Added a {{ cdn-full-name }} provider based on Yandex's proprietary technology.

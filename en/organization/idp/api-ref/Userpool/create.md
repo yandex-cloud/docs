@@ -70,6 +70,11 @@ apiPlayground:
             **[BruteforceProtectionPolicy](#yandex.cloud.organizationmanager.v1.idp.BruteforceProtectionPolicy)**
             Bruteforce protection policy for the userpool.
           $ref: '#/definitions/BruteforceProtectionPolicy'
+        passwordBlacklistPolicy:
+          description: |-
+            **[PasswordBlacklistPolicy](#yandex.cloud.organizationmanager.v1.idp.PasswordBlacklistPolicy)**
+            Password blacklist policy for the userpool.
+          $ref: '#/definitions/PasswordBlacklistPolicy'
       required:
         - organizationId
         - name
@@ -129,21 +134,18 @@ apiPlayground:
             description: |-
               **string** (int64)
               Minimum length for passwords with one character class.
-              The minimum value is 0.
             type: string
             format: int64
           two:
             description: |-
               **string** (int64)
               Minimum length for passwords with two character classes.
-              The minimum value is 0.
             type: string
             format: int64
           three:
             description: |-
               **string** (int64)
               Minimum length for passwords with three character classes.
-              The minimum value is 0.
             type: string
             format: int64
       Fixed:
@@ -173,7 +175,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Minimum length required for all passwords.
-              The minimum value is 0.
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
       Smart:
@@ -183,28 +185,28 @@ apiPlayground:
             description: |-
               **string** (int64)
               For passwords with one class of characters
-              The minimum value is 0.
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           twoClasses:
             description: |-
               **string** (int64)
               For passwords with two classes of characters
-              The minimum value is 0.
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           threeClasses:
             description: |-
               **string** (int64)
               For passwords with three classes of characters
-              The minimum value is 0.
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           fourClasses:
             description: |-
               **string** (int64)
               For passwords with all four classes of characters
-              The minimum value is 0.
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
       PasswordQualityPolicy:
@@ -219,7 +221,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Maximum password length. Zero means no maximum length is enforced.
-              The minimum value is 0.
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           minLength:
@@ -233,7 +235,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Minimum length of substrings to check for similarity to vulnerable sequences.
-              The minimum value is 0.
+              Acceptable values are 0 to 1000, inclusive.
             type: string
             format: int64
           requiredClasses:
@@ -274,7 +276,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Minimum number of days before a password can be changed.
-              The minimum value is 0.
+              Acceptable values are 0 to 730, inclusive.
             type: string
             format: int64
           maxDaysCount:
@@ -282,7 +284,7 @@ apiPlayground:
               **string** (int64)
               Maximum number of days a password remains valid.
               Zero means passwords never expire.
-              The minimum value is 0.
+              Acceptable values are 0 to 730, inclusive.
             type: string
             format: int64
       BruteforceProtectionPolicy:
@@ -304,9 +306,17 @@ apiPlayground:
             description: |-
               **string** (int64)
               Number of failed attempts allowed within the window before blocking.
-              Value must be greater than 0.
+              Acceptable values are 1 to 100, inclusive.
             type: string
             format: int64
+      PasswordBlacklistPolicy:
+        type: object
+        properties:
+          checkCommon:
+            description: |-
+              **boolean**
+              Whether check in common password database is enabled. Default value is true.
+            type: boolean
 ---
 
 # Identity Provider API, REST: Userpool.Create
@@ -374,6 +384,9 @@ POST https://organization-manager.{{ api-host }}/organization-manager/v1/idp/use
     "window": "string",
     "block": "string",
     "attempts": "string"
+  },
+  "passwordBlacklistPolicy": {
+    "checkCommon": "boolean"
   }
 }
 ```
@@ -420,6 +433,9 @@ Password lifetime policy for the userpool. ||
 || bruteforceProtectionPolicy | **[BruteforceProtectionPolicy](#yandex.cloud.organizationmanager.v1.idp.BruteforceProtectionPolicy)**
 
 Bruteforce protection policy for the userpool. ||
+|| passwordBlacklistPolicy | **[PasswordBlacklistPolicy](#yandex.cloud.organizationmanager.v1.idp.PasswordBlacklistPolicy)**
+
+Password blacklist policy for the userpool. ||
 |#
 
 ## UserSettings {#yandex.cloud.organizationmanager.v1.idp.UserSettings}
@@ -455,7 +471,7 @@ Whether passwords similar to previous ones are allowed. ||
 
 Maximum password length. Zero means no maximum length is enforced.
 
-The minimum value is 0. ||
+Acceptable values are 0 to 1000, inclusive. ||
 || minLength | **string** (int64)
 
 Deprecated. Use Fixed instead. ||
@@ -463,7 +479,7 @@ Deprecated. Use Fixed instead. ||
 
 Minimum length of substrings to check for similarity to vulnerable sequences.
 
-The minimum value is 0. ||
+Acceptable values are 0 to 1000, inclusive. ||
 || requiredClasses | **[RequiredClasses](#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.RequiredClasses)**
 
 Deprecated. Use Fixed instead. ||
@@ -514,19 +530,13 @@ Deprecated. Use Smart instead.
 ||Field | Description ||
 || one | **string** (int64)
 
-Minimum length for passwords with one character class.
-
-The minimum value is 0. ||
+Minimum length for passwords with one character class. ||
 || two | **string** (int64)
 
-Minimum length for passwords with two character classes.
-
-The minimum value is 0. ||
+Minimum length for passwords with two character classes. ||
 || three | **string** (int64)
 
-Minimum length for passwords with three character classes.
-
-The minimum value is 0. ||
+Minimum length for passwords with three character classes. ||
 |#
 
 ## Fixed {#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.Fixed}
@@ -551,7 +561,7 @@ Whether special characters are required in the password. ||
 
 Minimum length required for all passwords.
 
-The minimum value is 0. ||
+Acceptable values are 0 to 1000, inclusive. ||
 |#
 
 ## Smart {#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.Smart}
@@ -565,22 +575,22 @@ Zero value means passwords with this number of classes are forbidden.
 
 For passwords with one class of characters
 
-The minimum value is 0. ||
+Acceptable values are 0 to 1000, inclusive. ||
 || twoClasses | **string** (int64)
 
 For passwords with two classes of characters
 
-The minimum value is 0. ||
+Acceptable values are 0 to 1000, inclusive. ||
 || threeClasses | **string** (int64)
 
 For passwords with three classes of characters
 
-The minimum value is 0. ||
+Acceptable values are 0 to 1000, inclusive. ||
 || fourClasses | **string** (int64)
 
 For passwords with all four classes of characters
 
-The minimum value is 0. ||
+Acceptable values are 0 to 1000, inclusive. ||
 |#
 
 ## PasswordLifetimePolicy {#yandex.cloud.organizationmanager.v1.idp.PasswordLifetimePolicy}
@@ -593,13 +603,13 @@ Policy that defines password lifetime requirements.
 
 Minimum number of days before a password can be changed.
 
-The minimum value is 0. ||
+Acceptable values are 0 to 730, inclusive. ||
 || maxDaysCount | **string** (int64)
 
 Maximum number of days a password remains valid.
 Zero means passwords never expire.
 
-The minimum value is 0. ||
+Acceptable values are 0 to 730, inclusive. ||
 |#
 
 ## BruteforceProtectionPolicy {#yandex.cloud.organizationmanager.v1.idp.BruteforceProtectionPolicy}
@@ -619,7 +629,18 @@ Duration of the block after too many failed attempts. ||
 
 Number of failed attempts allowed within the window before blocking.
 
-Value must be greater than 0. ||
+Acceptable values are 1 to 100, inclusive. ||
+|#
+
+## PasswordBlacklistPolicy {#yandex.cloud.organizationmanager.v1.idp.PasswordBlacklistPolicy}
+
+Policy that defines password blacklist requirements.
+
+#|
+||Field | Description ||
+|| checkCommon | **boolean**
+
+Whether check in common password database is enabled. Default value is true. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -703,6 +724,9 @@ Value must be greater than 0. ||
       "window": "string",
       "block": "string",
       "attempts": "string"
+    },
+    "passwordBlacklistPolicy": {
+      "checkCommon": "boolean"
     }
   }
   // end of the list of possible fields
@@ -869,6 +893,9 @@ Password lifetime policy for this userpool. ||
 || bruteforceProtectionPolicy | **[BruteforceProtectionPolicy](#yandex.cloud.organizationmanager.v1.idp.BruteforceProtectionPolicy2)**
 
 Bruteforce protection policy for this userpool. ||
+|| passwordBlacklistPolicy | **[PasswordBlacklistPolicy](#yandex.cloud.organizationmanager.v1.idp.PasswordBlacklistPolicy2)**
+
+Password blacklist policy for this userpool. ||
 |#
 
 ## UserSettings {#yandex.cloud.organizationmanager.v1.idp.UserSettings2}
@@ -904,7 +931,7 @@ Whether passwords similar to previous ones are allowed. ||
 
 Maximum password length. Zero means no maximum length is enforced.
 
-The minimum value is 0. ||
+Acceptable values are 0 to 1000, inclusive. ||
 || minLength | **string** (int64)
 
 Deprecated. Use Fixed instead. ||
@@ -912,7 +939,7 @@ Deprecated. Use Fixed instead. ||
 
 Minimum length of substrings to check for similarity to vulnerable sequences.
 
-The minimum value is 0. ||
+Acceptable values are 0 to 1000, inclusive. ||
 || requiredClasses | **[RequiredClasses](#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.RequiredClasses2)**
 
 Deprecated. Use Fixed instead. ||
@@ -963,19 +990,13 @@ Deprecated. Use Smart instead.
 ||Field | Description ||
 || one | **string** (int64)
 
-Minimum length for passwords with one character class.
-
-The minimum value is 0. ||
+Minimum length for passwords with one character class. ||
 || two | **string** (int64)
 
-Minimum length for passwords with two character classes.
-
-The minimum value is 0. ||
+Minimum length for passwords with two character classes. ||
 || three | **string** (int64)
 
-Minimum length for passwords with three character classes.
-
-The minimum value is 0. ||
+Minimum length for passwords with three character classes. ||
 |#
 
 ## Fixed {#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.Fixed2}
@@ -1000,7 +1021,7 @@ Whether special characters are required in the password. ||
 
 Minimum length required for all passwords.
 
-The minimum value is 0. ||
+Acceptable values are 0 to 1000, inclusive. ||
 |#
 
 ## Smart {#yandex.cloud.organizationmanager.v1.idp.PasswordQualityPolicy.Smart2}
@@ -1014,22 +1035,22 @@ Zero value means passwords with this number of classes are forbidden.
 
 For passwords with one class of characters
 
-The minimum value is 0. ||
+Acceptable values are 0 to 1000, inclusive. ||
 || twoClasses | **string** (int64)
 
 For passwords with two classes of characters
 
-The minimum value is 0. ||
+Acceptable values are 0 to 1000, inclusive. ||
 || threeClasses | **string** (int64)
 
 For passwords with three classes of characters
 
-The minimum value is 0. ||
+Acceptable values are 0 to 1000, inclusive. ||
 || fourClasses | **string** (int64)
 
 For passwords with all four classes of characters
 
-The minimum value is 0. ||
+Acceptable values are 0 to 1000, inclusive. ||
 |#
 
 ## PasswordLifetimePolicy {#yandex.cloud.organizationmanager.v1.idp.PasswordLifetimePolicy2}
@@ -1042,13 +1063,13 @@ Policy that defines password lifetime requirements.
 
 Minimum number of days before a password can be changed.
 
-The minimum value is 0. ||
+Acceptable values are 0 to 730, inclusive. ||
 || maxDaysCount | **string** (int64)
 
 Maximum number of days a password remains valid.
 Zero means passwords never expire.
 
-The minimum value is 0. ||
+Acceptable values are 0 to 730, inclusive. ||
 |#
 
 ## BruteforceProtectionPolicy {#yandex.cloud.organizationmanager.v1.idp.BruteforceProtectionPolicy2}
@@ -1068,5 +1089,16 @@ Duration of the block after too many failed attempts. ||
 
 Number of failed attempts allowed within the window before blocking.
 
-Value must be greater than 0. ||
+Acceptable values are 1 to 100, inclusive. ||
+|#
+
+## PasswordBlacklistPolicy {#yandex.cloud.organizationmanager.v1.idp.PasswordBlacklistPolicy2}
+
+Policy that defines password blacklist requirements.
+
+#|
+||Field | Description ||
+|| checkCommon | **boolean**
+
+Whether check in common password database is enabled. Default value is true. ||
 |#

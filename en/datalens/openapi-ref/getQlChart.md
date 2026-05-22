@@ -9,7 +9,7 @@ editable: false
 Returns the specified QL chart.
 
 ```
-POST https://api.datalens.yandex.net/rpc/getQLChart
+POST https://api.datalens.tech/rpc/getQLChart
 ```
 
 ## Body parameters
@@ -38,7 +38,7 @@ Required field. ID of the QL chart to return. You can find it in the chart setti
 ID of the workbook the QL chart belongs to. If navigation across folders is enabled and the QL chart belongs to a folder, the value must be `null`. ||
 || revId | **string** 
 
-Version ID for the QL chart. For details, see [documentation](https://docs.yandex-team.ru/cloud/datalens/concepts/chart/versioning).
+Version ID for the QL chart.
 
 If the field is empty, you will get the current version of the QL chart. ||
 || includePermissions | **boolean** 

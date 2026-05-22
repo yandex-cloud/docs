@@ -7,3 +7,4 @@ You can set up identity federation with any [SAML]({{ link-saml }})-enabled cred
 * [Configure an identity federation](./setup-federation.md)
 * [Configure user group mapping](./federation-group-mapping.md)
 * [Update a {{ yandex-cloud }} SAML certificate in an identity federation](./renew-yc-certificate.md)
+* [Delete the identity federation](./delete-federation.md)

@@ -18,7 +18,7 @@ The `storage.configViewer` role allows you to view the settings info of buckets 
 * View bucket [labels](../../storage/concepts/tags.md).
 * View object [lifecycle](../../storage/concepts/lifecycles.md) configuration info.
 * View info on current [multipart uploads](../../storage/concepts/multipart.md) of objects and their parts.
-* View [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), and Object Storage statistics.
+* View [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud), [folder](../../resource-manager/concepts/resources-hierarchy.md#folder), and {{ objstorage-name }} statistics.
 * View folder info.
 
 {% endcut %}

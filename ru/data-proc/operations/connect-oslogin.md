@@ -19,12 +19,11 @@ description: Следуя данной инструкции, вы сможете
 
 1. [Включите доступ через {{ oslogin }}](../../organization/operations/os-login-access.md) на уровне организации.
 1. [Настройте группы безопасности](security-groups.md).
-1. Назначьте пользователю или [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), от имени которого выполняется подключение, одну из ролей:
+1. Назначьте пользователю или [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), от имени которого выполняется подключение, необходимые роли:
     
-    * `compute.osLogin`;
-    * `compute.osAdminLogin`.
-  
-    При подключении с помощью {{ yandex-cloud }} CLI дополнительно необходима роль `compute.operator`.
+   * [роль](../../compute/security/index.md#compute-oslogin) `compute.osLogin` или `compute.osAdminLogin`.
+   * [роль](../../resource-manager/security/index.md#resource-manager-auditor) `resource-manager.auditor` или выше на каталог, в котором размещена виртуальная машина.
+   * [роль](../../compute/security/index.md#compute-operator) `compute.operator` для подключении с помощью {{ yandex-cloud }} CLI.
 
 1. {% include [cli-install](../../_includes/cli-install.md) %}
 

@@ -47,22 +47,54 @@ _Инстанс_ {{ GL }} — основная сущность, которой 
 
 * [Установить {{ GLR }} в кластер {{ managed-k8s-name }}](../../managed-kubernetes/operations/applications/gitlab-runner.md).
 * Создать виртуальную машину {{ compute-name }} и [вручную установить на нее {{ GLR }}](../tutorials/install-gitlab-runner.md#install).
-* [Создать с помощью консоли управления раннер](../tutorials/install-gitlab-runner.md#create-runner), который автоматически развернет указанное число виртуальных машин {{ compute-name }}.
+* [Создать раннер, управляемый {{ yandex-cloud }}](#managed-runners).
 
-    При создании раннера из консоли управления вы можете выбрать для хранилища ВМ следующие типы дисков объемом от 15 до 500 ГБ:
+### Управляемые раннеры {#managed-runners}
 
-    * HDD-диски.
-    * SSD-диски.
+{% include [gl-runners-preview](../../_includes/managed-gitlab/gl-runners-preview.md) %}
 
-    Доступны следующие конфигурации вычислительных ресурсов:
+{% include [gl-runners-intro](../../_includes/managed-gitlab/gl-runners-intro.md) %}
 
+{% include [note-payment](../../_includes/managed-gitlab/note-payment.md) %}
+
+Вы можете задать следующие параметры управляемого раннера:
+* Настройки масштабирования:
+
+    {% include [runner-workers](../../_includes/managed-gitlab/runner-workers.md) %}
+
+* Параметры ВМ с воркером:
+  * Конфигурация вычислительных ресурсов воркера:
     * 2 vCPU, 4 ГБ RAM.
     * 2 vCPU, 8 ГБ RAM.
     * 4 vCPU, 16 ГБ RAM.
     * 8 vCPU, 64 ГБ RAM.
     * 16 vCPU, 128 ГБ RAM.
+  * Тип (HDD или SSD) и объем диска. Подробнее см. в разделе [{#T}](../../compute/concepts/disk.md#disks-types).
+  * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md).
 
-    {% include [gl-runners-preview](../../_includes/managed-gitlab/gl-runners-preview.md) %}
+    {% include [sa-worker-info](../../_includes/managed-gitlab/sa-worker-info.md) %}
+
+  * [Группа безопасности](../../vpc/concepts/security-groups.md).
+
+Подробнее о работе с управляемыми раннерами см. на страницах:
+* [{#T}](../operations/runner.md)
+* [{#T}](../tutorials/install-gitlab-runner.md)
+
+### Сетевое взаимодействие между {{ GL }} и управляемыми раннерами {#networking-gl-mr}
+
+Подсеть инстанса, к которому подключен управляемый раннер, должна иметь доступ в интернет (через [NAT-шлюз](../../vpc/concepts/gateways.md) или [NAT-инстанс](../../vpc/tutorials/nat-instance/index.md)).
+
+Настройка сетевого взаимодействия между {{ GL }} и управляемыми раннерами включает обязательные, рекомендуемые и опциональные настройки групп безопасности.
+
+![image](../../_assets/managed-gitlab/networking.svg)
+
+#### Правила для входящего трафика {#ingress-rules-runner}
+
+{% include [mr-ingress-rules](../../_includes/managed-gitlab/mr-ingress-rules.md) %}
+
+#### Правила для исходящего трафика {#egress-rules-runner}
+
+{% include [mr-egress-rules](../../_includes/managed-gitlab/mr-egress-rules.md) %}
 
 ## {{ GL }} Pages {#pages}
 

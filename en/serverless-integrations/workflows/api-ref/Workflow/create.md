@@ -73,6 +73,11 @@ apiPlayground:
             **[WorkflowSchedule](#yandex.cloud.serverless.workflows.v1.WorkflowSchedule)**
             Workflow schedule settings.
           $ref: '#/definitions/WorkflowSchedule'
+        isPublic:
+          description: |-
+            **boolean**
+            Ability of the Workflow to be executed without authentication.
+          type: boolean
       required:
         - folderId
         - name
@@ -115,19 +120,19 @@ apiPlayground:
             description: |-
               **enum** (Level)
               Minimum logs level.
-              See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
+              See [LogLevel.Level](/docs/logging/api-ref/Export/get#yandex.cloud.logging.v1.LogLevel.Level) for details.
               - `TRACE`: Trace log level.
-                Possible use case: verbose logging of some business logic.
+              Possible use case: verbose logging of some business logic.
               - `DEBUG`: Debug log level.
-                Possible use case: debugging special cases in application logic.
+              Possible use case: debugging special cases in application logic.
               - `INFO`: Info log level.
-                Mostly used for information messages.
+              Mostly used for information messages.
               - `WARN`: Warn log level.
-                May be used to alert about significant events.
+              May be used to alert about significant events.
               - `ERROR`: Error log level.
-                May be used to alert about errors in infrastructure, logic, etc.
+              May be used to alert about errors in infrastructure, logic, etc.
               - `FATAL`: Fatal log level.
-                May be used to alert about unrecoverable failures and events.
+              May be used to alert about unrecoverable failures and events.
             type: string
             enum:
               - LEVEL_UNSPECIFIED
@@ -198,7 +203,8 @@ POST https://serverless-workflows.{{ api-host }}/workflows/v1/workflow
   "schedule": {
     "cronExpression": "string",
     "timezone": "string"
-  }
+  },
+  "isPublic": "boolean"
 }
 ```
 
@@ -212,7 +218,7 @@ Required field. ID of the folder to create Workflow in. ||
 Required field. Name of Workflow.
 The name must be unique within the folder.
 
-Value must match the regular expression ` \|[a-z]([-a-z0-9]{0,61}[a-z0-9])? `. ||
+Value must match the regular expression ``` |[a-z]([-a-z0-9]{0,61}[a-z0-9])? ```. ||
 || description | **string**
 
 Description of Workflow.
@@ -241,6 +247,9 @@ Express execution mode. ||
 || schedule | **[WorkflowSchedule](#yandex.cloud.serverless.workflows.v1.WorkflowSchedule)**
 
 Workflow schedule settings. ||
+|| isPublic | **boolean**
+
+Ability of the Workflow to be executed without authentication. ||
 |#
 
 ## WorkflowSpecification {#yandex.cloud.serverless.workflows.v1.WorkflowSpecification}
@@ -275,26 +284,20 @@ Includes only one of the fields `logGroupId`, `folderId`. ||
 
 Minimum logs level.
 
-See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
+See [LogLevel.Level](/docs/logging/api-ref/Export/get#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
 - `TRACE`: Trace log level.
-
-  Possible use case: verbose logging of some business logic.
+Possible use case: verbose logging of some business logic.
 - `DEBUG`: Debug log level.
-
-  Possible use case: debugging special cases in application logic.
+Possible use case: debugging special cases in application logic.
 - `INFO`: Info log level.
-
-  Mostly used for information messages.
+Mostly used for information messages.
 - `WARN`: Warn log level.
-
-  May be used to alert about significant events.
+May be used to alert about significant events.
 - `ERROR`: Error log level.
-
-  May be used to alert about errors in infrastructure, logic, etc.
+May be used to alert about errors in infrastructure, logic, etc.
 - `FATAL`: Fatal log level.
-
-  May be used to alert about unrecoverable failures and events. ||
+May be used to alert about unrecoverable failures and events. ||
 |#
 
 ## WorkflowSchedule {#yandex.cloud.serverless.workflows.v1.WorkflowSchedule}
@@ -361,7 +364,9 @@ Required field. Timezone for the Workflow schedule. ||
     "schedule": {
       "cronExpression": "string",
       "timezone": "string"
-    }
+    },
+    "isPublic": "boolean",
+    "executionUrl": "string"
   }
   // end of the list of possible fields
 }
@@ -518,6 +523,12 @@ Express execution mode. ||
 || schedule | **[WorkflowSchedule](#yandex.cloud.serverless.workflows.v1.WorkflowSchedule2)**
 
 Workflow schedule settings. ||
+|| isPublic | **boolean**
+
+Ability of the Workflow to be executed without authentication. ||
+|| executionUrl | **string**
+
+Execution URL of the Workflow. ||
 |#
 
 ## WorkflowSpecification {#yandex.cloud.serverless.workflows.v1.WorkflowSpecification2}
@@ -552,26 +563,20 @@ Includes only one of the fields `logGroupId`, `folderId`. ||
 
 Minimum logs level.
 
-See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
+See [LogLevel.Level](/docs/logging/api-ref/Export/get#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
 - `TRACE`: Trace log level.
-
-  Possible use case: verbose logging of some business logic.
+Possible use case: verbose logging of some business logic.
 - `DEBUG`: Debug log level.
-
-  Possible use case: debugging special cases in application logic.
+Possible use case: debugging special cases in application logic.
 - `INFO`: Info log level.
-
-  Mostly used for information messages.
+Mostly used for information messages.
 - `WARN`: Warn log level.
-
-  May be used to alert about significant events.
+May be used to alert about significant events.
 - `ERROR`: Error log level.
-
-  May be used to alert about errors in infrastructure, logic, etc.
+May be used to alert about errors in infrastructure, logic, etc.
 - `FATAL`: Fatal log level.
-
-  May be used to alert about unrecoverable failures and events. ||
+May be used to alert about unrecoverable failures and events. ||
 |#
 
 ## WorkflowSchedule {#yandex.cloud.serverless.workflows.v1.WorkflowSchedule2}

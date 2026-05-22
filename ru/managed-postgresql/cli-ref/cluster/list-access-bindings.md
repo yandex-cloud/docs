@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-postgresql/cli-ref/cluster/list-access-bindings
 editable: false
 ---
 

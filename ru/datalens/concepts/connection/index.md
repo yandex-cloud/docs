@@ -24,6 +24,7 @@ _Подключение_ содержит информацию о парамет
   * [{{ GP }}](../../operations/connection/create-greenplum.md)
   * [MS SQL Server](../../operations/connection/create-mssql-server.md)
   * [Oracle Database](../../operations/connection/create-oracle.md)
+  * [{{ SR }}](../../operations/connection/create-starrocks.md)
   * [{{ TR }}](../../operations/connection/create-trino.md)
   * [{{ prometheus-name }}](../../operations/connection/create-prometheus.md)
   * [Snowflake](../../operations/connection/create-snowflake.md)
@@ -56,8 +57,6 @@ _Подключение_ содержит информацию о парамет
 
 
 
-
-Вы можете добавить дополнительные типы подключений из [списка доступных в {{ marketplace-full-name }}](https://yandex.cloud/ru/marketplace?tab=datalens).
 
 ## Подключение внешней БД {#external-db-connection}
 

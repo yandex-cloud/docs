@@ -1,6 +1,6 @@
 ---
 title: How to create a user group in {{ org-full-name }}
-description: Follow this guide to create a user group in {{ org-name }}.
+description: Follow this guide to create a user group in {{ org-full-name }}.
 ---
 
 # Creating a group

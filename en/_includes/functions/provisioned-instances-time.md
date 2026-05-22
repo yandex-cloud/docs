@@ -1,1 +1,1 @@
-Scaling settings take effect within five minutes after being configured.
+Scaling settings take effect within five minutes after they are configured.

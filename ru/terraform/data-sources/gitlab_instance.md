@@ -39,5 +39,6 @@ data "yandex_gitlab_instance" "gitlab_instance_by_id" {
 - `status` (*Read-Only*) (String). Status of the instance.
 - `subnet_id` (**Required**)(String). ID of the subnet where the GitLab instance is located.
 - `updated_at` (*Read-Only*) (String). The timestamp when the instance was updated.
+- `timeouts` [Block].
 
 

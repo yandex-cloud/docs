@@ -1,13 +1,13 @@
 # Создать SAML-приложение в {{ org-full-name }} для интеграции с {{ mgl-name }}
 
-Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в {{ mgl-full-name }} с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications.md#saml) в {{ org-name }} и настройте его на стороне {{ org-name }} и на стороне {{ mgl-name }}.
+Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в {{ mgl-full-name }} с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications.md#saml) в {{ org-full-name }} и настройте его на стороне {{ org-full-name }} и на стороне {{ mgl-name }}.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
 Чтобы дать доступ пользователям вашей организации в {{ mgl-name }}:
 
 1. [Создайте инстанс {{ GL }}](#create-mgl-instance).
-1. [Создайте приложение в {{ org-name }}](#create-app).
+1. [Создайте приложение в {{ org-full-name }}](#create-app).
 1. [Настройте интеграцию](#setup-integration).
 1. [Убедитесь в корректной работе приложения](#validate).
 
@@ -18,7 +18,7 @@
 - Консоль управления {#console}
 
    1. В консоли управления выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать [инстанс {{ GL }}](../../../managed-gitlab/concepts/index.md#instance).
-   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
    1. Нажмите кнопку **{{ ui-key.yacloud.gitlab.button_create-instance }}**.
    1. В верхней части страницы:
 
@@ -48,7 +48,7 @@
 
 {% endlist %}
 
-## Создайте приложение в {{ org-name }} {#create-app}
+## Создайте приложение в {{ org-full-name }} {#create-app}
 
 {% list tabs group=instructions %}
 
@@ -77,7 +77,8 @@
 
 Чтобы интегрировать провайдер аутентификации для {{ GL }} через OmniAuth, добавьте провайдер аутентификации:
 
-1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-gitlab }}**.
 1. Нажмите на созданный инстанс и выберите вкладку **{{ ui-key.yacloud.gitlab.title_omniauth }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.gitlab.button_setup-omniauth }}**.
 1. Чтобы добавить провайдера аутентификации, нажмите кнопку **Add**.
@@ -85,7 +86,7 @@
 
    * **Label** — название провайдера аутентификации. Может быть любым, например `Identity Hub`.
    * **Assertion consumer service URL** — HTTPS-эндпоинт инстанса {{ GL }}. Чтобы сформировать этот URL, добавьте `/users/auth/saml/callback` к адресу вашего инстанса {{ GL }}, например `https://example.gitlab.yandexcloud.net/users/auth/saml/callback`.
-   * **IDP certificate fingerprint** — SHA1-отпечаток открытого ключа сертификата. Используйте значение из поля **{{ ui-key.yacloud_org.application.overview.field_cert-fingerprin }}**, полученное при создании приложения в {{ org-name }}.
+   * **IDP certificate fingerprint** — SHA1-отпечаток открытого ключа сертификата. Используйте значение из поля **{{ ui-key.yacloud_org.application.overview.field_cert-fingerprin }}**, полученное при создании приложения в {{ org-full-name }}.
    * **IDP SSO target URL** — URL провайдера идентификации. Используйте значение из поля **{{ ui-key.yacloud_org.application.overview.saml_field_login }}**.
    * **Issuer** — уникальный идентификатор приложения, в котором будет происходить аутентификация пользователя, например `https://example.gitlab.yandexcloud.net`.
    * **Name identifier format** — формат идентификатора имени, выберите значение `Persistent`.
@@ -131,7 +132,7 @@
     1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.attributes_to71e }}**.
     1. Нажмите на строку с атрибутом `emailaddress` и в открывшемся окне:
 
-        1. В поле **{{ ui-key.yacloud_org.attributes.update_dialog.field_attribute_name }}** измените значение на `email`.
+        1. В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** измените значение на `email`.
         1. Нажмите **{{ ui-key.yacloud.common.update }}**.
 
 {% endlist %}
@@ -140,13 +141,9 @@
 
 ### Добавьте пользователя {#add-user}
 
-Чтобы пользователи вашей организации могли аутентифицироваться в {{ GL }} с помощью SAML-приложения {{ org-name }}, необходимо явно добавить в SAML-приложение нужных пользователей и/или [группы пользователей](../../../organization/concepts/groups.md).
+Чтобы пользователи вашей организации могли аутентифицироваться в {{ GL }} с помощью SAML-приложения {{ org-full-name }}, необходимо явно добавить в SAML-приложение нужных пользователей и/или [группы пользователей](../../../organization/concepts/groups.md).
 
-{% note info %}
-
-Управлять пользователями и группами, добавленными в SAML-приложение, может пользователь, которому назначена [роль](../../../organization/security/index.md#organization-manager-samlApplications-userAdmin) `organization-manager.samlApplications.userAdmin` или выше.
-
-{% endnote %}
+{% include [saml-manage-users](../../../_includes/organization/saml-manage-users.md) %}
 
 1. Добавьте пользователей в приложение:
 

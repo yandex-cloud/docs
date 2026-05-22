@@ -165,3 +165,19 @@ Thresholds can only be set in bytes. For example, the recommended values for a 1
 
 * `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`: `96636764160` bytes (90%)
 * `{{ ui-key.yacloud_monitoring.alert.status_warn }}`: `75161927680` bytes (70%)
+
+#### What is the role of {{ mmg-short-name }} in database management and maintenance? {#services}
+
+{% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}
+
+#### What block size is used on the cluster disks? {#block-size}
+
+{% include [disk-block-size](../../_includes/mdb/disk-block-size.md) %}
+
+{% include [fz-152.md](../../_qa/fz-152.md) %}
+
+{% include [logs](../../_qa/logs.md) %}
+
+#### What is the retention period for logs? {#log-keeping}
+
+{% include [log-duration](../../_includes/mdb/mmg/log-duration.md) %}

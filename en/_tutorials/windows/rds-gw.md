@@ -46,10 +46,11 @@ Create the `rdgw-network` cloud network with a subnet in the availability zone w
 
    - Management console {#console}
     
-        1. Navigate to the folder where you want to create your cloud network and select **{{ vpc-short-name }}**.
-        1. Click **Create network**.
-        1. Specify the network name: `rdgw-network`.
-        1. Click **Create network**.
+      1. In the [management console]({{ link-console-main }}), select a folder where you want to create your cloud network.
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+      1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
+      1. Specify the network name: `rdgw-network`.
+      1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
    
     - CLI {#cli}
       
@@ -81,12 +82,12 @@ Create the `rdgw-network` cloud network with a subnet in the availability zone w
    
     - Management console {#console}
     
-        1. Select **{{ vpc-short-name }}** in the folder where you created the network.
-        1. Click the name of your cloud network.
-        1. Click **Add subnet**.
-        1. Specify `rdgw-subnet` as the subnet name and select the availability zone from the drop-down list (e.g., `{{ region-id }}-d`).
-        1. Enter the subnet CIDR: IP address and subnet mask `10.1.0.0/16`. For more information about IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
-        1. Click **Create subnet**.
+      1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** in the folder where you need to create a subnet.
+      1. Click the name of your cloud network.
+      1. Under **{{ ui-key.yacloud.vpc.network.overview.section_subnetworks }}**, click **{{ ui-key.yacloud.common.create }}**.
+      1. Specify `rdgw-subnet` as the subnet name and select the availability zone from the drop-down list (e.g., `{{ region-id }}-d`).
+      1. Enter the subnet CIDR: IP address and subnet mask `10.1.0.0/16`. For more information about subnet IP address ranges, see [Cloud networks and subnets](../../vpc/concepts/network.md).
+      1. Click **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
    
     - CLI {#cli}
    
@@ -127,12 +128,12 @@ Create and configure a [security group](../../vpc/concepts/security-groups.md).
 
 - Management console {#console}
 
-   1. Select **{{ vpc-short-name }}** in the folder where you want to create a security group.
-   1. Open the **Security groups** tab.
-   1. Click **Create group**.
+   1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}** in the folder where you need to create a security group.
+   1. Open the **{{ ui-key.yacloud.vpc.network.security-groups.label_title }}** tab.
+   1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_create }}**.
    1. Specify the security group name: `my-rdgw-sg`.
-   1. In the **Network** field, select the security group network: `rdgw-network`.
-   1. Under **Rules**, create the following network traffic rules using the instructions below the table:
+   1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-network }}** field, select the network to assign the security group to: `rdgw-network`.
+   1. Under **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}**, create the following network traffic rules using the instructions below the table:
       
         | Traffic</br>direction | Description | Port</br>range | Protocol | Source</br>type | Source/Destination | 
         |---|---|---|---|---|---|
@@ -142,16 +143,16 @@ Create and configure a [security group](../../vpc/concepts/security-groups.md).
         | Inbound | rdgw | 443 | TCP | CIDR | 0.0.0.0/0 |
         | Outbound | default | Any | Any | CIDR | 0.0.0.0/0 |
         
-        1. Select the **Outgoing traffic** or **Incoming traffic** tab.
-        1. Click **Add rule**.
-        1. In the **Port range** field of the window that opens, specify a port or range of ports open for inbound or outbound traffic.
-        1. In the **Protocol** field, specify the protocol or leave **Any** to allow traffic over any protocol.
-        1. In the **Source** or **Destination** field, select the scope of the rule:
-           * **CIDR**: Rule will apply to a range of IP addresses. In the **CIDR blocks** field, specify CIDR IP address ranges of source or destination subnets, respectively. To add more CIDRs, click **Add CIDR**.
-           * **Security group**: Rule will apply to the current or the selected security group VMs.
-        1. Click **Save**. Repeat these steps to create all rules from the table.
+        1. Select the **{{ ui-key.yacloud.vpc.network.security-groups.label_egress }}** or **{{ ui-key.yacloud.vpc.network.security-groups.label_ingress }}** tab.
+        1. Click **{{ ui-key.yacloud.vpc.network.security-groups.button_add-rule }}**.
+        1. In the **{{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-ports }}** field of the window that opens, specify a single port or a range of ports for incoming and outgoing traffic.
+        1. In the **{{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-protocol }}** field, specify the required protocol or leave **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}** to allow traffic over any protocol.
+        1. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}** or **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}** field, select the purpose of the rule:
+           * **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}**: Rule will apply to the range of IP addresses. In the **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}** field, specify the CIDRs and masks of subnets traffic will move to/from. To add multiple CIDRs, click **{{ ui-key.yacloud.vpc.subnetworks.create.button_add-cidr }}**.
+           * **{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-sg }}**: The rule will apply to the current or selected security group VMs.
+        1. Click **{{ ui-key.yacloud.common.save }}**. Repeat these steps to create all rules from the table.
      
-   1. Click **Save**.
+   1. Click **{{ ui-key.yacloud.common.save }}**.
    
 - CLI {#cli}
 
@@ -209,7 +210,7 @@ Create a VM and give it a public IP address:
          * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
      1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
      1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, specify your boot [disk](../../compute/concepts/disk.md) size: `60 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
-     1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
+     1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
          * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
          * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.
@@ -412,7 +413,7 @@ The RDGW VM allows members of the `BUILTIN\Administrators` group to connect to i
             * Click **{{ ui-key.yacloud.compute.component.instance-storage-dialog.button_add-disk }}**.
         1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select the `{{ region-id }}-d` [availability zone](../../overview/concepts/geo-scope.md).
         1. Under **{{ ui-key.yacloud.compute.instances.create.section_storages }}**, set `60 {{ ui-key.yacloud.common.units.label_gigabyte }}` as your boot disk size.
-        1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the required [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
+        1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` tab and specify the [platform](../../compute/concepts/vm-platforms.md), number of vCPUs, and amount of RAM:
 
             * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`.
             * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`.

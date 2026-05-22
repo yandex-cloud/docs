@@ -2,7 +2,6 @@
 
 * [Resolving the `Permission denied` error when connecting to a VM created with {{ TF }}](permission-denied-error-when-connected-as-user-created-from-terraform-manifest.md)
 * [Nested virtualization is not supported](nested-virtualisation-is-not-supported.md)
-* [You are unable to purchase a committed volume of services for {{ compute-short-name }}](unable-to-issue-a-new-cvos-position.md)
 * [Restoring access to a VM with a lost SSH key](restore-access-to-vm.md)
 * [Resolving the `Not enough resources` error when starting a VM](not-enough-resources.md)
 * [Boot disk size failed to increase](disk-volume-did-not-increase.md)

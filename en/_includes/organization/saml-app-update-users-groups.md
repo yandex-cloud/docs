@@ -107,7 +107,7 @@
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     You can check the changes to the resources and their settings in [{{ org-full-name }}]({{ link-org-cloud-center }}).
+     You can check the changes to the resources and their settings in the [{{ cloud-center }} interface]({{ link-org-cloud-center }}).
 
 - API {#api}
 

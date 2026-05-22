@@ -37,7 +37,7 @@ The revocation function was unable to check revocation for the certificate
 
 Ошибка означает, что вы пытаетесь подключиться к кластеру с [хостом в публичном доступе](../../managed-postgresql/concepts/network.md#public-access-to-a-host). Такие хосты поддерживают только соединения с SSL-сертификатом. Вы можете:
 
-* [Получить SSL-сертификат](../../managed-postgresql/operations/connect.md#get-ssl-cert) и добавить его в приложение, которое вы используете для подключения.
+* [Получить SSL-сертификат](../../managed-postgresql/operations/connect/index.md#get-ssl-cert) и добавить его в приложение, которое вы используете для подключения.
 * [Отключить публичный доступ для хостов](../../managed-postgresql/operations/hosts.md#update) и подключаться к кластеру с виртуальной машины, расположенной в той же облачной сети.
 
 #### Что делать, если при подключении я получаю ошибку `too many active clients for user`? {#connection-limit-error}
@@ -108,22 +108,28 @@ could not translate host name "<обычный или специальный FQD
 
 Решение:
 
-* Включите публичный доступ для хоста, к которому выполняется подключение. При использовании [специального FQDN](../../managed-postgresql/operations/connect.md#special-fqdns) включите публичный доступ для хоста, на который указывает специальный FQDN.
+* Включите публичный доступ для хоста, к которому выполняется подключение. При использовании [специального FQDN](../../managed-postgresql/operations/connect/fqdn.md#special-fqdns) включите публичный доступ для хоста, на который указывает специальный FQDN.
 
   {% include [special-fqdns-warning](../../_includes/mdb/special-fqdns-warning.md) %}
 
 * Рекомендуется включить публичный доступ для всех хостов кластера. Это позволит избежать ошибок подключения при автоматической смене хоста-мастера.
 * Для кастомизированных DNS-серверов настройте DNS-перенаправление для зоны `mdb.yandexcloud.net`.
 
-#### Почему я не могу остановить кластер? {#stop-cluster}
+#### Почему возникает ошибка при остановке кластера? {#stop-cluster-error}
 
-Текст ошибки:
+Варианты ошибок:
 
 ```text
 ERROR: rpc error: code = FailedPrecondition desc = Cluster has no backups
 ```
 
-[Остановить](../../managed-postgresql/operations/cluster-stop.md#stop-cluster) кластер, у которого нет резервных копий, невозможно. Чтобы устранить ошибку и остановить кластер, [создайте резервную копию](../../managed-postgresql/operations/cluster-backups.md#create-backup).
+```text
+cluster has no backups. If you want to stop the cluster, make a backup
+```
+
+Ошибка возникает из-за того, что [остановить](../../managed-postgresql/operations/cluster-stop.md#stop-cluster) кластер {{ mpg-name }} можно только при наличии хотя бы одной резервной копии кластера.
+
+Решение: дождитесь создания автоматической резервной копии или [создайте резервную копию вручную](../../managed-postgresql/operations/cluster-backups.md#create-backup).
 
 #### Почему при изменении кластера возникает ошибка `max_connections is less than sum of users connection limit`? {#max-connections-error}
 
@@ -219,13 +225,13 @@ ERROR: cannot execute INSERT in a read-only transaction
 
 Избежать таких ошибок можно любым из способов:
 
-* Подключитесь к кластеру с помощью [особого FQDN](../../managed-postgresql/operations/connect.md#special-fqdns), который всегда указывает на текущий мастер.
+* Подключитесь к кластеру с помощью [особого FQDN](../../managed-postgresql/operations/connect/fqdn.md#special-fqdns), который всегда указывает на текущий мастер.
 
   {% include [special-fqdns-warning](../../_includes/mdb/special-fqdns-warning.md) %}
 
 * При подключении укажите параметр `target_session_attrs=read-write` и перечислите все хосты кластера. Так вы подключитесь к хосту-мастеру с возможностью чтения и записи.
 
-Подробнее о способах подключения к хосту-мастеру см. в разделе [Подключение к базе данных](../../managed-postgresql/operations/connect.md#automatic-master-host-selection).
+Подробнее о способах подключения к хосту-мастеру см. в разделе [Подключение к базе данных](../../managed-postgresql/operations/connect/fqdn.md#automatic-master-host-selection).
 
 #### Что делать, если в логах отображается ошибка `too many connections for role "monitor"`? {#monitor-role-error}
 
@@ -256,3 +262,9 @@ ERROR: cannot execute INSERT in a read-only transaction
   Ошибка может возникать при отсутствии необходимой библиотеки общего пользования в кластере.
 
   Решение: проверьте требования к библиотекам общего пользования в [списке поддерживаемых расширений](../../managed-postgresql/operations/extensions/cluster-extensions.md#postgresql). Чтобы подключить нужную библиотеку, при [изменении настроек кластера {{ PG }}](../../managed-postgresql/operations/update.md#change-postgresql-config) укажите ее имя в [параметре Shared preload libraries](../../managed-postgresql/concepts/settings-list.md#setting-shared-libraries).
+
+#### Почему возникает ошибка `could not open extension control file "<путь_к_расширению>/vector.control": No such file or directory` при обращении к расширению `vector`? {#vector-error}
+
+Ошибка возникает из-за того, что в {{ mpg-name }} расширение `vector` называется `pgvector`.
+
+Решение: при обращении к расширению используйте `pgvector` вместо `vector`.

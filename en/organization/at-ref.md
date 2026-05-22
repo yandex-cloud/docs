@@ -1,13 +1,13 @@
 ---
 title: '{{ org-full-name }} event reference in {{ at-full-name }}'
-description: This page provides a reference for {{ org-name }} events tracked in {{ at-name }}.
+description: This page provides a reference for {{ org-full-name }} events tracked in {{ at-name }}.
 ---
 
 # {{ at-full-name }} event reference
 
-{{ at-name }} supports tracking [control plane](../audit-trails/concepts/format.md) and [data plane](../audit-trails/concepts/format-data-plane.md) events for {{ org-full-name }}.
+{{ at-name }} supports monitoring of both [control plane](../audit-trails/concepts/format.md) (configuration level) and [data plane](../audit-trails/concepts/format-data-plane.md) (service level) events for {{ org-full-name }}.
 
-The `event_type` value follows this general format:
+The general format of the `event_type` field value is as follows:
 
 ```text
 {{ at-event-prefix }}.audit.organizationmanager.<event_name>

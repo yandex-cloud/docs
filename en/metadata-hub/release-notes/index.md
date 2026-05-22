@@ -7,7 +7,7 @@ description: This section contains the {{ metadata-hub-name }} release notes.
 
 {% changelog %}
 ```
-date: 2025-12
+date: 2026-01
 index: 3
 ```
 
@@ -27,6 +27,7 @@ index: 2
 
 ### Data storage
 
+![image](../../_assets/metadata-hub/changelogs/data-store.jpg)
 
 In **Data storage**, you can view datasets uploaded from multiple sources, view details about these sources and links between data.
 
@@ -40,6 +41,7 @@ index: 1
 
 ### MCP metadata server
 
+![image](../../_assets/metadata-hub/changelogs/data-catalog-mcp.png)
 
 Configure an MCP server for {{ data-catalog-name }} and connect AI agents to access new features:
 * Metadata search.
@@ -53,7 +55,17 @@ Configure an MCP server for {{ data-catalog-name }} and connect AI agents to acc
 
 # {{ metadata-hub-full-name }} release notes
 
+## 2026 {#2026}
 
+
+### March {#mar26}
+
+Supported a new data source, [{{ datalens-name }}](../../datalens/index.yaml), which is a business analytics tool for visualizing your data. Now you can [set up ingestions](../operations/data-catalog/create-ingestion.md) from {{ datalens-name }} and [analyze links](../quickstart/data-analyst-quickstart.md) between datasets.
+
+
+### January {#jan26}
+
+You can now configure connections to [{{ schema-registry-name }}](../../metadata-hub/concepts/schema-registry.md) in the [{{ KF }}](../../data-transfer/operations/endpoint/source/kafka.md) and [{{ yds-name }}](../../data-transfer/operations/endpoint/source/data-streams.md) data source settings in {{ data-transfer-name }}.
 
 ## 2025 {#2025}
 

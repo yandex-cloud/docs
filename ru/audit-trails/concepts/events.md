@@ -350,17 +350,23 @@ description: В данном разделе приведены описания 
 
 Имя сервиса — `securitydeck`.
 
-### Модуль Контроль {{ k8s }}® (KSPM) {#sd-kspm}
+### Модуль Контроль {{ k8s }}® ({{ kspm-name }}) {#sd-kspm}
 
 Имя модуля — `securitydeck.kspm`.
 
 {% include [sd-kspm-events](../../_includes/audit-trails/events/sd-kspm-events.md) %}
 
-### Модуль Контроль конфигурации (CSPM) {#sd-cspm}
+### Модуль Контроль конфигурации ({{ cspm-name }}) {#sd-cspm}
 
 Имя модуля — `securitydeck.cspm`.
 
 {% include [sd-cspm-events](../../_includes/audit-trails/events/sd-cspm-events.md) %}
+
+### Модуль {{ alerts-name }} {#sd-alerts}
+
+Имя модуля — `securitydeck.alerts`.
+
+{% include [sd-alerts-events](../../_includes/audit-trails/events/sd-alerts-events.md) %}
 
 ### Окружения {{ sd-name }} {#sd-orchestrator}
 

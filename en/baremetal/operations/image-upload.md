@@ -7,7 +7,7 @@ description: In this tutorial, you will learn how to provision a server from a c
 
 You can add a [custom OS or software product image](../concepts/images.md#user-images) to install it on your server on your own. To proceed, first upload your image file to the {{ objstorage-full-name }} [bucket](../../storage/concepts/bucket.md).
 
-## Uploading an image file to {{ objstorage-name }} {#upload-file}
+## Upload the image file to {{ objstorage-name }} {#upload-file}
 
 {% note alert %}
 
@@ -27,7 +27,7 @@ Create a new image using the link you got in {{ objstorage-name }}:
 
   1. In the [management console]({{ link-console-main }}), select a folder where you want to create your image.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-  1. In the left-hand panel, select ![icon](../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.baremetal.label_images }}**.
+  1. In the left-hand panel, select ![icon](../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.baremetal.label_images_duoXD }}**.
   1. Click **Upload image**.
   1. Specify the image name. The naming requirements are as follows:
 
@@ -67,6 +67,12 @@ Create a new image using the link you got in {{ objstorage-name }}:
       * `--description`: Image description. This is an optional setting.
       * `--uri`: Image link you got in {{ objstorage-name }}.
       * `--labels`: Image labels. This is an optional setting.
+
+- API {#api}
+
+  To create an image in {{ baremetal-name }}, use the [create](../api-ref/Image/create.md) REST API method for the [Image](../api-ref/Image/index.md) resource or the [ImageService/Create](../api-ref/grpc/Image/create.md) gRPC API call.
+  
+  {% include [create-baremetal-image-api](../../_includes/baremetal/create-baremetal-image-api.md) %}
 
 {% endlist %}
 

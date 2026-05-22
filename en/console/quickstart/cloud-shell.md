@@ -11,7 +11,9 @@ To get started with {{ cloud-shell-name }}:
 
 1. Navigate to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }} or sign up if not signed up yet.
 
-1. In the left-hand menu, click ![Cloud Shell](../../_assets/console-icons/cloud-shell.svg) **{{ ui-key.yacloud.cloud-shell.label_service }}**.
+1. On the **[{{ ui-key.yacloud_billing.billing.label_service }}]({{ link-console-billing }})** page, make sure you have a billing account linked and it has the `ACTIVE` or `TRIAL_ACTIVE` [status](../../billing/concepts/billing-account-statuses.md). If you do not have a billing account, [create one](../../billing/quickstart/index.md) and [link](../../billing/operations/pin-cloud.md) a cloud to it.
+
+1. In the [management console]({{ link-console-main }}), select ![Cloud Shell](../../_assets/console-icons/cloud-shell.svg) **{{ ui-key.yacloud.cloud-shell.label_service }}** in the left-hand panel.
 
     A terminal window will open: wait for the session to start and the development environment to be created.
 
@@ -31,7 +33,7 @@ To get started with {{ cloud-shell-name }}:
 
     {% endnote %}
    
-1. Install the required applications using the `apt` tool. For example, to install `postgresql-client` for [connecting to a {{ mpg-full-name }} cluster](../../managed-postgresql/operations/connect.md), run this command:
+1. Install the required applications using the `apt` tool. For example, to install `postgresql-client` for [connecting to a {{ mpg-full-name }} cluster](../../managed-postgresql/operations/connect/index.md), run this command:
 
     ```bash
     sudo apt update && sudo apt install --yes postgresql-client

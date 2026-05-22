@@ -5,6 +5,9 @@ description: Follow this guide to create and configure a regression dashboard in
 
 # Creating and configuring a regression dashboard
 
+{% include [loadtesting-sunset-warning](../../../_includes/load-testing/sunset-warning.md) %}
+
+
 In {{ load-testing-name }}, you can create and configure [regression](../../concepts/load-test-regressions.md) dashboards with [load test](../../concepts/index.md) metric charts.
 If you have no completed tests yet, [create](../create-test-bucket.md) one and run it several times in a row. For examples of test scenarios, see the [Tutorials](../../tutorials/index.md) section. 
 
@@ -14,7 +17,8 @@ If you have no completed tests yet, [create](../create-test-bucket.md) one and r
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+  1. In the [management console]({{ link-console-main }}), open the folder where you want to create your dashboard.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
   1. In the left-hand panel, select ![image](../../../_assets/load-testing/regressions.svg) **{{ ui-key.yacloud.load-testing.label_regressions-title }}**.
   1. Click **{{ ui-key.yacloud.load-testing.button_create-regression-dashboard }}**.
   1. In the window that opens, enter a name and description for the dashboard and click **{{ ui-key.yc-ui-datasphere.common.apply }}**.
@@ -29,7 +33,8 @@ To view load test results, you must select an interval.
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+  1. In the [management console]({{ link-console-main }}), open the folder where you want to configure your dashboard.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
   1. In the left-hand panel, select ![image](../../../_assets/load-testing/regressions.svg) **{{ ui-key.yacloud.load-testing.label_regressions-title }}**.
   1. From the list of dashboards, select the one you need.
   1. Set the interval in one of the following ways:
@@ -69,7 +74,8 @@ On the dashboard, you can set up regression charts with metrics for [response ti
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+  1. In the [management console]({{ link-console-main }}), open the folder where you want to configure your dashboard.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
   1. In the left-hand panel, select ![image](../../../_assets/load-testing/regressions.svg) **{{ ui-key.yacloud.load-testing.label_regressions-title }}**.
   1. From the list of dashboards, select the one you need.
   1. Click **{{ ui-key.yc-ui-datasphere.common.edit }}** and select ![image](../../../_assets/load-testing/plus.svg) **{{ ui-key.yacloud.load-testing.button_create-chart }}**.
@@ -101,7 +107,8 @@ To improve the readability of your charts, add more elements to your dashboard. 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+  1. In the [management console]({{ link-console-main }}), open the folder where you want to configure your dashboard.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
   1. In the left-hand panel, select ![image](../../../_assets/load-testing/regressions.svg) **{{ ui-key.yacloud.load-testing.label_regressions-title }}**.
   1. From the list of dashboards, select the one you need.
   1. Click ![image](../../../_assets/load-testing/header.svg) **Title**.
@@ -117,7 +124,8 @@ To improve the readability of your charts, add more elements to your dashboard. 
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+ 1. In the [management console]({{ link-console-main }}), open the folder where you want to configure your dashboard.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
   1. In the left-hand panel, select ![image](../../../_assets/load-testing/regressions.svg) **{{ ui-key.yacloud.load-testing.label_regressions-title }}**.
   1. From the list of dashboards, select the one you need.
   1. Click ![image](../../../_assets/load-testing/text.svg) **Text**.

@@ -1,4 +1,4 @@
-Images of products placed in the Marketplace must meet the [requirements](../../marketplace/operations/create-image.md#requirements).
+Images of products placed in the Marketplace must meet the [requirements](../../marketplace/concepts/compute-product.md#requirements).
 
 If you do not have a VM image, create one:
 

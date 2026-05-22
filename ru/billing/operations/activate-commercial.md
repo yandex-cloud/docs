@@ -1,10 +1,12 @@
 # Активировать платную версию
 
-Активировать платную версию необходимо в течение шестидесяти дней с момента окончания срока действия пробного периода. В противном случае все ресурсы будут автоматически удалены.
+Юридические лица могут активировать платную версию в течение шестидесяти дней с момента окончания срока действия [пробного периода](../concepts/trial-period.md). В противном случае все ресурсы будут автоматически удалены. Если за время пробного периода вы не израсходовали [стартовый грант](../concepts/bonus-account.md), то оставшуюся сумму можно будет использовать в будущем для оплаты потребленных ресурсов.
 
-{% include [trial-period](../../_includes/trial-period.md) %}
+{% note info %}
 
-Если за время пробного периода вы израсходовали не весь [стартовый грант](../concepts/bonus-account.md), то оставшуюся сумму можно будет использовать в будущем для оплаты потребленных ресурсов.
+Активировать платную версию может пользователь, которому назначена [роль](../security/index.md#billing-accounts-owner) `billing.accounts.owner`.
+
+{% endnote %}
 
 Чтобы перейти к использованию платной версии:
 
@@ -14,7 +16,7 @@
   
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Выберите платежный аккаунт.
-  1. На странице ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_billing.billing.account.switch_overview }}** нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.button_billing-payment-action }}**.
+  1. На странице ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}** нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.button_billing-payment-action }}**.
   1. Подтвердите переход, для этого еще раз нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.button_billing-payment-action }}**.
 
 {% endlist %}

@@ -181,7 +181,7 @@ By default, {{ yandex-cloud }} scans [Helm charts](https://helm.sh/docs/topics/c
 
 ## How one may learn that a secret has been detected {#secret-is-detected}
 
-If a valid secret is detected, the organization owner will get an email from the {{ yandex-cloud }} support email address. It will contain part of the detected secret and the URL of the resource where it is detected.
+If a valid secret is detected, the organization owner or user indicated as the {{ iam-name }} notification recepient in the organization settings will get an email from the {{ yandex-cloud }} support address. The email will include a fragment of the detected secret and the URL of the resource it was exposed in.
 
 {{ iam-name }} will also include the `DetectLeakedCredential` [event](../../audit-trails/concepts/events.md#iam) in the audit log.
 

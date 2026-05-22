@@ -18,6 +18,8 @@ description: Вы можете вызвать контейнер с помощь
 
 ## HTTPS {#https}
 
+{% include [call-limited-by-access-policies-notice](../../_includes/serverless-containers/call-limited-by-access-policies-notice.md) %}
+
 При вызове контейнера через HTTPS внутрь развернутого в контейнере приложения пробрасывается HTTP-запрос.
 
 ### Фильтрация заголовков сообщений {#filter}

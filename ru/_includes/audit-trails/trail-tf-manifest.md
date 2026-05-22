@@ -32,7 +32,7 @@ resource "yandex_audit_trails_trail" "basic_trail" {
     management_events_filter {
       resource_scope {
         resource_id   = "<идентификатор_организации>"
-        resource_type = "resource-manager.organization"
+        resource_type = "organization-manager.organization"
       }
     }  
     data_events_filter {

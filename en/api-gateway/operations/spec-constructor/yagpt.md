@@ -1,9 +1,9 @@
 ---
-title: Adding the {{ foundation-models-full-name }} extension
-description: Follow this guide to add the {{ foundation-models-full-name }} extension using the specification constructor.
+title: Adding the {{ ai-studio-full-name }} extension
+description: Follow this guide to add the {{ ai-studio-full-name }} extension using the specification constructor.
 ---
 
-# Adding the x-yc-apigateway-integration:http extension for integration with the {{ foundation-models-full-name }} text generation API
+# Adding the `x-yc-apigateway-integration:http` extension for integration with the {{ ai-studio-full-name }} text generation API
 
 {% list tabs %}
 
@@ -13,11 +13,11 @@ description: Follow this guide to add the {{ foundation-models-full-name }} exte
     1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
     1. Select an API gateway or click **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}** to create a new one.
     1. In the **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** field, click ![image](../../../_assets/api-gateway/spec-constructor/cloud-yagpt.svg).
-    1. In the field, specify the following:
+    1. Specify the following:
 
         {% include [common-spec-constructor](../../../_includes/api-gateway/common-spec-constructor.md) %}
 
-        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.service_account_id_name }}**: Service account for authorization when accessing the [text generation API](../../../ai-studio/concepts/generation/index.md). If you do not have a service account, [create](../../../iam/operations/sa/create.md) one.
+        * **{{ ui-key.yc-serverless-apigw.dynamic-forms.service_account_id_name }}**: Service account for authorization when accessing the [text generation API]({{ link-docs-ai }}ai-studio/concepts/generation/index). If you do not have a service account, [create](../../../iam/operations/sa/create.md) one.
 
     1. Under **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_model_uri_title }}**, select a model and specify:
 
@@ -33,7 +33,7 @@ description: Follow this guide to add the {{ foundation-models-full-name }} exte
         * `{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_generation_hint }}`:
 
             * Optionally, **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_generation_temp_title }}**: Determines the variability of the model's response. Specify a value from `0` to `1`. With a higher temperature, you get a more creative and randomized response from the model. The default value is `0.3`.
-            * Optionally, **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_generation_max_tokens_title }}**: Maximum number of generation [tokens](../../../ai-studio/concepts/generation/tokens.md). The default is `5`. This allows you to limit the size of the model response, if required.
+            * Optionally, **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_generation_max_tokens_title }}**: Maximum number of generation [tokens]({{ link-docs-ai }}ai-studio/concepts/generation/tokens). The default value is `5`. This allows you to limit the size of the model response, if required.
 
         * `{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_classification_hint }}`:
 
@@ -42,7 +42,7 @@ description: Follow this guide to add the {{ foundation-models-full-name }} exte
 
                 To get correct results, use meaningful class names.
 
-            * Optionally, **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_classification_samples_title }}**: Examples of text requests for classes in `text request:class` format. To add an example, click ![image](../../../_assets/console-icons/plus.svg). For more information, see [{#T}](../../../ai-studio/concepts/classifier/index.md#few-shot).
+            * Optionally, **{{ ui-key.yc-serverless-apigw.dynamic-forms.foundation_models_api_service_text_classification_samples_title }}**: Examples of text requests for classes in `text request:class` format. To add an example, click ![image](../../../_assets/console-icons/plus.svg). For more information, see [Few-shot classifier]({{ link-docs-ai }}ai-studio/concepts/classifier/index#few-shot).
 
     1. Click **{{ ui-key.yacloud.common.add }}**.
 

@@ -8,6 +8,7 @@ editable: false
 
 
 
+
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
@@ -38,6 +39,8 @@ Price per month = {{ sku|USD|api-gateway.requests.v1|pricingRate.0.1|string }} Ã
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
 ### Example of calculating the cost of an API gateway {#price-example}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 {% include [prices-example](../_includes/api-gateway/prices-example.md) %}
 

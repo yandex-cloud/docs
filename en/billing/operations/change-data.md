@@ -12,8 +12,8 @@ The sequence of user actions depends on the type of update.
 
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Select a billing account.
-  1. Go to the **{{ ui-key.yacloud_billing.billing.account.switch_overview }}** page.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_billing.billing.account.dashboard.label_rename }}** at the top next to the account name.
+  1. Go to the ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}** page.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select ![image](../../_assets/console-icons/pencil-to-line.svg) **{{ ui-key.yacloud_billing.billing.account.dashboard.label_rename }}** at the top next to the account name.
   1. Enter a new name.
   1. Click **{{ ui-key.yacloud_billing.billing.account.dashboard-resources.button_action-rename-account }}**.
 
@@ -29,7 +29,7 @@ You can use [Yandex Balance](https://balance.yandex.ru/) to update payer's conta
   
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Select a billing account.
-  1. Go to the **{{ ui-key.yacloud_billing.billing.account.switch_overview }}** page.
+  1. Go to the ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}** page.
   1. Click **{{ ui-key.yacloud_billing.billing.account.dashboard-info.company_label_edit_ru }}**. <br/>This will redirect you to [Yandex Balance](https://balance.yandex.ru/).
   1. Follow the Yandex Balance [guide](https://yandex.ru/support/balance/operations/change-data.html).
 
@@ -37,7 +37,7 @@ You can use [Yandex Balance](https://balance.yandex.ru/) to update payer's conta
 
 ## Changing any details other than TIN {#change-details}
 
-[Write a request](../qa/common.md) to {{ yandex-cloud }} support. In the request, specify the details to modify and the number of the [contract](../concepts/contract.md) and attach a copy of the certificate verifying these changes (signed and stamped with the company's seal).
+[Write a request](../qa/common.md) to Yandex Cloud support {{ yandex-cloud }}. In the request, specify the details to modify and the number of the [contract](../concepts/contract.md) and attach a copy of the certificate verifying these changes (signed and stamped with the company's seal).
 
 ## Changing a business or TIN {#change-legal-entity}
 
@@ -48,6 +48,6 @@ You cannot change a business or TIN in the billing account settings. If these de
 
 ##### See also
 
-* [Link another bank card](pin-card.md)
+* [Link another card](pin-card.md)
 * [Changing the payment method](change-payment-method.md)
 * [Configuring notifications](budgets.md)

@@ -19,7 +19,7 @@ The main entity in {{ data-catalog-name }} is a _metadata catalog_. A catalog se
 * Hub for collecting and storing metadata from various sources.
 * Workspace for marking up metadata. 
 
-You can upload metadata into a catalog using [sources and ingestions](#metadata-upload). Metadata resides in internal storage.
+You can upload metadata into a catalog using [sources and ingestions](#metadata-upload). The metadata will reside in a dedicated [data storage](#data-store), which brings together the metadata of sources from the same managed database cluster or the same custom database installation.
 
 At the very basic level, you can use [domains and subdomains](#domains-and-subdomains), e.g., to arrange metadata by company departments. For a more complex markup, use these resources:
 
@@ -36,8 +36,6 @@ A source is a connection through which the metadata is uploaded. This connection
 
 A source can connect to both clusters of managed databases in {{ yandex-cloud }} and to custom installations of these databases. It can also fetch object links based on ongoing data delivery in {{ data-transfer-full-name }}.
 
-If you create multiple sources for the same DB instance or transfer in one catalog, the single `data store` object associated with this DB instance will be automatically created. This object aggregates all uploaded metadata across all sources of this DB instance or cluster.
-
 An ingestion is a process that connects to the data storage or service specified in the source and uploads its metadata into the catalog. In an ingestion, you can configure:
 
 * Filters to get only relevant metadata.
@@ -48,6 +46,12 @@ An ingestion is exclusively associated with a specific source. However, a source
 You can run an ingestion manually or configure it to run on a schedule. A scheduled ingestion always runs only once, even if the schedule specifies a period and not a specific hour.
 
 {{ data-catalog-name }} has quotas for the maximum number of sources and ingestions in a catalog.
+
+## Data storage {#data-store}
+
+Creating a data source automatically creates a data storage for its metadata. If a folder has multiple sources created for the same managed database cluster or the same custom database installation, their metadata is consolidated in a single storage.
+
+For each storage, you can get information on ingestions, sources, exported data, and links between database or service objects. Storage metadata supports [metadata markup](#metadata-markup) and search.
 
 ## Metadata markup {#metadata-markup}
 

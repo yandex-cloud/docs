@@ -94,9 +94,13 @@ description: Следуя данной инструкции, вы сможете
 
        {% include [security-groups-alert](../../../_includes/managed-kubernetes/security-groups-alert.md) %}
 
-     * `--master-logging` — отправка логов в {{ cloud-logging-name }}:
+     * `--master-logging` — отправка логов в [{{ cloud-logging-full-name }}](../../../logging/):
 
        {% include [master-logging-cli-description.md](../../../_includes/managed-kubernetes/master-logging-cli-description.md) %}
+
+       {% include [note-master-logging-sa](../../../_includes/managed-kubernetes/note-master-logging-sa.md) %}
+
+       {% include [note-master-logging-log-group](../../../_includes/managed-kubernetes/note-master-logging-log-group.md) %}
 
      * `--version` — версию {{ k8s }}.
      * `--latest-revision` — получить все доступные обновления для текущей версии [мастера {{ managed-k8s-name }}](../../concepts/index.md#master).
@@ -116,13 +120,17 @@ description: Следуя данной инструкции, вы сможете
      О том, как создать такой файл, см. в разделе [{#T}](kubernetes-cluster-create.md).
   1. Измените нужные параметры в описании кластера {{ managed-k8s-name }}.
 
-     Чтобы изменить настройки отправки логов в {{ cloud-logging-name }}, измените значения параметров в блоке `master_logging`. Если такого блока нет — создайте его.
+     Чтобы изменить настройки отправки логов в [{{ cloud-logging-full-name }}](../../../logging/), измените значения параметров в блоке `master_logging`. Если такого блока нет — создайте его.
 
      {% include [master-logging-tf.md](../../../_includes/managed-kubernetes/master-logging-tf.md) %}
 
      Где:
 
      {% include [master-logging-tf-description.md](../../../_includes/managed-kubernetes/master-logging-tf-description.md) %}
+
+       {% include [note-master-logging-sa](../../../_includes/managed-kubernetes/note-master-logging-sa.md) %}
+
+       {% include [note-master-logging-log-group](../../../_includes/managed-kubernetes/note-master-logging-log-group.md) %}
 
   1. Проверьте корректность конфигурационных файлов.
 
@@ -141,6 +149,8 @@ description: Следуя данной инструкции, вы сможете
   Чтобы изменить параметры кластера {{ managed-k8s-name }}, воспользуйтесь методом REST API [update](../../managed-kubernetes/api-ref/Cluster/update.md) для ресурса [Cluster](../../managed-kubernetes/api-ref/Cluster/) или вызовом gRPC API [ClusterService/Update](../../managed-kubernetes/api-ref/grpc/Cluster/update.md).
 
   Чтобы изменить настройки отправки логов в {{ cloud-logging-name }}, измените их значения в параметре `masterSpec.masterLogging` для REST API или `master_spec.master_logging` для gRPC API.
+
+  {% include [note-master-logging-sa](../../../_includes/managed-kubernetes/note-master-logging-sa.md) %}
 
 {% endlist %}
 
@@ -161,7 +171,7 @@ description: Следуя данной инструкции, вы сможете
     1. Откройте раздел **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** в [каталоге](../../../resource-manager/concepts/resources-hierarchy.md#folder), где расположен кластер {{ managed-k8s-name }}.
     1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
-    1. В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** нажмите **{{ui-key.yacloud.component.label-set.button_add-label }}**.
+    1. В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
     1. Введите ключ и значение и нажмите **Enter**.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
@@ -200,7 +210,7 @@ description: Следуя данной инструкции, вы сможете
     1. Нажмите на имя нужного кластера {{ managed-k8s-name }}.
     1. Нажмите кнопку **{{ ui-key.yacloud.common.edit }}** в правом верхнем углу.
     1. В поле **{{ ui-key.yacloud.component.label-set.label_labels }}** нажмите на крестик рядом с нужной меткой, чтобы удалить ее.
-    1. Нажмите **{{ui-key.yacloud.component.label-set.button_add-label }}** и введите ключ и/или значение новой метки.
+    1. Нажмите **{{ ui-key.yacloud.component.label-set.button_add-label }}** и введите ключ и/или значение новой метки.
     1. Нажмите **Enter**, а затем — **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}

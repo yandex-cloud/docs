@@ -42,7 +42,7 @@
 После создания функция будет содержать только информацию о себе: имя, описание, уникальный идентификатор и т. д. Непосредственно код навыка будет добавлен в версию функции.
 
 1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана функция.
-1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите ![curly-brackets-function](../../_assets/console-icons/curly-brackets-function.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_serverless-functions }}**.
+1. Нажмите кнопку ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите ![curly-brackets-function](../../_assets/console-icons/curly-brackets-function.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_serverless-functions }}**.
 1. Введите имя функции. Требования к имени:
 
     {% include [name-format](../../_includes/name-format.md) %}
@@ -58,7 +58,7 @@
       1. Отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
       1. Подготовьте код функции:
 
-          * В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` и прикрепите созданный ранее архив `parrot-py.zip`.
+          * В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` и прикрепите созданный ранее архив `parrot-py.zip`.
           * В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** укажите `parrot.handler`.
       1. Задайте параметры версии:
 
@@ -73,7 +73,7 @@
       1. Отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
       1. Подготовьте код функции:
 
-          * В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` и прикрепите созданный ранее архив `parrot-js.zip`.
+          * В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}` и прикрепите созданный ранее архив `parrot-js.zip`.
           * В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** укажите `index.handler`.
       1. Задайте параметры версии:
 

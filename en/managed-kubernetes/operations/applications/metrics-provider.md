@@ -25,8 +25,9 @@ The provider converts a request to collect external metrics from a {{ managed-k8
 
 ## Installation from {{ marketplace-full-name }} {#marketplace-install}
 
-1. Navigate to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Click the name of the {{ managed-k8s-name }} cluster you need and select the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Locate the {{ managed-k8s-name }} cluster you need in the list, click its name, and select the **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [{{ MP }}](/marketplace/products/yc/metric-provider) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
    * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), e.g., `metrics-provider-space`. If you leave the default namespace, {{ MP }} may work incorrectly.
@@ -44,13 +45,13 @@ The provider converts a request to collect external metrics from a {{ managed-k8
 
      {% note info %}
 
-     Select either **Maximum number of points** or **Decimation time window**. Leave these fields blank not to use either setting. For more information, see [this API guide](../../../monitoring/api-ref/MetricsData/read.md).
+     Select either **Maximum number of points** or **Downsampling time window**. Leave these fields blank not to use either setting. For more information, see [this API guide](../../../monitoring/api-ref/MetricsData/read.md).
 
      {% endnote %}
 
    * **Secret Key**: Copy and paste the contents of the `sa-key.json` file or create a new service account access key. The service account must have the `monitoring.viewer` role.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application status to change to `Deployed`.
 
 ## Installation using a Helm chart {#helm-install}
 
@@ -100,7 +101,7 @@ The provider converts a request to collect external metrics from a {{ managed-k8
      * `PREVIOUS`: Returns the value from the previous data point.
    * `yandexMetrics.downsampling.maxPoints`: Maximum number of points to receive in a request response. The value of this parameter must be greater than `10`.
    * `yandexMetrics.downsampling.gridInterval`: Time window (grid) in milliseconds. It is used for downsampling: points inside the window are merged into a single one using the aggregation function. The value of this parameter must be greater than `0`.
-   * `yandexMetrics.downsampling.disabled`: Disable data downsampling; either `true` or `false`.
+   * `yandexMetrics.downsampling.disabled`: Disable data downsampling. The possible values are `true` or `false`.
 
      {% note info %}
 

@@ -27,6 +27,8 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 - Manually {#manual}
 
+    {% include [public-access](../../_includes/mdb/note-public-access.md) %}
+
     1. [Create a {{ mkf-name }} source cluster](../../managed-kafka/operations/cluster-create.md) of any suitable [configuration](../../managed-kafka/concepts/instance-types.md). To be able to connect to the cluster not only from within the {{ yandex-cloud }} network but also from your local machine, enable public access when creating it.
 
     1. [Create a topic](../../managed-kafka/operations/cluster-topics.md#create-topic) in the {{ mkf-name }} cluster.
@@ -96,7 +98,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ### Configure additional settings {#additional-settings}
 
-1. Install the following tools:
+1. Install these tools:
 
     * [kafkacat](https://github.com/edenhill/kcat): For data reads and writes in the {{ KF }} topic.
 
@@ -155,7 +157,7 @@ Let's assume your {{ KF }} topic receives car sensor data. This data will be tra
 
 The {{ mch-name }} cluster will use [JSONEachRow data format]({{ ch.docs }}/interfaces/formats/#jsoneachrow) to insert data into `Kafka` tables. This format converts strings from {{ KF }} messages to the relevant column values.
 
-1. Create a file named `sample.json` with test data:
+1. Create a `sample.json` file with test data:
 
     {% cut "sample.json" %}
 

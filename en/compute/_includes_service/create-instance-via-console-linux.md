@@ -20,6 +20,7 @@
 1. {% include [section-platform](../../_includes/compute/create/section-platform.md) %}
 1. {% include [network-settings](../../_includes/compute/create/section-network.md) %}
 1. {% include [section-access](../../_includes/compute/create/section-access.md) %}
+1. {% include [section-backup](../../_includes/compute/create/section-backup.md) %}    
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, enter a name for your VM:
 
     {% include [name-format](../../_includes/name-format.md) %}

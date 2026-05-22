@@ -6,6 +6,7 @@ description: Follow this guide to create a {{ PG }} cluster with one or multiple
 # Creating a {{ PG }} cluster
 
 
+
 A {{ PG }} cluster is one or more [database hosts](../concepts/index.md) between which you can configure [replication](../concepts/replication.md). Replication is enabled by default in any cluster consisting of more than one host: the master host accepts write requests and duplicates changes on replicas. A transaction is committed once the data is written to [disk](../concepts/storage.md) on both the master host and on a sufficient number of replicas to form a quorum.
 
 {% note info %}
@@ -56,6 +57,8 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
 
+       {% include [local-ssd-steal](../../_includes/mdb/mpg/note-local-ssd-disk.md) %}
+
      * Select the storage capacity for your data and backups. For more information on how backups take up storage space, see [Backups](../concepts/backup.md).
 
      
@@ -82,6 +85,8 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
       * In the **{{ ui-key.yacloud.mdb.cluster.field_diskSizeLimit }}** field, specify the maximum storage size that can be set during automatic scaling.
 
       {% include [storage-resize-steps](../../_includes/mdb/mpg/storage-resize-steps.md) %}
+
+      {% include [storage-resize-process](../../_includes/mdb/mpg/storage-resize-process.md) %}
 
       
       {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
@@ -125,7 +130,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
        {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
-     * [Security groups](../../vpc/concepts/security-groups.md) for the cluster network traffic. You may need to additionally [set up security groups](connect.md#configuring-security-groups) to be able connect to the cluster.
+     * [Security groups](../../vpc/concepts/security-groups.md) for the cluster network traffic. You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to be able connect to the cluster.
 
 
   1. Under **{{ ui-key.yacloud.mdb.forms.section_host }}**, configure the settings for the cluster’s database hosts. By default, each host is created in a separate [subnet](../../vpc/concepts/network.md#subnet). To select a specific subnet for a host, click ![image](../../_assets/console-icons/pencil.svg) next to it.
@@ -198,8 +203,8 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        --environment <environment> \
        --network-name <network_name> \
        --host zone-id=<availability_zone>,`
-                `subnet-id=<subnet_ID>,`
-                `assign-public-ip=<allow_public_access_to_host> \
+             `subnet-id=<subnet_ID>,`
+             `assign-public-ip=<allow_public_access_to_host> \
        --resource-preset <host_class> \
        --user name=<username>,password=<user_password> \
        --database name=<DB_name>,owner=<DB_owner_name> \
@@ -207,14 +212,19 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
        --disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
        --security-group-ids <list_of_security_group_IDs> \
        --connection-pooling-mode=<connection_pooler_mode> \
-       --deletion-protection
+       --deletion-protection \
+       --performance-diagnostics enabled=<enable_statistics_collection>,`
+                                `sessions-sampling-interval=<session_sampling_interval>,`
+                                `statements-sampling-interval=<statement_sampling_interval>
      ```
 
-     
+
      Where:
 
      * `environment`: Environment, `prestable` or `production`.
      * `disk-type`: Disk type.
+
+        {% include [local-ssd-steal](../../_includes/mdb/mpg/note-local-ssd-disk.md) %}
 
      
      * `assign-public-ip`: Allow access to the host from the internet, `true` or `false`.
@@ -224,15 +234,22 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
        By default, when users and databases are created, this setting’s value is inherited from the cluster. You can also specify this setting manually. See [User management](cluster-users.md) and [Database management](databases.md) for details.
 
-       If the setting is changed on a running cluster, the new value will only be inherited by users and databases with **Same as cluster** protection level.
+       If the setting is changed on a running cluster, the new value will only be inherited by users and databases with the **Same as cluster** protection level.
 
        {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
+
+     
+     * `--performance-diagnostics`: [Statistics collection](./performance-diagnostics.md#activate-stats-collector) settings:
+
+       * `enabled`: The value of `true` enables statistics collection. The default value is `false`.
+       * `sessions-sampling-interval`: Session sampling interval in seconds. Allowed values range from `1` to `86400`.
+       * `statements-sampling-interval`: Statement sampling interval in seconds. Allowed values range from `60` to `86400`.
+
 
      
      You need to specify the `subnet-id` if the selected [availability zone](../../overview/concepts/geo-scope.md) has two or more subnets.
 
      {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
-
 
 
      {% include [database-name-limit](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
@@ -260,7 +277,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      
      To encrypt the disk with a [custom KMS key](../../kms/concepts/key.md), provide `--disk-encryption-key-id <KMS_key_ID>`. To learn more about disk encryption, see [Storage](../concepts/storage.md#disk-encryption).
 
-     To allow access to the cluster from [{{ sf-full-name }}](../../functions/), provide the `--serverless-access` parameter. For more information about setting up access, see [this {{ sf-name }} guide](../../functions/operations/database-connection.md).
+     To allow access to the cluster from [{{ sf-full-name }}](../../functions/), provide the `--serverless-access` parameter. For more information on setting up access, see [this {{ sf-name }} guide](../../functions/operations/database-connection.md).
 
      To allow access to the cluster from [{{ yq-full-name }}](../../query/index.yaml), provide `--yandexquery-access=true`. This feature is in the [Preview](../../overview/concepts/launch-stages.md) stage and can be enabled upon request.
 
@@ -425,7 +442,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -457,7 +474,6 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
            "dataLens": <allow_access_from_{{ datalens-name }}>,
            "webSql": <allow_access_from_{{ websql-name }}>,
            "serverless": <allow_access_from_Cloud_Functions>,
-           "dataTransfer": <allow_access_from_Data_Transfer>,
            "yandexQuery": <allow_access_from_{{ yq-name }}>
          },
          "performanceDiagnostics": {
@@ -547,12 +563,11 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
          * `diskEncryptionKeyId`: KMS key ID for disk encryption.
 
        
-       * `access`: Cluster access settings for the following {{ yandex-cloud }} services:
+       * `access`: Settings for access to the cluster from the following {{ yandex-cloud }} services:
 
          * `dataLens`: [{{ datalens-full-name }}](../../datalens/index.yaml)
          * `webSql`: [{{ websql-full-name }}](../../websql/index.yaml)
          * `serverless`: [{{ sf-full-name }}](../../functions/index.yaml)
-         * `dataTransfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
          * `yandexQuery`: [{{ yq-full-name }}](../../query/index.yaml)
 
          The possible setting values are `true` or `false`.
@@ -587,9 +602,12 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
      * `hostSpecs`: Cluster host settings as an array of elements, one per host. Each element has the following structure:
 
-       * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md).
+       * `zoneId`: [Availability zone](../../overview/concepts/geo-scope.md)
+
+       
        * `subnetId`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
-       * `assignPublicIp`: Permission to [connect](connect.md) to the host from the internet, `true` or `false`.
+       * `assignPublicIp`: Permission to [connect](connect/index.md) to the host from the internet, `true` or `false`.
+
 
      * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings:
 
@@ -611,7 +629,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -644,7 +662,6 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
            "data_lens": <allow_access_from_{{ datalens-name }}>,
            "web_sql": <allow_access_from_{{ websql-name }}>,
            "serverless": <allow_access_from_Cloud_Functions>,
-           "data_transfer": <allow_access_from_Data_Transfer>,
            "yandex_query": <allow_access_from_{{ yq-name }}>
          },
          "performance_diagnostics": {
@@ -734,12 +751,11 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
          * `disk_encryption_key_id`: KMS key ID for disk encryption.
 
        
-       * `access`: Cluster access settings for the following {{ yandex-cloud }} services:
+       * `access`: Settings for access to the cluster from the following {{ yandex-cloud }} services:
 
          * `data_lens`: [{{ datalens-full-name }}](../../datalens/index.yaml)
          * `web_sql`: [{{ websql-full-name }}](../../websql/index.yaml)
          * `serverless`: [{{ sf-full-name }}](../../functions/index.yaml)
-         * `data_transfer`: [{{ data-transfer-full-name }}](../../data-transfer/index.yaml)
          * `yandex_query`: [{{ yq-full-name }}](../../query/index.yaml)
 
          The possible values are `true` or `false`.
@@ -775,9 +791,12 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
      * `host_specs`: Cluster host settings as an array of elements, one per host. Each element has the following structure:
 
        * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
+
+       
        * `subnet_id`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
-       * `assign_public_ip`: Permission for internet [access](connect.md) to the host.
-    
+       * `assign_public_ip`: Permission for internet [access](connect/index.md) to the host.
+
+
      * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings:
 
        * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
@@ -805,7 +824,7 @@ To create a {{ mpg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vp
 
 {% note warning %}
 
-If you specified security group IDs when creating a cluster, you may also need to [configure security groups](connect.md#configuring-security-groups) to connect to it.
+If you specified security group IDs when creating a cluster, you may also need to [configure security groups](connect/index.md#configuring-security-groups) to connect to it.
 
 {% endnote %}
 
@@ -851,9 +870,9 @@ To create a {{ PG }} cluster copy:
         terraform show
         ```
 
-    1. Copy it from the terminal and paste it into the `.tf` file.
-    1. Place the file in the new `imported-cluster` directory.
-    1. Edit the copied configuration so that you can create a new cluster from it:
+    1. Copy it from your terminal and paste it into the `.tf` file.
+    1. Create a new directory `imported-cluster` and move your configuration file there.
+    1. Modify the configuration so that you can use it to create a new cluster:
 
         * Specify the new cluster name in the `resource` string and the `name` parameter.
         * Delete `created_at`, `health`, `id`, and `status`.
@@ -862,11 +881,11 @@ To create a {{ PG }} cluster copy:
         * If the `maintenance_window` section contains `type = "ANYTIME"`, delete the `hour` setting.
         * Optionally, make further changes if you need a customized configuration.
 
-    1. Navigate to the `imported-cluster` directory and [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
+    1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
 
     1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Instead of manually creating the provider configuration file, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
-    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
+    1. Move the configuration file to the `imported-cluster` directory and [specify the arguments](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
 
     1. Validate your {{ TF }} configuration:
 
@@ -901,7 +920,7 @@ To create a {{ PG }} cluster copy:
   
   * Name: `mypg`.
   * Environment: `production`.
-  * Network: `default`.
+  * Network: `{{ network-name }}`.
   * Security group: `{{ security-group }}`.
   * One `{{ host-class }}` host in the `b0rcctk2rvtr********` subnet and `{{ region-id }}-a` availability zone.
   * Network SSD storage (`{{ disk-type-example }}`): 20 GB.
@@ -917,7 +936,7 @@ To create a {{ PG }} cluster copy:
   {{ yc-mdb-pg }} cluster create \
      --name mypg \
      --environment production \
-     --network-name default \
+     --network-name {{ network-name }} \
      --resource-preset {{ host-class }} \
      --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr******** \
      --disk-type {{ disk-type-example }} \

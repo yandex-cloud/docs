@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/backup/cli-ref/
 editable: false
 ---
 
@@ -59,6 +60,10 @@ Syntax:
 - [yc backup provider](provider/index.md) — Manage backup provider
 
   - [yc backup provider activate](provider/activate.md) — Activate backup provider
+
+- [yc backup v0](v0/index.md) — Manage Yandex Cloud Backup resources
+
+
 
 - [yc backup vm](vm/index.md) — Manage resources
 

@@ -27,7 +27,7 @@ Before connecting, install [MongoDB Shell](index.md#install-mongosh).
 
 {% list tabs group=connection %}
 
-- Connecting over SSL for {{ SD }} version 4.2 and above {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
     For a non-sharded cluster:
 
@@ -53,31 +53,9 @@ Before connecting, install [MongoDB Shell](index.md#install-mongosh).
             <DB_name>
     ```
 
-- Connecting over SSL for {{ SD }} version 4.0 {#with-ssl-4}
+    {% include [see-fqdn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
 
-    For a non-sharded cluster:
-
-    ```bash
-    mongosh --norc \
-            --ssl \
-            --sslCAFile ~/.mongodb/root.crt \
-            --host '<Yandex_StoreDoc_host_1_FQDN>:{{ port-mmg }},...,<Yandex_StoreDoc_host_N_FQDN>:{{ port-mmg }}' \
-            --username <DB_user_name> \
-            --password <DB_user_password> \
-            <DB_name>
-    ```
-
-    For a sharded cluster:
-
-    ```bash
-    mongosh --norc \
-            --ssl \
-            --sslCAFile ~/.mongodb/root.crt \
-            --host '<MONGOINFRA_or_MONGOS_host_1_FQDN>:27017,...,<MONGOINFRA_or_MONGOS_host_N_FQDN>:27017' \
-            --username <DB_user_name> \
-            --password <DB_user_password> \
-            <DB_name>
-    ```
+    {% include [db-command](../../../_includes/mdb/mmg/db-command.md) %}
 
 - Connecting without SSL {#without-ssl}
 
@@ -101,11 +79,31 @@ Before connecting, install [MongoDB Shell](index.md#install-mongosh).
             <DB_name>
     ```
 
+    {% include [see-fqdn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
+
+    {% include [db-command](../../../_includes/mdb/mmg/db-command.md) %}
+
+- SRV connection {#srv}
+
+    ```bash
+    mongosh "mongodb+srv://<DB_user_name>:<DB_user_password>\
+    @<cluster_ID>.{{ dns-zone }}/<DB_name>"
+    ```
+
+  You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
+
+  {% include [db-command](../../../_includes/mdb/mmg/db-command.md) %}
+
+  {% include [srv-parameters](../../../_includes/mdb/mmg/srv-parameters.md) %}
+
+  Example of a command with connection properties:
+
+    ```bash
+    mongosh "mongodb+srv://user********:qwe********@c9qng7jhsgtg********.{{ dns-zone }}\
+    /db********?authSource=admin&appName=debug"
+    ```
+
 {% endlist %}
-
-{% include [see-fqdn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
-
-Once connected, run the `db` command.
 
 ### Windows (PowerShell) {#powershell}
 
@@ -113,7 +111,7 @@ Before connecting, install [MongoDB Shell](index.md#install-mongosh).
 
 {% list tabs group=connection %}
 
-- Connecting over SSL for {{ SD }} version 4.2 and above {#with-ssl}
+- Connecting with SSL {#with-ssl}
 
     For a non-sharded cluster:
 
@@ -138,6 +136,10 @@ Before connecting, install [MongoDB Shell](index.md#install-mongosh).
                 --password <DB_user_password> `
                 <DB_name>
     ```
+
+    {% include [see-fqdn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
+
+    {% include [db-command](../../../_includes/mdb/mmg/db-command.md) %}
 
 - Connecting without SSL {#without-ssl}
 
@@ -161,17 +163,39 @@ Before connecting, install [MongoDB Shell](index.md#install-mongosh).
                 <DB_name>
     ```
 
+    {% include [see-fqdn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
+
+    {% include [db-command](../../../_includes/mdb/mmg/db-command.md) %}
+
+- SRV connection {#srv}
+
+    ```powershell
+    mongosh.exe "mongodb+srv://<DB_user_name>:<DB_user_password>`
+    @<cluster_ID>.{{ dns-zone }}/<DB_name>"
+    ```
+
+  You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
+
+  {% include [db-command](../../../_includes/mdb/mmg/db-command.md) %}
+
+  {% include [srv-parameters](../../../_includes/mdb/mmg/srv-parameters.md) %}
+
+  Example of a command with connection properties:
+
+    ```powershell
+    mongosh.exe "mongodb+srv://user********:qwe********@c9qng7jhsgtg********.{{ dns-zone }}`
+    /db********?authSource=admin&appName=debug"
+    ```
+
 {% endlist %}
-
-{% include [see-fqdn-host](../../../_includes/mdb/mmg/fqdn-host.md) %}
-
-Once connected, run the `db` command.
 
 ## Connecting from graphical IDEs {#connection-ide}
 
 {% include [ide-environments](../../../_includes/mdb/mmg-ide-envs.md) %}
 
-From graphical IDEs, you can only connect to public cluster hosts using an [SSL certificate](index.md#get-ssl-cert).
+
+From graphical IDEs, you can only connect to public cluster hosts using an SSL certificate.
+
 
 {% include [note-connection-ide](../../../_includes/mdb/note-connection-ide.md) %}
 

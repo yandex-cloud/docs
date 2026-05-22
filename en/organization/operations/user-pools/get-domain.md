@@ -1,6 +1,6 @@
 ---
 title: How to view domain information in a user pool or federation in {{ org-full-name }}
-description: Follow this guide to view information about a domain in a user pool or federation in {{ org-name }}.
+description: Follow this guide to view information about a domain in a user pool or federation in {{ org-full-name }}.
 ---
 
 # Viewing information about a domain

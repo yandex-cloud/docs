@@ -6,11 +6,7 @@ In the CDN resource settings, you can enable _content caching_ to temporarily st
 
 ## Caching on CDN servers {#server-side}
 
-If caching on CDN servers is enabled for a resource, files are copied from origins to servers when the following events occur:
-
-* The client requested from the CDN a file that hadn't been cached by the server yet.
-* The [lifetime](#server-side-cache-age) of the file copy on the server expired, and the file changed on the origin since that time (otherwise, the lifetime is extended for the same period).
-* You [preloaded](#prefetch) files from origins in the resource settings.
+{% include [cdn-content-caching-prgrph](../../_includes/cdn/cdn-content-caching-prgrph.md) %}
 
 ### Cache lifetime {#server-side-cache-age}
 
@@ -39,13 +35,13 @@ Files from responses with other status codes are not cached.
 
 Requests to the CDN server may contain the same path in the URI but different cookies (the `Set-Cookie` HTTP header) and/or different query parameters. In the resource settings, you can specify how to cache files corresponding to such requests: save one file copy for all requests (that is, ignore cookies and/or query parameters) or consider them different and cache the file separately for each request.
 
-## Preloading content {#prefetch}
+## Cache prefetching {#prefetch}
 
-Individual files can be _preloaded_ from origins, that is, cached manually, without waiting for requests from clients. We recommend that you preload large files (with a size of 200 MB or higher).
+You can forcibly (manually) [fetch](../operations/resources/prefetch-files.md) individual files from sources into the CDN server cache before they are requested by clients. We recommend prefetching large files of 200 MB or more.
 
-You can only preload content that's not on the servers yet. To update the already cached files, [purge the cache](#purge) before preloading.
+{% include [purge-before-prefetch-notice](../../_includes/cdn/purge-before-prefetch-notice.md) %}
 
-There are technical [limits](limits.md) for preloading.
+There are technical [limits](limits.md) on cache prefetching.
 
 ## Purging cache {#purge}
 
@@ -85,6 +81,6 @@ There are technical [limits](limits.md) for cache purging.
 
 #### See also {#see-also}
 
-* [Caching setup guide](../operations/resources/configure-caching.md).
-* [Instructions for preloading content](../operations/resources/prefetch-files.md).
-* [Instructions for purging the cache](../operations/resources/purge-cache.md).
+* [Caching setup guide](../operations/resources/configure-caching.md)
+* [Cache prefetching guide](../operations/resources/prefetch-files.md)
+* [Cache purging guide](../operations/resources/purge-cache.md)

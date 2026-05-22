@@ -37,6 +37,10 @@ items:
         href: llm.md
       - name: MCP-сервер
         href: mcp.md
+      - name: Обработка естественного языка (NLP)
+        href: nlp.md
+      - name: Глубокое обучение (Deep Learning)
+        href: deep-learning.md
   - name: Облачные вычисления и сервера
     items:
       - name: LAMP и LEMP
@@ -85,6 +89,8 @@ items:
         href: backlog.md
       - name: Система контроля версий
         href: vcs.md
+      - name: CI/CD
+        href: ci-cd.md
       - name: Спринт
         href: sprints.md
   - name: Сети и доставка контента

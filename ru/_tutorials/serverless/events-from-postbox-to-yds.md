@@ -62,7 +62,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}** и нажмите кнопку **{{ ui-key.yacloud.ydb.databases.button_create }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}** и нажмите кнопку **{{ ui-key.yacloud.ydb.databases.button_create }}**.
   1. В поле **{{ ui-key.yacloud.ydb.forms.label_field_name }}** укажите `postbox-events-ydb`.
   1. В поле **{{ ui-key.yacloud.ydb.forms.label_field_database-type }}** выберите `{{ ui-key.yacloud.ydb.forms.label_serverless-type_pB7Wx }}`.
   1. Другие параметры базы данных оставьте без изменений и нажмите кнопку **{{ ui-key.yacloud.ydb.forms.button_create-database }}**.
@@ -176,7 +176,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. Выберите базу данных, для которой нужно получить эндпоинт и путь.
 
       * Эндпоинт БД указан в блоке **{{ ui-key.yacloud.ydb.overview.section_connection }}** в первой части значения поля **{{ ui-key.yacloud.ydb.overview.label_endpoint }}** (часть до вхождения `/?database=`):
@@ -199,7 +199,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Создайте функцию:
 
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
@@ -211,7 +211,7 @@
       1. В открывшемся окне **{{ ui-key.yacloud.serverless-functions.item.editor.label_title }}** выберите `{{ python-full-ver }}`.
       1. Отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-      1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
+      1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
       1. Нажмите кнопку **Прикрепить файл** и выберите архив `postbox-events.zip`.
       1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** укажите `index.handler`.
 
@@ -240,7 +240,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}** и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_name }}** введите имя триггера `postbox-events-trigger`.
   1. В поле **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** выберите `{{ ui-key.yacloud.serverless-functions.triggers.form.label_data-streams }}`.
@@ -269,7 +269,7 @@
       * Проверьте БД:
 
           1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-          1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+          1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
           1. Выберите базу данных `postbox-events-ydb`.
           1. Перейдите на вкладку ![image](../../_assets/console-icons/folder.svg) **{{ ui-key.yacloud.ydb.database.switch_browse }}**
           1. Выберите таблицу `postbox_events`.
@@ -290,7 +290,7 @@
 
 - Интерфейс {{ datalens-short-name }} {#console}
 
-  1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
+  1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
   1. На панели слева выберите ![thunderbolt](../../_assets/console-icons/thunderbolt.svg) **Подключения** и нажмите кнопку **Создать подключение**.
   1. Выберите коннектор **{{ ydb-short-name }}**.
   1. Укажите параметры подключения:
@@ -314,7 +314,8 @@
 
 - Интерфейс {{ datalens-short-name }} {#console}
 
-  1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
+  1. Перейдите на [главную страницу]({{ link-datalens-main-promo }}) {{ datalens-short-name }}.
+  1. Нажмите **Начать в облаке**.
   1. На панели слева выберите ![circles-intersection](../../_assets/console-icons/circles-intersection.svg) **Датасеты** и нажмите кнопку **Создать датасет**.
   1. В открывшемся окне выберите воркбук, в котором вы создали подключение, и нажмите кнопку **Создать**.
   1. В блоке **Подключения** нажмите ![plus](../../_assets/console-icons/plus.svg) **Добавить** и выберите созданное ранее подключение `postbox-events-connection`.
@@ -336,7 +337,7 @@
 
 - Интерфейс {{ datalens-short-name }} {#console}
 
-  1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
+  1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
   1. На панели слева выберите ![chart-column](../../_assets/console-icons/chart-column.svg) **Чарты**, нажмите кнопку **Создать чарт** и выберите **Чарт в Wizard**.
   1. В открывшемся окне выберите воркбук, в котором вы создали подключение, и нажмите кнопку **Создать**.
   1. В секции слева нажмите ![circles-intersection](../../_assets/console-icons/circles-intersection.svg) **Выберите датасет** и выберите `postbox-events-dataset`.
@@ -359,7 +360,7 @@
 
 - Интерфейс {{ datalens-short-name }} {#console}
 
-  1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
+  1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
   1. На панели слева выберите ![chart-column](../../_assets/console-icons/chart-column.svg) **Чарты**, нажмите кнопку **Создать чарт** и выберите **Чарт в Wizard**.
   1. В открывшемся окне выберите воркбук, в котором вы создали подключение, и нажмите кнопку **Создать**.
   1. В секции слева нажмите ![image](../../_assets/console-icons/circles-intersection.svg) **Выберите датасет** и выберите `postbox-events-dataset`.
@@ -388,7 +389,7 @@
 
 - Интерфейс {{ datalens-short-name }} {#console}
 
-  1. Перейдите на [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
+  1. Перейдите на [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
   1. На панели слева выберите ![layout-cells-large](../../_assets/console-icons/layout-cells-large.svg) **Дашборды** и нажмите кнопку **Создать дашборд**.
   1. В открывшемся окне выберите воркбук, в котором вы создали подключение, и нажмите кнопку **Создать**.
   1. Добавьте на дашборд чарты `Количество событий по дням`, `Список событий` и другие, которые вы создали ранее:

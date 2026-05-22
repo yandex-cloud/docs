@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/desktops/cli-ref/group/list-desktops
 editable: false
 ---
 

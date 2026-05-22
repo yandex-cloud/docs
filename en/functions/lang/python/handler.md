@@ -40,9 +40,11 @@ A handler can be an `async def` asynchronous function. In this case, you can use
 
 Only the `asyncio` library is supported as a runtime environment for asynchronous functions. 
 
+In Python 3.14 and higher, `asyncio.get_event_loop()` no longer automatically creates an [event loop](https://docs.python.org/3/library/asyncio-eventloop.html), but results in `RuntimeError`. Use `asyncio.get_running_loop()` to manage asynchronous handlers. See [this example](#async-python314-example).
+
 {% endnote %}
 
-For more information about the development process using `async/await`, see the [relevant documentation section](https://docs.python.org/3.7/library/asyncio.html).
+For more information about the development process using `async/await`, see the [relevant documentation section](https://docs.python.org/3.14/library/asyncio.html).
 
 ## Examples {#examples}
 
@@ -166,3 +168,45 @@ Result:
 }
 ```
 
+### Using an asynchronous handler in Python 3.14 {#async-python314-example}
+
+The following function demonstrates how to use an asynchronous handler in Python 3.14 and higher, where explicit event loop management is required:
+
+```python
+import asyncio
+import json
+
+def handler(event, context):
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
+    
+    async def async_handler():
+        current_loop = asyncio.get_running_loop()
+        current_time = current_loop.time()
+        
+        return {
+            'statusCode': 200,
+            'body': json.dumps({
+                'message': 'Async handler with explicit loop creation',
+                'loop_time': current_time,
+                'python_version': '3.14',
+            })
+        }
+    
+    return loop.run_until_complete(async_handler())
+```
+
+Function invocation example:
+
+```bash
+curl \
+  --data '{"test": "asyncio"}' \
+  --header 'Content-Type: application/json' \
+  https://{{ sf-url }}/<function_ID>
+```
+
+Result:
+
+```json
+{"message": "Async handler with explicit loop creation", "loop_time": 3.522407882, "python_version": "3.14"}
+```

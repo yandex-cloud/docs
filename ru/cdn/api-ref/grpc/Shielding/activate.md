@@ -45,17 +45,10 @@ Value must be greater than 0. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "resource_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "location_id": "int64",
-    "data_center": "string",
-    "country": "string",
-    "city": "string"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -83,7 +76,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[ActivateShieldingMetadata](#yandex.cloud.cdn.v1.ActivateShieldingMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -98,7 +91,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[ShieldingDetails](#yandex.cloud.cdn.v1.ShieldingDetails)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -113,37 +106,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## ActivateShieldingMetadata {#yandex.cloud.cdn.v1.ActivateShieldingMetadata}
-
-Metadata for shielding activation, detailing the operations performed.
-
-#|
-||Field | Description ||
-|| resource_id | **string**
-
-Required field. ID of the resource for which shielding is being activated.
-
-The maximum string length in characters is 50. ||
-|#
-
-## ShieldingDetails {#yandex.cloud.cdn.v1.ShieldingDetails}
-
-Message representing the details of a shielding server.
-
-#|
-||Field | Description ||
-|| location_id | **int64**
-
-Unique identifier for the geographical location of the shielding server. ||
-|| data_center | **string**
-
-Name of the data center where the shielding server is located. ||
-|| country | **string**
-
-Country where the shielding server's data center is located, useful for understanding geographical distribution. ||
-|| city | **string**
-
-City where the shielding server's data center is situated, providing a more precise location than just the country. ||
 |#

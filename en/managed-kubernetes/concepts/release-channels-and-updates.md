@@ -12,13 +12,15 @@ description: In this article, you will learn about release channels and how to u
 
 {% include [note-about-version](../../_includes/managed-kubernetes/note-about-version.md) %}
 
-When creating a [{{ managed-k8s-name }} cluster](index.md#kubernetes-cluster), specify one of the three release channels. You cannot change the channel after the {{ managed-k8s-name }} cluster is created. You can only recreate the cluster and specify a new release channel. The table below describes the release channels and supported {{ k8s }} versions.
+When creating a [{{ managed-k8s-name }} cluster](index.md#kubernetes-cluster), specify one of the below release channels. You cannot change the channel after the {{ managed-k8s-name }} cluster is created. You can only recreate the cluster and specify a new release channel.
 
-Channel | {{ k8s }} versions | Auto updates | Channel description
---- | --- | --- | ---
-`rapid`| {{ k8s-versions-rapid }} | Auto updates cannot be disabled. You can specify a time period for auto updates. | A channel receives updates with new features and improvements first.
-`regular`| {{ k8s-versions-regular }} | Auto updates can be disabled. | New features and improvements are added shortly after they appear on `rapid`.
-`stable`| {{ k8s-versions-stable }} | Auto updates can be disabled. | New features and improvements are added shortly after they appear on `regular`.
+Channel | Auto updates | Channel description
+--- | --- | ---
+`RAPID` | Auto updates cannot be disabled. You can specify a time period for auto updates. | A channel receives updates with new features and improvements first.
+`REGULAR`| Auto updates can be disabled. | New features and improvements are added shortly after they appear on `RAPID`.
+`STABLE`| Auto updates can be disabled. | New features and improvements are added shortly after they appear on `REGULAR`.
+
+_For information on supported {{ k8s }} versions in channels, see [this page](./k8s-supported-versions.md)._
 
 {% include [os-new-version](../../_includes/managed-kubernetes/note-os-new-version.md) %}
 
@@ -33,17 +35,17 @@ When a release channel receives an update, you get a notification in the managem
 
 * [Manual updates](../operations/update-kubernetes.md#cluster-manual-upgrade) can be initiated by the user at any time.
 
-  They include {{ k8s }} minor version updates. Note that you can only update on minor version at a time.
+  They include {{ k8s }} minor version updates. Note that you can only update to one minor version at a time.
   
   > For example, from 1.31 to 1.32.
 
-  The version difference between the cluster and the node groups must not exceed two minor versions. The node group version cannot be higher than the cluster version.
+  The difference between the cluster and node group versions must not be more than two minor versions. The node group version cannot be higher than the cluster version.
 
-  > For example, if the cluster version is 1.33, the node group version can be 1.33, 1.32, or 1.31
+  > For example, if the cluster version is 1.33, the node group version may be 1.33, 1.32, or 1.31
 
 {% include [preflight-check](../../_includes/managed-kubernetes/preflight-check.md) %}
 
-Read more about the [{{ k8s }} version’s end of support](#unsupported) and [how different {{ managed-k8s-name }} cluster components](#cluster-upd) are updated.
+Read more about the [end of support for {{ k8s }}](#unsupported) versions and [how different {{ managed-k8s-name }}](#cluster-upd) cluster components are updated.
 
 ### End of support for a {{ k8s }} version {#unsupported}
 
@@ -66,22 +68,13 @@ For more information, see [Updating a cluster](../operations/update-kubernetes.m
 
 #### Node group {#node-group}
 
-You can update a {{ managed-k8s-name }} node group with additional resources allocated by creating nodes with a new configuration.
+The {{ k8s }} version is [updated](../operations/update-kubernetes.md#node-group-upgrade) on group nodes in line with the [deploy policy](./node-group/deploy-policy.md). This policy applies not only during {{ k8s }} version upgrades but also when [editing](../operations/node-group/node-group-update.md) node group settings.
 
-{% note warning %}
+The cluster's behavior will vary depending on how the policy is configured:
 
-For a successful update with additional resources, you should have enough [quotas](limits.md) to create one additional {{ managed-k8s-name }} node.
+{% include [deploy-policy-concept-behavior](../../_includes/managed-kubernetes/deploy-policy/concept-behavior.md) %}
 
-{% endnote %}
-
-The {{ managed-k8s-name }} node group update algorithm is as follows:
-1. An updated node is created with the configuration specified for the entire {{ managed-k8s-name }} node group.
-1. All the [pods](index.md#pod) are [evicted](node-group/node-drain.md) from one of the old {{ managed-k8s-name }} nodes based on the pre-defined `PodDisruptionBudgets` policy. Then the node is deleted.
-1. The process is repeated until all the {{ managed-k8s-name }} nodes in the group are updated.
-
-This ensures that the number of nodes in the group never falls below the number specified when creating a {{ managed-k8s-name }} node group.
-
-You can specify the maximum number of [VM instances](../../compute/concepts/vm.md) by which you can expand or reduce the size of the {{ managed-k8s-name }} group when updating it. For more information, see [Updating a node group](../operations/update-kubernetes.md#node-group-upgrade).
+For more information, see [{#T}](../operations/node-group/node-group-update.md#configure-deploy-policy).
 
 #### Certificates {#certificates}
 
@@ -119,3 +112,9 @@ Features of a required update:
 * Stopped clusters will be updated during their update windows in the order defined by {{ managed-k8s-name }}.
 
 For more information, see [Working with required updates](../operations/update-kubernetes.md#necessary-update).
+
+### See also {#see-also}
+
+* [{#T}](./k8s-supported-versions.md)
+* [{#T}](../release-notes.md)
+* [{{ k8s }} Release History](https://kubernetes.io/releases/)

@@ -1,3 +1,4 @@
+
 1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../_assets/console-icons/layout-side-content-left.svg) или ![image](../_assets/console-icons/chevron-down.svg) и выберите нужное [облако](../resource-manager/concepts/resources-hierarchy.md#cloud).
 1. Справа от названия облака нажмите ![image](../_assets/console-icons/ellipsis.svg).
 1. Выберите ![image](../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
@@ -13,3 +14,5 @@
 1. Нажмите кнопку **{{ ui-key.yacloud.iam.cloud.folders-create.button_create }}**.
 
    ![create-folder2](../_assets/resource-manager/create-folder-2.png)
+
+

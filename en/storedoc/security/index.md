@@ -1,12 +1,12 @@
 ---
 title: Access management in {{ mmg-full-name }}
-description: Access management in {{ SD }}, a solution for creating and managing databases. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
+description: Access management in the {{ SD }} database creation and management service. This section describes the resources you can assign a role for, the roles this service has, and the roles required for specific actions.
 ---
 
 # Access management in {{ mmg-name }}
 
 
-In this section, you will learn about:
+In this section, you will learn about the following:
 
 * [Resources you can assign a role for](#resources).
 * [Roles this service has](#roles-list).
@@ -28,7 +28,7 @@ You can also assign a role for an individual cluster in the [management console]
 
 ## Roles this service has {#roles-list}
 
-The chart below shows the roles existing in the service and their permission inheritance. For example, `{{ roles-editor }}` inherits all `{{ roles-viewer }}` permissions. You can find the role descriptions below the chart.
+The diagram below shows available service roles and their permission inheritance hierarchy. For example, `{{ roles-editor }}` inherits all `{{ roles-viewer }}` permissions. You can find role descriptions below the diagram.
 
 {% include [roles-managed-storedoc](../../_mermaid/roles/managed-storedoc.md) %}
 
@@ -46,6 +46,14 @@ The chart below shows the roles existing in the service and their permission inh
 
 {% include [managed-mongodb.restorer](../../_roles/managed-mongodb/restorer.md) %}
 
+#### managed-mongodb.user {#managed-mongodb-user}
+
+{% include [managed-mongodb.user](../../_roles/managed-mongodb/user.md) %}
+
+#### managed-mongodb.switcher {#managed-mongodb-switcher}
+
+{% include [managed-mongodb.switcher](../../_roles/managed-mongodb/switcher.md) %}
+
 #### managed-mongodb.editor {#managed-mongodb-editor}
 
 {% include [managed-mongodb.editor](../../_roles/managed-mongodb/editor.md) %}
@@ -53,6 +61,14 @@ The chart below shows the roles existing in the service and their permission inh
 #### managed-mongodb.admin {#managed-mongodb-admin}
 
 {% include [managed-mongodb.admin](../../_roles/managed-mongodb/admin.md) %}
+
+#### managed-mongodb.maintenanceTask.viewer {#managed-mongodb-maintenanceTask-viewer}
+
+{% include [managed-mongodb.maintenanceTask.viewer](../../_roles/managed-mongodb/maintenanceTask/viewer.md) %}
+
+#### managed-mongodb.maintenanceTask.editor {#managed-mongodb-maintenanceTask-editor}
+
+{% include [managed-mongodb.maintenanceTask.editor](../../_roles/managed-mongodb/maintenanceTask/editor.md) %}
 
 #### mdb.auditor {#mdb-auditor}
 
@@ -70,6 +86,18 @@ The chart below shows the roles existing in the service and their permission inh
 
 {% include [mdb-restorer](../../_roles/mdb/restorer.md) %}
 
+#### mdb.switcher {#mdb-switcher}
+
+{% include [mdb.switcher](../../_roles/mdb/switcher.md) %}
+
+#### mdb.maintenanceTask.viewer {#mdb-maintenanceTask-viewer}
+
+{% include [mdb.maintenanceTask.viewer](../../_roles/mdb/maintenanceTask/viewer.md) %}
+
+#### mdb.maintenanceTask.editor {#mdb-maintenanceTask-editor}
+
+{% include [mdb.maintenanceTask.editor](../../_roles/mdb/maintenanceTask/editor.md) %}
+
 #### vpc.publicAdmin {#vpc-public-admin}
 
 {% include [vpc-publicadmin](../../_roles/vpc/publicAdmin.md) %}
@@ -82,11 +110,11 @@ The chart below shows the roles existing in the service and their permission inh
 
 ## Required roles {#required-roles}
 
-As a user, you need the [{{ roles.mmg.editor }} role or higher](../../iam/concepts/access-control/roles.md) for the folder that will contain the new cluster. The `{{ roles.mmg.viewer }}` role only allows you to view the list of clusters.
+To use the service, you need the [{{ roles.mmg.editor }} role or higher](../../iam/concepts/access-control/roles.md) on the folder containing your new cluster. The `{{ roles.mmg.viewer }}` role only allows you to view the cluster list.
 
 To create a {{ mmg-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mmg.editor }}` role or higher.
 
-You can always assign a role with more permissions. For example, you can assign the `{{ roles.mmg.admin }}` role instead of `{{ roles.mmg.editor }}`.
+You can also assign a role with broader permissions, e.g., `{{ roles.mmg.admin }}` instead of `{{ roles.mmg.editor }}`.
 
 ## What's next {#whats-next}
 

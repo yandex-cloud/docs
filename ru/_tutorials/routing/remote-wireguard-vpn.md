@@ -1,6 +1,6 @@
 # Защищенный доступ пользователей к облачным ресурсам на основе WireGuard VPN
 
-Для организации защищенного удаленного доступа пользователей через [VPN](https://ru.wikipedia.org/wiki/VPN) к вашим облачным ресурсам по протоколу [WireGuard VPN](https://www.wireguard.com/) воспользуйтесь решением [Firezone](https://www.firezone.dev/) на основе открытого кода. Для реализации сценариев [единого входа](https://ru.wikipedia.org/wiki/Технология_единого_входа) пользователей, решение поддерживает несколько сервисов аутентификации ([Identity Providers](https://www.firezone.dev/docs/authenticate)). В примере ниже используется решение по аутентификации [Keycloak](https://www.keycloak.org/).
+Для организации защищенного удаленного доступа пользователей через [VPN](https://ru.wikipedia.org/wiki/VPN) к вашим облачным ресурсам по протоколу [WireGuard VPN](https://www.wireguard.com/) воспользуйтесь решением [Firezone](https://www.firezone.dev/) на основе открытого кода. Для реализации сценариев [единого входа](../../glossary/sso.md) пользователей, решение поддерживает несколько сервисов аутентификации ([Identity Providers](https://www.firezone.dev/docs/authenticate)). В примере ниже используется решение по аутентификации [Keycloak](https://www.keycloak.org/).
 
 В данном сценарии вы развернете в {{ yandex-cloud }} облачную инфраструктуру для организации Remote access VPN на основе WireGuard VPN по следующей схеме:
 
@@ -53,7 +53,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать сервисный аккаунт.
-     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
      1. Введите имя сервисного аккаунта, например, `sa-firezone`.
      1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -88,9 +88,8 @@
    - Консоль управления {#console}
 
      1. На [стартовой странице]({{ link-console-main }}) консоли управления выберите каталог.
-     1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
-     1. Найдите аккаунт `sa-firezone` в списке и нажмите значок ![image](../../_assets/console-icons/ellipsis.svg).
-     1. Нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
+     1. Перейдите на вкладку ![image](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+     1. Найдите аккаунт `sa-firezone` в списке и нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
      1. В открывшемся диалоге нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** и выберите роль `admin`.
 
    - CLI {#cli}

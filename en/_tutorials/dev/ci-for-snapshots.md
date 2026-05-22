@@ -1,18 +1,18 @@
 # Creating test VMs with {{ GL }} CI
 
 
-You can use {{ yandex-cloud }} to automate routine tasks, such as running a specific script after each Git `master` branch commit. In the following example, we create and test a [VM](../../compute/concepts/vm.md) after each commit.
+You can use {{ yandex-cloud }} to automate routine tasks, such as running a specific script after each Git `master` branch commit. In the following example, we will create and test a [VM](../../compute/concepts/vm.md) after each commit.
 
 To configure continuous integration (CI) for VM [disk snapshots](../../compute/concepts/snapshot.md):
-1. [Create the test application VM](#create-vm): Create a virtual machine allowing you to make new CI VMs using its disk snapshot.
+1. [Create a test application VM](#create-vm): Create a virtual machine. You will use its disk snapshot for creating new CI VMs.
 1. [Configure the test application VM](#configure-vm): Install a web server and test application components on the VM. Write a test application reversing words in a text sent to the server.
-1. [Check how the application works](#test-app): Send a test request to check whether the server settings are correct.
+1. [Check whether the test application is working](#test-app): Send a test request to check whether the server settings are correct.
 1. [Create a VM disk snapshot](#create-snapshot): Create a disk snapshot that CI will use to create new VMs.
 1. [Create a {{ GL }} VM](#create-gitlab-vm): Create a [{{ GL }} VM](https://about.gitlab.com/) with a repository to store CI settings and a functional testing script.
 1. [Configure {{ GL }}](#configure-gitlab): Create a file repository and get configuration parameters.
-1. [Configure Runner](#configure-runner): Set up a tool for performing tasks.
+1. [Configure a runner](#configure-runner): Set up a tool for performing tasks.
 1. [Configure CI](#configure-ci): Specify the required command and testing parameters.
-1. [Make sure the application runs on the CI VM](#test-new-vm): Check whether the system created CI snapshot VMs and they run your test application.
+1. [Test the application on the CI VM](#test-new-vm): Make sure the system created CI snapshot VMs and they run your test application.
 
 If you no longer need the VMs you created, [delete them](#clear-out).
 
@@ -22,26 +22,26 @@ If you no longer need the VMs you created, [delete them](#clear-out).
 
 Before creating a VM:
 1. Navigate to the {{ yandex-cloud }} [management console]({{ link-console-main }}) and select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) to work with.
-1. Make sure the selected folder has a [network](../../vpc/concepts/network.md#network) with a [subnet](../../vpc/concepts/network.md#subnet) where you can connect your VM. To do this, select **{{ vpc-name }}** on the folder page. If the list contains a network, click its name to see the list of subnets. If there are no networks in the list or the selected network has no subnets, [create them](../../vpc/quickstart.md) as required.
+1. Make sure the selected folder has a [network](../../vpc/concepts/network.md#network) with a [subnet](../../vpc/concepts/network.md#subnet) for your VM. To do this, [navigate](../../console/operations/select-service.md#select-service) to **{{ vpc-name }}** on the folder page. If the list contains a network, click its name to see the list of subnets. If there are no networks in the list or the selected network has no subnets, [create them](../../vpc/quickstart.md) as required.
 
 ### Required paid resources {#paid-resources}
 
-The infrastructure support costs include:
+The infrastructure support cost includes:
 * Fee for continuously running VMs (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 * Fee for storing created images (see [{{ compute-name }} pricing](../../compute/pricing.md#prices-storage)).
 * Fee for dynamic public IP addresses (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
-## Create the test application VM {#create-vm}
+## Create a test application VM {#create-vm}
 
 Create a VM where you will install a web server, your test application, and its components:
 
 1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, select the [Ubuntu 18.04](/marketplace/products/yc/ubuntu-18-04-lts) public image.
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and specify these settings:
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and specify the following:
 
     * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
     * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
@@ -55,7 +55,7 @@ Create a VM where you will install a web server, your test application, and its 
 
       {% note alert %}
 
-      Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
+      Do not use `root` or other OS-reserved usernames. For operations requiring root privileges, use the `sudo` command.
 
       {% endnote %}
 
@@ -79,13 +79,13 @@ On the new VM, install a web server and test application components. You will us
    ```
 
 1. Run the `apt update` command to update the lists of packages available for installation.
-1. Install the required packages: jq JSON processor, Git client, PIP package manager, `virtualenv` virtual environment management system, Python C API header files, and Nginx web server:
+1. Install the required packages: `jq`, Git client, `pip`, `virtualenv`, Python C API header files, and Nginx:
 
    ```bash
    sudo apt-get --yes install jq git python-pip virtualenv python-dev nginx-full
    ```
 
-1. Create your application directory and make yourself its owner:
+1. Create your application directory and make your current user its owner:
 
    ```bash
    sudo mkdir /srv/test-app
@@ -125,10 +125,10 @@ On the new VM, install a web server and test application components. You will us
 
 1. Open the `api.py` file in any text editor and paste the Python code below into it; the code does the following:
    * Accepts a text string from the `text` input argument.
-   * Reverses each word in the string while retaining spaces.
+   * Reverses each word in the input string.
    * Returns a response:
      * In JSON format if the client accepts it.
-     * In plain text if the client does not accept JSON.
+     * In plain text if the client cannot accept JSON.
 
    ```python
    # api.py
@@ -200,7 +200,7 @@ On the new VM, install a web server and test application components. You will us
    sudo chown -R www-data:www-data /srv/test-app
    ```
 
-1. Prepare the service that will start your uWSGI server. To do this, edit the `/etc/systemd/system/test-app.service` file as follows:
+1. Set up a service that will start your uWSGI server. To do this, edit the `/etc/systemd/system/test-app.service` file as follows:
 
    ```ini
    #/etc/systemd/system/test-app.service
@@ -270,12 +270,12 @@ To make sure the web server is properly configured and the test application is w
 
 Create a VM disk snapshot to transfer your web server configuration and test application to CI VMs.
 1. In the {{ yandex-cloud }} [management console]({{ link-console-main }}), select the folder where you created your VM.
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. Find the `ci-tutorial-test-app` VM and select it.
 1. Click **{{ ui-key.yacloud.common.stop }}**.
 1. In the window that opens, click **{{ ui-key.yacloud.compute.instances.popup-confirm_button_stop }}**.
 1. Once the VM gets stopped, select the **{{ ui-key.yacloud.compute.disks_ddfdb }}** tab.
-1. Select the disk you need, click ![vertical-ellipsis](../../_assets/console-icons/ellipsis-vertical.svg), and select **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**.
+1. Next to the disk you need, click ![vertical-ellipsis](../../_assets/console-icons/ellipsis-vertical.svg) and select **{{ ui-key.yacloud.compute.disks.button_action-snapshot }}**.
 1. In the window that opens, specify the snapshot name: `test-app-snap`.
 1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -284,12 +284,12 @@ Create a VM disk snapshot to transfer your web server configuration and test app
 You can set up CI in {{ yandex-cloud }} by using a public image with {{ GL }} pre-installed. {{ GL }} includes tools for managing Git repositories and configuring CI.
 
 1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your VM.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
 1. Click **{{ ui-key.yacloud.compute.instances.button_create }}**.
 1. Under **{{ ui-key.yacloud.compute.instances.create.section_image }}**, navigate to the **{{ ui-key.yacloud.compute.instances.create.image_value_marketplace }}** tab, click **{{ ui-key.yacloud.compute.instances.create.button_show-all-marketplace-products }}**, and select the [{{ GL }}](/marketplace/products/yc/gitlab) image.
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**, select an [availability zone](../../overview/concepts/geo-scope.md) where your VM will reside.
-1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and specify these settings:
+1. Under **{{ ui-key.yacloud.compute.instances.create.section_platform }}**, navigate to the **{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}** tab and specify the following:
 
     * **{{ ui-key.yacloud.component.compute.resources.field_platform }}**: `Intel Ice Lake`
     * **{{ ui-key.yacloud.component.compute.resources.field_cores }}**: `2`
@@ -303,7 +303,7 @@ You can set up CI in {{ yandex-cloud }} by using a public image with {{ GL }} pr
 
       {% note alert %}
 
-      Do not use `root` or other reserved usernames. To perform operations requiring root privileges, use the `sudo` command.
+      Do not use `root` or other OS-reserved usernames. For operations requiring root privileges, use the `sudo` command.
 
       {% endnote %}
 
@@ -319,7 +319,8 @@ Once your VM is created, the system will assign it an [IP address and a host nam
 ## Configure {{ GL }} {#configure-gitlab}
 
 To set {{ GL }} up and configure the CI process, create a new project and enter your CI login credentials:
-1. On the {{ compute-name }} page, select the created VM and copy its public IP address.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ compute-name }}**. 
+1. Select the VM instance you created and copy its public IP address.
 1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the VM over SSH.
 1. Get the {{ GL }} administrator password with the following VM command:
 
@@ -328,7 +329,7 @@ To set {{ GL }} up and configure the CI process, create a new project and enter 
    ```
 
 1. Copy the password without spaces from the `Password` line to the clipboard or a separate file.
-1. In your browser, open `http://<VM_public_IP_address>`. This will take you to the {{ GL }} web interface.
+1. In your browser, open `http://<VM_public_IP_address>`. This will take you to the {{ GL }} web UI.
 1. Log in as the administrator:
    * **Username or email**: `root`.
    * **Password**: Password you copied in the previous step.
@@ -339,21 +340,21 @@ To set {{ GL }} up and configure the CI process, create a new project and enter 
 1. Select **Create a project**.
 1. Specify the project name: `gitlab-test`.
 1. Click **Create project**.
-1. Get a Yandex OAuth token. To do this, follow this [link]({{ link-cloud-oauth }}) and click **Allow**.
-1. In your browser, open this link: `http://<VM_public_IP_address>/root`.
+1. Get a Yandex OAuth token. To do this, follow [this link]({{ link-cloud-oauth }}) and click **Allow**.
+1. In your browser, open `http://<VM_public_IP_address>/root`.
 1. Select the `gitlab-test` project.
 1. On the screen that opens, click **Settings** on the left and, in the popup menu, select **CI/CD**.
 1. Under **Variables**, click **Expand**.
 1. Create a new variable:
    * Specify the variable name: `YC_OAUTH`.
-   * As the value of the variable, specify the OAuth token you received previously.
+   * As the value of the variable, specify the OAuth token you obtained earlier.
    * Click **Save variables**.
 1. Under **Runners**, click **Expand**.
 1. Under **Set up a specific Runner automatically**, you will see the {{ GL }} **server address** and the Runner **token**. You will need them to register your runner.
 
-## Configure Runner {#configure-runner}
+## Configure your runner {#configure-runner}
 
-Runner is a tool which runs user tasks. You need to install Runner on your VM and register your runner instance in {{ GL }}. To make your runner work, install the {{ yandex-cloud }} CLI and create a test to check the new VM.
+Runner is a tool which runs user tasks. You need to install a runner on your VM and then register it in {{ GL }}. To make your runner work, install the {{ yandex-cloud }} CLI and create a test to check the new VM.
 
 1. [Connect](../../compute/operations/vm-connect/ssh.md#vm-connect) to the {{ GL }} VM over SSH:
 
@@ -386,7 +387,7 @@ Runner is a tool which runs user tasks. You need to install Runner on your VM an
    Running in system-mode.
 
    Please enter the gitlab-ci coordinator URL (e.g. https://gitlab.com/):
-   http://<{{ GL }}>_CI_IP_address/
+   http://<{{ GL }}_CI_IP_address>/
    Please enter the gitlab-ci token for this runner:
    <runner_token>
    Please enter the gitlab-ci description for this runner:
@@ -508,11 +509,11 @@ Now you need to configure CI.
 
 ## Test the application on the CI VM {#test-new-vm}
 
-After making a commit, make sure that CI performed its function correctly. You should see a new VM with a web server and your test application in the relevant folder..
+After making a commit, make sure that CI ran successfully. You should see a new VM with a web server and your test application in the relevant folder.
 
 To test the new VM:
 1. Open the {{ yandex-cloud }} management console.
-1. In the folder with the VMs, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. In the folder where the VM instances were created, [navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. If you did everything correctly, you will see a new VM in the list, e.g., `ci-tutorial-test-app-1543910277`.
 1. Select the new VM and copy its public IP address.
 1. In your browser, open this link:

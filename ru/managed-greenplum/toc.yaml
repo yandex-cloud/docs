@@ -25,6 +25,8 @@ items:
             href: operations/cluster-backups.md
           - name: Управление доступом к кластеру
             href: operations/cluster-access.md
+          - name: Техническое обслуживание
+            href: operations/cluster-maintenance.md
           - name: Удаление кластера
             href: operations/cluster-delete.md
       - name: Подключение
@@ -75,16 +77,20 @@ items:
             href: operations/pxf/settings.md
       - name: Подключение к внешнему файловому серверу (gpfdist)
         href: operations/gpfdist/connect.md
-      - name: Расширения {{ GP }}
+      - name: Расширения
         items:
           - name: Управление расширениями
             href: operations/extensions/cluster-extensions.md
+          - name: gp_relaccess_stats
+            href: operations/extensions/gp_relaccess_stats.md
           - name: gp_relsizes_stats
             href: operations/extensions/gp-relsizes-stats.md
           - name: gp_url_tools
             href: operations/extensions/gp-url-tools.md
           - name: pgcrypto
             href: operations/extensions/pgcrypto.md
+          - name: try_convert
+            href: operations/extensions/try_convert.md
           - name: uuid-cb
             href: operations/extensions/uuid-cb.md
           - name: Yezzey
@@ -101,12 +107,12 @@ items:
             href: operations/cluster-logs.md
           - name: Просмотр операций кластера
             href: operations/cluster-operations.md
-          - name: Диагностика производительности
-            href: operations/performance-diagnostics.md
           - name: Мониторинг состояния кластера и хостов
             href: operations/monitoring.md
           - name: Передача логов кластера в {{ cloud-logging-full-name }}
             href: operations/mgp-to-cloud-logging.md
+          - name: Чтение логов через SQL
+            href: operations/sql-log-access.md
       - name: Вспомогательные утилиты
         href: operations/greenplum-db.md
   - name: Практические руководства
@@ -143,12 +149,14 @@ items:
             href: tutorials/managed-kafka-to-greenplum.md
   - name: Концепции
     items:
-      - name: Обзор СУБД {{ GP }} и сервиса {{ mgp-full-name }}
+      - name: Обзор СУБД {{ GP }} и {{ CB }} в сервисе {{ mgp-full-name }}
         href: concepts/overview.md
       - name: Взаимосвязь ресурсов сервиса
         href: concepts/index.md
       - name: Классы хостов
         href: concepts/instance-types.md
+      - name: Высокая доступность кластера
+        href: concepts/high-availability.md
       - name: Расчет конфигурации кластера
         href: concepts/calculate-specs.md
       - name: Сеть в {{ mgp-name }}
@@ -185,7 +193,9 @@ items:
         href: concepts/expand.md
       - name: Техническое обслуживание
         href: concepts/maintenance.md
-      - name: Настройки {{ GP }}
+      - name: Очистка таблиц и системного каталога
+        href: concepts/vacuum.md
+      - name: Настройки СУБД
         href: concepts/settings-list.md
   - name: Управление доступом
     href: security/index.md
@@ -355,6 +365,170 @@ items:
             href: cli-ref/users/list.md
           - name: update
             href: cli-ref/users/update.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: backup
+            items:
+              - name: Overview
+                href: cli-ref/v0/backup/index.md
+              - name: delete
+                href: cli-ref/v0/backup/delete.md
+              - name: get
+                href: cli-ref/v0/backup/get.md
+              - name: list
+                href: cli-ref/v0/backup/list.md
+          - name: cluster
+            items:
+              - name: Overview
+                href: cli-ref/v0/cluster/index.md
+              - name: add-access-binding
+                href: cli-ref/v0/cluster/add-access-binding.md
+              - name: add-labels
+                href: cli-ref/v0/cluster/add-labels.md
+              - name: backup
+                href: cli-ref/v0/cluster/backup.md
+              - name: create
+                href: cli-ref/v0/cluster/create.md
+              - name: delete
+                href: cli-ref/v0/cluster/delete.md
+              - name: expand
+                href: cli-ref/v0/cluster/expand.md
+              - name: get
+                href: cli-ref/v0/cluster/get.md
+              - name: list
+                href: cli-ref/v0/cluster/list.md
+              - name: list-access-bindings
+                href: cli-ref/v0/cluster/list-access-bindings.md
+              - name: list-backups
+                href: cli-ref/v0/cluster/list-backups.md
+              - name: list-logs
+                href: cli-ref/v0/cluster/list-logs.md
+              - name: list-operations
+                href: cli-ref/v0/cluster/list-operations.md
+              - name: move
+                href: cli-ref/v0/cluster/move.md
+              - name: remove-access-binding
+                href: cli-ref/v0/cluster/remove-access-binding.md
+              - name: remove-labels
+                href: cli-ref/v0/cluster/remove-labels.md
+              - name: reschedule-maintenance
+                href: cli-ref/v0/cluster/reschedule-maintenance.md
+              - name: restore
+                href: cli-ref/v0/cluster/restore.md
+              - name: set-access-bindings
+                href: cli-ref/v0/cluster/set-access-bindings.md
+              - name: start
+                href: cli-ref/v0/cluster/start.md
+              - name: stop
+                href: cli-ref/v0/cluster/stop.md
+              - name: update
+                href: cli-ref/v0/cluster/update.md
+              - name: update-config
+                href: cli-ref/v0/cluster/update-config.md
+          - name: connect
+            href: cli-ref/v0/connect.md
+          - name: hba-rules
+            items:
+              - name: Overview
+                href: cli-ref/v0/hba-rules/index.md
+              - name: create
+                href: cli-ref/v0/hba-rules/create.md
+              - name: delete
+                href: cli-ref/v0/hba-rules/delete.md
+              - name: get
+                href: cli-ref/v0/hba-rules/get.md
+              - name: list
+                href: cli-ref/v0/hba-rules/list.md
+              - name: update
+                href: cli-ref/v0/hba-rules/update.md
+          - name: hosts
+            items:
+              - name: Overview
+                href: cli-ref/v0/hosts/index.md
+              - name: list
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/hosts/list/index.md
+                  - name: master
+                    href: cli-ref/v0/hosts/list/master.md
+                  - name: segment
+                    href: cli-ref/v0/hosts/list/segment.md
+          - name: pxf-datasource
+            items:
+              - name: Overview
+                href: cli-ref/v0/pxf-datasource/index.md
+              - name: create
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/pxf-datasource/create/index.md
+                  - name: jdbc
+                    href: cli-ref/v0/pxf-datasource/create/jdbc.md
+                  - name: s3
+                    href: cli-ref/v0/pxf-datasource/create/s3.md
+              - name: delete
+                href: cli-ref/v0/pxf-datasource/delete.md
+              - name: get
+                href: cli-ref/v0/pxf-datasource/get.md
+              - name: list
+                href: cli-ref/v0/pxf-datasource/list.md
+              - name: update
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/pxf-datasource/update/index.md
+                  - name: jdbc
+                    href: cli-ref/v0/pxf-datasource/update/jdbc.md
+                  - name: s3
+                    href: cli-ref/v0/pxf-datasource/update/s3.md
+          - name: resource-groups
+            items:
+              - name: Overview
+                href: cli-ref/v0/resource-groups/index.md
+              - name: create
+                href: cli-ref/v0/resource-groups/create.md
+              - name: delete
+                href: cli-ref/v0/resource-groups/delete.md
+              - name: get
+                href: cli-ref/v0/resource-groups/get.md
+              - name: list
+                href: cli-ref/v0/resource-groups/list.md
+              - name: update
+                href: cli-ref/v0/resource-groups/update.md
+          - name: resource-preset
+            items:
+              - name: Overview
+                href: cli-ref/v0/resource-preset/index.md
+              - name: get
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/resource-preset/get/index.md
+                  - name: master
+                    href: cli-ref/v0/resource-preset/get/master.md
+                  - name: segment
+                    href: cli-ref/v0/resource-preset/get/segment.md
+              - name: list
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/resource-preset/list/index.md
+                  - name: master
+                    href: cli-ref/v0/resource-preset/list/master.md
+                  - name: segment
+                    href: cli-ref/v0/resource-preset/list/segment.md
+          - name: users
+            items:
+              - name: Overview
+                href: cli-ref/v0/users/index.md
+              - name: create
+                href: cli-ref/v0/users/create.md
+              - name: delete
+                href: cli-ref/v0/users/delete.md
+              - name: get
+                href: cli-ref/v0/users/get.md
+              - name: list
+                href: cli-ref/v0/users/list.md
+              - name: update
+                href: cli-ref/v0/users/update.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API
@@ -639,7 +813,7 @@ items:
         href: qa/backup.md
       - name: Изменение кластера
         href: qa/update.md
-      - name: Кластер и хосты {{ GP }}
+      - name: Кластер и хосты
         href: qa/cluster-hosts.md
       - name: Работа с внешними таблицами
         href: qa/pxf.md

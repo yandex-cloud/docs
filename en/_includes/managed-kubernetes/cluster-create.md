@@ -1,5 +1,5 @@
 1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click **{{ ui-key.yacloud.k8s.clusters.button_create }}**.
 1. Enter a name and description for your {{ managed-k8s-name }} cluster. The {{ managed-k8s-name }} cluster name must be unique within {{ yandex-cloud }}.
 1. Specify a **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}** to use to create your resources.
@@ -51,6 +51,8 @@
 
       {% include [note-another-catalog-network](note-another-catalog-network.md) %}
 
+      {% include [note-vpc-resources](note-vpc-resources.md) %}
+
    * For a highly available master, select the master host placement in the **Distribution of masters across availability zones** field:
      * `One zone`: In one availability zone and one subnet. Choose this type if you want to ensure high availability of the cluster and reduce its internal network latency.
      * `Different zones`: In three different availability zones. This master ensures the best fault tolerance: if one zone becomes unavailable, the master will continue to function.
@@ -86,7 +88,6 @@
 
      * **{{ ui-key.yacloud.k8s.clusters.create.field_network-policy }}** to use Calico.
      * **{{ ui-key.yacloud.k8s.clusters.create.field_tunnel-mode }}** to use Cilium.
-
 
    * Specify the **{{ ui-key.yacloud.k8s.clusters.create.field_cluster-cidr }}**, which is a range of IP addresses to allocate [pod](../../managed-kubernetes/concepts/index.md#pod) IP addresses from.
    * Specify the **{{ ui-key.yacloud.k8s.clusters.create.field_service-cidr }}**, which is a range of IP addresses to allocate [service](../../managed-kubernetes/concepts/index.md#service) IP addresses from.

@@ -19,7 +19,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. On the **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}** tab, click the name of the group.
   1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
-  1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+  1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. In the window that opens, select the group, user, or service account you want to grant access to the placement group.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required [role](../../security/index.md#roles-list).
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -74,7 +74,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
        Where:
 
        * `--service-account-id`: [Service account ID](../../../iam/operations/sa/get-id.md).
-       * `--role`: [Role](../../security/index.md#roles-list).
+       * `--role`: [Role](../../security/index.md#roles-list) to assign.
 
 - {{ TF }} {#tf}
 
@@ -97,10 +97,10 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
       Where:
 
       * `disk_placement_group_id`: Disk placement group ID.
-      * `role`: [Role](../../security/index.md#roles-list).
-      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `role`: [Role](../../security/index.md#roles-list) to assign.
+      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-      For more information about the `yandex_compute_disk_placement_group_iam_binding` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_disk_placement_group_iam_binding).
+      For more information about `yandex_compute_disk_placement_group_iam_binding` properties, see [this provider guide]({{ tf-provider-resources-link }}/compute_disk_placement_group_iam_binding).
 
   1. Create the resources:
 
@@ -129,7 +129,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. On the **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}** tab, click the name of the group.
   1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
-  1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+  1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. In the window that opens, select the group, user, or service account you want to grant access to the placement group.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the required [role](../../security/index.md#roles-list).
   1. To add another role, click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}**.
@@ -208,10 +208,10 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
       Where:
 
       * `disk_placement_group_id`: Disk placement group ID.
-      * `role`: [Role](../../security/index.md#roles-list).
-      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+      * `role`: [Role](../../security/index.md#roles-list) to assign.
+      * `members`: List of types and IDs of [subjects](../../../iam/concepts/access-control/index.md#subject) getting the role. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
-      For more information about the `yandex_compute_disk_placement_group_iam_binding` resource parameters, see the [relevant provider documentation]({{ tf-provider-resources-link }}/compute_disk_placement_group_iam_binding).
+      For more information about `yandex_compute_disk_placement_group_iam_binding` properties, see [this provider guide]({{ tf-provider-resources-link }}/compute_disk_placement_group_iam_binding).
 
   1. Create the resources:
 
@@ -246,7 +246,7 @@ To grant a user, group, or [service account](../../../iam/concepts/users/service
   1. In the left-hand panel, select ![image](../../../_assets/compute/group-placement-pic.svg) **{{ ui-key.yacloud.compute.placement-groups_3CwzD }}**.
   1. On the **{{ ui-key.yacloud.compute.placement-groups.label_tab-disks }}** tab, click the name of the group.
   1. Navigate to the ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
-  1. In the line with the user in question, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
+  1. In the line with the user in question, click ![image](../../../_assets/horizontal-ellipsis.svg) and select **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
   1. Next to the role, click ![image](../../../_assets/cross.svg).
   1. Click **{{ ui-key.yacloud.common.save }}**.
 

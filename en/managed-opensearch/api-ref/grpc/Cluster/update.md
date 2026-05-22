@@ -29,7 +29,9 @@ Updates the specified OpenSearch cluster.
       "opensearch_config_2": {
         "max_clause_count": "google.protobuf.Int64Value",
         "fielddata_cache_size": "string",
-        "reindex_remote_whitelist": "string"
+        "search_max_buckets": "google.protobuf.Int64Value",
+        "reindex_remote_whitelist": "string",
+        "http_max_initial_line_length": "google.protobuf.StringValue"
       },
       // end of the list of possible fields
       "set_keystore_settings": [
@@ -65,6 +67,16 @@ Updates the specified OpenSearch cluster.
         // end of the list of possible fields
       },
       "snapshot_max_age_days": "google.protobuf.Int64Value"
+    },
+    "audit_log": {
+      "compliance_enabled": "google.protobuf.BoolValue",
+      "log_request_body": "google.protobuf.BoolValue",
+      "log_search_queries": "google.protobuf.BoolValue",
+      "log_data_modifications": "google.protobuf.BoolValue",
+      "log_index_metadata_access": "google.protobuf.BoolValue",
+      "log_monitoring_checks": "google.protobuf.BoolValue",
+      "log_index_maintenance": "google.protobuf.BoolValue",
+      "log_backup_operations": "google.protobuf.BoolValue"
     }
   },
   "name": "string",
@@ -159,7 +171,10 @@ Dashboards configuration. ||
 Access policy for external services. ||
 || snapshot_management | **[SnapshotManagement](#yandex.cloud.mdb.opensearch.v1.SnapshotManagement)**
 
-Snapshot management configuration ||
+Snapshot management configuration. ||
+|| audit_log | **[AuditLog](#yandex.cloud.mdb.opensearch.v1.AuditLog)**
+
+Audit log settings. ||
 |#
 
 ## OpenSearchClusterUpdateSpec {#yandex.cloud.mdb.opensearch.v1.OpenSearchClusterUpdateSpec}
@@ -170,6 +185,8 @@ Snapshot management configuration ||
 
 Names of the cluster plugins. ||
 || opensearch_config_2 | **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig2)**
+
+OpenSearch server configuration settings.
 
 Includes only one of the fields `opensearch_config_2`. ||
 || set_keystore_settings[] | **[KeystoreSetting](#yandex.cloud.mdb.opensearch.v1.KeystoreSetting)**
@@ -189,9 +206,6 @@ OpenSearch server configuration settings.
 || max_clause_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Defines the maximum product of fields and terms that are queryable simultaneously.
-Before OpenSearch 2.16, a cluster restart was required in order to apply this static setting.
-Now dynamic, existing search thread pools may use the old static value initially, causing **TooManyClauses** exceptions.
-New thread pools use the updated value.
 
 Default value: **1024**.
 
@@ -199,7 +213,7 @@ Change of the setting is applied with restart.
 
 For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/index-settings/#dynamic-cluster-level-index-settings).
 
-Acceptable values are 1 to 2147483647, inclusive. ||
+Acceptable values are 32 to 32768, inclusive. ||
 || fielddata_cache_size | **string**
 
 The maximum size of the field data cache.
@@ -210,6 +224,17 @@ This value should be smaller than the **indices.breaker.fielddata.limit**
 Change of the setting is applied with restart.
 
 For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/index-settings/#dynamic-cluster-level-index-settings). ||
+|| search_max_buckets | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum number of aggregation buckets allowed in a single response. Default is 65535
+
+Default value: **65535**.
+
+Change of the setting is applied with restart.
+
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/search-settings).
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || reindex_remote_whitelist | **string**
 
 Allowed remote hosts
@@ -217,6 +242,15 @@ Allowed remote hosts
 Change of the setting is applied with restart.
 
 For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/api-reference/document-apis/reindex/#remote-cluster-allow-list). ||
+|| http_max_initial_line_length | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+Sets the maximum length allowed for HTTP URLs in the initial request line. URLs exceeding this limit will be rejected. Default is **4kb**.
+
+Default value: **4kb**.
+
+Change of the setting is applied with restart.
+
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/network-settings/#advanced-http-settings). ||
 |#
 
 ## KeystoreSetting {#yandex.cloud.mdb.opensearch.v1.KeystoreSetting}
@@ -355,6 +389,38 @@ The minute of the hour at which the backup should be created.
 Acceptable values are 0 to 59, inclusive. ||
 |#
 
+## AuditLog {#yandex.cloud.mdb.opensearch.v1.AuditLog}
+
+Audit log settings.
+
+#|
+||Field | Description ||
+|| compliance_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enable compliance audit logging. ||
+|| log_request_body | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Log request body in audit logs. ||
+|| log_search_queries | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Log search queries in audit logs. ||
+|| log_data_modifications | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Log data modifications in audit logs. ||
+|| log_index_metadata_access | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Log index metadata access in audit logs. ||
+|| log_monitoring_checks | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Log monitoring checks in audit logs. ||
+|| log_index_maintenance | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Log index maintenance operations in audit logs. ||
+|| log_backup_operations | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Log backup operations in audit logs. ||
+|#
+
 ## MaintenanceWindow {#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow}
 
 An OpenSearch cluster maintenance window. Should be defined by either one of the two options.
@@ -489,17 +555,23 @@ Acceptable values are 1 to 24, inclusive. ||
           "effective_config": {
             "max_clause_count": "google.protobuf.Int64Value",
             "fielddata_cache_size": "string",
-            "reindex_remote_whitelist": "string"
+            "search_max_buckets": "google.protobuf.Int64Value",
+            "reindex_remote_whitelist": "string",
+            "http_max_initial_line_length": "google.protobuf.StringValue"
           },
           "user_config": {
             "max_clause_count": "google.protobuf.Int64Value",
             "fielddata_cache_size": "string",
-            "reindex_remote_whitelist": "string"
+            "search_max_buckets": "google.protobuf.Int64Value",
+            "reindex_remote_whitelist": "string",
+            "http_max_initial_line_length": "google.protobuf.StringValue"
           },
           "default_config": {
             "max_clause_count": "google.protobuf.Int64Value",
             "fielddata_cache_size": "string",
-            "reindex_remote_whitelist": "string"
+            "search_max_buckets": "google.protobuf.Int64Value",
+            "reindex_remote_whitelist": "string",
+            "http_max_initial_line_length": "google.protobuf.StringValue"
           }
         },
         // end of the list of possible fields
@@ -555,7 +627,17 @@ Acceptable values are 1 to 24, inclusive. ||
         },
         "snapshot_max_age_days": "google.protobuf.Int64Value"
       },
-      "full_version": "string"
+      "full_version": "string",
+      "audit_log": {
+        "compliance_enabled": "google.protobuf.BoolValue",
+        "log_request_body": "google.protobuf.BoolValue",
+        "log_search_queries": "google.protobuf.BoolValue",
+        "log_data_modifications": "google.protobuf.BoolValue",
+        "log_index_metadata_access": "google.protobuf.BoolValue",
+        "log_monitoring_checks": "google.protobuf.BoolValue",
+        "log_index_maintenance": "google.protobuf.BoolValue",
+        "log_backup_operations": "google.protobuf.BoolValue"
+      }
     },
     "network_id": "string",
     "health": "Health",
@@ -800,10 +882,13 @@ Dashboards configuration. ||
 Access policy for external services. ||
 || snapshot_management | **[SnapshotManagement](#yandex.cloud.mdb.opensearch.v1.SnapshotManagement2)**
 
-Snapshot management configuration ||
+Snapshot management configuration. ||
 || full_version | **string**
 
-Full version ||
+Full version. ||
+|| audit_log | **[AuditLog](#yandex.cloud.mdb.opensearch.v1.AuditLog2)**
+
+Audit log settings. ||
 |#
 
 ## OpenSearch {#yandex.cloud.mdb.opensearch.v1.OpenSearch}
@@ -819,6 +904,8 @@ Names of the cluster plugins. ||
 
 Host groups of the OpenSearch type. ||
 || opensearch_config_set_2 | **[OpenSearchConfigSet2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfigSet2)**
+
+OpenSearch server configuration settings.
 
 Includes only one of the fields `opensearch_config_set_2`. ||
 || keystore_settings[] | **string**
@@ -854,8 +941,11 @@ Determines whether a public IP is assigned to the hosts in the group. ||
 
 Roles of the host group.
 
-- `DATA`
-- `MANAGER` ||
+- `DATA`: Data nodes store indices data.
+- `MANAGER`: Manager nodes perform cluster coordination.
+- `WARM`: Warm nodes provide access to searchable snapshots and store search cache.
+- `INGEST`: Ingest nodes provides indexed data processing.
+If no node groups have INGEST role explicitly set, then all DATA nodes will implicitly have INGEST role. ||
 || disk_size_autoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
@@ -921,9 +1011,6 @@ OpenSearch server configuration settings.
 || max_clause_count | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Defines the maximum product of fields and terms that are queryable simultaneously.
-Before OpenSearch 2.16, a cluster restart was required in order to apply this static setting.
-Now dynamic, existing search thread pools may use the old static value initially, causing **TooManyClauses** exceptions.
-New thread pools use the updated value.
 
 Default value: **1024**.
 
@@ -931,7 +1018,7 @@ Change of the setting is applied with restart.
 
 For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/index-settings/#dynamic-cluster-level-index-settings).
 
-Acceptable values are 1 to 2147483647, inclusive. ||
+Acceptable values are 32 to 32768, inclusive. ||
 || fielddata_cache_size | **string**
 
 The maximum size of the field data cache.
@@ -942,6 +1029,17 @@ This value should be smaller than the **indices.breaker.fielddata.limit**
 Change of the setting is applied with restart.
 
 For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/index-settings/#dynamic-cluster-level-index-settings). ||
+|| search_max_buckets | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+The maximum number of aggregation buckets allowed in a single response. Default is 65535
+
+Default value: **65535**.
+
+Change of the setting is applied with restart.
+
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/search-settings).
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 || reindex_remote_whitelist | **string**
 
 Allowed remote hosts
@@ -949,6 +1047,15 @@ Allowed remote hosts
 Change of the setting is applied with restart.
 
 For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/api-reference/document-apis/reindex/#remote-cluster-allow-list). ||
+|| http_max_initial_line_length | **[google.protobuf.StringValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/string-value)**
+
+Sets the maximum length allowed for HTTP URLs in the initial request line. URLs exceeding this limit will be rejected. Default is **4kb**.
+
+Default value: **4kb**.
+
+Change of the setting is applied with restart.
+
+For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/network-settings/#advanced-http-settings). ||
 |#
 
 ## Dashboards {#yandex.cloud.mdb.opensearch.v1.Dashboards}
@@ -1100,6 +1207,38 @@ Acceptable values are 0 to 23, inclusive. ||
 The minute of the hour at which the backup should be created.
 
 Acceptable values are 0 to 59, inclusive. ||
+|#
+
+## AuditLog {#yandex.cloud.mdb.opensearch.v1.AuditLog2}
+
+Audit log settings.
+
+#|
+||Field | Description ||
+|| compliance_enabled | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Enable compliance audit logging. ||
+|| log_request_body | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Log request body in audit logs. ||
+|| log_search_queries | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Log search queries in audit logs. ||
+|| log_data_modifications | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Log data modifications in audit logs. ||
+|| log_index_metadata_access | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Log index metadata access in audit logs. ||
+|| log_monitoring_checks | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Log monitoring checks in audit logs. ||
+|| log_index_maintenance | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Log index maintenance operations in audit logs. ||
+|| log_backup_operations | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Log backup operations in audit logs. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow2}

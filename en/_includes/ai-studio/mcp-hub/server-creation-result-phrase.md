@@ -1,1 +1,0 @@
-This will create an MCP server in {{ mcp-hub-name }}, containing the added tools and accessible to AI agents.

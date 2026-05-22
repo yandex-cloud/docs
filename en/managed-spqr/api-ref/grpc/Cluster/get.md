@@ -25,7 +25,9 @@ To get the list of available SPQR Cluster resources, make a [List](/docs/managed
 || cluster_id | **string**
 
 Required field. ID of the SPQR Cluster resource to return.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/grpc/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## Cluster {#yandex.cloud.mdb.spqr.v1.Cluster}
@@ -55,7 +57,10 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/gr
             "double"
           ],
           "default_route_behavior": "DefaultRouteBehavior",
-          "prefer_same_availability_zone": "google.protobuf.BoolValue"
+          "prefer_same_availability_zone": "google.protobuf.BoolValue",
+          "enhanced_multishard_processing": "google.protobuf.BoolValue",
+          "default_target_session_attrs": "TargetSessionAttrs",
+          "default_commit_strategy": "CommitStrategy"
         },
         "resources": {
           "resource_preset_id": "string",
@@ -91,7 +96,10 @@ To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/gr
             "double"
           ],
           "default_route_behavior": "DefaultRouteBehavior",
-          "prefer_same_availability_zone": "google.protobuf.BoolValue"
+          "prefer_same_availability_zone": "google.protobuf.BoolValue",
+          "enhanced_multishard_processing": "google.protobuf.BoolValue",
+          "default_target_session_attrs": "TargetSessionAttrs",
+          "default_commit_strategy": "CommitStrategy"
         },
         "coordinator": "CoordinatorSettings"
       },
@@ -168,7 +176,6 @@ Custom labels for the SPQR cluster as `` key:value `` pairs. Maximum 64 per reso
 
 Deployment environment of the SPQR cluster.
 
-- `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`: Stable environment with a conservative update policy: only hotfixes
 are applied during regular maintenance.
 - `PRESTABLE`: Environment with more aggressive update policy: new versions
@@ -272,13 +279,11 @@ SPQR Infra (router+coordinator) settings. ||
 
 SPQR default log level
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `DEBUG`
 - `INFO`
 - `WARNING`
 - `ERROR`
-- `FATAL`
-- `PANIC` ||
+- `FATAL` ||
 || balancer | **[BalancerSettings](#yandex.cloud.mdb.spqr.v1.BalancerSettings)**
 
 SPQR Balancer settings. ||
@@ -302,10 +307,22 @@ Configuration of a SPQR router.
 || time_quantiles[] | **double** ||
 || default_route_behavior | enum **DefaultRouteBehavior**
 
-- `DEFAULT_ROUTE_BEHAVIOR_UNSPECIFIED`
 - `BLOCK`
 - `ALLOW` ||
 || prefer_same_availability_zone | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
+|| enhanced_multishard_processing | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
+|| default_target_session_attrs | enum **TargetSessionAttrs**
+
+- `READ_WRITE`
+- `SMART_READ_WRITE`
+- `READ_ONLY`
+- `PREFER_STANDBY`
+- `ANY` ||
+|| default_commit_strategy | enum **CommitStrategy**
+
+- `BEST_EFFORT`
+- `ONE_PC`
+- `TWO_PC` ||
 |#
 
 ## Resources {#yandex.cloud.mdb.spqr.v1.Resources}
@@ -441,7 +458,6 @@ Weelky maintenance window settings.
 
 Day of the week (in `DDD` format).
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`
 - `TUE`
 - `WED`
@@ -451,7 +467,9 @@ Day of the week (in `DDD` format).
 - `SUN` ||
 || hour | **int64**
 
-Hour of the day in UTC (in `HH` format). ||
+Hour of the day in UTC (in `HH` format).
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## MaintenanceOperation {#yandex.cloud.mdb.spqr.v1.MaintenanceOperation}
@@ -462,7 +480,9 @@ A planned maintenance operation.
 ||Field | Description ||
 || info | **string**
 
-Information about this maintenance operation. ||
+Information about this maintenance operation.
+
+The maximum string length in characters is 256. ||
 || delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time until which this maintenance operation is delayed. ||

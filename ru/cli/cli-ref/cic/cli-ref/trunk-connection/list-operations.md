@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/trunk-connection/list-operations
 editable: false
 ---
 

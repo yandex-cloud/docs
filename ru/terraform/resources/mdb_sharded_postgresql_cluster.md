@@ -1,5 +1,5 @@
 ---
-subcategory: Managed Service for SPQR
+subcategory: Managed Service for PostgreSQL
 ---
 
 # yandex_mdb_sharded_postgresql_cluster (Resource)
@@ -342,6 +342,10 @@ resource "yandex_vpc_subnet" "test-subnet-d" {
 - `name` (**Required**)(String). Name of the Sharded PostgreSQL cluster. Provided by the client when the cluster is created.
 - `network_id` (**Required**)(String). The `VPC Network ID` of subnets which resource attached to.
 - `security_group_ids` (Set Of String). The list of security groups applied to resource or their components.
+- `timeouts` [Block]. 
+  - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+  - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+  - `update` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 
 ## Import
 

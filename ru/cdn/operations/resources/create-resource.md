@@ -136,7 +136,14 @@ description: Следуя данной инструкции, вы сможете
 
       * В блоке **{{ ui-key.yacloud.cdn.label_resource-http-headers-http-methods }}** выберите **{{ ui-key.yacloud.cdn.label_resource-http-headers-allowed-methods }}** из выпадающего списка.
 
+        {% include [post-method](../../../_includes/cdn/http-post-method.md) %}
+
         [Подробнее о настройке HTTP-методов](configure-http.md)
+
+      * В блоке **{{ ui-key.yacloud.cdn.CdnResourceFormWizard.section_wizard-static-response_6DKzY }}** настройте HTTP-ответ, если необходимо.
+
+          [Подробнее о настройке HTTP-ответа](configure-response.md).
+
   1. Нажмите **Создать и продолжить**.
   1. (опционально) В разделе **Дополнительно**:
 

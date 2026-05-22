@@ -16,7 +16,7 @@ description: Из статьи вы узнаете, какие типы диск
 
 {% note warning %}
 
-Гибридное хранилище доступно для таблиц только на [движке MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/). Данные таблиц на других движках хранятся только в кластерном хранилище.
+Гибридное хранилище доступно для таблиц только на [движке MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree). Данные таблиц на других движках хранятся только в кластерном хранилище.
 
 {% endnote %}
 
@@ -47,7 +47,7 @@ description: Из статьи вы узнаете, какие типы диск
 
 Пример см. в практическом руководстве [Использование гибридного хранилища](../tutorials/hybrid-storage.md).
 
-Чтобы отслеживать, какой объем занимают куски таблиц [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) в {{ objstorage-full-name }}, [воспользуйтесь метрикой](../tutorials/hybrid-storage.md#metrics) `ch_s3_disk_parts_size` в сервисе {{ monitoring-full-name }}. Она доступна только для кластеров {{ mch-name }} с настроенным гибридным хранилищем.
+Чтобы отслеживать, какой объем занимают куски таблиц [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) в {{ objstorage-full-name }}, [воспользуйтесь метрикой](../tutorials/hybrid-storage.md#metrics) `ch_s3_disk_parts_size` в сервисе {{ monitoring-full-name }}. Она доступна только для кластеров {{ mch-name }} с настроенным гибридным хранилищем.
 
 Хранение холодных данных и их резервных копий в гибридном хранилище учитывается при расчете [стоимости использования кластера](../pricing.md#prices-storage).
 
@@ -64,7 +64,7 @@ description: Из статьи вы узнаете, какие типы диск
 * `default` (по умолчанию) — кластер автоматически управляет размещением данных в зависимости от:
 
     * [настроек гибридного хранилища](#hybrid-storage-settings);
-    * настроек [TTL]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#mergetree-table-ttl) для таблиц (время жизни).
+    * настроек [TTL]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#mergetree-table-ttl) для таблиц (время жизни).
 
     При достаточном объеме свободного места в кластерном хранилище, перемещение в объектное хранилище выполняется только для тех строк таблицы, для которых истекло значение TTL. Эта операция позволяет переместить часть данных в объектное хранилище, не дожидаясь заполнения кластерного хранилища.
 
@@ -74,7 +74,7 @@ description: Из статьи вы узнаете, какие типы диск
 
 * `object_storage` — строки таблицы с такой политикой размещаются только в объектном хранилище. Перемещения данных между хранилищами не происходит.
 
-Политики хранения не оказывают влияния на [операции слияния]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) кусков данных. При любой политике хранения вы можете:
+Политики хранения не оказывают влияния на [операции слияния]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/custom-partitioning-key) кусков данных. При любой политике хранения вы можете:
 
 * Включать и выключать настройку `prefer_not_to_merge`, которая выполняет слияние кусков данных в хранилищах. Настройка доступна в [CLI и API](../operations/update.md#change-hybrid-storage).
 * Задавать любое значение настройке `max_data_part_size_bytes`, которая устанавливает максимальный размер итогового куска данных после слияния меньших кусков.
@@ -88,7 +88,7 @@ SELECT *
 FROM system.storage_policies;
 ```
 
-Подробнее о политиках хранения и их настройках см. в [документации {{ CH }}]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes).
+Подробнее о политиках хранения и их настройках см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-multiple-volumes).
 
 ### Настройки гибридного хранилища {#hybrid-storage-settings}
 
@@ -104,13 +104,13 @@ FROM system.storage_policies;
 
     Куски данных для переноса выстраиваются в очередь от большего к меньшему, затем переносится такое количество кусков, при котором будет выполняться условие `move_factor`.
 
-* `prefer_not_to_merge` — отключает [слияние кусков данных]({{ ch.docs }}/engines/table-engines/mergetree-family/custom-partitioning-key/) в кластерном и объектном хранилищах. По умолчанию слияние включено.
+* `prefer_not_to_merge` — отключает [слияние кусков данных]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/custom-partitioning-key) в кластерном и объектном хранилищах. По умолчанию слияние включено.
 
-    После вставки данных в таблицу они сохраняются в виде куска данных и сортируются по первичному ключу. Затем в фоновом режиме куски одной партиции сливаются в более крупный кусок через 10–15 минут после вставки. Вы можете использовать системную таблицу [system.parts]({{ ch.docs }}/operations/system-tables/parts#system_tables-parts), чтобы посмотреть слитые куски данных и партиции.
+    После вставки данных в таблицу они сохраняются в виде куска данных и сортируются по первичному ключу. Затем в фоновом режиме куски одной партиции сливаются в более крупный кусок через 10–15 минут после вставки. Вы можете использовать системную таблицу [system.parts]({{ ch.docs }}{{ lang }}/operations/system-tables/parts#system_tables-parts), чтобы посмотреть слитые куски данных и партиции.
 
 Задать настройки гибридного хранилища можно при [создании](../operations/cluster-create.md) или [изменении](../operations/update.md#change-hybrid-storage) кластера.
 
-Подробнее о настройках гибридного хранилища см. в [документации {{ CH }}](https://clickhouse.com/docs/ru/engines/table-engines/mergetree-family/mergetree/#table_engine-mergetree-multiple-volumes).
+Подробнее о настройках гибридного хранилища см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-multiple-volumes).
 
 ## Выбор типа дисков при создании кластера {#storage-type-selection}
 
@@ -155,7 +155,7 @@ FROM system.storage_policies;
 
 Можно использовать один либо оба порога. Если заданы оба, порог для незамедлительного увеличения должен быть не меньше, чем для планового.
 
-Для планового увеличения необходимо настроить расписание [окна обслуживания](maintenance.md#maintenance-window).
+Для планового увеличения необходимо [настроить расписание окна обслуживания](../operations/cluster-maintenance.md#set-maintenance-window).
 
 {% include [storage-resize-steps](../../_includes/mdb/mch/storage-resize-steps.md) %}
 

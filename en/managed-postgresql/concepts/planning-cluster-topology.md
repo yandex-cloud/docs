@@ -33,7 +33,7 @@ Single-host cluster is both the cheapest and easiest to operate. We recommend to
 Advantages:
 
 * Price: Such a cluster is cheaper than a multi-host one within the same [host class](./instance-types.md).
-* Ease of operation: Its master host is always the same, so your app does not need to support [master failover](../operations/connect.md#automatic-master-host-selection).
+* Ease of operation: Its master host is always the same, so your app does not need to support [master failover](../operations/connect/fqdn.md#automatic-master-host-selection).
 
 Disadvantages:
 
@@ -48,7 +48,7 @@ Disadvantages:
 
 ### Two-host cluster {#two-hosts-cluster}
 
-A two-host cluster meets the high availability criteria and is subject to the [SLA](https://yandex.ru/legal/cloud_sla_mdb/). This option is sutable for medium-sized applications in a production environment.
+A two-host cluster meets the high availability criteria and is subject to the [SLA](https://yandex.ru/legal/cloud_sla_mdb/). This option is suitable for medium-sized applications in a production environment.
 
 Compared to a single-host cluster, a cluster with two hosts offers the following advantages:
 
@@ -81,7 +81,7 @@ Compared to two-host clusters, a cluster with three or more hosts offers the fol
 
 * [{#T}](../tutorials/1c-postgresql.md)
 
-### Cluster availability under different topologies {#cluster-availability}
+### Cluster availability under different topologies {#cluster-availability-diff-topology}
 
 The number of hosts listed in the tables includes the master host and replica hosts subject to automatic replication. Replica hosts with [specified replication sources](./replication.md#replication-manual) are not counted.
 
@@ -125,13 +125,13 @@ Master and `N-1` quorum replicas
 
 If your high availability cluster has no replication source specified for at least two hosts, you need to ensure that the cluster is readable during failover. You can do this in any of the following ways:
 
-* Connect to your cluster using [special FQDNs](../operations/connect.md#special-fqdns):
+* Connect to your cluster using [special FQDNs](../operations/connect/fqdn.md#special-fqdns):
 
-   * For writes, use the [FQDN of the current master host](../operations/connect.md#fqdn-master): `c-<cluster_ID>.rw.mdb.yandexcloud.net`.
-   * For reads, use the [FQDN of the most recent replica](../operations/connect.md#fqdn-replica): `c-<cluster_ID>.ro.mdb.yandexcloud.net`.
+   * For writes, use the [FQDN of the current master host](../operations/connect/fqdn.md#fqdn-master): `c-<cluster_ID>.rw.mdb.yandexcloud.net`.
+   * For reads, use the [FQDN of the most recent replica](../operations/connect/fqdn.md#fqdn-replica): `c-<cluster_ID>.ro.mdb.yandexcloud.net`.
 
    While easy to use, this method invovles [DNS](https://en.wikipedia.org/wiki/Domain_Name_System), so it takes extra time to update the DNS record during failover.
 
-* In the app configuration, specify the [FQDNs](../operations/connect.md#fqdn) of all cluster hosts, comma-separated. For reads, specify the `target_session_attrs=any` parameter; for writes, `target_session_attrs=read-write`.
+* In the app configuration, specify the [FQDNs](../operations/connect/fqdn.md) of all cluster hosts, comma-separated. For reads, specify the `target_session_attrs=any` parameter; for writes, `target_session_attrs=read-write`.
 
    In this case, you do not need any DNS record updates. If failover time is critical for you, we recommend that you opt for this method.

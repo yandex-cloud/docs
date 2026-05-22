@@ -5,7 +5,7 @@ description: Контроль данных ({{ dspm-name }}) — это один
 
 # Модуль контроля данных ({{ dspm-name }})
 
-[Модуль контроля данных]({{ link-sd-main }}dspm/) или {{ dspm-name }} (Data Security Posture Management) — это инструмент, помогающий оперативно обнаруживать чувствительную информацию, сохраненную в [бакетах](../../storage/concepts/bucket.md) {{ objstorage-full-name }} и на дисках в {{ yandex-360 }}. Это позволит своевременно настраивать [политики доступа](../../storage/concepts/policy.md), обезличивать данные и принимать другие меры защиты.
+[Модуль контроля данных]({{ link-sd-main }}dspm/) или {{ dspm-name }} ({{ dspm-full-name }}) — это инструмент, помогающий оперативно обнаруживать чувствительную информацию, сохраненную в [бакетах](../../storage/concepts/bucket.md) {{ objstorage-full-name }} и на дисках в {{ yandex-360 }}. Это позволит своевременно настраивать [политики доступа](../../storage/concepts/policy.md), обезличивать данные и принимать другие меры защиты.
 
 {% note info %}
 
@@ -13,6 +13,11 @@ description: Контроль данных ({{ dspm-name }}) — это один
 
 {% endnote %}
 
+## Анализ данных {#discovery-mode}
+
+{% include [analysis-preview-mode](../../_includes/security-deck/analysis-preview-mode.md) %}
+
+{% include [about-discovery](../../_includes/security-deck/about-discovery.md) %}
 
 ## Сканирование на наличие чувствительной информации {#scanning}
 

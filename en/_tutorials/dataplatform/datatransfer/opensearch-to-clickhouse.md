@@ -28,14 +28,14 @@ Set up your data delivery infrastructure:
 
     {% include [public-access](../../../_includes/mdb/note-public-access.md) %}
 
-    1. [Create a {{ mos-name }} source cluster](../../../managed-opensearch/operations/cluster-create.md#create-cluster) with any suitable configuration and publicly accessible hosts.
+    1. [Create a {{ mos-name }} source cluster](../../../managed-opensearch/operations/cluster-create.md#create-cluster) using any suitable configuration with publicly accessible hosts.
     1. In the same [availability zone](../../../overview/concepts/geo-scope.md), [create a {{ mch-name }} target cluster](../../../managed-clickhouse/operations/cluster-create.md#create-cluster) with any suitable configuration and publicly accessible hosts.
 
        To connect to the cluster via {{ websql-full-name }}, enable **{{ ui-key.yacloud.mdb.cluster.overview.label_access-websql-service }}** in the cluster settings.
 
-    1. [Get an SSL certificate](../../../managed-opensearch/operations/connect.md#ssl-certificate) to connect to the {{ mos-name }} cluster.
+    1. [Get an SSL certificate](../../../managed-opensearch/operations/connect/index.md#ssl-certificate) to connect to the {{ mos-name }} cluster.
 
-    1. Make sure the [{{ mos-name }}](../../../managed-opensearch/operations/connect.md#security-groups) and [{{ mch-name }}](../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) cluster security groups allow connecting from the internet.
+    1. Make sure the [{{ mos-name }}](../../../managed-opensearch/operations/connect/index.md#security-groups) and [{{ mch-name }}](../../../managed-clickhouse/operations/connect/index.md#configuring-security-groups) cluster security groups allow connecting from the internet.
 
 - {{ TF }} {#tf}
 

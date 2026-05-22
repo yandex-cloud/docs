@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/server/create
 editable: false
 ---
 
@@ -37,6 +38,10 @@ Adds a network interface spec to the server.
 
 Possible property names:
 
+- `id`: Specifies the ID of the network interface. Should not be specified when creating a server.
+
+- `configuration-network-interface-id`: Specifies the ID of the configuration network interface that determines the network interface configuration. If not specified, the configuration will be chosen automatically on the server side based on availability. It is recommended to specify this field for deterministic behavior.
+
 - `private-subnet-id`: Specifies the ID of the private subnet that the interface will be part of.
 
 - `public-subnet-id`: Specifies the ID of the public subnet that the interface will be part of.
@@ -45,7 +50,11 @@ Possible property names:
 
 - `public-subnet-name`: Specifies the name of the public subnet that the interface will be part of.
 
-- `ephemeral-public-subnet`: Creates an ephemeral public subnet for the interface. ||
+- `ephemeral-public-subnet`: Creates an ephemeral public subnet for the interface.
+
+- `tagged-subnet-ids`: Specifies the IDs of the additional private subnets to be assigned as VLAN-tagged subinterfaces.
+
+- `tagged-subnet-names`: Specifies the names of the additional private subnets to be assigned as VLAN-tagged subinterfaces. ||
 || `--configuration-id` | `string`
 
 Specifies a textual configuration id of the server. ||

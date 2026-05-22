@@ -8,7 +8,7 @@ description: The {{ ad-sync-agent }} enables you to configure {{ org-full-name }
 
 {% include [note-preview](../../_includes/note-preview.md) %}
 
-If your company uses [{{ microsoft-idp.ad-full }}](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) for user management and you want your users to be able to access {{ yandex-cloud }}, you do not need to create {{ yandex-cloud }} accounts for your users manually. Instead, you can [sync](../operations/sync-ad.md) the users and groups created in your {{ microsoft-idp.ad-short }} folder with {{ org-full-name }}.
+If your company uses [{{ microsoft-idp.ad-full }}](https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) for user management and you want your users to be able to access {{ yandex-cloud }}, you do not need to create {{ yandex-cloud }} accounts for them manually. Instead, you can [sync](../operations/sync-ad.md) the users and groups created in your {{ microsoft-idp.ad-short }} folder with {{ org-full-name }}.
 
 {% include [ad-synk-userpoolonly-notice](../../_includes/organization/ad-synk-userpoolonly-notice.md) %}
 
@@ -37,7 +37,7 @@ The {{ ad-sync-agent }} syncs the following objects with the {{ microsoft-idp.ad
 
     User attribute mapping table:
 
-    Attribute name </br>in [agent configuration](#agent-config) | Attribute name in {{ microsoft-idp.ad-short }} </br>(default) | Attribute name </br>in {{ org-name }}
+    Attribute name </br>in [agent configuration](#agent-config) | Attribute name in {{ microsoft-idp.ad-short }} </br>(default) | Attribute name </br>in {{ org-full-name }}
     --- | --- | ---
     `FullName` | `displayName` | `full_name`
     `GivenName` | `givenName` | `given_name`
@@ -45,6 +45,10 @@ The {{ ad-sync-agent }} syncs the following objects with the {{ microsoft-idp.ad
     `Email` | `mail` | `email`
     `PhoneNumber` | `telephoneNumber` | `phone_number`
     `Username` | `userPrincipalName` | `username`
+    `EmployeeId` | `employeeID` | `employee_id`
+    `Department` | `department` | `department`
+    `JobTitle` | `title` | `job_title`
+    `CompanyName` | `company` | `company_name`
     no data | `ObjectGUID` | `external_id`
 
     In the `user_attribute_mapping` [agent configuration](#agent-config) parameter, you can map user attribute names different from the {{ microsoft-idp.ad-short }} default ones or disable synchronization of individual attributes.
@@ -53,7 +57,7 @@ The {{ ad-sync-agent }} syncs the following objects with the {{ microsoft-idp.ad
 
     User group attribute mapping table:
 
-    Attribute name </br>in [agent configuration](#agent-config) | Attribute name in {{ microsoft-idp.ad-short }} </br>(default) | Attribute name </br>in {{ org-name }}
+    Attribute name </br>in [agent configuration](#agent-config) | Attribute name in {{ microsoft-idp.ad-short }} </br>(default) | Attribute name </br>in {{ org-full-name }}
     --- | --- | ---
     `Name` | `name` | `name`
     `Description` | `description` | `description`
@@ -73,44 +77,49 @@ The {{ ad-sync-agent }} syncs the following objects with the {{ microsoft-idp.ad
 
 ## Setting up synchronization {#sync-setup}
 
-To implement {{ org-name }} user and group synchronization with {{ microsoft-idp.ad-short }}, you need to do the presetting both on the [domain controller](https://en.wikipedia.org/wiki/Domain_controller_(Windows)) side with {{ microsoft-idp.ad-short }} services deployed and on the {{ yandex-cloud }} side.
+To implement {{ org-full-name }} user and group synchronization with {{ microsoft-idp.ad-short }}, you need to do the presetting both on the [domain controller](https://en.wikipedia.org/wiki/Domain_controller_(Windows)) side with {{ microsoft-idp.ad-short }} services deployed and on the {{ yandex-cloud }} side.
 
-## {{ microsoft-idp.ad-short }} domain controller side setup {#dc-setup}
+### {{ microsoft-idp.ad-short }} domain controller side setup {#dc-setup}
 
 For the synchronization [agent](#sync-agent) to work correctly on the {{ microsoft-idp.ad-short }} side, do the following:
 
 {% include [ad-synk-presetup-ad](../../_includes/organization/ad-synk-presetup-ad.md) %}
 
-## {{ yandex-cloud }} side setup {#yc-setup}
+### {{ yandex-cloud }} side setup {#yc-setup}
 
 For the synchronization [agent](#sync-agent) to work correctly on the {{ yandex-cloud }} side, do the following:
 
-* [Create](../../iam/operations/sa/create.md) a service account for synchronization on the {{ org-name }} side.
-* [Create](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) and save an [authorized key](../../iam/concepts/authorization/key.md) for the service account.
+* [Create](../../iam/operations/sa/create.md) a service account for synchronization on the {{ org-full-name }} side.
 * [Assign](../../iam/operations/sa/assign-role-for-sa.md#binding-role-organization) the following [roles](../../iam/concepts/access-control/roles.md) to the service account for the [organization](./organization.md) the user pool is in:
 
     {% include [ad-synk-sa-roles](../../_includes/organization/ad-synk-sa-roles.md) %}
 
+* Optionally, [create](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) and save an [authorized key](../../iam/concepts/authorization/key.md) for the service account.
+
+    {% include [ad-synk-iam-via-metadata-warning](../../_includes/organization/ad-synk-iam-via-metadata-warning.md) %}
+
 ## {{ ad-sync-agent }} agent {#sync-agent}
 
-{{ ad-sync-agent }} reads user and user group data in the [selected](#agent-config) Organization Units (OU) in the {{ microsoft-idp.ad-short }} folder and syncs it with user and user group data in the {{ org-name }} [pool](./user-pools.md).
+{{ ad-sync-agent }} reads user and user group data in the [selected](#agent-config) Organization Units (OU) in the {{ microsoft-idp.ad-short }} folder and syncs it with user and user group data in the {{ org-full-name }} [pool](./user-pools.md).
 
 On the {{ microsoft-idp.ad-short }} side, the synchronization agent gets user and group data as the user [created](#dc-setup) in the {{ microsoft-idp.ad-short }} domain. To get this data, the agent uses the [LDAP](https://learn.microsoft.com/en-us/windows/win32/api/_ldap/) and [DRSR](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-drsr/) protocols. The requests go to the {{ microsoft-idp.ad-short }} domain controller address specified in the agent [configuration](#agent-config).
 
-On the {{ yandex-cloud }} side, the synchronization agent manages users and user groups as a [service account](../../iam/concepts/users/service-accounts.md) with [permissions](#yc-setup) for syncing. Requests to {{ yandex-cloud }} go to public endpoint `https://organization-manager.{{ api-host }}` over [HTTPS](https://en.wikipedia.org/wiki/HTTPS).
+On the {{ yandex-cloud }} side, the synchronization agent manages users and user groups as a [service account](../../iam/concepts/users/service-accounts.md) with [permissions](#yc-setup) for syncing. Requests to {{ yandex-cloud }} go to public endpoint `https://organization-manager.{{ api-host }}` over [HTTPS](https://en.wikipedia.org/wiki/HTTPS). To authenticate in the {{ yandex-cloud }} API, the agent uses a service account authorized key or, only if installed on a {{ compute-name }} VM instance, a service account [IAM token](../../iam/concepts/authorization/iam-token.md) [obtained](../../compute/operations/vm-metadata/get-vm-metadata.md#example5) via the VM [metadata service](../../compute/concepts/vm-metadata.md).
 
 The synchronization agent installation script is available for the following operation systems:
 
 * [Linux]({{ ad-sync-agent-linuxlink }})
-* [Windows]({{ ad-sync-agent-windowslink }})
+* [Windows]({{ ad-sync-agent-windowslink }}).
 
 ### Synchronization process {#sync-process}
 
-During the synchronization process, {{ ad-sync-agent }} can create, update, or delete users and user groups in {{ org-name }}. {{ org-name }} users and groups are synced with {{ microsoft-idp.ad-short }} users and groups in to stages: [primary synchronization](#full-sync) and [incremental synchronization](#incremental-sync).
+During the synchronization process, {{ ad-sync-agent }} can create, update, or delete users and user groups in {{ org-full-name }}. {{ org-full-name }} users and groups are synced with {{ microsoft-idp.ad-short }} users and groups in to stages: [primary synchronization](#full-sync) and [incremental synchronization](#incremental-sync).
+
+During syncing, the user pool may be found to contain a user or user group with names identical to those of the user or user group that need to be synced. In which case, depending on [current settings](#agent-config), the agent will either overwrite the data from {{ microsoft-idp.ad-short }} for the existing {{ org-full-name }} user or group or return an error message.
 
 #### Full (primary) synchronization {#full-sync}
 
-When performing a full synchronization, the agent reads the data of all users, groups, and their attributes in the [selected](#agent-config) Organization Units in the {{ microsoft-idp.ad-short }} folder and creates the same users and groups with the same attributes in the {{ org-name }} user pool.
+When performing a full synchronization, the agent reads the data of all users, groups, and their attributes in the [selected](#agent-config) Organization Units in the {{ microsoft-idp.ad-short }} folder and creates the same users and groups with the same attributes in the {{ org-full-name }} user pool.
 
 The primary synchronization process for a large number of [objects](#sync-objects) may take a long time. If the full synchronization process is interrupted due to an error, you can restart the agent to resume synchronization from where the previous attempt was interrupted. The agent tracks the progress of full synchronization using process token files in the running agent's directory:
 
@@ -130,14 +139,20 @@ You can restart the full synchronization process. Do it by deleting the mentione
 
 The running agent performs incremental synchronization continuously with the following frequency:
 
-* _Syncing user passwords and states_: The agent tracks the lock/unlock status of users in the {{ microsoft-idp.ad-short }} domain and user password changes and transfers these updates to {{ org-name }} at an interval of several seconds. You cannot change the frequency for this synchronization type.
+* _Syncing user passwords and states_: The agent tracks the lock/unlock status of users in the {{ microsoft-idp.ad-short }} domain and user password changes and transfers these updates to {{ org-full-name }} at an interval of several seconds. You cannot change the frequency for this synchronization type.
 * _Syncing other values_: The agent tracks other changes in properties, attributes, and parameters of users and groups at an interval [set](#agent-config) in the agent's configuration file.
 
-During syncing, the user pool may be found to contain a user or user group with names identical to those of the user or user group that need to be synced. In which case, depending on [current settings](#agent-config), the agent will either overwrite the data from {{ microsoft-idp.ad-short }} into the existing {{ org-name }} user or group or return an error message.
+#### Dry run {#dry-run}
+
+{{ ad-sync-agent }} can be dry run. Use this mode to try out the changes you make to the agent's configuration before applying them.
+
+In dry run mode, the agent does not alter the data of {{ org-full-name }} users and groups. Instead, it tests all operations caused by changes to the agent's configuration and [logs](#logging) the results of these tests.
+
+For more information on how to dry run the agent, see [{#T}](../operations/sync-ad.md#dry-run).
 
 ### Tracked changes {#tracked-changes}
 
-During continuous synchronization, the agent tracks the following changes in {{ microsoft-idp.ad-short }} and transfers them to {{ org-name }}:
+During continuous synchronization, the agent tracks the following changes in {{ microsoft-idp.ad-short }} and transfers them to {{ org-full-name }}:
 
 * Creating, editing, locking, unlocking, and deleting users.
 * Creating, editing, and deleting user groups.
@@ -168,3 +183,4 @@ The synchronization agent's configuration is set in a [YAML](https://yaml.org/) 
 #### See also {#see-also}
 
 * [{#T}](../operations/sync-ad.md)
+

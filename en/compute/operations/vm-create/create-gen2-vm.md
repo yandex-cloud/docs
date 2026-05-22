@@ -24,7 +24,7 @@ You can upload your own UEFI and GPT-enabled VM image to {{ compute-name }} to c
 
 #### Prepare an image file {#prepare-file}
 
-{% include [image-create-requirements](../../../_includes/compute/image-create-requirements.md) %}
+{% include [image-create-requirements-gen2](../../../_includes/compute/image-create-requirements-gen2.md) %}
 
 {% include [available-image-format](../../../_includes/compute/available-image-format.md) %}
 
@@ -456,7 +456,7 @@ To create an image from an existing [image](../../concepts/image.md), [snapshot]
           * `true`: Optimization enabled.
           * `false`: Optimization disabled.
 
-          This is an optional setting. By default, the optimization is disabled.
+          This is an optional parameter. By default, the optimization is disabled.
 
   1. Run this http request:
 
@@ -583,7 +583,7 @@ You can assign to a snapshot a generation different from the one assigned to the
       
           {% include [name-format](../../../_includes/name-format.md) %}
 
-      * `source_disk_id`: ID of the disk to create the snapshot for.
+      * `source_disk_id`: ID of the disk you are creating the snapshot for.
 
       For detailed information about the `yandex_compute_snapshot` resource parameters, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/compute_snapshot).
           
@@ -636,7 +636,7 @@ You can assign to a snapshot a generation different from the one assigned to the
 
           {% include [name-format](../../../_includes/name-format.md) %}
 
-      * `diskId`: ID of the [disk](../../concepts/disk.md) you are making a snapshot of.
+      * `diskId`: ID of the [disk](../../concepts/disk.md) you are making the snapshot for.
 
   1. Run this http request:
 
@@ -781,7 +781,7 @@ To create a disk with the `Gen 2` hardware generation assigned:
 
   1. Define the parameters of the `yandex_compute_disk` resource in the configuration file.
 
-      Here is a configuration file example:
+      Here is an example of the configuration file structure:
 
       ```hcl
       resource "yandex_compute_disk" "my-disk" {
@@ -1051,7 +1051,7 @@ Use a pre-prepared [image](#create-image), [snapshot](#create-snapshot), or [dis
 
           {% endnote %}
 
-          * `--create-boot-disk`: Enables creating a new boot disk for the VM based on an image or snapshot:
+          * `--create-boot-disk`: Enables creating a new boot disk for the VM, based on an image or snapshot, as follows:
 
               * `name`: Disk name. Follow these naming requirements:
 
@@ -1064,7 +1064,7 @@ Use a pre-prepared [image](#create-image), [snapshot](#create-snapshot), or [dis
                   * `network-ssd-nonreplicated`: Enhanced performance network drive without redundancy.
                   * `network-ssd-io-m3`: Enhanced performance network drive with redundancy.
               * `size`: Disk size in GB.
-              * Selecting a source for the boot disk:
+              * Selecting a source to create your boot disk from:
 
                   * `image-id`: ID of the [pre-prepared image](#create-image) the VM boot disk will be created from.
                   * `snapshot-id`: ID of the [pre-prepared snapshot](#create-snapshot) the VM boot disk will be created from.
@@ -1176,7 +1176,7 @@ Use a pre-prepared [image](#create-image), [snapshot](#create-snapshot), or [dis
 
           Use the `yandex_compute_disk` resource if creating a new boot disk for the VM from a pre-prepared image or snapshot.
           
-          If your new VM will use an existing [pre-prepared](#create-disk) boot disk, specify the disk's ID in the `boot_disk.disk_id` parameter of the `yandex_compute_instance` resource without creating a new `yandex_compute_disk` resource.
+          If your new VM is using an existing [pre-prepared](#create-disk) boot disk, specify the disk ID in the `boot_disk.disk_id` parameter of the `yandex_compute_instance` resource without creating a new `yandex_compute_disk` resource.
 
           {% endnote %}
 
@@ -1203,7 +1203,7 @@ Use a pre-prepared [image](#create-image), [snapshot](#create-snapshot), or [dis
               * `image_id`: ID of the [pre-prepared image](#create-image) the VM boot disk will be created from.
               * `snapshot_id`: ID of the [pre-prepared snapshot](#create-snapshot) the VM boot disk will be created from.
 
-          For detailed information about the `yandex_compute_disk` resource parameters, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/compute_disk).
+          For more information about `yandex_compute_disk` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/compute_disk).
 
       * `yandex_compute_instance`: VM description:
           * `name`: VM name. Follow these naming requirements:
@@ -1213,11 +1213,11 @@ Use a pre-prepared [image](#create-image), [snapshot](#create-snapshot), or [dis
           * `platform_id`: [Platform](../../concepts/vm-platforms.md).
           * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) the VM will reside in.
 
-              The VM must reside in the same availability zone as the subnet, plus in the same availability zone as the boot disk if created from a pre-prepared disk.
+              The VM must reside in the same availability zone as the used subnet and also the VM boot disk if you are creating the VM from a previously prepared disk.
           * `resources`: Number of vCPUs and amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
           * `boot_disk`: Boot disk settings.
           
-              * `disk_id`: Disk ID. If your new VM will use an existing [pre-prepared](#create-disk) boot disk, specify its ID in this parameter.
+              * `disk_id`: Disk ID. If your new VM is intended to be using an existing boot disk [you prepared earlier](#create-disk), specify the disk ID in this parameter.
               * `auto_delete`: Auto-delete the boot disk together with the VM. See [{#T}](../../concepts/disk.md#autodelete-disks).
           * `network_interface`: VM [network interface](../../concepts/network.md) settings:
           
@@ -1305,7 +1305,7 @@ Use a pre-prepared [image](#create-image), [snapshot](#create-snapshot), or [dis
 
       * `zoneId`: [Availability zone](../../../overview/concepts/geo-scope.md) the VM will reside in.
 
-          The VM must reside in the same availability zone as the subnet, plus in the same availability zone as the boot disk if created from a [pre-prepared disk](#create-disk).
+          The VM must reside in the same availability zone as the used subnet and also the VM boot disk if you are creating the VM from a [previously prepared disk](#create-disk).
       * `platformId`: VM [platform](../../concepts/vm-platforms.md).
       * `resourceSpec`: Number of vCPUs and amount of RAM available to the VM. The values must match the selected [platform](../../concepts/vm-platforms.md).
       * `metadata`: In metadata, provide the public key for accessing the VM via SSH. For more information, see [{#T}](../../concepts/vm-metadata.md).
@@ -1319,10 +1319,10 @@ Use a pre-prepared [image](#create-image), [snapshot](#create-snapshot), or [dis
 
           {% endnote %}
 
-          * `diskSpec`: Setting of the new boot disk if created from a pre-prepared image or snapshot:
+          * `diskSpec`: Settings for your new boot disk if created from a previously prepared image or snapshot:
 
               * `size`: New disk size, in bytes.
-              * Selecting a source for the boot disk:
+              * Selecting a source to create your boot disk from:
 
                   {% note info %}
 
@@ -1330,9 +1330,9 @@ Use a pre-prepared [image](#create-image), [snapshot](#create-snapshot), or [dis
 
                   {% endnote %}
 
-                  * `imageId`: ID of the [pre-prepared image](#create-image) the VM boot disk will be created from.
-                  * `snapshotId`: ID of the [pre-prepared snapshot](#create-snapshot) the VM boot disk will be created from.
-          * `diskId`: ID of the existing [pre-prepared](#create-disk) boot disk if one is used to create the VM.
+                  * `imageId`: ID of the [previously prepared image](#create-image) the VM boot disk will be created from.
+                  * `snapshotId`: ID of the [previously prepared snapshot](#create-snapshot) the VM boot disk will be created from.
+          * `diskId`: ID of an existing boot disk [you prepared earlier](#create-disk) if it is used to create a VM.
       * `networkInterfaceSpecs`: VM [network interface](../../concepts/network.md) settings:
 
           * `subnetId`: ID of the selected [subnet](../../../vpc/concepts/network.md#subnet). The subnet must be in the same availability zone as your new VM.

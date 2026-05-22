@@ -82,7 +82,7 @@ By default, a [cloud](../../../resource-manager/concepts/resources-hierarchy.md#
      * `--create-boot-disk`: OS [image](../images-with-pre-installed-software/get-list.md).
 
          * `image-family`: [Image family](../../concepts/image.md#family), e.g., `ubuntu-1604-lts-gpu`. This option allows you to install the latest version of the OS from the specified family.
-         * `kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) for creating an encrypted boot disk. This is an optional parameter.
+         * `kms-key-id`: ID of the [{{ kms-short-name }} symmetric key](../../../kms/concepts/key.md) to create an encrypted boot disk. This is an optional setting.
 
            {% include [encryption-role](../../../_includes/compute/encryption-role.md) %}
            
@@ -117,7 +117,7 @@ By default, a [cloud](../../../resource-manager/concepts/resources-hierarchy.md#
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the configuration file, define the parameters of the resources you want to create:
+  1. In the configuration file, describe the resources you want to create:
 
      ```hcl
      resource "yandex_compute_disk" "boot-disk" {
@@ -131,7 +131,7 @@ By default, a [cloud](../../../resource-manager/concepts/resources-hierarchy.md#
      resource "yandex_compute_instance" "vm-1" {
        name                      = "vm-with-gpu"
        allow_stopping_for_update = true
-       platform_id               = "standard-v3"
+       platform_id               = "gpu-standard-v3"
        zone                      = "<availability_zone>"
 
        resources {
@@ -170,7 +170,7 @@ By default, a [cloud](../../../resource-manager/concepts/resources-hierarchy.md#
        * `name`: Disk name.
        * `type`: Disk type.
        * `zone`: [Availability zone](../../../overview/concepts/geo-scope.md) the disk will reside in.
-       * `size`: Disk size in GB.
+       * `size`: Disk size, in GB.
        * `image_id`: ID of the image to create the VM from. You can get the image ID from the [list of public images](../images-with-pre-installed-software/get-list.md).
 
          {% include [gpu-os](../../../_includes/compute/gpu-os.md) %}
@@ -203,7 +203,7 @@ By default, a [cloud](../../../resource-manager/concepts/resources-hierarchy.md#
 
      {% endnote %}
 
-     For more information about the resources you can create with {{ TF }}, see the [relevant provider documentation]({{ tf-provider-link }}).
+     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
@@ -221,3 +221,4 @@ By default, a [cloud](../../../resource-manager/concepts/resources-hierarchy.md#
 #### See also {#see-also}
 
 * Learn how to update the VM configuration [here](../vm-control/vm-update-resources.md).
+* [Questions about GPUs](../../../compute/qa/gpu.md)

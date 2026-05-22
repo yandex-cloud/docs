@@ -13,17 +13,11 @@ items:
             href: operations/cluster-list.md
           - name: Creating a cluster
             href: operations/cluster-create.md
-          - name: Connection
-            items:
-              - name: Connecting to a cluster
-                href: operations/connect.md
-              - name: Configuring SAML authentication
-                href: operations/saml-authentication.md
           - name: Updating properties
             items:
               - name: Updating cluster settings
                 href: operations/update.md
-              - name: '{{ OS }} version upgrade'
+              - name: '{{ OS }} version update'
                 href: operations/cluster-version-update.md
               - name: Managing plugins
                 href: operations/plugins.md
@@ -43,18 +37,32 @@ items:
             href: operations/s3-access.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
+      - name: Connection
+        items:
+          - name: Pre-configuration
+            href: operations/connect/index.md
+          - name: FQDNs of hosts
+            href: operations/connect/fqdn.md
+          - name: Connecting from applications
+            href: operations/connect/clients.md
+          - name: Code examples
+            href: operations/connect/code-examples.md
+          - name: Configuring SAML authentication
+            href: operations/saml-authentication.md
       - name: Managing users
         href: operations/cluster-users.md
       - name: Logs and monitoring
         items:
           - name: Viewing cluster logs
             href: operations/cluster-logs.md
-          - name: Monitoring the state of a cluster and its hosts
+          - name: Cluster and host state monitoring
             href: operations/monitoring.md
   - name: Tutorials
     items:
       - name: Configuring an index policy in {{ mos-name }}
         href: tutorials/opensearch-index-policy.md
+      - name: Configuring cold storage policy in {{ mos-name }}
+        href: tutorials/opensearch-cold-storage-policy.md
       - name: Uploading logs from {{ at-name }}
         hidden: true
         href: tutorials/trails-to-opensearch.md
@@ -82,6 +90,8 @@ items:
             href: tutorials/opensearch-to-greenplum.md
       - name: '{{ managed-k8s-name }} cluster monitoring with Filebeat OSS'
         href: tutorials/filebeat-oss-monitoring.md
+      - name: Sending email notifications
+        href: tutorials/opensearch-email-notifications.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -106,6 +116,8 @@ items:
         href: concepts/backup.md
       - name: Sharding and replication
         href: concepts/scalability-and-resilience.md
+      - name: High availability clusters
+        href: concepts/high-availability.md
       - name: '{{ OS }} plugins'
         href: concepts/plugins.md
       - name: '{{ OS }} versioning policy'
@@ -196,6 +208,102 @@ items:
             href: cli-ref/node-group/delete.md
           - name: update
             href: cli-ref/node-group/update.md
+      - name: plugin
+        items:
+          - name: Overview
+            href: cli-ref/plugin/index.md
+          - name: add
+            href: cli-ref/plugin/add.md
+          - name: delete
+            href: cli-ref/plugin/delete.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: auth-settings
+            items:
+              - name: Overview
+                href: cli-ref/v0/auth-settings/index.md
+              - name: get
+                href: cli-ref/v0/auth-settings/get.md
+              - name: update
+                href: cli-ref/v0/auth-settings/update.md
+          - name: backup
+            items:
+              - name: Overview
+                href: cli-ref/v0/backup/index.md
+              - name: get
+                href: cli-ref/v0/backup/get.md
+              - name: list
+                href: cli-ref/v0/backup/list.md
+          - name: cluster
+            items:
+              - name: Overview
+                href: cli-ref/v0/cluster/index.md
+              - name: add-access-binding
+                href: cli-ref/v0/cluster/add-access-binding.md
+              - name: backup
+                href: cli-ref/v0/cluster/backup.md
+              - name: create
+                href: cli-ref/v0/cluster/create.md
+              - name: delete
+                href: cli-ref/v0/cluster/delete.md
+              - name: get
+                href: cli-ref/v0/cluster/get.md
+              - name: list
+                href: cli-ref/v0/cluster/list.md
+              - name: list-access-bindings
+                href: cli-ref/v0/cluster/list-access-bindings.md
+              - name: list-backups
+                href: cli-ref/v0/cluster/list-backups.md
+              - name: remove-access-binding
+                href: cli-ref/v0/cluster/remove-access-binding.md
+              - name: restart-opensearch
+                href: cli-ref/v0/cluster/restart-opensearch.md
+              - name: restore
+                href: cli-ref/v0/cluster/restore.md
+              - name: set-access-bindings
+                href: cli-ref/v0/cluster/set-access-bindings.md
+              - name: start
+                href: cli-ref/v0/cluster/start.md
+              - name: stop
+                href: cli-ref/v0/cluster/stop.md
+              - name: switch-master
+                href: cli-ref/v0/cluster/switch-master.md
+              - name: update
+                href: cli-ref/v0/cluster/update.md
+          - name: extension
+            items:
+              - name: Overview
+                href: cli-ref/v0/extension/index.md
+              - name: create
+                href: cli-ref/v0/extension/create.md
+              - name: delete
+                href: cli-ref/v0/extension/delete.md
+              - name: get
+                href: cli-ref/v0/extension/get.md
+              - name: list
+                href: cli-ref/v0/extension/list.md
+              - name: update
+                href: cli-ref/v0/extension/update.md
+          - name: node-group
+            items:
+              - name: Overview
+                href: cli-ref/v0/node-group/index.md
+              - name: add
+                href: cli-ref/v0/node-group/add.md
+              - name: delete
+                href: cli-ref/v0/node-group/delete.md
+              - name: update
+                href: cli-ref/v0/node-group/update.md
+          - name: plugin
+            items:
+              - name: Overview
+                href: cli-ref/v0/plugin/index.md
+              - name: add
+                href: cli-ref/v0/plugin/add.md
+              - name: delete
+                href: cli-ref/v0/plugin/delete.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference

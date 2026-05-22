@@ -23,6 +23,12 @@ To find out the group ID:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  1. See the description of the CLI command for getting a list of groups:
+
+      ```bash
+      yc organization-manager group list --help
+      ```
+
   1. {% include [get-federation-id-cli](../../_includes/organization/get-group-id-cli.md) %}
 
 - API {#api}

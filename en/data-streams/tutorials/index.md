@@ -1,6 +1,6 @@
 ---
 title: '{{ yds-full-name }} use cases'
-description: Different use cases for {{ yds-full-name }} in {{ yandex-cloud }}.
+description: Various {{ yds-full-name }} use cases in {{ yandex-cloud }}.
 ---
 
 # {{ yds-name }} tutorials
@@ -23,7 +23,7 @@ description: Different use cases for {{ yds-full-name }} in {{ yandex-cloud }}.
 - [{#T}](static-key-in-lockbox/index.md)
 - [{#T}](events-from-postbox-to-yds.md)
 - [{#T}](websocket-app.md)
-- [{#T}](maxpatrol.md)
+- [{#T}](maxpatrol/index.md)
 - [{#T}](search-events-query.md)
 - [{#T}](audit-trails.md)
 - [{#T}](search-events-audit-logs/index.md)

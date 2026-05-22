@@ -3,7 +3,7 @@ title: Метод getBucketLogging
 description: Из статьи вы узнаете, что такое метод getBucketLogging, как выглядит его запрос и ответ.
 ---
 
-# Метод getBucketLogging
+# Object Storage API, REST совместимый с Amazon S3: GetBucketLogging
 
 
 Возвращает настройки [логирования действий с бакетом](../../../concepts/server-logs.md).
@@ -72,5 +72,11 @@ GET /{bucket}?logging HTTP/2
 `BucketLoggingStatus` | Корневой элемент.
 `TargetBucket` | Имя целевого бакета, в который сохраняются [объекты](../../../concepts/object.md) с логами.<br>Путь: `/BucketLoggingStatus/LoggingEnabled/TargetBucket`.<br>Тип: String.
 `TargetPrefix` | [Префикс ключа объекта](../../../concepts/server-logs.md#key-prefix) с логами.<br>Путь: `/BucketLoggingStatus/LoggingEnabled/TargetPrefix`.<br>Тип: String.
+
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/bucket.md)
+
+* [Получение настроек логирования действий с бакетом](../../../operations/buckets/enable-logging.md#get-settings)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

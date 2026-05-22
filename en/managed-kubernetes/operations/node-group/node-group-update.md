@@ -50,7 +50,8 @@ Learn how to change the [availability zone](../../../overview/concepts/geo-scope
 - Management console {#console}
 
   To update a {{ managed-k8s-name }} node group:
-  1. Navigate to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the cluster name.
   1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
   1. Select the node group you need.
@@ -106,6 +107,8 @@ Learn how to change the [availability zone](../../../overview/concepts/geo-scope
     * `--daily-maintenance-window`: Update daily at the selected time.
     * `--weekly-maintenance-window`: Update on selected days.
 
+      {% include [update time](../../../_includes/managed-kubernetes/note-update-time.md) %}
+
   {% note warning %}
 
   * The `user-data` metadata key is not supported for VM tuning or user data transmission.
@@ -119,7 +122,7 @@ Learn how to change the [availability zone](../../../overview/concepts/geo-scope
   To update a {{ managed-k8s-name }} node group:
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more information about creating this file, see [{#T}](node-group-create.md).
+     For more on how to create this file, see [{#T}](node-group-create.md).
   1. Edit the {{ managed-k8s-name }} node group description properties.
 
      * To change the scaling settings, edit the `scale_policy` section as follows:
@@ -155,7 +158,7 @@ Learn how to change the [availability zone](../../../overview/concepts/geo-scope
 
        {% include [node-name](../../../_includes/managed-kubernetes/tf-node-name.md) %}
 
-  1. Make sure the configuration files are correct.
+  1. Validate your configuration files.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
@@ -169,7 +172,9 @@ Learn how to change the [availability zone](../../../overview/concepts/geo-scope
 
 - API {#api}
 
-  To update a [{{ managed-k8s-name }} node group](../../concepts/index.md#node-group) properties, use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup) resource.
+  To update parameters for a [{{ managed-k8s-name }} node group](../../concepts/index.md#node-group), use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) REST API method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup) resource or the [NodeGroupService/Update](../../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) gRPC API call.
+
+  {% include [api-parameters-case](../../../_includes/managed-kubernetes/api-parameters-case.md) %}
 
   To update the [node group cloud labels](../../../resource-manager/concepts/labels.md), provide their values in the `nodeTemplate.labels` parameter.
 
@@ -181,19 +186,24 @@ Learn how to change the [availability zone](../../../overview/concepts/geo-scope
 
 {% endlist %}
 
-## Enabling access to nodes from the internet {#node-internet-access}
+## Configuring a deployment policy {#configure-deploy-policy}
+
+Using a [deployment policy](../../concepts/node-group/deploy-policy.md), you can control the number of available nodes when modifying or updating a group.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Click the name of your cluster.
+  1. Open **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** in the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to update the {{ managed-k8s-name }} cluster.
+  1. Click the name of the {{ managed-k8s-name }} cluster.
   1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
   1. Select the node group you need.
   1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
-  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**, in the **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** field, select the `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}` IP address assignment method. Nodes will get random public IP addresses from the {{ yandex-cloud }} address pool.
-  1. Click **{{ ui-key.yacloud.common.save }}**.   
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_deploy }}**, specify the following settings:
+
+      {% include [deploy-policy-parameters-console](../../../_includes/managed-kubernetes/deploy-policy/parameters-console.md) %}
+
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -201,7 +211,104 @@ Learn how to change the [availability zone](../../../overview/concepts/geo-scope
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-  To enable access to [{{ managed-k8s-name }} nodes](../../concepts/index.md#node-group) from the internet:
+  1. See the description of the CLI command for updating a {{ managed-k8s-name }} node group:
+
+      ```bash
+      {{ yc-k8s }} node-group update --help
+      ```
+
+  1. Run this command:
+
+      ```bash
+      {{ yc-k8s }} node-group update \
+        --name <node_group_name> \
+        --max-expansion <node_group_expansion_limit> \
+        --max-unavailable <unavailable_nodes_limit>
+      ```
+
+      Where:
+
+      {% include [deploy-policy-parameters-cli](../../../_includes/managed-kubernetes/deploy-policy/parameters-cli.md) %}
+
+      You can get the node group name with the [list of node groups in the folder](./node-group-list.md#list).
+
+- {{ TF }} {#tf}
+
+  1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
+
+      For more on how to create this file, see [{#T}](./node-group-create.md).
+
+  1. Specify the settings under `deploy_policy`. If there is no such section, add it first.
+
+      ```hcl
+      resource "yandex_kubernetes_node_group" "<node_group_name>" {
+        cluster_id = yandex_kubernetes_cluster.<cluster_name>.id
+        ...
+        deploy_policy {
+          max_expansion   = <node_group_expansion_limit>
+          max_unavailable = <unavailable_nodes_limit>
+        }
+        ...
+      }
+      ```
+
+      Where:
+
+      {% include [deploy-policy-parameters-tf](../../../_includes/managed-kubernetes/deploy-policy/parameters-tf.md) %}
+
+  1. Validate your configuration files.
+
+      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm resource changes.
+
+      {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+  For more information, see [this {{ TF }} provider guide]({{ tf-provider-k8s-nodegroup }}).
+
+- API {#api}
+
+  Use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) REST API method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/index.md) resource or the [NodeGroupService/Update](../../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) gRPC API call.
+
+  {% include [api-parameters-case](../../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
+  Provide the following in the request:
+  * Node group ID in the `nodeGroupId` parameter.
+
+    You can get the node group ID with the [list of node groups in the folder](./node-group-list.md#list).
+  * `updateMask` set to `deployPolicy.maxExpansion,deployPolicy.maxUnavailable`.
+
+    {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
+
+  {% include [deploy-policy-parameters-api](../../../_includes/managed-kubernetes/deploy-policy/parameters-api.md) %}
+
+{% endlist %}
+
+## Assigning public IP addresses to nodes {#node-internet-access}
+
+{% include [public-ip](../../../_includes/managed-kubernetes/public-ip.md) %}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Click the cluster name.
+  1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
+  1. Select the node group you need.
+  1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
+  1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**, in the **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** field, select the `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}` IP address assignment method. Nodes will get random public IP addresses from the {{ yandex-cloud }} address pool.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  To assign random public IP addresses from the {{ yandex-cloud }} address pool to [{{ managed-k8s-name }} nodes](../../concepts/index.md#node-group):
+
   1. Get detailed information about the command to update the {{ managed-k8s-name }} node group:
 
      ```bash
@@ -218,23 +325,61 @@ Learn how to change the [availability zone](../../../overview/concepts/geo-scope
 
      You can get the names and IDs of {{ managed-k8s-name }} node groups with the [list of node groups in the folder](node-group-list.md#list).
 
+- {{ TF }} {#tf}
+
+  To assign random public IP addresses from the {{ yandex-cloud }} address pool to nodes:
+
+  1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
+
+     For more on how to create this file, see [{#T}](node-group-create.md).
+
+  1. Add `instance_template.network_interface.nat` set to `true` to the node group description:
+
+     ```hcl
+     resource "yandex_kubernetes_node_group" "<node_group_name>" {
+       ...
+       instance_template {
+         ...
+         network_interface {
+           nat = true
+         }
+       }
+     }
+     ```
+
+  1. Make sure the configuration files are correct.
+
+     {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm resource changes.
+
+     {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
+
+     {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
+
+     For more information, see [this {{ TF }} provider guide]({{ tf-provider-k8s-nodegroup }}).
+
 - API {#api}
 
-  Use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup) resource.
+  {% include [api-parameters-case](../../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
+  Use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) REST API method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup) resource or the [NodeGroupService/Update](../../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) gRPC API call, and provide the following in the request:
+
+  * `nodeTemplate.networkInterfaceSpecs.primaryV4AddressSpec.oneToOneNatSpec.ipVersion` in the `updateMask` parameter.
+
+     {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
+
+  * `IPV4` in the `nodeTemplate.networkInterfaceSpecs.primaryV4AddressSpec.oneToOneNatSpec.ipVersion` parameter.
 
 {% endlist %}
 
-Alternatively, you can grant internet access permission to {{ managed-k8s-name }} cluster nodes by creating and setting up a [NAT gateway](../../../vpc/operations/create-nat-gateway.md) or [NAT instance](../../../vpc/tutorials/nat-instance/index.md). As a result, through [static routing](../../../vpc/concepts/routing.md), traffic will be routed via a gateway or a separate NAT instance.
+## Recreating a node group with a new taint {#assign-taint}
 
-{% note info %}
+{% note warning %}
 
-If you assigned public IP addresses to the cluster nodes and then configured the NAT gateway or NAT instance, internet access via the public IP addresses will be disabled. For more information, see [this {{ vpc-full-name }} guide](../../../vpc/concepts/routing.md#internet-routes).
+Adding [taints](../../concepts/index.md#taints-tolerations) results in removing the current {{ managed-k8s-name }} node group and creating a node group with a new configuration.
 
 {% endnote %}
-
-## Placing a taint on a node group {#assign-taint}
-
-Adding [taints](../../concepts/index.md#taints-tolerations) results in recreation of a {{ managed-k8s-name }} node group. First, all nodes in the group are deleted, then nodes with the taint are added to the group.
 
 {% list tabs group=instructions %}
 
@@ -244,7 +389,7 @@ Adding [taints](../../concepts/index.md#taints-tolerations) results in recreatio
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more information about creating this file, see [{#T}](node-group-create.md).
+     For more on how to create this file, see [{#T}](node-group-create.md).
 
   1. Add the `node_taints` section to the node group description:
 
@@ -267,7 +412,7 @@ Adding [taints](../../concepts/index.md#taints-tolerations) results in recreatio
 
      You can place multiple taints by specifying them separated by commas.
 
-  1. Make sure the configuration files are correct.
+  1. Validate your configuration files.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
@@ -279,20 +424,15 @@ Adding [taints](../../concepts/index.md#taints-tolerations) results in recreatio
 
      For more information, see [this {{ TF }} provider guide]({{ tf-provider-k8s-nodegroup }}).
 
-- API {#api}
-
-  To place a taint on a node group, use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/index.md) and provide the following in the request:
-
-  * Taints in the `nodeTaints` parameter.
-  * `nodeTaints` parameter to update in the `updateMask` parameter.
-
-  {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
-
 {% endlist %}
 
-## Removing a taint from a node group {#remove-taint}
+## Recreating a node group without a taint {#remove-taint}
 
-Removing [taints](../../concepts/index.md#taints-tolerations) results in recreation of a {{ managed-k8s-name }} node group. First, all nodes in the group are deleted, then nodes with the new configuration are added to the group.
+{% note warning %}
+
+Removing [taints](../../concepts/index.md#taints-tolerations) results in removing the current {{ managed-k8s-name }} node group and creating a node group with a new configuration.
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -302,11 +442,11 @@ Removing [taints](../../concepts/index.md#taints-tolerations) results in recreat
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more information about creating this file, see [{#T}](node-group-create.md).
+     For more on how to create this file, see [{#T}](node-group-create.md).
 
   1. In the node group description, remove the taints you no longer need under `node_taints`.
 
-  1. Make sure the configuration files are correct.
+  1. Validate your configuration files.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
@@ -317,15 +457,6 @@ Removing [taints](../../concepts/index.md#taints-tolerations) results in recreat
      {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
 
      For more information, see [this {{ TF }} provider guide]({{ tf-provider-k8s-nodegroup }}).
-
-- API {#api}
-
-  To remove a taint from a node group, use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/index.md) and provide the following in the request:
-
-  * New set of taints in the `nodeTaints` parameter. If you want to remove all taints, provide `"nodeTaints": []` in the request.
-  * `nodeTaints` parameter to update in the `updateMask` parameter.
-
-  {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
 
 {% endlist %}
 
@@ -342,7 +473,8 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
 - Management console {#console}
 
-    1. Navigate to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
     1. Click the cluster name.
     1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
     1. Select the node group you need.
@@ -374,7 +506,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more information about creating this file, see [{#T}](node-group-create.md).
+     For more on how to create this file, see [{#T}](node-group-create.md).
   1. Add the `labels` property to the {{ managed-k8s-name }} node group description:
 
      ```hcl
@@ -410,14 +542,15 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
   To update a cloud label, you will have to remove and recreate it:
 
-    1. Navigate to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
     1. Click the cluster name.
     1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
     1. Select the node group you need.
     1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
     1. In the **{{ ui-key.yacloud.component.label-set.label_labels }}** field, click the cross next to the label to remove it.
-    1. Click **{{ui-key.yacloud.component.label-set.button_add-label }}** and enter a new key and/or value for the label.
-    1. Press **Enter**, then click **{{ ui-key.yacloud.common.save }}**.
+    1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}** and enter a new key and/or value for the label.
+    1. Press **Enter** and click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -442,7 +575,7 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more information about creating this file, see [{#T}](node-group-create.md).
+     For more on how to create this file, see [{#T}](node-group-create.md).
   1. Edit the `labels` property in the {{ managed-k8s-name }} node group description:
 
      ```hcl
@@ -477,7 +610,8 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
 - Management console {#console}
 
-    1. Navigate to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
     1. Click the cluster name.
     1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
     1. Select the node group you need.
@@ -506,9 +640,9 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
   1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more information about creating this file, see [{#T}](node-group-create.md).
+     For more on how to create this file, see [{#T}](node-group-create.md).
   1. In the {{ managed-k8s-name }} node group description, remove the cloud labels you no longer need under `labels`.
-  1. Make sure the configuration files are correct.
+  1. Validate your configuration files.
 
      {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
@@ -530,7 +664,8 @@ You can perform the following actions with [cloud labels](../../concepts/index.m
 
 - Management console {#console}
 
-    1. Navigate to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
     1. Click the cluster name.
     1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
     1. Select the node group you need.
@@ -597,7 +732,8 @@ After you update the metadata, the node group status will temporarily change to 
 
 - Management console {#console}
 
-    1. Navigate to the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+    1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+    1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
     1. Click the cluster name.
     1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
     1. Select the node group you need.
@@ -670,7 +806,7 @@ After you update the metadata, the node group status will temporarily change to 
 
     1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-        Learn how to create this file in [{#T}](./node-group-create.md).
+        For more on how to create this file, see [{#T}](./node-group-create.md).
 
     1. To add, edit, or delete metadata with a specific key, edit the list of keys and values in the `instance_template.metadata` parameter. If there is no such parameter, add it.
 
@@ -701,7 +837,7 @@ After you update the metadata, the node group status will temporarily change to 
 
         {% endnote %}
 
-    1. Make sure the configuration files are correct.
+    1. Validate your configuration files.
 
         {% include [terraform-validate](../../../_includes/mdb/terraform/validate.md) %}
 
@@ -715,17 +851,19 @@ After you update the metadata, the node group status will temporarily change to 
 
 - API {#api}
 
+    {% include [api-parameters-case](../../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
     1. {% include [get-metadata-via-api](../../../_includes/managed-kubernetes/get-metadata-via-api.md) %}
 
-    1. Use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) REST API method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/index.md) resource and provide the following in the request:
+    1. Use the [update](../../managed-kubernetes/api-ref/NodeGroup/update.md) REST API method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup) resource or the [NodeGroupService/Update](../../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) gRPC API call, and provide the following in the request:
 
         * Node group ID in the `nodeGroupId` parameter.
 
-        * `updateMask` parameter set to `nodeTemplate.metadata`.
+        * `updateMask` set to `nodeTemplate.metadata`.
 
             {% include [Note API updateMask](../../../_includes/note-api-updatemask.md) %}
 
-        * `nodeTemplate.metadata` parameter listing the node group metadata.
+        * The `nodeTemplate.metadata` parameter listing the node group metadata.
 
             Edit the metadata list you got in the previous step: add, edit, or delete `key=value` pairs. Then provide the updated list in the `nodeTemplate.metadata` parameter.
 

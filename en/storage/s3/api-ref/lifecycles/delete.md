@@ -1,4 +1,4 @@
-# delete method
+# Object Storage API, Amazon S3-compatible REST: DeleteBucketLifecycle
 
 Deletes a bucket object lifecycle configuration from {{ objstorage-name }}.
 
@@ -16,7 +16,7 @@ Parameter | Description
 ----- | -----
 `bucket` | Bucket name.
 
-### Request parameters {#parameters}
+### Query parameters {#parameters}
 
 Parameter | Description
 ----- | -----
@@ -38,5 +38,11 @@ Responses can only contain [common headers](../common-response-headers.md).
 For a list of possible responses, see [{#T}](../response-codes.md).
 
 If there is no bucket object lifecycle configuration, {{ objstorage-name }} will return code 200.
+
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/lifecycles.md)
+
+* [{#T}](../../../operations/buckets/lifecycles.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

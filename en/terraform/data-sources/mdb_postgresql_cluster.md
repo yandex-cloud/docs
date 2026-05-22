@@ -38,7 +38,6 @@ output "fqdn" {
     - `serverless` (Bool). Allow access for [connection to managed databases from functions](https://yandex.cloud/docs/functions/operations/database-connection).
     - `web_sql` (Bool). Allow access for [SQL queries in the management console](https://yandex.cloud/docs/managed-postgresql/operations/web-sql-query).
     - `yandex_query` (Bool). Allow access for [YandexQuery](https://yandex.cloud/services/query).
-  - `autofailover` (Bool). Configuration setting which enables/disables autofailover in cluster.
   - `backup_retain_period_days` (Number). The period in days during which backups are stored.
   - `backup_window_start` [Block]. Time to start the daily backup, in the UTC timezone.
     - `hours` (Number). The hour at which backup will be started (UTC).
@@ -52,14 +51,18 @@ output "fqdn" {
     - `sessions_sampling_interval` (**Required**)(Number). Interval (in seconds) for pg_stat_activity sampling. Acceptable values are 1 to 86400, inclusive.
     - `statements_sampling_interval` (**Required**)(Number). Interval (in seconds) for pg_stat_statements sampling. Acceptable values are 1 to 86400, inclusive.
   - `pooler_config` [Block]. Configuration of the connection pooler.
-    - `pool_discard` (Bool). Setting `pool_discard` [parameter in Odyssey](https://github.com/yandex/odyssey/blob/master/documentation/configuration.md#pool_discard-yesno).
-    - `pooling_mode` (String). Mode that the connection pooler is working in. See descriptions of all modes in the [documentation for Odyssey](https://github.com/yandex/odyssey/blob/master/documentation/configuration.md#pool-string.
+    - `pool_discard` (Bool). Deprecated field. Setting `pool_discard` [parameter in Odyssey](https://github.com/yandex/odyssey/blob/master/docs/configuration/rules.md#pool_discard).
+    - `pooler_pool_discard` (String). Setting `pool_discard` [parameter in Odyssey](https://github.com/yandex/odyssey/blob/master/docs/configuration/rules.md#pool_discard). One of:
+  - 1: `true`
+  - 2: `false`
+  - 3: `unspecified`.
+    - `pooling_mode` (String). Mode that the connection pooler is working in. See descriptions of all modes in the [documentation for Odyssey](https://github.com/yandex/odyssey/blob/master/docs/configuration/rules.md#pool).
   - `postgresql_config` (Map Of String). PostgreSQL cluster configuration. For detailed information specific to your PostgreSQL version, please refer to the [API proto specifications](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/mdb/postgresql/v1/config).
   - `resources` [Block]. Resources allocated to hosts of the PostgreSQL cluster.
     - `disk_size` (**Required**)(Number). Volume of the storage available to a PostgreSQL host, in gigabytes.
     - `disk_type_id` (String). Type of the storage of PostgreSQL hosts.
     - `resource_preset_id` (**Required**)(String). The ID of the preset for computational resources available to a PostgreSQL host (CPU, memory etc.). For more information, see [the official documentation](https://yandex.cloud/docs/managed-postgresql/concepts/instance-types).
-  - `version` (**Required**)(String). Version of the PostgreSQL cluster. (allowed versions are: 13, 13-1c, 14, 14-1c, 15, 15-1c, 16, 17).
+  - `version` (**Required**)(String). Version of the PostgreSQL cluster. (allowed versions are: 14, 14-1c, 15, 15-1c, 16, 16-1c, 17, 17-1c, 18, 18-1c).
 - `created_at` (*Read-Only*) (String). The creation timestamp of the resource.
 - `database` [Block]. 
 
@@ -85,7 +88,7 @@ output "fqdn" {
 - `host` [Block]. A host of the PostgreSQL cluster.
   - `assign_public_ip` (Bool). Whether the host should get a public IP address.
   - `fqdn` (*Read-Only*) (String). The fully qualified domain name of the host.
-  - `priority` (Number). Host priority in HA group. It works only when `name` is set.
+  - `priority` (Number). Host priority in HA group. It works only when `name` is set. Must be between 0 and 100.
   - `replication_source` (*Read-Only*) (String). Host replication source (fqdn), when replication_source is empty then host is in HA group.
   - `replication_source_name` (String). Host replication source name points to host's `name` from which this host should replicate. When not set then host in HA group. It works only when `name` is set.
   - `role` (*Read-Only*) (String). Host's role (replica|primary), computed by server.

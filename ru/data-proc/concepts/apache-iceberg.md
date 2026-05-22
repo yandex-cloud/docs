@@ -40,10 +40,7 @@ description: Информация об {{ IBRG }}, а также таблица 
 || 2.0.x                          | 3.0.3
 | [1.0.0](https://github.com/apache/iceberg/releases/tag/apache-iceberg-1.0.0)
 | [{{ dp-libs.iceberg.dp20.jar }}]({{ dp-libs.iceberg.dp20.repo }}) ||
-|| 2.1.x (2.1.0–2.1.3)            | 3.2.1
-| [1.4.3](https://github.com/apache/iceberg/releases/tag/apache-iceberg-1.4.3)
-| [{{ dp-libs.iceberg.dp21.spark32.jar }}]({{ dp-libs.iceberg.dp21.spark32.repo }}) ||
-|| 2.1.x (2.1.4 и выше)           | 3.3.2
+|| 2.1.x                | 3.3.2
 | [1.5.2](https://github.com/apache/iceberg/releases/tag/apache-iceberg-1.5.2)
 | [{{ dp-libs.iceberg.dp21.spark33.jar }}]({{ dp-libs.iceberg.dp21.spark33.repo }}) ||
 || 2.2.x                          | 3.5.0

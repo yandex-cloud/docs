@@ -20,9 +20,21 @@ To enable access to a bucket using a service connection from {{ vpc-short-name }
 
 {% list tabs group=instructions %}
 
-- CLI {#cli}
+- Management console {#console}
+
+  {% include [private-endpoint-create-console](../../../_includes/vpc/private-endpoint-create-console.md) %}
+
+- {{ yandex-cloud }} CLI {#cli}
 
   {% include [private-endpoint-create-cli](../../../_includes/vpc/private-endpoint-create-cli.md) %}
+
+- {{ TF }} {#tf}
+
+  {% include [private-endpoint-create-tf](../../../_includes/vpc/private-endpoint-create-tf.md) %}
+
+- API {#api}
+
+  To create a {{ vpc-short-name }} service connection, use the [create](../../../vpc/privatelink/api-ref/PrivateEndpoint/create.md) REST API method for the [PrivateEndpoint](../../../vpc/privatelink/api-ref/PrivateEndpoint/index.md) resource or the [PrivateEndpointService/Create](../../../vpc/privatelink/api-ref/grpc/PrivateEndpoint/create.md) gRPC API call.
 
 {% endlist %}
 

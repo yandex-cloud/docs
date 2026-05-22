@@ -7,7 +7,7 @@ When creating a cluster, you can select the following disk types for data storag
   You can only expand this type of storage in 93 GB increments.
 
 
-* **Ultra high-speed network SSDs with three replicas** (`network-ssd-io-m3`): Network disks that deliver performance equivalent to non-replicated SSDs, while maintaining full data redundancy.
+* **Ultra high-speed network SSDs with three replicas** (`network-ssd-io-m3`): Network disks that deliver performance equivalent to non-replicated SSDs while ensuring redundancy.
 
   You can only increase the size of these disks in 93 GB increments.
 
@@ -16,9 +16,11 @@ When creating a cluster, you can select the following disk types for data storag
 
   You can expand such a storage as follows:
 
-  * For **Intel Cascade Lake**: Only in 100 GB increments.
+  * For **Intel Cascade Lake**: Only in 100 GB increments.
   * For **Intel Ice Lake** and **AMD Zen 4**: Only in {{ local-ssd-v3-step }} increments.
 
   {% include [zone-d-disk-restrictions](../ru-central1-d-local-ssd.md) %}
+
+{% include [disk-block-size](../disk-block-size.md) %}
 
 {% include [available-storage](../available-storage.md) %}

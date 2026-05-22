@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/storage/cli-ref/
 editable: false
 ---
 
@@ -103,6 +104,10 @@ Syntax:
   - [yc storage s3api upload-part](s3api/upload-part.md) — Uploads a part in a multipart upload
 
   - [yc storage s3api upload-part-copy](s3api/upload-part-copy.md) — Uploads a part by copying data from an existing object as data source
+
+- [yc storage v0](v0/index.md) — Manage Yandex Object Storage resources
+
+
 
 #### Global Flags
 

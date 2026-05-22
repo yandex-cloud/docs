@@ -2,7 +2,7 @@
 
 [Zabbix](https://www.zabbix.com/) — это система мониторинга корпоративного уровня с открытым исходным кодом для отслеживания производительности и состояния серверов, сетей, приложений и других ИТ-ресурсов. Zabbix поддерживает SAML-аутентификацию для обеспечения безопасного единого входа пользователей организации.
 
-Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в Zabbix с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications.md#saml) в {{ org-name }} и настройте его на стороне {{ org-name }} и на стороне Zabbix.
+Чтобы пользователи вашей [организации](../../../organization/concepts/organization.md) могли аутентифицироваться в Zabbix с помощью технологии единого входа по стандарту [SAML](https://ru.wikipedia.org/wiki/SAML), создайте [SAML-приложение](../../../organization/concepts/applications.md#saml) в {{ org-full-name }} и настройте его на стороне {{ org-full-name }} и на стороне Zabbix.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
@@ -36,7 +36,7 @@
 
 ## Настройте интеграцию {#setup-integration}
 
-Чтобы настроить интеграцию Zabbix с созданным SAML-приложением в {{ org-name }}, выполните настройки на стороне Zabbix и на стороне {{ org-name }}.
+Чтобы настроить интеграцию Zabbix с созданным SAML-приложением в {{ org-full-name }}, выполните настройки на стороне Zabbix и на стороне {{ org-full-name }}.
 
 ### Настройте SAML-приложение на стороне Zabbix {#setup-sp}
 
@@ -60,7 +60,7 @@
 
         {% endnote %}
 
-    1. Настройте связь между Zabbix и {{ org-name }}:
+    1. Настройте связь между Zabbix и {{ org-full-name }}:
 
         1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}).
         1. На панели слева выберите ![shapes-4](../../../_assets/console-icons/shapes-4.svg) **{{ ui-key.yacloud_org.pages.apps }}** и выберите нужное SAML-приложение.
@@ -69,7 +69,7 @@
 
             {% note info %}
 
-            Если не указать адрес для **SLO service URL**, то после выхода из Zabbix пользователь будет перенаправлен не на форму аутентификации {{ org-name }}, а на форму Zabbix.
+            Если не указать адрес для **SLO service URL**, то после выхода из Zabbix пользователь будет перенаправлен не на форму аутентификации {{ org-full-name }}, а на форму Zabbix.
 
             {% endnote %}
 
@@ -77,7 +77,7 @@
 
         {% note info %}
 
-        Атрибут, используемый в качестве имени пользователя при аутентификации в Zabbix. Название атрибута может быть произвольным, но обязательно должно совпадать с названием атрибута пользователя, содержащего значение `SubjectClaims.preferred_username` в вашем приложении {{ org-name }}.
+        Атрибут, используемый в качестве имени пользователя при аутентификации в Zabbix. Название атрибута может быть произвольным, но обязательно должно совпадать с названием атрибута пользователя, содержащего значение `SubjectClaims.preferred_username` в вашем приложении {{ org-full-name }}.
 
         {% endnote %}
 
@@ -85,7 +85,7 @@
     
         {% note warning %}
 
-        Значение **SP entity ID** должно полностью совпадать как в Zabbix, так и в вашем приложении {{ org-name }}. 
+        Значение **SP entity ID** должно полностью совпадать как в Zabbix, так и в вашем приложении {{ org-full-name }}. 
         
         {% endnote %}
 
@@ -101,13 +101,13 @@
 
     1. Если опция **Enable JIT provisioning** была включена, настройте параметры автоматического создания пользователей в Zabbix. Для этого активируйте опцию **Configure JIT provisioning** и выполните следующие шаги:
 
-        1. В поле **Group name attribute** укажите `groups` — этот атрибут определяет группу пользователей в вашем приложении {{ org-name }}, обеспечивающую доступ к Zabbix.
+        1. В поле **Group name attribute** укажите `groups` — этот атрибут определяет группу пользователей в вашем приложении {{ org-full-name }}, обеспечивающую доступ к Zabbix.
 
         1. В поле **User name attribute** укажите `givenname`.
 
         1. В поле **User last name attribute** укажите `surname`.
          
-        1. В блоке **User group mapping** сопоставьте группу пользователей вашего приложения {{ org-name }} с соответствующей группой и ролью в Zabbix. Это позволит новым пользователям автоматически получать назначенную группу и роль в Zabbix. Для этого нажмите **Add** и выполните следующие шаги:
+        1. В блоке **User group mapping** сопоставьте группу пользователей вашего приложения {{ org-full-name }} с соответствующей группой и ролью в Zabbix. Это позволит новым пользователям автоматически получать назначенную группу и роль в Zabbix. Для этого нажмите **Add** и выполните следующие шаги:
 
             1. В поле **SAML group pattern** задайте шаблон для поиска названий групп SAML-приложения.
 
@@ -197,8 +197,8 @@
     1. Перейдите на вкладку **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.attributes_to71e }}**.
     1. В правом верхнем углу страницы нажмите ![plus](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.action_add_attribute }}** и в открывшемся окне:
 
-        1. В поле **{{ ui-key.yacloud_org.attributes.update_dialog.field_attribute_name }}** введите `login`.
-        1. В поле **{{ ui-key.yacloud_org.attributes.update_dialog.field_attribute_value }}** выберите `SubjectClaims.preferred_username`.
+        1. В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** введите `login`.
+        1. В поле **{{ ui-key.yacloud_org.organization.apps.AttributeFormDialogNew.field_attribute_value_dgUAv }}** выберите `SubjectClaims.preferred_username`.
         1. Нажмите **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}
@@ -210,8 +210,8 @@
 - Интерфейс {{ cloud-center }} {#cloud-center}
 
     1. В правом верхнем углу страницы нажмите ![circles-3-plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.action_add_group_attribute }}** и в открывшемся окне:
-    1. В поле **{{ ui-key.yacloud_org.attributes.update_dialog.field_attribute_name }}** укажите `groups`.
-    1. В поле **{{ ui-key.yacloud_org.attributes.update_dialog.field_group_attribute_value }}** выберите `{{ ui-key.yacloud_org.field-data.attributes.update_dialog.field_group_assigned }}`.
+    1. В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** укажите `groups`.
+    1. В поле **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_group_attribute_value_oxrpu }}** выберите `{{ ui-key.yacloud_org.organization.apps.field_group_assigned_amGdu }}`.
     1. Нажмите **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}
@@ -220,13 +220,9 @@
 
 ### Добавьте пользователей {#add-users}
 
-Чтобы пользователи вашей организации могли аутентифицироваться в Zabbix с помощью SAML-приложения {{ org-name }}, необходимо явно добавить в ваше SAML-приложение нужных пользователей и/или [группы пользователей](../../../organization/concepts/groups.md).
+Чтобы пользователи вашей организации могли аутентифицироваться в Zabbix с помощью SAML-приложения {{ org-full-name }}, необходимо явно добавить в ваше SAML-приложение нужных пользователей и/или [группы пользователей](../../../organization/concepts/groups.md).
 
-{% note info %}
-
-Управлять пользователями и группами, добавленными в SAML-приложение, может пользователь, которому назначена [роль](../../../organization/security/index.md#organization-manager-samlApplications-userAdmin) `organization-manager.samlApplications.userAdmin` или выше.
-
-{% endnote %}
+{% include [saml-manage-users](../../../_includes/organization/saml-manage-users.md) %}
 
 1. Если вы настроили автоматическую регистрацию пользователей на стороне Zabbix, [создайте](../../../organization/operations/create-group.md) необходимую [группу](../../../organization/concepts/groups.md):
 
@@ -243,7 +239,7 @@
             1. Перейдите на вкладку **{{ ui-key.yacloud_org.entity.group.title_tab-members }}**.  
             1. Нажмите **{{ ui-key.yacloud_org.entity.group.action_add-member }}**.
             1. В открывшемся окне выберите нужных пользователей.
-            1. Нажмите **{{ ui-key.yacloud_org.component.subject-select-dialog.action_apply }}**.
+            1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
     {% endlist %}
  

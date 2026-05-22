@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-spark/cli-ref/cluster/start
 editable: false
 ---
 

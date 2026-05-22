@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/node-group/update
 editable: false
 ---
 
@@ -69,6 +70,9 @@ Specifies the type of the disk to create. ||
 || `--disk-size` | `byteSize`
 
 Specifies the size of the disk. ||
+|| `--reserved-instance-pool-id` | `string`
+
+Specifies reserved instance pool id for instance in the node group. ||
 || `--preemptible` | Specifies if created nodes will be preemptible. ||
 || `--fixed-size` | `int`
 
@@ -181,6 +185,9 @@ Type of a network acceleration for nodes. Values: 'standard', 'software-accelera
 
 Type of a container runtime settings for nodes. Values: 'docker', 'containerd' ||
 || `--enable-workload-identity-federation` | Enable Workload Identity Federation for Node Group. ||
+|| `--variables` | `key=value[,key=value...]`
+
+Variables for fields templating. ||
 |#
 
 #### Global Flags

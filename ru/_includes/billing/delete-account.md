@@ -3,12 +3,19 @@
 
     {% include [account-access-lost](../../_includes/billing/account-access-lost.md) %}
 
-1. На странице **{{ ui-key.yacloud_org.billing.account.switch_overview }}** в правом верхнем углу нажмите кнопку **{{ ui-key.yacloud_components.cloud-center.action_more }}** и выберите пункт **{{ ui-key.yacloud_billing.billing.account.dashboard.label_inactivation }}**.
+1. На странице ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}** в правом верхнем углу нажмите кнопку **{{ ui-key.yacloud_components.cloud-center.action_more }}** и выберите пункт ![image](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_billing.billing.account.dashboard.label_inactivation }}**.
 1. Подтвердите ваше намерение и дождитесь окончания проверки.
 1. Если аккаунт может быть удален, вы увидите уведомление о начале удаления. В этот момент вы еще можете прервать операцию, нажав кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard.popup-go-pay_button_cancel }}**.
 1. Если аккаунт не может быть удален, нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.dashboard.card_label_threshold-description }}**, чтобы посмотреть причину отказа.
    Перечень причин включает, но не ограничивается следующими фактами:
-     * У аккаунта остались привязанные [ресурсы](../../resource-manager/concepts/resources-hierarchy.md#rm-resources), [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud), [организации](../../organization/concepts/organization.md), [сообщества](../../datasphere/concepts/community.md) {{ ml-platform-name }} или [пространства](../../speechsense/concepts/resources-hierarchy.md#space) {{ speechsense-name }}. 
+     * У аккаунта остались привязанные:
+       * [ресурсы](../../resource-manager/concepts/resources-hierarchy.md#rm-resources),
+       * [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud),
+       * [организации](../../organization/concepts/organization.md) {{ org-full-name }},
+       * [сообщества](../../datasphere/concepts/community.md) {{ ml-platform-full-name }}, 
+       * [пространства](../../speechsense/concepts/resources-hierarchy.md#space) {{ speechsense-full-name }},
+       * экземпляры [{{ datalens-full-name }}](../../datalens/),
+       * пространства [{{ video-full-name }}](../../video/). 
      * Остались ресурсы, приобретенные по модели потребления [CVoS](../../billing/concepts/cvos.md).
      * Не отключен платный тарифный план [Технической поддержки](../../support/overview.md).
      * Платежный аккаунт имеет статус [партнера](../../partner/terms.md#referral-partner) либо вы являетесь [клиентом партнера](../../partner/terms.md#sub-account).

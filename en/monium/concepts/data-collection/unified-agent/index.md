@@ -1,0 +1,112 @@
+---
+title: Metrics collection agent
+description: In this article, you will learn about the metric delivery agent and how it works as well as such concepts as messages, sessions, inputs, outputs, filters, storages, and routing.
+---
+
+# Metrics collection agent
+
+{{ unified-agent-full-name }} is an agent that delivers additional metrics of virtual machines and user applications to {{ monium-name }}.
+
+{% include [ua-restriction](../../../../_includes/monium/ua-restriction.md) %}
+
+The agent supports:
+
+- [Collecting Linux system metrics](../../../operations/unified-agent/linux_metrics.md) (CPU, RAM, disk).
+- Collecting metrics in [Prometheus](https://prometheus.io) format.
+- Delivering metrics to {{ monium-name }}.
+- File storage for reliable data delivery.
+
+You can find the examples of using the agent in [{#T}](../../../operations/index.md#working-with-metrics). Learn more about {{ unified-agent-short-name }} installation methods in [{#T}](./installation.md). The syntax of the agent's configuration file is described in [{#T}](./configuration.md).
+
+## Basic terms {#basics}
+
+{{ unified-agent-full-name }} transmits streaming data in the form of messages. A data stream in {{ unified-agent-short-name }} is called a session. Multiple sessions can be running at the same time.
+
+The agent receives messages via the input and delivers them to one or more outputs. Intermediate processing of messages is done by filters; storages save messages to the disk. Inputs, outputs, filters, and storages are implemented using plugins.
+
+Message routing is implemented with the help of delivery routes which consist of an input and a channel. A channel consist of a pipe and a node of one of the following types: output, channel, or splitter. A pipe may contain filters and links to storages. There can be no pipe in the configuration.
+
+You can create named channels and pipes. This will help you avoid duplicate configurations and route messages from multiple inputs to the same output.
+
+## How {{ unified-agent-short-name }} works {#scheme}
+
+{% include [ua-scheme](../../../../_mermaid/other/monium/ua-scheme.md) %}
+
+## Messages {#messages}
+
+A message is the minimum atomic unit of user information that a system or application sends to {{ unified-agent-short-name }}.
+
+A message consist of a body, a timestamp, user metadata in `key: value` format, and a serial number.
+
+{% note info %}
+
+For correct data aggregation in monitoring, [Integral `COUNTER` metrics](../../../concepts/data-model.md#metric-types) are converted to `DGAUGE` when uploading to {{ monitoring-name }}.
+
+{% endnote %}
+
+## Sessions {#sessions}
+
+A session is an ordered stream of messages. A session has an ID that must be unique among all the ongoing sessions as well as user metadata in `key:value` format.
+
+All messages sent during a session contain both message metadata and session metadata.
+
+Types of information to collect (inputs), pipes (filters), interim storage spaces (storages), and outputs are specified in the {{ unified-agent-short-name }} configuration file. 
+
+## Inputs {#inputs}
+An input is used by the agent to receive the messages transmitted during sessions. An input can contain the session infrastructure settings used to configure various limits.
+
+See the [list of available inputs](inputs.md).
+
+## Outputs {#outputs}
+
+Outputs are used by the agent to send messages to third-party systems. The currently supported outputs are `yc_metrics`, which writes metrics to the {{ monitoring-full-name }} API, and a number of debug outputs.
+
+See also the [list of available outputs](outputs.md).
+
+## Filters {#filters}
+
+Filters are designed to discard, convert, and aggregate messages.
+
+Filter types:
+
+- regular: Handle each message separately.
+- cumulative: Transform a set of input messages into one output message.
+
+See also the [list of available filters](filters.md).
+
+## Storages {#storages}
+Storages serve as interim depots for messages in transit between the input and the output.
+With a storage, you will not lose your data if the agent fails to write it to the specified output, e.g., due to network issues or unavailability of the destination API.
+
+See also the [storage configuration guide](storage.md).
+
+## Routing {#routing}
+
+### Pipes {#pipes}
+Pipes contain:
+* Sequence of filters that messages pass through.
+* Link to the storage where the messages will be stored before their transmission to the output.
+
+Pipes can be named.
+
+See also the [pipe configuration guide](routing.md#pipes).
+
+### Channels {#channels}
+
+Channels group a pipe with a node, one of an output, a named channel, or a splitter.
+
+A splitter allows you to specify a set of channels and copy the incoming message to each one of its channels. You can use a splitter to duplicate streams to different outputs. By combining splitters and filters, you can send different messages to different channels based on certain attributes, e.g., metadata.
+
+Channels can be named.
+
+See the [named channel configuration guide](routing.md#channels).
+
+### Routes {#routes}
+
+Routes combine an input and a channel.
+
+Routes, channels, and pipes enable you to set up any message processing tree.
+
+See the diagram for the relations between the items of the message processing tree.
+
+![Unified-Agent-Config](../../../../_assets/monitoring/concepts/unified-agent-config.svg)

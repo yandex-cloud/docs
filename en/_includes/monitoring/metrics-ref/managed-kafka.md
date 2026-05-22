@@ -12,7 +12,7 @@ node | Broker type: `leader`, `follower`, or `replica`
 subcluster_name | Subcluster type: `zookeeper_subcluster` or `kafka_subcluster`
 
 ## CPU metrics {#managed-kafka-cpu-metrics}
-These metrics show the processor core workload.
+CPU core workload.
 
 | Name<br/>Type, units | Description |
 | ----- | ----- |
@@ -45,10 +45,10 @@ These metrics show the processor core workload.
 ## Disk I/O metrics {#managed-kafka-diskio-metrics}
 | Name<br/>Type, units | Description |
 | ----- | ----- |
-| `io.avg_read_time`<br/>`DGAUGE`, milliseconds | Average disk read time | 
-| `io.avg_write_time`<br/>`DGAUGE`, milliseconds | Average disk write time | 
-| `io.disk*.avg_read_time`<br/>`DGAUGE`, milliseconds | Average read time for a given disk | 
-| `io.disk*.avg_write_time`<br/>`DGAUGE`, milliseconds | Average write time for a given disk | 
+| `io.avg_read_time`<br/>`DGAUGE`, ms | Average disk read time | 
+| `io.avg_write_time`<br/>`DGAUGE`, ms | Average disk write time | 
+| `io.disk*.avg_read_time`<br/>`DGAUGE`, ms | Average read time for a given disk | 
+| `io.disk*.avg_write_time`<br/>`DGAUGE`, ms | Average write time for a given disk | 
 | `io.disk*.read_bytes`<br/>`DGAUGE`, bytes per second | Read speed for a given disk | 
 | `io.disk*.read_count`<br/>`DGAUGE`, operations per second | Number of reads per second for a given disk | 
 | `io.disk*.read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second for a given disk | 
@@ -59,24 +59,24 @@ These metrics show the processor core workload.
 | `io.read_bytes`<br/>`DGAUGE`, bytes per second | Disk read rate | 
 | `io.read_count`<br/>`DGAUGE`, operations per second | Number of read operations per second | 
 | `io.read_merged_count`<br/>`DGAUGE`, operations per second | Number of merged read operations per second | 
-| `io.utilization`<br/>`DGAUGE`, % | Disk utilization disabled for network drives | 
+| `io.utilization`<br/>`DGAUGE`, % | Disk utilization disabled for network drives. | 
 | `io.write_bytes`<br/>`DGAUGE`, bytes per second | Disk write speed | 
 | `io.write_count`<br/>`DGAUGE`, operations per second | Number of writes per second | 
 | `io.write_merged_count`<br/>`DGAUGE`, operations per second | Number of merged write operations per second |
 | `io_quota_utilization_percentage`<br/>`DGAUGE`, % | Average percentage of disk quota usage |
 | `io_quota_utilization_percentage_burst`<br/>`DGAUGE`, % | Maximum percentage of disk quota usage |
-| `read_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes read from disk. |
+| `read_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes read from disk |
 | `read_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes read from disk |
-| `read_latency`<br/>`DGAUGE`, milliseconds | Distribution histogram for disk read request latency |
+| `read_latency`<br/>`DGAUGE`, ms | Distribution histogram for disk read request latency |
 | `read_ops`<br/>`DGAUGE`, operations per second | Average number of disk reads |
 | `read_ops_burst`<br/>`DGAUGE`, operations per second | Maximum number of disk reads |
-| `read_throttler_delay`<br/>`DGAUGE`, milliseconds | Histogram of read latency due to exceeded disk quota |
-| `write_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes written to disk. |
+| `read_throttler_delay`<br/>`DGAUGE`, ms | Histogram of read latency due to exceeded disk quota |
+| `write_bytes`<br/>`DGAUGE`, bytes per second | Average number of bytes written to disk |
 | `write_bytes_burst`<br/>`DGAUGE`, bytes per second | Maximum number of bytes written to disk |
-| `write_latency`<br/>`DGAUGE`, milliseconds | Distribution histogram for disk write request latency |
+| `write_latency`<br/>`DGAUGE`, ms | Distribution histogram for disk write request latency |
 | `write_ops`<br/>`DGAUGE`, operations per second | Average number of disk write operations |
 | `write_ops_burst`<br/>`DGAUGE`, operations per second | Maximum number of disk write operations |
-| `write_throttler_delay`<br/>`DGAUGE`, milliseconds | Histogram of write latency due to exceeded disk quota |
+| `write_throttler_delay`<br/>`DGAUGE`, ms | Histogram of write latency due to exceeded disk quota |
 
 ## RAM metrics {#managed-kafka-ram-metrics}
 | Name<br/>Type, units | Description |
@@ -108,7 +108,7 @@ These metrics show the processor core workload.
 
 #|
 || **Name**<br/>**Type, units** | **Description** ||
-|| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs`<br/>`DGAUGE`, milliseconds | Leader broker switch rate per unit of time. In a normal state, it is `0`. Its value may increase during maintenance, which does not indicate a problem.<br/>Additional labels: `quantile`. ||
+|| `kafka_controller_ControllerStats_LeaderElectionRateAndTimeMs`<br/>`DGAUGE`, ms | Leader broker switch rate per unit of time. In a normal state, it is `0`. Its value may increase during maintenance, which does not indicate a problem.<br/>Additional labels: `quantile`. ||
 || `kafka_controller_KafkaController_ActiveControllerCount`<br/>`DGAUGE`, count | Number of active controllers ||
 || `kafka_controller_KafkaController_GlobalTopicCount`<br/>`DGAUGE`, count | Number of topics ||
 || `kafka_controller_KafkaController_OfflinePartitionsCount`<br/>`DGAUGE`, count | Number of offline partitions. ||
@@ -128,14 +128,14 @@ For more information about the `Minimum number of in-sync replicas`, see the [{{
 It can be either `1` if a broker is alive or `0` if it is not. ||
 || `kafka_network_RequestChannel_RequestQueueSize`<br/>`DGAUGE`, count | Number of enqueued requests ||
 || `kafka_network_RequestMetrics_Errors`<br/>`DGAUGE`, count | Number of errors.<br/>Additional labels: `request`. ||
-|| `kafka_network_RequestMetrics_LocalTimeMs`<br/>`DGAUGE`, milliseconds | Time it takes the leader broker to process a request.<br/>Additional labels: `request` and `quantile`. ||
-|| `kafka_network_RequestMetrics_MessageConversionsTimeMs`<br/>`DGAUGE`, milliseconds | Message format conversion time.<br/>Additional labels: `request` and `quantile`. ||
-|| `kafka_network_RequestMetrics_RemoteTimeMs`<br/>`DGAUGE`, milliseconds | Follower broker wait time.<br/>Additional labels: `request` and `quantile`. ||
-|| `kafka_network_RequestMetrics_RequestQueueTimeMs`<br/>`DGAUGE`, milliseconds | Request queue wait time.<br/>Additional labels: `request` and `quantile`. ||
+|| `kafka_network_RequestMetrics_LocalTimeMs`<br/>`DGAUGE`, ms | Time it takes the leader broker to process a request.<br/>Additional labels: `request` and `quantile`. ||
+|| `kafka_network_RequestMetrics_MessageConversionsTimeMs`<br/>`DGAUGE`, ms | Message format conversion time.<br/>Additional labels: `request` and `quantile`. ||
+|| `kafka_network_RequestMetrics_RemoteTimeMs`<br/>`DGAUGE`, ms | Follower broker wait time.<br/>Additional labels: `request` and `quantile`. ||
+|| `kafka_network_RequestMetrics_RequestQueueTimeMs`<br/>`DGAUGE`, ms | Request queue wait time.<br/>Additional labels: `request` and `quantile`. ||
 || `kafka_network_RequestMetrics_Requests`<br/>`DGAUGE`, count | Number of requests.<br/>Additional labels: `request`. ||
-|| `kafka_network_RequestMetrics_ResponseQueueTimeMs`<br/>`DGAUGE`, milliseconds | Response queue wait time.<br/>Additional labels: `request` and `quantile`. ||
-|| `kafka_network_RequestMetrics_ResponseSendTimeMs`<br/>`DGAUGE`, milliseconds | Response send time.<br/>Additional labels: `request` and `quantile`. ||
-|| `kafka_network_RequestMetrics_TotalTimeMs`<br/>`DGAUGE`, milliseconds | Total request execution time.<br/>Additional labels: `request` and `quantile`. ||
+|| `kafka_network_RequestMetrics_ResponseQueueTimeMs`<br/>`DGAUGE`, ms | Response queue wait time.<br/>Additional labels: `request` and `quantile`. ||
+|| `kafka_network_RequestMetrics_ResponseSendTimeMs`<br/>`DGAUGE`, ms | Response send time.<br/>Additional labels: `request` and `quantile`. ||
+|| `kafka_network_RequestMetrics_TotalTimeMs`<br/>`DGAUGE`, ms | Total request execution time.<br/>Additional labels: `request` and `quantile`. ||
 || `kafka_network_SocketServer_NetworkProcessorAvgIdlePercent`<br/>`DGAUGE`, % | Average network processor idle percentage. Its value ranges from `0` (fully utilized) to `1` (completely idle). ||
 || `kafka_server_BrokerTopicMetrics_BytesIn`<br/>`DGAUGE`, bytes | Incoming data size ||
 || `kafka_server_BrokerTopicMetrics_BytesOut`<br/>`DGAUGE`, bytes | Outgoing data size ||
@@ -160,7 +160,7 @@ It can be either `1` if a broker is alive or `0` if it is not. ||
 || `kafka_server_ReplicaManager_ReassigningPartitions`<br/>`DGAUGE`, count | Number of partitions with the leader being reassigned ||
 || `kafka_server_ReplicaManager_UnderMinIsrPartitionCount`<br/>`DGAUGE`, count | Number of partitions with in-sync replica (ISR) count below the minimum value specified in the settings ||
 || `kafka_server_ReplicaManager_UnderReplicatedPartitions`<br/>`DGAUGE`, count | Number of partitions with ISR count below the replication factor ||
-|| `kafka_server_ZooKeeperClientMetrics_ZooKeeperRequestLatencyMs`<br/>`DGAUGE`, milliseconds | Request latency in {{ ZK }}.<br/>Additional labels: `quantile`. ||
+|| `kafka_server_ZooKeeperClientMetrics_ZooKeeperRequestLatencyMs`<br/>`DGAUGE`, ms | Request latency in {{ ZK }}.<br/>Additional labels: `quantile`. ||
 || `kafka_shard_count`<br/>`DGAUGE`, count | Number of active shards ||
 || `kafka_topic_partition_high_water_mark`<br/>`DGAUGE`, count | Partition max offset ||
 || `kafka_topic_partition_low_water_mark`<br/>`DGAUGE`, count | Partition min offset ||
@@ -168,7 +168,7 @@ It can be either `1` if a broker is alive or `0` if it is not. ||
 
 {% note info %}
 
-This section lists only basic {{ mkf-name }} metrics delivered to {{ monitoring-name }}. For information on all {{ mkf-name }} metrics, see the [official documentation](https://kafka.apache.org/documentation.html#monitoring).
+This section lists only basic {{ mkf-name }} metrics delivered to {{ monitoring-name }}. For information on all {{ mkf-name }} metrics, see the [official documentation](https://kafka.apache.org/42/operations/monitoring/).
 
 {% endnote %}
 

@@ -6,6 +6,10 @@ editable: false
 
 # Правила тарификации для {{ network-load-balancer-name }}
 
+
+{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
+
+
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
@@ -13,9 +17,11 @@ editable: false
 
 {% include [vat](../_includes/vat.md) %}
 
+{% include [vpc-consumption-fix](../_includes/pricing/vpc-consumption-fix.md) %}
+
 В рамках {{ network-load-balancer-full-name }} оплачиваются объем входящего и исходящего трафика, обработанного балансировщиком, и количество сетевых балансировщиков.
 
-Для сетевого балансировщика с публичным IP-адресом исходящий трафик в интернете дополнительно тарифицируется аналогично другим сервисам [{{ yandex-cloud }}](../vpc/pricing.md#prices-traffic). В состав исходящего трафика также включается трафик ответов целевых ресурсов на проверки состояния.
+Для сетевого балансировщика с публичным IP-адресом исходящий трафик в интернете дополнительно тарифицируется по [правилам тарификации исходящего трафика](../vpc/pricing.md#prices-traffic). В состав исходящего трафика также включается трафик ответов целевых ресурсов на проверки состояния.
 
 
 ## Цены для региона Россия {#prices}

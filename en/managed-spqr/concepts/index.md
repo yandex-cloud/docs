@@ -12,6 +12,7 @@ keywords:
 
 {% include [preview](../../_includes/note-service-preview.md) %}
 
+
 {{ SPQR }} is a system for horizontal {{ PG }} scaling through sharding. Essentialy, these are multiple {{ PG }} clusters merged into a single {{ SPQR }} cluster.
 
 A {{ mspqr-name }} cluster consists of _shards_, a _router_, and a _coordinator_ (which is optional). Routers and coordinators run on _hosts_, i.e., virtual machines with dedicated computing resources and reserved data storage.
@@ -52,3 +53,5 @@ Coordinators store sharding rules in a QDB database running on `INFRA` or `COORD
 
 Using a coordinator, you can create or edit sharding rules for all routers at the same time. If you change the rules on one of the coordinators, the other coordinators and routers will get this update.
 
+
+{% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}

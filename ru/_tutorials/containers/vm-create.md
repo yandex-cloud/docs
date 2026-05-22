@@ -13,7 +13,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** перейдите на вкладку **{{ ui-key.yacloud.compute.instances.create.image_value_coi }}**.
@@ -43,6 +43,7 @@
       * (Опционально) Включите **{{ ui-key.yacloud.compute.instances.create.field_coi-privileged }}**, чтобы процессы Docker-контейнера получили доступ ко всем ресурсам ВМ.
 
   1. Нажмите кнопку **{{ ui-key.yacloud.common.apply }}**.
+  1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_access }}** укажите сервисный аккаунт, созданный [ранее](#before-you-begin).
   1. Настройте остальные параметры ВМ по [инструкции](../../compute/operations/vm-create/create-linux-vm.md).
 
 - CLI с помощью параметров {#cli}
@@ -65,15 +66,15 @@
        --name my-vm \
        --zone {{ region-id }}-b \
        --ssh-key ssh-key.pub \
-       --service-account-name my-robot \
+       --service-account-name <имя_сервисного_аккаунта> \
        --create-boot-disk size=30 \
        --public-ip \
        --platform standard-v3 \
        --container-name=my-app \
-       --container-image={{ registry }}/mirror/ubuntu:20.04 \
+       --container-image={{ registry }}/mirror/ubuntu:24.04 \
        --container-command=sleep \
        --container-arg="1000" \
-       --container-env=KEY1=VAL1,KEY2=VAL2 \
+       --container-env='"KEY-GROUP={key1:value1,key2:value2,key3:value3}"',KEY4=VALUE4,KEY5=VALUE5 \
        --container-privileged
       ```
 
@@ -81,7 +82,7 @@
      * `--name` — имя ВМ.
      * `--zone` — зона доступности.
      * `--ssh-key` — содержимое файла [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys).
-     * `--service-account-name` — имя сервисного аккаунта.
+     * `--service-account-name` — имя сервисного аккаунта, созданного [ранее](#before-you-begin).
      * `--create-boot-disk size` — размер загрузочного диска.
 
         {% include [min-disk-size](../../_includes/cos/min-disk-size.md) %}
@@ -92,6 +93,8 @@
      * `--container-command` — команда, которая будет выполнена при запуске Docker-контейнера.
      * `--container-arg` — параметры для команды, указанной с помощью `--container-command`.
      * `--container-env` — переменные окружения, доступные внутри Docker-контейнера.
+
+        Группы пар `ключ:значение` передавайте одновременно в одинарных и двойных кавычках. Например, `--container-env='"KEY-GROUP={key1:value1,key2:value2,key3:value3}"'`.
      * `--container-privileged` — запуск Docker-контейнера в привилегированном режиме.
 
      Результат:
@@ -144,7 +147,7 @@
        --zone {{ region-id }}-b \
        --ssh-key ssh-key.pub \
        --create-boot-disk size=30 \
-       --service-account-name my-service-account \
+       --service-account-name <имя_сервисного_аккаунта> \
        --public-ip
      ```
 
@@ -157,7 +160,7 @@
 
         {% include [min-disk-size](../../_includes/cos/min-disk-size.md) %}
 
-     * `--service-account-name` — имя сервисного аккаунта.
+     * `--service-account-name` — имя сервисного аккаунта, созданного [ранее](#before-you-begin).
      * `--public-ip` — выделение публичного IP-адреса для ВМ.
 
      Результат:

@@ -1,0 +1,1 @@
+The `monium.escalationPolicies.viewer` role enables viewing the list and settings of [alert](../../../monium/concepts/alerting/alert.md) [escalation policies](../../../monium/concepts/alerting/escalations.md#intro).

@@ -4,7 +4,7 @@ name: <trail_name>
 folder_id: <folder_ID>
 destination:
   # Only one destination must be specified:
-  # object_storage, cloud_logging, data_stream
+  # object_storage, cloud_logging, data_stream, or eventrouter
   # Settings for all destinations are provided for illustration purposes.
   object_storage:
     bucket_id: <bucket_name>
@@ -15,6 +15,8 @@ destination:
     stream_name: <YDS_name>
     database_id: <YDS_database_ID>
     codec: <event_compression_method>
+  eventrouter:
+    eventrouter_connector_id: <bus_connector_ID>
 service_account_id: <service_account_ID>
 filtering_policy:
   management_events_filter:

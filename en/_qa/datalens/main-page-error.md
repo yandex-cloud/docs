@@ -1,6 +1,6 @@
 ### The service home page is not opening. What should I do? {#main-page-error}
 
-If you cannot open the service [home page]({{ link-datalens-main }}), try one of the following:
+If you cannot open the service [home page]({{ link-datalens-main-skip-promo }}), try one of the following actions:
 
 * Refresh the page.
 * Open the page without plugins, for example, in Incognito mode.

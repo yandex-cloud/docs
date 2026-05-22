@@ -5,7 +5,6 @@ description: Read this article to learn everything you need about the partner pr
 
 # Partner program tools
 
-
 The partner program participants have access to the following tools:
 
 * [Deal registration](#deal-reg)
@@ -23,7 +22,6 @@ The partner program participants have access to the following tools:
 ## Deal registration {#deal-reg}
 
 Deal registration is a partner protection tool that rewards the partner for generating a deal for {{ yandex-cloud }}. You register a deal with a customer who has never worked with {{ yandex-cloud }} before. For registering a deal, you will get up to 15% on top of your [partner bonus](./var.md#premium) for as long as the customer remains linked to you.
-
 
 
 ### Deal registration conditions for the Russia region {#deal-reg-conditions}
@@ -58,41 +56,8 @@ Deal registration is a partner protection tool that rewards the partner for gene
 
 
 
-
-To register a deal:
-
-1. Log in to the [partner portal]({{ link-cloud-partners }}).
-1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-tree.svg) **Partner tools**.
-1. Click the **Partner deal / project application form** link.
-1. Fill out the form. Under **Application data**, in the **Request type** field, select `New customer`.
-1. Click **Submit** and wait for the application to be approved; this may take up to 20 business days.
-
-   {% note info %}
-
-   After your application is approved, you will have 60 days to create a [subaccount](../terms.md#sub-account) and a [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) for your customer.
-
-   {% endnote %}
-
-1. Create a customer record on the partner portal:
-
-   1. Log in to the [partner portal]({{ link-cloud-partners }}).
-   1. In the top-right corner, click **Add customer**.
-   1. Complete the **New customers** form with your customer's information.
-   1. Click **Add**. A new customer record with the `Verification required` status will appear in the list of customers on the partner portal.
-
-      After the [partnership is verified](./var-pin-client.md#confirm-partnership), a subaccount will be created for the customer. The target consumption amount is calculated from the date of subaccount creation.
-
-1. Create a new cloud for your customer:
-
-   1. In the left-hand panel, select ![icon](../../_assets/console-icons/layout-header-side-content.svg) **Dashboard**.
-   1. Select the customer's account from the list and click it.
-   1. In the window that opens, click ![image](../../_assets/plus-sign.svg) **Create cloud**. You will be redirected to the customer's billing account page in {{ billing-name }}.
-   1. Under **{{ ui-key.yacloud_billing.billing.account.dashboard-resources.title_clouds }}**, click **{{ ui-key.yacloud.common.create }}**.
-   1. Enter a name for the cloud.
-   1. In the **{{ ui-key.yacloud_billing.iam.cloud.create.popup-create-cloud_label_organization }}** field, select the [organization](../../organization/quickstart.md) named `For 'Customer_name' subaccount`.
-   1. Click **{{ ui-key.yacloud_billing.iam.cloud.create.popup-create-cloud_button_add }}**.
-
-      You can also [link](../operations/pin-cloud.md) an existing cloud to the customer's subaccount.
+      
+For more on how to create a deal, see [this guide](../operations/deal-registration.md).
 
 
 ## Deal registration as part of a scheduled procurement {#tender}
@@ -134,20 +99,30 @@ You can also register a deal if you have entered into a contract or agreement wi
 
 
 
-You can register a deal as part of a scheduled procurement just like a [regular deal](#deal-reg). When filling out your application, put `Yes` in the **Deal is part of a procurement under 44-FZ/223-FZ** field under **Application data**.
-
+You can register a deal as part of a scheduled procurement just like a [regular deal](../operations/deal-registration.md). When filling out your application, put `Yes` in the **Deal is part of a procurement under 44-FZ/223-FZ** field under **Application data**.
 
 
 ## Project registration {#project-reg}
 
-Project registration is used to link a new project in the existing {{ yandex-cloud }} customer's account to you, through which the customer increases their consumption of services. In this case, you will be working in the account of a direct customer who has signed an agreement directly with {{ yandex-cloud }}. For registering a project, you will get up to 15% of the customer's consumption growth in the registered cloud or folder in the form of a [rebate](../terms.md#rebate) credited within 12 months.
+Project registration is used to link a new project in the existing {{ yandex-cloud }} customer's account to you, through which the customer increases their consumption of services. In this case, you will be working in the account of a direct customer who has signed an agreement directly with {{ yandex-cloud }}. For registering a project, you will get up to 15% of the customer's consumption growth in the registered catalog or out-of-catalog service as a [rebate](../terms.md#rebate) credited quarterly within 12 months from the application date.
 
-Project registration conditions:
 
-* Project target consumption starts from ₽30,000 per month. You can link projects with any target consumption, but rebates are only paid for projects with a minimum monthly consumption of ₽30,000.
-* You are registering a project in the existing {{ yandex-cloud }} customer account.
-* Customer's cloud or folder shows zero consumption at the time of application submission.
+### Project registration conditions for the Russia region {#project-reg-conditions}
 
+
+
+{% include [pricing-diff-regions](../../_includes/pricing-diff-regions.md) %}
+
+
+{% list tabs group=pricing %}
+
+- Cost in RUB {#prices-rub}
+
+  * Project target consumption starts from ₽30,000 per month.
+  * Target consumption must be achieved in the first target period, i.e., the last 30 days of the 90-day period from the application date. If the consumption is not reached, the application is canceled and no rebate is paid. The partner can register the project anew according to the standard registration rules.
+  * Partner has submitted a copy of the customer agreement and/or other documents as evidence for the project no later than 60 days from the application date.
+  * Project is registered within a direct {{ yandex-cloud }} customer account, not a subaccount of another partner.
+  * Catalogs or out-of-catalog services you are registering are currently not registered as part of any project associated with this or other partners.
 
   {% note info %}
   
@@ -155,25 +130,33 @@ Project registration conditions:
   
   {% endnote %}
 
-To register a project:
+- Cost in KZT {#prices-kzt}
 
-1. Log in to the [partner portal]({{ link-cloud-partners }}).
-1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-tree.svg) **Partner tools**.
-1. Click the **Partner deal / project application form** link.
-1. Fill out the form. Under **Application data**, in the **Request type** field, select `Customer project`.
-1. Click **Submit** and wait for the application to be approved; this may take up to 20 business days.
+  * Project target consumption starts from ₸150,000 per month.
+  * Target consumption must be achieved in the first target period, i.e., the last 30 days of the 90-day period from the application date. If the consumption is not reached, the application is canceled and no rebate is paid. The partner can register the project anew according to the standard registration rules.
+  * Partner has submitted a copy of the customer agreement and/or other documents as evidence for the project no later than 60 days from the application date.
+  * Project is registered within a direct {{ yandex-cloud }} customer account, not a subaccount of another partner.
+  * Catalogs or out-of-catalog services you are registering are currently not registered as part of any project associated with this or other partners.
+
+  {% note info %}
+  
+  For the effective conditions, see our [offer](https://yandex.com/legal/cloud_partnership_project_protect_kz/ru/).
+  
+  {% endnote %}
+
+{% endlist %}
+
+
+
+
+For more on how to create a project, see [this guide](../operations/project-registration.md).
 
 
 ## Presale request {#presale}
 
 You can involve {{ yandex-cloud }} experts to work with your customer by submitting a presale request. You customer can be either a new {{ yandex-cloud }} customer or an existing one.
 
-To submit a presale request:
-
-1. Log in to the [partner portal]({{ link-cloud-partners }}).
-1. In the left-hand panel, select ![image](../../_assets/console-icons/folder-tree.svg) **Partner tools**.
-1. Click the **Presale request form** link.
-1. Complete the form and click **Submit**. A customer manager will contact you within three business days.
+For more on how to submit a presale request, see [this guide](../operations/presale-request.md).
 
 
 ## Quick-start program {#acceleration}
@@ -199,27 +182,52 @@ Requirements for program participants:
 
 ## Co-marketing program {#co-marketing}
 
-The co-marketing program is designed to strengthen the relationship between {{ yandex-cloud }} and its partners. It enables companies to expand their market presence and improve their sales figures through a joint marketing effort.
+{{ yandex-cloud }} co-marketing is a collaborative marketing program with partners aimed at boosting sales of cloud and on-premise {{ yandex-cloud }} solutions, driving demand, and developing joint projects.
 
-The program's main goals and benefits:
+### Who is the program for? {#co-marketing-for-whom}
 
-* Increased recognition through association with Russia's largest technology brand.
-* Optimizing marketing expenditure through joint funding of marketing activities, including:
-  
-  * Events: conferences, business dinners and breakfasts
-  * Webinars
-  * Success stories
-  * Guided tours to the Yandex data center for partner's customers
+The program is available to {{ yandex-cloud }} partners who:
 
-* Increased sales and expanded customer base.
+* Hold the **{{ yandex-cloud }} Expert** or **{{ yandex-cloud }} Professional** status.
+* Have their sales and marketing strategy approved by {{ yandex-cloud }}.
+* Commit resources to joint development and meet the defined KPIs.
+* Work towards increasing the consumption of {{ yandex-cloud }} services.
 
-Requirements for program participants:
+### What does the program include? {#co-marketing-inside}
 
-* You have a partner agreement signed.
-* You have obtained one of the [technology specializations](../specializations/index.md).
-* You have covered 50% of marketing costs related to acquiring new customers, generating new projects with current ones, as well as bringing in brand new customers for {{ yandex-cloud }}.
-* You guarantee in-depth study and analysis of the results of the marketing activities.
-* You comply with all {{ yandex-cloud }} policies and requirements.
+Co-marketing covers a variety of activities (events, digital campaigns, education initiatives, etc.) and includes:
+
+* Cooperation in planning and holding activities.
+* Marketing and expert support from {{ yandex-cloud }}.
+* Co-funding of costs from the co-marketing fund.
+* Performance evaluation based on business metrics (leads, deals, revenue, and ROMI).
+
+### How co-marketing works {#co-marketing-how-it-works}
+
+1. A partner submits an activity proposal via the partner portal.
+1. {{ yandex-cloud }} approves the activity and its budget.
+1. Both parties run the activity together.
+1. The partner submits a report on the results.
+1. {{ yandex-cloud }} compensates the agreed-upon part of costs.
+
+### Co-marketing budget {#co-marketing-budget}
+
+Partners with the **{{ yandex-cloud }} Expert** or **{{ yandex-cloud }} Professional** status are eligible for co-marketing budget:
+
+* 1.5% for **{{ yandex-cloud }} Expert** and 3% for **{{ yandex-cloud }} Professional** (read more in [Partner rewards](../specializations/index.md#award)).
+* Budgets are calculated and updated every quarter.
+
+Partners can use the budget funds to cover:
+
+* Up to 70% marketing activity costs.
+* Up to 100% of employee education initiatives.
+
+### Co-marketing standards {#co-marketing-principles}
+
+* Focus on measurable business results (pipeline, revenue, ROMI).
+* Priority to activities that boost sales.
+* Transparent approval and payment procedures.
+* Ability to scale successful practices.
 
 
 

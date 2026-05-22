@@ -4,6 +4,8 @@ editable: false
 
 # Cloud CDN API, gRPC: RawLogsService.Get
 
+Get configuration of raw log export.
+
 ## gRPC request
 
 **rpc Get ([GetRawLogsRequest](#yandex.cloud.cdn.v1.GetRawLogsRequest)) returns ([GetRawLogsResponse](#yandex.cloud.cdn.v1.GetRawLogsResponse))**
@@ -72,7 +74,6 @@ The maximum string length in characters is 50. ||
 || file_prefix | **string**
 
 file_prefix: prefix each log object name with specified prefix.
-
 The prefix makes it simpler for you to locate the log objects.
 For example, if you specify the prefix value logs/, each log object that
 S3 creates begins with the logs/ prefix in its key, so pseudo S3 folders

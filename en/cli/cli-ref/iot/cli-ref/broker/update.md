@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/iot/cli-ref/broker/update
 editable: false
 ---
 

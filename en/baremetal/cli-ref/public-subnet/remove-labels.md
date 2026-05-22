@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/public-subnet/remove-labels
 editable: false
 ---
 

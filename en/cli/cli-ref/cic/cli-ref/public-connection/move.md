@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/public-connection/move
 editable: false
 ---
 

@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/certificate-manager/cli-ref/
 editable: false
 ---
 
@@ -43,6 +44,10 @@ Aliases:
   - [yc certificate-manager certificate set-access-bindings](certificate/set-access-bindings.md) — Set access bindings for the specified certificate and delete all existing access bindings if there were any
 
   - [yc certificate-manager certificate update](certificate/update.md) — Update the specified certificate
+
+- [yc certificate-manager v0](v0/index.md) — Manage Certificate Manager resources
+
+
 
 #### Global Flags
 

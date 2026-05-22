@@ -17,6 +17,15 @@ description: Следуя данной инструкции, вы сможете
 
 {% list tabs group=instructions %}
 
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. Выберите нужный сетевой балансировщик.
+  1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_allocation-settings }}** нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_allocation-settings_button }}**.
+  1. Активируйте опцию **{{ ui-key.yacloud.components.BalancerAllocationDialog.AllocationForm.form_disable_traffic_3z2cs }}** напротив зон доступности, которые вы хотите отключить.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
+
 - CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -61,14 +70,13 @@ description: Следуя данной инструкции, вы сможете
       * `--zones` — идентификаторы зон доступности.
       * `--duration` — продолжительность блокировки. Значения от 1m до 72h. Если не задано, продолжительность не ограничена. Если зоны указаны списком, все они отключатся на заданный период.
 
+  {% note info %}
+  
+  Команду отключения зоны можно выполнять не чаще, чем раз в две минуты.
+  
+  {% endnote %}
+
 {% endlist %}
-
-{% note info %}
-
-Команду отключения зоны можно выполнять не чаще, чем раз в две минуты.
-
-{% endnote %}
-
 
 ### Примеры {#examples}
 
@@ -131,6 +139,15 @@ description: Следуя данной инструкции, вы сможете
 {% include [enable-zone-ig-nlb-alb](../../../_includes/instance-groups/enable-zone-ig-nlb-alb.md) %}
 
 {% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. Выберите нужный сетевой балансировщик.
+  1. В блоке **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_allocation-settings }}** нажмите кнопку **{{ ui-key.yacloud.load-balancer.network-load-balancer.section_allocation-settings_button }}**.
+  1. Деактивируйте опцию **{{ ui-key.yacloud.components.BalancerAllocationDialog.AllocationForm.form_disable_traffic_3z2cs }}** напротив зон доступности, которые вы хотите включить.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 

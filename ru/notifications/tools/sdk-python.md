@@ -150,6 +150,27 @@ print ("Message id:", response["MessageId"])
 * `TargetArn` — идентификатор (ARN) мобильного эндпоинта.
 * `Message` — сообщение.
 
+## Примеры {#examples}
+
+### Отправка SMS {#sms-sending}
+
+```python
+client.publish(PhoneNumber="<номер_получателя>",
+    Message="<текст_уведомления>",
+    MessageAttributes={
+        "AWS.SNS.SMS.SenderID": {
+            "DataType": "String",
+            "StringValue":"<текстовое_имя_отправителя>"
+        }
+    }
+)
+```
+
+Где:
+* `PhoneNumber` — российский телефонный номер в формате [E.164](https://ru.wikipedia.org/wiki/E.164).
+* `Message` — текст SMS.
+* `MessageAttributes` — атрибуты SMS, где `AWS.SNS.SMS.SenderID.StringValue` — текстовое имя отправителя.
+
 ## См. также {#see-also}
 
 * [Начало работы](../quickstart.md)

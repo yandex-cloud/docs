@@ -7,6 +7,8 @@ description: Read this article to learn how to find out the public IP addresses 
 
 During the periods of mobile internet restrictions in the Russian Federation, telecom providers continue to make a number of socially important resources permanently available to end users. These socially important resources constitute the so-called _whitelist_, maintained and regularly updated by the [Ministry of Digital Development, Communications and Mass Media of the Russian Federation (Ministry of Digital Development)](https://digital.gov.ru/).
 
+A special procedure is established for website or application owners to have their resources whitelisted by the Ministry of Digital Development. The fact that your resource resides in the {{ yandex-cloud }} infrastructure does not make it whitelisted automatically, because the Ministry of Digital Development considers each service on an individual basis.
+
 If you want your resources whitelisted by the Ministry of Digital Development, and your resources rely on the {{ yandex-cloud }} infrastructure and [services](./services.md), you will need the public IP addresses allocated by {{ yandex-cloud }} for end user access to your resources.
 
 ## How to find out the IP address of your resource in the {{ yandex-cloud }} infrastructure {#identify-your-ip}
@@ -62,7 +64,7 @@ This access arrangement offers some additional benefits: give your L7 load balan
 Below are examples of how you can use a load balancer for access to applications:
 
 * [{#T}](../../tutorials/security/distributed-secured-infrastructure.md)
-* [{#T}](../../tutorials/web/cdn-storage-integration.md)
+* [{#T}](../../tutorials/web/cdn-storage-integration/index.md)
 * [{#T}](../../tutorials/security/alb-with-ddos-protection/index.md)
 * [{#T}](../../tutorials/security/balancer-with-sws-profile/index.md)
 * [{#T}](../../tutorials/security/alb-ingress-with-sws-profile.md)

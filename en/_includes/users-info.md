@@ -1,7 +1,7 @@
 1. Go to [{{ org-full-name }}]({{ link-org-cloud-center }}).
 1. In the left-hand panel, select ![icon-users](../_assets/console-icons/person.svg) **{{ ui-key.yacloud_org.pages.users }}**. The page will display a list of organization users with the following fields:
 
-    * **{{ ui-key.yacloud.common.resource-acl.label_subject }}**: User full name.
+    * **{{ ui-key.yacloud_components.acl.resource-acl.label_subject }}**: User full name.
     * **{{ ui-key.yacloud_org.entity.user.caption.username }}**: User login.
     * **{{ ui-key.yacloud_org.entity.user.caption.status }}**: Current user status:
 
@@ -19,6 +19,10 @@
 
     * **{{ ui-key.yacloud.common.id }}**: User ID.
     * **{{ ui-key.yacloud_org.entity.user.caption.email }}**: User email address.
+    * **Company name**: Name of the company the user works for.
+    * **Department**: User’s division or department.
+    * **Position**: User’s job title.
+    * **Employee ID**: User’s digital code from the corporate HR system.
 
     {% note info %}
 

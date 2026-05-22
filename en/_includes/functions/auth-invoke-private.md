@@ -1,7 +1,7 @@
 * [IAM token](../../iam/concepts/authorization/iam-token.md):
 
-    * [Guide](../../iam/operations/iam-token/create.md) for Yandex accounts.
-    * [Guide](../../iam/operations/iam-token/create-for-sa.md) for service accounts.
+    * [Guide](../../iam/operations/iam-token/create.md) for a Yandex account.
+    * [Guide](../../iam/operations/iam-token/create-for-sa.md) for a service account.
     * [Guide](../../iam/operations/iam-token/create-for-federation.md) for a federated account.
     * [Guide](../../iam/operations/iam-token/create-for-local.md) for a local account.
 
@@ -13,7 +13,7 @@
 
     IAM tokens are valid for up to 12 hours.
 
-* [API key](../../iam/operations/authentication/manage-api-keys.md) for a service account.
+* Service account [API key](../../iam/operations/authentication/manage-api-keys.md).
 
     Provide the API key in the `Authorization` header in the following format:
 

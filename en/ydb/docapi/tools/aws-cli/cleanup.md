@@ -1,9 +1,9 @@
 ---
-title: How to delete created resources in {{ ydb-full-name }}
+title: How to delete the resources you created in {{ ydb-full-name }}
 description: Follow this guide to delete the resources you created.
 ---
 
-# Deletе the resources you created
+# Deleting the resources you created
 
 If you no longer need the `series` table, delete it:
 
@@ -11,20 +11,20 @@ If you no longer need the `series` table, delete it:
 
 * AWS CLI {#cli}
 
-   Run the command by replacing `https://your-database-endpoint` with the [previously prepared Document API endpoint](index.md#before-you-begin) of your DB:
+    Run this command, replacing `https://your-database-endpoint` with the [previously prepared Document API endpoint](index.md#before-you-begin) of your database:
 
-   {% note warning %}
+    {% note warning %}
 
-   To work with the AWS CLI from Windows, we recommend using the [WSL]({{ ms.docs }}/windows/wsl/).
+    To work with the AWS CLI on Windows, we recommend using the [WSL]({{ ms.docs }}/windows/wsl/).
 
-   {% endnote %}
+    {% endnote %}
 
-   ```bash
-   endpoint="https://your-database-endpoint"
-   aws dynamodb delete-table \
-       --table-name series \
-       --endpoint $endpoint
-   ```
+    ```bash
+    endpoint="https://your-database-endpoint"
+    aws dynamodb delete-table \
+        --table-name series \
+        --endpoint $endpoint
+    ```
 
    Result:
 

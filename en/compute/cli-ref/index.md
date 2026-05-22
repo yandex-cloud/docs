@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/
 editable: false
 ---
 
@@ -443,6 +444,10 @@ Syntax:
 - [yc compute ssh](ssh/index.md) — Connect to instance. By default uses any available ip address
 
 
+
+- [yc compute v0](v0/index.md) — Manage Yandex Compute Cloud resources
+
+  - [yc compute v0 connect-to-serial-port](v0/connect-to-serial-port.md) — Connect to serial port
 
 - [yc compute zone](zone/index.md) — Show availability zones
 

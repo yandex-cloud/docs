@@ -185,6 +185,7 @@
 
   Имена шардов можно запросить со [списком шардов в кластере](shards.md#list-shards).
 
+
 - {{ TF }} {#tf}
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -193,7 +194,7 @@
   1. Добавьте к описанию кластера {{ mch-name }} блок описания группы шардов `shard_group`.
 
      ```hcl
-     resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+     resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
        ...
        shard_group {
          name        = "<имя_группы_шардов>"
@@ -219,6 +220,7 @@
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -330,6 +332,7 @@
 
   Имена шардов можно запросить со [списком шардов в кластере](shards.md#list-shards).
 
+
 - {{ TF }} {#tf}
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -338,7 +341,7 @@
   1. Измените в описании кластера {{ mch-name }} блок `shard_group` с нужной группой шардов:
 
      ```hcl
-     resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+     resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
        ...
        shard_group {
          name        = "<новое_имя_группы_шардов>"
@@ -364,6 +367,7 @@
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -480,6 +484,7 @@
 
   Имя группы шардов можно запросить со [списком групп шардов в кластере](#list-shard-groups).
 
+
 - {{ TF }} {#tf}
 
   1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -497,6 +502,7 @@
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
   {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 

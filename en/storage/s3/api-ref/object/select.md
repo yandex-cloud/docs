@@ -1,4 +1,4 @@
-# selectObjectContent method
+# Object Storage API, Amazon S3-compatible REST: SelectObjectContent
 
 Filters and returns the contents of an {{ objstorage-name }} object using an [S3 Select request](../../../concepts/s3-select-language.md).
 
@@ -36,7 +36,7 @@ Parameter | Description
 `key` | Object key.
 
 
-### Request parameters {#request-params}
+### Query parameters {#request-params}
 
 Parameter | Description
 ----- | -----
@@ -154,5 +154,11 @@ Tag | Description
 `Progress` | Information about the request progress.<br/><br/>Path: `/Payload/Progress`.
 `Records` | Request result.<br/>Path: `/Payload/Records`.
 `Stats` | Statistics on the processed data. It is sent once at the end of the request.<br/>Path: `/Payload/Stats`.
+
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/object.md)
+
+* [{#T}](../../../concepts/s3-select-language.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

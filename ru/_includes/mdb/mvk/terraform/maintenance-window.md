@@ -3,9 +3,9 @@
 ```hcl
 resource "yandex_mdb_redis_cluster_v2" "<имя_кластера>" {
   ...
-  maintenance_window {
+  maintenance_window = {
     type = <тип_технического_обслуживания>
-    day  = <день_недели>
+    day  = "<день_недели>"
     hour = <час_дня>
   }
   ...

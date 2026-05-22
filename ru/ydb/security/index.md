@@ -10,17 +10,13 @@ sourcePath: overlay/security/start_auth.md
 
 Чтобы разрешить доступ к ресурсам сервиса {{ ydb-short-name }} (базы данных и их пользователи), назначьте аккаунту на Яндексе, [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [федеративным](../../iam/concepts/users/accounts.md#saml-federation) или [локальным](../../iam/concepts/users/accounts.md#local) пользователям, [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md) нужные роли из приведенного ниже списка. Роль может быть назначена на родительский ресурс (каталог или облако), роли которого наследуются вложенными ресурсами.
 
+Подробнее о наследовании ролей читайте в разделе [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) документации сервиса {{ resmgr-full-name }}.
+
 Кроме того можно выдать роль на доступ к конкретной базе данных. Это позволит пользователю без каких-либо ролей в каталоге, где размещена база, получить доступ к самой базе данных в соответствии с выданной ролью.
 
 Назначать роли на ресурс могут пользователи, у которых на этот ресурс есть роль `ydb.admin` или одна из следующих ролей:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
-
-{% note info %}
-
-Подробнее о наследовании ролей читайте в разделе [{#T}](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) документации сервиса {{ resmgr-full-name }}.
-
-{% endnote %}
 
 ## Назначение ролей {#grant-roles}
 

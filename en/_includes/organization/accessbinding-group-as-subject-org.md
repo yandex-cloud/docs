@@ -6,7 +6,7 @@
 
   1. In the left-hand panel, select ![persons-lock](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud_org.pages.acl }}**.
 
-  1. At the top right, click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+  1. At the top right, click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
 
   1. Go to the **{{ ui-key.yacloud_org.pages.groups }}** tab and select the [group](../../organization/concepts/groups.md) you need or search by group name.
 
@@ -72,21 +72,21 @@
 
      Where:
      
-     * `organization_id`: [Organization ID](../../organization/operations/organization-get-id.md). This is a required parameter.
-     * `role`: Role being assigned. This is a required parameter.
-     * `member`: Group the role is assigned to. Use this format: `group:<group_ID>`. This is a required parameter.
+     * `organization_id`: [Organization ID](../../organization/operations/organization-get-id.md). This is a required setting.
+     * `role`: Role being assigned. This is a required setting.
+     * `member`: Group the role is assigned to. Use this format: `group:<group_ID>`. This is a required setting.
 
          To assign a role to one of the [system groups](../../iam/concepts/access-control/system-group.md), specify the following in the `member` parameter:
 
          * `system:group:organization:<organization_ID>:users`: To assign a role to the `All users in organization X` system group.
          * `system:group:federation:<federation_ID>:users`: To assign a role to the `All users in federation N` system group.
 
-     For more information about `yandex_organizationmanager_organization_iam_member` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/organizationmanager_organization_iam_member).
+     For more information about `yandex_organizationmanager_organization_iam_member` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_organization_iam_member).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     This will create all the resources you need in the specified [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+     This will create all the resources you need in the specified [folder](../../resource-manager/concepts/resources-hierarchy.md#folder). You can check the new resources in the [{{ cloud-center }} UI]({{ link-org-cloud-center }}) or using this [CLI](../../cli/) command:
 
      ```bash
      yc resource-manager folder list-access-bindings <folder_name_or_ID>

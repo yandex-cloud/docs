@@ -151,51 +151,84 @@ Limits per VM depend on the VM [platform](../compute/concepts/vm-platforms.md):
 
 - Intel Broadwell {#broadwell}
 
-  Type of limit | Value
-  --- | ---
-  Maximum number of vCPUs per VM | 32
-  Maximum virtual memory per VM | Without GPU: 256 GB<br>With GPU: 384 GB
-  Maximum number of disks and file storages connected to a single VM^2^ | Less than or equal to 18 vCPUs: 8<br>From 18 vCPUs: 16^3^
-  Maximum number of GPUs connected to a single VM | 4
-  Maximum number of [VM network interfaces](../compute/concepts/network.md) | 8^3^
-  Maximum number of VMs per VM placement group with the [spread placement](../compute/concepts/placement-groups.md#spread) strategy | 5
+  #|
+  || **Type of limit** | > | > | **Value** ||
+  || Maximum number of vCPUs per VM | > | > | 32 ||
+  || Maximum virtual memory per VM | > | Without GPU | 256 GB ||
+  || ^ | > | With GPU | 384 GB ||
+  || Maximum number of GPUs connected to a single VM | > | > | 4 ||
+  || Maximum number of disks and file storages connected to a single VM^2^ | `PCI_TOPOLOGY_V1` [bus topology](../compute/concepts/hardware-generations.md#configurations). | Number of VCPUs <= 18 | 8 ||
+  || ^ | ^ | Number of VCPUs > 18 | 16^3^ ||
+  || ^ | `PCI_TOPOLOGY_V2` bus topology | Number of VCPUs <= 4 | 62 ||
+  || ^ | ^ | Number of VCPUs >= 6 | 80 ||
+  || Maximum number of [network interfaces](../compute/concepts/network.md) connected to a single VM | Bus topology
+  `PCI_TOPOLOGY_V1` | > | 8^3^ ||
+  || ^ | `PCI_TOPOLOGY_V2` bus topology | Number of VCPUs <= 4 | 20 ||
+  || ^ | ^ | Number of VCPUs >= 6 | 32 ||
+  || Maximum number of VMs per VM placement group with the [spread placement](../compute/concepts/placement-groups.md#spread) strategy | > | > | 5 ||
+  |#
 
 - Intel Cascade Lake {#cascade}
 
-  Type of limit | Value
-  --- | ---
-  Maximum number of vCPUs per VM | Without GPU: 80<br>With GPU: 64
-  Maximum virtual memory per VM | Without GPU: 1,280 GB<br>With GPU: 384 GB
-  Maximum number of disks and file storages connected to a single VM^2^ | Less than or equal to 20 vCPUs: 8<br>From 20 vCPUs: 16^3^
-  Maximum number of GPUs connected to a single VM | 8
-  Maximum number of [VM network interfaces](../compute/concepts/network.md) | 8^3^
-  Maximum number of VMs per VM placement group with the [spread placement](../compute/concepts/placement-groups.md#spread) strategy | 5
+  #|
+  || **Type of limit** | > | > | **Value** ||
+  || Maximum number of vCPUs per VM | > | Without GPU | 80 ||
+  || ^ | > | With GPU | 64 ||
+  || Maximum virtual memory per VM | > | Without GPU | 1,280 GB ||
+  || ^ | > | With GPU | 384 GB ||
+  || Maximum number of GPUs connected to a single VM | > | > | 8 ||
+  || Maximum number of disks and file storages connected to a single VM^2^ | `PCI_TOPOLOGY_V1` [bus topology](../compute/concepts/hardware-generations.md#configurations). | Number of VCPUs <= 20 | 8 ||
+  || ^ | ^ | Number of VCPUs > 20 | 16^3^ ||
+  || ^ | `PCI_TOPOLOGY_V2` bus topology | Number of VCPUs <= 4 | 62 ||
+  || ^ | ^ | Number of VCPUs >= 6 | 80 ||
+  || Maximum number of [network interfaces](../compute/concepts/network.md) connected to a single VM | Bus topology
+  `PCI_TOPOLOGY_V1` | > | 8^3^ ||
+  || ^ | `PCI_TOPOLOGY_V2` bus topology | Number of VCPUs <= 4 | 20 ||
+  || ^ | ^ | Number of VCPUs >= 6 | 32 ||
+  || Maximum number of VMs per VM placement group with the [spread placement](../compute/concepts/placement-groups.md#spread) strategy | > | > | 5 ||
+  |#
 
 - Intel Ice Lake {#ice}
 
-  Type of limit | Value
-  --- | ---
-  Maximum number of vCPUs per VM | 96
-  Maximum virtual memory per VM | 640 GB
-  Maximum number of disks and file storages connected to a single VM^2^ | Less than or equal to 32 vCPUs: 8<br>More than> 32 vCPUs: 16^3^
-  Maximum number of [VM network interfaces](../compute/concepts/network.md) | 8^3^
-  Maximum number of VMs per VM placement group with the [spread placement](../compute/concepts/placement-groups.md#spread) strategy | 5
+  #|
+  || **Type of limit** | > | > | **Value** ||
+  || Maximum number of vCPUs per VM | > | > | 96 ||
+  || Maximum virtual memory per VM | > | > | 640 GB ||
+  || Maximum number of disks and file storages connected to a single VM^2^ | `PCI_TOPOLOGY_V1` [bus topology](../compute/concepts/hardware-generations.md#configurations). | Number of VCPUs <= 32 | 8 ||
+  || ^ | ^ | Number of VCPUs > 32 | 16^3^ ||
+  || ^ | `PCI_TOPOLOGY_V2` bus topology | Number of VCPUs <= 4 | 62 ||
+  || ^ | ^ | Number of VCPUs >= 6 | 80 ||
+  || Maximum number of [network interfaces](../compute/concepts/network.md) connected to a single VM | Bus topology
+  `PCI_TOPOLOGY_V1` | > | 8^3^ ||
+  || ^ | `PCI_TOPOLOGY_V2` bus topology | Number of VCPUs <= 4 | 20 ||
+  || ^ | ^ | Number of VCPUs >= 6 | 32 ||
+  || Maximum number of VMs per VM placement group with the [spread placement](../compute/concepts/placement-groups.md#spread) strategy | > | > | 5 ||
+  |#
 
 - Intel Ice Lake (Compute Optimized) {#optimized}
 
-  Type of limit | Value
-  --- | ---
-  Maximum number of vCPUs per VM | 56
-  Maximum virtual memory per VM | 448 GB
-  Maximum number of disks and file storages connected to a single VM^2^ | Less than or equal to 32 vCPUs: 8<br>More than> 32 vCPUs: 16^3^
-  Maximum number of [VM network interfaces](../compute/concepts/network.md) | 8^3^
-  Maximum number of VMs per VM placement group with the [spread placement](../compute/concepts/placement-groups.md#spread) strategy | 5
+  #|
+  || **Type of limit** | > | > | **Value** ||
+  || Maximum number of vCPUs per VM | > | > | 56 ||
+  || Maximum virtual memory per VM | > | > | 448 GB ||
+  || Maximum number of disks and file storages connected to a single VM^2^ | `PCI_TOPOLOGY_V1` [bus topology](../compute/concepts/hardware-generations.md#configurations). | Number of VCPUs <= 32 | 8 ||
+  || ^ | ^ | Number of VCPUs > 32 | 16^3^ ||
+  || ^ | `PCI_TOPOLOGY_V2` bus topology | Number of VCPUs <= 4 | 62 ||
+  || ^ | ^ | Number of VCPUs >= 6 | 80 ||
+  || Maximum number of [network interfaces](../compute/concepts/network.md) connected to a single VM | Bus topology
+  `PCI_TOPOLOGY_V1` | > | 8^3^ ||
+  || ^ | `PCI_TOPOLOGY_V2` bus topology | Number of VCPUs <= 4 | 20 ||
+  || ^ | ^ | Number of VCPUs >= 6 | 32 ||
+  || Maximum number of VMs per VM placement group with the [spread placement](../compute/concepts/placement-groups.md#spread) strategy | > | > | 5 ||
+  |#
 
 {% endlist %}
 
 ^2^ Including the boot disk.
 
 ^3^ At startup, you can connect no more than 14 devices to a VM, including the boot disk and network card. You should connect other devices when your VM is already running. Please note that if you restart a VM with more than 14 devices connected, it will not be able to boot.
+
+{% include [warn-performance-many-devices](../compute/_includes_service/warn-performance-many-devices.md) %}
 
 ### VM limits on disk operations {#compute-limits-vm-disks}
 

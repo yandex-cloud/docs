@@ -1,4 +1,4 @@
-(Опционально) В поле **{{ ui-key.yacloud.trino.label_rbac-schema-access }}** укажите, на какие схемы распространяется правило:
+Выберите, в каком формате указать схемы:
 * **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name }}** — выберите имена схем.
-* **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}** — введите регулярное выражение. Правило распространяется на схемы, имена которых соответствуют регулярному выражению.
-* **{{ ui-key.yacloud.trino.rbac-catalog-match-by-empty }}** — правило распространяется на все схемы.
+* **{{ ui-key.yacloud.trino.rbac-catalog-match-by-name-regexp }}** — введите регулярное выражение для имен схем.
+* **{{ ui-key.yacloud.trino.rbac-catalog-match-by-empty }}** — в поле `<имя_схемы>` может быть любое значение.

@@ -1,5 +1,8 @@
 # RAW
 
+{% include [loadtesting-sunset-warning](../../../_includes/load-testing/sunset-warning.md) %}
+
+
 Type of test data for the Pandora load generator. Similar to the [PHANTOM](phantom.md) data type. It allows sending any combinations of HTTP requests based on any methods.
 
 The test data type is specified when [creating a test](../../operations/create-test-bucket.md#create-test).

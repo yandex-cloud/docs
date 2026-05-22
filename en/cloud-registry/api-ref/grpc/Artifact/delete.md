@@ -22,7 +22,9 @@ Deletes the specified artifact.
 ||Field | Description ||
 || artifact_id | **string**
 
-Required field. ID of the artifact to delete. ||
+Required field. ID of the artifact to delete.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

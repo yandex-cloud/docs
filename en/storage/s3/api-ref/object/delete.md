@@ -1,4 +1,4 @@
-# delete method
+# Object Storage API, Amazon S3-compatible REST: DeleteObject
 
 Deletes an object.
 
@@ -17,7 +17,7 @@ Parameter | Description
 `bucket` | Bucket name.
 `key` | Object key.
 
-### Request parameters {#request-params}
+### Query parameters {#request-params}
 
 Parameter | Description
 ----- | -----
@@ -43,5 +43,11 @@ Responses can only contain [common headers](../common-response-headers.md).
 ### Response codes {#response-codes}
 
 For a list of possible responses, see [{#T}](../response-codes.md).
+
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/object.md)
+
+* [{#T}](../../../operations/objects/delete.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

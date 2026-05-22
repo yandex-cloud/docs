@@ -1,4 +1,4 @@
-# Метод delete
+# Object Storage API, REST совместимый с Amazon S3: DeleteBucketWebsite
 
 Удаляет конфигурацию хостинга статических сайтов для бакета.
 
@@ -38,5 +38,9 @@ DELETE /{bucket}?website HTTP/2
 Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
 
 Если конфигурация хостинга не существует, то {{ objstorage-name }} ответит кодом 200.
+
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../operations/hosting/setup.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

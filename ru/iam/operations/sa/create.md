@@ -1,5 +1,11 @@
 # Создание сервисного аккаунта
 
+{% note warning %}
+
+Создание сервисных аккаунтов может быть запрещено [политиками авторизации](../../concepts/access-control/access-policies.md) на уровне [каталога](../../../resource-manager/concepts/resources-hierarchy.md#folder), [облака](../../../resource-manager/concepts/resources-hierarchy.md#cloud) или [организации](../../../organization/concepts/organization.md).
+
+{% endnote %}
+
 Создайте [сервисный аккаунт](../../concepts/users/service-accounts.md), чтобы управлять ресурсами от имени другой учетной записи.
 
 Чтобы создать сервисный аккаунт, у вас должна быть [роль](../../../iam/security/#iam-serviceAccounts-admin) `{{ roles-iam-sa-admin }}` или выше на [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder).

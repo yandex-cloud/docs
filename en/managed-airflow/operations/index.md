@@ -10,6 +10,7 @@ description: In this article, you will learn how to work with {{ maf-full-name }
 * [Information about existing clusters](cluster-list.md)
 * [Creating a cluster](cluster-create.md)
 * [Updating a cluster](cluster-update.md)
+* [{#T}](cluster-version-update.md)
 * [Stopping and restarting a cluster](cluster-stop.md)
 * [Managing cluster access](cluster-access.md)
 * [Cluster maintenance](cluster-maintenance.md)

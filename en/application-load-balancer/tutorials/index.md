@@ -1,16 +1,17 @@
 ---
 title: '{{ alb-full-name }} use cases'
-description: Different use cases for {{ alb-full-name }} in {{ yandex-cloud }}.
+description: Various {{ alb-full-name }} use cases in {{ yandex-cloud }}.
 ---
 
 # {{ alb-name }} tutorials
 
+* [{#T}](testing-zone-failure-for-alb.md)
 * [{#T}](virtual-hosting.md)
 * [{#T}](alb-with-ddos-protection/index.md)
 * [{#T}](alb-ingress-with-sws-profile.md)
 * [{#T}](../tools/gwin/ingress-gwin-migration.md)
 * [{#T}](migration-from-nlb-to-alb/index.md)
-* [{#T}](cdn-storage-integration.md)
+* [{#T}](cdn-storage-integration/index.md)
 * [{#T}](blue-green-canary-deployment.md)
 * [{#T}](tls-termination/index.md)
 * [{#T}](logging.md)

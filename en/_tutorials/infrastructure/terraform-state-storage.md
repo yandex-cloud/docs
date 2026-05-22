@@ -35,7 +35,7 @@ Follow this tutorial to create three [VMs](../../compute/concepts/vm.md) with [p
 ## Create a service account and static access key {#create-service-account}
 
 1. [Create a service account](../../iam/operations/sa/create.md) with the [editor](../../iam/roles-reference.md#editor) [role](../../iam/concepts/access-control/roles.md) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) specified in the provider settings.
-1. [Get a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key).Save the key ID and secret key: you will need them later as you follow this tutorial.
+1. [Get a static access key](../../iam/operations/authentication/manage-access-keys.md#create-access-key). Save the key ID and secret key: you will need them later as you follow this tutorial.
 
 ### Create a bucket {#create-service-account}
 
@@ -75,6 +75,7 @@ The following backend settings apply in {{ TF }} `1.6.3` and higher.
 
 1. Add the provider and backend settings to the configuration file:
 
+   
    ```hcl
    terraform {
      required_providers {
@@ -104,6 +105,8 @@ The following backend settings apply in {{ TF }} `1.6.3` and higher.
    }
    ```
 
+
+
    To read more about the state storage backend, see the [{{ TF }} website](https://www.terraform.io/docs/backends/types/s3.html).
 1. Run the following command in the folder with the configuration file:
 
@@ -123,6 +126,7 @@ Create another configuration and use the saved state to create another VM in one
 1. Create a directory named `remote-state`.
 1. Navigate to that directory and create the `remote-state.tf` configuration file:
 
+   
    ```hcl
    terraform {
      required_providers {
@@ -190,6 +194,8 @@ Create another configuration and use the saved state to create another VM in one
      }
    }
    ```
+
+
 
    Where:
    * `bucket`: Bucket name.

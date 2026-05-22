@@ -1,17 +1,17 @@
 ## Configure {{ GL }} {#configure-gitlab}
 
-To configure {{ GL }} and enable Continuous Integration (CI), create a new project and enter the CI authorization parameters:
+To configure {{ GL }} and get ready for continuous integration (CI), create a new project and enter the CI authentication data:
 
 {% list tabs group=gl_installation %}
 
 - {{ mgl-name }} instance {#instance-mgl}
 
-  1. Log in to the [{{ mgl-name }}](../../managed-gitlab/concepts/index.md#instance) instance web interface.
+  1. Log in to the [{{ mgl-name }} instance](../../managed-gitlab/concepts/index.md#instance) web UI.
   1. Click **Create a project**.
   1. Click **Create blank project**.
-  1. Fill in the fields as follows:
+  1. Fill out the fields as follows:
      * **Project name**: `gitlab-test`.
-     * **Project URL**: Select the administrator user in the field next to the {{ mgl-name }} instance FQDN.
+     * **Project URL**: Select the admin user in the field next to the {{ mgl-name }} instance FQDN.
 
      Leave the other fields unchanged.
   1. Click **Create project**.
@@ -27,7 +27,7 @@ To configure {{ GL }} and enable Continuous Integration (CI), create a new proje
      ```
 
   1. Copy the password without spaces from the `Password` line to the clipboard or a separate file.
-  1. In your browser, open `http://<VM_public_IP_address>`. This will take you to the {{ GL }} web interface.
+  1. In your browser, open `http://<VM_public_IP_address>`. This will take you to the {{ GL }} web UI.
   1. Log in as the administrator:
      * **Username or email**: `root`.
      * **Password**: Password you copied in the previous step.

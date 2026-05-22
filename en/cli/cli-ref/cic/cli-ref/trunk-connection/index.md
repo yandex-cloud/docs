@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/trunk-connection/
 editable: false
 ---
 
@@ -24,7 +25,7 @@ Aliases:
 
 - [yc cic trunk-connection add-labels](add-labels.md) — Add labels to a trunk connection.
 
-- [yc cic trunk-connection create](create.md) — Create a trunk connection.
+- [yc cic trunk-connection batch-get](batch-get.md) — Get information about several trunk connections in one request.
 
 - [yc cic trunk-connection delete](delete.md) — Delete a trunk connection.
 
@@ -33,6 +34,10 @@ Aliases:
 - [yc cic trunk-connection list](list.md) — List trunk connections in a folder.
 
 - [yc cic trunk-connection list-operations](list-operations.md) — List operations for a trunk connection.
+
+- [yc cic trunk-connection list-private-connections](list-private-connections.md) — List private connections for a trunk connection.
+
+- [yc cic trunk-connection list-public-connections](list-public-connections.md) — List public connections for a trunk connection.
 
 - [yc cic trunk-connection move](move.md) — Move the specified trunk connection into the folder
 

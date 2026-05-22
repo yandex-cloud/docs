@@ -69,7 +69,7 @@ keywords:
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать [бакет](../../storage/concepts/bucket.md).
-  1. В списке сервисов выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Справа вверху нажмите кнопку **{{ ui-key.yacloud.storage.buckets.button_create }}**.
   1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** укажите зарегистрированное вами доменное имя, например `gatsbytest.ru`.
   1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_size-limit }}** укажите `1 {{ ui-key.yacloud.common.units.label_gigabyte }}`.
@@ -284,7 +284,7 @@ keywords:
   1. Добавьте в сервис {{ certificate-manager-name }} [сертификат](../../certificate-manager/concepts/managed-certificate.md) от Let's Encrypt® для вашего домена, который будет использоваться сайтом:
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать сертификат.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+      1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
       1. Нажмите **{{ ui-key.yacloud.certificate-manager.button_empty-action }}** и выберите **{{ ui-key.yacloud.certificate-manager.action_request }}**.
       1. В открывшемся окне в поле **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** укажите имя создаваемого сертификата. Например: `gatsbytestcert`.
       1. В поле **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** укажите имя вашего домена, например `gatsbytest.ru`.
@@ -460,7 +460,7 @@ keywords:
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог.
-  1. Выберите сервис **{{ objstorage-name }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ objstorage-name }}**.
   1. Нажмите на имя необходимого бакета, в данном примере это `gatsbytest.ru`.
   1. На панели слева выберите ![image](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Перейдите на вкладку **{{ ui-key.yacloud.storage.bucket.switch_https }}**.

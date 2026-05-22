@@ -1072,12 +1072,12 @@ date >= `2022-01-01 15:01:01.12`
 
 Перед составлением собственного промпта можете ознакомиться с нашими общими рекомендациями по работе с LLM и промптами:
 
-- [Рекомендации по использованию {{ yagpt-name }}](../ai-studio/gpt-prompting-guide/popular-problems-solving.md)
-- [Параметры LLM](../ai-studio/gpt-prompting-guide/introduction/llm-settings.md)
-- [Основы работы с промптами](../ai-studio/gpt-prompting-guide/introduction/basics.md)
-- [Элементы промпта](../ai-studio/gpt-prompting-guide/introduction/elements.md)
-- [Общие советы для создания промптов](../ai-studio/gpt-prompting-guide/introduction/general-tips.md)
-- [Примеры промптов](../ai-studio/gpt-prompting-guide/introduction/examples.md)
+- [Рекомендации по использованию {{ yagpt-name }}]({{ link-docs-ai }}ai-studio/gpt-prompting-guide/popular-problems-solving)
+- [Параметры LLM]({{ link-docs-ai }}ai-studio/gpt-prompting-guide/introduction/llm-settings)
+- [Основы работы с промптами]({{ link-docs-ai }}ai-studio/gpt-prompting-guide/introduction/basics)
+- [Элементы промпта]({{ link-docs-ai }}ai-studio/gpt-prompting-guide/introduction/elements)
+- [Общие советы для создания промптов]({{ link-docs-ai }}ai-studio/gpt-prompting-guide/introduction/general-tips)
+- [Примеры промптов]({{ link-docs-ai }}ai-studio/gpt-prompting-guide/introduction/examples)
 
 
 ##### Скоринг {#api-scoring}

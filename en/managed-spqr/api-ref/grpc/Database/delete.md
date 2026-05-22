@@ -24,11 +24,15 @@ Deletes the specified SPQR database.
 || cluster_id | **string**
 
 Required field. ID of the SPQR cluster to delete the database in.
-To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/grpc/Cluster/list#List) request. ||
+To get the cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || database_name | **string**
 
 Required field. Name of the database to delete.
-To get the name of the database, use a [DatabaseService.List](/docs/managed-spqr/api-ref/grpc/Database/list#List) request. ||
+To get the name of the database, use a [DatabaseService.List](/docs/managed-spqr/api-ref/grpc/Database/list#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

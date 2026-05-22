@@ -26,12 +26,15 @@ description: Various {{ mpg-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](yq-federative-queries.md)
 * [{#T}](glibc-collation-issues.md)
 * [{#T}](data-recording.md)
+* [{#T}](conn-man-secret-access.md)
+* [{#T}](job-pyspark-secret-access.md)
 
 ## Replication and migration {#replication-and-migration}
 
 * [{#T}](./replication-overview.md)
 * [{#T}](./data-migration.md)
 * [{#T}](./outbound-replication.md)
+* [{#T}](./postgresql-versions.md)
 * [{#T}](./logical-replica-from-rds.md)
 * [{#T}](./mpg-to-objstorage.md)
 * [{#T}](./mpg-to-mmy.md)

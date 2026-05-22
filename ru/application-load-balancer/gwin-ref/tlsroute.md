@@ -120,6 +120,7 @@ metadata:
     gwin.yandex.cloud/rules.sessionAffinity.header.name: "X-Session-ID"  # header-based affinity
     gwin.yandex.cloud/rules.sessionAffinity.cookie.name: "session"  # cookie name
     gwin.yandex.cloud/rules.sessionAffinity.cookie.ttl: "3600s"  # cookie lifetime
+    gwin.yandex.cloud/rules.sessionAffinity.cookie.path: "/app"  # cookie path attribute
     gwin.yandex.cloud/rules.sessionAffinity.sourceIP: "true"  # IP-based affinity
 ```
 
@@ -129,7 +130,7 @@ metadata:
 
 | Annotation and description |
 |------------|
-| `gwin.yandex.cloud/rules.backends.balancing.mode` <br> _(string)_ <br> Load balancing mode for backend group. Possible values: `RANDOM`, `ROUND_ROBIN`, `LEAST_REQUEST`. <br> Example: `ROUND_ROBIN` |
+| `gwin.yandex.cloud/rules.backends.balancing.mode` <br> _(string)_ <br> Load balancing mode for backend group. Possible values: `RANDOM`, `ROUND_ROBIN`, `LEAST_REQUEST`, `MAGLEV_HASH`. <br> Example: `ROUND_ROBIN` |
 | `gwin.yandex.cloud/rules.backends.balancing.localityAwareRouting` <br> _(number)_ <br> Percentage of traffic sent to backends in the same availability zone. <br> Example: `80` |
 | `gwin.yandex.cloud/rules.backends.balancing.strictLocality` <br> _(boolean)_ <br> Route traffic only to backends in the same availability zone. <br> Example: `false` |
 | `gwin.yandex.cloud/rules.backends.balancing.panicThreshold` <br> _(number)_ <br> Panic mode threshold percentage for load balancing. <br> Example: `50` |
@@ -189,6 +190,7 @@ Health check TLS settings work the same way, but are configured separately.
 | `gwin.yandex.cloud/rules.sessionAffinity.header.name` <br> _(string)_ <br> HTTP header name for session affinity. <br> Example: `X-Session-ID` |
 | `gwin.yandex.cloud/rules.sessionAffinity.cookie.name` <br> _(string)_ <br> Cookie name for session affinity. <br> Example: `session` |
 | `gwin.yandex.cloud/rules.sessionAffinity.cookie.ttl` <br> _(duration)_ <br> Cookie TTL for session affinity. <br> Example: `3600s` |
+| `gwin.yandex.cloud/rules.sessionAffinity.cookie.path` <br> _(string)_ <br> Path attribute for the generated session cookie. If unspecified or empty, no path is set for the cookie. <br> Example: `/app` |
 | `gwin.yandex.cloud/rules.sessionAffinity.sourceIP` <br> _(boolean)_ <br> Use source IP for session affinity. <br> Example: `true` |
 
 ## TLSRouteSpec

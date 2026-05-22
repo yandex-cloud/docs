@@ -5,41 +5,20 @@ description: Follow this guide to configure logging in {{ sws-full-name }}.
 
 # Configuring logging via {{ alb-name }}
 
-You can write logs using either [{{ cloud-logging-full-name }}](../../logging/) or [{{ at-full-name }}](../../audit-trails/). For {{ cloud-logging-name }}, there are two log collection options available: via {{ sws-name }} and via the L7 {{ alb-name }} the security profile is connected to.
+{% include [logging-services](../../_includes/smartwebsecurity/logging-services.md) %}
 
-This section provides info on log collection via {{ alb-name }}. For information on logging via {{ sws-name }}, see [this section](configure-logging.md).
+### Enable logging {#enable-logging}
 
-Analyzing {{ sws-full-name }} logs enables you to:
+{% note info %}
 
-* Test security rules, WAF, and ARL in **Logging only** (dry run) mode.
+To manage [logging](../concepts/logging.md) in the L7 load balancer, you need the following roles:
 
-  In this mode, the system does not block user requests but logs rule matches.
+- [alb.editor](../../application-load-balancer/security/index.md#alb-editor) for the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the security profile.
+- [logging.writer](../../logging/security/index.md#logging-writer) for the [log group](../../logging/concepts/log-group.md) receiving the logs.
 
-* View the number of blocked and allowed requests, evaluate and adjust rule performance.
-* View detailed request information and and identify false positives.
-* Investigate security incidents.
+To view logs, you need the [logging.viewer](../../logging/security/index.md#logging-viewer) role for the log group.
 
-Features of log collection services:
-
-* {{ cloud-logging-short-name }}: Collects basic logs for traffic and rule matches from security profiles, WAF, and ARL.
-
-   {{ sws-name }} logs are sent through the [L7 load balancer](../../application-load-balancer/concepts/application-load-balancer.md) your security profile is connected to and are written to a [log group](../../logging/concepts/log-group.md).
-
-* {{ at-name }}: Records security events and collects more detailed audit logs on WAF and ARL rules.
-
-   In {{ at-name }}, events are delivered directly from {{ sws-name }} without using an L7 load balancer. There are two types of events in {{ at-name }}:
-
-   * [Management events](../at-ref.md#control-plane-events), which include actions related to {{ yandex-cloud }} resource configuration, such as creating or deleting a security profile.
-   * [Data events](../at-ref.md#data-plane-events), which include actions performed on resources within {{ yandex-cloud }} services, e.g., triggering a rule from a WAF profile.
-
-   You can log {{ at-name }} events to a bucket in {{ objstorage-name }}, log group in {{ cloud-logging-name }}, or data stream in {{ yds-name }}.
-
-To get started with {{ sws-name }} logs:
-
-1. [Enable and set up logging](#enable-logging).
-1. [View and filter logs](#view-logs).
-
-## Enable logging {#enable-logging}
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -59,7 +38,7 @@ To get started with {{ sws-name }} logs:
 
 - {{ at-name }} {#at}
 
-  You can log {{ at-name }} events to a bucket in {{ objstorage-name }}, log group in {{ cloud-logging-name }}, or data stream in {{ yds-name }}. In this guide, we will set up logging of events to a log group.
+  You can log {{ at-name }} events to a bucket in {{ objstorage-name }}, log group in {{ cloud-logging-name }}, data stream in {{ yds-name }}, or bus in {{ er-name }}. In this guide, we will set up logging of audit events to a log group.
 
   1. In the [management console]({{ link-console-main }}), select the folder containing the {{ sws-name }} profile.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
@@ -78,7 +57,7 @@ To get started with {{ sws-name }} logs:
 
 {% endlist %}
 
-## Viewing logs {#view-logs}
+### Viewing logs {#view-logs}
 
 {% list tabs group=instructions %}
 

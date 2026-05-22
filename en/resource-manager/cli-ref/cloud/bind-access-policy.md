@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/resource-manager/cli-ref/cloud/bind-access-policy
 editable: false
 ---
 
@@ -25,6 +26,9 @@ Cloud name. ||
 || `--access-policy-template-id` | `string`
 
 Access policy template id ||
+|| `--parameters` | `key=value[,key=value...]`
+
+A list of access policy binding parameter KEY=VALUE pairs. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 

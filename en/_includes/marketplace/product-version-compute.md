@@ -2,7 +2,7 @@
 
 1. Select product categories.
 
-1. In the **{{ ui-key.yacloud_portal.marketplace_v2.version.label_tariff }}** field, select the service plan that you created or create a new one.
+1. In the **{{ ui-key.yacloud_portal.marketplace_v2.version.label_tariff }}** field, select the service plan you created or create a new one.
 
 1. In the **{{ ui-key.yacloud_portal.marketplace_v2.version.label_compute-image }}** field, click **{{ ui-key.yacloud.common.add }}**. In the window that opens, find your folder and select the image.
 
@@ -25,7 +25,7 @@
          * `{{ ui-key.yacloud_portal.marketplace_v2.version.label_resource-spec_platforms }}`
          * `{{ ui-key.yacloud_portal.marketplace_v2.version.label_resource-spec_gpu }}`
          * `{{ ui-key.yacloud_portal.marketplace_v2.version.label_resource-spec_network }}`
-         * `{{ ui-key.yacloud.common.resource-acl.label_bindings }}`
+         * `{{ ui-key.yacloud_components.acl.resource-acl.label_bindings }}`
 
            {% include [version-remove-param](../../_includes/marketplace/version-remove-param.md) %}
 

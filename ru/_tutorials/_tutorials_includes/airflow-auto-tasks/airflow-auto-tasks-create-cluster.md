@@ -3,7 +3,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно [создать кластер](../../../managed-airflow/operations/cluster-create.md).
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-airflow }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.airflow.button_create-cluster }}**.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** укажите имя кластера. Имя должно быть уникальным в рамках каталога.
   1. В блоке **{{ ui-key.yacloud.airflow.section_accesses }}** задайте пароль пользователя-администратора. Пароль должен иметь длину не менее 8 символов и содержать как минимум:

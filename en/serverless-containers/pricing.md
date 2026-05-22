@@ -8,6 +8,7 @@ editable: false
 
 
 
+
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
@@ -46,6 +47,8 @@ You are only charged for the container invocations that have caused your applica
 
 ### Cost calculation examples {#example}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 Example of calculating the cost of a container with the following properties:
 
 * **Amount of memory specified when creating a revision**: 2 GB.
@@ -79,7 +82,6 @@ Example of calculating the cost of a container with the following properties:
 <MDX>
   <PriceList
     serviceIds={['{{ pcs|serverless-containers }}']}
-    excludeSkuIds={['{{ pc|serverless-containers.compute.ephemeral_disk }}', '{{ pc|serverless-containers.compute.provisioned_request.ephemeral_disk}}', '{{ pc|serverless-containers.compute.provision_enabled.ephemeral_disk }}']}
     installationCode="ru"
     currency="USD"
   />
@@ -88,3 +90,4 @@ Example of calculating the cost of a container with the following properties:
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
+

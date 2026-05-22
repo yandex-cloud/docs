@@ -48,7 +48,7 @@ description: Следуя данной инструкции, вы сможете
   ```bash
   yc compute instance create \
     --name my-sample-instance \
-    --zone {{ region-id}}-a \
+    --zone {{ region-id }}-a \
     --network-interface subnet-name=<имя_подсети>,nat-ip-version=ipv4,security-group-ids=<идентификатор_группы_безопасности> \
     --create-boot-disk image-folder-id=standard-images,image-family=ubuntu-2204-lts,kms-key-id=<идентификатор_ключа> \
     --metadata-from-file user-data="<путь_к_файлу_конфигурации>"

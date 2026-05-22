@@ -1,4 +1,4 @@
-Чтобы назначить политику авторизации на [организацию](../../organization/concepts/organization.md):
+Чтобы создать для [организации](../../organization/concepts/organization.md) политику авторизации на основе [шаблона без дополнительных параметров](../../iam/concepts/access-control/access-policies.md#fixed):
 
 {% list tabs group=instructions %}
 
@@ -6,20 +6,20 @@
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  1. [Получите](../../iam/operations/access-policies/list.md) список поддерживаемых политик авторизации с идентификаторами.
+  1. [Получите](../../iam/operations/access-policies/list.md) список поддерживаемых шаблонов политик авторизации с идентификаторами.
   1. Выполните команду:
 
       ```bash
       yc organization-manager organization bind-access-policy \
         --name <имя_организации> \
-        --access-policy-template-id=<идентификатор_политики_авторизации>
+        --access-policy-template-id=<идентификатор_шаблона_политики>
       ```
 
       Где:
 
-      * `--name` — имя организации, на которую вы хотите назначить политику. Вместо имени организации вы можете указать ее [идентификатор](../../organization/operations/organization-get-id.md) в параметре `--id`.
-      * `--access-policy-template-id` — идентификатор политики авторизации, которую вы хотите назначить на указанную организацию.
-  1. [Убедитесь](../../organization/operations/manage-access-policies.md#view-assigned), что политика была назначена.
+      * `--name` — имя организации, для которой вы хотите создать политику. Вместо имени организации вы можете указать ее [идентификатор](../../organization/operations/organization-get-id.md) в параметре `--id`.
+      * `--access-policy-template-id` — идентификатор шаблона, на основе которого вы хотите создать политику авторизации для указанной организации.
+  1. [Убедитесь](../../organization/operations/manage-access-policies.md#view-assigned), что политика была создана.
 
 - API {#api}
 
@@ -27,4 +27,4 @@
 
 {% endlist %}
 
-Назначенная политика авторизации будет применяться к ресурсам внутри всех облаков в пределах заданной организации.
+Созданная политика авторизации будет применяться к ресурсам внутри всех облаков в пределах заданной организации.

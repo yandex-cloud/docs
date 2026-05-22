@@ -8,12 +8,17 @@
 {% endnote %}
 
 
+Если в группе безопасности подсети {{ yandex-cloud }} источника метаданных действуют правила, ограничивающие трафик, нужно добавить новое правило для разрешения входящего трафика:
+
+  * по диапазону IP‑адресов CIDR 198.19.0.0/16 — для {{ data-catalog-name }};
+  * по порту, который используется для подключения к источнику данных с целью создания загрузки. Например, для сервиса {{ mpg-name }} это порт 6432.
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог ресурсов](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан каталог метаданных.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+  1. [Перейдите](../../../console/operations/select-service#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. Hа панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. В открывшемся списке выберите каталог метаданных, в котором вы хотите создать загрузку.
   1. На панели слева выберите ![image](../../../_assets/console-icons/arrow-up-from-square.svg) **{{ ui-key.yacloud.data-catalog.label_ingestions }}**.
@@ -29,7 +34,7 @@
 
             {% include [schedule](../../../_includes/metadata-hub/schedule-ingestion.md) %}
 
-         * (Опционально) В блоке **{{ ui-key.data-catalog.console.form.ingestion.PostgresConfigForm.data_filters.title }}** с помощью регулярных выражений укажите, какие базы данных и объекты баз данных необходимо включить или исключить из загрузки.
+         * (Опционально) В блоке **{{ ui-key.data-catalog.console.form.ingestion.PostgresConfigForm.data_filters.title }}** с помощью регулярных выражений укажите, какие бэкенды и объекты баз данных необходимо включить или исключить из загрузки.
 
          {% include [metadata-profiling](../../../_includes/metadata-hub/metadata-profiling.md) %}
 

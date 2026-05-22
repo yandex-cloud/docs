@@ -1,9 +1,14 @@
 ---
 title: '{{ marketplace-full-name }} use cases'
-description: Various {{ marketplace-name }} use cases in {{ yandex-cloud }}.
+description: Various use cases for {{ marketplace-name }} products in {{ yandex-cloud }}.
 ---
 
 # {{ marketplace-name }} tutorials
+
+* [{#T}](s2s-vpn.md)
+* [{#T}](ghost-cms-cloudapp.md)
+* [{#T}](wordpress-ha-cloudapp.md)
+* [{#T}](wordpress-cloudapp.md)
 
 ## Using {{ marketplace-name }} products in {{ managed-k8s-full-name }} {#marketplace-tutorials}
 
@@ -16,10 +21,8 @@ description: Various {{ marketplace-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](alb-ingress-controller-log-options.md)
 * [{#T}](custom-health-checks.md)
 * [{#T}](alb-ingress-with-sws-profile.md)
-* [{#T}](jaeger-over-ydb.md)
 * [{#T}](kyverno.md)
 * [{#T}](metrics-provider.md)
 * [{#T}](thumbor.md)
 * [{#T}](istio.md)
 * [{#T}](hashicorp-vault.md)
-* [{#T}](s2s-vpn.md)

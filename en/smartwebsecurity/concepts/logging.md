@@ -2,13 +2,16 @@
 
 {% include [logging-preview](../../_includes/smartwebsecurity/logging-preview.md) %}
 
-{{ sws-name }} allows you to collect and view service logs to configure protection and monitor security events.
+{{ sws-name }} enables you to log and analyze data on requests and rules they trigger. You can use this data to configure protection and investigate incidents.
 
-There are two log collection options available: via {{ sws-name }} and via the L7 {{ alb-name }} the security profile is connected to.
+There are two logging options available:
 
-This section provides information on logging via {{ sws-name }}. If you want to learn about collecting logs via an L7 balancer, see [{#T}](../operations/configure-logging-alb.md).
+* Logging via {{ sws-name }}.
+* Logging via the {{ alb-name }} instance the security profile is connected to.
 
-These logs contain information about all HTTP requests processed by {{ sws-name }}. You can set up logging only for requests that were blocked (the `DENY` verdict) or sent to CAPTCHA (the `CAPTCHA` verdict). Additionally, you can collect logs for legitimate requests that were allowed by {{ sws-name }} (the `ALLOW` verdict). To avoid overflowing logs with allowed requests, specify the percentage of logs that the system will collect, from 1 to 100 %.
+This section covers logging via {{ sws-name }}. This method provides more advanced analysis compared to logging via {{ alb-name }}. For information on request logging via an L7 load balancer, see [{#T}](../operations/configure-logging-alb.md).
+
+Logs contain information about HTTP requests processed by {{ sws-name }}. You can only log requests that were blocked with a `DENY` verdict or sent to captcha with a `CAPTCHA` verdict. Additionally, you can log some legitimate requests with an `ALLOW` verdict. To reduce the size of logs, specify a sampling rate for such requests between 1% and 100%.
 
 {{ sws-name }} delivers logs in JSON format. Each log entry contains the following structural blocks: 
 
@@ -102,9 +105,15 @@ The description of SWS log fields is given in the table below.
 || 
 * `ban_period` | Time period during which requests are counted to reach the limit. ||
 || `dry_run_exceeded_quota_names` | Names of the ARL rules with the number of requests above the limit in dry run mode. ||
+|| `bot_score` | Bot score, from `0` (human) to `100` (bot). ||
+|| `bot_name` | Bot name. ||
+|| `bot_category` | Bot category based on its purpose or nature of action. ||
+|| `verified_bot` | Bot verification indicator (`true` or `false`). ||
+|| `ja3` | SSL/TLS connection's [JA3](https://github.com/salesforce/ja3) [fingerprint](botes.md#fingerprint). ||
+|| `ja4` | SSL/TLS connection's [JA4](https://github.com/FoxIO-LLC/ja4) fingerprint. ||
 |#
 
-To analyze {{ sws-name }} logs, make requests that include the fields and field combinations you need. Check the examples of ready-made requests in [Examples of preset log filters](../operations/configure-logging.md#filtration).
+To analyze {{ sws-name }} logs, create requests with the required fields and their combinations. Check the examples of ready-made requests in [Examples of preset log filters](../operations/configure-logging.md#filtration).
 
 ## Using logs when setting up protection {#log-uses}
 

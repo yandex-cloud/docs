@@ -1,3 +1,8 @@
+---
+title: Загрузить Helm-чарт в реестр {{ cloud-registry-name }}
+description: Из статьи вы узнаете о загрузке Helm-чартов в реестр {{ cloud-registry-name }}.
+---
+
 # Загрузить Helm-чарт в реестр
 
 Вы можете загрузить [Helm-чарт](https://helm.sh/docs/topics/charts/) в [реестр](../../concepts/registry.md) {{ cloud-registry-name }}. В {{ cloud-registry-name }} Helm-чарты хранятся как [Docker-образы](../../concepts/artifacts/docker.md).
@@ -28,30 +33,21 @@
      export HELM_EXPERIMENTAL_OCI=1
      ```
 
-  1. Аутентифицируйте свой клиент Helm в реестре {{ cloud-registry-name }} одним из способов.
-     * С помощью OAuth-токена:
-       1. Если у вас еще нет OAuth-токена, получите его по [ссылке]({{ link-cloud-oauth }}).
-       1. Выполните команду:
+  1. Аутентифицируйте свой клиент Helm в реестре {{ cloud-registry-name }} с помощью IAM-токена:
 
-          ```bash
-          helm registry login {{ cloud-registry }} -u oauth
-          Password: <OAuth-токен>
-          ```
+     1. [Получите IAM-токен](../../../iam/operations/iam-token/create.md).
+     1. Выполните команду:
 
-     * С помощью IAM-токена:
-       1. [Получите IAM-токен](../../../iam/operations/iam-token/create.md).
-       1. Выполните команду:
+        ```bash
+        helm registry login {{ cloud-registry }} -u iam
+        Password: <IAM-токен>
+        ```
 
-          ```bash
-          helm registry login {{ cloud-registry }} -u iam
-          Password: <IAM-токен>
-          ```
+        Результат:
 
-     Результат:
-
-     ```text
-     Login succeeded
-     ```
+        ```text
+        Login succeeded
+        ```
 
   1. Создайте Helm-чарт:
   
@@ -129,7 +125,7 @@
   1. Загрузите Helm-чарт в {{ cloud-registry-name }}:
 
      ```bash
-     helm push my-chart-3.11.2.tgz oci://{{ cloud-registry}}/<идентификатор_реестра>
+     helm push my-chart-3.11.2.tgz oci://{{ cloud-registry }}/<идентификатор_реестра>
      ```
 
      Результат:

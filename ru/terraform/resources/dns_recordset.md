@@ -48,11 +48,16 @@ resource "yandex_vpc_network" "foo" {}
 ## Arguments & Attributes Reference
 
 - `data` (**Required**)(Set Of String). The string data for the records in this record set.
+- `description` (String). The DNS record set description.
 - `id` (String). 
 - `name` (**Required**)(String). The DNS name this record set will apply to.
 - `ttl` (**Required**)(Number). The time-to-live of this record set (seconds).
 - `type` (**Required**)(String). The DNS record set type.
 - `zone_id` (**Required**)(String). The id of the zone in which this record set will reside.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `update` (String).
 
 ## Import
 

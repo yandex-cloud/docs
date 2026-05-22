@@ -6,15 +6,15 @@
 - Новый пользователь {#new}
 
   1. [Войдите]({{ link-passport-login }}) в ваш аккаунт на Яндексе. Если у вас еще нет аккаунта, [создайте](https://yandex.ru/support/passport/authorization/registration.html) его.
-  1. Откройте [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
-  1. Нажмите **Открыть сервис**.
+  1. Откройте [главную страницу]({{ link-datalens-main-promo }}) {{ datalens-short-name }}.
+  1. Нажмите **Начать в облаке**.
   1. Подтвердите, что ознакомились с [Условиями использования](https://yandex.ru/legal/cloud_termsofuse/?lang=ru) и принимаете их и нажмите кнопку **Войти**.
 
 - Уже использую {{ yandex-cloud }} {#already}
 
   1. [Войдите]({{ link-passport-login }}) в ваш аккаунт на Яндексе.
-  1. Откройте [главную страницу]({{ link-datalens-main }}) {{ datalens-short-name }}.
-  1. Нажмите **Открыть сервис**.
+  1. Откройте [главную страницу]({{ link-datalens-main-promo }}) {{ datalens-short-name }}.
+  1. Нажмите **Начать в облаке**.
   1. Выберите один из вариантов:
 
      * Если у вас уже есть организация, выберите ее в выпадающем меню на вкладке **Организации** и нажмите **{{ datalens-short-name }}**.

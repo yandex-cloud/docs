@@ -53,7 +53,7 @@ To delete a [node group](../../concepts/index.md#node-group), use its name or ID
   To delete a [node group](../../concepts/index.md#node-group):
   1. Open the current {{ TF }} configuration file describing the node group.
 
-     For more information about creating this file, see [{#T}](node-group-create.md).
+     For more on how to create this file, see [{#T}](node-group-create.md).
   1. Delete the section describing the group you no longer need.
   1. Make sure the configuration files are correct.
 
@@ -65,10 +65,10 @@ To delete a [node group](../../concepts/index.md#node-group), use its name or ID
 
      {% include [Terraform timeouts](../../../_includes/managed-kubernetes/terraform-timeout-nodes.md) %}
 
-  For more information, see this [{{ TF }} provider guide]({{ tf-provider-k8s-nodegroup }}).
+  For more information, see [this {{ TF }} provider guide]({{ tf-provider-k8s-nodegroup }}).
 
 - API {#api}
 
-  To delete a node group, use the [delete](../../managed-kubernetes/api-ref/NodeGroup/delete.md) method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/) resource.
+  To delete a node group, use the [delete](../../managed-kubernetes/api-ref/NodeGroup/delete.md) REST API method for the [NodeGroup](../../managed-kubernetes/api-ref/NodeGroup/) resource or the [NodeGroupService/Delete](../../managed-kubernetes/api-ref/grpc/NodeGroup/delete.md) gRPC API call.
 
 {% endlist %}

@@ -53,12 +53,12 @@ Once a new version is created, it gets the default tag: `$latest`. You cannot de
 
 A function instance is a VM with:
 
-* A loaded operating system.
-* A running bootstrap process.
+* The operating system is loaded.
+* A bootstrap process is running.
 * Initialized {{ sf-name }} runtime environment components.
 * Loaded and initialized {{ sf-name }} code.
 
-{{ sf-name }} uses internal rules to dynamically manage the virtual machine lifecycle. These rules may change as the service evolves.
+{{ sf-name }} uses internal rules to dynamically manage the virtual machine lifecycle. These rules may change as the service is develops.
 
 ### Creating an instance {#instance-creating}
 
@@ -69,33 +69,33 @@ When a function is called, one of these two events takes place:
 
 When deciding whether to start a new instance, {{ sf-name }} considers the following:
 
-* Load on already running instances.
-* Number of calls awaiting processing.
+* The load on already running instances.
+* The number of calls awaiting processing.
 * Function [scaling settings](#scaling).
 * [Quota usage](limits.md#functions-quotas).
 
 #### The process of starting an instance {#starting-process}
 
-1. {{ sf-name }} selects a service cluster node taking into consideration the resources (CPU, RAM, network), loaded user app images, and other factors affecting the duration of starting an instance. Priority is given to the node that ensures the shortest start. Start duration time may vary. Thus, it will be shorter if the node has cached the user code from the previous call.
+1. {{ sf-name }} selects a service cluster node taking into consideration the resources (CPU, RAM, network), loaded user app images, and other factors affecting the duration of starting an instance. Priority is given to the node that ensures the shortest launch duration. Start duration time may vary. Thus, it will be shorter if the node has cached the user code from the previous call.
 1. On the cluster node thus selected, a virtual machine starts. The service configures the virtual machine's network interfaces, allocates CPU and RAM resources, and connects disk images containing the operating system, runtime environment, and user code.
-1. The virtual machine starts the Linux core and the bootstrap process.
+1. The virtual machine starts the Linux core and the bootstrap startup process.
 1. Following initialization, the bootstrap process starts the [runtime environment](runtime/index.md) specified in the called function's settings.
 
 ### Instance operation {#instance-work}
 
-Once created, the instance can process calls. Calls sent to the instance enter a queue from where they are taken for execution. The result of call processing is forwarded to the sender. When there are no calls left, the instance stays in RAM for a variable time that depends on factors like function execution timeout.
+Once created, the instance can process calls. Calls sent to the instance enter a queue from where they are taken for execution. The result of the call processing is returned to the sender. When there are no calls left, the instance stays in RAM for a variable time that depends on factors like function execution timeout.
 
 ### Suspending an instance {#instance-suspending}
 
 If the new instance receives no new calls for a certain period of time, it gets suspended. The operating system and the running processes remain in RAM but are not processed by the CPU. The instance resumes operation in the following cases:
 
-* It gets a new call.
+* When it receives a new call.
 * A service cycle is initiated to get the instance up and running again, e.g., one of updating timers or executing maintenance tasks of the guest operating system.
-* Prior to [terminating the instance](#instance-termination).
+* Before [terminating an instance](#instance-termination).
 
 {% note info %}
 
-When suspended, the instance does not consume CPU resources; therefore, its network connections may get terminated. The user code must handle cases like this correctly.
+The instance does not consume CPU resources when suspended, so network connections may be terminated. The user code must handle cases like this correctly.
 
 {% endnote %}
 
@@ -103,7 +103,7 @@ When suspended, the instance does not consume CPU resources; therefore, its netw
 
 {{ sf-name }} decides to terminate a running instance based on a number of factors, for example:
 
-* There are no new calls for an extended period of time.
+* No new calls have been received for an extended period.
 * Function execution timeout has been reached.
 * An unrecoverable runtime error was encountered.
 
@@ -122,7 +122,7 @@ To enable a function call, describe a _handler_ in it. It is defined when writin
 
 _Context_ allows your function code to interact with {{ sf-name }}. For example, the function can use it to find how much time is left before {{ sf-name }} completes its execution.
 
-Incoming requests are processed by the function one at a time. For your function to process multiple requests simultaneously, use _asynchronous code execution_ provided by the [runtime environment](runtime/index.md).
+The function will process incoming requests one at a time. While processing requests, the function has access to its runtime environment. However, after returning a response, this function instance may terminate. In cases where the client terminates the connection, the function will always stop processing of the call.
 
 To report a function execution error to the service, handle errors using _exceptions_.
 
@@ -134,33 +134,17 @@ A function instance processes one function call at a single point in time. If th
 
 To reduce the number of cold starts, {{ sf-name }} creates function instances in the background, not for the purpose of processing user requests. The number of instances created this way does not exceed the quota.
 
-Additionally, in {{ sf-name }}, you can set:
+In addition, you can set the following scaling settings in {{ sf-name }}:
 
 {% include [scaling](../../_includes/functions/scaling.md) %}
 
 {% note info %}
 
-Calls are distributed across availability zones randomly. {{ sf-name }} does not guarantee the even distribution of calls across the zones. For example, all calls, no matter how many, might end up in the same zone.
+Calls are distributed across availability zones randomly. {{ sf-name }} does not guarantee the even distribution of calls across the zones. For example, all calls, no matter how many, may end up in the same zone.
 
 {% endnote %}
 
 {% include [provisioned-instances-time](../../_includes/functions/provisioned-instances-time.md) %}
-
-#### Concurrent function instance calls {#concurrency}
-
-To allow a single function instance to handle multiple function calls concurrently, set the `concurrency` parameter when creating a function version. The IDs of such calls (`RequestID`) must be unique. Otherwise, you will be getting an error when attempting to process a call with a duplicate ID.
-
-If at least one call reaches a timeout, that call and all other calls handled by the same function instance will be aborted. For more information about the timeout, see [{#T}](limits.md#functions-limits).
-
-The `concurrency` parameter is available for functions with the following [runtime environments](runtime/index.md):
-
-* [Node.js](../lang/nodejs/index.md)
-* [Go](../lang/golang/index.md)
-* [Java](../lang/java/index.md)
-* [Bash](../lang/bash/index.md)
-* [Kotlin](../lang/kotlin/index.md)
-
-#### Limits {#limits}
 
 When the number of function instances reaches the `zone_instances_limit` value, {{ sf-name }} stops scaling it. If there are more function calls than the instances can handle, the new call is queued and treated as a call in progress. When the number of calls in progress reaches the `zone_requests_limit` value, the service stops queuing calls and returns the `429 TooManyRequests` error.
 
@@ -182,6 +166,24 @@ Provisioned instances count towards the following [quotas](limits.md) even when 
 * Total RAM for all running functions per availability zone.
 * Number of provisioned function instances per cloud.
 
+### Concurrent function instance calls {#concurrency}
+
+To allow a single function instance to handle multiple function calls concurrently, set the `concurrency` parameter when creating a function version.
+
+If the user specifies call IDs (`RequestID`) themselves, they must ensure these are unique; otherwise, an error will be returned when the instance attempts to process a call with a duplicate ID.
+
+When a function instance processes multiple calls simultaneously, only the ID of the last one is written to the logs. To log the IDs of all calls a function handles, use [structured logs](logs.md#structured-logs).
+
+If at least one call reaches a timeout, that call and all other calls handled by the same function instance will be aborted. For more information about the timeout, see [{#T}](limits.md#functions-limits).
+
+The `concurrency` parameter is available for functions with the following [runtime environments](runtime/index.md):
+
+* [Node.js](../lang/nodejs/index.md)
+* [Go](../lang/golang/index.md)
+* [Java](../lang/java/index.md)
+* [Bash](../lang/bash/index.md)
+* [Kotlin](../lang/kotlin/index.md)
+
 ## Use cases {#examples}
 
 * [{#T}](../tutorials/api-gw-integration.md)
@@ -196,3 +198,4 @@ Provisioned instances count towards the following [quotas](limits.md) even when 
 
 * [Creating a function version](../operations/function/version-manage.md)
 * [Adding scaling settings](../operations/function/scaling-settings-add.md)
+* [{#T}](../operations/function/concurrency.md)

@@ -5,4 +5,7 @@ description: Для выполнения операций через API в се
 
 # Аутентификация в API {{ load-testing-name }}
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 {% include notitle [auth](../../_includes/authentication.md) %}

@@ -7,6 +7,10 @@ editable: false
 # Правила тарификации для {{ dataproc-name }}
 
 
+{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
+
+
+
 
 
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
@@ -43,6 +47,8 @@ editable: false
 
 ### Пример расчета стоимости стандартных хостов {#price-example}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 Стоимость часа использования кластера из двух подкластеров со следующими параметрами:
 
 * Первый подкластер:
@@ -73,8 +79,6 @@ editable: false
 ## Цены для региона Россия {#prices} 
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
-{% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
 
 <MDX>

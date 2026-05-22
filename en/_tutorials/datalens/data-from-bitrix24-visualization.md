@@ -18,13 +18,15 @@ To visualize and explore data, [set up {{ datalens-short-name }}](#before-you-be
 
 ## Create a workbook {#create-workbook}
 
-1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main }}).
+1. Go to the {{ datalens-short-name }} [home page]({{ link-datalens-main-skip-promo }}).
 1. In the left-hand panel, select ![collections](../../_assets/console-icons/rectangles-4.svg) **Collections and workbooks**.
 1. In the top-right corner, click **Create** → **Create workbook**.
 1. Enter a name for the [workbook](../../datalens/workbooks-collections/index.md), `Bitrix24`.
 1. Click **Create**.
 
 ## Create a connection to Bitrix24 {#create-connection-bitrix24}
+
+{% include [datalens-bitrix24-connection-note](../../_includes/datalens/operations/datalens-bitrix24-connection-note.md) %}
 
 1. In the top-right corner of the workbook, click **Create** → ![image](../../_assets/console-icons/thunderbolt.svg) **Connection**.
 1. Under **Partner connections**, select the **Bitrix24** connection.
@@ -100,7 +102,7 @@ You can customize the standard dashboard by deleting, moving, or editing charts.
    
    1. In the window that opens, click **Select**.
    1. Select the `Number of leads by channel` chart. This will automatically fill in the **Name** field.
-   1. Click **Add**. The widget will be displayed on the dashboard.
+   1. Click **Add**. The widget will appear on the dashboard.
    1. Adjust the size of the widgets with your mouse and place them on the dashboard as you prefer.
    1. In the top-right corner of the dashboard, click **Save** to save your dashboard.
 
@@ -200,6 +202,6 @@ Add the chart to your dashboard:
 1. At the top of the page, click **Edit**.
 1. Click **Add** and select **Chart**.
 1. Choose the `Number of interactions by type` chart.
-1. Click **Add**. The widget will be displayed on the dashboard.
+1. Click **Add**. The widget will appear on the dashboard.
 1. Adjust the size of the widgets with your mouse and place them on the dashboard as you prefer.
 1. Click **Save** to save your changes to the dashboard.

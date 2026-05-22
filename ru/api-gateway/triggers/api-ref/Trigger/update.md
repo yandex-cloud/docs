@@ -193,24 +193,50 @@ apiPlayground:
           gatewayId:
             description: |-
               **string**
-              Required field.
+              Required field. ID of the API gateway.
               The maximum string length in characters is 50.
             type: string
           path:
             description: |-
               **string**
-              Required field.
+              Required field. Path in the OpenAPI specification. Messages will be sent through WebSocket connections established using this path.
             type: string
           serviceAccountId:
             description: |-
               **string**
-              Required field. sa which has permission for writing to websockets
+              Required field. ID of the service account which has permission for broadcasting to WebSocket connections.
               The maximum string length in characters is 50.
             type: string
         required:
           - gatewayId
           - path
           - serviceAccountId
+      StartWorkflowWithRetry:
+        type: object
+        properties:
+          workflowId:
+            description: |-
+              **string**
+              Required field. ID of the workflow to start.
+              The maximum string length in characters is 50.
+            type: string
+          serviceAccountId:
+            description: |-
+              **string**
+              ID of the service account which has permission to start the workflow.
+            type: string
+          retrySettings:
+            description: |-
+              **[RetrySettings](#yandex.cloud.serverless.triggers.v1.RetrySettings)**
+              Retry policy. If the field is not specified, or the value is empty, no retries will be attempted.
+            $ref: '#/definitions/RetrySettings'
+          deadLetterQueue:
+            description: |-
+              **[PutQueueMessage](#yandex.cloud.serverless.triggers.v1.PutQueueMessage)**
+              DLQ policy (no value means discarding a message).
+            $ref: '#/definitions/PutQueueMessage'
+        required:
+          - workflowId
       Timer:
         type: object
         properties:
@@ -230,30 +256,38 @@ apiPlayground:
             description: |-
               **[InvokeFunctionOnce](#yandex.cloud.serverless.triggers.v1.InvokeFunctionOnce)**
               Instructions for invoking a function once.
-              Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`.
+              Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`, `startWorkflow`.
               Action to be executed when the current time matches the [cronExpression](#yandex.cloud.serverless.triggers.v1.Trigger.Timer).
+            deprecated: true
             $ref: '#/definitions/InvokeFunctionOnce'
           invokeFunctionWithRetry:
             description: |-
               **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
               Instructions for invoking a function with retry.
-              Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`.
+              Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`, `startWorkflow`.
               Action to be executed when the current time matches the [cronExpression](#yandex.cloud.serverless.triggers.v1.Trigger.Timer).
             $ref: '#/definitions/InvokeFunctionWithRetry'
           invokeContainerWithRetry:
             description: |-
               **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
               Instructions for invoking a container with retry.
-              Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`.
+              Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`, `startWorkflow`.
               Action to be executed when the current time matches the [cronExpression](#yandex.cloud.serverless.triggers.v1.Trigger.Timer).
             $ref: '#/definitions/InvokeContainerWithRetry'
           gatewayWebsocketBroadcast:
             description: |-
               **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
               Instructions for broadcasting to API gateway websocket once.
-              Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`.
+              Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`, `startWorkflow`.
               Action to be executed when the current time matches the [cronExpression](#yandex.cloud.serverless.triggers.v1.Trigger.Timer).
             $ref: '#/definitions/GatewayWebsocketBroadcast'
+          startWorkflow:
+            description: |-
+              **[StartWorkflowWithRetry](#yandex.cloud.serverless.triggers.v1.StartWorkflowWithRetry)**
+              Instructions for starting a workflow with retry.
+              Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`, `startWorkflow`.
+              Action to be executed when the current time matches the [cronExpression](#yandex.cloud.serverless.triggers.v1.Trigger.Timer).
+            $ref: '#/definitions/StartWorkflowWithRetry'
         required:
           - cronExpression
         oneOf:
@@ -265,6 +299,8 @@ apiPlayground:
               - invokeContainerWithRetry
           - required:
               - gatewayWebsocketBroadcast
+          - required:
+              - startWorkflow
       BatchSettings:
         type: object
         properties:
@@ -306,6 +342,22 @@ apiPlayground:
             type: string
         required:
           - containerId
+      StartWorkflowOnce:
+        type: object
+        properties:
+          workflowId:
+            description: |-
+              **string**
+              Required field. ID of the workflow to start.
+              The maximum string length in characters is 50.
+            type: string
+          serviceAccountId:
+            description: |-
+              **string**
+              ID of the service account which has permission to start the workflow.
+            type: string
+        required:
+          - workflowId
       MessageQueue:
         type: object
         properties:
@@ -335,23 +387,30 @@ apiPlayground:
             description: |-
               **[InvokeFunctionOnce](#yandex.cloud.serverless.triggers.v1.InvokeFunctionOnce)**
               Instructions for invoking a function once.
-              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
               Action to be executed when the there's a new message in the queue.
             $ref: '#/definitions/InvokeFunctionOnce'
           invokeContainer:
             description: |-
               **[InvokeContainerOnce](#yandex.cloud.serverless.triggers.v1.InvokeContainerOnce)**
               Instructions for invoking a container once.
-              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
               Action to be executed when the there's a new message in the queue.
             $ref: '#/definitions/InvokeContainerOnce'
           gatewayWebsocketBroadcast:
             description: |-
               **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
               Instructions for broadcasting to API gateway websocket once.
-              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
               Action to be executed when the there's a new message in the queue.
             $ref: '#/definitions/GatewayWebsocketBroadcast'
+          startWorkflow:
+            description: |-
+              **[StartWorkflowOnce](#yandex.cloud.serverless.triggers.v1.StartWorkflowOnce)**
+              Instructions for starting a workflow once.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
+              Action to be executed when the there's a new message in the queue.
+            $ref: '#/definitions/StartWorkflowOnce'
         required:
           - queueId
           - serviceAccountId
@@ -363,6 +422,8 @@ apiPlayground:
               - invokeContainer
           - required:
               - gatewayWebsocketBroadcast
+          - required:
+              - startWorkflow
       IoTMessage:
         type: object
         properties:
@@ -472,9 +533,9 @@ apiPlayground:
               **enum** (ObjectStorageEventType)
               Type (name) of events, at least one value is required.
               The number of elements must be greater than 0.
-              - `OBJECT_STORAGE_EVENT_TYPE_CREATE_OBJECT`
-              - `OBJECT_STORAGE_EVENT_TYPE_UPDATE_OBJECT`
-              - `OBJECT_STORAGE_EVENT_TYPE_DELETE_OBJECT`
+              - `OBJECT_STORAGE_EVENT_TYPE_CREATE_OBJECT`: An object was created.
+              - `OBJECT_STORAGE_EVENT_TYPE_UPDATE_OBJECT`: An object was updated.
+              - `OBJECT_STORAGE_EVENT_TYPE_DELETE_OBJECT`: An object was deleted.
             type: array
             items:
               type: string
@@ -507,20 +568,26 @@ apiPlayground:
             description: |-
               **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
               Instructions for invoking a function with retries as needed.
-              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
             $ref: '#/definitions/InvokeFunctionWithRetry'
           invokeContainer:
             description: |-
               **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
               Instructions for invoking a container with retries as needed.
-              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
             $ref: '#/definitions/InvokeContainerWithRetry'
           gatewayWebsocketBroadcast:
             description: |-
               **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
               Instructions for broadcasting to API gateway websocket once.
-              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
             $ref: '#/definitions/GatewayWebsocketBroadcast'
+          startWorkflow:
+            description: |-
+              **[StartWorkflowWithRetry](#yandex.cloud.serverless.triggers.v1.StartWorkflowWithRetry)**
+              Instructions for starting a workflow with retry.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
+            $ref: '#/definitions/StartWorkflowWithRetry'
         oneOf:
           - required:
               - invokeFunction
@@ -528,6 +595,8 @@ apiPlayground:
               - invokeContainer
           - required:
               - gatewayWebsocketBroadcast
+          - required:
+              - startWorkflow
       ContainerRegistry:
         type: object
         properties:
@@ -536,10 +605,10 @@ apiPlayground:
               **enum** (ContainerRegistryEventType)
               Type (name) of events, at least one value is required.
               The number of elements must be greater than 0.
-              - `CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE`
-              - `CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE`
-              - `CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG`
-              - `CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG`
+              - `CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE`: An image was created.
+              - `CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE`: An image was deleted.
+              - `CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG`: An image tag was created.
+              - `CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG`: An image tag was deleted.
             type: array
             items:
               type: string
@@ -573,20 +642,26 @@ apiPlayground:
             description: |-
               **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
               Instructions for invoking a function with retries as needed.
-              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
             $ref: '#/definitions/InvokeFunctionWithRetry'
           invokeContainer:
             description: |-
               **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
               Instructions for invoking a container with retries as needed.
-              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
             $ref: '#/definitions/InvokeContainerWithRetry'
           gatewayWebsocketBroadcast:
             description: |-
               **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
               Instructions for broadcasting to API gateway websocket once.
-              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
             $ref: '#/definitions/GatewayWebsocketBroadcast'
+          startWorkflow:
+            description: |-
+              **[StartWorkflowWithRetry](#yandex.cloud.serverless.triggers.v1.StartWorkflowWithRetry)**
+              Instructions for starting a workflow with retry.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
+            $ref: '#/definitions/StartWorkflowWithRetry'
         oneOf:
           - required:
               - invokeFunction
@@ -594,6 +669,8 @@ apiPlayground:
               - invokeContainer
           - required:
               - gatewayWebsocketBroadcast
+          - required:
+              - startWorkflow
       CloudLogsBatchSettings:
         type: object
         properties:
@@ -676,6 +753,7 @@ apiPlayground:
           resourceType:
             description: |-
               **string**
+              Resource types to filter log events.
               Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
             pattern: '[a-zA-Z][-a-zA-Z0-9_.]{1,62}'
             type: array
@@ -684,6 +762,7 @@ apiPlayground:
           resourceId:
             description: |-
               **string**
+              Resource IDs to filter log events.
               Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100.
             pattern: '[a-zA-Z][-a-zA-Z0-9_.]{1,62}'
             type: array
@@ -692,6 +771,7 @@ apiPlayground:
           streamName:
             description: |-
               **string**
+              Stream names to filter log events.
               Each value must match the regular expression ` |[a-z][-a-z0-9]{1,61}[a-z0-9] `. The maximum number of elements is 100.
             pattern: '|[a-z][-a-z0-9]{1,61}[a-z0-9]'
             type: array
@@ -700,19 +780,20 @@ apiPlayground:
           levels:
             description: |-
               **enum** (Level)
+              Logging levels to filter log events.
               The maximum number of elements is 10.
               - `TRACE`: Trace log level.
-                Possible use case: verbose logging of some business logic.
+              Possible use case: verbose logging of some business logic.
               - `DEBUG`: Debug log level.
-                Possible use case: debugging special cases in application logic.
+              Possible use case: debugging special cases in application logic.
               - `INFO`: Info log level.
-                Mostly used for information messages.
+              Mostly used for information messages.
               - `WARN`: Warn log level.
-                May be used to alert about significant events.
+              May be used to alert about significant events.
               - `ERROR`: Error log level.
-                May be used to alert about errors in infrastructure, logic, etc.
+              May be used to alert about errors in infrastructure, logic, etc.
               - `FATAL`: Fatal log level.
-                May be used to alert about unrecoverable failures and events.
+              May be used to alert about unrecoverable failures and events.
             type: array
             items:
               type: string
@@ -733,20 +814,26 @@ apiPlayground:
             description: |-
               **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
               Instructions for invoking a function with retries as needed.
-              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
             $ref: '#/definitions/InvokeFunctionWithRetry'
           invokeContainer:
             description: |-
               **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
               Instructions for invoking a container with retries as needed.
-              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
             $ref: '#/definitions/InvokeContainerWithRetry'
           gatewayWebsocketBroadcast:
             description: |-
               **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
               Instructions for broadcasting to API gateway websocket once.
-              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
             $ref: '#/definitions/GatewayWebsocketBroadcast'
+          startWorkflow:
+            description: |-
+              **[StartWorkflowWithRetry](#yandex.cloud.serverless.triggers.v1.StartWorkflowWithRetry)**
+              Instructions for starting a workflow with retry.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
+            $ref: '#/definitions/StartWorkflowWithRetry'
         required:
           - batchSettings
         oneOf:
@@ -756,35 +843,47 @@ apiPlayground:
               - invokeContainer
           - required:
               - gatewayWebsocketBroadcast
+          - required:
+              - startWorkflow
       BillingBudget:
         type: object
         properties:
           billingAccountId:
             description: |-
               **string**
-              Required field.
+              Required field. ID of the billing account.
               The maximum string length in characters is 50.
             type: string
           budgetId:
             description: |-
               **string**
+              ID of the budget.
               The maximum string length in characters is 50.
             type: string
           invokeFunction:
             description: |-
               **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
-              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Instructions for invoking a function with retries as needed.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
             $ref: '#/definitions/InvokeFunctionWithRetry'
           invokeContainer:
             description: |-
               **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
-              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Instructions for invoking a container with retries as needed.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
             $ref: '#/definitions/InvokeContainerWithRetry'
           gatewayWebsocketBroadcast:
             description: |-
               **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
-              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Instructions for broadcasting to API gateway websocket once.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
             $ref: '#/definitions/GatewayWebsocketBroadcast'
+          startWorkflow:
+            description: |-
+              **[StartWorkflowWithRetry](#yandex.cloud.serverless.triggers.v1.StartWorkflowWithRetry)**
+              Instructions for starting a workflow with retry.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
+            $ref: '#/definitions/StartWorkflowWithRetry'
         required:
           - billingAccountId
         oneOf:
@@ -794,6 +893,8 @@ apiPlayground:
               - invokeContainer
           - required:
               - gatewayWebsocketBroadcast
+          - required:
+              - startWorkflow
       DataStreamBatchSettings:
         type: object
         properties:
@@ -843,18 +944,27 @@ apiPlayground:
           invokeFunction:
             description: |-
               **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
-              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Instructions for invoking a function with retries as needed.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
             $ref: '#/definitions/InvokeFunctionWithRetry'
           invokeContainer:
             description: |-
               **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
-              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Instructions for invoking a container with retries as needed.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
             $ref: '#/definitions/InvokeContainerWithRetry'
           gatewayWebsocketBroadcast:
             description: |-
               **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
-              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Instructions for broadcasting to API gateway websocket once.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
             $ref: '#/definitions/GatewayWebsocketBroadcast'
+          startWorkflow:
+            description: |-
+              **[StartWorkflowWithRetry](#yandex.cloud.serverless.triggers.v1.StartWorkflowWithRetry)**
+              Instructions for starting a workflow with retry.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
+            $ref: '#/definitions/StartWorkflowWithRetry'
         oneOf:
           - required:
               - invokeFunction
@@ -862,6 +972,8 @@ apiPlayground:
               - invokeContainer
           - required:
               - gatewayWebsocketBroadcast
+          - required:
+              - startWorkflow
       ObjectStorageBucketSettings:
         type: object
         properties:
@@ -902,18 +1014,27 @@ apiPlayground:
           invokeFunction:
             description: |-
               **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
-              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Instructions for invoking a function with retries as needed.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
             $ref: '#/definitions/InvokeFunctionWithRetry'
           invokeContainer:
             description: |-
               **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
-              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Instructions for invoking a container with retries as needed.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
             $ref: '#/definitions/InvokeContainerWithRetry'
           gatewayWebsocketBroadcast:
             description: |-
               **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
-              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+              Instructions for broadcasting to API gateway websocket once.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
             $ref: '#/definitions/GatewayWebsocketBroadcast'
+          startWorkflow:
+            description: |-
+              **[StartWorkflowWithRetry](#yandex.cloud.serverless.triggers.v1.StartWorkflowWithRetry)**
+              Instructions for starting a workflow with retry.
+              Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
+            $ref: '#/definitions/StartWorkflowWithRetry'
         oneOf:
           - required:
               - invokeFunction
@@ -921,6 +1042,8 @@ apiPlayground:
               - invokeContainer
           - required:
               - gatewayWebsocketBroadcast
+          - required:
+              - startWorkflow
       Rule:
         type: object
         properties:
@@ -945,41 +1068,49 @@ apiPlayground:
           iotBrokerMessage:
             description: |-
               **[IoTBrokerMessage](#yandex.cloud.serverless.triggers.v1.Trigger.IoTBrokerMessage)**
+              Rule for a IoT Core Broker trigger.
               Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
             $ref: '#/definitions/IoTBrokerMessage'
           objectStorage:
             description: |-
               **[ObjectStorage](#yandex.cloud.serverless.triggers.v1.Trigger.ObjectStorage)**
+              Rule for an Object Storage trigger.
               Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
             $ref: '#/definitions/ObjectStorage'
           containerRegistry:
             description: |-
               **[ContainerRegistry](#yandex.cloud.serverless.triggers.v1.Trigger.ContainerRegistry)**
+              Rule for a Container Registry trigger.
               Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
             $ref: '#/definitions/ContainerRegistry'
           cloudLogs:
             description: |-
               **[CloudLogs](#yandex.cloud.serverless.triggers.v1.Trigger.CloudLogs)**
+              Rule for a Cloud Logs trigger.
               Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
             $ref: '#/definitions/CloudLogs'
           logging:
             description: |-
               **[Logging](#yandex.cloud.serverless.triggers.v1.Trigger.Logging)**
+              Rule for a Logging trigger.
               Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
             $ref: '#/definitions/Logging'
           billingBudget:
             description: |-
               **[BillingBudget](#yandex.cloud.serverless.triggers.v1.BillingBudget)**
+              Rule for a Billing Budget trigger.
               Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
             $ref: '#/definitions/BillingBudget'
           dataStream:
             description: |-
               **[DataStream](#yandex.cloud.serverless.triggers.v1.DataStream)**
+              Rule for a Data Stream trigger.
               Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
             $ref: '#/definitions/DataStream'
           mail:
             description: |-
               **[Mail](#yandex.cloud.serverless.triggers.v1.Mail)**
+              Rule for a Mail trigger.
               Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`.
             $ref: '#/definitions/Mail'
         oneOf:
@@ -1041,7 +1172,7 @@ To get a trigger ID make a [TriggerService.List](/docs/functions/triggers/api-re
     "timer": {
       "cronExpression": "string",
       "payload": "string",
-      // Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`
+      // Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`, `startWorkflow`
       "invokeFunction": {
         "functionId": "string",
         "functionTag": "string",
@@ -1077,6 +1208,18 @@ To get a trigger ID make a [TriggerService.List](/docs/functions/triggers/api-re
         "gatewayId": "string",
         "path": "string",
         "serviceAccountId": "string"
+      },
+      "startWorkflow": {
+        "workflowId": "string",
+        "serviceAccountId": "string",
+        "retrySettings": {
+          "retryAttempts": "string",
+          "interval": "string"
+        },
+        "deadLetterQueue": {
+          "queueId": "string",
+          "serviceAccountId": "string"
+        }
       }
       // end of the list of possible fields
     },
@@ -1088,7 +1231,7 @@ To get a trigger ID make a [TriggerService.List](/docs/functions/triggers/api-re
         "cutoff": "string"
       },
       "visibilityTimeout": "string",
-      // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`
+      // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`
       "invokeFunction": {
         "functionId": "string",
         "functionTag": "string",
@@ -1102,6 +1245,10 @@ To get a trigger ID make a [TriggerService.List](/docs/functions/triggers/api-re
       "gatewayWebsocketBroadcast": {
         "gatewayId": "string",
         "path": "string",
+        "serviceAccountId": "string"
+      },
+      "startWorkflow": {
+        "workflowId": "string",
         "serviceAccountId": "string"
       }
       // end of the list of possible fields
@@ -1200,7 +1347,7 @@ To get a trigger ID make a [TriggerService.List](/docs/functions/triggers/api-re
         "size": "string",
         "cutoff": "string"
       },
-      // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`
+      // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`
       "invokeFunction": {
         "functionId": "string",
         "functionTag": "string",
@@ -1231,6 +1378,18 @@ To get a trigger ID make a [TriggerService.List](/docs/functions/triggers/api-re
         "gatewayId": "string",
         "path": "string",
         "serviceAccountId": "string"
+      },
+      "startWorkflow": {
+        "workflowId": "string",
+        "serviceAccountId": "string",
+        "retrySettings": {
+          "retryAttempts": "string",
+          "interval": "string"
+        },
+        "deadLetterQueue": {
+          "queueId": "string",
+          "serviceAccountId": "string"
+        }
       }
       // end of the list of possible fields
     },
@@ -1245,7 +1404,7 @@ To get a trigger ID make a [TriggerService.List](/docs/functions/triggers/api-re
         "size": "string",
         "cutoff": "string"
       },
-      // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`
+      // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`
       "invokeFunction": {
         "functionId": "string",
         "functionTag": "string",
@@ -1276,6 +1435,18 @@ To get a trigger ID make a [TriggerService.List](/docs/functions/triggers/api-re
         "gatewayId": "string",
         "path": "string",
         "serviceAccountId": "string"
+      },
+      "startWorkflow": {
+        "workflowId": "string",
+        "serviceAccountId": "string",
+        "retrySettings": {
+          "retryAttempts": "string",
+          "interval": "string"
+        },
+        "deadLetterQueue": {
+          "queueId": "string",
+          "serviceAccountId": "string"
+        }
       }
       // end of the list of possible fields
     },
@@ -1334,7 +1505,7 @@ To get a trigger ID make a [TriggerService.List](/docs/functions/triggers/api-re
         "size": "string",
         "cutoff": "string"
       },
-      // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`
+      // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`
       "invokeFunction": {
         "functionId": "string",
         "functionTag": "string",
@@ -1365,13 +1536,25 @@ To get a trigger ID make a [TriggerService.List](/docs/functions/triggers/api-re
         "gatewayId": "string",
         "path": "string",
         "serviceAccountId": "string"
+      },
+      "startWorkflow": {
+        "workflowId": "string",
+        "serviceAccountId": "string",
+        "retrySettings": {
+          "retryAttempts": "string",
+          "interval": "string"
+        },
+        "deadLetterQueue": {
+          "queueId": "string",
+          "serviceAccountId": "string"
+        }
       }
       // end of the list of possible fields
     },
     "billingBudget": {
       "billingAccountId": "string",
       "budgetId": "string",
-      // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`
+      // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`
       "invokeFunction": {
         "functionId": "string",
         "functionTag": "string",
@@ -1402,6 +1585,18 @@ To get a trigger ID make a [TriggerService.List](/docs/functions/triggers/api-re
         "gatewayId": "string",
         "path": "string",
         "serviceAccountId": "string"
+      },
+      "startWorkflow": {
+        "workflowId": "string",
+        "serviceAccountId": "string",
+        "retrySettings": {
+          "retryAttempts": "string",
+          "interval": "string"
+        },
+        "deadLetterQueue": {
+          "queueId": "string",
+          "serviceAccountId": "string"
+        }
       }
       // end of the list of possible fields
     },
@@ -1414,7 +1609,7 @@ To get a trigger ID make a [TriggerService.List](/docs/functions/triggers/api-re
         "size": "string",
         "cutoff": "string"
       },
-      // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`
+      // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`
       "invokeFunction": {
         "functionId": "string",
         "functionTag": "string",
@@ -1445,6 +1640,18 @@ To get a trigger ID make a [TriggerService.List](/docs/functions/triggers/api-re
         "gatewayId": "string",
         "path": "string",
         "serviceAccountId": "string"
+      },
+      "startWorkflow": {
+        "workflowId": "string",
+        "serviceAccountId": "string",
+        "retrySettings": {
+          "retryAttempts": "string",
+          "interval": "string"
+        },
+        "deadLetterQueue": {
+          "queueId": "string",
+          "serviceAccountId": "string"
+        }
       }
       // end of the list of possible fields
     },
@@ -1458,7 +1665,7 @@ To get a trigger ID make a [TriggerService.List](/docs/functions/triggers/api-re
         "bucketId": "string",
         "serviceAccountId": "string"
       },
-      // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`
+      // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`
       "invokeFunction": {
         "functionId": "string",
         "functionTag": "string",
@@ -1489,6 +1696,18 @@ To get a trigger ID make a [TriggerService.List](/docs/functions/triggers/api-re
         "gatewayId": "string",
         "path": "string",
         "serviceAccountId": "string"
+      },
+      "startWorkflow": {
+        "workflowId": "string",
+        "serviceAccountId": "string",
+        "retrySettings": {
+          "retryAttempts": "string",
+          "interval": "string"
+        },
+        "deadLetterQueue": {
+          "queueId": "string",
+          "serviceAccountId": "string"
+        }
       }
       // end of the list of possible fields
     }
@@ -1514,7 +1733,7 @@ The rest of the fields will be reset to the default. ||
 New name for the trigger.
 The name must be unique within the folder.
 
-Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || description | **string**
 
 New description of the trigger.
@@ -1556,26 +1775,42 @@ Rule for a IoT Core trigger.
 Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
 || iotBrokerMessage | **[IoTBrokerMessage](#yandex.cloud.serverless.triggers.v1.Trigger.IoTBrokerMessage)**
 
+Rule for a IoT Core Broker trigger.
+
 Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
 || objectStorage | **[ObjectStorage](#yandex.cloud.serverless.triggers.v1.Trigger.ObjectStorage)**
+
+Rule for an Object Storage trigger.
 
 Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
 || containerRegistry | **[ContainerRegistry](#yandex.cloud.serverless.triggers.v1.Trigger.ContainerRegistry)**
 
+Rule for a Container Registry trigger.
+
 Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
 || cloudLogs | **[CloudLogs](#yandex.cloud.serverless.triggers.v1.Trigger.CloudLogs)**
+
+Rule for a Cloud Logs trigger.
 
 Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
 || logging | **[Logging](#yandex.cloud.serverless.triggers.v1.Trigger.Logging)**
 
+Rule for a Logging trigger.
+
 Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
 || billingBudget | **[BillingBudget](#yandex.cloud.serverless.triggers.v1.BillingBudget)**
+
+Rule for a Billing Budget trigger.
 
 Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
 || dataStream | **[DataStream](#yandex.cloud.serverless.triggers.v1.DataStream)**
 
+Rule for a Data Stream trigger.
+
 Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
 || mail | **[Mail](#yandex.cloud.serverless.triggers.v1.Mail)**
+
+Rule for a Mail trigger.
 
 Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
 |#
@@ -1600,28 +1835,35 @@ The maximum string length in characters is 4096. ||
 
 Instructions for invoking a function once.
 
-Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`, `startWorkflow`.
 
 Action to be executed when the current time matches the `cronExpression`. ||
 || invokeFunctionWithRetry | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
 
 Instructions for invoking a function with retry.
 
-Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`, `startWorkflow`.
 
 Action to be executed when the current time matches the `cronExpression`. ||
 || invokeContainerWithRetry | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
 
 Instructions for invoking a container with retry.
 
-Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`, `startWorkflow`.
 
 Action to be executed when the current time matches the `cronExpression`. ||
 || gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
 
 Instructions for broadcasting to API gateway websocket once.
 
-Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`, `startWorkflow`.
+
+Action to be executed when the current time matches the `cronExpression`. ||
+|| startWorkflow | **[StartWorkflowWithRetry](#yandex.cloud.serverless.triggers.v1.StartWorkflowWithRetry)**
+
+Instructions for starting a workflow with retry.
+
+Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`, `startWorkflow`.
 
 Action to be executed when the current time matches the `cronExpression`. ||
 |#
@@ -1731,17 +1973,39 @@ DLQ policy (no value means discarding a message). ||
 ||Field | Description ||
 || gatewayId | **string**
 
-Required field.
+Required field. ID of the API gateway.
 
 The maximum string length in characters is 50. ||
 || path | **string**
 
-Required field. ||
+Required field. Path in the OpenAPI specification. Messages will be sent through WebSocket connections established using this path. ||
 || serviceAccountId | **string**
 
-Required field. sa which has permission for writing to websockets
+Required field. ID of the service account which has permission for broadcasting to WebSocket connections.
 
 The maximum string length in characters is 50. ||
+|#
+
+## StartWorkflowWithRetry {#yandex.cloud.serverless.triggers.v1.StartWorkflowWithRetry}
+
+A workflow invocation with retries.
+
+#|
+||Field | Description ||
+|| workflowId | **string**
+
+Required field. ID of the workflow to start.
+
+The maximum string length in characters is 50. ||
+|| serviceAccountId | **string**
+
+ID of the service account which has permission to start the workflow. ||
+|| retrySettings | **[RetrySettings](#yandex.cloud.serverless.triggers.v1.RetrySettings)**
+
+Retry policy. If the field is not specified, or the value is empty, no retries will be attempted. ||
+|| deadLetterQueue | **[PutQueueMessage](#yandex.cloud.serverless.triggers.v1.PutQueueMessage)**
+
+DLQ policy (no value means discarding a message). ||
 |#
 
 ## MessageQueue {#yandex.cloud.serverless.triggers.v1.Trigger.MessageQueue}
@@ -1768,21 +2032,28 @@ Queue visibility timeout override. ||
 
 Instructions for invoking a function once.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
 
 Action to be executed when the there's a new message in the queue. ||
 || invokeContainer | **[InvokeContainerOnce](#yandex.cloud.serverless.triggers.v1.InvokeContainerOnce)**
 
 Instructions for invoking a container once.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
 
 Action to be executed when the there's a new message in the queue. ||
 || gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
 
 Instructions for broadcasting to API gateway websocket once.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
+
+Action to be executed when the there's a new message in the queue. ||
+|| startWorkflow | **[StartWorkflowOnce](#yandex.cloud.serverless.triggers.v1.StartWorkflowOnce)**
+
+Instructions for starting a workflow once.
+
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
 
 Action to be executed when the there's a new message in the queue. ||
 |#
@@ -1822,6 +2093,22 @@ Endpoint HTTP path to invoke. ||
 || serviceAccountId | **string**
 
 ID of the service account which has permission to invoke the container. ||
+|#
+
+## StartWorkflowOnce {#yandex.cloud.serverless.triggers.v1.StartWorkflowOnce}
+
+A single workflow invocation.
+
+#|
+||Field | Description ||
+|| workflowId | **string**
+
+Required field. ID of the workflow to start.
+
+The maximum string length in characters is 50. ||
+|| serviceAccountId | **string**
+
+ID of the service account which has permission to start the workflow. ||
 |#
 
 ## IoTMessage {#yandex.cloud.serverless.triggers.v1.Trigger.IoTMessage}
@@ -1913,9 +2200,9 @@ Type (name) of events, at least one value is required.
 
 The number of elements must be greater than 0.
 
-- `OBJECT_STORAGE_EVENT_TYPE_CREATE_OBJECT`
-- `OBJECT_STORAGE_EVENT_TYPE_UPDATE_OBJECT`
-- `OBJECT_STORAGE_EVENT_TYPE_DELETE_OBJECT` ||
+- `OBJECT_STORAGE_EVENT_TYPE_CREATE_OBJECT`: An object was created.
+- `OBJECT_STORAGE_EVENT_TYPE_UPDATE_OBJECT`: An object was updated.
+- `OBJECT_STORAGE_EVENT_TYPE_DELETE_OBJECT`: An object was deleted. ||
 || bucketId | **string**
 
 ID of the bucket. ||
@@ -1932,17 +2219,22 @@ Batch settings for processing events. ||
 
 Instructions for invoking a function with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 || invokeContainer | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
 
 Instructions for invoking a container with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 || gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
 
 Instructions for broadcasting to API gateway websocket once.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
+|| startWorkflow | **[StartWorkflowWithRetry](#yandex.cloud.serverless.triggers.v1.StartWorkflowWithRetry)**
+
+Instructions for starting a workflow with retry.
+
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 |#
 
 ## ContainerRegistry {#yandex.cloud.serverless.triggers.v1.Trigger.ContainerRegistry}
@@ -1955,10 +2247,10 @@ Type (name) of events, at least one value is required.
 
 The number of elements must be greater than 0.
 
-- `CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE`
-- `CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE`
-- `CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG`
-- `CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG` ||
+- `CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE`: An image was created.
+- `CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE`: An image was deleted.
+- `CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG`: An image tag was created.
+- `CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG`: An image tag was deleted. ||
 || registryId | **string**
 
 ID of the registry. ||
@@ -1975,20 +2267,27 @@ Batch settings for processing events. ||
 
 Instructions for invoking a function with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 || invokeContainer | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
 
 Instructions for invoking a container with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 || gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
 
 Instructions for broadcasting to API gateway websocket once.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
+|| startWorkflow | **[StartWorkflowWithRetry](#yandex.cloud.serverless.triggers.v1.StartWorkflowWithRetry)**
+
+Instructions for starting a workflow with retry.
+
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 |#
 
 ## CloudLogs {#yandex.cloud.serverless.triggers.v1.Trigger.CloudLogs}
+
+Deprecated. Use Logging instead.
 
 #|
 ||Field | Description ||
@@ -2037,35 +2336,37 @@ Log events filter settings.
 The maximum string length in characters is 50. ||
 || resourceType[] | **string**
 
+Resource types to filter log events.
+
 Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100. ||
 || resourceId[] | **string**
+
+Resource IDs to filter log events.
 
 Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100. ||
 || streamName[] | **string**
 
-Each value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. The maximum number of elements is 100. ||
+Stream names to filter log events.
+
+Each value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. The maximum number of elements is 100. ||
 || levels[] | **enum** (Level)
+
+Logging levels to filter log events.
 
 The maximum number of elements is 10.
 
 - `TRACE`: Trace log level.
-
-  Possible use case: verbose logging of some business logic.
+Possible use case: verbose logging of some business logic.
 - `DEBUG`: Debug log level.
-
-  Possible use case: debugging special cases in application logic.
+Possible use case: debugging special cases in application logic.
 - `INFO`: Info log level.
-
-  Mostly used for information messages.
+Mostly used for information messages.
 - `WARN`: Warn log level.
-
-  May be used to alert about significant events.
+May be used to alert about significant events.
 - `ERROR`: Error log level.
-
-  May be used to alert about errors in infrastructure, logic, etc.
+May be used to alert about errors in infrastructure, logic, etc.
 - `FATAL`: Fatal log level.
-
-  May be used to alert about unrecoverable failures and events. ||
+May be used to alert about unrecoverable failures and events. ||
 || batchSettings | **[LoggingBatchSettings](#yandex.cloud.serverless.triggers.v1.LoggingBatchSettings)**
 
 Required field. Batch settings for processing log events. ||
@@ -2073,17 +2374,22 @@ Required field. Batch settings for processing log events. ||
 
 Instructions for invoking a function with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 || invokeContainer | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
 
 Instructions for invoking a container with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 || gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
 
 Instructions for broadcasting to API gateway websocket once.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
+|| startWorkflow | **[StartWorkflowWithRetry](#yandex.cloud.serverless.triggers.v1.StartWorkflowWithRetry)**
+
+Instructions for starting a workflow with retry.
+
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 |#
 
 ## LoggingBatchSettings {#yandex.cloud.serverless.triggers.v1.LoggingBatchSettings}
@@ -2108,21 +2414,34 @@ exceeds the `cutoff` value, regardless of the amount of log events. ||
 ||Field | Description ||
 || billingAccountId | **string**
 
-Required field.
+Required field. ID of the billing account.
 
 The maximum string length in characters is 50. ||
 || budgetId | **string**
 
+ID of the budget.
+
 The maximum string length in characters is 50. ||
 || invokeFunction | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Instructions for invoking a function with retries as needed.
+
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 || invokeContainer | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Instructions for invoking a container with retries as needed.
+
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 || gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Instructions for broadcasting to API gateway websocket once.
+
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
+|| startWorkflow | **[StartWorkflowWithRetry](#yandex.cloud.serverless.triggers.v1.StartWorkflowWithRetry)**
+
+Instructions for starting a workflow with retry.
+
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 |#
 
 ## DataStream {#yandex.cloud.serverless.triggers.v1.DataStream}
@@ -2146,13 +2465,24 @@ ID of the service account which has permission to read data stream. ||
 Batch settings for processing events. ||
 || invokeFunction | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Instructions for invoking a function with retries as needed.
+
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 || invokeContainer | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Instructions for invoking a container with retries as needed.
+
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 || gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Instructions for broadcasting to API gateway websocket once.
+
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
+|| startWorkflow | **[StartWorkflowWithRetry](#yandex.cloud.serverless.triggers.v1.StartWorkflowWithRetry)**
+
+Instructions for starting a workflow with retry.
+
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 |#
 
 ## DataStreamBatchSettings {#yandex.cloud.serverless.triggers.v1.DataStreamBatchSettings}
@@ -2187,13 +2517,24 @@ Batch settings for processing events. ||
 Bucket settings for saving attachments. ||
 || invokeFunction | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Instructions for invoking a function with retries as needed.
+
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 || invokeContainer | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Instructions for invoking a container with retries as needed.
+
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 || gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Instructions for broadcasting to API gateway websocket once.
+
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
+|| startWorkflow | **[StartWorkflowWithRetry](#yandex.cloud.serverless.triggers.v1.StartWorkflowWithRetry)**
+
+Instructions for starting a workflow with retry.
+
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 |#
 
 ## ObjectStorageBucketSettings {#yandex.cloud.serverless.triggers.v1.ObjectStorageBucketSettings}
@@ -2247,7 +2588,7 @@ The maximum string length in characters is 50. ||
       "timer": {
         "cronExpression": "string",
         "payload": "string",
-        // Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`
+        // Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`, `startWorkflow`
         "invokeFunction": {
           "functionId": "string",
           "functionTag": "string",
@@ -2283,6 +2624,18 @@ The maximum string length in characters is 50. ||
           "gatewayId": "string",
           "path": "string",
           "serviceAccountId": "string"
+        },
+        "startWorkflow": {
+          "workflowId": "string",
+          "serviceAccountId": "string",
+          "retrySettings": {
+            "retryAttempts": "string",
+            "interval": "string"
+          },
+          "deadLetterQueue": {
+            "queueId": "string",
+            "serviceAccountId": "string"
+          }
         }
         // end of the list of possible fields
       },
@@ -2294,7 +2647,7 @@ The maximum string length in characters is 50. ||
           "cutoff": "string"
         },
         "visibilityTimeout": "string",
-        // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`
+        // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`
         "invokeFunction": {
           "functionId": "string",
           "functionTag": "string",
@@ -2308,6 +2661,10 @@ The maximum string length in characters is 50. ||
         "gatewayWebsocketBroadcast": {
           "gatewayId": "string",
           "path": "string",
+          "serviceAccountId": "string"
+        },
+        "startWorkflow": {
+          "workflowId": "string",
           "serviceAccountId": "string"
         }
         // end of the list of possible fields
@@ -2406,7 +2763,7 @@ The maximum string length in characters is 50. ||
           "size": "string",
           "cutoff": "string"
         },
-        // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`
+        // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`
         "invokeFunction": {
           "functionId": "string",
           "functionTag": "string",
@@ -2437,6 +2794,18 @@ The maximum string length in characters is 50. ||
           "gatewayId": "string",
           "path": "string",
           "serviceAccountId": "string"
+        },
+        "startWorkflow": {
+          "workflowId": "string",
+          "serviceAccountId": "string",
+          "retrySettings": {
+            "retryAttempts": "string",
+            "interval": "string"
+          },
+          "deadLetterQueue": {
+            "queueId": "string",
+            "serviceAccountId": "string"
+          }
         }
         // end of the list of possible fields
       },
@@ -2451,7 +2820,7 @@ The maximum string length in characters is 50. ||
           "size": "string",
           "cutoff": "string"
         },
-        // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`
+        // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`
         "invokeFunction": {
           "functionId": "string",
           "functionTag": "string",
@@ -2482,6 +2851,18 @@ The maximum string length in characters is 50. ||
           "gatewayId": "string",
           "path": "string",
           "serviceAccountId": "string"
+        },
+        "startWorkflow": {
+          "workflowId": "string",
+          "serviceAccountId": "string",
+          "retrySettings": {
+            "retryAttempts": "string",
+            "interval": "string"
+          },
+          "deadLetterQueue": {
+            "queueId": "string",
+            "serviceAccountId": "string"
+          }
         }
         // end of the list of possible fields
       },
@@ -2540,7 +2921,7 @@ The maximum string length in characters is 50. ||
           "size": "string",
           "cutoff": "string"
         },
-        // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`
+        // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`
         "invokeFunction": {
           "functionId": "string",
           "functionTag": "string",
@@ -2571,13 +2952,25 @@ The maximum string length in characters is 50. ||
           "gatewayId": "string",
           "path": "string",
           "serviceAccountId": "string"
+        },
+        "startWorkflow": {
+          "workflowId": "string",
+          "serviceAccountId": "string",
+          "retrySettings": {
+            "retryAttempts": "string",
+            "interval": "string"
+          },
+          "deadLetterQueue": {
+            "queueId": "string",
+            "serviceAccountId": "string"
+          }
         }
         // end of the list of possible fields
       },
       "billingBudget": {
         "billingAccountId": "string",
         "budgetId": "string",
-        // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`
+        // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`
         "invokeFunction": {
           "functionId": "string",
           "functionTag": "string",
@@ -2608,6 +3001,18 @@ The maximum string length in characters is 50. ||
           "gatewayId": "string",
           "path": "string",
           "serviceAccountId": "string"
+        },
+        "startWorkflow": {
+          "workflowId": "string",
+          "serviceAccountId": "string",
+          "retrySettings": {
+            "retryAttempts": "string",
+            "interval": "string"
+          },
+          "deadLetterQueue": {
+            "queueId": "string",
+            "serviceAccountId": "string"
+          }
         }
         // end of the list of possible fields
       },
@@ -2620,7 +3025,7 @@ The maximum string length in characters is 50. ||
           "size": "string",
           "cutoff": "string"
         },
-        // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`
+        // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`
         "invokeFunction": {
           "functionId": "string",
           "functionTag": "string",
@@ -2651,6 +3056,18 @@ The maximum string length in characters is 50. ||
           "gatewayId": "string",
           "path": "string",
           "serviceAccountId": "string"
+        },
+        "startWorkflow": {
+          "workflowId": "string",
+          "serviceAccountId": "string",
+          "retrySettings": {
+            "retryAttempts": "string",
+            "interval": "string"
+          },
+          "deadLetterQueue": {
+            "queueId": "string",
+            "serviceAccountId": "string"
+          }
         }
         // end of the list of possible fields
       },
@@ -2664,7 +3081,7 @@ The maximum string length in characters is 50. ||
           "bucketId": "string",
           "serviceAccountId": "string"
         },
-        // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`
+        // Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`
         "invokeFunction": {
           "functionId": "string",
           "functionTag": "string",
@@ -2695,6 +3112,18 @@ The maximum string length in characters is 50. ||
           "gatewayId": "string",
           "path": "string",
           "serviceAccountId": "string"
+        },
+        "startWorkflow": {
+          "workflowId": "string",
+          "serviceAccountId": "string",
+          "retrySettings": {
+            "retryAttempts": "string",
+            "interval": "string"
+          },
+          "deadLetterQueue": {
+            "queueId": "string",
+            "serviceAccountId": "string"
+          }
         }
         // end of the list of possible fields
       }
@@ -2845,8 +3274,8 @@ Required field. Rule for trigger activation (always consistent with the trigger 
 
 Trigger status.
 
-- `ACTIVE`
-- `PAUSED` ||
+- `ACTIVE`: The trigger is active and will fire when the triggering event occurs.
+- `PAUSED`: The trigger is paused and will not fire when the triggering event occurs. ||
 |#
 
 ## Rule {#yandex.cloud.serverless.triggers.v1.Trigger.Rule2}
@@ -2872,26 +3301,42 @@ Rule for a IoT Core trigger.
 Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
 || iotBrokerMessage | **[IoTBrokerMessage](#yandex.cloud.serverless.triggers.v1.Trigger.IoTBrokerMessage2)**
 
+Rule for a IoT Core Broker trigger.
+
 Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
 || objectStorage | **[ObjectStorage](#yandex.cloud.serverless.triggers.v1.Trigger.ObjectStorage2)**
+
+Rule for an Object Storage trigger.
 
 Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
 || containerRegistry | **[ContainerRegistry](#yandex.cloud.serverless.triggers.v1.Trigger.ContainerRegistry2)**
 
+Rule for a Container Registry trigger.
+
 Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
 || cloudLogs | **[CloudLogs](#yandex.cloud.serverless.triggers.v1.Trigger.CloudLogs2)**
+
+Rule for a Cloud Logs trigger.
 
 Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
 || logging | **[Logging](#yandex.cloud.serverless.triggers.v1.Trigger.Logging2)**
 
+Rule for a Logging trigger.
+
 Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
 || billingBudget | **[BillingBudget](#yandex.cloud.serverless.triggers.v1.BillingBudget2)**
+
+Rule for a Billing Budget trigger.
 
 Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
 || dataStream | **[DataStream](#yandex.cloud.serverless.triggers.v1.DataStream2)**
 
+Rule for a Data Stream trigger.
+
 Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
 || mail | **[Mail](#yandex.cloud.serverless.triggers.v1.Mail2)**
+
+Rule for a Mail trigger.
 
 Includes only one of the fields `timer`, `messageQueue`, `iotMessage`, `iotBrokerMessage`, `objectStorage`, `containerRegistry`, `cloudLogs`, `logging`, `billingBudget`, `dataStream`, `mail`. ||
 |#
@@ -2916,28 +3361,35 @@ The maximum string length in characters is 4096. ||
 
 Instructions for invoking a function once.
 
-Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`, `startWorkflow`.
 
 Action to be executed when the current time matches the `cronExpression`. ||
 || invokeFunctionWithRetry | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry2)**
 
 Instructions for invoking a function with retry.
 
-Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`, `startWorkflow`.
 
 Action to be executed when the current time matches the `cronExpression`. ||
 || invokeContainerWithRetry | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry2)**
 
 Instructions for invoking a container with retry.
 
-Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`, `startWorkflow`.
 
 Action to be executed when the current time matches the `cronExpression`. ||
 || gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast2)**
 
 Instructions for broadcasting to API gateway websocket once.
 
-Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`, `startWorkflow`.
+
+Action to be executed when the current time matches the `cronExpression`. ||
+|| startWorkflow | **[StartWorkflowWithRetry](#yandex.cloud.serverless.triggers.v1.StartWorkflowWithRetry2)**
+
+Instructions for starting a workflow with retry.
+
+Includes only one of the fields `invokeFunction`, `invokeFunctionWithRetry`, `invokeContainerWithRetry`, `gatewayWebsocketBroadcast`, `startWorkflow`.
 
 Action to be executed when the current time matches the `cronExpression`. ||
 |#
@@ -3047,17 +3499,39 @@ DLQ policy (no value means discarding a message). ||
 ||Field | Description ||
 || gatewayId | **string**
 
-Required field.
+Required field. ID of the API gateway.
 
 The maximum string length in characters is 50. ||
 || path | **string**
 
-Required field. ||
+Required field. Path in the OpenAPI specification. Messages will be sent through WebSocket connections established using this path. ||
 || serviceAccountId | **string**
 
-Required field. sa which has permission for writing to websockets
+Required field. ID of the service account which has permission for broadcasting to WebSocket connections.
 
 The maximum string length in characters is 50. ||
+|#
+
+## StartWorkflowWithRetry {#yandex.cloud.serverless.triggers.v1.StartWorkflowWithRetry2}
+
+A workflow invocation with retries.
+
+#|
+||Field | Description ||
+|| workflowId | **string**
+
+Required field. ID of the workflow to start.
+
+The maximum string length in characters is 50. ||
+|| serviceAccountId | **string**
+
+ID of the service account which has permission to start the workflow. ||
+|| retrySettings | **[RetrySettings](#yandex.cloud.serverless.triggers.v1.RetrySettings2)**
+
+Retry policy. If the field is not specified, or the value is empty, no retries will be attempted. ||
+|| deadLetterQueue | **[PutQueueMessage](#yandex.cloud.serverless.triggers.v1.PutQueueMessage2)**
+
+DLQ policy (no value means discarding a message). ||
 |#
 
 ## MessageQueue {#yandex.cloud.serverless.triggers.v1.Trigger.MessageQueue2}
@@ -3084,21 +3558,28 @@ Queue visibility timeout override. ||
 
 Instructions for invoking a function once.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
 
 Action to be executed when the there's a new message in the queue. ||
 || invokeContainer | **[InvokeContainerOnce](#yandex.cloud.serverless.triggers.v1.InvokeContainerOnce2)**
 
 Instructions for invoking a container once.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
 
 Action to be executed when the there's a new message in the queue. ||
 || gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast2)**
 
 Instructions for broadcasting to API gateway websocket once.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`.
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
+
+Action to be executed when the there's a new message in the queue. ||
+|| startWorkflow | **[StartWorkflowOnce](#yandex.cloud.serverless.triggers.v1.StartWorkflowOnce2)**
+
+Instructions for starting a workflow once.
+
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`.
 
 Action to be executed when the there's a new message in the queue. ||
 |#
@@ -3138,6 +3619,22 @@ Endpoint HTTP path to invoke. ||
 || serviceAccountId | **string**
 
 ID of the service account which has permission to invoke the container. ||
+|#
+
+## StartWorkflowOnce {#yandex.cloud.serverless.triggers.v1.StartWorkflowOnce2}
+
+A single workflow invocation.
+
+#|
+||Field | Description ||
+|| workflowId | **string**
+
+Required field. ID of the workflow to start.
+
+The maximum string length in characters is 50. ||
+|| serviceAccountId | **string**
+
+ID of the service account which has permission to start the workflow. ||
 |#
 
 ## IoTMessage {#yandex.cloud.serverless.triggers.v1.Trigger.IoTMessage2}
@@ -3229,9 +3726,9 @@ Type (name) of events, at least one value is required.
 
 The number of elements must be greater than 0.
 
-- `OBJECT_STORAGE_EVENT_TYPE_CREATE_OBJECT`
-- `OBJECT_STORAGE_EVENT_TYPE_UPDATE_OBJECT`
-- `OBJECT_STORAGE_EVENT_TYPE_DELETE_OBJECT` ||
+- `OBJECT_STORAGE_EVENT_TYPE_CREATE_OBJECT`: An object was created.
+- `OBJECT_STORAGE_EVENT_TYPE_UPDATE_OBJECT`: An object was updated.
+- `OBJECT_STORAGE_EVENT_TYPE_DELETE_OBJECT`: An object was deleted. ||
 || bucketId | **string**
 
 ID of the bucket. ||
@@ -3248,17 +3745,22 @@ Batch settings for processing events. ||
 
 Instructions for invoking a function with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 || invokeContainer | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry2)**
 
 Instructions for invoking a container with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 || gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast2)**
 
 Instructions for broadcasting to API gateway websocket once.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
+|| startWorkflow | **[StartWorkflowWithRetry](#yandex.cloud.serverless.triggers.v1.StartWorkflowWithRetry2)**
+
+Instructions for starting a workflow with retry.
+
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 |#
 
 ## ContainerRegistry {#yandex.cloud.serverless.triggers.v1.Trigger.ContainerRegistry2}
@@ -3271,10 +3773,10 @@ Type (name) of events, at least one value is required.
 
 The number of elements must be greater than 0.
 
-- `CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE`
-- `CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE`
-- `CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG`
-- `CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG` ||
+- `CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE`: An image was created.
+- `CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE`: An image was deleted.
+- `CONTAINER_REGISTRY_EVENT_TYPE_CREATE_IMAGE_TAG`: An image tag was created.
+- `CONTAINER_REGISTRY_EVENT_TYPE_DELETE_IMAGE_TAG`: An image tag was deleted. ||
 || registryId | **string**
 
 ID of the registry. ||
@@ -3291,20 +3793,27 @@ Batch settings for processing events. ||
 
 Instructions for invoking a function with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 || invokeContainer | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry2)**
 
 Instructions for invoking a container with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 || gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast2)**
 
 Instructions for broadcasting to API gateway websocket once.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
+|| startWorkflow | **[StartWorkflowWithRetry](#yandex.cloud.serverless.triggers.v1.StartWorkflowWithRetry2)**
+
+Instructions for starting a workflow with retry.
+
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 |#
 
 ## CloudLogs {#yandex.cloud.serverless.triggers.v1.Trigger.CloudLogs2}
+
+Deprecated. Use Logging instead.
 
 #|
 ||Field | Description ||
@@ -3353,35 +3862,37 @@ Log events filter settings.
 The maximum string length in characters is 50. ||
 || resourceType[] | **string**
 
+Resource types to filter log events.
+
 Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100. ||
 || resourceId[] | **string**
+
+Resource IDs to filter log events.
 
 Each value must match the regular expression ` [a-zA-Z][-a-zA-Z0-9_.]{1,62} `. The maximum number of elements is 100. ||
 || streamName[] | **string**
 
-Each value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. The maximum number of elements is 100. ||
+Stream names to filter log events.
+
+Each value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. The maximum number of elements is 100. ||
 || levels[] | **enum** (Level)
+
+Logging levels to filter log events.
 
 The maximum number of elements is 10.
 
 - `TRACE`: Trace log level.
-
-  Possible use case: verbose logging of some business logic.
+Possible use case: verbose logging of some business logic.
 - `DEBUG`: Debug log level.
-
-  Possible use case: debugging special cases in application logic.
+Possible use case: debugging special cases in application logic.
 - `INFO`: Info log level.
-
-  Mostly used for information messages.
+Mostly used for information messages.
 - `WARN`: Warn log level.
-
-  May be used to alert about significant events.
+May be used to alert about significant events.
 - `ERROR`: Error log level.
-
-  May be used to alert about errors in infrastructure, logic, etc.
+May be used to alert about errors in infrastructure, logic, etc.
 - `FATAL`: Fatal log level.
-
-  May be used to alert about unrecoverable failures and events. ||
+May be used to alert about unrecoverable failures and events. ||
 || batchSettings | **[LoggingBatchSettings](#yandex.cloud.serverless.triggers.v1.LoggingBatchSettings2)**
 
 Required field. Batch settings for processing log events. ||
@@ -3389,17 +3900,22 @@ Required field. Batch settings for processing log events. ||
 
 Instructions for invoking a function with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 || invokeContainer | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry2)**
 
 Instructions for invoking a container with retries as needed.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 || gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast2)**
 
 Instructions for broadcasting to API gateway websocket once.
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
+|| startWorkflow | **[StartWorkflowWithRetry](#yandex.cloud.serverless.triggers.v1.StartWorkflowWithRetry2)**
+
+Instructions for starting a workflow with retry.
+
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 |#
 
 ## LoggingBatchSettings {#yandex.cloud.serverless.triggers.v1.LoggingBatchSettings2}
@@ -3424,21 +3940,34 @@ exceeds the `cutoff` value, regardless of the amount of log events. ||
 ||Field | Description ||
 || billingAccountId | **string**
 
-Required field.
+Required field. ID of the billing account.
 
 The maximum string length in characters is 50. ||
 || budgetId | **string**
 
+ID of the budget.
+
 The maximum string length in characters is 50. ||
 || invokeFunction | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry2)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Instructions for invoking a function with retries as needed.
+
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 || invokeContainer | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry2)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Instructions for invoking a container with retries as needed.
+
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 || gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast2)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Instructions for broadcasting to API gateway websocket once.
+
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
+|| startWorkflow | **[StartWorkflowWithRetry](#yandex.cloud.serverless.triggers.v1.StartWorkflowWithRetry2)**
+
+Instructions for starting a workflow with retry.
+
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 |#
 
 ## DataStream {#yandex.cloud.serverless.triggers.v1.DataStream2}
@@ -3462,13 +3991,24 @@ ID of the service account which has permission to read data stream. ||
 Batch settings for processing events. ||
 || invokeFunction | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry2)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Instructions for invoking a function with retries as needed.
+
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 || invokeContainer | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry2)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Instructions for invoking a container with retries as needed.
+
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 || gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast2)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Instructions for broadcasting to API gateway websocket once.
+
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
+|| startWorkflow | **[StartWorkflowWithRetry](#yandex.cloud.serverless.triggers.v1.StartWorkflowWithRetry2)**
+
+Instructions for starting a workflow with retry.
+
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 |#
 
 ## DataStreamBatchSettings {#yandex.cloud.serverless.triggers.v1.DataStreamBatchSettings2}
@@ -3503,13 +4043,24 @@ Batch settings for processing events. ||
 Bucket settings for saving attachments. ||
 || invokeFunction | **[InvokeFunctionWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeFunctionWithRetry2)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Instructions for invoking a function with retries as needed.
+
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 || invokeContainer | **[InvokeContainerWithRetry](#yandex.cloud.serverless.triggers.v1.InvokeContainerWithRetry2)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Instructions for invoking a container with retries as needed.
+
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 || gatewayWebsocketBroadcast | **[GatewayWebsocketBroadcast](#yandex.cloud.serverless.triggers.v1.GatewayWebsocketBroadcast2)**
 
-Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`. ||
+Instructions for broadcasting to API gateway websocket once.
+
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
+|| startWorkflow | **[StartWorkflowWithRetry](#yandex.cloud.serverless.triggers.v1.StartWorkflowWithRetry2)**
+
+Instructions for starting a workflow with retry.
+
+Includes only one of the fields `invokeFunction`, `invokeContainer`, `gatewayWebsocketBroadcast`, `startWorkflow`. ||
 |#
 
 ## ObjectStorageBucketSettings {#yandex.cloud.serverless.triggers.v1.ObjectStorageBucketSettings2}

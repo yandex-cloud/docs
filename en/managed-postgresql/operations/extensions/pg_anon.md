@@ -1,8 +1,8 @@
 # Using postgresql_anonymizer in {{ mpg-name }}
 
-The `postgresql_anonymizer` extension allows you to mask or replace personal and commercially sensitive data in a {{ PG }} database.
+The `postgresql_anonymizer` extension allows you to mask or replace personal data or commercial secrets in a {{ PG }} database.
 
-The extension uses a declarative approach to anonymization, allowing you to declare masking rules with DDL and set the anonymization strategy within the table definition.
+The extension utilizes a declarative approach for anonymization: you can declare masking rules using DDL or set an anonymization strategy in the table definition.
 
 Data anonymization methods:
   
@@ -14,9 +14,9 @@ Data anonymization methods:
 To install `postgresql_anonymizer` in a {{ PG }} cluster:
 
 1. [Load the shared library](./cluster-extensions.md#libraries-connection) `anon` into your cluster.
-1. [Enable](./cluster-extensions.md#update-extensions) the `anon` extension in your database.
+1. [Add](./cluster-extensions.md#update-extensions) the `anon` extension to your database.
 
-1. [Assign](../grant.md#grant-role) the `mdb_admin` role to the database owner, if not assigned yet.
+1. [Assign](../grant.md#grant-role) the `mdb_admin` role to the owner of this database, if not assigned yet.
 
     You can get the owner's name from the [cluster’s database list](../databases.md#list-db).
 
@@ -24,9 +24,9 @@ To learn more about the `postgresql_anonymizer` extension, see its [official doc
 
 ## Usage example {#usage-example}
 
-In the following example, we will use static masking to substitute data according to the masking rules.
+In our example, we are using static masking to replace data with other data according to the masking rules.
 
-1. [Connect to the database](../connect.md#bash) via `psql`.
+1. [Connect to the database](../connect/clients.md#bash) using `psql`.
 
 1. Create a table named `employees` and populate it with data:
 

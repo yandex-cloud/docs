@@ -9,6 +9,15 @@
 * [{#T}](../operations/resources/create-resource.md)
 * [{#T}](../operations/resources/configure-basics.md)
 
+## Профили безопасности TLS {#tls-profiles}
+
+{% include [tls-profiles-intro](../../_includes/cdn/tls-profiles-intro.md) %}
+
+{% include [tls-profiles-list](../../_includes/cdn/tls-profiles-list.md) %}
+
+Настройка доступна с помощью API при [создании](../operations/resources/create-resource.md) и [изменении](../operations/resources/configure-basics.md) CDN-ресурса. Подробнее см. на странице [{#T}](../operations/resources/configure-tls-profile.md).
+
+См. также [{#T}](../../glossary/tls.md).
 
 ## Проверка прав на домен {#domain-name-challenge}
 

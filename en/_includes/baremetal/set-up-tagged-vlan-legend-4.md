@@ -1,0 +1,1 @@
+`<additional_subnet_CIDR>`: address range available in the additional private subnet in CIDR notation, e.g., `192.168.1.0/24`.

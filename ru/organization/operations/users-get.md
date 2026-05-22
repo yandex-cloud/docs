@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Получить информацию о пользователе
 
+{% include [organization-deny-user-listing](../../_includes/organization/organization-deny-user-listing.md) %}
+
 {% note info %}
 
 Получить идентификатор или почту пользователей может пользователь с ролью `organization-manager.admin` или `organization-manager.organizations.owner`. О том, как назначить пользователю роль, читайте в разделе [Роли](../security/index.md#add-role).
@@ -46,7 +48,7 @@ description: Следуя данной инструкции, вы сможете
       +----------------------+----------+--------------------+----------------------+-----------------------+
       |          ID          | USERNAME |       EMAIL        |    FEDERATION ID     | LAST AUTHENTICATED AT |
       +----------------------+----------+--------------------+----------------------+-----------------------+
-      | ajeebjmlsdk9******** | hatter   | hatter@{{yandex-domain}}   |                      | 2025-09-06T19:10:00Z  |
+      | ajeebjmlsdk9******** | hatter   | hatter@{{ yandex-domain }}   |                      | 2025-09-06T19:10:00Z  |
       | bsdeoujmzsdk******** | alice    | alice@mydomain.com | bpfsuecgv39i******** | 2025-06-04T09:23:00Z  |
       +----------------------+----------+--------------------+----------------------+-----------------------+
       ```

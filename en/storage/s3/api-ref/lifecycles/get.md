@@ -1,4 +1,4 @@
-# get method
+# Object Storage API, Amazon S3-compatible REST: GetBucketLifecycleConfiguration
 
 Returns the bucket object lifecycle configuration from {{ objstorage-name }}.
 
@@ -17,7 +17,7 @@ Parameter | Description
 `bucket` | Bucket name.
 
 
-### Request parameters {#request-params}
+### Query parameters {#request-params}
 
 Parameter | Description
 ----- | -----
@@ -44,5 +44,11 @@ For a list of other possible responses, see [{#T}](../response-codes.md).
 ### Data schema {#response-scheme}
 
 The structure of returned data is the same as the structure of data provided by the [upload](upload.md) method. The structure is described in [{#T}](xml-config.md).
+
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/lifecycles.md)
+
+* [{#T}](../../../operations/buckets/lifecycles.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

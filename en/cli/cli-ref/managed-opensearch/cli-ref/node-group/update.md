@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-opensearch/cli-ref/node-group/update
 editable: false
 ---
 
@@ -32,6 +33,9 @@ ID of the resource preset to use for the hosts in the node group. ||
 || `--disk-size` | `int`
 
 Disk size to attach to the selected resource preset. ||
+|| `--disk-type-id` | `string`
+
+Storage disk type. ||
 || `--hosts-count` | `int`
 
 Number of hosts to be present within the node group. ||

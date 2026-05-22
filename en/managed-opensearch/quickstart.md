@@ -20,7 +20,7 @@ To get started:
 
     {% include [create-folder](../_includes/create-folder.md) %}
 
-1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mos.editor }} role or higher](security/index.md#roles-list) to your {{ yandex-cloud }} account to be able to create a cluster.
+1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) role and the [{{ roles.mos.editor }} role or higher](security/index.md#roles-list) to your {{ yandex-cloud }} account. These roles allow you to create a cluster.
 
     To attach the service account to a cluster, e.g., to [use {{ objstorage-full-name }}](operations/s3-access.md), your account also needs the [iam.serviceAccounts.user](../iam/security/index.md#iam-serviceAccounts-user) role or higher.
 
@@ -114,4 +114,4 @@ Learn more about using {{ OS }} Dashboards in [this {{ OS }} guide]({{ os.docs }
 ## What's next {#whats-next}
 
 * Read about the [service concepts](concepts/index.md).
-* Learn more about [creating a cluster](operations/cluster-create.md) and [connecting to a cluster](operations/connect.md).
+* Learn more about [creating a cluster](operations/cluster-create.md) and [connecting to a cluster](operations/connect/index.md).

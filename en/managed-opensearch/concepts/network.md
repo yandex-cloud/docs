@@ -38,7 +38,7 @@ For example, let's assume public access is enabled for a `Dashboards` host group
 
 {% note tip %}
 
-If you connect to a cluster from within its cloud network, [configure](../operations/connect.md#security-groups) security groups both for the cluster and the connecting host.
+If you connect to a cluster from within its cloud network, [configure](../operations/connect/index.md#security-groups) security groups both for the cluster and the connecting host.
 
 {% endnote %}
 

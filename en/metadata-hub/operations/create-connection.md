@@ -37,7 +37,7 @@ You can create connections of the following types:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-  1. Select **{{ metadata-hub-full-name }}**.
+  1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
   1. Specify the connection name.
@@ -58,6 +58,9 @@ You can create connections of the following types:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %} 
+
+
   To create a connection to a {{ mpg-name }} cluster, do the following:
 
   1. See the description of the CLI command for creating a connection:
@@ -76,7 +79,7 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --managed-cluster-id <cluster_ID> \
-        --databases <DB_list>
+        --databases <database_list>
       ```
 
       Where:
@@ -89,7 +92,7 @@ You can create connections of the following types:
 
       * `--user`: Username to connect to the cluster.
 
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--managed-cluster-id`: Cluster ID.
 
@@ -164,13 +167,16 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: Username to connect to the cluster.
 
-        * `auth.user_password.password.raw`: User password.
+        * `auth.user_password.password.raw`: Password.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}    
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -181,6 +187,8 @@ You can create connections of the following types:
 
   To create a connection to a {{ mpg-name }} cluster, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method on the [Connection](../connection-manager/api-ref/grpc/Connection/) resource.
 
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
+ 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLConnection) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLConnection) reference.
 
 {% endlist %}
@@ -192,7 +200,7 @@ You can create connections of the following types:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-    1. Select **{{ metadata-hub-full-name }}**.
+    1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
     1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
     1. Specify the connection name.
@@ -213,6 +221,9 @@ You can create connections of the following types:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
+
+
   To create a connection to a {{ mch-name }} cluster, do the following:
 
   1. See the description of the CLI command for creating a connection:
@@ -231,7 +242,7 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --managed-cluster-id <cluster_ID> \
-        --databases <DB_list>
+        --databases <database_list>
       ```
 
       Where:
@@ -244,7 +255,7 @@ You can create connections of the following types:
 
       * `--user`: Username to connect to the cluster.
 
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--managed-cluster-id`: Cluster ID.
 
@@ -319,13 +330,16 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: Username to connect to the cluster.
 
-        * `auth.user_password.password.raw`: User password.
+        * `auth.user_password.password.raw`: Password.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -335,6 +349,8 @@ You can create connections of the following types:
 - API {#api}
 
   To create a connection to a {{ mch-name }} cluster, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %}  
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseConnection) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseConnection) reference.
 
@@ -347,7 +363,7 @@ You can create connections of the following types:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-   1. Select **{{ metadata-hub-full-name }}**.
+   1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Specify the connection name.
@@ -368,6 +384,8 @@ You can create connections of the following types:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
+
   To create a connection to a {{ mmy-name }} cluster, do the following:
 
   1. See the description of the CLI command for creating a connection:
@@ -386,7 +404,7 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --managed-cluster-id <cluster_ID> \
-        --databases <DB_list>
+        --databases <database_list>
       ```
 
       Where:
@@ -399,7 +417,7 @@ You can create connections of the following types:
 
       * `--user`: Username to connect to the cluster.
 
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--managed-cluster-id`: Cluster ID.
 
@@ -474,13 +492,16 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: Username to connect to the cluster.
 
-        * `auth.user_password.password.raw`: User password.
+        * `auth.user_password.password.raw`: Password.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -490,6 +511,8 @@ You can create connections of the following types:
 - API {#api}
 
   To create a connection to a {{ mmy-name }} cluster, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLConnection) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLConnection) reference.
 
@@ -502,7 +525,7 @@ You can create connections of the following types:
 - Management console {#console}
     
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-    1. Select **{{ metadata-hub-full-name }}**.
+    1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
     1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
     1. Specify the connection name.
@@ -520,6 +543,8 @@ You can create connections of the following types:
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
 
   To create a connection to a {{ mrd-name }} cluster, do the following:
 
@@ -539,7 +564,7 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --managed-cluster-id <cluster_ID> \
-        --databases <DB_list>
+        --databases <database_list>
       ```
 
       Where:
@@ -552,7 +577,7 @@ You can create connections of the following types:
 
       * `--user`: Username to connect to the cluster.
 
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--managed-cluster-id`: Cluster ID.
 
@@ -627,13 +652,16 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: Username to connect to the cluster.
 
-        * `auth.user_password.password.raw`: User password.
+        * `auth.user_password.password.raw`: Password.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -643,6 +671,8 @@ You can create connections of the following types:
 - API {#api}
 
   To create a connection to a {{ mrd-name }} cluster, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyConnection) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyConnection) reference.
 
@@ -655,7 +685,7 @@ You can create connections of the following types:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-   1. Select **{{ metadata-hub-full-name }}**.
+   1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Specify the connection name.
@@ -675,6 +705,8 @@ You can create connections of the following types:
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
 
   To create a connection to a {{ mos-name }} cluster, do the following:
 
@@ -706,7 +738,7 @@ You can create connections of the following types:
 
       * `--user`: Username to connect to the cluster.
 
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--managed-cluster-id`: Cluster ID.
 
@@ -770,13 +802,16 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: Username to connect to the cluster.
 
-        * `auth.user_password.password.raw`: User password.
+        * `auth.user_password.password.raw`: Password.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -786,6 +821,8 @@ You can create connections of the following types:
 - API {#api}
 
   To create a connection to a {{ mos-name }} cluster, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchConnection) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchConnection) reference.
 
@@ -798,7 +835,7 @@ You can create connections of the following types:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-   1. Select **{{ metadata-hub-full-name }}**.
+   1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Specify the connection name.
@@ -819,6 +856,8 @@ You can create connections of the following types:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
+
   To create a connection to a {{ mmg-name }} cluster, do the following:
 
   1. See the description of the CLI command for creating a connection:
@@ -837,7 +876,7 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --managed-cluster-id <cluster_ID> \
-        --databases <DB_list>
+        --databases <database_list>
       ```
 
       Where:
@@ -850,7 +889,7 @@ You can create connections of the following types:
 
       * `--user`: Username to connect to the cluster.
 
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--managed-cluster-id`: Cluster ID.
 
@@ -925,13 +964,16 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: Username to connect to the cluster.
 
-        * `auth.user_password.password.raw`: User password.
+        * `auth.user_password.password.raw`: Password.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -941,6 +983,8 @@ You can create connections of the following types:
 - API {#api}
 
   To create a connection to a {{ mmg-name }} cluster, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBConnection) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBConnection) reference.
 
@@ -953,7 +997,7 @@ You can create connections of the following types:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-   1. Select **{{ metadata-hub-full-name }}**.
+   1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Specify the connection name.
@@ -982,6 +1026,8 @@ You can create connections of the following types:
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
 
   To create a connection to a {{ mkf-name }} cluster, do the following:
 
@@ -1021,7 +1067,7 @@ You can create connections of the following types:
 
       * `--user`: Username to connect to the cluster.
 
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--managed-cluster-id`: Cluster ID.
 
@@ -1091,7 +1137,7 @@ You can create connections of the following types:
           * `sasl`: SASL authentication parameters.
             
             * `user`: Username to connect to the cluster.
-            * `password.raw`: User password.
+            * `password.raw`: Password.
             * `supported_mechanisms`: List of authentication mechanisms. The possible values are:
               
               * `PLAIN`: Authentication with login and password provided as plain unencrypted text.
@@ -1101,11 +1147,14 @@ You can create connections of the following types:
           
           * `disabled`: Disables authentication.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -1115,6 +1164,8 @@ You can create connections of the following types:
 - API {#api}
 
   To create a connection to a {{ mkf-name }} cluster, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method on the [Connection](../connection-manager/api-ref/grpc/Connection/) resource.
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %}  
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.KafkaConnection) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.KafkaConnection) reference.
 
@@ -1129,7 +1180,7 @@ You can create connections of the following types:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-  1. Select **{{ metadata-hub-full-name }}**.
+  1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
   1. Specify the connection name.
@@ -1151,6 +1202,8 @@ You can create connections of the following types:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
+
   To create a connection to a {{ mgp-name }} cluster, do the following:
 
   1. See the description of the CLI command for creating a connection:
@@ -1169,7 +1222,7 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --managed-cluster-id <cluster_ID> \
-        --databases <DB_list>
+        --databases <database_list>
       ```
 
       Where:
@@ -1182,7 +1235,7 @@ You can create connections of the following types:
 
       * `--user`: Username to connect to the cluster.
 
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--managed-cluster-id`: Cluster ID.
 
@@ -1257,13 +1310,16 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: Username to connect to the cluster.
 
-        * `auth.user_password.password.raw`: User password.
+        * `auth.user_password.password.raw`: Password.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -1273,6 +1329,8 @@ You can create connections of the following types:
 - API {#api}
 
   To create a connection to a {{ mgp-name }} cluster, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method on the [Connection](../connection-manager/api-ref/grpc/Connection/) resource.
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.GreenplumConnection) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.GreenplumConnection) reference.
 
@@ -1287,7 +1345,7 @@ You can create connections of the following types:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-  1. Select **{{ metadata-hub-full-name }}**.
+  1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
   1. Specify the connection name.
@@ -1316,6 +1374,8 @@ You can create connections of the following types:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
+
   To create a connection to a custom {{ PG }} installation, do the following:
 
   1. See the description of the CLI command for creating a connection:
@@ -1334,7 +1394,7 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --hosts <list_of_hosts> \
-        --databases <DB_list> \
+        --databases <database_list> \
         --ca-certificate <path_to_certificate>
       ```
 
@@ -1434,13 +1494,16 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: User name for connection to the database.
 
-        * `auth.user_password.password.raw`: User password.
+        * `auth.user_password.password.raw`: Password.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -1450,6 +1513,8 @@ You can create connections of the following types:
 - API {#api}
 
   To create a connection to a {{ PG }} custom installation, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %}  
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLCluster) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.PostgreSQLCluster) reference.
 
@@ -1462,7 +1527,7 @@ You can create connections of the following types:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-    1. Select **{{ metadata-hub-full-name }}**.
+    1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
     1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
     1. Specify the connection name.
@@ -1490,6 +1555,8 @@ You can create connections of the following types:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
+
   To create a connection to a custom {{ CH }} installation, do the following:
 
   1. See the description of the CLI command for creating a connection:
@@ -1508,7 +1575,7 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --hosts <list_of_hosts> \
-        --databases <DB_list> \
+        --databases <database_list> \
         --ca-certificate <path_to_certificate>
       ```
 
@@ -1522,7 +1589,7 @@ You can create connections of the following types:
       
       * `--user`: User name for connection to the database.
       
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--hosts`: Comma-separated list of hosts in `<host>:<http_port>:<tcp_port>:<shard_name>` format.
       
@@ -1632,13 +1699,16 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: User name for connection to the database.
 
-        * `auth.user_password.password.raw`: User password.
+        * `auth.user_password.password.raw`: Password.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -1648,6 +1718,8 @@ You can create connections of the following types:
 - API {#api}
 
   To create a connection to a {{ CH }} custom installation, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseCluster) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ClickHouseCluster) reference.
 
@@ -1660,7 +1732,7 @@ You can create connections of the following types:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-   1. Select **{{ metadata-hub-full-name }}**.
+   1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Specify the connection name.
@@ -1689,6 +1761,8 @@ You can create connections of the following types:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
+
   To create a connection to a custom {{ MY }} installation, do the following:
 
   1. See the description of the CLI command for creating a connection:
@@ -1707,7 +1781,7 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --hosts <list_of_hosts> \
-        --databases <DB_list> \
+        --databases <database_list> \
         --ca-certificate <path_to_certificate>
       ```
 
@@ -1807,13 +1881,16 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: User name for connection to the database.
 
-        * `auth.user_password.password.raw`: User password.
+        * `auth.user_password.password.raw`: Password.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -1823,6 +1900,8 @@ You can create connections of the following types:
 - API {#api}
 
   To create a connection to a {{ MY }} custom installation, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLCluster) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MySQLCluster) reference.
 
@@ -1835,7 +1914,7 @@ You can create connections of the following types:
 - Management console {#console}
     
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-    1. Select **{{ metadata-hub-full-name }}**.
+    1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
     1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
     1. Specify the connection name.
@@ -1857,6 +1936,8 @@ You can create connections of the following types:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
+
   To create a connection to a custom {{ RD }} installation, do the following:
 
   1. See the description of the CLI command for creating a connection:
@@ -1875,7 +1956,7 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --hosts <list_of_hosts> \
-        --databases <DB_list> \
+        --databases <database_list> \
         --ca-certificate <path_to_certificate>
       ```
 
@@ -1889,7 +1970,7 @@ You can create connections of the following types:
       
       * `--user`: User name for connection to the database.
       
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--hosts`: Comma-separated list of hosts in `<host>:<port>:<shard_name>` format.
       
@@ -1996,13 +2077,16 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: User name for connection to the database.
 
-        * `auth.user_password.password.raw`: User password.
+        * `auth.user_password.password.raw`: Password.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -2012,6 +2096,8 @@ You can create connections of the following types:
 - API {#api}
 
   To create a connection to a {{ RD }} custom installation, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.RedisCluster) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.RedisCluster) reference.
 
@@ -2024,7 +2110,7 @@ You can create connections of the following types:
 - Management console {#console}
     
     1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-    1. Select **{{ metadata-hub-full-name }}**.
+    1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
     1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
     1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
     1. Specify the connection name.
@@ -2049,6 +2135,8 @@ You can create connections of the following types:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
+
   To create a connection to a custom {{ VLK }} installation, do the following:
 
   1. See the description of the CLI command for creating a connection:
@@ -2067,7 +2155,7 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --hosts <list_of_hosts> \
-        --databases <DB_list> \
+        --databases <database_list> \
         --ca-certificate <path_to_certificate>
       ```
 
@@ -2167,13 +2255,16 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: User name for connection to the database.
 
-        * `auth.user_password.password.raw`: User password.
+        * `auth.user_password.password.raw`: Password.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -2183,6 +2274,8 @@ You can create connections of the following types:
 - API {#api}
 
   To create a connection to a {{ VLK }} custom installation, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyCluster) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.ValkeyCluster) reference.
 
@@ -2195,7 +2288,7 @@ You can create connections of the following types:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-  1. Select **{{ metadata-hub-full-name }}**.
+  1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
   1. Specify the connection name.
@@ -2217,6 +2310,8 @@ You can create connections of the following types:
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
 
   To create a connection to a custom {{ TR }} installation, do the following:
 
@@ -2249,7 +2344,7 @@ You can create connections of the following types:
       
       * `--user`: User name for connection to the database.
       
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--coordinator`: Coordinator parameters in `<host>:<port>` format.
       
@@ -2329,13 +2424,16 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: User name for connection to the database.
 
-        * `auth.user_password.password.raw`: User password.
+        * `auth.user_password.password.raw`: Password.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -2345,6 +2443,8 @@ You can create connections of the following types:
 - API {#api}
 
   To create a connection to a {{ TR }} custom installation, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %}  
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.TrinoCluster) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.TrinoCluster) reference.
 
@@ -2357,7 +2457,7 @@ You can create connections of the following types:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-   1. Select **{{ metadata-hub-full-name }}**.
+   1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Specify the connection name.
@@ -2381,6 +2481,8 @@ You can create connections of the following types:
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
 
   To create a connection to a custom {{ OS }} installation, do the following:
 
@@ -2413,7 +2515,7 @@ You can create connections of the following types:
       
       * `--user`: User name for connection to the database.
       
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--hosts`: Comma-separated list of hosts in `<host>:<port>` format.
       
@@ -2504,13 +2606,16 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: User name for connection to the database.
 
-        * `auth.user_password.password.raw`: User password.
+        * `auth.user_password.password.raw`: Password.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -2520,6 +2625,8 @@ You can create connections of the following types:
 - API {#api}
 
   To create a connection to a {{ OS }} custom installation, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchCluster) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.OpenSearchCluster) reference.
 
@@ -2532,7 +2639,7 @@ You can create connections of the following types:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-   1. Select **{{ metadata-hub-full-name }}**.
+   1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Specify the connection name.
@@ -2557,6 +2664,8 @@ You can create connections of the following types:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
+
   To create a connection to a custom {{ MG }} installation, do the following:
 
   1. See the description of the CLI command for creating a connection:
@@ -2575,7 +2684,7 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --hosts <list_of_hosts> \
-        --databases <DB_list> \
+        --databases <database_list> \
         --ca-certificate <path_to_certificate>
       ```
 
@@ -2675,13 +2784,16 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: User name for connection to the database.
 
-        * `auth.user_password.password.raw`: User password.
+        * `auth.user_password.password.raw`: Password.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -2691,6 +2803,8 @@ You can create connections of the following types:
 - API {#api}
 
   To create a connection to a {{ MG }} custom installation, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBCluster) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.MongoDBCluste) reference.
 
@@ -2703,7 +2817,7 @@ You can create connections of the following types:
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-   1. Select **{{ metadata-hub-full-name }}**.
+   1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
    1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
    1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
    1. Specify the connection name.
@@ -2739,6 +2853,8 @@ You can create connections of the following types:
   {% include [cli-install](../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
 
   To create a connection to a custom {{ KF }} installation, do the following:
 
@@ -2779,7 +2895,7 @@ You can create connections of the following types:
 
       * `--user`: Username to connect to the cluster.
 
-      * `--password`: User password.
+      * `--password`: Password.
       
       * `--hosts`: Comma-separated list of hosts in `<host>:<port>` format.
       
@@ -2876,7 +2992,7 @@ You can create connections of the following types:
           * `sasl`: SASL authentication parameters.
             
             * `user`: Username to connect to the cluster.
-            * `password.raw`: User password.
+            * `password.raw`: Password.
             * `supported_mechanisms`: List of authentication mechanisms. The possible values are:
               
               * `PLAIN`: Authentication with login and password provided as plain unencrypted text.
@@ -2886,11 +3002,14 @@ You can create connections of the following types:
           
           * `disabled`: Disables authentication.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -2900,6 +3019,8 @@ You can create connections of the following types:
 - API {#api}
 
   To create a connection to a {{ KF }} custom installation, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.KafkaCluster) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.KafkaCluster) reference.
 
@@ -2912,7 +3033,7 @@ You can create connections of the following types:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) you want to create a connection in.
-  1. Select **{{ metadata-hub-full-name }}**.
+  1. [Go](../../console/operations/select-service#select-service) to **{{ metadata-hub-full-name }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Click **{{ ui-key.yacloud.connection-manager.label_create-connection-action }}**.
   1. Specify the connection name.
@@ -2942,6 +3063,8 @@ You can create connections of the following types:
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  {% include [secret-catalogue](../../_includes/metadata-hub/connman-secret-folder-cli.md) %}
+
   To create a connection to a custom {{ GP }} installation, do the following:
 
   1. See the description of the CLI command for creating a connection:
@@ -2960,7 +3083,7 @@ You can create connections of the following types:
         --user <username> \
         --password <password> \
         --hosts <list_of_hosts> \
-        --databases <DB_list> \
+        --databases <database_list> \
         --ca-certificate <path_to_certificate>
       ```
 
@@ -3060,13 +3183,16 @@ You can create connections of the following types:
 
         * `auth.user_password.user`: User name for connection to the database.
 
-        * `auth.user_password.password.raw`: User password.
+        * `auth.user_password.password.raw`: Password.
 
-  1. Validate your configuration.
+
+  1. {% include [connman-secret-foler-tf](../../_includes/metadata-hub/connman-secret-folder-tf.md) %}  
+
+  1. Make sure the settings are correct.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  1. Confirm resource changes.
+  1. Confirm updating the resources.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
   
@@ -3076,6 +3202,8 @@ You can create connections of the following types:
 - API {#api}
 
   To create a connection to a {{ MG }} custom installation, use the [Connection.Create](../connection-manager/api-ref/Connection/create.md) REST API method or the [ConnectionService.Create](../connection-manager/api-ref/grpc/Connection/create.md) gRPC API method.
+
+  {% include [connman-secret-folder-api](../../_includes/metadata-hub/connman-secret-folder-api.md) %} 
 
   For more information about the available request parameters, see the [REST API](../connection-manager/api-ref/Connection/create.md#yandex.cloud.connectionmanager.v1.GreenplumCluster) and [gRPC API](../connection-manager/api-ref/grpc/Connection/create.md#yandex.cloud.connectionmanager.v1.GreenplumCluster) reference.
 

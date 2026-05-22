@@ -16,7 +16,7 @@ You cannot delete a bus if deletion protection is enabled. [Disable](update.md) 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to delete a [bus](../../../concepts/eventrouter/bus.md).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, select ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
   1. Click ![image](../../../../_assets/console-icons/ellipsis.svg) in the [bus](../../../concepts/eventrouter/bus.md) row and select ![image](../../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
@@ -75,7 +75,7 @@ You cannot delete a bus if deletion protection is enabled. [Disable](update.md) 
 
       {% include [terraform-validate-plan-apply](../../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-      You can check the updates using the [management console]({{ link-console-main }}) or this [CLI](../../../../cli/) command:
+      You can check the updates in the [management console]({{ link-console-main }}) or using this [CLI](../../../../cli/) command:
 
       ```bash
       yc serverless eventrouter bus list

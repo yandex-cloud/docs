@@ -12,7 +12,7 @@
     
     1. [Настройте доступ к кластеру-источнику из {{ yandex-cloud }}](../../../../data-transfer/concepts/network.md#source-external).
     
-    1. [Настройте права доступа](https://kafka.apache.org/documentation/#multitenancy-security) пользователя к нужному топику.
+    1. [Настройте права доступа](https://kafka.apache.org/42/security/authorization-and-acls/#examples) пользователя к нужному топику.
     
     1. Выдайте права `READ` консьюмер-группе, идентификатор которой совпадает с идентификатором трансфера.
     
@@ -25,6 +25,6 @@
           --group <идентификатор_трансфера>
         ```
     
-    1. (Опционально) Чтобы использовать авторизацию по логину и паролю, [настройте SASL-аутентификацию](https://kafka.apache.org/documentation/#security_sasl).
+    1. (Опционально) Чтобы использовать авторизацию по логину и паролю, [настройте SASL-аутентификацию](https://kafka.apache.org/42/security/authentication-using-sasl/).
 
 {% endlist %}

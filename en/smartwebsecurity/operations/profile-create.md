@@ -17,6 +17,7 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create your [security profile](../concepts/profiles.md).
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. In the left-hand panel, select ![shield-check](../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}**.
   1. Select one of these creation options:
       * **{{ ui-key.yacloud.smart-web-security.title_default-template }}**: This is a recommended option.
@@ -34,8 +35,9 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
 
         {% include [captcha-integration](../../_includes/smartwebsecurity/captcha-integration.md) %}
 
+  1. {% include [choose-or-create-template](../../_includes/smartwebsecurity/choose-or-create-template.md) %}
   1. {% include [profile-inspect-request](../../_includes/smartwebsecurity/profile-inspect-request.md) %}
-
+  
   1. Optionally, enable **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.loggingEnable_6eK2x }}** and configure logging:
      1. In the **{{ ui-key.yacloud.smart-web-security.SecurityProfileForm.LoggingSection.outputTitle_tw1oT }}** field, select the logs to write: **{{ cloud-logging-name }}** and **{{ at-name }}**.
      1. For {{ cloud-logging-name }}, select or create a {{ cloud-logging-name }} [log group](../../logging/concepts/log-group.md) to store your logs.
@@ -81,16 +83,16 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
         --description "<profile_description>" \
         --labels <label_1_key>=<label_1_value>,<label_2_key>=<label_2_value>,...,<label_n_key>=<label_n_value> \
         --default-action <action> \
-        --captcha-id <CAPTCHA_ID> \
+        --captcha-id <captcha_ID> \
         --security-rules-file <path_to_file_with_rules>
      ```
 
      Where:
 
      * `--name`: Security profile name. This is a required setting. If you specify only the profile name with no other properties, the security profile will include a single [basic rule](../concepts/rules.md#base-rules).
-     * `--description`: Text description of the security profile. This is an optional parameter.
+     * `--description`: Text description of the security profile. This is an optional setting.
      * `--labels`: List of [labels](../../resource-manager/concepts/labels.md) to add to the profile in `KEY=VALUE` format. This is an optional setting. For example, `--labels foo=baz,bar=baz'`.
-     * `--default-action`: Action to apply to traffic that does not match any other rule. This is an optional parameter. The default value is `allow`, which allows all requests to {{ sws-full-name }}. To block requests, set the parameter to `deny`.
+     * `--default-action`: Action to apply to traffic that does not match any other rule. This is an optional setting. The default value is `allow`, which allows all requests to {{ sws-full-name }}. To block requests, set the parameter to `deny`.
      * `--captcha-id`: ID of the CAPTCHA in [{{ captcha-full-name }}](../../smartcaptcha/) to verify suspicious requests. This is an optional setting.
       * `--security-rules-file`: Path to the [YAML](https://en.wikipedia.org/wiki/YAML) file with security rule description. This is an optional setting. Here is an example:
 
@@ -123,7 +125,7 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
       resource "yandex_sws_security_profile" "demo-profile-simple" {
         name                             = "<security_profile_name>"
         default_action                   = "DENY"
-        captcha_id                       = "<CAPTCHA_ID>"
+        captcha_id                       = "<captcha_ID>"
         advanced_rate_limiter_profile_id = "<ARL_profile_ID>"
 
         # Smart Protection rule
@@ -172,7 +174,7 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
       * `advanced_rate_limiter_profile_id`: [ARL profile](../concepts/arl.md) ID. This is an optional setting.
       * `security_rule`: Security [rule](../concepts/rules.md) description:
          * `name`: Security rule name.
-         * `priority`: Rule [priority](../concepts/rules.md). The possible values range from 1 to 1,000,000.
+         * `priority`: Rule [priority](../concepts/rules.md#rules-order). The possible values range from 1 to 1,000,000.
          * `smart_protection`: Description of the [Smart Protection rule](../concepts/rules.md#smart-protection-rules) enabled for all traffic with the action type specified in the `mode` parameter.
             * `mode`: [Rule action](../concepts/rules.md#rule-action). It can be either `FULL` to enable full protection, where suspicious requests are challenged with CAPTCHA, or `API` to enable API protection, where suspicious requests are blocked.
          * `waf`: Web application firewall rule description. To add a WAF rule, you must first [create a WAF profile](waf-profile-create.md). The optional setting section contains:
@@ -180,7 +182,7 @@ description: Follow this guide to create a {{ sws-full-name }} profile.
 
       If you do not specify the `smart_protection` or `waf` rule type, the system will create a basic rule with simple filtering based on conditions specified under `rule_condition`.
 
-      For more information about `yandex_sws_security_profile` properties, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/sws_security_profile).
+      For more information about `yandex_sws_security_profile` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/sws_security_profile).
 
   1. Create the resources:
 

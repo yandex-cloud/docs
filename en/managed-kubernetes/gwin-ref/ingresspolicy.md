@@ -75,6 +75,9 @@ spec:
     # Ingress group configuration
     groupName: "my-ingress-group"  # group multiple ingresses
     groupOrder: 100  # processing order within group
+
+    # ALB resource naming
+    albBalancerName: "my-balancer"  # custom balancer name
     
     # Load balancer configuration
     externalIPv4Address: "auto"  # external IPv4 address (use "auto" to allocate automatically)
@@ -128,8 +131,14 @@ spec:
     
     # Backend and route configuration
     rules:
+      # ALB resource naming for routes and backends
+      albRouteName: "my-route"  # custom route name (requires exactly one rule)
+      albBackendGroupName: "my-backend-group"  # custom backend group name (requires exactly one rule)
+
       # Backend group configuration
       backends:
+        albBackendName: "my-backend"  # custom backend name (requires exactly one rule)
+
         http:
           useHTTP2: true  # enable HTTP/2 to backends
         balancing:
@@ -173,6 +182,7 @@ spec:
           cookie:
             name: "session"  # cookie name
             ttl: "3600s"  # cookie lifetime
+            path: "/app"  # path attribute for the generated cookie
           header:
             name: "X-Session-ID"  # header-based affinity
       
@@ -209,7 +219,6 @@ spec:
         remove: ["Server", "X-Powered-By"]  # remove response headers
       
       # Security
-      securityProfileID: "security-profile-1"  # WAF profile for routes
       rbac:
         action: "ALLOW"  # default RBAC action
         principals:
@@ -221,6 +230,7 @@ spec:
     
     # Virtual host configuration
     hosts:
+      albVirtualHostName: "my-virtual-host"  # custom virtual host name (requires exactly one host)
       securityProfileID: "host-security-profile-1"  # WAF profile for hosts
       rateLimit:
         allRequests:
@@ -304,6 +314,7 @@ Ingress policy configuration that applies to ingress group, load balancer, and r
 | hosts | **[VirtualHost](#virtualhost)** <br> Virtual host configuration |
 | redirect | **map[string][RedirectAction](#redirectaction)** <br> Redirect actions that can be referenced by Ingress path backends. |
 | directResponse | **map[string][DirectResponseAction](#directresponseaction)** <br> Direct response actions that return responses without forwarding to backends. |
+| albBalancerName | **string** <br> Custom name for the ALB load balancer. By default, the controller generates the name automatically. <br> Example: `my-balancer` |
 
 ### IngressRule
 
@@ -322,7 +333,6 @@ Ingress rule configuration that combines backend group and route settings.
 | prefixRewrite | **string** <br> Replaces URL paths in HTTP/gRPC requests. With pathType Exact, the entire path is replaced; with pathType Prefix, only the matching prefix is rewritten. <br> Example: `/new-prefix` |
 | modifyRequestHeaders | **[HeaderModifier](#headermodifier)** <br> Specifies how to modify HTTP request headers before forwarding to backends. |
 | modifyResponseHeaders | **[HeaderModifier](#headermodifier)** <br> Specifies how to modify HTTP response headers before returning to clients. |
-| securityProfileID | **string** <br> Security profile ID for route-level protection. <br> Example: `security-profile-1` |
 | rbac | **[RBAC](./gatewaypolicy.md#rbac)** <br> RBAC access control configuration. |
 
 ### VirtualHost
@@ -336,6 +346,7 @@ Virtual host configuration for rate limiting and access control.
 | securityProfileID | **string** <br> Security profile ID for host-level protection. <br> Example: `host-security-profile-1` |
 | rbac | **[RBAC](./gatewaypolicy.md#rbac)** <br> RBAC access control configuration. |
 | rateLimit | **[RateLimit](#ratelimit)** <br> Rate limit configuration applied for a whole virtual host. |
+| albVirtualHostName | **string** <br> Custom name for the ALB virtual host. Requires the Ingress to be associated with exactly one host. <br> Example: `my-virtual-host` |
 
 ### RateLimit
 
@@ -369,6 +380,7 @@ Backend group configuration for load balancing and health checks.
 |-------|-------------|
 | backends | **[Backend](#backend)** <br> Backend configuration settings. |
 | sessionAffinity | **[SessionAffinity](#sessionaffinity)** <br> Session affinity configuration for the backend group. |
+| albBackendGroupName | **string** <br> Custom name for the ALB backend group. Requires the Ingress to have exactly one rule. <br> Example: `my-backend-group` |
 
 ### Backend
 
@@ -384,6 +396,7 @@ Backend configuration for protocol-specific settings, load balancing, health che
 | balancing | **[LoadBalancingConfig](#loadbalancingconfig)** <br> Load balancing configuration for the backend. |
 | hc | **[HealthCheck](#healthcheck)** <br> Health check configuration. |
 | tls | **[BackendTLS](#backendtls)** <br> TLS settings for backend connections. |
+| albBackendName | **string** <br> Custom name for the ALB backend. Requires the Ingress to have exactly one rule. <br> Example: `my-backend` |
 
 ### HTTPBackend
 
@@ -425,7 +438,7 @@ Load balancing configuration for backends.
 | panicThreshold | **int** <br> Threshold for panic mode (percentage). If healthy backends drop below this threshold, traffic routes to all backends. Set to `0` to disable panic mode. <br> Example: `50` |
 | localityAwareRouting | **int** <br> Percentage of traffic sent to backends in the same availability zone. Remaining traffic is divided equally between other zones. <br> Example: `90` |
 | strictLocality | **bool** <br> Send traffic only to backends in the same availability zone. If `true`, `localityAwareRouting` is ignored. <br> Example: `false` |
-| mode | **string** <br> Load balancing mode. Options: `ROUND_ROBIN`, `LEAST_REQUEST`, `RANDOM`, `RING_HASH`, `MAGLEV_HASH`. <br> Example: `ROUND_ROBIN` |
+| mode | **string** <br> Load balancing mode. Options: `ROUND_ROBIN`, `LEAST_REQUEST`, `RANDOM`, `MAGLEV_HASH`. <br> Example: `ROUND_ROBIN` |
 
 ### HealthCheck
 
@@ -547,6 +560,7 @@ Cookie-based session affinity configuration.
 |-------|-------------|
 | name | **string** <br> Name of the cookie used for session affinity. <br> Example: `session-cookie` |
 | ttl | **string** <br> Maximum age of generated session cookies. Set to `0` for session cookies (deleted on client restart). If not set, balancer only uses incoming cookies. <br> Example: `3600s` |
+| path | **string** <br> Path attribute for the generated cookie. Used to set the path when a new cookie is generated. If unspecified or empty, no path is set for the cookie. <br> Example: `/app` |
 
 ### SessionAffinityHeader
 
@@ -569,8 +583,8 @@ Application Load Balancer route configuration.
 | timeout | **string** <br> Overall timeout for HTTP connection between load balancer and backend. Default: `60s`. <br> Example: `60s` |
 | idleTimeout | **string** <br> Idle timeout for HTTP connection. <br> Example: `300s` |
 | http | **[RouteALBHTTP](#routealbhttp)** <br> HTTP specific route options. |
-| securityProfileID | **string** <br> Security profile ID for route-level protection. <br> Example: `security-profile-1` |
 | rbac | **[RBAC](./gatewaypolicy.md#rbac)** <br> RBAC access control configuration. |
+| albRouteName | **string** <br> Custom name for the ALB route. Requires the Ingress to have exactly one rule. <br> Example: `my-route` |
 
 ### RouteALBHTTP
 

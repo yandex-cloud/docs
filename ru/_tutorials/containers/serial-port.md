@@ -107,7 +107,8 @@
           --zone {{ region-id }}-a \
           --network-interface subnet-name=<имя_подсети>,nat-ip-version=ipv4 \
           --metadata-from-file user-data=cloud-config-ports.yaml,docker-container-declaration=container-spec-ports.yaml \
-          --create-boot-disk image-id=$IMAGE_ID
+          --create-boot-disk image-id=$IMAGE_ID \
+          --service-account-name <имя_сервисного_аккаунта>
         ```
 
         Где:
@@ -118,10 +119,12 @@
 
             {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
         * `--create-boot-disk` — идентификатор образа для создания загрузочного диска.
+        * `--service-account-name` — имя сервисного аккаунта, созданного [ранее](#before-you-begin).
 
         После создания ВМ появится в списке ВМ в разделе **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** в [консоли управления]({{ link-console-main }}).
      1. Проверьте результат.
-        1. В [консоли управления]({{ link-console-main }}) перейдите на страницу [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+        1. В [консоли управления]({{ link-console-main }}) перейдите на страницу [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder).
+        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
         1. Нажмите на имя нужной ВМ `coi-vm-with-sp`.
         1. В блоке **{{ ui-key.yacloud.compute.instance.switch_service-console }}** выберите порт `COM2`. Через несколько минут на экран начнет выводиться `Hello world!`.
 
@@ -182,7 +185,8 @@
 ## Проверьте результат {#check-result}
 
 Чтобы проверить результат настройки вывода информации из Docker-контейнера в серийный порт:
-1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. Нажмите на имя нужной ВМ `coi-vm-with-sp`.
 1. В блоке **{{ ui-key.yacloud.compute.instance.switch_service-console }}** выберите порт `COM2`. Через несколько минут на экран начнет выводиться `Hello world!`.
 

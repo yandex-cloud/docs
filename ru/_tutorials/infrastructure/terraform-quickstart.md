@@ -22,8 +22,8 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры, разворачиваемой через {{ TF }} в этом руководстве, входят:
-* Плата за постоянно запущенные [виртуальные машины](../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Плата за использование динамических [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* плата за постоянно запущенные [виртуальные машины](../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за использование динамических [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 ## Установите {{ TF }} {#install-terraform}
 
@@ -82,7 +82,7 @@ terraform {
 }
 
 provider "yandex" {
-  zone = "<зона доступности по умолчанию>"
+  zone = "<зона_доступности_по_умолчанию>"
 }
 
 resource "yandex_compute_instance" "vm-1" {
@@ -132,7 +132,7 @@ resource "yandex_compute_instance" "vm-1" {
 
 Проверить удаление ресурсов можно в [консоли управления]({{ link-console-main }}).
 
-## См. также {#see-also}
+#### См. также {#see-also}
 
 * [Загрузка состояний {{ TF }} в {{ objstorage-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md).
 * [Блокировка состояний {{ TF }} с помощью {{ ydb-name }}](../../tutorials/infrastructure-management/terraform-state-lock.md).

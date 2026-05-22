@@ -94,6 +94,20 @@ Make sure that:
 * The PowerShell execution policies allow scripts. If not, allow scripts and restart PowerShell. For more information, see the [Microsoft documentation](https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_execution_policies).
 
 
+#### Authorization error when installing a {{ backup-name }} agent on a Linux VM {#install-auth-error}
+
+Error message:
+
+```text
+Failed to parse cloudbackup from instance attributes IAM token and instance registration id are empty, unable to provide authorization
+```
+
+The error occurs if the VM has no service account or if the account was configured incorrectly.
+
+Make sure that:
+* You have a service account [associated](../../compute/operations/vm-connect/auth-inside-vm.md#link-sa-with-instance) with the VM.
+* Your service account has the `backup.editor` [role](../../backup/security/index.md#backup-editor).
+
 #### How do I update the {{ backup-name }} agent on a VM? {#update-backup-agent}
 
 Check [Updating the {{ backup-name }} agent on a VM](../../backup/operations/update-backup-agent.md).

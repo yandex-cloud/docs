@@ -115,7 +115,9 @@ description: Следуя данной инструкции, вы научите
      * `Version` — версия описания политик доступа. Необязательный параметр.
      * `Statement` — правила политики доступа:
        * `Effect` — запрет или разрешение запрошенного действия. Возможные значения: `Allow` и `Deny`.
-       * `Principal` — идентификатор субъекта запрошенного разрешения. Получателем может быть [пользователь](../../../organization/operations/users-get.md), [сервисный аккаунт](../../../iam/operations/sa/get-id.md) или [группа пользователей](../../../organization/operations/manage-groups.md). Возможные значения: `*`, `<идентификатор_субъекта>`. Необязательный параметр.
+       * `Principal` — идентификатор субъекта запрошенного разрешения. Получателем может быть [пользователь](../../../organization/operations/users-get.md), [сервисный аккаунт](../../../iam/operations/sa/get-id.md) или [группа пользователей](../../../organization/operations/manage-groups.md). Необязательный параметр. Возможные значения:
+         * `"*"`.
+         * `"CanonicalUser": "<идентификатор_субъекта>"`. 
 
          Идентификаторы можно получить следующими способами:
 
@@ -193,7 +195,9 @@ description: Следуя данной инструкции, вы научите
      * `Version` — версия описания политик доступа. Необязательный параметр.
      * `Statement` — правила политики доступа:
        * `Effect` — запрет или разрешение запрошенного действия. Возможные значения: `Allow` и `Deny`.
-       * `Principal` — идентификатор субъекта запрошенного разрешения. Получателем может быть [пользователь](../../../organization/operations/users-get.md), [сервисный аккаунт](../../../iam/operations/sa/get-id.md) или [группа пользователей](../../../organization/operations/manage-groups.md). Возможные значения: `*`, `<идентификатор_субъекта>`. Необязательный параметр.
+       * `Principal` — идентификатор субъекта запрошенного разрешения. Получателем может быть [пользователь](../../../organization/operations/users-get.md), [сервисный аккаунт](../../../iam/operations/sa/get-id.md) или [группа пользователей](../../../organization/operations/manage-groups.md). Необязательный параметр. Возможные значения:
+         * `"*"`.
+         * `"CanonicalUser": "<идентификатор_субъекта>"`. 
 
          Идентификаторы можно получить следующими способами:
 
@@ -224,6 +228,7 @@ description: Следуя данной инструкции, вы научите
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   {% include [iam-auth-note](../../../_includes/storage/iam-auth-note.md) %}
+
 
   Для редактирования политики бакета вы можете использовать ресурсы:
   * [yandex_storage_bucket_policy](#tf-storage-bucket-policy);
@@ -424,6 +429,7 @@ description: Следуя данной инструкции, вы научите
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   {% include [iam-auth-note](../../../_includes/storage/iam-auth-note.md) %}
+
 
   Политика доступа может быть задана ресурсами `yandex_storage_bucket_policy` и `yandex_storage_bucket` (устаревший способ).
 

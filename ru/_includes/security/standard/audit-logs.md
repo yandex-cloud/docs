@@ -67,13 +67,13 @@
 
 * Splunk — [Сбор, мониторинг и анализ аудитных логов в SIEM Splunk](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-splunk)
 
-* MaxPatrol SIEM — [Сбор, мониторинг и анализ аудитных логов в MaxPatrol SIEM](../../../audit-trails/tutorials/maxpatrol.md)
+* MaxPatrol SIEM — [Сбор, мониторинг и анализ аудитных логов в MaxPatrol SIEM](../../../audit-trails/tutorials/maxpatrol/index.md)
 
 * Wazuh — [Сбор, мониторинг и анализ аудитных логов в Wazuh](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-wazuh/blob/main/README.md)
 
 * KUMA — [Сбор, мониторинг и анализ аудитных логов в KUMA](../../../tutorials/security/audit-trails-events-to-kuma/index.md)
 
-Вы можете подробнее ознакомиться с MaxPatrol в [разделе](../../../audit-trails/tutorials/maxpatrol.md).
+Вы можете подробнее ознакомиться с MaxPatrol в [разделе](../../../audit-trails/tutorials/maxpatrol/index.md).
 
 Для настройки экспорта в любые SIEM подходят утилиты [GeeseFS](../../../storage/tools/geesefs.md) или [s3fs](../../../storage/tools/s3fs.md). Они позволяют смонтировать бакет {{ objstorage-full-name }} как локальный диск виртуальной машины. Далее на ВМ необходимо установить коннектор для SIEM и настроить вычитывание JSON-файлов из бакета. Либо утилиты совместимые с AWS Kinesis datastreams в случае, если вы направляете аудитные логи в {{ yds-full-name }}.
 

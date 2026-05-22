@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/quota-manager/cli-ref/quota-limit/get
 editable: false
 ---
 

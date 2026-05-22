@@ -22,6 +22,8 @@ apiPlayground:
 
 # Cloud CDN API, REST: RawLogs.Get
 
+Get configuration of raw log export.
+
 ## HTTP request
 
 ```
@@ -88,7 +90,6 @@ The maximum string length in characters is 50. ||
 || filePrefix | **string**
 
 file_prefix: prefix each log object name with specified prefix.
-
 The prefix makes it simpler for you to locate the log objects.
 For example, if you specify the prefix value logs/, each log object that
 S3 creates begins with the logs/ prefix in its key, so pseudo S3 folders

@@ -33,6 +33,8 @@ To get a temporary access key:
 1. [Install and configure](../../storage/tools/aws-cli.md) the AWS Command Line Interface (AWS CLI).
 1. Describe the [bucket policy](../../storage/concepts/policy.md) configuration as a [data schema](../../storage/s3/api-ref/policy/scheme.md) in JSON format.
 
+    {% include [sts-for-one-bucket.md](sts-for-one-bucket.md) %}
+
     {% include [sts-sa-scope-note](sts-sa-scope-note.md) %}
 
     {% cut "Policy example" %}
@@ -53,7 +55,7 @@ To get a temporary access key:
     ```
 
     Where:
-    * `Version`: (Optional) Version of the access policy description, e.g., `2012-10-17`.
+    * `Version`: (Optional) Version of the bucket policy description, e.g., `2012-10-17`.
     * `Statement`: Bucket policy rules:
       * `Sid`: (Optional) Custom rule ID, e.g., `all`, `Statement Allow`, or `Statement Deny`.
       * `Effect`: Denies or allows the requested action. The possible values are `Allow` and `Deny`.
@@ -95,7 +97,7 @@ To get a temporary access key:
       * `--role-arn`: Description of at least 20 characters. You can use Latin letters, numbers, `_` and `-`.
       * `--role-session-name`: Unique key name. You can use Latin letters, numbers, `_` and `-`.
       * `--duration-seconds`: Key lifetime in seconds, which cannot exceed `43200`.
-      * `--policy file://`: Path to the access policy file.
+      * `--policy file://`: Path to the bucket policy file.
 
       For more information about the `aws sts assume-role` command, see the [AWS documentation](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/sts/assume-role.html).
 
@@ -152,8 +154,3 @@ To get a temporary access key:
       ```
 
     {% endlist %}
-
-
-#### See also {#see-also}
-
-* [{#T}](../../storage/security/overview.md)

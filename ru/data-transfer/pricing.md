@@ -7,6 +7,10 @@ editable: false
 # Правила тарификации для {{ data-transfer-name }}
 
 
+{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
+
+
+
 
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
@@ -48,7 +52,6 @@ editable: false
 <MDX>
   <PriceList
     serviceIds={['{{ pcs|datatransfer }}']}
-    excludeSkuIds={['{{ pc|datatransfer.compute.ram.preview.v1 }}', '{{ pc|datatransfer.rows.preview.v1 }}', '{{ pc|datatransfer.compute.cpu.preview.v1 }}']}
     installationCode="ru"
     currency="RUB"
   />

@@ -95,6 +95,7 @@ The bucket becomes accessible over HTTPS within 30 minutes of uploading the cert
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
+
   To select a certificate from {{ certificate-manager-name }}:
 
   1. Open the {{ TF }} configuration file and add the `https` section to the bucket description:
@@ -114,35 +115,11 @@ The bucket becomes accessible over HTTPS within 30 minutes of uploading the cert
      Where:
      * `certificate_id`: Certificate ID in {{ certificate-manager-name }} that will be used for the bucket.
 
-     For more information about the `yandex_storage_bucket` resource parameters in {{ TF }}, see [this TF provider article]({{ tf-provider-resources-link }}/storage_bucket#bucket-https-certificate).
+     For more information about the `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#bucket-https-certificate).
 
-  1. Check the configuration using this command:
+  1. Create the resources:
 
-     ```bash
-     terraform validate
-     ```
-     
-     If the configuration is correct, you will get this message:
-     
-     ```bash
-     Success! The configuration is valid.
-     ```
-
-  1. Run this command:
-
-     ```bash
-     terraform plan
-     ```
-  
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
-
-  1. Apply the changes:
-
-     ```bash
-     terraform apply
-     ```
-     
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
      You can check the selected certificate using the [management console]({{ link-console-main }}).
 
@@ -191,3 +168,10 @@ To upload a certificate:
 {% include [public-link](../../../_includes/storage/public-link.md) %}
 
 {% endnote %}
+
+### See also {#see-also}
+
+* [{#T}](../../qa.md#qa-mime-type)
+* [{#T}](setup.md)
+* [{#T}](./own-domain.md)
+* [{#T}](./multiple-domains/index.md)

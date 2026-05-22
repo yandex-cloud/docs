@@ -30,7 +30,7 @@
 
   Создайте [виртуальную машину](../../compute/concepts/vm.md) и подключитесь к ней.
 
-* [{{ objstorage-full-name }}](../../storage/quickstart/index.md).
+* [{{ objstorage-full-name }}](../../storage/quickstart/overview.md).
 
   Создайте бакет для хранения данных в {{ yandex-cloud }}.
 
@@ -48,7 +48,7 @@
 
   Создайте кластер {{ mch-name }} и подключитесь к базе данных в нем.
 
-* [{{ ydb-full-name}}](../../ydb/quickstart.md).
+* [{{ ydb-full-name }}](../../ydb/quickstart.md).
 
   Создайте базу данных {{ ydb-name }} и выполните запросы к ней.
 
@@ -84,13 +84,13 @@
 
 ### AI {#ai}
 
-* [{{ ai-studio-full-name }}](../../ai-studio/index.yaml):
+* [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/index):
 
-  * [{{ gpt-lite }} и {{ gpt-pro }}](../../ai-studio/quickstart/yandexgpt.md).
+  * [{{ gpt-lite }} и {{ gpt-pro }}]({{ link-docs-ai }}ai-studio/concepts/generation/index#yandex).
 
     Используйте нейросеть {{ yagpt-name }} для генерации текста в синхронном режиме без дополнения контекста
 
-  * [{{ yandexart-name }}](../../ai-studio/operations/generation/yandexart-request.md).
+  * [{{ yandexart-name }}]({{ link-docs-ai }}ai-studio/operations/generation/yandexart-request).
 
     Используйте нейросеть {{ yandexart-name }} для генерации изображений.
 
@@ -102,7 +102,7 @@
 
   Загрузите аудиозапись или текстовый диалог, запустите распознавание и проанализируйте полученные данные. 
 
-* [{{ speechkit-full-name }}](../../speechkit/quickstart/index.md).
+* [{{ speechkit-full-name }}]({{ link-docs-ai }}speechkit/quickstart/index).
 
   Ознакомьтесь с возможностями распознавания и синтеза речи в {{ speechkit-name }}.
 

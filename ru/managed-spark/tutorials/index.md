@@ -11,4 +11,6 @@ description: Различные сценарии использования {{ m
 * [{#T}](metastore-and-spark.md)
 * [{#T}](spark-simple-rw-job.md)
 * [{#T}](airflow-spark-min.md)
+* [{#T}](job-pyspark-secret-access.md)
 * [{#T}](airflow-automation.md)
+* [{#T}](spark-and-datasphere.md)

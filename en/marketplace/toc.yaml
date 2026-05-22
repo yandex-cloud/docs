@@ -38,7 +38,7 @@ items:
             href: concepts/product.md
           - name: Version
             href: concepts/version.md
-          - name: Service plan
+          - name: Subscription plan
             href: concepts/tariff.md
           - name: Subscription
             href: concepts/subscription.md
@@ -46,9 +46,9 @@ items:
             expanded: true
             items:
               - name: Creating a Linux-based product image
-                href: operations/create-image.md
+                href: concepts/compute-product.md
               - name: Creating a product for {{ managed-k8s-name }}
-                href: operations/create-container.md
+                href: concepts/kubernetes-product.md
           - name: Billing of products based on publisher metrics
             href: concepts/api-usage.md
           - name: Trial period
@@ -334,6 +334,14 @@ items:
         items:
           - name: All tutorials
             href: tutorials/index.md
+          - name: Deploying S2S VPN using strongSwan in {{ yandex-cloud }}
+            href: tutorials/s2s-vpn.md
+          - name: Installing Ghost CMS High Availability using {{ cloud-apps-name }}
+            href: tutorials/ghost-cms-cloudapp.md
+          - name: Installing WordPress High Availability using {{ cloud-apps-name }}
+            href: tutorials/wordpress-ha-cloudapp.md
+          - name: Installing WordPress using {{ cloud-apps-name }}
+            href: tutorials/wordpress-cloudapp.md
           - name: Using {{ marketplace-name }} products in {{ managed-k8s-name }}
             items:
               - name: Integration with Argo CD
@@ -360,8 +368,6 @@ items:
                   Health checking applications in a {{ managed-k8s-name }}
                   cluster via an L7 {{ alb-name }}
                 href: tutorials/custom-health-checks.md
-              - name: Using Jaeger to trace queries in {{ ydb-name }}
-                href: tutorials/jaeger-over-ydb.md
               - name: Setting up Kyverno & Kyverno Policies
                 href: tutorials/kyverno.md
               - name: Using {{ MP }} to deliver metrics
@@ -372,10 +378,6 @@ items:
                 href: tutorials/istio.md
               - name: Using HashiCorp Vault to store secrets
                 href: tutorials/hashicorp-vault.md
-              - name: Deploying S2S VPN using strongSwan in {{ yandex-cloud }}
-                href: tutorials/s2s-vpn.md
-              - name: Installing Ghost CMS CloudApp in {{ objstorage-name }}
-                href: tutorials/ghost-cms-cloudapp.md
       - name: Concepts
         items:
           - name: Subscription

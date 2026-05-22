@@ -17,7 +17,7 @@ description: Следуя данной инструкции, вы сможете
    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
    1. На панели слева выберите ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
    1. На вкладке **{{ ui-key.yacloud.kms.asymmetric-key.form.label_encryption }}** нажмите на имя нужной ключевой пары.
-   1. Перейдите в раздел ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+   1. Перейдите в раздел ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
    1. Выберите группу, пользователя или сервисный аккаунт, которым нужно предоставить доступ к ключевой паре.
    1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые роли.
    1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
@@ -94,8 +94,9 @@ description: Следуя данной инструкции, вы сможете
        ```hcl
        resource "yandex_kms_asymmetric_encryption_key_iam_member" "key-viewers" {
          asymmetric_encryption_key_id = "<идентификатор_ключевой_пары>"
-         role                         = "<роль_1>"
-         members                      = ["<тип_субъекта>:<идентификатор_субъекта>"]
+
+         role   = "<роль_1>"
+         member = "<тип_субъекта>:<идентификатор_субъекта>"
        }
        ```
 
@@ -103,7 +104,7 @@ description: Следуя данной инструкции, вы сможете
 
        * `asymmetric_encryption_key_id` — идентификатор ассиметричной ключевой пары шифрования.
        * `role` — назначаемая [роль](../security/index.md#roles-list).
-       * `members` — список типов и идентификаторов [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
+       * `member` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
        Подробнее о параметрах ресурса `yandex_kms_asymmetric_encryption_key_iam_member` см. в [документации провайдера]({{ tf-provider-resources-link }}/kms_asymmetric_encryption_key_iam_member).
 
@@ -138,7 +139,7 @@ description: Следуя данной инструкции, вы сможете
    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
    1. На панели слева выберите ![image](../../_assets/kms/asymmetric-key.svg) **{{ ui-key.yacloud.kms.switch_asymmetric-keys }}**.
    1. На вкладке **{{ ui-key.yacloud.kms.asymmetric-key.form.label_encryption }}** нажмите на имя нужной ключевой пары.
-   1. Перейдите в раздел ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+   1. Перейдите в раздел ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
    1. Выберите группу, пользователя или сервисный аккаунт, которым нужно предоставить доступ к ключевой паре.
    1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите необходимые роли.
    1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
@@ -231,15 +232,17 @@ description: Следуя данной инструкции, вы сможете
        # Роль 1
        resource "yandex_kms_asymmetric_encryption_key_iam_member" "key-viewers" {
          asymmetric_encryption_key_id = "<идентификатор_ключевой_пары>"
-         role                         = "<роль_1>"
-         members                      = ["<тип_субъекта>:<идентификатор_субъекта>"]
+
+         role   = "<роль_1>"
+         member = "<тип_субъекта>:<идентификатор_субъекта>"
        }
 
        # Роль 2
        resource "yandex_kms_asymmetric_encryption_key_iam_member" "key-editors" {
          asymmetric_encryption_key_id = "<идентификатор_ключевой_пары>"
-         role                         = "<роль_2>"
-         members                      = ["<тип_субъекта>:<идентификатор_субъекта>"]
+
+         role   = "<роль_2>"
+         member = "<тип_субъекта>:<идентификатор_субъекта>"
        }
        ```
 
@@ -247,7 +250,7 @@ description: Следуя данной инструкции, вы сможете
 
        * `asymmetric_encryption_key_id` — идентификатор ассиметричной ключевой пары шифрования.
        * `role` — назначаемая [роль](../security/index.md#roles-list).
-       * `members` — список типов и идентификаторов [субъектов](../../iam/concepts/access-control/index.md#subject), которым назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
+       * `member` — тип и идентификатор [субъекта](../../iam/concepts/access-control/index.md#subject), которому назначается роль. Указывается в формате `userAccount:<идентификатор_пользователя>` или `serviceAccount:<идентификатор_сервисного_аккаунта>`.
 
        Подробнее о параметрах ресурса `yandex_kms_asymmetric_encryption_key_iam_member` см. в [документации провайдера]({{ tf-provider-resources-link }}/kms_asymmetric_encryption_key_iam_member).
 

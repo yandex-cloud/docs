@@ -15,5 +15,6 @@ See [the documentation](/docs/managed-mysql/operations/databases) for details.
 || [Get](get.md) | Retrieves information about the specified database. ||
 || [List](list.md) | Retrieves the list of databases in a cluster. ||
 || [Create](create.md) | Creates a new database in a cluster. ||
+|| [Update](update.md) | Updates the specified database. ||
 || [Delete](delete.md) | Deletes a database from a cluster. ||
 |#

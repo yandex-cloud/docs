@@ -19,8 +19,12 @@ items:
             href: operations/cluster-update.md
           - name: '{{ SPRK }} version upgrade'
             href: operations/cluster-version-update.md
-          - name: Stopping and starting a cluster
+          - name: Maintenance
+            href: operations/cluster-maintenance.md
+          - name: Stopping and restarting a cluster
             href: operations/cluster-stop.md
+          - name: Managing cluster access
+            href: operations/cluster-access.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
       - name: Jobs
@@ -37,20 +41,34 @@ items:
             href: operations/monitoring.md
           - name: Viewing cluster logs
             href: operations/cluster-logs.md
+          - name: Monitoring the state of Spark applications
+            href: operations/spark-monitoring.md
+          - name: >-
+              Diagnostics and examples of troubleshooting performance issues in
+              Spark applications
+            href: operations/spark-diagnostics.md
   - name: Tutorials
     items:
       - name: All tutorials
         href: tutorials/index.md
-      - name: Automating operations using {{ maf-full-name }}
-        href: tutorials/airflow-automation.md
-      - name: Working with an {{ objstorage-name }} table from a PySpark job
-        href: tutorials/spark-simple-rw-job.md
-      - name: Integrating {{ msp-full-name }} with {{ metastore-full-name }}
+      - name: Working with {{ objstorage-full-name }} using a local Hive catalog
+        href: tutorials/spark-objstorage-integration.md
+      - name: >-
+          Working with {{ objstorage-full-name }} using a {{ metastore-full-name
+          }} cluster
         href: tutorials/metastore-and-spark.md
+      - name: Working with an {{ IBRG }} table from a PySpark job
+        href: tutorials/spark-simple-rw-job.md
       - name: Running a PySpark job using {{ maf-full-name }}
         href: tutorials/airflow-spark-min.md
-      - name: Using {{ objstorage-full-name }} in {{ msp-name }}
-        href: tutorials/spark-objstorage-integration.md
+      - name: >-
+          Using a {{ lockbox-name }} secret in a PySpark job to connect to {{
+          mpg-full-name }}
+        href: tutorials/job-pyspark-secret-access.md
+      - name: Automating operations using {{ maf-full-name }}
+        href: tutorials/airflow-automation.md
+      - name: Integration with {{ ml-platform-name }}
+        href: tutorials/spark-and-datasphere.md
   - name: Concepts
     items:
       - name: Resource relationships
@@ -59,8 +77,12 @@ items:
         href: concepts/limits.md
       - name: Host classes
         href: concepts/instance-types.md
+      - name: Maintenance
+        href: concepts/maintenance.md
       - name: Autoscaling
         href: concepts/autoscaling.md
+      - name: '{{ SPRK }} properties'
+        href: concepts/spark-properties.md
   - name: Access management
     href: security.md
   - name: Pricing policy
@@ -119,6 +141,56 @@ items:
             href: cli-ref/job/list.md
           - name: log
             href: cli-ref/job/log.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: cluster
+            items:
+              - name: Overview
+                href: cli-ref/v0/cluster/index.md
+              - name: add-access-binding
+                href: cli-ref/v0/cluster/add-access-binding.md
+              - name: create
+                href: cli-ref/v0/cluster/create.md
+              - name: delete
+                href: cli-ref/v0/cluster/delete.md
+              - name: get
+                href: cli-ref/v0/cluster/get.md
+              - name: list
+                href: cli-ref/v0/cluster/list.md
+              - name: list-access-bindings
+                href: cli-ref/v0/cluster/list-access-bindings.md
+              - name: list-operations
+                href: cli-ref/v0/cluster/list-operations.md
+              - name: remove-access-binding
+                href: cli-ref/v0/cluster/remove-access-binding.md
+              - name: set-access-bindings
+                href: cli-ref/v0/cluster/set-access-bindings.md
+              - name: start
+                href: cli-ref/v0/cluster/start.md
+              - name: stop
+                href: cli-ref/v0/cluster/stop.md
+              - name: update
+                href: cli-ref/v0/cluster/update.md
+          - name: job
+            items:
+              - name: Overview
+                href: cli-ref/v0/job/index.md
+              - name: cancel
+                href: cli-ref/v0/job/cancel.md
+              - name: create-pyspark
+                href: cli-ref/v0/job/create-pyspark.md
+              - name: create-spark
+                href: cli-ref/v0/job/create-spark.md
+              - name: create-spark-connect
+                href: cli-ref/v0/job/create-spark-connect.md
+              - name: get
+                href: cli-ref/v0/job/get.md
+              - name: list
+                href: cli-ref/v0/job/list.md
+              - name: log
+                href: cli-ref/v0/job/log.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference

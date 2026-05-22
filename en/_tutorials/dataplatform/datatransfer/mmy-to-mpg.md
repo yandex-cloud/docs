@@ -3,8 +3,8 @@
 You can set up a data transfer from a {{ mmy-name }} database to a {{ mpg-name }} database using {{ data-transfer-name }}. Proceed as follows:
 
 1. [Prepare your test data](#prepare-data).
-1. [Set up and activate the transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -45,7 +45,7 @@ Set up your infrastructure:
     1. Make sure the cluster security groups are configured correctly and allow inbound cluster connections:
 
         * [{{ mmy-name }}](../../../managed-mysql/operations/connect/index.md#configuring-security-groups)
-        * [{{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups)
+        * [{{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups)
 
 - {{ TF }} {#tf}
 
@@ -117,7 +117,7 @@ Set up your infrastructure:
     ('rhibbh3y08qm********', '2022-06-06 09:49:54', 55.71294467, 37.66542005, 429.13, 55.5, NULL, 18, 32);
     ```
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate the transfer {#prepare-transfer}
 
 {% list tabs group=instructions %}
 
@@ -162,13 +162,13 @@ Set up your infrastructure:
 
 {% endlist %}
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
 Make sure the transfer works correctly by testing copying and replication.
 
 ### Test copying {#verify-copy}
 
-1. [Connect to the {{ mpg-name }} target cluster database](../../../managed-postgresql/operations/connect.md).
+1. [Connect to the {{ mpg-name }} target cluster database](../../../managed-postgresql/operations/connect/index.md).
 1. Run this query:
 
     ```sql
@@ -185,9 +185,9 @@ Make sure the transfer works correctly by testing copying and replication.
     ('iv7b74th678t********', '2020-06-08 17:45:00', 53.70987913, 36.62549834, 378.0, 20.5, 5.3, 20, NULL);
     ```
 
-1. Make sure the target database contains the row you added:
+1. Check that the added row appears in the target database:
 
-    1. [Connect to the {{ mpg-name }} target cluster database](../../../managed-postgresql/operations/connect.md).
+    1. [Connect to the {{ mpg-name }} target cluster database](../../../managed-postgresql/operations/connect/index.md).
     1. Run this query:
 
         ```sql
@@ -198,7 +198,7 @@ Make sure the transfer works correctly by testing copying and replication.
 
 {% note info %}
 
-Before deleting the resources, [deactivate the transfer](../../../data-transfer/operations/transfer.md#deactivate).
+Before deleting any resources, [deactivate the transfer](../../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 

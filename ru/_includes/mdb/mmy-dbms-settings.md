@@ -154,6 +154,16 @@
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_adaptive_hash_index).
 
+- **Innodb adaptive hash index parts**{#setting-adaptive-hash-index-parts} {{ tag-all }}
+
+  {% include [requires-restart](note-requires-restart.md) %}
+
+  Задает количество секций (партиций) [адаптивного хеш-индекса]({{ my.docs }}/refman/8.0/en/glossary.html#glos_adaptive_hash_index) InnoDB. Разбиение адаптивного хеш-индекса на секции снижает конкуренцию между потоками и повышает производительность в системах с высоким уровнем параллелизма.
+
+  Минимальное значение — `1`, максимальное значение — `512`, по умолчанию — `8`.
+
+  Подробнее в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/innodb-parameters.html#sysvar_innodb_adaptive_hash_index_parts).
+
 - **Innodb buffer pool size**{#setting-buffer-pool-size} {{ tag-all }}
 
   {% note warning %}
@@ -554,6 +564,16 @@
   Минимальное значение — `0` (рекурсия выключена), максимальное значение — `255`, по умолчанию — `0`.
 
   Подробнее см. в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_max_sp_recursion_depth).
+
+- **Max write lock count**{#setting-max-write-lock-count} {{ tag-all }}
+
+  Задает максимальное количество последовательных блокировок записи, после которого сервер начинает обрабатывать ожидающие запросы на блокировку чтения. Небольшое значение позволяет избежать «голодания» (starvation) читателей в сценариях с большим количеством одновременных операций записи. 
+
+  Например, при выполнении `ALTER TABLE` дочерней таблицы с foreign key серверу может понадобиться выполнить `SHARED_READ_ONLY metadata lock` на родительской таблице. Если родительская таблица постоянно занята `write lock` от `INSERT/UPDATE`, `max_write_lock_count` позволяет после заданного числа записей пропустить ожидающий `read lock` и не держать `ALTER` в очереди бесконечно.
+
+  Минимальное значение — `1`, максимальное значение — `4294967295`, по умолчанию — `4294967295`.
+
+  Подробнее в [документации {{ MY }}]({{ my.docs }}/refman/8.0/en/server-system-variables.html#sysvar_max_write_lock_count).
 
 - **Mdb force SSL**{#setting-mdb-force-ssl} {{ tag-all }}
 

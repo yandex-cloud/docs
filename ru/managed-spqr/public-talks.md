@@ -20,6 +20,10 @@ description: Видеозаписи конференций и вебинаров
 
 ### 2026 год {#2026-articles}
 
+* SPQR в финтехе: реальная миграция на шардированную {{ PG }}-инсталляцию.
+
+  * [Текст статьи](https://habr.com/ru/companies/yandex_cloud_and_infra/articles/1020208/).
+
 * Открыли сервис для быстрого горизонтального масштабирования {{ PG }}.
 
   * [Текст статьи](https://yandex.cloud/ru/blog/managed-spqr).
@@ -32,6 +36,12 @@ description: Видеозаписи конференций и вебинаров
   * [Текст статьи](https://habr.com/ru/companies/yandex/articles/968468/).
 
 ## Конференции и вебинары {#conf-and-webinars}
+
+### 2026 год {#2026-conf-and-webinars}
+
+* Запуск {{ mspqr-full-name }} в Public Preview.
+
+  * [Запись вебинара](https://www.youtube.com/watch?v=CJue0zzvbLA).
 
 ### 2024: Saint HighLoad++ {#highload-2024}
 

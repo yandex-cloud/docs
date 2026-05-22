@@ -43,7 +43,7 @@ To update a {{ sd-name }} [workspace](../../concepts/workspace.md):
                 1. Select the resources whose security you want to control in the workspace. You can only select resources that are accessible to the service account linked to the connector.
                 1. Click **{{ ui-key.yacloud_org.security.workspaces.ServiceAccountResourceSelectDialog.action_save }}**.
 
-          - Modify settings
+          - Updating settings
 
             1. In the section with the connector name, click ![ellipsis](../../../_assets/console-icons/ellipsis.svg) and select ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud_org.security.workspaces.WorkspaceResourcesForm.actionEditConnector }}**. In the window that opens:
 
@@ -65,13 +65,14 @@ To update a {{ sd-name }} [workspace](../../concepts/workspace.md):
       1. Click **{{ ui-key.yacloud.common.save }}** to save your changes.
   1. Optionally, navigate to the **{{ ui-key.yacloud_org.security.workspaces.WorkspaceEditPageLayout.tabStandards_wSeaW }}** tab to update the list of standards against which workspace-controlled resources will be checked:
 
-      1. Under **{{ ui-key.yacloud_org.security.workspaces.WorkspaceStandardsForm.standards_title_dBBXP }}**, select the required standards:
+      1. Under **{{ ui-key.yacloud_org.security.workspaces.title_security-requirements_8r7hd }}**, select the required standards:
       
           {% include [workspace-sec-standard-list](../../../_includes/security-deck/workspace-sec-standard-list.md) %}
       
-          You can select several standards at the same time. The **{{ ui-key.yacloud_org.security.workspaces.WorkspaceStandardsForm.modules_title_s8LDi }}** section will thus get new {{ sd-name }} modules, which will be activated in the new workspace to check your resources for compliance with the selected standards and regulations.
+          You can select several standards at the same time. The **{{ ui-key.yacloud_org.security.workspaces.title_security-modules_8MdQg }}** section will thus get new {{ sd-name }} modules, which will be activated in the new workspace to check your resources for compliance with the selected standards and regulations.
+      1. {% include [workspace-create-step3-additional-modules](../../../_includes/security-deck/workspace-create-step3-additional-modules.md) %}
       1. Click **{{ ui-key.yacloud.common.save }}** to save your changes.
-  1. Optionally, navigate to the **{{ ui-key.yacloud_org.security.workspaces.WorkspaceEditPageLayout.tabKubernetes_rC2uU }}** tab to update the security control settings for {{ k8s }} clusters.
+  1. Optionally, navigate to the **Kubernetes® Security Posture Management** tab to update the security control settings for {{ k8s }} clusters.
 
 {% endlist %}
 

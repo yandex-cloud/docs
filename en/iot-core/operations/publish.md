@@ -31,7 +31,7 @@ On how to make sure a message has been successfully sent and delivered, see [{#T
 
 ### Send data from a device to a device topic {#to-device-topic}
 
-Registries subscribed to this topic will know which device sent the data, because the topic contains a unique device ID.
+A registry subscribed to this topic will know which device sent the data because the topic contains a unique device ID.
 
 {% list tabs group=instructions %}
 
@@ -64,7 +64,7 @@ Registries subscribed to this topic will know which device sent the data, becaus
 		
         Where:
 
-        - `--cert` and `--key`: Parameters for authorization with a certificate.
+        - `--cert` and `--key`: Parameters for authentication with a certificate.
         - `--topic`: Device topic for sending data.
         - `--message`: Message text.
         - `--qos`: [Quality of service (QoS) level](../concepts/index.md#qos).
@@ -106,13 +106,13 @@ Registries subscribed to this topic will know which device sent the data, becaus
 
 ### Send data from a device to a registry topic {#to-registry-topic}
 
-The registry subscribed to this topic will not know which device sent the data, because the topic does not contain a unique device ID.
+A registry subscribed to this topic will not know which device sent the data because the topic does not contain a unique device ID.
 
 {% list tabs group=instructions %}
 
 - CLI {#cli}
     
-	    - Send data to a registry topic using certificate-based authorization:
+  - Send data to a registry topic using certificate-based authorization:
         
         ```
         yc iot mqtt publish \
@@ -136,7 +136,7 @@ The registry subscribed to this topic will not know which device sent the data, 
 		
         Where:
 
-        - `--cert` and `--key`: Parameters for authorization with a certificate.
+        - `--cert` and `--key`: Parameters for authentication with a certificate.
         - `--topic`: Registry topic for receiving data.
         - `--message`: Message text.
         - `--qos`: [Quality of service (QoS) level](../concepts/index.md#qos).
@@ -212,7 +212,7 @@ A registry can send messages with commands to one, multiple, or all devices adde
       
         Where:
 
-        - `--cert` and `--key`: Parameters for authorization with a certificate.
+        - `--cert` and `--key`: Parameters for authentication with a certificate.
         - `--topic`: Device topic for receiving commands.
         - `--message`: Message text.
         - `--qos`: [Quality of service (QoS) level](../concepts/index.md#qos).
@@ -280,7 +280,7 @@ A registry can send messages with commands to one, multiple, or all devices adde
 		
         Where:
 
-        - `--cert` and `--key`: Parameters for authorization with a certificate.
+        - `--cert` and `--key`: Parameters for authentication with a certificate.
         - `--topic`: Registry topic for sending commands.
         - `--message`: Message text.
         - `--qos`: [Quality of service (QoS) level](../concepts/index.md#qos).
@@ -322,7 +322,7 @@ A registry can send messages with commands to one, multiple, or all devices adde
 
 ## Sending a message in a broker {#broker}
 
-When using a broker, you can send a message to a random topic using your username and password or any certificate assigned to the broker for authorization.
+When using a broker, you can send a message to a random topic using your username and password or any certificate assigned to the broker for authentication.
 
 {% list tabs group=instructions %}
 
@@ -359,7 +359,7 @@ When using a broker, you can send a message to a random topic using your usernam
 
         Where:
 
-        - `--cert` and `--key`: Parameters for authorization with a certificate.
+        - `--cert` and `--key`: Parameters for authentication with a certificate.
         - `--topic`: Random topic name that matches the MQTT specification and does not start with `$`.
         - `--message`: Message text.
         - `--qos`: [Quality of service (QoS) level](../concepts/index.md#qos).

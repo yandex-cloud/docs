@@ -24,13 +24,13 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды создания группы пользователей {{ org-name }}:
+  1. Посмотрите описание команды создания группы пользователей {{ org-full-name }}:
 
       ```bash
       yc organization-manager group create --help
       ```
   
-  1. Чтобы создать группу пользователей в {{ org-name }}, выполните команду:
+  1. Чтобы создать группу пользователей в {{ org-full-name }}, выполните команду:
 
       ```bash
       yc organization-manager group create \

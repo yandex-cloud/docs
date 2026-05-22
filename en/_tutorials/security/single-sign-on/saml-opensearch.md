@@ -2,13 +2,13 @@
 
 [{{ OS }}](https://opensearch.org/) is a highly scalable open-source system of search and analysis tools. {{ OS }} comes with the [{{ OS }} Dashboards](https://docs.opensearch.org/latest/dashboards/) data visualization UI. [{{ mos-full-name }}](../../../managed-opensearch/) is an OpenSearch cluster management service for the Yandex Cloud infrastructure. {{ mos-name }} supports SAML authentication for secure single sign-on for users across your organization.
 
-To authenticate your [organization's](../../../organization/concepts/organization.md) users to {{ mos-name }} via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-name }} and configure it appropriately both in {{ org-name }} and {{ OS }}.
+For the users of your [organization](../../../organization/concepts/organization.md) to be able to authenticate to {{ mos-name }} via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-full-name }} and configure it both in {{ org-full-name }} and the {{ OS }} cluster.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
 ## Getting started {#before-you-begin}
 
-Make sure you can [access {{ OS }} Dashboards](../../../managed-opensearch/operations/connect.md#dashboards) using the `admin` user credentials. For information on how to create and configure an {{ OS }} cluster, see [Creating an {{ OS }} cluster](../../../managed-opensearch/operations/cluster-create.md).
+Make sure you can [access {{ OS }} Dashboards](../../../managed-opensearch/operations/connect/clients.md#dashboards) using the `admin` user credentials. For information on how to create and configure an {{ OS }} cluster, see [Creating an {{ OS }} cluster](../../../managed-opensearch/operations/cluster-create.md).
 
 In this tutorial, we will use the following URL to access the {{ OS }} Dashboards web interface:
 
@@ -16,9 +16,9 @@ In this tutorial, we will use the following URL to access the {{ OS }} Dashboard
 https://c-{{ cluster-id }}.rw.{{ dns-zone }}/
 ```
 
-For the users of your organization to be able to access {{ mos-name }}:
+To give access to {{ mos-name }} to the users of your organization:
 
-1. [Create an app](#create-app).
+1. [Create the app](#create-app).
 1. [Set up the integration](#setup-integration).
 1. [Make sure the application works correctly](#validate).
 
@@ -36,7 +36,7 @@ For the users of your organization to be able to access {{ mos-name }}:
         1. Optionally, in the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** field, enter a description for the new app.
         1. Optionally, add [labels](../../../resource-manager/concepts/labels.md):
             1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-            1. Enter a label in `key: value` format.
+            1. Add a label in `key: value` format.
             1. Press **Enter**.
         1. Click **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
 
@@ -44,7 +44,7 @@ For the users of your organization to be able to access {{ mos-name }}:
 
 ## Set up the integration {#setup-integration}
 
-To configure {{ mos-name }} integration with the SAML app you created in {{ org-name }}, complete the configuration both on the {{ OS }} cluster side and in {{ org-name }}.
+To configure {{ mos-name }} integration with the SAML app you created in {{ org-full-name }}, complete the configuration both on the {{ OS }} cluster side and in {{ org-full-name }}.
 
 1. Get the metadata for the [new app](#create-app):
 
@@ -63,10 +63,11 @@ To configure {{ mos-name }} integration with the SAML app you created in {{ org-
 
     {% endnote %}
 
-    To set up a {{ org-name }} authentication source:
+    To set up a {{ org-full-name }} authentication source:
 
-    1. In the [management console]({{ link-console-main }}), go to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
-    1. Click the cluster name and select the **{{ ui-key.yacloud.opensearch.auth.section_auth }}** tab.
+    1. In the [management console]({{ link-console-main }}), select a folder.
+    1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Click the name of your cluster and select the **{{ ui-key.yacloud.opensearch.auth.section_auth }}** tab.
     1. Click **{{ ui-key.yacloud.opensearch.auth.button_settings }}**.
     1. Specify the required values for these settings:
 
@@ -86,26 +87,26 @@ To configure {{ mos-name }} integration with the SAML app you created in {{ org-
 
         * **{{ ui-key.yacloud.opensearch.auth.field_roles-key }}**: Attribute that stores a list of roles. Set it to `groups`.
 
-        * **{{ ui-key.yacloud.opensearch.auth.field_subject-key }}**: Leave the field empty.
+        * **{{ ui-key.yacloud.opensearch.auth.field_subject-key }}**: Leave this field empty.
 
         * **{{ ui-key.yacloud.opensearch.auth.field_jwt-default-expiration-timeout }}**: Leave the `0` value.
 
         * **{{ ui-key.yacloud.opensearch.auth.field_enabled }}**: Make sure to enable this option.
 
-    1. Click **{{ ui-key.yacloud.opensearch.auth.button_save }}**. Wait for the cluster status to change to `Running`. It may take a few minutes to apply settings.
+    1. Click **{{ ui-key.yacloud.opensearch.auth.button_save }}**. Wait for the cluster status to change to `Running`. It may take a few minutes to apply the settings.
 
 1. Configure role mapping in {{ OS }}.
 
-    To ensure that {{ org-name }} user groups are mapped to {{ OS }} roles during authentication:
+    To ensure that {{ org-full-name }} user groups are mapped to {{ OS }} roles during authentication:
 
-    1. Connect to {{ OS }} Dashboards as the `admin` user.
+    1. Connect to {{ OS }} Dashboards as `admin`.
     1. In the left-hand menu, select **{{ OS }} Plugins** → **Security**.
     1. In the left-hand panel, select **Roles**.
     1. Configure role mapping:
         1. Click the role name. In this guide, it is `kibana_user`.
         1. Go to the **Mapped users** tab.
         1. Click **Manage mapping**.
-        1. Under **Backend roles**, enter the name of the {{ org-name }} [user group](../../../organization/concepts/groups.md) a role will be mapped to in {{ OS }}, e.g., `opensearch-users`.
+        1. Under **Backend roles**, enter the name of the {{ org-full-name }} [user group](../../../organization/concepts/groups.md) a role will be mapped to in {{ OS }}, e.g., `opensearch-users`.
         1. Click **Map**.
     
     Now your organization's users added to the `opensearch-users` group will be getting the `kibana_user` role upon successful authentication in {{ OS }} Dashboards.
@@ -124,7 +125,7 @@ To configure {{ mos-name }} integration with the SAML app you created in {{ org-
       1. In the **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-entity-id_snAsX }}** field, enter the URL for connection to {{ OS }} Dashboards.
       1. In the **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-acs-urls_eQcJr }}** field, specify the ACS URL.
 
-        The ACS URL must be in the following format:
+        The ACS URL has the following format:
 
         ```url
         https://c-{{ cluster-id }}.rw.{{ dns-zone }}/_opendistro/_security/saml/acs
@@ -135,15 +136,15 @@ To configure {{ mos-name }} integration with the SAML app you created in {{ org-
 
 #### Add a user groups attribute {#group-attribute}
 
-{{ OS }} users have to get one of the basic roles upon login. For this to work, the {{ org-name }} authentication source must provide in its SAML response a list of user groups that will have roles mapped in {{ OS }}. Proceed as follows:
+{{ OS }} users have to get one of the basic roles upon login. For this to work, the {{ org-full-name }} authentication source must provide in its SAML response a list of user groups that will have roles mapped in {{ OS }}. Follow these steps:
 
 {% list tabs group=instructions %}
 
 - {{ cloud-center }} UI {#cloud-center}
 
     1. In the top-right corner, click ![circles-3-plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.action_add_group_attribute }}** and in the window that opens.
-    1. In the **{{ ui-key.yacloud_org.attributes.update_dialog.field_attribute_name }}** field, leave `groups`.
-    1. In the **{{ ui-key.yacloud_org.attributes.update_dialog.field_group_attribute_value }}** field, select `{{ ui-key.yacloud_org.field-data.attributes.update_dialog.field_group_assigned }}`.
+    1. In the **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** field, leave `groups`.
+    1. In the **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_group_attribute_value_oxrpu }}** field, select `{{ ui-key.yacloud_org.organization.apps.field_group_assigned_amGdu }}`.
     1. Click **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}
@@ -152,13 +153,9 @@ For more information about configuring attributes, see [Configure user and group
 
 ### Add users {#add-users}
 
-For your organization's users to be able to authenticate in {{ OS }} Dashboards with the {{ org-name }} SAML app, you need to explicitly add these users and user groups to the SAML app.
+For your organization's users to be able to authenticate in {{ OS }} Dashboards with the {{ org-full-name }} SAML app, you need to explicitly add these users and user groups to the SAML app.
 
-{% note info %}
-
-Users and groups added to a SAML application can be managed by a user with the `organization-manager.samlApplications.userAdmin` [role](../../../organization/security/index.md#organization-manager-samlApplications-userAdmin) or higher.
-
-{% endnote %}
+{% include [saml-manage-users](../../../_includes/organization/saml-manage-users.md) %}
 
 1. If you have configured role mapping in {{ mos-name }}, [create](../../../organization/operations/create-group.md) the groups as needed:
 
@@ -175,7 +172,7 @@ Users and groups added to a SAML application can be managed by a user with the `
             1. Navigate to the **{{ ui-key.yacloud_org.entity.group.title_tab-members }}** tab.  
             1. Click **{{ ui-key.yacloud_org.entity.group.action_add-member }}**.
             1. In the window that opens, select the required users.
-            1. Click **{{ ui-key.yacloud_org.component.subject-select-dialog.action_apply }}**.
+            1. Click **{{ ui-key.yacloud.common.save }}**.
 
     {% endlist %}
 
@@ -196,13 +193,13 @@ Users and groups added to a SAML application can be managed by a user with the `
 
 ## Make sure your application works correctly {#validate}
 
-To make sure both your SAML app and {{ mos-name }} integration work correctly, authenticate to {{ OS }} Dashboards as one of the users you added to the app. Proceed as follows:
+To make sure both your SAML app and {{ mos-name }} integration work correctly, authenticate to {{ OS }} Dashboards as one of the users you added to the app. Follow these steps:
 
 1. In your browser, navigate to the address of your {{ OS }} Dashboards instance.
 1. If logged in to {{ OS }} Dashboards, log out.
 1. On the {{ OS }} Dashboards authentication page, click **Log in with single sign-on**.
-1. On the {{ yandex-cloud }} authentication page, enter your email address and user password. The user must be a member of a group added to the app.
-1. Make sure you are logged in to {{ OS }} Dashboards.
+1. On the {{ yandex-cloud }} authentication page, enter the email address and user password. The user must be a member of a group added to the app.
+1. Make sure you have successfully authenticated in {{ OS }} Dashboards.
 1. If you have configured role mapping:
      1. Click the user icon in {{ OS }} Dashboards.
      1. Go to **View roles and identities**.

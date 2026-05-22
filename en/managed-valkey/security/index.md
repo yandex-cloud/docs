@@ -1,12 +1,12 @@
 ---
 title: Access management in {{ mrd-full-name }}
-description: Access management in the {{ VLK }} database creation and management service. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
+description: Access management in the {{ VLK }} database creation and management service. This section describes the resources you can assign a role for, the roles this service has, and the roles required for specific actions.
 ---
 
 # Access management in {{ mrd-name }}
 
 
-In this section, you will learn about:
+In this section, you will learn about the following:
 
 * [Resources you can assign a role for](#resources).
 * [Roles this service has](#roles-list).
@@ -28,11 +28,15 @@ You can also assign a role for an individual cluster in the [management console]
 
 ## Roles this service has {#roles-list}
 
-The chart below shows the roles existing in the service and their permission inheritance. For example, `{{ roles-editor }}` inherits all `{{ roles-viewer }}` permissions. You can find the role descriptions below the chart.
+The diagram below shows available service roles and their permission inheritance hierarchy. For example, `{{ roles-editor }}` inherits all `{{ roles-viewer }}` permissions. You can find role descriptions below the diagram.
 
 {% include [roles-managed-valkey](../../_mermaid/roles/managed-valkey.md) %}
 
 ### Service roles {#service-roles}
+
+#### managed-redis.clusters.connector {#managed-redis-clusters-connector}
+
+{% include [managed-redis.clusters.connector](../../_roles/managed-redis/clusters/connector.md) %}
 
 #### managed-redis.auditor {#managed-redis-auditor}
 
@@ -46,6 +50,14 @@ The chart below shows the roles existing in the service and their permission inh
 
 {% include [managed-redis.restorer](../../_roles/managed-redis/restorer.md) %}
 
+#### managed-redis.user {#managed-redis-user}
+
+{% include [managed-redis.user](../../_roles/managed-redis/user.md) %}
+
+#### managed-redis.switcher {#managed-redis-switcher}
+
+{% include [managed-redis.switcher](../../_roles/managed-redis/switcher.md) %}
+
 #### managed-redis.editor {#managed-redis-editor}
 
 {% include [managed-redis.editor](../../_roles/managed-redis/editor.md) %}
@@ -53,6 +65,14 @@ The chart below shows the roles existing in the service and their permission inh
 #### managed-redis.admin {#managed-redis-admin}
 
 {% include [managed-redis.admin](../../_roles/managed-redis/admin.md) %}
+
+#### managed-redis.maintenanceTask.viewer {#managed-redis-maintenanceTask-viewer}
+
+{% include [managed-redis.maintenanceTask.viewer](../../_roles/managed-redis/maintenanceTask/viewer.md) %}
+
+#### managed-redis.maintenanceTask.editor {#managed-redis-maintenanceTask-editor}
+
+{% include [managed-redis.maintenanceTask.editor](../../_roles/managed-redis/maintenanceTask/editor.md) %}
 
 #### mdb.auditor {#mdb-auditor}
 
@@ -69,6 +89,18 @@ The chart below shows the roles existing in the service and their permission inh
 #### mdb.restorer {#mdb-restorer}
 
 {% include [mdb-restorer](../../_roles/mdb/restorer.md) %}
+
+#### mdb.switcher {#mdb-switcher}
+
+{% include [mdb.switcher](../../_roles/mdb/switcher.md) %}
+
+#### mdb.maintenanceTask.viewer {#mdb-maintenanceTask-viewer}
+
+{% include [mdb.maintenanceTask.viewer](../../_roles/mdb/maintenanceTask/viewer.md) %}
+
+#### mdb.maintenanceTask.editor {#mdb-maintenanceTask-editor}
+
+{% include [mdb.maintenanceTask.editor](../../_roles/mdb/maintenanceTask/editor.md) %}
 
 #### vpc.publicAdmin {#vpc-public-admin}
 
@@ -87,7 +119,7 @@ As a user, you need the [{{ roles.mrd.editor }} role or higher](../../iam/concep
 
 To create a {{ mrd-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mrd.editor }}` role or higher.
 
-You can always assign a role with more permissions. For example, you can assign the `{{ roles.mrd.admin }}` role instead of `{{ roles.mrd.editor }}`.
+You can always assign a role with more permissions, e.g., `{{ roles.mrd.admin }}` instead of `{{ roles.mrd.editor }}`.
 
 ## What's next {#whats-next}
 

@@ -25,6 +25,18 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
 
      For more information, see [{#T}](../../s3/api-ref/lifecycles/xml-config.md).
 
+  {% note tip %}
+
+  To delete a rule or the whole lifecycle configuration:
+  1. In the **{{ ui-key.yacloud.storage.bucket.switch_lifecycle }}** tab, click **{{ ui-key.yacloud.storage.bucket.lifecycle.button_lifecycle_empty-create }}**.
+  1. Next to the rule to delete, click ![image](../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
+
+      To remove the entire lifecycle configuration, repeat this step for each rule.
+
+  1. Click **{{ ui-key.yacloud.storage.bucket.lifecycle.button_save }}**.
+
+  {% endnote %}
+
 - {{ yandex-cloud }} CLI {#cli}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
@@ -57,7 +69,7 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
       ```
 
       The possible configuration parameters include:
-      * `id`: Unique rule ID which must consist of 255 characters or less. This is an optional parameter.
+      * `id`: Unique rule ID which must consist of 255 characters or less. This is an optional setting.
       * `enabled`: Rule state. This is a required setting.
       * `filter`: Object filter. This is an optional setting. It may only contain one element of each type:
 
@@ -289,7 +301,8 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
 
   {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
 
-  1. In the configuration file, describe the properties of resources you want to create:
+
+  1. In the configuration file, describe the resources you want to create:
 
      ```hcl
      provider "yandex" {
@@ -459,26 +472,11 @@ Object lifecycles are updated daily at 00:00 UTC. This operation takes a few hou
 
      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
 
-  1. Make sure the configuration files are correct.
-     1. In the command line, navigate to the directory where you created the configuration file.
-     1. Run a check using this command:
+  1. Apply the changes:
 
-        ```bash
-        terraform plan
-        ```
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
-
-  1. Deploy the cloud resources.
-     1. If the configuration does not contain any errors, run this command:
-
-        ```bash
-        terraform apply
-        ```
-
-     1. Confirm creating the resources.
-
-     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+     You can check the update using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

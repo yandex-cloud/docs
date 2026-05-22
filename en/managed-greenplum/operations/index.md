@@ -15,12 +15,20 @@ description: This page provides a list of step-by-step guides for {{ mgp-name }}
 * [{#T}](cluster-expand.md)
 * [Managing backups](cluster-backups.md)
 * [Managing cluster access](cluster-access.md)
+* [Maintenance](cluster-maintenance.md)
 * [Deleting a cluster](cluster-delete.md)
+
+## Connection {#connect}
+
+* [Pre-configuring a cluster connection](./connect/index.md)
+* [FQDNs of hosts](./connect/fqdn.md)
+* [Connecting to a cluster from applications](./connect/clients.md)
+* [Code examples for connecting to a cluster](./connect/code-examples.md)
 
 ## Databases {#databases}
 
-* [{#T}](connect.md)
 * [{#T}](databases.md)
+* [{#T}](web-sql-query.md)
 
 ## Users and sessions {#users-and-sessions}
 
@@ -59,6 +67,7 @@ description: This page provides a list of step-by-step guides for {{ mgp-name }}
 * [{#T}](performance-diagnostics.md)
 * [Cluster and host state monitoring](monitoring.md)
 * [Transferring cluster logs to {{ cloud-logging-full-name }}](mgp-to-cloud-logging.md)
+* [Reading {{ mgp-full-name }} cluster logs via SQL](sql-log-access.md)
 
 ## Auxiliary utilities {#tools}
 

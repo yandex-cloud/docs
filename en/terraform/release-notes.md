@@ -6,6 +6,162 @@ editable: false
 
 
 
+## 0.204.0 (May 18, 2026)
+##### FEATURES:
+* compute: add `aws_v2_http_endpoint` and `aws_v2_http_token` options to yandex_compute_instance
+##### BUG FIXES:
+* clickhouse: fix deprecated version in `yandex_mdb_clickhouse_cluster_*` tests
+##### ENHANCEMENTS:
+* postgresql: remove 13 and 13-1c postgresql versions support
+
+## 0.203.0 (May 14, 2026)
+##### FEATURES:
+* alb: add `external_address` support in `Target`
+* smartwebsecurity: Request condition (param/header/cookie/body matchers) in ycp_smartwebsecurity_waf_waf_profile exclusion rules
+##### BUG FIXES:
+* mdb_clickhouse: fix creation of resource `mdb_clickhouse_cluster_v2` with cloud_storage enabled with default params
+##### ENHANCEMENTS:
+* dns: fix documentation for `yandex_dns_firewall`
+
+## 0.202.0 (May 7, 2026)
+##### FEATURES:
+* mdb_clickhouse: add performance diagnostics settings enabled and processes_refresh_interval
+* alb: add `preserve_http1_header_casing` support in `HTTPHandler`
+* organizationmanager: support `labels` for `yandex_organizationmanager_group` resource
+##### BUG FIXES:
+* Valkey: Fixed issue with empty labels in Redis provider
+* redis: fix pending changes after apply by reading user-set values (UserConfig) instead of EffectiveConfig
+* mdb_clickhouse: fix creation of resource `mdb_clickhouse_user` with empty permissions
+##### ENHANCEMENTS:
+* SmartWebSecurity: migration from TF 1.0 to TF 2.0
+
+## 0.201.0 (April 23, 2026)
+##### FEATURES:
+* dns: add new resource and data-source `yandex_dns_firewall` and new resource `yandex_dns_firewall_iam_binding`
+* mdb_clickhouse: support cluster restore from backup
+* postgresql: add `priority` host attribute to mdb_postgresql_cluster_v2
+* postgresql: restore `priority` host attribute for mdb_postgresql_cluster
+* organizationmanager: add `organizationmanager_mfa_enforcement_excluded_audience` resource
+##### ENHANCEMENTS:
+* vpc: added optional address parameter for internal addresses to yandex_vpc_address
+* kafka: Add an option for setting managed kafka `transactional.id.expiration.ms` parameter
+
+## 0.200.0 (April 20, 2026)
+##### BUG FIXES:
+* mdb_clickhouse: fix creation of resource `mdb_clickhouse_cluster_v2` with `default_database`
+
+## 0.199.0 (April 16, 2026)
+##### ENHANCEMENTS:
+* mysql: Disable disk shrinking during autoscaling in MySQL cluster
+
+## 0.198.0 (April 13, 2026)
+##### FEATURES:
+* CloudOrganization: added new password policy to userpool - password blacklist policy
+* lockbox_secret_version_entry: added new data source to retrieve a single secret entry by key
+* Kafka: Terraform Provider: add iceberg sink connector
+
+## 0.197.0 (April 9, 2026)
+##### FEATURES:
+* function_trigger: added `workflow` invocation target support for Workflows
+* ClickHouse: Terraform Provider: add cluster extension management
+##### BUG FIXES:
+* serverless: fix bug with batch_cutoff in triggers
+* postgresql: fix generating update mask for config_spec.disk_size_autoscaling.* parameters
+* mdb_clickhouse: fixed a bug with adding zookeeper/keeper hosts
+
+## 0.196.0 (April 2, 2026)
+##### FEATURES:
+* mysql: add yandex_mdb_mysql_database_v2 resource and datasource
+* metastore: add warehouse_config support to yandex_metastore_cluster resource and data source
+* mdb_clickhouse: add kafka settings message_max_bytes and batch_size
+##### BUG FIXES:
+* mdb_clickhouse: prevent "new element appeared" error for implicitly created shards
+* CDN: fix resource options disable_proxy_force_ranges and proxy_cache_methods_set
+* opensearch: fix subnets compare in special envirionment
+* crypto: fixed plugin crash when trying to create certificate using YC Certificate Manager with incorrect params
+
+## 0.195.0 (March 30, 2026)
+##### FEATURES:
+* datacatalog: new yandex_datacatalog_catalog resource and data-source were added
+
+## 0.194.0 (March 26, 2026)
+##### WARNING:
+* mdb_kafka: deprecate Kafka 3.6 version, use 3.9 instead
+
+## 0.193.0 (March 19, 2026)
+##### BUG FIXES:
+* mdb_clickhouse: fixed false positive conflict validation for ClickHouse resources
+* mdb_clickhouse: set computed to false for compression level setting
+* mdb_clickhouse: fixed a bug where you could not set resources for KEEPER hosts
+* mdb_clickhouse: handle null/empty set equivalence for security_group_ids
+
+## 0.192.0 (March 16, 2026)
+##### FEATURES:
+* opensearch: add server config "search_max_buckets"
+* vpc: added internal addresses to `yandex_vpc_address` resource and datasource
+* opensearch: add server config "http_max_initial_line_length"
+* yandex_datatransfer_transfer: add data_objects, regular_snapshot, incremental_tables and runtime flavor options
+##### BUG FIXES:
+* mdb_clickhouse: set computed to false for merge tree settings `replicated_deduplication_window`, `replicated_deduplication_window_seconds`, `parts_to_delay`, `parts_to_throw_insert`, `max_replicated_merges_in_queue`, `max_parts_in_total`, `materialize_ttl_recalculate_only`
+* mysql: fix permissions management via yandex_mdb_mysql_user
+##### ENHANCEMENTS:
+* cloud_desktops: support `labels` and `description` for cloud desktop resources
+* mdb_clickhouse: when creating zookeeper/keeper, set the convert_tables_to_replica parameter to true by default
+
+## 0.191.0 (March 5, 2026)
+##### FEATURES:
+* kubernetes: add "node_template.reserved_instance_pool_id" and "variables" attributes in "yandex_kubernetes_node_group"
+##### BUG FIXES:
+* organizationmanager: fix update_mask and field deletion for idp userpool
+* postgresql: make folder_id in yandex_mdb_postgresql_cluster datasource optional, to resolve cluster by name and folder
+
+## 0.190.0 (February 26, 2026)
+##### FEATURES:
+* DNS: Added a human-readable description to dns recordset resource.
+* compute: add `kms_key_id` option to local_disks
+* postgres: removed autofailover flag
+##### BUG FIXES:
+* postgresql: deprecate pool_discard field, add new field pooler_pool_discard instead
+* opensearch: fix migration from schema version 0
+##### WARNING:
+* sharded_postgresql: `console_password` for `yandex_mdb_sharded_postgresql_cluster` config is now deprecated
+
+## 0.189.0 (February 23, 2026)
+##### FEATURES:
+* kubernetes: add "workload_identity_federation" attribute to k8s node-group resource and data-source
+
+## 0.188.0 (February 19, 2026)
+##### FEATURES:
+* datalens: add yandex_datalens_connection resource and data source
+* opensearch: add server configs max_clause_count,fielddata_cache_size,reindex_remote_whitelist
+##### BUG FIXES:
+* redis: fix to import timeout
+* CDN: Fix host options (Issue #365)
+##### ENHANCEMENTS:
+* kafka: add support for version 4 in `getSuffixVersion`
+* spark: fixed acc test
+
+## 0.187.0 (February 16, 2026)
+##### FEATURES:
+* airflow: add `yandex_airflow_cluster_iam_binding` resource
+* clickhouse: add `yandex_mdb_clickhouse_cluster_iam_binding` resource
+* dataproc: add `yandex_dataproc_cluster_iam_binding` resource
+* greenplum: add `yandex_mdb_greenplum_cluster_iam_binding` resource
+* kafka: add `yandex_mdb_kafka_cluster_iam_binding` resource
+* metastore: add `yandex_metastore_cluster_iam_binding` resource
+* mongodb: add `yandex_mdb_mongodb_cluster_iam_binding` resource
+* mysql: add `yandex_mdb_mysql_cluster_iam_binding` resource
+* opensearch: add `yandex_mdb_opensearch_cluster_iam_binding` resource
+* postgresql: add `yandex_mdb_postgresql_cluster_iam_binding` resource
+* redis: add `yandex_mdb_redis_cluster_iam_binding` resource
+* sharded_postgresql: add `yandex_mdb_sharded_postgresql_cluster_iam_binding` resource
+* spark: add `yandex_spark_cluster_iam_binding` resource
+* trino: add `yandex_trino_cluster_iam_binding` resource
+* mdb_clickhouse: added support for disk size autoscaling
+##### BUG FIXES:
+* CDN: Fix query params (Issue #368)
+* mdb_clickhouse: allow adding zookeeper hosts with zookeeper.resources in same apply
+
 ## 0.186.0 (February 12, 2026)
 ##### ENHANCEMENTS:
 * mdb_clickhouse: add ConfigValidators to prevent conflicting `clickhouse.resources` and `shards[*].resources` configuration

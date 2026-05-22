@@ -8,15 +8,24 @@ description: Под техническим обслуживанием в {{ mch-
 Под техническим обслуживанием в {{ mch-name }} понимается:
 
 * автоматическая установка обновлений и исправлений СУБД для хостов (в т. ч. для выключенных кластеров);
+* плановое [автоматическое увеличение](./storage.md#auto-rescale) размера хранилища;
 * другие сервисные работы.
 
 Изменение мажорной версии СУБД не включено в техническое обслуживание. Подробнее о переходе между мажорными версиями см. в разделе [{#T}](../operations/cluster-version-update.md).
 
 ## Окно обслуживания {#maintenance-window}
 
-Предпочтительное время технического обслуживания можно задать при [создании кластера](../operations/cluster-create.md) или [изменении его настроек](../operations/update.md):
+Предпочтительное время технического обслуживания можно задать при [создании кластера](../operations/cluster-create.md) или [изменении его настроек](../operations/cluster-maintenance.md#set-maintenance-window):
 
 {% include [Maintenance window](../../_includes/mdb/maintenance-window.md) %}
+
+{% note info %}
+
+Чтобы просматривать информацию о заданиях на техническое обслуживание, необходима [роль](../security.md#managed-clickhouse-maintenanceTask-viewer) `managed-clickhouse.maintenanceTask.viewer` или выше.
+
+Чтобы управлять заданиями на техническое обслуживание, необходима [роль](../security.md#managed-clickhouse-maintenanceTask-editor) `managed-clickhouse.maintenanceTask.editor` или выше.
+
+{% endnote %}
 
 ## Порядок обслуживания {#maintenance-order}
 

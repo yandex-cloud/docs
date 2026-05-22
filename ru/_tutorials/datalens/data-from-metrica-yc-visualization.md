@@ -1,7 +1,9 @@
 # Яндекс Метрика: экспорт, постобработка и визуализация данных
 
 
-{% include [serverless-deprecation-note](../../_includes/datasphere/serverless-deprecation-note.md) %}
+
+{% include [datalens-metrica-pro-note](../../_includes/datalens/datalens-metrica-pro-note.md) %}
+
 
 В этом практическом руководстве вы научитесь строить воронки конверсий, проведете когортный анализ и посчитаете Retention пользовательской базы в {{ ml-platform-full-name }} и визуализируете данные в {{ datalens-full-name }}.
 
@@ -66,7 +68,7 @@
 ### 1.1. Подключите {{ CH }} {#ch-connection}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог для создания кластера {{ CH }}.
-1. Выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 1. В открывшемся окне нажмите **{{ ui-key.yacloud.clickhouse.button_create-cluster }}**.
 1. Укажите настройки кластера {{ CH }}:
    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}** укажите произвольное имя кластера. 
@@ -86,7 +88,6 @@
         * **{{ ui-key.yacloud.mdb.forms.additional-field-datalens }}**
         * **Доступ из консоли управления**
         * **{{ ui-key.yacloud.mdb.forms.additional-field-metrika }}**
-        * **{{ ui-key.yacloud.mdb.forms.additional-field-serverless }}**
    1. Нажмите кнопку **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 
 ### 1.2. Подключите {{ ml-platform-short-name }} {#datasphere-connection}
@@ -282,7 +283,9 @@
 
 Создайте новый датасет на основе новой таблицы и подключения к {{ CH }}:
 
-1. Откройте главную страницу [{{ datalens-short-name }}]({{ link-datalens-main }}/) (или нажмите ![datalens-console](../../_assets/datalens-console.svg) **DataLens** на панели слева) и нажмите **Создать датасет**.
+1. Откройте [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
+1. На панели слева нажмите ![image](../../_assets/console-icons/circles-intersection.svg) **Датасеты**.
+1. Нажмите кнопку **Создать датасет**.
 1. Перейдите в область **Подключения** и нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить**.
 1. Из списка подключений выберите имя подключения, созданного на шаге [3.2](#creation-datalens-connection-to-ch).
 1. Перетащите новую таблицу `metrica_data.funnels_by_bro` в область редактирования.
@@ -340,8 +343,10 @@
 
 Создайте датасет на основе новой таблицы и подключения к {{ CH }}: 
 
-1. Откройте главную страницу [{{ datalens-short-name }}]({{ link-datalens-main }}/) и нажмите **Создать датасет**.
-1. В области **Подключения** нажмите кнопку **Создать датасет** и нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **Добавить**.
+1. Откройте [главную страницу]({{ link-datalens-main-skip-promo }}) {{ datalens-short-name }}.
+1. На панели слева нажмите ![image](../../_assets/console-icons/circles-intersection.svg) **Датасеты**.
+1. Нажмите кнопку **Создать датасет**.
+1. В области **Подключения** нажмите ![image](../../_assets/console-icons/plus.svg) **Добавить**.
 1. Выберите из списка созданное [подключение](#creation-datalens-connection-to-ch).
 1. Перетащите новую таблицу `metrica_data.retention_users` в рабочую зону, чтобы подключиться к ней.
 1. Откройте вкладку **Поля** и создайте новое вычисляемое поле `week_num`, которое равно `([date]-[min_date])/7`.

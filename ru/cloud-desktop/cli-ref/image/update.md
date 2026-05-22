@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/desktops/cli-ref/image/update
 editable: false
 ---
 
@@ -26,6 +27,9 @@ Image name. ||
 || `--new-name` | `string`
 
 New desktop image name. ||
+|| `--description` | `string`
+
+New desktop image description. ||
 || `--labels` | `key=value[,key=value...]`
 
 New desktop image labels. ||

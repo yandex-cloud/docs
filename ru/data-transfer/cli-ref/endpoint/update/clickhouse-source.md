@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/datatransfer/cli-ref/endpoint/update/clickhouse-source
 editable: false
 ---
 

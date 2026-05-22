@@ -115,4 +115,4 @@ See [{#T}](portal.md) to learn more about the portal and its features.
 
 * Read the [partner program](program/var.md) terms and conditions.
 * Study the [key terms and definitions](./terms.md).
-* Learn about our [technology specializations](./specializations/index.md).
+* Learn about [partner statuses](./specializations/index.md).

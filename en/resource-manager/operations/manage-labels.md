@@ -12,8 +12,8 @@ Labels are supported in certain [services](../concepts/labels.md#services). Labe
 
   The example below shows how to add a label to a {{ compute-name }} VM instance. You can add a label to another resource in the same way.
 
-  1. In the [management console]({{ link-console-main }}), click ![image](../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder your VM is in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the [management console]({{ link-console-main }}), click ![image](../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder your VM is in.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Select the VM you need from the list.
   1. Click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.
@@ -173,8 +173,8 @@ You can only edit resource labels using the {{ yandex-cloud }} CLI and {{ TF }}.
 
   The example below shows how to delete a label from a {{ compute-name }} VM. You can delete a label from another resource in the same way.
 
-  1. In the [management console]({{ link-console-main }}), click ![image](../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder your VM is in.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. In the [management console]({{ link-console-main }}), click ![image](../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder your VM is in.
+  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Select the VM you need from the list.
   1. Click ![horizontal-ellipsis](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.edit }}**.

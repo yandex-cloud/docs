@@ -43,6 +43,12 @@ These IP addresses cannot be assigned to user resources. They serve to ensure an
 {% include [sws-ip-list](../../_includes/sws-ips.md) %}
 
 
+### {{ sd-name }} {#security-deck-ips}
+
+#### {{ dspm-name }} {#dspm}
+
+{% include [security-deck-dspm-ip-ru](../../_includes/public-ip/ru/security-deck-dspm.md) %}
+
 
 ## IP addresses used by {{ yandex-cloud }} for its services {#yandex-cloud-ips}
 

@@ -4,3 +4,4 @@
 * [Устранение ошибки `user container exec format error`](exec-format-error.md)
 * [Устранение ошибки `Service account is not available`](service-account-is-not-available.md)
 * [Устранение ошибки `No space left on device`](no-space-left-on-device.md)
+* [Устранение ошибки 403 (Permission denied)](permission-denied.md)

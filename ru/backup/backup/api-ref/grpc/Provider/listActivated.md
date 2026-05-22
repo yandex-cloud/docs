@@ -46,7 +46,9 @@ instance registration token for authorization ||
 ||Field | Description ||
 || folder_id | **string**
 
-Folder ID. ||
+Required field. Folder ID.
+
+The maximum string length in characters is 50. ||
 || names[] | **string**
 
 Name of the backup provider. ||

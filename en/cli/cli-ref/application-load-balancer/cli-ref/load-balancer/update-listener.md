@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/load-balancer/update-listener
 editable: false
 ---
 
@@ -28,23 +29,27 @@ ID of the Application load balancer. ||
 Name of the Application load balancer. ||
 || `--listener-name` | `string`
 
-Name of listener to add/update in application load balancer. ||
-|| `--enable-tls` | Enable TLS for specified listener. ||
+Name of the listener to add/update to the application load balancer. ||
+|| `--enable-tls` | Enable TLS for the specified listener. ||
 || `--certificate-id` | `value[,value]`
 
-Certificate ID for specified listener. ||
+Certificate ID for the specified listener. ||
+|| `--require-client-certificate` | Require client certificate for the specified listener. ||
+|| `--client-certificates-trusted-ca-file` | `string`
+
+Trusted CA filename (PEM) for the specified listener. ||
 || `--external-ipv4-endpoint` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
 
-External IPv4 endpoint settings for specified listener.
+External IPv4 endpoint settings for the specified listener.
 
 Possible property names:
 
-- `port`: Port for the listener.
+- `port`: Listener's port.
 
 - `address`: Use allocated address for the listener. ||
 || `--internal-ipv4-endpoint` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
 
-Internal IPv4 endpoint settings for specified listener.
+Internal IPv4 endpoint settings for the specified listener.
 
 Possible property names:
 
@@ -53,7 +58,7 @@ Possible property names:
 - `subnet-id`: Subnet for internal endpoint. ||
 || `--external-ipv6-endpoint` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
 
-External IPv6 endpoint settings for specified listener.
+External IPv6 endpoint settings for the specified listener.
 
 Possible property names:
 
@@ -68,6 +73,7 @@ Possible property names:
 || `--redirect-to-https` | Redirect HTTP requests to HTTPS for specified listener. ||
 || `--allow-http10` | Allow HTTP1.0 for specified listener. ||
 || `--rewrite-request-id` | Rewrite incoming x-request-id header with new value for specified listener. ||
+|| `--preserve-http1-header-casing` | Preserve HTTP1 header casing for specified listener. ||
 || `--http2-options` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
 
 HTTP2 options for specified listener.

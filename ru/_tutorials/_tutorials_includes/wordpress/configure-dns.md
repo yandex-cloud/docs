@@ -1,0 +1,1 @@
+Создайте [публичную DNS-зону](../../../dns/concepts/dns-zone.md#public-zones) и делегируйте на нее домен. Подробнее о делегировании домена читайте в [инструкции](../../../troubleshooting/dns/how-to/delegate-public-zone.md). В DNS-зоне будут размещаться домены WordPress.

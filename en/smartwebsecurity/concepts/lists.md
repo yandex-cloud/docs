@@ -1,3 +1,8 @@
+---
+title: IP address lists
+description: IP address lists for creating traffic filtering rules in {{ sws-name }}.
+---
+
 # Lists
 
 {% include [lists-preview](../../_includes/smartwebsecurity/lists-preview.md) %}
@@ -17,12 +22,12 @@ Description of preset lists:
 
 * `is_ddoser`: IP addresses used in DDoS attacks. This list is based on data provided by different research organizations and security departments.
 * `is_hosting`: IP addresses of hosting providers.
-* `is_hosting`: IP addresses of mobile providers.
+* `is_mobile`: IP addresses of mobile providers.
 * `is_tor`: IP addresses of the Tor network used for traffic anonymization.
 * `is_proxy`: IP addresses of public proxy servers. Access via a proxy can be used to hide the real IP address and potentially malicious activities.
 * `is_vpn`: IP addresses of VPN providers. VPN is used for private access and spoofing IP addresses.
 * `is_ml_vpn`: VPN provider IP addresses detected using machine learning algorithms.
-* `is_anonimous`: IP addresses of anonymous networks. People often use such networks to hide their identity.
+* `is_anonymous`: IP addresses of anonymous networks. People often use such networks to hide their identity.
 
 You cannot change or delete the preset lists.
 

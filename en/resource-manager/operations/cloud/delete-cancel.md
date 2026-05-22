@@ -12,7 +12,7 @@ To be able to cancel the deletion of a cloud, you must have the `{{ roles-cloud-
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the cloud.
+  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the cloud.
   
   1. In the upper-right corner, click ![***](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.component.console-dashboard.button_cancel-deletion }}**.
 

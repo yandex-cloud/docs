@@ -13,7 +13,7 @@ description: Follow this guide to add a trigger label in {{ sf-name }}.
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    To add a label to a trigger, run the command:
+    To add a label to a trigger, run this command:
 
     ```bash
     yc serverless trigger add-labels <trigger_name> --labels <key>=<value>
@@ -46,7 +46,7 @@ description: Follow this guide to add a trigger label in {{ sf-name }}.
 
 - {{ TF }} {#tf}
 
-  For more information about {{ TF }}, [see the documentation](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  For more information about {{ TF }}, [see this tutorial](../../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
 
   {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
 
@@ -73,16 +73,16 @@ description: Follow this guide to add a trigger label in {{ sf-name }}.
      ...
      ```
 
-     For more information about the `yandex_function_trigger` resource parameters in {{ TF }}, see the [provider documentation]({{ tf-provider-resources-link }}/function_trigger).
+     For more information about the `yandex_function_trigger` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
 
-  1. Check the configuration using this command:
+  1. Validate your configuration using this command:
 
      ```
      terraform validate
      ```
-
-     If the configuration is correct, you will get this message:
-
+     
+     If the configuration is valid, you will get this message:
+     
      ```
      Success! The configuration is valid.
      ```
@@ -92,16 +92,16 @@ description: Follow this guide to add a trigger label in {{ sf-name }}.
      ```
      terraform plan
      ```
-
-     The terminal will display a list of resources with parameters. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+  
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
   1. Apply the configuration changes:
 
      ```
      terraform apply
      ```
-
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
+     
+  1. Type `yes` and press **Enter** to confirm the changes.
 
      You can check the trigger update using this [CLI](../../../cli/quickstart.md) command:
 

@@ -13,6 +13,7 @@ description: Различные сценарии использования {{ m
 * [{#T}](./cdc-data-transfer.md)
 * [{#T}](./cdc-debezium.md)
 * [{#T}](./data-transfer-ydb.md)
+* [{#T}](./ydb-to-postgresql.md)
 * [{#T}](./mpg-to-yds.md)
 * [{#T}](./mkf-to-mpg.md)
 * [{#T}](./object-storage-to-postgresql.md)
@@ -26,6 +27,8 @@ description: Различные сценарии использования {{ m
 * [{#T}](yq-federative-queries.md)
 * [{#T}](glibc-collation-issues.md)
 * [{#T}](data-recording.md)
+* [{#T}](conn-man-secret-access.md)
+* [{#T}](job-pyspark-secret-access.md)
 
 ## Репликация и миграция {#replication-and-migration}
 

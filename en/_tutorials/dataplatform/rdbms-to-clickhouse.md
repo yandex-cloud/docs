@@ -2,7 +2,7 @@
 
 You can migrate a database from {{ PG }} to {{ CH }} using {{ data-transfer-full-name }}. Proceed as follows:
 
-1. [Set up and activate the transfer](#prepare-transfer).
+1. [Prepare and activate the transfer](#prepare-transfer).
 1. [Test replication](#example-check-replication).
 1. [Query data in the target system](#working-with-data-ch).
 
@@ -11,15 +11,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-* {{ mpg-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
-* {{ mch-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
+* {{ mpg-name }} cluster: Computing resources allocated to hosts along with storage and backup capacity (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* {{ mch-name }} cluster: Computing resources allocated to hosts along with storage and backup capacity (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* Each transfer, which includes the use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Each transfer, which includes the use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-In our example, we will create all required resources in {{ yandex-cloud }}. Set up the infrastructure:
+In our example, we will create all required resources in {{ yandex-cloud }}. Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -42,7 +42,7 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
   1. If using security groups, make sure they are configured correctly and allow inbound connections to the clusters.
 
      * [{{ mch-name }}](../../managed-clickhouse/operations/connect/index.md#configuring-security-groups).
-     * [{{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups).
+     * [{{ mpg-name }}](../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
 
 
   1. [Grant](../../managed-postgresql/operations/grant.md#grant-privilege) the `mdb_replication` role to `pg-user` in the {{ mpg-name }} cluster.
@@ -84,9 +84,9 @@ In our example, we will create all required resources in {{ yandex-cloud }}. Set
 
 {% endlist %}
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate the transfer {#prepare-transfer}
 
-1. [Connect to the {{ mpg-name }} cluster](../../managed-postgresql/operations/connect.md).
+1. [Connect to the {{ mpg-name }} cluster](../../managed-postgresql/operations/connect/index.md).
 1. In the `db1` database, create a table named `x_tab` and populate it with data:
 
      ```sql
@@ -222,7 +222,7 @@ Using the `FINAL` keyword reduces query performance, so avoid it whenever possib
 To reduce the consumption of resources, delete those you do not need:
 
 1. Make sure the transfer status is **{{ ui-key.yacloud.data-transfer.label_connector-status-DONE }}**, upon which you can [delete](../../data-transfer/operations/transfer.md#delete) the transfer.
-1. Delete the other resources depending on how you created them:
+1. Delete other resources, applying the same method used for their creation:
 
     {% list tabs group=instructions %}
 

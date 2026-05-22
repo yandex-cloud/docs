@@ -12,11 +12,11 @@ When a [connector](../../../concepts/eventrouter/connector.md) is stopped, it no
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to stop a connector.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, click ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
-  1. Select a bus.
+  1. Select the bus in question.
   1. Navigate to the ![image](../../../../_assets/console-icons/broadcast-signal.svg) **{{ ui-key.yacloud.serverless-event-router.label_connectors }}** tab.
-  1. In the line with the appropriate connector, click ![image](../../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../../_assets/console-icons/stop.svg) **{{ ui-key.yacloud.common.stop }}**.
+  1. In the line with the connector, click ![image](../../../../_assets/console-icons/ellipsis.svg) and select ![image](../../../../_assets/console-icons/stop.svg) **{{ ui-key.yacloud.common.stop }}**.
 
 - CLI {#cli}
 

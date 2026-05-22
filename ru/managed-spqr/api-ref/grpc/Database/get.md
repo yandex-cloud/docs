@@ -26,11 +26,15 @@ To get the list of available SPQR Database resources, make a [List](/docs/manage
 || cluster_id | **string**
 
 Required field. ID of the SPQR cluster that the database belongs to.
-To get the cluster ID use a [ClusterService.List](/docs/managed-spqr/api-ref/grpc/Cluster/list#List) request. ||
+To get the cluster ID use a [ClusterService.List](/docs/managed-spqr/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || database_name | **string**
 
 Required field. Name of the SPQR database to return.
-To get the name of the database use a [DatabaseService.List](/docs/managed-spqr/api-ref/grpc/Database/list#List) request. ||
+To get the name of the database use a [DatabaseService.List](/docs/managed-spqr/api-ref/grpc/Database/list#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 |#
 
 ## Database {#yandex.cloud.mdb.spqr.v1.Database}
@@ -38,7 +42,8 @@ To get the name of the database use a [DatabaseService.List](/docs/managed-spqr/
 ```json
 {
   "name": "string",
-  "cluster_id": "string"
+  "cluster_id": "string",
+  "deletion_protection": "google.protobuf.BoolValue"
 }
 ```
 
@@ -53,4 +58,7 @@ Name of the database. ||
 || cluster_id | **string**
 
 ID of the SPQR cluster that the database belongs to. ||
+|| deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Deletion Protection inhibits deletion of the database ||
 |#

@@ -27,6 +27,9 @@ description: Следуя данной инструкции, вы сможете
    - Вручную {#manual}
 
      1. [Создайте облачную сеть](../../vpc/operations/network-create.md) и [подсеть](../../vpc/operations/subnet-create.md).
+
+         {% include [note-vpc-resources](../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
      1. {% include [configure-sg-manual](../../_includes/managed-kubernetes/security-groups/configure-sg-manual-lvl3.md) %}
 
         {% include [sg-common-warning](../../_includes/managed-kubernetes/security-groups/sg-common-warning.md) %}
@@ -44,8 +47,10 @@ description: Следуя данной инструкции, вы сможете
      1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
 
      1. Скачайте в ту же рабочую директорию файл конфигурации [кластера {{ managed-k8s-name }}](../concepts/index.md#kubernetes-cluster) [k8s-calico.tf](https://github.com/yandex-cloud-examples/yc-mk8s-calico/blob/main/k8s-calico.tf). В файле описаны:
-        * [Сеть](../../vpc/operations/network-create.md).
-        * Подсеть.
+        * [Сеть](../../vpc/operations/network-create.md) и подсеть.
+
+            {% include [note-vpc-resources](../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
         * Кластер {{ managed-k8s-name }}.
         * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md), необходимый для работы кластера {{ managed-k8s-name }} и [группы узлов](../concepts/index.md#node-group).
         * {% include [configure-sg-terraform](../../_includes/managed-kubernetes/security-groups/configure-sg-tf-lvl3.md) %}

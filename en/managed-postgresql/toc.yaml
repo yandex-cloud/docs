@@ -37,10 +37,18 @@ items:
             href: operations/cluster-version-update.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
+      - name: Connection
+        items:
+          - name: Pre-configuration
+            href: operations/connect/index.md
+          - name: FQDNs of hosts
+            href: operations/connect/fqdn.md
+          - name: Connecting from applications
+            href: operations/connect/clients.md
+          - name: Code examples
+            href: operations/connect/code-examples.md
       - name: Databases
         items:
-          - name: Connecting to a database
-            href: operations/connect.md
           - name: SQL queries in {{ websql-full-name }}
             href: operations/web-sql-query.md
           - name: Copying and populating a table
@@ -143,6 +151,14 @@ items:
         href: tutorials/glibc-collation-issues.md
       - name: Writing data from a device to a database
         href: tutorials/data-recording.md
+      - name: >-
+          Connecting to {{ mpg-name }} from a PySpark job in {{ msp-full-name }}
+          using a {{ lockbox-name }} secret
+        href: tutorials/job-pyspark-secret-access.md
+      - name: >-
+          Configuring permissions for access to a secret created by {{
+          connection-manager-name }} for a {{ mpg-name }} user
+        href: tutorials/conn-man-secret-access.md
       - name: Replication and migration
         items:
           - name: Logical replication in {{ PG }}
@@ -151,9 +167,11 @@ items:
             href: tutorials/data-migration.md
           - name: Migrating a database from {{ mpg-name }}
             href: tutorials/outbound-replication.md
+          - name: Migrating a {{ mpg-name }} cluster to another version
+            href: tutorials/postgresql-versions.md
           - name: >-
-              Creating a logical replica of Amazon RDS for {{ PG }} in {{
-              mpg-name }}
+              Creating an Amazon RDS logical replica for {{ PG }} in {{ mpg-name
+              }}
             href: tutorials/logical-replica-from-rds.md
           - name: >-
               Migrating a database from {{ mpg-full-name }} to {{
@@ -223,6 +241,10 @@ items:
         href: concepts/indexes.md
       - name: SQL command limits
         href: concepts/sql-limits.md
+      - name: Upgrading the {{ PG }} major version
+        href: concepts/upgrade.md
+      - name: Versioning policy {{ PG }}
+        href: concepts/update-policy.md
   - name: Access management
     href: security/index.md
   - name: Pricing policy
@@ -355,6 +377,134 @@ items:
             href: cli-ref/user/revoke-permission.md
           - name: update
             href: cli-ref/user/update.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: backup
+            items:
+              - name: Overview
+                href: cli-ref/v0/backup/index.md
+              - name: delete
+                href: cli-ref/v0/backup/delete.md
+              - name: get
+                href: cli-ref/v0/backup/get.md
+              - name: list
+                href: cli-ref/v0/backup/list.md
+          - name: backup-retention-policy
+            items:
+              - name: Overview
+                href: cli-ref/v0/backup-retention-policy/index.md
+              - name: create
+                href: cli-ref/v0/backup-retention-policy/create.md
+              - name: delete
+                href: cli-ref/v0/backup-retention-policy/delete.md
+              - name: list
+                href: cli-ref/v0/backup-retention-policy/list.md
+          - name: cluster
+            items:
+              - name: Overview
+                href: cli-ref/v0/cluster/index.md
+              - name: add-access-binding
+                href: cli-ref/v0/cluster/add-access-binding.md
+              - name: add-labels
+                href: cli-ref/v0/cluster/add-labels.md
+              - name: backup
+                href: cli-ref/v0/cluster/backup.md
+              - name: create
+                href: cli-ref/v0/cluster/create.md
+              - name: delete
+                href: cli-ref/v0/cluster/delete.md
+              - name: get
+                href: cli-ref/v0/cluster/get.md
+              - name: list
+                href: cli-ref/v0/cluster/list.md
+              - name: list-access-bindings
+                href: cli-ref/v0/cluster/list-access-bindings.md
+              - name: list-backups
+                href: cli-ref/v0/cluster/list-backups.md
+              - name: list-logs
+                href: cli-ref/v0/cluster/list-logs.md
+              - name: list-operations
+                href: cli-ref/v0/cluster/list-operations.md
+              - name: move
+                href: cli-ref/v0/cluster/move.md
+              - name: remove-access-binding
+                href: cli-ref/v0/cluster/remove-access-binding.md
+              - name: remove-labels
+                href: cli-ref/v0/cluster/remove-labels.md
+              - name: reschedule-maintenance
+                href: cli-ref/v0/cluster/reschedule-maintenance.md
+              - name: restore
+                href: cli-ref/v0/cluster/restore.md
+              - name: set-access-bindings
+                href: cli-ref/v0/cluster/set-access-bindings.md
+              - name: start
+                href: cli-ref/v0/cluster/start.md
+              - name: start-failover
+                href: cli-ref/v0/cluster/start-failover.md
+              - name: stop
+                href: cli-ref/v0/cluster/stop.md
+              - name: update
+                href: cli-ref/v0/cluster/update.md
+              - name: update-config
+                href: cli-ref/v0/cluster/update-config.md
+          - name: connect
+            href: cli-ref/v0/connect.md
+          - name: database
+            items:
+              - name: Overview
+                href: cli-ref/v0/database/index.md
+              - name: create
+                href: cli-ref/v0/database/create.md
+              - name: delete
+                href: cli-ref/v0/database/delete.md
+              - name: get
+                href: cli-ref/v0/database/get.md
+              - name: list
+                href: cli-ref/v0/database/list.md
+              - name: update
+                href: cli-ref/v0/database/update.md
+          - name: hosts
+            items:
+              - name: Overview
+                href: cli-ref/v0/hosts/index.md
+              - name: add
+                href: cli-ref/v0/hosts/add.md
+              - name: delete
+                href: cli-ref/v0/hosts/delete.md
+              - name: list
+                href: cli-ref/v0/hosts/list.md
+              - name: update
+                href: cli-ref/v0/hosts/update.md
+              - name: update-config
+                href: cli-ref/v0/hosts/update-config.md
+          - name: resource-preset
+            items:
+              - name: Overview
+                href: cli-ref/v0/resource-preset/index.md
+              - name: get
+                href: cli-ref/v0/resource-preset/get.md
+              - name: list
+                href: cli-ref/v0/resource-preset/list.md
+          - name: user
+            items:
+              - name: Overview
+                href: cli-ref/v0/user/index.md
+              - name: create
+                href: cli-ref/v0/user/create.md
+              - name: delete
+                href: cli-ref/v0/user/delete.md
+              - name: get
+                href: cli-ref/v0/user/get.md
+              - name: grant-permission
+                href: cli-ref/v0/user/grant-permission.md
+              - name: list
+                href: cli-ref/v0/user/list.md
+              - name: revoke-permission
+                href: cli-ref/v0/user/revoke-permission.md
+              - name: update
+                href: cli-ref/v0/user/update.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
@@ -633,6 +783,8 @@ items:
         href: qa/configuration.md
       - name: Moving and restoring a cluster
         href: qa/backup.md
+      - name: Upgrading the {{ PG }} major version
+        href: qa/version-update.md
       - name: Users and roles
         href: qa/users.md
       - name: High availability and load balancing

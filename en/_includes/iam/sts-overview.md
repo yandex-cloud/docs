@@ -4,6 +4,8 @@ _{{ sts-name }}_: {{ iam-name }} component used to get _temporary access keys_ c
 
 Temporary access keys as an authentication method are only supported in [{{ objstorage-full-name }}](../../storage/).
 
+{% include [access-control-sa-stskey-notice](../../_includes/iam/access-control-sa-stskey-notice.md) %}
+
 With temporary keys, you can set up granular access to {{ objstorage-name }} [buckets](../../storage/concepts/bucket.md) for multiple users with a single [service account](../../iam/concepts/users/service-accounts.md). The service account permissions must include all the permissions you want to grant using temporary keys.
 
 A temporary access key is created based on a [static key](../../iam/concepts/authorization/access-key.md), but, unlike it, it has a limited lifetime and access permissions. Access permissions and lifetime are set for each temporary key individually.
@@ -11,6 +13,8 @@ A temporary access key is created based on a [static key](../../iam/concepts/aut
 The maximum key lifetime is 12 hours.
 
 To set up access permissions for the key, you need an [access policy](../../storage/security/policy.md) in JSON format based on [this schema](../../storage/s3/api-ref/policy/scheme.md).
+
+{% include [sts-for-one-bucket.md](sts-for-one-bucket.md) %}
 
 {% include [sts-sa-scope-note](sts-sa-scope-note.md) %}
 
@@ -29,7 +33,7 @@ To get a temporary access key using {{ sts-name }}, use the [AWS Command Line In
 
 There is a separate [API endpoint](../../api-design-guide/concepts/endpoints.md) for {{ sts-name }}: `https://{{ sts-host }}`.
 
-For more information, see this [{#T}](../../iam/operations/sa/create-sts-key.md) article.
+For more information, see [{#T}](../../iam/operations/sa/create-sts-key.md).
 
 {% note warning %}
 
@@ -38,8 +42,3 @@ You cannot revoke a temporary key. However, you can [delete](../../iam/operation
 This will revoke permissions for all temporary access keys created based on the deleted static key.
 
 {% endnote %}
-
-
-#### See also {#see-also}
-
-* [{#T}](../../storage/security/overview.md)

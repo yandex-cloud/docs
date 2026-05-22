@@ -11,11 +11,11 @@ dateTime <имя_поля> must be between 1900-01-01 00:00:00 and 2262-04-11 23
 
 Поддерживаемые диапазоны дат в {{ CH }}:
 
-* Для полей с типом `DateTime64` — с 1900-01-01 по 2299-12-31. Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/sql-reference/data-types/datetime64).
-* Для полей с типом `DateTime` — с 1970-01-01 по 2106-02-07. Подробнее см. в [документации {{ CH }}]({{ ch.docs }}/sql-reference/data-types/datetime).
+* Для полей с типом `DateTime64` — с 1900-01-01 по 2299-12-31. Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/data-types/datetime64).
+* Для полей с типом `DateTime` — с 1970-01-01 по 2106-02-07. Подробнее см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/data-types/datetime).
 
 **Решение:** используйте один из вариантов:
 
 * Приведите все даты в базе-источнике к поддерживаемому в {{ CH }} диапазону.
 * В [параметрах эндпоинта-источника](../../../../data-transfer/operations/endpoint/index.md#update) исключите таблицу с некорректными датами из трансфера.
-* В [параметрах трансфера](../../../../data-transfer/operations/transfer.md#update) укажите трансформер [{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.convert_to_string.title}}](../../../../data-transfer/concepts/data-transformation.md#convert-to-string). В этом случае при трансфере изменится тип поля.
+* В [параметрах трансфера](../../../../data-transfer/operations/transfer.md#update) укажите трансформер [{{ ui-key.yc-data-transfer.data-transfer.transfer.transfer.Transformer.convert_to_string.title }}](../../../../data-transfer/concepts/data-transformation.md#convert-to-string). В этом случае при трансфере изменится тип поля.

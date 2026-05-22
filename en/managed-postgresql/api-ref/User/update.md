@@ -174,10 +174,12 @@ apiPlayground:
               SQL sets an isolation level for each transaction.
               This setting defines the default isolation level to be set for all new SQL transactions.
               For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/transaction-iso.html).
-              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-              - `TRANSACTION_ISOLATION_READ_COMMITTED`
-              - `TRANSACTION_ISOLATION_REPEATABLE_READ`
-              - `TRANSACTION_ISOLATION_SERIALIZABLE`
+              - `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+              - `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+              - `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+              - `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+              All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+              If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure.
             type: string
             enum:
               - TRANSACTION_ISOLATION_UNSPECIFIED
@@ -212,11 +214,15 @@ apiPlayground:
               When synchronization is enabled, cluster waits for the synchronous operations to be completed prior to reporting `success` to the client.
               These operations guarantee different levels of the data safety and visibility in the cluster.
               For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-wal.html#GUC-SYNCHRONOUS-COMMIT).
-              - `SYNCHRONOUS_COMMIT_ON`
-              - `SYNCHRONOUS_COMMIT_OFF`
-              - `SYNCHRONOUS_COMMIT_LOCAL`
-              - `SYNCHRONOUS_COMMIT_REMOTE_WRITE`
-              - `SYNCHRONOUS_COMMIT_REMOTE_APPLY`
+              - `SYNCHRONOUS_COMMIT_ON`: Success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server. Default value.
+              - `SYNCHRONOUS_COMMIT_OFF`: Success is reported to the client even if the data is not in WAL.
+              There is no synchronous write operation, data may be loss in case of storage subsystem failure.
+              - `SYNCHRONOUS_COMMIT_LOCAL`: Success is reported to the client if the data is in WAL, and WAL is written to the storage of the master server.
+              The transaction may be lost due to storage subsystem failure on the master server.
+              - `SYNCHRONOUS_COMMIT_REMOTE_WRITE`: Success is reported to the client if the data is in WAL, WAL is written to the storage of the master server, and the server's synchronous standby indicates that it has received WAL and written it out to its operating system.
+              The transaction may be lost due to simultaneous storage subsystem failure on the master and operating system's failure on the synchronous standby.
+              - `SYNCHRONOUS_COMMIT_REMOTE_APPLY`: Success is reported to the client if the data is in WAL (Write-Ahead Log), WAL is written to the storage of the master server, and its synchronous standby indicates that it has received WAL and applied it.
+              The transaction may be lost due to irrecoverably failure of both the master and its synchronous standby.
             type: string
             enum:
               - SYNCHRONOUS_COMMIT_UNSPECIFIED
@@ -238,10 +244,10 @@ apiPlayground:
               **enum** (LogStatement)
               This setting specifies which SQL statements should be logged (on the user level).
               For more information, see the [PostgreSQL documentation](https://www.postgresql.org/docs/current/runtime-config-logging.html).
-              - `LOG_STATEMENT_NONE`
-              - `LOG_STATEMENT_DDL`
-              - `LOG_STATEMENT_MOD`
-              - `LOG_STATEMENT_ALL`
+              - `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+              - `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+              - `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+              - `LOG_STATEMENT_ALL`: System logs all SQL statements.
             type: string
             enum:
               - LOG_STATEMENT_UNSPECIFIED
@@ -314,6 +320,13 @@ apiPlayground:
               **[PGAuditSettings](#yandex.cloud.mdb.postgresql.v1.PGAuditSettings)**
               Settings of the [PostgreSQL Audit Extension](https://www.pgaudit.org/) (pgaudit).
             $ref: '#/definitions/PGAuditSettings'
+          idleSessionTimeout:
+            description: |-
+              **string** (int64)
+              in milliseconds; can be set only for PostgreSQL 14+
+              Acceptable values are 0 to 2147483647, inclusive.
+            type: string
+            format: int64
 ---
 
 # Managed Service for PostgreSQL API, REST: User.Update
@@ -373,7 +386,8 @@ The maximum string length in characters is 63. Value must match the regular expr
       "log": [
         "string"
       ]
-    }
+    },
+    "idleSessionTimeout": "string"
   },
   "login": "boolean",
   "grants": [
@@ -589,6 +603,11 @@ For more information, see the [PostgreSQL documentation](https://www.postgresql.
 || pgaudit | **[PGAuditSettings](#yandex.cloud.mdb.postgresql.v1.PGAuditSettings)**
 
 Settings of the [PostgreSQL Audit Extension](https://www.pgaudit.org/) (pgaudit). ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds; can be set only for PostgreSQL 14+
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PGAuditSettings {#yandex.cloud.mdb.postgresql.v1.PGAuditSettings}
@@ -670,7 +689,8 @@ The default value is PG_AUDIT_SETTINGS_LOG_UNSPECIFIED. In this case, the parame
         "log": [
           "string"
         ]
-      }
+      },
+      "idleSessionTimeout": "string"
     },
     "login": "boolean",
     "grants": [
@@ -680,6 +700,11 @@ The default value is PG_AUDIT_SETTINGS_LOG_UNSPECIFIED. In this case, the parame
     "userPasswordEncryption": "string",
     "connectionManager": {
       "connectionId": "string"
+    },
+    "userConnectionManager": {
+      "connectionId": "string",
+      "connectionFolderId": "string",
+      "secretFolderId": "string"
     },
     "authMethod": "string"
   }
@@ -841,6 +866,9 @@ The default is `` password_encryption `` setting for cluster.
 || connectionManager | **[ConnectionManager](#yandex.cloud.mdb.postgresql.v1.ConnectionManager)**
 
 Connection Manager Connection and settings associated with user. Read only field. ||
+|| userConnectionManager | **[UserConnectionManager](#yandex.cloud.mdb.v1.UserConnectionManager)**
+
+Connection Manager Connection and settings associated with user ||
 || authMethod | **enum** (AuthMethod)
 
 Auth method for user
@@ -985,6 +1013,11 @@ For more information, see the [PostgreSQL documentation](https://www.postgresql.
 || pgaudit | **[PGAuditSettings](#yandex.cloud.mdb.postgresql.v1.PGAuditSettings2)**
 
 Settings of the [PostgreSQL Audit Extension](https://www.pgaudit.org/) (pgaudit). ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds; can be set only for PostgreSQL 14+
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PGAuditSettings {#yandex.cloud.mdb.postgresql.v1.PGAuditSettings2}
@@ -1023,4 +1056,27 @@ The default value is PG_AUDIT_SETTINGS_LOG_UNSPECIFIED. In this case, the parame
 || connectionId | **string**
 
 ID of Connection Manager Connection ||
+|#
+
+## UserConnectionManager {#yandex.cloud.mdb.v1.UserConnectionManager}
+
+A message representing Connection Manager integration details and settings for a user in a cluster.
+
+#|
+||Field | Description ||
+|| connectionId | **string**
+
+ID of the Connection Manager connection corresponding to the user.
+Ignored if specified in update requests. ||
+|| connectionFolderId | **string**
+
+ID of the folder where connection for the user is created.
+Optional. Defaults to the cluster's ClusterConnectionManager.connections_folder_id if not specified,
+or the cluster's folder if ClusterConnectionManager.connections_folder_id is not specified. ||
+|| secretFolderId | **string**
+
+A Connection Manager setting for a user's connection created by MDB integration.
+ID of the folder where secret for the user's connection is created.
+Optional. Defaults to the cluster's ClusterConnectionManager.secrets_folder_id if not specified,
+or the cluster's ClusterConnectionManager.connections_folder_id, or the cluster's folder. ||
 |#

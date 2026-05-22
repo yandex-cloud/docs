@@ -15,11 +15,11 @@ A set of methods for managing Server resources.
 || [Create](create.md) | Creates a server in the specified folder. ||
 || [BatchCreate](batchCreate.md) | Creates multiple servers in the specified folder. ||
 || [Update](update.md) | Updates the specified server. ||
-|| [PowerOff](powerOff.md) | Powers off the specified server. ||
-|| [PowerOn](powerOn.md) | Powers on the specified server. ||
-|| [Reboot](reboot.md) | Reboots the specified server. ||
-|| [Reinstall](reinstall.md) | Reinstalls the specified server. ||
+|| [PowerOff](powerOff.md) | (-- api-linter: yc::1702::method-verb-prefix=disabled ||
+|| [PowerOn](powerOn.md) | (-- api-linter: yc::1702::method-verb-prefix=disabled ||
+|| [Reboot](reboot.md) | (-- api-linter: yc::1702::method-verb-prefix=disabled ||
+|| [Reinstall](reinstall.md) | (-- api-linter: yc::1702::method-verb-prefix=disabled ||
+|| [ListOperations](listOperations.md) | Lists operations for the specified server. ||
 || [StartProlongation](startProlongation.md) | Starts prolongation of the specified server. ||
 || [StopProlongation](stopProlongation.md) | Stops prolongation of the specified server. ||
-|| [ListOperations](listOperations.md) | Lists operations for the specified server. ||
 |#

@@ -28,8 +28,6 @@ The {{ cloud-desktop-name }} usage cost includes:
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
-The monthly prices are based on 720 hours per month.
-
 ### Using computing resources {#use-resources}
 
 The cost of allocated computing resources is calculated based on how long the desktops were used: from when they get the `CREATING` (if being created) or `STARTING` (if starting) status until they are completely stopped. You are not charged for the time during which the desktops were stopped.
@@ -49,7 +47,6 @@ You are charged for disks whether the desktops are running or not.
 <MDX>
   <PriceList
     serviceIds={['{{ pcs|cloud_desktop }}']}
-    excludeSkuIds={['{{ pc|cloud_desktop.image.v1 }}']}
     installationCode="ru"
     currency="USD"
   />

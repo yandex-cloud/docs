@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/desktops/cli-ref/
 editable: false
 ---
 
@@ -75,6 +76,10 @@ Syntax:
   - [yc desktops image list](image/list.md) — List desktop images
 
   - [yc desktops image update](image/update.md) — Update the specified desktop image
+
+- [yc desktops v0](v0/index.md) — [PREVIEW] Manage Desktop resources
+
+
 
 #### Global Flags
 

@@ -1,6 +1,6 @@
 ---
 title: Управление доступом в {{ postbox-full-name }}
-description: Управление доступом в сервисе для отправки транзакционных почтовых сообщений {{ postbox-full-name }}. Чтобы разрешить доступ к ресурсам сервиса {{ postbox-full-name }}, назначьте пользователю нужные роли из приведенного списка.
+description: Управление доступом в сервисе для отправки почтовых сообщений {{ postbox-full-name }}. Чтобы разрешить доступ к ресурсам сервиса {{ postbox-full-name }}, назначьте пользователю нужные роли из приведенного списка.
 ---
 
 # Управление доступом в {{ postbox-full-name }}
@@ -9,11 +9,7 @@ description: Управление доступом в сервисе для от
 
 Чтобы разрешить доступ к ресурсам сервиса {{ postbox-name }}, назначьте аккаунту на Яндексе, [сервисному аккаунту](../../iam/concepts/users/service-accounts.md), [федеративным](../../iam/concepts/users/accounts.md#saml-federation) или [локальным](../../iam/concepts/users/accounts.md#local) пользователям, [группе пользователей](../../organization/operations/manage-groups.md), [системной группе](../../iam/concepts/access-control/system-group.md) или [публичной группе](../../iam/concepts/access-control/public-group.md) нужные роли из приведенного ниже списка. На данный момент роль может быть назначена только на родительский ресурс (каталог или облако), роли которого наследуются вложенными ресурсами.
 
-{% note info %}
-
 Подробнее о наследовании ролей читайте в разделе [Наследование прав доступа](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) документации сервиса {{ resmgr-name }}.
-
-{% endnote %}
 
 ## Какие роли действуют в сервисе {#roles-list}
 
@@ -38,6 +34,14 @@ description: Управление доступом в сервисе для от
 #### postbox.editor {#postbox-editor}
 
 {% include [postbox.editor](../../_roles/postbox/editor.md) %}
+
+#### postbox.messages.reader {#postbox-messages-reader}
+
+{% include [postbox.messages.reader](../../_roles/postbox/messages/reader.md) %}
+
+#### postbox.statistics.reader {#postbox-statistics-reader}
+
+{% include [postbox.statistics.reader](../../_roles/postbox/statistics/reader.md) %}
 
 #### postbox.admin {#postbox-admin}
 

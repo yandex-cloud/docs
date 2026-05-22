@@ -6,6 +6,8 @@ description: Follow this guide to set or reset a local user password in {{ org-f
 # Updating a local user password
 
 
+{% include [organization-deny-user-listing](../../../_includes/organization/organization-deny-user-listing.md) %}
+
 ## Resetting a password {#reset}
 
 To reset a [local](../../../iam/concepts/users/accounts.md#local) user password, do the following:
@@ -57,6 +59,12 @@ To reset a [local](../../../iam/concepts/users/accounts.md#local) user password,
 {% endlist %}
 
 The user must change this password on their first login to {{ yandex-cloud }}.
+
+{% note info %}
+
+If a [password policy](../../concepts/password-policy.md) is configured for a user pool, it will not apply to automatically generated passwords.
+
+{% endnote %}
 
 ## Setting a password {#set}
 
@@ -124,11 +132,13 @@ The user must change this password on their first login to {{ yandex-cloud }}.
 
      {% endnote %}
 
-     For more information about `yandex_organizationmanager_idp_user` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/organizationmanager_idp_user).
+     For more information about `yandex_organizationmanager_idp_user` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_user).
 
-  1. Create the resources:
+  1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} will update all the required resources. You can check the updates using the [{{ cloud-center }} UI]({{ link-org-cloud-center }}).
 
 - API {#api}
 

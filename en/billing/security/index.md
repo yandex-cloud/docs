@@ -146,7 +146,7 @@ The steps for assigning a role for a billing account depend on whether the billi
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Select a billing account.
   1. In the left-hand panel, select ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_billing.billing.account.switch_users }}**.
-  1. At the top right, click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**. In the window that opens:
+  1. At the top right, click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**. In the window that opens:
 
      1. Select a user, service account, or user group. If required, use the search bar.
      1. Click ![image](../../_assets/create.svg) **{{ ui-key.yacloud_components.acl.action.add-role }}** and select the role.

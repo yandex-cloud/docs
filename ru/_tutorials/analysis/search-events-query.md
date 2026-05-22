@@ -38,7 +38,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать [бакет](../../storage/concepts/bucket.md), например `example-folder`.
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Нажмите **{{ ui-key.yacloud.storage.buckets.button_create }}**.
     1. На странице создания бакета:
         * укажите имя бакета в соответствии с [правилами именования](../../storage/concepts/bucket.md#naming);
@@ -58,7 +58,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `example-folder`.
-    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
     1. Укажите **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** — `trail-sa`.
     1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
@@ -147,7 +147,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.audit-trails.button_create-trail }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** укажите `logsyq`.
   1. В блоке **{{ ui-key.yacloud.audit-trails.label_destination }}** задайте параметры объекта назначения:
@@ -176,7 +176,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог `example-folder`.
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
     1. Выберите трейл `logsyq`.
     1. Нажмите **{{ ui-key.yacloud.audit-trails.button_process-in-yq }}**.
     1. Создайте соединение:
@@ -199,7 +199,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог с трейлом.
-    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_audit-trails }}**.
     1. Выберите трейл, для которого настроено [соединение с {{ yq-short-name }}](#trail-yq).
     1. Нажмите **{{ ui-key.yacloud.audit-trails.button_process-in-yq }}**, чтобы перейти на страницу выполнения аналитического запроса.
 

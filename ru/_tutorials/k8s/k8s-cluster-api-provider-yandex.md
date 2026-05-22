@@ -63,6 +63,9 @@
     1. [Назначьте](../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту роли [compute.editor](../../compute/security/index.md#compute-editor) и [alb.editor](../../application-load-balancer/security/index.md#alb-editor) на каталог.
     1. [Создайте](../../iam/operations/authentication/manage-authorized-keys.md#create-authorized-key) авторизованный ключ для сервисного аккаунта в формате JSON.
 1. Если в вашем каталоге еще нет [облачной сети](../../vpc/concepts/network.md#network) {{ vpc-name }}, [создайте](../../vpc/operations/network-create.md) ее. Также [создайте](../../vpc/operations/subnet-create.md) и подсеть.
+
+    {% include [note-vpc-resources](../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
 1. Инфраструктуре создаваемого кластера будет автоматически назначена [группа безопасности](../../vpc/concepts/security-groups.md) по умолчанию, которая создается вместе с сетью. [Добавьте](../../vpc/operations/security-group-add-rule.md) в эту группу следующие правила для _входящего_ трафика:
 
     {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-protocol }} | {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-ports }} | {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-source-type }} | {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-source-target }} | {{ ui-key.yacloud.vpc.network.security-groups.column_sg-rules-description }}
@@ -253,7 +256,8 @@
 
         {% note warning %}
 
-        После создания кластера присвоить L7-балансировщику фиксированный IP-адрес будет нельзя.
+        * После создания кластера присвоить L7-балансировщику фиксированный IP-адрес будет нельзя.
+        * Не изменяйте и не удаляйте балансировщик нагрузки и его дочерние ресурсы, созданные с помощью {{ managed-k8s-name }}, через интерфейсы {{ yandex-cloud }} (консоль управления, {{ TF }}, CLI и API). Это может привести к некорректной работе кластера.
 
         {% endnote %}
 

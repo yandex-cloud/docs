@@ -1,5 +1,5 @@
 ```bash
-psql "host=c-<идентификатор_кластера>.rw.{{ dns-zone }} \
+psql "host=<список_хостов_кластера> \
       port={{ port-mpg }} \
       sslmode=verify-full \
       dbname=<имя_БД> \

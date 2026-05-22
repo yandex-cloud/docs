@@ -25,7 +25,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
     1. Optionally, enter a description for the cluster.
     1. Select the environment where you want to create your cluster (you cannot change the environment once the cluster is created):
         * `PRODUCTION`: For stable versions of your applications.
-        * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by an SLA. However, it receives new features, improvements, and bug fixes earlier. In the prestable environment, you can test new versions for compatibility with your application.
+        * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
     1. Select the {{ GP }} version.
 
     
@@ -40,7 +40,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
 
         * [Cloud network](../../vpc/concepts/network.md#network) to host the cluster.
 
-        * [Security groups](../../vpc/concepts/security-groups.md) for the cluster's network traffic. You may need to additionally [set up security groups](connect.md#configuring-security-groups) to be able connect to the cluster.
+        * [Security groups](../../vpc/concepts/security-groups.md) for the cluster's network traffic. You may need to additionally [set up security groups](connect/index.md#configuring-security-groups) to be able connect to the cluster.
 
         * [Availability zone](../../overview/concepts/geo-scope.md) and [subnet](../../vpc/concepts/network.md#subnet) to host the cluster. To create a new subnet, click **{{ ui-key.yacloud.mdb.forms.label_add-subnetwork }}** in the list of subnets.
 
@@ -175,7 +175,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
            --user-password=<user_password> \
            --master-config resource-id=<host_class>,`
                           `disk-size=<storage_size_in_GB>,`
-                          `disk-type=<network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
+                          `disk-type=<network-ssd|network-ssd-nonreplicated|local-ssd> \
            --segment-config resource-id=<host_class>,`
                           `disk-size=<storage_size_in_GB>,`
                           `disk-type=<network-ssd-nonreplicated|local-ssd> \
@@ -197,7 +197,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
         * `--greenplum-version`: {{ GP }} version, {{ versions.cli.str }}.
         * `--environment`: Environment:
             * `PRODUCTION`: For stable versions of your applications.
-            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and is also covered by an SLA. However, it receives new features, improvements, and bug fixes earlier. In the prestable environment, you can test new versions for compatibility with your application.
+            * `PRESTABLE`: For testing purposes. The prestable environment is similar to the production environment and likewise covered by an SLA, but it is the first to get new features, improvements, and bug fixes. In the prestable environment, you can test new versions for compatibility with your application.
         * `--network-name`: [Network name](../../vpc/concepts/network.md#network).
         * `--user-name`: Username. It may contain Latin letters, numbers, hyphens, and underscores, and must start with a letter, number, or underscore. It must be from 1 to 32 characters long.
         * `--user-password`: Password. It must be from 8 to 128 characters long.
@@ -208,7 +208,6 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
 
             * `disk-size`: Storage size in GB.
             * `disk-type`: [Disk type](../concepts/storage.md):
-                * `network-hdd` (for master hosts only)
                 * `network-ssd` (for master hosts only)
                 * `local-ssd`
                 * `network-ssd-nonreplicated`
@@ -389,7 +388,10 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
 
       Where:
 
+      
       * `assign_public_ip`: Public access to cluster hosts, `true` or `false`.
+
+
       * `deletion_protection`: Cluster deletion protection, `true` or `false`.
 
           {% include [deletion-protection-limits-data](../../_includes/mdb/deletion-protection-limits-data.md) %}
@@ -408,7 +410,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
 
 
 
-      To learn more about resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-mgp }}).
+      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-mgp }}).
 
   
   1. Optionally, specify [dedicated host](../../compute/concepts/dedicated-host.md) groups to place master or segment hosts on dedicated hosts:
@@ -471,7 +473,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -561,7 +563,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
             * `version`: {{ GP }} version.
 
             
-            * `access`: Cluster access settings for the following {{ yandex-cloud }} services:
+            * `access`: Settings for access to the cluster from the following {{ yandex-cloud }} services:
 
                 * `dataLens`: [{{ datalens-full-name }}](../../datalens/index.yaml), `true` or `false`.
                 * `yandexQuery`: [{{ yq-full-name }}](../../query/concepts/index.md), `true` or `false`.
@@ -600,10 +602,10 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
 
             * `mode`: Operation mode, `SESSION` or `TRANSACTION`.
             * `size`: Maximum number of client connections.
-            * `clientIdleTimeout`: Idle timeout for a client connection (in seconds).
+            * `clientIdleTimeout`: Idle timeout for a client connection, in seconds.
             * `idleInTransactionTimeout`: Idle timeout for a client connection with an open transaction (in seconds).
 
-        * `cloudStorage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ GP }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
+        * `cloudStorage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ GP }} cluster to cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
 
             You cannot disable hybrid storage after you save your cluster settings.
 
@@ -646,7 +648,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -738,7 +740,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
             * `version`: {{ GP }} version.
 
             
-            * `access`: Cluster access settings for the following {{ yandex-cloud }} services:
+            * `access`: Cluster settings for access to the following {{ yandex-cloud }} services:
 
                 * `data_lens`: [{{ datalens-full-name }}](../../datalens/index.yaml), `true` or `false`.
                 * `yandex_query`: [{{ yq-full-name }}](../../query/concepts/index.md), `true` or `false`.
@@ -746,8 +748,11 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
 
 
             * `zone_id`: [Availability zone](../../overview/concepts/geo-scope.md).
+
+            
             * `subnet_id`: [Subnet](../../vpc/concepts/network.md#subnet) ID.
             * `assign_public_ip`: Public access to cluster hosts, `true` or `false`.
+
 
         * `master_config.resources`, `segment_config.resources`: Master and segment host configuration in the cluster:
 
@@ -777,10 +782,10 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
 
             * `mode`: Operation mode, `SESSION` or `TRANSACTION`.
             * `size`: Maximum number of client connections.
-            * `client_idle_timeout`: Idle timeout for a client connection (in seconds).
+            * `client_idle_timeout`: Idle timeout for a client connection, in seconds.
             * `idle_in_transaction_timeout`: Idle timeout for a client connection with an open transaction (in seconds).
 
-        * `cloud_storage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ GP }} cluster to a cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
+        * `cloud_storage.enable`: Use of hybrid storage in clusters with {{ GP }} 6.25 or higher. Set it to `true` to enable the {{ yandex-cloud }} [{{ YZ }}](https://github.com/yezzey-gp/yezzey/) extension in a cluster. This extension is used to export [AO and AOCO tables](../tutorials/yezzey.md) from disks within the {{ GP }} cluster to cold storage in {{ objstorage-full-name }}. This way, the data will be stored in a service bucket compressed and encrypted. This is a [more cost-efficient storage method](../../storage/pricing.md).
 
             You cannot disable hybrid storage after you save your cluster settings.
 
@@ -808,7 +813,7 @@ To create a {{ GP }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/secu
                 Specify either `folder_id` or `log_group_id`.
 
 
-    1. Call the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
+    1. Call the [ClusterService.Create](../api-ref/grpc/Cluster/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -868,9 +873,9 @@ To create a {{ GP }} cluster copy:
         terraform show
         ```
 
-    1. Copy it from the terminal and paste it into the `.tf` file.
-    1. Place the file in the new `imported-cluster` directory.
-    1. Edit the copied configuration so that you can create a new cluster from it:
+    1. Copy it from your terminal and paste it into the `.tf` file.
+    1. Create a new directory `imported-cluster` and move your configuration file there.
+    1. Modify the configuration so that you can use it to create a new cluster:
 
         * Specify the new cluster name in the `resource` string and the `name` parameter.
         * Delete the `created_at`, `health`, `id`, `status`, `master_hosts`, and `segment_hosts` parameters.
@@ -878,11 +883,11 @@ To create a {{ GP }} cluster copy:
         * If the `maintenance_window` section has `type = "ANYTIME"`, delete the `hour` parameter.
         * Optionally, make further changes if you need a customized configuration.
 
-    1. Navigate to the `imported-cluster` directory and [get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials).
+    1. [Get the authentication credentials](../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) in the `imported-cluster` directory.
 
     1. In the same directory, [configure and initialize the provider](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). Instead of manually creating the provider configuration file, you can [download it](https://github.com/yandex-cloud-examples/yc-terraform-provider-settings/blob/main/provider.tf).
 
-    1. Place the configuration file in the `imported-cluster` directory and [specify the parameter values](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
+    1. Move the configuration file to the `imported-cluster` directory and [specify the arguments](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider). If you have not set the authentication credentials as environment variables, specify them in the configuration file.
 
     1. Validate your {{ TF }} configuration:
 
@@ -914,7 +919,7 @@ To create a {{ GP }} cluster copy:
     * Name: `gp-cluster`
     * Version: `{{ versions.cli.latest }}`
     * Environment: `PRODUCTION`
-    * Network: `default`
+    * Network: `{{ network-name }}`
     * User: `user1`
     * Password: `user1user1`
     * Master and segment hosts:
@@ -936,7 +941,7 @@ To create a {{ GP }} cluster copy:
        --name=gp-cluster \
        --greenplum-version={{ versions.cli.latest }} \
        --environment=PRODUCTION \
-       --network-name=default \
+       --network-name={{ network-name }} \
        --user-name=user1 \
        --user-password=user1user1 \
        --master-config resource-id=s2.medium,`

@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kubernetes/cli-ref/node-group/delete
 editable: false
 ---
 

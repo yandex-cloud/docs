@@ -1,5 +1,6 @@
 ---
 canonical: '{{ link-docs }}/tutorials/serverless/bucket-to-bucket-copying'
+noIndex: true
 ---
 
 # Автоматическое копирование объектов из одного бакета {{ objstorage-name }} в другой

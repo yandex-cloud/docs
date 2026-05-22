@@ -30,7 +30,7 @@ Storage usage is measured in GB per hour. The amount of data stored for a month 
 
 {% note warning %}
 
-If multiple [Docker images](concepts/docker-image.md) in the same registry use the same layers, you are not charged repeatedly for storing each re-used layer. Whether the layer is unique is determined by its [hash](concepts/docker-image.md#version).
+If multiple [Docker images](concepts/artifacts/docker.md) in the same registry use the same layers, you are not charged repeatedly for storing each re-used layer. Whether the layer is unique is determined by its [hash](concepts/artifacts/docker.md#version).
 
 {% endnote %}
 

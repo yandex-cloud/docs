@@ -32,7 +32,7 @@
 
   1. Войдите в [консоль управления]({{ link-console-main }}) {{ yandex-cloud }}.
   1. В левой части экрана нажмите на строку с именем каталога, в котором вы хотите развернуть контейнер.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Нажмите **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. В поле **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** укажите `github-action`.
   1. Нажмите ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите роли:
@@ -202,21 +202,15 @@
       * Каталог, в котором ранее вы развернули облачную инфраструктуру и назначили роль сервисному аккаунту.
       * Сервисный аккаунт `github-action`.
 
-        {% note tip %}
-
-        Чтобы повторно запросить список облаков, каталогов и сервисных аккаунтов из {{ yandex-cloud }}, нажмите  ![image](../../_assets/console-icons/arrow-rotate-right.svg) **Синхронизировать**. Это может быть полезно, если параллельно с созданием сервисного подключения вы создали каталог или сервисный аккаунт.
-
-        {% endnote %}
+        {% include [service-connection-synchronization](../../_includes/sourcecraft/service-connection-synchronization.md) %}
 
   1. Нажмите **{{ ui-key.sourcecraft.serviceConnections.button_create-connection_uyK29 }}**.
 
-      Дождитесь окончания операции. На открывшейся странице будут представлены детали сервисного подключения.
-
-      В {{ yandex-cloud }} будет автоматически создана [федерация сервисных аккаунтов](../../iam/concepts/workload-identity.md) {{ iam-full-name }}.
-
-      Чтобы посмотреть параметры созданного OIDC-провайдера, в блоке ![image](../../_assets/console-icons/cpus.svg) **{{ ui-key.sourcecraft.serviceConnections.title_oidc-federation_eC6Jw }}** нажмите на имя федерации.
-
 {% endlist %}
+
+{% include [service-connection-details](../../_includes/sourcecraft/service-connection-details.md) %}
+
+{% include [service-connection-repository-level](../../_includes/sourcecraft/service-connection-repository-level.md) %}
 
 ## Настройте CI/CD {#config-ci-cd}
 
@@ -267,7 +261,8 @@
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
+  1. Откройте [консоль управления]({{ link-console-main }}).
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. В списке должен появиться контейнер `demo-serverless-container1`, выберите его.
 
       В блоке **{{ ui-key.yacloud.serverless-containers.section-revisions }}** должна появиться ревизия контейнера, по времени создания соответствующая времени [запуска CI/CD-процесса](#check-ci-cd).
@@ -309,8 +304,11 @@
 ## См. также {#see-also}
 
 * [Настроить CI/CD между {{ src-name }} и {{ sf-full-name }}](../../tutorials/serverless/ci-cd-sourcecraft-functions.md)
+* [Сервисные подключения]({{ link-src-docs }}/sourcecraft/concepts/service-connections)
 * [Настроить в {{ src-name }} сервисное подключение к {{ yandex-cloud }}]({{ link-src-docs }}/sourcecraft/operations/service-connections)
 * [Интеграция с GitHub Actions в {{ src-name }}]({{ link-src-docs }}/sourcecraft/concepts/gh-actions)
+* [Использовать GitHub Actions в CI/CD {{ src-full-name }}]({{ link-src-docs }}/sourcecraft/operations/gh-actions)
+* [Пайплайны {{ GL }} в CI/CD {{ src-name }}]({{ link-src-docs }}/sourcecraft/concepts/gl-pipelines)
+* [Использовать пайплайн {{ GL }} в CI/CD {{ src-name }}]({{ link-src-docs }}/sourcecraft/operations/gl-pipelines)
 * [Репозиторий serverless-functions в {{ src-name }}]({{ link-src-main }}/yandex-cloud-examples/serverless-functions)
 * [Репозиторий yc-ci-cd-serverless в {{ src-name }}]({{ link-src-main }}/sourcecraft/yc-ci-cd-serverless)
-* [Использовать пайплайн {{ GL }} в CI/CD {{ src-name }}]({{ link-src-docs }}/sourcecraft/operations/gl-pipelines)

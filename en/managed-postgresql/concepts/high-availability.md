@@ -19,9 +19,9 @@ We do not recommend creating a single-host cluster.
 
 {% endnote %}
 
-A cluster with two hosts located in different availability zones is considered highly available and is subject to the [SLA](https://yandex.com/legal/cloud_sla_mdb/en/). This option is suitable for medium-sized applications in a production environment. The default cluster configuration offered in the management console includes two hosts.
+A cluster with two hosts located in different availability zones is considered highly available and is subject to the [SLA](https://yandex.ru/legal/cloud_sla_mdb/). This option is suitable for medium-sized applications in a production environment. The default cluster configuration offered in the management console includes two hosts.
 
-A cluster with three or more hosts located in three different availability zones is considered highly available and is subject to the [SLA](https://yandex.com/legal/cloud_sla_mdb/en/). Such clusters are suitable for production environments subject to high availability and performance requirements.
+A cluster with three or more hosts located in three different availability zones is considered highly available and is subject to the [SLA](https://yandex.ru/legal/cloud_sla_mdb/). Such clusters are suitable for production environments subject to high availability and performance requirements.
 
 For more information, see [Planning cluster topology](planning-cluster-topology.md).
 
@@ -35,7 +35,7 @@ High availability is achieved through [replication and master failover](replicat
 
 {% note warning %}
 
-Using a [special FQDN](../operations/connect.md#special-fqdns) simplifies application development, but your cluster will be unavailabile during master failover. To quickly switch to a new master, you need to implement [monitoring of master replacement](planning-cluster-topology.md#cluster-availability) on the application side.
+Using a [special FQDN](../operations/connect/fqdn.md#special-fqdns) simplifies application development, but your cluster will be unavailabile during master failover. To quickly switch to a new master, you need to implement [monitoring of master replacement](planning-cluster-topology.md#cluster-availability) on the application side.
 
 {% endnote %}
 

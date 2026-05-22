@@ -27,11 +27,9 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* {{ mrd-name }} target cluster fee, which covers the use of computing resources allocated to hosts, and disk space (see [{{ VLK }} pricing](../../managed-valkey/pricing.md)).
-* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* When creating a VM for dump upload: fee for the use of computing resources, storage, operating system (for certain OS types), and optionally public IP address (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* {{ mrd-name }} target cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ VLK }} pricing](../../managed-valkey/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* Virtual machine if created to download a dump: use of computing resources, storage, public IP address, and OS (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -329,8 +327,8 @@ The support cost for this solution includes:
 
 ## Make sure the dump is fully restored {#check-data}
 
-1. In the [management console]({{ link-console-main }}), navigate to the folder where you want to restore the cluster.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
+1. In the [management console]({{ link-console-main }}), select the folder where you want to restore the cluster.
+1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
 1. Click the cluster name and open the [{{ ui-key.yacloud.redis.cluster.switch_monitoring }}](../../managed-valkey/operations/monitoring.md) tab.
 
 Pay attention to the **DB Keys** chart showing the number of keys stored in the cluster. If the cluster is [sharded](../../managed-valkey/concepts/sharding.md), the chart will show the number of keys in each shard. In this case, the number of keys in the cluster is equal to the total number of keys across all shards.

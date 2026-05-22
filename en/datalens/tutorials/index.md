@@ -12,7 +12,7 @@ Below is a description of guidelines for working with {{ datalens-full-name }}:
 
   * [Simple dashboard from a CSV file](data-from-csv-visualization.md)
   * [Public chart with a map of Moscow from a CSV file](data-from-csv-to-public-visualization.md)
-  * [Retail chain's dashboard based on a {{ CH }} DB](data-from-ch-visualization.md)
+  * [Retail chain's dashboard based on a {{ CH }} database](data-from-ch-visualization.md)
 
 * Working with geodata
 
@@ -43,6 +43,7 @@ Below is a description of guidelines for working with {{ datalens-full-name }}:
   * [Using parameters in calculated fields](data-from-ch-with-parameters.md)
   * [Source parameterization](data-from-ch-dataset-parametrization.md)
   * [Examples of creating QL charts](data-from-ch-to-sql-chart.md)
+  * [Examples of charts created in Editor](create-chart-editor.md)
 
 
 

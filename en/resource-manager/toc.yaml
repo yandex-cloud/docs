@@ -21,6 +21,8 @@ items:
             href: operations/cloud/delete.md
           - name: Canceling cloud deletion
             href: operations/cloud/delete-cancel.md
+          - name: Managing access policies
+            href: operations/cloud/manage-access-policies.md
           - name: Setting up access rights
             href: operations/cloud/set-access-bindings.md
           - name: Getting a cloud ID
@@ -39,6 +41,8 @@ items:
             href: operations/folder/update.md
           - name: Deleting a folder
             href: operations/folder/delete.md
+          - name: Managing access policies
+            href: operations/folder/manage-access-policies.md
           - name: Setting up access rights
             href: operations/folder/set-access-bindings.md
           - name: Folder navigation
@@ -143,6 +147,78 @@ items:
             href: cli-ref/folder/unbind-access-policy.md
           - name: update
             href: cli-ref/folder/update.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: cloud
+            items:
+              - name: Overview
+                href: cli-ref/v0/cloud/index.md
+              - name: add-access-binding
+                href: cli-ref/v0/cloud/add-access-binding.md
+              - name: add-labels
+                href: cli-ref/v0/cloud/add-labels.md
+              - name: bind-access-policy
+                href: cli-ref/v0/cloud/bind-access-policy.md
+              - name: create
+                href: cli-ref/v0/cloud/create.md
+              - name: delete
+                href: cli-ref/v0/cloud/delete.md
+              - name: get
+                href: cli-ref/v0/cloud/get.md
+              - name: list
+                href: cli-ref/v0/cloud/list.md
+              - name: list-access-bindings
+                href: cli-ref/v0/cloud/list-access-bindings.md
+              - name: list-access-policy-bindings
+                href: cli-ref/v0/cloud/list-access-policy-bindings.md
+              - name: list-operations
+                href: cli-ref/v0/cloud/list-operations.md
+              - name: remove-access-binding
+                href: cli-ref/v0/cloud/remove-access-binding.md
+              - name: remove-labels
+                href: cli-ref/v0/cloud/remove-labels.md
+              - name: set-access-bindings
+                href: cli-ref/v0/cloud/set-access-bindings.md
+              - name: unbind-access-policy
+                href: cli-ref/v0/cloud/unbind-access-policy.md
+              - name: update
+                href: cli-ref/v0/cloud/update.md
+          - name: folder
+            items:
+              - name: Overview
+                href: cli-ref/v0/folder/index.md
+              - name: add-access-binding
+                href: cli-ref/v0/folder/add-access-binding.md
+              - name: add-labels
+                href: cli-ref/v0/folder/add-labels.md
+              - name: bind-access-policy
+                href: cli-ref/v0/folder/bind-access-policy.md
+              - name: create
+                href: cli-ref/v0/folder/create.md
+              - name: delete
+                href: cli-ref/v0/folder/delete.md
+              - name: get
+                href: cli-ref/v0/folder/get.md
+              - name: list
+                href: cli-ref/v0/folder/list.md
+              - name: list-access-bindings
+                href: cli-ref/v0/folder/list-access-bindings.md
+              - name: list-access-policy-bindings
+                href: cli-ref/v0/folder/list-access-policy-bindings.md
+              - name: list-operations
+                href: cli-ref/v0/folder/list-operations.md
+              - name: remove-access-binding
+                href: cli-ref/v0/folder/remove-access-binding.md
+              - name: remove-labels
+                href: cli-ref/v0/folder/remove-labels.md
+              - name: set-access-bindings
+                href: cli-ref/v0/folder/set-access-bindings.md
+              - name: unbind-access-policy
+                href: cli-ref/v0/folder/unbind-access-policy.md
+              - name: update
+                href: cli-ref/v0/folder/update.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
@@ -181,6 +257,8 @@ items:
                 href: api-ref/grpc/Cloud/bindAccessPolicy.md
               - name: UnbindAccessPolicy
                 href: api-ref/grpc/Cloud/unbindAccessPolicy.md
+              - name: UpdateAccessPolicyBindingParameters
+                href: api-ref/grpc/Cloud/updateAccessPolicyBindingParameters.md
           - name: Folder
             items:
               - name: Overview
@@ -209,6 +287,8 @@ items:
                 href: api-ref/grpc/Folder/bindAccessPolicy.md
               - name: UnbindAccessPolicy
                 href: api-ref/grpc/Folder/unbindAccessPolicy.md
+              - name: UpdateAccessPolicyBindingParameters
+                href: api-ref/grpc/Folder/updateAccessPolicyBindingParameters.md
           - name: Operation
             items:
               - name: Overview
@@ -249,6 +329,8 @@ items:
                 href: api-ref/Cloud/bindAccessPolicy.md
               - name: UnbindAccessPolicy
                 href: api-ref/Cloud/unbindAccessPolicy.md
+              - name: UpdateAccessPolicyBindingParameters
+                href: api-ref/Cloud/updateAccessPolicyBindingParameters.md
           - name: Folder
             items:
               - name: Overview
@@ -277,6 +359,8 @@ items:
                 href: api-ref/Folder/bindAccessPolicy.md
               - name: UnbindAccessPolicy
                 href: api-ref/Folder/unbindAccessPolicy.md
+              - name: UpdateAccessPolicyBindingParameters
+                href: api-ref/Folder/updateAccessPolicyBindingParameters.md
           - name: Operation
             items:
               - name: Overview

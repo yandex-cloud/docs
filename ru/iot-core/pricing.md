@@ -7,6 +7,10 @@ editable: false
 # Правила тарификации для {{ iot-name }}
 
 
+{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
+
+
+
 
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
@@ -17,7 +21,7 @@ editable: false
 
 ## Из чего складывается стоимость использования {{ iot-name }} {#rules}
 
-В рамках сервиса {{ iot-name }} тарифицируется количество сообщений. Количество сообщений считается c округлением в большую сторону по формуле: 
+В рамках сервиса {{ iot-name }} тарифицируется количество сообщений. Количество сообщений считается с округлением в большую сторону по формуле: 
 
 ```text
 количество сообщений = размер команды / 1 КБ
@@ -38,8 +42,6 @@ editable: false
 {% include [free-tier.md](../_includes/pricing/price-formula/free-tier.md) %}
 
 ### Пример расчета стоимости {#price-example}
-
-{% include [prices-difference](../_includes/prices-difference.md) %}
 
 {% include [prices-example](../_includes/iot-core/prices-example.md) %}
 
@@ -67,6 +69,7 @@ editable: false
     currency="RUB"
   />
 </MDX>
+
 
 
 

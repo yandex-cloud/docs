@@ -24,7 +24,7 @@ To get started:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) and [{{ roles.mpg.editor }}](security/index.md#managed-postgresql-editor) roles for the folder to your {{ yandex-cloud }} account. to be able to create a cluster.
+1. [Assign](../iam/operations/roles/grant.md) the [{{ roles-vpc-user }}](../vpc/security/index.md#vpc-user) and [{{ roles.mpg.editor }}](security/index.md#managed-postgresql-editor) roles for the folder to your {{ yandex-cloud }} account. These roles provide the permissions needed to create a cluster.
 
     {% include [note-managing-roles](../_includes/mdb/note-managing-roles.md) %}
 
@@ -45,8 +45,8 @@ To get started:
 
 ## Create a cluster {#cluster-create}
 
-1. In the [management console]({{ link-console-main }}), select the folder where you want to create a database cluster.
-1. [Go to](../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+1. In the [management console]({{ link-console-main }}), select the folder where you want to create your database cluster.
+1. [Navigate to](../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}** service.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 1. In the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field, enter a name for the cluster.
 1. Select the `PRODUCTION` environment.
@@ -81,7 +81,7 @@ To get started:
 
 {% note warning %}
 
-If you are using security groups for a cloud network, [configure them](operations/connect.md#configuring-security-groups) to enable all relevant traffic between the cluster and the connecting host.
+If using security groups for the cloud network, [configure them](operations/connect/index.md#configuring-security-groups) to allow all required traffic between the cluster and your connection host.
 
 {% endnote %}
 
@@ -91,7 +91,7 @@ To connect to the database:
 
 - Linux (Bash)/macOS (Zsh) {#linux-macos}
 
-    1. Get an SSL certificate:
+    1. Obtain an SSL certificate:
 
         ```bash
         mkdir -p ~/.postgresql && \
@@ -118,7 +118,7 @@ To connect to the database:
 
     1. Install the same [{{ PG }} for Windows](https://www.postgresql.org/download/windows/) version that is used in the cluster. Install only the _Command Line Tools_.
 
-    1. Get an SSL certificate:
+    1. Obtain an SSL certificate:
 
         ```powershell
         mkdir $HOME\.postgresql; curl.exe -o $HOME\.postgresql\root.crt {{ crt-web-path }}
@@ -155,6 +155,6 @@ To connect to the database:
 
 * [Transfer data](../data-transfer/tutorials/managed-postgresql.md#quick-transfer) to the cluster database.
 * Read about the [service concepts](concepts/index.md).
-* Learn more about [creating a cluster](operations/cluster-create.md) and [connecting to a database](operations/connect.md).
+* Learn more about [creating a cluster](operations/cluster-create.md) and [connecting to a database](operations/connect/index.md).
 * Check out our user [tutorials](tutorials/index.md).
-* Check [questions and answers](qa/general.md).
+* Check out the [questions and answers](qa/general.md).

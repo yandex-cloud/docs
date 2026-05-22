@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mysql/cli-ref/
 editable: false
 ---
 
@@ -82,6 +83,8 @@ Aliases:
 
   - [yc managed-mysql database list](database/list.md) — List MySQL databases
 
+  - [yc managed-mysql database update](database/update.md) — Update the specified MySQL database
+
 - [yc managed-mysql hosts](hosts/index.md) — Manage MySQL cluster hosts
 
   - [yc managed-mysql hosts add](hosts/add.md) — Create new hosts for the cluster in the specified availability zones
@@ -113,6 +116,10 @@ Aliases:
   - [yc managed-mysql user revoke-permission](user/revoke-permission.md) — Revoke permission from the specified MySQL user
 
   - [yc managed-mysql user update](user/update.md) — Update the specified MySQL user
+
+- [yc managed-mysql v0](v0/index.md) — Manage MySQL clusters, hosts, databases, backups and users.
+
+  - [yc managed-mysql v0 connect](v0/connect.md) — Connect to MySQL cluster with iam-auth
 
 #### Global Flags
 

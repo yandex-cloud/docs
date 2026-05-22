@@ -1,11 +1,11 @@
 # Loading data from {{ ydb-full-name }} to {{ objstorage-full-name }} using {{ data-transfer-full-name }}
 
 
-You can migrate data from {{ ydb-name }} to {{ objstorage-name }} using {{ data-transfer-name }}. To do this:
+You can migrate data from {{ ydb-name }} to {{ objstorage-name }} using {{ data-transfer-name }}. Proceed as follows:
 
 1. [Prepare your test data](#prepare-data).
-1. [Set up and activate the transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -14,7 +14,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 * {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../../ydb/pricing/index.md)). Its cost depends on the deployment mode:
 
-    * In serverless mode, you pay for data operations and storage volume, including stored backups.
+    * In serverless mode, you pay for data operations as well as the amount of stored data and backups.
     * In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
 
 * {{ objstorage-name }} bucket: Use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
@@ -111,7 +111,7 @@ Set up your infrastructure:
     COMMIT;
     ```
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate the transfer {#prepare-transfer}
 
 {% list tabs group=instructions %}
 
@@ -170,18 +170,18 @@ Set up your infrastructure:
 Make sure the data has been migrated from {{ ydb-name }} to the {{ objstorage-name }} bucket:
 
 1. In the [management console]({{ link-console-main }}), select the folder containing your bucket.
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+1. [Navigate to](../../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** service.
 1. Select the bucket from the list.
 1. Navigate to the **{{ ui-key.yacloud.storage.bucket.switch_files }}** tab.
 1. Make sure the {{ objstorage-name }} bucket contains the `from_YDB` directory with the `<seasons.csv>` test data object.
 
 ## Delete the resources you created {#clear-out}
 
-To reduce the consumption of resources, delete those you do not need:
+To minimize resource consumption, delete the resources you no longer need:
 
 1. [Delete the transfer](../../../data-transfer/operations/transfer.md#delete).
 1. [Delete the endpoints](../../../data-transfer/operations/endpoint/index.md#delete).
-1. Delete the other resources depending on how you created them:
+1. Delete the rest of the resources depending on how you created them:
 
    {% list tabs group=instructions %}
 

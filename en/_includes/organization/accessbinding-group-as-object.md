@@ -8,7 +8,7 @@
   
   1. Navigate to the **{{ ui-key.yacloud_org.entity.group.title_tab-access }}** tab.
 
-  1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+  1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   
   1. Select the group, user, or [service account](../../iam/concepts/users/service-accounts.md) you want to grant access to the group. Use search, if required.
   
@@ -24,7 +24,7 @@
 
     To grant access permissions for a user group:
 
-    1. See the description of the CLI role assignment command:
+    1. View the description of the CLI command for assigning roles:
 
         ```bash
         yc organization-manager group add-access-binding --help
@@ -61,6 +61,41 @@
         * `--federation-users`: Federated user ID.
         * `--service-account-id`: Service account ID.
         * `--subject group`: Group ID.
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-install](../terraform-install.md) %}
+
+  1. Describe the parameters of the roles you assign in the configuration file:
+
+      ```hcl
+      resource "yandex_organizationmanager_group_iam_binding" "editor" {
+        group_id = "<group_ID>"
+        role     = "<role_ID>"
+        members  = [
+          "userAccount:<user_ID>",
+        ]
+      }
+      ```
+
+      Where:
+
+      * `group_id`: [User group ID](../../organization/operations/group-get-id.md).
+      * `role`: Role you want to assign. For each role, you can only use one `yandex_organizationmanager_group_iam_binding` resource.
+      * `members`: Array of the IDs of users to assign the role to:
+
+        * `userAccount:<user_ID>`: ID of the user Yandex account or local user ID.
+        * `federatedUser:<user_ID>`: Federated user ID.
+        * `serviceAccount:<service_account_ID>`: Service account ID.
+        * `group:<group_ID>`: User group ID.
+
+      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
+
+  1. Create the required resources:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+   
+  After this, the specified users will be assigned roles for the user group. You can check the role in the [{{ cloud-center }}]({{ link-org-cloud-center }}) interface.
 
 - API {#api}
 

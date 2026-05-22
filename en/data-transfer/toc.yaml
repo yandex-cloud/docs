@@ -127,6 +127,8 @@ items:
         items:
           - name: '{{ PG }} cluster'
             href: tutorials/managed-postgresql.md
+          - name: Migrating a {{ mpg-name }} cluster to another version
+            href: tutorials/postgresql-versions.md
           - name: Data in {{ MY }}
             href: tutorials/managed-mysql.md
           - name: Third-party {{ MY }} cluster
@@ -290,7 +292,7 @@ items:
         href: concepts/copy-speed.md
       - name: Change data capture
         href: concepts/cdc.md
-      - name: What tasks the service is used for
+      - name: Use cases
         href: concepts/use-cases.md
       - name: Quotas and limits
         href: concepts/limits.md
@@ -380,6 +382,86 @@ items:
             href: cli-ref/transfer/list.md
           - name: update
             href: cli-ref/transfer/update.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: endpoint
+            items:
+              - name: Overview
+                href: cli-ref/v0/endpoint/index.md
+              - name: create
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/endpoint/create/index.md
+                  - name: clickhouse-source
+                    href: cli-ref/v0/endpoint/create/clickhouse-source.md
+                  - name: clickhouse-target
+                    href: cli-ref/v0/endpoint/create/clickhouse-target.md
+                  - name: mongo-source
+                    href: cli-ref/v0/endpoint/create/mongo-source.md
+                  - name: mongo-target
+                    href: cli-ref/v0/endpoint/create/mongo-target.md
+                  - name: mysql-source
+                    href: cli-ref/v0/endpoint/create/mysql-source.md
+                  - name: mysql-target
+                    href: cli-ref/v0/endpoint/create/mysql-target.md
+                  - name: postgres-source
+                    href: cli-ref/v0/endpoint/create/postgres-source.md
+                  - name: postgres-target
+                    href: cli-ref/v0/endpoint/create/postgres-target.md
+                  - name: yds-source
+                    href: cli-ref/v0/endpoint/create/yds-source.md
+                  - name: yds-target
+                    href: cli-ref/v0/endpoint/create/yds-target.md
+              - name: delete
+                href: cli-ref/v0/endpoint/delete.md
+              - name: get
+                href: cli-ref/v0/endpoint/get.md
+              - name: list
+                href: cli-ref/v0/endpoint/list.md
+              - name: update
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/endpoint/update/index.md
+                  - name: clickhouse-source
+                    href: cli-ref/v0/endpoint/update/clickhouse-source.md
+                  - name: clickhouse-target
+                    href: cli-ref/v0/endpoint/update/clickhouse-target.md
+                  - name: mongo-source
+                    href: cli-ref/v0/endpoint/update/mongo-source.md
+                  - name: mongo-target
+                    href: cli-ref/v0/endpoint/update/mongo-target.md
+                  - name: mysql-source
+                    href: cli-ref/v0/endpoint/update/mysql-source.md
+                  - name: mysql-target
+                    href: cli-ref/v0/endpoint/update/mysql-target.md
+                  - name: postgres-source
+                    href: cli-ref/v0/endpoint/update/postgres-source.md
+                  - name: postgres-target
+                    href: cli-ref/v0/endpoint/update/postgres-target.md
+                  - name: yds-source
+                    href: cli-ref/v0/endpoint/update/yds-source.md
+                  - name: yds-target
+                    href: cli-ref/v0/endpoint/update/yds-target.md
+          - name: transfer
+            items:
+              - name: Overview
+                href: cli-ref/v0/transfer/index.md
+              - name: activate
+                href: cli-ref/v0/transfer/activate.md
+              - name: create
+                href: cli-ref/v0/transfer/create.md
+              - name: deactivate
+                href: cli-ref/v0/transfer/deactivate.md
+              - name: delete
+                href: cli-ref/v0/transfer/delete.md
+              - name: get
+                href: cli-ref/v0/transfer/get.md
+              - name: list
+                href: cli-ref/v0/transfer/list.md
+              - name: update
+                href: cli-ref/v0/transfer/update.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
@@ -484,31 +566,33 @@ items:
     items:
       - name: All release notes
         href: release-notes/index.md
-      - name: December 2025
-        href: release-notes/2512.md
-      - name: November 2025
-        href: release-notes/2511.md
-      - name: October 2025
-        href: release-notes/2510.md
-      - name: September 2025
-        href: release-notes/2509.md
-      - name: August 2025
-        href: release-notes/2508.md
-      - name: July 2025
-        href: release-notes/2507.md
-      - name: June 2025
-        href: release-notes/2506.md
-      - name: May 2025
-        href: release-notes/2505.md
-      - name: April 2025
-        href: release-notes/2504.md
-      - name: March 2025
-        href: release-notes/2503.md
-      - name: February 2025
-        href: release-notes/2502.md
-      - name: January 2025
-        href: release-notes/2501.md
-      - name: '2024'
+      - name: 2025
+        items:
+          - name: December 2025
+            href: release-notes/2512.md
+          - name: November 2025
+            href: release-notes/2511.md
+          - name: October 2025
+            href: release-notes/2510.md
+          - name: September 2025
+            href: release-notes/2509.md
+          - name: August 2025
+            href: release-notes/2508.md
+          - name: July 2025
+            href: release-notes/2507.md
+          - name: June 2025
+            href: release-notes/2506.md
+          - name: May 2025
+            href: release-notes/2505.md
+          - name: April 2025
+            href: release-notes/2504.md
+          - name: March 2025
+            href: release-notes/2503.md
+          - name: February 2025
+            href: release-notes/2502.md
+          - name: January 2025
+            href: release-notes/2501.md
+      - name: 2024
         items:
           - name: December 2024
             href: release-notes/2412.md
@@ -534,7 +618,7 @@ items:
             href: release-notes/2402.md
           - name: January 2024
             href: release-notes/2401.md
-      - name: '2023'
+      - name: 2023
         items:
           - name: December 2023
             href: release-notes/2312.md

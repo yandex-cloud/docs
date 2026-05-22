@@ -60,7 +60,8 @@ Velero uses the {{ CSI }} driver to [create backups](../../tutorials/kubernetes-
 
 ## Installation from {{ marketplace-full-name }} {#marketplace-install}
 
-1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the {{ managed-k8s-name }} cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Velero](/marketplace/products/yc/velero-yc-csi) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
@@ -76,7 +77,7 @@ Velero uses the {{ CSI }} driver to [create backups](../../tutorials/kubernetes-
    * **{{ objstorage-name }} static access key**: Copy the contents of the `sa-key.json` file or create a new [access key](../../../iam/concepts/authorization/access-key.md) for the service account. The service account must have the `storage.editor` role.
    * **{{ objstorage-name }} bucket name**: Specify the name of the {{ objstorage-name }} bucket.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application status to change to `Deployed`.
 
 ## Installation using a Helm chart {#helm-install}
 
@@ -102,4 +103,4 @@ Velero uses the {{ CSI }} driver to [create backups](../../tutorials/kubernetes-
 ## See also {#see-also}
 
 * [Velero documentation](https://velero.io/docs/v1.11/examples/)
-* [{{ managed-k8s-name }} cluster backups in {{ objstorage-name }}](../../tutorials/kubernetes-backup.md)
+* [Backing up a {{ managed-k8s-name }} cluster to {{ objstorage-name }}](../../tutorials/kubernetes-backup.md)

@@ -7,6 +7,7 @@ editable: false
 
 # {{ mch-short-name }} pricing policy
 
+
 In this section, you can find the {{ mch-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources.
 
 {% note tip %}
@@ -60,19 +61,19 @@ In clusters with [{{ CK }}](./concepts/replication.md#ck) support off and with t
 
 {% endnote %}
 
-The minimum billing unit is one minute, e.g., 1.5 minutes of host operation cost the same as two minutes. You do not pay for the time when the DBMS or {{ ZK }} host is unable to perform its main functions.
+The minimum billing unit is one minute, e.g., 1.5 minutes of host usage is billed as 2 minutes. You do not pay for the time when the DBMS or {{ ZK }} host is unable to perform its main functions.
 
 
 ### Disk space usage {#rules-storage}
 
-You pay for the following:
+You are billed for the following:
 
 * Storage allocated for database clusters.
 
    * You can only order local SSD storage (`local-ssd`) for clusters with three or more hosts:
         * For **Intel Broadwell** and **Intel Cascade Lake**: In increments of 100 GB.
-        * For **Intel Ice Lake**: In increments of {{ local-ssd-v3-step }}.
-   * Non-replicated SSD storage (`network-ssd-nonreplicated`) can only be ordered for clusters with three or more hosts, in increments of 93 GB.
+        * For **Intel Ice Lake** and **AMD Zen 4**: In {{ local-ssd-v3-step }} increments.
+   * You can order non-replicated SSD storage (`network-ssd-nonreplicated`) only for clusters with three or more hosts, and it must be allocated in 93 GB increments.
 
 * Size of data backups in [local](concepts/storage.md#local-storage-features) and [network](concepts/storage.md) storage:
 
@@ -92,12 +93,14 @@ You pay for the following:
 
    * The cost of using {{ objstorage-name }} includes both the space used by the backups and the space used by the data itself.
 
-   * When performing automatic backups, {{ mch-short-name }} does not create a new backup but saves the database changes introduced since the previous one. This means the storage space used by automatic backups increases only in proportion to the amount of changes.
+   * When performing automatic backups, {{ mch-short-name }} does not create a new backup but saves the database changes introduced since the previous one. As a result, the storage used by automatic backups grows only in proportion to the amount of changes.
 
-The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes costs the same as for 2 minutes.
+The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
 
 
-### Example of cluster cost calculation {#example}
+### Cluster cost calculation example {#example}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 Let's calculate the cost of using a cluster with the following properties for 30 days:
 
@@ -117,7 +120,7 @@ Let's calculate the cost of using a cluster with the following properties for 30
 
 {% include [cvos](../_includes/mdb/cvos.md) %}
 
-{{ mch-name }} provides two types of CVoS: on vCPUs and on RAM for the hosts you are going to use in your database clusters. In the management console, you can see how much you can potentially save with CVoS at the current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
+{{ mch-name }} provides two types of CVoS: for vCPUs and for RAM on the hosts you are going to use in your database clusters. In the management console, you can see how much you can potentially save with CVoS at your current consumption level. You can also estimate your monthly payments for the required number of vCPUs and RAM.
 
 {% note info %}
 
@@ -132,8 +135,6 @@ A CVoS discount is only available for certain types of resources. For unsupporte
 
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
-{% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
 You cannot order {{ ZK }} host resources via CVoS.
 

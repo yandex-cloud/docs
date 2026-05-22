@@ -6,20 +6,20 @@ A {{ ydb-name }} cluster can ingest data from {{ PG }} databases in real time. T
 To start data delivery:
 
 1. [Prepare the source cluster](#prepare-source).
-1. [Set up and activate the transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
 ## Required paid resources {#paid-resources}
 
-* {{ mpg-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* {{ mpg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 * {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). Its cost depends on the deployment mode:
 
-	* In serverless mode, you pay for data operations as well as the amount of stored data and backups.
-  	* In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
+    * In serverless mode, you pay for data operations and storage volume, including stored backups.
+    * In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage and backup size.
 
 
 ## Getting started {#before-you-begin}
@@ -86,7 +86,7 @@ Set up your data delivery infrastructure:
 
 ## Prepare the source cluster {#prepare-source}
 
-1. [Connect to the source cluster’s database](../../managed-postgresql/operations/connect.md) with your new user account.
+1. [Connect to the source cluster’s database](../../managed-postgresql/operations/connect/index.md) with your new user account.
 1. Populate the database with test data. In this example, we will use a simple table with car sensor information.
 
     Create a table:
@@ -116,7 +116,7 @@ Set up your data delivery infrastructure:
 
 1. [Prepare the source cluster for transfer](../../data-transfer/operations/prepare.md#source-pg).
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate the transfer {#prepare-transfer}
 
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
@@ -174,7 +174,7 @@ Set up your data delivery infrastructure:
 
     {% endlist %}
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 1. Make sure the data from the {{ mpg-name }} source cluster has been transferred to the {{ ydb-name }} database:
@@ -184,7 +184,7 @@ Set up your data delivery infrastructure:
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder containing your database.
-        1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+        1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
         1. Select your database from the list.
         1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
         1. Check that the {{ ydb-name }} database contains the `public_sensors` table with test data.
@@ -202,7 +202,7 @@ Set up your data delivery infrastructure:
 
     {% endlist %}
 
-1. [Connect to the {{ mpg-name }} source cluster](../../managed-postgresql/operations/connect.md) and populate the `sensors` table with data:
+1. [Connect to the {{ mpg-name }} source cluster](../../managed-postgresql/operations/connect/index.md) and populate the `sensors` table with data:
 
     ```sql
     INSERT INTO public.sensors VALUES
@@ -216,7 +216,7 @@ Set up your data delivery infrastructure:
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder containing your database.
-        1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+        1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
         1. Select your database from the list.
         1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
         1. Check that `public_sensors` now contains the new data.
@@ -236,7 +236,7 @@ Set up your data delivery infrastructure:
 
 ## Delete the resources you created {#clear-out}
 
-To reduce the consumption of resources, delete those you do not need:
+To minimize resource consumption, delete the resources you no longer need:
 
 {% list tabs group=instructions %}
 

@@ -1,6 +1,6 @@
 ---
 title: How to delete a user pool in {{ org-full-name }}
-description: Follow this guide to delete a user pool in {{ org-name }}.
+description: Follow this guide to delete a user pool in {{ org-full-name }}.
 ---
 
 # Deleting a user pool
@@ -53,13 +53,13 @@ description: Follow this guide to delete a user pool in {{ org-name }}.
      }
      ```
 
-     For more information about `yandex_organizationmanager_idp_userpool` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/organizationmanager_idp_userpool).
+     For more information about `yandex_organizationmanager_idp_userpool` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_userpool).
 
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will delete all the resources as appropriate. You can check the deletion of the resources in [{{ org-full-name }}]({{ link-org-cloud-center }}) or using this [CLI](../../../cli/) command:
+     {{ TF }} will delete all the resources as appropriate. You can check the deletion of the resources in the [{{ cloud-center }} interface]({{ link-org-cloud-center }}) or using this [CLI](../../../cli/) command:
 
      ```bash
      yc organization-manager idp userpool list --organization-id <organization_ID>

@@ -1,4 +1,4 @@
-Вы можете использовать [{{ keycloak }}](https://www.keycloak.org/) для [аутентификации пользователей](../../managed-opensearch/operations/saml-authentication.md), которые работают с {{ OS }} Dashboards в кластере {{ mos-name }}.
+Вы можете использовать [{{ keycloak }}](https://www.keycloak.org/) для [аутентификации пользователей](../../managed-opensearch/operations/saml-authentication.md), которые работают с {{ OS }} Dashboards в кластере {{ mos-full-name }}.
 
 Чтобы настроить аутентификацию:
 
@@ -12,6 +12,13 @@
 Это практическое руководство проверялось для кластера {{ OS }} 2.8 и {{ keycloak }} 24.0.
 
 {% endnote %}
+
+
+## Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ mos-name }}: использование вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mos-name }}](../../managed-opensearch/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+
 
 ## Перед началом работы {#before-you-begin}
 
@@ -149,7 +156,8 @@
 
     Чтобы настроить источник аутентификации {{ keycloak }}:
 
-    1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. Нажмите на имя нужного кластера и выберите вкладку **{{ ui-key.yacloud.opensearch.auth.section_auth }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.opensearch.auth.button_settings }}**.
     1. Укажите нужные значения настроек:

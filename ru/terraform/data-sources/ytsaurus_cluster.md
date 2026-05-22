@@ -76,6 +76,8 @@ filename: yandex/cloud/ytsaurus/v1/cluster.proto
       - `account_usage_ratio_save_total` (Number). Total max space usage ratio.
       - `interval` (String). Script starting interval.
       - `max_dir_node_count` (Number). Max nodes in every directory.
+  - `excel` [Block]. Cluster Excel configuration.
+    - `enabled` (Bool). Enable Excel.
   - `flavor` (String). Cluster flavor (type).
   - `odin` [Block]. Odin configuration.
     - `checks_ttl` (String). TTL of Odin check samples.
@@ -84,6 +86,8 @@ filename: yandex/cloud/ytsaurus/v1/cluster.proto
       - `count` (Number). Total amount of HTTP proxies.
     - `rpc` [Block]. Configuration of rpc proxies.
       - `count` (Number). Total amount of RPC proxies.
+    - `task` [Block]. Configuration of task proxies.
+      - `count` (Number). Total amount of task proxies.
   - `storage` [Block]. Cluster storage configuration.
     - `hdd` [Block]. Configuration of cluster HDD strorage.
       - `count` (Number). Total amount of HDD disks.
@@ -101,6 +105,11 @@ filename: yandex/cloud/ytsaurus/v1/cluster.proto
     - `preset` (String). VM configuration preset name.
 - `status` (*Read-Only*) (String). Status of the cluster.
 - `subnet_id` (**Required**)(String). ID of the subnet where the cluster resides.
+- `timeouts` [Block]. 
+  - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+  - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+  - `read` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+  - `update` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 - `updated_at` (*Read-Only*) (String). Time when the cluster was last updated.
 - `updated_by` (*Read-Only*) (String). User who last updated the cluster.
 - `zone_id` (**Required**)(String). ID of the availability zone where the cluster resides.

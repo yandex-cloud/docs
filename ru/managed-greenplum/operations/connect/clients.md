@@ -1,20 +1,20 @@
 ---
-title: Подключение к кластеру {{ GP }} в {{ mgp-full-name }}
-description: Следуя этой инструкции, вы сможете подключиться к базе данных в кластере {{ GP }} с помощью инструментов командной строки, из графических IDE, {{ pgadmin }} и Docker-контейнера.
+title: Подключение к кластеру {{ mgp-full-name }}
+description: Следуя этой инструкции, вы сможете подключиться к базе данных в кластере {{ mgp-name }} с помощью инструментов командной строки, из графических IDE, {{ pgadmin }} и Docker-контейнера.
 ---
 
-# Подключение к кластеру {{ GP }} из приложений
+# Подключение к кластеру {{ mgp-name }} из приложений
 
 В этом разделе представлены настройки для подключения к хостам кластера {{ mgp-name }} с помощью [инструментов командной строки](#command-line-tools), из [графических IDE](#connection-ide), [{{ pgadmin }}](#connection-pgadmin) и [Docker-контейнера](#connection-docker). О подключении из кода вашего приложения см. [Примеры кода](code-examples.md).
 
-При создании кластера {{ GP }} пользовательская база данных не создается. Для проверки подключения используйте служебную базу `postgres`.
+При создании кластера {{ mgp-name }} пользовательская база данных не создается. Для проверки подключения используйте служебную базу `postgres`.
 
 Для подключения к кластеру с публичным доступом [подготовьте SSL-сертификат](index.md#get-ssl-cert). В примерах предполагается, что SSL-сертификат `root.crt` расположен в директории:
 
 * `/home/<домашняя_директория>/.postgresql/` для Ubuntu;
 * `$HOME\AppData\Roaming\postgresql` для Windows.
 
-Подключиться к кластеру можно как с использованием обычного FQDN хоста-мастера, так и [особого FQDN](fqdn.md#fqdn-master) первичного хоста-мастера. О том, как получить FQDN хоста, см. [инструкцию](fqdn.md).
+Подключиться к кластеру можно как с использованием обычного FQDN хоста-мастера, так и [особого FQDN](fqdn.md#fqdn-master) первичного хоста-мастера. При подключении через psql или с помощью JDBC-коннектора вы можете указать сразу два хоста-мастера. О том, как получить FQDN хоста, см. [инструкцию](fqdn.md).
 
 
 ## Инструменты командной строки {#command-line-tools}
@@ -36,7 +36,7 @@ sudo apt update && sudo apt install --yes postgresql-client
 - Подключение без SSL {#without-ssl}
 
   ```bash
-  psql "host=c-<идентификатор_кластера>.rw.{{ dns-zone }} \
+  psql "host=<FQDN_первичного_хоста-мастера>,<FQDN_резервного_хоста-мастера> \
         port={{ port-mgp }} \
         sslmode=disable \
         dbname=postgres \
@@ -70,7 +70,7 @@ SELECT version();
 
   ```powershell
   & "C:\Program Files\PostgreSQL\<версия>\bin\psql.exe" "`
-      host=c-<идентификатор_кластера>.rw.{{ dns-zone }} `
+      host=<FQDN_первичного_хоста-мастера>,<FQDN_резервного_хоста-мастера> `
       port={{ port-mgp }} `
       sslmode=disable `
       dbname=postgres `
@@ -81,7 +81,7 @@ SELECT version();
 
   ```powershell
   & "C:\Program Files\PostgreSQL\<версия>\bin\psql.exe" "`
-      host=c-<идентификатор_кластера>.rw.{{ dns-zone }} `
+      host=<FQDN_первичного_хоста-мастера>,<FQDN_резервного_хоста-мастера> `
       port={{ port-mgp }} `
       sslmode=verify-full `
       dbname=postgres `
@@ -101,7 +101,7 @@ SELECT version();
 
 ### Подключение с авторизацией через IAM {#iam}
 
-К базе данных {{ GP }} можно подключиться с помощью [интерфейса командной строки {{ yandex-cloud }} (CLI)](../../../cli/quickstart.md#install), используя авторизацию через IAM. Для этого нужно привязать к пользователю {{ GP }} [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport) или [федеративный аккаунт](../../../iam/concepts/users/accounts.md#saml-federation). Подключаться с авторизацией через IAM можно только к кластеру в публичном доступе, при этом использование SSL-сертификата не требуется.
+К базе данных в кластере {{ mgp-name }} можно подключиться с помощью [интерфейса командной строки {{ yandex-cloud }} (CLI)](../../../cli/quickstart.md#install), используя авторизацию через IAM. Для этого нужно привязать к пользователю {{ mgp-name }} [аккаунт на Яндексе](../../../iam/concepts/users/accounts.md#passport) или [федеративный аккаунт](../../../iam/concepts/users/accounts.md#saml-federation). Подключаться с авторизацией через IAM можно только к кластеру в публичном доступе, при этом использование SSL-сертификата не требуется.
 
 Перед подключением установите клиент {{ PG }}:
 
@@ -122,21 +122,21 @@ sudo apt update && sudo apt install --yes postgresql-client
   1. [Включите публичный доступ к кластеру](../update.md#change-public-access).
  
   1. Назначьте роль аккаунту пользователя, который будет подключаться к БД:
-     1. Выберите вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+     1. Выберите вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
      1. Введите электронную почту пользователя, к которой привязан аккаунт.
-     1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role}}** и выберите роль `managed-greenplum.clusters.connector`.
+     1. Нажмите кнопку ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите роль `managed-greenplum.clusters.connector`.
      1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.apply }}**.
 
-  1. Создайте пользователя {{ GP }} и предоставьте ему доступ к нужной БД:
+  1. Создайте пользователя в кластере {{ mgp-name }} и предоставьте ему доступ к нужной БД:
      1. Подключитесь к кластеру {{ mgp-name }} любым удобным методом.
-     1. Создайте пользователя {{ GP }}, указав в качестве его имени электронную почту, к которой привязан аккаунт:
+     1. Создайте пользователя, указав в качестве его имени электронную почту, к которой привязан аккаунт:
 
         ```sql
         CREATE ROLE "<электронная_почта_аккаунта>"
             LOGIN
             ENCRYPTED PASSWORD '<пароль>';
         ```
-     1. При необходимости [настройте привилегии](../roles-and-users.md#privileges) и атрибуты созданного пользователя {{ GP }}.
+     1. При необходимости [настройте привилегии](../roles-and-users.md#privileges) и атрибуты созданного пользователя.
 
   1. Добавьте правило аутентификации созданного пользователя:
      1. Выберите вкладку **{{ ui-key.yacloud.greenplum.label_user-auth }}**.
@@ -153,7 +153,7 @@ sudo apt update && sudo apt install --yes postgresql-client
 
 {% endlist %}
 
-Чтобы подключиться к БД {{ GP }}, выполните команду:
+Чтобы подключиться к БД в кластере {{ mgp-name }}, выполните команду:
 
 ```bash
 {{ yc-mdb-gp }} connect <имя_или_идентификатор_кластера> --db <имя_БД>
@@ -164,7 +164,9 @@ sudo apt update && sudo apt install --yes postgresql-client
 
 {% include [ide-environments](../../../_includes/mdb/mdb-ide-envs.md) %}
 
+
 Подключаться из графических IDE можно только к кластеру в публичном доступе с использованием SSL-сертификата.
+
 
 {% include [note-connection-ide](../../../_includes/mdb/note-connection-ide.md) %}
 
@@ -180,10 +182,10 @@ sudo apt update && sudo apt install --yes postgresql-client
             1. Укажите параметры подключения:
 
                 * **User**, **Password** — имя и пароль пользователя БД;
-                * **URL** — строка подключения. Используйте [особый FQDN первичного мастера](./fqdn.md#fqdn-master):
+                * **URL** — строка подключения:
 
                     ```http
-                    jdbc:postgresql://c-<идентификатор_кластера>.rw.{{ dns-zone }}:{{ port-mgp }}/<имя_БД>
+                    jdbc:postgresql://<FQDN_первичного_хоста-мастера>:{{ port-mgp }},<FQDN_резервного_хоста-мастера>:{{ port-mgp }}/<имя_БД>
                     ```
 
             1. Нажмите ссылку **Download**, чтобы загрузить драйвер соединения.
@@ -216,7 +218,9 @@ sudo apt update && sudo apt install --yes postgresql-client
 
 Подключение проверялось для [{{ pgadmin }}](https://www.pgadmin.org) версии 7.1 в macOS Ventura 13.0 и Microsoft Windows 10 Pro 21H1.
 
+
 Подключаться из {{ pgadmin }} можно только к хостам кластера в публичном доступе с [использованием SSL-сертификата](#get-ssl-cert).
+
 
 Создайте новое подключение к серверу:
 
@@ -249,7 +253,7 @@ column "wait_event_type" does not exist LINE 10: wait_event_type || ': ' || wait
 
 ## Подготовка к подключению из Docker-контейнера {#connection-docker}
 
-Чтобы подключаться к кластеру {{ GP }} из Docker-контейнера, добавьте в Dockerfile строки:
+Чтобы подключаться к кластеру {{ mgp-name }} из Docker-контейнера, добавьте в Dockerfile строки:
 
 {% list tabs group=connection %}
 

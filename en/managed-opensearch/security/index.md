@@ -1,18 +1,18 @@
 ---
 title: Access management in {{ mos-full-name }}
-description: Access management in the {{ OS }} database creation and management service. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
+description: Access management in the {{ OS }} database creation and management service. This section describes the resources you can assign a role for, the roles this service has, and the roles required for specific actions.
 ---
 
 # Managing access to {{ mos-name }}
 
 
-In this section, you will learn about:
+In this section, you will learn about the following:
 
 * [Resources you can assign a role for](#resources).
 * [Roles this service has](#roles-list).
 * [Roles required for specific actions](#required-roles).
 
-To use {{ mos-name }}, log in to the management console with your [Yandex account](../../iam/concepts/users/accounts.md#passport), [federated account](../../iam/concepts/users/accounts.md#saml-federation), or [local account](../../iam/concepts/users/accounts.md#local).
+To use the service, log in to the management console with your [Yandex account](../../iam/concepts/users/accounts.md#passport), [federated account](../../iam/concepts/users/accounts.md#saml-federation), or [local account](../../iam/concepts/users/accounts.md#local).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
@@ -30,7 +30,7 @@ You can also assign a role for an individual cluster in the [management console]
 
 ## Roles this service has {#roles-list}
 
-The chart below shows the roles existing in the service and their permission inheritance. For example, `{{ roles-editor }}` inherits all `{{ roles-viewer }}` permissions. You can find the role descriptions below the chart.
+The diagram below shows available service roles and their permission inheritance hierarchy. For example, `{{ roles-editor }}` inherits all `{{ roles-viewer }}` permissions. You can find role descriptions below the diagram.
 
 {% include [roles-managed-opensearch](../../_mermaid/roles/managed-opensearch.md) %}
 
@@ -48,6 +48,10 @@ The chart below shows the roles existing in the service and their permission inh
 
 {% include [opensearch.restorer](../../_roles/managed-opensearch/restorer.md) %}
 
+#### managed-opensearch.user {#managed-opensearch-user}
+
+{% include [managed-opensearch.user](../../_roles/managed-opensearch/user.md) %}
+
 #### managed-opensearch.editor {#managed-opensearch-editor}
 
 {% include [opensearch.editor](../../_roles/managed-opensearch/editor.md) %}
@@ -55,6 +59,14 @@ The chart below shows the roles existing in the service and their permission inh
 #### managed-opensearch.admin {#managed-opensearch-admin}
 
 {% include [opensearch.admin](../../_roles/managed-opensearch/admin.md) %}
+
+#### managed-opensearch.maintenanceTask.viewer {#managed-opensearch-maintenanceTask-viewer}
+
+{% include [managed-opensearch.maintenanceTask.viewer](../../_roles/managed-opensearch/maintenanceTask/viewer.md) %}
+
+#### managed-opensearch.maintenanceTask.editor {#managed-opensearch-maintenanceTask-editor}
+
+{% include [managed-opensearch.maintenanceTask.editor](../../_roles/managed-opensearch/maintenanceTask/editor.md) %}
 
 #### mdb.auditor {#mdb-auditor}
 
@@ -72,6 +84,14 @@ The chart below shows the roles existing in the service and their permission inh
 
 {% include [mdb-restorer](../../_roles/mdb/restorer.md) %}
 
+#### mdb.maintenanceTask.viewer {#mdb-maintenanceTask-viewer}
+
+{% include [mdb.maintenanceTask.viewer](../../_roles/mdb/maintenanceTask/viewer.md) %}
+
+#### mdb.maintenanceTask.editor {#mdb-maintenanceTask-editor}
+
+{% include [mdb.maintenanceTask.editor](../../_roles/mdb/maintenanceTask/editor.md) %}
+
 #### vpc.publicAdmin {#vpc-public-admin}
 
 {% include [vpc-publicadmin](../../_roles/vpc/publicAdmin.md) %}
@@ -85,11 +105,11 @@ The chart below shows the roles existing in the service and their permission inh
 
 ## Required roles {#required-roles}
 
-To use {{ mos-name }}, you need the [{{ roles.mos.editor }} role or higher](../../iam/concepts/access-control/roles.md) for the folder that will contain the new cluster. The `{{ roles.mos.viewer }}` role only allows you to view the list of clusters.
+As a user, you need the [{{ roles.mos.editor }} role or higher](../../iam/concepts/access-control/roles.md) for the folder that will contain the new cluster. The `{{ roles.mos.viewer }}` role only allows you to view the list of clusters.
 
 To create a {{ mos-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mos.editor }}` role or higher.
 
-You can always assign a role with more permissions. For example, you can assign the `{{ roles.mos.admin }}` role instead of `{{ roles.mos.editor }}`.
+You can always assign a role with more permissions, e.g., `{{ roles.mos.admin }}` instead of `{{ roles.mos.editor }}`.
 
 ## What's next {#whats-next}
 

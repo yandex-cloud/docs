@@ -1,6 +1,6 @@
 ---
 title: '{{ interconnect-full-name }} tutorials'
-description: Different use cases for {{ interconnect-name }} in {{ yandex-cloud }}.
+description: Various {{ interconnect-name }} use cases in {{ yandex-cloud }}.
 ---
 
 # {{ interconnect-name }} tutorials

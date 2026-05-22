@@ -3,14 +3,14 @@ title: How to get the workflow execution information
 description: Follow this guide to view the {{ sw-full-name }} workflow execution information.
 ---
 
-# Getting the workflow execution information
+# Getting workflow execution info
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the folder containing the [workflow execution](../../../concepts/workflows/execution.md).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, click ![image](../../../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}** and select a workflow.
   1. In the left-hand panel, click ![image](../../../../_assets/console-icons/bars-play.svg) **{{ ui-key.yacloud.serverless-workflows.label_workflow-executions }}**.
   1. Select an execution. The **{{ ui-key.yacloud.common.overview }}** page will display detailed workflow execution information.

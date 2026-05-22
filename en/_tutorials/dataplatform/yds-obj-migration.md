@@ -3,8 +3,8 @@
 With {{ data-transfer-name }}, you can transfer data from a [stream in {{ yds-name }}](../../data-streams/concepts/glossary.md#stream-concepts) to a {{ objstorage-full-name }} bucket.
 
 1. [Set up a data stream in {{ yds-name }}](#prepare-source).
-1. [Set up and activate the transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
@@ -13,7 +13,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 * {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). Its cost depends on the deployment mode:
 
-	* In serverless mode, you pay for data operations and storage volume, including stored backups.
+	* In serverless mode, you pay for data operations as well as the amount of stored data and backups.
   	* In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
 
 * {{ yds-name }} (see [{{ yds-name }} pricing](../../data-streams/pricing.md)). The cost depends on the pricing model:
@@ -32,7 +32,7 @@ Set up your infrastructure:
 
 - Manually {#manual}
 
-    1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) of your preferred configuration.
+    1. [Create a {{ ydb-name }} database](../../ydb/operations/manage-databases.md) of any suitable configuration.
 
     1. [Create a bucket in {{ objstorage-full-name }}](../../storage/operations/buckets/create.md).
 
@@ -47,7 +47,7 @@ Set up your infrastructure:
 
         This file describes:
 
-        * {{ ydb-name }} database.
+        * Database: {{ ydb-name }}.
         * Service account with the `yds.editor`, `storage.editor`, and `storage.uploader` roles.
         * Bucket in {{ objstorage-name }}.
         * Transfer.
@@ -95,7 +95,7 @@ Set up your infrastructure:
 }
 ```
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate the transfer {#prepare-transfer}
 
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
@@ -104,7 +104,7 @@ Set up your infrastructure:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSSource.connection.title }}**:
 
-            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: Select your {{ ydb-name }} database from the list.
+            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.database.title }}**: Select the {{ ydb-name }} database from the list.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.stream.title }}**: Specify the name of the stream in {{ yds-name }}.
             * **{{ ui-key.yc-data-transfer.data-transfer.console.form.yds.console.form.yds.YDSConnection.service_account_id.title }}**: Select an existing service account or create a new one with the `yds.editor` role.
 
@@ -215,7 +215,7 @@ Set up your infrastructure:
 1. Make sure the data from the stream in {{ yds-name }} has moved to the {{ objstorage-name }} bucket:
 
     1. In the [management console]({{ link-console-main }}), select the folder with the bucket.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Select the bucket from the list.
     1. Make sure the bucket contains the `<stream_name>_0.raw` file (`.json` or `.csv`, depending on the selected output format) with the test data.
 
@@ -238,7 +238,7 @@ Set up your infrastructure:
 1. Make sure the {{ objstorage-name }} bucket contains the new data:
 
     1. In the [management console]({{ link-console-main }}), select the folder with the bucket.
-    1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
     1. Select the bucket from the list.
     1. Make sure the bucket now contains the `<stream_name>_0-1_1.raw` file (`.json` or `.csv`, depending on the selected output format) with the new data.
 
@@ -246,16 +246,16 @@ Set up your infrastructure:
 
 {% note info %}
 
-Before deleting the resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting any resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
-To reduce the consumption of resources, delete those you do not need:
+To minimize resource consumption, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete](../../data-transfer/operations/endpoint/index.md#delete) the source and target endpoints.
 1. [Delete the objects](../../storage/operations/objects/delete.md) from the {{ objstorage-name }} bucket.
-1. Delete the other resources depending on how you created them:
+1. Delete the rest of the resources depending on how you created them:
 
    {% list tabs group=instructions %}
 

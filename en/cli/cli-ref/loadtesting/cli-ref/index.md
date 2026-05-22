@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/loadtesting/cli-ref/
 editable: false
 ---
 
@@ -49,6 +50,10 @@ Syntax:
   - [yc loadtesting test-config get](test-config/get.md) — Show information about the specified load testing config
 
   - [yc loadtesting test-config list](test-config/list.md) — List load testing configs
+
+- [yc loadtesting v0](v0/index.md) — Manage Yandex Load Testing resources
+
+
 
 #### Global Flags
 

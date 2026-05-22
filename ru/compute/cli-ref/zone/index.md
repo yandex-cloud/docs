@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/zone/
 editable: false
 ---
 

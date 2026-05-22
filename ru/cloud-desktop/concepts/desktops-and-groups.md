@@ -13,7 +13,7 @@
 
 Все действия с рабочими столами и группами [логируются](../operations/logging.md).
 
-С рабочим столом могут работать пользователи организации, созданные в [{{ org-name }}](../../organization/).
+С рабочим столом могут работать пользователи организации, созданные в [{{ org-full-name }}](../../organization/).
 
 {% include [access-options](../../_includes/cloud-desktop/access-options.md) %}
 

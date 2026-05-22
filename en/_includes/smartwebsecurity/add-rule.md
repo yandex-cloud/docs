@@ -1,8 +1,10 @@
 1. Name the rule.
-1. Optionally, provide a description.
+1. Optionally, enter a description.
 1. Set the rule priority. The rule you add will have a higher priority than the preconfigured rules.
 
     {% include [preconfigured-rules-priority](./preconfigured-rules-priority.md) %}
+
+    Learn more about rule priorities in [{#T}](../../smartwebsecurity/concepts/rules.md#rules-order).
 
 1. Optionally, enable **{{ ui-key.yacloud.smart-web-security.overview.column_dry-run-rule }} (dry run)** if you want only to log data about the traffic matching the specified conditions without applying any actions to it.
 1. Select the rule type:
@@ -21,6 +23,7 @@
       * `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-full }}`: To redirect suspicious requests to {{ captcha-name }} after verification.
       * `{{ ui-key.yacloud.smart-web-security.overview.cell_mode-api }}`: To block suspicious requests after verification.
 
+1. Optionally, select or [create](../../smartwebsecurity/operations/template-create.md) a response template that will be returned to the client whenever a rule triggers. The standard {{ yandex-cloud }} template is used by default.
 1. {% include [arl-rule-traffic-conditions](../../_includes/smartwebsecurity/arl-rule-traffic-conditions.md) %}
 
 1. Click **{{ ui-key.yacloud.common.add }}**.

@@ -45,10 +45,12 @@ description: В данном разделе описано, как начать 
 
 В сервис {{ sd-name }} входят следующие модули:
 
-* [Контроль данных (DSPM)](#dspm)
-* [Контроль {{ k8s }} (KSPM)](#kspm)
-* [Диагностика доступов (CIEM)](#ciem)
+* [Контроль данных ({{ dspm-name }})](#dspm)
+* [Контроль {{ k8s }} ({{ kspm-name }})](#kspm)
+* [Диагностика доступов ({{ ciem-name }})](#ciem)
 * [Контроль конфигурации ({{ cspm-name }})](#cspm)
+* [{{ td-full-name }} ({{ td-name }})](#td)
+* [{{ vuln-man-name }}](#vulnerability-management)
 * [{{ atr-name }}](#access-transparency)
 * [Портал соответствия требованиям](#compliance)
 
@@ -58,11 +60,11 @@ description: В данном разделе описано, как начать 
 
 {% include [about-dspm](../_includes/security-deck/about-dspm.md) %}
 
-Чтобы начать работать с модулем {{ dspm-name }}, воспользуйтесь инструкциями по [созданию источника данных](./operations/dspm/create-data-source.md) и [созданию сканирования](./operations/dspm/create-scan.md) информации в бакете.
+Чтобы начать работать с модулем {{ dspm-name }}, [активируйте](#create-workspace) его в настройках текущего [окружения](./concepts/workspace.md) {{ sd-name }} и воспользуйтесь инструкциями по [анализу данных](./operations/dspm/discovery-mode.md), [созданию источника данных](./operations/dspm/create-data-source.md) и [созданию сканирования](./operations/dspm/create-scan.md) информации.
 
 Подробнее см. в разделе [{#T}](./concepts/dspm.md).
 
-### Контроль {{ k8s }} (KSPM) {#kspm}
+### Контроль {{ k8s }} ({{ kspm-name }}) {#kspm}
 
 {% include [kspm-basic-intro](../_includes/security-deck/kspm-basic-intro.md) %}
 
@@ -75,6 +77,18 @@ description: В данном разделе описано, как начать 
 ### Контроль конфигурации ({{ cspm-name }}) {#cspm}
 
 {% include [cspm-basic-intro](../_includes/security-deck/cspm-basic-intro.md) %}
+
+### {{ td-full-name }} ({{ td-name }}) {#td}
+
+{% include [td-basic-intro](../_includes/security-deck/td-basic-intro.md) %}
+
+### {{ vuln-man-name }} {#vulnerability-management}
+
+[Модуль управления уязвимостями]({{ link-sd-main }}vulnerability-management/) позволяет централизованно управлять сканированием контейнерных образов на уязвимости и просматривать результаты сканирований ресурсов в окружении. Модуль поддерживает сканирование образов из реестров {{ container-registry-name }} и {{ cloud-registry-name }}, а также образов, запущенных в кластерах {{ managed-k8s-name }}.
+
+Сканирование может запускаться автоматически при загрузке образа в реестр, по расписанию или при использовании образа в кластере {{ k8s }}. Модуль интегрирован с {{ kspm-name }} для определения запущенных образов и отображения информации о том, какие образы с уязвимостями используются в проверяемом окружении.
+
+Подробнее см. в разделе [{#T}](./concepts/vulnerability-management.md).
 
 ### {{ atr-name }} {#access-transparency}
 
@@ -100,3 +114,4 @@ description: В данном разделе описано, как начать 
 * Узнайте, [как сканировать данные в бакетах на наличие чувствительной информации](./operations/dspm/create-scan.md) в {{ sd-name }}.
 * Узнайте, [как просмотреть список доступов субъекта](./operations/ciem/view-permissions.md) в {{ sd-name }}.
 * Узнайте о [необходимых правах доступа](./security/index.md) для работы с {{ sd-name }}.
+

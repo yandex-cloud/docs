@@ -3,7 +3,7 @@ title: getBucketLogging method
 description: In this article, you will learn what the getBucketLogging method is, and what its request and response look like.
 ---
 
-# getBucketLogging method
+# Object Storage API, Amazon S3-compatible REST: GetBucketLogging
 
 
 Returns the settings for [bucket logging](../../../concepts/server-logs.md).
@@ -22,7 +22,7 @@ Parameter | Description
 --- | ---
 `bucket` | [Bucket](../../../concepts/bucket.md) name.
 
-### Request parameters {#request-params}
+### Query parameters {#request-params}
 
 Parameter | Description
 --- | ---
@@ -72,5 +72,11 @@ Element | Description
 `BucketLoggingStatus` | Root element.
 `TargetBucket` | Name of the target bucket where [objects](../../../concepts/object.md) with logs are saved.<br>Path: `/BucketLoggingStatus/LoggingEnabled/TargetBucket`.<br>Type: String.
 `TargetPrefix` | [Log object key prefix](../../../concepts/server-logs.md#key-prefix).<br>Path: `/BucketLoggingStatus/LoggingEnabled/TargetPrefix`.<br>Type: String.
+
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/bucket.md)
+
+* [Get settings for logging actions with a bucket](../../../operations/buckets/enable-logging.md#get-settings)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

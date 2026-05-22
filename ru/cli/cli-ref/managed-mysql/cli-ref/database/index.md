@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mysql/cli-ref/database/
 editable: false
 ---
 
@@ -25,6 +26,8 @@ Aliases:
 - [yc managed-mysql database get](get.md) — Show information about the specified MySQL database
 
 - [yc managed-mysql database list](list.md) — List MySQL databases
+
+- [yc managed-mysql database update](update.md) — Update the specified MySQL database
 
 #### Global Flags
 

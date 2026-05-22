@@ -137,7 +137,7 @@ You can hide the shield by using the `hideShield` parameter of the `render` [met
 
       function callback(token) {
         if (typeof token === "string" && token.length > 0) {
-            // Send form to backend
+            // Sending the form to backend
             console.log(token);
             document.querySelector('form').submit()
         }

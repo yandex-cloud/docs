@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/
 editable: false
 ---
 
@@ -23,6 +24,8 @@ Syntax:
   - [yc vpc address get](address/get.md) — Get information about an address.
 
   - [yc vpc address list](address/list.md) — List addresses in a folder.
+
+  - [yc vpc address list-by-subnet](address/list-by-subnet.md) — List addresses in a subnet.
 
   - [yc vpc address list-operations](address/list-operations.md) — List operations for an address.
 
@@ -161,6 +164,10 @@ Syntax:
   - [yc vpc subnet remove-range](subnet/remove-range.md) — Remove CIDR range from a subnet.
 
   - [yc vpc subnet update](subnet/update.md) — Modify configuration or attributes of a subnet.
+
+- [yc vpc v0](v0/index.md) — Manage Yandex Virtual Private Cloud resources
+
+
 
 #### Global Flags
 

@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/container/cli-ref/repository/lifecycle-policy/delete
 editable: false
 ---
 

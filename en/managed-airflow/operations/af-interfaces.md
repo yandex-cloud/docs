@@ -13,7 +13,7 @@ To work with {{ maf-name }}, you can use the [web interface](#web-gui) or the [{
 
 Only users with the [{{ roles.maf.user }}](../security/index.md#managed-airflow-user) role or higher can open the web interface or send an API request. The API checks the role via the [IAM token](../../iam/concepts/authorization/iam-token.md) used for authentication.
 
-{{ AF }} interfaces can be accessed from the internet, so the role check provides additional security. Even if an attacker has a link to the web interface and the `admin` password to get authenticated with, they will not have the role required to access the interface.
+{{ AF }} interfaces can be accessed from the internet, so the role check provides additional security. Even if the attacker has a link to the web interface and the `admin` password for authentication, they will not have the role required to access the interface.
 
 ## Working with the web interface {#web-gui}
 

@@ -3,8 +3,8 @@
 
 В этом руководстве вы создадите [бота](../../glossary/chat-bot.md) для Telegram, который умеет:
 
-* [синтезировать речь](../../speechkit/tts/index.md) из текста сообщения и [распознавать речь](../../speechkit/stt/index.md) в голосовых сообщениях с помощью [Python SDK](../../speechkit/sdk/python/index.md) сервиса {{ speechkit-full-name }};
-* [распознавать текст](../../vision/concepts/ocr/index.md) на изображениях с помощью сервиса {{ vision-full-name }}.
+* [синтезировать речь]({{ link-docs-ai }}/speechkit/tts/index) из текста сообщения и [распознавать речь]({{ link-docs-ai }}/speechkit/stt/index) в голосовых сообщениях с помощью [Python SDK](https://pypi.org/project/yandex-speechkit/) сервиса {{ speechkit-full-name }};
+* [распознавать текст]({{ link-docs-ai }}vision/concepts/ocr/index) на изображениях с помощью сервиса {{ vision-full-name }}.
 
 Аутентификация в сервисах {{ yandex-cloud }} выполняется от имени сервисного аккаунта с помощью [IAM-токена](../../iam/concepts/authorization/iam-token.md). IAM-токен содержится в контексте [обработчика функции](../../functions/operations/function-sa.md), которая программирует диалог пользователя с ботом.
 
@@ -30,8 +30,8 @@
 
 В стоимость поддержки Telegram-бота входят:
 
-* плата за использование {{ speechkit-name }} (см. [тарифы для {{ speechkit-name }}](../../speechkit/pricing.md));
-* плата за использование {{ vision-name }} (см. [тарифы для {{ vision-name }}](../../vision/pricing.md));
+* плата за использование {{ speechkit-name }} (см. [тарифы {{ speechkit-name }}]({{ link-docs-ai }}speechkit/pricing));
+* плата за использование {{ vision-name }} (см. [тарифы для {{ vision-name }}]({{ link-docs-ai }}vision/pricing));
 * плата за количество вызовов функции, вычислительные ресурсы, выделенные для выполнения функции, и исходящий трафик (см. [тарифы для {{ sf-name }}](../../functions/pricing.md));
 * плата за количество запросов к созданному API-шлюзу и исходящий трафик (см. [тарифы {{ api-gw-name }}](../../api-gateway/pricing.md)).
 
@@ -230,7 +230,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать функцию.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+  1. [Перейдите]( ../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Создайте функцию:
 
      1. Нажмите **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
@@ -240,7 +240,7 @@
   1. Создайте версию функции:
 
      1. Выберите среду выполнения `Python`, отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-     1. Укажите способ загрузки `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-storage }}` и выберите [созданный ранее](#prepare) бакет. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_object}}** укажите имя файла `index.zip`.
+     1. Укажите способ загрузки `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-storage }}` и выберите [созданный ранее](#prepare) бакет. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_object }}** укажите имя файла `index.zip`.
      1. Укажите точку входа `index.handler`.
      1. В блоке **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** укажите:
 
@@ -409,7 +409,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором хотите создать API-шлюз.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}**.
   1. Нажмите **{{ ui-key.yacloud.serverless-functions.gateways.list.button_create }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** введите `recognizer-bot-api-gw`.
   1. В блок **{{ ui-key.yacloud.serverless-functions.gateways.form.field_spec }}** добавьте спецификацию:
@@ -594,7 +594,7 @@ curl --request POST \
 
    {% note info %}
 
-   Изображение должно соответствовать [требованиям](../../vision/concepts/ocr/index.md#image-requirements).
+   Изображение должно соответствовать [требованиям]({{ link-docs-ai }}vision/concepts/ocr/index#image-requirements).
 
    {% endnote %}
 

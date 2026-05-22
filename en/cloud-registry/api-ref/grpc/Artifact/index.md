@@ -12,4 +12,7 @@ A set of methods for managing Artifacts.
 ||Method | Description ||
 || [Get](get.md) | Returns the specified artifact resource. ||
 || [Delete](delete.md) | Deletes the specified artifact. ||
+|| [ListAccessBindings](listAccessBindings.md) | access bindings ||
+|| [SetAccessBindings](setAccessBindings.md) | Sets access bindings for the specified artifact (folder, package, artifact, etc). ||
+|| [UpdateAccessBindings](updateAccessBindings.md) | Updates access bindings for the specified artifact (folder, package, artifact, etc). ||
 |#

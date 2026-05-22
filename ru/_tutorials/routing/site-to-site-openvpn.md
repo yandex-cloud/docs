@@ -50,11 +50,11 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором хотите создать облачную сеть.
-  1. В списке сервисов выберите **{{ vpc-name }}**.
-  1. Нажмите **Создать сеть**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. Нажмите **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
   1. Задайте имя сети, например `ovpn-network`.
-  1. Отключите опцию **Создать подсети**.
-  1. Нажмите **Создать сеть**.
+  1. Отключите опцию **{{ ui-key.yacloud.vpc.networks.create.field_is-default }}**.
+  1. Нажмите **{{ ui-key.yacloud.vpc.networks.create.button_create }}**.
 
 {% endlist %}
 
@@ -65,11 +65,11 @@
 - Консоль управления {#console}
 
   1. Выберите сеть `ovpn-network`.
-  1. Нажмите **Добавить подсеть**.
+  1. Нажмите ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
   1. Укажите название подсети, например `ovpn-left`.
   1. Выберите [зону доступности](../../overview/concepts/geo-scope.md) из выпадающего списка.
   1. Введите CIDR подсети: `10.128.0.0/24`.
-  1. Нажмите **Создать подсеть**.
+  1. Нажмите **{{ ui-key.yacloud.vpc.subnetworks.create.button_create }}**.
   1. Повторите шаги 2-6 для второй подсети с названием `ovpn-right` и CIDR `10.253.11.0/24`.
 
 {% endlist %}
@@ -80,7 +80,7 @@
 
 - Консоль управления {#console}
 
-  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите ![image](../../_assets/console-icons/cpu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** выберите образ для ВМ.
   1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой находится подсеть `ovpn-left`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
@@ -109,7 +109,7 @@
 
 - Консоль управления {#console}
 
-  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите ![image](../../_assets/console-icons/cpu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** выберите образ для ВМ.
   1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой находится подсеть `ovpn-right`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_network }}**:
@@ -140,7 +140,7 @@
 
 - Консоль управления {#console}
 
-  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. На странице [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder) в [консоли управления]({{ link-console-main }}) нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите ![image](../../_assets/console-icons/cpu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `OpenVPN Access Server` и выберите образ [OpenVPN Access Server](/marketplace/products/yc/openvpn-access-server).
   1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой находится подсеть `ovpn-left`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_storages }}** задайте размер загрузочного [диска](../../compute/concepts/disk.md) `10 {{ ui-key.yacloud.common.units.label_gigabyte }}`.

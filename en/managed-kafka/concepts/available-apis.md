@@ -15,7 +15,7 @@ You do not need to take any preliminary steps to access these APIs as they are a
 
 The scope of available operations depends on the [roles of the account](../security/index.md) used to send API requests.
 
-For descriptions of the [REST API methods](../api-ref/index.md) and [gRPC API calls](../api-ref/grpc/index.md), see the API reference. You can find examples of requests in [these step-by-step guides](../operations/index.md).
+For descriptions of the [REST API methods](../api-ref/index.md) and [gRPC API calls](../api-ref/grpc/index.md), see the API reference. For examples of queries, se these [step-by-step guides](../operations/index.md).
 
 ### Limitations {#cloud-api-limits}
 
@@ -65,7 +65,7 @@ The scope of available operations depends on the roles assigned to the [{{ KF }}
     * `ACCESS_ROLE_ADMIN` role: User can perform any operations with subjects associated with any topic (this role applies to all topics).
     * `ACCESS_ROLE_TOPIC_ADMIN` role: User can perform any operations with subjects associated with the topic the role was assigned for.
 
-    Also, a user’s role determines which subjects this user can manage. For more information about the {{ mkf-msr }} role model, see [{#T}](./managed-schema-registry.md).
+    Also, a user’s role determines which subjects this user can manage. Learn more about the {{ mkf-msr }} role model [here](./managed-schema-registry.md).
 
 * REST API for {{ KF }}:
 
@@ -92,11 +92,11 @@ For descriptions of the [REST API methods for {{ mkf-msr }}](https://docs.conflu
 
 Client APIs is an umbrella name for the following native {{ KF }} APIs:
 
-* [Producer API](https://kafka.apache.org/documentation/#producerapi): For operations with producers.
-* [Consumer API](https://kafka.apache.org/documentation/#consumerapi): For operations with consumers.
-* [Streams API](https://kafka.apache.org/documentation/#streamsapi): For operations with data streams.
-* [Connect API](https://kafka.apache.org/documentation/#connectapi): For operations with connectors.
-* [Admin API](https://kafka.apache.org/documentation/#adminapi): For operations with {{ KF }} objects.
+* [Producer API](https://kafka.apache.org/42/apis/#producer-api): For operations with producers.
+* [Consumer API](https://kafka.apache.org/42/apis/#consumer-api): For operations with consumers.
+* [Streams API](https://kafka.apache.org/42/apis/#streams-api): For operations with data streams.
+* [Connect API](https://kafka.apache.org/42/apis/#connect-api): For operations with connectors.
+* [Admin API](https://kafka.apache.org/42/apis/#admin-api): For operations with {{ KF }} objects.
 
 You can use these APIs to manage {{ KF }} objects (with [some limitations](#client-api-limits)).
 
@@ -116,7 +116,7 @@ To use any one of these APIs:
 
 The scope of available operations depends on the roles assigned to the [{{ KF }} user](../operations/cluster-accounts.md) sending requests to the client APIs.
 
-For descriptions of the client APIs, see the [{{ KF }} documentation](https://kafka.apache.org/documentation/#api) For examples of working with the Producer API and Consumer API, see [{#T}](../tutorials/managed-schema-registry.md).
+For descriptions of the client APIs, see the [{{ KF }} documentation](https://kafka.apache.org/42/apis/) For examples of working with the Producer API and Consumer API, see [{#T}](../tutorials/managed-schema-registry.md).
 
 ### Limitations {#client-api-limits}
 

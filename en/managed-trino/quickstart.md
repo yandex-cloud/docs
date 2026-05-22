@@ -136,7 +136,7 @@ To get started:
 
 ## Check the queries in the {{ mpg-name }} cluster {#check-queries-in-psql}
 
-To check whether the queries to the {{ mpg-name }} cluster are running correctly, [connect to the cluster database](../managed-postgresql/operations/connect.md) and get the number of rows in the `customers` table:
+To check whether the queries to the {{ mpg-name }} cluster are running correctly, [connect to the cluster database](../managed-postgresql/operations/connect/index.md) and get the number of rows in the `customers` table:
 
 ```sql
 SELECT COUNT(*) FROM tpch_postgresql.customers;

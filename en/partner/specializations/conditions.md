@@ -1,61 +1,64 @@
-# Conditions for getting technology specializations
+# Conditions for earning a partner status with a technology specialization
 
-Partners can join and get qualified for [specializations](./index.md) twice a year, in April and October.
+Partners can join and get qualified for the status system twice a year:
+* Main stream in April.
+* [Fast track](#fast-track) in October.
 
-The partnership team usually notifies partners when they are eligible for a certain specialization. However, if you satisfy all relevant conditions, you can also apply yourself by contacting your partner account manager.
+The partnership team usually notifies partners when they are eligible for a certain status. However, if you satisfy all relevant conditions, you can also apply yourself by contacting your partner account manager.
 
-## General conditions for all specializations {#common}
+## General conditions for all statuses {#common}
 
-To join any of the specializations, you must meet the following conditions:
+To obtain any of the statuses, you must meet the following conditions:
 
 * You have a partner agreement signed.
 * You have some implemented and verified solutions based on the specialization technology.
 * You have an approved business plan.
 
-## Conditions for individual specializations {#additional}
+## Conditions for statuses with a technology specialization {#additional}
 
-Apart from the conditions that are common for all specializations, each specialization has additional conditions of its own:
+Apart from the general requirements, each status and specialization have additional conditions of their own:
 
-* [Infrastructure](./index.md#infra-spec)
+#|
+||                  | **{{ yandex-cloud }} Expert** | **{{ yandex-cloud }} Professional** || 
+|| **Infrastructure & DevOps** (**Infrastructure** track) | You consume at least ₽5,000,000 per year worth of infrastructure services across your [subaccounts](../terms.md#sub-account) and registered [projects](../program/var-tools.md#project-reg), excluding VAT and partner rewards. | You consume at least ₽20,000,000 per year worth of infrastructure services across your [subaccounts](../terms.md#sub-account) and registered [projects](../program/var-tools.md#project-reg), excluding VAT and partner rewards. ||
+|| ^              | 
+* First employee: [Cloud service engineer](https://practicum.yandex.ru/ycloud)
+* Second employee: [Cloud service engineer](https://practicum.yandex.ru/ycloud) | 
+* First employee: [Yandex Cloud Certified Engineer Associate](https://yandex.cloud/ru/certification/engineer)
+* Second employee: [Yandex Cloud Certified Engineer Associate](https://yandex.cloud/ru/certification/engineer) ||
+|| ^              |           | Successful interview with a {{ yandex-cloud }} architect. ||
+|| **Infrastructure & DevOps** (**DevOps** track) | You consume at least ₽1,000,000 per year worth of DevOps services across your [subaccounts](../terms.md#sub-account) and registered [projects](../program/var-tools.md#project-reg), excluding VAT and partner rewards. | You consume at least ₽2,000,000 per year worth of DevOps services across your [subaccounts](../terms.md#sub-account) and registered [projects](../program/var-tools.md#project-reg), excluding VAT and partner rewards. ||
+|| ^               | 
+* First employee: [Managed Service for Kubernetes®](https://yandex.cloud/ru/training/kubernetes) course
+* Second employee: [Managed Service for Kubernetes®](https://yandex.cloud/ru/training/kubernetes) course | 
+* First employee: [Yandex Cloud Certified DevOps Engineer](https://yandex.cloud/ru/certification/devops)
+* Second employee: [Yandex Cloud Certified DevOps Engineer](https://yandex.cloud/ru/certification/devops) ||
+|| ^               |           | Successful interview with a {{ yandex-cloud }} architect. ||
+|| **Data Platform** | You consume at least ₽1,500,000 per year worth of data platform services across your [subaccounts](../terms.md#sub-account) and registered [projects](../program/var-tools.md#project-reg), excluding VAT and partner rewards. | You consume at least ₽3,000,000 per year worth of data platform services across your [subaccounts](../terms.md#sub-account) and registered [projects](../program/var-tools.md#project-reg), excluding VAT and partner rewards. ||
+|| ^                |
+* First employee: [Managed Service for ClickHouse®](https://yandex.cloud/ru/training/clickhouse)
+* Second employee: [Managed Greenplum® basics](https://yandex.cloud/ru/training/greenplum) |
+* First employee: [Yandex Cloud Certified Engineer Associate](https://yandex.cloud/ru/certification/engineer-competencies)
+* Second employee: [Managed Service for ClickHouse®](https://yandex.cloud/ru/training/clickhouse) or [Managed Greenplum® basics](https://yandex.cloud/ru/training/greenplum) ||
+|| ^                |            | Successful interview with a {{ yandex-cloud }} architect ||
+|| **Security** | You consume at least ₽1,000,000 per year worth of security services across your [subaccounts](../terms.md#sub-account) and registered [projects](../program/var-tools.md#project-reg), excluding VAT and partner rewards. | You consume at least ₽2,000,000 per year worth of security services across your [subaccounts](../terms.md#sub-account) and registered [projects](../program/var-tools.md#project-reg), excluding VAT and partner rewards. ||
+|| ^            | 
+* First employee: [Immersion in network security](https://yandex.cloud/ru/training/network-security?from=training-pro) course
+* Second employee: [Authentication and access management](https://yandex.cloud/ru/training/authentication?from=training-pro) course | 
+* First employee: [Yandex Cloud Certified Security Specialist](https://yandex.cloud/ru/certification/security)
+* Second employee: [Yandex Cloud Certified Security Specialist](https://yandex.cloud/ru/certification/security) ||
+|| ^            |           | Successful interview with a {{ yandex-cloud }} architect ||
+|| **ML & AI** | You consume at least ₽500,000 per year worth of ML & AI services across your partner account and [subaccounts](../terms.md#sub-account), excluding VAT, with a minimum of ₽300,000 spent on {{ ai-studio-full-name }}. | You consume at least ₽5,000,000 per year worth of ML & AI services across your partner account and [subaccounts](../terms.md#sub-account), excluding VAT. This total must include at least two services from this product group with individual spends exceeding ₽499,999. ||
+|| ^                | 
+* First employee: [ML services: Key solutions](https://yandex.cloud/ru/training/ml-solutions) course
+* Second employee: [Creating AI agents in Yandex Cloud](https://yandex.cloud/ru/training/training-pro#ml) course | 
+* First employee: [ML services: Key solutions](https://yandex.cloud/ru/training/ml-solutions) course
+* Second employee: [Creating AI agents in Yandex Cloud](https://yandex.cloud/ru/training/training-pro#ml) course
+* Third employee: [Creating AI agents in Yandex Cloud](https://yandex.cloud/ru/training/training-pro#ml) course ||
+|| ^                |           | Successful interview with a {{ yandex-cloud }} architect. ||
+|#
 
-  * You consume at least ₽12,000,000 per year worth of infrastructure services across your [subaccounts](../terms.md#sub-account) and registered [projects](../program/var-tools.md#project-reg), excluding VAT and partner rewards.
-  * Your organization employs at least two individuals who completed domain-specific training and earned these certifications:
-    * Employee 1: [Cloud service engineer](https://practicum.yandex.ru/ycloud/).
-    * Employee 2: [Cloud service engineer](https://practicum.yandex.ru/ycloud/) and [Cloud infrastructure protection](https://yandex.cloud/ru/training/infrastructure-protection).
 
-  * Successful interview with a {{ yandex-cloud }} architect.
+## Fast track {#fast-track}
 
-* [DevOps](./index.md#devops-spec)
-
-  * You consume at least ₽2,000,000 per year worth of DevOps services across your subaccounts and registered projects, excluding VAT and partner rewards.
-  * Your organization employs at least two individuals who completed domain-specific training and earned these certifications:
-    * Employee 1: [Cloud service engineer](https://practicum.yandex.ru/ycloud/).
-    * Employee 2: [Cloud service engineer](https://practicum.yandex.ru/ycloud/), [GitOps infrastructure deployment](https://yandex.cloud/ru/training/deploy), and [DevSecOps in cloud CI/CD](https://yandex.cloud/ru/training/devsecops).
-
-  * Successful interview with a {{ yandex-cloud }} architect.
-
-* [Data Platform](./index.md#platform-spec)
-
-  * You consume at least ₽2,000,000 per year worth of data platform services across your subaccounts and registered projects, excluding VAT and partner rewards.
-  * Your organization employs at least two individuals who completed domain-specific training and earned these certifications:
-    * Employee 1: [Cloud service engineer](https://practicum.yandex.ru/ycloud/) and [Building an enterprise analytical platform](https://yandex.cloud/ru/training/corpplatform).
-    * Employee 2: [{{ mch-name }}](https://yandex.cloud/ru/training/clickhouse) or [{{ mgp-name }}](https://yandex.cloud/ru/training/greenplum).
-
-  * Successful interview with a {{ yandex-cloud }} architect.
-
-* [ML and AI](./index.md#ml-spec)
-
-  You need to meet one of the following conditions:
-
-  * You have implemented at least one project using [{{ brand-voice-premium }}](../../speechkit/tts/brand-voice/index.md#premium).
-  * You have implemented at least one project using [{{ brand-voice-core }}](../../speechkit/tts/brand-voice/index.md#ss).
-  * You have implemented one or more projects using [{{ brand-voice-cc }}](../../speechkit/tts/brand-voice/index.md#cc) with consumption exceeding ₽100,000 per month, excluding VAT and partner rewards.
-
-* [Security Compliance](./index.md#secom-spec)
-
-  * Two or more implemented projects per year.
-  * Your organization employs at least one individual who completed domain-specific training and earned these certifications:
-    * [Cloud infrastructure protection](https://yandex.cloud/ru/training/infrastructure-protection).
-    * [Compliance in cloud infrastructure](https://yandex.cloud/ru/training/compliance).
-
-  * Successful interview with a {{ yandex-cloud }} architect.
+_Fast track_ offers an alternative path to earning your partner status outside the main track. Statuses are awarded in October based on your results over the first half of the year. To qualify, you must meet all main track requirements in terms of the NR amount, training and/or certification, and assessment (for the **{{ yandex-cloud }} Professional** status).

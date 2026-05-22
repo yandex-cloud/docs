@@ -1,5 +1,5 @@
 ---
-subcategory: Compute Cloud
+subcategory: Load Testing
 ---
 
 # yandex_loadtesting_agent (Resource)
@@ -84,6 +84,10 @@ resource "yandex_loadtesting_agent" "my-agent" {
     - `memory` (Number). The memory size in GB. Defaults to 2 GB.
 - `log_settings` [Block]. The logging settings of the load testing agent.
   - `log_group_id` (String). The ID of cloud logging group to which the load testing agent sends logs.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `update` (String).
 
 ## Import
 

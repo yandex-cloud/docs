@@ -57,7 +57,7 @@
 
 - Консоль управления {#console}
 
-   1. В [консоли управления]({{ link-console-main }}) выберите [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) и справа сверху нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
+   1. В [консоли управления]({{ link-console-main }}) выберите [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud) и справа сверху нажмите кнопку ![image](../../_assets/console-icons/ellipsis.svg) → ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.console-dashboard.button_action-create-folder }}**.
    1. Введите имя [каталога](../../resource-manager/concepts/resources-hierarchy.md#folder): `site-d`.
    1. При желании, добавьте описание каталога.
    1. Выберите опцию **{{ ui-key.yacloud.iam.cloud.folders-create.field_default-net }}**. 
@@ -147,7 +147,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог `site-d`.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+  1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите ![image](../../_assets/console-icons/cpu.svg) **{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** в поле **{{ ui-key.yacloud.compute.instances.create.placeholder_search_marketplace-product }}** введите `Cisco CSR` и выберите публичный образ [Cisco CSR](/marketplace/products/yc/cisco-csr).
   1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-d`.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_platform }}** перейдите на вкладку `{{ ui-key.yacloud.component.compute.resources.label_tab-custom }}` и укажите необходимую [платформу](../../compute/concepts/vm-platforms.md), количество vCPU и объем RAM:
@@ -182,9 +182,9 @@
 - Консоль управления {#console}
   
    1. В [консоли управления]({{ link-console-main }}) перейдите в каталог с созданной ВМ.
-   1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
    1. В списке ВМ выберите `cisco-router-d`.
-   1. Перейдите на вкладку ![image](../../_assets/compute/serial-console.svg) **{{ ui-key.yacloud.compute.instance.switch_console }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instance.console.connect }}**.
+   1. Перейдите на вкладку ![image](../../_assets/console-icons/terminal.svg) **{{ ui-key.yacloud.compute.instance.switch_console }}** и нажмите кнопку **{{ ui-key.yacloud.compute.instance.console.connect }}**.
    1. Дождитесь полной загрузки операционной системы.
    1. Чтобы перейти в привилегированный режим, выполните в серийной консоли команду:
 

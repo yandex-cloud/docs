@@ -71,7 +71,7 @@ If you are using [ExternalDNS with the {{ dns-name }} plugin](/marketplace/produ
 1. Get the [IP address](../../vpc/concepts/address.md) of the ingress controller (the value in the `EXTERNAL-IP` column):
 
    ```bash
-   kubectl get svc
+   kubectl get svc -n <Ingress_NGINX_application_namespace>
    ```
 
    Result:
@@ -154,7 +154,7 @@ Create an object with the required settings:
     spec:
       acme:
         server: https://acme-v02.api.letsencrypt.org/directory
-        email: <your_email>
+        email: <email_for_Lets_Encrypt_notifications>
         privateKeySecretRef:
           name: http01-clusterissuer-secret
         solvers:

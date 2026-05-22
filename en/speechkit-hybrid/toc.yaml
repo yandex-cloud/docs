@@ -41,20 +41,6 @@ items:
         href: operations/tls-proxy.md
   - name: API authentication
     href: auth.md
-  - name: gRPC API reference
-    items:
-      - name: Speech synthesis
-        items:
-          - name: Overview
-            href: api-ref/tts/v3/grpc/index.md
-          - name: Synthesizer
-            href: api-ref/tts/v3/grpc/tts_service.md
-      - name: Streaming recognition
-        items:
-          - name: Overview
-            href: api-ref/stt/v3/grpc/index.md
-          - name: Recognizer
-            href: api-ref/stt/v3/grpc/stt_service.md
   - name: Pricing policy
     href: pricing.md
   - name: '{{ sk-hybrid-name }} releases'

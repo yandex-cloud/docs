@@ -21,6 +21,7 @@ The supported methods include:
 * [Editor.resolveOperation(args)](#resolve-oper)
 * [Editor.resolveRelative(arg)](#resolve-relative)
 * [Editor.setChartsInsights(args)](#set-insights)
+* [Editor.setRawData(data)](#set-raw-data)
 * [Editor.updateActionParams()](#update-action-params)
 * [Editor.updateParams(params)](#update-params)
 * [Editor.wrapFn(conf)](#wrap)
@@ -741,14 +742,14 @@ String with the `id` value.
 
 - Meta tab
 
-  [Params](./tabs.md#params) tab contents:
+  [Meta](./tabs.md#meta) tab contents:
 
   ```js
-  module.exports = {
+  {
     "links": {
         "myBestDataset": "tlzr1t5kto9cg"
     }
-  };
+  }
   ```
 
 - Sources tab
@@ -1106,7 +1107,7 @@ Example for the table with source based on a dataset.
 
 ## Editor.getSortParams() {#get-sort-params}
 
-Returns an object with table sorting options.
+Returns an object with the sorting options in the table.
 
 #### Supported chart types {#get-sort-params-charts}
 
@@ -1369,7 +1370,7 @@ const interval = Editor.resolveInterval('__interval_2020.01.15___relative_-0d');
 // interval === null
 ```
 
-**Note**: Start and end of the interval specified in the [Params](./tabs.md#params) tab or in the URL will be automatically processed by the helper method for the [relative date](#relativedate).
+**Note**: Start and end of the interval specified in the [Params](./tabs.md#params) tab or in the URL will be automatically processed by the helper method for the [relative date](#resolve-relative).
 However, if the interval `start`/`end` value does not match the relative date format, the original value will be returned instead of `null`.
 For example:
 
@@ -1569,6 +1570,57 @@ Where:
 
 [Example of a chart with notifications](https://datalens.yandex/nvkfwnekf9xy9#Editor.%20setChartsInsights(args)) 
 
+## Editor.setRawData(data) {#set-raw-data}
+
+Specifies structured chart data. It is used for the following two tasks:
+
+* Exporting advanced chart data to CSV, XLSX, and Markdown. Without calling this method, export is unavailable for advanced charts.
+* Using Neuroanalyst. If set, Neuroanalyst will use this data instead of parsing the chart's HTML markup.
+
+#### Supported chart types {#set-raw-data-charts}
+
+[Advanced chart](./widgets/advanced.md)
+
+#### Arguments {#set-raw-data-args}
+
+`data` (_array_): Array with data. Supported formats are:
+
+* Array of objects: `[{x: 1, y: 2}, ...]`
+* Array of arrays (matrix): `[["header1", "header2"], [1, 2], ...]`
+* Array of primitives: `[1, 2, 3]`
+
+#### Returned result {#set-raw-data-result}
+
+No.
+
+#### Example {#set-raw-data-example}
+
+{% list tabs %}
+
+- Prepare tab
+
+  [Prepare](./tabs.md#prepare) tab contents:
+
+  ```js
+  const data = [
+      {x: 1, y: 10},
+      {x: 2, y: 20},
+      {x: 3, y: 30},
+  ];
+
+  Editor.setRawData(data);
+
+  module.exports = {
+      render: Editor.wrapFn({
+          fn: function() {
+              return 'Hello world';
+          },
+      }),
+  };
+  ```
+
+{% endlist %}
+
 ## Editor.updateActionParams() {#update-action-params}
 
 Updates an object with [filtering (action) parameters](./cross-filtration.md).
@@ -1676,39 +1728,56 @@ Where:
 
 #### Example {#update-params-example}
 
-Example for the table with source based on a dataset.
-
 {% list tabs %}
 
 - Params tab
 
-  [Params](./tabs.md#params) tab contents:
-
   ```js
   module.exports = {
-      "Year": "2024",
-      "City": ["Moscow", "Sochi"]
-  };
+      paramA: '1',
+      paramB: 'Value 1',
+  }
   ```
 
-- Prepare tab
-
-  [Prepare](./tabs.md#prepare) tab contents:
+- Controls tab
 
   ```js
-  Editor.updateParams({"City": ["Vladimir"]});
+  const {paramA} = Editor.getParams();
+  
+  const currentParamA = Number(paramA[0]);
+  
+  Editor.updateParams({paramB: [`${currentParamA} value`]})
+  
+  module.exports = [
+      {
+          type: 'button',
+          label: 'Change value',
+          theme: 'action',
+          onClick: {
+              action: 'setParams',
+              args: {
+                  paramA: [currentParamA > 2 ? 1 : currentParamA + 1] 
+              }
+          },
+          updateOnChange: true,
+      },
+      {
+          type: 'select',
+          param: 'paramB',
+          content: ['Value 1', 'Value 2', 'Value 3'],
+      }
+  ];
   ```
 
 - Result
 
-  Object with chart parameters after running the **Prepare** tab:
+  Each time you click the button, it cycles through these values: `Value 1`, `Value 2`, `Value 3`.
 
-  ```json
-  {
-    "Year": ["2024"],
-    "City": ["Vladimir"]
-  }
-  ```
+  The initial values ​​are: `paramA: '1'` and `paramB: 'Value 1'`.
+  
+  After you click the button on the **Controls** tab, `paramA` increases by `1`. If its value is greater than `2`, it gets set to `1`. The `paramB` value changes with the help of the `Editor.updateParams()` method to `${currentParamA} value`, where ${currentParamA}` is the current `paramA` value.
+  
+  After this, the selector will be redrawn based on the current `paramB` value.
 
 {% endlist %}
 
@@ -1717,6 +1786,8 @@ Example for the table with source based on a dataset.
 Function for generating a chart handler; it runs in a sandboxed browser with limited access to the browser API. Avoid resource-intensive calculations that may cause lags in the chart display. Also, minimize the information provided in `args`.
 
 The `Editor.wrapFn` function is sensitive to syntax errors. So if you have issues when using the function, check your syntax first.
+
+{% include [datalens-chart-editor-wrap-limits](../../../_includes/datalens/datalens-chart-editor-wrap-limits.md) %}
 
 #### Supported chart types {#wrap-charts}
 

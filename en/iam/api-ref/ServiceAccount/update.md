@@ -118,7 +118,7 @@ The rest of the fields will be reset to the default. ||
 Required field. Name of the service account.
 The name must be unique within the cloud.
 
-Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || description | **string**
 
 Description of the service account.

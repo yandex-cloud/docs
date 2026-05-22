@@ -26,7 +26,7 @@ To view [alerts](../../concepts/alerting/alert.md), you need the `viewer` role o
     * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.evaluation-type }}**.
     * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}**.
     * **{{ ui-key.yacloud_monitoring.monitoring-alerts.status.warn }}** and **{{ ui-key.yacloud_monitoring.monitoring-alerts.status.alarm }}** trigger thresholds.
-    * **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.evaluation-window }}**.
+    * **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.evaluation-window-key-value }}**.
     * **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.time-shift }}**.
 
     For more information, see [{#T}](../../concepts/alerting/alert.md#condition).

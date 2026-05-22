@@ -14,7 +14,7 @@ To create a customer account:
   1. Go to the [partner portal]({{ link-cloud-partners }}).
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/persons.svg) **Accounts**.
   1. In the top-right corner, click ![image](../../_assets/console-icons/plus.svg) **Create account**.
-  1. In the window that opens, do the following:
+  1. In the window that opens:
      1. In the **Country** list, select the country the company is registered in.
      1. In the **INN/BIN/TIN** field, enter the company ID.
 

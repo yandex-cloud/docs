@@ -1,4 +1,4 @@
-title: Партнерская программа Yandex Cloud
+title: Партнерская программа B2B Tech
 href: index.yaml
 editable: false
 items:
@@ -12,12 +12,12 @@ items:
             href: program/var.md
           - name: Инструменты
             href: program/var-tools.md
-      - name: Специализации
-        items:
-          - name: Обзор
-            href: specializations/index.md
-          - name: Условия получения
-            href: specializations/conditions.md
+          - name: Партнерские статусы {{ yandex-cloud }}
+            items:
+              - name: Обзор
+                href: specializations/index.md
+              - name: Условия получения
+                href: specializations/conditions.md
       - name: Реферальная программа
         href: program/referral.md
   - name: Партнерский портал
@@ -34,6 +34,8 @@ items:
             href: operations/access/partners-account.md
           - name: Посмотреть детализацию сабаккаунтов
             href: operations/get-client-stat.md
+          - name: Экспортировать расширенную детализацию
+            href: operations/get-partner-report.md
           - name: Приостановить оказание услуг клиенту
             href: operations/stop-client-services.md
           - name: Привязать облако к сабаккаунту
@@ -54,6 +56,8 @@ items:
         href: security/index.md
       - name: История изменений
         href: release-notes/index.md
+      - name: API
+        href: api/index.md
   - name: Термины и определения
     href: terms.md
   - name: Вопросы и ответы

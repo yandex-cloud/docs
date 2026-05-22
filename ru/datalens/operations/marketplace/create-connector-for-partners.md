@@ -7,7 +7,7 @@ description: Следуя данной инструкции, вы сможете
 
 Если вы партнер {{ datalens-short-name }}, вы можете создать свой коннектор (тип подключения) и добавить его в {{ marketplace-full-name }} или на страницу [подключений]({{ link-datalens-main }}/connections/new). С помощью коннектора пользователи смогут создавать датасеты, чарты и дашборды на основе ваших данных.
 
-Если у вас больше 1 000 клиентов и вы хотите тиражировать свои наработки для клиентов, используйте эту инструкцию. Если клиентов меньше, используйте [экспорт воркбука](../../workbooks-collections/export-and-import.md#export-workbook) и [встраивание объектов](../../security/embedded-objects.md). Также вы можете [добавить свои работы в {{ datalens-gallery }}](../../concepts/gallery.md#suggest).
+Если у вас больше 1 000 клиентов и вы хотите тиражировать свои наработки для клиентов, используйте эту инструкцию. Если клиентов меньше, используйте [экспорт воркбука](../../workbooks-collections/export-and-import.md#export-workbook) и [встраивание объектов](../../security/embedded-objects.md). Также вы можете [добавить свои работы в Галерею](../../concepts/gallery.md#suggest).
 
 Преимущества работы с коннектором для партнеров {{ datalens-short-name }}:
 
@@ -37,7 +37,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. Создайте [кластер {{ CH }}](../../../managed-clickhouse/operations/cluster-create.md) в облаке.
 
-   1. В кластере добавьте пользователя БД `datalens` с параметром [readonly = 2]({{ ch.docs }}/operations/settings/permissions-for-queries/#settings_readonly).
+   1. В кластере добавьте пользователя БД `datalens` с параметром [readonly = 2]({{ ch.docs }}{{ lang }}/operations/settings/permissions-for-queries#settings_readonly).
 
       {% note info %}
 

@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/dataproc/cli-ref/cluster/add-access-binding
 editable: false
 ---
 

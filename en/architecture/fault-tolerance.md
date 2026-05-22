@@ -23,7 +23,7 @@ Below are recommendations on designing a fault-tolerant infrastructure in {{ yan
 
 Currently, the following regions are available in {{ yandex-cloud }}:
 
-* **Russia** (ru-central1): `ru-central1-a`, `ru-central1-b`, and `ru-central1-d` availability zones.
+* **Russia** (ru-central1): `ru-central1-a`, `ru-central1-b`, `ru-central1-d`, and `ru-central1-e` availability zones.
 * **Kazakhstan** (kz1): `kz1-a` availability zone.
 
 A region provides direct network (IP) connectivity across availability zones, common [APIs](../overview/api.md), [SLAs](../overview/sla.md), and unified [pricing](../../prices) for cloud services.
@@ -135,7 +135,7 @@ Placement of platform service hosts in different availability zones is the key m
 
 ### High availability managed databases (MDB) {#mdb-ha}
 
-According to the [SLA](https://yandex.ru/legal/cloud_sla_mdb/), a high availability configuration is one with a `DB cluster consisting of two or more DB hosts located in different availability zones`. It is optimal to put DB cluster nodes in three availability zones, because high availability is ensured by systems based on quorum algorithms.
+According to the [SLA](https://yandex.ru/legal/cloud_sla_mdb/), a high availability configuration is one with a `DB cluster consisting of two or more DB hosts located in different availability zones`. It is optimal to put DB cluster nodes in three availability zones, because high availability is ensured by systems based on quorum algorithms. At the same time, different services may have specific high-availability requirements.
 
 {% note warning %}
 
@@ -149,7 +149,7 @@ In case the DB master fails, the automatic mechanism of the service initiates sw
    yc managed-postgresql cluster start-failover <cluster_name> --host <host_name>
 ```
 
-To allow a client to connect to the current DB master anytime without requesting the cluster state from the API, {{ yandex-cloud }} provides [special FQDNs](../managed-postgresql/operations/connect.md#special-fqdns). Connecting over a [special FQDN](../managed-postgresql/operations/connect.md#special-fqdns) simplifies application coding but does not guarantee quick switching to a new master in case it is replaced. To quickly switch to a new master, you need to ensure, on the application end, monitoring the master replacement and reconnection.
+To allow a client to connect to the current DB master anytime without requesting the cluster state from the API, {{ yandex-cloud }} provides [special FQDNs](../managed-postgresql/operations/connect/fqdn.md#special-fqdns). Connecting over a [special FQDN](../managed-postgresql/operations/connect/fqdn.md#special-fqdns) simplifies application coding but does not guarantee quick switching to a new master in case it is replaced. To quickly switch to a new master, you need to ensure, on the application end, monitoring the master replacement and reconnection.
 
 Currently, {{ yandex-cloud }} does not have a service automatically balancing reading load between DB cluster nodes. Methods of such balancing are the subject in the [Quest for microseconds: Optimizing cloud service performance](https://yandex.cloud/ru/events/935) webinar.
 
@@ -224,7 +224,7 @@ Apart from the suggested methods, if {{ yandex-cloud }} API goes unavailable,
 you can shift traffic from an availability zone by disabling health checks for targets in the affected zone. There are several ways to do this:
 
    * At the infrastructure level, block checks at the network security group level.
-   * Disable instances that handle requests in the faulty zone.
+   * Disable instances that process requests in the affected zone.
    * At the operating system level, restrict access to checks using a firewall.
    * At the application level, configure the application in such a way that it would not respond to health checks.
 
@@ -262,4 +262,7 @@ Any fault tolerance solutions require regular testing in various fault scenarios
 
 ## See also {#see-also}
 
-* [{#T}](../tutorials/infrastructure-management/fault-tolerance.md)
+* [{#T}](../tutorials/infrastructure-management/fault-tolerance.md).
+* [{#T}](../managed-postgresql/concepts/high-availability.md).
+* [{#T}](../managed-mysql/concepts/high-availability.md).
+* [{#T}](../managed-opensearch/concepts/high-availability.md).

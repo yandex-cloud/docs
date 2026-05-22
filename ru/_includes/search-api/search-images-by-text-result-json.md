@@ -1,1 +1,0 @@
-В файл `result.json` будет сохранен результат выполнения поискового запроса, поле `rawData` содержит [XML-ответ](../../search-api/concepts/image-search.md#xml-response-format) в кодировке Base64.

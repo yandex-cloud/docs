@@ -1,13 +1,16 @@
-The `managed-redis.viewer` role allows you to view information on Valkey™ hosts and clusters and their logs, as well as on quotas and resource operations.
+
+The `managed-redis.viewer` role enables viewing info on {{ VLK }} hosts, clusters and their logs, as well as on quotas and resource operations.
 
 Users with this role can:
-* View information on Valkey™ [clusters](../../managed-valkey/concepts/index.md).
-* View information on Valkey™ cluster [hosts](../../managed-valkey/concepts/instance-types.md).
-* View information on Valkey™ cluster [shards](../../managed-valkey/concepts/sharding.md).
-* View information on Valkey™ cluster [backups](../../managed-valkey/concepts/backup.md).
-* View information on Valkey™ alerts.
-* View Valkey™ cluster logs.
-* View information on [quotas](../../managed-valkey/concepts/limits.md#mrd-quotas) of Yandex Managed Service for Valkey™.
-* View information on resource operations for Yandex Managed Service for Valkey™.
+* View info on {{ VLK }} [clusters](../../managed-valkey/concepts/index.md) and [access permissions](../../iam/concepts/access-control/index.md) granted for them.
+* View info on [maintenance](../../managed-valkey/concepts/maintenance.md) tasks for {{ VLK }} clusters.
+* View info on {{ VLK }} cluster [hosts](../../managed-valkey/concepts/instance-types.md).
+* View info on {{ VLK }} cluster [shards](../../managed-valkey/concepts/sharding.md).
+* View [info](../../managed-valkey/operations/user-list.md) on {{ VLK }} users.
+* View info on {{ VLK }} cluster [backups](../../managed-valkey/concepts/backup.md).
+* View info on {{ VLK }} alerts.
+* View {{ VLK }} cluster logs.
+* View info on [quotas](../../managed-valkey/concepts/limits.md#mrd-quotas) for {{ mrd-full-name }}.
+* View info on resource operations for {{ mrd-full-name }}.
 
-This role includes the `managed-redis.auditor` permissions.
+This role includes the `managed-redis.auditor` and `managed-redis.maintenanceTask.viewer` permissions.

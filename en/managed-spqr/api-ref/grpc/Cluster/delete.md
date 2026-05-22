@@ -23,7 +23,9 @@ Deletes the specified SPQR cluster.
 || cluster_id | **string**
 
 Required field. ID of the SPQR cluster to delete.
-To get the SPQR cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/grpc/Cluster/list#List) request. ||
+To get the SPQR cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}

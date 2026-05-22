@@ -1,63 +1,16 @@
-### 1C:Enterprise {#1c}
+## 1C:Enterprise {#1c}
 
 If your cluster uses a <q>1C:Enterprise</q>-optimized {{ PG }} version, specify the following settings:
 
 * **Secure connection**: Disabled.
 * **DBMS type**: `PostgreSQL`.
-* **Database server**: `c-<cluster_ID>.rw.{{ dns-zone }} port={{ port-mpg }}`.
+* **Database server**: `<special_FQDN> port={{ port-mpg }}`.
 * **Database name**: `<DB_name>`.
 * **Database user**: `<username>`.
 * **User password**: `<password>`.
-* **Create database if none present**: Disabled.
+* **Create a database if none exists**: Disabled.
 
-### Bash {#bash}
-
-Before connecting, install the required dependencies:
-
-```bash
-sudo apt update && sudo apt install --yes postgresql-client
-```
-
-{% list tabs group=connection %}
-
-- Connecting without SSL {#without-ssl}
-
-  1. Connect to a database:
-
-      ```bash
-      psql "host=c-<cluster_ID>.rw.{{ dns-zone }} \
-            port=6432 \
-            sslmode=disable \
-            dbname=<DB_name> \
-            user=<username> \
-            target_session_attrs=read-write"
-      ```
-
-      Once you run this command, enter the user password to establish the connection.
-
-  1. To check the connection, run the following query:
-
-      ```bash
-      SELECT version();
-      ```
-
-- Connecting with SSL {#with-ssl}
-
-  1. Connect to a database:
-
-      {% include [default-connstring](./mpg/default-connstring.md) %}
-
-      Once you run this command, enter the user password to establish the connection.
-
-  1. To check the connection, run the following query:
-
-      ```bash
-      SELECT version();
-      ```
-
-{% endlist %}
-
-### C++ (userver framework) {#cpp-userver}
+## C++ (userver framework) {#cpp-userver}
 
 The asynchronous [userver](https://userver.tech/) framework provides a rich set of abstractions for creating utilities, services, and microservices in C++. This framework also provides capabilities for {{ PG }} integration.
 
@@ -75,7 +28,7 @@ Before connecting, access the framework using one of the following methods:
     1. Modify the `configs/config_vars.yaml` configuration file. Specify the {{ PG }} cluster connection string in the `dbconnection` variable:
 
         ```url
-        postgres://<username>:<user_password>@c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mpg }}/<DB_name>
+        postgres://<username>:<user_password>@<special_FQDN>:{{ port-mpg }}/<DB_name>
         ```
 
     1. Build the project and start the service:
@@ -92,7 +45,7 @@ Before connecting, access the framework using one of the following methods:
     1. Modify the `configs/config_vars.yaml` configuration file. Specify the {{ PG }} cluster connection string in the `dbconnection` variable:
 
         ```url
-        postgres://<username>:<user_password>@c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mpg }}/<DB_name>?ssl=true&sslmode=verify-full
+        postgres://<username>:<user_password>@<special_FQDN>:{{ port-mpg }}/<DB_name>?ssl=true&sslmode=verify-full
         ```
 
     1. Build the project and start the service:
@@ -114,13 +67,13 @@ tskv ... level=INFO      module=MakeQuerySpan ( userver/postgresql/src/storages/
 db_statement=SELECT 1 AS ping
 db_type=postgres
 db_instance=********
-peer_address=c-********.rw.{{ dns-zone }}:{{ port-mpg }}
+peer_address={{ host-name }}.{{ dns-zone }}:{{ port-mpg }}
 ...
 ```
 
 {% endcut %}
 
-### C# EF Core {#csharpefcore}
+## C# EF Core {#csharpefcore}
 
 To connect to a cluster, you need the [Npgsql](https://www.nuget.org/packages/Npgsql/) package.
 
@@ -137,7 +90,7 @@ To connect to a cluster, you need the [Npgsql](https://www.nuget.org/packages/Np
       {
           static async Task Main(string[] args)
           {
-              var host       = "c-<cluster_ID>.rw.{{ dns-zone }}";
+              var host       = "<list_of_hosts>";
               var port       = "{{ port-mpg }}";
               var db         = "<DB_name>";
               var username   = "<username>";
@@ -162,7 +115,9 @@ To connect to a cluster, you need the [Npgsql](https://www.nuget.org/packages/Np
 
 {% endlist %}
 
-### Go {#go}
+In the `host` parameter, specify comma-separated cluster hosts, in `<availability_zone>-<host_ID>.<DNS_zone>:{{ port-mgp }}` format (e.g., `{{ host-name }}:{{ port-mgp }}.{{ dns-zone }}`).
+
+## Go {#go}
 
 Before connecting, install the required dependencies:
 
@@ -191,7 +146,7 @@ go mod init example && go get github.com/jackc/pgx/v4
       )
 
       const (
-        host     = "c-<cluster_ID>.rw.{{ dns-zone }}"
+        host     = "<list_of_hosts>"
         port     = 6432
         user     = "<username>"
         password = "<user_password>"
@@ -229,6 +184,8 @@ go mod init example && go get github.com/jackc/pgx/v4
           fmt.Println(version)
       }
       ```
+    
+    In the `host` parameter, specify comma-separated cluster hosts, in `<availability_zone>-<host_ID>.<DNS_zone>:{{ port-mgp }}` format (e.g., `{{ host-name }}:6432.{{ dns-zone }}`).
 
   1. Connecting:
 
@@ -257,7 +214,7 @@ go mod init example && go get github.com/jackc/pgx/v4
       )
 
       const (
-        host     = "c-<cluster_ID>.rw.{{ dns-zone }}"
+        host     = "<list_of_hosts>"
         port     = 6432
         user     = "<username>"
         password = "<user_password>"
@@ -289,7 +246,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
           connConfig.TLSConfig = &tls.Config{
               RootCAs:            rootCertPool,
-              ServerName: "c-<cluster_ID>.rw.{{ dns-zone }}",
+              ServerName: "<list_of_hosts>",
           }
 
           conn, err := pgx.ConnectConfig(context.Background(), connConfig)
@@ -312,6 +269,8 @@ go mod init example && go get github.com/jackc/pgx/v4
       }
       ```
 
+      In the `host` parameter, specify comma-separated cluster hosts, in `<availability_zone>-<host_ID>.<DNS_zone>:{{ port-mgp }}` format (e.g., `{{ host-name }}:{{ port-mgp }}.{{ dns-zone }}`).
+
       For this connection method, you must specify the full path to the {{ PG }} `root.crt` certificate in the `ca` variable.
 
   1. Connecting:
@@ -322,7 +281,7 @@ go mod init example && go get github.com/jackc/pgx/v4
 
 {% endlist %}
 
-### Java {#java}
+## Java {#java}
 
 Before connecting:
 
@@ -338,7 +297,7 @@ Before connecting:
     cd ~/ && mkdir -p project/src/java/com/example && cd project/
     ```
 
-1. Create a Maven configuration file:
+1. Create a configuration file for Maven:
 
     {% cut "pom.xml" %}
 
@@ -415,7 +374,7 @@ Before connecting:
 
     {% endcut %}
 
-    Latest Maven dependency version: [postgresql](https://mvnrepository.com/artifact/org.postgresql/postgresql).
+    Current dependency version for Maven: [postgresql](https://mvnrepository.com/artifact/org.postgresql/postgresql).
 
 {% list tabs group=connection %}
 
@@ -432,7 +391,7 @@ Before connecting:
 
       public class App {
         public static void main(String[] args) {
-          String DB_URL     = "jdbc:postgresql://c-<cluster_ID>.rw.{{ dns-zone }}:6432/<DB_name>?targetServerType=master&ssl=false&sslmode=disable";
+          String DB_URL     = "jdbc:postgresql://<list_of_hosts>/<DB_name>?targetServerType=master&ssl=false&sslmode=disable";
           String DB_USER    = "<username>";
           String DB_PASS    = "<user_password>";
 
@@ -449,6 +408,8 @@ Before connecting:
         }
       }
       ```
+
+     In the `host` parameter, specify comma-separated cluster hosts, in `<availability_zone>-<host_ID>.<DNS_zone>:{{ port-mgp }}` format (e.g., `{{ host-name }}:{{ port-mgp }}.{{ dns-zone }}`).
 
   1. Building and connecting:
 
@@ -470,7 +431,7 @@ Before connecting:
 
       public class App {
         public static void main(String[] args) {
-          String DB_URL     = "jdbc:postgresql://c-<cluster_ID>.rw.{{ dns-zone }}:6432/<DB_name>?targetServerType=master&ssl=true&sslmode=verify-full";
+          String DB_URL     = "jdbc:postgresql://<list_of_hosts>:{{ port-mgp }}/<DB_name>?targetServerType=master&ssl=true&sslmode=verify-full";
           String DB_USER    = "<username>";
           String DB_PASS    = "<user_password>";
 
@@ -488,6 +449,8 @@ Before connecting:
       }
       ```
 
+     In the `host` parameter, specify comma-separated cluster hosts, in `<availability_zone>-<host_ID>.<DNS_zone>:{{ port-mgp }}` format (e.g., `{{ host-name }}:{{ port-mgp }}.{{ dns-zone }}`).
+
   1. Building and connecting:
 
       ```bash
@@ -497,7 +460,7 @@ Before connecting:
 
 {% endlist %}
 
-### Node.js {#nodejs}
+## Node.js {#nodejs}
 
 Before connecting, install the required dependencies:
 
@@ -518,7 +481,7 @@ npm install pg
 
     const config = {
         connectionString:
-            "postgres://<username>:<user_password>@c-<cluster_ID>.rw.{{ dns-zone }}:6432/<DB_name>"
+            "postgres://<username>:<user_password>@<special_FQDN>:{{ port-mgp }}/<DB_name>"
     };
 
     const conn = new pg.Client(config);
@@ -544,7 +507,7 @@ npm install pg
 
     const config = {
         connectionString:
-            "postgres://<username>:<user_password>@c-<cluster_ID>.rw.{{ dns-zone }}:6432/<DB_name>",
+            "postgres://<username>:<user_password>@<special_FQDN>:{{ port-mgp }}/<DB_name>",
         ssl: {
             rejectUnauthorized: true,
             ca: fs
@@ -577,7 +540,7 @@ Connecting:
 node app.js
 ```
 
-### ODBC {#odbc}
+## ODBC {#odbc}
 
 Before connecting, install the required dependencies:
 
@@ -598,11 +561,11 @@ The system will automatically register the {{ PG }} ODBC driver in `/etc/odbcins
       ```ini
       [postgresql]
       Driver=PostgreSQL Unicode
-      Servername=c-<cluster_ID>.rw.{{ dns-zone }}
+      Servername=<special_FQDN>
       Username=<username>
       Password=<user_password>
       Database=<DB_name>
-      Port=6432
+      Port={{ port-mgp }}
       Pqopt=target_session_attrs=read-write
       ```
 
@@ -612,7 +575,7 @@ The system will automatically register the {{ PG }} ODBC driver in `/etc/odbcins
       isql -v postgresql
       ```
 
-      After connecting to the DBMS, run the `SELECT version();` command.
+      Once connected to the DBMS, run the `SELECT version();` command.
 
 - Connecting with SSL {#with-ssl}
 
@@ -623,11 +586,11 @@ The system will automatically register the {{ PG }} ODBC driver in `/etc/odbcins
       ```ini
       [postgresql]
       Driver=PostgreSQL Unicode
-      Servername=c-<cluster_ID>.rw.{{ dns-zone }}
+      Servername=<special_FQDN>
       Username=<username>
       Password=<user_password>
       Database=<DB_name>
-      Port=6432
+      Port={{ port-mgp }}
       Pqopt=target_session_attrs=read-write
       Sslmode=verify-full
       ```
@@ -638,11 +601,11 @@ The system will automatically register the {{ PG }} ODBC driver in `/etc/odbcins
       isql -v postgresql
       ```
 
-      After connecting to the DBMS, run the `SELECT version();` command.
+      Once connected to the DBMS, run the `SELECT version();` command.
 
 {% endlist %}
 
-### PHP {#php}
+## PHP {#php}
 
 Before connecting, install the required dependencies:
 
@@ -661,8 +624,8 @@ sudo apt update && sudo apt install --yes php php-pgsql
       ```php
       <?php
         $conn = pg_connect("
-            host=c-<cluster_ID>.rw.{{ dns-zone }}
-            port=6432
+            host=<special_FQDN>
+            port={{ port-mgp }}
             sslmode=disable
             dbname=<DB_name>
             user=<username>
@@ -693,8 +656,8 @@ sudo apt update && sudo apt install --yes php php-pgsql
       ```php
       <?php
         $conn = pg_connect("
-            host=c-<cluster_ID>.rw.{{ dns-zone }}
-            port=6432
+            host=<special_FQDN>
+            port={{ port-mgp }}
             sslmode=verify-full
             dbname=<DB_name>
             user=<username>
@@ -718,67 +681,7 @@ sudo apt update && sudo apt install --yes php php-pgsql
 
 {% endlist %}
 
-### PowerShell {#powershell}
-
-Before connecting, install [{{ PG }} for Windows](https://www.postgresql.org/download/windows/) using the same version that is installed in the cluster. Install only the *Command Line Tools*.
-
-{% list tabs group=connection %}
-
-- Connecting without SSL {#without-ssl}
-
-  1. Set the environment variables for the connection:
-
-     ```powershell
-     $Env:PGSSLMODE="disable"; $Env:PGTARGETSESSIONATTRS="read-write"
-     ```
-
-  1. Connect to a database:
-
-     ```powershell
-     & "C:\Program Files\PostgreSQL\<version>\bin\psql.exe" `
-           --host=c-<cluster_ID>.rw.{{ dns-zone }} `
-           --port={{ port-mpg }} `
-           --username=<username> `
-           <DB_name>
-     ```
-
-     Once you run this command, enter the user password to establish the connection.
-
-  1. To check the connection, run the following query:
-
-     ```sql
-     SELECT version();
-     ```
-
-- Connecting with SSL {#with-ssl}
-
-  1. Set the environment variables for the connection:
-
-      ```powershell
-      $Env:PGSSLMODE="verify-full"; $Env:PGTARGETSESSIONATTRS="read-write"
-      ```
-
-  1. Connect to a database:
-
-      ```powershell
-      & "C:\Program Files\PostgreSQL\<version>\bin\psql.exe" `
-        --host=c-<cluster_ID>.rw.{{ dns-zone }} `
-        --port={{ port-mpg }} `
-        --username<username> `
-        <DB_name>
-      ```
-
-      Once you run this command, enter the user password to establish the connection.
-
-  1. To check the connection, run the following query:
-
-     ```sql
-     SELECT version();
-     ```
-
-{% endlist %}
-
-### Python {#python}
+## Python {#python}
 
 Before connecting, install the required dependencies:
 
@@ -799,8 +702,8 @@ pip3 install psycopg2-binary
       import psycopg2
 
       conn = psycopg2.connect("""
-          host=c-<cluster_ID>.rw.{{ dns-zone }}
-          port=6432
+          host=<list_of_hosts>
+          port={{ port-mgp }}
           sslmode=disable
           dbname=<DB_name>
           user=<username>
@@ -815,6 +718,8 @@ pip3 install psycopg2-binary
 
       conn.close()
       ```
+
+     {% include [host lists](../managed-postgresql/host-list.md) %}
 
   1. Connecting:
 
@@ -832,8 +737,8 @@ pip3 install psycopg2-binary
       import psycopg2
 
       conn = psycopg2.connect("""
-          host=c-<cluster_ID>.rw.{{ dns-zone }}
-          port=6432
+          host=<list_of_hosts>
+          port={{ port-mgp }}
           sslmode=verify-full
           dbname=<DB_name>
           user=<username>
@@ -849,6 +754,8 @@ pip3 install psycopg2-binary
       conn.close()
       ```
 
+     {% include [host lists](../managed-postgresql/host-list.md) %}
+
   1. Connecting:
 
       ```bash
@@ -857,7 +764,7 @@ pip3 install psycopg2-binary
 
 {% endlist %}
 
-### R {#r}
+## R {#r}
 
 Before connecting:
 
@@ -888,7 +795,7 @@ Before connecting:
 
         conn <- dbConnect(RPostgres::Postgres(),
             dbname="<DB_name>",
-            host="c-<cluster_ID>.rw.{{ dns-zone }}",
+            host="<special_FQDN>",
             port={{ port-mpg }},
             user="<username>",
             password="<user_password>"
@@ -918,7 +825,7 @@ Before connecting:
 
         conn <- dbConnect(RPostgres::Postgres(),
             dbname="<DB_name>",
-            host="c-<cluster_ID>.rw.{{ dns-zone }}",
+            host="<special_FQDN>",
             port={{ port-mpg }},
             sslmode="verify-full",
             user="<username>",
@@ -940,7 +847,7 @@ Before connecting:
 
 {% endlist %}
 
-### Ruby {#ruby}
+## Ruby {#ruby}
 
 Before connecting, install the required dependencies:
 
@@ -960,8 +867,8 @@ sudo apt update && sudo apt install --yes ruby ruby-pg
       require "pg"
 
       conn = PG.connect("
-              host=c-<cluster_ID>.rw.{{ dns-zone }}
-              port=6432
+              host=<special_FQDN>
+              port={{ port-mgp }}
               dbname=<DB_name>
               user=<username>
               password=<user_password>
@@ -991,8 +898,8 @@ sudo apt update && sudo apt install --yes ruby ruby-pg
       require "pg"
 
       conn = PG.connect("
-              host=c-<cluster_ID>.rw.{{ dns-zone }}
-              port=6432
+              host=<special_FQDN>
+              port={{ port-mgp }}
               dbname=<DB_name>
               user=<username>
               password=<user_password>

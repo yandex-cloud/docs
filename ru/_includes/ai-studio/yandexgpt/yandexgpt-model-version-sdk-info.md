@@ -1,1 +1,0 @@
-Подробнее о том, как обращаться к определенной версии модели, см. в разделе [{#T}](../../../ai-studio/sdk-ref/sync/chat/completions#yandex_ai_studio_sdk._chat.completions.function.ChatCompletions.md).

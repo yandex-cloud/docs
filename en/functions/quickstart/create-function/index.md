@@ -9,3 +9,4 @@ You can create a function for any of the supported runtime environments.
 * [{#T}](bash-function-quickstart.md)
 * [{#T}](java-function-quickstart.md)
 * [{#T}](kotlin-function-quickstart.md)
+* [{#T}](dotnet-function-quickstart.md)

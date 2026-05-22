@@ -5,7 +5,7 @@
   * [Create a cloud network in {{ vpc-name }}](../vpc/quickstart.md).
   * [Set up a network load balancer in {{ network-load-balancer-name }}](../network-load-balancer/quickstart.md).
   * [Configure an L7 load balancer in {{ alb-name }}](../application-load-balancer/quickstart.md).
-  * [Set up content distribution over a CDN](../cdn/quickstart.md).
+  * [Set up content distribution over a CDN](../cdn/quickstart/index.md).
   * [Create DNS zones](../dns/quickstart.md).
   * [Push a Docker image to a registry in {{ container-registry-name }}](../container-registry/quickstart/index.md).
 * Security:
@@ -16,7 +16,7 @@
   * [Store your confidential data securely in {{ lockbox-name }}](../lockbox/quickstart.md).
 * Resources and management:
   * [Manage resources in folders and clouds using {{ resmgr-name }}](../resource-manager/quickstart.md).
-  * [Set up corporate accounts in {{ org-name }}](../organization/quickstart.md).
+  * [Set up corporate accounts in {{ org-full-name }}](../organization/quickstart.md).
   * [Set metrics and monitor your resources using {{ monitoring-name }}](../monitoring/quickstart.md).
   * [Visualize your data in {{ datalens-name }}](../datalens/quickstart.md).
   * [Collect resource logs using {{ cloud-logging-name }}](../logging/quickstart.md).
@@ -38,8 +38,9 @@
   * [{{ GP }}](../managed-greenplum/quickstart.md).
   * [{{ ydb-name }}](../ydb/quickstart.md#create-db).
   * [Copy and replicate the data between databases using {{ data-transfer-name }}](../data-transfer/quickstart.md).
-* Machine learning:
-  * [Convert text to speech and vice versa using {{ speechkit-name }}](../{{ speechkit-slug }}/quickstart/index.md).
-  * [Translate text in {{ translate-name }}](../translate/quickstart.md).
-  * [Analyze an image using computer vision in {{ vision-name }}](../vision/quickstart.md).
+* AI:
+  * [Convert text to speech and vice versa using {{ speechkit-name }}]({{ link-docs-ai }}/speechkit/quickstart/index).
+  * [Translate text in {{ translate-name }}]({{ link-docs-ai }}/translate/quickstart).
+  * [Analyze an image using computer vision in {{ vision-name }}]({{ link-docs-ai }}/vision/quickstart).
   * [Train and launch your machine learning models in {{ ml-platform-name }}](../datasphere/quickstart.md).
+  * [Create an AI agent for your business]({{ link-docs-ai }})

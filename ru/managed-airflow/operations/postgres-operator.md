@@ -60,7 +60,7 @@ description: С помощью направленного ациклическо
       }
       ```
 
-Подробнее о том, как узнать FQDN хоста кластера {{ PG }}, см. в разделе [{#T}](../../managed-postgresql/operations/connect.md#fqdn).
+Подробнее о том, как узнать FQDN хоста кластера {{ PG }}, см. в разделе [{#T}](../../managed-postgresql/operations/connect/fqdn.md).
 
 В секрете будут сохранены данные для подключения к БД в кластере {{ mpg-name }}.
 
@@ -141,3 +141,8 @@ description: С помощью направленного ациклическо
   1. Убедитесь, что в логах есть строка `Rows affected: 1`. Это значит, что запрос выполнен успешно.
 
 {% endlist %}
+
+## Решение возможных проблем {#troubleshooting}
+
+* [{#T}](../qa/index.md#airflow-provider-postgres-operators)
+* [{#T}](../qa/index.md#airflow-provider-postgres-operators-2)

@@ -5,7 +5,6 @@ description: Следуя данной инструкции, вы сможете
 
 # Установка Fluent Bit с плагином для {{ cloud-logging-full-name }}
 
-
 [Fluent Bit](https://www.fluentbit.io/) — многоплатформенный инструмент с открытым исходным кодом для сбора и обработки логов. Fluent Bit собирает, парсит и фильтрует сообщения из различных источников ввода и сохраняет их в хранилище. Затем сообщения поступают в маршрутизатор, который определяет, в какой выход их отправить. Для работы с различными источниками ввода и выходами используются плагины.
 
 [Плагин для {{ cloud-logging-name }}](/marketplace/products/yc/fluent-bit) позволяет выгружать в сервис [{{ cloud-logging-full-name }}](../../../logging/) логи, которые генерируются в кластере {{ managed-k8s-name }}, в том числе на уровне [подов](../../concepts/index.md#pod).
@@ -26,7 +25,8 @@ description: Следуя данной инструкции, вы сможете
 
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
-1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Нажмите на имя нужного кластера {{ managed-k8s-name }} и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Fluent Bit с плагином для {{ cloud-logging-name }}](/marketplace/products/yc/fluent-bit) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:

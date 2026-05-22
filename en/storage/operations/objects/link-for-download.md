@@ -11,7 +11,7 @@ If you have a bucket with restricted access, {{ objstorage-name }} enables you t
 
 {% note info %}
 
-If the bucket has an [access policy](../../operations/buckets/policy.md) in place which bans creating pre-signed URLs, you will not be able to create a link. 
+If the bucket has an [access policy](../buckets/policy.md) in place which bans creating pre-signed URLs, you will not be able to create a link. 
 
 {% endnote %}
 
@@ -25,6 +25,18 @@ If the bucket has an [access policy](../../operations/buckets/policy.md) in plac
 
   {% include [storage-get-link-for-download-cli](../../_includes_service/storage-get-link-for-download-cli.md) %}
 
+- AWS CLI {#aws-cli}
+
+  {% include [storage-get-link-for-download-aws-cli](../../_includes_service/storage-get-link-for-download-aws-cli.md) %}
+
+- SDK for Python (boto3) {#sdk-python}
+
+  {% include [storage-get-link-for-download-sdk-python](../../_includes_service/storage-get-link-for-download-sdk-python.md) %}
+
+- SDK for JavaScript {#sdk-javascript}
+
+  {% include [storage-get-link-for-download-sdk-javascript](../../_includes_service/storage-get-link-for-download-sdk-javascript.md) %}
+
 {% endlist %}
 
 {% note info %}
@@ -32,3 +44,7 @@ If the bucket has an [access policy](../../operations/buckets/policy.md) in plac
 You cannot extend the validity period of a pre-signed URL to an object in a bucket with restricted access. If the URL has expired, generate a new one.
 
 {% endnote %}
+
+#### See also {#see-also}
+
+* [{#T}](./link-for-upload.md)

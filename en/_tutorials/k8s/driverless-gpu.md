@@ -77,11 +77,7 @@ Older version components may cause driver compilation errors.
 
     {% note info %}
 
-    Recommended driver versions:
-
-    * For node groups of {{ k8s }} `1.30` or higher: [`550.144.03`](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-550-144-03/index.html) or higher.
-
-    * For node groups on {{ a100-epyc }} (`gpu-standard-v3`): [`515.48.07`](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-515-48-07/index.html).
+    The recommended driver version is [550.144.03](https://docs.nvidia.com/datacenter/tesla/tesla-release-notes-550-144-03/index.html) or higher.
 
     {% endnote %}
 

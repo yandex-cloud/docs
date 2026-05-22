@@ -34,7 +34,7 @@ AI-агент, помогающий сформировать запрос к {{ 
 
 Имя поля | Тип | Обязательное | Значение по умолчанию | Поддерживается [шаблонизация](../../templating.md) | Описание
 --- | --- |--- | --- | --- | ---
-`name`| `string` | Нет | `yagpt` | Нет | Имя модели. [Список доступных моделей](../../../../../ai-studio/concepts/generation/models.md#generation).
+`name`| `string` | Нет | `yagpt` | Нет | Имя модели. [Список доступных моделей]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation).
 
 ## Объект KnowledgeSource {#KnowledgeSource}
 

@@ -13,3 +13,7 @@ description: Из статьи вы узнаете, как работать с {
 * [Изменение кластера](cluster-update.md)
 * [Остановка и запуск кластера](cluster-stop.md)
 * [Удаление кластера](cluster-delete.md)
+
+## Логи и мониторинг {#monitoring-and-logs}
+
+* [Мониторинг состояния кластера](monitoring.md)

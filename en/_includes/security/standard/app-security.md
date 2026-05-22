@@ -8,7 +8,7 @@
 
 To mitigate the risks associated with automated attacks on applications, we recommend using [{{ captcha-full-name }}](/services/smartcaptcha). The service checks user requests with its ML algorithms and only shows challenges to those users whose requests it considers suspicious. You do not have to place the **"I’m not a robot"** button on the page.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | APPSEC1 | Informational |
 
@@ -16,13 +16,13 @@ To mitigate the risks associated with automated attacks on applications, we reco
 
 - Performing a check in the management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select your folder.
+  1. In the [management console]({{ link-console-main }}), select a folder.
   1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartcaptcha_ru }}**.
   1. Make sure at least one CAPTCHA is [created](../../../smartcaptcha/operations/create-captcha.md) for your application.
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 [Guide on creating a CAPTCHA in {{ captcha-full-name }}](../../../smartcaptcha/operations/create-captcha.md).
 
@@ -37,11 +37,11 @@ When creating a new [registry](../../../container-registry/concepts/registry.md)
 * Docker images are automatically scanned as they are uploaded to the registry.
 * Docker images in the registry are regularly re-scanned, i.e., every 7 days with an option to switch to daily scanning in the settings.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | APPSEC14 | Medium |
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 {% list tabs group=instructions %}
 
@@ -76,7 +76,7 @@ When creating a new [registry](../../../container-registry/concepts/registry.md)
 
 {% include [scan-docker-upload](scan-docker-upload-description.md) %}
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | APPSEC2 | Medium |
 
@@ -86,7 +86,7 @@ When creating a new [registry](../../../container-registry/concepts/registry.md)
 
 {% include [scan-docker-periodic](scan-docker-periodic-description.md) %}
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | APPSEC3 | High |
 
@@ -96,7 +96,7 @@ When creating a new [registry](../../../container-registry/concepts/registry.md)
 
 Checking Docker images used in production environments with the last scan date not older than a week ensures that you continuously monitor and update security measures, eliminating potential vulnerabilities that might have occurred since the last scan. This also helps you make sure you are not deploying containers with recently detected vulnerabilities and enhance the security level. You can automate this process by [setting up a schedule](#periodic-scan) in the Vulnerability scanner.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | APPSEC4 | Medium |
 
@@ -128,7 +128,7 @@ Attestations used when building software artifacts help ensure a secure and veri
 
 With {{ mgl-name }}, attestations are easier to use, as the service has a feature for generating a [provenance attestation](https://about.gitlab.com/releases/2022/06/22/gitlab-15-1-released/#slsa-2-attestation-included-for-build-artifacts). An SBOM can be generated using [syft](https://github.com/anchore/syft), a third-party software tool.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | APPSEC5 | High |
 
@@ -140,7 +140,7 @@ With {{ mgl-name }}, attestations are easier to use, as the service has a featur
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 [Gitlab guide for software artifact attestation](https://docs.gitlab.com/ee/ci/runners/configure_runners.html#artifact-attestation).
 
@@ -148,7 +148,7 @@ With {{ mgl-name }}, attestations are easier to use, as the service has a featur
 
 {% include [artifacts-cosign](artifacts-cosign-description.md) %}
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | APPSEC6 | High |
 
@@ -158,7 +158,7 @@ With {{ mgl-name }}, attestations are easier to use, as the service has a featur
 
 To ensure the reliability, security, and compatibility of applications in [{{ managed-k8s-name }}](../../../managed-kubernetes/), a service for automatic scaling and deployment of applications, you need to minimize the risk of issues, vulnerabilities, and failures during your application deployment and runtime. To do this, use [signatures and signature verification](../../../container-registry/tutorials/sign-cr-with-cosign.md) in {{ managed-k8s-name }} with Cosign and [Kyverno](../../../managed-kubernetes/operations/applications/kyverno.md).
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | APPSEC7 | Medium |
 
@@ -170,7 +170,7 @@ To ensure the reliability, security, and compatibility of applications in [{{ ma
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 [Guide on setting up the artifact signature](../../../container-registry/tutorials/sign-cr-with-cosign.md).
 
@@ -182,7 +182,7 @@ When working with {{ mgl-name }}, make sure you use built-in GitLab security mec
 * Using the [`Compliance framework and pipeline`](https://docs.gitlab.com/ee/user/project/settings/index.html#compliance-frameworks) mechanism that you can run in any group project. It is available for the `Ultimate` license.
 * Copying pipeline sections to `.gitlab-ci.yml` files in your projects.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | APPSEC8 | Informational |
 
@@ -192,7 +192,7 @@ When working with {{ mgl-name }}, make sure you use built-in GitLab security mec
 
 In a nutshell, the service checks the HTTP requests sent to the protected resource against the [rules](../../../smartwebsecurity/concepts/rules.md) configured in the [security profile](../../../smartwebsecurity/concepts/profiles.md). Depending on the results of the check, the requests are forwarded to the protected resource, blocked, or sent to [{{ captcha-full-name }}](../../../smartcaptcha/index.yaml) for additional verification.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | APPSEC9 | High |
 
@@ -202,6 +202,7 @@ In a nutshell, the service checks the HTTP requests sent to the protected resour
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to check the {{ sws-name }} status.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. In the left-hand panel, select ![shield-check](../../../_assets/console-icons/shield-check.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Make sure you have security profiles created.
   1. If you have security profiles, the recommendation is fulfilled. Otherwise, proceed to _Guides and solutions to use_.
 
@@ -217,7 +218,7 @@ In a nutshell, the service checks the HTTP requests sent to the protected resour
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 [Creating a security profile and connecting it to a virtual host of an L7 load balancer](../../../smartwebsecurity/quickstart.md).
 
@@ -227,7 +228,7 @@ To mitigate risks associated with web attacks, we recommend using the {{ sws-ful
 
 You can manage the web application firewall using a [WAF profile](../../../smartwebsecurity/concepts/waf.md) that connects to a [security profile](../../../smartwebsecurity/concepts/profiles.md) in {{ sws-name }} as a separate [rule](../../../smartwebsecurity/concepts/rules.md).
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | APPSEC10 | Medium |
 
@@ -241,7 +242,7 @@ You can manage the web application firewall using a [WAF profile](../../../smart
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 [Creating a WAF profile and connecting it to a security profile in {{ sws-name }}](../../../smartwebsecurity/quickstart.md#waf).
 
@@ -251,7 +252,7 @@ You can manage the web application firewall using a [WAF profile](../../../smart
 
 You need to connect your ARL profile to the [security profile](../../../smartwebsecurity/concepts/profiles.md) in {{ sws-name }}.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | APPSEC11 | Medium |
 
@@ -265,7 +266,7 @@ You need to connect your ARL profile to the [security profile](../../../smartweb
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 [Creating an ARL profile and connecting it to a security profile in {{ sws-name }}](../../../smartwebsecurity/quickstart.md#arl).
 
@@ -277,7 +278,7 @@ If a [{{ GL }} instance](../../../managed-gitlab/concepts/index.md#instance) has
 
 If you close a thread manually, it will be created again. If a merge request is approved regardless of the existing rules, users with the `Maintainer` role or higher will receive an email notification about the violated code approval workflow.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | APPSEC12 | Medium |
 
@@ -292,7 +293,7 @@ If you close a thread manually, it will be created again. If a merge request is 
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 [Enabling approval rules in the {{ GL }} instance](../../../managed-gitlab/operations/approval-rules.md#enable)
 
@@ -300,7 +301,7 @@ If you close a thread manually, it will be created again. If a merge request is 
 
 [{{ sws-full-name }}](../../../smartwebsecurity/index.yaml) supports grouping IP addresses into [custom lists](../../../smartwebsecurity/concepts/lists.md#user-rules). Add those lists as [conditions](../../../smartwebsecurity/concepts/conditions.md) in [rules](../../../smartwebsecurity/concepts/rules.md) to allow, block, or forward some traffic to [{{ captcha-name }}](../../../smartcaptcha/index.yaml) during IP address verification.
 
-| ID requirements | Severity |
+| Requirement ID | Severity |
 | --- | --- |
 | APPSEC13 | Medium |
 
@@ -311,7 +312,7 @@ If you close a thread manually, it will be created again. If a merge request is 
   1. Open the {{ yandex-cloud }} console in your browser.
   1. Go to the appropriate folder.
   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. Navigate to **{{ ui-key.yacloud.smart-web-security.match-lists.label_match-lists }}**.
+  1. Go to **{{ ui-key.yacloud.smart-web-security.match-lists.label_match-lists }}**.
   1. Check that the lists have been created.
   1. If there are such lists, the recommendation is fulfilled. Otherwise, proceed to "Guides and solutions to use".
 
@@ -321,6 +322,6 @@ If you close a thread manually, it will be created again. If a merge request is 
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 Whitelist and blacklist IP addresses to filter traffic. For more information, see [{#T}](../../../smartwebsecurity/operations/list-create.md).

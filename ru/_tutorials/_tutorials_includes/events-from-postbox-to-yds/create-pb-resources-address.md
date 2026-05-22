@@ -17,7 +17,7 @@
     - Консоль управления {#console}
 
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-      1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+      1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
       1. На панели слева выберите ![at](../../../_assets/console-icons/at.svg) **{{ ui-key.yacloud.postbox.label_identities }}** и нажмите кнопку **{{ ui-key.yacloud.postbox.button_create-identity }}**.
       1. В поле **{{ ui-key.yacloud.postbox.label_address }}** укажите домен, с которого вы будете отправлять письма. Домен может быть любого уровня и должен принадлежать вам.
       1. В поле **{{ ui-key.yacloud.postbox.label_selector }}** укажите селектор, например `postbox`. Указанный селектор должен использоваться только в одной ресурсной записи — той, которую необходимо создать при прохождении [проверки прав на домен](#domain).

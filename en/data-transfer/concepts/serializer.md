@@ -201,13 +201,23 @@ Automatic selection of serialization settings depending on the source type.
     1. Select the `Optional-friendly` compatibility check policy in the {{ schema-registry-name }} namespace.
     1. In serialization settings of the target endpoint, [set](../operations/endpoint/target/kafka.md#serializer) **value.converter.dt.json.generate.closed.content.schema** to `true`.    
 
-* **key.converter.basic.auth.user.info** and **value.converter.basic.auth.user.info**: Username and password for authorization in Confluent Schema Registry for keys and values when using `io.confluent.connect.json.JsonSchemaConverter`.
+* **key.converter.basic.auth.user.info** and **value.converter.basic.auth.user.info**: Username and password for authentication in Confluent Schema Registry for keys and values when using `io.confluent.connect.json.JsonSchemaConverter`.
 
     Value format: `<username>:<password>`.
 
 * **key.converter.ssl.ca** and **value.converter.ssl.ca**: Contents of Confluent Schema Registry's SSL certificate for keys and values when using `io.confluent.connect.json.JsonSchemaConverter`.
 
     If the setting value is not specified, the SSL certificate does not get verified.
+
+* **tombstones.on.delete**: Determines whether Debezium will generate tombstone events for {{ KF }} topics.
+
+    Tombstone events are written to the {{ KF }} source cluster log when deleting messages from a topic. They indicate log entries storing previous values of deleted messages.
+
+    If the source cluster [log cleanup policy](../../managed-kafka/concepts/settings-list.md#settings-topic-cleanup-policy) is set to `Compact` or `CompactAndDelete`, log compaction will delete all entries indicated by tombstone events.
+
+    The default value is `true`.
+
+    For more information about configurations, see [this Debezium article](https://debezium.io/documentation/reference/stable/transformations/applying-transformations-selectively.html#ignoring-tombstone-events).
 
 * **unavailable.value.placeholder**: Value that replaces data if its type is not supported.
 

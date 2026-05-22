@@ -12,16 +12,34 @@ editable: false
 
 {% include [vat](../_includes/vat.md) %}
 
-The applicable {{ sd-name }} pricing depends on the module you are using:
+In {{ sd-name }}, each module is billed separately. A starter package plan is available, which includes several modules.
 
-* [Cloud Infrastructure Entitlement Management ({{ ciem-name }})](concepts/ciem.md) is free of charge.
-* [For {{ dspm-name }})](concepts/dspm.md), see [below](#dspm-rules).
-* For [{{ atr-name }}](concepts/access-transparency.md), see [{{ atr-name }}](#atr-rules) below.
-* For [KSPM](./concepts/kspm.md), see [Kubernetes® Security Posture Management (KSPM)](#kspm-rules) below.
-* [{{ cspm-name }}](./concepts/cspm.md) is at the [Preview](../overview/concepts/launch-stages.md) stage and free of charge.
-* [AI assistant](./concepts/ai-assistant.md) is at the [Preview](../overview/concepts/launch-stages.md) stage and free of charge.
+The pricing policy for the following modules and packages is presented below:
+
+* [Starter package](#starter-rules).
+* [Data Security Posture Management ({{ dspm-name }})](concepts/dspm.md).
+* [{{ atr-name }}](concepts/access-transparency.md).
+* [Kubernetes® Security Posture Management ({{ kspm-name }})](concepts/kspm.md).
+* [Cloud Security Posture Management ({{ cspm-name }})](concepts/cspm.md).
+
+{% note info %}
+
+[Cloud Infrastructure Entitlement Management ({{ ciem-name }})](concepts/ciem.md) and [AI assistant](concepts/ai-assistant.md) are provided free of charge.
+
+{% endnote %}
+
 
 ## What goes into the cost of using {{ sd-name }} {#rules}
+
+### Security Deck Starter package {#starter-rules}
+
+This package includes [Cloud Security Posture Management (CSPM)](./concepts/cspm.md) and [Threat Detector (TD)](./concepts/threat-detector.md) modules.
+
+Our subscription plans are priced per calendar month.
+
+A calendar month is defined as the period from 00:00 on the first day of the month to 23:59 on the last day of the same month, UTC+3.
+
+Prices for the number of resources are fixed and do not depend on the number of days in the month.
 
 ### {{ atr-name }} {#atr-rules}
 
@@ -33,17 +51,34 @@ When {{ atr-name }} is used from the second day of the calendar month or later, 
 
 If you cancel your {{ atr-name }} subscription in the [management console]({{ link-console-main }}), charges will stop from the first day of the next calendar month.
 
-### Data Security Posture Management ({{ dspm-name }}) {#dspm-rules}
+### {{ dspm-full-name }} ({{ dspm-name }}) {#dspm-rules}
 
 When performing [data scan](operations/dspm/create-scan.md), {{ dspm-name }} sends requests to files in {{ objstorage-full-name }} buckets. Such requests are charged as per the [{{ objstorage-name }} pricing policy](../storage/pricing.md). Using {{ dspm-name }} is charged separately.
 
-### {{ k8s }}® Security Posture Management (KSPM) {#kspm-rules}
+### {{ kspm-full-name }} ({{ kspm-name }}) {#kspm-rules}
 
-The cost for using {{ k8s }}® Security Posture Management (KSPM) is monthly-based and depends on the number of worker nodes in [{{ managed-k8s-full-name }}](../managed-kubernetes/) clusters for scanning.
+The cost for using {{ kspm-full-name }} ({{ kspm-name }}) is monthly-based and depends on the number of worker nodes in [{{ managed-k8s-full-name }}](../managed-kubernetes/) clusters for scanning.
+
+### {{ cspm-full-name }} ({{ cspm-name }}) {#cspm-rules}
+
+Your {{ cspm-full-name }} ({{ cspm-name }}) charge is calculated monthly and depends on the infrastructure inspection standard selected for the environment and the number of resources covered by the inspection. All standards are billable except for the [{{ yandex-cloud }} basic security rules](concepts/standard-compliance/yc-security-baseline.md).
+
+Each environment is billed separately, even if their resources overlap.
+
+Inactive resources are also billable.
+
+The price does not depend on the number of days in the calendar month.
 
 ## Prices for the Russia region {#prices}
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
+### Security Deck Starter package {#starter-pricing}
+
+
+
+{% include notitle [usd.md](../_pricing/security-deck/starter/usd.md) %}
+
 
 ### {{ atr-name }} {#atr-pricing}
 
@@ -52,14 +87,14 @@ The cost for using {{ k8s }}® Security Posture Management (KSPM) is monthly-bas
 {% include notitle [usd.md](../_pricing/security-deck/access-transparency/usd.md) %}
 
 
-### Data Security Posture Management ({{ dspm-name }}) {#dspm-pricing}
+### {{ dspm-full-name }} ({{ dspm-name }}) {#dspm-pricing}
 
 
 
 <MDX>
   <PriceList
     serviceIds={['{{ pcs|security_deck }}']}
-    excludeSkuIds={['{{ pc|security_deck.access_transparency.subscription.v1 }}', '{{ pc|security_deck.kspm.nodes }}']}
+    excludeSkuIds={['{{ pc|security_deck.access_transparency.subscription.v1 }}', '{{ pc|security_deck.kspm.nodes }}', '{{ pc|security_deck.cspm.resources }}']}
     installationCode="ru"
     currency="USD"
   />
@@ -76,17 +111,17 @@ Let’s assume you set up scanning a bucket with 50 text files, their overall si
 {% include [usd-scan-by-amount](../_pricing_examples/security-deck/usd-scan-by-amount.md) %}
 
 
-### {{ k8s }}® Security Posture Management (KSPM) {#kspm-pricing}
-
-{% note warning %}
-
-These prices apply starting February 2, 2026.
-
-{% endnote %}
+### {{ kspm-full-name }} ({{ kspm-name }}) {#kspm-pricing}
 
 
 
 {% include notitle [usd.md](../_pricing/security-deck/kspm/usd.md) %}
 
 
-The monthly price is based on 720 hours per month.
+### {{ cspm-full-name }} ({{ cspm-name }}) {#cspm-pricing}
+
+
+
+{% include notitle [usd.md](../_pricing/security-deck/cspm/usd.md) %}
+
+

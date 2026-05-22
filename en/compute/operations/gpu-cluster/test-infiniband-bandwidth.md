@@ -57,7 +57,7 @@ description: Follow this guide to run an InfiniBand throughput test on a single 
    q=1
 
    # Specify CPU numbers and network device names for different NUMA nodes
-   # For example:
+   # Example:
    numa0_cpu=40      # Client CPU (NUMA node 0)
    numa1_cpu=130     # Server CPU (NUMA node 1)
    numa0_net=mlx5_0  # Network interface for the client
@@ -92,3 +92,8 @@ description: Follow this guide to run an InfiniBand throughput test on a single 
    33554432    10000            394.58             394.40                    0.001469
    ---------------------------------------------------------------------------------------
    ```
+
+
+#### See also {#see-also}
+
+* [Questions about GPUs](../../../compute/qa/gpu.md)

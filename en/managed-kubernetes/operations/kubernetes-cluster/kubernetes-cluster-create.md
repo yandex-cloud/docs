@@ -24,10 +24,10 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
   1. If you do not have a [network](../../../vpc/concepts/network.md#network) yet, [create one](../../../vpc/operations/network-create.md).
   1. If you do not have any [subnets](../../../vpc/concepts/network.md#subnet) yet, [create them](../../../vpc/operations/subnet-create.md) in the [availability zones](../../../overview/concepts/geo-scope.md) where the new {{ managed-k8s-name }} cluster and [node group](../../concepts/index.md#node-group) will reside.
   1. Create these [service accounts](../../../iam/operations/sa/create.md):
-      * Service account with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../security/index.md#yc-api) for the folder where you want to create a {{ managed-k8s-name }} cluster. This service account will be used to create resources for your {{ managed-k8s-name }} cluster.
+      * Service account with the `k8s.clusters.agent` and `vpc.publicAdmin` [roles](../../security/index.md#yc-api) for the folder where you want to create a {{ managed-k8s-name }} cluster. This service account will be used to create {{ managed-k8s-name }} cluster resources.
       * Service account with the [{{ roles-cr-puller }}](../../../container-registry/security/index.md#container-registry-images-puller) role for the folder containing the [Docker image](../../../container-registry/concepts/docker-image.md) registry in [{{ container-registry-full-name }}](../../../container-registry/concepts/index.md). Nodes will use this account to pull the required Docker images from the registry.
 
-        If you want to use a [Docker image](../../../cloud-registry/concepts/docker-image.md) registry in [{{ cloud-registry-full-name }}](../../../cloud-registry/concepts/index.md), assign the [cloud-registry.artifacts.puller](../../../cloud-registry/security/index.md#cloud-registry-artifacts-puller) role to the service account.
+        If you want to use a [Docker image](../../../cloud-registry/concepts/artifacts/docker.md) registry in [{{ cloud-registry-full-name }}](../../../cloud-registry/concepts/index.md), assign the [cloud-registry.artifacts.puller](../../../cloud-registry/security/index.md#cloud-registry-artifacts-puller) role to the service account.
 
       You can use the same service account for both operations.
 
@@ -63,20 +63,21 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
      ```bash
      {{ yc-k8s }} cluster create \
-       --name test-k8s \
-       --network-name default \
+       --name <cluster_name> \
+       --network-name <network_name> \
        --public-ip \
-       --release-channel regular \
-       --version 1.27 \
-       --cluster-ipv4-range 10.1.0.0/16 \
-       --service-ipv4-range 10.2.0.0/16 \
-       --security-group-ids enpe5sdn7vs5********,enpj6c5ifh75******** \
-       --service-account-name default-sa \
-       --node-service-account-name default-sa \
-       --master-location zone={{ region-id }}-a,subnet-id=mysubnet \
+       --release-channel <release_channel:_rapid,_regular,_or_stable> \
+       --version <{{ k8s }}_version> \
+       --cluster-ipv4-range <IP_address_range_for_pods> \
+       --service-ipv4-range <IP_address_range_for_services> \
+       --security-group-ids <list_of_security_group_IDs> \
+       --service-account-name <name_of_service_account_for_resources> \
+       --node-service-account-name <name_of_service_account_for_nodes> \
+       --master-location zone=<availability_zone>,subnet-id=<subnet_name> \
        --master-scale-policy policy=auto,min-resource-preset-id=<master_host_class> \
        --daily-maintenance-window start=22:00,duration=10h
        --labels <cloud_label_name=cloud_label_value>
+
      ```
 
      Where:
@@ -85,6 +86,8 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
      * `--network-name`: [Network name](../../../vpc/concepts/network.md#network).
 
         {% include [note-another-catalog-network](../../../_includes/managed-kubernetes/note-another-catalog-network.md) %}
+
+        {% include [note-vpc-resources](../../../_includes/managed-kubernetes/note-vpc-resources.md) %}
 
      * `--public-ip`: Flag indicating that the {{ managed-k8s-name }} cluster needs a [public IP address](../../../vpc/concepts/address.md#public-addresses).
 
@@ -103,8 +106,8 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
        {% include [security-groups-alert](../../../_includes/managed-kubernetes/security-groups-alert.md) %}
 
-     * `--service-account-id`: Unique ID of the [service account](../../../iam/concepts/users/service-accounts.md) for the resources. This service account will be used to create resources for your {{ managed-k8s-name }} cluster.
-     * `--node-service-account-id`: Unique ID of the service account for the [nodes](../../concepts/index.md#node-group). Nodes will use this account to pull the required [Docker images](../../../container-registry/concepts/docker-image.md) from the registry in {{ container-registry-full-name }}.
+     * `--service-account-id`: Unique ID of the [service account](../../../iam/concepts/users/service-accounts.md) for the resources. This service account will be used to create {{ managed-k8s-name }} cluster resources.
+     * `--node-service-account-id`: Unique ID of the service account for the [nodes](../../concepts/index.md#node-group). Nodes will use this account to pull the required [Docker images](../../../container-registry/concepts/docker-image.md) from the [registry](../../../container-registry/concepts/registry.md) in {{ container-registry-full-name }}.
      * `--master-location`: [Master](../../concepts/index.md#master) configuration. Specify the availability zone and subnet where the master will reside.
 
         The number of `--master-location` parameters depends on the type of master:
@@ -125,7 +128,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
         {% endnote %}
 
-     * `--daily-maintenance-window`: [Maintenance](../../concepts/release-channels-and-updates.md#updates) window settings.
+     * `--daily-maintenance-window`: Settings for the [update](../../concepts/release-channels-and-updates.md#updates) window start time in UTC.
      * `--labels`: [Cloud labels](../../concepts/index.md#cluster-labels) for the cluster.
 
      Result:
@@ -173,23 +176,28 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
      {% include [write-once-setting](../../../_includes/managed-kubernetes/write-once-setting.md) %}
 
-  1. To enable sending logs to [{{ cloud-logging-full-name }}](../../../logging/), provide the logging settings in the `--master-logging` parameter of the {{ managed-k8s-name }} cluster create command:
+  1. To enable sending logs to [{{ cloud-logging-full-name }}](../../../logging/):
 
-     ```bash
-     {{ yc-k8s }} cluster create \
-     ...
-       --master-logging enabled=<send_logs>,`
-         `log-group-id=<log_group_ID>,`
-         `folder-id=<folder_ID>,`
-         `kube-apiserver-enabled=<send_kube-apiserver_logs>,`
-         `cluster-autoscaler-enabled=<send_cluster-autoscaler_logs>,`
-         `events-enabled=<send_{{ k8s }}_events>`
-         `audit-enabled=<send_audit_events>
-     ```
+     1. [Assign](../../../iam/operations/sa/assign-role-for-sa.md) the [{{ roles-logging-writer }}](../../../logging/security/index.md#loggingwriter) role to the service account for resources.
+     1. Provide the logging settings in the `--master-logging` parameter of the cluster create command:
 
-     Where:
+        ```bash
+        {{ yc-k8s }} cluster create \
+        ...
+          --master-logging enabled=<send_logs:_true_or_false>,`
+            `log-group-id=<log_group_ID>,`
+            `folder-id=<folder_ID>,`
+            `kube-apiserver-enabled=<send_kube-apiserver_logs:_true_or_false>,`
+            `cluster-autoscaler-enabled=<send_cluster-autoscaler_logs:_true_or_false>,`
+            `events-enabled=<send_{{ k8s }}_events:_true_or_false>`
+            `audit-enabled=<send_audit_events>`
+        ```
 
-     {% include [master-logging-cli-description.md](../../../_includes/managed-kubernetes/master-logging-cli-description.md) %}
+        Where:
+
+        {% include [master-logging-cli-description.md](../../../_includes/managed-kubernetes/master-logging-cli-description.md) %}
+
+        {% include [note-master-logging-log-group](../../../_includes/managed-kubernetes/note-master-logging-log-group.md) %}
 
 - {{ TF }} {#tf}
 
@@ -200,11 +208,14 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
   To create a {{ managed-k8s-name }} cluster:
   1. In the configuration file, describe the resources you want to create:
      * {{ managed-k8s-name }} cluster: Cluster description.
-     * [Network](../../../vpc/concepts/network.md#network): Description of the cloud network to host the {{ managed-k8s-name }} cluster. If you already have a suitable network, you do not need to describe it again.
+     * [Network](../../../vpc/concepts/network.md#network): Description of the cloud network to host the {{ managed-k8s-name }} cluster. If you already have a network in place, you do not need to describe it again.
 
         {% include [note-another-catalog-network](../../../_includes/managed-kubernetes/note-another-catalog-network.md) %}
 
      * [Subnets](../../../vpc/concepts/network.md#subnet): Description of the subnets to connect the {{ managed-k8s-name }} cluster hosts to. If you already have suitable subnets, you do not need to describe them again.
+
+         {% include [note-vpc-resources](../../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
      * [Service account](#before-you-begin) for the {{ managed-k8s-name }} cluster and [nodes](../../concepts/index.md#node-group) and [role settings]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member) for this account. Create separate [service accounts](../../../iam/concepts/users/service-accounts.md) for the {{ managed-k8s-name }} cluster and nodes, as required. If you already have a suitable service account, you do not need to describe it again.
 
      >Here is an example of the configuration file structure:
@@ -266,7 +277,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
      {% note info %}
 
-      Cloud labels for a {{ k8s }} cluster are composed according to certain [rules](../../concepts/index.md#cluster-labels).
+     Cloud labels for a {{ k8s }} cluster are composed according to certain [rules](../../concepts/index.md#cluster-labels).
 
      {% endnote %}
 
@@ -312,20 +323,25 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
      {% note warning %}
 
-      You cannot enable the Calico network policy controller and the Cilium tunnel mode at the same time. You cannot enable them after creating a cluster either.
+     You cannot enable the Calico network policy controller and the Cilium tunnel mode at the same time. You cannot enable them after creating a cluster either.
 
      {% endnote %}
 
-     To enable sending logs to [{{ cloud-logging-full-name }}](../../../logging/), add the `master_logging` section to the {{ managed-k8s-name }} cluster description:
+     To enable sending logs to [{{ cloud-logging-full-name }}](../../../logging/):
 
-     {% include [master-logging-tf.md](../../../_includes/managed-kubernetes/master-logging-tf.md) %}
+     1. [Assign](../../../iam/operations/sa/assign-role-for-sa.md) the [{{ roles-logging-writer }}](../../../logging/security/index.md#loggingwriter) role to the service account for resources.
+     1. Add the `master_logging` section to the {{ managed-k8s-name }} cluster description:
 
-     Where:
+        {% include [master-logging-tf.md](../../../_includes/managed-kubernetes/master-logging-tf.md) %}
 
-     {% include [master-logging-tf-description.md](../../../_includes/managed-kubernetes/master-logging-tf-description.md) %}
+        Where:
 
-     For more information, see this [{{ TF }} provider guide]({{ tf-provider-k8s-cluster }}).
-  1. Make sure the configuration files are correct.
+        {% include [master-logging-tf-description.md](../../../_includes/managed-kubernetes/master-logging-tf-description.md) %}
+
+        {% include [note-master-logging-log-group](../../../_includes/managed-kubernetes/note-master-logging-log-group.md) %}
+
+     For more information, see [this {{ TF }} provider guide]({{ tf-provider-k8s-cluster }}).
+  1. Validate your configuration files.
 
      {% include [terraform-create-cluster-step-2](../../../_includes/mdb/terraform-create-cluster-step-2.md) %}
 
@@ -337,13 +353,17 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
 - API {#api}
 
-  To create a {{ managed-k8s-name }} cluster, use the [create](../../managed-kubernetes/api-ref/Cluster/create.md) method for the [Cluster](../../managed-kubernetes/api-ref/Cluster) resource.
+  To create a {{ managed-k8s-name }} cluster, use the [create](../../managed-kubernetes/api-ref/Cluster/create.md) REST API method for the [Cluster](../../managed-kubernetes/api-ref/Cluster) resource or the [ClusterService/Create](../../managed-kubernetes/api-ref/grpc/Cluster/create.md) gRPC API call.
+
+  {% include [api-parameters-case](../../../_includes/managed-kubernetes/api-parameters-case.md) %}
 
   The request body depends on the [master type](../../concepts/index.md#master):
 
   * For a base master, provide one `masterSpec.locations` parameter in the request.
   * For a highly available master placed across three availability zones, provide three `masterSpec.locations` parameters in the request. In each one, specify different availability zones and subnets.
   * For a highly available master placed in a single availability zone, provide three `masterSpec.locations` parameters in the request. In each one, specify the same availability zone and subnet.
+
+  {% include [note-vpc-resources](../../../_includes/managed-kubernetes/note-vpc-resources.md) %}
 
   {% include [note-another-catalog-network](../../../_includes/managed-kubernetes/note-another-catalog-network.md) %}
 
@@ -363,7 +383,7 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 
   To use a [{{ kms-full-name }} encryption key](../../concepts/encryption.md) to protect secrets, provide its ID in the `kmsProvider.keyId` parameter.
 
-  To enable sending logs to [{{ cloud-logging-full-name }}](../../../logging/), provide the logging settings in the `masterSpec.masterLogging` parameter.
+  To enable sending logs to [{{ cloud-logging-full-name }}](../../../logging/), [assign](../../../iam/operations/sa/assign-role-for-sa.md) the [{{ roles-logging-writer }}](../../../logging/security/index.md#loggingwriter) role to the service account you use for accessing resources and provide the logging settings in the `masterSpec.masterLogging` parameter.
 
   To add a [cloud label](../../concepts/index.md#cluster-labels), provide its name and value in the `labels` parameter.
 
@@ -552,7 +572,6 @@ To create a cluster with no internet access, see [{#T}](../../tutorials/k8s-clus
 - CLI {#cli}
 
   Create a {{ managed-k8s-name }} cluster with the following test specifications:
-
   * Name: `k8s-ha-three-zones`.
   * Network: `my-ha-net`.
   * Subnet for the `{{ region-id }}-a` availability zone: `mysubnet-a`.

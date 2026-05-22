@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/federation/saml/list-user-accounts
 editable: false
 ---
 

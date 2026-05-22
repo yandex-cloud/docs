@@ -7,10 +7,10 @@ description: Follow this guide to install Kubernetes Node Remediation.
 
 [Kubernetes Node Remediation](https://www.medik8s.io/) is a tool comprising several {{ k8s }} operators that provide automatic recovery of failed {{ managed-k8s-name }} cluster nodes and high availability for stateful workloads.
 
-The solution features two controllers:
+The solution consists of two controllers:
 
 * Node Healthcheck Controller, which tracks failures.
-* Self Node Remediation Controller, which moves the workload away from unhealthy nodes and restores them.
+* Self Node Remediation Controller: Transfers the workload from failed nodes and restores them.
 
 ## Getting started {#before-you-begin}
 
@@ -26,7 +26,8 @@ The solution features two controllers:
 
 ## Installation from {{ marketplace-full-name }} {#marketplace-install}
 
-1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of your cluster and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Kubernetes Node Remediation](/marketplace/products/yc/kubernetes-node-remediation) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
@@ -59,7 +60,7 @@ The solution features two controllers:
 
 ## Creating the NodeHealthCheck resource {#create-resource}
 
-1. Create a file with the `NodeHealthCheck` description:
+1. Create a file named `NodeHealthCheck` with the resource description:
 
     ```yml
     apiVersion: remediation.medik8s.io/v1alpha1
@@ -90,11 +91,11 @@ The solution features two controllers:
     * `spec.minHealthy`: Minimum percentage of healthy nodes required to initiate recovery.
     * `spec.unhealthyConditions`: List of [node status conditions](https://kubernetes.io/docs/reference/node/node-status/) the controller uses to determine if the node is unhealthy.
 
-        * `duration`: Time for a condition to persist before node recovery starts.
+        * `duration`: Amount of time the condition must persist before the node recovery process begins.
         * `type`: Condition type.
         * `status`: Expected status for recognizing a node as unhealthy.
 
-        In the above example, the NodeHealthCheck controller will initiate recovery if the `Ready` condition type for a node indicates that it is unavailable or in a down state for 60 seconds.
+        In the example shown, the NodeHealthCheck controller will initiate recovery if the `Ready` condition type for a node indicates that it is unavailable or in a down state for 60 seconds.
 
     [Learn more about resource fields](https://github.com/medik8s/node-healthcheck-operator/blob/main/docs/configuration.md).
 

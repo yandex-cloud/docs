@@ -26,7 +26,7 @@ Furthermore, {{ mmy-short-name }} ensures data replication across database hosts
 
 {% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}
 
-#### Not sure whether to use {{ mmy-short-name }} or VMs with databases? {#mdb-advantage}
+#### When to use {{ mmy-short-name }} and when, database VMs? {#mdb-advantage}
 
 {{ yandex-cloud }} offers two ways to work with databases:
 
@@ -104,7 +104,7 @@ For more information, see [Maintenance](../../managed-mysql/concepts/maintenance
 
 #### What happens when a new DBMS version is released? {#new-version}
 
-The database software is updated whenever new minor versions are released. Owners of affected database clusters get advance notice of upcoming maintenance and database availability.
+The database software is updated whenever new minor versions are released. Owners of affected database clusters get advance notice of the upcoming maintenance schedule and database availability.
 
 
 #### What happens when a DBMS version becomes deprecated? {#dbms-deprecated}
@@ -161,6 +161,23 @@ For all database hosts, you can monitor metrics specific to their DBMS type. For
 
 You can monitor metrics with a minimum granularity of five seconds.
 
+#### What block size is used on the cluster disks? {#block-size}
+
+{% include [disk-block-size](../../_includes/mdb/disk-block-size.md) %}
+
 {% include [fz-152.md](../../_qa/fz-152.md) %}
 
 {% include [logs](../logs.md) %}
+
+#### Why do I get an error while deleting a database? {#delete-db}
+
+Error message:
+
+```text
+Database deletion not allowed. Fix following issues: Database has external foreign key references:
+child_db.orders (FK: fk_orders_user_id) -> parent_db.users
+```
+
+The error occurs if the database being deleted is linked to other databases in the cluster.
+
+**Solution**: Check which databases the database being deleted is linked to and delete those links.

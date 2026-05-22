@@ -27,6 +27,12 @@ description: С помощью этой инструкции вы узнаете
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
+  1. Посмотрите описание команды CLI для получения списка организаций:
+
+      ```bash
+      yc organization-manager organization list --help
+      ```
+
   1. {% include [get-federation-id-cli](../../_includes/organization/get-federation-id-cli.md) %}
 
 - API {#api}

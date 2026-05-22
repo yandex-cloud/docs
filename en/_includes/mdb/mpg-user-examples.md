@@ -8,14 +8,14 @@
 
     {% note alert %}
 
-    Do not use this example for users created with {{ TF }} as subsequent changes made via {{ TF }} may overwrite privileges granted via SQL.
+    Do not use this example if a user is created using {{ TF }}: subsequent changes made via {{ TF }} may cancel the user's privileges granted through SQL.
 
     {% endnote %}
 
     To add a new `user2` account with read-only access for the `db1` database to an existing cluster:
 
     1. [Create a user](../../managed-postgresql/operations/cluster-users.md#adduser) named `user2`. While creating the user, specify which databases they can access.
-    1. [Connect](../../managed-postgresql/operations/connect.md#connection-string) to the `db1` database as the owner.
+    1. [Connect](../../managed-postgresql/operations/connect/code-examples.md) to the `db1` database as the owner.
     1. Grant `user2` the required permissions.
 
         Examples:
@@ -58,7 +58,11 @@
 
 - {{ TF }} {#tf}
 
+    {% note warning %}
+
     You can only grant user privileges via {{ TF }} in a cluster with publicly accessible hosts.
+
+    {% endnote %}
 
     You can grant user privileges via {{ TF }} using the third-party [{{ TF }} Provider for PostgreSQL](https://github.com/cyrilgdn/terraform-provider-postgresql).
 
@@ -82,7 +86,7 @@
         }
         ```
 
-    1. Open the {{ TF }} configuration file describing your infrastracture.
+    1. Open the {{ TF }} configuration file describing your infrastructure.
     1. Add the `yandex_mdb_postgresql_user` resource:
 
         ```hcl
@@ -126,11 +130,11 @@
         terraform init
         ```
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -142,7 +146,7 @@
 
 - SQL {#sql}
 
-    1. [Connect](../../managed-postgresql/operations/connect.md#connection-string) to the `db1` database as the owner.
+    1. [Connect](../../managed-postgresql/operations/connect/code-examples.md) to the `db1` database as the owner.
     1. Revoke access privileges from `user2`.
 
         Examples:
@@ -193,7 +197,7 @@
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 

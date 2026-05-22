@@ -32,7 +32,11 @@ description: Различные сценарии использования ма
 * [{#T}](yq-clickhouse.md)
 * [{#T}](yq-postgre.md)
 * [{#T}](yq-federative-queries.md)
+* [{#T}](../dataplatform/spark-and-datasphere.md)
 
+## Разработка с помощью {{ mgl-full-name }} {#gitlab-development}
+
+* [{#T}](mlops-ml-registry.md)
 
 ## Распознавание изображений, текста и речи {#recognition}
 
@@ -48,9 +52,7 @@ description: Различные сценарии использования ма
 * [{#T}](speechsense/amocrm.md)
 * [{#T}](speechsense/ai-assistant.md)
 
-## Использование генеративных нейросетей {{ foundation-models-full-name }} {#generative-neuronets}
+## Использование генеративных нейросетей {{ ai-studio-full-name }} {#generative-neuronets}
 
-* [{#T}](pdf-searchindex-ai-assistant.md)
 * [{#T}](ai-model-ide-integration.md)
-* [{#T}](tg-bot-assistant.md)
 * [{#T}](data-catalog-integration.md)

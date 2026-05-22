@@ -7,18 +7,56 @@ editable: false
 
 # Правила тарификации для {{ objstorage-name }}
 
-{% note tip %}
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 12
+      sm: 4
+    children:
+      - type: basic-card
+        title: Калькулятор цен
+        text: Рассчитайте стоимость использования сервиса, исходя из ваших потребностей
+        icon: _assets/icons/calculator.svg
+        urlTitle: Калькулятор цен
+        url: https://yandex.cloud/ru/prices?state=83e1258e152c#calculator
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Прайс-лист
+        text: Актуальные тарифы на все наши услуги
+        icon: _assets/icons/circle-ruble.svg
+        urlTitle: Прайс-лист
+        url: https://yandex.cloud/ru/price-list?services=dn2li5qddoc5cad2n6br
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Акции и free tier
+        text: Гранты, специальные условия и программы поддержки
+        icon: _assets/icons/flame.svg
+        urlTitle: Акции и free tier
+        url: https://yandex.cloud/ru/all-offers
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+:::
 
 
-Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=7d6b2f413dcf#calculator) на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
 
+{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
 
-
-
-
-{% endnote %}
-
-{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 
 {% include [vat](../_includes/vat.md) %}
@@ -47,10 +85,15 @@ editable: false
 
 ### Выполнение операций с данными {#rules-operations}
 
-Выполнение операций с данными тарифицируется по правилам:
-* Минимальная единица тарификации для операций PUT, POST, PATCH, LIST, TRANSITION — 10.
-* Минимальная единица тарификации для операций GET, HEAD, OPTIONS — 100.
-* Удаление данных (операция DELETE) не тарифицируется.
+Оплачивается фактическое количество операций.
+
+Удаление данных (операция DELETE) не тарифицируется.
+
+{% note warning %}
+
+Если в [ледяном хранилище](./concepts/storage-class.md) вы удалите объект, хранившийся меньше 12 месяцев, после удаления [будет списан остаток стоимости хранения](#ice-storage).
+
+{% endnote %}
 
 
 
@@ -74,6 +117,8 @@ editable: false
 
 
 ## Примеры расчета стоимости {#price-example}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 ### Хранение данных {#prices-storage}
 
@@ -181,6 +226,8 @@ editable: false
 
 ## Примеры сравнения стоимости использования классов хранилищ {#comparison-examples}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 **Пример 1**
 
 Сравним стоимость хранения и доступа для сайта объемом 3 ГБ и средней посещаемостью 200 пользователей в день. Один пользователь загружает примерно 20 объектов (HTML, CSS, JS и изображения). Это 4 000 запросов в день или около 120 000 в месяц.
@@ -248,3 +295,7 @@ editable: false
 
 
 
+
+### См. также {#see-also}
+
+[{#T}](./concepts/limits.md)

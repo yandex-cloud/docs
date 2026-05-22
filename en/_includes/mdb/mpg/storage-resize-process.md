@@ -1,0 +1,3 @@
+When you change the storage size, the cluster hosts are updated one at a time in random order. If you need to restart a host during an update, it will become unavailable for this time period.
+
+Prior to the master host's update, one of the replicas takes over its role. If you access a cluster using the [FQDN of the master host](../../../managed-postgresql/operations/connect/fqdn.md), the cluster may become unavailable. To ensure uninterrupted operation of your application, list all the cluster hosts and specify `target_session_attrs=primary` when connecting, or connect via a [special FQDN](../../../managed-postgresql/operations/connect/fqdn.md) always pointing to the current master host.

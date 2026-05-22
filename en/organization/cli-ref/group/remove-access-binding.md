@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/group/remove-access-binding
 editable: false
 ---
 

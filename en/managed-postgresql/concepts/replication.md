@@ -1,6 +1,6 @@
 ---
 title: Replication in {{ mpg-full-name }}
-description: In this tutorial, you will learn how cluster host replication works in {{ mpg-full-name }}.
+description: In this article, you will learn about cluster host replication in {{ mpg-full-name }}.
 ---
 
 # Replication in {{ mpg-name }}
@@ -50,7 +50,7 @@ Replicas, for which the replication source is specified manually, cannot:
 * Become a master host when the previous one is changed automatically or [manually](../operations/update.md#start-manual-failover).
 * Automatically switch to a new replication source when the current replication source fails.
 * Be part of quorum replication.
-* Be selected as most recent replicas when using a [special FQDN](../operations/connect.md#fqdn-replica).
+* Be selected as most recent replicas when using a [special FQDN](../operations/connect/fqdn.md#fqdn-replica).
 
 A replica with a manually specified replication source cannot confirm a write operation. Its data will be regarded as obsolete if the write operation was made to other replicas and the quorum confirmed the transaction. As the replica’s lag grows, its WAL will be automatically overwritten with the new data from the replication source.
 

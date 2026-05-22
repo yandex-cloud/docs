@@ -6,10 +6,8 @@ editable: false
 
 ## HTTP request
 
-Returns the specified dataset.
-
 ```
-POST https://api.datalens.yandex.net/rpc/getDataset
+POST https://api.datalens.tech/rpc/getDataset
 ```
 
 ## Body parameters
@@ -28,18 +26,16 @@ POST https://api.datalens.yandex.net/rpc/getDataset
 ||Field | Description ||
 || datasetId | **string**
 
-Required field. ID of the dataset to retrieve. You can find it in the dataset settings in DataLens interface. ||
-|| workbookId | **string \| null**
-
-ID of the workbook the dataset belongs to. If navigation across folders is enabled and the dataset belongs to a folder, the value must be `null`. ||
-|| rev_id | **string** 
-
-Version ID for the dataset. For details, see [documentation](https://docs.yandex-team.ru/cloud/datalens/dataset/versioning). ||
+Required field.  ||
+|| workbookId | **string \| null** ||
+|| rev_id | **string** ||
 |#
 
 ## Response {#200}
 
 **HTTP Code: 200**
+
+Response
 
 **Response schema: application/json**
 
@@ -218,6 +214,9 @@ Version ID for the dataset. For details, see [documentation](https://docs.yandex
     "rls": {
       "string": "unknown"
     },
+    "rls2": {
+      "string": "array"
+    },
     "source_avatars": [
       {
         "id": "string",
@@ -256,44 +255,12 @@ Version ID for the dataset. For details, see [documentation](https://docs.yandex
             "managed_by": "string | null",
             "parameter_hash": "string",
             "parameters": {
-              "db_name": "string | null",
+              "dataset_name": "string | null",
               "db_version": "string | null",
               "table_name": "string | null"
             },
             "raw_schema": "array | null",
-            "source_type": "CHYT_TABLE",
-            "title": "string",
-            "valid": "boolean",
-            "virtual": "unknown"
-          },
-          {
-            "connection_id": "string | null",
-            "id": "string",
-            "index_info_set": "array | null",
-            "managed_by": "string | null",
-            "parameter_hash": "string",
-            "parameters": {
-              "table_names": "string"
-            },
-            "raw_schema": "array | null",
-            "source_type": "CHYT_TABLE_LIST",
-            "title": "string",
-            "valid": "boolean",
-            "virtual": "unknown"
-          },
-          {
-            "connection_id": "string | null",
-            "id": "string",
-            "index_info_set": "array | null",
-            "managed_by": "string | null",
-            "parameter_hash": "string",
-            "parameters": {
-              "directory_path": "string",
-              "range_from": "string",
-              "range_to": "string"
-            },
-            "raw_schema": "array | null",
-            "source_type": "CHYT_TABLE_RANGE",
+            "source_type": "BIGQUERY_TABLE",
             "title": "string",
             "valid": "boolean",
             "virtual": "unknown"
@@ -308,7 +275,7 @@ Version ID for the dataset. For details, see [documentation](https://docs.yandex
               "subsql": "string"
             },
             "raw_schema": "array | null",
-            "source_type": "CHYT_SUBSELECT",
+            "source_type": "BIGQUERY_SUBSELECT",
             "title": "string",
             "valid": "boolean",
             "virtual": "unknown"
@@ -325,7 +292,107 @@ Version ID for the dataset. For details, see [documentation](https://docs.yandex
               "table_name": "string | null"
             },
             "raw_schema": "array | null",
-            "source_type": "CHYT_USER_AUTH_TABLE",
+            "source_type": "BITRIX_GDS",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {
+              "db_name": "string | null",
+              "db_version": "string | null",
+              "table_name": "string | null"
+            },
+            "raw_schema": "array | null",
+            "source_type": "CH_BILLING_ANALYTICS_TABLE",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {
+              "db_name": "string | null",
+              "db_version": "string | null",
+              "table_name": "string | null"
+            },
+            "raw_schema": "array | null",
+            "source_type": "CH_FROZEN_SOURCE",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {
+              "subsql": "string"
+            },
+            "raw_schema": "array | null",
+            "source_type": "CH_FROZEN_SUBSELECT",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {
+              "db_name": "string | null",
+              "db_version": "string | null",
+              "table_name": "string | null"
+            },
+            "raw_schema": "array | null",
+            "source_type": "CH_GEO_FILTERED_TABLE",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {
+              "db_name": "string | null",
+              "db_version": "string | null",
+              "table_name": "string | null"
+            },
+            "raw_schema": "array | null",
+            "source_type": "CH_YA_MUSIC_PODCAST_STATS_TABLE",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {
+              "db_name": "string | null",
+              "db_version": "string | null",
+              "table_name": "string | null"
+            },
+            "raw_schema": "array | null",
+            "source_type": "CHYT_YTSAURUS_TABLE",
             "title": "string",
             "valid": "boolean",
             "virtual": "unknown"
@@ -340,7 +407,7 @@ Version ID for the dataset. For details, see [documentation](https://docs.yandex
               "table_names": "string"
             },
             "raw_schema": "array | null",
-            "source_type": "CHYT_USER_AUTH_TABLE_LIST",
+            "source_type": "CHYT_YTSAURUS_TABLE_LIST",
             "title": "string",
             "valid": "boolean",
             "virtual": "unknown"
@@ -357,7 +424,7 @@ Version ID for the dataset. For details, see [documentation](https://docs.yandex
               "range_to": "string"
             },
             "raw_schema": "array | null",
-            "source_type": "CHYT_USER_AUTH_TABLE_RANGE",
+            "source_type": "CHYT_YTSAURUS_TABLE_RANGE",
             "title": "string",
             "valid": "boolean",
             "virtual": "unknown"
@@ -372,7 +439,7 @@ Version ID for the dataset. For details, see [documentation](https://docs.yandex
               "subsql": "string"
             },
             "raw_schema": "array | null",
-            "source_type": "CHYT_USER_AUTH_SUBSELECT",
+            "source_type": "CHYT_YTSAURUS_SUBSELECT",
             "title": "string",
             "valid": "boolean",
             "virtual": "unknown"
@@ -405,6 +472,40 @@ Version ID for the dataset. For details, see [documentation](https://docs.yandex
             },
             "raw_schema": "array | null",
             "source_type": "CH_SUBSELECT",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {
+              "db_name": "string | null",
+              "db_version": "string | null",
+              "table_name": "string | null"
+            },
+            "raw_schema": "array | null",
+            "source_type": "EQUEO_CH_TABLE",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {
+              "db_name": "string | null",
+              "db_version": "string | null",
+              "table_name": "string | null"
+            },
+            "raw_schema": "array | null",
+            "source_type": "EXTRACTOR_1C_CH_TABLE",
             "title": "string",
             "valid": "boolean",
             "virtual": "unknown"
@@ -480,7 +581,54 @@ Version ID for the dataset. For details, see [documentation](https://docs.yandex
               "table_name": "string | null"
             },
             "raw_schema": "array | null",
+            "source_type": "KONTUR_MARKET_CH_TABLE",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {
+              "db_name": "string | null",
+              "db_version": "string | null",
+              "table_name": "string | null"
+            },
+            "raw_schema": "array | null",
             "source_type": "METRIKA_API",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {},
+            "raw_schema": "array | null",
+            "source_type": "MONITORING",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {
+              "db_name": "string | null",
+              "db_version": "string | null",
+              "table_name": "string | null"
+            },
+            "raw_schema": "array | null",
+            "source_type": "MOYSKLAD_CH_TABLE",
             "title": "string",
             "valid": "boolean",
             "virtual": "unknown"
@@ -635,9 +783,30 @@ Version ID for the dataset. For details, see [documentation](https://docs.yandex
             "index_info_set": "array | null",
             "managed_by": "string | null",
             "parameter_hash": "string",
-            "parameters": {},
+            "parameters": {
+              "db_name": "string | null",
+              "db_version": "string | null",
+              "table_name": "string | null"
+            },
             "raw_schema": "array | null",
-            "source_type": "SOLOMON",
+            "source_type": "CH_SMB_HEATMAPS_TABLE",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {
+              "db_name": "string | null",
+              "schema": "string | null",
+              "table_name": "string | null"
+            },
+            "raw_schema": "array | null",
+            "source_type": "SNOWFLAKE_TABLE",
             "title": "string",
             "valid": "boolean",
             "virtual": "unknown"
@@ -654,7 +823,74 @@ Version ID for the dataset. For details, see [documentation](https://docs.yandex
               "table_name": "string | null"
             },
             "raw_schema": "array | null",
-            "source_type": "CH_USAGE_TRACKING_YA_TEAM_TABLE",
+            "source_type": "SPEECHSENSE_TABLE",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {
+              "db_name": "string | null",
+              "db_version": "string | null",
+              "schema_name": "string | null",
+              "table_name": "string | null"
+            },
+            "raw_schema": "array | null",
+            "source_type": "TRINO_TABLE",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {
+              "subsql": "string"
+            },
+            "raw_schema": "array | null",
+            "source_type": "TRINO_SUBSELECT",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {
+              "db_name": "string | null",
+              "db_version": "string | null",
+              "table_name": "string | null"
+            },
+            "raw_schema": "array | null",
+            "source_type": "CH_USAGE_TRACKING_TABLE",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {
+              "db_name": "string | null",
+              "db_version": "string | null",
+              "table_name": "string | null"
+            },
+            "raw_schema": "array | null",
+            "source_type": "CH_USAGE_TRACKING_AGG_TABLE",
             "title": "string",
             "valid": "boolean",
             "virtual": "unknown"
@@ -687,6 +923,38 @@ Version ID for the dataset. For details, see [documentation](https://docs.yandex
             },
             "raw_schema": "array | null",
             "source_type": "YDB_SUBSELECT",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {
+              "db_name": "string | null",
+              "db_version": "string | null",
+              "table_name": "string | null"
+            },
+            "raw_schema": "array | null",
+            "source_type": "YQ_TABLE",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {
+              "subsql": "string"
+            },
+            "raw_schema": "array | null",
+            "source_type": "YQ_SUBSELECT",
             "title": "string",
             "valid": "boolean",
             "virtual": "unknown"
@@ -804,22 +1072,12 @@ Version ID for the dataset. For details, see [documentation](https://docs.yandex
 ||Field | Description ||
 || dataset | **[DatasetContentInternal](#DatasetContentInternal)**
 
-Required field. Dataset object containing all dataset properties. ||
-|| id | **string** 
-
-ID of the dataset. ||
-|| is_favorite | **boolean** 
-
-Indicates if the dataset is marked as favorite. ||
-|| key | **string** 
-
-Key of the dataset entry. Indicates the path and name of the dataset. ||
-|| options | **[Options](#Options)** 
-
-Dataset options configuration. ||
-|| permissions | **object** (map<**string**, **boolean**>) 
-
-Permissions for the dataset. ||
+Required field.  ||
+|| id | **string** ||
+|| is_favorite | **boolean** ||
+|| key | **string** ||
+|| options | **[Options](#Options)** ||
+|| permissions | **object** (map<**string**, **boolean**>) ||
 |#
 
 ## DatasetContentInternal {#DatasetContentInternal}
@@ -828,46 +1086,27 @@ Permissions for the dataset. ||
 ||Field | Description ||
 || avatar_relations[] | **[AvatarRelation](#AvatarRelation)**
 
-Required field. Avatar relations (JOIN conditions) in the dataset. ||
-|| component_errors | **[ComponentErrorList](#ComponentErrorList)** 
-
-A list of dataset validation errors including IDs of affected components (data sources, fields, etc.) ||
-|| data_export_forbidden | **boolean** 
-
-Indicates if data export is forbidden. ||
-|| description | **string \| null** 
-
-Description of the dataset. ||
-|| load_preview_by_default | **boolean** 
-
-Indicates whether to load preview by default. ||
+Required field.  ||
+|| component_errors | **[ComponentErrorList](#ComponentErrorList)** ||
+|| data_export_forbidden | **boolean** ||
+|| description | **string \| null** ||
+|| load_preview_by_default | **boolean** ||
 || obligatory_filters[] | **[ObligatoryFilter](#ObligatoryFilter)**
 
-Required field. Filters for the dataset. ||
-|| preview_enabled | **boolean** 
+Required field.  ||
+|| preview_enabled | **boolean** ||
+|| result_schema[] | **[ResultSchemaSchemaGeneric](#ResultSchemaSchemaGeneric)** ||
+|| result_schema_aux | **[ResultSchemaAux](#ResultSchemaAux)** ||
+|| revision_id | **string \| null** ||
+|| rls | **object** (map<**string**, **unknown**>) ||
+|| rls2 | **[RLS2ConfigEntry](#RLS2ConfigEntry)**
 
-Indicates whether preview is enabled. ||
-|| result_schema[] | **[ResultSchemaSchemaGeneric](#ResultSchemaSchemaGeneric)** 
-
-Result schema of the dataset. ||
-|| result_schema_aux | **[ResultSchemaAux](#ResultSchemaAux)** 
-
-Auxiliary result schema information. ||
-|| revision_id | **string \| null** 
-
-Revision ID of the dataset. ||
-|| rls | **object** (map<**string**, **unknown**>)
-
-Row-level security configuration. ||
+Required field.  ||
 || source_avatars[] | **[SourceAvatarStrict](#SourceAvatarStrict)**
 
-Required field. Source avatars in the dataset. ||
-|| sources[] | **[DataSourceStrict](#DataSourceStrict)** 
-
-Data sources in the dataset. ||
-|| template_enabled | **boolean** 
-
-Indicates whether template is enabled. ||
+Required field.  ||
+|| sources[] | **[DataSourceStrict](#DataSourceStrict)** ||
+|| template_enabled | **boolean** ||
 |#
 
 ## AvatarRelation {#AvatarRelation}
@@ -876,64 +1115,52 @@ Indicates whether template is enabled. ||
 ||Field | Description ||
 || conditions[] | **[JoinCondition](#JoinCondition)**
 
-Required field. JOIN conditions. ||
+Required field.  ||
 || id | **string**
 
-Required field. ID of the relation. ||
+Required field.  ||
 || join_type | **enum**
-
-Type of JOIN condition:
 
 - `inner`
 - `left`
 - `right`
 - `full` ||
-|| left_avatar_id | **string** 
-
-ID of the left table. ||
+|| left_avatar_id | **string** ||
 || managed_by | **enum**
-
-Reserved for future extensions. Indicates the entity that is allowed to manage the component. When creating or editing datasets, always use value `user`, using other values may lead to unexpected results.
 
 - `user`
 - `feature`
 - `compiler_runtime`
 - `null` ||
-|| required | **boolean** 
-
-Indicates if table relation is required. ||
-|| right_avatar_id | **string** 
-
-ID of the right table. ||
-|| virtual | **unknown** 
-
-Indicates whether a certain component is managed by the service. Service components are not fully controlled by the user. ||
+|| required | **boolean** ||
+|| right_avatar_id | **string** ||
+|| virtual | **unknown** ||
 |#
 
 ## JoinCondition {#JoinCondition}
 
 #|
 ||Field | Description ||
-|| left | One of **[direct1](#direct1)** \| **[formula2](#formula2)** \| **[result_field](#result_field)** ||
+|| left | One of **[direct](#direct)** \| **[formula](#formula)** \| **[result_field](#result_field)** ||
 || operator | **enum**
 
-Required field. Relational operator.
+Required field. 
 
-- `gt` — greater than;
-- `lt` — less than;
-- `gte`— greater than or equal to;
-- `lte` — less than or equal to;
-- `eq` — equal to;
-- `ne` — not equal to. ||
-|| right | One of **[direct1](#direct1)** \| **[formula2](#formula2)** \| **[result_field](#result_field)** ||
+- `gt`
+- `lt`
+- `gte`
+- `lte`
+- `eq`
+- `ne` ||
+|| right | One of **[direct](#direct)** \| **[formula](#formula)** \| **[result_field](#result_field)** ||
 || type | **enum**
 
-Required field. Type of the operator, equals to:
+Required field. 
 
 - `binary` ||
 |#
 
-## direct1 {#direct1}
+## direct {#direct}
 
 #|
 ||Field | Description ||
@@ -941,15 +1168,15 @@ Required field. Type of the operator, equals to:
 
 Required field. 
 
-- `direct` — field from the source;
-- `formula` — calculated field;
-- `result_field` — result field. ||
+- `direct`
+- `formula`
+- `result_field` ||
 || source | **string**
 
 Required field.  ||
 |#
 
-## formula2 {#formula2}
+## formula {#formula}
 
 #|
 ||Field | Description ||
@@ -1176,9 +1403,7 @@ Required field.  ||
 - `MEASURE` ||
 || ui_settings | **string** ||
 || valid | **boolean \| null** ||
-|| virtual | **unknown** 
-
-Indicates whether a certain component is managed by the service. Service components are not fully controlled by the user. ||
+|| virtual | **unknown** ||
 |#
 
 >
@@ -1277,9 +1502,7 @@ Required field.  ||
 - `MEASURE` ||
 || ui_settings | **string** ||
 || valid | **boolean \| null** ||
-|| virtual | **unknown** 
-
-Indicates whether a certain component is managed by the service. Service components are not fully controlled by the user. ||
+|| virtual | **unknown** ||
 |#
 
 >
@@ -1379,9 +1602,7 @@ Required field.  ||
 || ui_settings | **string** ||
 || valid | **boolean \| null** ||
 || value_constraint | Any of **[ParameterValueConstraint](#ParameterValueConstraint)** \| **null** ||
-|| virtual | **unknown** 
-
-Indicates whether a certain component is managed by the service. Service components are not fully controlled by the user. ||
+|| virtual | **unknown** ||
 |#
 
 >
@@ -1437,6 +1658,22 @@ One of:
 || ref_field_ids[] | **string** ||
 |#
 
+## RLS2ConfigEntry {#RLS2ConfigEntry}
+
+#|
+||Field | Description ||
+|| allowed_value | **string \| null** ||
+|| field_guid | **string \| null** ||
+|| pattern_type | **enum**
+
+- `value`
+- `all`
+- `userid` ||
+|| subject | **[RLSSubject](#RLSSubject)**
+
+Required field.  ||
+|#
+
 ## RLSSubject {#RLSSubject}
 
 #|
@@ -1474,9 +1711,7 @@ Required field.
 || source_id | **string** ||
 || title | **string** ||
 || valid | **boolean** ||
-|| virtual | **unknown** 
-
-Indicates whether a certain component is managed by the service. Service components are not fully controlled by the user. ||
+|| virtual | **unknown** ||
 |#
 
 ## DataSourceStrict {#DataSourceStrict}
@@ -1504,9 +1739,7 @@ Required field.  ||
 
 Required field.  ||
 || valid | **boolean** ||
-|| virtual | **unknown** 
-
-Indicates whether a certain component is managed by the service. Service components are not fully controlled by the user. ||
+|| virtual | **unknown** ||
 |#
 
 >
@@ -1525,72 +1758,14 @@ Required field.  ||
 - `compiler_runtime`
 - `null` ||
 || parameter_hash | **string** ||
-|| parameters | **[SQLParameters](#SQLParameters)** ||
+|| parameters | **[BigQueryTableParameters](#BigQueryTableParameters)** ||
 || raw_schema | **array \| null** ||
-|| source_type | **CHYT_TABLE** (const) ||
+|| source_type | **BIGQUERY_TABLE** (const) ||
 || title | **string**
 
 Required field.  ||
 || valid | **boolean** ||
-|| virtual | **unknown** 
-
-Indicates whether a certain component is managed by the service. Service components are not fully controlled by the user. ||
-|#
-
->
-
-#|
-||Field | Description ||
-|| connection_id | **string \| null** ||
-|| id | **string**
-
-Required field.  ||
-|| index_info_set | **array \| null** ||
-|| managed_by | **enum**
-
-- `user`
-- `feature`
-- `compiler_runtime`
-- `null` ||
-|| parameter_hash | **string** ||
-|| parameters | **[CHYTTableListParameters](#CHYTTableListParameters)** ||
-|| raw_schema | **array \| null** ||
-|| source_type | **CHYT_TABLE_LIST** (const) ||
-|| title | **string**
-
-Required field.  ||
-|| valid | **boolean** ||
-|| virtual | **unknown** 
-
-Indicates whether a certain component is managed by the service. Service components are not fully controlled by the user. ||
-|#
-
->
-
-#|
-||Field | Description ||
-|| connection_id | **string \| null** ||
-|| id | **string**
-
-Required field.  ||
-|| index_info_set | **array \| null** ||
-|| managed_by | **enum**
-
-- `user`
-- `feature`
-- `compiler_runtime`
-- `null` ||
-|| parameter_hash | **string** ||
-|| parameters | **[CHYTTableRangeParameters](#CHYTTableRangeParameters)** ||
-|| raw_schema | **array \| null** ||
-|| source_type | **CHYT_TABLE_RANGE** (const) ||
-|| title | **string**
-
-Required field.  ||
-|| valid | **boolean** ||
-|| virtual | **unknown** 
-
-Indicates whether a certain component is managed by the service. Service components are not fully controlled by the user. ||
+|| virtual | **unknown** ||
 |#
 
 >
@@ -1611,14 +1786,12 @@ Required field.  ||
 || parameter_hash | **string** ||
 || parameters | **[SubselectParameters](#SubselectParameters)** ||
 || raw_schema | **array \| null** ||
-|| source_type | **CHYT_SUBSELECT** (const) ||
+|| source_type | **BIGQUERY_SUBSELECT** (const) ||
 || title | **string**
 
 Required field.  ||
 || valid | **boolean** ||
-|| virtual | **unknown** 
-
-Indicates whether a certain component is managed by the service. Service components are not fully controlled by the user. ||
+|| virtual | **unknown** ||
 |#
 
 >
@@ -1639,14 +1812,12 @@ Required field.  ||
 || parameter_hash | **string** ||
 || parameters | **[SQLParameters](#SQLParameters)** ||
 || raw_schema | **array \| null** ||
-|| source_type | **CHYT_USER_AUTH_TABLE** (const) ||
+|| source_type | **BITRIX_GDS** (const) ||
 || title | **string**
 
 Required field.  ||
 || valid | **boolean** ||
-|| virtual | **unknown** 
-
-Indicates whether a certain component is managed by the service. Service components are not fully controlled by the user. ||
+|| virtual | **unknown** ||
 |#
 
 >
@@ -1665,16 +1836,14 @@ Required field.  ||
 - `compiler_runtime`
 - `null` ||
 || parameter_hash | **string** ||
-|| parameters | **[CHYTTableListParameters](#CHYTTableListParameters)** ||
+|| parameters | **[SQLParameters](#SQLParameters)** ||
 || raw_schema | **array \| null** ||
-|| source_type | **CHYT_USER_AUTH_TABLE_LIST** (const) ||
+|| source_type | **CH_BILLING_ANALYTICS_TABLE** (const) ||
 || title | **string**
 
 Required field.  ||
 || valid | **boolean** ||
-|| virtual | **unknown** 
-
-Indicates whether a certain component is managed by the service. Service components are not fully controlled by the user. ||
+|| virtual | **unknown** ||
 |#
 
 >
@@ -1693,16 +1862,14 @@ Required field.  ||
 - `compiler_runtime`
 - `null` ||
 || parameter_hash | **string** ||
-|| parameters | **[CHYTTableRangeParameters](#CHYTTableRangeParameters)** ||
+|| parameters | **[SQLParameters](#SQLParameters)** ||
 || raw_schema | **array \| null** ||
-|| source_type | **CHYT_USER_AUTH_TABLE_RANGE** (const) ||
+|| source_type | **CH_FROZEN_SOURCE** (const) ||
 || title | **string**
 
 Required field.  ||
 || valid | **boolean** ||
-|| virtual | **unknown** 
-
-Indicates whether a certain component is managed by the service. Service components are not fully controlled by the user. ||
+|| virtual | **unknown** ||
 |#
 
 >
@@ -1723,14 +1890,168 @@ Required field.  ||
 || parameter_hash | **string** ||
 || parameters | **[SubselectParameters](#SubselectParameters)** ||
 || raw_schema | **array \| null** ||
-|| source_type | **CHYT_USER_AUTH_SUBSELECT** (const) ||
+|| source_type | **CH_FROZEN_SUBSELECT** (const) ||
 || title | **string**
 
 Required field.  ||
 || valid | **boolean** ||
-|| virtual | **unknown** 
+|| virtual | **unknown** ||
+|#
 
-Indicates whether a certain component is managed by the service. Service components are not fully controlled by the user. ||
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SQLParameters](#SQLParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **CH_GEO_FILTERED_TABLE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SQLParameters](#SQLParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **CH_YA_MUSIC_PODCAST_STATS_TABLE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SQLParameters](#SQLParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **CHYT_YTSAURUS_TABLE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[CHYTTableListParameters](#CHYTTableListParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **CHYT_YTSAURUS_TABLE_LIST** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[CHYTTableRangeParameters](#CHYTTableRangeParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **CHYT_YTSAURUS_TABLE_RANGE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SubselectParameters](#SubselectParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **CHYT_YTSAURUS_SUBSELECT** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
 |#
 
 >
@@ -1756,9 +2077,7 @@ Required field.  ||
 
 Required field.  ||
 || valid | **boolean** ||
-|| virtual | **unknown** 
-
-Indicates whether a certain component is managed by the service. Service components are not fully controlled by the user. ||
+|| virtual | **unknown** ||
 |#
 
 >
@@ -1784,9 +2103,59 @@ Required field.  ||
 
 Required field.  ||
 || valid | **boolean** ||
-|| virtual | **unknown** 
+|| virtual | **unknown** ||
+|#
 
-Indicates whether a certain component is managed by the service. Service components are not fully controlled by the user. ||
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SQLParameters](#SQLParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **EQUEO_CH_TABLE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SQLParameters](#SQLParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **EXTRACTOR_1C_CH_TABLE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
 |#
 
 >
@@ -1812,9 +2181,7 @@ Required field.  ||
 
 Required field.  ||
 || valid | **boolean** ||
-|| virtual | **unknown** 
-
-Indicates whether a certain component is managed by the service. Service components are not fully controlled by the user. ||
+|| virtual | **unknown** ||
 |#
 
 >
@@ -1840,9 +2207,7 @@ Required field.  ||
 
 Required field.  ||
 || valid | **boolean** ||
-|| virtual | **unknown** 
-
-Indicates whether a certain component is managed by the service. Service components are not fully controlled by the user. ||
+|| virtual | **unknown** ||
 |#
 
 >
@@ -1868,9 +2233,7 @@ Required field.  ||
 
 Required field.  ||
 || valid | **boolean** ||
-|| virtual | **unknown** 
-
-Indicates whether a certain component is managed by the service. Service components are not fully controlled by the user. ||
+|| virtual | **unknown** ||
 |#
 
 >
@@ -1896,9 +2259,33 @@ Required field.  ||
 
 Required field.  ||
 || valid | **boolean** ||
-|| virtual | **unknown** 
+|| virtual | **unknown** ||
+|#
 
-Indicates whether a certain component is managed by the service. Service components are not fully controlled by the user. ||
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SQLParameters](#SQLParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **KONTUR_MARKET_CH_TABLE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
 |#
 
 >
@@ -1924,9 +2311,59 @@ Required field.  ||
 
 Required field.  ||
 || valid | **boolean** ||
-|| virtual | **unknown** 
+|| virtual | **unknown** ||
+|#
 
-Indicates whether a certain component is managed by the service. Service components are not fully controlled by the user. ||
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SimpleParameters](#SimpleParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **MONITORING** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SQLParameters](#SQLParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **MOYSKLAD_CH_TABLE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
 |#
 
 >
@@ -1952,9 +2389,7 @@ Required field.  ||
 
 Required field.  ||
 || valid | **boolean** ||
-|| virtual | **unknown** 
-
-Indicates whether a certain component is managed by the service. Service components are not fully controlled by the user. ||
+|| virtual | **unknown** ||
 |#
 
 >
@@ -1980,9 +2415,7 @@ Required field.  ||
 
 Required field.  ||
 || valid | **boolean** ||
-|| virtual | **unknown** 
-
-Indicates whether a certain component is managed by the service. Service components are not fully controlled by the user. ||
+|| virtual | **unknown** ||
 |#
 
 >
@@ -2008,9 +2441,7 @@ Required field.  ||
 
 Required field.  ||
 || valid | **boolean** ||
-|| virtual | **unknown** 
-
-Indicates whether a certain component is managed by the service. Service components are not fully controlled by the user. ||
+|| virtual | **unknown** ||
 |#
 
 >
@@ -2036,9 +2467,7 @@ Required field.  ||
 
 Required field.  ||
 || valid | **boolean** ||
-|| virtual | **unknown** 
-
-Indicates whether a certain component is managed by the service. Service components are not fully controlled by the user. ||
+|| virtual | **unknown** ||
 |#
 
 >
@@ -2064,9 +2493,7 @@ Required field.  ||
 
 Required field.  ||
 || valid | **boolean** ||
-|| virtual | **unknown** 
-
-Indicates whether a certain component is managed by the service. Service components are not fully controlled by the user. ||
+|| virtual | **unknown** ||
 |#
 
 >
@@ -2092,9 +2519,7 @@ Required field.  ||
 
 Required field.  ||
 || valid | **boolean** ||
-|| virtual | **unknown** 
-
-Indicates whether a certain component is managed by the service. Service components are not fully controlled by the user. ||
+|| virtual | **unknown** ||
 |#
 
 >
@@ -2120,9 +2545,7 @@ Required field.  ||
 
 Required field.  ||
 || valid | **boolean** ||
-|| virtual | **unknown** 
-
-Indicates whether a certain component is managed by the service. Service components are not fully controlled by the user. ||
+|| virtual | **unknown** ||
 |#
 
 >
@@ -2148,9 +2571,7 @@ Required field.  ||
 
 Required field.  ||
 || valid | **boolean** ||
-|| virtual | **unknown** 
-
-Indicates whether a certain component is managed by the service. Service components are not fully controlled by the user. ||
+|| virtual | **unknown** ||
 |#
 
 >
@@ -2176,37 +2597,7 @@ Required field.  ||
 
 Required field.  ||
 || valid | **boolean** ||
-|| virtual | **unknown** 
-
-Indicates whether a certain component is managed by the service. Service components are not fully controlled by the user. ||
-|#
-
->
-
-#|
-||Field | Description ||
-|| connection_id | **string \| null** ||
-|| id | **string**
-
-Required field.  ||
-|| index_info_set | **array \| null** ||
-|| managed_by | **enum**
-
-- `user`
-- `feature`
-- `compiler_runtime`
-- `null` ||
-|| parameter_hash | **string** ||
-|| parameters | **[SimpleParameters](#SimpleParameters)** ||
-|| raw_schema | **array \| null** ||
-|| source_type | **SOLOMON** (const) ||
-|| title | **string**
-
-Required field.  ||
-|| valid | **boolean** ||
-|| virtual | **unknown** 
-
-Indicates whether a certain component is managed by the service. Service components are not fully controlled by the user. ||
+|| virtual | **unknown** ||
 |#
 
 >
@@ -2227,14 +2618,168 @@ Required field.  ||
 || parameter_hash | **string** ||
 || parameters | **[SQLParameters](#SQLParameters)** ||
 || raw_schema | **array \| null** ||
-|| source_type | **CH_USAGE_TRACKING_YA_TEAM_TABLE** (const) ||
+|| source_type | **CH_SMB_HEATMAPS_TABLE** (const) ||
 || title | **string**
 
 Required field.  ||
 || valid | **boolean** ||
-|| virtual | **unknown** 
+|| virtual | **unknown** ||
+|#
 
-Indicates whether a certain component is managed by the service. Service components are not fully controlled by the user. ||
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SnowFlakeTableParameters](#SnowFlakeTableParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **SNOWFLAKE_TABLE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SQLParameters](#SQLParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **SPEECHSENSE_TABLE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SchematizedParameters](#SchematizedParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **TRINO_TABLE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SubselectParameters](#SubselectParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **TRINO_SUBSELECT** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SQLParameters](#SQLParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **CH_USAGE_TRACKING_TABLE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SQLParameters](#SQLParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **CH_USAGE_TRACKING_AGG_TABLE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
 |#
 
 >
@@ -2260,9 +2805,7 @@ Required field.  ||
 
 Required field.  ||
 || valid | **boolean** ||
-|| virtual | **unknown** 
-
-Indicates whether a certain component is managed by the service. Service components are not fully controlled by the user. ||
+|| virtual | **unknown** ||
 |#
 
 >
@@ -2288,9 +2831,59 @@ Required field.  ||
 
 Required field.  ||
 || valid | **boolean** ||
-|| virtual | **unknown** 
+|| virtual | **unknown** ||
+|#
 
-Indicates whether a certain component is managed by the service. Service components are not fully controlled by the user. ||
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SQLParameters](#SQLParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **YQ_TABLE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SubselectParameters](#SubselectParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **YQ_SUBSELECT** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
 |#
 
 >
@@ -2304,15 +2897,25 @@ Indicates whether a certain component is managed by the service. Service compone
 
 #|
 ||Field | Description ||
-|| db_name | **string \| null** 
+|| db_name | **string \| null** ||
+|| db_version | **string \| null** ||
+|| table_name | **string \| null** ||
+|#
 
-Database name. ||
-|| db_version | **string \| null** 
+## BigQueryTableParameters {#BigQueryTableParameters}
 
-Database version. ||
-|| table_name | **string \| null** 
+#|
+||Field | Description ||
+|| dataset_name | **string \| null** ||
+|| db_version | **string \| null** ||
+|| table_name | **string \| null** ||
+|#
 
-Table name. ||
+## SubselectParameters {#SubselectParameters}
+
+#|
+||Field | Description ||
+|| subsql | **string** ||
 |#
 
 ## CHYTTableListParameters {#CHYTTableListParameters}
@@ -2326,42 +2929,19 @@ Table name. ||
 
 #|
 ||Field | Description ||
-|| directory_path | **string** 
-
-Directory path. ||
-|| range_from | **string** 
-
-Range start. ||
-|| range_to | **string** 
-
-Range end. ||
-|#
-
-## SubselectParameters {#SubselectParameters}
-
-#|
-||Field | Description ||
-|| subsql | **string** 
-
-Subquery SQL. ||
+|| directory_path | **string** ||
+|| range_from | **string** ||
+|| range_to | **string** ||
 |#
 
 ## SchematizedParameters {#SchematizedParameters}
 
 #|
 ||Field | Description ||
-|| db_name | **string \| null** 
-
-Database name (nullable). ||
-|| db_version | **string \| null** 
-
-Database version (nullable).||
-|| schema_name | **string \| null** 
-
-Schema name (nullable). ||
-|| table_name | **string \| null** 
-
-Table names. ||
+|| db_name | **string \| null** ||
+|| db_version | **string \| null** ||
+|| schema_name | **string \| null** ||
+|| table_name | **string \| null** ||
 |#
 
 ## SimpleParameters {#SimpleParameters}
@@ -2371,88 +2951,61 @@ Table names. ||
 || Empty | > ||
 |#
 
+## SnowFlakeTableParameters {#SnowFlakeTableParameters}
+
+#|
+||Field | Description ||
+|| db_name | **string \| null** ||
+|| schema | **string \| null** ||
+|| table_name | **string \| null** ||
+|#
+
 ## Options {#Options}
 
 #|
 ||Field | Description ||
-|| connections | **[Connections](#Connections)** 
-
-Connection options. ||
-|| data_types | **[DataTypes](#DataTypes)** 
-
-Data type options. ||
-|| fields | **[Fields](#Fields)** 
-
-Field options. ||
-|| join | **[Join](#Join)** 
-
-Join options. ||
-|| preview | **[Preview](#Preview)** 
-
-Preview options. ||
-|| schema_update_enabled | **boolean** 
-
-Whether schema update is enabled. ||
-|| source_avatars | **[Avatars](#Avatars)** 
-
-Source avatar options. ||
-|| source_listing | **[SourceListing](#SourceListing)** 
-
-Source listing options. ||
-|| sources | **[Sources](#Sources)** 
-
-Source options. ||
-|| supported_functions[] | **string** 
-
-Supported functions. ||
-|| supports_offset | **boolean** 
-
-Whether offset is supported. ||
+|| connections | **[Connections](#Connections)** ||
+|| data_types | **[DataTypes](#DataTypes)** ||
+|| fields | **[Fields](#Fields)** ||
+|| join | **[Join](#Join)** ||
+|| preview | **[Preview](#Preview)** ||
+|| schema_update_enabled | **boolean** ||
+|| source_avatars | **[Avatars](#Avatars)** ||
+|| source_listing | **[SourceListing](#SourceListing)** ||
+|| sources | **[Sources](#Sources)** ||
+|| supported_functions[] | **string** ||
+|| supports_offset | **boolean** ||
 |#
 
 ## Connections {#Connections}
 
 #|
 ||Field | Description ||
-|| compatible_types[] | **[CompatConnectionTypeListItem](#CompatConnectionTypeListItem)** 
-
-Compatible connection types. ||
-|| items[] | **[ConnectionListItem](#ConnectionListItem)** 
-
-Connection items. ||
-|| max | **integer** 
-
-Maximum number of connections. ||
+|| compatible_types[] | **[CompatConnectionTypeListItem](#CompatConnectionTypeListItem)** ||
+|| items[] | **[ConnectionListItem](#ConnectionListItem)** ||
+|| max | **integer** ||
 |#
 
 ## CompatConnectionTypeListItem {#CompatConnectionTypeListItem}
 
 #|
 ||Field | Description ||
-|| conn_type | **unknown** 
-
-Connection type. ||
+|| conn_type | **unknown** ||
 |#
 
 ## ConnectionListItem {#ConnectionListItem}
 
 #|
 ||Field | Description ||
-|| id | **string** 
-
-ID of the connection. ||
-|| replacement_types[] | **[CompatConnectionTypeListItem](#CompatConnectionTypeListItem)** 
-
-Replacement types. ||
+|| id | **string** ||
+|| replacement_types[] | **[CompatConnectionTypeListItem](#CompatConnectionTypeListItem)** ||
 |#
 
 ## DataTypes {#DataTypes}
 
 #|
 ||Field | Description ||
-|| items[] | **[DataTypeListItem](#DataTypeListItem)** 
-
-Data type items. ||
+|| items[] | **[DataTypeListItem](#DataTypeListItem)** ||
 |#
 
 ## DataTypeListItem {#DataTypeListItem}
@@ -2460,8 +3013,6 @@ Data type items. ||
 #|
 ||Field | Description ||
 || aggregations[] | **enum**
-
-Supported aggregations.
 
 - `none`
 - `sum`
@@ -2471,8 +3022,6 @@ Supported aggregations.
 - `count`
 - `countunique` ||
 || casts[] | **enum**
-
-Supported casts.
 
 - `string`
 - `integer`
@@ -2492,8 +3041,6 @@ Supported casts.
 - `tree_str`
 - `genericdatetime` ||
 || filter_operations[] | **enum**
-
-Supported filter operations.
 
 - `ISNULL`
 - `ISNOTNULL`
@@ -2522,8 +3069,6 @@ Supported filter operations.
 - `BETWEEN` ||
 || type | **enum**
 
-Data type.
-
 - `string`
 - `integer`
 - `float`
@@ -2547,9 +3092,7 @@ Data type.
 
 #|
 ||Field | Description ||
-|| items[] | **[FieldListItem](#FieldListItem)** 
-
-Field items. ||
+|| items[] | **[FieldListItem](#FieldListItem)** ||
 |#
 
 ## FieldListItem {#FieldListItem}
@@ -2557,8 +3100,6 @@ Field items. ||
 #|
 ||Field | Description ||
 || aggregations[] | **enum**
-
-Supported aggregations.
 
 - `none`
 - `sum`
@@ -2568,8 +3109,6 @@ Supported aggregations.
 - `count`
 - `countunique` ||
 || casts[] | **enum**
-
-Supported casts.
 
 - `string`
 - `integer`
@@ -2588,9 +3127,7 @@ Supported casts.
 - `array_float`
 - `tree_str`
 - `genericdatetime` ||
-|| guid | **string** 
-
-GUID of the field. ||
+|| guid | **string** ||
 |#
 
 ## Join {#Join}
@@ -2599,17 +3136,13 @@ GUID of the field. ||
 ||Field | Description ||
 || operators[] | **enum**
 
-Supported join operators.
-
-- `gt` — greater than;
-- `lt` — less than;
-- `gte`— greater than or equal to;
-- `lte` — less than or equal to;
-- `eq` — equal to;
-- `ne` — not equal to. ||
+- `gt`
+- `lt`
+- `gte`
+- `lte`
+- `eq`
+- `ne` ||
 || types[] | **enum**
-
-Type of JOIN:
 
 - `inner`
 - `left`
@@ -2621,87 +3154,56 @@ Type of JOIN:
 
 #|
 ||Field | Description ||
-|| enabled | **boolean** 
-
-Whether preview is enabled. ||
+|| enabled | **boolean** ||
 |#
 
 ## Avatars {#Avatars}
 
 #|
 ||Field | Description ||
-|| items[] | **[SourceListItem](#SourceListItem)** 
-
-Source items. ||
-|| max | **integer** 
-
-Maximum number of source avatars. ||
+|| items[] | **[SourceListItem](#SourceListItem)** ||
+|| max | **integer** ||
 |#
 
 ## SourceListItem {#SourceListItem}
 
 #|
 ||Field | Description ||
-|| id | **string** 
-ID of the source. ||
-|| schema_update_enabled | **boolean** 
-
-Whether schema update is enabled. ||
+|| id | **string** ||
+|| schema_update_enabled | **boolean** ||
 |#
 
 ## SourceListing {#SourceListing}
 
 #|
 ||Field | Description ||
-|| db_name_label | **string** 
-
-Label for database name. ||
-|| db_name_required_for_search | **boolean** 
-
-Whether database name is required for search. ||
-|| supports_db_name_listing | **boolean** 
-
-Whether database name listing is supported. ||
-|| supports_source_pagination | **boolean** 
-
-Whether source pagination is supported. ||
-|| supports_source_search | **boolean** 
-
-Whether source search is supported. ||
+|| db_name_label | **string** ||
+|| db_name_required_for_search | **boolean** ||
+|| supports_db_name_listing | **boolean** ||
+|| supports_source_pagination | **boolean** ||
+|| supports_source_search | **boolean** ||
 |#
 
 ## Sources {#Sources}
 
 #|
 ||Field | Description ||
-|| compatible_types[] | **[CompatSourceTypeListItem](#CompatSourceTypeListItem)** 
-
-Compatible source types. ||
-|| items[] | **[SourceListItem1](#SourceListItem1)** 
-
-Source items. ||
-|| max | **integer** 
-
-Maximum number of sources. ||
+|| compatible_types[] | **[CompatSourceTypeListItem](#CompatSourceTypeListItem)** ||
+|| items[] | **[SourceListItem1](#SourceListItem1)** ||
+|| max | **integer** ||
 |#
 
 ## CompatSourceTypeListItem {#CompatSourceTypeListItem}
 
 #|
 ||Field | Description ||
-|| source_type | **unknown** 
-
-Source type. ||
+|| source_type | **unknown** ||
 |#
 
 ## SourceListItem1 {#SourceListItem1}
 
 #|
 ||Field | Description ||
-|| id | **string** 
-
-ID of the source. ||
-|| schema_update_enabled | **boolean** 
-
-Whether schema update is enabled. ||
+|| id | **string** ||
+|| schema_update_enabled | **boolean** ||
 |#

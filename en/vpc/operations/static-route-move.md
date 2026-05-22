@@ -8,12 +8,12 @@ You can move cloud resources between folders within a single [cloud](../../resou
 
   To move a [route table](../concepts/routing.md) to another folder:
 
-  1. In the [management console]({{ link-console-main }}), go to the folder containing the route table.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing your routing table.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/route.svg) **{{ ui-key.yacloud.vpc.network.switch_route-table }}**.
-  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the table to move and select **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the table to move and select **{{ ui-key.yacloud.common.move }}**.
   1. Select the destination folder from the drop-down list.
-  1. Click **{{ ui-key.yacloud.vpc.button_move-vpc-object }}**.
+  1. Click **{{ ui-key.yacloud.common.move }}**.
 
 - CLI {#cli}
 
@@ -117,4 +117,5 @@ Move a route table from the current folder by specifying the table name and dest
 
 * [{#T}](network-move.md)
 * [{#T}](subnet-move.md)
+
 

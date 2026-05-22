@@ -1,18 +1,18 @@
 {% list tabs group=instructions %}
 
-- {{ cloud-center }} interface {#cloud-center}
+- {{ cloud-center }} UI {#cloud-center}
 
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
 
   1. In the left-hand panel, select ![groups](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud_org.pages.groups }}** and click the row with the name of the [group](../../organization/concepts/groups.md) you need.
   
-  1. Go to the **{{ ui-key.yacloud_org.entity.group.title_tab-members }}** tab.
+  1. Navigate to the **{{ ui-key.yacloud_org.entity.group.title_tab-members }}** tab.
   
   1. Click **{{ ui-key.yacloud_org.entity.group.action_add-member }}**.
   
-  1. In the window that opens, select the needed users or [service accounts](../../iam/concepts/users/service-accounts.md). You may want to use the search feature.
+  1. In the window that opens, select the users or [service accounts](../../iam/concepts/users/service-accounts.md). Use search, if required.
   
-  1. Click **{{ ui-key.yacloud_org.component.subject-select-dialog.action_apply }}**.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -20,7 +20,7 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the command for adding members to the {{ org-name }} user group:
+  1. See the description of the command for adding members to the {{ org-full-name }} user group:
 
       ```bash
       yc organization-manager group add-members --help
@@ -37,7 +37,7 @@
 
       Where:
 
-      * `--name`: User group name. This is a required parameter.
+      * `--name`: User group name. This is a required setting.
       * `--organization-id`: [Organization ID](../../organization/operations/organization-get-id.md).
       * `--subject-id`: ID of the member to add to the group.
 
@@ -63,11 +63,11 @@
 
      * `group_id`: ID of the group to add the member to.
      * `members`: [IDs](../../organization/operations/users-get.md) of the members to add to the group.
-  1. Create resources:
+  1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+     {{ TF }} will create all the required resources. You can check the new resources and their settings in the [{{ cloud-center }} UI]({{ link-org-cloud-center }}) or using this [CLI](../../cli/) command:
 
      ```bash
      yc organization-manager group list-memebers \

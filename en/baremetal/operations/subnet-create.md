@@ -9,13 +9,13 @@ description: In this tutorial, you will learn how to create a private subnet and
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [private subnet](../concepts/network.md#private-subnet).
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [private subnet](../concepts/private-network.md#private-subnet).
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. In the left-hand panel, select ![icon](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.baremetal.label_subnetworks_uU4LH }}**.
   1. At the top right, click **{{ ui-key.yacloud.baremetal.label_create-subnetwork }}**.
   1. In the **{{ ui-key.yacloud.baremetal.field_zone-id }}** field, select the [availability zone](../../overview/concepts/geo-scope.md) where your server will be located.
   1. In the **{{ ui-key.yacloud.baremetal.field_hardware-pool-id }}** field, select the [pool](../concepts/servers.md#server-pools) containing available servers for leasing.
-  1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, specify your subnet name. Follow these naming requirements:
+  1. In the **{{ ui-key.yacloud.baremetal.field_name }}** field, specify your subnet name. The naming requirements are as follows:
 
      {% include [name-format](../../_includes/name-format.md) %}
 
@@ -24,7 +24,7 @@ description: In this tutorial, you will learn how to create a private subnet and
   1. Optionally, configure routing to allow communication with servers from other [pools](../concepts/servers.md#server-pools):
 
      1. Enable **{{ ui-key.yacloud.baremetal.title_routing-settings }}**.
-     1. In the **{{ ui-key.yacloud.baremetal.field_network-id }}** field, select an existing [VRF](../concepts/network.md#vrf-segment) or create a new one.
+     1. In the **{{ ui-key.yacloud.baremetal.field_network-id }}** field, select an existing [VRF](../concepts/private-network.md#vrf-segment) or create a new one.
      1. In the **{{ ui-key.yacloud.baremetal.field_CIDR_rwYMi }}** field, specify the subnet [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
      1. In the **{{ ui-key.yacloud.baremetal.field_gateway_t7LLk }}** field, specify the gateway IP address for routing traffic from this subnet to other VRF-connected subnets.
      
@@ -43,7 +43,7 @@ description: In this tutorial, you will learn how to create a private subnet and
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. View the description of the command for creating a [private subnet](../concepts/network.md#private-subnet):
+  1. View the description of the command for creating a [private subnet](../concepts/private-network.md#private-subnet):
 
      ```bash
      yc baremetal private-subnet create --help
@@ -69,7 +69,7 @@ description: In this tutorial, you will learn how to create a private subnet and
      * `--description`: Subnet description. This is an optional setting.
      * `--labels`: Subnet labels. This is an optional setting.
      * `--vrf-options`: Routing settings for communication with servers from other pools. This is an optional setting. Possible settings:
-       * `vrf-id`: ID of the [virtual network segment (VRF)](../concepts/network.md#vrf-segment).
+       * `vrf-id`: ID of the [virtual network segment (VRF)](../concepts/private-network.md#vrf-segment).
        * `vrf-name`: VRF name.
        * `cidr`: Subnet [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
        * `gateway-ip`: Gateway IP address for routing traffic from this subnet to other VRF-connected subnets. This is an optional setting.
@@ -79,6 +79,10 @@ description: In this tutorial, you will learn how to create a private subnet and
        * `dhcp`: IP address range for assigning addresses using DHCP to server network interfaces. This is an optional setting.
      
          {% include [default-dhcp](../../_includes/baremetal/instruction-steps/default-dhcp.md) %}
+
+- API {#api}
+
+  To create a private subnet, use the [create](../api-ref/PrivateSubnet/create.md) REST API method for the [PrivateSubnet](../api-ref/PrivateSubnet/index.md) resource or the [PrivateSubnetService/Create](../api-ref/grpc/PrivateSubnet/create.md) gRPC API call.
 
 {% endlist %}
 
@@ -122,5 +126,92 @@ Create a private subnet with a VRF, CIDR, default gateway, and IP address range:
   labels:
     env: test
   ```
+
+- API {#api}
+
+  ```bash
+  curl -X POST \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer <IAM_token>" \
+    -d '{
+      "folderId": "b1g07hj5r6i4********",
+      "hardwarePoolId": "ru-central1-m3",
+      "name": "demo-private-subnet",
+      "description": "My first private subnet",
+      "labels": {
+        "env": "test"
+      },
+      "vrfOptionsSpec": {
+        "vrfId": "ly5uyq2gbxu2********",
+        "cidr": "10.0.*.*/8",
+        "dhcpOptions": {
+          "startIp": "10.0.*.*",
+          "endIp": "10.0.*.*"
+        },
+        "gatewayIp": "10.0.*.*"
+      }
+    }' \
+    "https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/privateSubnets"
+  ```
+
+  Where:
+
+  * `<IAM_token>`: IAM token used for authentication.
+  * `folderId`: [Folder ID](../../resource-manager/operations/folder/get-id.md).
+  * `hardwarePoolId`: ID of the [pool](../concepts/servers.md#server-pools) to lease a server from.
+  * `name`: Subnet name. The naming requirements are as follows:
+    
+    {% include [name-format](../../_includes/name-format.md) %}
+    
+  * `description`: Subnet description. This is an optional parameter.
+  * `labels`: Subnet labels. This is an optional parameter.
+  * `vrfId`: ID of the [virtual network segment (VRF)](../concepts/private-network.md#vrf-segment).
+  * `cidr`: Subnet [CIDR](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
+  * `gatewayIp`: Gateway IP address. This is an optional parameter.
+  * `startIp`, `endIp`: Address range for DHCP. This is an optional parameter.
+
+  Result:
+
+  ```bash
+  {
+    "done": true,
+    "metadata": {
+      "@type": "type.googleapis.com/yandex.cloud.baremetal.v1alpha.CreatePrivateSubnetMetadata",
+      "privateSubnetId": "ly52xefxa2hi********"
+    },
+    "response": {
+      "@type": "type.googleapis.com/yandex.cloud.baremetal.v1alpha.PrivateSubnet",
+      "vrfOptions": {
+        "dhcpOptions":
+        {
+          "startIp": "10.0.*.*",
+          "endIp": "10.0.*.*"
+        },
+        "vrfId": "ly5licxve4z3********",
+        "cidr": "10.0.*.*/8",
+        "gatewayIp": "10.0.*.*"
+      },
+      "labels": {
+        "env": "test"
+      },
+      "id": "ly52xefxa2hi********",
+      "cloudId": "b1gia87mbaom********",
+      "folderId": "b1g07hj5r6i4********",
+      "name": "demo-private-subnet",
+      "description": "My first private subnet",
+      "status": "READY",
+      "zoneId": "ru-central1-m",
+      "hardwarePoolId": "ru-central1-m3",
+      "createdAt": "2025-12-14T14:42:58.372557Z"
+    },
+    "id": "ly5hcnsbx3l4********",
+    "description": "Private subnet create",
+    "createdAt": "2025-12-14T14:42:58.375290Z",
+    "createdBy": "ajeb9l33h6mu********",
+    "modifiedAt": "2025-12-14T14:42:58.375290Z"
+  }
+  ```
+
+  Follow the status of the operation by the `done` field.
 
 {% endlist %}

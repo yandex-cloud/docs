@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/certificate-manager/cli-ref/certificate/set-access-bindings
 editable: false
 ---
 

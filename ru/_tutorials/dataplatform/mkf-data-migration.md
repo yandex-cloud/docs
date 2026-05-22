@@ -1,5 +1,6 @@
 
 
+
 Перенести топики из _кластера-источника_ {{ KF }} в _кластер-приемник_ {{ mkf-name }} можно двумя способами:
 
 * [С помощью встроенного в {{ mkf-full-name }} MirrorMaker-коннектора](#kf-connector).
@@ -12,33 +13,47 @@
 
 Оба способа подойдут в том числе для [миграции кластера](../../managed-kafka/operations/host-migration.md#one-host) {{ mkf-name }} с одним хостом в другую зону доступности.
 
+
 ## Перенос данных с использованием сервиса {{ mkf-full-name }} Connector {#kf-connector}
 
-1. [Создайте коннектор](#create-cluster-connector).
+Чтобы перенести данные с использованием сервиса {{ mkf-full-name }} Connector:
+
+1. [Подготовьте кластер-источник](#prepare-source).
+1. [Создайте кластер-приемник и коннектор](#create-cluster-connector).
 1. [Проверьте наличие данных в топике кластера-приемника](#check-data-mkf-connector).
 
-
-## Необходимые платные ресурсы {#paid-resources-connector}
-
-В стоимость поддержки описываемого решения входят:
-
-* Плата за кластер {{ mkf-name }}: использование вычислительных ресурсов, выделенных хостам (в том числе хостам {{ ZK }}), и дискового пространства (см. [тарифы {{ KF }}](../../managed-kafka/pricing.md)).
-* Плата за использование публичных IP-адресов, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out-connector).
 
 
-### Создайте кластер и коннектор {#create-cluster-connector}
+### Перед началом работы {#before-you-begin}
+
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+##### **Необходимые платные ресурсы** {#paid-resources-connector}
+
+* Кластер {{ mkf-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mkf-name }}](../../managed-kafka/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+
+
+### Подготовьте кластер-источник {#prepare-source}
+
+1. Создайте пользователя `admin-source` и назначьте ему роль `ACCESS_ROLE_ADMIN` на все топики (`*`).
+1. Убедитесь, что настройки сети, в которой размещен кластер-источник, разрешают подключение к нему из интернета.
+
+### Создайте кластер-приемник и коннектор {#create-cluster-connector}
 
 {% list tabs group=instructions %}
 
 - Вручную {#manual}
 
+    1. [Создайте кластер-приемник](../../managed-kafka/operations/cluster-create.md).
     1. Подготовьте кластер-приемник:
-        * Создайте [пользователя-администратора](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `admin-cloud`.
-        * Включите настройку [Auto create topics enable](../../managed-kafka/concepts/settings-list.md#settings-auto-create-topics).
-        * Настройте [группы безопасности](../../managed-kafka/operations/connect/index.md#configuring-security-groups), если это требуется для подключения к кластеру-приемнику.
+        1. Создайте [пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `admin-cloud`.
+        1. [Создайте топик](../../managed-kafka/operations/cluster-topics.md#create-topic) с произвольными настройками. Он понадобится только для настройки доступа пользователя к топикам.
+        1. [Назначьте пользователю роль](../../managed-kafka/operations/cluster-accounts.md#grant-permission) `ACCESS_ROLE_ADMIN` на все топики (`*`).
+        1. Включите настройку [Auto create topics enable](../../managed-kafka/concepts/settings-list.md#settings-auto-create-topics).
+        1. Настройте [группы безопасности](../../managed-kafka/operations/connect/index.md#configuring-security-groups) для подключения к кластеру-приемнику.
 
-    1. Создайте в кластере-источнике пользователя `admin-source` с правом управления топиками через Admin API.
-    1. Убедитесь, что настройки сети, в которой размещен кластер-источник, разрешают подключение к нему из интернета.
     1. [Создайте для кластера-приемника коннектор](../../managed-kafka/operations/cluster-connector.md#create-connector) с типом `MirrorMaker` и настройками:
 
         * **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-topics }}** — список топиков, которые нужно перенести. Также можно указать регулярное выражение для выбора топиков. Для переноса всех топиков укажите `.*`.
@@ -47,16 +62,17 @@
           * **{{ ui-key.yacloud.kafka.field_connector-bootstrap-servers }}** — разделенный запятыми список FQDN хостов-брокеров кластера-источника с номерами портов, например:
 
               ```text
-              FQDN1:9091,FQDN2:9091,...,FQDN:9091
+              FQDN_1:9091,FQDN_2:9091,...,FQDN_N:9091
               ```
 
-          * **{{ ui-key.yacloud.kafka.field_connector-sasl-username }}**, **{{ ui-key.yacloud.kafka.field_connector-sasl-password }}** — имя и пароль созданного ранее пользователя `admin-source`.
           * **{{ ui-key.yacloud.kafka.field_connector-sasl-mechanism }}** — механизм шифрования имени и пароля `SCRAM-SHA-512`.
+          * **{{ ui-key.yacloud.kafka.field_connector-sasl-username }}**, **{{ ui-key.yacloud.kafka.field_connector-sasl-password }}** — имя и пароль созданного ранее пользователя `admin-source`.
           * **{{ ui-key.yacloud.kafka.field_connector-security-protocol }}** — выберите протокол подключения коннектора:
             * `SASL_PLAINTEXT` — если к кластеру-источнику подключаются без SSL;
             * `SASL_SSL` – если к кластеру-источнику подключаются с SSL.
 
         * В блоке **{{ ui-key.yacloud.kafka.field_connector-config-mirror-maker-target-cluster }}** выберите опцию **{{ ui-key.yacloud.kafka.label_connector-this-cluster }}**.
+
 
 - {{ TF }} {#tf}
 
@@ -98,91 +114,130 @@
 
         {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
-После создания коннектор автоматически активируется и начнется перенос данных.
 
 {% endlist %}
+
+{% note info %}
+
+После создания коннектор автоматически активируется, и начнется перенос данных.
+
+{% endnote %}
 
 ### Проверьте наличие данных в топике кластера-приемника {#check-data-mkf-connector}
 
 {% include [check-topics](../_tutorials_includes/check-mkf-topic.md) %}
 
-## Перенос данных с использованием утилиты MirrorMaker {#kf-mirrormaker}
+### Удалите созданные ресурсы {#clear-out-connector}
 
-1. [Настройте конфигурацию MirrorMaker](#configure-mirrormaker).
-1. [Запустите репликацию](#replication-start).
-1. [Проверьте наличие данных в топике кластера-приемника](#check-data-mkf).
-
-Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
-
-
-## Необходимые платные ресурсы {#paid-resources-mirrormaker}
-
-В стоимость поддержки описываемого решения входят:
-
-* Плата за кластер {{ mkf-name }}: использование вычислительных ресурсов, выделенных хостам (в том числе хостам {{ ZK }}), и дискового пространства (см. [тарифы {{ KF }}](../../managed-kafka/pricing.md)).
-* Плата за использование публичных IP-адресов, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
-* Плата за ВМ: использование вычислительных ресурсов, хранилища и публичного IP-адреса (опционально) (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
-
-
-### Перед началом работы {#before-you-begin}
-
-#### Подготовьте инфраструктуру {#deploy-infrastructure}
+Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
 {% list tabs group=instructions %}
 
 - Вручную {#manual}
 
-    1. [Создайте кластер-приемник {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md):
+    [Удалите кластер {{ mkf-full-name }}](../../managed-kafka/operations/cluster-delete.md). Коннектор удалится вместе с кластером.
 
-        * С [пользователем-администратором](../../managed-kafka/operations/cluster-accounts.md#create-account) `admin-cloud`.
-        * С включенной настройкой [Auto create topics enable](../../managed-kafka/concepts/settings-list.md#settings-auto-create-topics).
-
-    1. [Создайте новую ВМ Linux](../../compute/operations/vm-create/create-linux-vm.md) для MirrorMaker в той же сети, к которой подключен кластер-приемник. Для подключения к виртуальной машине с локальной машины пользователя, а не из облачной сети {{ yandex-cloud }}, включите публичный доступ при ее создании.
 
 - {{ TF }} {#tf}
 
-    1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
-    1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
-    1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
-    1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+    {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
-    1. Скачайте в ту же рабочую директорию файл конфигурации [kafka-mirror-maker.tf](https://github.com/yandex-cloud-examples/yc-kafka-data-migration-from-on-premise/blob/main/kafka-mirror-maker.tf).
-
-        В этом файле описаны:
-
-        * сеть;
-        * подсеть;
-        * группа безопасности по умолчанию и правила, необходимые для подключения к кластеру и виртуальной машине из интернета;
-        * кластер {{ mkf-name }} с включенной настройкой [Auto create topics enable](../../managed-kafka/concepts/settings-list.md#settings-auto-create-topics);
-        * [пользователь-администратор](../../managed-kafka/operations/cluster-accounts.md#create-account) {{ KF }} `admin-cloud`;
-        * виртуальная машина с публичным доступом из интернета.
-
-    1. Укажите в файле `kafka-mirror-maker.tf`:
-
-        * Версию {{ KF }}.
-        * Пароль пользователя-администратора {{ KF }}.
-        * Идентификатор публичного [образа](../../compute/operations/images-with-pre-installed-software/get-list.md) с Ubuntu без [GPU](../../glossary/gpu.md). Например, для [Ubuntu 20.04 LTS](/marketplace/products/yc/ubuntu-20-04-lts).
-        * Логин и путь к файлу [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), которые будут использоваться для доступа к виртуальной машине. По умолчанию в используемом образе указанный логин игнорируется, вместо него создается пользователь с логином `ubuntu`. Используйте его для подключения к виртуальной машине.
-
-    1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
-
-        ```bash
-        terraform validate
-        ```
-
-        Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
-
-    1. Создайте необходимую инфраструктуру:
-
-        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-
-        {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
 
 {% endlist %}
 
-#### Выполните дополнительные настройки {#additional-settings}
 
-1. Создайте в кластере-источнике пользователя `admin-source` с правом управления топиками через Admin API.
+## Перенос данных с использованием утилиты MirrorMaker {#kf-mirrormaker}
+
+Чтобы перенести данные с использованием утилиты MirrorMaker:
+
+1. [Подготовьте инфраструктуру](#prepare-infrastructure).
+1. [Настройте кластер-источник и ВМ](#additional-settings).
+1. [Настройте конфигурацию MirrorMaker](#configure-mirrormaker).
+1. [Запустите репликацию](#replication-start).
+1. [Проверьте наличие данных в топике кластера-приемника](#check-data-mkf).
+
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out-mm).
+
+
+### Перед началом работы {#before-you-begin}
+
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+##### **Необходимые платные ресурсы** {#paid-resources-mirrormaker}
+
+* Кластер {{ mkf-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mkf-name }}](../../managed-kafka/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
+
+
+### Подготовьте инфраструктуру {#prepare-infrastructure}
+
+{% list tabs group=instructions %}
+
+- Вручную {#manual}
+
+  1. [Создайте кластер-приемник {{ mkf-name }}](../../managed-kafka/operations/cluster-create.md).
+  1. Подготовьте кластер-приемник:
+      * [Создайте пользователя](../../managed-kafka/operations/cluster-accounts.md#create-account) с именем `admin-cloud`.
+      * [Создайте топик](../../managed-kafka/operations/cluster-topics.md#create-topic) с произвольными настройками. Он понадобится только для настройки доступа пользователя к топикам.
+      * [Назначьте пользователю роль](../../managed-kafka/operations/cluster-accounts.md#grant-permission) `ACCESS_ROLE_ADMIN` на все топики (`*`).
+      * Включите настройку [Auto create topics enable](../../managed-kafka/concepts/settings-list.md#settings-auto-create-topics).
+      * Настройте [группы безопасности](../../managed-kafka/operations/connect/index.md#configuring-security-groups) для подключения к кластеру-приемнику.
+
+  1. [Создайте новую ВМ Linux](../../compute/operations/vm-create/create-linux-vm.md) для MirrorMaker в той же сети, к которой подключен кластер-приемник. 
+
+      Чтобы подключаться к виртуальной машине через интернет:
+
+      * Включите публичный доступ при создании ВМ.
+      * Убедитесь, что группа безопасности ВМ разрешает подключение к ней через интернет.
+
+- {{ TF }} {#tf}
+
+  1. {% include [terraform-install-without-setting](../../_includes/mdb/terraform/install-without-setting.md) %}
+  1. {% include [terraform-authentication](../../_includes/mdb/terraform/authentication.md) %}
+  1. {% include [terraform-setting](../../_includes/mdb/terraform/setting.md) %}
+  1. {% include [terraform-configure-provider](../../_includes/mdb/terraform/configure-provider.md) %}
+
+  1. Скачайте в ту же рабочую директорию файл конфигурации [kafka-mirror-maker.tf](https://github.com/yandex-cloud-examples/yc-kafka-data-migration-from-on-premise/blob/main/kafka-mirror-maker.tf).
+
+      В этом файле описаны:
+
+      * сеть;
+      * подсеть;
+      * группа безопасности по умолчанию и правила, необходимые для подключения к кластеру и виртуальной машине из интернета;
+      * кластер {{ mkf-name }} с включенной настройкой [Auto create topics enable](../../managed-kafka/concepts/settings-list.md#settings-auto-create-topics);
+      * [пользователь-администратор](../../managed-kafka/operations/cluster-accounts.md#create-account) {{ KF }} `admin-cloud`, которому назначена роль `ACCESS_ROLE_ADMIN` на все топики кластера;
+      * виртуальная машина с публичным доступом из интернета.
+
+  1. Укажите в файле `kafka-mirror-maker.tf`:
+
+      * Имя кластера {{ mkf-name}}
+      * Пароль пользователя-администратора {{ KF }}.
+      * Идентификатор публичного [образа](../../compute/operations/images-with-pre-installed-software/get-list.md) с Ubuntu без [GPU](../../glossary/gpu.md), например [Ubuntu 24.04 LTS](/marketplace/products/yc/ubuntu-24-04-lts).
+      * Логин и путь к файлу [открытого ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), которые будут использоваться для доступа к виртуальной машине.
+
+  1. Проверьте корректность файлов конфигурации {{ TF }} с помощью команды:
+
+      ```bash
+      terraform validate
+      ```
+
+      Если в файлах конфигурации есть ошибки, {{ TF }} на них укажет.
+
+  1. Создайте необходимую инфраструктуру:
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+      {% include [explore-resources](../../_includes/mdb/terraform/explore-resources.md) %}
+
+{% endlist %}
+
+### Настройте кластер-источник и ВМ {#additional-settings}
+
+1. Подготовьте кластер-источник:
+
+    1. Создайте в кластере-источнике пользователя `admin-source` и назначьте ему роль `ACCESS_ROLE_ADMIN` на все топики (`*`).
+    1. Включите настройку `Auto create topics enable`.
 
 1. [Подключитесь](../../compute/operations/vm-connect/ssh.md) к виртуальной машине по [SSH](../../glossary/ssh-keygen.md).
 
@@ -192,11 +247,20 @@
         sudo apt update && sudo apt install --yes default-jdk
         ```
 
-    1. [Скачайте](https://kafka.apache.org/downloads) и распакуйте архив {{ KF }} той же версии, которая установлена на кластере-приемнике. Например, для версии 2.8:
+    1. [Скачайте](https://kafka.apache.org/community/downloads/) и распакуйте архив {{ KF }} той же версии, которая установлена на кластере-приемнике. Например, для версии 3.9:
 
         ```bash
-        wget https://archive.apache.org/dist/kafka/2.8.0/kafka_2.12-2.8.0.tgz && \
-        tar -xvf kafka_2.12-2.8.0.tgz
+        wget https://archive.apache.org/dist/kafka/3.9.0/kafka_2.12-3.9.0.tgz && \
+        tar -xvf kafka_2.12-3.9.0.tgz
+        ```
+
+    1. Скачайте [SSL-сертификат](../../managed-kafka/operations/connect#get-ssl-cert) для подключения к кластеру {{ mkf-name }}:
+
+        ```bash
+        sudo mkdir -p /usr/local/share/ca-certificates/Yandex && \
+        sudo wget "https://storage.yandexcloud.net/cloud-certs/CA.pem" \
+            --output-document /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt && \
+        sudo chmod 0655 /usr/local/share/ca-certificates/Yandex/YandexInternalRootCA.crt
         ```
 
     1. Установите утилиту [kafkacat](https://github.com/edenhill/kcat):
@@ -205,14 +269,11 @@
         sudo apt update && sudo apt install --yes kafkacat
         ```
 
-        Убедитесь, что можете с ее помощью [подключиться к кластеру-источнику и кластеру-приемнику через SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
-
 1. Настройте межсетевой экран (firewall) и [группы безопасности](../../managed-kafka/operations/connect/index.md#configuring-security-groups), если это требуется для подключения MirrorMaker к кластеру-приемнику и кластеру-источнику.
 
 ### Настройте конфигурацию MirrorMaker {#configure-mirrormaker}
 
 1. [Подключитесь к ВМ с MirrorMaker по SSH](../../compute/operations/vm-connect/ssh.md).
-1. Скачайте [SSL-сертификат](../../managed-kafka/operations/connect#get-ssl-cert) для подключения к кластеру {{ mkf-name }}.
 1. В домашней директории создайте каталог `mirror-maker` для хранения сертификатов Java Keystore и конфигураций MirrorMaker:
 
    ```bash
@@ -232,8 +293,8 @@
 
    ```text
    # Kafka clusters
-   clusters=cloud, source
-   source.bootstrap.servers=<FQDN_брокера_кластера-источника>:9092
+   clusters=source, cloud
+   source.bootstrap.servers=<FQDN_брокера_кластера-источника>:9091
    cloud.bootstrap.servers=<FQDN_брокера_1_кластера-приемника>:9091, ..., <FQDN_брокера_N_кластера-приемника>:9091
 
    # Source and target cluster settings
@@ -305,27 +366,28 @@
    * Названия топиков в кластере-приемнике совпадают с их названиями в кластере-источнике.
    * Параметр `<R>` — [фактор репликации служебных топиков](../../managed-kafka/concepts/settings-list.md#settings-topic-replication-factor) MirrorMaker. Значение этого параметра не должно превышать меньшего между количеством брокеров в кластере-источнике и количеством брокеров в кластере-приемнике.
    * Параметр `<M>` — [фактор репликации по умолчанию](../../managed-kafka/concepts/settings-list.md#settings-topic-replication-factor), установленный для топиков в кластере-приемнике.
-   * Параметр `<T>` — количество одновременно работающих процессов MirrorMaker. Рекомендуется указывать не менее `2` для равномерного распределения нагрузки репликации. Подробнее см. [в документации {{ KF }}](https://kafka.apache.org/documentation/#georeplication-config-syntax).
+   * Параметр `<T>` — количество одновременно работающих процессов MirrorMaker. Рекомендуется указывать не менее `2` для равномерного распределения нагрузки репликации. Подробнее [в документации {{ KF }}](https://kafka.apache.org/42/operations/geo-replication-cross-cluster-data-mirroring/#configuration-file-syntax).
 
    FQDN брокеров {{ mkf-name }} можно запросить со [списком хостов в кластере](../../managed-kafka/operations/cluster-hosts.md).
 
 ### Запустите репликацию {#replication-start}
 
-Запустите MirrorMaker на ВМ командой:
+1. [Подключитесь к ВМ с MirrorMaker по SSH](../../compute/operations/vm-connect/ssh.md).
+1. Запустите MirrorMaker на ВМ командой:
 
-```bash
-<путь_установки_Apache_Kafka>/bin/connect-mirror-maker.sh /home/<домашняя_директория>/mirror-maker/mm2.properties
-```
+    ```bash
+    <путь_установки_Apache_Kafka>/bin/connect-mirror-maker.sh /home/<домашняя_директория>/mirror-maker/mm2.properties
+    ```
 
 ### Проверьте наличие данных в топике кластера-приемника {#check-data-mkf}
 
 {% include [check-topics](../_tutorials_includes/check-mkf-topic.md) %}
 
-Подробнее о работе с сервисом MirrorMaker 2.0 см. в [документации {{ KF }}](https://cwiki.apache.org/confluence/display/KAFKA/KIP-382%3A+MirrorMaker+2.0).
+Подробнее о работе с сервисом MirrorMaker 2.0 в [документации {{ KF }}](https://cwiki.apache.org/confluence/display/KAFKA/KIP-382%3A+MirrorMaker+2.0).
 
-### Удалите созданные ресурсы {#clear-out}
+### Удалите созданные ресурсы {#clear-out-mm}
 
-Удалите ресурсы, которые вы больше не будете использовать, чтобы за них не списывалась плата:
+Некоторые ресурсы платные. Чтобы за них не списывалась плата, удалите ресурсы, которые вы больше не будете использовать:
 
 {% list tabs group=instructions %}
 
@@ -340,3 +402,4 @@
     {% include [terraform-clear-out](../../_includes/mdb/terraform/clear-out.md) %}
 
 {% endlist %}
+

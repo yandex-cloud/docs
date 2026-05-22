@@ -32,7 +32,7 @@ Make sure the upgrade will not disrupt your applications:
 
 1. Check the {{ VLK }} [release notes](https://docs.redis.com/latest/rs/release-notes/) to learn how upgrades may affect your applications.
 1. Try upgrading a test cluster. You can [deploy it from a backup](cluster-backups.md#restore) of the main cluster, if {{ mrd-name }} [supports](#version-supported) the {{ VLK }} version in the backup.
-1. [Create a backup](cluster-backups.md#create-backup) of the main cluster immediately before upgrading.
+1. [Back up](cluster-backups.md#create-backup) your main cluster before upgrading.
 
 ## Upgrading a cluster {#start-update}
 
@@ -86,17 +86,17 @@ Make sure the upgrade will not disrupt your applications:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](./cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](./cluster-create.md).
 
     1. Update the `version` argument in the `config` section to specify the {{ VLK }} version you want to upgrade to:
 
         ```hcl
         resource "yandex_mdb_redis_cluster_v2" "<cluster_name>" {
+          ...
+          config = {
+            version  = "<new_version_number>"
             ...
-            config {
-                version  = "<new_version_number>"
-                ...
-            }
+          }
         }
         ```
 
@@ -114,11 +114,11 @@ Make sure the upgrade will not disrupt your applications:
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [Cluster.Update](../api-ref/Cluster/update.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -138,7 +138,7 @@ Make sure the upgrade will not disrupt your applications:
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings you want to update.
+        * `updateMask`: Comma-separated string of settings to update.
 
             Here, we provide only one setting.
 
@@ -150,7 +150,7 @@ Make sure the upgrade will not disrupt your applications:
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -182,7 +182,7 @@ Make sure the upgrade will not disrupt your applications:
 
         Where:
 
-        * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
 
             Here, we provide only one setting.
 

@@ -17,13 +17,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
 
+
 ### Required paid resources {#paid-resources}
 
-The cost of supporting a fault-tolerant {{ yandex-cloud }} architecture includes:
+* VMs: use of computing resources, storage, public IP addresses, and OS (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* {{ mpg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
 
-* Fee for [disks](../../compute/concepts/disk.md) and continuously running [VMs](../../compute/concepts/vm.md) (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* Fee for a continuously running [{{ mpg-full-name }} cluster](../../managed-postgresql/concepts/index.md) (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
-* Fee for a dynamic or static [public IP address](../../vpc/concepts/address.md) (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 ## Set up a test environment {#prepare}
 
@@ -203,7 +203,7 @@ To simulate this failure, delete one of the VM instances from the group:
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select your instance group folder.
-  1. In the list of services, select **{{ compute-name }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Select `todo-ig`.
   1. Navigate to the **{{ ui-key.yacloud.compute.placement-group.switch_instances }}** panel.
@@ -273,7 +273,7 @@ To move your resources to another data center:
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select your instance group folder.
-  1. In the list of services, select **{{ compute-name }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Select `todo-ig`.
   1. In the top-right corner, click **{{ ui-key.yacloud.common.edit }}**.
@@ -303,7 +303,7 @@ To update your application:
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select your instance group folder.
-  1. In the list of services, select **{{ compute-name }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. In the left-hand panel, select ![image](../../_assets/compute/vm-group-pic.svg) **{{ ui-key.yacloud.compute.instance-groups_hx3kX }}**.
   1. Select `todo-ig`.
   1. In the top-right corner, click **{{ ui-key.yacloud.common.edit }}**.
@@ -346,7 +346,7 @@ To scale your DB:
 - Management console
 
   1. In the [management console]({{ link-console-main }}), select your DB cluster folder.
-  1. In the list of services, select **{{ mpg-name }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Select `todo-postgresql`.
   1. Click ![image](../../_assets/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_resource }}**, select `s2.medium`.

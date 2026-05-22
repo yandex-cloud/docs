@@ -112,7 +112,7 @@ To check the result in the {{ AF }} web interface:
 
 - {{ AF }} version 3.0 or higher {#version-3}
 
-  1. In the **DAGs** section, click `clickhouse`.
+  1. In the **DAGs** section, click the `clickhouse` graph.
   1. Go to **Tasks**.
   1. Select **query_clickhouse**.
   1. Go to **Tasks Instances**.
@@ -121,3 +121,8 @@ To check the result in the {{ AF }} web interface:
   1. Make sure the logs contain the `query result: [(1,)]` line. This means the query was successful.
 
 {% endlist %}
+
+## Troubleshooting {#troubleshooting}
+
+* [{#T}](../qa/index.md#airflow-clickhouse-ssl)
+* [{#T}](../qa/index.md#airflow-clickhouse-plugin)

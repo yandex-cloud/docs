@@ -5,7 +5,7 @@ description: С помощью этой инструкции вы научите
 
 # Настройка федерации сервисных аккаунтов
 
-{% include [move-groups-api](../../../_includes/iam/wlif-instructions-intro.md) %}
+{% include [wlif-instructions-intro](../../../_includes/iam/wlif-instructions-intro.md) %}
 
 Чтобы настроить аутентификацию в API {{ yandex-cloud }} через федерацию сервисных аккаунтов:
 
@@ -18,6 +18,9 @@ description: С помощью этой инструкции вы научите
 
 * [GitHub](../../tutorials/wlif-github-integration.md).
 * [{{ GL }}](../../tutorials/wlif-gitlab-integration.md).
+* [Пользовательская инсталляция {{ k8s }}](../../tutorials/wlif-k8s-integration.md).
+* [{{ managed-k8s-name }}](../../tutorials/wlif-managed-k8s-integration.md).
+* [Настройка CI/CD между {{ sf-name }} и GitHub](../../tutorials/ci-cd-github-functions.md).
 
 ## Подготовьте облако к работе {#prepare-cloud}
 
@@ -37,7 +40,7 @@ description: С помощью этой инструкции вы научите
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, в котором вы хотите создать федерацию сервисных аккаунтов.
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, в котором вы хотите создать федерацию сервисных аккаунтов.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. На панели слева выберите ![cpus](../../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.label_federations }}**.
   1. Нажмите **{{ ui-key.yacloud.iam.label_create-wli-federation }}** и в открывшейся форме:
@@ -165,6 +168,12 @@ description: С помощью этой инструкции вы научите
 
 ## Создайте привязку {#create-federated-credential}
 
+{% note warning %}
+
+{% include [access-control-sa-wlif-notice](../../../_includes/iam/access-control-wlif-notice.md) %}
+
+{% endnote %}
+
 Привязка — это связь, настроенная между федерацией сервисных аккаунтов, одним сервисным аккаунтом {{ yandex-cloud }} и одним внешним субъектом. Привязки необходимы для идентификации внешних субъектов в {{ iam-full-name }}.
 
 {% note info %}
@@ -179,13 +188,12 @@ description: С помощью этой инструкции вы научите
 
 - Консоль управления {#console}
 
-  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, в котором находится сервисный аккаунт.
+  1. В [консоли управления]({{ link-console-main }}) на панели сверху нажмите ![image](../../../_assets/console-icons/layout-side-content-left.svg) или ![image](../../../_assets/console-icons/chevron-down.svg) и выберите каталог, в котором находится сервисный аккаунт.
   
       При необходимости [создайте](../sa/create.md) новый сервисный аккаунт.
   1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. В списке выберите нужный сервисный аккаунт.
-  1. Перейдите на вкладку **{{ ui-key.yacloud.iam.label_federations }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud.iam.connected-federation.action_connect-federation }}**.
+  1. На верхней панели нажмите ![image](../../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.action_connect-federation }}**.
   1. В поле **{{ ui-key.yacloud.iam.connected-federation.field_federation }}** выберите ранее созданную федерацию.
   1. В поле **{{ ui-key.yacloud.iam.connected-federation.field_subject }}** укажите идентификатор внешнего субъекта.
 

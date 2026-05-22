@@ -3,9 +3,9 @@ title: Configuring network connection reservation in {{ baremetal-full-name }}
 description: Follow this guide to set up an aggregation group on a {{ baremetal-full-name }} server with an ability to reserve a network connection using MC-LAG.
 ---
 
-# Setting up an MC-LAG aggregation group
+# Configuring the MC-LAG aggregation group
 
-Servers with [MC-LAG](../../concepts/mc-lag.md) support use two network adapters to simultaneously connect to each of the networks ([public](../../concepts/network.md#public-network) and [private](../../concepts/network.md#private-network)). To ensure fault tolerance, each of the network interface pairs connected to the networks must form an _aggregation group_ on the server side. For more information, see [{#T}](../../concepts/mc-lag.md#additional-setup).
+Servers with [MC-LAG](../../concepts/mc-lag.md) support use two network adapters to simultaneously connect to each of the networks ([public](../../concepts/public-network.md) and [private](../../concepts/private-network.md)). To ensure fault tolerance, each of the network interface pairs connected to the networks must form an _aggregation group_ on the server side. For more information, see [{#T}](../../concepts/mc-lag.md#additional-setup).
 
 {% note info %}
 
@@ -57,7 +57,7 @@ To set up a link aggregation group:
         1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the server belongs to.
         1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}** and select the server in the list of servers.
 
-            On the page that opens, in the `{{ ui-key.yacloud.baremetal.field_mac-address }}` field under **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}** and **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}**, you can see the MAC addresses of interfaces connected to the public and private networks, respectively.
+            On the page that opens, in the `{{ ui-key.yacloud.baremetal.field_mac-address }}` field under **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}**, you can see the MAC addresses of interfaces connected to the public and private networks, respectively.
 
         1. Use the information obtained in the two previous steps to identify the server interface pairs connected to the public and private networks. In the example above, the pairs are as follows:
 
@@ -197,6 +197,12 @@ To set up a link aggregation group:
       ```
 
       {% endcut %}
+
+      {% note info %}
+
+      If there are [secondary private subnets](../../concepts/private-network.md#tagged-vlan-subnet) attached to the server, configure the server VLANs. For more information, see [{#T}](./set-up-tagged-vlan.md).
+
+      {% endnote %}
 
   1. Apply the new Netplan configuration:
 

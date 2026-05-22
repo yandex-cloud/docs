@@ -29,7 +29,7 @@ description: Следуя данной инструкции, вы сможете
     jdbc:postgresql://<адрес_сервера_базы_данных>:5432/<имя_базы_данных>
     ```
 
-    Для {{ mpg-full-name }} используйте строку с [особым FQDN](../../managed-postgresql/operations/connect.md#fqdn-master), который указывает на хост-мастер:
+    Для {{ mpg-full-name }} используйте строку с [особым FQDN](../../managed-postgresql/operations/connect/fqdn.md#fqdn-master), который указывает на хост-мастер:
 
     ```http
     jdbc:postgresql://c-<идентификатор_кластера>.rw.{{ dns-zone }}:{{ port-mpg }}/<имя_базы_данных>

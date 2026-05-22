@@ -6,10 +6,8 @@ editable: false
 
 ## HTTP request
 
-Deletes the specified dashboard.
-
 ```
-POST https://api.datalens.yandex.net/rpc/deleteDashboard
+POST https://api.datalens.tech/rpc/deleteDashboard
 ```
 
 ## Body parameters
@@ -27,13 +25,15 @@ POST https://api.datalens.yandex.net/rpc/deleteDashboard
 ||Field | Description ||
 || dashboardId | **string**
 
-Required field. ID of the dashboard to delete. ||
+Required field.  ||
 || lockToken | **string** ||
 |#
 
 ## Response {#200}
 
 **HTTP Code: 200**
+
+Response
 
 **Response schema: application/json**
 

@@ -22,6 +22,11 @@
 `DeleteOsLoginProfile` | Удаление профиля {{ oslogin }}
 `DeleteUserSshKey` | Удаление SSH-ключа пользователя
 `idp.AddUserpoolDomain` | Привязка домена к пулу пользователей
+`idp.branding.CreateAsset` | Загрузка ресурса для [брендирования](../../../organization/concepts/branding.md)
+`idp.branding.CreateBranding` | Создание брендирования
+`idp.branding.DeleteAsset` | Удаление ресурса для брендирования
+`idp.branding.DeleteBranding` | Удаление брендирования
+`idp.branding.UpdateBranding` | Изменение настроек брендирования
 `idp.ChangeOneTimePassword` | Изменение одноразового пароля
 `idp.ConvertUserToExternal` | Назначение пользователю признака синхронизации из внешнего каталога
 `idp.CreateUser` | Создание локального пользователя

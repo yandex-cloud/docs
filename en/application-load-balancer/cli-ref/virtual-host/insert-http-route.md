@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/virtual-host/insert-http-route
 editable: false
 ---
 
@@ -110,6 +111,15 @@ Possible property names:
 
 - `substitute`: String that should be substituted into matching substrings. ||
 || `--disable-security-profile` | Disables security profile for the route. ||
+|| `--ccf-header` | `string`
+
+Specifies header with the provided client certificate's (if it is validated by the configured trusted CA). ||
+|| `--ccf-issuer` | `string`
+
+Specifies header with the provided client certificate's issuer (if it is validated by the configured trusted CA). ||
+|| `--ccf-subject` | `string`
+
+Specifies header with the provided client certificate's subject (if it is validated by the configured trusted CA). ||
 || `--before` | `string`
 
 Specifies the name of the route to append the new route before. ||

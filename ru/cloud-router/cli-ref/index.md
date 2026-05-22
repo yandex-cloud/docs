@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloudrouter/cli-ref/
 editable: false
 ---
 
@@ -51,6 +52,14 @@ Syntax:
   - [yc cloudrouter routing-instance update-prefix-mask](routing-instance/update-prefix-mask.md) — Update mask of a VPC network prefix of the routingInstance.
 
   - [yc cloudrouter routing-instance upsert-prefixes](routing-instance/upsert-prefixes.md) — Upsert announced VPC network prefixes to the routingInstance.
+
+- [yc cloudrouter v0](v0/index.md) — [PREVIEW] Manage Yandex Cloud Router resources
+
+
+
+- [yc cloudrouter v1](v1/index.md) — (new command tree) [PREVIEW] Manage Cloud Router resources
+
+
 
 #### Global Flags
 

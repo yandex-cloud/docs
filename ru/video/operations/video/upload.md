@@ -39,6 +39,7 @@ description: Следуя данной инструкции, вы сможете
 
       * **{{ ui-key.yacloud_video.videos.label_access_rights-public }}** — видео доступно неограниченное время и всем, у кого есть ссылка на видео.
 
+  1. (Опционально) Чтобы добавить рекламу для видео, включите опцию **{{ ui-key.yacloud_video.videos.label_enable-ad }}**.
   1. (Опционально) Чтобы добавить обложку для видео, в поле **{{ ui-key.yacloud_video.thumbnails.label_thumbnail }}** нажмите кнопку ![image](../../../_assets/console-icons/cloud-arrow-up-in.svg) **Выберите файл** и выберите изображение для обложки.
 
       {% include [image-characteristic](../../../_includes/video/image-characteristic.md) %}
@@ -48,6 +49,7 @@ description: Следуя данной инструкции, вы сможете
      Если шаблон не выбран, к видео будут применен [шаблон по умолчанию](../style-presets/set-default.md), назначенный на канал.
 
   1. {% include [add-summarization-optional](../../../_includes/video/add-summarization-optional.md) %}
+  1. {% include [turn-auto-proc-video-file-errors-optional](../../../_includes/video/turn-auto-proc-video-file-errors-optional.md) %}
   1. {% include [add-subtitles-optional](../../../_includes/video/add-subtitles-optional.md) %}
   1. {% include [add-translation-optional](../../../_includes/video/add-translation-optional.md) %}
   1. Нажмите кнопку **{{ ui-key.yacloud_video.common.action_accept }}**.

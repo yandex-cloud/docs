@@ -5,6 +5,15 @@ description: В этой инструкции вы научитесь созда
 
 # Как начать работать с {{ mch-name }}
 
+
+
+<iframe width="640" height="360" src="https://runtime.strm.yandex.ru/player/episode/vpleqgrv2vfmu7sbwkge?autoplay=0&mute=0" allow="autoplay; fullscreen; picture-in-picture; encrypted-media" frameborder="0" scrolling="no"></iframe>
+
+[Смотреть видео на YouTube](https://www.youtube.com/watch?v=qdaGELCN8fs).
+
+
+
+
 Чтобы начать работу с сервисом:
 
 
@@ -45,7 +54,7 @@ description: В этой инструкции вы научитесь созда
    {% endnote %}
 
 1. [Подключитесь](../compute/operations/vm-connect/ssh.md) к ВМ по [SSH](../glossary/ssh-keygen.md).
-1. Подключите [DEB-репозиторий]({{ ch.docs }}/getting-started/install/#install-from-deb-packages) {{ CH }}:
+1. Подключите [DEB-репозиторий]({{ ch.docs }}{{ lang }}/install#install-from-deb-packages) {{ CH }}:
 
    ```bash
    sudo apt update && sudo apt install --yes apt-transport-https ca-certificates dirmngr && \
@@ -83,7 +92,7 @@ description: В этой инструкции вы научитесь созда
    {% include [install-certificate](../_includes/mdb/mch/install-certificate.md) %}
 
 1. Используйте для подключения {{ CH }} CLI:
-   1. Укажите путь к SSL-сертификату `{{ crt-local-file-root }}` в [конфигурационном файле]({{ ch.docs }}/interfaces/cli/#interfaces_cli_configuration), в элементе `<caConfig>`:
+   1. Укажите путь к SSL-сертификату `{{ crt-local-file-root }}` в [конфигурационном файле]({{ ch.docs }}{{ lang }}/interfaces/cli#interfaces_cli_configuration), в элементе `<caConfig>`:
 
       ```xml
       <config>

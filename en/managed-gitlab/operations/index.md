@@ -7,7 +7,7 @@ description: This page provides a list of step-by-step guides for {{ mgl-name }}
 
 * [{#T}](instance/instance-list.md)
 * [Creating and activating an instance](instance/instance-create.md)
-* [Setting up security groups and access restrictions to an instance](configure-security-group.md)
+* [Setting up security groups and access restrictions for an instance](configure-security-group.md)
 * [Stopping and starting an instance](instance/instance-stop.md)
 * [{#T}](instance/instance-update.md)
 * [{#T}](instance/instance-backups.md)
@@ -20,3 +20,4 @@ description: This page provides a list of step-by-step guides for {{ mgl-name }}
 * [{#T}](instance/monitoring.md)
 * [{#T}](omniauth.md)
 * [{#T}](objstorage-integration.md)
+* [{#T}](runner.md)

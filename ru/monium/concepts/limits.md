@@ -1,0 +1,25 @@
+---
+title: Квоты и лимиты в {{ monium-name }}
+description: В сервисе {{ monium-name }} действуют лимиты и квоты на количество алертов в облаке, количество меток для одной метрики (включая обязательные). Более подробно об ограничениях в сервисе вы узнаете из данной статьи.
+editable: false
+---
+
+# Квоты и лимиты в {{ monium-name }}
+
+В сервисе {{ monium-name }} действуют следующие ограничения:
+
+{% include [quotes-limits-def.md](../../_includes/quotes-limits-def.md) %}
+
+{% include [increase-quotas.md](../../_includes/increase-quotas.md) %}
+
+## Ограничения для метрик и алертов
+
+{% include [monium-limits.md](../../_includes/monium/monium-limits.md) %}
+
+## Ограничения для логов
+
+{% include [logging-limits.md](../../_includes/monium/limits-logs.md) %}
+
+## Ограничения для трейсов
+
+{% include [traces-limits.md](../../_includes/monium/limits-traces.md) %}

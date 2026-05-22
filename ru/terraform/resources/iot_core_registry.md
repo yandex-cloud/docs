@@ -1,5 +1,5 @@
 ---
-subcategory: Cloud Logging
+subcategory: IoT Core Devices
 ---
 
 # yandex_iot_core_registry (Resource)
@@ -48,5 +48,9 @@ resource "yandex_iot_core_registry" "my_registry" {
   - `folder_id` (String). Log entries are written to default log group for specified folder.
   - `log_group_id` (String). Log entries are written to specified log group.
   - `min_level` (String). Minimum log entry level.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `update` (String).
 
 

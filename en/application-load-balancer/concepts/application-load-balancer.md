@@ -4,6 +4,8 @@ A load balancer is used to receive incoming traffic and transmit it to the backe
 
 The load balancer stores a list of endpoints, which accept traffic, and disables TLS encryption before sending the traffic to backends. Load balancer supports modern TLS versions (TLSv1.2, TLSv1.3) and encryption methods. If the load balancer is going to serve multiple domains, you can configure individual certificates and [HTTP routers](http-router.md) for each domain by using the TLS SNI mechanism.
 
+{% include [supported-certificates](../../_includes/application-load-balancer/supported-certificates.md) %}
+
 For convenience and security, you can use the load balancer in combination with {{ certificate-manager-full-name }} to store your TLS certificates. You can also use {{ monitoring-full-name }} services to monitor request processing.
 
 ## Security groups {#security-groups}
@@ -97,11 +99,11 @@ For {{ alb-name }} to provide load balancer availability as specified in the [se
 
 ### Zonal shift mechanism {#zonal-shift}
 
-You can configure your load balancer to temporarily deny one or more availability zones. You can disable zones [manually](../operations/manage-zone/start-and-cancel-shift.md) or [allow](../operations/manage-zone/allow-and-deny-shift.md) the system to auto-disable zones during incidents. If a zone is unavailable, {{ yandex-cloud }} technicians disable it. Once the zone is back on track, it is re-enabled, so your traffic is distributed evenly again.
+A load balancer can be temporarily disabled in one or more availability zones. You can disable zones [manually](../operations/manage-zone/start-and-cancel-shift.md) or [allow](../operations/manage-zone/allow-and-deny-shift.md) the system to auto-disable zones during incidents. The disabling is done by {{ yandex-cloud }} staff if a zone is unavailable. Once the zone is back on track, it is re-enabled, so your traffic is distributed evenly again.
 
 Once a zone is disabled, external traffic will no longer be sent to the load balancer nodes in these availability zones. However, the load balancer nodes in other availability zones will continue supplying traffic to backends in the availability zones the load balancer was disabled in, if allowed by the [locality-aware routing](backend-group.md#locality) settings.
 
-When manually disabling an availability zone, you can set a time from 1 minute to 72 hours, after which the zone will automatically return to work and the load balancer settings will be updated without your intervention. If no time is specified, the zone will remain disabled until manually enabled.
+When manually disabling an availability zone, you can set a time from 1 minute to 72 hours, after which the zone will automatically return to work and the load balancer settings will be updated without your intervention. If no time is set, the zone will be off until you re-enable it manually.
 
 By manually disabling an availability zone, you can:
 

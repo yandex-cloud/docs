@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-postgresql/cli-ref/cluster/update
 editable: false
 ---
 
@@ -58,7 +59,6 @@ Volume of the storage available to a host in GB ||
 || `--disk-type` | `string`
 
 Type of the storage environment for a host ||
-|| `--autofailover` | Enables/disables autofailover in cluster ||
 || `--backup-window-start` | `timeofday`
 
 Start time for the daily backup in UTC timezone. Format: HH:MM:SS ||
@@ -103,6 +103,17 @@ Possible property names:
 - `planned-usage-threshold`: Planned usage threshold
 
 - `emergency-usage-threshold`: Emergency usage threshold ||
+|| `--connection-manager` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+
+Connection Manager cluster integration settings
+
+Possible property names:
+
+- `enabled`: Enable Connection Manager cluster integration. Can only be enabled.
+
+- `connections-folder-id`: ID of the folder where connections for the cluster are created
+
+- `secrets-folder-id`: ID of the folder where connection secrets are created. ||
 |#
 
 #### Global Flags

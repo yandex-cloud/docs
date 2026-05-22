@@ -69,7 +69,7 @@ If you publish content in two or more buckets, combine them into a group of L7 l
 
 * [{#T}](../tutorials/thumbor.md)
 * [{#T}](../tutorials/blue-green-canary-deployment.md)
-* [{#T}](../tutorials/cdn-storage-integration.md)
+* [{#T}](../tutorials/cdn-storage-integration/index.md)
 * [{#T}](../tutorials/protected-access-to-content/terraform.md)
 
 
@@ -84,4 +84,4 @@ For details, see these guides:
 
 ### Use cases {#examples-ins}
 
-* [{#T}](../tutorials/cdn-storage-integration.md)
+* [{#T}](../tutorials/cdn-storage-integration/index.md)

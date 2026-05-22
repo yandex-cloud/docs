@@ -15,7 +15,6 @@
 | Number of requests per second for image search by image | 10 |
 | Number of requests per second for statistics | 10 |
 | Number of requests per hour for statistics | 100 |
-| Number of requests per day for a list of region codes | 10 |
 
 #### Limits {#search-api-limits}
 
@@ -25,7 +24,8 @@
 | Maximum request length | {{ search-api-request-ch }} |
 | Maximum number of words per request | {{ search-api-request-w }} |
 | Minimum processing time for a request in deferred mode | 5 minutes |
-| **Requests with [generative response](../search-api/concepts/generative-response.md)** | |
+| Maximum retention time of deferred request results | 12 hours |
+| **Requests with generative response** | |
 | Maximum number of websites per request | 5 |
 | Maximum number of hosts per request | 5 |
 | Maximum number of pages per request | 10 |

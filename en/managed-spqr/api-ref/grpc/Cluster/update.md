@@ -28,7 +28,10 @@ Updates the specified SPQR cluster.
             "double"
           ],
           "default_route_behavior": "DefaultRouteBehavior",
-          "prefer_same_availability_zone": "google.protobuf.BoolValue"
+          "prefer_same_availability_zone": "google.protobuf.BoolValue",
+          "enhanced_multishard_processing": "google.protobuf.BoolValue",
+          "default_target_session_attrs": "TargetSessionAttrs",
+          "default_commit_strategy": "CommitStrategy"
         },
         "resources": {
           "resource_preset_id": "string",
@@ -64,7 +67,10 @@ Updates the specified SPQR cluster.
             "double"
           ],
           "default_route_behavior": "DefaultRouteBehavior",
-          "prefer_same_availability_zone": "google.protobuf.BoolValue"
+          "prefer_same_availability_zone": "google.protobuf.BoolValue",
+          "enhanced_multishard_processing": "google.protobuf.BoolValue",
+          "default_target_session_attrs": "TargetSessionAttrs",
+          "default_commit_strategy": "CommitStrategy"
         },
         "coordinator": "CoordinatorSettings"
       },
@@ -111,23 +117,31 @@ Updates the specified SPQR cluster.
 || cluster_id | **string**
 
 Required field. ID of the SPQR Cluster resource to update.
-To get the SPQR cluster ID use a [ClusterService.List](/docs/managed-spqr/api-ref/grpc/Cluster/list#List) request. ||
+To get the SPQR cluster ID use a [ClusterService.List](/docs/managed-spqr/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the SPQR Cluster resource should be updated. ||
 || name | **string**
 
-New name for the cluster. ||
+New name for the cluster.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || description | **string**
 
-New description of the SPQR cluster. ||
+New description of the SPQR cluster.
+
+The maximum string length in characters is 256. ||
 || labels | **object** (map<**string**, **string**>)
 
 Custom labels for the SPQR cluster as `` key:value `` pairs. Maximum 64 per resource.
 For example, "project": "mvp" or "source": "dictionary".
 
 The new set of labels will completely replace the old ones. To add a label, request the current
-set with the [ClusterService.Get](/docs/managed-spqr/api-ref/grpc/Cluster/get#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set. ||
+set with the [ClusterService.Get](/docs/managed-spqr/api-ref/grpc/Cluster/get#Get) method, then send an [ClusterService.Update](#Update) request with the new label added to the set.
+
+No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_./\@0-9a-z]* `. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_./\@0-9a-z]* `. ||
 || config_spec | **[ConfigSpec](#yandex.cloud.mdb.spqr.v1.ConfigSpec)**
 
 New configuration and resources for hosts in the cluster. ||
@@ -142,7 +156,9 @@ User security groups ||
 Deletion Protection inhibits deletion of the cluster ||
 || network_id | **string**
 
-ID of the network to move the cluster to. ||
+ID of the network to move the cluster to.
+
+The maximum string length in characters is 150. ||
 |#
 
 ## ConfigSpec {#yandex.cloud.mdb.spqr.v1.ConfigSpec}
@@ -185,13 +201,11 @@ Configuration and resource allocation for SPQR Infra (router+coordinator) hosts.
 Password of the SPQR console. ||
 || log_level | enum **LogLevel**
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `DEBUG`
 - `INFO`
 - `WARNING`
 - `ERROR`
-- `FATAL`
-- `PANIC` ||
+- `FATAL` ||
 || balancer | **[BalancerSettings](#yandex.cloud.mdb.spqr.v1.BalancerSettings)**
 
 Configuration for SPQR Balancer. ||
@@ -219,10 +233,22 @@ Configuration of a SPQR router.
 || time_quantiles[] | **double** ||
 || default_route_behavior | enum **DefaultRouteBehavior**
 
-- `DEFAULT_ROUTE_BEHAVIOR_UNSPECIFIED`
 - `BLOCK`
 - `ALLOW` ||
 || prefer_same_availability_zone | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
+|| enhanced_multishard_processing | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
+|| default_target_session_attrs | enum **TargetSessionAttrs**
+
+- `READ_WRITE`
+- `SMART_READ_WRITE`
+- `READ_ONLY`
+- `PREFER_STANDBY`
+- `ANY` ||
+|| default_commit_strategy | enum **CommitStrategy**
+
+- `BEST_EFFORT`
+- `ONE_PC`
+- `TWO_PC` ||
 |#
 
 ## Resources {#yandex.cloud.mdb.spqr.v1.Resources}
@@ -372,7 +398,6 @@ Weelky maintenance window settings.
 
 Day of the week (in `DDD` format).
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`
 - `TUE`
 - `WED`
@@ -382,7 +407,9 @@ Day of the week (in `DDD` format).
 - `SUN` ||
 || hour | **int64**
 
-Hour of the day in UTC (in `HH` format). ||
+Hour of the day in UTC (in `HH` format).
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -424,7 +451,10 @@ Hour of the day in UTC (in `HH` format). ||
               "double"
             ],
             "default_route_behavior": "DefaultRouteBehavior",
-            "prefer_same_availability_zone": "google.protobuf.BoolValue"
+            "prefer_same_availability_zone": "google.protobuf.BoolValue",
+            "enhanced_multishard_processing": "google.protobuf.BoolValue",
+            "default_target_session_attrs": "TargetSessionAttrs",
+            "default_commit_strategy": "CommitStrategy"
           },
           "resources": {
             "resource_preset_id": "string",
@@ -460,7 +490,10 @@ Hour of the day in UTC (in `HH` format). ||
               "double"
             ],
             "default_route_behavior": "DefaultRouteBehavior",
-            "prefer_same_availability_zone": "google.protobuf.BoolValue"
+            "prefer_same_availability_zone": "google.protobuf.BoolValue",
+            "enhanced_multishard_processing": "google.protobuf.BoolValue",
+            "default_target_session_attrs": "TargetSessionAttrs",
+            "default_commit_strategy": "CommitStrategy"
           },
           "coordinator": "CoordinatorSettings"
         },
@@ -605,7 +638,6 @@ Custom labels for the SPQR cluster as `` key:value `` pairs. Maximum 64 per reso
 
 Deployment environment of the SPQR cluster.
 
-- `ENVIRONMENT_UNSPECIFIED`
 - `PRODUCTION`: Stable environment with a conservative update policy: only hotfixes
 are applied during regular maintenance.
 - `PRESTABLE`: Environment with more aggressive update policy: new versions
@@ -709,13 +741,11 @@ SPQR Infra (router+coordinator) settings. ||
 
 SPQR default log level
 
-- `LOG_LEVEL_UNSPECIFIED`
 - `DEBUG`
 - `INFO`
 - `WARNING`
 - `ERROR`
-- `FATAL`
-- `PANIC` ||
+- `FATAL` ||
 || balancer | **[BalancerSettings](#yandex.cloud.mdb.spqr.v1.BalancerSettings2)**
 
 SPQR Balancer settings. ||
@@ -739,10 +769,22 @@ Configuration of a SPQR router.
 || time_quantiles[] | **double** ||
 || default_route_behavior | enum **DefaultRouteBehavior**
 
-- `DEFAULT_ROUTE_BEHAVIOR_UNSPECIFIED`
 - `BLOCK`
 - `ALLOW` ||
 || prefer_same_availability_zone | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
+|| enhanced_multishard_processing | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)** ||
+|| default_target_session_attrs | enum **TargetSessionAttrs**
+
+- `READ_WRITE`
+- `SMART_READ_WRITE`
+- `READ_ONLY`
+- `PREFER_STANDBY`
+- `ANY` ||
+|| default_commit_strategy | enum **CommitStrategy**
+
+- `BEST_EFFORT`
+- `ONE_PC`
+- `TWO_PC` ||
 |#
 
 ## Resources {#yandex.cloud.mdb.spqr.v1.Resources2}
@@ -878,7 +920,6 @@ Weelky maintenance window settings.
 
 Day of the week (in `DDD` format).
 
-- `WEEK_DAY_UNSPECIFIED`
 - `MON`
 - `TUE`
 - `WED`
@@ -888,7 +929,9 @@ Day of the week (in `DDD` format).
 - `SUN` ||
 || hour | **int64**
 
-Hour of the day in UTC (in `HH` format). ||
+Hour of the day in UTC (in `HH` format).
+
+Acceptable values are 1 to 24, inclusive. ||
 |#
 
 ## MaintenanceOperation {#yandex.cloud.mdb.spqr.v1.MaintenanceOperation}
@@ -899,7 +942,9 @@ A planned maintenance operation.
 ||Field | Description ||
 || info | **string**
 
-Information about this maintenance operation. ||
+Information about this maintenance operation.
+
+The maximum string length in characters is 256. ||
 || delayed_until | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Time until which this maintenance operation is delayed. ||

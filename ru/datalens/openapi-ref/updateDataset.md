@@ -7,7 +7,7 @@ editable: false
 ## HTTP request
 
 ```
-POST https://api.datalens.yandex.net/rpc/updateDataset
+POST https://api.datalens.tech/rpc/updateDataset
 ```
 
 ## Body parameters
@@ -232,44 +232,12 @@ POST https://api.datalens.yandex.net/rpc/updateDataset
               "managed_by": "string | null",
               "parameter_hash": "string",
               "parameters": {
-                "db_name": "string | null",
+                "dataset_name": "string | null",
                 "db_version": "string | null",
                 "table_name": "string | null"
               },
               "raw_schema": "array | null",
-              "source_type": "CHYT_TABLE",
-              "title": "string",
-              "valid": "boolean",
-              "virtual": "unknown"
-            },
-            {
-              "connection_id": "string | null",
-              "id": "string",
-              "index_info_set": "array | null",
-              "managed_by": "string | null",
-              "parameter_hash": "string",
-              "parameters": {
-                "table_names": "string"
-              },
-              "raw_schema": "array | null",
-              "source_type": "CHYT_TABLE_LIST",
-              "title": "string",
-              "valid": "boolean",
-              "virtual": "unknown"
-            },
-            {
-              "connection_id": "string | null",
-              "id": "string",
-              "index_info_set": "array | null",
-              "managed_by": "string | null",
-              "parameter_hash": "string",
-              "parameters": {
-                "directory_path": "string",
-                "range_from": "string",
-                "range_to": "string"
-              },
-              "raw_schema": "array | null",
-              "source_type": "CHYT_TABLE_RANGE",
+              "source_type": "BIGQUERY_TABLE",
               "title": "string",
               "valid": "boolean",
               "virtual": "unknown"
@@ -284,7 +252,7 @@ POST https://api.datalens.yandex.net/rpc/updateDataset
                 "subsql": "string"
               },
               "raw_schema": "array | null",
-              "source_type": "CHYT_SUBSELECT",
+              "source_type": "BIGQUERY_SUBSELECT",
               "title": "string",
               "valid": "boolean",
               "virtual": "unknown"
@@ -301,7 +269,107 @@ POST https://api.datalens.yandex.net/rpc/updateDataset
                 "table_name": "string | null"
               },
               "raw_schema": "array | null",
-              "source_type": "CHYT_USER_AUTH_TABLE",
+              "source_type": "BITRIX_GDS",
+              "title": "string",
+              "valid": "boolean",
+              "virtual": "unknown"
+            },
+            {
+              "connection_id": "string | null",
+              "id": "string",
+              "index_info_set": "array | null",
+              "managed_by": "string | null",
+              "parameter_hash": "string",
+              "parameters": {
+                "db_name": "string | null",
+                "db_version": "string | null",
+                "table_name": "string | null"
+              },
+              "raw_schema": "array | null",
+              "source_type": "CH_BILLING_ANALYTICS_TABLE",
+              "title": "string",
+              "valid": "boolean",
+              "virtual": "unknown"
+            },
+            {
+              "connection_id": "string | null",
+              "id": "string",
+              "index_info_set": "array | null",
+              "managed_by": "string | null",
+              "parameter_hash": "string",
+              "parameters": {
+                "db_name": "string | null",
+                "db_version": "string | null",
+                "table_name": "string | null"
+              },
+              "raw_schema": "array | null",
+              "source_type": "CH_FROZEN_SOURCE",
+              "title": "string",
+              "valid": "boolean",
+              "virtual": "unknown"
+            },
+            {
+              "connection_id": "string | null",
+              "id": "string",
+              "index_info_set": "array | null",
+              "managed_by": "string | null",
+              "parameter_hash": "string",
+              "parameters": {
+                "subsql": "string"
+              },
+              "raw_schema": "array | null",
+              "source_type": "CH_FROZEN_SUBSELECT",
+              "title": "string",
+              "valid": "boolean",
+              "virtual": "unknown"
+            },
+            {
+              "connection_id": "string | null",
+              "id": "string",
+              "index_info_set": "array | null",
+              "managed_by": "string | null",
+              "parameter_hash": "string",
+              "parameters": {
+                "db_name": "string | null",
+                "db_version": "string | null",
+                "table_name": "string | null"
+              },
+              "raw_schema": "array | null",
+              "source_type": "CH_GEO_FILTERED_TABLE",
+              "title": "string",
+              "valid": "boolean",
+              "virtual": "unknown"
+            },
+            {
+              "connection_id": "string | null",
+              "id": "string",
+              "index_info_set": "array | null",
+              "managed_by": "string | null",
+              "parameter_hash": "string",
+              "parameters": {
+                "db_name": "string | null",
+                "db_version": "string | null",
+                "table_name": "string | null"
+              },
+              "raw_schema": "array | null",
+              "source_type": "CH_YA_MUSIC_PODCAST_STATS_TABLE",
+              "title": "string",
+              "valid": "boolean",
+              "virtual": "unknown"
+            },
+            {
+              "connection_id": "string | null",
+              "id": "string",
+              "index_info_set": "array | null",
+              "managed_by": "string | null",
+              "parameter_hash": "string",
+              "parameters": {
+                "db_name": "string | null",
+                "db_version": "string | null",
+                "table_name": "string | null"
+              },
+              "raw_schema": "array | null",
+              "source_type": "CHYT_YTSAURUS_TABLE",
               "title": "string",
               "valid": "boolean",
               "virtual": "unknown"
@@ -316,7 +384,7 @@ POST https://api.datalens.yandex.net/rpc/updateDataset
                 "table_names": "string"
               },
               "raw_schema": "array | null",
-              "source_type": "CHYT_USER_AUTH_TABLE_LIST",
+              "source_type": "CHYT_YTSAURUS_TABLE_LIST",
               "title": "string",
               "valid": "boolean",
               "virtual": "unknown"
@@ -333,7 +401,7 @@ POST https://api.datalens.yandex.net/rpc/updateDataset
                 "range_to": "string"
               },
               "raw_schema": "array | null",
-              "source_type": "CHYT_USER_AUTH_TABLE_RANGE",
+              "source_type": "CHYT_YTSAURUS_TABLE_RANGE",
               "title": "string",
               "valid": "boolean",
               "virtual": "unknown"
@@ -348,7 +416,7 @@ POST https://api.datalens.yandex.net/rpc/updateDataset
                 "subsql": "string"
               },
               "raw_schema": "array | null",
-              "source_type": "CHYT_USER_AUTH_SUBSELECT",
+              "source_type": "CHYT_YTSAURUS_SUBSELECT",
               "title": "string",
               "valid": "boolean",
               "virtual": "unknown"
@@ -381,6 +449,40 @@ POST https://api.datalens.yandex.net/rpc/updateDataset
               },
               "raw_schema": "array | null",
               "source_type": "CH_SUBSELECT",
+              "title": "string",
+              "valid": "boolean",
+              "virtual": "unknown"
+            },
+            {
+              "connection_id": "string | null",
+              "id": "string",
+              "index_info_set": "array | null",
+              "managed_by": "string | null",
+              "parameter_hash": "string",
+              "parameters": {
+                "db_name": "string | null",
+                "db_version": "string | null",
+                "table_name": "string | null"
+              },
+              "raw_schema": "array | null",
+              "source_type": "EQUEO_CH_TABLE",
+              "title": "string",
+              "valid": "boolean",
+              "virtual": "unknown"
+            },
+            {
+              "connection_id": "string | null",
+              "id": "string",
+              "index_info_set": "array | null",
+              "managed_by": "string | null",
+              "parameter_hash": "string",
+              "parameters": {
+                "db_name": "string | null",
+                "db_version": "string | null",
+                "table_name": "string | null"
+              },
+              "raw_schema": "array | null",
+              "source_type": "EXTRACTOR_1C_CH_TABLE",
               "title": "string",
               "valid": "boolean",
               "virtual": "unknown"
@@ -456,7 +558,54 @@ POST https://api.datalens.yandex.net/rpc/updateDataset
                 "table_name": "string | null"
               },
               "raw_schema": "array | null",
+              "source_type": "KONTUR_MARKET_CH_TABLE",
+              "title": "string",
+              "valid": "boolean",
+              "virtual": "unknown"
+            },
+            {
+              "connection_id": "string | null",
+              "id": "string",
+              "index_info_set": "array | null",
+              "managed_by": "string | null",
+              "parameter_hash": "string",
+              "parameters": {
+                "db_name": "string | null",
+                "db_version": "string | null",
+                "table_name": "string | null"
+              },
+              "raw_schema": "array | null",
               "source_type": "METRIKA_API",
+              "title": "string",
+              "valid": "boolean",
+              "virtual": "unknown"
+            },
+            {
+              "connection_id": "string | null",
+              "id": "string",
+              "index_info_set": "array | null",
+              "managed_by": "string | null",
+              "parameter_hash": "string",
+              "parameters": {},
+              "raw_schema": "array | null",
+              "source_type": "MONITORING",
+              "title": "string",
+              "valid": "boolean",
+              "virtual": "unknown"
+            },
+            {
+              "connection_id": "string | null",
+              "id": "string",
+              "index_info_set": "array | null",
+              "managed_by": "string | null",
+              "parameter_hash": "string",
+              "parameters": {
+                "db_name": "string | null",
+                "db_version": "string | null",
+                "table_name": "string | null"
+              },
+              "raw_schema": "array | null",
+              "source_type": "MOYSKLAD_CH_TABLE",
               "title": "string",
               "valid": "boolean",
               "virtual": "unknown"
@@ -611,9 +760,30 @@ POST https://api.datalens.yandex.net/rpc/updateDataset
               "index_info_set": "array | null",
               "managed_by": "string | null",
               "parameter_hash": "string",
-              "parameters": {},
+              "parameters": {
+                "db_name": "string | null",
+                "db_version": "string | null",
+                "table_name": "string | null"
+              },
               "raw_schema": "array | null",
-              "source_type": "SOLOMON",
+              "source_type": "CH_SMB_HEATMAPS_TABLE",
+              "title": "string",
+              "valid": "boolean",
+              "virtual": "unknown"
+            },
+            {
+              "connection_id": "string | null",
+              "id": "string",
+              "index_info_set": "array | null",
+              "managed_by": "string | null",
+              "parameter_hash": "string",
+              "parameters": {
+                "db_name": "string | null",
+                "schema": "string | null",
+                "table_name": "string | null"
+              },
+              "raw_schema": "array | null",
+              "source_type": "SNOWFLAKE_TABLE",
               "title": "string",
               "valid": "boolean",
               "virtual": "unknown"
@@ -630,7 +800,74 @@ POST https://api.datalens.yandex.net/rpc/updateDataset
                 "table_name": "string | null"
               },
               "raw_schema": "array | null",
-              "source_type": "CH_USAGE_TRACKING_YA_TEAM_TABLE",
+              "source_type": "SPEECHSENSE_TABLE",
+              "title": "string",
+              "valid": "boolean",
+              "virtual": "unknown"
+            },
+            {
+              "connection_id": "string | null",
+              "id": "string",
+              "index_info_set": "array | null",
+              "managed_by": "string | null",
+              "parameter_hash": "string",
+              "parameters": {
+                "db_name": "string | null",
+                "db_version": "string | null",
+                "schema_name": "string | null",
+                "table_name": "string | null"
+              },
+              "raw_schema": "array | null",
+              "source_type": "TRINO_TABLE",
+              "title": "string",
+              "valid": "boolean",
+              "virtual": "unknown"
+            },
+            {
+              "connection_id": "string | null",
+              "id": "string",
+              "index_info_set": "array | null",
+              "managed_by": "string | null",
+              "parameter_hash": "string",
+              "parameters": {
+                "subsql": "string"
+              },
+              "raw_schema": "array | null",
+              "source_type": "TRINO_SUBSELECT",
+              "title": "string",
+              "valid": "boolean",
+              "virtual": "unknown"
+            },
+            {
+              "connection_id": "string | null",
+              "id": "string",
+              "index_info_set": "array | null",
+              "managed_by": "string | null",
+              "parameter_hash": "string",
+              "parameters": {
+                "db_name": "string | null",
+                "db_version": "string | null",
+                "table_name": "string | null"
+              },
+              "raw_schema": "array | null",
+              "source_type": "CH_USAGE_TRACKING_TABLE",
+              "title": "string",
+              "valid": "boolean",
+              "virtual": "unknown"
+            },
+            {
+              "connection_id": "string | null",
+              "id": "string",
+              "index_info_set": "array | null",
+              "managed_by": "string | null",
+              "parameter_hash": "string",
+              "parameters": {
+                "db_name": "string | null",
+                "db_version": "string | null",
+                "table_name": "string | null"
+              },
+              "raw_schema": "array | null",
+              "source_type": "CH_USAGE_TRACKING_AGG_TABLE",
               "title": "string",
               "valid": "boolean",
               "virtual": "unknown"
@@ -663,6 +900,38 @@ POST https://api.datalens.yandex.net/rpc/updateDataset
               },
               "raw_schema": "array | null",
               "source_type": "YDB_SUBSELECT",
+              "title": "string",
+              "valid": "boolean",
+              "virtual": "unknown"
+            },
+            {
+              "connection_id": "string | null",
+              "id": "string",
+              "index_info_set": "array | null",
+              "managed_by": "string | null",
+              "parameter_hash": "string",
+              "parameters": {
+                "db_name": "string | null",
+                "db_version": "string | null",
+                "table_name": "string | null"
+              },
+              "raw_schema": "array | null",
+              "source_type": "YQ_TABLE",
+              "title": "string",
+              "valid": "boolean",
+              "virtual": "unknown"
+            },
+            {
+              "connection_id": "string | null",
+              "id": "string",
+              "index_info_set": "array | null",
+              "managed_by": "string | null",
+              "parameter_hash": "string",
+              "parameters": {
+                "subsql": "string"
+              },
+              "raw_schema": "array | null",
+              "source_type": "YQ_SUBSELECT",
               "title": "string",
               "valid": "boolean",
               "virtual": "unknown"
@@ -852,7 +1121,7 @@ Required field.  ||
 
 #|
 ||Field | Description ||
-|| left | One of **[direct1](#direct1)** \| **[formula2](#formula2)** \| **[result_field](#result_field)** ||
+|| left | One of **[direct](#direct)** \| **[formula](#formula)** \| **[result_field](#result_field)** ||
 || operator | **enum**
 
 Required field. 
@@ -863,7 +1132,7 @@ Required field.
 - `lte`
 - `eq`
 - `ne` ||
-|| right | One of **[direct1](#direct1)** \| **[formula2](#formula2)** \| **[result_field](#result_field)** ||
+|| right | One of **[direct](#direct)** \| **[formula](#formula)** \| **[result_field](#result_field)** ||
 || type | **enum**
 
 Required field. 
@@ -871,7 +1140,7 @@ Required field.
 - `binary` ||
 |#
 
-## direct1 {#direct1}
+## direct {#direct}
 
 #|
 ||Field | Description ||
@@ -887,7 +1156,7 @@ Required field.
 Required field.  ||
 |#
 
-## formula2 {#formula2}
+## formula {#formula}
 
 #|
 ||Field | Description ||
@@ -1469,61 +1738,9 @@ Required field.  ||
 - `compiler_runtime`
 - `null` ||
 || parameter_hash | **string** ||
-|| parameters | **[SQLParameters](#SQLParameters)** ||
+|| parameters | **[BigQueryTableParameters](#BigQueryTableParameters)** ||
 || raw_schema | **array \| null** ||
-|| source_type | **CHYT_TABLE** (const) ||
-|| title | **string**
-
-Required field.  ||
-|| valid | **boolean** ||
-|| virtual | **unknown** ||
-|#
-
->
-
-#|
-||Field | Description ||
-|| connection_id | **string \| null** ||
-|| id | **string**
-
-Required field.  ||
-|| index_info_set | **array \| null** ||
-|| managed_by | **enum**
-
-- `user`
-- `feature`
-- `compiler_runtime`
-- `null` ||
-|| parameter_hash | **string** ||
-|| parameters | **[CHYTTableListParameters](#CHYTTableListParameters)** ||
-|| raw_schema | **array \| null** ||
-|| source_type | **CHYT_TABLE_LIST** (const) ||
-|| title | **string**
-
-Required field.  ||
-|| valid | **boolean** ||
-|| virtual | **unknown** ||
-|#
-
->
-
-#|
-||Field | Description ||
-|| connection_id | **string \| null** ||
-|| id | **string**
-
-Required field.  ||
-|| index_info_set | **array \| null** ||
-|| managed_by | **enum**
-
-- `user`
-- `feature`
-- `compiler_runtime`
-- `null` ||
-|| parameter_hash | **string** ||
-|| parameters | **[CHYTTableRangeParameters](#CHYTTableRangeParameters)** ||
-|| raw_schema | **array \| null** ||
-|| source_type | **CHYT_TABLE_RANGE** (const) ||
+|| source_type | **BIGQUERY_TABLE** (const) ||
 || title | **string**
 
 Required field.  ||
@@ -1549,7 +1766,7 @@ Required field.  ||
 || parameter_hash | **string** ||
 || parameters | **[SubselectParameters](#SubselectParameters)** ||
 || raw_schema | **array \| null** ||
-|| source_type | **CHYT_SUBSELECT** (const) ||
+|| source_type | **BIGQUERY_SUBSELECT** (const) ||
 || title | **string**
 
 Required field.  ||
@@ -1575,7 +1792,7 @@ Required field.  ||
 || parameter_hash | **string** ||
 || parameters | **[SQLParameters](#SQLParameters)** ||
 || raw_schema | **array \| null** ||
-|| source_type | **CHYT_USER_AUTH_TABLE** (const) ||
+|| source_type | **BITRIX_GDS** (const) ||
 || title | **string**
 
 Required field.  ||
@@ -1599,9 +1816,9 @@ Required field.  ||
 - `compiler_runtime`
 - `null` ||
 || parameter_hash | **string** ||
-|| parameters | **[CHYTTableListParameters](#CHYTTableListParameters)** ||
+|| parameters | **[SQLParameters](#SQLParameters)** ||
 || raw_schema | **array \| null** ||
-|| source_type | **CHYT_USER_AUTH_TABLE_LIST** (const) ||
+|| source_type | **CH_BILLING_ANALYTICS_TABLE** (const) ||
 || title | **string**
 
 Required field.  ||
@@ -1625,9 +1842,9 @@ Required field.  ||
 - `compiler_runtime`
 - `null` ||
 || parameter_hash | **string** ||
-|| parameters | **[CHYTTableRangeParameters](#CHYTTableRangeParameters)** ||
+|| parameters | **[SQLParameters](#SQLParameters)** ||
 || raw_schema | **array \| null** ||
-|| source_type | **CHYT_USER_AUTH_TABLE_RANGE** (const) ||
+|| source_type | **CH_FROZEN_SOURCE** (const) ||
 || title | **string**
 
 Required field.  ||
@@ -1653,7 +1870,163 @@ Required field.  ||
 || parameter_hash | **string** ||
 || parameters | **[SubselectParameters](#SubselectParameters)** ||
 || raw_schema | **array \| null** ||
-|| source_type | **CHYT_USER_AUTH_SUBSELECT** (const) ||
+|| source_type | **CH_FROZEN_SUBSELECT** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SQLParameters](#SQLParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **CH_GEO_FILTERED_TABLE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SQLParameters](#SQLParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **CH_YA_MUSIC_PODCAST_STATS_TABLE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SQLParameters](#SQLParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **CHYT_YTSAURUS_TABLE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[CHYTTableListParameters](#CHYTTableListParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **CHYT_YTSAURUS_TABLE_LIST** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[CHYTTableRangeParameters](#CHYTTableRangeParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **CHYT_YTSAURUS_TABLE_RANGE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SubselectParameters](#SubselectParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **CHYT_YTSAURUS_SUBSELECT** (const) ||
 || title | **string**
 
 Required field.  ||
@@ -1706,6 +2079,58 @@ Required field.  ||
 || parameters | **[SubselectParameters](#SubselectParameters)** ||
 || raw_schema | **array \| null** ||
 || source_type | **CH_SUBSELECT** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SQLParameters](#SQLParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **EQUEO_CH_TABLE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SQLParameters](#SQLParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **EXTRACTOR_1C_CH_TABLE** (const) ||
 || title | **string**
 
 Required field.  ||
@@ -1835,7 +2260,85 @@ Required field.  ||
 || parameter_hash | **string** ||
 || parameters | **[SQLParameters](#SQLParameters)** ||
 || raw_schema | **array \| null** ||
+|| source_type | **KONTUR_MARKET_CH_TABLE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SQLParameters](#SQLParameters)** ||
+|| raw_schema | **array \| null** ||
 || source_type | **METRIKA_API** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SimpleParameters](#SimpleParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **MONITORING** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SQLParameters](#SQLParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **MOYSKLAD_CH_TABLE** (const) ||
 || title | **string**
 
 Required field.  ||
@@ -2093,9 +2596,35 @@ Required field.  ||
 - `compiler_runtime`
 - `null` ||
 || parameter_hash | **string** ||
-|| parameters | **[SimpleParameters](#SimpleParameters)** ||
+|| parameters | **[SQLParameters](#SQLParameters)** ||
 || raw_schema | **array \| null** ||
-|| source_type | **SOLOMON** (const) ||
+|| source_type | **CH_SMB_HEATMAPS_TABLE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SnowFlakeTableParameters](#SnowFlakeTableParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **SNOWFLAKE_TABLE** (const) ||
 || title | **string**
 
 Required field.  ||
@@ -2121,7 +2650,111 @@ Required field.  ||
 || parameter_hash | **string** ||
 || parameters | **[SQLParameters](#SQLParameters)** ||
 || raw_schema | **array \| null** ||
-|| source_type | **CH_USAGE_TRACKING_YA_TEAM_TABLE** (const) ||
+|| source_type | **SPEECHSENSE_TABLE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SchematizedParameters](#SchematizedParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **TRINO_TABLE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SubselectParameters](#SubselectParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **TRINO_SUBSELECT** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SQLParameters](#SQLParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **CH_USAGE_TRACKING_TABLE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SQLParameters](#SQLParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **CH_USAGE_TRACKING_AGG_TABLE** (const) ||
 || title | **string**
 
 Required field.  ||
@@ -2185,6 +2818,58 @@ Required field.  ||
 
 #|
 ||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SQLParameters](#SQLParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **YQ_TABLE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SubselectParameters](#SubselectParameters)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **YQ_SUBSELECT** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
 || Empty | > ||
 |#
 
@@ -2195,6 +2880,22 @@ Required field.  ||
 || db_name | **string \| null** ||
 || db_version | **string \| null** ||
 || table_name | **string \| null** ||
+|#
+
+## BigQueryTableParameters {#BigQueryTableParameters}
+
+#|
+||Field | Description ||
+|| dataset_name | **string \| null** ||
+|| db_version | **string \| null** ||
+|| table_name | **string \| null** ||
+|#
+
+## SubselectParameters {#SubselectParameters}
+
+#|
+||Field | Description ||
+|| subsql | **string** ||
 |#
 
 ## CHYTTableListParameters {#CHYTTableListParameters}
@@ -2213,13 +2914,6 @@ Required field.  ||
 || range_to | **string** ||
 |#
 
-## SubselectParameters {#SubselectParameters}
-
-#|
-||Field | Description ||
-|| subsql | **string** ||
-|#
-
 ## SchematizedParameters {#SchematizedParameters}
 
 #|
@@ -2235,6 +2929,15 @@ Required field.  ||
 #|
 ||Field | Description ||
 || Empty | > ||
+|#
+
+## SnowFlakeTableParameters {#SnowFlakeTableParameters}
+
+#|
+||Field | Description ||
+|| db_name | **string \| null** ||
+|| schema | **string \| null** ||
+|| table_name | **string \| null** ||
 |#
 
 ## Options {#Options}
@@ -2709,44 +3412,12 @@ Response
             "managed_by": "string | null",
             "parameter_hash": "string",
             "parameters": {
-              "db_name": "string | null",
+              "dataset_name": "string | null",
               "db_version": "string | null",
               "table_name": "string | null"
             },
             "raw_schema": "array | null",
-            "source_type": "CHYT_TABLE",
-            "title": "string",
-            "valid": "boolean",
-            "virtual": "unknown"
-          },
-          {
-            "connection_id": "string | null",
-            "id": "string",
-            "index_info_set": "array | null",
-            "managed_by": "string | null",
-            "parameter_hash": "string",
-            "parameters": {
-              "table_names": "string"
-            },
-            "raw_schema": "array | null",
-            "source_type": "CHYT_TABLE_LIST",
-            "title": "string",
-            "valid": "boolean",
-            "virtual": "unknown"
-          },
-          {
-            "connection_id": "string | null",
-            "id": "string",
-            "index_info_set": "array | null",
-            "managed_by": "string | null",
-            "parameter_hash": "string",
-            "parameters": {
-              "directory_path": "string",
-              "range_from": "string",
-              "range_to": "string"
-            },
-            "raw_schema": "array | null",
-            "source_type": "CHYT_TABLE_RANGE",
+            "source_type": "BIGQUERY_TABLE",
             "title": "string",
             "valid": "boolean",
             "virtual": "unknown"
@@ -2761,7 +3432,7 @@ Response
               "subsql": "string"
             },
             "raw_schema": "array | null",
-            "source_type": "CHYT_SUBSELECT",
+            "source_type": "BIGQUERY_SUBSELECT",
             "title": "string",
             "valid": "boolean",
             "virtual": "unknown"
@@ -2778,7 +3449,107 @@ Response
               "table_name": "string | null"
             },
             "raw_schema": "array | null",
-            "source_type": "CHYT_USER_AUTH_TABLE",
+            "source_type": "BITRIX_GDS",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {
+              "db_name": "string | null",
+              "db_version": "string | null",
+              "table_name": "string | null"
+            },
+            "raw_schema": "array | null",
+            "source_type": "CH_BILLING_ANALYTICS_TABLE",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {
+              "db_name": "string | null",
+              "db_version": "string | null",
+              "table_name": "string | null"
+            },
+            "raw_schema": "array | null",
+            "source_type": "CH_FROZEN_SOURCE",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {
+              "subsql": "string"
+            },
+            "raw_schema": "array | null",
+            "source_type": "CH_FROZEN_SUBSELECT",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {
+              "db_name": "string | null",
+              "db_version": "string | null",
+              "table_name": "string | null"
+            },
+            "raw_schema": "array | null",
+            "source_type": "CH_GEO_FILTERED_TABLE",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {
+              "db_name": "string | null",
+              "db_version": "string | null",
+              "table_name": "string | null"
+            },
+            "raw_schema": "array | null",
+            "source_type": "CH_YA_MUSIC_PODCAST_STATS_TABLE",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {
+              "db_name": "string | null",
+              "db_version": "string | null",
+              "table_name": "string | null"
+            },
+            "raw_schema": "array | null",
+            "source_type": "CHYT_YTSAURUS_TABLE",
             "title": "string",
             "valid": "boolean",
             "virtual": "unknown"
@@ -2793,7 +3564,7 @@ Response
               "table_names": "string"
             },
             "raw_schema": "array | null",
-            "source_type": "CHYT_USER_AUTH_TABLE_LIST",
+            "source_type": "CHYT_YTSAURUS_TABLE_LIST",
             "title": "string",
             "valid": "boolean",
             "virtual": "unknown"
@@ -2810,7 +3581,7 @@ Response
               "range_to": "string"
             },
             "raw_schema": "array | null",
-            "source_type": "CHYT_USER_AUTH_TABLE_RANGE",
+            "source_type": "CHYT_YTSAURUS_TABLE_RANGE",
             "title": "string",
             "valid": "boolean",
             "virtual": "unknown"
@@ -2825,7 +3596,7 @@ Response
               "subsql": "string"
             },
             "raw_schema": "array | null",
-            "source_type": "CHYT_USER_AUTH_SUBSELECT",
+            "source_type": "CHYT_YTSAURUS_SUBSELECT",
             "title": "string",
             "valid": "boolean",
             "virtual": "unknown"
@@ -2858,6 +3629,40 @@ Response
             },
             "raw_schema": "array | null",
             "source_type": "CH_SUBSELECT",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {
+              "db_name": "string | null",
+              "db_version": "string | null",
+              "table_name": "string | null"
+            },
+            "raw_schema": "array | null",
+            "source_type": "EQUEO_CH_TABLE",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {
+              "db_name": "string | null",
+              "db_version": "string | null",
+              "table_name": "string | null"
+            },
+            "raw_schema": "array | null",
+            "source_type": "EXTRACTOR_1C_CH_TABLE",
             "title": "string",
             "valid": "boolean",
             "virtual": "unknown"
@@ -2933,7 +3738,54 @@ Response
               "table_name": "string | null"
             },
             "raw_schema": "array | null",
+            "source_type": "KONTUR_MARKET_CH_TABLE",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {
+              "db_name": "string | null",
+              "db_version": "string | null",
+              "table_name": "string | null"
+            },
+            "raw_schema": "array | null",
             "source_type": "METRIKA_API",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {},
+            "raw_schema": "array | null",
+            "source_type": "MONITORING",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {
+              "db_name": "string | null",
+              "db_version": "string | null",
+              "table_name": "string | null"
+            },
+            "raw_schema": "array | null",
+            "source_type": "MOYSKLAD_CH_TABLE",
             "title": "string",
             "valid": "boolean",
             "virtual": "unknown"
@@ -3088,9 +3940,30 @@ Response
             "index_info_set": "array | null",
             "managed_by": "string | null",
             "parameter_hash": "string",
-            "parameters": {},
+            "parameters": {
+              "db_name": "string | null",
+              "db_version": "string | null",
+              "table_name": "string | null"
+            },
             "raw_schema": "array | null",
-            "source_type": "SOLOMON",
+            "source_type": "CH_SMB_HEATMAPS_TABLE",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {
+              "db_name": "string | null",
+              "schema": "string | null",
+              "table_name": "string | null"
+            },
+            "raw_schema": "array | null",
+            "source_type": "SNOWFLAKE_TABLE",
             "title": "string",
             "valid": "boolean",
             "virtual": "unknown"
@@ -3107,7 +3980,74 @@ Response
               "table_name": "string | null"
             },
             "raw_schema": "array | null",
-            "source_type": "CH_USAGE_TRACKING_YA_TEAM_TABLE",
+            "source_type": "SPEECHSENSE_TABLE",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {
+              "db_name": "string | null",
+              "db_version": "string | null",
+              "schema_name": "string | null",
+              "table_name": "string | null"
+            },
+            "raw_schema": "array | null",
+            "source_type": "TRINO_TABLE",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {
+              "subsql": "string"
+            },
+            "raw_schema": "array | null",
+            "source_type": "TRINO_SUBSELECT",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {
+              "db_name": "string | null",
+              "db_version": "string | null",
+              "table_name": "string | null"
+            },
+            "raw_schema": "array | null",
+            "source_type": "CH_USAGE_TRACKING_TABLE",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {
+              "db_name": "string | null",
+              "db_version": "string | null",
+              "table_name": "string | null"
+            },
+            "raw_schema": "array | null",
+            "source_type": "CH_USAGE_TRACKING_AGG_TABLE",
             "title": "string",
             "valid": "boolean",
             "virtual": "unknown"
@@ -3140,6 +4080,38 @@ Response
             },
             "raw_schema": "array | null",
             "source_type": "YDB_SUBSELECT",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {
+              "db_name": "string | null",
+              "db_version": "string | null",
+              "table_name": "string | null"
+            },
+            "raw_schema": "array | null",
+            "source_type": "YQ_TABLE",
+            "title": "string",
+            "valid": "boolean",
+            "virtual": "unknown"
+          },
+          {
+            "connection_id": "string | null",
+            "id": "string",
+            "index_info_set": "array | null",
+            "managed_by": "string | null",
+            "parameter_hash": "string",
+            "parameters": {
+              "subsql": "string"
+            },
+            "raw_schema": "array | null",
+            "source_type": "YQ_SUBSELECT",
             "title": "string",
             "valid": "boolean",
             "virtual": "unknown"
@@ -3326,7 +4298,7 @@ Required field.  ||
 
 #|
 ||Field | Description ||
-|| left | One of **[direct1](#direct12)** \| **[formula2](#formula22)** \| **[result_field](#result_field2)** ||
+|| left | One of **[direct](#direct2)** \| **[formula](#formula2)** \| **[result_field](#result_field2)** ||
 || operator | **enum**
 
 Required field. 
@@ -3337,7 +4309,7 @@ Required field.
 - `lte`
 - `eq`
 - `ne` ||
-|| right | One of **[direct1](#direct12)** \| **[formula2](#formula22)** \| **[result_field](#result_field2)** ||
+|| right | One of **[direct](#direct2)** \| **[formula](#formula2)** \| **[result_field](#result_field2)** ||
 || type | **enum**
 
 Required field. 
@@ -3345,7 +4317,7 @@ Required field.
 - `binary` ||
 |#
 
-## direct1 {#direct12}
+## direct {#direct2}
 
 #|
 ||Field | Description ||
@@ -3361,7 +4333,7 @@ Required field.
 Required field.  ||
 |#
 
-## formula2 {#formula22}
+## formula {#formula2}
 
 #|
 ||Field | Description ||
@@ -3943,61 +4915,9 @@ Required field.  ||
 - `compiler_runtime`
 - `null` ||
 || parameter_hash | **string** ||
-|| parameters | **[SQLParameters](#SQLParameters2)** ||
+|| parameters | **[BigQueryTableParameters](#BigQueryTableParameters2)** ||
 || raw_schema | **array \| null** ||
-|| source_type | **CHYT_TABLE** (const) ||
-|| title | **string**
-
-Required field.  ||
-|| valid | **boolean** ||
-|| virtual | **unknown** ||
-|#
-
->
-
-#|
-||Field | Description ||
-|| connection_id | **string \| null** ||
-|| id | **string**
-
-Required field.  ||
-|| index_info_set | **array \| null** ||
-|| managed_by | **enum**
-
-- `user`
-- `feature`
-- `compiler_runtime`
-- `null` ||
-|| parameter_hash | **string** ||
-|| parameters | **[CHYTTableListParameters](#CHYTTableListParameters2)** ||
-|| raw_schema | **array \| null** ||
-|| source_type | **CHYT_TABLE_LIST** (const) ||
-|| title | **string**
-
-Required field.  ||
-|| valid | **boolean** ||
-|| virtual | **unknown** ||
-|#
-
->
-
-#|
-||Field | Description ||
-|| connection_id | **string \| null** ||
-|| id | **string**
-
-Required field.  ||
-|| index_info_set | **array \| null** ||
-|| managed_by | **enum**
-
-- `user`
-- `feature`
-- `compiler_runtime`
-- `null` ||
-|| parameter_hash | **string** ||
-|| parameters | **[CHYTTableRangeParameters](#CHYTTableRangeParameters2)** ||
-|| raw_schema | **array \| null** ||
-|| source_type | **CHYT_TABLE_RANGE** (const) ||
+|| source_type | **BIGQUERY_TABLE** (const) ||
 || title | **string**
 
 Required field.  ||
@@ -4023,7 +4943,7 @@ Required field.  ||
 || parameter_hash | **string** ||
 || parameters | **[SubselectParameters](#SubselectParameters2)** ||
 || raw_schema | **array \| null** ||
-|| source_type | **CHYT_SUBSELECT** (const) ||
+|| source_type | **BIGQUERY_SUBSELECT** (const) ||
 || title | **string**
 
 Required field.  ||
@@ -4049,7 +4969,7 @@ Required field.  ||
 || parameter_hash | **string** ||
 || parameters | **[SQLParameters](#SQLParameters2)** ||
 || raw_schema | **array \| null** ||
-|| source_type | **CHYT_USER_AUTH_TABLE** (const) ||
+|| source_type | **BITRIX_GDS** (const) ||
 || title | **string**
 
 Required field.  ||
@@ -4073,9 +4993,9 @@ Required field.  ||
 - `compiler_runtime`
 - `null` ||
 || parameter_hash | **string** ||
-|| parameters | **[CHYTTableListParameters](#CHYTTableListParameters2)** ||
+|| parameters | **[SQLParameters](#SQLParameters2)** ||
 || raw_schema | **array \| null** ||
-|| source_type | **CHYT_USER_AUTH_TABLE_LIST** (const) ||
+|| source_type | **CH_BILLING_ANALYTICS_TABLE** (const) ||
 || title | **string**
 
 Required field.  ||
@@ -4099,9 +5019,9 @@ Required field.  ||
 - `compiler_runtime`
 - `null` ||
 || parameter_hash | **string** ||
-|| parameters | **[CHYTTableRangeParameters](#CHYTTableRangeParameters2)** ||
+|| parameters | **[SQLParameters](#SQLParameters2)** ||
 || raw_schema | **array \| null** ||
-|| source_type | **CHYT_USER_AUTH_TABLE_RANGE** (const) ||
+|| source_type | **CH_FROZEN_SOURCE** (const) ||
 || title | **string**
 
 Required field.  ||
@@ -4127,7 +5047,163 @@ Required field.  ||
 || parameter_hash | **string** ||
 || parameters | **[SubselectParameters](#SubselectParameters2)** ||
 || raw_schema | **array \| null** ||
-|| source_type | **CHYT_USER_AUTH_SUBSELECT** (const) ||
+|| source_type | **CH_FROZEN_SUBSELECT** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SQLParameters](#SQLParameters2)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **CH_GEO_FILTERED_TABLE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SQLParameters](#SQLParameters2)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **CH_YA_MUSIC_PODCAST_STATS_TABLE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SQLParameters](#SQLParameters2)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **CHYT_YTSAURUS_TABLE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[CHYTTableListParameters](#CHYTTableListParameters2)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **CHYT_YTSAURUS_TABLE_LIST** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[CHYTTableRangeParameters](#CHYTTableRangeParameters2)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **CHYT_YTSAURUS_TABLE_RANGE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SubselectParameters](#SubselectParameters2)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **CHYT_YTSAURUS_SUBSELECT** (const) ||
 || title | **string**
 
 Required field.  ||
@@ -4180,6 +5256,58 @@ Required field.  ||
 || parameters | **[SubselectParameters](#SubselectParameters2)** ||
 || raw_schema | **array \| null** ||
 || source_type | **CH_SUBSELECT** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SQLParameters](#SQLParameters2)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **EQUEO_CH_TABLE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SQLParameters](#SQLParameters2)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **EXTRACTOR_1C_CH_TABLE** (const) ||
 || title | **string**
 
 Required field.  ||
@@ -4309,7 +5437,85 @@ Required field.  ||
 || parameter_hash | **string** ||
 || parameters | **[SQLParameters](#SQLParameters2)** ||
 || raw_schema | **array \| null** ||
+|| source_type | **KONTUR_MARKET_CH_TABLE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SQLParameters](#SQLParameters2)** ||
+|| raw_schema | **array \| null** ||
 || source_type | **METRIKA_API** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SimpleParameters](#SimpleParameters2)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **MONITORING** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SQLParameters](#SQLParameters2)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **MOYSKLAD_CH_TABLE** (const) ||
 || title | **string**
 
 Required field.  ||
@@ -4567,9 +5773,35 @@ Required field.  ||
 - `compiler_runtime`
 - `null` ||
 || parameter_hash | **string** ||
-|| parameters | **[SimpleParameters](#SimpleParameters2)** ||
+|| parameters | **[SQLParameters](#SQLParameters2)** ||
 || raw_schema | **array \| null** ||
-|| source_type | **SOLOMON** (const) ||
+|| source_type | **CH_SMB_HEATMAPS_TABLE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SnowFlakeTableParameters](#SnowFlakeTableParameters2)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **SNOWFLAKE_TABLE** (const) ||
 || title | **string**
 
 Required field.  ||
@@ -4595,7 +5827,111 @@ Required field.  ||
 || parameter_hash | **string** ||
 || parameters | **[SQLParameters](#SQLParameters2)** ||
 || raw_schema | **array \| null** ||
-|| source_type | **CH_USAGE_TRACKING_YA_TEAM_TABLE** (const) ||
+|| source_type | **SPEECHSENSE_TABLE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SchematizedParameters](#SchematizedParameters2)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **TRINO_TABLE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SubselectParameters](#SubselectParameters2)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **TRINO_SUBSELECT** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SQLParameters](#SQLParameters2)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **CH_USAGE_TRACKING_TABLE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SQLParameters](#SQLParameters2)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **CH_USAGE_TRACKING_AGG_TABLE** (const) ||
 || title | **string**
 
 Required field.  ||
@@ -4659,6 +5995,58 @@ Required field.  ||
 
 #|
 ||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SQLParameters](#SQLParameters2)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **YQ_TABLE** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
+|| connection_id | **string \| null** ||
+|| id | **string**
+
+Required field.  ||
+|| index_info_set | **array \| null** ||
+|| managed_by | **enum**
+
+- `user`
+- `feature`
+- `compiler_runtime`
+- `null` ||
+|| parameter_hash | **string** ||
+|| parameters | **[SubselectParameters](#SubselectParameters2)** ||
+|| raw_schema | **array \| null** ||
+|| source_type | **YQ_SUBSELECT** (const) ||
+|| title | **string**
+
+Required field.  ||
+|| valid | **boolean** ||
+|| virtual | **unknown** ||
+|#
+
+>
+
+#|
+||Field | Description ||
 || Empty | > ||
 |#
 
@@ -4669,6 +6057,22 @@ Required field.  ||
 || db_name | **string \| null** ||
 || db_version | **string \| null** ||
 || table_name | **string \| null** ||
+|#
+
+## BigQueryTableParameters {#BigQueryTableParameters2}
+
+#|
+||Field | Description ||
+|| dataset_name | **string \| null** ||
+|| db_version | **string \| null** ||
+|| table_name | **string \| null** ||
+|#
+
+## SubselectParameters {#SubselectParameters2}
+
+#|
+||Field | Description ||
+|| subsql | **string** ||
 |#
 
 ## CHYTTableListParameters {#CHYTTableListParameters2}
@@ -4687,13 +6091,6 @@ Required field.  ||
 || range_to | **string** ||
 |#
 
-## SubselectParameters {#SubselectParameters2}
-
-#|
-||Field | Description ||
-|| subsql | **string** ||
-|#
-
 ## SchematizedParameters {#SchematizedParameters2}
 
 #|
@@ -4709,6 +6106,15 @@ Required field.  ||
 #|
 ||Field | Description ||
 || Empty | > ||
+|#
+
+## SnowFlakeTableParameters {#SnowFlakeTableParameters2}
+
+#|
+||Field | Description ||
+|| db_name | **string \| null** ||
+|| schema | **string \| null** ||
+|| table_name | **string \| null** ||
 |#
 
 ## Options {#Options2}

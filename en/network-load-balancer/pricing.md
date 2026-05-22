@@ -6,6 +6,7 @@ editable: false
 
 # {{ network-load-balancer-name }} pricing policy
 
+
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
@@ -14,9 +15,10 @@ editable: false
 
 {% include [vat](../_includes/vat.md) %}
 
+
 When using {{ network-load-balancer-full-name }}, you pay for the inbound and outbound traffic processed by a network load balancer and for the number of network load balancers you use.
 
-For a network load balancer with a public IP address, you additionally pay for outbound internet traffic, same as you do in case of other [{{ yandex-cloud }}](../vpc/pricing.md#prices-traffic) services. Outbound traffic also includes target responses to health checks.
+For a network load balancer with a public IP address, you additionally pay for outgoing internet traffic based on the [outgoing traffic pricing](../vpc/pricing.md#prices-traffic). Outbound traffic also includes target responses to health checks.
 
 
 ## Prices for the Russia region {#prices}

@@ -16,6 +16,7 @@ description: This page provides a list of step-by-step guides for {{ dataproc-na
 * [Connecting to a host from graphical IDEs](connect-ide.md)
 * [Updating a cluster](cluster-update.md)
 * [Migrating a lightweight cluster to a different availability zone](migration-to-an-availability-zone.md)
+* [Managing cluster access](cluster-access.md)
 * [Deleting a cluster](cluster-delete.md)
 
 ## {{ dataproc-name }} subclusters

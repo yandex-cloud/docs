@@ -40,6 +40,45 @@ To activate an inactive [MFA policy](../../concepts/mfa.md#mfa-policies):
 
      Where `--id` is the ID of the MFA policy you need to activate.
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Open the {{ TF }} configuration file and update the `status` parameter in the `yandex_organizationmanager_mfa_enforcement` resource:
+
+     ```hcl
+     resource "yandex_organizationmanager_mfa_enforcement" "example_mfa_policy" {
+       name            = "<policy_name>"
+       organization_id = "<organization_ID>"
+       acr_id          = "<authentication_factor_type>"
+       ttl             = "<lifetime>"
+       status          = "MFA_ENFORCEMENT_STATUS_ACTIVE"
+       apply_at        = "<activation_time>"
+       enroll_window   = "<creation_deadline>"
+       description     = "<policy_description>"
+     }
+     ```
+
+     Where `status` is the policy status: `MFA_ENFORCEMENT_STATUS_ACTIVE` to activate the policy. This is an optional setting.
+
+     For more information about the `yandex_organizationmanager_mfa_enforcement` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_mfa_enforcement).
+
+  1. Apply the changes:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} will activate the MFA policy. You can check the MFA policy update using the [{{ cloud-center }} UI]({{ link-org-cloud-center }}) or this [CLI](../../../cli/) command:
+
+     ```bash
+     yc organization-manager mfa-enforcement get <policy_ID>
+     ```
+
+- API {#api}
+
+  Use the [Activate](../../../organization/api-ref/MfaEnforcement/activate.md) REST API method for the [MfaEnforcement](../../../organization/api-ref/MfaEnforcement/index.md) resource or the [MfaEnforcementService/Activate](../../../organization/api-ref/grpc/MfaEnforcement/activate.md) gRPC API call.
+
 {% endlist %}
 
 As a result, the MFA policy will be activated and switch to the `Active` status, and users with accounts added to the policy's target groups will be required to use an additional authentication factor.
@@ -75,15 +114,57 @@ To temporarily deactivate an [MFA policy](../../concepts/mfa.md#mfa-policies):
 
      Where `--id` is the ID of the MFA policy you need to deactivate.
 
+- {{ TF }} {#tf}
+
+  {% include [terraform-definition](../../../_tutorials/_tutorials_includes/terraform-definition.md) %}
+
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
+  1. Open the {{ TF }} configuration file and update the `status` parameter in the `yandex_organizationmanager_mfa_enforcement` resource:
+
+     ```hcl
+     resource "yandex_organizationmanager_mfa_enforcement" "example_mfa_policy" {
+       name            = "<policy_name>"
+       organization_id = "<organization_ID>"
+       acr_id          = "<authentication_factor_type>"
+       ttl             = "<lifetime>"
+       status          = "MFA_ENFORCEMENT_STATUS_INACTIVE"
+       apply_at        = "<activation_time>"
+       enroll_window   = "<creation_deadline>"
+       description     = "<policy_description>"
+     }
+     ```
+
+     Where `status` is the policy status: `MFA_ENFORCEMENT_STATUS_INACTIVE` to deactivate the policy. This is an optional setting.
+
+     For more information about the `yandex_organizationmanager_mfa_enforcement` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_mfa_enforcement).
+
+  1. Apply the changes:
+
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+
+     {{ TF }} will deactivate the MFA policy. You can check the MFA policy update using the [{{ cloud-center }} UI]({{ link-org-cloud-center }}) or this [CLI](../../../cli/) command:
+
+     ```bash
+     yc organization-manager mfa-enforcement get <policy_ID>
+     ```
+
+- API {#api}
+
+  Use the [Deactivate](../../../organization/api-ref/MfaEnforcement/deactivate.md) REST API method for the [MfaEnforcement](../../../organization/api-ref/MfaEnforcement/index.md) resource or the [MfaEnforcementService/Deactivate](../../../organization/api-ref/grpc/MfaEnforcement/deactivate.md) gRPC API call.
+
 {% endlist %}
 
 As a result, the MFA policy will be deactivated and switch to the `Inactive` status, while users whose accounts belong to the policy's target groups will no longer be required to use an additional authentication factor.
+
+If you need to temporarily exclude specific users or groups from the policy without deactivating it completely, use [MFA policy exceptions](./excluded-audience.md).
 
 #### See also {#see-also}
 
 * [{#T}](./create-policy.md)
 * [{#T}](./update-policy.md)
 * [{#T}](./add-users.md)
+* [{#T}](./excluded-audience.md)
 * [{#T}](./delete-policy.md)
 * [{#T}](./manage-verification.md)
 * [{#T}](../../concepts/mfa.md)

@@ -97,7 +97,7 @@ Publication date: 27/12/24.
 * **Added the following items:**
     * 1.11 Service account API keys have specified scopes.
     * 1.25 The date of the last service account authentication and the last use of the access keys in {{ iam-full-name }} are tracked.
-    * 1.26 Access permissions of users and service accounts are regularly audited using the {{ sd-full-name }} CIEM.
+    * 1.26 Access permissions of users and service accounts are regularly audited using the {{ sd-full-name }} {{ ciem-name }}.
 
 * **Updated the following items:**
     * Added [{{ container-registry-full-name }}](../../../container-registry/index.yaml), [{{ sws-full-name }}](../../../smartwebsecurity/index.yaml), and [{{ captcha-full-name }}](../../../smartcaptcha/index.yaml) to **Scope**.
@@ -138,7 +138,7 @@ Publication date: 25/09/24.
     * 1.1.1 User group mapping is set up in an identity federation.
     * 1.24 Tracking the date of last access key use in {{ iam-full-name }}.
     * 3.11 {{ sts-full-name }} is used to get access keys to {{ objstorage-name }}.
-    * 3.12 Pre-signed URLs are generated for isolated cases of access to specific objects in {{ objstorage-name }} private buckets.
+    * 3.12 Pre-signed URLs are generated for one-off accesses to specific objects in {{ objstorage-name }} private buckets.
     * 3.32 {{ oslogin }} is used for connection to a VM or {{ k8s }} node.
     * 4.8 Encryption of disks and virtual machine snapshots is used.
     * 5.8 Data events are monitored.

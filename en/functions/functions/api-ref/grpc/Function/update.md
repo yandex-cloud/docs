@@ -37,7 +37,7 @@ Field mask that specifies which attributes of the function should be updated. ||
 New name for the function.
 The name must be unique within the folder.
 
-Value must match the regular expression ` \|[a-z][-a-z0-9]{1,61}[a-z0-9] `. ||
+Value must match the regular expression ``` |[a-z][-a-z0-9]{1,61}[a-z0-9] ```. ||
 || description | **string**
 
 New description for the function.

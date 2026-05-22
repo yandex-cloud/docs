@@ -13,8 +13,8 @@ description: Следуя данной инструкции, вы сможете
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в который был добавлен сертификат.
   1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
-  1. Выберите в списке сертификат, который необходимо изменить.
-  1. В открывшемся окне нажмите кнопку **{{ ui-key.yacloud.certificate-manager.overview.action_edit-meta }}**.
+  1. Выберите сертификат, который необходимо изменить.
+  1. Нажмите кнопку ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.certificate-manager.overview.action_edit-meta }}**.
   1. Измените название или описание сертификата.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 

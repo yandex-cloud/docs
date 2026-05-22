@@ -60,6 +60,7 @@ resource "yandex_mdb_kafka_cluster" "my_cluster" {
         ssl_cipher_suites               = ["TLS_DHE_RSA_WITH_AES_128_CBC_SHA", "TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256"]
         offsets_retention_minutes       = 10080
         sasl_enabled_mechanisms         = ["SASL_MECHANISM_SCRAM_SHA_256", "SASL_MECHANISM_SCRAM_SHA_512"]
+        transactional_id_expiration_ms  = 604800000
       }
     }
   }
@@ -143,6 +144,7 @@ resource "yandex_mdb_kafka_cluster" "my_cluster" {
         ssl_cipher_suites               = ["TLS_DHE_RSA_WITH_AES_128_CBC_SHA", "TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256"]
         offsets_retention_minutes       = 10080
         sasl_enabled_mechanisms         = ["SASL_MECHANISM_SCRAM_SHA_256", "SASL_MECHANISM_SCRAM_SHA_512"]
+        transactional_id_expiration_ms  = 604800000
       }
     }
     zookeeper {
@@ -211,7 +213,7 @@ resource "yandex_mdb_kafka_cluster" "kraft-split" {
   subnet_ids  = ["${yandex_vpc_subnet.foo.id}", "${yandex_vpc_subnet.bar.id}", "${yandex_vpc_subnet.baz.id}"]
 
   config {
-    version          = "3.6"
+    version          = "3.9"
     brokers_count    = 2
     zones            = ["ru-central1-a", "ru-central1-b", "ru-central1-d"]
     assign_public_ip = true
@@ -245,6 +247,7 @@ resource "yandex_mdb_kafka_cluster" "kraft-split" {
         ssl_cipher_suites               = ["TLS_DHE_RSA_WITH_AES_128_CBC_SHA", "TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256"]
         offsets_retention_minutes       = 10080
         sasl_enabled_mechanisms         = ["SASL_MECHANISM_SCRAM_SHA_256", "SASL_MECHANISM_SCRAM_SHA_512"]
+        transactional_id_expiration_ms  = 604800000
       }
     }
     kraft {
@@ -280,7 +283,7 @@ resource "yandex_vpc_subnet" "baz" {
 ```
 ```terraform
 //
-// Creating multi-host Kafka Cluster without sub-cluster of controllers, 
+// Creating multi-host Kafka Cluster without sub-cluster of controllers,
 // using KRaft-combine quorum.
 //
 resource "yandex_mdb_kafka_cluster" "kraft-combine" {
@@ -290,7 +293,7 @@ resource "yandex_mdb_kafka_cluster" "kraft-combine" {
   subnet_ids  = ["${yandex_vpc_subnet.foo.id}", "${yandex_vpc_subnet.bar.id}", "${yandex_vpc_subnet.baz.id}"]
 
   config {
-    version          = "3.6"
+    version          = "3.9"
     brokers_count    = 1
     zones            = ["ru-central1-a", "ru-central1-b", "ru-central1-d"]
     assign_public_ip = true
@@ -324,6 +327,7 @@ resource "yandex_mdb_kafka_cluster" "kraft-combine" {
         ssl_cipher_suites               = ["TLS_DHE_RSA_WITH_AES_128_CBC_SHA", "TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305_SHA256"]
         offsets_retention_minutes       = 10080
         sasl_enabled_mechanisms         = ["SASL_MECHANISM_SCRAM_SHA_256", "SASL_MECHANISM_SCRAM_SHA_512"]
+        transactional_id_expiration_ms  = 604800000
       }
     }
   }
@@ -411,6 +415,7 @@ resource "yandex_vpc_subnet" "baz" {
       - `socket_receive_buffer_bytes` (String). The SO_RCVBUF buffer of the socket server sockets. If the value is -1, the OS default will be used.
       - `socket_send_buffer_bytes` (String). The SO_SNDBUF buffer of the socket server sockets. If the value is -1, the OS default will be used.
       - `ssl_cipher_suites` (Set Of String). A list of cipher suites.
+      - `transactional_id_expiration_ms` (String). Timeout for transactional ids to expire in ms.
     - `resources` [Block]. Resources allocated to hosts of the Kafka subcluster.
       - `disk_size` (**Required**)(Number). Volume of the storage available to a Kafka host, in gigabytes.
       - `disk_type_id` (**Required**)(String). Type of the storage of Kafka hosts. For more information see [the official documentation](https://yandex.cloud/docs/managed-kafka/concepts/storage).
@@ -433,6 +438,11 @@ resource "yandex_vpc_subnet" "baz" {
   - `day` (String). Day of the week (in `DDD` format). Allowed values: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, `SUN`.
   - `hour` (Number). Hour of the day in UTC (in `HH` format). Allowed value is between 1 and 24.
   - `type` (**Required**)(String). Type of maintenance window. Can be either `ANYTIME` or `WEEKLY`. A day and hour of window need to be specified with weekly window.
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `read` (String). 
+  - `update` (String). 
 - `topic` [Block]. To manage topics, please switch to using a separate resource type `yandex_mdb_kafka_topic`.
   - `name` (**Required**)(String). The name of the topic.
   - `partitions` (**Required**)(Number). The number of the topic's partitions.

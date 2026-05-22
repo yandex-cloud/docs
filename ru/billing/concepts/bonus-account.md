@@ -6,9 +6,12 @@
 
 Гранты нельзя использовать для пополнения [лицевого счета](personal-account.md).
 
+Грант может быть отозван по усмотрению {{ yandex-cloud }} без объяснения причин.
+
 {% endnote %}
 
 {% include [currency](../_includes/currency.md) %}
+
 
 ## Просмотр полученных грантов {#how-to-view}
 
@@ -18,10 +21,11 @@
 
   1. Перейдите в сервис [**{{ billing-name }}**]({{ link-console-billing }}).
   1. Выберите платежный аккаунт из списка.
-  1. На странице **{{ ui-key.yacloud_billing.billing.account.switch_overview }}** в блоке **{{ ui-key.yacloud_billing.billing.account.dashboard-grants.section_grants }}** нажмите ![image](../../_assets/console-icons/chevron-right.svg) **{{ ui-key.yacloud_billing.billing.account.dashboard-grants.action_show-all }}**.
+  1. На странице ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}** в блоке **{{ ui-key.yacloud_billing.billing.account.dashboard-grants.section_grants }}** нажмите ![image](../../_assets/console-icons/chevron-right.svg) **{{ ui-key.yacloud_billing.billing.account.dashboard-grants.action_show-all }}**.
   1. На странице **{{ ui-key.yacloud_billing.billing.account.offers.label_title }}** на вкладке **{{ ui-key.yacloud_billing.billing.account.offers.value_grants }}** отобразится информация обо всех полученных грантах.
 
 {% endlist %}
+
 
 ## Стартовый грант {#start}
 
@@ -35,11 +39,15 @@
 
 {% endnote %}
 
+
 ## Дополнительные гранты {#additional}
+
 Дополнительные гранты могут быть предоставлены по решению менеджера {{ yandex-cloud }} или в рамках [контент-программы](../../../content-program), реферальной программы и [программы Yandex Cloud Boost](../../../cloud-boost). Размер дополнительных грантов и срок их действия отображается в сервисе {{ billing-name }}.
 
 
+
 ## Гранты для благотворительных фондов {#foundations-grants}
+
 Благотворительные фонды могут получить грант на использование сервисов {{ yandex-cloud }}. Подробные условия предоставления гранта читайте в [Положении о сервисах для некоммерческих организаций](https://yandex.ru/legal/ngo_terms/?lang=ru).
 
 Для получения гранта оставьте заявку на странице [Сервисы для благотворительных фондов](https://help.yandex.ru/business). Предоставьте данные об организации, а в поле **Миссия организации** укажите:
@@ -49,9 +57,13 @@
 После рассмотрения заявки с вами свяжутся для обсуждения деталей. Будьте готовы предоставить комплект документов, подтверждающих деятельность вашей организации.
 
 
+
 ## Применение грантов {#how-to-use}
+
 Очередность применения зависит от срока действия гранта: чем раньше заканчивается срок действия, тем раньше применяется грант.
 
 {% include [grant-and-cvos](../../_includes/billing/grant-and-cvos.md) %}
 
-Подробнее о применении грантов см. в [описании цикла оплаты](../payment/billing-cycle-individual).
+Подробнее о применении грантов см. в [описании цикла оплаты](../payment/billing-cycle-individual.md).
+
+{% include [grant-support](../../_includes/billing/grant-support.md) %}

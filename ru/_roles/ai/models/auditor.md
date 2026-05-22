@@ -1,1 +1,1 @@
-Роль `ai.models.auditor` позволяет просматривать метаданные [моделей генерации текста](../../../ai-studio/concepts/generation/models.md) Yandex AI Studio.
+Роль `ai.models.auditor` позволяет просматривать метаданные [моделей генерации текста]({{ link-docs-ai }}ai-studio/concepts/generation/models) Yandex AI Studio.

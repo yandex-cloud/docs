@@ -5,7 +5,6 @@ editable: false
 # BareMetal API, gRPC: StandardImageService.Get
 
 Returns the specific standard Image resource.
-
 To get the list of standard  resources, make a [List](/docs/baremetal/api-ref/grpc/StandardImage/list#List) request.
 
 ## gRPC request
@@ -25,8 +24,9 @@ To get the list of standard  resources, make a [List](/docs/baremetal/api-ref/gr
 || standard_image_id | **string**
 
 ID of the StandardImage resource to return.
+To get the standard image ID, use a [StandardImageService.List](/docs/baremetal/api-ref/grpc/StandardImage/list#List) request.
 
-To get the standard image ID, use a [StandardImageService.List](/docs/baremetal/api-ref/grpc/StandardImage/list#List) request. ||
+The maximum string length in characters is 20. ||
 |#
 
 ## StandardImage {#yandex.cloud.baremetal.v1alpha.StandardImage}

@@ -1,8 +1,8 @@
-{{ yq-full-name }} is an interactive service for serverless data analysis. You can use it to process information from various storages without having to to create a dedicated cluster. {{ yq-full-name }} supports [{{ objstorage-full-name }}](../../storage/), [{{ mpg-full-name }}](../../managed-postgresql/), and [{{ mch-full-name }}](../../managed-clickhouse/) data storages.
+{{ yq-full-name }} is an interactive service for serverless data analysis. You can use it to process information from various storages without the need to create a dedicated cluster. {{ yq-full-name }} supports [{{ objstorage-full-name }}](../../storage/), [{{ mpg-full-name }}](../../managed-postgresql/), and [{{ mch-full-name }}](../../managed-clickhouse/) data storages.
 
 Follow this tutorial to connect to a {{ mpg-name }} database and query it from a {{ jlab }}Lab notebook with the help of {{ yq-name }}.
 
-1. [Set up the infrastructure](#infra).
+1. [Set up your infrastructure](#infra).
 1. [Get started in {{ yq-name }}](#yq-begin).
 1. [Create a {{ mpg-name }} cluster](#create-cluster).
 1. [Connect to the {{ mpg-name }} data](#mch-connect).
@@ -14,13 +14,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin-datasphere.md) %}
 
+
 ### Required paid resources {#paid-resources}
 
-The cost of infrastructure support for working with {{ mpg-name }} data includes:
+* {{ ml-platform-name }} project: Use of computing resources and storage (see [{{ ml-platform-name }} pricing](../../datasphere/pricing.md)).
+* {{ mpg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* {{ yq-name }}: Amount of data read when running queries (see [{{ yq-name }} pricing](../../query/pricing.md)).
 
-* Fee for using [{{ ml-platform-name }} computing resources](../../datasphere/pricing.md).
-* Fee for a running [{{ mpg-name }} cluster](../../managed-postgresql/pricing.md).
-* Fee for the amount of read data when running [{{ yq-name }} queries](../../query/pricing.md).
 
 ## Set up your infrastructure {#infra}
 
@@ -47,7 +47,7 @@ The cost of infrastructure support for working with {{ mpg-name }} data includes
 - Management console {#console}
 
   1. Navigate to `data-folder`.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Name the [service account](../../iam/concepts/users/service-accounts.md), e.g., `yq-sa`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the following roles to the service account:
@@ -78,7 +78,7 @@ To allow the service account to send queries using {{ yq-name }}, create an [aut
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to `data-folder`.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the list that opens, select `yq-sa`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** in the top panel and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}**.
@@ -120,7 +120,7 @@ Any running {{ mpg-name }} cluster with the **{{ ui-key.yacloud.mdb.forms.additi
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select `data-folder`.
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. In the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field, enter the cluster name, e.g., `postgresql`.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**:
@@ -168,7 +168,7 @@ To create a {{ yq-name }} [connection](../../query/concepts/glossary.md#connecti
 - Management console {#console}
   
   1. In the [management console]({{ link-console-main }}), select `data-folder`.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_yq_ru }}**.
   1. In the left-hand panel, select **{{ ui-key.yql.yq-ide-aside.connections.tab-text }}**.
   1. Click ![info](../../_assets/console-icons/plus.svg)**{{ ui-key.yql.yq-connection-form.action_create-new }}**.
   1. Name the connection, e.g., `postgresql`.

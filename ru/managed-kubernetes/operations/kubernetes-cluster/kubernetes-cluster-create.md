@@ -63,20 +63,21 @@ description: Следуя данной инструкции, вы сможете
 
      ```bash
      {{ yc-k8s }} cluster create \
-       --name test-k8s \
-       --network-name default \
+       --name <имя_кластера> \
+       --network-name <имя_сети> \
        --public-ip \
-       --release-channel regular \
-       --version 1.27 \
-       --cluster-ipv4-range 10.1.0.0/16 \
-       --service-ipv4-range 10.2.0.0/16 \
-       --security-group-ids enpe5sdn7vs5********,enpj6c5ifh75******** \
-       --service-account-name default-sa \
-       --node-service-account-name default-sa \
-       --master-location zone={{ region-id }}-a,subnet-id=mysubnet \
+       --release-channel <релизный_канал:_rapid,_regular_или_stable> \
+       --version <версия_{{ k8s }}> \
+       --cluster-ipv4-range <диапазон_IP-адресов_для_подов> \
+       --service-ipv4-range <диапазон_IP-адресов_для_сервисов> \
+       --security-group-ids <список_идентификаторов_групп_безопасности> \
+       --service-account-name <имя_сервисного_аккаунта_для_ресурсов> \
+       --node-service-account-name <имя_сервисного_аккаунта_для_узлов> \
+       --master-location zone=<зона_доступности>,subnet-id=<имя_подсети> \
        --master-scale-policy policy=auto,min-resource-preset-id=<класс_хостов_мастера> \
        --daily-maintenance-window start=22:00,duration=10h
        --labels <имя_облачной_метки=значение_облачной_метки>
+
      ```
 
      Где:
@@ -85,6 +86,8 @@ description: Следуя данной инструкции, вы сможете
      * `--network-name` — имя [сети](../../../vpc/concepts/network.md#network).
 
         {% include [note-another-catalog-network](../../../_includes/managed-kubernetes/note-another-catalog-network.md) %}
+
+        {% include [note-vpc-resources](../../../_includes/managed-kubernetes/note-vpc-resources.md) %}
 
      * `--public-ip` — флаг, который указывает, если кластеру {{ managed-k8s-name }} требуется [публичный IP-адрес](../../../vpc/concepts/address.md#public-addresses).
 
@@ -104,7 +107,7 @@ description: Следуя данной инструкции, вы сможете
        {% include [security-groups-alert](../../../_includes/managed-kubernetes/security-groups-alert.md) %}
 
      * `--service-account-id` — уникальный идентификатор [сервисного аккаунта](../../../iam/concepts/users/service-accounts.md) для ресурсов. От его имени будут создаваться ресурсы, необходимые кластеру {{ managed-k8s-name }}.
-     * `--node-service-account-id` — уникальный идентификатор сервисного аккаунта для [узлов](../../concepts/index.md#node-group). От его имени узлы будут скачивать из реестра {{ container-registry-full-name }} необходимые [Docker-образы](../../../container-registry/concepts/docker-image.md).
+     * `--node-service-account-id` — уникальный идентификатор сервисного аккаунта для [узлов](../../concepts/index.md#node-group). От его имени узлы будут скачивать из [реестра](../../../container-registry/concepts/registry.md) {{ container-registry-full-name }} необходимые [Docker-образы](../../../container-registry/concepts/docker-image.md).
      * `--master-location` — конфигурация [мастера](../../concepts/index.md#master). Укажите в параметре зону доступности и подсеть, где будет размещен мастер.
 
         Количество параметров `--master-location` зависит от типа мастера:
@@ -125,7 +128,7 @@ description: Следуя данной инструкции, вы сможете
 
         {% endnote %}
 
-     * `--daily-maintenance-window` — настройки окна [обновлений](../../concepts/release-channels-and-updates.md#updates).
+     * `--daily-maintenance-window` — настройки времени начала окна [обновления](../../concepts/release-channels-and-updates.md#updates) в UTC.
      * `--labels` — [облачные метки](../../concepts/index.md#cluster-labels) для кластера.
 
      Результат:
@@ -173,23 +176,28 @@ description: Следуя данной инструкции, вы сможете
 
      {% include [write-once-setting](../../../_includes/managed-kubernetes/write-once-setting.md) %}
 
-  1. Чтобы включить отправку логов в [{{ cloud-logging-full-name }}](../../../logging/), передайте настройки отправки в команде создания кластера {{ managed-k8s-name }} в параметре `--master-logging`:
+  1. Чтобы включить отправку логов в [{{ cloud-logging-full-name }}](../../../logging/):
 
-     ```bash
-     {{ yc-k8s }} cluster create \
-     ...
-       --master-logging enabled=<отправка_логов>,`
-         `log-group-id=<идентификатор_лог-группы>,`
-         `folder-id=<идентификатор_каталога>,`
-         `kube-apiserver-enabled=<отправка_логов_kube-apiserver>,`
-         `cluster-autoscaler-enabled=<отправка_логов_cluster-autoscaler>,`
-         `events-enabled=<отправка_событий_{{ k8s }}>`
-         `audit-enabled=<отправка_событий_аудита>
-     ```
+     1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту для ресурсов роль [{{ roles-logging-writer }}](../../../logging/security/index.md#loggingwriter).
+     1. Передайте настройки отправки в команде создания кластера, в параметре `--master-logging`:
 
-     Где:
+        ```bash
+        {{ yc-k8s }} cluster create \
+        ...
+          --master-logging enabled=<отправка_логов:_true_или_false>,`
+            `log-group-id=<идентификатор_лог-группы>,`
+            `folder-id=<идентификатор_каталога>,`
+            `kube-apiserver-enabled=<отправка_логов_kube-apiserver:_true_или_false>,`
+            `cluster-autoscaler-enabled=<отправка_логов_cluster-autoscaler:_true_или_false>,`
+            `events-enabled=<отправка_событий_{{ k8s }}:_true_или_false>
+            `audit-enabled=<отправка_событий_аудита>
+        ```
 
-     {% include [master-logging-cli-description.md](../../../_includes/managed-kubernetes/master-logging-cli-description.md) %}
+        Где:
+
+        {% include [master-logging-cli-description.md](../../../_includes/managed-kubernetes/master-logging-cli-description.md) %}
+
+        {% include [note-master-logging-log-group](../../../_includes/managed-kubernetes/note-master-logging-log-group.md) %}
 
 - {{ TF }} {#tf}
 
@@ -205,6 +213,9 @@ description: Следуя данной инструкции, вы сможете
         {% include [note-another-catalog-network](../../../_includes/managed-kubernetes/note-another-catalog-network.md) %}
 
      * [Подсети](../../../vpc/concepts/network.md#subnet) — описание подсетей, к которым будут подключены хосты кластера {{ managed-k8s-name }}. Если подходящие подсети у вас уже есть, описывать их повторно не нужно.
+
+         {% include [note-vpc-resources](../../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
      * [Сервисный аккаунт](#before-you-begin) для кластера {{ managed-k8s-name }} и [узлов](../../concepts/index.md#node-group) и [настройки роли]({{ tf-provider-resources-link }}/resourcemanager_folder_iam_member) для этого аккаунта. При необходимости создайте отдельные [сервисные аккаунты](../../../iam/concepts/users/service-accounts.md) для кластера {{ managed-k8s-name }} и узлов. Если у вас уже есть подходящий сервисный аккаунт, описывать его повторно не нужно.
 
      >Пример структуры конфигурационного файла:
@@ -266,7 +277,7 @@ description: Следуя данной инструкции, вы сможете
 
      {% note info %}
 
-      Облачные метки для кластера {{ k8s }} составляются по определенным [правилам](../../concepts/index.md#cluster-labels).
+     Облачные метки для кластера {{ k8s }} составляются по определенным [правилам](../../concepts/index.md#cluster-labels).
 
      {% endnote %}
 
@@ -312,17 +323,22 @@ description: Следуя данной инструкции, вы сможете
 
      {% note warning %}
 
-      Контроллер сетевых политик Calico и туннельный режим Cilium нельзя включить одновременно. Их также нельзя включить после создания кластера.
+     Контроллер сетевых политик Calico и туннельный режим Cilium нельзя включить одновременно. Их также нельзя включить после создания кластера.
 
      {% endnote %}
 
-     Чтобы включить отправку логов в [{{ cloud-logging-full-name }}](../../../logging/), добавьте к описанию кластера {{ managed-k8s-name }} блок `master_logging`:
+     Чтобы включить отправку логов в [{{ cloud-logging-full-name }}](../../../logging/):
 
-     {% include [master-logging-tf.md](../../../_includes/managed-kubernetes/master-logging-tf.md) %}
+     1. [Назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту для ресурсов роль [{{ roles-logging-writer }}](../../../logging/security/index.md#loggingwriter).
+     1. Добавьте к описанию кластера {{ managed-k8s-name }} блок `master_logging`:
 
-     Где:
+        {% include [master-logging-tf.md](../../../_includes/managed-kubernetes/master-logging-tf.md) %}
 
-     {% include [master-logging-tf-description.md](../../../_includes/managed-kubernetes/master-logging-tf-description.md) %}
+        Где:
+
+        {% include [master-logging-tf-description.md](../../../_includes/managed-kubernetes/master-logging-tf-description.md) %}
+
+        {% include [note-master-logging-log-group](../../../_includes/managed-kubernetes/note-master-logging-log-group.md) %}
 
      Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-k8s-cluster }}).
   1. Проверьте корректность конфигурационных файлов.
@@ -347,6 +363,8 @@ description: Следуя данной инструкции, вы сможете
   * Для высокодоступного мастера, который размещается в трех зонах доступности, передайте в запросе три параметра `masterSpec.locations`. В каждом из них укажите разные зоны доступности и подсети.
   * Для высокодоступного мастера, который размещается в одной зоне доступности, передайте в запросе три параметра `masterSpec.locations`. В каждом из них укажите одинаковую зону доступности и подсеть.
 
+  {% include [note-vpc-resources](../../../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
   {% include [note-another-catalog-network](../../../_includes/managed-kubernetes/note-another-catalog-network.md) %}
 
   При передаче параметра `masterSpec.locations` не нужно указывать параметры `masterSpec.zonalMasterSpec` или `masterSpec.regionalMasterSpec`.
@@ -365,7 +383,7 @@ description: Следуя данной инструкции, вы сможете
 
   Чтобы использовать для защиты секретов [ключ шифрования {{ kms-full-name }}](../../concepts/encryption.md), передайте его идентификатор в параметре `kmsProvider.keyId`.
 
-  Чтобы включить отправку логов в [{{ cloud-logging-full-name }}](../../../logging/), передайте настройки отправки в параметре `masterSpec.masterLogging`.
+  Чтобы включить отправку логов в [{{ cloud-logging-full-name }}](../../../logging/), [назначьте](../../../iam/operations/sa/assign-role-for-sa.md) сервисному аккаунту для ресурсов роль [{{ roles-logging-writer }}](../../../logging/security/index.md#loggingwriter) и передайте настройки отправки в параметре `masterSpec.masterLogging`.
 
   Чтобы добавить [облачную метку](../../concepts/index.md#cluster-labels), передайте ее имя и значение в параметре `labels`.
 
@@ -554,7 +572,6 @@ description: Следуя данной инструкции, вы сможете
 - CLI {#cli}
 
   Создайте кластер {{ managed-k8s-name }} с тестовыми характеристиками:
-
   * Название — `k8s-ha-three-zones`.
   * Сеть — `my-ha-net`.
   * Подсеть для зоны доступности `{{ region-id }}-a` — `mysubnet-a`.

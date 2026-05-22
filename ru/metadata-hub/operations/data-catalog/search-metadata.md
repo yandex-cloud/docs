@@ -11,7 +11,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог ресурсов](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан каталог метаданных.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
+  1. [Перейдите](../../../console/operations/select-service#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_metadata-hub }}**.
   1. Hа панели слева выберите ![image](../../../_assets/console-icons/folder-magnifier.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_data-catalog }}**.
   1. В открывшемся списке выберите каталог метаданных.
   1. На панели слева выберите ![image](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud.data-catalog.title_search-data }}**.
@@ -41,12 +41,12 @@
          * **Классификация** — выберите одну или несколько классификаций и нажмите **{{ ui-key.yacloud.common.save }}**. Будут найдены метаданные, размеченные тегами выбранных классификаций.
          * **Тег** — выберите один или несколько тегов и нажмите **{{ ui-key.yacloud.common.save }}**. Будут найдены метаданные, размеченные выбранными тегами.
          * **Термин** — выберите один или несколько терминов и нажмите **{{ ui-key.yacloud.common.save }}**. Будут найдены метаданные, размеченные выбранными терминами.
-         * **Предложения AI** — будут найдены метаданные, размеченные с помощью AI, а также предложенные AI-ассистентом домены, глоссарии, термины, классификации и теги.
+         * **Предложения AI** — будут найдены метаданные, размеченные с помощью AI. Также будут показаны предложенные AI-ассистентом домены, глоссарии, термины, классификации и теги.
 
          Можно задать несколько критериев поиска. Для этого повторно нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_search-button-add-filter }}**.
 
          Чтобы удалить все фильтры, нажмите кнопку **{{ ui-key.yacloud.common.clear }}**.
 
-         Вы можете поделиться фильтром с другими пользователями. Для этого нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_search-action-share }}**.
+         Вы можете поделиться отфильтрованной выборкой с другими пользователями. Для этого нажмите кнопку **{{ ui-key.yacloud.data-catalog.label_search-action-share }}**.
 
 {% endlist %}

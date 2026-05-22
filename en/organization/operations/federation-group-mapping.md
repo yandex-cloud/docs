@@ -2,7 +2,7 @@
 
 To configure user access to {{ yandex-cloud }} resources using [group mapping](../concepts/add-federation.md#group-mapping):
 
-1. [Create user groups](#create-group) in {{ org-name }}.
+1. [Create user groups](#create-group) in {{ org-full-name }}.
 1. [Configure their access permissions](#access) to {{ yandex-cloud }} resources.
 1. Create user groups in your [identity provider](../concepts/add-federation.md#federation-usage) and add users to them.
 
@@ -40,7 +40,7 @@ To configure user access to {{ yandex-cloud }} resources using [group mapping](.
       1. Click **{{ ui-key.yacloud_org.form.group-mapping.create.add }}** and configure mapping:
 
           * **{{ ui-key.yacloud_org.form.group-mapping.note.group-name }}**: Enter the name of an identity provider group.
-          * **{{ ui-key.yacloud_org.form.group-mapping.note.iam-group }}**: Select a {{ org-name }} group from the list.
+          * **{{ ui-key.yacloud_org.form.group-mapping.note.iam-group }}**: Select a {{ org-full-name }} group from the list.
 
       1. Repeat the previous step for each group you want to map.
 
@@ -83,14 +83,14 @@ To configure user access to {{ yandex-cloud }} resources using [group mapping](.
 
           Where:
           * `federation_id`: Federation ID.
-          * `internal_group_id`: {{ org-name }} group name.
+          * `internal_group_id`: {{ org-full-name }} group name.
           * `external_group_id`: Name of an identity provider group.
 
-          For more information about `yandex_organizationmanager_group_mapping_item` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item).
+          For more information about `yandex_organizationmanager_group_mapping_item` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_group_mapping_item).
       1. Create the resources:
 
           {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-          {{ TF }} will create all the required resources. You can check resource availability in [{{ org-full-name }}]({{ link-org-cloud-center }}).
+          {{ TF }} will create all the required resources. You can check resource availability in the [{{ cloud-center }} interface]({{ link-org-cloud-center }}).
 
     {% endlist %}

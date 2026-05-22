@@ -1,0 +1,80 @@
+# yc storage bucket get
+
+Show information about the specified bucket
+
+#### Command Usage
+
+Syntax:
+
+`yc storage bucket get <BUCKET-NAME> [<BUCKET-NAME>...] [--with-acl|--full] [Flags...] [Global Flags...]`
+
+Aliases:
+
+- `describe`
+
+- `show`
+
+#### Flags
+
+#|
+||Flag | Description ||
+|| `--name` | `string`
+
+Bucket name. ||
+|| `--with-acl` | Fetches bucket ACL settings with basic info. ||
+|| `--full` | Fetches full info about bucket. ||
+|#
+
+#### Global Flags
+
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom configuration file. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--syntax` | `string`
+
+CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
+|| `--token` | `string`
+
+Set the OAuth token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#
+#### Examples
+
+ * [Включить возможность блокировок](../../../../../storage/operations/buckets/configure-object-lock.md#tf_1)
+ * [Настройка CORS](../../../../../storage/operations/buckets/cors.md#cli_1)
+ * [Редактирование ACL бакета](../../../../../storage/operations/buckets/edit-acl.md#cli_1)
+ * [Получить информацию о бакете](../../../../../storage/operations/buckets/get-info.md#cli_1)
+ * [Управление жизненными циклами объектов в бакете](../../../../../storage/operations/buckets/lifecycles.md#cli_1)
+ * [Добавить или изменить метки](../../../../../storage/operations/buckets/tagging.md#tf_1)

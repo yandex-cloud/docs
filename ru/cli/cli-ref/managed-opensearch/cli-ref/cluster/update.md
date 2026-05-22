@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-opensearch/cli-ref/cluster/update
 editable: false
 ---
 
@@ -29,9 +30,15 @@ Defines the maximum product of fields and terms that are queryable simultaneousl
 || `--fielddata-cache-size` | `string`
 
 The maximum size of the field data cache. ||
+|| `--search-max-buckets` | `int`
+
+The maximum number of aggregation buckets allowed in a single response. Default is 65535 ||
 || `--reindex-remote-whitelist` | `value[,value]`
 
 Allowed remote hosts ||
+|| `--http-max-initial-line-length` | `string`
+
+Sets the maximum length allowed for HTTP URLs in the initial request line. URLs exceeding this limit will be rejected. Default is **4kb**. ||
 || `--snapshot-schedule` | `string`
 
 Snapshot schedule type. Supported: 'hourly', 'daily', 'weekly'. Leave empty for default settings. ||

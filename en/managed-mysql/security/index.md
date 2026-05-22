@@ -1,12 +1,12 @@
 ---
 title: Access management in {{ mmy-full-name }}
-description: Access management in {{ MY }}, a solution for creating and managing databases. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
+description: Access management in the {{ MY }} database creation and management service. This section describes the resources you can assign a role for, the roles this service has, and the roles required for specific actions.
 ---
 
 # Access management in {{ mmy-name }}
 
 
-In this section, you will learn about:
+In this section, you will learn about the following:
 
 * [Resources you can assign a role for](#resources).
 * [Roles this service has](#roles-list).
@@ -28,7 +28,7 @@ You can also assign a role for an individual cluster in the [management console]
 
 ## Roles this service has {#roles-list}
 
-The chart below shows the roles existing in the service and their permission inheritance. For example, `{{ roles-editor }}` inherits all `{{ roles-viewer }}` permissions. You can find the role descriptions below the chart.
+The diagram below shows available service roles and their permission inheritance hierarchy. For example, `{{ roles-editor }}` inherits all `{{ roles-viewer }}` permissions. You can find role descriptions below the diagram.
 
 {% include [roles-managed-mysql](../../_mermaid/roles/managed-mysql.md) %}
 
@@ -50,6 +50,14 @@ The chart below shows the roles existing in the service and their permission inh
 
 {% include [managed-mysql.restorer](../../_roles/managed-mysql/restorer.md) %}
 
+#### managed-mysql.user {#managed-mysql-user}
+
+{% include [managed-mysql.user](../../_roles/managed-mysql/user.md) %}
+
+#### managed-mysql.switcher {#managed-mysql-switcher}
+
+{% include [managed-mysql.switcher](../../_roles/managed-mysql/switcher.md) %}
+
 #### managed-mysql.editor {#managed-mysql-editor}
 
 {% include [managed-mysql.editor](../../_roles/managed-mysql/editor.md) %}
@@ -57,6 +65,14 @@ The chart below shows the roles existing in the service and their permission inh
 #### managed-mysql.admin {#managed-mysql-admin}
 
 {% include [managed-mysql.admin](../../_roles/managed-mysql/admin.md) %}
+
+#### managed-mysql.maintenanceTask.viewer {#managed-mysql-maintenanceTask-viewer}
+
+{% include [managed-mysql.maintenanceTask.viewer](../../_roles/managed-mysql/maintenanceTask/viewer.md) %}
+
+#### managed-mysql.maintenanceTask.editor {#managed-mysql-maintenanceTask-editor}
+
+{% include [managed-mysql.maintenanceTask.editor](../../_roles/managed-mysql/maintenanceTask/editor.md) %}
 
 #### mdb.auditor {#mdb-auditor}
 
@@ -73,6 +89,18 @@ The chart below shows the roles existing in the service and their permission inh
 #### mdb.restorer {#mdb-restorer}
 
 {% include [mdb-restorer](../../_roles/mdb/restorer.md) %}
+
+#### mdb.switcher {#mdb-switcher}
+
+{% include [mdb.switcher](../../_roles/mdb/switcher.md) %}
+
+#### mdb.maintenanceTask.viewer {#mdb-maintenanceTask-viewer}
+
+{% include [mdb.maintenanceTask.viewer](../../_roles/mdb/maintenanceTask/viewer.md) %}
+
+#### mdb.maintenanceTask.editor {#mdb-maintenanceTask-editor}
+
+{% include [mdb.maintenanceTask.editor](../../_roles/mdb/maintenanceTask/editor.md) %}
 
 #### vpc.publicAdmin {#vpc-public-admin}
 
@@ -91,7 +119,7 @@ As a user, you need the [{{ roles.mmy.editor }} role or higher](../../iam/concep
 
 To create a {{ mmy-name }} cluster, you need the [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user) role and the `{{ roles.mmy.editor }}` role or higher.
 
-You can always assign a role with more permissions. For example, you can assign the `{{ roles.mmy.admin }}` role instead of `{{ roles.mmy.editor }}`.
+You can always assign a role with more permissions, e.g., `{{ roles.mmy.admin }}` instead of `{{ roles.mmy.editor }}`.
 
 ## What's next {#whats-next}
 

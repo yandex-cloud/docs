@@ -12,10 +12,10 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором будет изменена запись зоны DNS.
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. Выберите зону из списка.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) напротив имени нужной записи и выберите ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.common.edit }}**.
-  1. Измените TTL или значение записи.
+  1. Измените TTL, значение или описание записи.
   1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
@@ -36,8 +36,16 @@ description: Следуя данной инструкции, вы сможете
 
      ```bash
      yc dns zone replace-records --name <имя_зоны> \
-     --record "<доменное_имя> 600 <тип_записи> <новое_значение>"
+     --record "<доменное_имя> 600 <тип_записи> <новое_значение>" \
+     --description "<описание>"
      ```
+
+    Где:
+
+    * `--name` — имя зоны. Должно быть уникальным внутри каталога.
+    * `--record` — DNS-запись, содержащая доменное имя, время жизни, тип и значение записи.
+    * `--description` — описание для новых записей. Если параметр не указан, описание будет пустой строкой. Необязательный параметр.
+
 
 - {{ TF }} {#tf}
 
@@ -57,6 +65,7 @@ description: Следуя данной инструкции, вы сможете
        type    = "A"
        ttl     = 200
        data    = ["10.1.0.1"]
+       description = "Web server A record"
      }
      ...
      ```
@@ -64,6 +73,10 @@ description: Следуя данной инструкции, вы сможете
      {% endcut %}
 
   1. Проверьте конфигурацию командой:
+
+     ```bash
+     terraform validate
+     ```
 
   1. Примените изменения:
 

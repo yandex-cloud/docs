@@ -350,17 +350,23 @@ Service name: `searchapi`.
 
 Service name: `securitydeck`.
 
-### {{ k8s }}® Security Posture Management (KSPM) {#sd-kspm}
+### {{ kspm-full-name }} ({{ kspm-name }}) {#sd-kspm}
 
 Module name: `securitydeck.kspm`.
 
 {% include [sd-kspm-events](../../_includes/audit-trails/events/sd-kspm-events.md) %}
 
-### Cloud Security Posture Management (CSPM) {#sd-cspm}
+### {{ cspm-full-name }} ({{ cspm-name }}) {#sd-cspm}
 
 Module name: `securitydeck.cspm`.
 
 {% include [sd-cspm-events](../../_includes/audit-trails/events/sd-cspm-events.md) %}
+
+### {{ alerts-name }} module {#sd-alerts}
+
+Module name: `securitydeck.alerts`.
+
+{% include [sd-alerts-events](../../_includes/audit-trails/events/sd-alerts-events.md) %}
 
 ### {{ sd-name }} workspaces {#sd-orchestrator}
 

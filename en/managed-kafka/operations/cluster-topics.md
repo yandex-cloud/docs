@@ -32,8 +32,8 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
-  1. Click the cluster name and go to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Click the cluster name and navigate to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
   1. Click **{{ ui-key.yacloud.kafka.button_create-topic }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, set the basic topic properties:
      * Topic name, which must be unique within the {{ KF }} cluster.
@@ -41,7 +41,7 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
        {% include [topic-name](../../_includes/mdb/mkf/note-info-topic-name.md) %}
 
      * Number of topic partitions.
-     * Replication factor. This value should not exceed the number of brokers in the cluster. The minimum value is `1`. The maximum value is `3`. The default value is as follows:
+     * Replication factor. This value should not exceed the number of brokers in the cluster. The minimum value is `1`. The maximum value is `3`. The default value is:
        * For a cluster with one or two brokers: `1`.
        * For a cluster with three or more brokers: `3`.
   1. Under **{{ ui-key.yacloud.kafka.section_topic-config }}**, specify the [topic settings](../concepts/settings-list.md#topic-settings).
@@ -77,7 +77,7 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     Learn how to create this file in [Creating a cluster](cluster-create.md).
+     For information about creating this file, see [{#T}](cluster-create.md).
   1. Add the `yandex_mdb_kafka_topic` resource and specify the [topic settings](../concepts/settings-list.md#topic-settings) in the `topic_config`, if required:
 
      ```hcl
@@ -96,11 +96,11 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
 
      {% include [topic-name](../../_includes/mdb/mkf/note-info-topic-name.md) %}
 
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -134,7 +134,7 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
 
         {% include [rest-topic-specs](../../_includes/mdb/mkf/api/rest-topic-specs.md) %}
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Topic/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -176,7 +176,7 @@ Prior to creating a topic, calculate the [minimum storage size](../concepts/stor
 
         {% include [grpc-topic-specs](../../_includes/mdb/mkf/api/grpc-topic-specs.md) %}
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Topic/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -199,12 +199,12 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. Click the name of your cluster and select the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the topic in question and select **{{ ui-key.yacloud.common.edit }}**.
   1. Change the basic topic settings:
      * Number of topic partitions.
-     * Replication factor. This value should not exceed the number of brokers in the cluster. The minimum value is `1`. The maximum value is `3`. The default value is as follows:
+     * Replication factor. This value should not exceed the number of brokers in the cluster. The minimum value is `1`. The maximum value is `3`. The default value is
        * For a cluster with one or two brokers: `1`.
        * For a cluster with three or more brokers: `3`.
   1. Change [additional topic settings](../concepts/settings-list.md#topic-settings).
@@ -236,7 +236,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     Learn how to create this file in [Creating a cluster](cluster-create.md).
+     For information about creating this file, see [{#T}](cluster-create.md).
   1. Edit the parameter values in the `yandex_mdb_kafka_topic` resource description:
 
      ```hcl
@@ -253,11 +253,11 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
      }
      ```
 
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -297,7 +297,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
      Where:
 
-     * `updateMask`: Comma-separated string of settings you want to update.
+     * `updateMask`: Comma-separated string of settings to update.
 
        In this case, list all topic settings to update.
 
@@ -305,7 +305,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
         {% include [rest-topic-specs](../../_includes/mdb/mkf/api/rest-topic-specs-update.md) %}
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Topic/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -363,7 +363,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
      Where:
 
-     * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+     * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
        In this case, list all topic settings to update.
 
@@ -371,7 +371,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 
         {% include [grpc-topic-specs](../../_includes/mdb/mkf/api/grpc-topic-specs-update.md) %}
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Topic/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -384,8 +384,8 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
-  1. Click the cluster name and go to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Click the cluster name and navigate to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
 
 - CLI {#cli}
 
@@ -414,7 +414,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
        --url 'https://{{ api-host-mdb }}/managed-kafka/v1/clusters/<cluster_ID>/topics'
      ```
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Topic/list.md#yandex.cloud.mdb.kafka.v1.ListTopicsResponse) to make sure your request was successful.
 
@@ -441,7 +441,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
        yandex.cloud.mdb.kafka.v1.TopicService.List
      ```
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Topic/list.md#yandex.cloud.mdb.kafka.v1.ListTopicsResponse) to make sure your request was successful.
 
@@ -454,8 +454,8 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
-  1. Click the cluster name and go to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Click the cluster name and navigate to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
   1. Click the topic name.
 
 - CLI {#cli}
@@ -513,7 +513,7 @@ For more information, see [{#T}](../concepts/storage.md#minimal-storage-size).
        yandex.cloud.mdb.kafka.v1.TopicService.Get
      ```
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the topic name, with the [list of topics in the cluster](#list-topics).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the topic name, with the [list of topics in the cluster](#list-topics).
 
   1. Check the [server response](../api-ref/grpc/Topic/list.md#yandex.cloud.mdb.kafka.v1.Topic) to make sure your request was successful.
 
@@ -704,8 +704,8 @@ When upgrading to a new {{ TF }} provider version, the state file and configurat
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}** service.
-  1. Click the cluster name and go to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. Click the cluster name and navigate to the **{{ ui-key.yacloud.kafka.label_topics }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) for the topic in question and select **{{ ui-key.yacloud.kafka.button_delete-topic }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
@@ -732,13 +732,13 @@ When upgrading to a new {{ TF }} provider version, the state file and configurat
 
   1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-     Learn how to create this file in [Creating a cluster](cluster-create.md).
+     For information about creating this file, see [{#T}](cluster-create.md).
   1. Delete the `yandex_mdb_kafka_topic` resource with the topic description.
-  1. Make sure the settings are correct.
+  1. Validate your configuration.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -787,7 +787,7 @@ When upgrading to a new {{ TF }} provider version, the state file and configurat
        yandex.cloud.mdb.kafka.v1.TopicService.Delete
      ```
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the topic name, with the [list of topics in the cluster](#list-topics).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters), and the topic name, with the [list of topics in the cluster](#list-topics).
 
   1. Check the [server response](../api-ref/grpc/Topic/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -799,4 +799,4 @@ To manage topics via the {{ KF }} Admin API:
 1. [Create](cluster-accounts.md#create-account) an admin user with either the `ACCESS_ROLE_ADMIN` or `ACCESS_ROLE_TOPIC_ADMIN` role in the cluster. Learn more about the permissions you get with each role [here](../concepts/account-roles.md).
 1. Manage topics on behalf of this user by making requests to the {{ KF }} Admin API. Learn how to use the Admin API in your programming language guide.
 
-For more information about working with the Admin API and the existing limitations, see [{#T}](../concepts/topics.md#management) and [this {{ KF }} guide](https://kafka.apache.org/documentation/#adminapi).
+For more information about working with the Admin API and the existing limitations, see [{#T}](../concepts/topics.md#management) and [this {{ KF }} guide](https://kafka.apache.org/42/apis/#admin-api).

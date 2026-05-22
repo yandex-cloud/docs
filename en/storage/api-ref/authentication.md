@@ -16,17 +16,19 @@ You can use the following types of APIs to work with {{ objstorage-name }}:
 
 {% list tabs group=auth_keys %}
 
-- IAM token authentication {#iam-token}
+
+- Authentication with an IAM token {#iam-token}
 
   {% include [s3-api-auth-intro-iam-token](../../_includes/storage/s3-api-auth-intro-iam-token.md) %}
 
   If authenticating with the API via an IAM token, you do not have to additionally [sign](../s3/signing-requests.md) HTTP requests.
 
-  Amazon S3 [tools](../tools/index.md), such as the [AWS CLI](../tools/aws-cli.md) and [AWS SDK](../tools/sdk/index.md), support static access key authentication only and cannot be used at the same time with IAM token authentication.
 
 - Static key authentication {#static-key}
 
   To authenticate with the [AWS S3 API](../s3/api-ref/) and use {{ TF }} and other [supported tools](../tools/), a [static access key](../../iam/concepts/authorization/access-key.md) can be used. A static access key is issued for a specific [service account](../../iam/concepts/users/service-accounts.md), and all actions involving this key are performed on behalf of this service account. For more information, see [How do I use the S3 API?](../../storage/s3/).
+
+  {% include [statickey-access-note](../../_includes/storage/statickey-access-note.md) %}
 
   
   {% include [store-aws-key-in-lockbox](../../_includes/storage/store-aws-key-in-lockbox.md) %}
@@ -52,7 +54,8 @@ Below are examples of requests for uploading an object to a bucket:
 
 {% list tabs group=auth_keys %}
 
-- IAM token authentication {#iam-token}
+
+- Authentication with an IAM token {#iam-token}
 
   ```bash
   IAM_TOKEN="<IAM_token_contents>"
@@ -92,6 +95,7 @@ Below are examples of requests for uploading an object to a bucket:
   ```
 
   Where `DIRECTORY_PATH` is the path to the directory you want to archive.
+
 
 - Static key authentication {#static-key}
 
@@ -196,7 +200,6 @@ For authentication in the {{ yandex-cloud }} gRPC and REST APIs, get an [IAM tok
 
 For the full list of {{ yandex-cloud }} API calls and methods, see the [gRPC API](../api-ref/grpc/) and [REST API](../api-ref/) references.
 
-
 ### {{ yandex-cloud }} API use case {#example}
 
 In this example, we will create a 50 GB bucket with a standard storage class.
@@ -220,8 +223,8 @@ In this example, we will create a 50 GB bucket with a standard storage class.
         "configRead": false
       }]
     }' \
-    storage.{{ api-host }}:443 \
-    {{ at-event-prefix }}.storage.v1.BucketService/Create
+    {{ api-host-storage-grpc }} \
+    yandex.cloud.storage.v1.BucketService/Create
   ```
 
   Where:
@@ -250,6 +253,7 @@ In this example, we will create a 50 GB bucket with a standard storage class.
     "response": {"@type":"type.googleapis.com/{{ at-event-prefix }}.storage.v1.Bucket","acl":{},"anonymousAccessFlags":{"read":false,"list":false},"createdAt":"2023-08-10T06:32:17.557756Z","defaultStorageClass":"STANDARD","folderId":"b1gmit33ngp3********","maxSize":"53687091200","name":"<bucket_name>","versioning":"VERSIONING_DISABLED"}
   }
   ```
+
 
 - REST API {#api}
 
@@ -315,6 +319,7 @@ In this example, we will create a 50 GB bucket with a standard storage class.
   "modifiedAt": "2023-08-08T12:54:32.111022Z"
   }
   ```
+
 
 {% endlist %}
 

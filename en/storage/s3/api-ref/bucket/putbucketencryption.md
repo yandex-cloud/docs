@@ -1,4 +1,4 @@
-# putBucketEncryption method
+# Object Storage API, Amazon S3-compatible REST: PutBucketEncryption
 
 Adds encryption to the bucket. By default, objects added to the bucket are encrypted with the specified [{{ kms-short-name }}](../../../../kms/concepts/key.md) key. For more information about bucket encryption, see [{#T}](../../../concepts/encryption.md).
 
@@ -48,10 +48,16 @@ A successful response contains additional data in XML format with the schema des
 
 Element | Description
 ----- | -----
-`ApplyServerSideEncryptionByDefault` | Sets default encryption for the object, if other encryption parameters are not specified in the request.<br/><br/>Path: `ServerSideEncryptionConfiguration\Rule\ApplyServerSideEncryptionByDefault`.
+`ApplyServerSideEncryptionByDefault` | Sets default encryption for the object, if no other encryption parameters are specified in the request.<br/><br/>Path: `ServerSideEncryptionConfiguration\Rule\ApplyServerSideEncryptionByDefault`.
 `KMSMasterKeyID` | [{{ kms-short-name }}](../../../../kms/concepts/key.md) key ID.<br/><br/>Path: `ServerSideEncryptionConfiguration\Rule\ApplyServerSideEncryptionByDefault\KMSMasterKeyID`.
 `Rule` | Server-side encryption policy. <br/><br/>The encryption is defined by `KMSMasterKeyID` and `SSEAlgorithm`.<br/><br/>Path: `ServerSideEncryptionConfiguration\Rule`.
 `ServerSideEncryptionConfiguration` | Default encryption configuration for new objects in the bucket.<br/><br/>Path: `ServerSideEncryptionConfiguration`.
-`SSEAlgorithm` | Encryption algorithm that takes the `aws:kms` value.<br/><br/>Path: `ServerSideEncryptionConfiguration\Rule\ApplyServerSideEncryptionByDefault\SSEAlgorithm`.
+`SSEAlgorithm` | Encryption algorithm Available values: `aws:kms`.<br/><br/>Path: `ServerSideEncryptionConfiguration\Rule\ApplyServerSideEncryptionByDefault\SSEAlgorithm`.
+
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/bucket.md)
+
+* [Adding encryption to a bucket](../../../operations/buckets/encrypt.md#add)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

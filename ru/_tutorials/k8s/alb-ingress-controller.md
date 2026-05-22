@@ -62,6 +62,9 @@
 В [ресурсе Ingress](../../application-load-balancer/k8s-ref/ingress.md) определяются:
 
 * Параметры L7-балансировщика, которые задаются с помощью аннотаций.
+
+    {% include [note-nlb](../../_includes/managed-kubernetes/note-alb.md) %}
+
 * Правила распределения входящего трафика между [сервисами {{ k8s }}](../../application-load-balancer/k8s-ref/service-for-ingress.md).
 
     Сервисы, выступающие в роли бэкендов {{ alb-name }}, могут быть указаны в ресурсе Ingress напрямую или в составе групп бэкендов [HttpBackendGroup](../../application-load-balancer/k8s-ref/http-backend-group.md)/[GrpcBackendGroup](../../application-load-balancer/k8s-ref/grpc-backend-group.md).
@@ -396,7 +399,7 @@
 
      * `ingress.alb.yc.io/balancing-panic-threshold` — пороговое значения для активации [режима паники](../../application-load-balancer/concepts/backend-group.md#panic-mode). Режим включится, если процент работоспособных эндпоинтов опустится ниже указанного значения. Значение по умолчанию — `0`, при котором режим паники не активируется никогда.
 
-     * `ingress.alb.yc.io/balancing-locality-aware-routing` — процент входящего трафика, который балансировщик передает бэкендам из своей зоны доступности. Остальной трафик поровну делится между другими зонами. Значение по умолчанию — `0`. [Подробнее о локализации трафика](../../application-load-balancer/concepts/backend-group.md#locality).
+     * `ingress.alb.yc.io/balancing-locality-aware-routing` — процент входящего трафика, который балансировщик передает бэкендам из своей [зоны доступности](../../overview/concepts/geo-scope.md). Остальной трафик поровну делится между другими зонами. Значение по умолчанию — `0`. [Подробнее о локализации трафика](../../application-load-balancer/concepts/backend-group.md#locality).
 
      * `ingress.alb.yc.io/autoscale-max-size` — максимальное суммарное количество ресурсных единиц. По умолчанию количество не ограничено. Значение должно быть не меньше, чем количество зон доступности балансировщика, умноженное на минимальное количество ресурсных единиц в каждой зоне. [Подробнее о настройках автомасштабирования](../../application-load-balancer/concepts/application-load-balancer.md#lcu-scaling-settings).
 
@@ -492,7 +495,8 @@
 
      Чтобы отслеживать создание балансировщика и убедиться в отсутствии ошибок, откройте логи пода, в котором запущен процесс создания:
 
-     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
      1. Нажмите на имя нужного кластера и на панели слева выберите **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}**.
      1. Выберите один из подов `alb-demo-***`, в котором запущен процесс создания балансировщика.
      1. На странице пода перейдите на вкладку **{{ ui-key.yacloud.k8s.workloads.label_tab-logs }}**.
@@ -746,7 +750,8 @@
 
      Чтобы отслеживать создание балансировщика и убедиться в отсутствии ошибок, откройте логи пода, в котором запущен процесс создания:
 
-     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+     1. В [консоли управления]({{ link-console-main }}) перейдите на страницу каталога.
+     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
      1. Нажмите на имя нужного кластера и на панели слева выберите **{{ ui-key.yacloud.k8s.cluster.switch_workloads }}**.
      1. Выберите один из подов `alb-demo-***`, в котором запущен процесс создания балансировщика.
      1. На странице пода перейдите на вкладку **{{ ui-key.yacloud.k8s.workloads.label_tab-logs }}**.

@@ -6,7 +6,7 @@ description: Follow this guide to pull a binary artifact from a {{ cloud-registr
 # Pulling a binary artifact from a registry
 
 1. {% include [auth-env-vars](../../../_includes/cloud-registry/auth-env-vars.md) %}
-1. To pull a [binary artifact](../../concepts/art-binary.md), use a GET [HTTP](https://{{ lang }}.wikipedia.org/wiki/HTTP) request:
+1. To pull a [binary artifact](../../concepts/artifacts/binary.md), use a GET [HTTP](https://{{ lang }}.wikipedia.org/wiki/HTTP) request:
 
     ```bash
     curl \

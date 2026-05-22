@@ -239,10 +239,9 @@ resource "yandex_vpc_subnet" "foo" {
 - `security_group_ids` (Set Of String). The list of security groups applied to resource or their components.
 - `status` (*Read-Only*) (String). Status of the cluster.
 - `config` [Block]. Configuration of the PostgreSQL cluster.
-  - `autofailover` (Bool). Configuration setting which enables/disables autofailover in cluster.
   - `backup_retain_period_days` (Number). The period in days during which backups are stored.
   - `postgresql_config` (Map Of String). PostgreSQL cluster configuration. For detailed information specific to your PostgreSQL version, please refer to the [API proto specifications](https://github.com/yandex-cloud/cloudapi/tree/master/yandex/cloud/mdb/postgresql/v1/config).
-  - `version` (**Required**)(String). Version of the PostgreSQL cluster. (allowed versions are: 13, 13-1c, 14, 14-1c, 15, 15-1c, 16, 17).
+  - `version` (**Required**)(String). Version of the PostgreSQL cluster. (allowed versions are: 14, 14-1c, 15, 15-1c, 16, 16-1c, 17, 17-1c, 18, 18-1c).
   - `access` [Block]. Access policy to the PostgreSQL cluster.
     - `data_lens` (Bool). Allow access for [Yandex DataLens](https://yandex.cloud/services/datalens).
     - `data_transfer` (Bool). Allow access for [DataTransfer](https://yandex.cloud/services/data-transfer).
@@ -261,8 +260,12 @@ resource "yandex_vpc_subnet" "foo" {
     - `sessions_sampling_interval` (**Required**)(Number). Interval (in seconds) for pg_stat_activity sampling. Acceptable values are 1 to 86400, inclusive.
     - `statements_sampling_interval` (**Required**)(Number). Interval (in seconds) for pg_stat_statements sampling. Acceptable values are 1 to 86400, inclusive.
   - `pooler_config` [Block]. Configuration of the connection pooler.
-    - `pool_discard` (Bool). Setting `pool_discard` [parameter in Odyssey](https://github.com/yandex/odyssey/blob/master/documentation/configuration.md#pool_discard-yesno).
-    - `pooling_mode` (String). Mode that the connection pooler is working in. See descriptions of all modes in the [documentation for Odyssey](https://github.com/yandex/odyssey/blob/master/documentation/configuration.md#pool-string.
+    - `pool_discard` (Bool). Deprecated field. Setting `pool_discard` [parameter in Odyssey](https://github.com/yandex/odyssey/blob/master/docs/configuration/rules.md#pool_discard).
+    - `pooler_pool_discard` (String). Setting `pool_discard` [parameter in Odyssey](https://github.com/yandex/odyssey/blob/master/docs/configuration/rules.md#pool_discard). One of:
+  - 1: `true`
+  - 2: `false`
+  - 3: `unspecified`.
+    - `pooling_mode` (String). Mode that the connection pooler is working in. See descriptions of all modes in the [documentation for Odyssey](https://github.com/yandex/odyssey/blob/master/docs/configuration/rules.md#pool).
   - `resources` [Block]. Resources allocated to hosts of the PostgreSQL cluster.
     - `disk_size` (**Required**)(Number). Volume of the storage available to a PostgreSQL host, in gigabytes.
     - `disk_type_id` (String). Type of the storage of PostgreSQL hosts.
@@ -286,7 +289,7 @@ resource "yandex_vpc_subnet" "foo" {
   - `assign_public_ip` (Bool). Whether the host should get a public IP address.
   - `fqdn` (*Read-Only*) (String). The fully qualified domain name of the host.
   - `name` (String). Host state name. It should be set for all hosts or unset for all hosts. This field can be used by another host, to select which host will be its replication source. Please see `replication_source_name` parameter.
-  - `priority` (Number). Host priority in HA group. It works only when `name` is set.
+  - `priority` (Number). Host priority in HA group. It works only when `name` is set. Must be between 0 and 100.
   - `replication_source` (*Read-Only*) (String). Host replication source (fqdn), when replication_source is empty then host is in HA group.
   - `replication_source_name` (String). Host replication source name points to host's `name` from which this host should replicate. When not set then host in HA group. It works only when `name` is set.
   - `role` (*Read-Only*) (String). Host's role (replica|primary), computed by server.
@@ -303,13 +306,17 @@ resource "yandex_vpc_subnet" "foo" {
 * `false` (default) — the restore point refers to the first backup moment before [time].
 * `true` — the restore point refers to the first backup point after [time].
 
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `delete` (String). 
+  - `update` (String). 
 - `user` [Block]. 
 
-     {% note warning %}
+    {% note warning %}
 
-     Deprecated! To manage users, please switch to using a separate resource type `yandex_mdb_postgresql_user`.
+    Deprecated! To manage users, please switch to using a separate resource type `yandex_mdb_postgresql_user`.
 
-     {% endnote %}
+    {% endnote %}
   - `conn_limit` (Number). The maximum number of connections per user. (Default 50).
   - `grants` (List Of String). List of the user's grants.
   - `login` (Bool). User's ability to login.

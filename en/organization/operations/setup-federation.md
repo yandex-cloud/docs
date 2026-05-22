@@ -61,7 +61,7 @@ For IdP-specific examples, see our tutorials:
             {% include [download-saml-cert-when-creating-fed](../../_includes/organization/download-saml-cert-when-creating-fed.md) %}
 
         * **{{ ui-key.yacloud_org.entity.federation.field.caseInsensitiveNameIds }}**: If enabled, federated user name IDs will be case-insensitive.
-        * **{{ ui-key.yacloud_org.entity.federation.field.forceAuthn }}**: When the {{ yandex-cloud }} session expires, your IdP will prompt the user to re-authenticate.
+        * **{{ ui-key.yacloud_org.entity.federation.field.forceAuthn }}**: Once the {{ yandex-cloud }} session expires, your IdP will prompt the user to re-authenticate.
 
   1. Click **{{ ui-key.yacloud_org.form.federation.create.action.create }}**.
 
@@ -127,7 +127,7 @@ For IdP-specific examples, see our tutorials:
 
   1. Create a configuration file describing the federation.
 
-      Here is a configuration file example:
+      Here is an example of the configuration file structure:
 
       ```hcl
       resource "yandex_organizationmanager_saml_federation" federation {
@@ -177,7 +177,7 @@ For IdP-specific examples, see our tutorials:
 
       {% include [organizationmanager_saml_federation-tf](../../_includes/organization/organizationmanager_saml_federation-tf.md) %}
 
-  1. Make sure the {{ TF }} configuration files are correct:
+  1. Validate your {{ TF }} configuration:
 
        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -246,7 +246,7 @@ For IdP-specific examples, see our tutorials:
 
 ## Adding an IdP server certificate to a federation {#add-certificate-fed}
 
-When informing {{ org-full-name }} that a user has been authenticated, the IdP signs the message with its own certificate. To enable {{ org-name }} to verify this certificate, add it to your federation:
+When informing {{ org-full-name }} that a user has been authenticated, the IdP signs the message with its own certificate. To enable {{ org-full-name }} to verify this certificate, add it to your federation:
 
 1. Get your identity provider certificate.
 
@@ -483,6 +483,11 @@ Email | Used to send notifications from {{ yandex-cloud }} services.<br>Example:
 Phone | Used to send notifications from {{ yandex-cloud }} services.<br>Example: +71234567890.<br> Value length limit: {{ saml-limit-phone }}. | `<Attribute>` with the following parameter:<br>`Name="http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mobilephone"`
 Profile image | Displayed in {{ yandex-cloud }} services.<br>Images are transmitted in [Base64]({{ link-base64 }}) encoding.<br> Value length limit: {{ saml-limit-thumbnail-photo }}. | `<Attribute>` with the following parameter:<br>`Name="thumbnailPhoto"`
 Group membership | Used for dynamic mapping of group members. | `<Attribute>` with the following parameter:<br>`Name="member"`
+Company name | Displayed in {{ yandex-cloud }} services.<br>Here is an example: Holiday LLC. | `<Attribute>` with the following parameter:<br>`Name="company_name"`
+Organizational unit | Displayed in {{ yandex-cloud }} services.<br>Here is an example: Control systems department. | `<Attribute>` with the following parameter:<br>`Name="department"`
+Job title | Displayed in {{ yandex-cloud }} services.<br>Here is an example: Software engineer. | `<Attribute>` with the following parameter:<br>`Name="job_title"`
+Employee ID | Displayed in {{ yandex-cloud }} services.<br>Here is an example: 08012. | `<Attribute>` with the following parameter:<br>`Name="employee_id"`
+
 
 {% note info %}
 

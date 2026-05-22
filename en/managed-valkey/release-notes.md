@@ -5,6 +5,19 @@ description: This section contains the {{ mrd-name }} release notes.
 
 # {{ mrd-full-name }} release notes
 
+## March 2026 {#mar-2026}
+
+* Added separate [roles](./security/index.md) to view and edit (reschedule) [maintenance](./concepts/maintenance.md) without access to the cluster.
+
+## February 2026 {#feb-2026}
+
+* A new [Valkey-Search](concepts/modules.md#valkey-search) version is out: 1.1.0.
+* A new [Valkey-JSON](concepts/modules.md#valkey-json) version is out: 1.0.2.
+
+## January 2026 {#jan-2026}
+
+Added the **{{ ui-key.yacloud.mdb.cluster.switch_shards }}** tab to **{{ ui-key.yacloud.mdb.cluster.monitoring.label_title }}**. From this tab, you can track metrics for each individual shard and promptly detect problematic nodes.
+
 ## December 2025 {#dec-2025}
 
 * Added [detailed metrics](operations/monitoring.md#hosts) for disk usage on cluster hosts.

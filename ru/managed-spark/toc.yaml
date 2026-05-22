@@ -41,6 +41,12 @@ items:
             href: operations/monitoring.md
           - name: Просмотр логов кластера
             href: operations/cluster-logs.md
+          - name: Мониторинг состояния Spark-приложений
+            href: operations/spark-monitoring.md
+          - name: >-
+              Диагностика и примеры устранения проблем производительности
+              Spark-приложений
+            href: operations/spark-diagnostics.md
   - name: Практические руководства
     items:
       - name: Все руководства
@@ -57,8 +63,14 @@ items:
         href: tutorials/spark-simple-rw-job.md
       - name: Запуск PySpark-задания с помощью {{ maf-full-name }}
         href: tutorials/airflow-spark-min.md
+      - name: >-
+          Использование секрета {{ lockbox-name }} в PySpark-задании для
+          подключения к {{ mpg-full-name }}
+        href: tutorials/job-pyspark-secret-access.md
       - name: Автоматизация работы с помощью {{ maf-full-name }}
         href: tutorials/airflow-automation.md
+      - name: Интеграция с {{ ml-platform-name }}
+        href: tutorials/spark-and-datasphere.md
   - name: Концепции
     items:
       - name: Взаимосвязь ресурсов сервиса
@@ -71,6 +83,8 @@ items:
         href: concepts/maintenance.md
       - name: Автоматическое масштабирование
         href: concepts/autoscaling.md
+      - name: Свойства {{ SPRK }}
+        href: concepts/spark-properties.md
   - name: Управление доступом
     href: security.md
   - name: Правила тарификации
@@ -129,6 +143,56 @@ items:
             href: cli-ref/job/list.md
           - name: log
             href: cli-ref/job/log.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: cluster
+            items:
+              - name: Overview
+                href: cli-ref/v0/cluster/index.md
+              - name: add-access-binding
+                href: cli-ref/v0/cluster/add-access-binding.md
+              - name: create
+                href: cli-ref/v0/cluster/create.md
+              - name: delete
+                href: cli-ref/v0/cluster/delete.md
+              - name: get
+                href: cli-ref/v0/cluster/get.md
+              - name: list
+                href: cli-ref/v0/cluster/list.md
+              - name: list-access-bindings
+                href: cli-ref/v0/cluster/list-access-bindings.md
+              - name: list-operations
+                href: cli-ref/v0/cluster/list-operations.md
+              - name: remove-access-binding
+                href: cli-ref/v0/cluster/remove-access-binding.md
+              - name: set-access-bindings
+                href: cli-ref/v0/cluster/set-access-bindings.md
+              - name: start
+                href: cli-ref/v0/cluster/start.md
+              - name: stop
+                href: cli-ref/v0/cluster/stop.md
+              - name: update
+                href: cli-ref/v0/cluster/update.md
+          - name: job
+            items:
+              - name: Overview
+                href: cli-ref/v0/job/index.md
+              - name: cancel
+                href: cli-ref/v0/job/cancel.md
+              - name: create-pyspark
+                href: cli-ref/v0/job/create-pyspark.md
+              - name: create-spark
+                href: cli-ref/v0/job/create-spark.md
+              - name: create-spark-connect
+                href: cli-ref/v0/job/create-spark-connect.md
+              - name: get
+                href: cli-ref/v0/job/get.md
+              - name: list
+                href: cli-ref/v0/job/list.md
+              - name: log
+                href: cli-ref/v0/job/log.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

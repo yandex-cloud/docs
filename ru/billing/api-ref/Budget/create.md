@@ -13,6 +13,7 @@ apiPlayground:
             **string**
             Required field. ID of the billing account to list budgets corresponding to.
             To get the billing account ID, use [yandex.cloud.billing.v1.BillingAccountService.List](/docs/billing/api-ref/BillingAccount/list#List) request.
+            The maximum string length in characters is 50.
           type: string
         name:
           description: |-
@@ -59,7 +60,6 @@ apiPlayground:
             description: |-
               **enum** (ThresholdType)
               Required field. Type of the rule.
-              - `THRESHOLD_TYPE_UNSPECIFIED`
               - `PERCENT`: Percent.
               - `AMOUNT`: The same as budget amount.
             type: string
@@ -137,6 +137,7 @@ apiPlayground:
               **string**
               User account IDs.
               Specified users will be be notified if the budget exceeds.
+              The minimum number of elements is 1.
             type: array
             items:
               type: string
@@ -160,7 +161,6 @@ apiPlayground:
               First time budget is calculated in the current period, i.e. current month, quarter or year.
               Includes only one of the fields `resetPeriod`, `startDate`.
               Start type of the budget.
-              - `RESET_PERIOD_TYPE_UNSPECIFIED`
               - `MONTHLY`: Reset budget every month.
               - `QUARTER`: Reset budget every quarter.
               - `ANNUALLY`: Reset budget every year.
@@ -205,6 +205,7 @@ apiPlayground:
               **string**
               User account IDs.
               Specified users will be be notified if the budget exceeds.
+              The minimum number of elements is 1.
             type: array
             items:
               type: string
@@ -228,7 +229,6 @@ apiPlayground:
               First time budget is calculated in the current period, i.e. current month, quarter or year.
               Includes only one of the fields `resetPeriod`, `startDate`.
               Start type of the budget.
-              - `RESET_PERIOD_TYPE_UNSPECIFIED`
               - `MONTHLY`: Reset budget every month.
               - `QUARTER`: Reset budget every quarter.
               - `ANNUALLY`: Reset budget every year.
@@ -273,6 +273,7 @@ apiPlayground:
               **string**
               User account IDs.
               Specified users will be be notified if the budget exceeds.
+              The minimum number of elements is 1.
             type: array
             items:
               type: string
@@ -410,7 +411,9 @@ POST https://billing.{{ api-host }}/billing/v1/budgets
 || billingAccountId | **string**
 
 Required field. ID of the billing account to list budgets corresponding to.
-To get the billing account ID, use [yandex.cloud.billing.v1.BillingAccountService.List](/docs/billing/api-ref/BillingAccount/list#List) request. ||
+To get the billing account ID, use [yandex.cloud.billing.v1.BillingAccountService.List](/docs/billing/api-ref/BillingAccount/list#List) request.
+
+The maximum string length in characters is 50. ||
 || name | **string**
 
 Required field. Name of the budget. ||
@@ -449,7 +452,9 @@ Required field. Max cost threshold of the budget. Amount currency is the same as
 || notificationUserAccountIds[] | **string**
 
 User account IDs.
-Specified users will be be notified if the budget exceeds. ||
+Specified users will be be notified if the budget exceeds.
+
+The minimum number of elements is 1. ||
 || thresholdRules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule)**
 
 List of the [ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule).
@@ -466,7 +471,6 @@ Includes only one of the fields `resetPeriod`, `startDate`.
 
 Start type of the budget.
 
-- `RESET_PERIOD_TYPE_UNSPECIFIED`
 - `MONTHLY`: Reset budget every month.
 - `QUARTER`: Reset budget every quarter.
 - `ANNUALLY`: Reset budget every year. ||
@@ -494,7 +498,6 @@ Rules that define intermediate cost thresholds of the budget.
 
 Required field. Type of the rule.
 
-- `THRESHOLD_TYPE_UNSPECIFIED`
 - `PERCENT`: Percent.
 - `AMOUNT`: The same as budget amount. ||
 || amount | **string**
@@ -555,7 +558,9 @@ Required field. Max expense threshold of the budget. Amount currency is the same
 || notificationUserAccountIds[] | **string**
 
 User account IDs.
-Specified users will be be notified if the budget exceeds. ||
+Specified users will be be notified if the budget exceeds.
+
+The minimum number of elements is 1. ||
 || thresholdRules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule)**
 
 List of the [ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule).
@@ -572,7 +577,6 @@ Includes only one of the fields `resetPeriod`, `startDate`.
 
 Start type of the budget.
 
-- `RESET_PERIOD_TYPE_UNSPECIFIED`
 - `MONTHLY`: Reset budget every month.
 - `QUARTER`: Reset budget every quarter.
 - `ANNUALLY`: Reset budget every year. ||
@@ -602,7 +606,9 @@ Required field. Max balance threshold of the budget. Amount currency is the same
 || notificationUserAccountIds[] | **string**
 
 User account IDs.
-Specified users will be be notified if the budget exceeds. ||
+Specified users will be be notified if the budget exceeds.
+
+The minimum number of elements is 1. ||
 || thresholdRules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule)**
 
 List of the [ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule).
@@ -860,7 +866,6 @@ ID of the billing account that the budget belongs to. ||
 
 Status of the budget.
 
-- `BUDGET_STATUS_UNSPECIFIED`
 - `CREATING`: The budget is being created.
 - `ACTIVE`: The budget is active.
 - `FINISHED`: The budget is finished. ||
@@ -899,7 +904,9 @@ Required field. Max cost threshold of the budget. Amount currency is the same as
 || notificationUserAccountIds[] | **string**
 
 User account IDs.
-Specified users will be be notified if the budget exceeds. ||
+Specified users will be be notified if the budget exceeds.
+
+The minimum number of elements is 1. ||
 || thresholdRules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule2)**
 
 List of the [ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule2).
@@ -916,7 +923,6 @@ Includes only one of the fields `resetPeriod`, `startDate`.
 
 Start type of the budget.
 
-- `RESET_PERIOD_TYPE_UNSPECIFIED`
 - `MONTHLY`: Reset budget every month.
 - `QUARTER`: Reset budget every quarter.
 - `ANNUALLY`: Reset budget every year. ||
@@ -944,7 +950,6 @@ Rules that define intermediate cost thresholds of the budget.
 
 Required field. Type of the rule.
 
-- `THRESHOLD_TYPE_UNSPECIFIED`
 - `PERCENT`: Percent.
 - `AMOUNT`: The same as budget amount. ||
 || amount | **string**
@@ -1005,7 +1010,9 @@ Required field. Max expense threshold of the budget. Amount currency is the same
 || notificationUserAccountIds[] | **string**
 
 User account IDs.
-Specified users will be be notified if the budget exceeds. ||
+Specified users will be be notified if the budget exceeds.
+
+The minimum number of elements is 1. ||
 || thresholdRules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule2)**
 
 List of the [ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule2).
@@ -1022,7 +1029,6 @@ Includes only one of the fields `resetPeriod`, `startDate`.
 
 Start type of the budget.
 
-- `RESET_PERIOD_TYPE_UNSPECIFIED`
 - `MONTHLY`: Reset budget every month.
 - `QUARTER`: Reset budget every quarter.
 - `ANNUALLY`: Reset budget every year. ||
@@ -1052,7 +1058,9 @@ Required field. Max balance threshold of the budget. Amount currency is the same
 || notificationUserAccountIds[] | **string**
 
 User account IDs.
-Specified users will be be notified if the budget exceeds. ||
+Specified users will be be notified if the budget exceeds.
+
+The minimum number of elements is 1. ||
 || thresholdRules[] | **[ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule2)**
 
 List of the [ThresholdRule](#yandex.cloud.billing.v1.ThresholdRule2).

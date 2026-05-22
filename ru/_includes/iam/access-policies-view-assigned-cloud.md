@@ -1,4 +1,4 @@
-Чтобы посмотреть список политик авторизации, назначенных на [облако](../../resource-manager/concepts/resources-hierarchy.md#cloud):
+Чтобы посмотреть список политик авторизации, созданных для [облака](../../resource-manager/concepts/resources-hierarchy.md#cloud):
 
 {% list tabs group=instructions %}
 
@@ -6,7 +6,7 @@
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 
-  Выполните команду, указав имя или [идентификатор](../../resource-manager/operations/cloud/get-id.md) облака, для которого вы хотите посмотреть назначенные политики:
+  Выполните команду, указав имя или [идентификатор](../../resource-manager/operations/cloud/get-id.md) облака, для которого вы хотите посмотреть созданные политики:
 
   ```bash
   yc resource-manager cloud list-access-policy-bindings <имя_или_идентификатор_облака>

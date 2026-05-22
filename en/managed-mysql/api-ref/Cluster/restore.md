@@ -170,27 +170,37 @@ apiPlayground:
               **enum** (SQLMode)
               Server SQL mode of MySQL.
               See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting) for details.
-              - `ALLOW_INVALID_DATES`
-              - `ANSI_QUOTES`
-              - `ERROR_FOR_DIVISION_BY_ZERO`
-              - `HIGH_NOT_PRECEDENCE`
-              - `IGNORE_SPACE`
-              - `NO_AUTO_VALUE_ON_ZERO`
-              - `NO_BACKSLASH_ESCAPES`
-              - `NO_ENGINE_SUBSTITUTION`
-              - `NO_UNSIGNED_SUBTRACTION`
-              - `NO_ZERO_DATE`
-              - `NO_ZERO_IN_DATE`
-              - `ONLY_FULL_GROUP_BY`
-              - `PAD_CHAR_TO_FULL_LENGTH`
-              - `PIPES_AS_CONCAT`
-              - `REAL_AS_FLOAT`
-              - `STRICT_ALL_TABLES`
-              - `STRICT_TRANS_TABLES`
-              - `TIME_TRUNCATE_FRACTIONAL`
-              - `ANSI`
-              - `TRADITIONAL`
-              - `NO_DIR_IN_CREATE`
+              - `ALLOW_INVALID_DATES`: Allow dates where the day or month part is 0. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_allow_invalid_dates).
+              - `ANSI_QUOTES`: Treat `"` as an identifier quote character (like the `` ` `` quote character) rather than as a string quote character. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_ansi_quotes).
+              - `ERROR_FOR_DIVISION_BY_ZERO`: Produce an error for divisions by zero. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_error_for_division_by_zero).
+              - `HIGH_NOT_PRECEDENCE`: Give `NOT` higher precedence in negation than it has in non-high-precedence mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_high_not_precedence).
+              - `IGNORE_SPACE`: Allow spaces between a function name and the `(` character. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_ignore_space).
+              - `NO_AUTO_VALUE_ON_ZERO`: Do not reset the AUTO_INCREMENT column to 0 when inserting 0 into it. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_auto_value_on_zero).
+              - `NO_BACKSLASH_ESCAPES`: Disable the use of the backslash character (`\`) as an escape character within strings. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_backslash_escapes).
+              - `NO_ENGINE_SUBSTITUTION`: Do not substitute the default storage engine when a statement specifies a storage engine that is disabled or not compiled in. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_engine_substitution).
+              - `NO_UNSIGNED_SUBTRACTION`: Disable unsigned subtraction so that subtraction results are always signed. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_unsigned_subtraction).
+              - `NO_ZERO_DATE`: Disable the MySQL-specific date `0000-00-00`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_zero_date).
+              - `NO_ZERO_IN_DATE`: Disable month or day parts of `0` in dates. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_zero_in_date).
+              - `NO_FIELD_OPTIONS`: Ignore field options in `CREATE TABLE` statements (MySQL 5.7 compatibility). See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_field_options).
+              - `NO_KEY_OPTIONS`: Ignore key options in `CREATE TABLE` statements (MySQL 5.7 compatibility). See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_key_options).
+              - `NO_TABLE_OPTIONS`: Ignore table options in `CREATE TABLE` statements (MySQL 5.7 compatibility). See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_table_options).
+              - `ONLY_FULL_GROUP_BY`: Reject queries for which the select list, `HAVING` condition, or `ORDER BY` list refer to non-aggregated columns that are not named in the `GROUP BY` clause. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_only_full_group_by).
+              - `PAD_CHAR_TO_FULL_LENGTH`: Pad `CHAR` column values with spaces to the full column length when retrieving them. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_pad_char_to_full_length).
+              - `PIPES_AS_CONCAT`: Treat `||` as a string concatenation operator rather than as `OR`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_pipes_as_concat).
+              - `REAL_AS_FLOAT`: Treat `REAL` as a synonym for `FLOAT` rather than `DOUBLE`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_real_as_float).
+              - `STRICT_ALL_TABLES`: Strict mode for all storage engines. Invalid data values cause errors, not warnings. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_strict_all_tables).
+              - `STRICT_TRANS_TABLES`: Strict mode for transactional storage engines. Invalid data values cause errors, not warnings. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_strict_trans_tables).
+              - `ANSI`: Equivalent to `REAL_AS_FLOAT`, `PIPES_AS_CONCAT`, `ANSI_QUOTES`, `IGNORE_SPACE`, and `ONLY_FULL_GROUP_BY`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_ansi).
+              - `TRADITIONAL`: Equivalent to `STRICT_TRANS_TABLES`, `STRICT_ALL_TABLES`, `NO_ZERO_IN_DATE`, `NO_ZERO_DATE`, `ERROR_FOR_DIVISION_BY_ZERO`, and `NO_AUTO_CREATE_USER`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_traditional).
+              - `DB2`: IBM DB2 compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_db2).
+              - `MAXDB`: SAP MaxDB compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_maxdb).
+              - `MSSQL`: Microsoft SQL Server compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_mssql).
+              - `MYSQL323`: MySQL 3.23 compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_mysql323).
+              - `MYSQL40`: MySQL 4.0 compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_mysql40).
+              - `ORACLE`: Oracle compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_oracle).
+              - `POSTGRESQL`: PostgreSQL compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_postgresql).
+              - `NO_AUTO_CREATE_USER`: Prevent `GRANT` from creating new users implicitly. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_auto_create_user).
+              - `NO_DIR_IN_CREATE`: Prevent the use of `..` in directory paths in `CREATE TABLE` statements. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_dir_in_create).
             type: array
             items:
               type: string
@@ -207,15 +217,25 @@ apiPlayground:
                 - NO_UNSIGNED_SUBTRACTION
                 - NO_ZERO_DATE
                 - NO_ZERO_IN_DATE
+                - NO_FIELD_OPTIONS
+                - NO_KEY_OPTIONS
+                - NO_TABLE_OPTIONS
                 - ONLY_FULL_GROUP_BY
                 - PAD_CHAR_TO_FULL_LENGTH
                 - PIPES_AS_CONCAT
                 - REAL_AS_FLOAT
                 - STRICT_ALL_TABLES
                 - STRICT_TRANS_TABLES
-                - TIME_TRUNCATE_FRACTIONAL
                 - ANSI
                 - TRADITIONAL
+                - DB2
+                - MAXDB
+                - MSSQL
+                - MYSQL323
+                - MYSQL40
+                - ORACLE
+                - POSTGRESQL
+                - NO_AUTO_CREATE_USER
                 - NO_DIR_IN_CREATE
           maxAllowedPacket:
             description: |-
@@ -264,9 +284,9 @@ apiPlayground:
               **enum** (TransactionIsolation)
               Default transaction isolation level.
               See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_transaction_isolation) for details.
-              - `READ_COMMITTED`
-              - `REPEATABLE_READ`
-              - `SERIALIZABLE`
+              - `READ_COMMITTED`: Read committed isolation level. A consistent read within the same transaction reads the snapshot established by the first read.
+              - `REPEATABLE_READ`: Repeatable read isolation level. All consistent reads within the same transaction read the snapshot established by the first read.
+              - `SERIALIZABLE`: Serializable isolation level. All statements implicitly convert to SELECT ... FOR SHARE if autocommit is disabled.
             type: string
             enum:
               - TRANSACTION_ISOLATION_UNSPECIFIED
@@ -441,7 +461,7 @@ apiPlayground:
           joinBufferSize:
             description: |-
               **string** (int64)
-              The minimum size of the buffer that is used for plain index scans, range index scans, and joins that do not use indexes and thus perform full table scans.
+              The minimum size of the buffer that is used for plain index scans, range index scans, and joins that don't use indexes and thus perform full table scans.
               See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_join_buffer_size) for details.
               Acceptable values are 1024 to 16777216, inclusive.
             type: string
@@ -529,9 +549,9 @@ apiPlayground:
               **enum** (BinlogRowImage)
               For MySQL row-based replication, this variable determines how row images are written to the binary log.
               See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_row_image) for details.
-              - `FULL`
-              - `MINIMAL`
-              - `NOBLOB`
+              - `FULL`: Log all columns (full row image).
+              - `MINIMAL`: Log only changed columns and columns needed to identify the row.
+              - `NOBLOB`: Log all columns except BLOB and TEXT columns.
             type: string
             enum:
               - BINLOG_ROW_IMAGE_UNSPECIFIED
@@ -557,8 +577,8 @@ apiPlayground:
               **enum** (SlaveParallelType)
               When using a multi-threaded replica, this variable specifies the policy used to decide which transactions are allowed to execute in parallel on the replica.
               See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_parallel_type) for details.
-              - `DATABASE`
-              - `LOGICAL_CLOCK`
+              - `DATABASE`: Transactions are parallelized per database (schema).
+              - `LOGICAL_CLOCK`: Transactions are parallelized using the logical clock algorithm based on the binary log group commit.
             type: string
             enum:
               - SLAVE_PARALLEL_TYPE_UNSPECIFIED
@@ -599,7 +619,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.
-              Acceptable values are 600 to 432000, inclusive.
+              Acceptable values are 30 to 86400, inclusive.
             type: string
             format: int64
           mdbOfflineModeDisableLag:
@@ -607,7 +627,7 @@ apiPlayground:
               **string** (int64)
               Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'.
               Should be less than mdb_offline_mode_enable_lag value.
-              Acceptable values are 60 to 86400, inclusive.
+              Acceptable values are 10 to 86400, inclusive.
             type: string
             format: int64
           rangeOptimizerMaxMemSize:
@@ -636,8 +656,8 @@ apiPlayground:
               **enum** (LogSlowRateType)
               Specifies slow log granularity for `log_slow_rate_limit` values QUERY or SESSION.
               See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_type) for details.
-              - `SESSION`
-              - `QUERY`
+              - `SESSION`: Logging is controlled per session.
+              - `QUERY`: Logging is controlled per query.
             type: string
             enum:
               - LOG_SLOW_RATE_TYPE_UNSPECIFIED
@@ -662,12 +682,12 @@ apiPlayground:
               **enum** (LogSlowFilterType)
               Filters the slow log by the query's execution plan.
               See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_filter) for details.
-              - `FULL_SCAN`
-              - `FULL_JOIN`
-              - `TMP_TABLE`
-              - `TMP_TABLE_ON_DISK`
-              - `FILESORT`
-              - `FILESORT_ON_DISK`
+              - `FULL_SCAN`: Queries that perform a full table scan.
+              - `FULL_JOIN`: Queries that perform a full join (a join without indexes).
+              - `TMP_TABLE`: Queries that create an implicit internal temporary table.
+              - `TMP_TABLE_ON_DISK`: Queries that create an implicit internal temporary table on disk.
+              - `FILESORT`: Queries that use a filesort.
+              - `FILESORT_ON_DISK`: Queries that use a filesort on disk.
             type: array
             items:
               type: string
@@ -754,9 +774,9 @@ apiPlayground:
               **enum** (BinlogTransactionDependencyTracking)
               Specifies how the source mysqld generates the dependency information that it writes in the binary log to help replicas determine which transactions can be executed in parallel.
               For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_transaction_dependency_tracking).
-              - `COMMIT_ORDER`
-              - `WRITESET`
-              - `WRITESET_SESSION`
+              - `COMMIT_ORDER`: Transactions are made dependent based on commit order.
+              - `WRITESET`: Transactions are made dependent based on the write set of rows modified by the transaction.
+              - `WRITESET_SESSION`: Transactions are made dependent based on the write set and the commit order within a session.
             type: string
             enum:
               - BINLOG_TRANSACTION_DEPENDENCY_TRACKING_UNSPECIFIED
@@ -881,10 +901,10 @@ apiPlayground:
               **enum** (AuditLogPolicy)
               The policy controlling how the audit log plugin writes events to its log file
               For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/audit-log-reference.html#sysvar_audit_log_policy)
-              - `ALL`
-              - `LOGINS`
-              - `QUERIES`
-              - `NONE`
+              - `ALL`: Log all events.
+              - `LOGINS`: Log only login events.
+              - `QUERIES`: Log only query events.
+              - `NONE`: Do not log events.
             type: string
             enum:
               - AUDIT_LOG_POLICY_UNSPECIFIED
@@ -910,12 +930,12 @@ apiPlayground:
               **enum** (InnodbChangeBuffering)
               An optimization for change buffering
               For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_change_buffering).
-              - `INNODB_CHANGE_BUFFERING_NONE`
-              - `INNODB_CHANGE_BUFFERING_INSERTS`
-              - `INNODB_CHANGE_BUFFERING_DELETES`
-              - `INNODB_CHANGE_BUFFERING_CHANGES`
-              - `INNODB_CHANGE_BUFFERING_PURGES`
-              - `INNODB_CHANGE_BUFFERING_ALL`
+              - `INNODB_CHANGE_BUFFERING_NONE`: Do not buffer any operations.
+              - `INNODB_CHANGE_BUFFERING_INSERTS`: Buffer insert operations.
+              - `INNODB_CHANGE_BUFFERING_DELETES`: Buffer delete-marking operations.
+              - `INNODB_CHANGE_BUFFERING_CHANGES`: Buffer insert and delete-marking operations.
+              - `INNODB_CHANGE_BUFFERING_PURGES`: Buffer operations where undo log records are discarded.
+              - `INNODB_CHANGE_BUFFERING_ALL`: Buffer all types of eligible operations.
             type: string
             enum:
               - INNODB_CHANGE_BUFFERING_UNSPECIFIED
@@ -932,6 +952,14 @@ apiPlayground:
               P.S. Should be UInt64, but java fails to handle UInt64 limits
               For details, see [Percona documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_write_lock_count).
               The minimum value is 1.
+            type: string
+            format: int64
+          innodbAdaptiveHashIndexParts:
+            description: |-
+              **string** (int64)
+              Partitions the adaptive hash index search system.
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_adaptive_hash_index_parts)
+              Acceptable values are 1 to 512, inclusive.
             type: string
             format: int64
       MysqlConfig8_0:
@@ -977,27 +1005,37 @@ apiPlayground:
               **enum** (SQLMode)
               Server SQL mode of MySQL.
               See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting) for details.
-              - `ALLOW_INVALID_DATES`
-              - `ANSI_QUOTES`
-              - `ERROR_FOR_DIVISION_BY_ZERO`
-              - `HIGH_NOT_PRECEDENCE`
-              - `IGNORE_SPACE`
-              - `NO_AUTO_VALUE_ON_ZERO`
-              - `NO_BACKSLASH_ESCAPES`
-              - `NO_ENGINE_SUBSTITUTION`
-              - `NO_UNSIGNED_SUBTRACTION`
-              - `NO_ZERO_DATE`
-              - `NO_ZERO_IN_DATE`
-              - `ONLY_FULL_GROUP_BY`
-              - `PAD_CHAR_TO_FULL_LENGTH`
-              - `PIPES_AS_CONCAT`
-              - `REAL_AS_FLOAT`
-              - `STRICT_ALL_TABLES`
-              - `STRICT_TRANS_TABLES`
-              - `TIME_TRUNCATE_FRACTIONAL`
-              - `ANSI`
-              - `TRADITIONAL`
-              - `NO_DIR_IN_CREATE`
+              - `ALLOW_INVALID_DATES`: Allow dates where the day or month part is 0. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_allow_invalid_dates).
+              - `ANSI_QUOTES`: Treat `"` as an identifier quote character (like the `` ` `` quote character) rather than as a string quote character. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_ansi_quotes).
+              - `ERROR_FOR_DIVISION_BY_ZERO`: Produce an error for divisions by zero. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_error_for_division_by_zero).
+              - `HIGH_NOT_PRECEDENCE`: Give `NOT` higher precedence in negation than it has in non-high-precedence mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_high_not_precedence).
+              - `IGNORE_SPACE`: Allow spaces between a function name and the `(` character. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_ignore_space).
+              - `NO_AUTO_VALUE_ON_ZERO`: Do not reset the AUTO_INCREMENT column to 0 when inserting 0 into it. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_auto_value_on_zero).
+              - `NO_BACKSLASH_ESCAPES`: Disable the use of the backslash character (`\`) as an escape character within strings. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_backslash_escapes).
+              - `NO_ENGINE_SUBSTITUTION`: Do not substitute the default storage engine when a statement specifies a storage engine that is disabled or not compiled in. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_engine_substitution).
+              - `NO_UNSIGNED_SUBTRACTION`: Disable unsigned subtraction so that subtraction results are always signed. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_unsigned_subtraction).
+              - `NO_ZERO_DATE`: Disable the MySQL-specific date `0000-00-00`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_zero_date).
+              - `NO_ZERO_IN_DATE`: Disable month or day parts of `0` in dates. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_zero_in_date).
+              - `NO_FIELD_OPTIONS`: Ignore field options in `CREATE TABLE` statements (MySQL 5.7 compatibility). See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_field_options).
+              - `NO_KEY_OPTIONS`: Ignore key options in `CREATE TABLE` statements (MySQL 5.7 compatibility). See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_key_options).
+              - `NO_TABLE_OPTIONS`: Ignore table options in `CREATE TABLE` statements (MySQL 5.7 compatibility). See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_table_options).
+              - `ONLY_FULL_GROUP_BY`: Reject queries for which the select list, `HAVING` condition, or `ORDER BY` list refer to non-aggregated columns that are not named in the `GROUP BY` clause. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_only_full_group_by).
+              - `PAD_CHAR_TO_FULL_LENGTH`: Pad `CHAR` column values with spaces to the full column length when retrieving them. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_pad_char_to_full_length).
+              - `PIPES_AS_CONCAT`: Treat `||` as a string concatenation operator rather than as `OR`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_pipes_as_concat).
+              - `REAL_AS_FLOAT`: Treat `REAL` as a synonym for `FLOAT` rather than `DOUBLE`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_real_as_float).
+              - `STRICT_ALL_TABLES`: Strict mode for all storage engines. Invalid data values cause errors, not warnings. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_strict_all_tables).
+              - `STRICT_TRANS_TABLES`: Strict mode for transactional storage engines. Invalid data values cause errors, not warnings. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_strict_trans_tables).
+              - `ANSI`: Equivalent to `REAL_AS_FLOAT`, `PIPES_AS_CONCAT`, `ANSI_QUOTES`, `IGNORE_SPACE`, and `ONLY_FULL_GROUP_BY`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_ansi).
+              - `TRADITIONAL`: Equivalent to `STRICT_TRANS_TABLES`, `STRICT_ALL_TABLES`, `NO_ZERO_IN_DATE`, `NO_ZERO_DATE`, `ERROR_FOR_DIVISION_BY_ZERO`, and `NO_AUTO_CREATE_USER`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_traditional).
+              - `DB2`: IBM DB2 compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_db2).
+              - `MAXDB`: SAP MaxDB compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_maxdb).
+              - `MSSQL`: Microsoft SQL Server compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_mssql).
+              - `MYSQL323`: MySQL 3.23 compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_mysql323).
+              - `MYSQL40`: MySQL 4.0 compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_mysql40).
+              - `ORACLE`: Oracle compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_oracle).
+              - `POSTGRESQL`: PostgreSQL compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_postgresql).
+              - `NO_AUTO_CREATE_USER`: Prevent `GRANT` from creating new users implicitly. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_auto_create_user).
+              - `NO_DIR_IN_CREATE`: Prevent the use of `..` in directory paths in `CREATE TABLE` statements. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_dir_in_create).
             type: array
             items:
               type: string
@@ -1014,15 +1052,25 @@ apiPlayground:
                 - NO_UNSIGNED_SUBTRACTION
                 - NO_ZERO_DATE
                 - NO_ZERO_IN_DATE
+                - NO_FIELD_OPTIONS
+                - NO_KEY_OPTIONS
+                - NO_TABLE_OPTIONS
                 - ONLY_FULL_GROUP_BY
                 - PAD_CHAR_TO_FULL_LENGTH
                 - PIPES_AS_CONCAT
                 - REAL_AS_FLOAT
                 - STRICT_ALL_TABLES
                 - STRICT_TRANS_TABLES
-                - TIME_TRUNCATE_FRACTIONAL
                 - ANSI
                 - TRADITIONAL
+                - DB2
+                - MAXDB
+                - MSSQL
+                - MYSQL323
+                - MYSQL40
+                - ORACLE
+                - POSTGRESQL
+                - NO_AUTO_CREATE_USER
                 - NO_DIR_IN_CREATE
           maxAllowedPacket:
             description: |-
@@ -1071,9 +1119,9 @@ apiPlayground:
               **enum** (TransactionIsolation)
               Default transaction isolation level.
               See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_transaction_isolation) for details.
-              - `READ_COMMITTED`
-              - `REPEATABLE_READ`
-              - `SERIALIZABLE`
+              - `READ_COMMITTED`: Read committed isolation level. A consistent read within the same transaction reads the snapshot established by the first read.
+              - `REPEATABLE_READ`: Repeatable read isolation level. All consistent reads within the same transaction read the snapshot established by the first read.
+              - `SERIALIZABLE`: Serializable isolation level. All statements implicitly convert to SELECT ... FOR SHARE if autocommit is disabled.
             type: string
             enum:
               - TRANSACTION_ISOLATION_UNSPECIFIED
@@ -1248,7 +1296,7 @@ apiPlayground:
           joinBufferSize:
             description: |-
               **string** (int64)
-              The minimum size of the buffer that is used for plain index scans, range index scans, and joins that do not use indexes and thus perform full table scans.
+              The minimum size of the buffer that is used for plain index scans, range index scans, and joins that don't use indexes and thus perform full table scans.
               See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_join_buffer_size) for details.
               Acceptable values are 1024 to 16777216, inclusive.
             type: string
@@ -1336,9 +1384,9 @@ apiPlayground:
               **enum** (BinlogRowImage)
               For MySQL row-based replication, this variable determines how row images are written to the binary log.
               See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_row_image) for details.
-              - `FULL`
-              - `MINIMAL`
-              - `NOBLOB`
+              - `FULL`: Log all columns (full row image).
+              - `MINIMAL`: Log only changed columns and columns needed to identify the row.
+              - `NOBLOB`: Log all columns except BLOB and TEXT columns.
             type: string
             enum:
               - BINLOG_ROW_IMAGE_UNSPECIFIED
@@ -1364,8 +1412,8 @@ apiPlayground:
               **enum** (SlaveParallelType)
               When using a multi-threaded replica, this variable specifies the policy used to decide which transactions are allowed to execute in parallel on the replica.
               See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_slave_parallel_type) for details.
-              - `DATABASE`
-              - `LOGICAL_CLOCK`
+              - `DATABASE`: Transactions are parallelized per database (schema).
+              - `LOGICAL_CLOCK`: Transactions are parallelized using the logical clock algorithm based on the binary log group commit.
             type: string
             enum:
               - SLAVE_PARALLEL_TYPE_UNSPECIFIED
@@ -1414,7 +1462,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.
-              Acceptable values are 600 to 432000, inclusive.
+              Acceptable values are 30 to 86400, inclusive.
             type: string
             format: int64
           mdbOfflineModeDisableLag:
@@ -1422,7 +1470,7 @@ apiPlayground:
               **string** (int64)
               Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'.
               Should be less than mdb_offline_mode_enable_lag.
-              Acceptable values are 60 to 86400, inclusive.
+              Acceptable values are 10 to 86400, inclusive.
             type: string
             format: int64
           rangeOptimizerMaxMemSize:
@@ -1451,8 +1499,8 @@ apiPlayground:
               **enum** (LogSlowRateType)
               Specifies slow log granularity for `log_slow_rate_limit` QUERY or SESSION value.
               See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_type) for details.
-              - `SESSION`
-              - `QUERY`
+              - `SESSION`: Logging is controlled per session.
+              - `QUERY`: Logging is controlled per query.
             type: string
             enum:
               - LOG_SLOW_RATE_TYPE_UNSPECIFIED
@@ -1477,12 +1525,12 @@ apiPlayground:
               **enum** (LogSlowFilterType)
               Filters the slow log by the query's execution plan.
               See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_filter) for details.
-              - `FULL_SCAN`
-              - `FULL_JOIN`
-              - `TMP_TABLE`
-              - `TMP_TABLE_ON_DISK`
-              - `FILESORT`
-              - `FILESORT_ON_DISK`
+              - `FULL_SCAN`: Queries that perform a full table scan.
+              - `FULL_JOIN`: Queries that perform a full join (a join without indexes).
+              - `TMP_TABLE`: Queries that create an implicit internal temporary table.
+              - `TMP_TABLE_ON_DISK`: Queries that create an implicit internal temporary table on disk.
+              - `FILESORT`: Queries that use a filesort.
+              - `FILESORT_ON_DISK`: Queries that use a filesort on disk.
             type: array
             items:
               type: string
@@ -1563,9 +1611,9 @@ apiPlayground:
               **enum** (BinlogTransactionDependencyTracking)
               Specifies how the source mysqld generates the dependency information that it writes in the binary log to help replicas determine which transactions can be executed in parallel.
               For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_transaction_dependency_tracking).
-              - `COMMIT_ORDER`
-              - `WRITESET`
-              - `WRITESET_SESSION`
+              - `COMMIT_ORDER`: Transactions are made dependent based on commit order.
+              - `WRITESET`: Transactions are made dependent based on the write set of rows modified by the transaction.
+              - `WRITESET_SESSION`: Transactions are made dependent based on the write set and the commit order within a session.
             type: string
             enum:
               - BINLOG_TRANSACTION_DEPENDENCY_TRACKING_UNSPECIFIED
@@ -1662,10 +1710,10 @@ apiPlayground:
               **enum** (AuditLogPolicy)
               The policy controlling how the audit log plugin writes events to its log file
               For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/audit-log-reference.html#sysvar_audit_log_policy)
-              - `ALL`
-              - `LOGINS`
-              - `QUERIES`
-              - `NONE`
+              - `ALL`: Log all events.
+              - `LOGINS`: Log only login events.
+              - `QUERIES`: Log only query events.
+              - `NONE`: Do not log events.
             type: string
             enum:
               - AUDIT_LOG_POLICY_UNSPECIFIED
@@ -1709,12 +1757,12 @@ apiPlayground:
               **enum** (InnodbChangeBuffering)
               An optimization for change buffering
               For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_change_buffering).
-              - `INNODB_CHANGE_BUFFERING_NONE`
-              - `INNODB_CHANGE_BUFFERING_INSERTS`
-              - `INNODB_CHANGE_BUFFERING_DELETES`
-              - `INNODB_CHANGE_BUFFERING_CHANGES`
-              - `INNODB_CHANGE_BUFFERING_PURGES`
-              - `INNODB_CHANGE_BUFFERING_ALL`
+              - `INNODB_CHANGE_BUFFERING_NONE`: Do not buffer any operations.
+              - `INNODB_CHANGE_BUFFERING_INSERTS`: Buffer insert operations.
+              - `INNODB_CHANGE_BUFFERING_DELETES`: Buffer delete-marking operations.
+              - `INNODB_CHANGE_BUFFERING_CHANGES`: Buffer insert and delete-marking operations.
+              - `INNODB_CHANGE_BUFFERING_PURGES`: Buffer operations where undo log records are discarded.
+              - `INNODB_CHANGE_BUFFERING_ALL`: Buffer all types of eligible operations.
             type: string
             enum:
               - INNODB_CHANGE_BUFFERING_UNSPECIFIED
@@ -1731,6 +1779,14 @@ apiPlayground:
               P.S. Should be UInt64, but java fails to handle UInt64 limits
               For details, see [Percona documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_write_lock_count).
               The minimum value is 1.
+            type: string
+            format: int64
+          innodbAdaptiveHashIndexParts:
+            description: |-
+              **string** (int64)
+              Partitions the adaptive hash index search system.
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_adaptive_hash_index_parts)
+              Acceptable values are 1 to 512, inclusive.
             type: string
             format: int64
       MysqlConfig8_4:
@@ -1771,27 +1827,37 @@ apiPlayground:
               **enum** (SQLMode)
               Server SQL mode of MySQL.
               For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sql-mode-setting).
-              - `ALLOW_INVALID_DATES`
-              - `ANSI_QUOTES`
-              - `ERROR_FOR_DIVISION_BY_ZERO`
-              - `HIGH_NOT_PRECEDENCE`
-              - `IGNORE_SPACE`
-              - `NO_AUTO_VALUE_ON_ZERO`
-              - `NO_BACKSLASH_ESCAPES`
-              - `NO_ENGINE_SUBSTITUTION`
-              - `NO_UNSIGNED_SUBTRACTION`
-              - `NO_ZERO_DATE`
-              - `NO_ZERO_IN_DATE`
-              - `ONLY_FULL_GROUP_BY`
-              - `PAD_CHAR_TO_FULL_LENGTH`
-              - `PIPES_AS_CONCAT`
-              - `REAL_AS_FLOAT`
-              - `STRICT_ALL_TABLES`
-              - `STRICT_TRANS_TABLES`
-              - `TIME_TRUNCATE_FRACTIONAL`
-              - `ANSI`
-              - `TRADITIONAL`
-              - `NO_DIR_IN_CREATE`
+              - `ALLOW_INVALID_DATES`: Allow dates where the day or month part is 0. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_allow_invalid_dates).
+              - `ANSI_QUOTES`: Treat `"` as an identifier quote character (like the `` ` `` quote character) rather than as a string quote character. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_ansi_quotes).
+              - `ERROR_FOR_DIVISION_BY_ZERO`: Produce an error for divisions by zero. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_error_for_division_by_zero).
+              - `HIGH_NOT_PRECEDENCE`: Give `NOT` higher precedence in negation than it has in non-high-precedence mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_high_not_precedence).
+              - `IGNORE_SPACE`: Allow spaces between a function name and the `(` character. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_ignore_space).
+              - `NO_AUTO_VALUE_ON_ZERO`: Do not reset the AUTO_INCREMENT column to 0 when inserting 0 into it. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_auto_value_on_zero).
+              - `NO_BACKSLASH_ESCAPES`: Disable the use of the backslash character (`\`) as an escape character within strings. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_backslash_escapes).
+              - `NO_ENGINE_SUBSTITUTION`: Do not substitute the default storage engine when a statement specifies a storage engine that is disabled or not compiled in. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_engine_substitution).
+              - `NO_UNSIGNED_SUBTRACTION`: Disable unsigned subtraction so that subtraction results are always signed. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_unsigned_subtraction).
+              - `NO_ZERO_DATE`: Disable the MySQL-specific date `0000-00-00`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_zero_date).
+              - `NO_ZERO_IN_DATE`: Disable month or day parts of `0` in dates. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_zero_in_date).
+              - `NO_FIELD_OPTIONS`: Ignore field options in `CREATE TABLE` statements (MySQL 5.7 compatibility). See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_field_options).
+              - `NO_KEY_OPTIONS`: Ignore key options in `CREATE TABLE` statements (MySQL 5.7 compatibility). See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_key_options).
+              - `NO_TABLE_OPTIONS`: Ignore table options in `CREATE TABLE` statements (MySQL 5.7 compatibility). See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_table_options).
+              - `ONLY_FULL_GROUP_BY`: Reject queries for which the select list, `HAVING` condition, or `ORDER BY` list refer to non-aggregated columns that are not named in the `GROUP BY` clause. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_only_full_group_by).
+              - `PAD_CHAR_TO_FULL_LENGTH`: Pad `CHAR` column values with spaces to the full column length when retrieving them. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_pad_char_to_full_length).
+              - `PIPES_AS_CONCAT`: Treat `||` as a string concatenation operator rather than as `OR`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_pipes_as_concat).
+              - `REAL_AS_FLOAT`: Treat `REAL` as a synonym for `FLOAT` rather than `DOUBLE`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_real_as_float).
+              - `STRICT_ALL_TABLES`: Strict mode for all storage engines. Invalid data values cause errors, not warnings. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_strict_all_tables).
+              - `STRICT_TRANS_TABLES`: Strict mode for transactional storage engines. Invalid data values cause errors, not warnings. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_strict_trans_tables).
+              - `ANSI`: Equivalent to `REAL_AS_FLOAT`, `PIPES_AS_CONCAT`, `ANSI_QUOTES`, `IGNORE_SPACE`, and `ONLY_FULL_GROUP_BY`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_ansi).
+              - `TRADITIONAL`: Equivalent to `STRICT_TRANS_TABLES`, `STRICT_ALL_TABLES`, `NO_ZERO_IN_DATE`, `NO_ZERO_DATE`, `ERROR_FOR_DIVISION_BY_ZERO`, and `NO_AUTO_CREATE_USER`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_traditional).
+              - `DB2`: IBM DB2 compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_db2).
+              - `MAXDB`: SAP MaxDB compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_maxdb).
+              - `MSSQL`: Microsoft SQL Server compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_mssql).
+              - `MYSQL323`: MySQL 3.23 compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_mysql323).
+              - `MYSQL40`: MySQL 4.0 compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_mysql40).
+              - `ORACLE`: Oracle compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_oracle).
+              - `POSTGRESQL`: PostgreSQL compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_postgresql).
+              - `NO_AUTO_CREATE_USER`: Prevent `GRANT` from creating new users implicitly. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_auto_create_user).
+              - `NO_DIR_IN_CREATE`: Prevent the use of `..` in directory paths in `CREATE TABLE` statements. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_dir_in_create).
             type: array
             items:
               type: string
@@ -1808,15 +1874,25 @@ apiPlayground:
                 - NO_UNSIGNED_SUBTRACTION
                 - NO_ZERO_DATE
                 - NO_ZERO_IN_DATE
+                - NO_FIELD_OPTIONS
+                - NO_KEY_OPTIONS
+                - NO_TABLE_OPTIONS
                 - ONLY_FULL_GROUP_BY
                 - PAD_CHAR_TO_FULL_LENGTH
                 - PIPES_AS_CONCAT
                 - REAL_AS_FLOAT
                 - STRICT_ALL_TABLES
                 - STRICT_TRANS_TABLES
-                - TIME_TRUNCATE_FRACTIONAL
                 - ANSI
                 - TRADITIONAL
+                - DB2
+                - MAXDB
+                - MSSQL
+                - MYSQL323
+                - MYSQL40
+                - ORACLE
+                - POSTGRESQL
+                - NO_AUTO_CREATE_USER
                 - NO_DIR_IN_CREATE
           maxAllowedPacket:
             description: |-
@@ -1847,9 +1923,9 @@ apiPlayground:
               **enum** (TransactionIsolation)
               Default transaction isolation level.
               For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_transaction_isolation)
-              - `READ_COMMITTED`
-              - `REPEATABLE_READ`
-              - `SERIALIZABLE`
+              - `READ_COMMITTED`: Read committed isolation level. A consistent read within the same transaction reads the snapshot established by the first read.
+              - `REPEATABLE_READ`: Repeatable read isolation level. All consistent reads within the same transaction read the snapshot established by the first read.
+              - `SERIALIZABLE`: Serializable isolation level. All statements implicitly convert to SELECT ... FOR SHARE if autocommit is disabled.
             type: string
             enum:
               - TRANSACTION_ISOLATION_UNSPECIFIED
@@ -2024,7 +2100,7 @@ apiPlayground:
           joinBufferSize:
             description: |-
               **string** (int64)
-              The minimum size of the buffer that is used for plain index scans, range index scans, and joins that do not use indexes and thus perform full table scans.
+              The minimum size of the buffer that is used for plain index scans, range index scans, and joins that don't use indexes and thus perform full table scans.
               For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_join_buffer_size).
               Acceptable values are 1024 to 16777216, inclusive.
             type: string
@@ -2112,9 +2188,9 @@ apiPlayground:
               **enum** (BinlogRowImage)
               For MySQL row-based replication, this variable determines how row images are written to the binary log.
               For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/replication-options-binary-log.html#sysvar_binlog_row_image).
-              - `FULL`
-              - `MINIMAL`
-              - `NOBLOB`
+              - `FULL`: Log all columns (full row image).
+              - `MINIMAL`: Log only changed columns and columns needed to identify the row.
+              - `NOBLOB`: Log all columns except BLOB and TEXT columns.
             type: string
             enum:
               - BINLOG_ROW_IMAGE_UNSPECIFIED
@@ -2140,8 +2216,8 @@ apiPlayground:
               **enum** (SlaveParallelType)
               When using a multithreaded replica, this variable specifies the policy used to decide which transactions are allowed to execute in parallel on the replica.
               For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/replication-options-replica.html#sysvar_slave_parallel_type).
-              - `DATABASE`
-              - `LOGICAL_CLOCK`
+              - `DATABASE`: Transactions are parallelized per database (schema).
+              - `LOGICAL_CLOCK`: Transactions are parallelized using the logical clock algorithm based on the binary log group commit.
             type: string
             enum:
               - SLAVE_PARALLEL_TYPE_UNSPECIFIED
@@ -2190,7 +2266,7 @@ apiPlayground:
             description: |-
               **string** (int64)
               Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.
-              Acceptable values are 600 to 432000, inclusive.
+              Acceptable values are 30 to 86400, inclusive.
             type: string
             format: int64
           mdbOfflineModeDisableLag:
@@ -2198,7 +2274,7 @@ apiPlayground:
               **string** (int64)
               Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'.
               Should be less than mdb_offline_mode_enable_lag.
-              Acceptable values are 60 to 86400, inclusive.
+              Acceptable values are 10 to 86400, inclusive.
             type: string
             format: int64
           rangeOptimizerMaxMemSize:
@@ -2260,8 +2336,8 @@ apiPlayground:
               **enum** (LogSlowRateType)
               Specifies slow log granularity for log_slow_rate_limit: QUERY or SESSION
               For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.4/diagnostics/slow_extended.html#log_slow_rate_type).
-              - `SESSION`
-              - `QUERY`
+              - `SESSION`: Logging is controlled per session.
+              - `QUERY`: Logging is controlled per query.
             type: string
             enum:
               - LOG_SLOW_RATE_TYPE_UNSPECIFIED
@@ -2286,12 +2362,12 @@ apiPlayground:
               **enum** (LogSlowFilterType)
               Filters the slow log by the query's execution plan
               For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.4/diagnostics/slow_extended.html#log_slow_filter).
-              - `FULL_SCAN`
-              - `FULL_JOIN`
-              - `TMP_TABLE`
-              - `TMP_TABLE_ON_DISK`
-              - `FILESORT`
-              - `FILESORT_ON_DISK`
+              - `FULL_SCAN`: Queries that perform a full table scan.
+              - `FULL_JOIN`: Queries that perform a full join (a join without indexes).
+              - `TMP_TABLE`: Queries that create an implicit internal temporary table.
+              - `TMP_TABLE_ON_DISK`: Queries that create an implicit internal temporary table on disk.
+              - `FILESORT`: Queries that use a filesort.
+              - `FILESORT_ON_DISK`: Queries that use a filesort on disk.
             type: array
             items:
               type: string
@@ -2426,10 +2502,10 @@ apiPlayground:
               **enum** (AuditLogPolicy)
               The policy controlling how the audit log plugin writes events to its log file
               For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/audit-log-reference.html#sysvar_audit_log_policy)
-              - `ALL`
-              - `LOGINS`
-              - `QUERIES`
-              - `NONE`
+              - `ALL`: Log all events.
+              - `LOGINS`: Log only login events.
+              - `QUERIES`: Log only query events.
+              - `NONE`: Do not log events.
             type: string
             enum:
               - AUDIT_LOG_POLICY_UNSPECIFIED
@@ -2485,12 +2561,12 @@ apiPlayground:
               **enum** (InnodbChangeBuffering)
               An optimization for change buffering
               For details, see [Percona documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_change_buffering).
-              - `INNODB_CHANGE_BUFFERING_NONE`
-              - `INNODB_CHANGE_BUFFERING_INSERTS`
-              - `INNODB_CHANGE_BUFFERING_DELETES`
-              - `INNODB_CHANGE_BUFFERING_CHANGES`
-              - `INNODB_CHANGE_BUFFERING_PURGES`
-              - `INNODB_CHANGE_BUFFERING_ALL`
+              - `INNODB_CHANGE_BUFFERING_NONE`: Do not buffer any operations.
+              - `INNODB_CHANGE_BUFFERING_INSERTS`: Buffer insert operations.
+              - `INNODB_CHANGE_BUFFERING_DELETES`: Buffer delete-marking operations.
+              - `INNODB_CHANGE_BUFFERING_CHANGES`: Buffer insert and delete-marking operations.
+              - `INNODB_CHANGE_BUFFERING_PURGES`: Buffer operations where undo log records are discarded.
+              - `INNODB_CHANGE_BUFFERING_ALL`: Buffer all types of eligible operations.
             type: string
             enum:
               - INNODB_CHANGE_BUFFERING_UNSPECIFIED
@@ -2507,6 +2583,14 @@ apiPlayground:
               P.S. Should be UInt64, but java fails to handle UInt64 limits
               For details, see [Percona documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_max_write_lock_count).
               The minimum value is 1.
+            type: string
+            format: int64
+          innodbAdaptiveHashIndexParts:
+            description: |-
+              **string** (int64)
+              Partitions the adaptive hash index search system.
+              For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_adaptive_hash_index_parts)
+              Acceptable values are 1 to 512, inclusive.
             type: string
             format: int64
       Resources:
@@ -2929,7 +3013,8 @@ POST https://{{ api-host-mdb }}/managed-mysql/v1/clusters:restore
       "innodbLruScanDepth": "string",
       "mdbForceSsl": "boolean",
       "innodbChangeBuffering": "string",
-      "maxWriteLockCount": "string"
+      "maxWriteLockCount": "string",
+      "innodbAdaptiveHashIndexParts": "string"
     },
     "mysqlConfig_8_0": {
       "innodbBufferPoolSize": "string",
@@ -3026,7 +3111,8 @@ POST https://{{ api-host-mdb }}/managed-mysql/v1/clusters:restore
       "sqlRequirePrimaryKey": "boolean",
       "mdbForceSsl": "boolean",
       "innodbChangeBuffering": "string",
-      "maxWriteLockCount": "string"
+      "maxWriteLockCount": "string",
+      "innodbAdaptiveHashIndexParts": "string"
     },
     "mysqlConfig_8_4": {
       "innodbBufferPoolSize": "string",
@@ -3122,7 +3208,8 @@ POST https://{{ api-host-mdb }}/managed-mysql/v1/clusters:restore
       "mdbAsyncAllowedLag": "string",
       "mdbForceSsl": "boolean",
       "innodbChangeBuffering": "string",
-      "maxWriteLockCount": "string"
+      "maxWriteLockCount": "string",
+      "innodbAdaptiveHashIndexParts": "string"
     },
     // end of the list of possible fields
     "resources": {
@@ -3357,37 +3444,37 @@ Server SQL mode of MySQL.
 
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting) for details.
 
-- `ALLOW_INVALID_DATES`
-- `ANSI_QUOTES`
-- `ERROR_FOR_DIVISION_BY_ZERO`
-- `HIGH_NOT_PRECEDENCE`
-- `IGNORE_SPACE`
-- `NO_AUTO_VALUE_ON_ZERO`
-- `NO_BACKSLASH_ESCAPES`
-- `NO_ENGINE_SUBSTITUTION`
-- `NO_UNSIGNED_SUBTRACTION`
-- `NO_ZERO_DATE`
-- `NO_ZERO_IN_DATE`
-- `NO_FIELD_OPTIONS`
-- `NO_KEY_OPTIONS`
-- `NO_TABLE_OPTIONS`
-- `ONLY_FULL_GROUP_BY`
-- `PAD_CHAR_TO_FULL_LENGTH`
-- `PIPES_AS_CONCAT`
-- `REAL_AS_FLOAT`
-- `STRICT_ALL_TABLES`
-- `STRICT_TRANS_TABLES`
-- `ANSI`
-- `TRADITIONAL`
-- `DB2`
-- `MAXDB`
-- `MSSQL`
-- `MYSQL323`
-- `MYSQL40`
-- `ORACLE`
-- `POSTGRESQL`
-- `NO_AUTO_CREATE_USER`
-- `NO_DIR_IN_CREATE` ||
+- `ALLOW_INVALID_DATES`: Allow dates where the day or month part is 0. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_allow_invalid_dates).
+- `ANSI_QUOTES`: Treat `"` as an identifier quote character (like the `` ` `` quote character) rather than as a string quote character. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_ansi_quotes).
+- `ERROR_FOR_DIVISION_BY_ZERO`: Produce an error for divisions by zero. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_error_for_division_by_zero).
+- `HIGH_NOT_PRECEDENCE`: Give `NOT` higher precedence in negation than it has in non-high-precedence mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_high_not_precedence).
+- `IGNORE_SPACE`: Allow spaces between a function name and the `(` character. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_ignore_space).
+- `NO_AUTO_VALUE_ON_ZERO`: Do not reset the AUTO_INCREMENT column to 0 when inserting 0 into it. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_auto_value_on_zero).
+- `NO_BACKSLASH_ESCAPES`: Disable the use of the backslash character (`\`) as an escape character within strings. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_backslash_escapes).
+- `NO_ENGINE_SUBSTITUTION`: Do not substitute the default storage engine when a statement specifies a storage engine that is disabled or not compiled in. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_engine_substitution).
+- `NO_UNSIGNED_SUBTRACTION`: Disable unsigned subtraction so that subtraction results are always signed. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_unsigned_subtraction).
+- `NO_ZERO_DATE`: Disable the MySQL-specific date `0000-00-00`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_zero_date).
+- `NO_ZERO_IN_DATE`: Disable month or day parts of `0` in dates. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_zero_in_date).
+- `NO_FIELD_OPTIONS`: Ignore field options in `CREATE TABLE` statements (MySQL 5.7 compatibility). See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_field_options).
+- `NO_KEY_OPTIONS`: Ignore key options in `CREATE TABLE` statements (MySQL 5.7 compatibility). See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_key_options).
+- `NO_TABLE_OPTIONS`: Ignore table options in `CREATE TABLE` statements (MySQL 5.7 compatibility). See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_table_options).
+- `ONLY_FULL_GROUP_BY`: Reject queries for which the select list, `HAVING` condition, or `ORDER BY` list refer to non-aggregated columns that are not named in the `GROUP BY` clause. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_only_full_group_by).
+- `PAD_CHAR_TO_FULL_LENGTH`: Pad `CHAR` column values with spaces to the full column length when retrieving them. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_pad_char_to_full_length).
+- `PIPES_AS_CONCAT`: Treat `\|\|` as a string concatenation operator rather than as `OR`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_pipes_as_concat).
+- `REAL_AS_FLOAT`: Treat `REAL` as a synonym for `FLOAT` rather than `DOUBLE`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_real_as_float).
+- `STRICT_ALL_TABLES`: Strict mode for all storage engines. Invalid data values cause errors, not warnings. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_strict_all_tables).
+- `STRICT_TRANS_TABLES`: Strict mode for transactional storage engines. Invalid data values cause errors, not warnings. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_strict_trans_tables).
+- `ANSI`: Equivalent to `REAL_AS_FLOAT`, `PIPES_AS_CONCAT`, `ANSI_QUOTES`, `IGNORE_SPACE`, and `ONLY_FULL_GROUP_BY`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_ansi).
+- `TRADITIONAL`: Equivalent to `STRICT_TRANS_TABLES`, `STRICT_ALL_TABLES`, `NO_ZERO_IN_DATE`, `NO_ZERO_DATE`, `ERROR_FOR_DIVISION_BY_ZERO`, and `NO_AUTO_CREATE_USER`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_traditional).
+- `DB2`: IBM DB2 compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_db2).
+- `MAXDB`: SAP MaxDB compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_maxdb).
+- `MSSQL`: Microsoft SQL Server compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_mssql).
+- `MYSQL323`: MySQL 3.23 compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_mysql323).
+- `MYSQL40`: MySQL 4.0 compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_mysql40).
+- `ORACLE`: Oracle compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_oracle).
+- `POSTGRESQL`: PostgreSQL compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_postgresql).
+- `NO_AUTO_CREATE_USER`: Prevent `GRANT` from creating new users implicitly. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_auto_create_user).
+- `NO_DIR_IN_CREATE`: Prevent the use of `..` in directory paths in `CREATE TABLE` statements. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_dir_in_create). ||
 || maxAllowedPacket | **string** (int64)
 
 The maximum size in bytes of one packet.
@@ -3402,7 +3489,7 @@ Authentication plugin used in the managed MySQL cluster.
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_default_authentication_plugin) for details.
 
 - `MYSQL_NATIVE_PASSWORD`: Using [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/5.7/en/native-pluggable-authentication.html).
-- `CACHING_SHA2_PASSWORD`
+- `CACHING_SHA2_PASSWORD`: Using [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/5.7/en/caching-sha2-pluggable-authentication.html).
 - `SHA256_PASSWORD`: Using [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/5.7/en/sha256-pluggable-authentication.html).
 - `MYSQL_NO_LOGIN`: Use [MYSQL_NO_LOGIN Pluggable Authentication](https://dev.mysql.com/doc/refman/5.7/en/no-login-pluggable-authentication.html).
 - `MDB_IAMPROXY_AUTH`: Use [IAM Pluggable Authentication](https://yandex.cloud/en/docs/iam/concepts/authorization/). ||
@@ -3426,9 +3513,9 @@ Default transaction isolation level.
 
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_transaction_isolation) for details.
 
-- `READ_COMMITTED`
-- `REPEATABLE_READ`
-- `SERIALIZABLE` ||
+- `READ_COMMITTED`: Read committed isolation level. A consistent read within the same transaction reads the snapshot established by the first read.
+- `REPEATABLE_READ`: Repeatable read isolation level. All consistent reads within the same transaction read the snapshot established by the first read.
+- `SERIALIZABLE`: Serializable isolation level. All statements implicitly convert to SELECT ... FOR SHARE if autocommit is disabled. ||
 || innodbPrintAllDeadlocks | **boolean**
 
 Print information about deadlocks in error log.
@@ -3573,7 +3660,7 @@ See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-
 Acceptable values are 131072 to 16777216, inclusive. ||
 || joinBufferSize | **string** (int64)
 
-The minimum size of the buffer that is used for plain index scans, range index scans, and joins that do not use indexes and thus perform full table scans.
+The minimum size of the buffer that is used for plain index scans, range index scans, and joins that don't use indexes and thus perform full table scans.
 
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_join_buffer_size) for details.
 
@@ -3652,9 +3739,9 @@ For MySQL row-based replication, this variable determines how row images are wri
 
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_row_image) for details.
 
-- `FULL`
-- `MINIMAL`
-- `NOBLOB` ||
+- `FULL`: Log all columns (full row image).
+- `MINIMAL`: Log only changed columns and columns needed to identify the row.
+- `NOBLOB`: Log all columns except BLOB and TEXT columns. ||
 || binlogRowsQueryLogEvents | **boolean**
 
 When enabled, it causes the server to write informational log events such as row query log events into its binary log.
@@ -3673,8 +3760,8 @@ When using a multi-threaded replica, this variable specifies the policy used to 
 
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_parallel_type) for details.
 
-- `DATABASE`
-- `LOGICAL_CLOCK` ||
+- `DATABASE`: Transactions are parallelized per database (schema).
+- `LOGICAL_CLOCK`: Transactions are parallelized using the logical clock algorithm based on the binary log group commit. ||
 || slaveParallelWorkers | **string** (int64)
 
 Sets the number of applier threads for executing replication transactions in parallel.
@@ -3705,13 +3792,13 @@ Acceptable values are 600 to 86400, inclusive. ||
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.
 
-Acceptable values are 600 to 432000, inclusive. ||
+Acceptable values are 30 to 86400, inclusive. ||
 || mdbOfflineModeDisableLag | **string** (int64)
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'.
 Should be less than mdb_offline_mode_enable_lag value.
 
-Acceptable values are 60 to 86400, inclusive. ||
+Acceptable values are 10 to 86400, inclusive. ||
 || rangeOptimizerMaxMemSize | **string** (int64)
 
 The limit on memory consumption for the range optimizer.
@@ -3735,8 +3822,8 @@ Specifies slow log granularity for `log_slow_rate_limit` values QUERY or SESSION
 
 See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_type) for details.
 
-- `SESSION`
-- `QUERY` ||
+- `SESSION`: Logging is controlled per session.
+- `QUERY`: Logging is controlled per query. ||
 || logSlowRateLimit | **string** (int64)
 
 Specifies what fraction of session/query should be logged. Logging is enabled for every nth session/query.
@@ -3755,12 +3842,12 @@ Filters the slow log by the query's execution plan.
 
 See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_filter) for details.
 
-- `FULL_SCAN`
-- `FULL_JOIN`
-- `TMP_TABLE`
-- `TMP_TABLE_ON_DISK`
-- `FILESORT`
-- `FILESORT_ON_DISK` ||
+- `FULL_SCAN`: Queries that perform a full table scan.
+- `FULL_JOIN`: Queries that perform a full join (a join without indexes).
+- `TMP_TABLE`: Queries that create an implicit internal temporary table.
+- `TMP_TABLE_ON_DISK`: Queries that create an implicit internal temporary table on disk.
+- `FILESORT`: Queries that use a filesort.
+- `FILESORT_ON_DISK`: Queries that use a filesort on disk. ||
 || mdbPriorityChoiceMaxLag | **string** (int64)
 
 Replication lag threshold (seconds) which allows replica to be promoted to master while executing "switchover from".
@@ -3827,9 +3914,9 @@ Specifies how the source mysqld generates the dependency information that it wri
 
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_transaction_dependency_tracking).
 
-- `COMMIT_ORDER`
-- `WRITESET`
-- `WRITESET_SESSION` ||
+- `COMMIT_ORDER`: Transactions are made dependent based on commit order.
+- `WRITESET`: Transactions are made dependent based on the write set of rows modified by the transaction.
+- `WRITESET_SESSION`: Transactions are made dependent based on the write set and the commit order within a session. ||
 || autocommit | **boolean**
 
 Config specific will be all changes to a table take effect immediately or you must use COMMIT to accept a transaction or ROLLBACK to cancel it.
@@ -3931,10 +4018,10 @@ The policy controlling how the audit log plugin writes events to its log file
 
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/audit-log-reference.html#sysvar_audit_log_policy)
 
-- `ALL`
-- `LOGINS`
-- `QUERIES`
-- `NONE` ||
+- `ALL`: Log all events.
+- `LOGINS`: Log only login events.
+- `QUERIES`: Log only query events.
+- `NONE`: Do not log events. ||
 || innodbLruScanDepth | **string** (int64)
 
 A parameter that influences the algorithms and heuristics for the flush operation for the InnoDB buffer pool
@@ -3951,12 +4038,12 @@ An optimization for change buffering
 
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_change_buffering).
 
-- `INNODB_CHANGE_BUFFERING_NONE`
-- `INNODB_CHANGE_BUFFERING_INSERTS`
-- `INNODB_CHANGE_BUFFERING_DELETES`
-- `INNODB_CHANGE_BUFFERING_CHANGES`
-- `INNODB_CHANGE_BUFFERING_PURGES`
-- `INNODB_CHANGE_BUFFERING_ALL` ||
+- `INNODB_CHANGE_BUFFERING_NONE`: Do not buffer any operations.
+- `INNODB_CHANGE_BUFFERING_INSERTS`: Buffer insert operations.
+- `INNODB_CHANGE_BUFFERING_DELETES`: Buffer delete-marking operations.
+- `INNODB_CHANGE_BUFFERING_CHANGES`: Buffer insert and delete-marking operations.
+- `INNODB_CHANGE_BUFFERING_PURGES`: Buffer operations where undo log records are discarded.
+- `INNODB_CHANGE_BUFFERING_ALL`: Buffer all types of eligible operations. ||
 || maxWriteLockCount | **string** (int64)
 
 Permit some pending read lock requests interval
@@ -3965,6 +4052,13 @@ P.S. Should be UInt64, but java fails to handle UInt64 limits
 For details, see [Percona documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_write_lock_count).
 
 The minimum value is 1. ||
+|| innodbAdaptiveHashIndexParts | **string** (int64)
+
+Partitions the adaptive hash index search system.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_adaptive_hash_index_parts)
+
+Acceptable values are 1 to 512, inclusive. ||
 |#
 
 ## MysqlConfig8_0 {#yandex.cloud.mdb.mysql.v1.config.MysqlConfig8_0}
@@ -4008,27 +4102,27 @@ Server SQL mode of MySQL.
 
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting) for details.
 
-- `ALLOW_INVALID_DATES`
-- `ANSI_QUOTES`
-- `ERROR_FOR_DIVISION_BY_ZERO`
-- `HIGH_NOT_PRECEDENCE`
-- `IGNORE_SPACE`
-- `NO_AUTO_VALUE_ON_ZERO`
-- `NO_BACKSLASH_ESCAPES`
-- `NO_ENGINE_SUBSTITUTION`
-- `NO_UNSIGNED_SUBTRACTION`
-- `NO_ZERO_DATE`
-- `NO_ZERO_IN_DATE`
-- `ONLY_FULL_GROUP_BY`
-- `PAD_CHAR_TO_FULL_LENGTH`
-- `PIPES_AS_CONCAT`
-- `REAL_AS_FLOAT`
-- `STRICT_ALL_TABLES`
-- `STRICT_TRANS_TABLES`
-- `TIME_TRUNCATE_FRACTIONAL`
-- `ANSI`
-- `TRADITIONAL`
-- `NO_DIR_IN_CREATE` ||
+- `ALLOW_INVALID_DATES`: Allow dates where the day or month part is 0. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_allow_invalid_dates).
+- `ANSI_QUOTES`: Treat `"` as an identifier quote character (like the `` ` `` quote character) rather than as a string quote character. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_ansi_quotes).
+- `ERROR_FOR_DIVISION_BY_ZERO`: Produce an error for divisions by zero. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_error_for_division_by_zero).
+- `HIGH_NOT_PRECEDENCE`: Give `NOT` higher precedence in negation than it has in non-high-precedence mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_high_not_precedence).
+- `IGNORE_SPACE`: Allow spaces between a function name and the `(` character. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_ignore_space).
+- `NO_AUTO_VALUE_ON_ZERO`: Do not reset the AUTO_INCREMENT column to 0 when inserting 0 into it. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_auto_value_on_zero).
+- `NO_BACKSLASH_ESCAPES`: Disable the use of the backslash character (`\`) as an escape character within strings. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_backslash_escapes).
+- `NO_ENGINE_SUBSTITUTION`: Do not substitute the default storage engine when a statement specifies a storage engine that is disabled or not compiled in. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_engine_substitution).
+- `NO_UNSIGNED_SUBTRACTION`: Disable unsigned subtraction so that subtraction results are always signed. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_unsigned_subtraction).
+- `NO_ZERO_DATE`: Disable the MySQL-specific date `0000-00-00`. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_zero_date).
+- `NO_ZERO_IN_DATE`: Disable month or day parts of `0` in dates. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_zero_in_date).
+- `ONLY_FULL_GROUP_BY`: Reject queries for which the select list, `HAVING` condition, or `ORDER BY` list refer to non-aggregated columns that are not named in the `GROUP BY` clause. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_only_full_group_by).
+- `PAD_CHAR_TO_FULL_LENGTH`: Pad `CHAR` column values with spaces to the full column length when retrieving them. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_pad_char_to_full_length).
+- `PIPES_AS_CONCAT`: Treat `\|\|` as a string concatenation operator rather than as `OR`. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_pipes_as_concat).
+- `REAL_AS_FLOAT`: Treat `REAL` as a synonym for `FLOAT` rather than `DOUBLE`. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_real_as_float).
+- `STRICT_ALL_TABLES`: Strict mode for all storage engines. Invalid data values cause errors, not warnings. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_strict_all_tables).
+- `STRICT_TRANS_TABLES`: Strict mode for transactional storage engines. Invalid data values cause errors, not warnings. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_strict_trans_tables).
+- `TIME_TRUNCATE_FRACTIONAL`: Causes fractional seconds to be truncated rather than rounded when inserting into a column that has a data type with a fractional seconds part. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_time_truncate_fractional).
+- `ANSI`: Equivalent to `REAL_AS_FLOAT`, `PIPES_AS_CONCAT`, `ANSI_QUOTES`, `IGNORE_SPACE`, and `ONLY_FULL_GROUP_BY`. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_ansi).
+- `TRADITIONAL`: Equivalent to `STRICT_TRANS_TABLES`, `STRICT_ALL_TABLES`, `NO_ZERO_IN_DATE`, `NO_ZERO_DATE`, `ERROR_FOR_DIVISION_BY_ZERO`, and `NO_ENGINE_SUBSTITUTION`. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_traditional).
+- `NO_DIR_IN_CREATE`: Prevent the use of `..` in directory paths in `CREATE TABLE` statements. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_dir_in_create). ||
 || maxAllowedPacket | **string** (int64)
 
 The maximum size in bytes of one packet.
@@ -4067,9 +4161,9 @@ Default transaction isolation level.
 
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_transaction_isolation) for details.
 
-- `READ_COMMITTED`
-- `REPEATABLE_READ`
-- `SERIALIZABLE` ||
+- `READ_COMMITTED`: Read committed isolation level. A consistent read within the same transaction reads the snapshot established by the first read.
+- `REPEATABLE_READ`: Repeatable read isolation level. All consistent reads within the same transaction read the snapshot established by the first read.
+- `SERIALIZABLE`: Serializable isolation level. All statements implicitly convert to SELECT ... FOR SHARE if autocommit is disabled. ||
 || innodbPrintAllDeadlocks | **boolean**
 
 Print information about deadlocks in error log.
@@ -4214,7 +4308,7 @@ See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-
 Acceptable values are 131072 to 16777216, inclusive. ||
 || joinBufferSize | **string** (int64)
 
-The minimum size of the buffer that is used for plain index scans, range index scans, and joins that do not use indexes and thus perform full table scans.
+The minimum size of the buffer that is used for plain index scans, range index scans, and joins that don't use indexes and thus perform full table scans.
 
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_join_buffer_size) for details.
 
@@ -4293,9 +4387,9 @@ For MySQL row-based replication, this variable determines how row images are wri
 
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_row_image) for details.
 
-- `FULL`
-- `MINIMAL`
-- `NOBLOB` ||
+- `FULL`: Log all columns (full row image).
+- `MINIMAL`: Log only changed columns and columns needed to identify the row.
+- `NOBLOB`: Log all columns except BLOB and TEXT columns. ||
 || binlogRowsQueryLogEvents | **boolean**
 
 When enabled, it causes the server to write informational log events such as row query log events into its binary log.
@@ -4314,8 +4408,8 @@ When using a multi-threaded replica, this variable specifies the policy used to 
 
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_slave_parallel_type) for details.
 
-- `DATABASE`
-- `LOGICAL_CLOCK` ||
+- `DATABASE`: Transactions are parallelized per database (schema).
+- `LOGICAL_CLOCK`: Transactions are parallelized using the logical clock algorithm based on the binary log group commit. ||
 || slaveParallelWorkers | **string** (int64)
 
 Sets the number of applier threads for executing replication transactions in parallel.
@@ -4353,13 +4447,13 @@ Acceptable values are 600 to 86400, inclusive. ||
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.
 
-Acceptable values are 600 to 432000, inclusive. ||
+Acceptable values are 30 to 86400, inclusive. ||
 || mdbOfflineModeDisableLag | **string** (int64)
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'.
 Should be less than mdb_offline_mode_enable_lag.
 
-Acceptable values are 60 to 86400, inclusive. ||
+Acceptable values are 10 to 86400, inclusive. ||
 || rangeOptimizerMaxMemSize | **string** (int64)
 
 The limit on memory consumption for the range optimizer.
@@ -4383,8 +4477,8 @@ Specifies slow log granularity for `log_slow_rate_limit` QUERY or SESSION value.
 
 See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_type) for details.
 
-- `SESSION`
-- `QUERY` ||
+- `SESSION`: Logging is controlled per session.
+- `QUERY`: Logging is controlled per query. ||
 || logSlowRateLimit | **string** (int64)
 
 Specifies what fraction of session/query should be logged. Logging is enabled for every nth session/query.
@@ -4403,12 +4497,12 @@ Filters the slow log by the query's execution plan.
 
 See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_filter) for details.
 
-- `FULL_SCAN`
-- `FULL_JOIN`
-- `TMP_TABLE`
-- `TMP_TABLE_ON_DISK`
-- `FILESORT`
-- `FILESORT_ON_DISK` ||
+- `FULL_SCAN`: Queries that perform a full table scan.
+- `FULL_JOIN`: Queries that perform a full join (a join without indexes).
+- `TMP_TABLE`: Queries that create an implicit internal temporary table.
+- `TMP_TABLE_ON_DISK`: Queries that create an implicit internal temporary table on disk.
+- `FILESORT`: Queries that use a filesort.
+- `FILESORT_ON_DISK`: Queries that use a filesort on disk. ||
 || mdbPriorityChoiceMaxLag | **string** (int64)
 
 Replication lag threshold (seconds) which allows replica to be promoted to master while executing "switchover from".
@@ -4470,9 +4564,9 @@ Specifies how the source mysqld generates the dependency information that it wri
 
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_transaction_dependency_tracking).
 
-- `COMMIT_ORDER`
-- `WRITESET`
-- `WRITESET_SESSION` ||
+- `COMMIT_ORDER`: Transactions are made dependent based on commit order.
+- `WRITESET`: Transactions are made dependent based on the write set of rows modified by the transaction.
+- `WRITESET_SESSION`: Transactions are made dependent based on the write set and the commit order within a session. ||
 || autocommit | **boolean**
 
 Config specific will be all changes to a table take effect immediately or you must use COMMIT to accept a transaction or ROLLBACK to cancel it.
@@ -4552,10 +4646,10 @@ The policy controlling how the audit log plugin writes events to its log file
 
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/audit-log-reference.html#sysvar_audit_log_policy)
 
-- `ALL`
-- `LOGINS`
-- `QUERIES`
-- `NONE` ||
+- `ALL`: Log all events.
+- `LOGINS`: Log only login events.
+- `QUERIES`: Log only query events.
+- `NONE`: Do not log events. ||
 || replicationSenderObserveCommitOnly | **boolean**
 
 Limit callbacks to improve performance for semisynchronous replication
@@ -4587,12 +4681,12 @@ An optimization for change buffering
 
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_change_buffering).
 
-- `INNODB_CHANGE_BUFFERING_NONE`
-- `INNODB_CHANGE_BUFFERING_INSERTS`
-- `INNODB_CHANGE_BUFFERING_DELETES`
-- `INNODB_CHANGE_BUFFERING_CHANGES`
-- `INNODB_CHANGE_BUFFERING_PURGES`
-- `INNODB_CHANGE_BUFFERING_ALL` ||
+- `INNODB_CHANGE_BUFFERING_NONE`: Do not buffer any operations.
+- `INNODB_CHANGE_BUFFERING_INSERTS`: Buffer insert operations.
+- `INNODB_CHANGE_BUFFERING_DELETES`: Buffer delete-marking operations.
+- `INNODB_CHANGE_BUFFERING_CHANGES`: Buffer insert and delete-marking operations.
+- `INNODB_CHANGE_BUFFERING_PURGES`: Buffer operations where undo log records are discarded.
+- `INNODB_CHANGE_BUFFERING_ALL`: Buffer all types of eligible operations. ||
 || maxWriteLockCount | **string** (int64)
 
 Permit some pending read lock requests interval
@@ -4601,6 +4695,13 @@ P.S. Should be UInt64, but java fails to handle UInt64 limits
 For details, see [Percona documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_write_lock_count).
 
 The minimum value is 1. ||
+|| innodbAdaptiveHashIndexParts | **string** (int64)
+
+Partitions the adaptive hash index search system.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_adaptive_hash_index_parts)
+
+Acceptable values are 1 to 512, inclusive. ||
 |#
 
 ## MysqlConfig8_4 {#yandex.cloud.mdb.mysql.v1.config.MysqlConfig8_4}
@@ -4641,27 +4742,27 @@ Server SQL mode of MySQL.
 
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sql-mode-setting).
 
-- `ALLOW_INVALID_DATES`
-- `ANSI_QUOTES`
-- `ERROR_FOR_DIVISION_BY_ZERO`
-- `HIGH_NOT_PRECEDENCE`
-- `IGNORE_SPACE`
-- `NO_AUTO_VALUE_ON_ZERO`
-- `NO_BACKSLASH_ESCAPES`
-- `NO_ENGINE_SUBSTITUTION`
-- `NO_UNSIGNED_SUBTRACTION`
-- `NO_ZERO_DATE`
-- `NO_ZERO_IN_DATE`
-- `ONLY_FULL_GROUP_BY`
-- `PAD_CHAR_TO_FULL_LENGTH`
-- `PIPES_AS_CONCAT`
-- `REAL_AS_FLOAT`
-- `STRICT_ALL_TABLES`
-- `STRICT_TRANS_TABLES`
-- `TIME_TRUNCATE_FRACTIONAL`
-- `ANSI`
-- `TRADITIONAL`
-- `NO_DIR_IN_CREATE` ||
+- `ALLOW_INVALID_DATES`: Allow dates where the day or month part is 0. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_allow_invalid_dates).
+- `ANSI_QUOTES`: Treat `"` as an identifier quote character (like the `` ` `` quote character) rather than as a string quote character. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_ansi_quotes).
+- `ERROR_FOR_DIVISION_BY_ZERO`: Produce an error for divisions by zero. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_error_for_division_by_zero).
+- `HIGH_NOT_PRECEDENCE`: Give `NOT` higher precedence in negation than it has in non-high-precedence mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_high_not_precedence).
+- `IGNORE_SPACE`: Allow spaces between a function name and the `(` character. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_ignore_space).
+- `NO_AUTO_VALUE_ON_ZERO`: Do not reset the AUTO_INCREMENT column to 0 when inserting 0 into it. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_no_auto_value_on_zero).
+- `NO_BACKSLASH_ESCAPES`: Disable the use of the backslash character (`\`) as an escape character within strings. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_no_backslash_escapes).
+- `NO_ENGINE_SUBSTITUTION`: Do not substitute the default storage engine when a statement specifies a storage engine that is disabled or not compiled in. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_no_engine_substitution).
+- `NO_UNSIGNED_SUBTRACTION`: Disable unsigned subtraction so that subtraction results are always signed. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_no_unsigned_subtraction).
+- `NO_ZERO_DATE`: Disable the MySQL-specific date `0000-00-00`. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_no_zero_date).
+- `NO_ZERO_IN_DATE`: Disable month or day parts of `0` in dates. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_no_zero_in_date).
+- `ONLY_FULL_GROUP_BY`: Reject queries for which the select list, `HAVING` condition, or `ORDER BY` list refer to non-aggregated columns that are not named in the `GROUP BY` clause. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_only_full_group_by).
+- `PAD_CHAR_TO_FULL_LENGTH`: Pad `CHAR` column values with spaces to the full column length when retrieving them. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_pad_char_to_full_length).
+- `PIPES_AS_CONCAT`: Treat `\|\|` as a string concatenation operator rather than as `OR`. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_pipes_as_concat).
+- `REAL_AS_FLOAT`: Treat `REAL` as a synonym for `FLOAT` rather than `DOUBLE`. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_real_as_float).
+- `STRICT_ALL_TABLES`: Strict mode for all storage engines. Invalid data values cause errors, not warnings. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_strict_all_tables).
+- `STRICT_TRANS_TABLES`: Strict mode for transactional storage engines. Invalid data values cause errors, not warnings. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_strict_trans_tables).
+- `TIME_TRUNCATE_FRACTIONAL`: Causes fractional seconds to be truncated rather than rounded when inserting into a column that has a data type with a fractional seconds part. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_time_truncate_fractional).
+- `ANSI`: Equivalent to `REAL_AS_FLOAT`, `PIPES_AS_CONCAT`, `ANSI_QUOTES`, `IGNORE_SPACE`, and `ONLY_FULL_GROUP_BY`. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_ansi).
+- `TRADITIONAL`: Equivalent to `STRICT_TRANS_TABLES`, `STRICT_ALL_TABLES`, `NO_ZERO_IN_DATE`, `NO_ZERO_DATE`, `ERROR_FOR_DIVISION_BY_ZERO`, and `NO_ENGINE_SUBSTITUTION`. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_traditional).
+- `NO_DIR_IN_CREATE`: Prevent the use of `..` in directory paths in `CREATE TABLE` statements. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_no_dir_in_create). ||
 || maxAllowedPacket | **string** (int64)
 
 The maximum size in bytes of one packet.
@@ -4689,9 +4790,9 @@ Default transaction isolation level.
 
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_transaction_isolation)
 
-- `READ_COMMITTED`
-- `REPEATABLE_READ`
-- `SERIALIZABLE` ||
+- `READ_COMMITTED`: Read committed isolation level. A consistent read within the same transaction reads the snapshot established by the first read.
+- `REPEATABLE_READ`: Repeatable read isolation level. All consistent reads within the same transaction read the snapshot established by the first read.
+- `SERIALIZABLE`: Serializable isolation level. All statements implicitly convert to SELECT ... FOR SHARE if autocommit is disabled. ||
 || innodbPrintAllDeadlocks | **boolean**
 
 Print information about deadlocks in error log
@@ -4836,7 +4937,7 @@ For details, see [MySQL documentation for the variable](https://dev.mysql.com/do
 Acceptable values are 131072 to 16777216, inclusive. ||
 || joinBufferSize | **string** (int64)
 
-The minimum size of the buffer that is used for plain index scans, range index scans, and joins that do not use indexes and thus perform full table scans.
+The minimum size of the buffer that is used for plain index scans, range index scans, and joins that don't use indexes and thus perform full table scans.
 
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_join_buffer_size).
 
@@ -4915,9 +5016,9 @@ For MySQL row-based replication, this variable determines how row images are wri
 
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/replication-options-binary-log.html#sysvar_binlog_row_image).
 
-- `FULL`
-- `MINIMAL`
-- `NOBLOB` ||
+- `FULL`: Log all columns (full row image).
+- `MINIMAL`: Log only changed columns and columns needed to identify the row.
+- `NOBLOB`: Log all columns except BLOB and TEXT columns. ||
 || binlogRowsQueryLogEvents | **boolean**
 
 When enabled, it causes the server to write informational log events such as row query log events into its binary log.
@@ -4936,8 +5037,8 @@ When using a multithreaded replica, this variable specifies the policy used to d
 
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/replication-options-replica.html#sysvar_slave_parallel_type).
 
-- `DATABASE`
-- `LOGICAL_CLOCK` ||
+- `DATABASE`: Transactions are parallelized per database (schema).
+- `LOGICAL_CLOCK`: Transactions are parallelized using the logical clock algorithm based on the binary log group commit. ||
 || slaveParallelWorkers | **string** (int64)
 
 Sets the number of applier threads for executing replication transactions in parallel.
@@ -4975,13 +5076,13 @@ Acceptable values are 600 to 86400, inclusive. ||
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.
 
-Acceptable values are 600 to 432000, inclusive. ||
+Acceptable values are 30 to 86400, inclusive. ||
 || mdbOfflineModeDisableLag | **string** (int64)
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'.
 Should be less than mdb_offline_mode_enable_lag.
 
-Acceptable values are 60 to 86400, inclusive. ||
+Acceptable values are 10 to 86400, inclusive. ||
 || rangeOptimizerMaxMemSize | **string** (int64)
 
 The limit on memory consumption for the range optimizer.
@@ -5035,8 +5136,8 @@ Specifies slow log granularity for log_slow_rate_limit: QUERY or SESSION
 
 For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.4/diagnostics/slow_extended.html#log_slow_rate_type).
 
-- `SESSION`
-- `QUERY` ||
+- `SESSION`: Logging is controlled per session.
+- `QUERY`: Logging is controlled per query. ||
 || logSlowRateLimit | **string** (int64)
 
 Specifies what fraction of session/query should be logged. Logging is enabled for every nth session/query.
@@ -5055,12 +5156,12 @@ Filters the slow log by the query's execution plan
 
 For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.4/diagnostics/slow_extended.html#log_slow_filter).
 
-- `FULL_SCAN`
-- `FULL_JOIN`
-- `TMP_TABLE`
-- `TMP_TABLE_ON_DISK`
-- `FILESORT`
-- `FILESORT_ON_DISK` ||
+- `FULL_SCAN`: Queries that perform a full table scan.
+- `FULL_JOIN`: Queries that perform a full join (a join without indexes).
+- `TMP_TABLE`: Queries that create an implicit internal temporary table.
+- `TMP_TABLE_ON_DISK`: Queries that create an implicit internal temporary table on disk.
+- `FILESORT`: Queries that use a filesort.
+- `FILESORT_ON_DISK`: Queries that use a filesort on disk. ||
 || mdbPriorityChoiceMaxLag | **string** (int64)
 
 Replication lag threshold (seconds) which allows replica to be promoted to master while executing "switchover from".
@@ -5168,10 +5269,10 @@ The policy controlling how the audit log plugin writes events to its log file
 
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/audit-log-reference.html#sysvar_audit_log_policy)
 
-- `ALL`
-- `LOGINS`
-- `QUERIES`
-- `NONE` ||
+- `ALL`: Log all events.
+- `LOGINS`: Log only login events.
+- `QUERIES`: Log only query events.
+- `NONE`: Do not log events. ||
 || replicationSenderObserveCommitOnly | **boolean**
 
 Limit callbacks to improve performance for semisynchronous replication
@@ -5211,12 +5312,12 @@ An optimization for change buffering
 
 For details, see [Percona documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_change_buffering).
 
-- `INNODB_CHANGE_BUFFERING_NONE`
-- `INNODB_CHANGE_BUFFERING_INSERTS`
-- `INNODB_CHANGE_BUFFERING_DELETES`
-- `INNODB_CHANGE_BUFFERING_CHANGES`
-- `INNODB_CHANGE_BUFFERING_PURGES`
-- `INNODB_CHANGE_BUFFERING_ALL` ||
+- `INNODB_CHANGE_BUFFERING_NONE`: Do not buffer any operations.
+- `INNODB_CHANGE_BUFFERING_INSERTS`: Buffer insert operations.
+- `INNODB_CHANGE_BUFFERING_DELETES`: Buffer delete-marking operations.
+- `INNODB_CHANGE_BUFFERING_CHANGES`: Buffer insert and delete-marking operations.
+- `INNODB_CHANGE_BUFFERING_PURGES`: Buffer operations where undo log records are discarded.
+- `INNODB_CHANGE_BUFFERING_ALL`: Buffer all types of eligible operations. ||
 || maxWriteLockCount | **string** (int64)
 
 Permit some pending read lock requests interval
@@ -5225,6 +5326,13 @@ P.S. Should be UInt64, but java fails to handle UInt64 limits
 For details, see [Percona documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_max_write_lock_count).
 
 The minimum value is 1. ||
+|| innodbAdaptiveHashIndexParts | **string** (int64)
+
+Partitions the adaptive hash index search system.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_adaptive_hash_index_parts)
+
+Acceptable values are 1 to 512, inclusive. ||
 |#
 
 ## Resources {#yandex.cloud.mdb.mysql.v1.Resources}
@@ -5566,7 +5674,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "innodbLruScanDepth": "string",
           "mdbForceSsl": "boolean",
           "innodbChangeBuffering": "string",
-          "maxWriteLockCount": "string"
+          "maxWriteLockCount": "string",
+          "innodbAdaptiveHashIndexParts": "string"
         },
         "userConfig": {
           "innodbBufferPoolSize": "string",
@@ -5664,7 +5773,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "innodbLruScanDepth": "string",
           "mdbForceSsl": "boolean",
           "innodbChangeBuffering": "string",
-          "maxWriteLockCount": "string"
+          "maxWriteLockCount": "string",
+          "innodbAdaptiveHashIndexParts": "string"
         },
         "defaultConfig": {
           "innodbBufferPoolSize": "string",
@@ -5762,7 +5872,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "innodbLruScanDepth": "string",
           "mdbForceSsl": "boolean",
           "innodbChangeBuffering": "string",
-          "maxWriteLockCount": "string"
+          "maxWriteLockCount": "string",
+          "innodbAdaptiveHashIndexParts": "string"
         }
       },
       "mysqlConfig_8_0": {
@@ -5861,7 +5972,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "sqlRequirePrimaryKey": "boolean",
           "mdbForceSsl": "boolean",
           "innodbChangeBuffering": "string",
-          "maxWriteLockCount": "string"
+          "maxWriteLockCount": "string",
+          "innodbAdaptiveHashIndexParts": "string"
         },
         "userConfig": {
           "innodbBufferPoolSize": "string",
@@ -5958,7 +6070,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "sqlRequirePrimaryKey": "boolean",
           "mdbForceSsl": "boolean",
           "innodbChangeBuffering": "string",
-          "maxWriteLockCount": "string"
+          "maxWriteLockCount": "string",
+          "innodbAdaptiveHashIndexParts": "string"
         },
         "defaultConfig": {
           "innodbBufferPoolSize": "string",
@@ -6055,7 +6168,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "sqlRequirePrimaryKey": "boolean",
           "mdbForceSsl": "boolean",
           "innodbChangeBuffering": "string",
-          "maxWriteLockCount": "string"
+          "maxWriteLockCount": "string",
+          "innodbAdaptiveHashIndexParts": "string"
         }
       },
       "mysqlConfig_8_4": {
@@ -6153,7 +6267,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "mdbAsyncAllowedLag": "string",
           "mdbForceSsl": "boolean",
           "innodbChangeBuffering": "string",
-          "maxWriteLockCount": "string"
+          "maxWriteLockCount": "string",
+          "innodbAdaptiveHashIndexParts": "string"
         },
         "userConfig": {
           "innodbBufferPoolSize": "string",
@@ -6249,7 +6364,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "mdbAsyncAllowedLag": "string",
           "mdbForceSsl": "boolean",
           "innodbChangeBuffering": "string",
-          "maxWriteLockCount": "string"
+          "maxWriteLockCount": "string",
+          "innodbAdaptiveHashIndexParts": "string"
         },
         "defaultConfig": {
           "innodbBufferPoolSize": "string",
@@ -6345,7 +6461,8 @@ Acceptable values are 1 to 24, inclusive. ||
           "mdbAsyncAllowedLag": "string",
           "mdbForceSsl": "boolean",
           "innodbChangeBuffering": "string",
-          "maxWriteLockCount": "string"
+          "maxWriteLockCount": "string",
+          "innodbAdaptiveHashIndexParts": "string"
         }
       },
       // end of the list of possible fields
@@ -6728,37 +6845,37 @@ Server SQL mode of MySQL.
 
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sql-mode-setting) for details.
 
-- `ALLOW_INVALID_DATES`
-- `ANSI_QUOTES`
-- `ERROR_FOR_DIVISION_BY_ZERO`
-- `HIGH_NOT_PRECEDENCE`
-- `IGNORE_SPACE`
-- `NO_AUTO_VALUE_ON_ZERO`
-- `NO_BACKSLASH_ESCAPES`
-- `NO_ENGINE_SUBSTITUTION`
-- `NO_UNSIGNED_SUBTRACTION`
-- `NO_ZERO_DATE`
-- `NO_ZERO_IN_DATE`
-- `NO_FIELD_OPTIONS`
-- `NO_KEY_OPTIONS`
-- `NO_TABLE_OPTIONS`
-- `ONLY_FULL_GROUP_BY`
-- `PAD_CHAR_TO_FULL_LENGTH`
-- `PIPES_AS_CONCAT`
-- `REAL_AS_FLOAT`
-- `STRICT_ALL_TABLES`
-- `STRICT_TRANS_TABLES`
-- `ANSI`
-- `TRADITIONAL`
-- `DB2`
-- `MAXDB`
-- `MSSQL`
-- `MYSQL323`
-- `MYSQL40`
-- `ORACLE`
-- `POSTGRESQL`
-- `NO_AUTO_CREATE_USER`
-- `NO_DIR_IN_CREATE` ||
+- `ALLOW_INVALID_DATES`: Allow dates where the day or month part is 0. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_allow_invalid_dates).
+- `ANSI_QUOTES`: Treat `"` as an identifier quote character (like the `` ` `` quote character) rather than as a string quote character. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_ansi_quotes).
+- `ERROR_FOR_DIVISION_BY_ZERO`: Produce an error for divisions by zero. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_error_for_division_by_zero).
+- `HIGH_NOT_PRECEDENCE`: Give `NOT` higher precedence in negation than it has in non-high-precedence mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_high_not_precedence).
+- `IGNORE_SPACE`: Allow spaces between a function name and the `(` character. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_ignore_space).
+- `NO_AUTO_VALUE_ON_ZERO`: Do not reset the AUTO_INCREMENT column to 0 when inserting 0 into it. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_auto_value_on_zero).
+- `NO_BACKSLASH_ESCAPES`: Disable the use of the backslash character (`\`) as an escape character within strings. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_backslash_escapes).
+- `NO_ENGINE_SUBSTITUTION`: Do not substitute the default storage engine when a statement specifies a storage engine that is disabled or not compiled in. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_engine_substitution).
+- `NO_UNSIGNED_SUBTRACTION`: Disable unsigned subtraction so that subtraction results are always signed. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_unsigned_subtraction).
+- `NO_ZERO_DATE`: Disable the MySQL-specific date `0000-00-00`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_zero_date).
+- `NO_ZERO_IN_DATE`: Disable month or day parts of `0` in dates. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_zero_in_date).
+- `NO_FIELD_OPTIONS`: Ignore field options in `CREATE TABLE` statements (MySQL 5.7 compatibility). See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_field_options).
+- `NO_KEY_OPTIONS`: Ignore key options in `CREATE TABLE` statements (MySQL 5.7 compatibility). See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_key_options).
+- `NO_TABLE_OPTIONS`: Ignore table options in `CREATE TABLE` statements (MySQL 5.7 compatibility). See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_table_options).
+- `ONLY_FULL_GROUP_BY`: Reject queries for which the select list, `HAVING` condition, or `ORDER BY` list refer to non-aggregated columns that are not named in the `GROUP BY` clause. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_only_full_group_by).
+- `PAD_CHAR_TO_FULL_LENGTH`: Pad `CHAR` column values with spaces to the full column length when retrieving them. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_pad_char_to_full_length).
+- `PIPES_AS_CONCAT`: Treat `\|\|` as a string concatenation operator rather than as `OR`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_pipes_as_concat).
+- `REAL_AS_FLOAT`: Treat `REAL` as a synonym for `FLOAT` rather than `DOUBLE`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_real_as_float).
+- `STRICT_ALL_TABLES`: Strict mode for all storage engines. Invalid data values cause errors, not warnings. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_strict_all_tables).
+- `STRICT_TRANS_TABLES`: Strict mode for transactional storage engines. Invalid data values cause errors, not warnings. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_strict_trans_tables).
+- `ANSI`: Equivalent to `REAL_AS_FLOAT`, `PIPES_AS_CONCAT`, `ANSI_QUOTES`, `IGNORE_SPACE`, and `ONLY_FULL_GROUP_BY`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_ansi).
+- `TRADITIONAL`: Equivalent to `STRICT_TRANS_TABLES`, `STRICT_ALL_TABLES`, `NO_ZERO_IN_DATE`, `NO_ZERO_DATE`, `ERROR_FOR_DIVISION_BY_ZERO`, and `NO_AUTO_CREATE_USER`. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_traditional).
+- `DB2`: IBM DB2 compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_db2).
+- `MAXDB`: SAP MaxDB compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_maxdb).
+- `MSSQL`: Microsoft SQL Server compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_mssql).
+- `MYSQL323`: MySQL 3.23 compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_mysql323).
+- `MYSQL40`: MySQL 4.0 compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_mysql40).
+- `ORACLE`: Oracle compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_oracle).
+- `POSTGRESQL`: PostgreSQL compatibility mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_postgresql).
+- `NO_AUTO_CREATE_USER`: Prevent `GRANT` from creating new users implicitly. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_auto_create_user).
+- `NO_DIR_IN_CREATE`: Prevent the use of `..` in directory paths in `CREATE TABLE` statements. See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/sql-mode.html#sqlmode_no_dir_in_create). ||
 || maxAllowedPacket | **string** (int64)
 
 The maximum size in bytes of one packet.
@@ -6773,7 +6890,7 @@ Authentication plugin used in the managed MySQL cluster.
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_default_authentication_plugin) for details.
 
 - `MYSQL_NATIVE_PASSWORD`: Using [Native Pluggable Authentication](https://dev.mysql.com/doc/refman/5.7/en/native-pluggable-authentication.html).
-- `CACHING_SHA2_PASSWORD`
+- `CACHING_SHA2_PASSWORD`: Using [Caching SHA-2 Pluggable Authentication](https://dev.mysql.com/doc/refman/5.7/en/caching-sha2-pluggable-authentication.html).
 - `SHA256_PASSWORD`: Using [SHA-256 Pluggable Authentication](https://dev.mysql.com/doc/refman/5.7/en/sha256-pluggable-authentication.html).
 - `MYSQL_NO_LOGIN`: Use [MYSQL_NO_LOGIN Pluggable Authentication](https://dev.mysql.com/doc/refman/5.7/en/no-login-pluggable-authentication.html).
 - `MDB_IAMPROXY_AUTH`: Use [IAM Pluggable Authentication](https://yandex.cloud/en/docs/iam/concepts/authorization/). ||
@@ -6797,9 +6914,9 @@ Default transaction isolation level.
 
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_transaction_isolation) for details.
 
-- `READ_COMMITTED`
-- `REPEATABLE_READ`
-- `SERIALIZABLE` ||
+- `READ_COMMITTED`: Read committed isolation level. A consistent read within the same transaction reads the snapshot established by the first read.
+- `REPEATABLE_READ`: Repeatable read isolation level. All consistent reads within the same transaction read the snapshot established by the first read.
+- `SERIALIZABLE`: Serializable isolation level. All statements implicitly convert to SELECT ... FOR SHARE if autocommit is disabled. ||
 || innodbPrintAllDeadlocks | **boolean**
 
 Print information about deadlocks in error log.
@@ -6944,7 +7061,7 @@ See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-
 Acceptable values are 131072 to 16777216, inclusive. ||
 || joinBufferSize | **string** (int64)
 
-The minimum size of the buffer that is used for plain index scans, range index scans, and joins that do not use indexes and thus perform full table scans.
+The minimum size of the buffer that is used for plain index scans, range index scans, and joins that don't use indexes and thus perform full table scans.
 
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_join_buffer_size) for details.
 
@@ -7023,9 +7140,9 @@ For MySQL row-based replication, this variable determines how row images are wri
 
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_row_image) for details.
 
-- `FULL`
-- `MINIMAL`
-- `NOBLOB` ||
+- `FULL`: Log all columns (full row image).
+- `MINIMAL`: Log only changed columns and columns needed to identify the row.
+- `NOBLOB`: Log all columns except BLOB and TEXT columns. ||
 || binlogRowsQueryLogEvents | **boolean**
 
 When enabled, it causes the server to write informational log events such as row query log events into its binary log.
@@ -7044,8 +7161,8 @@ When using a multi-threaded replica, this variable specifies the policy used to 
 
 See [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#sysvar_slave_parallel_type) for details.
 
-- `DATABASE`
-- `LOGICAL_CLOCK` ||
+- `DATABASE`: Transactions are parallelized per database (schema).
+- `LOGICAL_CLOCK`: Transactions are parallelized using the logical clock algorithm based on the binary log group commit. ||
 || slaveParallelWorkers | **string** (int64)
 
 Sets the number of applier threads for executing replication transactions in parallel.
@@ -7076,13 +7193,13 @@ Acceptable values are 600 to 86400, inclusive. ||
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.
 
-Acceptable values are 600 to 432000, inclusive. ||
+Acceptable values are 30 to 86400, inclusive. ||
 || mdbOfflineModeDisableLag | **string** (int64)
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'.
 Should be less than mdb_offline_mode_enable_lag value.
 
-Acceptable values are 60 to 86400, inclusive. ||
+Acceptable values are 10 to 86400, inclusive. ||
 || rangeOptimizerMaxMemSize | **string** (int64)
 
 The limit on memory consumption for the range optimizer.
@@ -7106,8 +7223,8 @@ Specifies slow log granularity for `log_slow_rate_limit` values QUERY or SESSION
 
 See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_type) for details.
 
-- `SESSION`
-- `QUERY` ||
+- `SESSION`: Logging is controlled per session.
+- `QUERY`: Logging is controlled per query. ||
 || logSlowRateLimit | **string** (int64)
 
 Specifies what fraction of session/query should be logged. Logging is enabled for every nth session/query.
@@ -7126,12 +7243,12 @@ Filters the slow log by the query's execution plan.
 
 See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_filter) for details.
 
-- `FULL_SCAN`
-- `FULL_JOIN`
-- `TMP_TABLE`
-- `TMP_TABLE_ON_DISK`
-- `FILESORT`
-- `FILESORT_ON_DISK` ||
+- `FULL_SCAN`: Queries that perform a full table scan.
+- `FULL_JOIN`: Queries that perform a full join (a join without indexes).
+- `TMP_TABLE`: Queries that create an implicit internal temporary table.
+- `TMP_TABLE_ON_DISK`: Queries that create an implicit internal temporary table on disk.
+- `FILESORT`: Queries that use a filesort.
+- `FILESORT_ON_DISK`: Queries that use a filesort on disk. ||
 || mdbPriorityChoiceMaxLag | **string** (int64)
 
 Replication lag threshold (seconds) which allows replica to be promoted to master while executing "switchover from".
@@ -7198,9 +7315,9 @@ Specifies how the source mysqld generates the dependency information that it wri
 
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_transaction_dependency_tracking).
 
-- `COMMIT_ORDER`
-- `WRITESET`
-- `WRITESET_SESSION` ||
+- `COMMIT_ORDER`: Transactions are made dependent based on commit order.
+- `WRITESET`: Transactions are made dependent based on the write set of rows modified by the transaction.
+- `WRITESET_SESSION`: Transactions are made dependent based on the write set and the commit order within a session. ||
 || autocommit | **boolean**
 
 Config specific will be all changes to a table take effect immediately or you must use COMMIT to accept a transaction or ROLLBACK to cancel it.
@@ -7302,10 +7419,10 @@ The policy controlling how the audit log plugin writes events to its log file
 
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/audit-log-reference.html#sysvar_audit_log_policy)
 
-- `ALL`
-- `LOGINS`
-- `QUERIES`
-- `NONE` ||
+- `ALL`: Log all events.
+- `LOGINS`: Log only login events.
+- `QUERIES`: Log only query events.
+- `NONE`: Do not log events. ||
 || innodbLruScanDepth | **string** (int64)
 
 A parameter that influences the algorithms and heuristics for the flush operation for the InnoDB buffer pool
@@ -7322,12 +7439,12 @@ An optimization for change buffering
 
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_change_buffering).
 
-- `INNODB_CHANGE_BUFFERING_NONE`
-- `INNODB_CHANGE_BUFFERING_INSERTS`
-- `INNODB_CHANGE_BUFFERING_DELETES`
-- `INNODB_CHANGE_BUFFERING_CHANGES`
-- `INNODB_CHANGE_BUFFERING_PURGES`
-- `INNODB_CHANGE_BUFFERING_ALL` ||
+- `INNODB_CHANGE_BUFFERING_NONE`: Do not buffer any operations.
+- `INNODB_CHANGE_BUFFERING_INSERTS`: Buffer insert operations.
+- `INNODB_CHANGE_BUFFERING_DELETES`: Buffer delete-marking operations.
+- `INNODB_CHANGE_BUFFERING_CHANGES`: Buffer insert and delete-marking operations.
+- `INNODB_CHANGE_BUFFERING_PURGES`: Buffer operations where undo log records are discarded.
+- `INNODB_CHANGE_BUFFERING_ALL`: Buffer all types of eligible operations. ||
 || maxWriteLockCount | **string** (int64)
 
 Permit some pending read lock requests interval
@@ -7336,6 +7453,13 @@ P.S. Should be UInt64, but java fails to handle UInt64 limits
 For details, see [Percona documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html#sysvar_max_write_lock_count).
 
 The minimum value is 1. ||
+|| innodbAdaptiveHashIndexParts | **string** (int64)
+
+Partitions the adaptive hash index search system.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_adaptive_hash_index_parts)
+
+Acceptable values are 1 to 512, inclusive. ||
 |#
 
 ## MysqlConfigSet8_0 {#yandex.cloud.mdb.mysql.v1.config.MysqlConfigSet8_0}
@@ -7395,27 +7519,27 @@ Server SQL mode of MySQL.
 
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sql-mode-setting) for details.
 
-- `ALLOW_INVALID_DATES`
-- `ANSI_QUOTES`
-- `ERROR_FOR_DIVISION_BY_ZERO`
-- `HIGH_NOT_PRECEDENCE`
-- `IGNORE_SPACE`
-- `NO_AUTO_VALUE_ON_ZERO`
-- `NO_BACKSLASH_ESCAPES`
-- `NO_ENGINE_SUBSTITUTION`
-- `NO_UNSIGNED_SUBTRACTION`
-- `NO_ZERO_DATE`
-- `NO_ZERO_IN_DATE`
-- `ONLY_FULL_GROUP_BY`
-- `PAD_CHAR_TO_FULL_LENGTH`
-- `PIPES_AS_CONCAT`
-- `REAL_AS_FLOAT`
-- `STRICT_ALL_TABLES`
-- `STRICT_TRANS_TABLES`
-- `TIME_TRUNCATE_FRACTIONAL`
-- `ANSI`
-- `TRADITIONAL`
-- `NO_DIR_IN_CREATE` ||
+- `ALLOW_INVALID_DATES`: Allow dates where the day or month part is 0. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_allow_invalid_dates).
+- `ANSI_QUOTES`: Treat `"` as an identifier quote character (like the `` ` `` quote character) rather than as a string quote character. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_ansi_quotes).
+- `ERROR_FOR_DIVISION_BY_ZERO`: Produce an error for divisions by zero. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_error_for_division_by_zero).
+- `HIGH_NOT_PRECEDENCE`: Give `NOT` higher precedence in negation than it has in non-high-precedence mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_high_not_precedence).
+- `IGNORE_SPACE`: Allow spaces between a function name and the `(` character. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_ignore_space).
+- `NO_AUTO_VALUE_ON_ZERO`: Do not reset the AUTO_INCREMENT column to 0 when inserting 0 into it. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_auto_value_on_zero).
+- `NO_BACKSLASH_ESCAPES`: Disable the use of the backslash character (`\`) as an escape character within strings. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_backslash_escapes).
+- `NO_ENGINE_SUBSTITUTION`: Do not substitute the default storage engine when a statement specifies a storage engine that is disabled or not compiled in. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_engine_substitution).
+- `NO_UNSIGNED_SUBTRACTION`: Disable unsigned subtraction so that subtraction results are always signed. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_unsigned_subtraction).
+- `NO_ZERO_DATE`: Disable the MySQL-specific date `0000-00-00`. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_zero_date).
+- `NO_ZERO_IN_DATE`: Disable month or day parts of `0` in dates. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_zero_in_date).
+- `ONLY_FULL_GROUP_BY`: Reject queries for which the select list, `HAVING` condition, or `ORDER BY` list refer to non-aggregated columns that are not named in the `GROUP BY` clause. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_only_full_group_by).
+- `PAD_CHAR_TO_FULL_LENGTH`: Pad `CHAR` column values with spaces to the full column length when retrieving them. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_pad_char_to_full_length).
+- `PIPES_AS_CONCAT`: Treat `\|\|` as a string concatenation operator rather than as `OR`. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_pipes_as_concat).
+- `REAL_AS_FLOAT`: Treat `REAL` as a synonym for `FLOAT` rather than `DOUBLE`. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_real_as_float).
+- `STRICT_ALL_TABLES`: Strict mode for all storage engines. Invalid data values cause errors, not warnings. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_strict_all_tables).
+- `STRICT_TRANS_TABLES`: Strict mode for transactional storage engines. Invalid data values cause errors, not warnings. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_strict_trans_tables).
+- `TIME_TRUNCATE_FRACTIONAL`: Causes fractional seconds to be truncated rather than rounded when inserting into a column that has a data type with a fractional seconds part. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_time_truncate_fractional).
+- `ANSI`: Equivalent to `REAL_AS_FLOAT`, `PIPES_AS_CONCAT`, `ANSI_QUOTES`, `IGNORE_SPACE`, and `ONLY_FULL_GROUP_BY`. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_ansi).
+- `TRADITIONAL`: Equivalent to `STRICT_TRANS_TABLES`, `STRICT_ALL_TABLES`, `NO_ZERO_IN_DATE`, `NO_ZERO_DATE`, `ERROR_FOR_DIVISION_BY_ZERO`, and `NO_ENGINE_SUBSTITUTION`. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_traditional).
+- `NO_DIR_IN_CREATE`: Prevent the use of `..` in directory paths in `CREATE TABLE` statements. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/sql-mode.html#sqlmode_no_dir_in_create). ||
 || maxAllowedPacket | **string** (int64)
 
 The maximum size in bytes of one packet.
@@ -7454,9 +7578,9 @@ Default transaction isolation level.
 
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_transaction_isolation) for details.
 
-- `READ_COMMITTED`
-- `REPEATABLE_READ`
-- `SERIALIZABLE` ||
+- `READ_COMMITTED`: Read committed isolation level. A consistent read within the same transaction reads the snapshot established by the first read.
+- `REPEATABLE_READ`: Repeatable read isolation level. All consistent reads within the same transaction read the snapshot established by the first read.
+- `SERIALIZABLE`: Serializable isolation level. All statements implicitly convert to SELECT ... FOR SHARE if autocommit is disabled. ||
 || innodbPrintAllDeadlocks | **boolean**
 
 Print information about deadlocks in error log.
@@ -7601,7 +7725,7 @@ See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-
 Acceptable values are 131072 to 16777216, inclusive. ||
 || joinBufferSize | **string** (int64)
 
-The minimum size of the buffer that is used for plain index scans, range index scans, and joins that do not use indexes and thus perform full table scans.
+The minimum size of the buffer that is used for plain index scans, range index scans, and joins that don't use indexes and thus perform full table scans.
 
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_join_buffer_size) for details.
 
@@ -7680,9 +7804,9 @@ For MySQL row-based replication, this variable determines how row images are wri
 
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_row_image) for details.
 
-- `FULL`
-- `MINIMAL`
-- `NOBLOB` ||
+- `FULL`: Log all columns (full row image).
+- `MINIMAL`: Log only changed columns and columns needed to identify the row.
+- `NOBLOB`: Log all columns except BLOB and TEXT columns. ||
 || binlogRowsQueryLogEvents | **boolean**
 
 When enabled, it causes the server to write informational log events such as row query log events into its binary log.
@@ -7701,8 +7825,8 @@ When using a multi-threaded replica, this variable specifies the policy used to 
 
 See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-replica.html#sysvar_slave_parallel_type) for details.
 
-- `DATABASE`
-- `LOGICAL_CLOCK` ||
+- `DATABASE`: Transactions are parallelized per database (schema).
+- `LOGICAL_CLOCK`: Transactions are parallelized using the logical clock algorithm based on the binary log group commit. ||
 || slaveParallelWorkers | **string** (int64)
 
 Sets the number of applier threads for executing replication transactions in parallel.
@@ -7740,13 +7864,13 @@ Acceptable values are 600 to 86400, inclusive. ||
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.
 
-Acceptable values are 600 to 432000, inclusive. ||
+Acceptable values are 30 to 86400, inclusive. ||
 || mdbOfflineModeDisableLag | **string** (int64)
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'.
 Should be less than mdb_offline_mode_enable_lag.
 
-Acceptable values are 60 to 86400, inclusive. ||
+Acceptable values are 10 to 86400, inclusive. ||
 || rangeOptimizerMaxMemSize | **string** (int64)
 
 The limit on memory consumption for the range optimizer.
@@ -7770,8 +7894,8 @@ Specifies slow log granularity for `log_slow_rate_limit` QUERY or SESSION value.
 
 See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_rate_type) for details.
 
-- `SESSION`
-- `QUERY` ||
+- `SESSION`: Logging is controlled per session.
+- `QUERY`: Logging is controlled per query. ||
 || logSlowRateLimit | **string** (int64)
 
 Specifies what fraction of session/query should be logged. Logging is enabled for every nth session/query.
@@ -7790,12 +7914,12 @@ Filters the slow log by the query's execution plan.
 
 See [Percona documentation](https://www.percona.com/doc/percona-server/8.0/diagnostics/slow_extended.html#log_slow_filter) for details.
 
-- `FULL_SCAN`
-- `FULL_JOIN`
-- `TMP_TABLE`
-- `TMP_TABLE_ON_DISK`
-- `FILESORT`
-- `FILESORT_ON_DISK` ||
+- `FULL_SCAN`: Queries that perform a full table scan.
+- `FULL_JOIN`: Queries that perform a full join (a join without indexes).
+- `TMP_TABLE`: Queries that create an implicit internal temporary table.
+- `TMP_TABLE_ON_DISK`: Queries that create an implicit internal temporary table on disk.
+- `FILESORT`: Queries that use a filesort.
+- `FILESORT_ON_DISK`: Queries that use a filesort on disk. ||
 || mdbPriorityChoiceMaxLag | **string** (int64)
 
 Replication lag threshold (seconds) which allows replica to be promoted to master while executing "switchover from".
@@ -7857,9 +7981,9 @@ Specifies how the source mysqld generates the dependency information that it wri
 
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_transaction_dependency_tracking).
 
-- `COMMIT_ORDER`
-- `WRITESET`
-- `WRITESET_SESSION` ||
+- `COMMIT_ORDER`: Transactions are made dependent based on commit order.
+- `WRITESET`: Transactions are made dependent based on the write set of rows modified by the transaction.
+- `WRITESET_SESSION`: Transactions are made dependent based on the write set and the commit order within a session. ||
 || autocommit | **boolean**
 
 Config specific will be all changes to a table take effect immediately or you must use COMMIT to accept a transaction or ROLLBACK to cancel it.
@@ -7939,10 +8063,10 @@ The policy controlling how the audit log plugin writes events to its log file
 
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/audit-log-reference.html#sysvar_audit_log_policy)
 
-- `ALL`
-- `LOGINS`
-- `QUERIES`
-- `NONE` ||
+- `ALL`: Log all events.
+- `LOGINS`: Log only login events.
+- `QUERIES`: Log only query events.
+- `NONE`: Do not log events. ||
 || replicationSenderObserveCommitOnly | **boolean**
 
 Limit callbacks to improve performance for semisynchronous replication
@@ -7974,12 +8098,12 @@ An optimization for change buffering
 
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_change_buffering).
 
-- `INNODB_CHANGE_BUFFERING_NONE`
-- `INNODB_CHANGE_BUFFERING_INSERTS`
-- `INNODB_CHANGE_BUFFERING_DELETES`
-- `INNODB_CHANGE_BUFFERING_CHANGES`
-- `INNODB_CHANGE_BUFFERING_PURGES`
-- `INNODB_CHANGE_BUFFERING_ALL` ||
+- `INNODB_CHANGE_BUFFERING_NONE`: Do not buffer any operations.
+- `INNODB_CHANGE_BUFFERING_INSERTS`: Buffer insert operations.
+- `INNODB_CHANGE_BUFFERING_DELETES`: Buffer delete-marking operations.
+- `INNODB_CHANGE_BUFFERING_CHANGES`: Buffer insert and delete-marking operations.
+- `INNODB_CHANGE_BUFFERING_PURGES`: Buffer operations where undo log records are discarded.
+- `INNODB_CHANGE_BUFFERING_ALL`: Buffer all types of eligible operations. ||
 || maxWriteLockCount | **string** (int64)
 
 Permit some pending read lock requests interval
@@ -7988,6 +8112,13 @@ P.S. Should be UInt64, but java fails to handle UInt64 limits
 For details, see [Percona documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_write_lock_count).
 
 The minimum value is 1. ||
+|| innodbAdaptiveHashIndexParts | **string** (int64)
+
+Partitions the adaptive hash index search system.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_adaptive_hash_index_parts)
+
+Acceptable values are 1 to 512, inclusive. ||
 |#
 
 ## MysqlConfigSet8_4 {#yandex.cloud.mdb.mysql.v1.config.MysqlConfigSet8_4}
@@ -8044,27 +8175,27 @@ Server SQL mode of MySQL.
 
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sql-mode-setting).
 
-- `ALLOW_INVALID_DATES`
-- `ANSI_QUOTES`
-- `ERROR_FOR_DIVISION_BY_ZERO`
-- `HIGH_NOT_PRECEDENCE`
-- `IGNORE_SPACE`
-- `NO_AUTO_VALUE_ON_ZERO`
-- `NO_BACKSLASH_ESCAPES`
-- `NO_ENGINE_SUBSTITUTION`
-- `NO_UNSIGNED_SUBTRACTION`
-- `NO_ZERO_DATE`
-- `NO_ZERO_IN_DATE`
-- `ONLY_FULL_GROUP_BY`
-- `PAD_CHAR_TO_FULL_LENGTH`
-- `PIPES_AS_CONCAT`
-- `REAL_AS_FLOAT`
-- `STRICT_ALL_TABLES`
-- `STRICT_TRANS_TABLES`
-- `TIME_TRUNCATE_FRACTIONAL`
-- `ANSI`
-- `TRADITIONAL`
-- `NO_DIR_IN_CREATE` ||
+- `ALLOW_INVALID_DATES`: Allow dates where the day or month part is 0. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_allow_invalid_dates).
+- `ANSI_QUOTES`: Treat `"` as an identifier quote character (like the `` ` `` quote character) rather than as a string quote character. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_ansi_quotes).
+- `ERROR_FOR_DIVISION_BY_ZERO`: Produce an error for divisions by zero. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_error_for_division_by_zero).
+- `HIGH_NOT_PRECEDENCE`: Give `NOT` higher precedence in negation than it has in non-high-precedence mode. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_high_not_precedence).
+- `IGNORE_SPACE`: Allow spaces between a function name and the `(` character. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_ignore_space).
+- `NO_AUTO_VALUE_ON_ZERO`: Do not reset the AUTO_INCREMENT column to 0 when inserting 0 into it. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_no_auto_value_on_zero).
+- `NO_BACKSLASH_ESCAPES`: Disable the use of the backslash character (`\`) as an escape character within strings. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_no_backslash_escapes).
+- `NO_ENGINE_SUBSTITUTION`: Do not substitute the default storage engine when a statement specifies a storage engine that is disabled or not compiled in. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_no_engine_substitution).
+- `NO_UNSIGNED_SUBTRACTION`: Disable unsigned subtraction so that subtraction results are always signed. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_no_unsigned_subtraction).
+- `NO_ZERO_DATE`: Disable the MySQL-specific date `0000-00-00`. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_no_zero_date).
+- `NO_ZERO_IN_DATE`: Disable month or day parts of `0` in dates. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_no_zero_in_date).
+- `ONLY_FULL_GROUP_BY`: Reject queries for which the select list, `HAVING` condition, or `ORDER BY` list refer to non-aggregated columns that are not named in the `GROUP BY` clause. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_only_full_group_by).
+- `PAD_CHAR_TO_FULL_LENGTH`: Pad `CHAR` column values with spaces to the full column length when retrieving them. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_pad_char_to_full_length).
+- `PIPES_AS_CONCAT`: Treat `\|\|` as a string concatenation operator rather than as `OR`. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_pipes_as_concat).
+- `REAL_AS_FLOAT`: Treat `REAL` as a synonym for `FLOAT` rather than `DOUBLE`. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_real_as_float).
+- `STRICT_ALL_TABLES`: Strict mode for all storage engines. Invalid data values cause errors, not warnings. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_strict_all_tables).
+- `STRICT_TRANS_TABLES`: Strict mode for transactional storage engines. Invalid data values cause errors, not warnings. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_strict_trans_tables).
+- `TIME_TRUNCATE_FRACTIONAL`: Causes fractional seconds to be truncated rather than rounded when inserting into a column that has a data type with a fractional seconds part. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_time_truncate_fractional).
+- `ANSI`: Equivalent to `REAL_AS_FLOAT`, `PIPES_AS_CONCAT`, `ANSI_QUOTES`, `IGNORE_SPACE`, and `ONLY_FULL_GROUP_BY`. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_ansi).
+- `TRADITIONAL`: Equivalent to `STRICT_TRANS_TABLES`, `STRICT_ALL_TABLES`, `NO_ZERO_IN_DATE`, `NO_ZERO_DATE`, `ERROR_FOR_DIVISION_BY_ZERO`, and `NO_ENGINE_SUBSTITUTION`. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_traditional).
+- `NO_DIR_IN_CREATE`: Prevent the use of `..` in directory paths in `CREATE TABLE` statements. See [MySQL documentation](https://dev.mysql.com/doc/refman/8.4/en/sql-mode.html#sqlmode_no_dir_in_create). ||
 || maxAllowedPacket | **string** (int64)
 
 The maximum size in bytes of one packet.
@@ -8092,9 +8223,9 @@ Default transaction isolation level.
 
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_transaction_isolation)
 
-- `READ_COMMITTED`
-- `REPEATABLE_READ`
-- `SERIALIZABLE` ||
+- `READ_COMMITTED`: Read committed isolation level. A consistent read within the same transaction reads the snapshot established by the first read.
+- `REPEATABLE_READ`: Repeatable read isolation level. All consistent reads within the same transaction read the snapshot established by the first read.
+- `SERIALIZABLE`: Serializable isolation level. All statements implicitly convert to SELECT ... FOR SHARE if autocommit is disabled. ||
 || innodbPrintAllDeadlocks | **boolean**
 
 Print information about deadlocks in error log
@@ -8239,7 +8370,7 @@ For details, see [MySQL documentation for the variable](https://dev.mysql.com/do
 Acceptable values are 131072 to 16777216, inclusive. ||
 || joinBufferSize | **string** (int64)
 
-The minimum size of the buffer that is used for plain index scans, range index scans, and joins that do not use indexes and thus perform full table scans.
+The minimum size of the buffer that is used for plain index scans, range index scans, and joins that don't use indexes and thus perform full table scans.
 
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_join_buffer_size).
 
@@ -8318,9 +8449,9 @@ For MySQL row-based replication, this variable determines how row images are wri
 
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/replication-options-binary-log.html#sysvar_binlog_row_image).
 
-- `FULL`
-- `MINIMAL`
-- `NOBLOB` ||
+- `FULL`: Log all columns (full row image).
+- `MINIMAL`: Log only changed columns and columns needed to identify the row.
+- `NOBLOB`: Log all columns except BLOB and TEXT columns. ||
 || binlogRowsQueryLogEvents | **boolean**
 
 When enabled, it causes the server to write informational log events such as row query log events into its binary log.
@@ -8339,8 +8470,8 @@ When using a multithreaded replica, this variable specifies the policy used to d
 
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/replication-options-replica.html#sysvar_slave_parallel_type).
 
-- `DATABASE`
-- `LOGICAL_CLOCK` ||
+- `DATABASE`: Transactions are parallelized per database (schema).
+- `LOGICAL_CLOCK`: Transactions are parallelized using the logical clock algorithm based on the binary log group commit. ||
 || slaveParallelWorkers | **string** (int64)
 
 Sets the number of applier threads for executing replication transactions in parallel.
@@ -8378,13 +8509,13 @@ Acceptable values are 600 to 86400, inclusive. ||
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = ON' to prevent users from reading stale data.
 
-Acceptable values are 600 to 432000, inclusive. ||
+Acceptable values are 30 to 86400, inclusive. ||
 || mdbOfflineModeDisableLag | **string** (int64)
 
 Replication lag threshold (seconds) which will switch MySQL to 'offline_mode = OFF'.
 Should be less than mdb_offline_mode_enable_lag.
 
-Acceptable values are 60 to 86400, inclusive. ||
+Acceptable values are 10 to 86400, inclusive. ||
 || rangeOptimizerMaxMemSize | **string** (int64)
 
 The limit on memory consumption for the range optimizer.
@@ -8438,8 +8569,8 @@ Specifies slow log granularity for log_slow_rate_limit: QUERY or SESSION
 
 For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.4/diagnostics/slow_extended.html#log_slow_rate_type).
 
-- `SESSION`
-- `QUERY` ||
+- `SESSION`: Logging is controlled per session.
+- `QUERY`: Logging is controlled per query. ||
 || logSlowRateLimit | **string** (int64)
 
 Specifies what fraction of session/query should be logged. Logging is enabled for every nth session/query.
@@ -8458,12 +8589,12 @@ Filters the slow log by the query's execution plan
 
 For details, see [Percona documentation for the variable](https://www.percona.com/doc/percona-server/8.4/diagnostics/slow_extended.html#log_slow_filter).
 
-- `FULL_SCAN`
-- `FULL_JOIN`
-- `TMP_TABLE`
-- `TMP_TABLE_ON_DISK`
-- `FILESORT`
-- `FILESORT_ON_DISK` ||
+- `FULL_SCAN`: Queries that perform a full table scan.
+- `FULL_JOIN`: Queries that perform a full join (a join without indexes).
+- `TMP_TABLE`: Queries that create an implicit internal temporary table.
+- `TMP_TABLE_ON_DISK`: Queries that create an implicit internal temporary table on disk.
+- `FILESORT`: Queries that use a filesort.
+- `FILESORT_ON_DISK`: Queries that use a filesort on disk. ||
 || mdbPriorityChoiceMaxLag | **string** (int64)
 
 Replication lag threshold (seconds) which allows replica to be promoted to master while executing "switchover from".
@@ -8571,10 +8702,10 @@ The policy controlling how the audit log plugin writes events to its log file
 
 For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/audit-log-reference.html#sysvar_audit_log_policy)
 
-- `ALL`
-- `LOGINS`
-- `QUERIES`
-- `NONE` ||
+- `ALL`: Log all events.
+- `LOGINS`: Log only login events.
+- `QUERIES`: Log only query events.
+- `NONE`: Do not log events. ||
 || replicationSenderObserveCommitOnly | **boolean**
 
 Limit callbacks to improve performance for semisynchronous replication
@@ -8614,12 +8745,12 @@ An optimization for change buffering
 
 For details, see [Percona documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_change_buffering).
 
-- `INNODB_CHANGE_BUFFERING_NONE`
-- `INNODB_CHANGE_BUFFERING_INSERTS`
-- `INNODB_CHANGE_BUFFERING_DELETES`
-- `INNODB_CHANGE_BUFFERING_CHANGES`
-- `INNODB_CHANGE_BUFFERING_PURGES`
-- `INNODB_CHANGE_BUFFERING_ALL` ||
+- `INNODB_CHANGE_BUFFERING_NONE`: Do not buffer any operations.
+- `INNODB_CHANGE_BUFFERING_INSERTS`: Buffer insert operations.
+- `INNODB_CHANGE_BUFFERING_DELETES`: Buffer delete-marking operations.
+- `INNODB_CHANGE_BUFFERING_CHANGES`: Buffer insert and delete-marking operations.
+- `INNODB_CHANGE_BUFFERING_PURGES`: Buffer operations where undo log records are discarded.
+- `INNODB_CHANGE_BUFFERING_ALL`: Buffer all types of eligible operations. ||
 || maxWriteLockCount | **string** (int64)
 
 Permit some pending read lock requests interval
@@ -8628,6 +8759,13 @@ P.S. Should be UInt64, but java fails to handle UInt64 limits
 For details, see [Percona documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/server-system-variables.html#sysvar_max_write_lock_count).
 
 The minimum value is 1. ||
+|| innodbAdaptiveHashIndexParts | **string** (int64)
+
+Partitions the adaptive hash index search system.
+
+For details, see [MySQL documentation for the variable](https://dev.mysql.com/doc/refman/8.4/en/innodb-parameters.html#sysvar_innodb_adaptive_hash_index_parts)
+
+Acceptable values are 1 to 512, inclusive. ||
 |#
 
 ## Resources {#yandex.cloud.mdb.mysql.v1.Resources2}

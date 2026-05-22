@@ -21,7 +21,7 @@ description: Пошаговые инструкции по работе с {{ con
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Выберите сервис **{{ metadata-hub-full-name }}**.
+  1. [Перейдите](../../console/operations/select-service#select-service) в сервис **{{ metadata-hub-full-name }}**.
   1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
 
 - CLI {#cli}
@@ -77,7 +77,7 @@ description: Пошаговые инструкции по работе с {{ con
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Выберите сервис **{{ metadata-hub-full-name }}**.
+  1. [Перейдите](../../console/operations/select-service#select-service) в сервис **{{ metadata-hub-full-name }}**.
   1. Hа панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}**.
   1. Нажмите на строку подключения для просмотра детальной информации о нем.
 
@@ -118,7 +118,7 @@ description: Пошаговые инструкции по работе с {{ con
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder).
-  1. Выберите сервис **{{ metadata-hub-full-name }}**.
+  1. [Перейдите](../../console/operations/select-service#select-service) в сервис **{{ metadata-hub-full-name }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/plug-connection.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_connection-manager }}** и нажмите на имя нужного подключения.
   1. На панели слева выберите ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.connection-manager.label_dependences }}**.
 

@@ -1,0 +1,3 @@
+The `managed-greenplum.maintenanceTask.editor` role enables viewing info on [maintenance](../../../managed-greenplum/concepts/maintenance.md) tasks for {{ mgp-name }} clusters and modifying such tasks, as well as viewing info on [{{ mgp-name }} clusters](../../../managed-greenplum/concepts/index.md) and [access permissions](../../../iam/concepts/access-control/index.md) granted for them, on [hosts](../../../managed-greenplum/concepts/instance-types.md) and [cluster backups](../../../managed-greenplum/concepts/backup.md), and on [quotas](../../../managed-greenplum/concepts/limits.md#quotas) and resource operations for {{ mgp-full-name }}.
+
+This role includes the `managed-greenplum.maintenanceTask.viewer` permissions.

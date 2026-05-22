@@ -6,9 +6,26 @@ A grant is a discount on {{ yandex-cloud }} services provided to an individual e
 
 You cannot use grants to top up [personal accounts](personal-account.md).
 
+{{ yandex-cloud }} can revoke the grant without explanation.
+
 {% endnote %}
 
 {% include [currency](../_includes/currency.md) %}
+
+
+## Viewing your grants {#how-to-view}
+
+{% list tabs group=instructions %}
+
+- {{ billing-interface }} {#billing}
+
+  1. Navigate to [**{{ billing-name }}**]({{ link-console-billing }}).
+  1. Select the billing account from the list.
+  1. On the ![image](../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud_org.billing.account.switch_overview }}** page, under **{{ ui-key.yacloud_billing.billing.account.dashboard-grants.section_grants }}**, click ![image](../../_assets/console-icons/chevron-right.svg) **{{ ui-key.yacloud_billing.billing.account.dashboard-grants.action_show-all }}**.
+  1. On the **{{ ui-key.yacloud_billing.billing.account.offers.label_title }}** page, the **{{ ui-key.yacloud_billing.billing.account.offers.value_grants }}** tab shows all grants you received.
+
+{% endlist %}
+
 
 ## Initial grant {#start}
 
@@ -22,13 +39,19 @@ Each individual, sole proprietor, or business can be given only one initial gran
 
 {% endnote %}
 
+
 ## Additional grants {#additional}
+
 Additional grants can be provided on {{ yandex-cloud }} manager's decision or under a content program, referral program, or [Yandex Cloud Boost program](../../../cloud-boost). You can view the amount of additional grants and their validity period in {{ billing-name }}.
 
 
+
 ## Using grants {#how-to-use}
+
 Grants are prioritized based on their validity period: the earlier the expiration date, the sooner the grant is used.
 
 {% include [grant-and-cvos](../../_includes/billing/grant-and-cvos.md) %}
 
-For more information about using grants, see the [billing cycle description](../payment/billing-cycle-individual).
+For more information about using grants, see the [billing cycle description](../payment/billing-cycle-individual.md).
+
+{% include [grant-support](../../_includes/billing/grant-support.md) %}

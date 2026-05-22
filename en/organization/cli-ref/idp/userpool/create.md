@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/idp/userpool/create
 editable: false
 ---
 
@@ -73,6 +74,7 @@ Minimum length for passwords with three character classes (smart policy). ||
 || `--password-smart-four-classes` | `int`
 
 Minimum length for passwords with four character classes (smart policy). ||
+|| `--password-blacklist-check-common` | Whether to check passwords against the common password database. ||
 |#
 
 #### Global Flags

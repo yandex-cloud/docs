@@ -86,7 +86,7 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
         INSERT INTO test VALUES (1);
         ```
 
-    1. [Connect to the {{ GP }}](../connect.md) DB.
+    1. [Connect to the {{ GP }}](../connect/index.md) DB.
     1. Create an external table named `pxf_ch` to reference the `test` table in the {{ CH }} cluster. The SQL query depends on whether you previously created an external data source:
 
         * With a data source created:
@@ -177,7 +177,7 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
         INSERT INTO test VALUES (1, '11'), (2, '22');
         ```
 
-    1. [Connect to the {{ GP }}](../connect.md) DB.
+    1. [Connect to the {{ GP }}](../connect/index.md) DB.
     1. Create an external table named `pxf_mysql` to reference the `test` table in the {{ MY }} cluster. The SQL query depends on whether you previously created an external data source:
 
         * With a data source created:
@@ -230,8 +230,8 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
         * **Driver**: `org.postgresql.Driver`
         * **Url**: `jdbc:postgresql://c-<cluster_ID>.rw.{{ dns-zone }}:{{ port-mpg }}/db1`, where:
 
-            * `c-<cluster_ID>.rw.{{ dns-zone }}` is a [special FQDN](../../../managed-postgresql/operations/connect.md#fqdn-master) always pointing to the current master host in the {{ mpg-name }} cluster.
-            * `{{ port-mpg }}`: Port for [connection](../../../managed-postgresql/operations/connect.md) to the {{ mpg-name }} cluster.
+            * `c-<cluster_ID>.rw.{{ dns-zone }}` is a [special FQDN](../../../managed-postgresql/operations/connect/fqdn.md#fqdn-master) always pointing to the current master host in the {{ mpg-name }} cluster.
+            * `{{ port-mpg }}`: Port for [connection](../../../managed-postgresql/operations/connect/index.md) to the {{ mpg-name }} cluster.
             * `db1`: DB name in the {{ mpg-name }} cluster.
 
         * **User**: `pguser`
@@ -240,7 +240,7 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
 
         With no data source created, you will need to provide the source connection properties in the SQL query for creating an external table.
 
-    1. [Connect to the {{ PG }} DB](../../../managed-postgresql/operations/connect.md#bash) using `psql`.
+    1. [Connect to the {{ PG }} DB](../../../managed-postgresql/operations/connect/clients.md) using `psql`.
     1. Create a test table and populate it with data:
 
         ```sql
@@ -251,7 +251,7 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
         INSERT INTO public.test VALUES (1, '11'), (2, '22');
         ```
 
-    1. [Connect to the {{ GP }}](../connect.md) DB.
+    1. [Connect to the {{ GP }}](../connect/index.md) DB.
     1. Create an external table named `pxf_pg` to reference the `public.test` table in the {{ PG }} cluster. The SQL query depends on whether you previously created an external data source:
 
         * With a data source created:
@@ -315,7 +315,7 @@ The `WRITABLE` option allows writing data to an external object. To read data fr
 
         Files you are uploading to the bucket must not start with `.` or `_`. Such files are considered hidden, and PXF does not read data from them.
 
-    1. [Connect to the {{ GP }}](../connect.md) DB.
+    1. [Connect to the {{ GP }}](../connect/index.md) DB.
     1. To read data from an {{ objstorage-name }} bucket:
 
         1. Create an external table named `pxf_s3_read` to reference the bucket. The SQL query depends on whether you previously created an external data source:

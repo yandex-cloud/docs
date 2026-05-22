@@ -67,13 +67,13 @@ Solutions for exporting {{ yandex-cloud }} audit logs are available for the foll
 
 * Splunk: [Collecting, monitoring, and analyzing audit logs in Splunk SIEM](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-splunk)
 
-* MaxPatrol SIEM: [Collecting, monitoring, and analyzing audit logs in MaxPatrol SIEM](../../../audit-trails/tutorials/maxpatrol.md)
+* MaxPatrol SIEM: [Collecting, monitoring, and analyzing audit logs in MaxPatrol SIEM](../../../audit-trails/tutorials/maxpatrol/index.md)
 
 * Wazuh: [Collecting, monitoring, and analyzing audit logs in Wazuh](https://github.com/yandex-cloud-examples/yc-export-auditlogs-to-wazuh/blob/main/README-en.md)
 
 * KUMA: [Collecting, monitoring, and analyzing audit logs in KUMA](../../../tutorials/security/audit-trails-events-to-kuma/index.md)
 
-For more information about MaxPatrol, see this [section](../../../audit-trails/tutorials/maxpatrol.md).
+For more information about MaxPatrol, see this [section](../../../audit-trails/tutorials/maxpatrol/index.md).
 
 You can set up export to any SIEM using [GeeseFS](../../../storage/tools/geesefs.md) or [s3fs](../../../storage/tools/s3fs.md). These utilities allow mounting a {{ objstorage-full-name }} bucket as a VM local disk. Next, you need to install a SIEM connector on the VM and configure reading JSON files from the bucket. You can also use utilities compatible with AWS Kinesis datastreams if sending audit logs to {{ yds-full-name }}.
 
@@ -97,7 +97,7 @@ If you have no SIEM, you can also analyze audit logs manually using {{ yandex-cl
 
 You can respond to {{ at-full-name }} events using your SIEM tools or manually. You can also use automatic responses.
 
-Using {{ sf-full-name }}, you can configure alerts about {{ at-name }} events, as well as automatic responses to malicious actions, including removing dangerous rules or revoking access rights.
+With {{ sf-full-name }}, you can set up {{ at-name }} event alerts and automatic response to malicious actions, e.g., deletion of dangerous rules or access permissions.
 
 [Solution: Notifications and responses to {{ at-name }} information security events using {{ iam-short-name }} / {{ sf-name }} + Telegram](https://github.com/yandex-cloud-examples/yc-audit-trails-automatic-response)
 
@@ -259,6 +259,6 @@ With [{{ atr-name }}](../../../security-deck/concepts/access-transparency.md), y
 
 {% endlist %}
 
-**Guides and solutions to use:**
+**Guides and solutions to use**:
 
 Click **Connect** to activate the `{{ atr-name }}` module.

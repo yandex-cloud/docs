@@ -109,7 +109,9 @@ Example of a filter: `name=my-workflow`. ||
       },
       "networkId": "string",
       "serviceAccountId": "string",
-      "express": "boolean"
+      "express": "boolean",
+      "isPublic": "boolean",
+      "executionUrl": "string"
     }
   ],
   "nextPageToken": "string"
@@ -180,6 +182,12 @@ ID of the Service Account which will be used for resources access in Workflow ex
 || express | **boolean**
 
 Express execution mode. ||
+|| isPublic | **boolean**
+
+Ability of the Workflow to be executed without authentication. ||
+|| executionUrl | **string**
+
+Execution URL of the Workflow. ||
 |#
 
 ## LogOptions {#yandex.cloud.serverless.workflows.v1.LogOptions}
@@ -203,24 +211,18 @@ Includes only one of the fields `logGroupId`, `folderId`. ||
 
 Minimum logs level.
 
-See [LogLevel.Level](/docs/logging/api-ref/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
+See [LogLevel.Level](/docs/logging/api-ref/Export/get#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
 - `TRACE`: Trace log level.
-
-  Possible use case: verbose logging of some business logic.
+Possible use case: verbose logging of some business logic.
 - `DEBUG`: Debug log level.
-
-  Possible use case: debugging special cases in application logic.
+Possible use case: debugging special cases in application logic.
 - `INFO`: Info log level.
-
-  Mostly used for information messages.
+Mostly used for information messages.
 - `WARN`: Warn log level.
-
-  May be used to alert about significant events.
+May be used to alert about significant events.
 - `ERROR`: Error log level.
-
-  May be used to alert about errors in infrastructure, logic, etc.
+May be used to alert about errors in infrastructure, logic, etc.
 - `FATAL`: Fatal log level.
-
-  May be used to alert about unrecoverable failures and events. ||
+May be used to alert about unrecoverable failures and events. ||
 |#

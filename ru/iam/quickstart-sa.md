@@ -4,6 +4,8 @@
 
 Эта инструкция для [владельцев облака](../resource-manager/concepts/resources-hierarchy.md#owner) и пользователей с ролью [администратора](./roles-reference.md#admin) на облако или каталог. Пользователи с ролью [`editor`](./roles-reference.md#editor) тоже могут создавать сервисные аккаунты, но не могут назначать роли, поэтому не смогут разрешить сервисному аккаунту выполнение операций в {{ yandex-cloud }}.
 
+{% include [access-control-sa-general-notice](../_includes/iam/access-control-sa-general-notice.md) %}
+
 Проверка наличия необходимых ролей описана в разделе [Перед началом работы](#before-you-begin).
 
 Вы научитесь:
@@ -17,7 +19,7 @@
 1. Войдите в [консоль управления]({{ link-console-main }}). Если вы еще не зарегистрированы, перейдите в консоль управления и следуйте инструкциям.
 1. Убедитесь, что у вас есть нужные [роли](./concepts/access-control/roles.md):
 
-    1. В консоли управления на панели сверху нажмите ![image](../_assets/console-icons/chevron-down.svg) и выберите нужное облако.
+    1. В консоли управления на панели сверху нажмите ![image](../_assets/console-icons/layout-side-content-left.svg) или ![image](../_assets/console-icons/chevron-down.svg) и выберите нужное облако.
     1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
     1. В строке поиска введите свою учетную запись.
     1. Проверьте, что для вашей учетной записи указаны роли:
@@ -62,3 +64,4 @@ yc resource-manager folder list
 * [Пошаговые инструкции](operations/index.md) помогут вам решить конкретные задачи, возникающие при использовании {{ iam-name }}.
 * [Подробнее про сервисные аккаунты](concepts/users/service-accounts.md) написано в концепциях.
 * Посмотрите [рекомендации по безопасному использованию сервисных аккаунтов](best-practices/using-iam-securely.md#use-sa).
+* Используйте [чеклист безопасности аутентификации и авторизации](../security/domains/iam-checklist.md).

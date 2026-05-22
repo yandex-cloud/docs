@@ -66,7 +66,8 @@ The maximum string length in characters is 63. Value must match the regular expr
       "log": [
         "PGAuditSettingsLog"
       ]
-    }
+    },
+    "idle_session_timeout": "google.protobuf.Int64Value"
   },
   "login": "google.protobuf.BoolValue",
   "grants": [
@@ -76,6 +77,11 @@ The maximum string length in characters is 63. Value must match the regular expr
   "user_password_encryption": "UserPasswordEncryption",
   "connection_manager": {
     "connection_id": "string"
+  },
+  "user_connection_manager": {
+    "connection_id": "string",
+    "connection_folder_id": "string",
+    "secret_folder_id": "string"
   },
   "auth_method": "AuthMethod"
 }
@@ -135,6 +141,9 @@ The default is `` password_encryption `` setting for cluster.
 || connection_manager | **[ConnectionManager](#yandex.cloud.mdb.postgresql.v1.ConnectionManager)**
 
 Connection Manager Connection and settings associated with user. Read only field. ||
+|| user_connection_manager | **[UserConnectionManager](#yandex.cloud.mdb.v1.UserConnectionManager)**
+
+Connection Manager Connection and settings associated with user ||
 || auth_method | enum **AuthMethod**
 
 Auth method for user
@@ -279,6 +288,11 @@ For more information, see the [PostgreSQL documentation](https://www.postgresql.
 || pgaudit | **[PGAuditSettings](#yandex.cloud.mdb.postgresql.v1.PGAuditSettings)**
 
 Settings of the [PostgreSQL Audit Extension](https://www.pgaudit.org/) (pgaudit). ||
+|| idle_session_timeout | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+in milliseconds; can be set only for PostgreSQL 14+
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PGAuditSettings {#yandex.cloud.mdb.postgresql.v1.PGAuditSettings}
@@ -317,4 +331,27 @@ The default value is PG_AUDIT_SETTINGS_LOG_UNSPECIFIED. In this case, the parame
 || connection_id | **string**
 
 ID of Connection Manager Connection ||
+|#
+
+## UserConnectionManager {#yandex.cloud.mdb.v1.UserConnectionManager}
+
+A message representing Connection Manager integration details and settings for a user in a cluster.
+
+#|
+||Field | Description ||
+|| connection_id | **string**
+
+ID of the Connection Manager connection corresponding to the user.
+Ignored if specified in update requests. ||
+|| connection_folder_id | **string**
+
+ID of the folder where connection for the user is created.
+Optional. Defaults to the cluster's ClusterConnectionManager.connections_folder_id if not specified,
+or the cluster's folder if ClusterConnectionManager.connections_folder_id is not specified. ||
+|| secret_folder_id | **string**
+
+A Connection Manager setting for a user's connection created by MDB integration.
+ID of the folder where secret for the user's connection is created.
+Optional. Defaults to the cluster's ClusterConnectionManager.secrets_folder_id if not specified,
+or the cluster's ClusterConnectionManager.connections_folder_id, or the cluster's folder. ||
 |#

@@ -13,5 +13,6 @@ description: Различные сценарии использования {{ l
 * [{#T}](websocket-app.md)
 * [{#T}](bucket-to-bucket-copying.md)
 * [{#T}](nodejs-cron-restart-vm.md)
-* [{#T}](secure-password-script.md)
+* [{#T}](secure-password-script/index.md)
 * [{#T}](data-transfer-direct-to-mch.md)
+* [{#T}](job-pyspark-secret-access.md)

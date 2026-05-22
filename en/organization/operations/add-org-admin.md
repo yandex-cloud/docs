@@ -1,6 +1,6 @@
 ---
 title: How to assign a user as an organization administrator in {{ org-full-name }}
-description: Follow this guide to assign a user as an organization administrator in {{ org-name }}.
+description: Follow this guide to assign a user as an organization administrator in {{ org-full-name }}.
 ---
 
 # Assigning a user as an organization administrator
@@ -13,7 +13,7 @@ description: Follow this guide to assign a user as an organization administrator
   
   1. In the left-hand panel, select ![persons-lock](../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud_org.pages.acl }}**.
 
-  1. At the top right, click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+  1. At the top right, click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
 
   1. Select the user you want to assign as an administrator. If required, use the search bar.
 
@@ -70,13 +70,13 @@ description: Follow this guide to assign a user as an organization administrator
       * `role`: Specify the `organization-manager.admin` role. For each role, you can only use one `yandex_organization manager_organization_iam_binding` resource.
       * `userAccount:<user_ID>`: ID of the user Yandex account.
 
-      For more information about the resources you can create with {{ TF }}, see [this provider article]({{ tf-provider-link }}).
+      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
 
   1. Create the resources:
 
       {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
      
-  The user will thus be assigned the organization administrator role. You can check the new role in the [management console]({{ link-console-main }}).
+  The user will thus be assigned the organization administrator role. You can check the role in the [{{ cloud-center }} interface]({{ link-org-cloud-center }}).
 
 - API {#api}
 

@@ -71,7 +71,7 @@ items:
             items:
               - name: Allowing and denying availability zone shutdown
                 href: operations/manage-zone/allow-and-deny-shift.md
-              - name: Enabling and disabling an availability zone
+              - name: Enabling and disabling a zonal shift
                 href: operations/manage-zone/start-and-cancel-shift.md
           - name: Deleting an L7 load balancer
             href: operations/application-load-balancer-delete.md
@@ -81,6 +81,8 @@ items:
     items:
       - name: All tutorials
         href: tutorials/index.md
+      - name: Fault tolerance testing in the {{ yandex-cloud }} infrastructure
+        href: tutorials/testing-zone-failure-for-alb.md
       - name: Setting up virtual hosting
         href: tutorials/virtual-hosting.md
       - name: Creating an L7 load balancer with DDoS protection
@@ -145,8 +147,14 @@ items:
               - name: '{{ TF }}'
                 href: >-
                   tutorials/migration-from-nlb-to-alb/nlb-as-target-resource-alb/terraform.md
-      - name: Integrating an L7 load balancer with CDN and Object Storage
-        href: tutorials/cdn-storage-integration.md
+      - name: Integrating an L7 load balancer with a CDN and {{ objstorage-name }}
+        items:
+          - name: Overview
+            href: tutorials/cdn-storage-integration/index.md
+          - name: Management console, CLI, and API
+            href: tutorials/cdn-storage-integration/console.md
+          - name: '{{ TF }}'
+            href: tutorials/cdn-storage-integration/terraform.md
       - name: Blue-green and canary deployment of service versions
         href: tutorials/blue-green-canary-deployment.md
       - name: Terminating TLS connections
@@ -245,6 +253,8 @@ items:
             href: tools/gwin/policies.md
           - name: Migrating apps from an ALB Ingress controller to Gwin
             href: tools/gwin/ingress-gwin-migration.md
+          - name: Attachment mechanism for Gwin integration with {{ alb-name }}
+            href: tools/gwin/gwin-alb-attachment.md
           - name: Resource configuration
             items:
               - name: Gateway
@@ -461,6 +471,170 @@ items:
             href: cli-ref/target-group/remove-targets.md
           - name: update
             href: cli-ref/target-group/update.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: backend-group
+            items:
+              - name: Overview
+                href: cli-ref/v0/backend-group/index.md
+              - name: add-grpc-backend
+                href: cli-ref/v0/backend-group/add-grpc-backend.md
+              - name: add-http-backend
+                href: cli-ref/v0/backend-group/add-http-backend.md
+              - name: add-stream-backend
+                href: cli-ref/v0/backend-group/add-stream-backend.md
+              - name: create
+                href: cli-ref/v0/backend-group/create.md
+              - name: delete
+                href: cli-ref/v0/backend-group/delete.md
+              - name: delete-grpc-backend
+                href: cli-ref/v0/backend-group/delete-grpc-backend.md
+              - name: delete-http-backend
+                href: cli-ref/v0/backend-group/delete-http-backend.md
+              - name: delete-stream-backend
+                href: cli-ref/v0/backend-group/delete-stream-backend.md
+              - name: get
+                href: cli-ref/v0/backend-group/get.md
+              - name: list
+                href: cli-ref/v0/backend-group/list.md
+              - name: update
+                href: cli-ref/v0/backend-group/update.md
+              - name: update-grpc-backend
+                href: cli-ref/v0/backend-group/update-grpc-backend.md
+              - name: update-http-backend
+                href: cli-ref/v0/backend-group/update-http-backend.md
+              - name: update-stream-backend
+                href: cli-ref/v0/backend-group/update-stream-backend.md
+          - name: http-router
+            items:
+              - name: Overview
+                href: cli-ref/v0/http-router/index.md
+              - name: create
+                href: cli-ref/v0/http-router/create.md
+              - name: delete
+                href: cli-ref/v0/http-router/delete.md
+              - name: get
+                href: cli-ref/v0/http-router/get.md
+              - name: list
+                href: cli-ref/v0/http-router/list.md
+              - name: update
+                href: cli-ref/v0/http-router/update.md
+          - name: load-balancer
+            items:
+              - name: Overview
+                href: cli-ref/v0/load-balancer/index.md
+              - name: add-listener
+                href: cli-ref/v0/load-balancer/add-listener.md
+              - name: add-location
+                href: cli-ref/v0/load-balancer/add-location.md
+              - name: add-sni
+                href: cli-ref/v0/load-balancer/add-sni.md
+              - name: add-stream-listener
+                href: cli-ref/v0/load-balancer/add-stream-listener.md
+              - name: add-stream-sni
+                href: cli-ref/v0/load-balancer/add-stream-sni.md
+              - name: autoscale
+                href: cli-ref/v0/load-balancer/autoscale.md
+              - name: cancel-zonal-shift
+                href: cli-ref/v0/load-balancer/cancel-zonal-shift.md
+              - name: create
+                href: cli-ref/v0/load-balancer/create.md
+              - name: delete
+                href: cli-ref/v0/load-balancer/delete.md
+              - name: disable-traffic
+                href: cli-ref/v0/load-balancer/disable-traffic.md
+              - name: disable-zones
+                href: cli-ref/v0/load-balancer/disable-zones.md
+              - name: enable-traffic
+                href: cli-ref/v0/load-balancer/enable-traffic.md
+              - name: enable-zones
+                href: cli-ref/v0/load-balancer/enable-zones.md
+              - name: get
+                href: cli-ref/v0/load-balancer/get.md
+              - name: list
+                href: cli-ref/v0/load-balancer/list.md
+              - name: list-operations
+                href: cli-ref/v0/load-balancer/list-operations.md
+              - name: logging
+                href: cli-ref/v0/load-balancer/logging.md
+              - name: remove-listener
+                href: cli-ref/v0/load-balancer/remove-listener.md
+              - name: remove-location
+                href: cli-ref/v0/load-balancer/remove-location.md
+              - name: remove-sni
+                href: cli-ref/v0/load-balancer/remove-sni.md
+              - name: start
+                href: cli-ref/v0/load-balancer/start.md
+              - name: start-zonal-shift
+                href: cli-ref/v0/load-balancer/start-zonal-shift.md
+              - name: stop
+                href: cli-ref/v0/load-balancer/stop.md
+              - name: target-states
+                href: cli-ref/v0/load-balancer/target-states.md
+              - name: update
+                href: cli-ref/v0/load-balancer/update.md
+              - name: update-listener
+                href: cli-ref/v0/load-balancer/update-listener.md
+              - name: update-sni
+                href: cli-ref/v0/load-balancer/update-sni.md
+              - name: update-stream-listener
+                href: cli-ref/v0/load-balancer/update-stream-listener.md
+              - name: update-stream-sni
+                href: cli-ref/v0/load-balancer/update-stream-sni.md
+          - name: target-group
+            items:
+              - name: Overview
+                href: cli-ref/v0/target-group/index.md
+              - name: add-targets
+                href: cli-ref/v0/target-group/add-targets.md
+              - name: create
+                href: cli-ref/v0/target-group/create.md
+              - name: delete
+                href: cli-ref/v0/target-group/delete.md
+              - name: get
+                href: cli-ref/v0/target-group/get.md
+              - name: list
+                href: cli-ref/v0/target-group/list.md
+              - name: remove-targets
+                href: cli-ref/v0/target-group/remove-targets.md
+              - name: update
+                href: cli-ref/v0/target-group/update.md
+          - name: virtual-host
+            items:
+              - name: Overview
+                href: cli-ref/v0/virtual-host/index.md
+              - name: append-grpc-route
+                href: cli-ref/v0/virtual-host/append-grpc-route.md
+              - name: append-http-route
+                href: cli-ref/v0/virtual-host/append-http-route.md
+              - name: create
+                href: cli-ref/v0/virtual-host/create.md
+              - name: delete
+                href: cli-ref/v0/virtual-host/delete.md
+              - name: get
+                href: cli-ref/v0/virtual-host/get.md
+              - name: insert-grpc-route
+                href: cli-ref/v0/virtual-host/insert-grpc-route.md
+              - name: insert-http-route
+                href: cli-ref/v0/virtual-host/insert-http-route.md
+              - name: list
+                href: cli-ref/v0/virtual-host/list.md
+              - name: prepend-grpc-route
+                href: cli-ref/v0/virtual-host/prepend-grpc-route.md
+              - name: prepend-http-route
+                href: cli-ref/v0/virtual-host/prepend-http-route.md
+              - name: remove-grpc-route
+                href: cli-ref/v0/virtual-host/remove-grpc-route.md
+              - name: remove-http-route
+                href: cli-ref/v0/virtual-host/remove-http-route.md
+              - name: update
+                href: cli-ref/v0/virtual-host/update.md
+              - name: update-grpc-route
+                href: cli-ref/v0/virtual-host/update-grpc-route.md
+              - name: update-http-route
+                href: cli-ref/v0/virtual-host/update-http-route.md
       - name: virtual-host
         items:
           - name: Overview

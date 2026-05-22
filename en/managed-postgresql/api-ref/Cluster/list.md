@@ -116,1066 +116,7 @@ The maximum string length in characters is 1000. ||
       ],
       "config": {
         "version": "string",
-        // Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`
-        "postgresqlConfig_9_6": {
-          "effectiveConfig": {
-            "maxConnections": "string",
-            "sharedBuffers": "string",
-            "tempBuffers": "string",
-            "maxPreparedTransactions": "string",
-            "workMem": "string",
-            "maintenanceWorkMem": "string",
-            "replacementSortTuples": "string",
-            "autovacuumWorkMem": "string",
-            "tempFileLimit": "string",
-            "vacuumCostDelay": "string",
-            "vacuumCostPageHit": "string",
-            "vacuumCostPageMiss": "string",
-            "vacuumCostPageDirty": "string",
-            "vacuumCostLimit": "string",
-            "bgwriterDelay": "string",
-            "bgwriterLruMaxpages": "string",
-            "bgwriterLruMultiplier": "number",
-            "bgwriterFlushAfter": "string",
-            "backendFlushAfter": "string",
-            "oldSnapshotThreshold": "string",
-            "walLevel": "string",
-            "synchronousCommit": "string",
-            "checkpointTimeout": "string",
-            "checkpointCompletionTarget": "number",
-            "checkpointFlushAfter": "string",
-            "maxWalSize": "string",
-            "minWalSize": "string",
-            "maxStandbyStreamingDelay": "string",
-            "defaultStatisticsTarget": "string",
-            "constraintExclusion": "string",
-            "cursorTupleFraction": "number",
-            "fromCollapseLimit": "string",
-            "joinCollapseLimit": "string",
-            "forceParallelMode": "string",
-            "clientMinMessages": "string",
-            "logMinMessages": "string",
-            "logMinErrorStatement": "string",
-            "logMinDurationStatement": "string",
-            "logCheckpoints": "boolean",
-            "logConnections": "boolean",
-            "logDisconnections": "boolean",
-            "logDuration": "boolean",
-            "logErrorVerbosity": "string",
-            "logLockWaits": "boolean",
-            "logStatement": "string",
-            "logTempFiles": "string",
-            "searchPath": "string",
-            "rowSecurity": "boolean",
-            "defaultTransactionIsolation": "string",
-            "statementTimeout": "string",
-            "lockTimeout": "string",
-            "idleInTransactionSessionTimeout": "string",
-            "byteaOutput": "string",
-            "xmlbinary": "string",
-            "xmloption": "string",
-            "ginPendingListLimit": "string",
-            "deadlockTimeout": "string",
-            "maxLocksPerTransaction": "string",
-            "maxPredLocksPerTransaction": "string",
-            "arrayNulls": "boolean",
-            "backslashQuote": "string",
-            "defaultWithOids": "boolean",
-            "escapeStringWarning": "boolean",
-            "loCompatPrivileges": "boolean",
-            "operatorPrecedenceWarning": "boolean",
-            "quoteAllIdentifiers": "boolean",
-            "standardConformingStrings": "boolean",
-            "synchronizeSeqscans": "boolean",
-            "transformNullEquals": "boolean",
-            "exitOnError": "boolean",
-            "seqPageCost": "number",
-            "randomPageCost": "number",
-            "sqlInheritance": "boolean",
-            "autovacuumMaxWorkers": "string",
-            "autovacuumVacuumCostDelay": "string",
-            "autovacuumVacuumCostLimit": "string",
-            "autovacuumNaptime": "string",
-            "archiveTimeout": "string",
-            "trackActivityQuerySize": "string",
-            "effectiveIoConcurrency": "string",
-            "effectiveCacheSize": "string"
-          },
-          "userConfig": {
-            "maxConnections": "string",
-            "sharedBuffers": "string",
-            "tempBuffers": "string",
-            "maxPreparedTransactions": "string",
-            "workMem": "string",
-            "maintenanceWorkMem": "string",
-            "replacementSortTuples": "string",
-            "autovacuumWorkMem": "string",
-            "tempFileLimit": "string",
-            "vacuumCostDelay": "string",
-            "vacuumCostPageHit": "string",
-            "vacuumCostPageMiss": "string",
-            "vacuumCostPageDirty": "string",
-            "vacuumCostLimit": "string",
-            "bgwriterDelay": "string",
-            "bgwriterLruMaxpages": "string",
-            "bgwriterLruMultiplier": "number",
-            "bgwriterFlushAfter": "string",
-            "backendFlushAfter": "string",
-            "oldSnapshotThreshold": "string",
-            "walLevel": "string",
-            "synchronousCommit": "string",
-            "checkpointTimeout": "string",
-            "checkpointCompletionTarget": "number",
-            "checkpointFlushAfter": "string",
-            "maxWalSize": "string",
-            "minWalSize": "string",
-            "maxStandbyStreamingDelay": "string",
-            "defaultStatisticsTarget": "string",
-            "constraintExclusion": "string",
-            "cursorTupleFraction": "number",
-            "fromCollapseLimit": "string",
-            "joinCollapseLimit": "string",
-            "forceParallelMode": "string",
-            "clientMinMessages": "string",
-            "logMinMessages": "string",
-            "logMinErrorStatement": "string",
-            "logMinDurationStatement": "string",
-            "logCheckpoints": "boolean",
-            "logConnections": "boolean",
-            "logDisconnections": "boolean",
-            "logDuration": "boolean",
-            "logErrorVerbosity": "string",
-            "logLockWaits": "boolean",
-            "logStatement": "string",
-            "logTempFiles": "string",
-            "searchPath": "string",
-            "rowSecurity": "boolean",
-            "defaultTransactionIsolation": "string",
-            "statementTimeout": "string",
-            "lockTimeout": "string",
-            "idleInTransactionSessionTimeout": "string",
-            "byteaOutput": "string",
-            "xmlbinary": "string",
-            "xmloption": "string",
-            "ginPendingListLimit": "string",
-            "deadlockTimeout": "string",
-            "maxLocksPerTransaction": "string",
-            "maxPredLocksPerTransaction": "string",
-            "arrayNulls": "boolean",
-            "backslashQuote": "string",
-            "defaultWithOids": "boolean",
-            "escapeStringWarning": "boolean",
-            "loCompatPrivileges": "boolean",
-            "operatorPrecedenceWarning": "boolean",
-            "quoteAllIdentifiers": "boolean",
-            "standardConformingStrings": "boolean",
-            "synchronizeSeqscans": "boolean",
-            "transformNullEquals": "boolean",
-            "exitOnError": "boolean",
-            "seqPageCost": "number",
-            "randomPageCost": "number",
-            "sqlInheritance": "boolean",
-            "autovacuumMaxWorkers": "string",
-            "autovacuumVacuumCostDelay": "string",
-            "autovacuumVacuumCostLimit": "string",
-            "autovacuumNaptime": "string",
-            "archiveTimeout": "string",
-            "trackActivityQuerySize": "string",
-            "effectiveIoConcurrency": "string",
-            "effectiveCacheSize": "string"
-          },
-          "defaultConfig": {
-            "maxConnections": "string",
-            "sharedBuffers": "string",
-            "tempBuffers": "string",
-            "maxPreparedTransactions": "string",
-            "workMem": "string",
-            "maintenanceWorkMem": "string",
-            "replacementSortTuples": "string",
-            "autovacuumWorkMem": "string",
-            "tempFileLimit": "string",
-            "vacuumCostDelay": "string",
-            "vacuumCostPageHit": "string",
-            "vacuumCostPageMiss": "string",
-            "vacuumCostPageDirty": "string",
-            "vacuumCostLimit": "string",
-            "bgwriterDelay": "string",
-            "bgwriterLruMaxpages": "string",
-            "bgwriterLruMultiplier": "number",
-            "bgwriterFlushAfter": "string",
-            "backendFlushAfter": "string",
-            "oldSnapshotThreshold": "string",
-            "walLevel": "string",
-            "synchronousCommit": "string",
-            "checkpointTimeout": "string",
-            "checkpointCompletionTarget": "number",
-            "checkpointFlushAfter": "string",
-            "maxWalSize": "string",
-            "minWalSize": "string",
-            "maxStandbyStreamingDelay": "string",
-            "defaultStatisticsTarget": "string",
-            "constraintExclusion": "string",
-            "cursorTupleFraction": "number",
-            "fromCollapseLimit": "string",
-            "joinCollapseLimit": "string",
-            "forceParallelMode": "string",
-            "clientMinMessages": "string",
-            "logMinMessages": "string",
-            "logMinErrorStatement": "string",
-            "logMinDurationStatement": "string",
-            "logCheckpoints": "boolean",
-            "logConnections": "boolean",
-            "logDisconnections": "boolean",
-            "logDuration": "boolean",
-            "logErrorVerbosity": "string",
-            "logLockWaits": "boolean",
-            "logStatement": "string",
-            "logTempFiles": "string",
-            "searchPath": "string",
-            "rowSecurity": "boolean",
-            "defaultTransactionIsolation": "string",
-            "statementTimeout": "string",
-            "lockTimeout": "string",
-            "idleInTransactionSessionTimeout": "string",
-            "byteaOutput": "string",
-            "xmlbinary": "string",
-            "xmloption": "string",
-            "ginPendingListLimit": "string",
-            "deadlockTimeout": "string",
-            "maxLocksPerTransaction": "string",
-            "maxPredLocksPerTransaction": "string",
-            "arrayNulls": "boolean",
-            "backslashQuote": "string",
-            "defaultWithOids": "boolean",
-            "escapeStringWarning": "boolean",
-            "loCompatPrivileges": "boolean",
-            "operatorPrecedenceWarning": "boolean",
-            "quoteAllIdentifiers": "boolean",
-            "standardConformingStrings": "boolean",
-            "synchronizeSeqscans": "boolean",
-            "transformNullEquals": "boolean",
-            "exitOnError": "boolean",
-            "seqPageCost": "number",
-            "randomPageCost": "number",
-            "sqlInheritance": "boolean",
-            "autovacuumMaxWorkers": "string",
-            "autovacuumVacuumCostDelay": "string",
-            "autovacuumVacuumCostLimit": "string",
-            "autovacuumNaptime": "string",
-            "archiveTimeout": "string",
-            "trackActivityQuerySize": "string",
-            "effectiveIoConcurrency": "string",
-            "effectiveCacheSize": "string"
-          }
-        },
-        "postgresqlConfig_10_1c": {
-          "effectiveConfig": {
-            "maxConnections": "string",
-            "sharedBuffers": "string",
-            "tempBuffers": "string",
-            "maxPreparedTransactions": "string",
-            "workMem": "string",
-            "maintenanceWorkMem": "string",
-            "replacementSortTuples": "string",
-            "autovacuumWorkMem": "string",
-            "tempFileLimit": "string",
-            "vacuumCostDelay": "string",
-            "vacuumCostPageHit": "string",
-            "vacuumCostPageMiss": "string",
-            "vacuumCostPageDirty": "string",
-            "vacuumCostLimit": "string",
-            "bgwriterDelay": "string",
-            "bgwriterLruMaxpages": "string",
-            "bgwriterLruMultiplier": "number",
-            "bgwriterFlushAfter": "string",
-            "backendFlushAfter": "string",
-            "oldSnapshotThreshold": "string",
-            "walLevel": "string",
-            "synchronousCommit": "string",
-            "checkpointTimeout": "string",
-            "checkpointCompletionTarget": "number",
-            "checkpointFlushAfter": "string",
-            "maxWalSize": "string",
-            "minWalSize": "string",
-            "maxStandbyStreamingDelay": "string",
-            "defaultStatisticsTarget": "string",
-            "constraintExclusion": "string",
-            "cursorTupleFraction": "number",
-            "fromCollapseLimit": "string",
-            "joinCollapseLimit": "string",
-            "forceParallelMode": "string",
-            "clientMinMessages": "string",
-            "logMinMessages": "string",
-            "logMinErrorStatement": "string",
-            "logMinDurationStatement": "string",
-            "logCheckpoints": "boolean",
-            "logConnections": "boolean",
-            "logDisconnections": "boolean",
-            "logDuration": "boolean",
-            "logErrorVerbosity": "string",
-            "logLockWaits": "boolean",
-            "logStatement": "string",
-            "logTempFiles": "string",
-            "searchPath": "string",
-            "rowSecurity": "boolean",
-            "defaultTransactionIsolation": "string",
-            "statementTimeout": "string",
-            "lockTimeout": "string",
-            "idleInTransactionSessionTimeout": "string",
-            "byteaOutput": "string",
-            "xmlbinary": "string",
-            "xmloption": "string",
-            "ginPendingListLimit": "string",
-            "deadlockTimeout": "string",
-            "maxLocksPerTransaction": "string",
-            "maxPredLocksPerTransaction": "string",
-            "arrayNulls": "boolean",
-            "backslashQuote": "string",
-            "defaultWithOids": "boolean",
-            "escapeStringWarning": "boolean",
-            "loCompatPrivileges": "boolean",
-            "operatorPrecedenceWarning": "boolean",
-            "quoteAllIdentifiers": "boolean",
-            "standardConformingStrings": "boolean",
-            "synchronizeSeqscans": "boolean",
-            "transformNullEquals": "boolean",
-            "exitOnError": "boolean",
-            "seqPageCost": "number",
-            "randomPageCost": "number",
-            "autovacuumMaxWorkers": "string",
-            "autovacuumVacuumCostDelay": "string",
-            "autovacuumVacuumCostLimit": "string",
-            "autovacuumNaptime": "string",
-            "archiveTimeout": "string",
-            "trackActivityQuerySize": "string",
-            "enableBitmapscan": "boolean",
-            "enableHashagg": "boolean",
-            "enableHashjoin": "boolean",
-            "enableIndexscan": "boolean",
-            "enableIndexonlyscan": "boolean",
-            "enableMaterial": "boolean",
-            "enableMergejoin": "boolean",
-            "enableNestloop": "boolean",
-            "enableSeqscan": "boolean",
-            "enableSort": "boolean",
-            "enableTidscan": "boolean",
-            "maxWorkerProcesses": "string",
-            "maxParallelWorkers": "string",
-            "maxParallelWorkersPerGather": "string",
-            "autovacuumVacuumScaleFactor": "number",
-            "autovacuumAnalyzeScaleFactor": "number",
-            "defaultTransactionReadOnly": "boolean",
-            "timezone": "string",
-            "effectiveIoConcurrency": "string",
-            "effectiveCacheSize": "string",
-            "sharedPreloadLibraries": [
-              "string"
-            ],
-            "autoExplainLogMinDuration": "string",
-            "autoExplainLogAnalyze": "boolean",
-            "autoExplainLogBuffers": "boolean",
-            "autoExplainLogTiming": "boolean",
-            "autoExplainLogTriggers": "boolean",
-            "autoExplainLogVerbose": "boolean",
-            "autoExplainLogNestedStatements": "boolean",
-            "autoExplainSampleRate": "number",
-            "pgHintPlanEnableHint": "boolean",
-            "pgHintPlanEnableHintTable": "boolean",
-            "pgHintPlanDebugPrint": "string",
-            "pgHintPlanMessageLevel": "string",
-            "onlineAnalyzeEnable": "boolean",
-            "plantunerFixEmptyTable": "boolean",
-            "pgQualstatsEnabled": "boolean",
-            "pgQualstatsTrackConstants": "boolean",
-            "pgQualstatsMax": "string",
-            "pgQualstatsResolveOids": "boolean",
-            "pgQualstatsSampleRate": "number",
-            "maxStackDepth": "string",
-            "geqo": "boolean",
-            "geqoThreshold": "string",
-            "geqoEffort": "string",
-            "geqoPoolSize": "string",
-            "geqoGenerations": "string",
-            "geqoSelectionBias": "number",
-            "geqoSeed": "number",
-            "maxStandbyArchiveDelay": "string",
-            "sessionDurationTimeout": "string",
-            "logReplicationCommands": "boolean",
-            "logAutovacuumMinDuration": "string",
-            "passwordEncryption": "string"
-          },
-          "userConfig": {
-            "maxConnections": "string",
-            "sharedBuffers": "string",
-            "tempBuffers": "string",
-            "maxPreparedTransactions": "string",
-            "workMem": "string",
-            "maintenanceWorkMem": "string",
-            "replacementSortTuples": "string",
-            "autovacuumWorkMem": "string",
-            "tempFileLimit": "string",
-            "vacuumCostDelay": "string",
-            "vacuumCostPageHit": "string",
-            "vacuumCostPageMiss": "string",
-            "vacuumCostPageDirty": "string",
-            "vacuumCostLimit": "string",
-            "bgwriterDelay": "string",
-            "bgwriterLruMaxpages": "string",
-            "bgwriterLruMultiplier": "number",
-            "bgwriterFlushAfter": "string",
-            "backendFlushAfter": "string",
-            "oldSnapshotThreshold": "string",
-            "walLevel": "string",
-            "synchronousCommit": "string",
-            "checkpointTimeout": "string",
-            "checkpointCompletionTarget": "number",
-            "checkpointFlushAfter": "string",
-            "maxWalSize": "string",
-            "minWalSize": "string",
-            "maxStandbyStreamingDelay": "string",
-            "defaultStatisticsTarget": "string",
-            "constraintExclusion": "string",
-            "cursorTupleFraction": "number",
-            "fromCollapseLimit": "string",
-            "joinCollapseLimit": "string",
-            "forceParallelMode": "string",
-            "clientMinMessages": "string",
-            "logMinMessages": "string",
-            "logMinErrorStatement": "string",
-            "logMinDurationStatement": "string",
-            "logCheckpoints": "boolean",
-            "logConnections": "boolean",
-            "logDisconnections": "boolean",
-            "logDuration": "boolean",
-            "logErrorVerbosity": "string",
-            "logLockWaits": "boolean",
-            "logStatement": "string",
-            "logTempFiles": "string",
-            "searchPath": "string",
-            "rowSecurity": "boolean",
-            "defaultTransactionIsolation": "string",
-            "statementTimeout": "string",
-            "lockTimeout": "string",
-            "idleInTransactionSessionTimeout": "string",
-            "byteaOutput": "string",
-            "xmlbinary": "string",
-            "xmloption": "string",
-            "ginPendingListLimit": "string",
-            "deadlockTimeout": "string",
-            "maxLocksPerTransaction": "string",
-            "maxPredLocksPerTransaction": "string",
-            "arrayNulls": "boolean",
-            "backslashQuote": "string",
-            "defaultWithOids": "boolean",
-            "escapeStringWarning": "boolean",
-            "loCompatPrivileges": "boolean",
-            "operatorPrecedenceWarning": "boolean",
-            "quoteAllIdentifiers": "boolean",
-            "standardConformingStrings": "boolean",
-            "synchronizeSeqscans": "boolean",
-            "transformNullEquals": "boolean",
-            "exitOnError": "boolean",
-            "seqPageCost": "number",
-            "randomPageCost": "number",
-            "autovacuumMaxWorkers": "string",
-            "autovacuumVacuumCostDelay": "string",
-            "autovacuumVacuumCostLimit": "string",
-            "autovacuumNaptime": "string",
-            "archiveTimeout": "string",
-            "trackActivityQuerySize": "string",
-            "enableBitmapscan": "boolean",
-            "enableHashagg": "boolean",
-            "enableHashjoin": "boolean",
-            "enableIndexscan": "boolean",
-            "enableIndexonlyscan": "boolean",
-            "enableMaterial": "boolean",
-            "enableMergejoin": "boolean",
-            "enableNestloop": "boolean",
-            "enableSeqscan": "boolean",
-            "enableSort": "boolean",
-            "enableTidscan": "boolean",
-            "maxWorkerProcesses": "string",
-            "maxParallelWorkers": "string",
-            "maxParallelWorkersPerGather": "string",
-            "autovacuumVacuumScaleFactor": "number",
-            "autovacuumAnalyzeScaleFactor": "number",
-            "defaultTransactionReadOnly": "boolean",
-            "timezone": "string",
-            "effectiveIoConcurrency": "string",
-            "effectiveCacheSize": "string",
-            "sharedPreloadLibraries": [
-              "string"
-            ],
-            "autoExplainLogMinDuration": "string",
-            "autoExplainLogAnalyze": "boolean",
-            "autoExplainLogBuffers": "boolean",
-            "autoExplainLogTiming": "boolean",
-            "autoExplainLogTriggers": "boolean",
-            "autoExplainLogVerbose": "boolean",
-            "autoExplainLogNestedStatements": "boolean",
-            "autoExplainSampleRate": "number",
-            "pgHintPlanEnableHint": "boolean",
-            "pgHintPlanEnableHintTable": "boolean",
-            "pgHintPlanDebugPrint": "string",
-            "pgHintPlanMessageLevel": "string",
-            "onlineAnalyzeEnable": "boolean",
-            "plantunerFixEmptyTable": "boolean",
-            "pgQualstatsEnabled": "boolean",
-            "pgQualstatsTrackConstants": "boolean",
-            "pgQualstatsMax": "string",
-            "pgQualstatsResolveOids": "boolean",
-            "pgQualstatsSampleRate": "number",
-            "maxStackDepth": "string",
-            "geqo": "boolean",
-            "geqoThreshold": "string",
-            "geqoEffort": "string",
-            "geqoPoolSize": "string",
-            "geqoGenerations": "string",
-            "geqoSelectionBias": "number",
-            "geqoSeed": "number",
-            "maxStandbyArchiveDelay": "string",
-            "sessionDurationTimeout": "string",
-            "logReplicationCommands": "boolean",
-            "logAutovacuumMinDuration": "string",
-            "passwordEncryption": "string"
-          },
-          "defaultConfig": {
-            "maxConnections": "string",
-            "sharedBuffers": "string",
-            "tempBuffers": "string",
-            "maxPreparedTransactions": "string",
-            "workMem": "string",
-            "maintenanceWorkMem": "string",
-            "replacementSortTuples": "string",
-            "autovacuumWorkMem": "string",
-            "tempFileLimit": "string",
-            "vacuumCostDelay": "string",
-            "vacuumCostPageHit": "string",
-            "vacuumCostPageMiss": "string",
-            "vacuumCostPageDirty": "string",
-            "vacuumCostLimit": "string",
-            "bgwriterDelay": "string",
-            "bgwriterLruMaxpages": "string",
-            "bgwriterLruMultiplier": "number",
-            "bgwriterFlushAfter": "string",
-            "backendFlushAfter": "string",
-            "oldSnapshotThreshold": "string",
-            "walLevel": "string",
-            "synchronousCommit": "string",
-            "checkpointTimeout": "string",
-            "checkpointCompletionTarget": "number",
-            "checkpointFlushAfter": "string",
-            "maxWalSize": "string",
-            "minWalSize": "string",
-            "maxStandbyStreamingDelay": "string",
-            "defaultStatisticsTarget": "string",
-            "constraintExclusion": "string",
-            "cursorTupleFraction": "number",
-            "fromCollapseLimit": "string",
-            "joinCollapseLimit": "string",
-            "forceParallelMode": "string",
-            "clientMinMessages": "string",
-            "logMinMessages": "string",
-            "logMinErrorStatement": "string",
-            "logMinDurationStatement": "string",
-            "logCheckpoints": "boolean",
-            "logConnections": "boolean",
-            "logDisconnections": "boolean",
-            "logDuration": "boolean",
-            "logErrorVerbosity": "string",
-            "logLockWaits": "boolean",
-            "logStatement": "string",
-            "logTempFiles": "string",
-            "searchPath": "string",
-            "rowSecurity": "boolean",
-            "defaultTransactionIsolation": "string",
-            "statementTimeout": "string",
-            "lockTimeout": "string",
-            "idleInTransactionSessionTimeout": "string",
-            "byteaOutput": "string",
-            "xmlbinary": "string",
-            "xmloption": "string",
-            "ginPendingListLimit": "string",
-            "deadlockTimeout": "string",
-            "maxLocksPerTransaction": "string",
-            "maxPredLocksPerTransaction": "string",
-            "arrayNulls": "boolean",
-            "backslashQuote": "string",
-            "defaultWithOids": "boolean",
-            "escapeStringWarning": "boolean",
-            "loCompatPrivileges": "boolean",
-            "operatorPrecedenceWarning": "boolean",
-            "quoteAllIdentifiers": "boolean",
-            "standardConformingStrings": "boolean",
-            "synchronizeSeqscans": "boolean",
-            "transformNullEquals": "boolean",
-            "exitOnError": "boolean",
-            "seqPageCost": "number",
-            "randomPageCost": "number",
-            "autovacuumMaxWorkers": "string",
-            "autovacuumVacuumCostDelay": "string",
-            "autovacuumVacuumCostLimit": "string",
-            "autovacuumNaptime": "string",
-            "archiveTimeout": "string",
-            "trackActivityQuerySize": "string",
-            "enableBitmapscan": "boolean",
-            "enableHashagg": "boolean",
-            "enableHashjoin": "boolean",
-            "enableIndexscan": "boolean",
-            "enableIndexonlyscan": "boolean",
-            "enableMaterial": "boolean",
-            "enableMergejoin": "boolean",
-            "enableNestloop": "boolean",
-            "enableSeqscan": "boolean",
-            "enableSort": "boolean",
-            "enableTidscan": "boolean",
-            "maxWorkerProcesses": "string",
-            "maxParallelWorkers": "string",
-            "maxParallelWorkersPerGather": "string",
-            "autovacuumVacuumScaleFactor": "number",
-            "autovacuumAnalyzeScaleFactor": "number",
-            "defaultTransactionReadOnly": "boolean",
-            "timezone": "string",
-            "effectiveIoConcurrency": "string",
-            "effectiveCacheSize": "string",
-            "sharedPreloadLibraries": [
-              "string"
-            ],
-            "autoExplainLogMinDuration": "string",
-            "autoExplainLogAnalyze": "boolean",
-            "autoExplainLogBuffers": "boolean",
-            "autoExplainLogTiming": "boolean",
-            "autoExplainLogTriggers": "boolean",
-            "autoExplainLogVerbose": "boolean",
-            "autoExplainLogNestedStatements": "boolean",
-            "autoExplainSampleRate": "number",
-            "pgHintPlanEnableHint": "boolean",
-            "pgHintPlanEnableHintTable": "boolean",
-            "pgHintPlanDebugPrint": "string",
-            "pgHintPlanMessageLevel": "string",
-            "onlineAnalyzeEnable": "boolean",
-            "plantunerFixEmptyTable": "boolean",
-            "pgQualstatsEnabled": "boolean",
-            "pgQualstatsTrackConstants": "boolean",
-            "pgQualstatsMax": "string",
-            "pgQualstatsResolveOids": "boolean",
-            "pgQualstatsSampleRate": "number",
-            "maxStackDepth": "string",
-            "geqo": "boolean",
-            "geqoThreshold": "string",
-            "geqoEffort": "string",
-            "geqoPoolSize": "string",
-            "geqoGenerations": "string",
-            "geqoSelectionBias": "number",
-            "geqoSeed": "number",
-            "maxStandbyArchiveDelay": "string",
-            "sessionDurationTimeout": "string",
-            "logReplicationCommands": "boolean",
-            "logAutovacuumMinDuration": "string",
-            "passwordEncryption": "string"
-          }
-        },
-        "postgresqlConfig_10": {
-          "effectiveConfig": {
-            "maxConnections": "string",
-            "sharedBuffers": "string",
-            "tempBuffers": "string",
-            "maxPreparedTransactions": "string",
-            "workMem": "string",
-            "maintenanceWorkMem": "string",
-            "replacementSortTuples": "string",
-            "autovacuumWorkMem": "string",
-            "tempFileLimit": "string",
-            "vacuumCostDelay": "string",
-            "vacuumCostPageHit": "string",
-            "vacuumCostPageMiss": "string",
-            "vacuumCostPageDirty": "string",
-            "vacuumCostLimit": "string",
-            "bgwriterDelay": "string",
-            "bgwriterLruMaxpages": "string",
-            "bgwriterLruMultiplier": "number",
-            "bgwriterFlushAfter": "string",
-            "backendFlushAfter": "string",
-            "oldSnapshotThreshold": "string",
-            "walLevel": "string",
-            "synchronousCommit": "string",
-            "checkpointTimeout": "string",
-            "checkpointCompletionTarget": "number",
-            "checkpointFlushAfter": "string",
-            "maxWalSize": "string",
-            "minWalSize": "string",
-            "maxStandbyStreamingDelay": "string",
-            "defaultStatisticsTarget": "string",
-            "constraintExclusion": "string",
-            "cursorTupleFraction": "number",
-            "fromCollapseLimit": "string",
-            "joinCollapseLimit": "string",
-            "forceParallelMode": "string",
-            "clientMinMessages": "string",
-            "logMinMessages": "string",
-            "logMinErrorStatement": "string",
-            "logMinDurationStatement": "string",
-            "logCheckpoints": "boolean",
-            "logConnections": "boolean",
-            "logDisconnections": "boolean",
-            "logDuration": "boolean",
-            "logErrorVerbosity": "string",
-            "logLockWaits": "boolean",
-            "logStatement": "string",
-            "logTempFiles": "string",
-            "searchPath": "string",
-            "rowSecurity": "boolean",
-            "defaultTransactionIsolation": "string",
-            "statementTimeout": "string",
-            "lockTimeout": "string",
-            "idleInTransactionSessionTimeout": "string",
-            "byteaOutput": "string",
-            "xmlbinary": "string",
-            "xmloption": "string",
-            "ginPendingListLimit": "string",
-            "deadlockTimeout": "string",
-            "maxLocksPerTransaction": "string",
-            "maxPredLocksPerTransaction": "string",
-            "arrayNulls": "boolean",
-            "backslashQuote": "string",
-            "defaultWithOids": "boolean",
-            "escapeStringWarning": "boolean",
-            "loCompatPrivileges": "boolean",
-            "operatorPrecedenceWarning": "boolean",
-            "quoteAllIdentifiers": "boolean",
-            "standardConformingStrings": "boolean",
-            "synchronizeSeqscans": "boolean",
-            "transformNullEquals": "boolean",
-            "exitOnError": "boolean",
-            "seqPageCost": "number",
-            "randomPageCost": "number",
-            "autovacuumMaxWorkers": "string",
-            "autovacuumVacuumCostDelay": "string",
-            "autovacuumVacuumCostLimit": "string",
-            "autovacuumNaptime": "string",
-            "archiveTimeout": "string",
-            "trackActivityQuerySize": "string",
-            "enableBitmapscan": "boolean",
-            "enableHashagg": "boolean",
-            "enableHashjoin": "boolean",
-            "enableIndexscan": "boolean",
-            "enableIndexonlyscan": "boolean",
-            "enableMaterial": "boolean",
-            "enableMergejoin": "boolean",
-            "enableNestloop": "boolean",
-            "enableSeqscan": "boolean",
-            "enableSort": "boolean",
-            "enableTidscan": "boolean",
-            "maxWorkerProcesses": "string",
-            "maxParallelWorkers": "string",
-            "maxParallelWorkersPerGather": "string",
-            "autovacuumVacuumScaleFactor": "number",
-            "autovacuumAnalyzeScaleFactor": "number",
-            "defaultTransactionReadOnly": "boolean",
-            "timezone": "string",
-            "effectiveIoConcurrency": "string",
-            "effectiveCacheSize": "string",
-            "sharedPreloadLibraries": [
-              "string"
-            ],
-            "autoExplainLogMinDuration": "string",
-            "autoExplainLogAnalyze": "boolean",
-            "autoExplainLogBuffers": "boolean",
-            "autoExplainLogTiming": "boolean",
-            "autoExplainLogTriggers": "boolean",
-            "autoExplainLogVerbose": "boolean",
-            "autoExplainLogNestedStatements": "boolean",
-            "autoExplainSampleRate": "number",
-            "pgHintPlanEnableHint": "boolean",
-            "pgHintPlanEnableHintTable": "boolean",
-            "pgHintPlanDebugPrint": "string",
-            "pgHintPlanMessageLevel": "string",
-            "pgQualstatsEnabled": "boolean",
-            "pgQualstatsTrackConstants": "boolean",
-            "pgQualstatsMax": "string",
-            "pgQualstatsResolveOids": "boolean",
-            "pgQualstatsSampleRate": "number",
-            "maxStackDepth": "string",
-            "geqo": "boolean",
-            "geqoThreshold": "string",
-            "geqoEffort": "string",
-            "geqoPoolSize": "string",
-            "geqoGenerations": "string",
-            "geqoSelectionBias": "number",
-            "geqoSeed": "number",
-            "maxStandbyArchiveDelay": "string",
-            "sessionDurationTimeout": "string",
-            "logReplicationCommands": "boolean",
-            "logAutovacuumMinDuration": "string",
-            "passwordEncryption": "string"
-          },
-          "userConfig": {
-            "maxConnections": "string",
-            "sharedBuffers": "string",
-            "tempBuffers": "string",
-            "maxPreparedTransactions": "string",
-            "workMem": "string",
-            "maintenanceWorkMem": "string",
-            "replacementSortTuples": "string",
-            "autovacuumWorkMem": "string",
-            "tempFileLimit": "string",
-            "vacuumCostDelay": "string",
-            "vacuumCostPageHit": "string",
-            "vacuumCostPageMiss": "string",
-            "vacuumCostPageDirty": "string",
-            "vacuumCostLimit": "string",
-            "bgwriterDelay": "string",
-            "bgwriterLruMaxpages": "string",
-            "bgwriterLruMultiplier": "number",
-            "bgwriterFlushAfter": "string",
-            "backendFlushAfter": "string",
-            "oldSnapshotThreshold": "string",
-            "walLevel": "string",
-            "synchronousCommit": "string",
-            "checkpointTimeout": "string",
-            "checkpointCompletionTarget": "number",
-            "checkpointFlushAfter": "string",
-            "maxWalSize": "string",
-            "minWalSize": "string",
-            "maxStandbyStreamingDelay": "string",
-            "defaultStatisticsTarget": "string",
-            "constraintExclusion": "string",
-            "cursorTupleFraction": "number",
-            "fromCollapseLimit": "string",
-            "joinCollapseLimit": "string",
-            "forceParallelMode": "string",
-            "clientMinMessages": "string",
-            "logMinMessages": "string",
-            "logMinErrorStatement": "string",
-            "logMinDurationStatement": "string",
-            "logCheckpoints": "boolean",
-            "logConnections": "boolean",
-            "logDisconnections": "boolean",
-            "logDuration": "boolean",
-            "logErrorVerbosity": "string",
-            "logLockWaits": "boolean",
-            "logStatement": "string",
-            "logTempFiles": "string",
-            "searchPath": "string",
-            "rowSecurity": "boolean",
-            "defaultTransactionIsolation": "string",
-            "statementTimeout": "string",
-            "lockTimeout": "string",
-            "idleInTransactionSessionTimeout": "string",
-            "byteaOutput": "string",
-            "xmlbinary": "string",
-            "xmloption": "string",
-            "ginPendingListLimit": "string",
-            "deadlockTimeout": "string",
-            "maxLocksPerTransaction": "string",
-            "maxPredLocksPerTransaction": "string",
-            "arrayNulls": "boolean",
-            "backslashQuote": "string",
-            "defaultWithOids": "boolean",
-            "escapeStringWarning": "boolean",
-            "loCompatPrivileges": "boolean",
-            "operatorPrecedenceWarning": "boolean",
-            "quoteAllIdentifiers": "boolean",
-            "standardConformingStrings": "boolean",
-            "synchronizeSeqscans": "boolean",
-            "transformNullEquals": "boolean",
-            "exitOnError": "boolean",
-            "seqPageCost": "number",
-            "randomPageCost": "number",
-            "autovacuumMaxWorkers": "string",
-            "autovacuumVacuumCostDelay": "string",
-            "autovacuumVacuumCostLimit": "string",
-            "autovacuumNaptime": "string",
-            "archiveTimeout": "string",
-            "trackActivityQuerySize": "string",
-            "enableBitmapscan": "boolean",
-            "enableHashagg": "boolean",
-            "enableHashjoin": "boolean",
-            "enableIndexscan": "boolean",
-            "enableIndexonlyscan": "boolean",
-            "enableMaterial": "boolean",
-            "enableMergejoin": "boolean",
-            "enableNestloop": "boolean",
-            "enableSeqscan": "boolean",
-            "enableSort": "boolean",
-            "enableTidscan": "boolean",
-            "maxWorkerProcesses": "string",
-            "maxParallelWorkers": "string",
-            "maxParallelWorkersPerGather": "string",
-            "autovacuumVacuumScaleFactor": "number",
-            "autovacuumAnalyzeScaleFactor": "number",
-            "defaultTransactionReadOnly": "boolean",
-            "timezone": "string",
-            "effectiveIoConcurrency": "string",
-            "effectiveCacheSize": "string",
-            "sharedPreloadLibraries": [
-              "string"
-            ],
-            "autoExplainLogMinDuration": "string",
-            "autoExplainLogAnalyze": "boolean",
-            "autoExplainLogBuffers": "boolean",
-            "autoExplainLogTiming": "boolean",
-            "autoExplainLogTriggers": "boolean",
-            "autoExplainLogVerbose": "boolean",
-            "autoExplainLogNestedStatements": "boolean",
-            "autoExplainSampleRate": "number",
-            "pgHintPlanEnableHint": "boolean",
-            "pgHintPlanEnableHintTable": "boolean",
-            "pgHintPlanDebugPrint": "string",
-            "pgHintPlanMessageLevel": "string",
-            "pgQualstatsEnabled": "boolean",
-            "pgQualstatsTrackConstants": "boolean",
-            "pgQualstatsMax": "string",
-            "pgQualstatsResolveOids": "boolean",
-            "pgQualstatsSampleRate": "number",
-            "maxStackDepth": "string",
-            "geqo": "boolean",
-            "geqoThreshold": "string",
-            "geqoEffort": "string",
-            "geqoPoolSize": "string",
-            "geqoGenerations": "string",
-            "geqoSelectionBias": "number",
-            "geqoSeed": "number",
-            "maxStandbyArchiveDelay": "string",
-            "sessionDurationTimeout": "string",
-            "logReplicationCommands": "boolean",
-            "logAutovacuumMinDuration": "string",
-            "passwordEncryption": "string"
-          },
-          "defaultConfig": {
-            "maxConnections": "string",
-            "sharedBuffers": "string",
-            "tempBuffers": "string",
-            "maxPreparedTransactions": "string",
-            "workMem": "string",
-            "maintenanceWorkMem": "string",
-            "replacementSortTuples": "string",
-            "autovacuumWorkMem": "string",
-            "tempFileLimit": "string",
-            "vacuumCostDelay": "string",
-            "vacuumCostPageHit": "string",
-            "vacuumCostPageMiss": "string",
-            "vacuumCostPageDirty": "string",
-            "vacuumCostLimit": "string",
-            "bgwriterDelay": "string",
-            "bgwriterLruMaxpages": "string",
-            "bgwriterLruMultiplier": "number",
-            "bgwriterFlushAfter": "string",
-            "backendFlushAfter": "string",
-            "oldSnapshotThreshold": "string",
-            "walLevel": "string",
-            "synchronousCommit": "string",
-            "checkpointTimeout": "string",
-            "checkpointCompletionTarget": "number",
-            "checkpointFlushAfter": "string",
-            "maxWalSize": "string",
-            "minWalSize": "string",
-            "maxStandbyStreamingDelay": "string",
-            "defaultStatisticsTarget": "string",
-            "constraintExclusion": "string",
-            "cursorTupleFraction": "number",
-            "fromCollapseLimit": "string",
-            "joinCollapseLimit": "string",
-            "forceParallelMode": "string",
-            "clientMinMessages": "string",
-            "logMinMessages": "string",
-            "logMinErrorStatement": "string",
-            "logMinDurationStatement": "string",
-            "logCheckpoints": "boolean",
-            "logConnections": "boolean",
-            "logDisconnections": "boolean",
-            "logDuration": "boolean",
-            "logErrorVerbosity": "string",
-            "logLockWaits": "boolean",
-            "logStatement": "string",
-            "logTempFiles": "string",
-            "searchPath": "string",
-            "rowSecurity": "boolean",
-            "defaultTransactionIsolation": "string",
-            "statementTimeout": "string",
-            "lockTimeout": "string",
-            "idleInTransactionSessionTimeout": "string",
-            "byteaOutput": "string",
-            "xmlbinary": "string",
-            "xmloption": "string",
-            "ginPendingListLimit": "string",
-            "deadlockTimeout": "string",
-            "maxLocksPerTransaction": "string",
-            "maxPredLocksPerTransaction": "string",
-            "arrayNulls": "boolean",
-            "backslashQuote": "string",
-            "defaultWithOids": "boolean",
-            "escapeStringWarning": "boolean",
-            "loCompatPrivileges": "boolean",
-            "operatorPrecedenceWarning": "boolean",
-            "quoteAllIdentifiers": "boolean",
-            "standardConformingStrings": "boolean",
-            "synchronizeSeqscans": "boolean",
-            "transformNullEquals": "boolean",
-            "exitOnError": "boolean",
-            "seqPageCost": "number",
-            "randomPageCost": "number",
-            "autovacuumMaxWorkers": "string",
-            "autovacuumVacuumCostDelay": "string",
-            "autovacuumVacuumCostLimit": "string",
-            "autovacuumNaptime": "string",
-            "archiveTimeout": "string",
-            "trackActivityQuerySize": "string",
-            "enableBitmapscan": "boolean",
-            "enableHashagg": "boolean",
-            "enableHashjoin": "boolean",
-            "enableIndexscan": "boolean",
-            "enableIndexonlyscan": "boolean",
-            "enableMaterial": "boolean",
-            "enableMergejoin": "boolean",
-            "enableNestloop": "boolean",
-            "enableSeqscan": "boolean",
-            "enableSort": "boolean",
-            "enableTidscan": "boolean",
-            "maxWorkerProcesses": "string",
-            "maxParallelWorkers": "string",
-            "maxParallelWorkersPerGather": "string",
-            "autovacuumVacuumScaleFactor": "number",
-            "autovacuumAnalyzeScaleFactor": "number",
-            "defaultTransactionReadOnly": "boolean",
-            "timezone": "string",
-            "effectiveIoConcurrency": "string",
-            "effectiveCacheSize": "string",
-            "sharedPreloadLibraries": [
-              "string"
-            ],
-            "autoExplainLogMinDuration": "string",
-            "autoExplainLogAnalyze": "boolean",
-            "autoExplainLogBuffers": "boolean",
-            "autoExplainLogTiming": "boolean",
-            "autoExplainLogTriggers": "boolean",
-            "autoExplainLogVerbose": "boolean",
-            "autoExplainLogNestedStatements": "boolean",
-            "autoExplainSampleRate": "number",
-            "pgHintPlanEnableHint": "boolean",
-            "pgHintPlanEnableHintTable": "boolean",
-            "pgHintPlanDebugPrint": "string",
-            "pgHintPlanMessageLevel": "string",
-            "pgQualstatsEnabled": "boolean",
-            "pgQualstatsTrackConstants": "boolean",
-            "pgQualstatsMax": "string",
-            "pgQualstatsResolveOids": "boolean",
-            "pgQualstatsSampleRate": "number",
-            "maxStackDepth": "string",
-            "geqo": "boolean",
-            "geqoThreshold": "string",
-            "geqoEffort": "string",
-            "geqoPoolSize": "string",
-            "geqoGenerations": "string",
-            "geqoSelectionBias": "number",
-            "geqoSeed": "number",
-            "maxStandbyArchiveDelay": "string",
-            "sessionDurationTimeout": "string",
-            "logReplicationCommands": "boolean",
-            "logAutovacuumMinDuration": "string",
-            "passwordEncryption": "string"
-          }
-        },
+        // Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`
         "postgresqlConfig_11": {
           "effectiveConfig": {
             "maxConnections": "string",
@@ -1592,446 +533,6 @@ The maximum string length in characters is 1000. ||
             "pgQualstatsMax": "string",
             "pgQualstatsResolveOids": "boolean",
             "pgQualstatsSampleRate": "number",
-            "maxStackDepth": "string",
-            "geqo": "boolean",
-            "geqoThreshold": "string",
-            "geqoEffort": "string",
-            "geqoPoolSize": "string",
-            "geqoGenerations": "string",
-            "geqoSelectionBias": "number",
-            "geqoSeed": "number",
-            "pgTrgmSimilarityThreshold": "number",
-            "pgTrgmWordSimilarityThreshold": "number",
-            "pgTrgmStrictWordSimilarityThreshold": "number",
-            "maxStandbyArchiveDelay": "string",
-            "sessionDurationTimeout": "string",
-            "logReplicationCommands": "boolean",
-            "logAutovacuumMinDuration": "string",
-            "passwordEncryption": "string"
-          }
-        },
-        "postgresqlConfig_11_1c": {
-          "effectiveConfig": {
-            "maxConnections": "string",
-            "sharedBuffers": "string",
-            "tempBuffers": "string",
-            "maxPreparedTransactions": "string",
-            "workMem": "string",
-            "maintenanceWorkMem": "string",
-            "autovacuumWorkMem": "string",
-            "tempFileLimit": "string",
-            "vacuumCostDelay": "string",
-            "vacuumCostPageHit": "string",
-            "vacuumCostPageMiss": "string",
-            "vacuumCostPageDirty": "string",
-            "vacuumCostLimit": "string",
-            "bgwriterDelay": "string",
-            "bgwriterLruMaxpages": "string",
-            "bgwriterLruMultiplier": "number",
-            "bgwriterFlushAfter": "string",
-            "backendFlushAfter": "string",
-            "oldSnapshotThreshold": "string",
-            "walLevel": "string",
-            "synchronousCommit": "string",
-            "checkpointTimeout": "string",
-            "checkpointCompletionTarget": "number",
-            "checkpointFlushAfter": "string",
-            "maxWalSize": "string",
-            "minWalSize": "string",
-            "maxStandbyStreamingDelay": "string",
-            "defaultStatisticsTarget": "string",
-            "constraintExclusion": "string",
-            "cursorTupleFraction": "number",
-            "fromCollapseLimit": "string",
-            "joinCollapseLimit": "string",
-            "forceParallelMode": "string",
-            "clientMinMessages": "string",
-            "logMinMessages": "string",
-            "logMinErrorStatement": "string",
-            "logMinDurationStatement": "string",
-            "logCheckpoints": "boolean",
-            "logConnections": "boolean",
-            "logDisconnections": "boolean",
-            "logDuration": "boolean",
-            "logErrorVerbosity": "string",
-            "logLockWaits": "boolean",
-            "logStatement": "string",
-            "logTempFiles": "string",
-            "searchPath": "string",
-            "rowSecurity": "boolean",
-            "defaultTransactionIsolation": "string",
-            "statementTimeout": "string",
-            "lockTimeout": "string",
-            "idleInTransactionSessionTimeout": "string",
-            "byteaOutput": "string",
-            "xmlbinary": "string",
-            "xmloption": "string",
-            "ginPendingListLimit": "string",
-            "deadlockTimeout": "string",
-            "maxLocksPerTransaction": "string",
-            "maxPredLocksPerTransaction": "string",
-            "arrayNulls": "boolean",
-            "backslashQuote": "string",
-            "defaultWithOids": "boolean",
-            "escapeStringWarning": "boolean",
-            "loCompatPrivileges": "boolean",
-            "operatorPrecedenceWarning": "boolean",
-            "quoteAllIdentifiers": "boolean",
-            "standardConformingStrings": "boolean",
-            "synchronizeSeqscans": "boolean",
-            "transformNullEquals": "boolean",
-            "exitOnError": "boolean",
-            "seqPageCost": "number",
-            "randomPageCost": "number",
-            "autovacuumMaxWorkers": "string",
-            "autovacuumVacuumCostDelay": "string",
-            "autovacuumVacuumCostLimit": "string",
-            "autovacuumNaptime": "string",
-            "archiveTimeout": "string",
-            "trackActivityQuerySize": "string",
-            "onlineAnalyzeEnable": "boolean",
-            "enableBitmapscan": "boolean",
-            "enableHashagg": "boolean",
-            "enableHashjoin": "boolean",
-            "enableIndexscan": "boolean",
-            "enableIndexonlyscan": "boolean",
-            "enableMaterial": "boolean",
-            "enableMergejoin": "boolean",
-            "enableNestloop": "boolean",
-            "enableSeqscan": "boolean",
-            "enableSort": "boolean",
-            "enableTidscan": "boolean",
-            "maxWorkerProcesses": "string",
-            "maxParallelWorkers": "string",
-            "maxParallelWorkersPerGather": "string",
-            "autovacuumVacuumScaleFactor": "number",
-            "autovacuumAnalyzeScaleFactor": "number",
-            "defaultTransactionReadOnly": "boolean",
-            "timezone": "string",
-            "enableParallelAppend": "boolean",
-            "enableParallelHash": "boolean",
-            "enablePartitionPruning": "boolean",
-            "enablePartitionwiseAggregate": "boolean",
-            "enablePartitionwiseJoin": "boolean",
-            "jit": "boolean",
-            "maxParallelMaintenanceWorkers": "string",
-            "parallelLeaderParticipation": "boolean",
-            "vacuumCleanupIndexScaleFactor": "number",
-            "effectiveIoConcurrency": "string",
-            "effectiveCacheSize": "string",
-            "sharedPreloadLibraries": [
-              "string"
-            ],
-            "autoExplainLogMinDuration": "string",
-            "autoExplainLogAnalyze": "boolean",
-            "autoExplainLogBuffers": "boolean",
-            "autoExplainLogTiming": "boolean",
-            "autoExplainLogTriggers": "boolean",
-            "autoExplainLogVerbose": "boolean",
-            "autoExplainLogNestedStatements": "boolean",
-            "autoExplainSampleRate": "number",
-            "pgHintPlanEnableHint": "boolean",
-            "pgHintPlanEnableHintTable": "boolean",
-            "pgHintPlanDebugPrint": "string",
-            "pgHintPlanMessageLevel": "string",
-            "pgQualstatsEnabled": "boolean",
-            "pgQualstatsTrackConstants": "boolean",
-            "pgQualstatsMax": "string",
-            "pgQualstatsResolveOids": "boolean",
-            "pgQualstatsSampleRate": "number",
-            "plantunerFixEmptyTable": "boolean",
-            "maxStackDepth": "string",
-            "geqo": "boolean",
-            "geqoThreshold": "string",
-            "geqoEffort": "string",
-            "geqoPoolSize": "string",
-            "geqoGenerations": "string",
-            "geqoSelectionBias": "number",
-            "geqoSeed": "number",
-            "pgTrgmSimilarityThreshold": "number",
-            "pgTrgmWordSimilarityThreshold": "number",
-            "pgTrgmStrictWordSimilarityThreshold": "number",
-            "maxStandbyArchiveDelay": "string",
-            "sessionDurationTimeout": "string",
-            "logReplicationCommands": "boolean",
-            "logAutovacuumMinDuration": "string",
-            "passwordEncryption": "string"
-          },
-          "userConfig": {
-            "maxConnections": "string",
-            "sharedBuffers": "string",
-            "tempBuffers": "string",
-            "maxPreparedTransactions": "string",
-            "workMem": "string",
-            "maintenanceWorkMem": "string",
-            "autovacuumWorkMem": "string",
-            "tempFileLimit": "string",
-            "vacuumCostDelay": "string",
-            "vacuumCostPageHit": "string",
-            "vacuumCostPageMiss": "string",
-            "vacuumCostPageDirty": "string",
-            "vacuumCostLimit": "string",
-            "bgwriterDelay": "string",
-            "bgwriterLruMaxpages": "string",
-            "bgwriterLruMultiplier": "number",
-            "bgwriterFlushAfter": "string",
-            "backendFlushAfter": "string",
-            "oldSnapshotThreshold": "string",
-            "walLevel": "string",
-            "synchronousCommit": "string",
-            "checkpointTimeout": "string",
-            "checkpointCompletionTarget": "number",
-            "checkpointFlushAfter": "string",
-            "maxWalSize": "string",
-            "minWalSize": "string",
-            "maxStandbyStreamingDelay": "string",
-            "defaultStatisticsTarget": "string",
-            "constraintExclusion": "string",
-            "cursorTupleFraction": "number",
-            "fromCollapseLimit": "string",
-            "joinCollapseLimit": "string",
-            "forceParallelMode": "string",
-            "clientMinMessages": "string",
-            "logMinMessages": "string",
-            "logMinErrorStatement": "string",
-            "logMinDurationStatement": "string",
-            "logCheckpoints": "boolean",
-            "logConnections": "boolean",
-            "logDisconnections": "boolean",
-            "logDuration": "boolean",
-            "logErrorVerbosity": "string",
-            "logLockWaits": "boolean",
-            "logStatement": "string",
-            "logTempFiles": "string",
-            "searchPath": "string",
-            "rowSecurity": "boolean",
-            "defaultTransactionIsolation": "string",
-            "statementTimeout": "string",
-            "lockTimeout": "string",
-            "idleInTransactionSessionTimeout": "string",
-            "byteaOutput": "string",
-            "xmlbinary": "string",
-            "xmloption": "string",
-            "ginPendingListLimit": "string",
-            "deadlockTimeout": "string",
-            "maxLocksPerTransaction": "string",
-            "maxPredLocksPerTransaction": "string",
-            "arrayNulls": "boolean",
-            "backslashQuote": "string",
-            "defaultWithOids": "boolean",
-            "escapeStringWarning": "boolean",
-            "loCompatPrivileges": "boolean",
-            "operatorPrecedenceWarning": "boolean",
-            "quoteAllIdentifiers": "boolean",
-            "standardConformingStrings": "boolean",
-            "synchronizeSeqscans": "boolean",
-            "transformNullEquals": "boolean",
-            "exitOnError": "boolean",
-            "seqPageCost": "number",
-            "randomPageCost": "number",
-            "autovacuumMaxWorkers": "string",
-            "autovacuumVacuumCostDelay": "string",
-            "autovacuumVacuumCostLimit": "string",
-            "autovacuumNaptime": "string",
-            "archiveTimeout": "string",
-            "trackActivityQuerySize": "string",
-            "onlineAnalyzeEnable": "boolean",
-            "enableBitmapscan": "boolean",
-            "enableHashagg": "boolean",
-            "enableHashjoin": "boolean",
-            "enableIndexscan": "boolean",
-            "enableIndexonlyscan": "boolean",
-            "enableMaterial": "boolean",
-            "enableMergejoin": "boolean",
-            "enableNestloop": "boolean",
-            "enableSeqscan": "boolean",
-            "enableSort": "boolean",
-            "enableTidscan": "boolean",
-            "maxWorkerProcesses": "string",
-            "maxParallelWorkers": "string",
-            "maxParallelWorkersPerGather": "string",
-            "autovacuumVacuumScaleFactor": "number",
-            "autovacuumAnalyzeScaleFactor": "number",
-            "defaultTransactionReadOnly": "boolean",
-            "timezone": "string",
-            "enableParallelAppend": "boolean",
-            "enableParallelHash": "boolean",
-            "enablePartitionPruning": "boolean",
-            "enablePartitionwiseAggregate": "boolean",
-            "enablePartitionwiseJoin": "boolean",
-            "jit": "boolean",
-            "maxParallelMaintenanceWorkers": "string",
-            "parallelLeaderParticipation": "boolean",
-            "vacuumCleanupIndexScaleFactor": "number",
-            "effectiveIoConcurrency": "string",
-            "effectiveCacheSize": "string",
-            "sharedPreloadLibraries": [
-              "string"
-            ],
-            "autoExplainLogMinDuration": "string",
-            "autoExplainLogAnalyze": "boolean",
-            "autoExplainLogBuffers": "boolean",
-            "autoExplainLogTiming": "boolean",
-            "autoExplainLogTriggers": "boolean",
-            "autoExplainLogVerbose": "boolean",
-            "autoExplainLogNestedStatements": "boolean",
-            "autoExplainSampleRate": "number",
-            "pgHintPlanEnableHint": "boolean",
-            "pgHintPlanEnableHintTable": "boolean",
-            "pgHintPlanDebugPrint": "string",
-            "pgHintPlanMessageLevel": "string",
-            "pgQualstatsEnabled": "boolean",
-            "pgQualstatsTrackConstants": "boolean",
-            "pgQualstatsMax": "string",
-            "pgQualstatsResolveOids": "boolean",
-            "pgQualstatsSampleRate": "number",
-            "plantunerFixEmptyTable": "boolean",
-            "maxStackDepth": "string",
-            "geqo": "boolean",
-            "geqoThreshold": "string",
-            "geqoEffort": "string",
-            "geqoPoolSize": "string",
-            "geqoGenerations": "string",
-            "geqoSelectionBias": "number",
-            "geqoSeed": "number",
-            "pgTrgmSimilarityThreshold": "number",
-            "pgTrgmWordSimilarityThreshold": "number",
-            "pgTrgmStrictWordSimilarityThreshold": "number",
-            "maxStandbyArchiveDelay": "string",
-            "sessionDurationTimeout": "string",
-            "logReplicationCommands": "boolean",
-            "logAutovacuumMinDuration": "string",
-            "passwordEncryption": "string"
-          },
-          "defaultConfig": {
-            "maxConnections": "string",
-            "sharedBuffers": "string",
-            "tempBuffers": "string",
-            "maxPreparedTransactions": "string",
-            "workMem": "string",
-            "maintenanceWorkMem": "string",
-            "autovacuumWorkMem": "string",
-            "tempFileLimit": "string",
-            "vacuumCostDelay": "string",
-            "vacuumCostPageHit": "string",
-            "vacuumCostPageMiss": "string",
-            "vacuumCostPageDirty": "string",
-            "vacuumCostLimit": "string",
-            "bgwriterDelay": "string",
-            "bgwriterLruMaxpages": "string",
-            "bgwriterLruMultiplier": "number",
-            "bgwriterFlushAfter": "string",
-            "backendFlushAfter": "string",
-            "oldSnapshotThreshold": "string",
-            "walLevel": "string",
-            "synchronousCommit": "string",
-            "checkpointTimeout": "string",
-            "checkpointCompletionTarget": "number",
-            "checkpointFlushAfter": "string",
-            "maxWalSize": "string",
-            "minWalSize": "string",
-            "maxStandbyStreamingDelay": "string",
-            "defaultStatisticsTarget": "string",
-            "constraintExclusion": "string",
-            "cursorTupleFraction": "number",
-            "fromCollapseLimit": "string",
-            "joinCollapseLimit": "string",
-            "forceParallelMode": "string",
-            "clientMinMessages": "string",
-            "logMinMessages": "string",
-            "logMinErrorStatement": "string",
-            "logMinDurationStatement": "string",
-            "logCheckpoints": "boolean",
-            "logConnections": "boolean",
-            "logDisconnections": "boolean",
-            "logDuration": "boolean",
-            "logErrorVerbosity": "string",
-            "logLockWaits": "boolean",
-            "logStatement": "string",
-            "logTempFiles": "string",
-            "searchPath": "string",
-            "rowSecurity": "boolean",
-            "defaultTransactionIsolation": "string",
-            "statementTimeout": "string",
-            "lockTimeout": "string",
-            "idleInTransactionSessionTimeout": "string",
-            "byteaOutput": "string",
-            "xmlbinary": "string",
-            "xmloption": "string",
-            "ginPendingListLimit": "string",
-            "deadlockTimeout": "string",
-            "maxLocksPerTransaction": "string",
-            "maxPredLocksPerTransaction": "string",
-            "arrayNulls": "boolean",
-            "backslashQuote": "string",
-            "defaultWithOids": "boolean",
-            "escapeStringWarning": "boolean",
-            "loCompatPrivileges": "boolean",
-            "operatorPrecedenceWarning": "boolean",
-            "quoteAllIdentifiers": "boolean",
-            "standardConformingStrings": "boolean",
-            "synchronizeSeqscans": "boolean",
-            "transformNullEquals": "boolean",
-            "exitOnError": "boolean",
-            "seqPageCost": "number",
-            "randomPageCost": "number",
-            "autovacuumMaxWorkers": "string",
-            "autovacuumVacuumCostDelay": "string",
-            "autovacuumVacuumCostLimit": "string",
-            "autovacuumNaptime": "string",
-            "archiveTimeout": "string",
-            "trackActivityQuerySize": "string",
-            "onlineAnalyzeEnable": "boolean",
-            "enableBitmapscan": "boolean",
-            "enableHashagg": "boolean",
-            "enableHashjoin": "boolean",
-            "enableIndexscan": "boolean",
-            "enableIndexonlyscan": "boolean",
-            "enableMaterial": "boolean",
-            "enableMergejoin": "boolean",
-            "enableNestloop": "boolean",
-            "enableSeqscan": "boolean",
-            "enableSort": "boolean",
-            "enableTidscan": "boolean",
-            "maxWorkerProcesses": "string",
-            "maxParallelWorkers": "string",
-            "maxParallelWorkersPerGather": "string",
-            "autovacuumVacuumScaleFactor": "number",
-            "autovacuumAnalyzeScaleFactor": "number",
-            "defaultTransactionReadOnly": "boolean",
-            "timezone": "string",
-            "enableParallelAppend": "boolean",
-            "enableParallelHash": "boolean",
-            "enablePartitionPruning": "boolean",
-            "enablePartitionwiseAggregate": "boolean",
-            "enablePartitionwiseJoin": "boolean",
-            "jit": "boolean",
-            "maxParallelMaintenanceWorkers": "string",
-            "parallelLeaderParticipation": "boolean",
-            "vacuumCleanupIndexScaleFactor": "number",
-            "effectiveIoConcurrency": "string",
-            "effectiveCacheSize": "string",
-            "sharedPreloadLibraries": [
-              "string"
-            ],
-            "autoExplainLogMinDuration": "string",
-            "autoExplainLogAnalyze": "boolean",
-            "autoExplainLogBuffers": "boolean",
-            "autoExplainLogTiming": "boolean",
-            "autoExplainLogTriggers": "boolean",
-            "autoExplainLogVerbose": "boolean",
-            "autoExplainLogNestedStatements": "boolean",
-            "autoExplainSampleRate": "number",
-            "pgHintPlanEnableHint": "boolean",
-            "pgHintPlanEnableHintTable": "boolean",
-            "pgHintPlanDebugPrint": "string",
-            "pgHintPlanMessageLevel": "string",
-            "pgQualstatsEnabled": "boolean",
-            "pgQualstatsTrackConstants": "boolean",
-            "pgQualstatsMax": "string",
-            "pgQualstatsResolveOids": "boolean",
-            "pgQualstatsSampleRate": "number",
-            "plantunerFixEmptyTable": "boolean",
             "maxStackDepth": "string",
             "geqo": "boolean",
             "geqoThreshold": "string",
@@ -2472,452 +973,6 @@ The maximum string length in characters is 1000. ||
             "pgQualstatsMax": "string",
             "pgQualstatsResolveOids": "boolean",
             "pgQualstatsSampleRate": "number",
-            "maxStackDepth": "string",
-            "geqo": "boolean",
-            "geqoThreshold": "string",
-            "geqoEffort": "string",
-            "geqoPoolSize": "string",
-            "geqoGenerations": "string",
-            "geqoSelectionBias": "number",
-            "geqoSeed": "number",
-            "pgTrgmSimilarityThreshold": "number",
-            "pgTrgmWordSimilarityThreshold": "number",
-            "pgTrgmStrictWordSimilarityThreshold": "number",
-            "maxStandbyArchiveDelay": "string",
-            "sessionDurationTimeout": "string",
-            "logReplicationCommands": "boolean",
-            "logAutovacuumMinDuration": "string",
-            "passwordEncryption": "string"
-          }
-        },
-        "postgresqlConfig_12_1c": {
-          "effectiveConfig": {
-            "maxConnections": "string",
-            "sharedBuffers": "string",
-            "tempBuffers": "string",
-            "maxPreparedTransactions": "string",
-            "workMem": "string",
-            "maintenanceWorkMem": "string",
-            "autovacuumWorkMem": "string",
-            "tempFileLimit": "string",
-            "vacuumCostDelay": "string",
-            "vacuumCostPageHit": "string",
-            "vacuumCostPageMiss": "string",
-            "vacuumCostPageDirty": "string",
-            "vacuumCostLimit": "string",
-            "bgwriterDelay": "string",
-            "bgwriterLruMaxpages": "string",
-            "bgwriterLruMultiplier": "number",
-            "bgwriterFlushAfter": "string",
-            "backendFlushAfter": "string",
-            "oldSnapshotThreshold": "string",
-            "walLevel": "string",
-            "synchronousCommit": "string",
-            "checkpointTimeout": "string",
-            "checkpointCompletionTarget": "number",
-            "checkpointFlushAfter": "string",
-            "maxWalSize": "string",
-            "minWalSize": "string",
-            "maxStandbyStreamingDelay": "string",
-            "defaultStatisticsTarget": "string",
-            "constraintExclusion": "string",
-            "cursorTupleFraction": "number",
-            "fromCollapseLimit": "string",
-            "joinCollapseLimit": "string",
-            "forceParallelMode": "string",
-            "clientMinMessages": "string",
-            "logMinMessages": "string",
-            "logMinErrorStatement": "string",
-            "logMinDurationStatement": "string",
-            "logCheckpoints": "boolean",
-            "logConnections": "boolean",
-            "logDisconnections": "boolean",
-            "logDuration": "boolean",
-            "logErrorVerbosity": "string",
-            "logLockWaits": "boolean",
-            "logStatement": "string",
-            "logTempFiles": "string",
-            "searchPath": "string",
-            "rowSecurity": "boolean",
-            "defaultTransactionIsolation": "string",
-            "statementTimeout": "string",
-            "lockTimeout": "string",
-            "idleInTransactionSessionTimeout": "string",
-            "byteaOutput": "string",
-            "xmlbinary": "string",
-            "xmloption": "string",
-            "ginPendingListLimit": "string",
-            "deadlockTimeout": "string",
-            "maxLocksPerTransaction": "string",
-            "maxPredLocksPerTransaction": "string",
-            "arrayNulls": "boolean",
-            "backslashQuote": "string",
-            "defaultWithOids": "boolean",
-            "escapeStringWarning": "boolean",
-            "loCompatPrivileges": "boolean",
-            "operatorPrecedenceWarning": "boolean",
-            "quoteAllIdentifiers": "boolean",
-            "standardConformingStrings": "boolean",
-            "synchronizeSeqscans": "boolean",
-            "transformNullEquals": "boolean",
-            "exitOnError": "boolean",
-            "seqPageCost": "number",
-            "randomPageCost": "number",
-            "autovacuumMaxWorkers": "string",
-            "autovacuumVacuumCostDelay": "string",
-            "autovacuumVacuumCostLimit": "string",
-            "autovacuumNaptime": "string",
-            "archiveTimeout": "string",
-            "trackActivityQuerySize": "string",
-            "onlineAnalyzeEnable": "boolean",
-            "enableBitmapscan": "boolean",
-            "enableHashagg": "boolean",
-            "enableHashjoin": "boolean",
-            "enableIndexscan": "boolean",
-            "enableIndexonlyscan": "boolean",
-            "enableMaterial": "boolean",
-            "enableMergejoin": "boolean",
-            "enableNestloop": "boolean",
-            "enableSeqscan": "boolean",
-            "enableSort": "boolean",
-            "enableTidscan": "boolean",
-            "maxWorkerProcesses": "string",
-            "maxParallelWorkers": "string",
-            "maxParallelWorkersPerGather": "string",
-            "autovacuumVacuumScaleFactor": "number",
-            "autovacuumAnalyzeScaleFactor": "number",
-            "defaultTransactionReadOnly": "boolean",
-            "timezone": "string",
-            "enableParallelAppend": "boolean",
-            "enableParallelHash": "boolean",
-            "enablePartitionPruning": "boolean",
-            "enablePartitionwiseAggregate": "boolean",
-            "enablePartitionwiseJoin": "boolean",
-            "jit": "boolean",
-            "maxParallelMaintenanceWorkers": "string",
-            "parallelLeaderParticipation": "boolean",
-            "vacuumCleanupIndexScaleFactor": "number",
-            "logTransactionSampleRate": "number",
-            "planCacheMode": "string",
-            "effectiveIoConcurrency": "string",
-            "effectiveCacheSize": "string",
-            "sharedPreloadLibraries": [
-              "string"
-            ],
-            "autoExplainLogMinDuration": "string",
-            "autoExplainLogAnalyze": "boolean",
-            "autoExplainLogBuffers": "boolean",
-            "autoExplainLogTiming": "boolean",
-            "autoExplainLogTriggers": "boolean",
-            "autoExplainLogVerbose": "boolean",
-            "autoExplainLogNestedStatements": "boolean",
-            "autoExplainSampleRate": "number",
-            "pgHintPlanEnableHint": "boolean",
-            "pgHintPlanEnableHintTable": "boolean",
-            "pgHintPlanDebugPrint": "string",
-            "pgHintPlanMessageLevel": "string",
-            "pgQualstatsEnabled": "boolean",
-            "pgQualstatsTrackConstants": "boolean",
-            "pgQualstatsMax": "string",
-            "pgQualstatsResolveOids": "boolean",
-            "pgQualstatsSampleRate": "number",
-            "plantunerFixEmptyTable": "boolean",
-            "maxStackDepth": "string",
-            "geqo": "boolean",
-            "geqoThreshold": "string",
-            "geqoEffort": "string",
-            "geqoPoolSize": "string",
-            "geqoGenerations": "string",
-            "geqoSelectionBias": "number",
-            "geqoSeed": "number",
-            "pgTrgmSimilarityThreshold": "number",
-            "pgTrgmWordSimilarityThreshold": "number",
-            "pgTrgmStrictWordSimilarityThreshold": "number",
-            "maxStandbyArchiveDelay": "string",
-            "sessionDurationTimeout": "string",
-            "logReplicationCommands": "boolean",
-            "logAutovacuumMinDuration": "string",
-            "passwordEncryption": "string"
-          },
-          "userConfig": {
-            "maxConnections": "string",
-            "sharedBuffers": "string",
-            "tempBuffers": "string",
-            "maxPreparedTransactions": "string",
-            "workMem": "string",
-            "maintenanceWorkMem": "string",
-            "autovacuumWorkMem": "string",
-            "tempFileLimit": "string",
-            "vacuumCostDelay": "string",
-            "vacuumCostPageHit": "string",
-            "vacuumCostPageMiss": "string",
-            "vacuumCostPageDirty": "string",
-            "vacuumCostLimit": "string",
-            "bgwriterDelay": "string",
-            "bgwriterLruMaxpages": "string",
-            "bgwriterLruMultiplier": "number",
-            "bgwriterFlushAfter": "string",
-            "backendFlushAfter": "string",
-            "oldSnapshotThreshold": "string",
-            "walLevel": "string",
-            "synchronousCommit": "string",
-            "checkpointTimeout": "string",
-            "checkpointCompletionTarget": "number",
-            "checkpointFlushAfter": "string",
-            "maxWalSize": "string",
-            "minWalSize": "string",
-            "maxStandbyStreamingDelay": "string",
-            "defaultStatisticsTarget": "string",
-            "constraintExclusion": "string",
-            "cursorTupleFraction": "number",
-            "fromCollapseLimit": "string",
-            "joinCollapseLimit": "string",
-            "forceParallelMode": "string",
-            "clientMinMessages": "string",
-            "logMinMessages": "string",
-            "logMinErrorStatement": "string",
-            "logMinDurationStatement": "string",
-            "logCheckpoints": "boolean",
-            "logConnections": "boolean",
-            "logDisconnections": "boolean",
-            "logDuration": "boolean",
-            "logErrorVerbosity": "string",
-            "logLockWaits": "boolean",
-            "logStatement": "string",
-            "logTempFiles": "string",
-            "searchPath": "string",
-            "rowSecurity": "boolean",
-            "defaultTransactionIsolation": "string",
-            "statementTimeout": "string",
-            "lockTimeout": "string",
-            "idleInTransactionSessionTimeout": "string",
-            "byteaOutput": "string",
-            "xmlbinary": "string",
-            "xmloption": "string",
-            "ginPendingListLimit": "string",
-            "deadlockTimeout": "string",
-            "maxLocksPerTransaction": "string",
-            "maxPredLocksPerTransaction": "string",
-            "arrayNulls": "boolean",
-            "backslashQuote": "string",
-            "defaultWithOids": "boolean",
-            "escapeStringWarning": "boolean",
-            "loCompatPrivileges": "boolean",
-            "operatorPrecedenceWarning": "boolean",
-            "quoteAllIdentifiers": "boolean",
-            "standardConformingStrings": "boolean",
-            "synchronizeSeqscans": "boolean",
-            "transformNullEquals": "boolean",
-            "exitOnError": "boolean",
-            "seqPageCost": "number",
-            "randomPageCost": "number",
-            "autovacuumMaxWorkers": "string",
-            "autovacuumVacuumCostDelay": "string",
-            "autovacuumVacuumCostLimit": "string",
-            "autovacuumNaptime": "string",
-            "archiveTimeout": "string",
-            "trackActivityQuerySize": "string",
-            "onlineAnalyzeEnable": "boolean",
-            "enableBitmapscan": "boolean",
-            "enableHashagg": "boolean",
-            "enableHashjoin": "boolean",
-            "enableIndexscan": "boolean",
-            "enableIndexonlyscan": "boolean",
-            "enableMaterial": "boolean",
-            "enableMergejoin": "boolean",
-            "enableNestloop": "boolean",
-            "enableSeqscan": "boolean",
-            "enableSort": "boolean",
-            "enableTidscan": "boolean",
-            "maxWorkerProcesses": "string",
-            "maxParallelWorkers": "string",
-            "maxParallelWorkersPerGather": "string",
-            "autovacuumVacuumScaleFactor": "number",
-            "autovacuumAnalyzeScaleFactor": "number",
-            "defaultTransactionReadOnly": "boolean",
-            "timezone": "string",
-            "enableParallelAppend": "boolean",
-            "enableParallelHash": "boolean",
-            "enablePartitionPruning": "boolean",
-            "enablePartitionwiseAggregate": "boolean",
-            "enablePartitionwiseJoin": "boolean",
-            "jit": "boolean",
-            "maxParallelMaintenanceWorkers": "string",
-            "parallelLeaderParticipation": "boolean",
-            "vacuumCleanupIndexScaleFactor": "number",
-            "logTransactionSampleRate": "number",
-            "planCacheMode": "string",
-            "effectiveIoConcurrency": "string",
-            "effectiveCacheSize": "string",
-            "sharedPreloadLibraries": [
-              "string"
-            ],
-            "autoExplainLogMinDuration": "string",
-            "autoExplainLogAnalyze": "boolean",
-            "autoExplainLogBuffers": "boolean",
-            "autoExplainLogTiming": "boolean",
-            "autoExplainLogTriggers": "boolean",
-            "autoExplainLogVerbose": "boolean",
-            "autoExplainLogNestedStatements": "boolean",
-            "autoExplainSampleRate": "number",
-            "pgHintPlanEnableHint": "boolean",
-            "pgHintPlanEnableHintTable": "boolean",
-            "pgHintPlanDebugPrint": "string",
-            "pgHintPlanMessageLevel": "string",
-            "pgQualstatsEnabled": "boolean",
-            "pgQualstatsTrackConstants": "boolean",
-            "pgQualstatsMax": "string",
-            "pgQualstatsResolveOids": "boolean",
-            "pgQualstatsSampleRate": "number",
-            "plantunerFixEmptyTable": "boolean",
-            "maxStackDepth": "string",
-            "geqo": "boolean",
-            "geqoThreshold": "string",
-            "geqoEffort": "string",
-            "geqoPoolSize": "string",
-            "geqoGenerations": "string",
-            "geqoSelectionBias": "number",
-            "geqoSeed": "number",
-            "pgTrgmSimilarityThreshold": "number",
-            "pgTrgmWordSimilarityThreshold": "number",
-            "pgTrgmStrictWordSimilarityThreshold": "number",
-            "maxStandbyArchiveDelay": "string",
-            "sessionDurationTimeout": "string",
-            "logReplicationCommands": "boolean",
-            "logAutovacuumMinDuration": "string",
-            "passwordEncryption": "string"
-          },
-          "defaultConfig": {
-            "maxConnections": "string",
-            "sharedBuffers": "string",
-            "tempBuffers": "string",
-            "maxPreparedTransactions": "string",
-            "workMem": "string",
-            "maintenanceWorkMem": "string",
-            "autovacuumWorkMem": "string",
-            "tempFileLimit": "string",
-            "vacuumCostDelay": "string",
-            "vacuumCostPageHit": "string",
-            "vacuumCostPageMiss": "string",
-            "vacuumCostPageDirty": "string",
-            "vacuumCostLimit": "string",
-            "bgwriterDelay": "string",
-            "bgwriterLruMaxpages": "string",
-            "bgwriterLruMultiplier": "number",
-            "bgwriterFlushAfter": "string",
-            "backendFlushAfter": "string",
-            "oldSnapshotThreshold": "string",
-            "walLevel": "string",
-            "synchronousCommit": "string",
-            "checkpointTimeout": "string",
-            "checkpointCompletionTarget": "number",
-            "checkpointFlushAfter": "string",
-            "maxWalSize": "string",
-            "minWalSize": "string",
-            "maxStandbyStreamingDelay": "string",
-            "defaultStatisticsTarget": "string",
-            "constraintExclusion": "string",
-            "cursorTupleFraction": "number",
-            "fromCollapseLimit": "string",
-            "joinCollapseLimit": "string",
-            "forceParallelMode": "string",
-            "clientMinMessages": "string",
-            "logMinMessages": "string",
-            "logMinErrorStatement": "string",
-            "logMinDurationStatement": "string",
-            "logCheckpoints": "boolean",
-            "logConnections": "boolean",
-            "logDisconnections": "boolean",
-            "logDuration": "boolean",
-            "logErrorVerbosity": "string",
-            "logLockWaits": "boolean",
-            "logStatement": "string",
-            "logTempFiles": "string",
-            "searchPath": "string",
-            "rowSecurity": "boolean",
-            "defaultTransactionIsolation": "string",
-            "statementTimeout": "string",
-            "lockTimeout": "string",
-            "idleInTransactionSessionTimeout": "string",
-            "byteaOutput": "string",
-            "xmlbinary": "string",
-            "xmloption": "string",
-            "ginPendingListLimit": "string",
-            "deadlockTimeout": "string",
-            "maxLocksPerTransaction": "string",
-            "maxPredLocksPerTransaction": "string",
-            "arrayNulls": "boolean",
-            "backslashQuote": "string",
-            "defaultWithOids": "boolean",
-            "escapeStringWarning": "boolean",
-            "loCompatPrivileges": "boolean",
-            "operatorPrecedenceWarning": "boolean",
-            "quoteAllIdentifiers": "boolean",
-            "standardConformingStrings": "boolean",
-            "synchronizeSeqscans": "boolean",
-            "transformNullEquals": "boolean",
-            "exitOnError": "boolean",
-            "seqPageCost": "number",
-            "randomPageCost": "number",
-            "autovacuumMaxWorkers": "string",
-            "autovacuumVacuumCostDelay": "string",
-            "autovacuumVacuumCostLimit": "string",
-            "autovacuumNaptime": "string",
-            "archiveTimeout": "string",
-            "trackActivityQuerySize": "string",
-            "onlineAnalyzeEnable": "boolean",
-            "enableBitmapscan": "boolean",
-            "enableHashagg": "boolean",
-            "enableHashjoin": "boolean",
-            "enableIndexscan": "boolean",
-            "enableIndexonlyscan": "boolean",
-            "enableMaterial": "boolean",
-            "enableMergejoin": "boolean",
-            "enableNestloop": "boolean",
-            "enableSeqscan": "boolean",
-            "enableSort": "boolean",
-            "enableTidscan": "boolean",
-            "maxWorkerProcesses": "string",
-            "maxParallelWorkers": "string",
-            "maxParallelWorkersPerGather": "string",
-            "autovacuumVacuumScaleFactor": "number",
-            "autovacuumAnalyzeScaleFactor": "number",
-            "defaultTransactionReadOnly": "boolean",
-            "timezone": "string",
-            "enableParallelAppend": "boolean",
-            "enableParallelHash": "boolean",
-            "enablePartitionPruning": "boolean",
-            "enablePartitionwiseAggregate": "boolean",
-            "enablePartitionwiseJoin": "boolean",
-            "jit": "boolean",
-            "maxParallelMaintenanceWorkers": "string",
-            "parallelLeaderParticipation": "boolean",
-            "vacuumCleanupIndexScaleFactor": "number",
-            "logTransactionSampleRate": "number",
-            "planCacheMode": "string",
-            "effectiveIoConcurrency": "string",
-            "effectiveCacheSize": "string",
-            "sharedPreloadLibraries": [
-              "string"
-            ],
-            "autoExplainLogMinDuration": "string",
-            "autoExplainLogAnalyze": "boolean",
-            "autoExplainLogBuffers": "boolean",
-            "autoExplainLogTiming": "boolean",
-            "autoExplainLogTriggers": "boolean",
-            "autoExplainLogVerbose": "boolean",
-            "autoExplainLogNestedStatements": "boolean",
-            "autoExplainSampleRate": "number",
-            "pgHintPlanEnableHint": "boolean",
-            "pgHintPlanEnableHintTable": "boolean",
-            "pgHintPlanDebugPrint": "string",
-            "pgHintPlanMessageLevel": "string",
-            "pgQualstatsEnabled": "boolean",
-            "pgQualstatsTrackConstants": "boolean",
-            "pgQualstatsMax": "string",
-            "pgQualstatsResolveOids": "boolean",
-            "pgQualstatsSampleRate": "number",
-            "plantunerFixEmptyTable": "boolean",
             "maxStackDepth": "string",
             "geqo": "boolean",
             "geqoThreshold": "string",
@@ -4054,7 +2109,8 @@ The maximum string length in characters is 1000. ||
             "logReplicationCommands": "boolean",
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
-            "autoExplainLogFormat": "string"
+            "autoExplainLogFormat": "string",
+            "idleSessionTimeout": "string"
           },
           "userConfig": {
             "maxConnections": "string",
@@ -4218,7 +2274,8 @@ The maximum string length in characters is 1000. ||
             "logReplicationCommands": "boolean",
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
-            "autoExplainLogFormat": "string"
+            "autoExplainLogFormat": "string",
+            "idleSessionTimeout": "string"
           },
           "defaultConfig": {
             "maxConnections": "string",
@@ -4382,7 +2439,8 @@ The maximum string length in characters is 1000. ||
             "logReplicationCommands": "boolean",
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
-            "autoExplainLogFormat": "string"
+            "autoExplainLogFormat": "string",
+            "idleSessionTimeout": "string"
           }
         },
         "postgresqlConfig_14_1c": {
@@ -4549,7 +2607,8 @@ The maximum string length in characters is 1000. ||
             "logReplicationCommands": "boolean",
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
-            "autoExplainLogFormat": "string"
+            "autoExplainLogFormat": "string",
+            "idleSessionTimeout": "string"
           },
           "userConfig": {
             "maxConnections": "string",
@@ -4714,7 +2773,8 @@ The maximum string length in characters is 1000. ||
             "logReplicationCommands": "boolean",
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
-            "autoExplainLogFormat": "string"
+            "autoExplainLogFormat": "string",
+            "idleSessionTimeout": "string"
           },
           "defaultConfig": {
             "maxConnections": "string",
@@ -4879,7 +2939,8 @@ The maximum string length in characters is 1000. ||
             "logReplicationCommands": "boolean",
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
-            "autoExplainLogFormat": "string"
+            "autoExplainLogFormat": "string",
+            "idleSessionTimeout": "string"
           }
         },
         "postgresqlConfig_15": {
@@ -5046,7 +3107,8 @@ The maximum string length in characters is 1000. ||
             "logReplicationCommands": "boolean",
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
-            "autoExplainLogFormat": "string"
+            "autoExplainLogFormat": "string",
+            "idleSessionTimeout": "string"
           },
           "userConfig": {
             "maxConnections": "string",
@@ -5211,7 +3273,8 @@ The maximum string length in characters is 1000. ||
             "logReplicationCommands": "boolean",
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
-            "autoExplainLogFormat": "string"
+            "autoExplainLogFormat": "string",
+            "idleSessionTimeout": "string"
           },
           "defaultConfig": {
             "maxConnections": "string",
@@ -5376,7 +3439,8 @@ The maximum string length in characters is 1000. ||
             "logReplicationCommands": "boolean",
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
-            "autoExplainLogFormat": "string"
+            "autoExplainLogFormat": "string",
+            "idleSessionTimeout": "string"
           }
         },
         "postgresqlConfig_15_1c": {
@@ -5545,7 +3609,8 @@ The maximum string length in characters is 1000. ||
             "logReplicationCommands": "boolean",
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
-            "autoExplainLogFormat": "string"
+            "autoExplainLogFormat": "string",
+            "idleSessionTimeout": "string"
           },
           "userConfig": {
             "maxConnections": "string",
@@ -5712,7 +3777,8 @@ The maximum string length in characters is 1000. ||
             "logReplicationCommands": "boolean",
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
-            "autoExplainLogFormat": "string"
+            "autoExplainLogFormat": "string",
+            "idleSessionTimeout": "string"
           },
           "defaultConfig": {
             "maxConnections": "string",
@@ -5879,7 +3945,8 @@ The maximum string length in characters is 1000. ||
             "logReplicationCommands": "boolean",
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
-            "autoExplainLogFormat": "string"
+            "autoExplainLogFormat": "string",
+            "idleSessionTimeout": "string"
           }
         },
         "postgresqlConfig_16": {
@@ -6046,7 +4113,8 @@ The maximum string length in characters is 1000. ||
             "logReplicationCommands": "boolean",
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
-            "autoExplainLogFormat": "string"
+            "autoExplainLogFormat": "string",
+            "idleSessionTimeout": "string"
           },
           "userConfig": {
             "maxConnections": "string",
@@ -6211,7 +4279,8 @@ The maximum string length in characters is 1000. ||
             "logReplicationCommands": "boolean",
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
-            "autoExplainLogFormat": "string"
+            "autoExplainLogFormat": "string",
+            "idleSessionTimeout": "string"
           },
           "defaultConfig": {
             "maxConnections": "string",
@@ -6376,7 +4445,8 @@ The maximum string length in characters is 1000. ||
             "logReplicationCommands": "boolean",
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
-            "autoExplainLogFormat": "string"
+            "autoExplainLogFormat": "string",
+            "idleSessionTimeout": "string"
           }
         },
         "postgresqlConfig_16_1c": {
@@ -6545,7 +4615,8 @@ The maximum string length in characters is 1000. ||
             "logReplicationCommands": "boolean",
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
-            "autoExplainLogFormat": "string"
+            "autoExplainLogFormat": "string",
+            "idleSessionTimeout": "string"
           },
           "userConfig": {
             "maxConnections": "string",
@@ -6712,7 +4783,8 @@ The maximum string length in characters is 1000. ||
             "logReplicationCommands": "boolean",
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
-            "autoExplainLogFormat": "string"
+            "autoExplainLogFormat": "string",
+            "idleSessionTimeout": "string"
           },
           "defaultConfig": {
             "maxConnections": "string",
@@ -6879,7 +4951,8 @@ The maximum string length in characters is 1000. ||
             "logReplicationCommands": "boolean",
             "logAutovacuumMinDuration": "string",
             "passwordEncryption": "string",
-            "autoExplainLogFormat": "string"
+            "autoExplainLogFormat": "string",
+            "idleSessionTimeout": "string"
           }
         },
         "postgresqlConfig_17": {
@@ -7049,7 +5122,8 @@ The maximum string length in characters is 1000. ||
             "trackCommitTimestamp": "boolean",
             "maxLogicalReplicationWorkers": "string",
             "maxWalSenders": "string",
-            "maxReplicationSlots": "string"
+            "maxReplicationSlots": "string",
+            "idleSessionTimeout": "string"
           },
           "userConfig": {
             "maxConnections": "string",
@@ -7217,7 +5291,8 @@ The maximum string length in characters is 1000. ||
             "trackCommitTimestamp": "boolean",
             "maxLogicalReplicationWorkers": "string",
             "maxWalSenders": "string",
-            "maxReplicationSlots": "string"
+            "maxReplicationSlots": "string",
+            "idleSessionTimeout": "string"
           },
           "defaultConfig": {
             "maxConnections": "string",
@@ -7385,7 +5460,8 @@ The maximum string length in characters is 1000. ||
             "trackCommitTimestamp": "boolean",
             "maxLogicalReplicationWorkers": "string",
             "maxWalSenders": "string",
-            "maxReplicationSlots": "string"
+            "maxReplicationSlots": "string",
+            "idleSessionTimeout": "string"
           }
         },
         "postgresqlConfig_17_1c": {
@@ -7557,7 +5633,8 @@ The maximum string length in characters is 1000. ||
             "trackCommitTimestamp": "boolean",
             "maxLogicalReplicationWorkers": "string",
             "maxWalSenders": "string",
-            "maxReplicationSlots": "string"
+            "maxReplicationSlots": "string",
+            "idleSessionTimeout": "string"
           },
           "userConfig": {
             "maxConnections": "string",
@@ -7727,7 +5804,8 @@ The maximum string length in characters is 1000. ||
             "trackCommitTimestamp": "boolean",
             "maxLogicalReplicationWorkers": "string",
             "maxWalSenders": "string",
-            "maxReplicationSlots": "string"
+            "maxReplicationSlots": "string",
+            "idleSessionTimeout": "string"
           },
           "defaultConfig": {
             "maxConnections": "string",
@@ -7897,7 +5975,8 @@ The maximum string length in characters is 1000. ||
             "trackCommitTimestamp": "boolean",
             "maxLogicalReplicationWorkers": "string",
             "maxWalSenders": "string",
-            "maxReplicationSlots": "string"
+            "maxReplicationSlots": "string",
+            "idleSessionTimeout": "string"
           }
         },
         "postgresqlConfig_18": {
@@ -8067,7 +6146,8 @@ The maximum string length in characters is 1000. ||
             "trackCommitTimestamp": "boolean",
             "maxLogicalReplicationWorkers": "string",
             "maxWalSenders": "string",
-            "maxReplicationSlots": "string"
+            "maxReplicationSlots": "string",
+            "idleSessionTimeout": "string"
           },
           "userConfig": {
             "maxConnections": "string",
@@ -8235,7 +6315,8 @@ The maximum string length in characters is 1000. ||
             "trackCommitTimestamp": "boolean",
             "maxLogicalReplicationWorkers": "string",
             "maxWalSenders": "string",
-            "maxReplicationSlots": "string"
+            "maxReplicationSlots": "string",
+            "idleSessionTimeout": "string"
           },
           "defaultConfig": {
             "maxConnections": "string",
@@ -8403,7 +6484,8 @@ The maximum string length in characters is 1000. ||
             "trackCommitTimestamp": "boolean",
             "maxLogicalReplicationWorkers": "string",
             "maxWalSenders": "string",
-            "maxReplicationSlots": "string"
+            "maxReplicationSlots": "string",
+            "idleSessionTimeout": "string"
           }
         },
         "postgresqlConfig_18_1c": {
@@ -8575,7 +6657,8 @@ The maximum string length in characters is 1000. ||
             "trackCommitTimestamp": "boolean",
             "maxLogicalReplicationWorkers": "string",
             "maxWalSenders": "string",
-            "maxReplicationSlots": "string"
+            "maxReplicationSlots": "string",
+            "idleSessionTimeout": "string"
           },
           "userConfig": {
             "maxConnections": "string",
@@ -8745,7 +6828,8 @@ The maximum string length in characters is 1000. ||
             "trackCommitTimestamp": "boolean",
             "maxLogicalReplicationWorkers": "string",
             "maxWalSenders": "string",
-            "maxReplicationSlots": "string"
+            "maxReplicationSlots": "string",
+            "idleSessionTimeout": "string"
           },
           "defaultConfig": {
             "maxConnections": "string",
@@ -8915,7 +6999,8 @@ The maximum string length in characters is 1000. ||
             "trackCommitTimestamp": "boolean",
             "maxLogicalReplicationWorkers": "string",
             "maxWalSenders": "string",
-            "maxReplicationSlots": "string"
+            "maxReplicationSlots": "string",
+            "idleSessionTimeout": "string"
           }
         },
         // end of the list of possible fields
@@ -8953,7 +7038,12 @@ The maximum string length in characters is 1000. ||
           "emergencyUsageThreshold": "string",
           "diskSizeLimit": "string"
         },
-        "fullVersion": "string"
+        "fullVersion": "string",
+        "connectionManager": {
+          "enabled": "boolean",
+          "connectionsFolderId": "string",
+          "secretsFolderId": "string"
+        }
       },
       "networkId": "string",
       "health": "string",
@@ -9114,137 +7204,102 @@ Link to the monitoring system charts for the PostgreSQL cluster. ||
 || version | **string**
 
 Version of PostgreSQL server software. ||
-|| postgresqlConfig_9_6 | **[PostgresqlConfigSet9_6](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet9_6)**
-
-Configuration of a PostgreSQL 9.6 server.
-
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-
-Configuration for PostgreSQL servers in the cluster. ||
-|| postgresqlConfig_10_1c | **[PostgresqlConfigSet10_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet10_1C)**
-
-Configuration of a PostgreSQL 10 1C server.
-
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-
-Configuration for PostgreSQL servers in the cluster. ||
-|| postgresqlConfig_10 | **[PostgresqlConfigSet10](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet10)**
-
-Configuration of a PostgreSQL 10 server.
-
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-
-Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_11 | **[PostgresqlConfigSet11](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet11)**
 
 Configuration of a PostgreSQL 11 server.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-
-Configuration for PostgreSQL servers in the cluster. ||
-|| postgresqlConfig_11_1c | **[PostgresqlConfigSet11_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet11_1C)**
-
-Configuration of a PostgreSQL 11 1C server.
-
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_12 | **[PostgresqlConfigSet12](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet12)**
 
 Configuration of a PostgreSQL 12 server.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
-
-Configuration for PostgreSQL servers in the cluster. ||
-|| postgresqlConfig_12_1c | **[PostgresqlConfigSet12_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet12_1C)**
-
-Configuration of a PostgreSQL 12 1C server.
-
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_13 | **[PostgresqlConfigSet13](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet13)**
 
 Configuration of a PostgreSQL 13 server.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_13_1c | **[PostgresqlConfigSet13_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet13_1C)**
 
 Configuration of a PostgreSQL 13 1C server.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_14 | **[PostgresqlConfigSet14](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet14)**
 
 Configuration of a PostgreSQL 14 server.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_14_1c | **[PostgresqlConfigSet14_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet14_1C)**
 
 Configuration of a PostgreSQL 14 1C server.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_15 | **[PostgresqlConfigSet15](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet15)**
 
 Configuration of a PostgreSQL 15 server.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_15_1c | **[PostgresqlConfigSet15_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet15_1C)**
 
 Configuration of a PostgreSQL 15 1C server.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_16 | **[PostgresqlConfigSet16](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet16)**
 
 Configuration of a PostgreSQL 16 server.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_16_1c | **[PostgresqlConfigSet16_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet16_1C)**
 
 Configuration of a PostgreSQL 16 1C server.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_17 | **[PostgresqlConfigSet17](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet17)**
 
 Configuration of a PostgreSQL 17 server.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_17_1c | **[PostgresqlConfigSet17_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet17_1C)**
 
 Configuration of a PostgreSQL 17 1C server.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_18 | **[PostgresqlConfigSet18](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet18)**
 
 Configuration of a PostgreSQL 18 server.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || postgresqlConfig_18_1c | **[PostgresqlConfigSet18_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet18_1C)**
 
 Configuration of a PostgreSQL 18 1C server.
 
-Includes only one of the fields `postgresqlConfig_9_6`, `postgresqlConfig_10_1c`, `postgresqlConfig_10`, `postgresqlConfig_11`, `postgresqlConfig_11_1c`, `postgresqlConfig_12`, `postgresqlConfig_12_1c`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
+Includes only one of the fields `postgresqlConfig_11`, `postgresqlConfig_12`, `postgresqlConfig_13`, `postgresqlConfig_13_1c`, `postgresqlConfig_14`, `postgresqlConfig_14_1c`, `postgresqlConfig_15`, `postgresqlConfig_15_1c`, `postgresqlConfig_16`, `postgresqlConfig_16_1c`, `postgresqlConfig_17`, `postgresqlConfig_17_1c`, `postgresqlConfig_18`, `postgresqlConfig_18_1c`.
 
 Configuration for PostgreSQL servers in the cluster. ||
 || poolerConfig | **[ConnectionPoolerConfig](#yandex.cloud.mdb.postgresql.v1.ConnectionPoolerConfig)**
@@ -9276,1042 +7331,9 @@ Disk size autoscaling ||
 || fullVersion | **string**
 
 Full version ||
-|#
+|| connectionManager | **[ClusterConnectionManager](#yandex.cloud.mdb.v1.ClusterConnectionManager)**
 
-## PostgresqlConfigSet9_6 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet9_6}
-
-#|
-||Field | Description ||
-|| effectiveConfig | **[PostgresqlConfig9_6](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig9_6)**
-
-Required field. Effective settings for a PostgreSQL 9.6 cluster (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[PostgresqlConfig9_6](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig9_6)**
-
-User-defined settings for a PostgreSQL 9.6 cluster. ||
-|| defaultConfig | **[PostgresqlConfig9_6](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig9_6)**
-
-Default configuration for a PostgreSQL 9.6 cluster. ||
-|#
-
-## PostgresqlConfig9_6 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig9_6}
-
-Options and structure of `PostgresqlConfig` reflects PostgreSQL configuration file
-parameters whose detailed description is available in
-[PostgreSQL documentation](https://www.postgresql.org/docs/9.6/static/runtime-config).
-
-#|
-||Field | Description ||
-|| maxConnections | **string** (int64) ||
-|| sharedBuffers | **string** (int64)
-
-in bytes. ||
-|| tempBuffers | **string** (int64)
-
-in bytes. ||
-|| maxPreparedTransactions | **string** (int64) ||
-|| workMem | **string** (int64)
-
-in bytes. ||
-|| maintenanceWorkMem | **string** (int64)
-
-in bytes. ||
-|| replacementSortTuples | **string** (int64) ||
-|| autovacuumWorkMem | **string** (int64)
-
-in bytes. ||
-|| tempFileLimit | **string** (int64)
-
-in bytes. ||
-|| vacuumCostDelay | **string** (int64)
-
-in milliseconds. ||
-|| vacuumCostPageHit | **string** (int64) ||
-|| vacuumCostPageMiss | **string** (int64) ||
-|| vacuumCostPageDirty | **string** (int64) ||
-|| vacuumCostLimit | **string** (int64) ||
-|| bgwriterDelay | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 10 to 10000, inclusive. ||
-|| bgwriterLruMaxpages | **string** (int64) ||
-|| bgwriterLruMultiplier | **number** (double) ||
-|| bgwriterFlushAfter | **string** (int64)
-
-in bytes
-
-Acceptable values are 0 to 2097152, inclusive. ||
-|| backendFlushAfter | **string** (int64)
-
-in bytes
-
-Acceptable values are 0 to 2097152, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
-|| walLevel | **enum** (WalLevel)
-
-- `WAL_LEVEL_REPLICA`
-- `WAL_LEVEL_LOGICAL` ||
-|| synchronousCommit | **enum** (SynchronousCommit)
-
-- `SYNCHRONOUS_COMMIT_ON`
-- `SYNCHRONOUS_COMMIT_OFF`
-- `SYNCHRONOUS_COMMIT_LOCAL`
-- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`
-- `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
-|| checkpointTimeout | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 30000 to 86400000, inclusive. ||
-|| checkpointCompletionTarget | **number** (double)
-
-Acceptable values are 0.0 to 1.0, inclusive. ||
-|| checkpointFlushAfter | **string** (int64)
-
-in bytes
-
-Acceptable values are 0 to 2097152, inclusive. ||
-|| maxWalSize | **string** (int64)
-
-in bytes. ||
-|| minWalSize | **string** (int64)
-
-in bytes. ||
-|| maxStandbyStreamingDelay | **string** (int64)
-
-in milliseconds. ||
-|| defaultStatisticsTarget | **string** (int64) ||
-|| constraintExclusion | **enum** (ConstraintExclusion)
-
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
-|| cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64)
-
-Acceptable values are 1 to 2147483647, inclusive. ||
-|| joinCollapseLimit | **string** (int64)
-
-Acceptable values are 1 to 2147483647, inclusive. ||
-|| forceParallelMode | **enum** (ForceParallelMode)
-
-- `FORCE_PARALLEL_MODE_ON`
-- `FORCE_PARALLEL_MODE_OFF`
-- `FORCE_PARALLEL_MODE_REGRESS` ||
-|| clientMinMessages | **enum** (LogLevel)
-
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
-|| logMinMessages | **enum** (LogLevel)
-
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
-|| logMinErrorStatement | **enum** (LogLevel)
-
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
-|| logMinDurationStatement | **string** (int64)
-
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
-|| logErrorVerbosity | **enum** (LogErrorVerbosity)
-
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
-|| logLockWaits | **boolean** ||
-|| logStatement | **enum** (LogStatement)
-
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
-|| defaultTransactionIsolation | **enum** (TransactionIsolation)
-
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
-|| statementTimeout | **string** (int64)
-
-in milliseconds. ||
-|| lockTimeout | **string** (int64)
-
-in milliseconds. ||
-|| idleInTransactionSessionTimeout | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 0 to 2147483647, inclusive. ||
-|| byteaOutput | **enum** (ByteaOutput)
-
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
-|| xmlbinary | **enum** (XmlBinary)
-
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
-|| xmloption | **enum** (XmlOption)
-
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
-|| ginPendingListLimit | **string** (int64)
-
-in bytes. ||
-|| deadlockTimeout | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
-|| backslashQuote | **enum** (BackslashQuote)
-
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| operatorPrecedenceWarning | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
-|| sqlInheritance | **boolean**
-
-This option has been removed in PostgreSQL 10. ||
-|| autovacuumMaxWorkers | **string** (int64)
-
-Acceptable values are 1 to 32, inclusive. ||
-|| autovacuumVacuumCostDelay | **string** (int64) ||
-|| autovacuumVacuumCostLimit | **string** (int64) ||
-|| autovacuumNaptime | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 1000 to 86400000, inclusive. ||
-|| archiveTimeout | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 10000 to 86400000, inclusive. ||
-|| trackActivityQuerySize | **string** (int64)
-
-Acceptable values are 100 to 102400, inclusive. ||
-|| effectiveIoConcurrency | **string** (int64)
-
-Acceptable values are 0 to 1000, inclusive. ||
-|| effectiveCacheSize | **string** (int64)
-
-Acceptable values are 1048576 to 549755813888, inclusive. ||
-|#
-
-## PostgresqlConfigSet10_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet10_1C}
-
-#|
-||Field | Description ||
-|| effectiveConfig | **[PostgresqlConfig10_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig10_1C)**
-
-Required field. Effective settings for a PostgreSQL 10 1C cluster (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[PostgresqlConfig10_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig10_1C)**
-
-User-defined settings for a PostgreSQL 10 1C cluster. ||
-|| defaultConfig | **[PostgresqlConfig10_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig10_1C)**
-
-Default configuration for a PostgreSQL 10 1C cluster. ||
-|#
-
-## PostgresqlConfig10_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig10_1C}
-
-Options and structure of `PostgresqlConfig` reflects PostgreSQL configuration file
-parameters whose detailed description is available in
-[PostgreSQL documentation](https://www.postgresql.org/docs/10/runtime-config.html).
-
-#|
-||Field | Description ||
-|| maxConnections | **string** (int64)
-
-The minimum value is 16. ||
-|| sharedBuffers | **string** (int64)
-
-in bytes. ||
-|| tempBuffers | **string** (int64)
-
-in bytes. ||
-|| maxPreparedTransactions | **string** (int64) ||
-|| workMem | **string** (int64)
-
-in bytes. ||
-|| maintenanceWorkMem | **string** (int64)
-
-in bytes. ||
-|| replacementSortTuples | **string** (int64) ||
-|| autovacuumWorkMem | **string** (int64)
-
-in bytes. ||
-|| tempFileLimit | **string** (int64)
-
-in bytes. ||
-|| vacuumCostDelay | **string** (int64)
-
-in milliseconds. ||
-|| vacuumCostPageHit | **string** (int64) ||
-|| vacuumCostPageMiss | **string** (int64) ||
-|| vacuumCostPageDirty | **string** (int64) ||
-|| vacuumCostLimit | **string** (int64) ||
-|| bgwriterDelay | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 10 to 10000, inclusive. ||
-|| bgwriterLruMaxpages | **string** (int64) ||
-|| bgwriterLruMultiplier | **number** (double) ||
-|| bgwriterFlushAfter | **string** (int64)
-
-in bytes
-
-Acceptable values are 0 to 2097152, inclusive. ||
-|| backendFlushAfter | **string** (int64)
-
-in bytes
-
-Acceptable values are 0 to 2097152, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
-|| walLevel | **enum** (WalLevel)
-
-- `WAL_LEVEL_REPLICA`
-- `WAL_LEVEL_LOGICAL` ||
-|| synchronousCommit | **enum** (SynchronousCommit)
-
-- `SYNCHRONOUS_COMMIT_ON`
-- `SYNCHRONOUS_COMMIT_OFF`
-- `SYNCHRONOUS_COMMIT_LOCAL`
-- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`
-- `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
-|| checkpointTimeout | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 30000 to 86400000, inclusive. ||
-|| checkpointCompletionTarget | **number** (double) ||
-|| checkpointFlushAfter | **string** (int64)
-
-in bytes
-
-Acceptable values are 0 to 2097152, inclusive. ||
-|| maxWalSize | **string** (int64)
-
-in bytes. ||
-|| minWalSize | **string** (int64)
-
-in bytes. ||
-|| maxStandbyStreamingDelay | **string** (int64)
-
-in milliseconds. ||
-|| defaultStatisticsTarget | **string** (int64) ||
-|| constraintExclusion | **enum** (ConstraintExclusion)
-
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
-|| cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64)
-
-Acceptable values are 1 to 2147483647, inclusive. ||
-|| joinCollapseLimit | **string** (int64)
-
-Acceptable values are 1 to 2147483647, inclusive. ||
-|| forceParallelMode | **enum** (ForceParallelMode)
-
-- `FORCE_PARALLEL_MODE_ON`
-- `FORCE_PARALLEL_MODE_OFF`
-- `FORCE_PARALLEL_MODE_REGRESS` ||
-|| clientMinMessages | **enum** (LogLevel)
-
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
-|| logMinMessages | **enum** (LogLevel)
-
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
-|| logMinErrorStatement | **enum** (LogLevel)
-
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
-|| logMinDurationStatement | **string** (int64)
-
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
-|| logErrorVerbosity | **enum** (LogErrorVerbosity)
-
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
-|| logLockWaits | **boolean** ||
-|| logStatement | **enum** (LogStatement)
-
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
-|| defaultTransactionIsolation | **enum** (TransactionIsolation)
-
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
-|| statementTimeout | **string** (int64)
-
-in milliseconds. ||
-|| lockTimeout | **string** (int64)
-
-in milliseconds. ||
-|| idleInTransactionSessionTimeout | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 0 to 2147483647, inclusive. ||
-|| byteaOutput | **enum** (ByteaOutput)
-
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
-|| xmlbinary | **enum** (XmlBinary)
-
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
-|| xmloption | **enum** (XmlOption)
-
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
-|| ginPendingListLimit | **string** (int64)
-
-in bytes. ||
-|| deadlockTimeout | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
-|| backslashQuote | **enum** (BackslashQuote)
-
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| operatorPrecedenceWarning | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64)
-
-Acceptable values are 1 to 32, inclusive. ||
-|| autovacuumVacuumCostDelay | **string** (int64) ||
-|| autovacuumVacuumCostLimit | **string** (int64) ||
-|| autovacuumNaptime | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 1000 to 86400000, inclusive. ||
-|| archiveTimeout | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 10000 to 86400000, inclusive. ||
-|| trackActivityQuerySize | **string** (int64)
-
-Acceptable values are 100 to 102400, inclusive. ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64)
-
-Acceptable values are 0 to 1024, inclusive. ||
-|| maxParallelWorkers | **string** (int64)
-
-Acceptable values are 0 to 1024, inclusive. ||
-|| maxParallelWorkersPerGather | **string** (int64)
-
-Acceptable values are 0 to 1024, inclusive. ||
-|| autovacuumVacuumScaleFactor | **number** (double) ||
-|| autovacuumAnalyzeScaleFactor | **number** (double) ||
-|| defaultTransactionReadOnly | **boolean** ||
-|| timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64)
-
-Acceptable values are 0 to 1000, inclusive. ||
-|| effectiveCacheSize | **string** (int64)
-
-Acceptable values are 1048576 to 549755813888, inclusive. ||
-|| sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
-
-- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
-- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
-- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
-- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`
-- `SHARED_PRELOAD_LIBRARIES_PG_CRON`
-- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`
-- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`
-- `SHARED_PRELOAD_LIBRARIES_PGAUDIT` ||
-|| autoExplainLogMinDuration | **string** (int64)
-
-in milliseconds. ||
-|| autoExplainLogAnalyze | **boolean** ||
-|| autoExplainLogBuffers | **boolean** ||
-|| autoExplainLogTiming | **boolean** ||
-|| autoExplainLogTriggers | **boolean** ||
-|| autoExplainLogVerbose | **boolean** ||
-|| autoExplainLogNestedStatements | **boolean** ||
-|| autoExplainSampleRate | **number** (double) ||
-|| pgHintPlanEnableHint | **boolean** ||
-|| pgHintPlanEnableHintTable | **boolean** ||
-|| pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
-
-- `PG_HINT_PLAN_DEBUG_PRINT_OFF`
-- `PG_HINT_PLAN_DEBUG_PRINT_ON`
-- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
-- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
-|| pgHintPlanMessageLevel | **enum** (LogLevel)
-
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
-|| onlineAnalyzeEnable | **boolean** ||
-|| plantunerFixEmptyTable | **boolean** ||
-|| pgQualstatsEnabled | **boolean** ||
-|| pgQualstatsTrackConstants | **boolean** ||
-|| pgQualstatsMax | **string** (int64) ||
-|| pgQualstatsResolveOids | **boolean** ||
-|| pgQualstatsSampleRate | **number** (double) ||
-|| maxStackDepth | **string** (int64)
-
-in bytes.
-
-Acceptable values are 65536 to 134217728, inclusive. ||
-|| geqo | **boolean**
-
-enable Genetic Query Optimizer, by default is on ||
-|| geqoThreshold | **string** (int64)
-
-The number of tables to use geqo, default is 12
-
-Acceptable values are 2 to 2147483647, inclusive. ||
-|| geqoEffort | **string** (int64)
-
-tradeoff between planning time and query plan quality, default is 5
-
-Acceptable values are 1 to 10, inclusive. ||
-|| geqoPoolSize | **string** (int64)
-
-number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
-|| geqoGenerations | **string** (int64)
-
-the number of generations used by GEQO, useful values are in the same range as the pool size ||
-|| geqoSelectionBias | **number** (double)
-
-selective pressure within the population ||
-|| geqoSeed | **number** (double)
-
-initial value of the random number generator used by GEQO ||
-|| maxStandbyArchiveDelay | **string** (int64)
-
-in milliseconds. ||
-|| sessionDurationTimeout | **string** (int64)
-
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
-
-Acceptable values are 0 to 2147483647, inclusive. ||
-|| logReplicationCommands | **boolean** ||
-|| logAutovacuumMinDuration | **string** (int64)
-
-in milliseconds. The default is 1000 (1 sec). ||
-|| passwordEncryption | **enum** (PasswordEncryption)
-
-A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
-
-- `PASSWORD_ENCRYPTION_MD5`
-- `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
-|#
-
-## PostgresqlConfigSet10 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet10}
-
-#|
-||Field | Description ||
-|| effectiveConfig | **[PostgresqlConfig10](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig10)**
-
-Required field. Effective settings for a PostgreSQL 10 cluster (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[PostgresqlConfig10](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig10)**
-
-User-defined settings for a PostgreSQL 10 cluster. ||
-|| defaultConfig | **[PostgresqlConfig10](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig10)**
-
-Default configuration for a PostgreSQL 10 cluster. ||
-|#
-
-## PostgresqlConfig10 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig10}
-
-Options and structure of `PostgresqlConfig` reflects PostgreSQL configuration file
-parameters whose detailed description is available in
-[PostgreSQL documentation](https://www.postgresql.org/docs/10/runtime-config.html).
-
-#|
-||Field | Description ||
-|| maxConnections | **string** (int64)
-
-The minimum value is 16. ||
-|| sharedBuffers | **string** (int64)
-
-in bytes. ||
-|| tempBuffers | **string** (int64)
-
-in bytes. ||
-|| maxPreparedTransactions | **string** (int64) ||
-|| workMem | **string** (int64)
-
-in bytes. ||
-|| maintenanceWorkMem | **string** (int64)
-
-in bytes. ||
-|| replacementSortTuples | **string** (int64) ||
-|| autovacuumWorkMem | **string** (int64)
-
-in bytes. ||
-|| tempFileLimit | **string** (int64)
-
-in bytes. ||
-|| vacuumCostDelay | **string** (int64)
-
-in milliseconds. ||
-|| vacuumCostPageHit | **string** (int64) ||
-|| vacuumCostPageMiss | **string** (int64) ||
-|| vacuumCostPageDirty | **string** (int64) ||
-|| vacuumCostLimit | **string** (int64) ||
-|| bgwriterDelay | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 10 to 10000, inclusive. ||
-|| bgwriterLruMaxpages | **string** (int64) ||
-|| bgwriterLruMultiplier | **number** (double) ||
-|| bgwriterFlushAfter | **string** (int64)
-
-in bytes
-
-Acceptable values are 0 to 2097152, inclusive. ||
-|| backendFlushAfter | **string** (int64)
-
-in bytes
-
-Acceptable values are 0 to 2097152, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
-|| walLevel | **enum** (WalLevel)
-
-- `WAL_LEVEL_REPLICA`
-- `WAL_LEVEL_LOGICAL` ||
-|| synchronousCommit | **enum** (SynchronousCommit)
-
-- `SYNCHRONOUS_COMMIT_ON`
-- `SYNCHRONOUS_COMMIT_OFF`
-- `SYNCHRONOUS_COMMIT_LOCAL`
-- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`
-- `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
-|| checkpointTimeout | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 30000 to 86400000, inclusive. ||
-|| checkpointCompletionTarget | **number** (double) ||
-|| checkpointFlushAfter | **string** (int64)
-
-in bytes
-
-Acceptable values are 0 to 2097152, inclusive. ||
-|| maxWalSize | **string** (int64)
-
-in bytes. ||
-|| minWalSize | **string** (int64)
-
-in bytes. ||
-|| maxStandbyStreamingDelay | **string** (int64)
-
-in milliseconds. ||
-|| defaultStatisticsTarget | **string** (int64) ||
-|| constraintExclusion | **enum** (ConstraintExclusion)
-
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
-|| cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64)
-
-Acceptable values are 1 to 2147483647, inclusive. ||
-|| joinCollapseLimit | **string** (int64)
-
-Acceptable values are 1 to 2147483647, inclusive. ||
-|| forceParallelMode | **enum** (ForceParallelMode)
-
-- `FORCE_PARALLEL_MODE_ON`
-- `FORCE_PARALLEL_MODE_OFF`
-- `FORCE_PARALLEL_MODE_REGRESS` ||
-|| clientMinMessages | **enum** (LogLevel)
-
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
-|| logMinMessages | **enum** (LogLevel)
-
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
-|| logMinErrorStatement | **enum** (LogLevel)
-
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
-|| logMinDurationStatement | **string** (int64)
-
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
-|| logErrorVerbosity | **enum** (LogErrorVerbosity)
-
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
-|| logLockWaits | **boolean** ||
-|| logStatement | **enum** (LogStatement)
-
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
-|| defaultTransactionIsolation | **enum** (TransactionIsolation)
-
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
-|| statementTimeout | **string** (int64)
-
-in milliseconds. ||
-|| lockTimeout | **string** (int64)
-
-in milliseconds. ||
-|| idleInTransactionSessionTimeout | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 0 to 2147483647, inclusive. ||
-|| byteaOutput | **enum** (ByteaOutput)
-
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
-|| xmlbinary | **enum** (XmlBinary)
-
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
-|| xmloption | **enum** (XmlOption)
-
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
-|| ginPendingListLimit | **string** (int64)
-
-in bytes. ||
-|| deadlockTimeout | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
-|| backslashQuote | **enum** (BackslashQuote)
-
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| operatorPrecedenceWarning | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64)
-
-Acceptable values are 1 to 32, inclusive. ||
-|| autovacuumVacuumCostDelay | **string** (int64) ||
-|| autovacuumVacuumCostLimit | **string** (int64) ||
-|| autovacuumNaptime | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 1000 to 86400000, inclusive. ||
-|| archiveTimeout | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 10000 to 86400000, inclusive. ||
-|| trackActivityQuerySize | **string** (int64)
-
-Acceptable values are 100 to 102400, inclusive. ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64)
-
-Acceptable values are 0 to 1024, inclusive. ||
-|| maxParallelWorkers | **string** (int64)
-
-Acceptable values are 0 to 1024, inclusive. ||
-|| maxParallelWorkersPerGather | **string** (int64)
-
-Acceptable values are 0 to 1024, inclusive. ||
-|| autovacuumVacuumScaleFactor | **number** (double) ||
-|| autovacuumAnalyzeScaleFactor | **number** (double) ||
-|| defaultTransactionReadOnly | **boolean** ||
-|| timezone | **string** ||
-|| effectiveIoConcurrency | **string** (int64)
-
-Acceptable values are 0 to 1000, inclusive. ||
-|| effectiveCacheSize | **string** (int64)
-
-Acceptable values are 1048576 to 549755813888, inclusive. ||
-|| sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
-
-- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
-- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
-- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
-- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`
-- `SHARED_PRELOAD_LIBRARIES_PG_CRON`
-- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`
-- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`
-- `SHARED_PRELOAD_LIBRARIES_PGAUDIT` ||
-|| autoExplainLogMinDuration | **string** (int64)
-
-in milliseconds. ||
-|| autoExplainLogAnalyze | **boolean** ||
-|| autoExplainLogBuffers | **boolean** ||
-|| autoExplainLogTiming | **boolean** ||
-|| autoExplainLogTriggers | **boolean** ||
-|| autoExplainLogVerbose | **boolean** ||
-|| autoExplainLogNestedStatements | **boolean** ||
-|| autoExplainSampleRate | **number** (double) ||
-|| pgHintPlanEnableHint | **boolean** ||
-|| pgHintPlanEnableHintTable | **boolean** ||
-|| pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
-
-- `PG_HINT_PLAN_DEBUG_PRINT_OFF`
-- `PG_HINT_PLAN_DEBUG_PRINT_ON`
-- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
-- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
-|| pgHintPlanMessageLevel | **enum** (LogLevel)
-
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
-|| pgQualstatsEnabled | **boolean** ||
-|| pgQualstatsTrackConstants | **boolean** ||
-|| pgQualstatsMax | **string** (int64) ||
-|| pgQualstatsResolveOids | **boolean** ||
-|| pgQualstatsSampleRate | **number** (double) ||
-|| maxStackDepth | **string** (int64)
-
-in bytes.
-
-Acceptable values are 65536 to 134217728, inclusive. ||
-|| geqo | **boolean**
-
-enable Genetic Query Optimizer, by default is on ||
-|| geqoThreshold | **string** (int64)
-
-The number of tables to use geqo, default is 12
-
-Acceptable values are 2 to 2147483647, inclusive. ||
-|| geqoEffort | **string** (int64)
-
-tradeoff between planning time and query plan quality, default is 5
-
-Acceptable values are 1 to 10, inclusive. ||
-|| geqoPoolSize | **string** (int64)
-
-number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
-|| geqoGenerations | **string** (int64)
-
-the number of generations used by GEQO, useful values are in the same range as the pool size ||
-|| geqoSelectionBias | **number** (double)
-
-selective pressure within the population ||
-|| geqoSeed | **number** (double)
-
-initial value of the random number generator used by GEQO ||
-|| maxStandbyArchiveDelay | **string** (int64)
-
-in milliseconds. ||
-|| sessionDurationTimeout | **string** (int64)
-
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
-
-Acceptable values are 0 to 2147483647, inclusive. ||
-|| logReplicationCommands | **boolean** ||
-|| logAutovacuumMinDuration | **string** (int64)
-
-in milliseconds. The default is 1000 (1 sec). ||
-|| passwordEncryption | **enum** (PasswordEncryption)
-
-A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
-
-- `PASSWORD_ENCRYPTION_MD5`
-- `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+Cluster-wide Connection Manager integration configuration ||
 |#
 
 ## PostgresqlConfigSet11 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet11}
@@ -10387,15 +7409,19 @@ Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_REPLICA`
-- `WAL_LEVEL_LOGICAL` ||
+- `WAL_LEVEL_REPLICA`: Supports WAL archiving and physical replication.
+- `WAL_LEVEL_LOGICAL`: Supports WAL archiving, physical replication, and logical decoding. ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_ON`
-- `SYNCHRONOUS_COMMIT_OFF`
-- `SYNCHRONOUS_COMMIT_LOCAL`
-- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`
-- `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
+- `SYNCHRONOUS_COMMIT_ON`: Success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server. Default value.
+- `SYNCHRONOUS_COMMIT_OFF`: Success is reported to the client even if the data is not in WAL.
+There is no synchronous write operation, data may be loss in case of storage subsystem failure.
+- `SYNCHRONOUS_COMMIT_LOCAL`: Success is reported to the client if the data is in WAL, and WAL is written to the storage of the master server.
+The transaction may be lost due to storage subsystem failure on the master server.
+- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`: Success is reported to the client if the data is in WAL, WAL is written to the storage of the master server, and the server's synchronous standby indicates that it has received WAL and written it out to its operating system.
+The transaction may be lost due to simultaneous storage subsystem failure on the master and operating system's failure on the synchronous standby.
+- `SYNCHRONOUS_COMMIT_REMOTE_APPLY`: Success is reported to the client if the data is in WAL (Write-Ahead Log), WAL is written to the storage of the master server, and its synchronous standby indicates that it has received WAL and applied it.
+The transaction may be lost due to irrecoverably failure of both the master and its synchronous standby. ||
 || checkpointTimeout | **string** (int64)
 
 in milliseconds.
@@ -10419,9 +7445,9 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
+- `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+- `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+- `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
 || cursorTupleFraction | **number** (double) ||
 || fromCollapseLimit | **string** (int64)
 
@@ -10431,48 +7457,48 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_ON`
-- `FORCE_PARALLEL_MODE_OFF`
-- `FORCE_PARALLEL_MODE_REGRESS` ||
+- `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
+- `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
+- `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinDurationStatement | **string** (int64)
 
 in milliseconds. ||
@@ -10482,25 +7508,27 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
+- `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+- `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+- `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
+- `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+- `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+- `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+- `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
 || logTempFiles | **string** (int64) ||
 || searchPath | **string** ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+- `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+- `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
 in milliseconds. ||
@@ -10514,16 +7542,16 @@ in milliseconds.
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
+- `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+- `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
+- `XML_BINARY_BASE64`: Base64 encoding.
+- `XML_BINARY_HEX`: Hexadecimal encoding. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
+- `XML_OPTION_DOCUMENT`: XML document.
+- `XML_OPTION_CONTENT`: XML fragment. ||
 || ginPendingListLimit | **string** (int64)
 
 in bytes. ||
@@ -10537,10 +7565,10 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
+- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+- `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+- `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+- `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
 || defaultWithOids | **boolean** ||
 || escapeStringWarning | **boolean** ||
 || loCompatPrivileges | **boolean** ||
@@ -10613,14 +7641,14 @@ Acceptable values are 0 to 1000, inclusive. ||
 Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
-- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
-- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
-- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`
-- `SHARED_PRELOAD_LIBRARIES_PG_CRON`
-- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`
-- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`
-- `SHARED_PRELOAD_LIBRARIES_PGAUDIT` ||
+- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`: Required for the [auto_explain](https://www.postgresql.org/docs/current/auto-explain.html) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`: Required for the [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan) extension.
+- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`: Required for [TimescaleDB](https://github.com/timescale/timescaledb) to function.
+- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`: Required for the [pg_qualstats](https://github.com/powa-team/pg_qualstats) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_CRON`: Required for the [pg_cron](https://github.com/citusdata/pg_cron) extension.
+- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`: Required for the [pglogical](https://github.com/2ndQuadrant/pglogical) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Shared library of extension [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM), which ensures loading of extension on server start
+- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
 in milliseconds. ||
@@ -10635,23 +7663,23 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_OFF`
-- `PG_HINT_PLAN_DEBUG_PRINT_ON`
-- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
-- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
+- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disable debug output
+- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Print debug messages about hint parsing
+- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Print detailed debug information including query planning process
+- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Print verbose debug output with all internal operations ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || pgQualstatsEnabled | **boolean** ||
 || pgQualstatsTrackConstants | **boolean** ||
 || pgQualstatsMax | **string** (int64) ||
@@ -10706,406 +7734,9 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_MD5`
-- `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
-|#
-
-## PostgresqlConfigSet11_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet11_1C}
-
-#|
-||Field | Description ||
-|| effectiveConfig | **[PostgresqlConfig11_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig11_1C)**
-
-Effective settings for a PostgreSQL 11 1C cluster (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[PostgresqlConfig11_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig11_1C)**
-
-User-defined settings for a PostgreSQL 11 1C cluster. ||
-|| defaultConfig | **[PostgresqlConfig11_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig11_1C)**
-
-Default configuration for a PostgreSQL 11 1C cluster. ||
-|#
-
-## PostgresqlConfig11_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig11_1C}
-
-Options and structure of `PostgresqlConfig` reflects PostgreSQL configuration file
-parameters which detailed description is available in
-[PostgreSQL documentation](https://www.postgresql.org/docs/11/runtime-config.html).
-
-#|
-||Field | Description ||
-|| maxConnections | **string** (int64)
-
-The minimum value is 16. ||
-|| sharedBuffers | **string** (int64)
-
-in bytes. ||
-|| tempBuffers | **string** (int64)
-
-in bytes. ||
-|| maxPreparedTransactions | **string** (int64) ||
-|| workMem | **string** (int64)
-
-in bytes. ||
-|| maintenanceWorkMem | **string** (int64)
-
-in bytes. ||
-|| autovacuumWorkMem | **string** (int64)
-
-in bytes. ||
-|| tempFileLimit | **string** (int64)
-
-in bytes. ||
-|| vacuumCostDelay | **string** (int64)
-
-in milliseconds. ||
-|| vacuumCostPageHit | **string** (int64) ||
-|| vacuumCostPageMiss | **string** (int64) ||
-|| vacuumCostPageDirty | **string** (int64) ||
-|| vacuumCostLimit | **string** (int64) ||
-|| bgwriterDelay | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 10 to 10000, inclusive. ||
-|| bgwriterLruMaxpages | **string** (int64) ||
-|| bgwriterLruMultiplier | **number** (double) ||
-|| bgwriterFlushAfter | **string** (int64)
-
-in bytes
-
-Acceptable values are 0 to 2097152, inclusive. ||
-|| backendFlushAfter | **string** (int64)
-
-in bytes
-
-Acceptable values are 0 to 2097152, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
-|| walLevel | **enum** (WalLevel)
-
-- `WAL_LEVEL_REPLICA`
-- `WAL_LEVEL_LOGICAL` ||
-|| synchronousCommit | **enum** (SynchronousCommit)
-
-- `SYNCHRONOUS_COMMIT_ON`
-- `SYNCHRONOUS_COMMIT_OFF`
-- `SYNCHRONOUS_COMMIT_LOCAL`
-- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`
-- `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
-|| checkpointTimeout | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 30000 to 86400000, inclusive. ||
-|| checkpointCompletionTarget | **number** (double) ||
-|| checkpointFlushAfter | **string** (int64)
-
-in bytes
-
-Acceptable values are 0 to 2097152, inclusive. ||
-|| maxWalSize | **string** (int64)
-
-in bytes. ||
-|| minWalSize | **string** (int64)
-
-in bytes. ||
-|| maxStandbyStreamingDelay | **string** (int64)
-
-in milliseconds. ||
-|| defaultStatisticsTarget | **string** (int64) ||
-|| constraintExclusion | **enum** (ConstraintExclusion)
-
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
-|| cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64)
-
-Acceptable values are 1 to 2147483647, inclusive. ||
-|| joinCollapseLimit | **string** (int64)
-
-Acceptable values are 1 to 2147483647, inclusive. ||
-|| forceParallelMode | **enum** (ForceParallelMode)
-
-- `FORCE_PARALLEL_MODE_ON`
-- `FORCE_PARALLEL_MODE_OFF`
-- `FORCE_PARALLEL_MODE_REGRESS` ||
-|| clientMinMessages | **enum** (LogLevel)
-
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
-|| logMinMessages | **enum** (LogLevel)
-
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
-|| logMinErrorStatement | **enum** (LogLevel)
-
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
-|| logMinDurationStatement | **string** (int64)
-
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
-|| logErrorVerbosity | **enum** (LogErrorVerbosity)
-
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
-|| logLockWaits | **boolean** ||
-|| logStatement | **enum** (LogStatement)
-
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
-|| defaultTransactionIsolation | **enum** (TransactionIsolation)
-
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
-|| statementTimeout | **string** (int64)
-
-in milliseconds. ||
-|| lockTimeout | **string** (int64)
-
-in milliseconds. ||
-|| idleInTransactionSessionTimeout | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 0 to 2147483647, inclusive. ||
-|| byteaOutput | **enum** (ByteaOutput)
-
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
-|| xmlbinary | **enum** (XmlBinary)
-
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
-|| xmloption | **enum** (XmlOption)
-
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
-|| ginPendingListLimit | **string** (int64)
-
-in bytes. ||
-|| deadlockTimeout | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
-|| backslashQuote | **enum** (BackslashQuote)
-
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| operatorPrecedenceWarning | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64)
-
-Acceptable values are 1 to 32, inclusive. ||
-|| autovacuumVacuumCostDelay | **string** (int64) ||
-|| autovacuumVacuumCostLimit | **string** (int64) ||
-|| autovacuumNaptime | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 1000 to 86400000, inclusive. ||
-|| archiveTimeout | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 10000 to 86400000, inclusive. ||
-|| trackActivityQuerySize | **string** (int64)
-
-Acceptable values are 100 to 102400, inclusive. ||
-|| onlineAnalyzeEnable | **boolean** ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64)
-
-Acceptable values are 0 to 1024, inclusive. ||
-|| maxParallelWorkers | **string** (int64)
-
-Acceptable values are 0 to 1024, inclusive. ||
-|| maxParallelWorkersPerGather | **string** (int64)
-
-Acceptable values are 0 to 1024, inclusive. ||
-|| autovacuumVacuumScaleFactor | **number** (double) ||
-|| autovacuumAnalyzeScaleFactor | **number** (double) ||
-|| defaultTransactionReadOnly | **boolean** ||
-|| timezone | **string** ||
-|| enableParallelAppend | **boolean** ||
-|| enableParallelHash | **boolean** ||
-|| enablePartitionPruning | **boolean** ||
-|| enablePartitionwiseAggregate | **boolean** ||
-|| enablePartitionwiseJoin | **boolean** ||
-|| jit | **boolean** ||
-|| maxParallelMaintenanceWorkers | **string** (int64)
-
-The minimum value is 0. ||
-|| parallelLeaderParticipation | **boolean** ||
-|| vacuumCleanupIndexScaleFactor | **number** (double) ||
-|| effectiveIoConcurrency | **string** (int64)
-
-Acceptable values are 0 to 1000, inclusive. ||
-|| effectiveCacheSize | **string** (int64)
-
-Acceptable values are 1048576 to 549755813888, inclusive. ||
-|| sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
-
-- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
-- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
-- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
-- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`
-- `SHARED_PRELOAD_LIBRARIES_PG_CRON`
-- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`
-- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`
-- `SHARED_PRELOAD_LIBRARIES_PGAUDIT` ||
-|| autoExplainLogMinDuration | **string** (int64)
-
-in milliseconds. ||
-|| autoExplainLogAnalyze | **boolean** ||
-|| autoExplainLogBuffers | **boolean** ||
-|| autoExplainLogTiming | **boolean** ||
-|| autoExplainLogTriggers | **boolean** ||
-|| autoExplainLogVerbose | **boolean** ||
-|| autoExplainLogNestedStatements | **boolean** ||
-|| autoExplainSampleRate | **number** (double) ||
-|| pgHintPlanEnableHint | **boolean** ||
-|| pgHintPlanEnableHintTable | **boolean** ||
-|| pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
-
-- `PG_HINT_PLAN_DEBUG_PRINT_OFF`
-- `PG_HINT_PLAN_DEBUG_PRINT_ON`
-- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
-- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
-|| pgHintPlanMessageLevel | **enum** (LogLevel)
-
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
-|| pgQualstatsEnabled | **boolean** ||
-|| pgQualstatsTrackConstants | **boolean** ||
-|| pgQualstatsMax | **string** (int64) ||
-|| pgQualstatsResolveOids | **boolean** ||
-|| pgQualstatsSampleRate | **number** (double) ||
-|| plantunerFixEmptyTable | **boolean** ||
-|| maxStackDepth | **string** (int64)
-
-in bytes.
-
-Acceptable values are 65536 to 134217728, inclusive. ||
-|| geqo | **boolean**
-
-enable Genetic Query Optimizer, by default is on ||
-|| geqoThreshold | **string** (int64)
-
-The number of tables to use geqo, default is 12
-
-Acceptable values are 2 to 2147483647, inclusive. ||
-|| geqoEffort | **string** (int64)
-
-tradeoff between planning time and query plan quality, default is 5
-
-Acceptable values are 1 to 10, inclusive. ||
-|| geqoPoolSize | **string** (int64)
-
-number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
-|| geqoGenerations | **string** (int64)
-
-the number of generations used by GEQO, useful values are in the same range as the pool size ||
-|| geqoSelectionBias | **number** (double)
-
-selective pressure within the population ||
-|| geqoSeed | **number** (double)
-
-initial value of the random number generator used by GEQO ||
-|| pgTrgmSimilarityThreshold | **number** (double) ||
-|| pgTrgmWordSimilarityThreshold | **number** (double) ||
-|| pgTrgmStrictWordSimilarityThreshold | **number** (double) ||
-|| maxStandbyArchiveDelay | **string** (int64)
-
-in milliseconds. ||
-|| sessionDurationTimeout | **string** (int64)
-
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
-
-Acceptable values are 0 to 2147483647, inclusive. ||
-|| logReplicationCommands | **boolean** ||
-|| logAutovacuumMinDuration | **string** (int64)
-
-in milliseconds. The default is 1000 (1 sec). ||
-|| passwordEncryption | **enum** (PasswordEncryption)
-
-A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
-
-- `PASSWORD_ENCRYPTION_MD5`
-- `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+- `PASSWORD_ENCRYPTION_MD5`: The method md5 uses a custom less secure challenge-response mechanism. It prevents password sniffing and avoids storing passwords on the server in plain text but provides no protection if an attacker manages to steal the password hash from the server. Also, the MD5 hash algorithm is nowadays no longer considered secure against determined attacks.
+- `PASSWORD_ENCRYPTION_SCRAM_SHA_256`: The method scram-sha-256 performs SCRAM-SHA-256 authentication, as described in RFC 7677. It is a challenge-response scheme that prevents password sniffing on untrusted connections and supports storing passwords on the server in a cryptographically hashed form that is thought to be secure.
+This is the most secure of the currently provided methods, but it is not supported by older client libraries. ||
 |#
 
 ## PostgresqlConfigSet12 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet12}
@@ -11181,15 +7812,19 @@ Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_REPLICA`
-- `WAL_LEVEL_LOGICAL` ||
+- `WAL_LEVEL_REPLICA`: Supports WAL archiving and physical replication.
+- `WAL_LEVEL_LOGICAL`: Supports WAL archiving, physical replication, and logical decoding. ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_ON`
-- `SYNCHRONOUS_COMMIT_OFF`
-- `SYNCHRONOUS_COMMIT_LOCAL`
-- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`
-- `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
+- `SYNCHRONOUS_COMMIT_ON`: Success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server. Default value.
+- `SYNCHRONOUS_COMMIT_OFF`: Success is reported to the client even if the data is not in WAL.
+There is no synchronous write operation, data may be loss in case of storage subsystem failure.
+- `SYNCHRONOUS_COMMIT_LOCAL`: Success is reported to the client if the data is in WAL, and WAL is written to the storage of the master server.
+The transaction may be lost due to storage subsystem failure on the master server.
+- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`: Success is reported to the client if the data is in WAL, WAL is written to the storage of the master server, and the server's synchronous standby indicates that it has received WAL and written it out to its operating system.
+The transaction may be lost due to simultaneous storage subsystem failure on the master and operating system's failure on the synchronous standby.
+- `SYNCHRONOUS_COMMIT_REMOTE_APPLY`: Success is reported to the client if the data is in WAL (Write-Ahead Log), WAL is written to the storage of the master server, and its synchronous standby indicates that it has received WAL and applied it.
+The transaction may be lost due to irrecoverably failure of both the master and its synchronous standby. ||
 || checkpointTimeout | **string** (int64)
 
 in milliseconds.
@@ -11213,9 +7848,9 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
+- `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+- `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+- `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
 || cursorTupleFraction | **number** (double) ||
 || fromCollapseLimit | **string** (int64)
 
@@ -11225,48 +7860,48 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_ON`
-- `FORCE_PARALLEL_MODE_OFF`
-- `FORCE_PARALLEL_MODE_REGRESS` ||
+- `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
+- `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
+- `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinDurationStatement | **string** (int64)
 
 in milliseconds. ||
@@ -11276,25 +7911,27 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
+- `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+- `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+- `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
+- `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+- `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+- `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+- `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
 || logTempFiles | **string** (int64) ||
 || searchPath | **string** ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+- `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+- `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
 in milliseconds. ||
@@ -11308,16 +7945,16 @@ in milliseconds.
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
+- `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+- `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
+- `XML_BINARY_BASE64`: Base64 encoding.
+- `XML_BINARY_HEX`: Hexadecimal encoding. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
+- `XML_OPTION_DOCUMENT`: XML document.
+- `XML_OPTION_CONTENT`: XML fragment. ||
 || ginPendingListLimit | **string** (int64)
 
 in bytes. ||
@@ -11331,10 +7968,10 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
+- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+- `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+- `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+- `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
 || defaultWithOids | **boolean** ||
 || escapeStringWarning | **boolean** ||
 || loCompatPrivileges | **boolean** ||
@@ -11402,9 +8039,9 @@ The minimum value is 0. ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_AUTO`
-- `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
-- `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
+- `PLAN_CACHE_MODE_AUTO`: Automatic selection.
+- `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`: Forces the use of custom plans.
+- `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`: Forces the use of generic plans. ||
 || effectiveIoConcurrency | **string** (int64)
 
 Acceptable values are 0 to 1000, inclusive. ||
@@ -11413,14 +8050,14 @@ Acceptable values are 0 to 1000, inclusive. ||
 Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
-- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
-- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
-- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`
-- `SHARED_PRELOAD_LIBRARIES_PG_CRON`
-- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`
-- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`
-- `SHARED_PRELOAD_LIBRARIES_PGAUDIT` ||
+- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`: Required for the [auto_explain](https://www.postgresql.org/docs/current/auto-explain.html) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`: Required for the [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan) extension.
+- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`: Required for [TimescaleDB](https://github.com/timescale/timescaledb) to function.
+- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`: Required for the [pg_qualstats](https://github.com/powa-team/pg_qualstats) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_CRON`: Required for the [pg_cron](https://github.com/citusdata/pg_cron) extension.
+- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`: Required for the [pglogical](https://github.com/2ndQuadrant/pglogical) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Shared library of extension [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM), which ensures loading of extension on server start
+- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
 in milliseconds. ||
@@ -11435,23 +8072,23 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_OFF`
-- `PG_HINT_PLAN_DEBUG_PRINT_ON`
-- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
-- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
+- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disable debug output
+- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Print debug messages about hint parsing
+- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Print detailed debug information including query planning process
+- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Print verbose debug output with all internal operations ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || pgQualstatsEnabled | **boolean** ||
 || pgQualstatsTrackConstants | **boolean** ||
 || pgQualstatsMax | **string** (int64) ||
@@ -11506,412 +8143,9 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_MD5`
-- `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
-|#
-
-## PostgresqlConfigSet12_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet12_1C}
-
-#|
-||Field | Description ||
-|| effectiveConfig | **[PostgresqlConfig12_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig12_1C)**
-
-Effective settings for a PostgreSQL 12 1C cluster (a combination of settings defined
-in `userConfig` and `defaultConfig`). ||
-|| userConfig | **[PostgresqlConfig12_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig12_1C)**
-
-User-defined settings for a PostgreSQL 12 1C cluster. ||
-|| defaultConfig | **[PostgresqlConfig12_1C](#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig12_1C)**
-
-Default configuration for a PostgreSQL 12 1C cluster. ||
-|#
-
-## PostgresqlConfig12_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfig12_1C}
-
-Options and structure of `PostgresqlConfig` reflects PostgreSQL configuration file
-parameters which detailed description is available in
-[PostgreSQL documentation](https://www.postgresql.org/docs/11/runtime-config.html).
-
-#|
-||Field | Description ||
-|| maxConnections | **string** (int64)
-
-The minimum value is 16. ||
-|| sharedBuffers | **string** (int64)
-
-in bytes. ||
-|| tempBuffers | **string** (int64)
-
-in bytes. ||
-|| maxPreparedTransactions | **string** (int64) ||
-|| workMem | **string** (int64)
-
-in bytes. ||
-|| maintenanceWorkMem | **string** (int64)
-
-in bytes. ||
-|| autovacuumWorkMem | **string** (int64)
-
-in bytes. ||
-|| tempFileLimit | **string** (int64)
-
-in bytes. ||
-|| vacuumCostDelay | **string** (int64)
-
-in milliseconds. ||
-|| vacuumCostPageHit | **string** (int64) ||
-|| vacuumCostPageMiss | **string** (int64) ||
-|| vacuumCostPageDirty | **string** (int64) ||
-|| vacuumCostLimit | **string** (int64) ||
-|| bgwriterDelay | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 10 to 10000, inclusive. ||
-|| bgwriterLruMaxpages | **string** (int64) ||
-|| bgwriterLruMultiplier | **number** (double) ||
-|| bgwriterFlushAfter | **string** (int64)
-
-in bytes
-
-Acceptable values are 0 to 2097152, inclusive. ||
-|| backendFlushAfter | **string** (int64)
-
-in bytes
-
-Acceptable values are 0 to 2097152, inclusive. ||
-|| oldSnapshotThreshold | **string** (int64) ||
-|| walLevel | **enum** (WalLevel)
-
-- `WAL_LEVEL_REPLICA`
-- `WAL_LEVEL_LOGICAL` ||
-|| synchronousCommit | **enum** (SynchronousCommit)
-
-- `SYNCHRONOUS_COMMIT_ON`
-- `SYNCHRONOUS_COMMIT_OFF`
-- `SYNCHRONOUS_COMMIT_LOCAL`
-- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`
-- `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
-|| checkpointTimeout | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 30000 to 86400000, inclusive. ||
-|| checkpointCompletionTarget | **number** (double) ||
-|| checkpointFlushAfter | **string** (int64)
-
-in bytes
-
-Acceptable values are 0 to 2097152, inclusive. ||
-|| maxWalSize | **string** (int64)
-
-in bytes. ||
-|| minWalSize | **string** (int64)
-
-in bytes. ||
-|| maxStandbyStreamingDelay | **string** (int64)
-
-in milliseconds. ||
-|| defaultStatisticsTarget | **string** (int64) ||
-|| constraintExclusion | **enum** (ConstraintExclusion)
-
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
-|| cursorTupleFraction | **number** (double) ||
-|| fromCollapseLimit | **string** (int64)
-
-Acceptable values are 1 to 2147483647, inclusive. ||
-|| joinCollapseLimit | **string** (int64)
-
-Acceptable values are 1 to 2147483647, inclusive. ||
-|| forceParallelMode | **enum** (ForceParallelMode)
-
-- `FORCE_PARALLEL_MODE_ON`
-- `FORCE_PARALLEL_MODE_OFF`
-- `FORCE_PARALLEL_MODE_REGRESS` ||
-|| clientMinMessages | **enum** (LogLevel)
-
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
-|| logMinMessages | **enum** (LogLevel)
-
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
-|| logMinErrorStatement | **enum** (LogLevel)
-
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
-|| logMinDurationStatement | **string** (int64)
-
-in milliseconds. ||
-|| logCheckpoints | **boolean** ||
-|| logConnections | **boolean** ||
-|| logDisconnections | **boolean** ||
-|| logDuration | **boolean** ||
-|| logErrorVerbosity | **enum** (LogErrorVerbosity)
-
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
-|| logLockWaits | **boolean** ||
-|| logStatement | **enum** (LogStatement)
-
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
-|| logTempFiles | **string** (int64) ||
-|| searchPath | **string** ||
-|| rowSecurity | **boolean** ||
-|| defaultTransactionIsolation | **enum** (TransactionIsolation)
-
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
-|| statementTimeout | **string** (int64)
-
-in milliseconds. ||
-|| lockTimeout | **string** (int64)
-
-in milliseconds. ||
-|| idleInTransactionSessionTimeout | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 0 to 2147483647, inclusive. ||
-|| byteaOutput | **enum** (ByteaOutput)
-
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
-|| xmlbinary | **enum** (XmlBinary)
-
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
-|| xmloption | **enum** (XmlOption)
-
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
-|| ginPendingListLimit | **string** (int64)
-
-in bytes. ||
-|| deadlockTimeout | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 1 to 2147483647, inclusive. ||
-|| maxLocksPerTransaction | **string** (int64) ||
-|| maxPredLocksPerTransaction | **string** (int64) ||
-|| arrayNulls | **boolean** ||
-|| backslashQuote | **enum** (BackslashQuote)
-
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
-|| defaultWithOids | **boolean** ||
-|| escapeStringWarning | **boolean** ||
-|| loCompatPrivileges | **boolean** ||
-|| operatorPrecedenceWarning | **boolean** ||
-|| quoteAllIdentifiers | **boolean** ||
-|| standardConformingStrings | **boolean** ||
-|| synchronizeSeqscans | **boolean** ||
-|| transformNullEquals | **boolean** ||
-|| exitOnError | **boolean** ||
-|| seqPageCost | **number** (double) ||
-|| randomPageCost | **number** (double) ||
-|| autovacuumMaxWorkers | **string** (int64)
-
-Acceptable values are 1 to 32, inclusive. ||
-|| autovacuumVacuumCostDelay | **string** (int64) ||
-|| autovacuumVacuumCostLimit | **string** (int64) ||
-|| autovacuumNaptime | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 1000 to 86400000, inclusive. ||
-|| archiveTimeout | **string** (int64)
-
-in milliseconds.
-
-Acceptable values are 10000 to 86400000, inclusive. ||
-|| trackActivityQuerySize | **string** (int64)
-
-Acceptable values are 100 to 102400, inclusive. ||
-|| onlineAnalyzeEnable | **boolean** ||
-|| enableBitmapscan | **boolean** ||
-|| enableHashagg | **boolean** ||
-|| enableHashjoin | **boolean** ||
-|| enableIndexscan | **boolean** ||
-|| enableIndexonlyscan | **boolean** ||
-|| enableMaterial | **boolean** ||
-|| enableMergejoin | **boolean** ||
-|| enableNestloop | **boolean** ||
-|| enableSeqscan | **boolean** ||
-|| enableSort | **boolean** ||
-|| enableTidscan | **boolean** ||
-|| maxWorkerProcesses | **string** (int64)
-
-Acceptable values are 0 to 1024, inclusive. ||
-|| maxParallelWorkers | **string** (int64)
-
-Acceptable values are 0 to 1024, inclusive. ||
-|| maxParallelWorkersPerGather | **string** (int64)
-
-Acceptable values are 0 to 1024, inclusive. ||
-|| autovacuumVacuumScaleFactor | **number** (double) ||
-|| autovacuumAnalyzeScaleFactor | **number** (double) ||
-|| defaultTransactionReadOnly | **boolean** ||
-|| timezone | **string** ||
-|| enableParallelAppend | **boolean** ||
-|| enableParallelHash | **boolean** ||
-|| enablePartitionPruning | **boolean** ||
-|| enablePartitionwiseAggregate | **boolean** ||
-|| enablePartitionwiseJoin | **boolean** ||
-|| jit | **boolean** ||
-|| maxParallelMaintenanceWorkers | **string** (int64)
-
-The minimum value is 0. ||
-|| parallelLeaderParticipation | **boolean** ||
-|| vacuumCleanupIndexScaleFactor | **number** (double) ||
-|| logTransactionSampleRate | **number** (double) ||
-|| planCacheMode | **enum** (PlanCacheMode)
-
-- `PLAN_CACHE_MODE_AUTO`
-- `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
-- `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
-|| effectiveIoConcurrency | **string** (int64)
-
-Acceptable values are 0 to 1000, inclusive. ||
-|| effectiveCacheSize | **string** (int64)
-
-Acceptable values are 1048576 to 549755813888, inclusive. ||
-|| sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
-
-- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
-- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
-- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
-- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`
-- `SHARED_PRELOAD_LIBRARIES_PG_CRON`
-- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`
-- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`
-- `SHARED_PRELOAD_LIBRARIES_PGAUDIT` ||
-|| autoExplainLogMinDuration | **string** (int64)
-
-in milliseconds. ||
-|| autoExplainLogAnalyze | **boolean** ||
-|| autoExplainLogBuffers | **boolean** ||
-|| autoExplainLogTiming | **boolean** ||
-|| autoExplainLogTriggers | **boolean** ||
-|| autoExplainLogVerbose | **boolean** ||
-|| autoExplainLogNestedStatements | **boolean** ||
-|| autoExplainSampleRate | **number** (double) ||
-|| pgHintPlanEnableHint | **boolean** ||
-|| pgHintPlanEnableHintTable | **boolean** ||
-|| pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
-
-- `PG_HINT_PLAN_DEBUG_PRINT_OFF`
-- `PG_HINT_PLAN_DEBUG_PRINT_ON`
-- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
-- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
-|| pgHintPlanMessageLevel | **enum** (LogLevel)
-
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
-|| pgQualstatsEnabled | **boolean** ||
-|| pgQualstatsTrackConstants | **boolean** ||
-|| pgQualstatsMax | **string** (int64) ||
-|| pgQualstatsResolveOids | **boolean** ||
-|| pgQualstatsSampleRate | **number** (double) ||
-|| plantunerFixEmptyTable | **boolean** ||
-|| maxStackDepth | **string** (int64)
-
-in bytes.
-
-Acceptable values are 65536 to 134217728, inclusive. ||
-|| geqo | **boolean**
-
-enable Genetic Query Optimizer, by default is on ||
-|| geqoThreshold | **string** (int64)
-
-The number of tables to use geqo, default is 12
-
-Acceptable values are 2 to 2147483647, inclusive. ||
-|| geqoEffort | **string** (int64)
-
-tradeoff between planning time and query plan quality, default is 5
-
-Acceptable values are 1 to 10, inclusive. ||
-|| geqoPoolSize | **string** (int64)
-
-number of individuals in the genetic population, useful values are typically 100 to 1000; default - 0 - choose based on based on geqo_effort ||
-|| geqoGenerations | **string** (int64)
-
-the number of generations used by GEQO, useful values are in the same range as the pool size ||
-|| geqoSelectionBias | **number** (double)
-
-selective pressure within the population ||
-|| geqoSeed | **number** (double)
-
-initial value of the random number generator used by GEQO ||
-|| pgTrgmSimilarityThreshold | **number** (double) ||
-|| pgTrgmWordSimilarityThreshold | **number** (double) ||
-|| pgTrgmStrictWordSimilarityThreshold | **number** (double) ||
-|| maxStandbyArchiveDelay | **string** (int64)
-
-in milliseconds. ||
-|| sessionDurationTimeout | **string** (int64)
-
-Terminate any session that exceeds the designated timeout, specified in milliseconds. If a timeout is not specified, the default session timeout is set to 12 hours. To disable it, specify a value of 0.
-
-Acceptable values are 0 to 2147483647, inclusive. ||
-|| logReplicationCommands | **boolean** ||
-|| logAutovacuumMinDuration | **string** (int64)
-
-in milliseconds. The default is 1000 (1 sec). ||
-|| passwordEncryption | **enum** (PasswordEncryption)
-
-A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
-
-- `PASSWORD_ENCRYPTION_MD5`
-- `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+- `PASSWORD_ENCRYPTION_MD5`: The method md5 uses a custom less secure challenge-response mechanism. It prevents password sniffing and avoids storing passwords on the server in plain text but provides no protection if an attacker manages to steal the password hash from the server. Also, the MD5 hash algorithm is nowadays no longer considered secure against determined attacks.
+- `PASSWORD_ENCRYPTION_SCRAM_SHA_256`: The method scram-sha-256 performs SCRAM-SHA-256 authentication, as described in RFC 7677. It is a challenge-response scheme that prevents password sniffing on untrusted connections and supports storing passwords on the server in a cryptographically hashed form that is thought to be secure.
+This is the most secure of the currently provided methods, but it is not supported by older client libraries. ||
 |#
 
 ## PostgresqlConfigSet13 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet13}
@@ -11987,15 +8221,19 @@ Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_REPLICA`
-- `WAL_LEVEL_LOGICAL` ||
+- `WAL_LEVEL_REPLICA`: Supports WAL archiving and physical replication.
+- `WAL_LEVEL_LOGICAL`: Supports WAL archiving, physical replication, and logical decoding. ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_ON`
-- `SYNCHRONOUS_COMMIT_OFF`
-- `SYNCHRONOUS_COMMIT_LOCAL`
-- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`
-- `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
+- `SYNCHRONOUS_COMMIT_ON`: Success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server. Default value.
+- `SYNCHRONOUS_COMMIT_OFF`: Success is reported to the client even if the data is not in WAL.
+There is no synchronous write operation, data may be loss in case of storage subsystem failure.
+- `SYNCHRONOUS_COMMIT_LOCAL`: Success is reported to the client if the data is in WAL, and WAL is written to the storage of the master server.
+The transaction may be lost due to storage subsystem failure on the master server.
+- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`: Success is reported to the client if the data is in WAL, WAL is written to the storage of the master server, and the server's synchronous standby indicates that it has received WAL and written it out to its operating system.
+The transaction may be lost due to simultaneous storage subsystem failure on the master and operating system's failure on the synchronous standby.
+- `SYNCHRONOUS_COMMIT_REMOTE_APPLY`: Success is reported to the client if the data is in WAL (Write-Ahead Log), WAL is written to the storage of the master server, and its synchronous standby indicates that it has received WAL and applied it.
+The transaction may be lost due to irrecoverably failure of both the master and its synchronous standby. ||
 || checkpointTimeout | **string** (int64)
 
 in milliseconds.
@@ -12019,9 +8257,9 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
+- `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+- `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+- `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
 || cursorTupleFraction | **number** (double) ||
 || fromCollapseLimit | **string** (int64)
 
@@ -12031,48 +8269,48 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_ON`
-- `FORCE_PARALLEL_MODE_OFF`
-- `FORCE_PARALLEL_MODE_REGRESS` ||
+- `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
+- `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
+- `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinDurationStatement | **string** (int64)
 
 in milliseconds. ||
@@ -12082,25 +8320,27 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
+- `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+- `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+- `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
+- `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+- `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+- `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+- `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
 || logTempFiles | **string** (int64) ||
 || searchPath | **string** ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+- `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+- `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
 in milliseconds. ||
@@ -12114,16 +8354,16 @@ in milliseconds.
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
+- `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+- `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
+- `XML_BINARY_BASE64`: Base64 encoding.
+- `XML_BINARY_HEX`: Hexadecimal encoding. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
+- `XML_OPTION_DOCUMENT`: XML document.
+- `XML_OPTION_CONTENT`: XML fragment. ||
 || ginPendingListLimit | **string** (int64)
 
 in bytes. ||
@@ -12137,10 +8377,10 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
+- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+- `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+- `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+- `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
 || defaultWithOids | **boolean** ||
 || escapeStringWarning | **boolean** ||
 || loCompatPrivileges | **boolean** ||
@@ -12208,9 +8448,9 @@ The minimum value is 0. ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_AUTO`
-- `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
-- `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
+- `PLAN_CACHE_MODE_AUTO`: Automatic selection.
+- `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`: Forces the use of custom plans.
+- `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`: Forces the use of generic plans. ||
 || effectiveIoConcurrency | **string** (int64)
 
 Acceptable values are 0 to 1000, inclusive. ||
@@ -12219,14 +8459,14 @@ Acceptable values are 0 to 1000, inclusive. ||
 Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
-- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
-- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
-- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`
-- `SHARED_PRELOAD_LIBRARIES_PG_CRON`
-- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`
-- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`
-- `SHARED_PRELOAD_LIBRARIES_PGAUDIT` ||
+- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`: Required for the [auto_explain](https://www.postgresql.org/docs/current/auto-explain.html) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`: Required for the [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan) extension.
+- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`: Required for [TimescaleDB](https://github.com/timescale/timescaledb) to function.
+- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`: Required for the [pg_qualstats](https://github.com/powa-team/pg_qualstats) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_CRON`: Required for the [pg_cron](https://github.com/citusdata/pg_cron) extension.
+- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`: Required for the [pglogical](https://github.com/2ndQuadrant/pglogical) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Shared library of extension [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM), which ensures loading of extension on server start
+- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
 in milliseconds. ||
@@ -12241,23 +8481,23 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_OFF`
-- `PG_HINT_PLAN_DEBUG_PRINT_ON`
-- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
-- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
+- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disable debug output
+- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Print debug messages about hint parsing
+- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Print detailed debug information including query planning process
+- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Print verbose debug output with all internal operations ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
@@ -12340,8 +8580,9 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_MD5`
-- `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+- `PASSWORD_ENCRYPTION_MD5`: The method md5 uses a custom less secure challenge-response mechanism. It prevents password sniffing and avoids storing passwords on the server in plain text but provides no protection if an attacker manages to steal the password hash from the server. Also, the MD5 hash algorithm is nowadays no longer considered secure against determined attacks.
+- `PASSWORD_ENCRYPTION_SCRAM_SHA_256`: The method scram-sha-256 performs SCRAM-SHA-256 authentication, as described in RFC 7677. It is a challenge-response scheme that prevents password sniffing on untrusted connections and supports storing passwords on the server in a cryptographically hashed form that is thought to be secure.
+This is the most secure of the currently provided methods, but it is not supported by older client libraries. ||
 |#
 
 ## PostgresqlConfigSet13_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet13_1C}
@@ -12417,15 +8658,19 @@ Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_REPLICA`
-- `WAL_LEVEL_LOGICAL` ||
+- `WAL_LEVEL_REPLICA`: Supports WAL archiving and physical replication.
+- `WAL_LEVEL_LOGICAL`: Supports WAL archiving, physical replication, and logical decoding. ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_ON`
-- `SYNCHRONOUS_COMMIT_OFF`
-- `SYNCHRONOUS_COMMIT_LOCAL`
-- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`
-- `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
+- `SYNCHRONOUS_COMMIT_ON`: Success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server. Default value.
+- `SYNCHRONOUS_COMMIT_OFF`: Success is reported to the client even if the data is not in WAL.
+There is no synchronous write operation, data may be loss in case of storage subsystem failure.
+- `SYNCHRONOUS_COMMIT_LOCAL`: Success is reported to the client if the data is in WAL, and WAL is written to the storage of the master server.
+The transaction may be lost due to storage subsystem failure on the master server.
+- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`: Success is reported to the client if the data is in WAL, WAL is written to the storage of the master server, and the server's synchronous standby indicates that it has received WAL and written it out to its operating system.
+The transaction may be lost due to simultaneous storage subsystem failure on the master and operating system's failure on the synchronous standby.
+- `SYNCHRONOUS_COMMIT_REMOTE_APPLY`: Success is reported to the client if the data is in WAL (Write-Ahead Log), WAL is written to the storage of the master server, and its synchronous standby indicates that it has received WAL and applied it.
+The transaction may be lost due to irrecoverably failure of both the master and its synchronous standby. ||
 || checkpointTimeout | **string** (int64)
 
 in milliseconds.
@@ -12449,9 +8694,9 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
+- `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+- `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+- `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
 || cursorTupleFraction | **number** (double) ||
 || fromCollapseLimit | **string** (int64)
 
@@ -12461,48 +8706,48 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_ON`
-- `FORCE_PARALLEL_MODE_OFF`
-- `FORCE_PARALLEL_MODE_REGRESS` ||
+- `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
+- `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
+- `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinDurationStatement | **string** (int64)
 
 in milliseconds. ||
@@ -12512,25 +8757,27 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
+- `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+- `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+- `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
+- `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+- `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+- `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+- `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
 || logTempFiles | **string** (int64) ||
 || searchPath | **string** ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+- `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+- `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
 in milliseconds. ||
@@ -12544,16 +8791,16 @@ in milliseconds.
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
+- `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+- `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
+- `XML_BINARY_BASE64`: Base64 encoding.
+- `XML_BINARY_HEX`: Hexadecimal encoding. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
+- `XML_OPTION_DOCUMENT`: XML document.
+- `XML_OPTION_CONTENT`: XML fragment. ||
 || ginPendingListLimit | **string** (int64)
 
 in bytes. ||
@@ -12567,10 +8814,10 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
+- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+- `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+- `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+- `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
 || defaultWithOids | **boolean** ||
 || escapeStringWarning | **boolean** ||
 || loCompatPrivileges | **boolean** ||
@@ -12639,9 +8886,9 @@ The minimum value is 0. ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_AUTO`
-- `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
-- `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
+- `PLAN_CACHE_MODE_AUTO`: Automatic selection.
+- `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`: Forces the use of custom plans.
+- `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`: Forces the use of generic plans. ||
 || effectiveIoConcurrency | **string** (int64)
 
 Acceptable values are 0 to 1000, inclusive. ||
@@ -12650,14 +8897,14 @@ Acceptable values are 0 to 1000, inclusive. ||
 Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
-- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
-- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
-- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`
-- `SHARED_PRELOAD_LIBRARIES_PG_CRON`
-- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`
-- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`
-- `SHARED_PRELOAD_LIBRARIES_PGAUDIT` ||
+- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`: Required for the [auto_explain](https://www.postgresql.org/docs/current/auto-explain.html) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`: Required for the [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan) extension.
+- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`: Required for [TimescaleDB](https://github.com/timescale/timescaledb) to function.
+- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`: Required for the [pg_qualstats](https://github.com/powa-team/pg_qualstats) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_CRON`: Required for the [pg_cron](https://github.com/citusdata/pg_cron) extension.
+- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`: Required for the [pglogical](https://github.com/2ndQuadrant/pglogical) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Shared library of extension [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM), which ensures loading of extension on server start
+- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
 in milliseconds. ||
@@ -12672,23 +8919,23 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_OFF`
-- `PG_HINT_PLAN_DEBUG_PRINT_ON`
-- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
-- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
+- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disable debug output
+- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Print debug messages about hint parsing
+- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Print detailed debug information including query planning process
+- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Print verbose debug output with all internal operations ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
@@ -12767,8 +9014,9 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_MD5`
-- `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+- `PASSWORD_ENCRYPTION_MD5`: The method md5 uses a custom less secure challenge-response mechanism. It prevents password sniffing and avoids storing passwords on the server in plain text but provides no protection if an attacker manages to steal the password hash from the server. Also, the MD5 hash algorithm is nowadays no longer considered secure against determined attacks.
+- `PASSWORD_ENCRYPTION_SCRAM_SHA_256`: The method scram-sha-256 performs SCRAM-SHA-256 authentication, as described in RFC 7677. It is a challenge-response scheme that prevents password sniffing on untrusted connections and supports storing passwords on the server in a cryptographically hashed form that is thought to be secure.
+This is the most secure of the currently provided methods, but it is not supported by older client libraries. ||
 |#
 
 ## PostgresqlConfigSet14 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet14}
@@ -12844,15 +9092,19 @@ Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_REPLICA`
-- `WAL_LEVEL_LOGICAL` ||
+- `WAL_LEVEL_REPLICA`: Supports WAL archiving and physical replication.
+- `WAL_LEVEL_LOGICAL`: Supports WAL archiving, physical replication, and logical decoding. ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_ON`
-- `SYNCHRONOUS_COMMIT_OFF`
-- `SYNCHRONOUS_COMMIT_LOCAL`
-- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`
-- `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
+- `SYNCHRONOUS_COMMIT_ON`: Success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server. Default value.
+- `SYNCHRONOUS_COMMIT_OFF`: Success is reported to the client even if the data is not in WAL.
+There is no synchronous write operation, data may be loss in case of storage subsystem failure.
+- `SYNCHRONOUS_COMMIT_LOCAL`: Success is reported to the client if the data is in WAL, and WAL is written to the storage of the master server.
+The transaction may be lost due to storage subsystem failure on the master server.
+- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`: Success is reported to the client if the data is in WAL, WAL is written to the storage of the master server, and the server's synchronous standby indicates that it has received WAL and written it out to its operating system.
+The transaction may be lost due to simultaneous storage subsystem failure on the master and operating system's failure on the synchronous standby.
+- `SYNCHRONOUS_COMMIT_REMOTE_APPLY`: Success is reported to the client if the data is in WAL (Write-Ahead Log), WAL is written to the storage of the master server, and its synchronous standby indicates that it has received WAL and applied it.
+The transaction may be lost due to irrecoverably failure of both the master and its synchronous standby. ||
 || checkpointTimeout | **string** (int64)
 
 in milliseconds.
@@ -12876,9 +9128,9 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
+- `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+- `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+- `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
 || cursorTupleFraction | **number** (double) ||
 || fromCollapseLimit | **string** (int64)
 
@@ -12888,48 +9140,48 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_ON`
-- `FORCE_PARALLEL_MODE_OFF`
-- `FORCE_PARALLEL_MODE_REGRESS` ||
+- `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
+- `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
+- `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinDurationStatement | **string** (int64)
 
 in milliseconds. ||
@@ -12939,25 +9191,27 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
+- `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+- `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+- `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
+- `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+- `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+- `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+- `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
 || logTempFiles | **string** (int64) ||
 || searchPath | **string** ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+- `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+- `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
 in milliseconds. ||
@@ -12971,16 +9225,16 @@ in milliseconds.
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
+- `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+- `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
+- `XML_BINARY_BASE64`: Base64 encoding.
+- `XML_BINARY_HEX`: Hexadecimal encoding. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
+- `XML_OPTION_DOCUMENT`: XML document.
+- `XML_OPTION_CONTENT`: XML fragment. ||
 || ginPendingListLimit | **string** (int64)
 
 in bytes. ||
@@ -12994,10 +9248,10 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
+- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+- `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+- `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+- `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
 || defaultWithOids | **boolean** ||
 || escapeStringWarning | **boolean** ||
 || loCompatPrivileges | **boolean** ||
@@ -13063,9 +9317,9 @@ The minimum value is 0. ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_AUTO`
-- `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
-- `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
+- `PLAN_CACHE_MODE_AUTO`: Automatic selection.
+- `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`: Forces the use of custom plans.
+- `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`: Forces the use of generic plans. ||
 || effectiveIoConcurrency | **string** (int64)
 
 Acceptable values are 0 to 1000, inclusive. ||
@@ -13074,14 +9328,15 @@ Acceptable values are 0 to 1000, inclusive. ||
 Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
-- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
-- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
-- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`
-- `SHARED_PRELOAD_LIBRARIES_PG_CRON`
-- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`
-- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`
-- `SHARED_PRELOAD_LIBRARIES_PGAUDIT` ||
+- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`: Required for the [auto_explain](https://www.postgresql.org/docs/current/auto-explain.html) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`: Required for the [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan) extension.
+- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`: Required for [TimescaleDB](https://github.com/timescale/timescaledb) to function.
+- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`: Required for the [pg_qualstats](https://github.com/powa-team/pg_qualstats) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_CRON`: Required for the [pg_cron](https://github.com/citusdata/pg_cron) extension.
+- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`: Required for the [pglogical](https://github.com/2ndQuadrant/pglogical) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Shared library of extension [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM), which ensures loading of extension on server start
+- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
 in milliseconds. ||
@@ -13096,23 +9351,23 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_OFF`
-- `PG_HINT_PLAN_DEBUG_PRINT_ON`
-- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
-- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
+- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disable debug output
+- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Print debug messages about hint parsing
+- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Print detailed debug information including query planning process
+- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Print verbose debug output with all internal operations ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
@@ -13210,16 +9465,22 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_MD5`
-- `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+- `PASSWORD_ENCRYPTION_MD5`: The method md5 uses a custom less secure challenge-response mechanism. It prevents password sniffing and avoids storing passwords on the server in plain text but provides no protection if an attacker manages to steal the password hash from the server. Also, the MD5 hash algorithm is nowadays no longer considered secure against determined attacks.
+- `PASSWORD_ENCRYPTION_SCRAM_SHA_256`: The method scram-sha-256 performs SCRAM-SHA-256 authentication, as described in RFC 7677. It is a challenge-response scheme that prevents password sniffing on untrusted connections and supports storing passwords on the server in a cryptographically hashed form that is thought to be secure.
+This is the most secure of the currently provided methods, but it is not supported by older client libraries. ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
 Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
-- `AUTO_EXPLAIN_LOG_FORMAT_XML`
-- `AUTO_EXPLAIN_LOG_FORMAT_JSON`
-- `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`: 'text' value for the EXPLAIN output format in auto_explain extension
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`: 'xml' value for the EXPLAIN output format in auto_explain extension
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`: 'json' value for the EXPLAIN output format in auto_explain extension
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML`: 'yaml' value for the EXPLAIN output format in auto_explain extension ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet14_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet14_1C}
@@ -13295,15 +9556,19 @@ Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_REPLICA`
-- `WAL_LEVEL_LOGICAL` ||
+- `WAL_LEVEL_REPLICA`: Supports WAL archiving and physical replication.
+- `WAL_LEVEL_LOGICAL`: Supports WAL archiving, physical replication, and logical decoding. ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_ON`
-- `SYNCHRONOUS_COMMIT_OFF`
-- `SYNCHRONOUS_COMMIT_LOCAL`
-- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`
-- `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
+- `SYNCHRONOUS_COMMIT_ON`: Success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server. Default value.
+- `SYNCHRONOUS_COMMIT_OFF`: Success is reported to the client even if the data is not in WAL.
+There is no synchronous write operation, data may be loss in case of storage subsystem failure.
+- `SYNCHRONOUS_COMMIT_LOCAL`: Success is reported to the client if the data is in WAL, and WAL is written to the storage of the master server.
+The transaction may be lost due to storage subsystem failure on the master server.
+- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`: Success is reported to the client if the data is in WAL, WAL is written to the storage of the master server, and the server's synchronous standby indicates that it has received WAL and written it out to its operating system.
+The transaction may be lost due to simultaneous storage subsystem failure on the master and operating system's failure on the synchronous standby.
+- `SYNCHRONOUS_COMMIT_REMOTE_APPLY`: Success is reported to the client if the data is in WAL (Write-Ahead Log), WAL is written to the storage of the master server, and its synchronous standby indicates that it has received WAL and applied it.
+The transaction may be lost due to irrecoverably failure of both the master and its synchronous standby. ||
 || checkpointTimeout | **string** (int64)
 
 in milliseconds.
@@ -13327,9 +9592,9 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
+- `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+- `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+- `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
 || cursorTupleFraction | **number** (double) ||
 || fromCollapseLimit | **string** (int64)
 
@@ -13339,48 +9604,48 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_ON`
-- `FORCE_PARALLEL_MODE_OFF`
-- `FORCE_PARALLEL_MODE_REGRESS` ||
+- `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
+- `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
+- `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinDurationStatement | **string** (int64)
 
 in milliseconds. ||
@@ -13390,25 +9655,27 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
+- `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+- `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+- `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
+- `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+- `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+- `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+- `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
 || logTempFiles | **string** (int64) ||
 || searchPath | **string** ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+- `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+- `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
 in milliseconds. ||
@@ -13422,16 +9689,16 @@ in milliseconds.
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
+- `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+- `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
+- `XML_BINARY_BASE64`: Base64 encoding.
+- `XML_BINARY_HEX`: Hexadecimal encoding. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
+- `XML_OPTION_DOCUMENT`: XML document.
+- `XML_OPTION_CONTENT`: XML fragment. ||
 || ginPendingListLimit | **string** (int64)
 
 in bytes. ||
@@ -13445,10 +9712,10 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
+- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+- `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+- `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+- `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
 || defaultWithOids | **boolean** ||
 || escapeStringWarning | **boolean** ||
 || loCompatPrivileges | **boolean** ||
@@ -13515,9 +9782,9 @@ The minimum value is 0. ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_AUTO`
-- `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
-- `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
+- `PLAN_CACHE_MODE_AUTO`: Automatic selection.
+- `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`: Forces the use of custom plans.
+- `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`: Forces the use of generic plans. ||
 || effectiveIoConcurrency | **string** (int64)
 
 Acceptable values are 0 to 1000, inclusive. ||
@@ -13526,14 +9793,15 @@ Acceptable values are 0 to 1000, inclusive. ||
 Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
-- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
-- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
-- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`
-- `SHARED_PRELOAD_LIBRARIES_PG_CRON`
-- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`
-- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`
-- `SHARED_PRELOAD_LIBRARIES_PGAUDIT` ||
+- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`: Required for the [auto_explain](https://www.postgresql.org/docs/current/auto-explain.html) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`: Required for the [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan) extension.
+- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`: Required for [TimescaleDB](https://github.com/timescale/timescaledb) to function.
+- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`: Required for the [pg_qualstats](https://github.com/powa-team/pg_qualstats) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_CRON`: Required for the [pg_cron](https://github.com/citusdata/pg_cron) extension.
+- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`: Required for the [pglogical](https://github.com/2ndQuadrant/pglogical) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Shared library of extension [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM), which ensures loading of extension on server start
+- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
 in milliseconds. ||
@@ -13548,23 +9816,23 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_OFF`
-- `PG_HINT_PLAN_DEBUG_PRINT_ON`
-- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
-- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
+- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disable debug output
+- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Print debug messages about hint parsing
+- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Print detailed debug information including query planning process
+- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Print verbose debug output with all internal operations ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
@@ -13658,16 +9926,22 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_MD5`
-- `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+- `PASSWORD_ENCRYPTION_MD5`: The method md5 uses a custom less secure challenge-response mechanism. It prevents password sniffing and avoids storing passwords on the server in plain text but provides no protection if an attacker manages to steal the password hash from the server. Also, the MD5 hash algorithm is nowadays no longer considered secure against determined attacks.
+- `PASSWORD_ENCRYPTION_SCRAM_SHA_256`: The method scram-sha-256 performs SCRAM-SHA-256 authentication, as described in RFC 7677. It is a challenge-response scheme that prevents password sniffing on untrusted connections and supports storing passwords on the server in a cryptographically hashed form that is thought to be secure.
+This is the most secure of the currently provided methods, but it is not supported by older client libraries. ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
 Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
-- `AUTO_EXPLAIN_LOG_FORMAT_XML`
-- `AUTO_EXPLAIN_LOG_FORMAT_JSON`
-- `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`: 'text' value for the EXPLAIN output format in auto_explain extension
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`: 'xml' value for the EXPLAIN output format in auto_explain extension
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`: 'json' value for the EXPLAIN output format in auto_explain extension
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML`: 'yaml' value for the EXPLAIN output format in auto_explain extension ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet15 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet15}
@@ -13743,15 +10017,19 @@ Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_REPLICA`
-- `WAL_LEVEL_LOGICAL` ||
+- `WAL_LEVEL_REPLICA`: Supports WAL archiving and physical replication.
+- `WAL_LEVEL_LOGICAL`: Supports WAL archiving, physical replication, and logical decoding. ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_ON`
-- `SYNCHRONOUS_COMMIT_OFF`
-- `SYNCHRONOUS_COMMIT_LOCAL`
-- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`
-- `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
+- `SYNCHRONOUS_COMMIT_ON`: Success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server. Default value.
+- `SYNCHRONOUS_COMMIT_OFF`: Success is reported to the client even if the data is not in WAL.
+There is no synchronous write operation, data may be loss in case of storage subsystem failure.
+- `SYNCHRONOUS_COMMIT_LOCAL`: Success is reported to the client if the data is in WAL, and WAL is written to the storage of the master server.
+The transaction may be lost due to storage subsystem failure on the master server.
+- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`: Success is reported to the client if the data is in WAL, WAL is written to the storage of the master server, and the server's synchronous standby indicates that it has received WAL and written it out to its operating system.
+The transaction may be lost due to simultaneous storage subsystem failure on the master and operating system's failure on the synchronous standby.
+- `SYNCHRONOUS_COMMIT_REMOTE_APPLY`: Success is reported to the client if the data is in WAL (Write-Ahead Log), WAL is written to the storage of the master server, and its synchronous standby indicates that it has received WAL and applied it.
+The transaction may be lost due to irrecoverably failure of both the master and its synchronous standby. ||
 || checkpointTimeout | **string** (int64)
 
 in milliseconds.
@@ -13775,9 +10053,9 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
+- `CONSTRAINT_EXCLUSION_ON`: Use constraints for all tables.
+- `CONSTRAINT_EXCLUSION_OFF`: Do not use constraints.
+- `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
 || cursorTupleFraction | **number** (double) ||
 || fromCollapseLimit | **string** (int64)
 
@@ -13787,48 +10065,48 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_ON`
-- `FORCE_PARALLEL_MODE_OFF`
-- `FORCE_PARALLEL_MODE_REGRESS` ||
+- `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
+- `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
+- `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinDurationStatement | **string** (int64)
 
 in milliseconds. ||
@@ -13838,25 +10116,27 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
+- `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+- `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+- `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
+- `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+- `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+- `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+- `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
 || logTempFiles | **string** (int64) ||
 || searchPath | **string** ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+- `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began. Default value.
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+- `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
 in milliseconds. ||
@@ -13870,16 +10150,16 @@ in milliseconds.
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
+- `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+- `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
+- `XML_BINARY_BASE64`: Base64 encoding.
+- `XML_BINARY_HEX`: Hexadecimal encoding. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
+- `XML_OPTION_DOCUMENT`: XML document.
+- `XML_OPTION_CONTENT`: XML fragment. ||
 || ginPendingListLimit | **string** (int64)
 
 in bytes. ||
@@ -13893,10 +10173,10 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
+- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+- `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+- `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+- `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
 || defaultWithOids | **boolean** ||
 || escapeStringWarning | **boolean** ||
 || loCompatPrivileges | **boolean** ||
@@ -13962,9 +10242,9 @@ The minimum value is 0. ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_AUTO`
-- `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
-- `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
+- `PLAN_CACHE_MODE_AUTO`: Automatic selection.
+- `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`: Forces the use of custom plans.
+- `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`: Forces the use of generic plans. ||
 || effectiveIoConcurrency | **string** (int64)
 
 Acceptable values are 0 to 1000, inclusive. ||
@@ -13973,15 +10253,16 @@ Acceptable values are 0 to 1000, inclusive. ||
 Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
-- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
-- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
-- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`
-- `SHARED_PRELOAD_LIBRARIES_PG_CRON`
-- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`
-- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`
-- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`
-- `SHARED_PRELOAD_LIBRARIES_ANON` ||
+- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`: Required for the [auto_explain](https://www.postgresql.org/docs/current/auto-explain.html) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`: Required for the [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan) extension.
+- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`: Required for [TimescaleDB](https://github.com/timescale/timescaledb) to function.
+- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`: Required for the [pg_qualstats](https://github.com/powa-team/pg_qualstats) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_CRON`: Required for the [pg_cron](https://github.com/citusdata/pg_cron) extension.
+- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`: Required for the [pglogical](https://github.com/2ndQuadrant/pglogical) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Required for the [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM) extension.
+- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_ANON`: Required for the [postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/) extension.
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
 in milliseconds. ||
@@ -13996,23 +10277,23 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_OFF`
-- `PG_HINT_PLAN_DEBUG_PRINT_ON`
-- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
-- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
+- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disable debug output
+- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Print debug messages about hint parsing
+- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Print detailed debug information including query planning process
+- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Print verbose debug output with all internal operations ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
@@ -14111,16 +10392,22 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_MD5`
-- `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+- `PASSWORD_ENCRYPTION_MD5`: The method md5 uses a custom less secure challenge-response mechanism. It prevents password sniffing and avoids storing passwords on the server in plain text but provides no protection if an attacker manages to steal the password hash from the server. Also, the MD5 hash algorithm is nowadays no longer considered secure against determined attacks.
+- `PASSWORD_ENCRYPTION_SCRAM_SHA_256`: The method scram-sha-256 performs SCRAM-SHA-256 authentication, as described in RFC 7677. It is a challenge-response scheme that prevents password sniffing on untrusted connections and supports storing passwords on the server in a cryptographically hashed form that is thought to be secure.
+This is the most secure of the currently provided methods, but it is not supported by older client libraries. ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
 Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
-- `AUTO_EXPLAIN_LOG_FORMAT_XML`
-- `AUTO_EXPLAIN_LOG_FORMAT_JSON`
-- `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`: Text EXPLAIN output format
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`: XML EXPLAIN output format
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`: JSON EXPLAIN output format
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML`: YAML EXPLAIN output format ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet15_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet15_1C}
@@ -14196,15 +10483,19 @@ Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_REPLICA`
-- `WAL_LEVEL_LOGICAL` ||
+- `WAL_LEVEL_REPLICA`: Supports WAL archiving and physical replication.
+- `WAL_LEVEL_LOGICAL`: Supports WAL archiving, physical replication, and logical decoding. ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_ON`
-- `SYNCHRONOUS_COMMIT_OFF`
-- `SYNCHRONOUS_COMMIT_LOCAL`
-- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`
-- `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
+- `SYNCHRONOUS_COMMIT_ON`: Success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server. Default value.
+- `SYNCHRONOUS_COMMIT_OFF`: Success is reported to the client even if the data is not in WAL.
+There is no synchronous write operation, data may be loss in case of storage subsystem failure.
+- `SYNCHRONOUS_COMMIT_LOCAL`: Success is reported to the client if the data is in WAL, and WAL is written to the storage of the master server.
+The transaction may be lost due to storage subsystem failure on the master server.
+- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`: Success is reported to the client if the data is in WAL, WAL is written to the storage of the master server, and the server's synchronous standby indicates that it has received WAL and written it out to its operating system.
+The transaction may be lost due to simultaneous storage subsystem failure on the master and operating system's failure on the synchronous standby.
+- `SYNCHRONOUS_COMMIT_REMOTE_APPLY`: Success is reported to the client if the data is in WAL (Write-Ahead Log), WAL is written to the storage of the master server, and its synchronous standby indicates that it has received WAL and applied it.
+The transaction may be lost due to irrecoverably failure of both the master and its synchronous standby. ||
 || checkpointTimeout | **string** (int64)
 
 in milliseconds.
@@ -14228,9 +10519,9 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
+- `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+- `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+- `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
 || cursorTupleFraction | **number** (double) ||
 || fromCollapseLimit | **string** (int64)
 
@@ -14240,48 +10531,48 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 Acceptable values are 1 to 2147483647, inclusive. ||
 || forceParallelMode | **enum** (ForceParallelMode)
 
-- `FORCE_PARALLEL_MODE_ON`
-- `FORCE_PARALLEL_MODE_OFF`
-- `FORCE_PARALLEL_MODE_REGRESS` ||
+- `FORCE_PARALLEL_MODE_ON`: Force parallel mode for all queries that can be executed safely in parallel.
+- `FORCE_PARALLEL_MODE_OFF`: Enable parallel mode only if it is expected to increase performance.
+- `FORCE_PARALLEL_MODE_REGRESS`: Equivalent to on, but generates output identical to the off state. ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinDurationStatement | **string** (int64)
 
 in milliseconds. ||
@@ -14291,25 +10582,27 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
+- `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+- `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+- `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
+- `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+- `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+- `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+- `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
 || logTempFiles | **string** (int64) ||
 || searchPath | **string** ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+- `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+- `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
 in milliseconds. ||
@@ -14323,16 +10616,16 @@ in milliseconds.
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
+- `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+- `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
+- `XML_BINARY_BASE64`: Base64 encoding.
+- `XML_BINARY_HEX`: Hexadecimal encoding. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
+- `XML_OPTION_DOCUMENT`: XML document.
+- `XML_OPTION_CONTENT`: XML fragment. ||
 || ginPendingListLimit | **string** (int64)
 
 in bytes. ||
@@ -14346,10 +10639,10 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
+- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+- `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+- `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+- `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
 || defaultWithOids | **boolean** ||
 || escapeStringWarning | **boolean** ||
 || loCompatPrivileges | **boolean** ||
@@ -14416,9 +10709,9 @@ The minimum value is 0. ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_AUTO`
-- `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
-- `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
+- `PLAN_CACHE_MODE_AUTO`: Automatic selection.
+- `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`: Forces the use of custom plans.
+- `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`: Forces the use of generic plans. ||
 || effectiveIoConcurrency | **string** (int64)
 
 Acceptable values are 0 to 1000, inclusive. ||
@@ -14427,15 +10720,16 @@ Acceptable values are 0 to 1000, inclusive. ||
 Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
-- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
-- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
-- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`
-- `SHARED_PRELOAD_LIBRARIES_PG_CRON`
-- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`
-- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`
-- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`
-- `SHARED_PRELOAD_LIBRARIES_ANON` ||
+- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`: Required for the [auto_explain](https://www.postgresql.org/docs/current/auto-explain.html) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`: Required for the [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan) extension.
+- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`: Required for [TimescaleDB](https://github.com/timescale/timescaledb) to function.
+- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`: Required for the [pg_qualstats](https://github.com/powa-team/pg_qualstats) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_CRON`: Required for the [pg_cron](https://github.com/citusdata/pg_cron) extension.
+- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`: Required for the [pglogical](https://github.com/2ndQuadrant/pglogical) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Shared library of extension [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM), which ensures loading of extension on server start
+- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_ANON`: Required for the [postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/) extension.
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
 in milliseconds. ||
@@ -14450,23 +10744,23 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_OFF`
-- `PG_HINT_PLAN_DEBUG_PRINT_ON`
-- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
-- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
+- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disable debug output
+- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Print debug messages about hint parsing
+- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Print detailed debug information including query planning process
+- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Print verbose debug output with all internal operations ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
@@ -14566,16 +10860,22 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_MD5`
-- `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+- `PASSWORD_ENCRYPTION_MD5`: The method md5 uses a custom less secure challenge-response mechanism. It prevents password sniffing and avoids storing passwords on the server in plain text but provides no protection if an attacker manages to steal the password hash from the server. Also, the MD5 hash algorithm is nowadays no longer considered secure against determined attacks.
+- `PASSWORD_ENCRYPTION_SCRAM_SHA_256`: The method scram-sha-256 performs SCRAM-SHA-256 authentication, as described in RFC 7677. It is a challenge-response scheme that prevents password sniffing on untrusted connections and supports storing passwords on the server in a cryptographically hashed form that is thought to be secure.
+This is the most secure of the currently provided methods, but it is not supported by older client libraries. ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
 Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
-- `AUTO_EXPLAIN_LOG_FORMAT_XML`
-- `AUTO_EXPLAIN_LOG_FORMAT_JSON`
-- `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`: 'text' value for the EXPLAIN output format in auto_explain extension
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`: 'xml' value for the EXPLAIN output format in auto_explain extension
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`: 'json' value for the EXPLAIN output format in auto_explain extension
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML`: 'yaml' value for the EXPLAIN output format in auto_explain extension ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet16 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet16}
@@ -14651,15 +10951,19 @@ Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_REPLICA`
-- `WAL_LEVEL_LOGICAL` ||
+- `WAL_LEVEL_REPLICA`: Supports WAL archiving and physical replication.
+- `WAL_LEVEL_LOGICAL`: Supports WAL archiving, physical replication, and logical decoding. ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_ON`
-- `SYNCHRONOUS_COMMIT_OFF`
-- `SYNCHRONOUS_COMMIT_LOCAL`
-- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`
-- `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
+- `SYNCHRONOUS_COMMIT_ON`: Success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server. Default value.
+- `SYNCHRONOUS_COMMIT_OFF`: Success is reported to the client even if the data is not in WAL.
+There is no synchronous write operation, data may be loss in case of storage subsystem failure.
+- `SYNCHRONOUS_COMMIT_LOCAL`: Success is reported to the client if the data is in WAL, and WAL is written to the storage of the master server.
+The transaction may be lost due to storage subsystem failure on the master server.
+- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`: Success is reported to the client if the data is in WAL, WAL is written to the storage of the master server, and the server's synchronous standby indicates that it has received WAL and written it out to its operating system.
+The transaction may be lost due to simultaneous storage subsystem failure on the master and operating system's failure on the synchronous standby.
+- `SYNCHRONOUS_COMMIT_REMOTE_APPLY`: Success is reported to the client if the data is in WAL (Write-Ahead Log), WAL is written to the storage of the master server, and its synchronous standby indicates that it has received WAL and applied it.
+The transaction may be lost due to irrecoverably failure of both the master and its synchronous standby. ||
 || checkpointTimeout | **string** (int64)
 
 in milliseconds.
@@ -14683,9 +10987,9 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
+- `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+- `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+- `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
 || cursorTupleFraction | **number** (double) ||
 || fromCollapseLimit | **string** (int64)
 
@@ -14695,51 +10999,51 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_ON`
-- `DEBUG_PARALLEL_QUERY_OFF`
-- `DEBUG_PARALLEL_QUERY_REGRESS` ||
+- `DEBUG_PARALLEL_QUERY_ON`: Force parallel query for all queries for which it is thought to be safe
+- `DEBUG_PARALLEL_QUERY_OFF`: Use parallel mode only when it is expected to improve performance
+- `DEBUG_PARALLEL_QUERY_REGRESS`: Like ON, but with additional changes for regression testing (suppresses context lines, hides Gather nodes in EXPLAIN) ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinDurationStatement | **string** (int64)
 
 in milliseconds. ||
@@ -14749,25 +11053,27 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
+- `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+- `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+- `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
+- `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+- `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+- `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+- `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
 || logTempFiles | **string** (int64) ||
 || searchPath | **string** ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+- `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+- `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
 in milliseconds. ||
@@ -14781,16 +11087,16 @@ in milliseconds.
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
+- `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+- `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
+- `XML_BINARY_BASE64`: Base64 encoding.
+- `XML_BINARY_HEX`: Hexadecimal encoding. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
+- `XML_OPTION_DOCUMENT`: XML document.
+- `XML_OPTION_CONTENT`: XML fragment. ||
 || ginPendingListLimit | **string** (int64)
 
 in bytes. ||
@@ -14804,10 +11110,10 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
+- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+- `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+- `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+- `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
 || defaultWithOids | **boolean** ||
 || escapeStringWarning | **boolean** ||
 || loCompatPrivileges | **boolean** ||
@@ -14873,9 +11179,9 @@ The minimum value is 0. ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_AUTO`
-- `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
-- `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
+- `PLAN_CACHE_MODE_AUTO`: Automatic selection.
+- `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`: Forces the use of custom plans.
+- `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`: Forces the use of generic plans. ||
 || effectiveIoConcurrency | **string** (int64)
 
 Acceptable values are 0 to 1000, inclusive. ||
@@ -14884,15 +11190,17 @@ Acceptable values are 0 to 1000, inclusive. ||
 Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
-- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
-- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
-- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`
-- `SHARED_PRELOAD_LIBRARIES_PG_CRON`
-- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`
-- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`
-- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`
-- `SHARED_PRELOAD_LIBRARIES_ANON` ||
+- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`: Required for the [auto_explain](https://www.postgresql.org/docs/current/auto-explain.html) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`: Required for the [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan) extension.
+- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`: Required for [TimescaleDB](https://github.com/timescale/timescaledb) to function.
+- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`: Required for the [pg_qualstats](https://github.com/powa-team/pg_qualstats) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_CRON`: Required for the [pg_cron](https://github.com/citusdata/pg_cron) extension.
+- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`: Required for the [pglogical](https://github.com/2ndQuadrant/pglogical) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Shared library of extension [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM), which ensures loading of extension on server start
+- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_ANON`: Required for the [postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/) extension.
+- `SHARED_PRELOAD_LIBRARIES_AGE`: Required for the [age](https://age.apache.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
 in milliseconds. ||
@@ -14907,24 +11215,24 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_OFF`
-- `PG_HINT_PLAN_DEBUG_PRINT_ON`
-- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
-- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
+- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disable debug output
+- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Print debug messages about hint parsing
+- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Print detailed debug information including query planning process
+- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Print verbose debug output with all internal operations ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
@@ -15023,16 +11331,22 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_MD5`
-- `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+- `PASSWORD_ENCRYPTION_MD5`: The method md5 uses a custom less secure challenge-response mechanism. It prevents password sniffing and avoids storing passwords on the server in plain text but provides no protection if an attacker manages to steal the password hash from the server. Also, the MD5 hash algorithm is nowadays no longer considered secure against determined attacks.
+- `PASSWORD_ENCRYPTION_SCRAM_SHA_256`: The method scram-sha-256 performs SCRAM-SHA-256 authentication, as described in RFC 7677. It is a challenge-response scheme that prevents password sniffing on untrusted connections and supports storing passwords on the server in a cryptographically hashed form that is thought to be secure.
+This is the most secure of the currently provided methods, but it is not supported by older client libraries. ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
 Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
-- `AUTO_EXPLAIN_LOG_FORMAT_XML`
-- `AUTO_EXPLAIN_LOG_FORMAT_JSON`
-- `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`: 'text' value for the EXPLAIN output format in auto_explain extension
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`: 'xml' value for the EXPLAIN output format in auto_explain extension
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`: 'json' value for the EXPLAIN output format in auto_explain extension
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML`: 'yaml' value for the EXPLAIN output format in auto_explain extension ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet16_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet16_1C}
@@ -15108,15 +11422,19 @@ Acceptable values are 0 to 2097152, inclusive. ||
 || oldSnapshotThreshold | **string** (int64) ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_REPLICA`
-- `WAL_LEVEL_LOGICAL` ||
+- `WAL_LEVEL_REPLICA`: Supports WAL archiving and physical replication.
+- `WAL_LEVEL_LOGICAL`: Supports WAL archiving, physical replication, and logical decoding. ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_ON`
-- `SYNCHRONOUS_COMMIT_OFF`
-- `SYNCHRONOUS_COMMIT_LOCAL`
-- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`
-- `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
+- `SYNCHRONOUS_COMMIT_ON`: Success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server. Default value.
+- `SYNCHRONOUS_COMMIT_OFF`: Success is reported to the client even if the data is not in WAL.
+There is no synchronous write operation, data may be loss in case of storage subsystem failure.
+- `SYNCHRONOUS_COMMIT_LOCAL`: Success is reported to the client if the data is in WAL, and WAL is written to the storage of the master server.
+The transaction may be lost due to storage subsystem failure on the master server.
+- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`: Success is reported to the client if the data is in WAL, WAL is written to the storage of the master server, and the server's synchronous standby indicates that it has received WAL and written it out to its operating system.
+The transaction may be lost due to simultaneous storage subsystem failure on the master and operating system's failure on the synchronous standby.
+- `SYNCHRONOUS_COMMIT_REMOTE_APPLY`: Success is reported to the client if the data is in WAL (Write-Ahead Log), WAL is written to the storage of the master server, and its synchronous standby indicates that it has received WAL and applied it.
+The transaction may be lost due to irrecoverably failure of both the master and its synchronous standby. ||
 || checkpointTimeout | **string** (int64)
 
 in milliseconds.
@@ -15140,9 +11458,9 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
+- `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+- `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+- `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
 || cursorTupleFraction | **number** (double) ||
 || fromCollapseLimit | **string** (int64)
 
@@ -15152,51 +11470,51 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_ON`
-- `DEBUG_PARALLEL_QUERY_OFF`
-- `DEBUG_PARALLEL_QUERY_REGRESS` ||
+- `DEBUG_PARALLEL_QUERY_ON`: Force parallel query for all queries for which it is thought to be safe
+- `DEBUG_PARALLEL_QUERY_OFF`: Use parallel mode only when it is expected to improve performance
+- `DEBUG_PARALLEL_QUERY_REGRESS`: Like ON, but with additional changes for regression testing (suppresses context lines, hides Gather nodes in EXPLAIN) ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinDurationStatement | **string** (int64)
 
 in milliseconds. ||
@@ -15206,25 +11524,27 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
+- `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+- `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+- `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
+- `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+- `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+- `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+- `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
 || logTempFiles | **string** (int64) ||
 || searchPath | **string** ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+- `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+- `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
 in milliseconds. ||
@@ -15238,16 +11558,16 @@ in milliseconds.
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
+- `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+- `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
+- `XML_BINARY_BASE64`: Base64 encoding.
+- `XML_BINARY_HEX`: Hexadecimal encoding. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
+- `XML_OPTION_DOCUMENT`: XML document.
+- `XML_OPTION_CONTENT`: XML fragment. ||
 || ginPendingListLimit | **string** (int64)
 
 in bytes. ||
@@ -15261,10 +11581,10 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
+- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+- `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+- `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+- `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
 || defaultWithOids | **boolean** ||
 || escapeStringWarning | **boolean** ||
 || loCompatPrivileges | **boolean** ||
@@ -15331,9 +11651,9 @@ The minimum value is 0. ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_AUTO`
-- `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
-- `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
+- `PLAN_CACHE_MODE_AUTO`: Automatic selection.
+- `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`: Forces the use of custom plans.
+- `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`: Forces the use of generic plans. ||
 || effectiveIoConcurrency | **string** (int64)
 
 Acceptable values are 0 to 1000, inclusive. ||
@@ -15342,15 +11662,17 @@ Acceptable values are 0 to 1000, inclusive. ||
 Acceptable values are 1048576 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
-- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
-- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
-- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`
-- `SHARED_PRELOAD_LIBRARIES_PG_CRON`
-- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`
-- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`
-- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`
-- `SHARED_PRELOAD_LIBRARIES_ANON` ||
+- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`: Required for the [auto_explain](https://www.postgresql.org/docs/current/auto-explain.html) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`: Required for the [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan) extension.
+- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`: Required for [TimescaleDB](https://github.com/timescale/timescaledb) to function.
+- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`: Required for the [pg_qualstats](https://github.com/powa-team/pg_qualstats) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_CRON`: Required for the [pg_cron](https://github.com/citusdata/pg_cron) extension.
+- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`: Required for the [pglogical](https://github.com/2ndQuadrant/pglogical) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Shared library of extension [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM), which ensures loading of extension on server start
+- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_ANON`: Required for the [postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/) extension.
+- `SHARED_PRELOAD_LIBRARIES_AGE`: Required for the [age](https://age.apache.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
 in milliseconds. ||
@@ -15365,24 +11687,24 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_OFF`
-- `PG_HINT_PLAN_DEBUG_PRINT_ON`
-- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
-- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
+- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disable debug output
+- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Print debug messages about hint parsing
+- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Print detailed debug information including query planning process
+- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Print verbose debug output with all internal operations ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
@@ -15482,16 +11804,22 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_MD5 ``.
 
-- `PASSWORD_ENCRYPTION_MD5`
-- `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+- `PASSWORD_ENCRYPTION_MD5`: The method md5 uses a custom less secure challenge-response mechanism. It prevents password sniffing and avoids storing passwords on the server in plain text but provides no protection if an attacker manages to steal the password hash from the server. Also, the MD5 hash algorithm is nowadays no longer considered secure against determined attacks.
+- `PASSWORD_ENCRYPTION_SCRAM_SHA_256`: The method scram-sha-256 performs SCRAM-SHA-256 authentication, as described in RFC 7677. It is a challenge-response scheme that prevents password sniffing on untrusted connections and supports storing passwords on the server in a cryptographically hashed form that is thought to be secure.
+This is the most secure of the currently provided methods, but it is not supported by older client libraries. ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
 Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
-- `AUTO_EXPLAIN_LOG_FORMAT_XML`
-- `AUTO_EXPLAIN_LOG_FORMAT_JSON`
-- `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`: 'text' value for the EXPLAIN output format in auto_explain extension
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`: 'xml' value for the EXPLAIN output format in auto_explain extension
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`: 'json' value for the EXPLAIN output format in auto_explain extension
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML`: 'yaml' value for the EXPLAIN output format in auto_explain extension ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet17 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet17}
@@ -15566,15 +11894,19 @@ in bytes
 Acceptable values are 0 to 2097152, inclusive. ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_REPLICA`
-- `WAL_LEVEL_LOGICAL` ||
+- `WAL_LEVEL_REPLICA`: Supports WAL archiving and physical replication.
+- `WAL_LEVEL_LOGICAL`: Supports WAL archiving, physical replication, and logical decoding. ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_ON`
-- `SYNCHRONOUS_COMMIT_OFF`
-- `SYNCHRONOUS_COMMIT_LOCAL`
-- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`
-- `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
+- `SYNCHRONOUS_COMMIT_ON`: Success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server. Default value.
+- `SYNCHRONOUS_COMMIT_OFF`: Success is reported to the client even if the data is not in WAL.
+There is no synchronous write operation, data may be loss in case of storage subsystem failure.
+- `SYNCHRONOUS_COMMIT_LOCAL`: Success is reported to the client if the data is in WAL, and WAL is written to the storage of the master server.
+The transaction may be lost due to storage subsystem failure on the master server.
+- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`: Success is reported to the client if the data is in WAL, WAL is written to the storage of the master server, and the server's synchronous standby indicates that it has received WAL and written it out to its operating system.
+The transaction may be lost due to simultaneous storage subsystem failure on the master and operating system's failure on the synchronous standby.
+- `SYNCHRONOUS_COMMIT_REMOTE_APPLY`: Success is reported to the client if the data is in WAL (Write-Ahead Log), WAL is written to the storage of the master server, and its synchronous standby indicates that it has received WAL and applied it.
+The transaction may be lost due to irrecoverably failure of both the master and its synchronous standby. ||
 || checkpointTimeout | **string** (int64)
 
 in milliseconds.
@@ -15598,9 +11930,9 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
+- `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+- `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+- `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
 || cursorTupleFraction | **number** (double) ||
 || fromCollapseLimit | **string** (int64)
 
@@ -15610,51 +11942,51 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_ON`
-- `DEBUG_PARALLEL_QUERY_OFF`
-- `DEBUG_PARALLEL_QUERY_REGRESS` ||
+- `DEBUG_PARALLEL_QUERY_ON`: Force parallel query for all queries for which it is thought to be safe
+- `DEBUG_PARALLEL_QUERY_OFF`: Use parallel mode only when it is expected to improve performance
+- `DEBUG_PARALLEL_QUERY_REGRESS`: Like ON, but with additional changes for regression testing (suppresses context lines, hides Gather nodes in EXPLAIN) ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinDurationStatement | **string** (int64)
 
 in milliseconds. ||
@@ -15664,25 +11996,27 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
+- `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+- `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+- `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
+- `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+- `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+- `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+- `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
 || logTempFiles | **string** (int64) ||
 || searchPath | **string** ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+- `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+- `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
 in milliseconds. ||
@@ -15698,16 +12032,16 @@ in milliseconds.
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
+- `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+- `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
+- `XML_BINARY_BASE64`: Base64 encoding.
+- `XML_BINARY_HEX`: Hexadecimal encoding. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
+- `XML_OPTION_DOCUMENT`: XML document.
+- `XML_OPTION_CONTENT`: XML fragment. ||
 || ginPendingListLimit | **string** (int64)
 
 in bytes. ||
@@ -15721,10 +12055,10 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
+- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+- `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+- `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+- `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
 || defaultWithOids | **boolean** ||
 || escapeStringWarning | **boolean** ||
 || loCompatPrivileges | **boolean** ||
@@ -15790,9 +12124,9 @@ The minimum value is 0. ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_AUTO`
-- `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
-- `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
+- `PLAN_CACHE_MODE_AUTO`: Automatic selection.
+- `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`: Forces the use of custom plans.
+- `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`: Forces the use of generic plans. ||
 || effectiveIoConcurrency | **string** (int64)
 
 Acceptable values are 0 to 1000, inclusive. ||
@@ -15801,15 +12135,17 @@ Acceptable values are 0 to 1000, inclusive. ||
 Acceptable values are 0 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
-- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
-- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
-- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`
-- `SHARED_PRELOAD_LIBRARIES_PG_CRON`
-- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`
-- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`
-- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`
-- `SHARED_PRELOAD_LIBRARIES_ANON` ||
+- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`: Required for the [auto_explain](https://www.postgresql.org/docs/current/auto-explain.html) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`: Required for the [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan) extension.
+- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`: Required for [TimescaleDB](https://github.com/timescale/timescaledb) to function.
+- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`: Required for the [pg_qualstats](https://github.com/powa-team/pg_qualstats) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_CRON`: Required for the [pg_cron](https://github.com/citusdata/pg_cron) extension.
+- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`: Required for the [pglogical](https://github.com/2ndQuadrant/pglogical) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Shared library of extension [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM), which ensures loading of extension on server start
+- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_ANON`: Required for the [postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/) extension.
+- `SHARED_PRELOAD_LIBRARIES_AGE`: Required for the [age](https://age.apache.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
 in milliseconds. ||
@@ -15824,24 +12160,24 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_OFF`
-- `PG_HINT_PLAN_DEBUG_PRINT_ON`
-- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
-- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
+- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disable debug output
+- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Print debug messages about hint parsing
+- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Print detailed debug information including query planning process
+- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Print verbose debug output with all internal operations ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
@@ -15938,16 +12274,17 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``.
 
-- `PASSWORD_ENCRYPTION_MD5`
-- `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+- `PASSWORD_ENCRYPTION_MD5`: The method md5 uses a custom less secure challenge-response mechanism. It prevents password sniffing and avoids storing passwords on the server in plain text but provides no protection if an attacker manages to steal the password hash from the server. Also, the MD5 hash algorithm is nowadays no longer considered secure against determined attacks.
+- `PASSWORD_ENCRYPTION_SCRAM_SHA_256`: The method scram-sha-256 performs SCRAM-SHA-256 authentication, as described in RFC 7677. It is a challenge-response scheme that prevents password sniffing on untrusted connections and supports storing passwords on the server in a cryptographically hashed form that is thought to be secure.
+This is the most secure of the currently provided methods, but it is not supported by older client libraries. ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
 Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
-- `AUTO_EXPLAIN_LOG_FORMAT_XML`
-- `AUTO_EXPLAIN_LOG_FORMAT_JSON`
-- `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`: 'text' value for the EXPLAIN output format in auto_explain extension
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`: 'xml' value for the EXPLAIN output format in auto_explain extension
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`: 'json' value for the EXPLAIN output format in auto_explain extension
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML`: 'yaml' value for the EXPLAIN output format in auto_explain extension ||
 || trackCommitTimestamp | **boolean** ||
 || maxLogicalReplicationWorkers | **string** (int64)
 
@@ -15958,6 +12295,11 @@ Acceptable values are 20 to 100, inclusive. ||
 || maxReplicationSlots | **string** (int64)
 
 Acceptable values are 20 to 100, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet17_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet17_1C}
@@ -16032,15 +12374,19 @@ in bytes
 Acceptable values are 0 to 2097152, inclusive. ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_REPLICA`
-- `WAL_LEVEL_LOGICAL` ||
+- `WAL_LEVEL_REPLICA`: Supports WAL archiving and physical replication.
+- `WAL_LEVEL_LOGICAL`: Supports WAL archiving, physical replication, and logical decoding. ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_ON`
-- `SYNCHRONOUS_COMMIT_OFF`
-- `SYNCHRONOUS_COMMIT_LOCAL`
-- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`
-- `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
+- `SYNCHRONOUS_COMMIT_ON`: Success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server. Default value.
+- `SYNCHRONOUS_COMMIT_OFF`: Success is reported to the client even if the data is not in WAL.
+There is no synchronous write operation, data may be loss in case of storage subsystem failure.
+- `SYNCHRONOUS_COMMIT_LOCAL`: Success is reported to the client if the data is in WAL, and WAL is written to the storage of the master server.
+The transaction may be lost due to storage subsystem failure on the master server.
+- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`: Success is reported to the client if the data is in WAL, WAL is written to the storage of the master server, and the server's synchronous standby indicates that it has received WAL and written it out to its operating system.
+The transaction may be lost due to simultaneous storage subsystem failure on the master and operating system's failure on the synchronous standby.
+- `SYNCHRONOUS_COMMIT_REMOTE_APPLY`: Success is reported to the client if the data is in WAL (Write-Ahead Log), WAL is written to the storage of the master server, and its synchronous standby indicates that it has received WAL and applied it.
+The transaction may be lost due to irrecoverably failure of both the master and its synchronous standby. ||
 || checkpointTimeout | **string** (int64)
 
 in milliseconds.
@@ -16064,9 +12410,9 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
+- `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+- `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+- `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
 || cursorTupleFraction | **number** (double) ||
 || fromCollapseLimit | **string** (int64)
 
@@ -16076,51 +12422,51 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_ON`
-- `DEBUG_PARALLEL_QUERY_OFF`
-- `DEBUG_PARALLEL_QUERY_REGRESS` ||
+- `DEBUG_PARALLEL_QUERY_ON`: Force parallel query for all queries for which it is thought to be safe
+- `DEBUG_PARALLEL_QUERY_OFF`: Use parallel mode only when it is expected to improve performance
+- `DEBUG_PARALLEL_QUERY_REGRESS`: Like ON, but with additional changes for regression testing (suppresses context lines, hides Gather nodes in EXPLAIN) ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinDurationStatement | **string** (int64)
 
 in milliseconds. ||
@@ -16130,25 +12476,27 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
+- `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+- `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+- `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
+- `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+- `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+- `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+- `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
 || logTempFiles | **string** (int64) ||
 || searchPath | **string** ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+- `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+- `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
 in milliseconds. ||
@@ -16164,16 +12512,16 @@ in milliseconds.
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
+- `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+- `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
+- `XML_BINARY_BASE64`: Base64 encoding.
+- `XML_BINARY_HEX`: Hexadecimal encoding. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
+- `XML_OPTION_DOCUMENT`: XML document.
+- `XML_OPTION_CONTENT`: XML fragment. ||
 || ginPendingListLimit | **string** (int64)
 
 in bytes. ||
@@ -16187,10 +12535,10 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
+- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+- `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+- `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+- `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
 || defaultWithOids | **boolean** ||
 || escapeStringWarning | **boolean** ||
 || loCompatPrivileges | **boolean** ||
@@ -16257,9 +12605,9 @@ The minimum value is 0. ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_AUTO`
-- `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
-- `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
+- `PLAN_CACHE_MODE_AUTO`: Automatic selection.
+- `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`: Forces the use of custom plans.
+- `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`: Forces the use of generic plans. ||
 || effectiveIoConcurrency | **string** (int64)
 
 Acceptable values are 0 to 1000, inclusive. ||
@@ -16268,15 +12616,17 @@ Acceptable values are 0 to 1000, inclusive. ||
 Acceptable values are 0 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
-- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
-- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
-- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`
-- `SHARED_PRELOAD_LIBRARIES_PG_CRON`
-- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`
-- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`
-- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`
-- `SHARED_PRELOAD_LIBRARIES_ANON` ||
+- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`: Required for the [auto_explain](https://www.postgresql.org/docs/current/auto-explain.html) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`: Required for the [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan) extension.
+- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`: Required for [TimescaleDB](https://github.com/timescale/timescaledb) to function.
+- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`: Required for the [pg_qualstats](https://github.com/powa-team/pg_qualstats) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_CRON`: Required for the [pg_cron](https://github.com/citusdata/pg_cron) extension.
+- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`: Required for the [pglogical](https://github.com/2ndQuadrant/pglogical) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Shared library of extension [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM), which ensures loading of extension on server start
+- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_ANON`: Required for the [postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/) extension.
+- `SHARED_PRELOAD_LIBRARIES_AGE`: Required for the [age](https://age.apache.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
 in milliseconds. ||
@@ -16291,24 +12641,24 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_OFF`
-- `PG_HINT_PLAN_DEBUG_PRINT_ON`
-- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
-- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
+- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disable debug output
+- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Print debug messages about hint parsing
+- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Print detailed debug information including query planning process
+- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Print verbose debug output with all internal operations ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
@@ -16406,16 +12756,17 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``.
 
-- `PASSWORD_ENCRYPTION_MD5`
-- `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+- `PASSWORD_ENCRYPTION_MD5`: The method md5 uses a custom less secure challenge-response mechanism. It prevents password sniffing and avoids storing passwords on the server in plain text but provides no protection if an attacker manages to steal the password hash from the server. Also, the MD5 hash algorithm is nowadays no longer considered secure against determined attacks.
+- `PASSWORD_ENCRYPTION_SCRAM_SHA_256`: The method scram-sha-256 performs SCRAM-SHA-256 authentication, as described in RFC 7677. It is a challenge-response scheme that prevents password sniffing on untrusted connections and supports storing passwords on the server in a cryptographically hashed form that is thought to be secure.
+This is the most secure of the currently provided methods, but it is not supported by older client libraries. ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
 Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
-- `AUTO_EXPLAIN_LOG_FORMAT_XML`
-- `AUTO_EXPLAIN_LOG_FORMAT_JSON`
-- `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`: 'text' value for the EXPLAIN output format in auto_explain extension
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`: 'xml' value for the EXPLAIN output format in auto_explain extension
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`: 'json' value for the EXPLAIN output format in auto_explain extension
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML`: 'yaml' value for the EXPLAIN output format in auto_explain extension ||
 || trackCommitTimestamp | **boolean** ||
 || maxLogicalReplicationWorkers | **string** (int64)
 
@@ -16426,6 +12777,11 @@ Acceptable values are 20 to 100, inclusive. ||
 || maxReplicationSlots | **string** (int64)
 
 Acceptable values are 20 to 100, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet18 {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet18}
@@ -16500,15 +12856,19 @@ in bytes
 Acceptable values are 0 to 2097152, inclusive. ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_REPLICA`
-- `WAL_LEVEL_LOGICAL` ||
+- `WAL_LEVEL_REPLICA`: Supports WAL archiving and physical replication.
+- `WAL_LEVEL_LOGICAL`: Supports WAL archiving, physical replication, and logical decoding. ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_ON`
-- `SYNCHRONOUS_COMMIT_OFF`
-- `SYNCHRONOUS_COMMIT_LOCAL`
-- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`
-- `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
+- `SYNCHRONOUS_COMMIT_ON`: Success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server. Default value.
+- `SYNCHRONOUS_COMMIT_OFF`: Success is reported to the client even if the data is not in WAL.
+There is no synchronous write operation, data may be loss in case of storage subsystem failure.
+- `SYNCHRONOUS_COMMIT_LOCAL`: Success is reported to the client if the data is in WAL, and WAL is written to the storage of the master server.
+The transaction may be lost due to storage subsystem failure on the master server.
+- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`: Success is reported to the client if the data is in WAL, WAL is written to the storage of the master server, and the server's synchronous standby indicates that it has received WAL and written it out to its operating system.
+The transaction may be lost due to simultaneous storage subsystem failure on the master and operating system's failure on the synchronous standby.
+- `SYNCHRONOUS_COMMIT_REMOTE_APPLY`: Success is reported to the client if the data is in WAL (Write-Ahead Log), WAL is written to the storage of the master server, and its synchronous standby indicates that it has received WAL and applied it.
+The transaction may be lost due to irrecoverably failure of both the master and its synchronous standby. ||
 || checkpointTimeout | **string** (int64)
 
 in milliseconds.
@@ -16532,9 +12892,9 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
+- `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+- `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+- `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
 || cursorTupleFraction | **number** (double) ||
 || fromCollapseLimit | **string** (int64)
 
@@ -16544,51 +12904,51 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_ON`
-- `DEBUG_PARALLEL_QUERY_OFF`
-- `DEBUG_PARALLEL_QUERY_REGRESS` ||
+- `DEBUG_PARALLEL_QUERY_ON`: Force parallel query for all queries for which it is thought to be safe
+- `DEBUG_PARALLEL_QUERY_OFF`: Use parallel mode only when it is expected to improve performance
+- `DEBUG_PARALLEL_QUERY_REGRESS`: Like ON, but with additional changes for regression testing (suppresses context lines, hides Gather nodes in EXPLAIN) ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinDurationStatement | **string** (int64)
 
 in milliseconds. ||
@@ -16598,25 +12958,27 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
+- `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+- `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+- `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
+- `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+- `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+- `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+- `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
 || logTempFiles | **string** (int64) ||
 || searchPath | **string** ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+- `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+- `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
 in milliseconds. ||
@@ -16632,16 +12994,16 @@ in milliseconds.
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
+- `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+- `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
+- `XML_BINARY_BASE64`: Base64 encoding.
+- `XML_BINARY_HEX`: Hexadecimal encoding. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
+- `XML_OPTION_DOCUMENT`: XML document.
+- `XML_OPTION_CONTENT`: XML fragment. ||
 || ginPendingListLimit | **string** (int64)
 
 in bytes. ||
@@ -16655,10 +13017,10 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
+- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+- `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+- `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+- `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
 || defaultWithOids | **boolean** ||
 || escapeStringWarning | **boolean** ||
 || loCompatPrivileges | **boolean** ||
@@ -16724,9 +13086,9 @@ The minimum value is 0. ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_AUTO`
-- `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
-- `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
+- `PLAN_CACHE_MODE_AUTO`: Automatic selection.
+- `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`: Forces the use of custom plans.
+- `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`: Forces the use of generic plans. ||
 || effectiveIoConcurrency | **string** (int64)
 
 Acceptable values are 0 to 1000, inclusive. ||
@@ -16735,15 +13097,17 @@ Acceptable values are 0 to 1000, inclusive. ||
 Acceptable values are 0 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
-- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
-- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
-- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`
-- `SHARED_PRELOAD_LIBRARIES_PG_CRON`
-- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`
-- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`
-- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`
-- `SHARED_PRELOAD_LIBRARIES_ANON` ||
+- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`: Required for the [auto_explain](https://www.postgresql.org/docs/current/auto-explain.html) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`: Required for the [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan) extension.
+- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`: Required for [TimescaleDB](https://github.com/timescale/timescaledb) to function.
+- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`: Required for the [pg_qualstats](https://github.com/powa-team/pg_qualstats) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_CRON`: Required for the [pg_cron](https://github.com/citusdata/pg_cron) extension.
+- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`: Required for the [pglogical](https://github.com/2ndQuadrant/pglogical) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Shared library of extension [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM), which ensures loading of extension on server start
+- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_ANON`: Required for the [postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/) extension.
+- `SHARED_PRELOAD_LIBRARIES_AGE`: Required for the [age](https://age.apache.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
 in milliseconds. ||
@@ -16758,24 +13122,24 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_OFF`
-- `PG_HINT_PLAN_DEBUG_PRINT_ON`
-- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
-- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
+- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disable debug output
+- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Print debug messages about hint parsing
+- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Print detailed debug information including query planning process
+- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Print verbose debug output with all internal operations ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
@@ -16872,16 +13236,17 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``.
 
-- `PASSWORD_ENCRYPTION_MD5`
-- `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+- `PASSWORD_ENCRYPTION_MD5`: The method md5 uses a custom less secure challenge-response mechanism. It prevents password sniffing and avoids storing passwords on the server in plain text but provides no protection if an attacker manages to steal the password hash from the server. Also, the MD5 hash algorithm is nowadays no longer considered secure against determined attacks.
+- `PASSWORD_ENCRYPTION_SCRAM_SHA_256`: The method scram-sha-256 performs SCRAM-SHA-256 authentication, as described in RFC 7677. It is a challenge-response scheme that prevents password sniffing on untrusted connections and supports storing passwords on the server in a cryptographically hashed form that is thought to be secure.
+This is the most secure of the currently provided methods, but it is not supported by older client libraries. ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
 Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
-- `AUTO_EXPLAIN_LOG_FORMAT_XML`
-- `AUTO_EXPLAIN_LOG_FORMAT_JSON`
-- `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`: 'text' value for the EXPLAIN output format in auto_explain extension
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`: 'xml' value for the EXPLAIN output format in auto_explain extension
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`: 'json' value for the EXPLAIN output format in auto_explain extension
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML`: 'yaml' value for the EXPLAIN output format in auto_explain extension ||
 || trackCommitTimestamp | **boolean** ||
 || maxLogicalReplicationWorkers | **string** (int64)
 
@@ -16892,6 +13257,11 @@ Acceptable values are 20 to 100, inclusive. ||
 || maxReplicationSlots | **string** (int64)
 
 Acceptable values are 20 to 100, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## PostgresqlConfigSet18_1C {#yandex.cloud.mdb.postgresql.v1.config.PostgresqlConfigSet18_1C}
@@ -16966,15 +13336,19 @@ in bytes
 Acceptable values are 0 to 2097152, inclusive. ||
 || walLevel | **enum** (WalLevel)
 
-- `WAL_LEVEL_REPLICA`
-- `WAL_LEVEL_LOGICAL` ||
+- `WAL_LEVEL_REPLICA`: Supports WAL archiving and physical replication.
+- `WAL_LEVEL_LOGICAL`: Supports WAL archiving, physical replication, and logical decoding. ||
 || synchronousCommit | **enum** (SynchronousCommit)
 
-- `SYNCHRONOUS_COMMIT_ON`
-- `SYNCHRONOUS_COMMIT_OFF`
-- `SYNCHRONOUS_COMMIT_LOCAL`
-- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`
-- `SYNCHRONOUS_COMMIT_REMOTE_APPLY` ||
+- `SYNCHRONOUS_COMMIT_ON`: Success is reported to the client if the data is in WAL (Write-Ahead Log), and WAL is written to the storage of both the master and its synchronous standby server. Default value.
+- `SYNCHRONOUS_COMMIT_OFF`: Success is reported to the client even if the data is not in WAL.
+There is no synchronous write operation, data may be loss in case of storage subsystem failure.
+- `SYNCHRONOUS_COMMIT_LOCAL`: Success is reported to the client if the data is in WAL, and WAL is written to the storage of the master server.
+The transaction may be lost due to storage subsystem failure on the master server.
+- `SYNCHRONOUS_COMMIT_REMOTE_WRITE`: Success is reported to the client if the data is in WAL, WAL is written to the storage of the master server, and the server's synchronous standby indicates that it has received WAL and written it out to its operating system.
+The transaction may be lost due to simultaneous storage subsystem failure on the master and operating system's failure on the synchronous standby.
+- `SYNCHRONOUS_COMMIT_REMOTE_APPLY`: Success is reported to the client if the data is in WAL (Write-Ahead Log), WAL is written to the storage of the master server, and its synchronous standby indicates that it has received WAL and applied it.
+The transaction may be lost due to irrecoverably failure of both the master and its synchronous standby. ||
 || checkpointTimeout | **string** (int64)
 
 in milliseconds.
@@ -16998,9 +13372,9 @@ in milliseconds. ||
 || defaultStatisticsTarget | **string** (int64) ||
 || constraintExclusion | **enum** (ConstraintExclusion)
 
-- `CONSTRAINT_EXCLUSION_ON`
-- `CONSTRAINT_EXCLUSION_OFF`
-- `CONSTRAINT_EXCLUSION_PARTITION` ||
+- `CONSTRAINT_EXCLUSION_ON`: Enable planner's use of constraints for all tables.
+- `CONSTRAINT_EXCLUSION_OFF`: Disable planner's use of constraints for all tables
+- `CONSTRAINT_EXCLUSION_PARTITION`: Only use constraints for child tables and UNION ALL clauses. ||
 || cursorTupleFraction | **number** (double) ||
 || fromCollapseLimit | **string** (int64)
 
@@ -17010,51 +13384,51 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 Acceptable values are 1 to 2147483647, inclusive. ||
 || debugParallelQuery | **enum** (DebugParallelQuery)
 
-- `DEBUG_PARALLEL_QUERY_ON`
-- `DEBUG_PARALLEL_QUERY_OFF`
-- `DEBUG_PARALLEL_QUERY_REGRESS` ||
+- `DEBUG_PARALLEL_QUERY_ON`: Force parallel query for all queries for which it is thought to be safe
+- `DEBUG_PARALLEL_QUERY_OFF`: Use parallel mode only when it is expected to improve performance
+- `DEBUG_PARALLEL_QUERY_REGRESS`: Like ON, but with additional changes for regression testing (suppresses context lines, hides Gather nodes in EXPLAIN) ||
 || clientMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinMessages | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinErrorStatement | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || logMinDurationStatement | **string** (int64)
 
 in milliseconds. ||
@@ -17064,25 +13438,27 @@ in milliseconds. ||
 || logDuration | **boolean** ||
 || logErrorVerbosity | **enum** (LogErrorVerbosity)
 
-- `LOG_ERROR_VERBOSITY_TERSE`
-- `LOG_ERROR_VERBOSITY_DEFAULT`
-- `LOG_ERROR_VERBOSITY_VERBOSE` ||
+- `LOG_ERROR_VERBOSITY_TERSE`: DETAIL, HINT, QUERY, and CONTEXT fields are excluded from the error message.
+- `LOG_ERROR_VERBOSITY_DEFAULT`: Default.
+- `LOG_ERROR_VERBOSITY_VERBOSE`: Error message includes the SQLSTATE error code, source filename, function name, and the line number where the error occurred. ||
 || logLockWaits | **boolean** ||
 || logStatement | **enum** (LogStatement)
 
-- `LOG_STATEMENT_NONE`
-- `LOG_STATEMENT_DDL`
-- `LOG_STATEMENT_MOD`
-- `LOG_STATEMENT_ALL` ||
+- `LOG_STATEMENT_NONE`: The filter is disabled, no SQL statements are logged.
+- `LOG_STATEMENT_DDL`: System logs DDL statements, e.g., CREATE, ALTER, DROP etc.
+- `LOG_STATEMENT_MOD`: System logs ddl-statements along with data modification commands, e.g., INSERT, UPDATE, etc.
+- `LOG_STATEMENT_ALL`: System logs all SQL statements. ||
 || logTempFiles | **string** (int64) ||
 || searchPath | **string** ||
 || rowSecurity | **boolean** ||
 || defaultTransactionIsolation | **enum** (TransactionIsolation)
 
-- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`
-- `TRANSACTION_ISOLATION_READ_COMMITTED`
-- `TRANSACTION_ISOLATION_REPEATABLE_READ`
-- `TRANSACTION_ISOLATION_SERIALIZABLE` ||
+- `TRANSACTION_ISOLATION_READ_UNCOMMITTED`: This level behaves like `TRANSACTION_ISOLATION_READ_COMMITTED` in PostgreSQL.
+- `TRANSACTION_ISOLATION_READ_COMMITTED`: On this level query sees only data committed before the query began.
+- `TRANSACTION_ISOLATION_REPEATABLE_READ`: On this level all subsequent queries in a transaction will see the same rows, that were read by the first `SELECT` or `INSERT` query in this transaction, unchanged (these rows are locked during the first query).
+- `TRANSACTION_ISOLATION_SERIALIZABLE`: This level provides the strictest transaction isolation.
+All queries in the current transaction see only the rows that were fixed prior to execution of the first `SELECT` or `INSERT` query in this transaction.
+If read and write operations in a concurrent set of serializable transactions overlap and this may cause an inconsistency that is not possible during the serial transaction execution, then one of the transaction will be rolled back, triggering a serialization failure. ||
 || statementTimeout | **string** (int64)
 
 in milliseconds. ||
@@ -17098,16 +13474,16 @@ in milliseconds.
 Acceptable values are 0 to 2147483647, inclusive. ||
 || byteaOutput | **enum** (ByteaOutput)
 
-- `BYTEA_OUTPUT_HEX`
-- `BYTEA_OUTPUT_ESCAPED` ||
+- `BYTEA_OUTPUT_HEX`: Each byte is represented by two hexadecimal characters, e.g., 'SELECT '\xDEADBEEF';'.
+- `BYTEA_OUTPUT_ESCAPED`: Standard PostgreSQL format with ASCII characters only. ||
 || xmlbinary | **enum** (XmlBinary)
 
-- `XML_BINARY_BASE64`
-- `XML_BINARY_HEX` ||
+- `XML_BINARY_BASE64`: Base64 encoding.
+- `XML_BINARY_HEX`: Hexadecimal encoding. ||
 || xmloption | **enum** (XmlOption)
 
-- `XML_OPTION_DOCUMENT`
-- `XML_OPTION_CONTENT` ||
+- `XML_OPTION_DOCUMENT`: XML document.
+- `XML_OPTION_CONTENT`: XML fragment. ||
 || ginPendingListLimit | **string** (int64)
 
 in bytes. ||
@@ -17121,10 +13497,10 @@ Acceptable values are 1 to 2147483647, inclusive. ||
 || arrayNulls | **boolean** ||
 || backslashQuote | **enum** (BackslashQuote)
 
-- `BACKSLASH_QUOTE`
-- `BACKSLASH_QUOTE_ON`
-- `BACKSLASH_QUOTE_OFF`
-- `BACKSLASH_QUOTE_SAFE_ENCODING` ||
+- `BACKSLASH_QUOTE`: Quotation mark can be represented as \' (same as on).
+- `BACKSLASH_QUOTE_ON`: Quotation mark can be represented as \'.
+- `BACKSLASH_QUOTE_OFF`: Quotation mark can only be represented using the standard SQL syntax ''.
+- `BACKSLASH_QUOTE_SAFE_ENCODING`: Representing a quotation mark as \' is only permitted for client encodings where \ is not used for multibyte characters. ||
 || defaultWithOids | **boolean** ||
 || escapeStringWarning | **boolean** ||
 || loCompatPrivileges | **boolean** ||
@@ -17191,9 +13567,9 @@ The minimum value is 0. ||
 || logTransactionSampleRate | **number** (double) ||
 || planCacheMode | **enum** (PlanCacheMode)
 
-- `PLAN_CACHE_MODE_AUTO`
-- `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`
-- `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN` ||
+- `PLAN_CACHE_MODE_AUTO`: Automatic selection.
+- `PLAN_CACHE_MODE_FORCE_CUSTOM_PLAN`: Forces the use of custom plans.
+- `PLAN_CACHE_MODE_FORCE_GENERIC_PLAN`: Forces the use of generic plans. ||
 || effectiveIoConcurrency | **string** (int64)
 
 Acceptable values are 0 to 1000, inclusive. ||
@@ -17202,15 +13578,17 @@ Acceptable values are 0 to 1000, inclusive. ||
 Acceptable values are 0 to 549755813888, inclusive. ||
 || sharedPreloadLibraries[] | **enum** (SharedPreloadLibraries)
 
-- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`
-- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`
-- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`
-- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`
-- `SHARED_PRELOAD_LIBRARIES_PG_CRON`
-- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`
-- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`
-- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`
-- `SHARED_PRELOAD_LIBRARIES_ANON` ||
+- `SHARED_PRELOAD_LIBRARIES_AUTO_EXPLAIN`: Required for the [auto_explain](https://www.postgresql.org/docs/current/auto-explain.html) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_HINT_PLAN`: Required for the [pg_hint_plan](https://github.com/ossc-db/pg_hint_plan) extension.
+- `SHARED_PRELOAD_LIBRARIES_TIMESCALEDB`: Required for [TimescaleDB](https://github.com/timescale/timescaledb) to function.
+- `SHARED_PRELOAD_LIBRARIES_PG_QUALSTATS`: Required for the [pg_qualstats](https://github.com/powa-team/pg_qualstats) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_CRON`: Required for the [pg_cron](https://github.com/citusdata/pg_cron) extension.
+- `SHARED_PRELOAD_LIBRARIES_PGLOGICAL`: Required for the [pglogical](https://github.com/2ndQuadrant/pglogical) extension.
+- `SHARED_PRELOAD_LIBRARIES_PG_PREWARM`: Shared library of extension [pg_prewarm](https://www.postgresql.org/docs/current/pgprewarm.html#PGPREWARM), which ensures loading of extension on server start
+- `SHARED_PRELOAD_LIBRARIES_PGAUDIT`: Required for the [pgaudit](https://www.pgaudit.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_ANON`: Required for the [postgresql_anonymizer](https://postgresql-anonymizer.readthedocs.io/en/stable/) extension.
+- `SHARED_PRELOAD_LIBRARIES_AGE`: Required for the [age](https://age.apache.org/) extension.
+- `SHARED_PRELOAD_LIBRARIES_SPQRGUARD`: Required for the [spqrguard](https://github.com/pg-sharding/spqrguard) extension. ||
 || autoExplainLogMinDuration | **string** (int64)
 
 in milliseconds. ||
@@ -17225,24 +13603,24 @@ in milliseconds. ||
 || pgHintPlanEnableHintTable | **boolean** ||
 || pgHintPlanDebugPrint | **enum** (PgHintPlanDebugPrint)
 
-- `PG_HINT_PLAN_DEBUG_PRINT_OFF`
-- `PG_HINT_PLAN_DEBUG_PRINT_ON`
-- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`
-- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE` ||
+- `PG_HINT_PLAN_DEBUG_PRINT_OFF`: Disable debug output
+- `PG_HINT_PLAN_DEBUG_PRINT_ON`: Print debug messages about hint parsing
+- `PG_HINT_PLAN_DEBUG_PRINT_DETAILED`: Print detailed debug information including query planning process
+- `PG_HINT_PLAN_DEBUG_PRINT_VERBOSE`: Print verbose debug output with all internal operations ||
 || pgHintPlanMessageLevel | **enum** (LogLevel)
 
-- `LOG_LEVEL_DEBUG5`
-- `LOG_LEVEL_DEBUG4`
-- `LOG_LEVEL_DEBUG3`
-- `LOG_LEVEL_DEBUG2`
-- `LOG_LEVEL_DEBUG1`
-- `LOG_LEVEL_INFO`
-- `LOG_LEVEL_LOG`
-- `LOG_LEVEL_NOTICE`
-- `LOG_LEVEL_WARNING`
-- `LOG_LEVEL_ERROR`
-- `LOG_LEVEL_FATAL`
-- `LOG_LEVEL_PANIC` ||
+- `LOG_LEVEL_DEBUG5`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG4`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG3`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG2`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_DEBUG1`: Provides successively-more-detailed information for use by developers.
+- `LOG_LEVEL_INFO`: Provides information implicitly requested by the user, e.g., output from VACUUM VERBOSE.
+- `LOG_LEVEL_LOG`: Reports information of interest to administrators, e.g., checkpoint activity.
+- `LOG_LEVEL_NOTICE`: Provides information that might be helpful to users, e.g., notice of truncation of long identifiers.
+- `LOG_LEVEL_WARNING`: Provides warnings of likely problems, e.g., COMMIT outside a transaction block.
+- `LOG_LEVEL_ERROR`: Reports an error that caused the current command to abort.
+- `LOG_LEVEL_FATAL`: Reports an error that caused the current session to abort.
+- `LOG_LEVEL_PANIC`: Reports an error that caused all database sessions to abort. ||
 || hashMemMultiplier | **number** (double) ||
 || logicalDecodingWorkMem | **string** (int64)
 
@@ -17340,16 +13718,17 @@ in milliseconds. The default is 1000 (1 sec). ||
 
 A default value for `` user_password_encryption `` user-level setting, if it not specified for new users. Possible values are `` PASSWORD_ENCRYPTION_MD5 `` or `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``. The default is `` PASSWORD_ENCRYPTION_SCRAM_SHA_256 ``.
 
-- `PASSWORD_ENCRYPTION_MD5`
-- `PASSWORD_ENCRYPTION_SCRAM_SHA_256` ||
+- `PASSWORD_ENCRYPTION_MD5`: The method md5 uses a custom less secure challenge-response mechanism. It prevents password sniffing and avoids storing passwords on the server in plain text but provides no protection if an attacker manages to steal the password hash from the server. Also, the MD5 hash algorithm is nowadays no longer considered secure against determined attacks.
+- `PASSWORD_ENCRYPTION_SCRAM_SHA_256`: The method scram-sha-256 performs SCRAM-SHA-256 authentication, as described in RFC 7677. It is a challenge-response scheme that prevents password sniffing on untrusted connections and supports storing passwords on the server in a cryptographically hashed form that is thought to be secure.
+This is the most secure of the currently provided methods, but it is not supported by older client libraries. ||
 || autoExplainLogFormat | **enum** (AutoExplainLogFormat)
 
 Selects the `` EXPLAIN `` output format to be used. The allowed values are `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``, `` AUTO_EXPLAIN_LOG_FORMAT_XML ``, `` AUTO_EXPLAIN_LOG_FORMAT_JSON ``, and `` AUTO_EXPLAIN_LOG_FORMAT_YAML ``. The default is `` AUTO_EXPLAIN_LOG_FORMAT_TEXT ``.
 
-- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`
-- `AUTO_EXPLAIN_LOG_FORMAT_XML`
-- `AUTO_EXPLAIN_LOG_FORMAT_JSON`
-- `AUTO_EXPLAIN_LOG_FORMAT_YAML` ||
+- `AUTO_EXPLAIN_LOG_FORMAT_TEXT`: 'text' value for the EXPLAIN output format in auto_explain extension
+- `AUTO_EXPLAIN_LOG_FORMAT_XML`: 'xml' value for the EXPLAIN output format in auto_explain extension
+- `AUTO_EXPLAIN_LOG_FORMAT_JSON`: 'json' value for the EXPLAIN output format in auto_explain extension
+- `AUTO_EXPLAIN_LOG_FORMAT_YAML`: 'yaml' value for the EXPLAIN output format in auto_explain extension ||
 || trackCommitTimestamp | **boolean** ||
 || maxLogicalReplicationWorkers | **string** (int64)
 
@@ -17360,6 +13739,11 @@ Acceptable values are 20 to 100, inclusive. ||
 || maxReplicationSlots | **string** (int64)
 
 Acceptable values are 20 to 100, inclusive. ||
+|| idleSessionTimeout | **string** (int64)
+
+in milliseconds.
+
+Acceptable values are 0 to 2147483647, inclusive. ||
 |#
 
 ## ConnectionPoolerConfig {#yandex.cloud.mdb.postgresql.v1.ConnectionPoolerConfig}
@@ -17482,6 +13866,28 @@ Acceptable values are 0 to 100, inclusive. ||
 || diskSizeLimit | **string** (int64)
 
 New storage size (in bytes) that is set when one of the thresholds is achieved. ||
+|#
+
+## ClusterConnectionManager {#yandex.cloud.mdb.v1.ClusterConnectionManager}
+
+A message representing the Connection Manager integration status and settings for a cluster.
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+True if the integration for the cluster is enabled.
+Set to true to enable the integration.
+Disabling the integration is not supported. ||
+|| connectionsFolderId | **string**
+
+ID of the folder where connections for the cluster are created.
+Optional. Defaults to the cluster's folder if not specified. ||
+|| secretsFolderId | **string**
+
+A Connection Manager setting for connections created by MDB integration.
+ID of the folder where connection secrets are created.
+Optional. Defaults to the cluster's folder if not specified. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.postgresql.v1.MaintenanceWindow}

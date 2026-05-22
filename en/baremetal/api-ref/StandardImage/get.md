@@ -11,6 +11,7 @@ apiPlayground:
             **string**
             ID of the StandardImage resource to return.
             To get the standard image ID, use a [StandardImageService.List](/docs/baremetal/api-ref/StandardImage/list#List) request.
+            The maximum string length in characters is 20.
           type: string
       additionalProperties: false
     query: null
@@ -21,7 +22,6 @@ apiPlayground:
 # BareMetal API, REST: StandardImage.Get
 
 Returns the specific standard Image resource.
-
 To get the list of standard  resources, make a [List](/docs/baremetal/api-ref/StandardImage/list#List) request.
 
 ## HTTP request
@@ -37,8 +37,9 @@ GET https://baremetal.{{ api-host }}/baremetal/v1alpha/standardImages/{standardI
 || standardImageId | **string**
 
 Required field. ID of the StandardImage resource to return.
+To get the standard image ID, use a [StandardImageService.List](/docs/baremetal/api-ref/StandardImage/list#List) request.
 
-To get the standard image ID, use a [StandardImageService.List](/docs/baremetal/api-ref/StandardImage/list#List) request. ||
+The maximum string length in characters is 20. ||
 |#
 
 ## Response {#yandex.cloud.baremetal.v1alpha.StandardImage}

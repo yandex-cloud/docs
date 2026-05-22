@@ -1,0 +1,3 @@
+Роль `managed-opensearch.maintenanceTask.editor` позволяет просматривать информацию о заданиях на [техническое обслуживание](../../../managed-opensearch/concepts/maintenance.md) кластеров {{ OS }} и изменять такие задания, просматривать информацию о [кластерах {{ OS }}](../../../managed-opensearch/concepts/index.md) и назначенных [правах доступа](../../../iam/concepts/access-control/index.md) к ним, а также о [квотах](../../../managed-opensearch/concepts/limits.md#quotas) и операциях с ресурсами сервиса {{ mos-name }}.
+
+Включает разрешения, предоставляемые ролью `managed-opensearch.maintenanceTask.viewer`.

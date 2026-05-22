@@ -24,7 +24,7 @@ The runtime environment is updated while relevant language version updates are r
 
 Runtime environments available in {{ sf-name }}.
 
-| Name | ID | Preloaded | Supported by |
+| Name | ID | Preloaded | Supported |
 | ---- | ---- | ---- | ---- |
 | **Node.js** |  |  |
 | Node.js 10 | `nodejs10` | No | No |
@@ -41,8 +41,9 @@ Runtime environments available in {{ sf-name }}.
 | Python 3.7 | `python37` | No | No |
 | Python 3.8 | `python38` | No | No |
 | Python 3.9 | `python39` | No | No |
-| Python 3.11 | `python311` | Yes | No |
+| Python 3.11 | `python311` | No | No |
 | Python 3.12 | `python312` | Yes | Yes |
+| Python 3.14 | `python314` | Yes | Yes |
 | **Go** |  |  |
 | Go 1.16 | `golang116` | No | No |
 | Go 1.17 | `golang117` | No | No |

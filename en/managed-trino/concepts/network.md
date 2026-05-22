@@ -13,6 +13,8 @@ When creating a cluster, you can specify the following network settings:
 
 * [Security groups](#security-groups) to allow only specific outbound traffic.
 
+* Private access to make the cluster accessible only through a [service connection](#private-endpoint).
+
 ## Cluster IP addresses {#addresses}
 
 The {{ mtr-name }} cluster dedicates special IP addresses in its subnet. The cluster uses these addresses to connect to other {{ yandex-cloud }} resources. You can add a [catalog](../concepts/index.md#catalog) and configure it to connect to your cloud resources supported by {{ mtr-name }} [connectors](../concepts/index.md#connector).
@@ -37,9 +39,7 @@ Make sure your {{ mtr-name }} cluster subnet meets the following conditions:
 
 ## Security groups {#security-groups}
 
-[Security groups](../../vpc/concepts/security-groups.md) do not restrict inbound traffic to the {{ mtr-name }} cluster and do not affect the {{ TR }} web interface availability. You do not need to configure any inbound traffic rules.
-
-You can use security groups to configure outbound traffic rules, e.g., when setting up a new [catalog](../concepts/index.md#catalog).
+{% include [trino-security-groups](../../_includes/managed-trino/security-groups.md) %}
 
 {% note tip %}
 
@@ -48,3 +48,14 @@ Before you connect from your {{ mtr-name }} cluster to another {{ yandex-cloud }
 {% endnote %}
 
 If you have not assigned any security group to your {{ mtr-name }} cluster, the default security group will be automatically assigned.
+
+## Service connection {#private-endpoint}
+
+To protect your {{ mtr-name }} cluster from external access, you can use a [service connection](../../vpc/concepts/private-endpoint.md) (Private Endpoint). It allows you to connect to the cluster via [{{ vpc-short-name }} private IP addresses](../../vpc/concepts/address.md#internal-addresses) without internet access.
+
+The service connection for {{ mtr-name }} is [created](../../vpc/operations/private-endpoint-create.md) and configured in {{ vpc-full-name }}. When creating a service connection in {{ vpc-short-name }}, the following objects are automatically created:
+
+* The connection is assigned an internal IP address on the network for which the connection was created.
+* In the [service DNS zone](../../dns/concepts/dns-zone.md#service-zones), the `*.trino.pe.yandexcloud.net` and `trino.pe.yandexcloud.net` type A records are added to access the {{ mtr-name }} cluster endpoint. The DNS records contain the private IP address allocated for the service connection.
+
+To use the service connection, enable private cluster access when [creating](../../managed-trino/operations/cluster-create.md) a {{ mtr-name }} cluster.

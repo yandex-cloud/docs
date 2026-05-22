@@ -7,7 +7,7 @@ Connecting [external nodes](../../managed-kubernetes/concepts/external-nodes.md)
 
 {% endnote %}
 
-You can connect {{ baremetal-name }} [servers](../../baremetal/concepts/servers.md) to a {{ managed-k8s-name }} [cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) [as external nodes](../../managed-kubernetes/operations/external-nodes-connect.md) using special {{ k8s }} API resources. The definitions of these resources ([CustomResourceDefinitions](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions)) are automatically pre-installed to the {{ managed-k8s-name }} cluster. These resources allow the cluster to manage connections of nodes located in other {{ yandex-cloud }} network segments, e.g., the {{ baremetal-name }} [VRF network](../../baremetal/concepts/network.md#vrf-segment). Network connectivity between the VRF network of the {{ baremetal-name }} server and the {{ managed-k8s-name }} cluster's virtual network is ensured via [{{ interconnect-full-name }}](../../interconnect/).
+You can connect {{ baremetal-name }} [servers](../../baremetal/concepts/servers.md) to a {{ managed-k8s-name }} [cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster) [as external nodes](../../managed-kubernetes/operations/external-nodes-connect.md) using special {{ k8s }} API resources. The definitions of these resources ([CustomResourceDefinitions](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions)) are automatically pre-installed to the {{ managed-k8s-name }} cluster. These resources allow the cluster to manage connections of nodes located in other {{ yandex-cloud }} network segments, e.g., the {{ baremetal-name }} [VRF network](../../baremetal/concepts/private-network.md#vrf-segment). Network connectivity between the VRF network of the {{ baremetal-name }} server and the {{ managed-k8s-name }} cluster's virtual network is ensured via [{{ interconnect-full-name }}](../../interconnect/).
 
 
 ## Required paid resources {#paid-resources}
@@ -15,8 +15,8 @@ You can connect {{ baremetal-name }} [servers](../../baremetal/concepts/servers.
 The support cost for this solution includes:
 
 * Fee for the {{ managed-k8s-name }} master (see [{{ managed-k8s-full-name }} pricing](../../managed-kubernetes/pricing.md)).
-* Fee for {{ managed-k8s-name }} standard cluster nodes (if any): use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
-* VM fee: use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* Fee for {{ managed-k8s-name }} standard cluster nodes (if any), which includes the use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
+* VM fee, which includes the use of computing resources and storage (see [{{ compute-full-name }} pricing](../../compute/pricing.md)).
 
   {% note info %}
 

@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/dataproc/cli-ref/
 editable: false
 ---
 
@@ -83,6 +84,10 @@ Syntax:
   - [yc dataproc subcluster list](subcluster/list.md) — List subclusters in a cluster.
 
   - [yc dataproc subcluster update](subcluster/update.md) — Modify configuration or attributes of a subcluster.
+
+- [yc dataproc v0](v0/index.md) — Manage data processing clusters.
+
+
 
 #### Global Flags
 

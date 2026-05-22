@@ -1,0 +1,6 @@
+* **{{ ui-key.yacloud_org.organization.users.user_agent_bHjZs }}**: Client application [ID](https://en.wikipedia.org/wiki/User_agent). Constant value.
+* **{{ ui-key.yacloud_org.organization.users.created_at_khi1N }}**: Session creation date and time. Constant value.
+* **{{ ui-key.yacloud_org.organization.users.last_used_at_899qR }}**: Date and time the session was last used for authentication in applications that rely on {{ org-full-name }} as an identity provider. The value may change while working with the session.
+* **{{ ui-key.yacloud_org.organization.users.expires_at_adUqM }}**: Session [lifetime](../../organization/concepts/sessions.md#session-lifetime) after which the user will have to re-authenticate to {{ org-full-name }}. Constant value.
+* **{{ ui-key.yacloud_org.organization.users.ip_address_u9ysH }}**: IP address of the user’s last access within the active session to services that require authentication via {{ org-full-name }}. The value may change while working with the session.
+* **{{ ui-key.yacloud.common.id }}**: Unique session ID. Constant value.

@@ -23,6 +23,7 @@ description: Следуя данной инструкции, вы сможете
         {% include [video-temporary-links](../../../_includes/video/video-temporary-links.md) %}
 
       * **{{ ui-key.yacloud_video.videos.label_access_rights-public }}** — видео будет доступно неограниченное время и всем, у кого есть ссылка на видео.
+  1. Включите или выключите рекламу.
   1. Чтобы изменить обложку:
 
       1. Если у видео уже есть обложка, наведите указатель на превью обложки и нажмите ![image](../../../_assets/console-icons/circle-xmark.svg).

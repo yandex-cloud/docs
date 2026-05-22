@@ -1,4 +1,4 @@
-# GetMeta method
+# Object Storage API, Amazon S3-compatible REST: HeadBucket
 
 Returns the bucket metadata or an error.
 
@@ -36,5 +36,13 @@ Responses can only contain [common headers](../common-response-headers.md).
 For a list of possible responses, see [{#T}](../response-codes.md).
 
 A successful response does not contain any additional data and means that the bucket exists and the user has permissions to access it.
+
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/bucket.md)
+
+
+* [{#T}](../../../operations/buckets/get-info.md)
+
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

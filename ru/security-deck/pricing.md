@@ -11,16 +11,33 @@ editable: false
 
 {% include [vat](../_includes/vat.md) %}
 
-Правила тарификации {{ sd-name }} различаются для разных модулей:
+В {{ sd-name }} каждый модуль тарифицируется отдельно. Доступен стартовый пакетный тариф, включающий несколько модулей.
 
-* [Модуль диагностики доступов ({{ ciem-name }})](concepts/ciem.md) — использование модуля не тарифицируется.
-* [Модуль контроля данных ({{ dspm-name }})](concepts/dspm.md) — см. [Модуль контроля данных ({{ dspm-name }})](#dspm-rules) в разделе ниже.
-* [{{ atr-name }}](concepts/access-transparency.md) — см. [{{ atr-name }}](#atr-rules) в разделе ниже.
-* [KSPM](./concepts/kspm.md) — см. [Модуль контроля {{ k8s }}® (KSPM)](#kspm-rules) в разделе ниже.
-* [{{ cspm-name }}](./concepts/cspm.md) — не тарифицируется на стадии [Preview](../overview/concepts/launch-stages.md).
-* [AI-ассистент](./concepts/ai-assistant.md) — не тарифицируется на стадии [Preview](../overview/concepts/launch-stages.md).
+Ниже представлены правила тарификации для следующих модулей и тарифов:
+
+* [Стартовый пакетный тариф](#starter-rules).
+* [Модуль контроля данных ({{ dspm-name }})](concepts/dspm.md).
+* [{{ atr-name }}](concepts/access-transparency.md).
+* [Модуль контроля {{ k8s }}® ({{ kspm-name }})](./concepts/kspm.md).
+* [Модуль контроля конфигурации ({{ cspm-name }})](./concepts/cspm.md).
+
+{% note info %}
+
+[Модуль диагностики доступов ({{ ciem-name }})](concepts/ciem.md) и [AI-ассистент](concepts/ai-assistant.md) не тарифицируются.
+
+{% endnote %}
+
 
 ## Из чего складывается стоимость использования {{ sd-name }} {#rules}
+
+### Стартовый пакетный тариф {#starter-rules}
+
+Тариф включает [модуль контроля конфигурации](./concepts/cspm.md) и [модуль обнаружения угроз](./concepts/threat-detector.md).
+
+Цены на тарифы подписки приведены за 1 календарный месяц.
+Календарный месяц определяется как период с 00:00 первого числа месяца до 23:59 последнего числа того же месяца по московскому времени (UTC+3).
+
+Цены за количество ресурсов в месяц фиксированы и не зависят от количества дней в месяце.
 
 ### {{ atr-name }} {#atr-rules}
 
@@ -36,13 +53,41 @@ editable: false
 
 При [сканировании данных](operations/dspm/create-scan.md) модуль контроля данных ({{ dspm-name }}) выполняет запросы к файлам в бакетах {{ objstorage-full-name }}. Запросы тарифицируются по [правилам тарификации](../storage/pricing.md) {{ objstorage-name }}. Использование модуля тарифицируется дополнительно.
 
-### Модуль контроля {{ k8s }}® (KSPM) {#kspm-rules}
+### Модуль контроля {{ k8s }} ({{ kspm-name }}) {#kspm-rules}
 
-Стоимость использования модуля контроля {{ k8s }}® (KSPM) рассчитывается ежемесячно исходя из количества рабочих узлов в кластерах [{{ managed-k8s-full-name }}](../managed-kubernetes/), которые подключены к сканированию.
+Стоимость использования модуля контроля {{ k8s }} ({{ kspm-name }}) рассчитывается ежемесячно исходя из количества рабочих узлов в кластерах [{{ managed-k8s-full-name }}](../managed-kubernetes/), которые подключены к сканированию.
+
+### Модуль контроля конфигурации ({{ cspm-name }}) {#cspm-rules}
+
+Стоимость использования модуля {{ cspm-name }} рассчитывается ежемесячно и зависит от выбранного в окружении стандарта для проверки инфраструктуры и количества ресурсов, включенных в проверку. Тарифицируются все стандарты, кроме [базовых правил безопасности облачной платформы {{ yandex-cloud }}](concepts/standard-compliance/yc-security-baseline.md).
+
+Каждое окружение тарифицируется отдельно, даже если ресурсы в них пересекаются.
+
+Неактивные ресурсы также тарифицируются.
+
+Цена не зависит от продолжительности календарного месяца.
+
 
 ## Цены для региона Россия {#prices}
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
+
+### Стартовый пакетный тариф {#starter-pricing}
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include notitle [rub.md](../_pricing/security-deck/starter/rub.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include notitle [kzt.md](../_pricing/security-deck/starter/kzt.md) %}
+
+{% endlist %}
+
+
 
 ### {{ atr-name }} {#atr-pricing}
 
@@ -67,7 +112,7 @@ editable: false
 <MDX>
   <PriceList
     serviceIds={['{{ pcs|security_deck }}']}
-    excludeSkuIds={['{{ pc|security_deck.access_transparency.subscription.v1 }}', '{{ pc|security_deck.kspm.nodes }}']}
+    excludeSkuIds={['{{ pc|security_deck.access_transparency.subscription.v1 }}', '{{ pc|security_deck.kspm.nodes }}', '{{ pc|security_deck.cspm.resources }}']}
     installationCode="ru"
     currency="RUB"
   />
@@ -95,7 +140,7 @@ editable: false
 
 
 
-### Модуль контроля {{ k8s }}® (KSPM) {#kspm-pricing}
+### Модуль контроля {{ k8s }} ({{ kspm-name }}) {#kspm-pricing}
 
 
 {% list tabs group=pricing %}
@@ -112,4 +157,20 @@ editable: false
 
 
 
-Цена за месяц использования формируется из расчета 720 часов в месяц.
+### Модуль контроля конфигурации ({{ cspm-name }}) {#cspm-pricing}
+
+
+{% list tabs group=pricing %}
+
+- Цены в рублях {#prices-rub}
+
+  {% include notitle [rub.md](../_pricing/security-deck/cspm/rub.md) %}
+
+- Цены в тенге {#prices-kzt}
+
+  {% include notitle [kzt.md](../_pricing/security-deck/cspm/kzt.md) %}
+
+{% endlist %}
+
+
+

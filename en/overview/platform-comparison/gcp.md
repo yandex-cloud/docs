@@ -34,15 +34,15 @@ description: This article establishes the equivalence between {{ yandex-cloud }}
 | Cloud Quotas | [{{ quota-manager-full-name }}](../../quota-manager/) |
 | Cloud Run | [{{ cos-full-name }}](../../cos/)<br/>[{{ serverless-containers-full-name }}](../../serverless-containers/) |
 | Cloud SDK | [{{ yandex-cloud }} CLI](../../cli/) |
-| Cloud Search | [{{ search-api-full-name }}](../../search-api/) |
+| Cloud Search | [{{ search-api-full-name }}]({{ link-docs-ai }}search-api/concepts) |
 | Cloud Security Command Center | [{{ sd-full-name }}](../../security-deck/) |
 | Cloud Spanner | [{{ ydb-full-name }}](../../ydb/) |
-| Cloud Speech-to-Text,<br/>Cloud Text-to-Speech | [{{ speechkit-full-name }}](../../{{ speechkit-slug }}/) |
+| Cloud Speech-to-Text,<br/>Cloud Text-to-Speech | [{{ speechkit-full-name }}]({{ link-docs-ai }}speechkit/overview) |
 | Cloud SQL for MySQL | [{{ mmy-full-name }}](../../managed-mysql/) |
 | Cloud SQL for PostgreSQL | [{{ mpg-full-name }}](../../managed-postgresql/) |
 | Cloud Storage | [{{ objstorage-full-name }}](../../storage/) |
-| Cloud Translation API | [{{ translate-full-name }}](../../translate/) |
-| Cloud Vision | [{{ vision-full-name }}](../../vision/) |
+| Cloud Translation API | [{{ translate-full-name }}]({{ link-docs-ai }}translate/concepts/index) |
+| Cloud Vision | [{{ vision-full-name }}]({{ link-docs-ai }}vision/concepts/ocr/index) |
 | Cloud Workstations | [{{ cloud-desktop-full-name }}](../../cloud-desktop/) |
 | Compute Engine | [{{ compute-full-name }}](../../compute/) |
 | Confluent and Google Cloud | [{{ mkf-full-name }}](../../managed-kafka/) |

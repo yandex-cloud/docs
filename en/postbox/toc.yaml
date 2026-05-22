@@ -21,8 +21,12 @@ items:
         href: operations/create-configuration.md
       - name: Linking a configuration to an address
         href: operations/bind-configuration.md
+      - name: Limiting the list of senders
+        href: operations/restrict-senders.md
       - name: Writing logs
         href: operations/logs-write.md
+      - name: Viewing information about sent emails
+        href: operations/messages.md
   - name: Concepts
     items:
       - name: Overview
@@ -49,11 +53,11 @@ items:
         href: tutorials/index.md
       - name: >-
           Streaming {{ postbox-full-name }} events to {{ yds-full-name }} and
-          analyzing them with {{ datalens-full-name }}
+          analyzing them using {{ datalens-full-name }}
         href: tutorials/events-from-postbox-to-yds.md
       - name: >-
-          Creating a {{ postbox-full-name }} address and verifying domain
-          ownership with {{ TF }}
+          Creating a {{ postbox-full-name }} address and a domain ownership
+          check with {{ TF }}
         href: tutorials/domain-identity-creating.md
       - name: '{{ postbox-full-name }} integration with external systems via webhooks'
         href: tutorials/postbox-webhook.md
@@ -138,10 +142,14 @@ items:
                   aws-compatible-api/api-ref/delete-configuration-set-event-destination.md
           - name: Request headers
             href: aws-compatible-api/api-ref/request-headers.md
+  - name: '{{ monitoring-name }} metrics'
+    href: metrics.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Public materials
     href: public-talks.md
   - name: Release notes
     href: release-notes.md
+  - name: FAQ
+    href: qa/index.md
 path: en/postbox/toc.yaml

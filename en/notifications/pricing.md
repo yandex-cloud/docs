@@ -46,6 +46,8 @@ This means the total billable events are 1,500 + 700 = 2,200. The first 1,000 ev
 
 ### Registering individual sender names {#registration}
 
+{% include [legal-entity-note](../_includes/notifications/legal-entity-note.md) %}
+
 With an [individual sender name](concepts/sms.md#individual-sender), one can process text message notification sending events on behalf of a user other than {{ yandex-cloud }} ([shared sender](concepts/sms.md#common-sender)). The name is registered with Russian mobile operators: Beeline, MegaFon, MTS, and T2.
 
 Registering an individual sender name is billed monthly, until such a name is unregistered upon the customer’s request.
@@ -71,7 +73,7 @@ Cost calculation of using a registered name:
 
 You can only send text messages across Russia. You pay for each processed message sending event. A message over 140 B (160 Latin characters or 70 Cyrillic characters) is broken down into a few parts, each of which is billable.
 
-The cost of processing an event depends on the text message type: commercial, authentication, service, or transaction message. All text messages are considered commercial by default. If you want your messages billed as another event type, you need to create a template first. Currently, to do this, you need to send examples of your messages to [our support]({{ link-console-support }}). We will then determine whether creating a template and registering it is available for your case.
+The cost of processing an event depends on the text message type: commercial, authentication, service, or transaction message. All text messages are considered commercial by default. If you want your messages billed as another event type, you need to create a [template](./concepts/sms.md#templates) of the appropriate type first.
 
 For some operators, billing can be based on packages. Packages are calculated individually for each subscriber for whom you get text message notification sending events. See the [cost calculation example](#sms-example) below for more information.
 

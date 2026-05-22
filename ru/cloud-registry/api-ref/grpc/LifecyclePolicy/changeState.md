@@ -23,12 +23,13 @@ Changes the state of the specified lifecycle policy.
 ||Field | Description ||
 || policy_id | **string**
 
-Required field. ID of the lifecycle policy to change state. ||
+Required field. ID of the lifecycle policy to change state.
+
+The maximum string length in characters is 50. ||
 || state | enum **LifecyclePolicyState**
 
 Required field. Target state of the lifecycle policy.
 
-- `LIFECYCLE_POLICY_STATE_UNSPECIFIED`
 - `DISABLED`: Policy is disabled and won't be executed.
 - `ENABLED`: Policy is enabled and will be executed according to schedule. ||
 |#

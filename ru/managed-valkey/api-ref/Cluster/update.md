@@ -766,6 +766,11 @@ apiPlayground:
               The minimum value is 0.
             type: string
             format: int64
+          version:
+            description: |-
+              **string**
+              Module version
+            type: string
       ValkeyJson:
         type: object
         properties:
@@ -774,6 +779,11 @@ apiPlayground:
               **boolean**
               Enable valkey-json module
             type: boolean
+          version:
+            description: |-
+              **string**
+              Module version
+            type: string
       ValkeyBloom:
         type: object
         properties:
@@ -782,6 +792,11 @@ apiPlayground:
               **boolean**
               Enable valkey-bloom module
             type: boolean
+          version:
+            description: |-
+              **string**
+              Module version
+            type: string
       ValkeyModules:
         type: object
         properties:
@@ -811,24 +826,28 @@ apiPlayground:
           redisConfig_5_0:
             description: |-
               **[RedisConfig5_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0)**
+              Configuration of a Redis 5.0 server.
               Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
               Configuration of a Redis cluster.
             $ref: '#/definitions/RedisConfig5_0'
           redisConfig_6_0:
             description: |-
               **[RedisConfig6_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_0)**
+              Configuration of a Redis 6.0 server.
               Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
               Configuration of a Redis cluster.
             $ref: '#/definitions/RedisConfig6_0'
           redisConfig_6_2:
             description: |-
               **[RedisConfig6_2](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_2)**
+              Configuration of a Redis 6.2 server.
               Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
               Configuration of a Redis cluster.
             $ref: '#/definitions/RedisConfig6_2'
           redisConfig_7_0:
             description: |-
               **[RedisConfig7_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_0)**
+              Configuration of a Redis 7.0 server.
               Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
               Configuration of a Redis cluster.
             $ref: '#/definitions/RedisConfig7_0'
@@ -1105,13 +1124,16 @@ The maximum string length in characters is 50. ||
       "valkeySearch": {
         "enabled": "boolean",
         "readerThreads": "string",
-        "writerThreads": "string"
+        "writerThreads": "string",
+        "version": "string"
       },
       "valkeyJson": {
-        "enabled": "boolean"
+        "enabled": "boolean",
+        "version": "string"
       },
       "valkeyBloom": {
-        "enabled": "boolean"
+        "enabled": "boolean",
+        "version": "string"
       }
     }
   },
@@ -1208,20 +1230,28 @@ Allows to use ACL users to auth in sentinel ||
 Version of Redis used in the cluster. ||
 || redisConfig_5_0 | **[RedisConfig5_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig5_0)**
 
+Configuration of a Redis 5.0 server.
+
 Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
 
 Configuration of a Redis cluster. ||
 || redisConfig_6_0 | **[RedisConfig6_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_0)**
+
+Configuration of a Redis 6.0 server.
 
 Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
 
 Configuration of a Redis cluster. ||
 || redisConfig_6_2 | **[RedisConfig6_2](#yandex.cloud.mdb.redis.v1.config.RedisConfig6_2)**
 
+Configuration of a Redis 6.2 server.
+
 Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
 
 Configuration of a Redis cluster. ||
 || redisConfig_7_0 | **[RedisConfig7_0](#yandex.cloud.mdb.redis.v1.config.RedisConfig7_0)**
+
+Configuration of a Redis 7.0 server.
 
 Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConfig_6_2`, `redisConfig_7_0`.
 
@@ -1839,6 +1869,9 @@ The minimum value is 0. ||
 Controls the amount of threads processing index mutations
 
 The minimum value is 0. ||
+|| version | **string**
+
+Module version ||
 |#
 
 ## ValkeyJson {#yandex.cloud.mdb.redis.v1.ValkeyJson}
@@ -1848,6 +1881,9 @@ The minimum value is 0. ||
 || enabled | **boolean**
 
 Enable valkey-json module ||
+|| version | **string**
+
+Module version ||
 |#
 
 ## ValkeyBloom {#yandex.cloud.mdb.redis.v1.ValkeyBloom}
@@ -1857,6 +1893,9 @@ Enable valkey-json module ||
 || enabled | **boolean**
 
 Enable valkey-bloom module ||
+|| version | **string**
+
+Module version ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.redis.v1.MaintenanceWindow}
@@ -2318,13 +2357,16 @@ Acceptable values are 1 to 24, inclusive. ||
         "valkeySearch": {
           "enabled": "boolean",
           "readerThreads": "string",
-          "writerThreads": "string"
+          "writerThreads": "string",
+          "version": "string"
         },
         "valkeyJson": {
-          "enabled": "boolean"
+          "enabled": "boolean",
+          "version": "string"
         },
         "valkeyBloom": {
-          "enabled": "boolean"
+          "enabled": "boolean",
+          "version": "string"
         }
       },
       "fullVersion": "string"
@@ -3307,6 +3349,9 @@ The minimum value is 0. ||
 Controls the amount of threads processing index mutations
 
 The minimum value is 0. ||
+|| version | **string**
+
+Module version ||
 |#
 
 ## ValkeyJson {#yandex.cloud.mdb.redis.v1.ValkeyJson2}
@@ -3316,6 +3361,9 @@ The minimum value is 0. ||
 || enabled | **boolean**
 
 Enable valkey-json module ||
+|| version | **string**
+
+Module version ||
 |#
 
 ## ValkeyBloom {#yandex.cloud.mdb.redis.v1.ValkeyBloom2}
@@ -3325,6 +3373,9 @@ Enable valkey-json module ||
 || enabled | **boolean**
 
 Enable valkey-bloom module ||
+|| version | **string**
+
+Module version ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.redis.v1.MaintenanceWindow2}

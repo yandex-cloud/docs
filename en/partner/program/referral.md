@@ -72,7 +72,7 @@ If the conditions above are not met, the customer is not considered a referral p
 
 ### Commission amount {#sum}
 
-A partner commission amounts to 10% of sales to referrals, including VAT, but no more than ₽100,000 per customer, per month. You can track the consumption figures of your referral customers in your [partner portal]({{ link-cloud-partners }}) profile.
+A partner commission amounts to 10% of sales to referrals, including VAT, but no more than ₽100,000 per customer, per month. You can track consumption for your referral customers in your [partner portal]({{ link-cloud-partners }}) profile.
 
 ### Commission payment period per referral {#duration}
 
@@ -99,9 +99,9 @@ You can withdraw your commissions credited as rebates through the partner portal
 1. At the top of the screen, switch to the referral program.
 1. Click **Withdraw**.
 1. Specify the amount to withdraw.
-1. Select the destination for the withdrawal:
+1. Select the withdrawal destination:
 
    * **Grant**: The funds will be credited as a grant to the cloud billing account.
-   * **Bank account**: The funds will be transferred to the bank account specified in the partner agreement.
+   * **Bank account**: The amount will be transferred to the bank account specified in the partner agreement.
 
 1. Click **Transfer**.

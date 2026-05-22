@@ -1,5 +1,7 @@
 # Working with datasets
 
+{% include [stop-create-dataset](../../../_includes/datasphere/stop-create-datasets.md) %}
+
 Use [datasets](../../concepts/dataset.md) if you need to handle large data amounts in {{ ml-platform-name }}. For key operations with datasets, run `#pragma dataset` utility commands in code cells.
 
 ## Creating and initializing a dataset {#create}
@@ -39,7 +41,7 @@ You can also use this method to create a dataset with data from a [{{ objstorage
   #pragma dataset init <dataset_name> --size 1Gb
 
   set -e
-  cp -r <source_folder_name> /home/jupyter/mnt/datasets/<dataset_name>
+  cp -r <source_folder_name> /home/jupyter/datasets/<dataset_name>
   ```
 
 {% endlist %}
@@ -57,7 +59,7 @@ To create a dataset called `<dataset_name>` from a [CIFAR-10](https://www.cs.tor
   #pragma dataset init <dataset_name> --size 1Gb
 
   set -e
-  cd /home/jupyter/mnt/datasets/<dataset_name>
+  cd /home/jupyter/datasets/<dataset_name>
   wget https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz
   tar -xvf cifar-10-python.tar.gz
   rm -rf cifar-10-python.tar.gz
@@ -74,7 +76,7 @@ To create a dataset called `<dataset_name>` from a [CIFAR-10](https://www.cs.tor
 
   file_name = 'cifar-10-python.tar.gz'
   file_url = 'https://www.cs.toronto.edu/~kriz/' + file_name
-  dest_dir = '/home/jupyter/mnt/datasets/<dataset_name>/'
+  dest_dir = '/home/jupyter/datasets/<dataset_name>/'
   dest_file = dest_dir + file_name
 
   with urlopen(file_url) as i:
@@ -114,7 +116,7 @@ To create a dataset called `<dataset_name>` from a [CIFAR-10](https://www.cs.tor
   bucket_name = "<bucket_name>"
 
   source_path = ''
-  target_path = '/home/jupyter/mnt/datasets/<dataset_name>/'
+  target_path = '/home/jupyter/datasets/<dataset_name>/'
 
   s3r = boto3.resource(service_name='s3', endpoint_url='https://{{ s3-storage-host }}', **S3_CREDS)
   bucket = s3r.Bucket(bucket_name)
@@ -151,7 +153,7 @@ To create a dataset called `<dataset_name>` from a [CIFAR-10](https://www.cs.tor
   download_url = response.json()['href']
   response = requests.get(download_url)
 
-  dist_path = '/home/jupyter/mnt/datasets/<dataset_name>/'
+  dist_path = '/home/jupyter/datasets/<dataset_name>/'
   zipfile = ZipFile(BytesIO(response.content))
   zipfile.extractall(path=dist_path)
   ```
@@ -174,7 +176,7 @@ To create a dataset called `<dataset_name>` from a [CIFAR-10](https://www.cs.tor
      import gdown
 
      gdrive_folder_id = '<Google_Drive_folder_ID>'
-     dst_path = '/home/jupyter/mnt/datasets/<dataset_name>/'
+     dst_path = '/home/jupyter/datasets/<dataset_name>/'
 
      gdown.download_folder(id=gdrive_folder_id, output=dst_path, use_cookies=False)
      ```
@@ -185,17 +187,17 @@ To create a dataset called `<dataset_name>` from a [CIFAR-10](https://www.cs.tor
 
 ## Activating a dataset {#use}
 
-Once initialized, the dataset becomes active within the project and available at `/home/jupyter/mnt/datasets/<dataset_name>`. You can have up to three active datasets within a project at the same time. During your work, you can activate datasets whenever needed and disable them when the data is no longer in use.
+Once initialized, the dataset becomes active in the project and available at `/home/jupyter/datasets/<dataset_name>`. You can have up to three active datasets within a project at the same time. During your work, you can activate datasets whenever needed and disable them when the data is no longer in use.
 
 To activate a dataset:
 
 1. {% include [find project](../../../_includes/datasphere/ui-find-project.md) %}
-1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![dataset](../../../_assets/console-icons/layers.svg)**{{ ui-key.yc-ui-datasphere.resources.dataset}}**.
-1. Next to the dataset in question, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yc-ui-datasphere.common.activate}}**.
+1. Under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, click ![dataset](../../../_assets/console-icons/layers.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset }}**.
+1. Next the dataset in question, click ![options](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yc-ui-datasphere.common.activate }}**.
 
 ## Viewing a list of datasets available in the project {#list}
 
-On the project page under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select ![dataset](../../../_assets/console-icons/layers.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset}}**. Next, go to the **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}** tab.
+On the project page under **{{ ui-key.yc-ui-datasphere.project-page.project-resources }}**, select ![dataset](../../../_assets/console-icons/layers.svg) **{{ ui-key.yc-ui-datasphere.resources.dataset }}**. Next, go to the **{{ ui-key.yc-ui-datasphere.common.shared-with-project-resources }}** tab.
 
 ## Sharing a dataset {#share}
 

@@ -11,7 +11,7 @@ You can prevent a [subject](../../../iam/concepts/access-control/index.md#subjec
   1. Select a [registry](../../concepts/registry.md) or [repository](../../concepts/repository.md) in it.
   1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
   1. Select a user from the list and click ![image](../../../_assets/console-icons/ellipsis.svg) next to the username.
-  1. Click **{{ ui-key.yacloud.common.resource-acl.button_assign-binding }}**.
+  1. Click **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
   1. Click ![image](../../../_assets/console-icons/xmark.svg) next to the role to revoke.
   1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
 

@@ -48,6 +48,12 @@ description: В данном разделе описаны федерации с
 
 ## Привязки в федерации {#federated-credentials}
 
+{% note info %}
+
+{% include [access-control-sa-wlif-notice](../../_includes/iam/access-control-wlif-notice.md) %}
+
+{% endnote %}
+
 _Привязка_ — это связь, настроенная между федерацией сервисных аккаунтов, одним сервисным аккаунтом {{ yandex-cloud }} и одним внешним субъектом.
 
 Привязка создается в федерации удостоверений и требует настройки обязательных параметров:
@@ -69,4 +75,5 @@ _Привязка_ — это связь, настроенная между фе
 ## Примеры использования {#examples}
 
 * [{#T}](../tutorials/wlif-github-integration.md)
+* [{#T}](../tutorials/wlif-managed-k8s-integration.md)
 * [{#T}](../tutorials/wlif-k8s-integration.md)

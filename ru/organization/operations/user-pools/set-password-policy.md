@@ -1,6 +1,6 @@
 ---
 title: Как настроить парольную политику в пуле пользователей {{ org-full-name }}
-description: Следуя данной инструкции, вы сможете настроить парольную политику в пуле пользователей {{ org-name }}.
+description: Следуя данной инструкции, вы сможете настроить парольную политику в пуле пользователей {{ org-full-name }}.
 ---
 
 # Настроить парольную политику
@@ -14,7 +14,7 @@ description: Следуя данной инструкции, вы сможете
 
   1. Войдите в сервис [{{ org-full-name }}]({{ link-org-cloud-center }}) с учетной записью администратора или владельца организации.
   1. На панели слева нажмите ![userpool](../../../_assets/organization/userpool.svg) **{{ ui-key.yacloud_org.pages.userpools }}** и выберите нужный пул пользователей.
-  1. Нажмите **{{ ui-key.yacloud_org.organization.userpools.title_password_policy }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите ![gear](../../../_assets/console-icons/gear.svg) **{{ ui-key.yacloud_org.organization.userpools.UserpoolOverviewPage.action_set_password_policy_aaDns }}**.
+  1. На вкладке **{{ ui-key.yacloud_org.organization.userpools.title_userpool_overview }}** нажмите **{{ ui-key.yacloud_org.organization.userpools.title_password_policy }}** ![chevron-down](../../../_assets/console-icons/chevron-down.svg) и выберите ![gear](../../../_assets/console-icons/gear.svg) **{{ ui-key.yacloud_org.organization.userpools.UserpoolOverviewPage.action_set_password_policy_aaDns }}**.
   1. В блоке **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.complexity_oeJs5 }}** укажите настройки классов символов в пароле:
 
      * **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.symbol_classes_any_fqb6f }}** — настройте минимальную длину в зависимости от количества классов символов, которые используются в пароле:
@@ -24,7 +24,7 @@ description: Следуя данной инструкции, вы сможете
        * 3 класса (`aBc1`);
        * 4 класса (`aB#c1`).
        
-       Это предпочтительный вариант, поскольку не требует наличия определенных символов и позволяет пользователям делать более простые для запоминания, но надежные пароли.
+       Это предпочтительный вариант, поскольку он не требует наличия определенных символов и позволяет пользователям делать более простые для запоминания, но надежные пароли.
  
      * **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.symbol_classes_required_1BHUu }}** — выберите типы символов, которые должны использоваться в пароле, активируя следующие опции:
 
@@ -35,6 +35,7 @@ description: Следуя данной инструкции, вы сможете
 
        В поле **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.min_length_title_mvmiQ }}** задайте минимальное число символов в пароле, но не менее 7.
        
+  1. В блоке **Уникальность пароля** в поле **Проверка пароля** при необходимости включите опцию **Нельзя использовать пароль из базы распространенных паролей**. Это защитит пользователей от установки паролей, которые легко подбираются по словарю.
   1. В блоке **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.lifetime_hnEhW }}** задайте минимальный и максимальный срок жизни пароля (до 730 дней) или выберите **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.unlimited_cSfYU }}**.
   1. В блоке **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.brute_force_protection_msHno }}** задайте:
      * **{{ ui-key.yacloud_org.organization.userpools.UserpoolPasswordPolicyForm.attempts_before_lockout_ay7Le }}** — от 1 до 100.
@@ -71,6 +72,7 @@ description: Следуя данной инструкции, вы сможете
        --password-allow-similar \
        --password-match-length <длина_подстроки_для_проверки> \
        --password-max-length <максимальная_длина_пароля> \
+       --password-blacklist-check-common \
        --password-min-days <минимальный_срок_жизни_в_днях> \
        --password-max-days <максимальный_срок_жизни_в_днях> \
        --bruteforce-attempts <количество_попыток> \
@@ -96,6 +98,7 @@ description: Следуя данной инструкции, вы сможете
      * `--password-allow-similar` — разрешить использование паролей, похожих на предыдущие. Если флаг не указан, похожие пароли запрещены.
      * `--password-match-length` — минимальная длина подстроки для проверки на сходство с уязвимыми последовательностями.
      * `--password-max-length` — максимальная длина пароля. Значение `0` означает отсутствие ограничения.
+     * `--password-blacklist-check-common` — проверка пароля по базе распространенных паролей. Если флаг не указан, проверка отключена.
      * `--password-min-days` — минимальное количество дней до смены пароля.
      * `--password-max-days` — максимальное количество дней, в течение которых пароль остается действительным (до 730 дней). Значение `0` означает, что пароли не истекают.
      * `--bruteforce-attempts` — количество неудачных попыток ввода пароля до блокировки (от 1 до 100).
@@ -118,7 +121,8 @@ description: Следуя данной инструкции, вы сможете
          --password-max-days 365 \
          --bruteforce-attempts 15 \
          --bruteforce-window 10m \
-         --bruteforce-block 10m
+         --bruteforce-block 10m \
+         --password-blacklist-check-common true
        ```
 
      - С обязательными типами символов {#fixed}
@@ -133,7 +137,8 @@ description: Следуя данной инструкции, вы сможете
          --password-max-days 365 \
          --bruteforce-attempts 15 \
          --bruteforce-window 10m \
-         --bruteforce-block 10m
+         --bruteforce-block 10m \
+         --password-blacklist-check-common true
        ```
      {% endlist %}
 
@@ -157,9 +162,9 @@ description: Следуя данной инструкции, вы сможете
        description       = "<описание_пула>"
 
        password_quality_policy = {
-         allow_similar = true
-         max_length    = 128
-         match_length  = 4
+         allow_similar   = true
+         max_length      = 128
+         match_length    = 4
 
          # Используйте либо `smart`, либо `fixed`
          # Настройка произвольных типов символов
@@ -178,6 +183,10 @@ description: Следуя данной инструкции, вы сможете
            digits_required   = true
            specials_required = false
          }
+       }
+
+       password_blacklist_policy = {
+         check_common = true
        }
 
        password_lifetime_policy = {
@@ -219,6 +228,9 @@ description: Следуя данной инструкции, вы сможете
          * `digits_required` — требовать цифры.
          * `specials_required` — требовать специальные символы.
 
+     * `password_blacklist_policy` — настройка уникальности пароля.
+       * `check_common` — запретить использование паролей из базы распространенных паролей. Значение по умолчанию: `false`.
+
      * `password_lifetime_policy` — настройки срока жизни пароля.
        * `min_days_count` — минимальное количество дней до смены пароля.
        * `max_days_count` — максимальное количество дней, в течение которых пароль остается действительным (до 730 дней). Значение `0` означает, что пароли не истекают.
@@ -245,3 +257,5 @@ description: Следуя данной инструкции, вы сможете
   Воспользуйтесь методом REST API [update](../../idp/api-ref/Userpool/update.md) для ресурса [Userpool](../../idp/api-ref/Userpool/index.md) или вызовом gRPC API [UserpoolService/Update](../../idp/api-ref/grpc/Userpool/update.md).
 
 {% endlist %}
+
+{% include [password-policy-note](../../../_includes/organization/password-policy-note.md) %}

@@ -43,7 +43,7 @@ description: Various use cases for network infrastructure in {{ yandex-cloud }}.
 * [Deleting a public connection](pub-del.md)
 * [Deleting a trunk](trunk-del.md)
 
-## Configuring network resources and interaction between them {#sec-network-resources}
+## Configuring network resources and their interactions {#sec-network-resources}
 
 * [Setting up networking between resources from different folders](multi-folder-vpc.md)
 * [Implementing fault-tolerant use cases for network VMs](route-switcher.md)

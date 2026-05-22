@@ -10,10 +10,8 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входят:
-
-* Плата за кластер {{ mos-name }}: использование вычислительных ресурсов, выделенных хостам (в том числе хостам с ролью `MANAGER`), и дискового пространства (см. [тарифы {{ OS }}](../../managed-opensearch/pricing.md)).
-* Плата за публичные IP-адреса для хостов кластера (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
+* Кластер {{ mos-name }}: использование вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mos-name }}](../../managed-opensearch/pricing.md)).
+* Публичные IP-адреса, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -72,24 +70,7 @@
 
 1. Проверьте подключение к кластеру с помощью утилиты [cURL](https://curl.haxx.se/):
 
-    {% include [default-connstring](../../_includes/mdb/mos/default-connstring.md) %}
-
-    FQDN хоста можно получить со [списком хостов в кластере](../../managed-opensearch/operations/host-groups.md#list-hosts).
-
-    При успешном подключении будет выведено похожее сообщение:
-
-    ```bash
-    {
-      "name" : "....{{ dns-zone }}",
-      "cluster_name" : "...",
-      "cluster_uuid" : "...",
-      "version" : {
-      "distribution" : "opensearch",
-      ...
-      },
-      "tagline" : "The OpenSearch Project: https://opensearch.org/"
-    }
-    ```
+    {% include [default-connstring](../../_tutorials/_tutorials_includes/opensearch/check-connection.md) %}
 
 ## Выполните поиск без использования yandex-lemmer {#search-without-yandex-lemmer}
 

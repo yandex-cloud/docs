@@ -9,17 +9,17 @@ To set up CDC using {{ data-transfer-name }}:
 
 1. [Prepare the {{ ydb-name }} source database](#prepare-source-ydb).
 1. [Create a target stream in {{ yds-name }}](#create-target-yds).
-1. [Set up and activate the transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
 ## Required paid resources {#paid-resources}
 
-* {{ ydb-name }} databases (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). The cost depends on deployment mode:
+* {{ ydb-name }} databases (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). The cost depends on the deployment mode:
 
-	* In serverless mode, you pay for data operations and storage volume, including stored backups.
+	* In serverless mode, you pay for data operations as well as the amount of stored data and backups.
   	* In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
 
 * {{ yds-name }} (see [{{ yds-name }} pricing](../../data-streams/pricing.md)). The cost depends on the pricing model:
@@ -30,7 +30,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Getting started {#before-you-begin}
 
-Set up the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -60,7 +60,7 @@ Set up the infrastructure:
         * {{ ydb-name }} database for the target stream.
         * Transfer.
 
-    1. In the `data-transfer-ydb-yds.tf` file, specify the following variables:
+    1. In the `data-transfer-ydb-yds.tf` file, specify these variables:
 
         * `source_db_name`: {{ ydb-name }} source database name.
         * `target_db_name`: Name of the {{ ydb-name }} database for the target data stream.
@@ -91,7 +91,7 @@ Set up the infrastructure:
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder containing your database.
-        1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+        1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
         1. Select the database from the list and go to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
         1. Click **{{ ui-key.yacloud.ydb.browse.button_sql-query }}**.
 
@@ -135,7 +135,7 @@ Set up the infrastructure:
 
 [Create a stream for the {{ yds-name }}](../../data-streams/operations/manage-streams.md#create-data-stream).
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate the transfer {#prepare-transfer}
 
 1. [Create](../../data-transfer/operations/endpoint/index.md#create) an [`YDB` source endpoint](../../data-transfer/operations/endpoint/source/ydb.md):
 
@@ -164,16 +164,16 @@ Set up the infrastructure:
 
     - Manually {#manual}
 
-        1. [Create](../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**-type transfer configured to use the new endpoints.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**-type that will use the endpoints you created.
         1. [Activate](../../data-transfer/operations/transfer.md#activate) the transfer.
 
     - {{ TF }} {#tf}
 
         1. In the `data-transfer-ydb-yds.tf` file, specify the following variables:
 
-            * `source_endpoint_id`: ID of the source endpoint.
-            * `target_endpoint_id`: ID of the target endpoint.
-            * `transfer_enabled`: `1` to create a transfer.
+            * `source_endpoint_id`: Source endpoint ID.
+            * `target_endpoint_id`: Target endpoint ID.
+            * `transfer_enabled`: Set to `1` to create the transfer.
 
         1. Validate your {{ TF }} configuration files using this command:
 
@@ -187,7 +187,7 @@ Set up the infrastructure:
 
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-            The transfer will activate automatically upon creation.
+            The transfer will be activated automatically upon creation.
 
     {% endlist %}
 
@@ -224,12 +224,12 @@ Set up the infrastructure:
 
 {% include [note before delete resources](../../_includes/mdb/note-before-delete-resources.md) %}
 
-To reduce the consumption of resources you do not need, delete them:
+To reduce the consumption of resources, delete those you do not need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
 1. If you created service accounts together with the endpoints, [delete them](../../iam/operations/sa/delete.md).
-1. Delete other resources using the same method used for their creation:
+1. Delete the rest of the resources depending on how you created them:
 
    {% list tabs group=instructions %}
 

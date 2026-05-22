@@ -1,5 +1,11 @@
 # Настройка прав доступа к каталогу
 
+{% note warning %}
+
+{% include [access-control-vs-roles-notice](../../../_includes/iam/access-control-vs-roles-notice.md) %}
+
+{% endnote %}
+
 Чтобы предоставить пользователю доступ к ресурсам в [каталоге](../../concepts/resources-hierarchy.md#folder), назначьте ему [роль](../../../iam/concepts/access-control/roles.md) на этот каталог.
 
 {% include [console-user-access](../../../_includes/organization/console-user-access.md) %}

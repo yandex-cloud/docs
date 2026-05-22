@@ -18,7 +18,7 @@
 | Название | Описание |
 | ---- | ---- |
 | `s3-vpc` | Облачная сеть с ресурсами, для которых организуется доступ к {{ objstorage-name }}. При развертывании можно также указать уже существующую облачную сеть. |
-| `s3-nlb` | [Внутренний сетевой балансировщик](../../network-load-balancer/concepts/nlb-types.md), который обеспечивает прием трафика к {{ objstorage-name}}. Балансировщик принимает TCP-трафик с портом назначения 443 и распределяет его по ресурсам (ВМ) в целевой группе. |
+| `s3-nlb` | [Внутренний сетевой балансировщик](../../network-load-balancer/concepts/nlb-types.md), который обеспечивает прием трафика к {{ objstorage-name }}. Балансировщик принимает TCP-трафик с портом назначения 443 и распределяет его по ресурсам (ВМ) в целевой группе. |
 | `s3-nat-group` | [Целевая группа](../../network-load-balancer/concepts/target-resources.md) балансировщика с ВМ, на которых включена функция NAT. |
 | `nat-a1-vm`, `nat-a2-vm`, `nat-b1-vm`, `nat-b2-vm` | ВМ с NAT в [зонах доступности](../../overview/concepts/geo-scope.md) `{{ region-id }}-a` и `{{ region-id }}-b` для передачи трафика к {{ objstorage-name }} и обратно с трансляцией IP-адресов источников и получателей трафика. |
 | `pub-ip-a1`, `pub-ip-a2`, `pub-ip-b1`, `pub-ip-b2` | Публичные IP-адреса ВМ, в которые облачная сеть {{ vpc-short-name }} транслирует их внутренние IP-адреса. |
@@ -207,9 +207,9 @@ warp get \
 ## Проверьте работоспособность решения {#check}
 
 1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором ранее были созданы ресурсы.
-1. Выберите сервис **{{ compute-name }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
 1. В списке виртуальных машин выберите ВМ `test-s3-vm`.
-1. Перейдите на вкладку **{{ ui-key.yacloud.compute.instance.switch_console }}**.
+1. Перейдите на вкладку ![image](../../_assets/console-icons/terminal.svg) **{{ ui-key.yacloud.compute.instance.switch_console }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.compute.instance.console.connect }}**.
 1. Введите логин `admin` и пароль из вывода команды `terraform output test_vm_password` (укажите значение без кавычек).
 

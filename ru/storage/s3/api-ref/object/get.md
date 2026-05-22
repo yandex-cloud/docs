@@ -1,4 +1,4 @@
-# Метод get
+# Object Storage API, REST совместимый с Amazon S3: GetObject
 
 Возвращает объект из {{ objstorage-name }}.
 
@@ -67,5 +67,11 @@ GET /{bucket}/{key} HTTP/2
 ### Коды ответов {#response-codes}
 
 Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
+
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/object.md)
+
+* [{#T}](../../../operations/objects/download.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

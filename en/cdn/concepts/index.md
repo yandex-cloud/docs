@@ -1,6 +1,6 @@
 # {{ cdn-full-name }} overview
 
-{{ cdn-full-name }} provides web service developers with a _Content Delivery Network_ (CDN) functionality. The _CDN servers_ located at [points of presence](points-of-presence.md) get content from your _origins_, cache the content, and deliver it to end clients on request. Thus you decrease the load on origins and reduce content waiting time for the end user.
+{% include [cdn-overview-intro](../../_includes/cdn/cdn-overview-intro.md) %}
 
 ### How CDN works
 
@@ -33,10 +33,13 @@
 || [`Host` header](./servers-to-origins-host.md) | `Host` HTTP header in CDN server requests to origins. ||
 || [Content segmentation](./slicing.md) | Storing large files on CDN servers in parts. ||
 || [Origin shielding](./origins-shielding.md) | Using a shield server between CDN servers and origins to reduce origin load. ||
-|| [Redirecting requests](./http-rewrite.md) | Redirecting requests from a CDN resource to an origin using the rewrite rule. ||
+|| [Request redirect](./http-rewrite.md) | Redirection of requests from a CDN resource to an origin using the rewrite rule. ||
+|| [Following request redirects](./follow-redirects.md) | Setting up how to follow request redirects received from content origins. ||
+|| [Hiding of origin headers](./hiding-headers.md) | Whitelisting headers transmitted from the origin to the client. ||
 || [Content caching](./caching.md) | Creating copies of files and storing them temporarily on CDN servers and/or on the client side. ||
 || [Secure tokens](./secure-tokens.md) | Setting up access to files on CDN servers based on time and IP using secure tokens. ||
 || [IP-based access policy](./ip-address-acl.md) | Configuring access to CDN resources using an allow or block policy. ||
+|| [Dedicated IP addressing of CDN resources](./dedicated-ip-addressing.md) | Service that provides a dedicated IP address for CDN resources. ||
 || [Location rules](./location-rules.md) | It is a mechanism used to selectively redefine CDN resource settings for requests whose paths match specific templates. ||
 || [Log export](./logs.md) | Exporting CDN and shielding server request logs to object storage. ||
 || [Labels](./labels.md) | CDN resource [labels](../../resource-manager/concepts/labels.md) in `<label_name>: <label_value>` format. ||

@@ -1,1 +1,0 @@
-Install Python [venv](https://docs.python.org/3/library/venv.html) to create isolated virtual environments in Python.

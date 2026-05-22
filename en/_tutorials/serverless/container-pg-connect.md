@@ -11,12 +11,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
-
-* {{ mpg-name }} cluster fee: Using computing resources allocated to hosts and disk space (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
-* Fee for using public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* {{ container-registry-name }} fee: Using the storage (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md#rules-storage)).
-* Fee for the {{ serverless-containers-name }} container: Number of container invocations and computing resources (see [{{ container-registry-name }} pricing](../../serverless-containers/pricing.md)).
+* {{ mpg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ container-registry-name }} registry: Storing created Docker images and leveraging the vulnerability scanner (see [{{ container-registry-name }} pricing](../../container-registry/pricing.md)).
+* {{ serverless-containers-name }} container: Number of container calls, idle time of provisioned instances, and computing resources allocated to run the container (see [{{ container-registry-name }} pricing](../../serverless-containers/pricing.md)).
 
 
 ## Getting started {#before-begin}
@@ -102,11 +100,11 @@ The support cost includes:
 
     {% endlist %}
 
-    Specify the following in the script:
+    In your script, specify the following:
 
-    * [FQDN](../../managed-postgresql/operations/connect.md#fqdn) of your cluster host.
+    * [FQDN](../../managed-postgresql/operations/connect/fqdn.md) of your cluster host.
     * Username for connection.
-    * User password.
+    * Password.
     * Name of the database to connect to.
 
 ## Create the Docker image in the registry {#create-image}
@@ -164,11 +162,11 @@ The support cost includes:
     curl --header "Authorization: Bearer $(yc iam create-token)" <invocation_link>
     ```
 
-1. Go to the **{{ ui-key.yacloud.common.logs}}**section and make sure the container logs contain information about the {{ PG }} version.
+1. Go to the **{{ ui-key.yacloud.common.logs }}**section and make sure the container logs contain information about the {{ PG }} version.
 
 ## Delete the resources you created {#clear-out}
 
-To stop paying for the resources you created:
+To stop incurring charges for the resources you created:
 
 1. [Delete the {{ serverless-containers-name }} container](../../serverless-containers/operations/delete.md).
 1. [Delete the Docker images from the registry](../../container-registry/operations/docker-image/docker-image-delete.md).

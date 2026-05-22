@@ -1,6 +1,6 @@
 ---
 title: How to get a list of users in a {{ org-full-name }} pool
-description: Follow this guide to get a list of users in an {{ org-name }} pool.
+description: Follow this guide to get a list of users in an {{ org-full-name }} pool.
 ---
 
 # Getting a list of users in a pool

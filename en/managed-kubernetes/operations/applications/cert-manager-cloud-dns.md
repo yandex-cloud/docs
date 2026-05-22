@@ -37,20 +37,21 @@ The cert-manager application with the {{ dns-full-name }} ACME webhook plugin su
 
 ## Installation from {{ marketplace-full-name }} {#marketplace-install}
 
-1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the {{ managed-k8s-name }} cluster you need and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [cert-manager with the {{ dns-full-name }} ACME webhook plugin](/marketplace/products/yc/cert-manager-webhook-yandex) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
    * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), e.g., `cert-manager-dns-space`. If you leave the default namespace, cert-manager with the {{ dns-full-name }} plugin may work incorrectly.
    * **Application name**: Specify the application name, e.g., `cert-manager`.
    * **Service account key**: Paste the contents of the `key.json` file or create a new [key](../../../iam/concepts/authorization/key.md).
-   * **Folder ID**: Specify the ID of the folder hosting the {{ dns-name }} zone, to confirm domain ownership at the DNS-01 challenge.
+   * **Folder ID**: Specify the ID of the folder the {{ dns-name }} zone resides in to confirm domain ownership during the DNS-01 challenge.
    * **Email address to get notifications from Let's Encrypt**: Specify the email address for Let's Encrypt® notifications.
    * **Let's Encrypt server address**: Select a Let's Encrypt® server address from the list:
      * `https://acme-v02.api.letsencrypt.org/directory`: Primary URL.
      * `https://acme-staging-v02.api.letsencrypt.org/directory`: Test URL.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application status to change to `Deployed`.
 
 ## Installation using a Helm chart {#helm-install}
 

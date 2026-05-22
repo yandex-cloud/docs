@@ -46,7 +46,7 @@ Bacula состоит из нескольких компонентов:
   1. На странице каталога нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите **{{ ui-key.yacloud.iam.folder.dashboard.value_storage }}**.
   1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** введите имя бакета.
   1. Задайте параметры [публичного доступа](../../storage/security/public-access.md) на чтение [объектов](../../storage/concepts/object.md) в бакете, получение списка объектов и чтение настроек бакета — `{{ ui-key.yacloud.storage.bucket.settings.access_value_private }}`.
-  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_class }}** выберите **{{ ui-key.yacloud.storage.bucket.settings.class_value_cold }}**.
+  1. В поле **{{ ui-key.yacloud.storage.bucket.settings.field_class }}** выберите **{{ ui-key.yacloud.storage.value_cold }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
 {% endlist %}
@@ -70,7 +70,7 @@ Bacula состоит из нескольких компонентов:
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **{{ ui-key.yacloud.compute.instances_jsoza }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.button_create }}**.
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите публичный образ [CentOS 7](/marketplace/products/yc/centos-7).

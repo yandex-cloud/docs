@@ -2,7 +2,7 @@
 
 An _organization_ is the highest resource in the {{ yandex-cloud }} resource model hierarchy that consolidates the resources of all other services. Organizations are also used to manage users and their authentication and authorization settings.
 
-When working with {{ yandex-cloud }} services, you create resources, such as managed database clusters, virtual machines, disks, networks, etc. Most services store their resources in [folders](../resource-manager/concepts/resources-hierarchy.md#folder). Folders belong to [clouds](../resource-manager/concepts/resources-hierarchy.md#cloud), and clouds belong to organizations. A cloud may only belong to one organization, but you can move clouds between organizations. [{{ resmgr-full-name }}](../resource-manager/concepts/resources-hierarchy.md) is a service that manages clouds and folders; {{ org-name }} manages organizations. Access to {{ yandex-cloud }} resources is managed via roles.
+When working with {{ yandex-cloud }} services, you create resources, such as managed database clusters, virtual machines, disks, networks, etc. Most services store their resources in [folders](../resource-manager/concepts/resources-hierarchy.md#folder). Folders belong to [clouds](../resource-manager/concepts/resources-hierarchy.md#cloud), and clouds belong to organizations. A cloud may only belong to one organization, but you can move clouds between organizations. [{{ resmgr-full-name }}](../resource-manager/concepts/resources-hierarchy.md) is a service that manages clouds and folders; {{ org-full-name }} manages organizations. Access to {{ yandex-cloud }} resources is managed via roles.
 
 
 {{ yandex-cloud }} organization structure:
@@ -89,7 +89,7 @@ To create a user group:
 
   1. In the window that opens, select the users or [service accounts](../iam/concepts/users/service-accounts.md). Use search, if required.
 
-  1. Click **{{ ui-key.yacloud_org.component.subject-select-dialog.action_apply }}**.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 {% endlist %}
 
@@ -118,7 +118,7 @@ To assign a role to a user:
 
   1. Log in to the [management console]({{ link-console-main }}) with the cloud administrator or owner account.
 
-  1. In the [management console]({{ link-console-main }}), in the top panel, click ![image](../_assets/console-icons/chevron-down.svg) and select the [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud) or [folder](../resource-manager/concepts/resources-hierarchy.md#folder) for which you want to assign a role to a user group.
+  1. In the [management console]({{ link-console-main }}), click ![image](../_assets/console-icons/layout-side-content-left.svg) or ![image](../_assets/console-icons/chevron-down.svg) in the top panel and select the [cloud](../resource-manager/concepts/resources-hierarchy.md#cloud) or [folder](../resource-manager/concepts/resources-hierarchy.md#folder) for which you want to assign a role to a user group.
 
   1. At the top of the screen, go to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab and click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**. In the window that opens:
 
@@ -145,7 +145,7 @@ To assign a role to a user:
 
   1. In the left-hand panel, select ![persons-lock](../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud_org.pages.acl }}**.
 
-  1. At the top right, click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+  1. At the top right, click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
 
   1. Go to the **{{ ui-key.yacloud_org.pages.groups }}** tab and select the [group](../organization/concepts/groups.md) you need or search by group name.
 
@@ -166,9 +166,9 @@ To assign a role to a user:
 
 If your company has a user and access management system (e.g., Active Directory or Google Workspace), you can use it to authenticate employees in {{ org-full-name }}. This way, employees will access {{ yandex-cloud }} services using their corporate accounts.
 
-You do not need to use any third-party user and access management systems. You can create a [user pool](./concepts/user-pools.md) to house [local user](../iam/concepts/users/accounts.md#local) accounts as you create them within your {{ org-name }} [organization](./concepts/organization.md).
+You do not need to use any third-party user and access management systems. You can create a [user pool](./concepts/user-pools.md) to house [local user](../iam/concepts/users/accounts.md#local) accounts as you create them within your {{ org-full-name }} [organization](./concepts/organization.md).
 
-Moreover, {{ org-name }} can act as an identity provider for you to authenticate your users with third-party systems and solutions using [apps](./concepts/applications.md).
+Moreover, {{ org-full-name }} can act as an identity provider for you to authenticate your users with third-party systems and solutions using [apps](./concepts/applications.md).
 
 For more information, see these sections:
 * [{#T}](./concepts/add-federation.md)
@@ -193,3 +193,4 @@ For more information, see [{{ oslogin }}](./concepts/os-login.md).
 * [Managing user groups](./operations/manage-groups.md)
 * [Managing identity federations](./operations/manage-federations.md)
 * [Access control for user groups with different roles](./tutorials/user-group-access-control.md)
+* [{#T}](../security/domains/iam-checklist.md)

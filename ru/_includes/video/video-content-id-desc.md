@@ -1,5 +1,1 @@
-Где:
-* `https://runtime.video.cloud.yandex.net/player/...` — ссылка на воспроизводимый контент, например `https://runtime.video.cloud.yandex.net/player/video/vplvmyqsxi7dlwndvb4y`. Подробнее см. в разделах:
-  * [{#T}](../../video/operations/video/get-link.md)
-  * [{#T}](../../video/operations/streams/get-link.md)
-  * [{#T}](../../video/operations/playlists/get-link.md)
+Где `https://runtime.video.cloud.yandex.net/player/...` — ссылка на [видео](../../video/operations/video/get-link.md), [трансляцию](../../video/operations/streams/get-link.md) или [плейлист](../../video/operations/playlists/get-link.md).

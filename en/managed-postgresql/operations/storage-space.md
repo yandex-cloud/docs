@@ -1,11 +1,11 @@
 ---
 title: '{{ mpg-name }} disk space management'
-description: When the storage usage exceeds 97%, the host automatically switches to read-only mode. You can monitor storage usage, configure its automatic scaling, and disable read-only mode.
+description: When the storage is more than 97% full, the host automatically switches to read-only mode. You can monitor storage usage, configure its automatic scaling, and disable read-only mode.
 ---
 
 # Managing disk space
 
-When the [storage](../concepts/storage.md) usage exceeds 97%, the host automatically switches to read-only mode.
+When the [storage](../concepts/storage.md) is more than 97% full, the host automatically switches to read-only mode.
 To prevent issues with database write operations, use one of the following methods:
 
 
@@ -14,13 +14,13 @@ To prevent issues with database write operations, use one of the following metho
 
 * [Manually disable read-only mode for the cluster](#read-only-solutions) and free up the storage space by deleting non-essential data.
 * [Increase the storage size](#change-disk-size) to automatically disable read-only mode. You can also change the disk type.
-* [Set up storage autoscaling](#disk-size-autoscale).
+* [Configure automatic storage expansion](#disk-size-autoscale).
 
 
-## Set up alerts in {{ monitoring-full-name }} {#set-alert}
+## Setting up alerts in {{ monitoring-full-name }} {#set-alert}
 
 1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
-1. Select **{{ ui-key.yacloud_monitoring.services.label_postgresql }}**.
+1. Select the **{{ ui-key.yacloud_monitoring.services.label_postgresql }}** service dashboard.
 1. [Create a notification channel](../../monitoring/operations/alert/create-channel.md).
 1. [Create an alert](../../monitoring/operations/alert/create-alert.md) with the following settings:
 
@@ -55,7 +55,7 @@ Take measures to prevent free disk space from being fully depleted during the fo
 
 To disable read-only mode:
 
-1. [Connect to the database](../operations/connect.md) using your preferred method.
+1. [Connect to the database](../operations/connect/index.md) using your preferred method.
 
 1. Start a transaction and run the following statement within it:
 
@@ -76,24 +76,24 @@ To disable read-only mode:
 > COMMIT;
 > ```
 
-## Changing the disk type and increasing the storage size {#change-disk-size}
+## Changing the disk type and expanding the storage size {#change-disk-size}
 
 {% include [settings-dependence-on-storage](../../_includes/mdb/mpg/settings-dependence-on-storage.md) %}
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
 
+{% include [storage-resize-process](../../_includes/mdb/mpg/storage-resize-process.md) %}
 
-{% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
-
+{% include [local-ssd-steal](../../_includes/mdb/mpg/note-local-ssd-disk.md) %}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    To change the disk type and increase the storage size for a cluster:
+    To change the disk type and expand the storage size for a cluster:
 
     1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-postgresql }}**.
-    1. Select your cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
+    1. Select the cluster and click ![image](../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
         * Select the [disk type](../concepts/storage.md).
@@ -107,9 +107,9 @@ To disable read-only mode:
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To change the disk type and increase the storage size for a cluster:
+    To change the disk type and expand the storage size for a cluster:
 
-    1. See the description of the CLI command for updating a cluster:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-pg }} cluster update --help
@@ -125,13 +125,13 @@ To disable read-only mode:
 
 - {{ TF }} {#tf}
 
-    To change the disk type and increase the storage size for a cluster:
+    To change the disk type and expand the storage size for a cluster:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of configurable {{ mpg-name }} cluster fields, refer to the [{{ TF }} provider guides]({{ tf-provider-mpg }}).
+        For a complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
 
     1. In the {{ mpg-name }} cluster description, update the `disk_type_id` and `disk_size` attributes in the `config.resources` block:
 
@@ -152,7 +152,7 @@ To disable read-only mode:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -160,11 +160,11 @@ To disable read-only mode:
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
+  1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -194,18 +194,18 @@ To disable read-only mode:
          * `diskTypeId`: [Disk type](../concepts/storage.md).
          * `diskSize`: New storage size in bytes.
 
-     You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
+     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
+  1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -244,17 +244,19 @@ To disable read-only mode:
          * `disk_type_id`: [Disk type](../concepts/storage.md).
          * `disk_size`: New storage size in bytes.
 
-     You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure your request was successful.
 
 {% endlist %}
 
-## Setting up storage autoscaling {#disk-size-autoscale}
+## Set up automatic storage expansion {#disk-size-autoscale}
 
 {% include [settings-dependence-on-storage](../../_includes/mdb/mpg/settings-dependence-on-storage.md) %}
 
 {% include [note-increase-disk-size](../../_includes/mdb/note-increase-disk-size.md) %}
+
+{% include [storage-resize-process](../../_includes/mdb/mpg/storage-resize-process.md) %}
 
 
 {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
@@ -287,9 +289,9 @@ To disable read-only mode:
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To set up storage autoscaling:
+    To set up automatic storage expansion:
 
-    1. See the description of the CLI command for updating a cluster:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-pg }} cluster update --help
@@ -302,8 +304,8 @@ To disable read-only mode:
         ```bash
         {{ yc-mdb-pg }} cluster update <cluster_ID_or_name> \
             --disk-size-autoscaling disk-size-limit=<maximum_storage_size_in_bytes>,`
-                                   `planned-usage-threshold=<scheduled_increase_percentage>,`
-                                   `emergency-usage-threshold=<immediate_increase_percentage>
+                                   `planned-usage-threshold=<scheduled_expansion_percentage>,`
+                                   `emergency-usage-threshold=<immediate_expansion_percentage>
         ```
 
         If you have configured storage scaling during a maintenance window, set the maintenance schedule.
@@ -314,9 +316,9 @@ To disable read-only mode:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
-        For a complete list of configurable {{ mpg-name }} cluster fields, refer to the [{{ TF }} provider guides]({{ tf-provider-mpg }}).
+        For a complete list of configurable {{ mpg-name }} cluster fields, see [this {{ TF }} provider guide]({{ tf-provider-mpg }}).
 
     1. Add the `disk_size_autoscaling` section to the `config` block:
 
@@ -324,7 +326,7 @@ To disable read-only mode:
         
         {% note warning %}
         
-        If you specify both thresholds, make sure `emergency_usage_threshold` is greater than or equal to `planned_usage_threshold`.
+        If you specify both thresholds, `emergency_usage_threshold` must not be less than `planned_usage_threshold`.
         
         {% endnote %}
     
@@ -334,7 +336,7 @@ To disable read-only mode:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm resource changes.
+    1. Confirm updating the resources.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -342,11 +344,11 @@ To disable read-only mode:
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
+  1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
      {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -360,8 +362,8 @@ To disable read-only mode:
                  "updateMask": "configSpec.diskSizeAutoscaling,maintenanceWindow",
                  "configSpec": {
                    "diskSizeAutoscaling": {
-                     "plannedUsageThreshold": "<threshold_for_scheduled_increase_in_percent>",
-                     "emergencyUsageThreshold": "<threshold_for_immediate_increase_in_percent>",
+                     "plannedUsageThreshold": "<scheduled_expansion_threshold_in_percent>",
+                     "emergencyUsageThreshold": "<immediate_expansion_threshold_in_percent>",
                      "diskSizeLimit": "<maximum_storage_size_in_bytes>"
                    }
                  },
@@ -376,7 +378,7 @@ To disable read-only mode:
 
      Where:
 
-     * `updateMask`: Comma-separated string of settings you want to update.
+     * `updateMask`: Comma-separated string of settings to update.
 
        Here we provide only the `configSpec.diskSizeAutoscaling` and `maintenanceWindow` settings.
 
@@ -384,29 +386,29 @@ To disable read-only mode:
        
        {% include [disk-size-autoscaling-rest](../../_includes/mdb/mpg/disk-size-autoscaling-rest.md) %}
 
-         Use a value between `0` and `100`. The default value is `0` (autoscale disabled). The value of this setting must be greater than or equal to `plannedUsageThreshold`.
+         Use a value between `0` and `100`%. The default value is `0`, i.e., automatic expansion is disabled. The value of this setting must be greater than or equal to `plannedUsageThreshold`.
 
-       * `diskSizeLimit`: Maximum storage size, in bytes, that can be set when one of the specified storage usage thresholds is met.
+       * `diskSizeLimit`: Maximum storage size, in bytes, to set when storage usage reaches one of the specified thresholds.
 
         To learn more about storage scaling rules, see [this section](../concepts/storage.md#auto-rescale).
 
-     * `maintenanceWindow`: Maintenance window schedule. This setting is required only if `plannedUsageThreshold` is set. It contains the following subsettings:
+     * `maintenanceWindow`: Maintenance window schedule. This setting is required only if `plannedUsageThreshold` is set. Contains the following parameters:
 
        * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
-       * `hour`: Hour of the day, in `HH` format, for scheduled maintenance. The allowed values range from `1` to `24`.
+       * `hour`: Hour of day, in `HH` format, for scheduled maintenance. The possible values range from `1` to `24`.
 
-     You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
   1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
-  1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
+  1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
      {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -427,8 +429,8 @@ To disable read-only mode:
              },
              "config_spec": {
                "disk_size_autoscaling": {
-                 "planned_usage_threshold": "<threshold_for_scheduled_increase_in_percent>",
-                 "emergency_usage_threshold": "<threshold_for_immediate_increase_in_percent>",
+                 "planned_usage_threshold": "<scheduled_expansion_threshold_in_percent>",
+                 "emergency_usage_threshold": "<immediate_expansion_threshold_in_percent>",
                  "disk_size_limit": "<maximum_storage_size_in_bytes>"
                }
              },
@@ -445,7 +447,7 @@ To disable read-only mode:
 
      Where:
 
-     * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+     * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
        Here we provide only the `config_spec.disk_size_autoscaling` and `maintenance_window` settings.
 
@@ -455,12 +457,12 @@ To disable read-only mode:
 
         To learn more about storage scaling rules, see [this section](../concepts/storage.md#auto-rescale).
 
-     * `maintenance_window`: Maintenance window schedule. This setting is required only if `planned_usage_threshold` is set. It contains the following subsettings:
+     * `maintenance_window`: Maintenance window schedule. This setting is required only if `planned_usage_threshold` is set. Contains the following parameters:
 
        * `day`: Day of the week, in `DDD` format, for scheduled maintenance.
-       * `hour`: Hour of the day, in `HH` format, for scheduled maintenance. The allowed values range from `1` to `24`.
+       * `hour`: Hour of day, in `HH` format, for scheduled maintenance. The possible values range from `1` to `24`.
 
-     You can get the cluster ID from the [folder’s cluster list](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
   1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.postgresql.v1.Cluster) to make sure your request was successful.
 

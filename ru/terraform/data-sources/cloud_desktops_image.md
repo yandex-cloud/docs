@@ -21,9 +21,15 @@ data "yandex_cloud_desktops_image" "desktop_image_by_folder_and_name" {
 
 ## Arguments & Attributes Reference
 
+- `description` (*Read-Only*) (String). Description of the image.
 - `folder_id` (String). ID of the folder that the image belongs to.
 - `id` (String). ID of the image to get.
-- `labels` (*Read-Only*) (Map Of String). Description of the image.
+- `labels` (*Read-Only*) (Map Of String). Labels of the image.
 - `name` (String). Name of the image.
+- `timeouts` [Block]. 
+  - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+  - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+  - `read` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Read operations occur during any refresh or planning operation when refresh is enabled.
+  - `update` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 
 

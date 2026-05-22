@@ -41,20 +41,6 @@ items:
         href: operations/tls-proxy.md
   - name: Аутентификация в API
     href: auth.md
-  - name: Справочник API gRPC (англ.)
-    items:
-      - name: Синтез речи
-        items:
-          - name: Overview
-            href: api-ref/tts/v3/grpc/index.md
-          - name: Synthesizer
-            href: api-ref/tts/v3/grpc/tts_service.md
-      - name: Потоковое распознавание
-        items:
-          - name: Overview
-            href: api-ref/stt/v3/grpc/index.md
-          - name: Recognizer
-            href: api-ref/stt/v3/grpc/stt_service.md
   - name: Правила тарификации
     href: pricing.md
   - name: Релизы {{ sk-hybrid-name }}

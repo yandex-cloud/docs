@@ -1,22 +1,22 @@
 # Using pgcrypto in {{ mgp-name }}
 
-The [pgcrypto]({{ pg-docs }}/static/pgcrypto.html) extension provides cryptographic functions that allow database administrators to store certain columns of data in encrypted form.
+The [pgcrypto]({{ pg-docs }}/static/pgcrypto.html) extension provides cryptographic functions that allow database administrators to encrypt specific table columns.
 
 ## Installing the pgcrypto extension in a {{ GP }} cluster {#pgcrypto-install}
 
-1. [Connect](../connect.md) to a database as owner or user with the `CREATE` permission to the database and run the query below:
+1. [Connect](../connect/index.md) to the database as the owner or a user with the `CREATE` permission in the database and run this command:
 
-   ```sql
-   CREATE EXTENSION pgcrypto;
-   ```
+    ```sql
+    CREATE EXTENSION pgcrypto;
+    ```
 
-1. Make sure that the extension is installed:
+1. Make sure the extension has been installed:
 
-   ```sql
-   SELECT extname FROM pg_extension;
-   ```
+    ```sql
+    SELECT extname FROM pg_extension;
+    ```
 
-For more information about the `pgcrypto` extension, see the [official documentation]({{ pg-docs }}/static/pgcrypto.html).
+To learn more about the `pgcrypto` extension, see its [official guide]({{ pg-docs }}/static/pgcrypto.html).
 
 {% include [example-pgcrypto](../../../_includes/mdb/mgp-mpg-example-pgcrypto.md) %}
 

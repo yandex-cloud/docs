@@ -1,4 +1,4 @@
-`--storage`: Disk partitioning settings. This is an optional parameter. Possible settings:
+`--storage`: [Disk](../../../baremetal/concepts/disks/disk-types.md) partitioning settings. This is an optional setting. Possible settings:
 
 * `partition`: Disk partition:
   
@@ -11,4 +11,4 @@
   * `id`: Disk number.
   * `size-gib`: Disk size in GB.
   * `type`: Disk type.
-* `raid-type`: RAID array level.
+* `raid-type`: [RAID array level](../../../baremetal/concepts/disks/raid.md#levels).

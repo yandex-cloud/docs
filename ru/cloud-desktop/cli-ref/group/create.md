@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/desktops/cli-ref/group/create
 editable: false
 ---
 
@@ -28,6 +29,9 @@ Desktop name. ||
 || `--description` | `string`
 
 Desktop description. ||
+|| `--labels` | `key=value[,key=value...]`
+
+Desktop group labels. ||
 || `--resource-spec` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
 
 Resources specification for desktop group.

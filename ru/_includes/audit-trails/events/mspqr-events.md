@@ -8,5 +8,7 @@
 `DeleteClusterHosts` | Удаление хостов из кластера
 `RescheduleMaintenance` | Перенос запланированного технического обслуживания
 `RestoreCluster` | Создание нового кластера из резервной копии
+`StartCluster` | Запуск кластера
+`StopCluster` | Остановка кластера
 `UpdateCluster` | Изменение кластера
 `UpdateClusterHosts` | Изменение хостов в кластере

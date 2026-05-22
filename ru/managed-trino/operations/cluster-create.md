@@ -21,7 +21,7 @@ keywords:
 * [logging.editor](../../logging/security/index.md#logging-editor) — чтобы управлять настройками логирования кластера;
 * [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user) — чтобы привязать сервисный аккаунт к кластеру.
 
-[Сервисному аккаунту](../../iam/concepts/users/service-accounts.md) кластера должны быть назначены роли `managed-trino.integrationProvider` и `storage.editor`. Это даст кластеру нужные права для работы с пользовательскими ресурсами. Подробнее см. в разделе [Имперсонация](../concepts/impersonation.md).
+[Сервисному аккаунту](../../iam/concepts/users/service-accounts.md) кластера должны быть назначены роли `managed-trino.integrationProvider` и `storage.editor`. Это даст кластеру нужные права для работы с пользовательскими ресурсами. Подробнее в разделе [Имперсонация](../concepts/impersonation.md).
 
 О назначении ролей читайте в [документации {{ iam-full-name }}](../../iam/operations/roles/grant.md).
 
@@ -52,7 +52,11 @@ keywords:
 
             {% include [change-version-note](../../_includes/managed-trino/change-version-note.md) %}
 
-    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}** выберите [сеть](../../vpc/operations/network-create.md), [подсеть](../../vpc/operations/subnet-create.md) и [группу безопасности](../../vpc/concepts/security-groups.md) для кластера.
+    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**:
+
+        1. Выберите [сеть](../../vpc/operations/network-create.md), [подсеть](../../vpc/operations/subnet-create.md) и [группу безопасности](../../vpc/concepts/security-groups.md) для кластера.
+        1. (Опционально) Включите параметр **{{ ui-key.yacloud.trino.label_private-access }}**, чтобы кластер был доступен только через [сервисное подключение](../concepts/network.md#private-endpoint).
+
     1. В блоке **Политика перезапросов** задайте параметры [отказоустойчивого выполнения запросов](../concepts/retry-policy.md):
         1. Выберите **Тип объекта для перезапроса**:
            * **Задача** — в рамках запроса повторно выполняется промежуточное задание, вызвавшее сбой воркера.
@@ -61,8 +65,9 @@ keywords:
         1. (Опционально) В поле **Параметры хранилища** задайте дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах см. в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
     1. Задайте конфигурацию [координатора](../concepts/index.md#coordinator) и [воркеров](../concepts/index.md#workers).
-    1. (Опционально) В блоке **{{ ui-key.yacloud.trino.title_catalogs }}** добавьте [каталоги Trino](../concepts/index.md#catalog). Вы можете сделать это как при создании кластера, так и позже. Подробнее см. в разделе [Создание каталога {{ TR }}](catalog-create.md).
-    1. (Опционально) В блоке **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}** задайте [правила доступа к объектам кластера](../concepts/access-control.md). Подробнее см. в разделе [{#T}](access-control.md).
+    1. (Опционально) В блоке **{{ ui-key.yacloud.trino.title_catalogs }}** добавьте [каталоги Trino](../concepts/index.md#catalog). Вы можете сделать это как при создании кластера, так и позже. Подробнее в разделе [Создание каталога {{ TR }}](catalog-create.md).
+    1. (Опционально) В блоке **{{ ui-key.yacloud.trino.ClusterView.RBACView.label_rbac-settings_o2F64 }}** задайте [правила доступа к объектам кластера](../concepts/access-control.md). Подробнее в разделе [{#T}](../operations/access-control.md).
+    1. (Опционально) В блоке **{{ ui-key.yacloud.trino.section_resource-management }}** задайте [конфигурацию ресурсных групп](../concepts/access-control.md). Подробнее в разделе [{#T}](manage-resource-groups.md).
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_additional }}**:
 
         1. (Опционально) Включите защиту от удаления кластера.
@@ -141,6 +146,7 @@ keywords:
            --service-account-id <идентификатор_сервисного_аккаунта> \
            --subnet-ids <список_идентификаторов_подсетей> \
            --security-group-ids <список_идентификаторов_групп_безопасности> \
+           --private-access \
            --coordinator resource-preset-id=<класс_вычислительных_ресурсов> \
            --worker resource-preset-id=<класс_вычислительных_ресурсов>,count=<количество_воркеров> \
            --deletion-protection \
@@ -157,6 +163,7 @@ keywords:
         * `--service-account-id` — идентификатор сервисного аккаунта.
         * `--subnet-ids` — список идентификаторов подсетей.
         * `--security-group-ids` — список идентификаторов групп безопасности.
+        * `--private-access` — приватный доступ к кластеру. Используйте этот параметр, чтобы кластер был доступен только через [сервисное подключение](../concepts/network.md#private-endpoint).
         * `--coordinator` — конфигурация [координатора](../concepts/index.md#coordinator):
 
             * `resource-preset-id` — [класс вычислительных ресурсов](../concepts/instance-types.md) координатора.
@@ -222,9 +229,23 @@ keywords:
             * `task` — в рамках запроса повторно выполняется промежуточное задание, вызвавшее сбой воркера.
             * `query` — повторно выполняются все [этапы запроса](../concepts/index.md#query-execution), в котором произошел сбой воркера.
 
-        * `--retry-policy-additional-properties` — дополнительные параметры повторного выполнения запросов в формате `<ключ>=<значение>`. Подробнее о параметрах см. в [документации {{ TR }}]({{ tr.docs}}/admin/fault-tolerant-execution.html#advanced-configuration).
+        * `--retry-policy-additional-properties` — дополнительные параметры повторного выполнения запросов в формате `<ключ>=<значение>`. Подробнее о параметрах см. в [документации {{ TR }}]({{ tr.docs }}/admin/fault-tolerant-execution.html#advanced-configuration).
         * `--retry-policy-exchange-manager-service-s3` — использование S3-хранилища для записи данных при перезапросах.
-        * `--retry-policy-exchange-manager-additional-properties` — дополнительные параметры хранилища в формате `<ключ>=<значение>`. Подробнее о параметрах см. в [документации {{ TR }}]({{ tr.docs}}/admin/fault-tolerant-execution.html#id1).
+        * `--retry-policy-exchange-manager-additional-properties` — дополнительные параметры хранилища в формате `<ключ>=<значение>`. Подробнее о параметрах см. в [документации {{ TR }}]({{ tr.docs }}/admin/fault-tolerant-execution.html#id1).
+
+    1. Чтобы добавить настройки выполнения запросов и выделения ресурсов для запросов, задайте параметр:
+
+        ```bash
+        {{ yc-mdb-tr }} cluster create <имя_кластера> \
+           ...
+           --query-properties <список_настроек>
+        ```
+
+        Где:
+
+        * `--query-properties` — настройки выполнения запросов и выделения ресурсов кластера для запросов в формате `<ключ>=<значение>`.
+
+          Подробнее о [настройках выделения ресурсов кластера для запросов]({{ tr.docs }}/admin/properties-resource-management.html) и о [настройках выполнения запросов]({{ tr.docs }}/admin/properties-query-management.html).
 
     1. Чтобы настроить время технического обслуживания (в т. ч. для выключенных кластеров), передайте нужное значение в параметре `--maintenance-window`:
 
@@ -239,6 +260,16 @@ keywords:
         Где `type` — тип технического обслуживания:
 
         {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
+
+    1. Чтобы задать [правила доступа к объектам кластера](../concepts/access-control.md), создайте файл `access_control.yaml` с описанием правил и передайте его имя в параметре `--access-control-from-file`:
+
+        ```bash
+        {{ yc-mdb-tr }} cluster create <имя_кластера> \
+           ...
+           --access-control-from-file access_control.yaml
+        ```
+
+       Подробнее в разделе [{#T}](../operations/access-control.md).
 
 - {{ TF }} {#tf}
 
@@ -260,7 +291,7 @@ keywords:
 
         {% include [Terraform cluster parameters description](../../_includes/managed-trino/terraform/cluster-parameters.md) %}
 
-    1. Чтобы создать в кластере [каталоги {{ TR }}](../concepts/index.md#catalog), добавьте в конфигурационный файл нужное количество ресурсов `yandex_trino_catalog`. Вы можете сделать это как при создании кластера, так и позже. Подробнее см. в разделе [Создание каталога {{ TR }}](catalog-create.md).
+    1. Чтобы создать в кластере [каталоги {{ TR }}](../concepts/index.md#catalog), добавьте в конфигурационный файл нужное количество ресурсов `yandex_trino_catalog`. Вы можете сделать это как при создании кластера, так и позже. Подробнее в разделе [Создание каталога {{ TR }}](catalog-create.md).
 
     1. Чтобы включить отправку логов {{ TR }} в сервис [{{ cloud-logging-full-name }}](../../logging/), добавьте к описанию кластера блок `logging`:
 
@@ -270,6 +301,10 @@ keywords:
 
         {% include [Terraform retry policy parameters description](../../_includes/managed-trino/terraform/retry-policy-parameters.md) %}
 
+    1. Чтобы задать настройки выполнения запросов и выделения ресурсов для запросов, добавьте к описанию кластера блок `query_properties`:
+
+        {% include [Terraform query properties description](../../_includes/managed-trino/terraform/query-properties.md) %}
+
     1. Чтобы настроить время технического обслуживания (в т. ч. для выключенных кластеров), добавьте к описанию кластера блок `maintenance_window`:
 
         {% include [Terraform maintenance window parameters description](../../_includes/managed-trino/terraform/maintenance-window-parameters.md) %}
@@ -278,6 +313,8 @@ keywords:
 
        {% include [tls description](../../_includes/managed-trino/terraform/tls.md) %}
 
+    1. Чтобы задать [правила доступа к объектам кластера](../concepts/access-control.md), добавьте к описанию кластера ресурс `yandex_trino_access_control`, содержащий список правил. Подробнее в разделе [{#T}](../operations/access-control.md).
+
     1. Проверьте корректность настроек.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
@@ -285,7 +322,7 @@ keywords:
     1. Подтвердите изменение ресурсов.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
-        
+
     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-mtr }}).
 
 - REST API {#api}
@@ -336,13 +373,25 @@ keywords:
               "additionalProperties": {<дополнительные_параметры_перезапросов>}
             },
             "version": "<версия>",
+            "resourceManagement": {
+              "query": {
+                "properties": {
+                  <настройки_выполнения_запросов>,
+                  <настройки_выделения_ресурсов_кластера_для_запросов>
+                }
+              }
+            },
             "tls": {
               "trustedCertificates": [ <список_сертификатов> ]
-            }
+            },
+            "accessControl": { <конфигурация_правил_доступа> }
           },
           "network": {
             "subnetIds": [ <список_идентификаторов_подсетей> ],
-            "securityGroupIds": [ <список_идентификаторов_групп_безопасности> ]
+            "securityGroupIds": [ <список_идентификаторов_групп_безопасности> ],
+            "privateAccess": {
+              "enabled": "<включить_приватный_доступ_к_кластеру>"
+            }
           },
           "deletionProtection": "<защита_от_удаления>",
           "serviceAccountId": "<идентификатор_сервисного_аккаунта>",
@@ -393,10 +442,14 @@ keywords:
                * `exchangeManager.additionalProperties` – дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах см. в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
                * `additionalProperties` – дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах см. в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
-            
+
             * `version` — версия {{ TR }}.
 
                {% include [change-version-note](../../_includes/managed-trino/change-version-note.md) %}
+
+            * `resourceManagement.query.properties` — настройки выполнения запросов и выделения ресурсов кластера для запросов в формате `ключ: значение`.
+
+              Подробнее о [настройках выделения ресурсов кластера для запросов]({{ tr.docs }}/admin/properties-resource-management.html) и о [настройках выполнения запросов]({{ tr.docs }}/admin/properties-query-management.html).
 
             * `tls` — параметры [TLS](../../glossary/tls.md).
 
@@ -408,10 +461,13 @@ keywords:
                
                {% include notitle [tls-pg-ch](../../_includes/managed-trino/cluster-settings.md#tls-pg-ch) %}
 
+            * `accessControl` — конфигурация [правил доступа к объектам кластера](../concepts/access-control.md). Подробнее в разделе [{#T}](../operations/access-control.md).
+
         * `network` — сетевые настройки:
 
             * `subnetIds` — список идентификаторов подсетей.
             * `securityGroupIds` — список идентификаторов групп безопасности.
+            * `privateAccess.enabled` — приватный доступ к кластеру: `true` или `false`. Включите этот параметр, чтобы кластер был доступен только через [сервисное подключение](../../managed-trino/concepts/network.md#private-endpoint).
 
         * `deletionProtection` — позволяет включить защиту кластера от непреднамеренного удаления. Возможные значения: `true` или `false`.
 
@@ -489,13 +545,25 @@ keywords:
               "additional_properties": {<дополнительные_параметры_перезапросов>}
             },
             "version": "<версия>",
+            "resource_management": {
+              "query": {
+                "properties": {
+                  <настройки_выполнения_запросов>,
+                  <настройки_выделения_ресурсов_кластера_для_запросов>
+                }
+              }
+            },
             "tls": {
               "trusted_certificates": [ <список_сертификатов> ]
-            }
+            },
+            "access_control": { <конфигурация_правил_доступа> }
           },
           "network": {
             "subnet_ids": [ <список_идентификаторов_подсетей> ],
-            "security_group_ids": [ <список_идентификаторов_групп_безопасности> ]
+            "security_group_ids": [ <список_идентификаторов_групп_безопасности> ],
+            "private_access": {
+              "enabled": "<включить_приватный_доступ_к_кластеру>"
+            }
           },
           "deletion_protection": "<защита_от_удаления>",
           "service_account_id": "<идентификатор_сервисного_аккаунта>",
@@ -546,10 +614,14 @@ keywords:
                * `exchange_manager.additional_properties` – дополнительные параметры хранилища Exchange Manager в формате `ключ: значение`. Подробнее о параметрах см. в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#id1).
 
                * `additional_properties` – дополнительные параметры в формате `ключ: значение`. Подробнее о параметрах см. в [документации {{ TR }}](https://trino.io/docs/current/admin/fault-tolerant-execution.html#advanced-configuration).
-            
+
             * `version` — версия {{ TR }}.
 
                {% include [change-version-note](../../_includes/managed-trino/change-version-note.md) %}
+
+            * `resource_management.query.properties` — настройки выполнения запросов и выделения ресурсов кластера для запросов в формате `ключ: значение`.
+
+              Подробнее о [настройках выделения ресурсов кластера для запросов]({{ tr.docs }}/admin/properties-resource-management.html) и о [настройках выполнения запросов]({{ tr.docs }}/admin/properties-query-management.html).
 
             * `tls` — параметры [TLS](../../glossary/tls.md).
 
@@ -558,13 +630,16 @@ keywords:
                * `trusted_certificates` — список сертификатов, разделенных запятой.
 
                   {% include notitle [tls](../../_includes/managed-trino/cluster-settings.md#cert-list) %}
-               
+
                {% include notitle [tls-pg-ch](../../_includes/managed-trino/cluster-settings.md#tls-pg-ch) %}
+
+            * `access_control` — конфигурация [правил доступа к объектам кластера](../concepts/access-control.md). Подробнее в разделе [{#T}](../operations/access-control.md).
 
         * `network` — сетевые настройки:
 
             * `subnet_ids` — список идентификаторов подсетей.
             * `security_group_ids` — список идентификаторов групп безопасности.
+            * `private_access.enabled` — приватный доступ к кластеру: `true` или `false`. Включите этот параметр, чтобы кластер был доступен только через [сервисное подключение](../../managed-trino/concepts/network.md#private-endpoint).
 
         * `deletion_protection` — позволяет включить защиту кластера от непреднамеренного удаления. Возможные значения: `true` или `false`.
 

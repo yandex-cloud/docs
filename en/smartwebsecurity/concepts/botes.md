@@ -4,7 +4,7 @@ Web resources process a significant portion of bot traffic. Some of these bots a
 
 {{ sws-name }} offers flexible protection and bot traffic filtering tools:
 
-* List of verified bot categories by intended use or type of activity (AcademicResearchBot, AISearchBot).
+* List of verified bot categories based on their purpose or nature of action (AcademicResearchBot, AISearchBot).
 * Up-to-date lists of legitimate bots used by various services and companies (e.g., Yandex, Googlebot, or Bing).
 * Specific attribute to distinguish a verified bot.
 * Configurable bot score thresholds from 0 to 100 for rule customization.
@@ -96,9 +96,9 @@ Below is a list of bots used by various businesses for content indexing, deliver
 1. `MicrosoftPreview`: Generates page previews for Microsoft services.
 1. `Amazonbot`: Amazon search bot used to improve service quality, e.g., helping Alexa to provide more accurate answers to customer questions.
 1. `Applebot`: Collects data for tools integrated into user experiences in Appleʼs ecosystem (Spotlight, Siri, Safari), e.g., the search technology.
-1. `FacebookExternalHit`: Collects, caches, and displays website or app metadata, including its title, description, and icon (thumbnail image).
-1. `MetaExternalAgent`: Crawls web content to train AI models and improve products through direct indexing.
-1. `Meta‑ExternalFetcher`: Enables Meta AI to provide users with up-to-date information beyond its training data.
+1. `FacebookExternalHit`^1^: Collects, caches, and displays website or app metadata, including its title, description, and icon (thumbnail image).
+1. `MetaExternalAgent`^2^: Crawls web content to train AI models and improve products through direct indexing.
+1. `Meta‑ExternalFetcher`^2^: Enables Meta AI to provide users with up-to-date information beyond its training data.
 1. `Pinterestbot`: Crawls publicly accessible websites to index content and drive traffic, checks that pin data, e.g., its price and title, is up-to-date, and removes broken links.
 1. `Qwantbot`: Indexes web content for Qwant.
 1. `CCBot`: Archives web pages for `commoncrawl.org`.
@@ -146,17 +146,20 @@ Below is a list of bots used by various businesses for content indexing, deliver
 1. `SvnBot`: Monitors site availability.
 1. `TestomatoBot`: Monitors site availability.
 1. `PingAdminBot`: Monitors site availability.
-1. `Meta‑WebIndexerBot`: Crawls web resources to improve the quality of Meta AI search results for users.
-1. `Meta‑ExternalAdsBot`: Crawls web content for use cases such as improving advertising and other business-related products and services.
+1. `Meta‑WebIndexerBot`^2^: Crawls web resources to improve the quality of Meta AI search results for users.
+1. `Meta‑ExternalAdsBot`^2^: Crawls web content for use cases such as improving advertising and other business-related products and services.
 
+
+^1^ Facebook is a service by  Meta, Inc., an organization declared extremist.
+^2^ Meta, Inc. has been declared extremist and banned in the Russian Federation.
 
 {% endcut %}
 
 ## Bot score {#configuration}
 
-To configure custom rules for your traffic, you can define filtering rules based on bot score.
+To configure custom rules for your traffic, you can define filtering rules based on the bot score.
 
-{{ sws-name }} assigns traffic a score from `0` (lowest probability, i.e., human) to `100` (highest probability, i.e., bot).
+{{ sws-name }} assigns traffic a score from `0` (human) to `100` (bot).
 
 The following threshold ranges are used in decision-making: 
 
@@ -171,3 +174,33 @@ In request filtering conditions, specify threshold values using the `>=`, `<=`, 
 For example, `=10`, `>=20 AND <=40`.
 
 For final tuning, apply the rule in `only logging` mode and analyze logs to determine the optimal threshold.
+
+
+## FingerPrints {#fingerprint}
+
+[FingerPrint](https://developers.cloudflare.com/bots/additional-configurations/ja3-ja4-fingerprint/) is an SSL/TLS connection's [JA3](https://github.com/salesforce/ja3) or [JA4](https://github.com/FoxIO-LLC/ja4) fingerprint collected by a load balancer or proxy server. It is generated based on TLS version, cipher sets, extensions, signature algorithms, and other parameters.
+
+The use cases for fingerprints include:
+
+* Blocking traffic with known malware and bot fingerprints.
+* Identifying applications to allow legitimate traffic.
+* Detecting DGA bots that constantly change domains and IP addresses.
+* Reducing the percentage of false positives.
+
+You can use fingerprints to identify certain clients by analyzing their hello packet parameters. Examples of such clients include browsers, applications, and malware. The analysis focuses on parameters the client sends in plain text during the TLS handshake: TLS version, TLS record version, cipher suites, compression parameters, list of extensions, signature algorithms, data encryption algorithm, and hash function.
+
+{{ sws-name }} uses the JA3 and JA4 methods to identify clients:
+
+* JA3 is a passive fingerprinting method based on the first TLS handshake message (ClientHello) the client sends to the server in `TLSVersion,Ciphers,Extensions,EllipticCurves,EllipticCurvePointFormats` format. The original JA3 string is used without MD5 hashing.
+
+    Here are some examples of JA3 fingerprints (strings):
+
+    * `771,4865-4866-4867,0-11-10-35-16-5-13,29-23-24,0`
+    * `771,49195-49199-49196-49200,0-23-65281-10-11,23-24-25,0`
+    * `771,4866-4867-4865,0-11-10-13-16,29-23-24,0`
+
+* JA4 is a suite of network fingerprinting methods for deeper analysis. {{ sws-name }} supports one JA4 option: TLS client fingerprint.
+
+    A JA4 fingerprint is formatted as `a_b_c` with separators marking different parts of the identifier, e.g., `t13d3812h2_8a4b5c6d_7e8f9a0b`. This format enables search and correlation either by the full fingerprint or its individual parts.
+
+There are no fingerprints in unencrypted HTTP traffic or internal traffic of {{ yandex-cloud }} services, and updating the client application may change its fingerprint. Therefore, we recommend you arrange alternative filtering conditions and regularly update security rules.

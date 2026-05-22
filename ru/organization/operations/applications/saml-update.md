@@ -1,6 +1,6 @@
 ---
 title: Как изменить SAML-приложение в {{ org-full-name }}
-description: Следуя данной инструкции, вы сможете изменить SAML-приложение в {{ org-name }}.
+description: Следуя данной инструкции, вы сможете изменить SAML-приложение в {{ org-full-name }}.
 ---
 
 # Изменить SAML-приложение в {{ org-full-name }}
@@ -26,7 +26,38 @@ description: Следуя данной инструкции, вы сможете
 
       1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-description_cjpok }}** измените описание приложения.
       1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-labels_uT2D2 }}** добавьте новые [метки](../../../resource-manager/concepts/labels.md) с помощью кнопки **{{ ui-key.yacloud.component.label-set.button_add-label }}**. Чтобы удалить существующую метку, используйте значок ![xmark](../../../_assets/console-icons/xmark.svg).
-      1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
+    
+  1. В блоке **{{ ui-key.yacloud_org.organization.apps.OauthAppEditForm.section-service-provider_5d85k }}**:
+
+     1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-entity-id_snAsX }}** укажите уникальный идентификатор поставщика услуг (Service Provider). Значение должно совпадать на стороне поставщика услуг и на стороне {{ org-full-name }}.
+     1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-acs-urls_eQcJr }}** укажите URL-адрес, на который {{ org-full-name }} будет отправлять SAML-ответ. Чтобы указать несколько адресов, нажмите **{{ ui-key.yacloud_org.organization.apps.SamlAppAcsUrlsField.add-acs-url_eMunC }}**. ACS URL должен соответствовать схеме `https`. Использовать протокол без шифрования допускается только в целях тестирования на локальном хосте (значения `http://127.0.0.1` и `http://localhost`).
+     1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-logout-url_sLuRl }}** укажите адрес, по которому поставщик удостоверений отправляет SAML-ответ после успешного выхода пользователя из системы.
+     1. В поле **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-signature-mode_ipXQ7 }}** укажите элементы SAML-ответа, которые будут подписываться электронной подписью:
+
+       * `{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.signature-mode-assertions_thJgN }}` — только передаваемые атрибуты пользователя;
+       * `{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.signature-mode-response_x7SKD }}` — весь SAML-ответ целиком;
+       * `{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.signature-mode-response-and-assertions_u2j6T }}` — целиком весь SAML-ответ и (отдельно) передаваемые атрибуты.
+
+  1. (Опционально) Активируйте опцию **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.RequestSigningSection.field-request-signing }}**, чтобы принимать только запросы, подписанные одним из добавленных сертификатов. Добавьте сертификаты:
+
+     1. Нажмите **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.EncryptResponseSection.add-cert-action }}**.
+     1. В открывшемся окне выберите способ добавления и прикрепите файл или укажите текст вашего сертификата.
+     1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+
+     Для работы функциональности требуется загрузить сертификат с открытым ключом, полученный у поставщика услуг, который будет использоваться для проверки подписи.
+
+  1. (Опционально) Активируйте опцию **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.EncryptResponseSection.field-encrypt-response }}**, чтобы SAML-ответ шифровался с помощью выбранного сертификата:
+
+     1. Выберите **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.EncryptResponseSection.field-encode-data-algo }}** и **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.EncryptResponseSection.field-encode-key-algo }}**.
+     1. Добавьте сертификат:
+
+        1. Нажмите **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.EncryptResponseSection.add-cert-action }}**.
+        1. В открывшемся окне выберите способ добавления и прикрепите файл или укажите текст вашего сертификата.
+        1. Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+
+     Для работы функциональности требуется загрузить сертификат с открытым ключом, полученный у поставщика услуг, который будет использоваться для шифрования.
+
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -150,8 +181,8 @@ description: Следуя данной инструкции, вы сможете
      Где:
 
      * `--id` — идентификатор SAML-приложения. Обязательный параметр.
-     * `--sp-entity-id` — уникальный идентификатор поставщика услуг (Service Provider). Значение должно совпадать на стороне поставщика услуг и на стороне {{ org-name }}.
-     * `--acs-urls` — URL-адрес или несколько адресов через запятую, на которые {{ org-name }} будет отправлять SAML-ответ. ACS URL должен соответствовать схеме `https`. Использовать протокол без шифрования допускается только в целях тестирования на локальном хосте (значения `http://127.0.0.1` и `http://localhost`).
+     * `--sp-entity-id` — уникальный идентификатор поставщика услуг (Service Provider). Значение должно совпадать на стороне поставщика услуг и на стороне {{ org-full-name }}.
+     * `--acs-urls` — URL-адрес или несколько адресов через запятую, на которые {{ org-full-name }} будет отправлять SAML-ответ. ACS URL должен соответствовать схеме `https`. Использовать протокол без шифрования допускается только в целях тестирования на локальном хосте (значения `http://127.0.0.1` и `http://localhost`).
      * `--signature-mode` — элементы SAML-ответа, которые будут подписываться электронной подписью. Возможные значения:
        * `assertion_only` — только передаваемые атрибуты пользователя;
        * `response_only` — весь SAML-ответ целиком;
@@ -200,8 +231,8 @@ description: Следуя данной инструкции, вы сможете
 
      Где:
 
-     * `entity_id` — новый уникальный идентификатор поставщика услуг (Service Provider). Значение должно совпадать на стороне поставщика услуг и на стороне {{ org-name }}.
-     * `acs_urls` — новые URL-адреса, на которые {{ org-name }} будет отправлять SAML-ответ. ACS URL должен соответствовать схеме `https`. Использовать протокол без шифрования допускается только в целях тестирования на локальном хосте (значения `http://127.0.0.1` и `http://localhost`).
+     * `entity_id` — новый уникальный идентификатор поставщика услуг (Service Provider). Значение должно совпадать на стороне поставщика услуг и на стороне {{ org-full-name }}.
+     * `acs_urls` — новые URL-адреса, на которые {{ org-full-name }} будет отправлять SAML-ответ. ACS URL должен соответствовать схеме `https`. Использовать протокол без шифрования допускается только в целях тестирования на локальном хосте (значения `http://127.0.0.1` и `http://localhost`).
      * `signature_mode` — новые элементы SAML-ответа, которые будут подписываться электронной подписью. Возможные значения:
        * `ASSERTION_ONLY` — только передаваемые атрибуты пользователя;
        * `RESPONSE_ONLY` — весь SAML-ответ целиком;
@@ -339,7 +370,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Измените атрибуты пользователей и групп {#update-attributes}
 
-Чтобы изменить атрибуты, которые будут передаваться из {{ org-name }} поставщику услуг:
+Чтобы изменить атрибуты, которые будут передаваться из {{ org-full-name }} поставщику услуг:
 
 {% include [saml-app-update-assertions](../../../_includes/organization/saml-app-update-assertions.md) %}
 

@@ -4,6 +4,10 @@ editable: false
 
 # Managed Service for OpenSearch API, gRPC: ClusterService.StreamLogs
 
+(-- api-linter: yc::1702::method-verb-prefix=disabled
+False positive. "Stream" is a verb. --)
+(-- api-linter: yc::1705::http-method-mapping=disabled
+Backend already works using GET. --)
 Same as ListLogs but using server-side streaming. Also allows for 'tail -f' semantics.
 
 ## gRPC request

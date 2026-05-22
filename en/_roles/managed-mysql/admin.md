@@ -1,18 +1,21 @@
-The `managed-mysql.admin` role allows you to manage MySQL® clusters and view their logs, as well as get information on quotas and resource operations.
+
+The `managed-mysql.admin` role enables managing {{ MY }} clusters and access to them.
 
 Users with this role can:
-* Manage access to MySQL® [clusters](../../managed-mysql/concepts/index.md).
-* View information on MySQL® clusters, as well as create, modify, delete, run, and stop them.
-* View information on MySQL® cluster [hosts](../../managed-mysql/concepts/instance-types.md), as well as create, modify, and delete them.
-* View information on MySQL® databases, as well as create, modify, and delete them.
-* View information on MySQL® [users](../../managed-mysql/concepts/user-rights.md), as well as create, modify, and delete them.
-* View information on MySQL® cluster [backups](../../managed-mysql/concepts/backup.md), create and delete such backups, as well as restore clusters from backups.
-* View information on MySQL® alerts, as well as create, modify, and delete them.
-* View MySQL® cluster logs.
-* View information on the results of MySQL® cluster performance diagnostics.
-* View information on [quotas](../../managed-mysql/concepts/limits.md#mmy-quotas) of Managed Service for MySQL®.
-* View information on resource operations for Managed Service for MySQL®.
+* View info on [access permissions](../../iam/concepts/access-control/index.md) granted for [{{ MY }} clusters](../../managed-mysql/concepts/index.md) and modify such permissions.
+* View info on {{ MY }} clusters, as well as create, use, modify, delete, run, and stop them.
+* View info on [maintenance](../../managed-mysql/concepts/maintenance.md) tasks for {{ MY }} clusters and modify such tasks.
+* View info on {{ MY }} cluster [hosts](../../managed-mysql/concepts/instance-types.md), as well as create, modify, and delete them.
+* Re-assign the master host in {{ MY }} clusters.
+* View info on {{ MY }} databases, as well as create, modify, and delete them.
+* View info on {{ MY }} [users](../../managed-mysql/concepts/user-rights.md), as well as create, modify, and delete them.
+* View info on {{ MY }} cluster [backups](../../managed-mysql/concepts/backup.md), create and delete such backups, as well as restore clusters from backups.
+* View info on {{ MY }} alerts, as well as create, modify, and delete them.
+* View {{ MY }} cluster logs.
+* View info on the results of {{ MY }} cluster performance diagnostics.
+* View info on [quotas](../../managed-mysql/concepts/limits.md#mmy-quotas) for {{ mmy-name }}.
+* View info on resource operations for {{ mmy-name }}.
 
 This role includes the `managed-mysql.editor` permissions.
 
-To create MySQL® clusters, you also need the `vpc.user` role.
+To create {{ MY }} clusters, you also need the `vpc.user` role.

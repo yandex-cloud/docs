@@ -1,0 +1,231 @@
+# Создание адреса Yandex Cloud Postbox и проверка владения доменом с помощью Terraform
+
+В этом руководстве вы с помощью Terraform создадите [адрес](../../postbox/concepts/glossary.md#adress) в [Yandex Cloud Postbox](../../postbox/index.md), а также добавите в [DNS-зону](../../dns/concepts/dns-zone.md) вашего домена необходимые [ресурсные записи](../../dns/concepts/resource-record.md#txt) для подтверждения владения доменом и отправки писем.
+
+Ресурсную запись для подтверждения владения доменом можно добавить в [Yandex Cloud DNS](../../dns/index.md), если вы [делегировали](#delegate) домен, или у вашего регистратора домена.
+
+Для работы с Yandex Cloud Postbox в руководстве используется API, совместимый с AWS SESv2, поэтому для создания и управления ресурсами Yandex Cloud Postbox используется провайдер [AWS](https://github.com/hashicorp/terraform-provider-aws). Для управления всеми остальными ресурсами используется провайдер [Yandex Cloud](https://github.com/yandex-cloud/terraform-provider-yandex).
+
+1. [Подготовьте облако к работе](#before-you-begin).
+1. [Делегируйте домен сервису Cloud DNS](#delegate).
+1. [Подготовьте ключи для подписи электронных писем](#generate-keys).
+1. [Создайте инфраструктуру](#deploy).
+1. [Проверьте работу сервиса](#test).
+
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+
+
+## Подготовьте облако к работе {#before-begin}
+
+Зарегистрируйтесь в Yandex Cloud и создайте [платежный аккаунт](../../billing/concepts/billing-account.md):
+1. Перейдите в [консоль управления](https://console.yandex.cloud), затем войдите в Yandex Cloud или зарегистрируйтесь.
+1. На странице **[Yandex Cloud Billing](https://center.yandex.cloud/billing/accounts)** убедитесь, что у вас подключен платежный аккаунт, и он находится в [статусе](../../billing/concepts/billing-account-statuses.md) `ACTIVE` или `TRIAL_ACTIVE`. Если платежного аккаунта нет, [создайте его](../../billing/quickstart/index.md) и [привяжите](../../billing/operations/pin-cloud.md) к нему облако.
+
+Если у вас есть активный платежный аккаунт, вы можете создать или выбрать [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет работать ваша инфраструктура, на [странице облака](https://console.yandex.cloud/cloud).
+
+[Подробнее об облаках и каталогах](../../resource-manager/concepts/resources-hierarchy.md).
+
+
+### Необходимые платные ресурсы {#paid-resources}
+
+В стоимость поддержки инфраструктуры для создания адреса, подтверждения владения доменом и отправки писем входят:
+* плата за отправленные [электронные письма](../../postbox/concepts/index.md) (см. тарифы [Yandex Cloud Postbox](../../postbox/pricing.md));
+* плата за публичные [DNS-запросы](../../glossary/dns.md) и [зоны DNS](../../dns/concepts/dns-zone.md), если вы используете [Yandex Cloud DNS](../../dns/index.md) (см. [тарифы Cloud DNS](../../dns/pricing.md)).
+
+
+## Делегируйте домен сервису Cloud DNS {#delegate}
+
+Если у вас есть зарегистрированное доменное имя, то вы можете воспользоваться Yandex Cloud DNS для управления доменом.
+
+Чтобы делегировать домен сервису Cloud DNS, в личном кабинете вашего регистратора домена укажите в настройках домена адреса DNS-серверов:
+
+* `ns1.yandexcloud.net`
+* `ns2.yandexcloud.net`
+
+Делегирование происходит не сразу. Серверы интернет-провайдеров обычно обновляют записи в течение 24 часов (86400 секунд). Это обусловлено значением TTL, в течение которого кешируются записи для доменов.
+
+Проверить делегирование домена можно с помощью [сервиса Whois](https://www.reg.ru/whois/check_site) или утилиты `dig`:
+
+```bash
+dig +short NS example.com
+```
+
+Результат:
+
+```
+ns2.yandexcloud.net.
+ns1.yandexcloud.net.
+```
+
+
+## Подготовьте ключи для подписи электронных писем {#generate-keys}
+
+Для подписи электронных писем создайте [RSA](https://ru.wikipedia.org/wiki/RSA)-ключ. Воспользуйтесь скриптом для создания ключа, так как AWS-провайдер ожидает ключ не в формате [PEM](https://ru.wikipedia.org/wiki/Почта_с_повышенной_секретностью), а в виде строки, из которой удалены переносы и убраны первая и последняя строки. 
+
+1. Создайте скрипт `generate-key.sh` со следующим содержимым:
+
+   ```bash
+   #!/bin/bash
+
+   # Generate private key
+   openssl genrsa -out raw_privatekey.pem 2048
+
+   # Generate public key from the private key
+   openssl rsa -in raw_privatekey.pem -pubout -out publickey.pem
+
+   # Process private key for AWS (remove headers and line breaks)
+   cat raw_privatekey.pem | grep -v "BEGIN" | grep -v "END" | tr -d '\n' > privatekey.pem
+
+   # Format public key for DKIM DNS TXT record
+   # Remove headers, strip newlines and concatenate for DNS TXT record
+   DKIM_DNS_VALUE=$(cat publickey.pem | grep -v "BEGIN" | grep -v "END" | tr -d '\n')
+   echo "$DKIM_DNS_VALUE" > dkim_dns_value.txt
+
+   echo "Keys generated:"
+   echo "- privatekey.pem (AWS-formatted private key)"
+   echo "- publickey.pem (Public key)"
+   echo "- raw_privatekey.pem (Original private key with headers)"
+   echo "- dkim_dns_value.txt (Public key formatted for DKIM DNS TXT record)"
+   ```
+
+1. В терминале перейдите в папку со скриптом и выполните:
+
+   ```bash
+   ./generate-key.sh
+   ```
+
+В результате выполнения скрипта будут созданы:
+* `privatekey.pem` — приватный ключ в формате AWS-провайдера;
+* `publickey.pem` — публичный ключ;
+* `raw_privatekey.pem` — оригинальный приватный ключ;
+* `dkim_dns_value.txt` — значение для создания DKIM-записи.
+
+
+## Создайте инфраструктуру {#deploy}
+
+[Terraform](https://www.terraform.io/) позволяет быстро создать облачную инфраструктуру в Yandex Cloud и управлять ею с помощью файлов конфигураций. В файлах конфигураций хранится описание инфраструктуры на языке HCL (HashiCorp Configuration Language). При изменении файлов конфигураций Terraform автоматически определяет, какая часть вашей конфигурации уже развернута, что следует добавить или удалить.
+
+Terraform распространяется под лицензией [Business Source License](https://github.com/hashicorp/terraform/blob/main/LICENSE), а [провайдер Yandex Cloud для Terraform](https://github.com/yandex-cloud/terraform-provider-yandex) — под лицензией [MPL-2.0](https://www.mozilla.org/en-US/MPL/2.0/).
+
+Подробную информацию о ресурсах провайдера смотрите в документации на сайте [Terraform](https://www.terraform.io/docs/providers/yandex/index.html) или в [зеркале](../../terraform/index.md).
+
+Для создания инфраструктуры с помощью Terraform:
+1. [Установите Terraform](../infrastructure-management/terraform-quickstart.md#install-terraform), [получите данные для аутентификации](../infrastructure-management/terraform-quickstart.md#get-credentials) и укажите источник для установки провайдера Yandex Cloud (раздел [Настройте провайдер](../infrastructure-management/terraform-quickstart.md#configure-provider), шаг 1).
+1. Подготовьте файлы с описанием инфраструктуры:
+
+     1. Клонируйте репозиторий с конфигурационными файлами.
+
+        ```bash
+        git clone https://github.com/yandex-cloud-examples/yc-postbox-tf.git
+        ```
+
+     1. Перейдите в директорию с репозиторием. В ней должны появиться файлы:
+        * `postbox-email-identity.tf` — конфигурация создаваемой инфраструктуры.
+        * `postbox-email-identity.auto.tfvars` — файл с пользовательскими данными.
+
+   Более подробную информацию о параметрах используемых ресурсов в Terraform см. в документации провайдера:
+   * [Сервисный аккаунт](../../iam/concepts/users/service-accounts.md) — [yandex_iam_service_account](../../terraform/resources/iam_service_account.md).
+   * [Назначение прав доступа](../../iam/concepts/access-control/roles.md) — [yandex_resourcemanager_folder_iam_member](../../terraform/resources/resourcemanager_folder_iam_member.md).
+   * [Статический ключ доступа](../../iam/concepts/authorization/access-key.md) — [yandex_iam_service_account_static_access_key](../../terraform/resources/iam_service_account_static_access_key.md).
+   * [DNS-зона](../../dns/concepts/dns-zone.md) — [yandex_dns_zone](../../terraform/resources/dns_zone.md).
+   * [Ресурсная запись DNS](../../dns/concepts/resource-record.md) — [yandex_dns_recordset](../../terraform/resources/dns_recordset.md).
+
+1. В файле `postbox-email-identity.auto.tfvars` задайте пользовательские параметры:
+   * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
+   * `domain_signing_selector` — селектор для подписи домена, например `_postbox`.
+   * `domain` — домен для отправки писем, например `mail.example.com`.
+   * `dns_zone_name` — имя существующей DNS-зоны, в которую будет добавлена запись.
+
+1. Создайте ресурсы:
+
+   1. В терминале перейдите в директорию с конфигурационным файлом.
+   1. Проверьте корректность конфигурации с помощью команды:
+   
+      ```bash
+      terraform validate
+      ```
+   
+      Если конфигурация является корректной, появится сообщение:
+   
+      ```bash
+      Success! The configuration is valid.
+      ```
+   
+   1. Выполните команду:
+   
+      ```bash
+      terraform plan
+      ```
+   
+      В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+   1. Примените изменения конфигурации:
+   
+      ```bash
+      terraform apply
+      ```
+   
+   1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.
+
+{% note info %}
+
+Если вы используете другой DNS-сервис, то следует самостоятельно добавить DKIM-запись в соответствии с его документацией. Значение DKIM-записи можно получить, используя следующий код для Terraform:
+
+```hcl
+output "dkim_record" {
+  value = {
+    value = "v=DKIM1;h=sha256;k=rsa;p=${trim(local.public_key, "\n")}"
+    name  = "${var.domain_signing_selector}._domainkey.${var.domain}"
+    type  = "TXT"
+    ttl   = 3600
+  }
+}
+```
+
+{% endnote %}
+
+После создания инфраструктуры, [проверьте работу сервиса](#test).
+
+
+## Проверьте работу сервиса {#test}
+
+Убедитесь, что адрес успешно создан, и отправьте тестовое письмо:
+1. В [консоли управления](https://console.yandex.cloud) перейдите в каталог, в котором создавали адрес.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Cloud Postbox**.
+1. Выберите созданный адрес и убедитесь, что статус проверки на странице адреса изменился на `Success`.
+1. [Отправьте](../../postbox/operations/send-email.md) тестовое письмо.
+
+
+## Как удалить созданные ресурсы {#clear-out}
+
+Чтобы перестать платить за созданные ресурсы:
+
+1. Откройте конфигурационный файл `postbox-email-identity.tf` и удалите описание создаваемой инфраструктуры из файла.
+1. Примените изменения:
+
+    1. В терминале перейдите в директорию с конфигурационным файлом.
+    1. Проверьте корректность конфигурации с помощью команды:
+    
+       ```bash
+       terraform validate
+       ```
+    
+       Если конфигурация является корректной, появится сообщение:
+    
+       ```bash
+       Success! The configuration is valid.
+       ```
+    
+    1. Выполните команду:
+    
+       ```bash
+       terraform plan
+       ```
+    
+       В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, Terraform на них укажет.
+    1. Примените изменения конфигурации:
+    
+       ```bash
+       terraform apply
+       ```
+    
+    1. Подтвердите изменения: введите в терминале слово `yes` и нажмите **Enter**.

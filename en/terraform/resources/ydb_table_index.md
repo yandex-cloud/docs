@@ -25,7 +25,13 @@ Manage a YDB Table Index.
 - `name` (**Required**)(String). 
 - `table_id` (String). 
 - `table_path` (String). 
-- `type` (**Required**)(String).
+- `type` (**Required**)(String). 
+- `timeouts` [Block]. 
+  - `create` (String). 
+  - `default` (String). 
+  - `delete` (String). 
+  - `read` (String). 
+  - `update` (String).
 
 ## Import
 

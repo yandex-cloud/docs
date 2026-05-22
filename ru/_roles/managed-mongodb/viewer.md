@@ -1,16 +1,18 @@
-Роль `managed-mongodb.viewer` позволяет просматривать информацию о кластерах, хостах, шардах, базах данных и пользователях Yandex StoreDoc, логи работы кластеров, а также данные о квотах и операциях с ресурсами сервиса.
+
+Роль `managed-mongodb.viewer` позволяет просматривать информацию о кластерах, хостах, шардах, базах данных и пользователях {{ SD }}, логи работы кластеров, а также данные о квотах и операциях с ресурсами сервиса.
 
 Пользователи с этой ролью могут:
-* просматривать информацию о [кластерах Yandex StoreDoc](../../storedoc/concepts/index.md);
-* просматривать информацию о [хостах](../../storedoc/concepts/instance-types.md) кластеров Yandex StoreDoc;
-* просматривать информацию о [шардах](../../storedoc/concepts/sharding.md) кластеров Yandex StoreDoc;
-* просматривать информацию о базах данных Yandex StoreDoc;
-* просматривать информацию о [пользователях](../../storedoc/concepts/users-and-roles.md) Yandex StoreDoc;
-* просматривать информацию о [резервных копиях](../../storedoc/concepts/backup.md) кластеров Yandex StoreDoc;
-* просматривать информацию об алертах Yandex StoreDoc;
-* просматривать [логи](../../storedoc/operations/cluster-logs.md) работы кластеров Yandex StoreDoc;
-* просматривать информацию о результатах диагностики производительности кластеров Yandex StoreDoc;
-* просматривать информацию о [квотах](../../storedoc/concepts/limits.md#mmg-quotas) сервиса Yandex StoreDoc;
-* просматривать информацию об операциях с ресурсами сервиса Yandex StoreDoc.
+* просматривать информацию о [кластерах {{ SD }}](../../storedoc/concepts/index.md) и назначенных [правах доступа](../../iam/concepts/access-control/index.md) к ним;
+* просматривать информацию о заданиях на [техническое обслуживание](../../storedoc/concepts/maintenance.md) кластеров {{ SD }};
+* просматривать информацию о [хостах](../../storedoc/concepts/instance-types.md) кластеров {{ SD }};
+* просматривать информацию о [шардах](../../storedoc/concepts/sharding.md) кластеров {{ SD }};
+* просматривать информацию о базах данных {{ SD }};
+* просматривать информацию о [пользователях](../../storedoc/concepts/users-and-roles.md) {{ SD }};
+* просматривать информацию о [резервных копиях](../../storedoc/concepts/backup.md) кластеров {{ SD }};
+* просматривать информацию об алертах {{ SD }};
+* просматривать [логи](../../storedoc/operations/cluster-logs.md) работы кластеров {{ SD }};
+* просматривать информацию о результатах диагностики производительности кластеров {{ SD }};
+* просматривать информацию о [квотах](../../storedoc/concepts/limits.md#mmg-quotas) сервиса {{ mmg-name }};
+* просматривать информацию об операциях с ресурсами сервиса {{ mmg-name }}.
 
-Включает разрешения, предоставляемые ролью `managed-mongodb.auditor`.
+Включает разрешения, предоставляемые ролями `managed-mongodb.auditor` и `managed-mongodb.maintenanceTask.viewer`.

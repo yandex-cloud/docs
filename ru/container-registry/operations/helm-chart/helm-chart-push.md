@@ -1,3 +1,8 @@
+---
+title: Загрузить Helm-чарт в реестр {{ container-registry-name }}
+description: Из статьи вы узнаете о загрузке Helm-чартов в репозитории {{ container-registry-name }}.
+---
+
 # Загрузить Helm-чарт в реестр
 
 Вы можете загружать чарты [Helm Chart](https://helm.sh/docs/topics/charts/) в [репозитории](../../concepts/repository.md) {{ container-registry-name }}. В {{ container-registry-name }} Helm-чарты хранятся так же, как и обычные [Docker-образы](../../concepts/docker-image.md).
@@ -30,6 +35,9 @@
 
   1. Аутентифицируйте свой клиент Helm в [реестре](../../concepts/registry.md) {{ container-registry-name }} одним из способов.
      * С помощью OAuth-токена:
+
+       {% include [oauth-token-deprecated-soon](../../../_includes/oauth-token-deprecated-soon.md) %}
+
        1. Если у вас еще нет OAuth-токена, получите его по [ссылке]({{ link-cloud-oauth }}).
        1. Выполните команду:
 

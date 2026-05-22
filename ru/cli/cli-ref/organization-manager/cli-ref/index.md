@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/
 editable: false
 ---
 
@@ -22,6 +23,8 @@ Syntax:
 
   - [yc organization-manager group add-access-binding](group/add-access-binding.md) — Add access binding for the specified group
 
+  - [yc organization-manager group add-labels](group/add-labels.md) — Add labels to specified group
+
   - [yc organization-manager group add-members](group/add-members.md) — Add members to the specified group
 
   - [yc organization-manager group create](group/create.md) — Create a group
@@ -41,6 +44,8 @@ Syntax:
   - [yc organization-manager group list-operations](group/list-operations.md) — List operations for the specified group
 
   - [yc organization-manager group remove-access-binding](group/remove-access-binding.md) — Remove access binding for the specified group
+
+  - [yc organization-manager group remove-labels](group/remove-labels.md) — Remove labels from specified group
 
   - [yc organization-manager group remove-members](group/remove-members.md) — Remove members from the specified group
 
@@ -68,9 +73,13 @@ Syntax:
 
   - [yc organization-manager mfa-enforcement list-audience](mfa-enforcement/list-audience.md) — List audience for the specified mfa enforcement
 
+  - [yc organization-manager mfa-enforcement list-excluded-audience](mfa-enforcement/list-excluded-audience.md) — List excluded audience for the specified mfa enforcement
+
   - [yc organization-manager mfa-enforcement update](mfa-enforcement/update.md) — Update the specified mfa enforcement
 
   - [yc organization-manager mfa-enforcement update-audience](mfa-enforcement/update-audience.md) — Update audience for the specified mfa enforcement
+
+  - [yc organization-manager mfa-enforcement update-excluded-audience](mfa-enforcement/update-excluded-audience.md) — Update excluded audience for the specified mfa enforcement
 
 - [yc organization-manager organization](organization/index.md) — Manage organizations
 
@@ -113,6 +122,10 @@ Syntax:
   - [yc organization-manager user list](user/list.md) — List user accounts of the specified organization
 
   - [yc organization-manager user remove](user/remove.md) — Remove user accounts from the specified organization
+
+- [yc organization-manager v0](v0/index.md) — Manage Yandex Organization Manager resources
+
+
 
 #### Global Flags
 

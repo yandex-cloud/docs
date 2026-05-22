@@ -1,10 +1,10 @@
 # Adding a custom certificate
 
-As an example, let's look at how to add a custom certificate using a self-signed certificate. You can look up the custom certificate requirements on the [{#T}](../../concepts/imported-certificate.md) page.
+In this article, we will add a self-signed certificate as an example of a custom certificate. Check the custom certificate requirements in [{#T}](../../concepts/imported-certificate.md).
 
 ## Creating a self-signed certificate file {#create-file}
 
-To create a self-signed certificate using the `OpenSSL` library, run the command below:
+To create a self-signed certificate using the `OpenSSL` library, run this command:
 
 {% list tabs group=programming_language %}
 
@@ -31,16 +31,16 @@ To create a self-signed certificate using the `OpenSSL` library, run the command
 {% endlist %}
 
 Where:
-* `-x509`: The command will output a certificate file.
-* `-newkey`: A new private key file will be created.
+* `-x509`: To output a certificate file.
+* `-newkey`: To create a new private key file.
 * `rsa:4096`: Algorithm and key length.
 * `-nodes`: Do not encrypt the private key file.
-* `-keyout`: Name of the file the private key is saved to.
+* `-keyout`: Name of the file to save the private key to.
 * `-out`: Certificate file name.
 * `-days`: Certificate validity period.
 * `-subj`: Certificate owner's Common Name value.
 
-Executed with the above parameters, the `req` command will issue a self-signed certificate and generate the associated private key.
+If you run the `req` command with the above parameters, it will issue a self-signed certificate and generate the associated private key.
 
 ## Adding a self-signed custom certificate {#create-certificate}
 
@@ -51,18 +51,18 @@ To add a custom certificate to {{ certificate-manager-name }}:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to add a custom certificate to.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+  1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
   1. Click **{{ ui-key.yacloud.certificate-manager.button_empty-action }}**.
   1. In the menu that opens, select **{{ ui-key.yacloud.certificate-manager.action_import }}**.
   1. In the window that opens, in the **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** field, enter a custom certificate name.
-  1. (Optional) Enter your custom certificate description in the **Description** field.
+  1. Optionally, in the **Description** field, describe your custom certificate.
   1. In the **{{ ui-key.yacloud.certificate-manager.import.field_certificate }}** field, click **{{ ui-key.yacloud.certificate-manager.import.button_add-certificate }}**.
-     1. Choose how to add a certificate: `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}`.
+     1. Choose how to add it: `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}`.
      1. Click **Attach file**.
         1. In the window that opens, select the `cert.pem` self-signed certificate file.
      1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
   1. In the **{{ ui-key.yacloud.certificate-manager.import.field_privateKey }}** field, click **{{ ui-key.yacloud.certificate-manager.import.button_add-privateKey }}**.
-     1. Choose how to add a certificate: `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}`.
+     1. Choose how to add it: `{{ ui-key.yacloud.component.file-content-dialog.value_upload }}`.
      1. Click **Attach file**.
         1. In the window that opens, select the `key.pem` private key file.
      1. Click **{{ ui-key.yacloud.component.file-content-dialog.button_submit }}**.
@@ -136,12 +136,12 @@ To add a custom certificate to {{ certificate-manager-name }}:
      * `certificate`: [Certificate](../../concepts/imported-certificate.md) file contents.
      * `private_key`: Private key file contents.
 
-     For more information about the `yandex_cm_certificate` settings, see this [{{ TF }} guide]({{ tf-provider-resources-link }}/cm_certificate).
+     For more information about the `yandex_cm_certificate` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/cm_certificate).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  The certificate will then be added to the specified folder. You can check the new certificate and its settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
+  This will add the certificate to the specified folder. You can check the new certificate and its settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
     ```bash
      yc certificate-manager certificate get <certificate_name>
@@ -189,15 +189,15 @@ To avoid storing a private key of the user certificate as plain text in the {{ T
      Where:
      * `name`: {{ lockbox-name }} [secret](../../../lockbox/concepts/secret.md) name.
      * `certificate`: Certificate file contents.
-     * `id`: ID of the {{ lockbox-name }} secret the private key is located in.
-     * `key`: Key of the {{ lockbox-name }} secret the private key is located in.
+     * `id`: ID of the {{ lockbox-name }} secret containing the private key.
+     * `key`: Key of the {{ lockbox-name }} secret containing the private key.
 
-     For more information about `yandex_cm_certificate` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/cm_certificate).
+     For more information about the `yandex_cm_certificate` properties, see [this provider guide]({{ tf-provider-resources-link }}/cm_certificate).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  The certificate will then be added to the specified [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder). You can check the new certificate and its settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
+  This will add the certificate to the specified [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder). You can check the new certificate and its settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
   ```bash
   yc certificate-manager certificate get <certificate_name>

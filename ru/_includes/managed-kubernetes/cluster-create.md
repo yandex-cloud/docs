@@ -1,5 +1,5 @@
 1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором нужно создать [кластер {{ managed-k8s-name }}](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
-1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.clusters.button_create }}**.
 1. Введите имя и описание кластера {{ managed-k8s-name }}. Имя кластера {{ managed-k8s-name }} должно быть уникальным в рамках {{ yandex-cloud }}.
 1. Укажите **{{ ui-key.yacloud.k8s.clusters.create.field_service-account }}**, который будет использоваться для создания ресурсов.
@@ -50,6 +50,8 @@
    * В поле **{{ ui-key.yacloud.k8s.clusters.create.field_network }}** выберите [сеть](../../vpc/concepts/network.md#network), в которой будет создан мастер {{ managed-k8s-name }}. Если сети нет, [создайте ее](../../vpc/operations/network-create.md).
 
       {% include [note-another-catalog-network](note-another-catalog-network.md) %}
+
+      {% include [note-vpc-resources](note-vpc-resources.md) %}
 
    * Для высокодоступного мастера в поле **Распределение мастеров по зонам доступности** выберите, как должны быть размещены хосты мастера:
      * `Одна зона` — в одной зоне доступности и одной подсети. Такой мастер подойдет, если вы хотите обеспечить высокую доступность кластера и уменьшить сетевую задержку внутри него.

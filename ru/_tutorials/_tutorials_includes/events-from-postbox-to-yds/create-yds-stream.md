@@ -5,7 +5,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}** и нажмите кнопку **{{ ui-key.yacloud.data-streams.button_create-stream }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_data-streams }}** и нажмите кнопку **{{ ui-key.yacloud.data-streams.button_create-stream }}**.
   1. В поле **{{ ui-key.yacloud.data-streams.label_database }}** выберите созданную ранее базу данных `postbox-events-ydb`.
   1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя потока данных `postbox-events-stream`.
   1. В поле **{{ ui-key.yacloud.data-streams.label_meter-mode }}** выберите `{{ ui-key.yacloud.data-streams.label_request-units }}`.

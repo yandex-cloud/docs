@@ -11,7 +11,7 @@
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Создайте БД для хранения данных {{ tracker-short-name }}](#database-create).
-1. [Создайте OAuth токен для доступа к {{ tracker-short-name }}](#oauth-token).
+1. [Создайте OAuth-токен для доступа к {{ tracker-short-name }}](#oauth-token).
 1. [Создайте функцию {{ sf-name }} для импорта данных](#function-import).
 1. [Создайте подключение к {{ datalens-short-name }}](#connection-create).
 1. [Создайте датасет](#dataset-create).
@@ -42,8 +42,7 @@
 ## Создайте БД для хранения данных {{ tracker-short-name }} {#database-create}
 
 1. Перейдите в [консоль управления]({{ link-console-main }}).
-1. В левом верхнем углу нажмите кнопку ![](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
-1. Выберите **Платформа данных** → **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.clickhouse.button_create-cluster }}**.
 1. Укажите параметры кластера:
     * {{ ui-key.yacloud.mdb.forms.section_base }}:
@@ -69,38 +68,51 @@
 1. Скопируйте и сохраните имя хоста для дальнейшей настройки {{ sf-name }}.
 ![Вкладка Хосты](../../_assets/dl-tracker-host-name.png =680x372)
 
-## Создайте OAuth токен для доступа к {{ tracker-short-name }} {#oauth-token}
+## Создайте OAuth-токен для доступа к {{ tracker-short-name }} {#oauth-token}
 
 1. Перейдите на страницу [Создание приложения](https://oauth.yandex.ru/client/new).
-1. Заполните поля:
-    * **Название вашего сервиса**;
-    * **Платформы** — `Веб-сервисы`;
-    * **Redirect URI** — нажмите на строку **Подставить URL для отладки** или впишите адрес `https://oauth.yandex.ru/verification_code`.
-1. В разделе **Доступ к данным** укажите:
-    * `Чтение из трекера`;
-    * `Запись в трекер`.
-1. Нажмите кнопку **Создать приложение**.
+1. В окне **Какое приложение хотите создать?** оставьте `Для авторизации пользователей` и нажмите **Перейти к созданию**. Если отобразилось окно верификации вашего аккаунта на Госуслугах, закройте его.
+1. В окне **Создание приложения**:
+
+   * заполните поле **Название вашего сервиса**;
+   * прикрепите иконку вашего сервиса;
+   * укажите почту, на которую отправлять оповещения об изменениях во внешней авторизации.
+   
+   Нажмите кнопку **Продолжить**.
+
+1. В окне **Платформы приложений** отметьте `Веб-сервисы` и в поле **Redirect URI** укажите URL, куда направить пользователя после того, как он разрешил или отказал приложению в доступе, или впишите адрес `https://oauth.yandex.ru/verification_code` для отладки.
+
+   Нажмите кнопку **Продолжить**.
+
+1. В окне **Права доступа к данным пользователей** в поле **Дополнительные** укажите:
+
+   * `Чтение из трекера`;
+   * `Запись в трекер`.
+
+   Нажмите кнопку **Продолжить**.
+
+1. Убедитесь, что все указано верно, и нажмите кнопку **Всё верно, создать приложение**.
+1. Скопируйте идентификатор приложения в поле **ClientID**.
 1. В новом окне введите в адресную строку браузера адрес:
 
     ```
     https://oauth.yandex.ru/authorize?response_type=token&client_id=<идентификатор_приложения>
     ```
 
-    Где `client_id` — идентификатор созданного приложения в поле **ClientID**.
+    Где `client_id` — идентификатор созданного приложения, скопированный из поля **ClientID**.
 
 1. Авторизуйтесь с помощью учетной записи {{ tracker-short-name }}, которая будет использоваться для визуализации.
-1. Сохраните полученный OAuth токен.
+1. Сохраните полученный OAuth-токен.
 
 ## Создайте функцию {{ sf-name }} для импорта данных {#function-import}
 
 1. Перейдите в [консоль управления]({{ link-console-main }}).
-1. В левом верхнем углу нажмите кнопку ![](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}**.
-1. Выберите **Бессерверные вычисления** → **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
+1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
 1. Укажите название функции и нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 1. В открывшемся окне **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** выберите среду выполнения `Python`.
 1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
-1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_method }}** нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}**.
+1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}**.
 1. Прикрепите [тестовый архив](https://github.com/yandex-cloud-examples/yc-tracker-data-import/blob/main/build/tracker-data-import.zip).
 1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_entry }}** укажите `tracker_import.handler`.
 1. В разделе **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}** укажите:
@@ -115,7 +127,7 @@
 
           {% endnote %}
 
-        * `TRACKER_OAUTH_TOKEN` — [OAuth токен](#oauth-token) учетной записи {{ tracker-short-name }}.
+        * `TRACKER_OAUTH_TOKEN` — [OAuth-токен](#oauth-token) учетной записи {{ tracker-short-name }}.
         * `CH_HOST` — имя [хоста](#database-create).
         * `CH_DB` — название [базы данных](#database-create).
         * `CH_USER` — [имя пользователя](#database-create).
@@ -149,7 +161,7 @@
 
 ## Создайте подключение в {{ datalens-short-name }} {#connection-create}
 
-1. Откройте [кластер](#database-create) **{{ mch-name}}**.
+1. Откройте [кластер](#database-create) **{{ mch-name }}**.
 1. В левой части окна выберите раздел ![datalens](../../_assets/console-icons/chart-column.svg) **{{ datalens-short-name }}**.
 1. Нажмите кнопку **Создать подключение**.
 1. Укажите настройки подключения:
@@ -169,6 +181,8 @@
 
 ## Создайте датасет {#dataset-create}
 
+1. Перейдите на главную страницу [{{ datalens-short-name }}]({{ link-datalens-main-promo }}).
+1. Нажмите **Начать в облаке**.
 1. Перейдите на [страницу подключений]({{ link-datalens-main }}/connections).
 1. Выберите [подключение](#connection-create).
 1. В правом верхнем углу нажмите кнопку **Создать датасет**.
@@ -181,8 +195,9 @@
 ## Создайте чарт {#chart-create}
 
 
-1. Перейдите на главную страницу [{{ datalens-short-name }}]({{ link-datalens-main }}).
-1. Нажмите кнопку **Создать чарт**.
+1. Перейдите на главную страницу [{{ datalens-short-name }}]({{ link-datalens-main-skip-promo }}).
+1. На панели слева нажмите ![image](../../_assets/console-icons/chart-column.svg) **Чарты**.
+1. Нажмите кнопку **Создать чарт** → **Чарт в Wizard**.
 1. В левом верхнем углу нажмите ![image](../../_assets/console-icons/circles-intersection.svg) **Выберите датасет**.
 1. В выпадающем списке **Датасеты** выберите [датасет](#dataset-create), созданный на предыдущем шаге.
 
@@ -191,7 +206,8 @@
 
 ## Создайте дашборд и добавьте на него чарты {#dashboard-create}
 
-1. На главной странице [{{ datalens-full-name }}]({{ link-datalens-main }}) нажмите **Создать дашборд**.
+1. На панели слева нажмите ![image](../../_assets/console-icons/layout-cells-large.svg) **Дашборды**.
+1. Нажмите кнопку **Создать дашборд**.
 1. В верхней части страницы [дашборда](#dashboard-create) нажмите кнопку **Добавить** → **Чарт**.
 1. Заполните параметры виджета. Обратите внимание на следующие поля:
     * **Название**. Задает имя виджета. Отображается на верхней части виджета.

@@ -35,7 +35,7 @@
 
 1. Если вы используете группы безопасности, настройте их так, чтобы к кластерам можно было подключаться из интернета:
 
-    * [Инструкция для {{ mpg-name }}](../../managed-postgresql/operations/connect.md#configuring-security-groups).
+    * [Инструкция для {{ mpg-name }}](../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
     * [Инструкция для {{ mkf-name }}](../../managed-kafka/operations/connect/index.md#configuring-security-groups).
 
 
@@ -51,7 +51,7 @@
 
 1. Чтобы сервис {{ data-transfer-name }} мог получать от кластера {{ mpg-name }} уведомления об изменениях в данных, в кластере-источнике необходимо создать публикацию (publication). Чтобы пользователь `pg-user` мог создать публикацию, [назначьте](../../managed-postgresql/operations/grant.md) ему роль `mdb_replication`.
 
-1. [Подключитесь к базе данных](../../managed-postgresql/operations/connect.md) `db1` от имени пользователя `pg-user`.
+1. [Подключитесь к базе данных](../../managed-postgresql/operations/connect/index.md) `db1` от имени пользователя `pg-user`.
 
 1. Наполните базу тестовыми данными. В качестве примера используется простая таблица, содержащая информацию с некоторых датчиков автомобиля.
 

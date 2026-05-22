@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mongodb/cli-ref/database/create
 editable: false
 ---
 

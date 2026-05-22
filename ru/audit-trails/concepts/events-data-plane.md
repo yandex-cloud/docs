@@ -25,6 +25,12 @@ description: В данном разделе приведены описания 
 
 {% include [alb-events-dp](../../_includes/audit-trails/events/alb-events-dp.md) %}
 
+## {{ baremetal-full-name }} {#baremetal}
+
+Имя сервиса — `baremetal`.
+
+{% include [baremetal-events-dp](../../_includes/audit-trails/events/baremetal-events-dp.md) %}
+
 ## {{ certificate-manager-full-name }} {#certificate-manager}
 
 Имя сервиса — `certificatemanager`.
@@ -79,6 +85,12 @@ description: В данном разделе приведены описания 
 
 {% include [lockbox-events-dp](../../_includes/audit-trails/events/lockbox-events-dp.md) %}
 
+## {{ mkf-full-name }} {#mkf}
+
+Имя сервиса — `mdb.kafka`.
+
+{% include [mkf-events-dp](../../_includes/audit-trails/events/mkf-events-dp.md) %}
+
 ## {{ mch-full-name }} {#mch}
 
 Имя сервиса — `mdb.clickhouse`.
@@ -102,6 +114,12 @@ description: В данном разделе приведены описания 
 Имя сервиса — `mdb.mysql`.
 
 {% include [mmy-events-dp](../../_includes/audit-trails/events/mmy-events-dp.md) %}
+
+## {{ mos-full-name }} {#mos}
+
+Имя сервиса — `mdb.opensearch`.
+
+{% include [mos-events-dp](../../_includes/audit-trails/events/mos-events-dp.md) %}
 
 ## {{ mgp-full-name }} {#mgp}
 
@@ -155,7 +173,7 @@ description: В данном разделе приведены описания 
 
 {% include [sd-cspm-events-dp](../../_includes/audit-trails/events/sd-cspm-events-dp.md) %}
 
-### Модуль Контроль {{ k8s }}® (KSPM) {#sd-kspm}
+### Модуль Контроль {{ k8s }}® ({{ kspm-name }}) {#sd-kspm}
 
 Имя модуля — `securitydeck.kspm`.
 
@@ -208,3 +226,9 @@ description: В данном разделе приведены описания 
 Имя сервиса — `websql`.
 
 {% include [websql-events-dp](../../_includes/audit-trails/events/websql-events-dp.md) %}
+
+## {{ ydb-full-name }} {#ydb}
+
+Имя сервиса — `ydb`.
+
+{% include [ydb-events-dp](../../_includes/audit-trails/events/ydb-events-dp.md) %}

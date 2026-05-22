@@ -2,11 +2,11 @@
 
 
 
-{{ interconnect-name }} partners are telecom providers that deliver enhanced options for connecting to {{ yandex-cloud }} equipment. They provide _partner trunks_, which are quicker and less costly for customers to set up than direct connections.
+{{ interconnect-name }} partners are telecom providers that deliver enhanced options for connecting to {{ yandex-cloud }} equipment. They provide _partner trunks_, which are quicker and less costly for customers to set up than direct connections. A partner already has physical connections to Yandex Cloud hardware.
 
 To set up a partner trunk, the customer will need to independently enter into a service agreement with the partner.
 
-{{ yandex-cloud }} charges for customer's partner trunks according to the [pricing policy](../pricing.md).
+{{ yandex-cloud }} charges for the customer's partner trunk according to its [pricing policy](../pricing.md). However, the trunk's physical ports come free of charge.
 
 The partner can provide the {{ yandex-cloud }} equipment connection service at one or more points of presence.
 
@@ -32,7 +32,6 @@ Partner | PoPs | Maximum capacity, Mbps | Notes
 [ER-Telecom](https://ertelecom.ru/) | M9, NORD | 1,000 | - |
 [Beeline](https://beeline.ru) | M9 | 1,000 | - |
 [Obit](https://www.obit.ru/company/channels/) | M9 | 1,000 | - |
-[TNS Plus](https://tnsplus.kz/) | M9 | 1,000 | - |
 [Selectel](https://selectel.ru) | M9 | 1,000 | - |
 [Ul-com](https://ul-com.ru) | TEHNO | 10,000 | - |
 [NEXTREMUM](https://nextremum.net/ru) | TEHNO | 10,000 | - |

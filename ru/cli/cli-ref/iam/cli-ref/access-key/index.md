@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/iam/cli-ref/access-key/
 editable: false
 ---
 

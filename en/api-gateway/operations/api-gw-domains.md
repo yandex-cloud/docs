@@ -10,6 +10,8 @@ To use a second-level domain, such as `example.com`, delegate it to [{{ dns-full
 
 {% endnote %}
 
+Make sure you have an [IETF](https://www.ietf.org/) (RFC [2459](https://www.ietf.org/rfc/rfc2459.txt)/[3280](https://www.ietf.org/rfc/rfc3280.txt)/[5280](https://www.ietf.org/rfc/rfc5280.txt)) compliant [X.509 certificate](https://{{ lang }}.wikipedia.org/wiki/X.509) on the domain. For [ECDSA](https://{{ lang }}.wikipedia.org/wiki/ECDSA) certificates, only the P-256 curve is supported.
+
 To add a domain to an API gateway:
 
 {% list tabs group=instructions %}
@@ -52,7 +54,7 @@ To add a domain to an API gateway:
     1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_api-gateway }}** and do the following:
 
         1. Select the API gateway.
-        1. In the window that opens, go to ![image](../../_assets/api-gateway/domain-icon.svg) **{{ ui-key.yacloud.serverless-functions.gateways.item.switch_domains }}**.
+        1. Navigate to the **{{ ui-key.yacloud.serverless-functions.gateways.item.switch_domains }}** tab.
         1. Click **{{ ui-key.yacloud.serverless-functions.gateways.domains.button_add }}**, select a certificate, and enter a domain name (FQDN).
 
     1. If you skipped step 1 and did not add a CNAME record, create an ANAME record in {{ dns-full-name }}:

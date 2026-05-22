@@ -110,6 +110,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
+
   1. Open the {{ TF }} configuration file and add the `tags` section to the bucket description:
 
       ```hcl
@@ -188,7 +189,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
   1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Select the bucket from the list.
+  1. Select the bucket you need from the list.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}** tab.
 
@@ -334,7 +335,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
 
   1. In the [management console]({{ link-console-main }}), select a folder.
   1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Select the bucket from the list.
+  1. Select the bucket you need from the list.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}** tab.
   1. Click ![image](../../../_assets/console-icons/xmark.svg) next to the label.
@@ -407,6 +408,7 @@ A [bucket label](../../concepts/tags.md) is a key-value pair used for logical bu
   {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
 
   1. Open the {{ TF }} configuration file and delete the `tags` section from the bucket description.
 

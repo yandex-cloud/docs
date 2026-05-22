@@ -192,6 +192,11 @@ apiPlayground:
               - FORMAT_UNSPECIFIED
               - PERSISTENT
               - EMAIL
+          value:
+            description: |-
+              **string**
+              Value of the NameID.
+            type: string
         required:
           - format
       Attribute:
@@ -307,7 +312,8 @@ The maximum string length in characters is 50. ||
   },
   "attributeMapping": {
     "nameId": {
-      "format": "string"
+      "format": "string",
+      "value": "string"
     },
     "attributes": [
       {
@@ -477,6 +483,9 @@ Required field. Format of the NameID.
 This provides a stable, opaque identifier for the user.
 - `EMAIL`: Email NameID format.
 This uses the user's email address as the identifier. ||
+|| value | **string**
+
+Value of the NameID. ||
 |#
 
 ## Attribute {#yandex.cloud.organizationmanager.v1.idp.application.saml.Attribute}
@@ -872,7 +881,7 @@ This provides a stable, opaque identifier for the user.
 This uses the user's email address as the identifier. ||
 || value | **string**
 
-Required field. Value of the NameID. ||
+Value of the NameID. ||
 |#
 
 ## Attribute {#yandex.cloud.organizationmanager.v1.idp.application.saml.Attribute2}

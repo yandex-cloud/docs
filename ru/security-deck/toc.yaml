@@ -24,6 +24,12 @@ items:
             href: operations/workspaces/manage-access.md
           - name: Удалить окружение
             href: operations/workspaces/delete.md
+      - name: Алерты
+        items:
+          - name: Посмотреть алерты
+            href: operations/alerts/view.md
+          - name: Работа с алертами
+            href: operations/alerts/work.md
       - name: Контроль данных ({{ dspm-name }})
         items:
           - name: Обзор
@@ -32,11 +38,15 @@ items:
             href: operations/dspm/create-data-source.md
           - name: Создать сканирование
             href: operations/dspm/create-scan.md
-      - name: Контроль {{ k8s }}® (KSPM)
+          - name: Управлять анализом данных
+            href: operations/dspm/discovery-mode.md
+          - name: Управлять результатами сканирования
+            href: operations/dspm/work-with-results.md
+      - name: Контроль {{ k8s }}® ({{ kspm-name }})
         items:
           - name: Обзор
             href: operations/kspm/index.md
-          - name: Активировать модуль KSPM
+          - name: Активировать модуль {{ kspm-name }}
             href: operations/kspm/enable-kspm.md
           - name: Работать с дашбордом
             href: operations/kspm/use-kspm.md
@@ -60,10 +70,30 @@ items:
             href: operations/cspm/index.md
           - name: Посмотреть правила контроля и нарушения
             href: operations/cspm/view-rules.md
+          - name: Запустить проверку окружения
+            href: operations/cspm/check-environment.md
           - name: Проверить соответствие стандартам безопасности
             href: operations/cspm/check-compliance.md
           - name: Управлять исключениями из правил контроля
             href: operations/cspm/manage-exceptions.md
+      - name: '{{ td-full-name }} ({{ td-name }})'
+        items:
+          - name: Обзор
+            href: operations/td/index.md
+          - name: Посмотреть правила контроля
+            href: operations/td/view-rules.md
+          - name: Управлять исключениями из правил контроля
+            href: operations/td/manage-exceptions.md
+      - name: '{{ vuln-man-name }} ({{ vuln-man-short-name }})'
+        items:
+          - name: Обзор
+            href: operations/vulnerability-management/index.md
+          - name: Активировать модуль
+            href: >-
+              operations/vulnerability-management/enable-vulnerability-management.md
+          - name: Работать с дашбордом
+            href: >-
+              operations/vulnerability-management/use-vulnerability-management.md
   - name: Концепции
     items:
       - name: Обзор
@@ -80,14 +110,28 @@ items:
             href: concepts/standard-compliance/yc-security-baseline.md
           - name: Стандарт по защите облачной инфраструктуры {{ yandex-cloud }}
             href: concepts/standard-compliance/yc-cloud-security-standard.md
+          - name: Требования стандарта CIS Benchmark™ для {{ k8s }}
+            href: concepts/standard-compliance/cis-kubernetes-benchmark.md
+          - name: >-
+              Стандарт по защите персональных данных пользователей {{
+              yandex-cloud }}
+            href: concepts/standard-compliance/yc-personal-data-protection.md
+          - name: Стандарт PCI DSS в {{ yandex-cloud }}
+            href: concepts/standard-compliance/yc-pci-dss.md
+          - name: Требования стандарта ГОСТ Р 57580
+            href: concepts/standard-compliance/yc-gost-57580.md
       - name: Контроль данных ({{ dspm-name }})
         href: concepts/dspm.md
-      - name: Контроль {{ k8s }}® (KSPM)
+      - name: Контроль {{ k8s }}® ({{ kspm-name }})
         href: concepts/kspm.md
       - name: Диагностика доступов ({{ ciem-name }})
         href: concepts/ciem.md
       - name: Контроль конфигурации ({{ cspm-name }})
         href: concepts/cspm.md
+      - name: '{{ td-full-name }} ({{ td-name }})'
+        href: concepts/threat-detector.md
+      - name: '{{ vuln-man-name }} ({{ vuln-man-short-name }})'
+        href: concepts/vulnerability-management.md
       - name: '{{ atr-name }}'
         href: concepts/access-transparency.md
       - name: Портал соответствия требованиям
@@ -100,9 +144,9 @@ items:
     items:
       - name: Обзор
         href: diagnostics/index.md
-      - name: Ошибки в работе KSPM
+      - name: Ошибки в работе {{ kspm-name }}
         href: diagnostics/kspm-diagnostics.md
-      - name: Ошибки в работе DSPM
+      - name: Ошибки в работе {{ dspm-name }}
         href: diagnostics/dspm-diagnostics.md
   - name: Управление доступом
     items:
@@ -110,7 +154,7 @@ items:
         href: security/index.md
       - name: Роли {{ dspm-name }}
         href: security/dspm-roles.md
-      - name: Роли KSPM
+      - name: Роли {{ kspm-name }}
         href: security/kspm-roles.md
       - name: Роли {{ ciem-name }}
         href: security/ciem-roles.md
@@ -122,6 +166,16 @@ items:
         href: security/alerts-roles.md
   - name: Правила тарификации
     href: pricing.md
+  - name: Справочник правил
+    items:
+      - name: Обзор
+        href: rules-reference/index.md
+      - name: Все правила
+        href: rules-reference/all.md
+      - name: '{{ cspm-name }}'
+        href: rules-reference/cspm.md
+      - name: '{{ kspm-name }}'
+        href: rules-reference/kspm.md
   - name: Справочник API
     items:
       - name: Аутентификация

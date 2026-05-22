@@ -38,7 +38,7 @@ To set up log transfer:
     go version
     ```
 
-    You need these versions or higher:
+    The versions you get should not be lower than this:
 
     ```
     Python 3.10
@@ -256,7 +256,7 @@ To set up log transfer:
         Name            yc-logging
         Match           *
         resource_type   logtest
-        folder_id       <catalog_ID>
+        folder_id       <folder_ID>
         message_key     MESSAGE
         level_key       SEVERITY
         default_level   WARN
@@ -326,7 +326,7 @@ To set up log transfer:
 
        1. Open the [management console]({{ link-console-main }}).
        1. Navigate to the folder specified in `folder_id`.
-       1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+       1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
        1. Open the `default` log group.
        1. On the **{{ ui-key.yacloud.common.logs }}** tab, configure filters:
           * `resource_type=logtest` to view test service logs.
@@ -341,7 +341,7 @@ To set up log transfer:
     To view records in the log group, run this command:
 
     ```bash
-    yc logging read --folder-id=<catalog_ID>
+    yc logging read --folder-id=<folder_ID>
     ```
 
     Where `--folder-id` is the ID specified in the `fluent-bit` settings.
@@ -509,7 +509,7 @@ To set up log transfer:
    * Make sure the `logging.writer` role is assigned for the appropriate folder.
    * Make sure the service account token is valid.
 
-1. Logs do not show up in Cloud Logging:
+1. Logs do not appear in Cloud Logging:
    * Make sure the `folder_id` in the configuration is correct.
    * Make sure the log format matches the expected one.
    * Make sure the yc-logging plugin is loaded correctly:
@@ -532,7 +532,7 @@ To set up log transfer:
      sudo journalctl -u fluent-bit -n 100 -f
      ```
 
-     Output example:
+     Here is an example of the command output:
 
      ```
      May 30 12:34:56 vm-name fluent-bit[1234]: [info] [engine] started (pid=1234)
@@ -560,7 +560,7 @@ To set up log transfer:
      sudo netstat -tupn | grep fluent-bit
      ```
      
-     Output example:
+     Here is an example of the command output:
      ```
      tcp  0  0  0.0.0.0:24224  0.0.0.0:*  LISTEN  1234/fluent-bit
      tcp  0  0  10.0.0.2:52431  logging.api.cloud.yandex.net:443  ESTABLISHED  1234/fluent-bit
@@ -573,7 +573,7 @@ To set up log transfer:
      sudo lsof -p $(pgrep fluent-bit) | grep yc-logging
      ```
      
-     Output example:
+     Here is an example of the command output:
      ```
      fluent-bit 1234 fluent-bit  mem REG 8,1 2890144 /usr/local/lib/fluent-bit/yc-logging.so
      ```
@@ -585,7 +585,7 @@ To set up log transfer:
      find /etc/fluent-bit/ -type f -exec md5sum {} \;
      ```
      
-     Output example:
+     Here is an example of the command output:
      ```
      a1b2c3d4e5f6g7h8 /etc/fluent-bit/fluent-bit.conf
      b2c3d4e5f6g7h8i9 /etc/fluent-bit/plugins.conf

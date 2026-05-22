@@ -7,6 +7,10 @@ editable: false
 # Правила тарификации для {{ serverless-containers-name }}
 
 
+{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
+
+
+
 
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
@@ -107,7 +111,6 @@ editable: false
 <MDX>
   <PriceList
     serviceIds={['{{ pcs|serverless-containers }}']}
-    excludeSkuIds={['{{ pc|serverless-containers.compute.ephemeral_disk }}', '{{ pc|serverless-containers.compute.provisioned_request.ephemeral_disk}}', '{{ pc|serverless-containers.compute.provision_enabled.ephemeral_disk }}']}
     installationCode="ru"
     currency="RUB"
   />
@@ -117,3 +120,4 @@ editable: false
 
 
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
+

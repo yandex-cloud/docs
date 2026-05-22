@@ -6,6 +6,9 @@ editable: false
 
 # {{ load-testing-full-name }} pricing policy
 
+{% include [loadtesting-sunset-warning](../_includes/load-testing/sunset-warning.md) %}
+
+
 
 
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
@@ -18,7 +21,7 @@ editable: false
 
 A fee for the computing resources used by [agents](concepts/agent.md) is charged according to the [{{ compute-full-name }}](../compute/pricing.md) pricing policy.
 
-You are charged per second of usage. The monthly prices are based on 720 hours per month.
+You are charged per second of usage.
 
 Tests run by multiple agents are charged as a sum of tests run by each agent.
 
@@ -42,6 +45,8 @@ You pay for the following:
 
 
 ## Cost calculation examples {#amount-example}
+
+In the examples, the price per month is provided for reference based on 720 hours per month.
 
 ### Test running time {#test-time}
 

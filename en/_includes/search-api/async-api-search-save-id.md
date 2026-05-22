@@ -1,1 +1,0 @@
-Save the obtained [Operation object](../../api-design-guide/concepts/operation.md) ID (`id` value) for later use.

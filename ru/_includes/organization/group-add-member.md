@@ -12,7 +12,7 @@
   
   1. В открывшемся окне выберите нужных пользователей или [сервисные аккаунты](../../iam/concepts/users/service-accounts.md). При необходимости воспользуйтесь поиском.
   
-  1. Нажмите **{{ ui-key.yacloud_org.component.subject-select-dialog.action_apply }}**.
+  1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -20,7 +20,7 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. Посмотрите описание команды добавления участников в группу пользователей {{ org-name }}:
+  1. Посмотрите описание команды добавления участников в группу пользователей {{ org-full-name }}:
 
       ```bash
       yc organization-manager group add-members --help

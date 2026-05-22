@@ -38,6 +38,8 @@ RoutePolicy is a Gwin custom resource for configuring route-level policies in Ya
   * [Principal](#principal)
   * [HeaderPrincipal](#headerprincipal)
   * [IPPrincipal](#ipprincipal)
+  * [RouteRuleAttach](#routeruleattach)
+  * [BackendGroupAttach](#backendgroupattach)
 * [RoutePolicyStatus](#routepolicystatus)
 
 ## Cheatsheet
@@ -134,6 +136,7 @@ spec:
           cookie:
             name: "session"  # cookie name
             ttl: "3600s"  # cookie lifetime
+            path: "/app"  # path attribute for the generated cookie
           header:
             name: "X-Session-ID"  # header-based affinity
       
@@ -163,7 +166,6 @@ spec:
           substitute: "\\2/instance/\\1"  # substitution with capture groups
       
       # Security
-      securityProfileID: "security-profile-1"  # WAF profile for routes
       rbac:
         action: "ALLOW"  # default RBAC action
         principals:
@@ -175,13 +177,38 @@ spec:
             check-ip:
               ip:
                 remoteIp: "10.0.0.0/8"
+      
+      # Attach to existing ALB infrastructure
+      attach:
+        backendGroup:
+          id: "backend-group-id-1"  # existing backend group ID
+          dontUpdatePaths: ["name", "description"]  # fields not to update
+        gatewayClass: "yandex-cloud-gateway"  # gateway class filter
     
     # Specific rule settings (conflict with global settings is an error)
     rule:
       api-rule:  # rule name from HTTPRoute
+        albRouteName: "my-route"  # custom route name for this rule
+        albBackendGroupName: "my-backend-group"  # custom backend group name for this rule
+        
+        # Common backend settings for all backends in this rule
         backends:
           balancing:
             mode: "LEAST_REQUEST"  # per-rule balancing
+        # Per-backend configuration by index (matches backendRefs order in HTTPRoute)
+        backend:
+          "0":  # first backend (index 0)
+            albBackendName: "my-backend-0"  # custom name for this backend
+            tls:
+              sni: "backend-0.example.com"  # TLS settings for this backend only
+          "1":  # second backend (index 1)
+            albBackendName: "my-backend-1"
+            hc:
+              http:
+                path: "/healthz"  # health check path for this backend only
+        attach:
+          backendGroup:
+            id: "rule-backend-group-id"  # per-rule attach
         ...
 
     # Common hosts settings (applies to all hosts)
@@ -289,15 +316,17 @@ Route rule configuration that combines backend group and route settings.
 
 | Field | Description |
 |-------|-------------|
-| backends | **[Backend](#backend)** <br> Backend configuration settings. |
+| backends | **[Backend](#backend)** <br> Backend configuration settings that apply to all backends in this rule. |
+| backend | **map[string][Backend](#backend)** <br> Per-backend configuration keyed by zero-based index (e.g. `"0"`, `"1"`). |
 | sessionAffinity | **[SessionAffinity](#sessionaffinity)** <br> Session affinity configuration for the backend group. |
 | timeout | **string** <br> Overall timeout for HTTP connection between load balancer and backend. Default: `60s`. <br> Example: `60s` |
 | idleTimeout | **string** <br> Idle timeout for HTTP connection. <br> Example: `300s` |
 | rateLimit | **[RateLimit](#ratelimit)** <br> Rate limit configuration applied for route. |
 | hostRewrite | **[HostRewrite](#hostrewrite)** <br> Host header rewriting configuration. |
 | http | **[RouteALBHTTP](#routealbhttp)** <br> HTTP specific route options. |
-| securityProfileID | **string** <br> Security profile ID for route-level protection. <br> Example: `security-profile-1` |
 | rbac | **[RBAC](#rbac)** <br> RBAC access control configuration. |
+| attach | **[RouteRuleAttach](#routeruleattach)** <br> Configures route rule attachment to existing cloud resources. |
+| albBackendGroupName | **string** <br> Custom name for the ALB backend group. <br> Example: `my-backend-group` |
 
 
 ### Backend
@@ -314,6 +343,7 @@ Backend configuration for protocol-specific settings, load balancing, health che
 | balancing | **[LoadBalancingConfig](#loadbalancingconfig)** <br> Load balancing configuration for the backend. |
 | hc | **[HealthCheck](#healthcheck)** <br> Health check configuration. |
 | tls | **[BackendTLS](#backendtls)** <br> TLS settings for backend connections. |
+| albBackendName | **string** <br> Custom name for the ALB backend. <br> Example: `my-backend` |
 
 ### HTTPBackend
 
@@ -355,7 +385,7 @@ Load balancing configuration for backends.
 | panicThreshold | **int** <br> Threshold for panic mode (percentage). If healthy backends drop below this threshold, traffic routes to all backends. Set to `0` to disable panic mode. <br> Example: `50` |
 | localityAwareRouting | **int** <br> Percentage of traffic sent to backends in the same availability zone. Remaining traffic is divided equally between other zones. <br> Example: `90` |
 | strictLocality | **bool** <br> Send traffic only to backends in the same availability zone. If `true`, `localityAwareRouting` is ignored. <br> Example: `false` |
-| mode | **string** <br> Load balancing mode. Options: `ROUND_ROBIN`, `LEAST_REQUEST`, `RANDOM`, `RING_HASH`, `MAGLEV_HASH`. <br> Example: `ROUND_ROBIN` |
+| mode | **string** <br> Load balancing mode. Options: `ROUND_ROBIN`, `LEAST_REQUEST`, `RANDOM`, `MAGLEV_HASH`. <br> Example: `ROUND_ROBIN` |
 
 ### HealthCheck
 
@@ -477,6 +507,7 @@ Cookie-based session affinity configuration.
 |-------|-------------|
 | name | **string** <br> Name of the cookie used for session affinity. <br> Example: `session-cookie` |
 | ttl | **string** <br> Maximum age of generated session cookies. Set to `0` for session cookies (deleted on client restart). If not set, balancer only uses incoming cookies. <br> Example: `3600s` |
+| path | **string** <br> Path attribute for the generated cookie. Used to set the path when a new cookie is generated. If unspecified or empty, no path is set for the cookie. <br> Example: `/app` |
 
 ### SessionAffinityHeader
 
@@ -499,8 +530,8 @@ Application Load Balancer route configuration.
 | timeout | **string** <br> Overall timeout for HTTP connection between load balancer and backend. Default: `60s`. <br> Example: `60s` |
 | idleTimeout | **string** <br> Idle timeout for HTTP connection. <br> Example: `300s` |
 | http | **[RouteALBHTTP](#routealbhttp)** <br> HTTP specific route options. |
-| securityProfileID | **string** <br> Security profile ID for route-level protection. <br> Example: `security-profile-1` |
 | rbac | **[RBAC](#rbac)** <br> RBAC access control configuration. |
+| albRouteName | **string** <br> Custom name for the ALB route. <br> Example: `my-route` |
 
 ### RouteALBHTTP
 
@@ -524,6 +555,7 @@ Virtual host configuration for rate limiting and access control.
 | securityProfileID | **string** <br> Security profile ID for host-level protection. <br> Example: `host-security-profile-1` |
 | rbac | **[RBAC](#rbac)** <br> RBAC access control configuration. |
 | rateLimit | **[RateLimit](#ratelimit)** <br> Rate limit configuration applied for a whole virtual host. |
+| albVirtualHostName | **string** <br> Custom name for the ALB virtual host. <br> Example: `my-virtual-host` |
 
 ### RateLimit
 
@@ -635,3 +667,36 @@ IP-based principal matching configuration.
 | Field | Description |
 |-------|-------------|
 | remoteIp | **string** <br> IP address or CIDR block for matching client IP. <br> Example: `10.0.0.0/8` |
+
+## RouteRuleAttach
+
+RouteRuleAttach configures route rule attachment to existing backend group.
+
+*Appears in:* [RouteRule](#routerule)
+
+| Field | Description |
+|-------|-------------|
+| gatewayClass | **string** <br> Specifies the gateway class that should manage this route rule. If specified and the corresponding gatewayClass is not managed by the controller, the route rule is ignored. This is useful for advanced scenarios where multiple controllers might be present. <br> Example: `yandex-cloud-gateway` |
+| backendGroup | **[BackendGroupAttach](#backendgroupattach)** <br> Configures attachment to an existing cloud backend group. |
+
+## BackendGroupAttach
+
+BackendGroupAttach configures attachment to an existing cloud backend group.
+
+*Appears in:* [RouteRuleAttach](#routeruleattach)
+
+| Field | Description |
+|-------|-------------|
+| id | **string** <br> Cloud backend group ID that should be managed by this route rule. The controller will attach to this existing backend group instead of creating a new one. <br> Example: `backend-group-id-1` |
+| dontUpdatePaths | **[]string** <br> Specifies which fields should NOT be updated by the controller. Default is "name" - the controller doesn't touch the group name. <br> Example: `["name", "description"]` |
+
+## RoutePolicyStatus
+
+RoutePolicyStatus defines the observed state of RoutePolicy.
+
+*Appears in:* [RoutePolicy](#cheatsheet)
+
+| Field | Description |
+|-------|-------------|
+| conditions | **[]Condition** <br> Current state conditions of the route policy. |
+| attachedRoutes | **int32** <br> Number of currently attached routes. |

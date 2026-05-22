@@ -5,6 +5,7 @@
 * просматривать информацию об [организации](../../organization/concepts/organization.md) Identity Hub и ее настройках;
 * просматривать информацию о назначенных [правах доступа](../../iam/concepts/access-control/index.md) к организации;
 * просматривать [политики авторизации](../../iam/concepts/access-control/access-policies.md), назначенные на организацию;
+* просматривать настройки [брендирования](../../organization/concepts/branding.md) организации;
 * просматривать список [пользователей](../../overview/roles-and-resources.md#users) организации и сведения в профилях пользователей (кроме номера телефона), дату последней аутентификации, а также дату последней верификации федеративных и локальных аккаунтов с помощью [двухфакторной аутентификации](../../organization/concepts/mfa.md);
 * просматривать информацию о правах доступа, назначенных [субъектам](../../iam/concepts/access-control/index.md#subject) в организации Identity Hub;
 * просматривать информацию о [федерациях удостоверений](../../organization/concepts/add-federation.md) в организации;
@@ -31,4 +32,4 @@
 
 {% endcut %}
 
-Включает разрешения, предоставляемые ролями `iam.userAccounts.refreshTokenViewer`, `organization-manager.federations.auditor`, `organization-manager.osLogins.viewer`, `organization-manager.userpools.auditor`, `organization-manager.samlApplications.auditor` и `organization-manager.oauthApplications.auditor`.
+Включает разрешения, предоставляемые ролями `iam.userAccounts.refreshTokenViewer`, `organization-manager.federations.auditor`, `organization-manager.osLogins.viewer`, `organization-manager.userpools.auditor`, `organization-manager.samlApplications.auditor`, `organization-manager.oauthApplications.auditor` и `organization-manager.groups.viewer`.

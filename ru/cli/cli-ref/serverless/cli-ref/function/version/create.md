@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/serverless/cli-ref/function/version/create
 editable: false
 ---
 
@@ -70,8 +71,12 @@ Version network name. ||
 Version network id. ||
 || `--subnet-name` | `value[,value]`
 
+DEPRECATED: specify only the network (--network-name or --network-id), without the list of subnets.
+
 Version subnet names. ||
 || `--subnet-id` | `value[,value]`
+
+DEPRECATED: specify only the network (--network-name or --network-id), without the list of subnets.
 
 Version subnet ids. ||
 || `--add-service-account` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`

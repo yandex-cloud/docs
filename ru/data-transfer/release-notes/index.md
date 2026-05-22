@@ -43,6 +43,47 @@ index: 1
 
 ## 2026 год {#2026}
 
+### Март {#mar26}
+
+#### Новые возможности и улучшения {#new-features-mar26}
+
+* Поддержан формат данных nginx для источника данных [{{ objstorage-name }}](../operations/endpoint/source/object-storage.md).
+
+* Изменен формат имени создаваемого объекта в приемнике [{{ objstorage-name }}](../operations/endpoint/target/object-storage.md): part-<таймстамп>-<хеш(partID)>.<счетчик>.<тип_файла>.
+
+  * таймстамп — `timestamp` по идентификатору операции;
+  * хеш(partID) — `UUID`, сгенерированный на основе `partID`;
+  * счетчик — инкрементируемый счетчик;
+  * тип_файла — расширение файла (`csv`, `parquet`, `json`, `proto` и `nginx`).
+
+* Для трансферов типа {{ dt-type-copy }} из источников [{{ PG }}](../operations/endpoint/source/postgresql.md) всегда поддержано чтение данных из родительской таблицы, если она присутствует в списке таблиц на эндпоинте или трансфере.
+
+* Для источников {{ ydb-short-name }}, {{ KF }} и {{ DS }} поддержан новый тип конвертации данных `Raw-to-table`, позволяет поставлять сырые данные из очереди сообщений.
+
+
+### Февраль {#feb26}
+
+#### Новые возможности {#new-features-feb26}
+
+* Ускорен в несколько раз перенос данных при копировании из [{{ PG }}](../operations/endpoint/source/postgresql.md) в [{{ PG }}](../operations/endpoint/target/postgresql.md).
+* Улучшен перенос схемы БД для трансферов из [{{ PG }}](../operations/endpoint/source/postgresql.md) в [{{ PG }}](../operations/endpoint/target/postgresql.md). Сущности переносятся в порядке зависимости друг от друга.
+
+
+* Для стадии копирования будет выделяться не более 64 виртуальных машин.
+
+
+#### Решенные проблемы {#problems-solved-feb26}
+
+* Улучшена стабильность трансферов из [{{ KF }}](../operations/endpoint/source/kafka.md).
+* Исправлена отправка метрик в {{ monitoring-name }} для [источника Oracle](../operations/endpoint/source/oracle.md).
+* Исправлена проблема передачи данных из [{{ PG }}](../operations/endpoint/source/postgresql.md) в [{{ PG }}](../operations/endpoint/target/postgresql.md), когда при указании списка таблиц на уровне трансфера (не в эндпоинте) переносилась вся схема целиком.
+* Устранен множественный перезапуск трансфера при одновременном изменении настроек эндпоинтов и трансфера через API и {{ TF }}.
+* Для [приемника {{ ydb-name }}](../operations/endpoint/target/yandex-database.md) исправлена проблема с очисткой таблиц.
+* Исправлена проблема с зависанием или повторной поставкой большого количества данных в репликациях из [{{ ydb-name }}](../operations/endpoint/source/ydb.md).
+* Исправлена проблема с переносом удалений в {{ CH }} при наличии некоторых специфичных типов в колонках (например, UUID).
+
+
+
 ### Январь {#jan26}
 
  В настройках источников данных [{{ KF }}](../operations/endpoint/source/kafka.md) и [{{ yds-name }}](../operations/endpoint/source/data-streams.md) теперь можно указывать параметры подключения к [{{ schema-registry-name }}](../../metadata-hub/concepts/schema-registry.md).

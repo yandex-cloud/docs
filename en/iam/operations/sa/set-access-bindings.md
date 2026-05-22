@@ -14,11 +14,11 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
 - Management console {#console}
 
-    1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder the service account belongs to.
+    1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder the service account belongs to.
     1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-    1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and select the service account.
+    1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and then select the required service account.
     1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
-    1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+    1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
     1. In the **{{ ui-key.yacloud_components.acl.label.title }}** window, click **{{ ui-key.yacloud_components.acl.action.select-subject }}**.
     1. Select a user from the list or use the user search option.
     1. Click **{{ ui-key.yacloud_components.acl.button.add-role }}**.
@@ -104,7 +104,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
        * `service_account_id`: ID of the service account to configure access for.
        * `role`: Role being assigned. This is a required setting.
-       * `members`: List of users or service accounts the role is being assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required setting.
+       * `members`: List of users or service accounts the role is being assigned to. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required setting.
 
        Here is an example of the configuration file structure:
 
@@ -129,7 +129,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
           terraform plan
           ```
 
-       If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
+       If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
 
     1. Deploy the cloud resources.
 
@@ -139,7 +139,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
           terraform apply
           ```
 
-       1. Confirm creating the resources: type `yes` in the terminal and press **Enter**.
+       1. Confirm creating the resources: type `yes` and press **Enter**.
 
        This will create all the resources you need in the specified folder. You can check the new resource using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/quickstart.md) command:
 
@@ -268,7 +268,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
 
        {% endnote %}
 
-       * `members`: List of users or service accounts the role is being assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required setting.
+       * `members`: List of users or service accounts the role is being assigned to. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required setting.
 
      {% cut "Example of assigning multiple roles to a service account using {{ TF }}" %}
 
@@ -311,7 +311,7 @@ To assign a role for a service account, you need the `iam.serviceAccounts.admin`
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+     You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
   1. Apply the changes:
      ```
@@ -427,7 +427,7 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
 
        * `service_account_id`: ID of the service account to configure access for.
        * `role`: Role being assigned. This is a required setting.
-       * `members`: List of users or service accounts the role is being assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required setting.
+       * `members`: List of users or service accounts the role is being assigned to. Use this format: `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`. This is a required setting.
 
      {% cut "Example of granting the `test-sa` service account permissions to manage the `my-robot` service account using {{ TF }}" %}
 
@@ -463,7 +463,7 @@ Allow the `test-sa` service account to manage the `my-robot` service account:
      terraform plan
      ```
 
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+     You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
   1. Apply the changes:
      ```

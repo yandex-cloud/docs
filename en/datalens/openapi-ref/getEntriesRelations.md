@@ -9,7 +9,7 @@ editable: false
 Returns the specified DataLens entries relations.
 
 ```
-POST https://api.datalens.yandex.net/rpc/getEntriesRelations
+POST https://api.datalens.tech/rpc/getEntriesRelations
 ```
 
 ## Body parameters

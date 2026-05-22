@@ -16,7 +16,7 @@
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  1. See the description of the command for deleting a {{ org-name }} user group:
+  1. See the description of the command for deleting a {{ org-full-name }} user group:
 
       ```bash
       yc organization-manager group delete --help
@@ -32,7 +32,7 @@
 
       Where:
 
-      * `--name`: User group name. This is a required parameter.
+      * `--name`: User group name. This is a required setting.
       * `--organization-id`: [Organization ID](../../organization/operations/organization-get-id.md).
 
 - {{ TF }} {#tf}
@@ -56,13 +56,13 @@
 
         {% include [group-name-format](group-name-format.md) %}
 
-     * `description`: Group description. This is an optional parameter.
+     * `description`: Group description. This is an optional setting.
      * `organization_id`: [ID](../../organization/operations/organization-get-id.md) of the organization to add the group to.
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will create all the required resources. You can check the new resources and their settings using the [management console]({{ link-console-main }}) or this [CLI](../../cli/) command:
+     {{ TF }} will create all the required resources. You can check the new resources and their settings in the [{{ cloud-center }} UI]({{ link-org-cloud-center }}) or using this [CLI](../../cli/) command:
 
      ```bash
      yc organization-manager group list-members \

@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/components/cli-ref/
 editable: false
 ---
 
@@ -10,13 +11,19 @@ Manage installed components
 
 Syntax:
 
-`yc components <command>`
+`yc components <group|command>`
 
 #### Command Tree
 
 - [yc components restore](restore.md) — Restore the installation to its previous state
 
 - [yc components update](update.md) — Ensure that the latest version of all installed components is installed
+
+- [yc components v0](v0/index.md) — Manage installed components
+
+  - [yc components v0 restore](v0/restore.md) — Restore the installation to its previous state
+
+  - [yc components v0 update](v0/update.md) — Ensure that the latest version of all installed components is installed
 
 #### Global Flags
 

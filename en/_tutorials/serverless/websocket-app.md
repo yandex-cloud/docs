@@ -1,11 +1,18 @@
 # Creating an interactive serverless application using WebSocket
 
 
-In this tutorial, you will deploy an online game based on Node.js using WebSocket. 
+In this tutorial, you will deploy a multiplayer online game prototype built with Node.js and WebSocket.
 
-Your game's static resources will be stored in an {{ objstorage-name }} bucket and its data, in {{ ydb-name }} databases. You will use {{ yds-name }} to transfer the game data and {{ sf-name }} to process it. {{ message-queue-name }} will handle communication between the application components. {{ lockbox-name }} will securely deliver secrets to your app. An {{ api-gw-name }} will accept user requests and redirect them to {{ sf-name }}.
+Required resources:
+* {{ objstorage-name }} [bucket](../../storage/concepts/bucket.md) to store static game assets.
+* {{ ydb-name }} [databases](../../ydb/concepts/index.md) to store game data.
+* {{ yds-name }} [instance](../../data-streams/concepts/glossary.md#stream-concepts) to implement data streaming.
+* [{{ sf-name }}](../../functions/concepts/function.md) for data processing.
+* {{ message-queue-name }} [instance](../../message-queue/concepts/queue.md) to handle communication between the application components.
+* {{ lockbox-name }} [secrets](../../lockbox/concepts/secret.md) for secure storage and delivery of sensitive data to the application.
+* {{ api-gw-name }} [instance](../../api-gateway/concepts/index.md) to receive and redirect user requests to {{ sf-name }}.
 
-The game uses Telegram integration to authorize users.
+The game uses Telegram integration for user authentication.
 
 To create an online game:
 
@@ -56,7 +63,7 @@ The infrastructure support cost for this tutorial includes:
 
   {% endnote %}
 
-  1. Install the following tools in the specified order by running the relevant commands in your terminal:
+  1. Install the following tools one by one by running the relevant commands in the terminal:
 
      * [WebStorm](https://www.jetbrains.com/webstorm/) or [IntelliJ IDEA Community Edition](https://www.jetbrains.com/idea/):
        ```bash
@@ -116,7 +123,7 @@ The infrastructure support cost for this tutorial includes:
 
 - macOS {#macos}
 
-  1. Install the following tools in the specified order by running the relevant commands in your terminal:
+  1. Install the following tools one by one by running the relevant commands in the terminal:
      * [Homebrew](https://brew.sh):
 
        ```bash
@@ -160,7 +167,7 @@ The infrastructure support cost for this tutorial includes:
        curl --silent --show-error --location https://storage.yandexcloud.net/yandexcloud-ydb/install.sh | bash
        ```
 
-     * [Node.js](https://nodejs.org/en/) `16.16.0`:
+     * [Node.js](https://nodejs.org/en/) `16.16.0` or higher:
 
        ```bash
        brew install node@16
@@ -230,7 +237,7 @@ Create a bot in Telegram and get a token.
 
 - Federated account {#federated-account}
 
-  Get an IAM token and save it to the `YC_IAM_TOKEN` variable:
+  Get an IAM token and save it to the `YC_IAM_TOKEN:` variable:
 
   ```bash
   echo "export YC_IAM_TOKEN=$(yc iam create-token)" >> ~/.bashrc && . ~/.bashrc
@@ -400,7 +407,7 @@ Create a database named `game-data` to store the game data and a database named 
     location_id: {{ region-id }}
     ```
 
-1. Save the `endpoint` value from the previous command output to the `YDB_DATA_STREAMS_ENDPOINT` variable. In our example, it is `grpcs://ydb.serverless.yandexcloud.net:2135`.
+1. Save the `endpoint` value from the previous command output to the `YDB_DATA_STREAMS_ENDPOINT` variable. In our example, it equals `grpcs://ydb.serverless.yandexcloud.net:2135`.
 
     ```bash
     echo "export YDB_DATA_STREAMS_ENDPOINT=<DB_Document_API_endpoint>" >> ~/.bashrc && . ~/.bashrc
@@ -600,7 +607,7 @@ Create a database named `game-data` to store the game data and a database named 
 
 Your working folder will contain the following resources once your project is deployed:
 
-* {{ sf-name }}:
+* Functions from {{ sf-name }}:
 
   * `get-state`
   * `get-config`
@@ -698,7 +705,7 @@ During project deployment, the system created these service accounts:
 1. Inject new values into the secret named `game-secrets`:
 
     1. In the [management console]({{ link-console-main }}), select your working folder.
-    1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
+    1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_message-queue }}**.
     1. Select `capturing-queue`.
     1. Copy the value from the **{{ ui-key.yacloud.ymq.queue.overview.label_url }}** field and save it to the `YMQ_CAPTURE_QUEUE_URL` variable:
 
@@ -736,7 +743,7 @@ During project deployment, the system created these service accounts:
 
 ## Create an {{ api-gw-name }} {#apigw-create}
 
-During project deployment, the system created these service accounts:
+The following service accounts were created when deploying the project:
 * `apigw-s3-viewer` with the `storage.viewer` role to read objects from the {{ objstorage-name }} bucket.
 * `apigw-fn-caller` with the `{{ roles-functions-invoker }}` role to invoke {{ sf-name }}.
 
@@ -820,11 +827,12 @@ The game offers player statistics. If the API gateway's service domain is `{{ ap
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources you created:
-* [Delete](../../ydb/operations/manage-databases.md#delete-db) the {{ ydb-name }} databases.
-* [Delete](../../data-streams/operations/manage-streams.md#delete-data-stream) the stream in {{ yds-name }}.
-* [Delete](../../lockbox/operations/secret-delete.md) the {{ lockbox-name }} secret.
-* [Delete all objects from the bucket](../../storage/operations/objects/delete.md) and then [delete the empty {{ objstorage-name }} bucket](../../storage/operations/buckets/delete.md).
-* [Delete](../../api-gateway/operations/api-gw-delete.md) the {{ api-gw-name }}.
-* [Delete](../../functions/operations/function/function-delete.md) the {{ sf-name }}.
-* [Delete](../../message-queue/operations/message-queue-delete-queue.md) the {{ message-queue-name }}.
+To stop incurring charges for the resources you created:
+1. [Delete](../../ydb/operations/manage-databases.md#delete-db) the {{ ydb-name }} databases.
+1. [Delete](../../data-streams/operations/manage-streams.md#delete-data-stream) the stream in {{ yds-name }}.
+1. [Delete](../../lockbox/operations/secret-delete.md) the {{ lockbox-name }} secret.
+1. [Delete](../../storage/operations/objects/delete.md) all objects from the {{ objstorage-name }} bucket.
+1. [Delete](../../storage/operations/buckets/delete.md) the empty {{ objstorage-name }} bucket.
+1. [Delete](../../api-gateway/operations/api-gw-delete.md) {{ api-gw-name }}.
+1. [Delete](../../functions/operations/function/function-delete.md) the {{ sf-name }} functions.
+1. [Delete](../../message-queue/operations/message-queue-delete-queue.md) {{ message-queue-name }}.

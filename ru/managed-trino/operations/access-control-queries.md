@@ -7,9 +7,9 @@ description: Правила определяют, какие действия п
 
 Правила доступа к запросам определяют, какие действия пользователи могут совершать над SQL-запросами в кластере {{ mtr-name }}.
 
-Для каждой пары «пользователь–запрос» правила применяются следующим образом:
-* Правила проверяются в порядке их объявления. Применяется первое найденное правило, которое соответствует паре «пользователь–запрос».
-* Если ни одно из заданных правил не соответствует паре «пользователь–запрос», пользователю запрещаются любые действия над запросом.
+Для каждой пары пользователь-запрос правила применяются следующим образом:
+* Правила проверяются в порядке их объявления. Применяется первое найденное правило, которое соответствует паре пользователь-запрос.
+* Если ни одно из заданных правил не соответствует паре пользователь-запрос, пользователю запрещаются любые действия над запросом.
 * Если не задано ни одно правило доступа к запросам, каждый пользователь может выполнять любые действия над всеми запросами.
 * Правила доступа к запросам применяются совместно с общими [правилами доступа к объектам каталогов](./access-control-catalogs.md).
 
@@ -104,13 +104,13 @@ description: Правила определяют, какие действия п
 
      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
-  2. Посмотрите описание команды CLI для создания кластера:
+  1. Посмотрите описание команды CLI для создания кластера:
 
      ```bash
      {{ yc-mdb-tr }} cluster create --help
      ```
 
-  3. Выполните команду:
+  1. Выполните команду:
 
      ```bash
      {{ yc-mdb-tr }} cluster create \
@@ -172,15 +172,89 @@ description: Правила определяют, какие действия п
 
      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
-  2. Проверьте корректность настроек.
+  1. Проверьте корректность настроек.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  3. Подтвердите изменение ресурсов.
+  1. Подтвердите изменение ресурсов.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
  
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mtr-access }}).
+
+- REST API {#api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Создайте файл `body.json` и добавьте в него следующее содержимое:
+
+      ```json
+      {
+        <Параметры_кластера>
+        ...
+        "trino": {
+          "accessControl": {
+            "queries": [
+              {
+                "privileges": [
+                  "<список_разрешений>"
+                ],
+                "queryOwners": [
+                  "<список_владельцев_запросов>"
+                ],
+                "users": [
+                  "<список_идентификаторов_пользователей>"
+                ],
+                "groups": [
+                  "<список_идентификаторов_групп>"
+                ],
+                "description": "<описание_правила>"
+              },
+              {
+                <Блок_правила_2>
+              },
+              ...
+              {
+                <Блок_правила_N>
+              }
+            ]
+          }
+        }
+      }
+      ```
+
+      Где:
+
+      * `accessControl` — конфигурация прав доступа в рамках кластера.
+
+      * `queries` — список блоков правил для запросов. Все параметры правила являются опциональными: `privileges`, `queryOwners`, `groups`, `users` и `description`.
+
+      * `privileges` — список разрешенных действий над запросами:
+        * `VIEW` — просмотр информации о запросе.
+        * `KILL` — отмена запроса.
+        * `EXECUTE` — исполнение запроса.
+
+        {% include notitle [queries-privileges-rest](../../_includes/managed-trino/access-control-src.md#queries-privileges-rest) %}
+
+      * `queryOwners` — список идентификаторов владельцев запросов. Правило распространяется на запросы, владельцы которых перечислены в параметре `queryOwners`. Если параметр не указан, правило распространяется на запросы всех пользователей.
+
+      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
+
+      Доступные параметры кластера и их описания см. в [инструкции](cluster-create.md#create-cluster).
+
+  1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+
+      ```bash
+      curl \
+          --request POST \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters'
+          --data '@body.json'
+      ```
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/create.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -188,9 +262,9 @@ description: Правила определяют, какие действия п
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-  2. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+  1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-  3. Создайте файл `body.json` и добавьте в него следующее содержимое:
+  1. Создайте файл `body.json` и добавьте в него следующее содержимое:
 
       ```json
       {
@@ -246,7 +320,7 @@ description: Правила определяют, какие действия п
 
       Доступные параметры кластера и их описания см. в [инструкции](cluster-create.md#create-cluster).
 
-  4. Воспользуйтесь вызовом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService/Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -261,7 +335,7 @@ description: Правила определяют, какие действия п
           < body.json
       ```
 
-  5. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -358,7 +432,7 @@ description: Правила определяют, какие действия п
      * изменить параметры существующих правил;
      * удалить ненужные правила.
 
-  2. Выполните команду:
+  1. Выполните команду:
 
      ```bash
      {{ yc-mdb-tr }} cluster set-access-control <имя_или_идентификатор_кластера> \
@@ -421,21 +495,108 @@ description: Правила определяют, какие действия п
 
      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
-  2. Если правила доступа уже заданы, внесите правки в описание ресурса `yandex_trino_access_control`. Вы можете:
+  1. Если правила доступа уже заданы, внесите правки в описание ресурса `yandex_trino_access_control`. Вы можете:
 
      * добавить новые правила;
      * изменить параметры существующих правил;
      * удалить ненужные правила.
 
-  3. Проверьте корректность настроек.
+  1. Проверьте корректность настроек.
   
       {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
   
-  4. Подтвердите изменение ресурсов.
+  1. Подтвердите изменение ресурсов.
   
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
  
   Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mtr-access }}).
+
+- REST API {#api}
+
+  1. [Получите IAM-токен для аутентификации в API](../api-ref/authentication.md) и поместите токен в переменную среды окружения:
+
+      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+  1. Если правила доступа еще не заданы, создайте файл `body.json` и добавьте в него следующее содержимое:
+
+      ```json
+      {
+        "updateMask": "trino.accessControl.queries",
+        "trino": {
+          "accessControl": {
+            "queries": [
+              {
+                "privileges": [
+                  "<список_разрешений>"
+                ],
+                "queryOwners": [
+                  "<список_владельцев_запросов>"
+                ],
+                "users": [
+                  "<список_идентификаторов_пользователей>"
+                ],
+                "groups": [
+                  "<список_идентификаторов_групп>"
+                ],
+                "description": "<описание_правила>"
+              },
+              {
+                <Блок_правила_2>
+              },
+              ...
+              {
+                <Блок_правила_N>
+              }
+            ]
+          }
+        }
+      }
+      ```
+
+      Где:
+
+      * `updateMask` — перечень изменяемых параметров в строку через запятую.
+
+          {% note warning %}
+
+          При изменении кластера все параметры изменяемого объекта, которые не были явно переданы в запросе, будут переопределены на значения по умолчанию. Чтобы избежать этого, перечислите настройки, которые вы хотите изменить, в параметре `updateMask`.
+
+          {% endnote %}
+
+      * `accessControl` — конфигурация прав доступа в рамках кластера.
+
+      * `queries` — список блоков правил для запросов. Все параметры правила являются опциональными: `privileges`, `queryOwners`, `groups`, `users` и `description`.
+
+      * `privileges` — список разрешенных действий над запросами:
+        * `VIEW` — просмотр информации о запросе.
+        * `KILL` — отмена запроса.
+        * `EXECUTE` — исполнение запроса.
+
+        {% include notitle [queries-privileges-rest](../../_includes/managed-trino/access-control-src.md#queries-privileges-rest) %}
+
+      * `queryOwners` — список идентификаторов владельцев запросов. Правило распространяется на запросы, владельцы которых перечислены в параметре `queryOwners`. Если параметр не указан, правило распространяется на запросы всех пользователей.
+
+      {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
+
+  1. Если правила уже заданы, откройте существующий файл `body.json` с правилами и внесите в него правки. Вы можете:
+
+     * добавить новые правила;
+     * изменить параметры существующих правил;
+     * удалить ненужные правила.
+
+  1. Воспользуйтесь методом [Cluster.Update](../api-ref/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
+
+      ```bash
+      curl \
+        --request PATCH \
+        --header "Authorization: Bearer $IAM_TOKEN" \
+        --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<идентификатор_кластера>'
+        --data '@body.json'
+      ```
+
+      Идентификатор кластера можно получить со [списком кластеров](cluster-list.md#list-clusters) в каталоге.
+
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation).
 
 - gRPC API {#grpc-api}
 
@@ -530,13 +691,13 @@ description: Правила определяют, какие действия п
 
       {% include [groups-users-description](../../_includes/managed-trino/groups-users-description.md) %}
 
-  2. Если правила уже заданы, откройте существующий файл `body.json` с правилами и внесите в него правки. Вы можете:
+  1. Если правила уже заданы, откройте существующий файл `body.json` с правилами и внесите в него правки. Вы можете:
 
      * добавить новые правила;
      * изменить параметры существующих правил;
      * удалить ненужные правила.
 
-  3. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Update](../api-ref/grpc/Cluster/update.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -551,7 +712,7 @@ description: Правила определяют, какие действия п
         < body.json
       ```
 
-  4. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation).
+  1. Убедитесь, что запрос был выполнен успешно, изучив [ответ сервера](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation).
 
 {% endlist %}
 
@@ -612,6 +773,49 @@ description: Правила определяют, какие действия п
       }
     ]
     ...
+  }
+  ```
+
+- REST API {#api}
+
+  Файл `body.json` для такого набора правил выглядит так:
+
+  ```json
+  {
+    "updateMask": "trino.accessControl.queries",
+    "trino": {
+      "accessControl": {
+        "queries": [
+          {
+            "privileges": [
+              "VIEW",
+              "KILL",
+              "EXECUTE"              
+            ],
+            "groups": [
+              "admins_group_id"
+            ]
+          },
+          {
+            "privileges": [
+              "VIEW",
+              "KILL"
+            ],
+            "queryOwners": [
+              "suspicious_user_id"
+            ],
+            "groups": [
+              "security_group_id"
+            ]
+          },
+          {
+            "privileges": [
+              "EXECUTE"
+            ]
+          }
+        ]
+      }
+    }
   }
   ```
 

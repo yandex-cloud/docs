@@ -8,6 +8,7 @@ editable: false
 
 
 
+
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
@@ -50,7 +51,6 @@ Data delivery for transfers that are at the Preview stage is free of charge. For
 <MDX>
   <PriceList
     serviceIds={['{{ pcs|datatransfer }}']}
-    excludeSkuIds={['{{ pc|datatransfer.compute.ram.preview.v1 }}', '{{ pc|datatransfer.rows.preview.v1 }}', '{{ pc|datatransfer.compute.cpu.preview.v1 }}']}
     installationCode="ru"
     currency="USD"
   />
@@ -59,6 +59,8 @@ Data delivery for transfers that are at the Preview stage is free of charge. For
 
 
 ## Cost calculation examples {#price-example}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 When calculating the cost, keep in mind that one [worker](concepts/index.md#worker) can use the following computing resources:
 

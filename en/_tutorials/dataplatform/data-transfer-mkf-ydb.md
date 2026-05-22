@@ -5,22 +5,22 @@ A {{ ydb-name }} cluster can ingest data from {{ KF }} topics in real time. This
 
 To start data delivery:
 
-1. [Set up and activate the transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
 ## Required paid resources {#paid-resources}
 
-* {{ mkf-name }} cluster: Computing resources allocated to hosts, storage and backup size (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
+* {{ mkf-name }} cluster: Computing resources allocated to hosts along with storage and backup capacity (see [{{ mkf-name }} pricing](../../managed-kafka/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). Its pricing is based on deployment mode:
+* {{ ydb-name }} database (see [{{ ydb-name }} pricing](../../ydb/pricing/index.md)). Its cost depends on the deployment mode:
 
-	* In serverless mode, you pay for data operations and storage volume, including stored backups.
+	* In serverless mode, you pay for data operations as well as the amount of stored data and backups.
   	* In dedicated instance mode, you pay for the use of computing resources allocated to the database, storage size, and backups.
 
-* Each transfer: Use of computing resources and number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Per transfer: Computing resources used and the number of data rows transferred (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -50,14 +50,14 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
            * [Network](../../vpc/concepts/network.md#network).
            * [Subnet](../../vpc/concepts/network.md#subnet).
-           * [Security group](../../vpc/concepts/security-groups.md) and the rule required to connect to a {{ mkf-name }} cluster.
+           * [Security group](../../vpc/concepts/security-groups.md) and the rule required for connecting to the {{ mkf-name }} cluster.
            * {{ mkf-name }} source cluster.
            * {{ KF }} topic.
            * {{ KF }} user.
            * {{ ydb-name }} database.
            * Transfer.
 
-       1. In the `data-transfer-mkf-ydb.tf` file, specify the following variables:
+       1. In the `data-transfer-mkf-ydb.tf` file, specify these variables:
 
            * `source_kf_version`: {{ KF }} version in the source cluster.
            * `source_user_name`: Username for connection to the {{ KF }} topic.
@@ -81,7 +81,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
    {% endlist %}
 
-   The source cluster's new {{ KF }} topic, `sensors`, will receive test data from car sensors in JSON format:
+   The new source cluster {{ KF }} topic named `sensors` will receive test data from car sensors in JSON format:
 
    ```json
    {
@@ -105,15 +105,15 @@ If you no longer need the resources you created, [delete them](#clear-out).
         sudo apt update && sudo apt install --yes kafkacat
         ```
 
-        Make sure you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
+        Check that you can use it to [connect to the {{ mkf-name }} source cluster over SSL](../../managed-kafka/operations/connect/clients.md#bash-zsh).
 
-    - [jq](https://stedolan.github.io/jq/) for stream processing of JSON files.
+    - [jq](https://stedolan.github.io/jq/): For stream processing of JSON files.
 
         ```bash
         sudo apt update && sudo apt-get install --yes jq
         ```
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate the transfer {#prepare-transfer}
 
 1. [Create a target endpoint](../../data-transfer/operations/endpoint/index.md#create):
 
@@ -121,7 +121,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.title }}**:
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbTarget.connection.title }}**:
-           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select your {{ ydb-name }} database from the list.
+           * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.database.title }}**: Select the {{ ydb-name }} database from the list.
 
            
            * **{{ ui-key.yc-data-transfer.data-transfer.console.form.ydb.console.form.ydb.YdbConnectionSettings.service_account_id.title }}**: Select an existing service account or create a new one with the `editor` role.
@@ -209,16 +209,16 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     - Manually {#manual}
 
-        1. [Create](../../data-transfer/operations/transfer.md#create) a **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**-type transfer configured to use the new endpoints.
+        1. [Create a transfer](../../data-transfer/operations/transfer.md#create) of the **_{{ ui-key.yc-data-transfer.data-transfer.console.form.transfer.console.form.transfer.TransferType.increment.title }}_**-type that will use the endpoints you created.
         1. [Activate](../../data-transfer/operations/transfer.md#activate) the transfer.
 
     - {{ TF }} {#tf}
 
         1. In the `data-transfer-mkf-ydb.tf` file, specify the following variables:
 
-            * `source_endpoint_id`: ID of the source endpoint.
-            * `target_endpoint_id`: ID of the target endpoint.
-            * `transfer_enabled`: `1` to create a transfer.
+            * `source_endpoint_id`: Source endpoint ID.
+            * `target_endpoint_id`: Target endpoint ID.
+            * `transfer_enabled`: Set to `1` to create the transfer.
 
         1. Validate your {{ TF }} configuration files using this command:
 
@@ -232,7 +232,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
             {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
-            The transfer will activate automatically upon creation.
+            The transfer will be activated automatically upon creation.
 
     {% endlist %}
 
@@ -291,20 +291,20 @@ If you no longer need the resources you created, [delete them](#clear-out).
            -X security.protocol=SASL_SSL \
            -X sasl.mechanisms=SCRAM-SHA-512 \
            -X sasl.username="<username_in_source_cluster>" \
-           -X sasl.password="<source_cluster_user_password>" \
+           -X sasl.password="<user_password_in_source_cluster>" \
            -X ssl.ca.location={{ crt-local-dir }}{{ crt-local-file }} -Z
         ```
 
         The data is sent on behalf of the [created user](#prepare-source). To learn more about setting up an SSL certificate and using `kafkacat`, see [{#T}](../../managed-kafka/operations/connect/clients.md).
 
-    1. Make sure that the data from the source {{ mkf-name }} cluster has been transferred to the {{ ydb-name }} database:
+    1. Make sure the data from the {{ mkf-name }} source cluster has been transferred to the {{ ydb-name }} database:
 
         {% list tabs group=instructions %}
 
         - Management console {#console}
 
            1. In the [management console]({{ link-console-main }}), select the folder containing your database.
-           1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
+           1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}** service.
            1. Select your database from the list.
            1. Navigate to the **{{ ui-key.yacloud.ydb.database.switch_browse }}** tab.
            1. Check that the {{ ydb-name }} database contains a table named `sensors` with the test data from the topic.
@@ -326,11 +326,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 {% note info %}
 
-Before deleting the resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
+Before deleting any resources, [deactivate the transfer](../../data-transfer/operations/transfer.md#deactivate).
 
 {% endnote %}
 
-To reduce the consumption of resources you do not need, delete them:
+To minimize resource consumption, delete the resources you no longer need:
 
 1. [Delete the transfer](../../data-transfer/operations/transfer.md#delete).
 1. [Delete the source and target endpoints](../../data-transfer/operations/endpoint/index.md#delete).
@@ -339,7 +339,7 @@ To reduce the consumption of resources you do not need, delete them:
 1. If you created a service account when creating the target endpoint, [delete it](../../iam/operations/sa/delete.md).
 
 
-1. Delete the other resources depending on how you created them:
+1. Delete the rest of the resources depending on how you created them:
 
    {% list tabs group=instructions %}
 

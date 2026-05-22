@@ -1,4 +1,7 @@
 ---
+title: Настройка CI/CD между {{ sf-full-name }} и {{ src-name }}
+description: Как настроить CI/CD между {{ sf-full-name }} и {{ src-name }}.
+noIndex: true
 canonical: '{{ link-docs }}/tutorials/serverless/ci-cd-sourcecraft-functions'
 ---
 

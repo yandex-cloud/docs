@@ -57,15 +57,38 @@ _Приватная подсеть_ — это [виртуальная сеть 
 
 ## Виртуальный сегмент сети (VRF) {#vrf-segment}
 
-Для обеспечения L3-маршрутизации приватные подсети, в которых настроена маршрутизация, объединяются в виртуальные сегменты сети (VRF).
+Чтобы обеспечить L3-маршрутизацию между [приватными подсетями](#private-subnet), в которых настроена маршрутизация, такие подсети объединяются в виртуальные сегменты сети (VRF).
 
 Серверы из одного или разных пулов, подключенные к разным приватным подсетям, объединенным в VRF, смогут поддерживать между собой сетевой обмен по L3. Чтобы настроить такой сетевой обмен, для соответствующих подсетей в блоке **{{ ui-key.yacloud.baremetal.title_routing-settings }}** необходимо выбрать одинаковый VRF.
 
 {% include [internal-addressing-rules](../../_includes/baremetal/internal-addressing-rules.md) %}
 
+### Статические маршруты {#static-routes}
+
+{% include [static-routes-to-vpc-ri-notice2](../../_includes/baremetal/static-routes-to-vpc-ri-notice2.md) %}
+
+Для маршрутизации внутри приватной сети {{ baremetal-full-name }} вы можете использовать _статические маршруты_.
+
+Количество статических маршрутов в облаке ограничено [квотами](./limits.md#baremetal-quotas). При этом к статическим маршрутам в {{ baremetal-full-name }} применяются следующие дополнительные ограничения:
+
+* Префикс назначения может быть равен `0.0.0.0/0`, либо должен представлять собой корректный диапазон приватных IPv4-адресов в нотации [CIDR](https://ru.wikipedia.org/wiki/Бесклассовая_адресация), входящих в любой из следующих диапазонов:
+
+    * `10.0.0.0/8`;
+    * `172.16.0.0/12`;
+    * `192.168.0.0/16`.
+* Префикс назначения не может совпадать или пересекаться с диапазоном IP-адресов приватной подсети, входящей в данный VRF.
+* Префикс назначения не может совпадать или пересекаться с диапазоном IP-адресов другого статического маршрута в данном VRF.
+* Значением `Next hop` может быть IPv4-адрес, входящий в диапазон любой приватной подсети в данном VRF.
+
+    Чтобы анонсировать статический маршрут в {{ vpc-name }}, в VRF должно быть настроено [приватное соединение](#private-connection-to-vpc) с облачными сетями, а при [настройке](../operations/create-static-route.md) статического маршрута в VRF должна быть включена опция **{{ ui-key.yacloud.baremetal.vrfs.VrfStaticRoutesField.column_is-console-enabled_hiCs9 }}**.
+
+    {% include [static-routes-to-vpc-ri-notice](../../_includes/baremetal/static-routes-to-vpc-ri-notice.md) %}
+
 ## Приватное соединение с облачными сетями {#private-connection-to-vpc}
 
-Сетевая связность между [серверами](./servers.md) {{ baremetal-name }}, приватными [подсетями](../../vpc/concepts/network.md#subnet) {{ vpc-full-name }} в облачной инфраструктуре и приватными подсетями в on-prem инфраструктуре настраивается с использованием сервиса [{{ interconnect-full-name }}](../../interconnect/concepts/priv-con.md).
+Сетевая связность между [серверами](./servers.md) {{ baremetal-name }}, приватными [подсетями](../../vpc/concepts/network.md#subnet) {{ vpc-name }} в облачной инфраструктуре и приватными подсетями в on-prem инфраструктуре настраивается с использованием сервиса [{{ interconnect-full-name }}](../../interconnect/concepts/priv-con.md).
+
+[Статические маршруты](#static-routes), созданные в VRF, могут анонсироваться в {{ vpc-name }}. Для этого при [настройке](../operations/create-static-route.md) статического маршрута в VRF должна быть включена опция **{{ ui-key.yacloud.baremetal.vrfs.VrfStaticRoutesField.column_is-console-enabled_hiCs9 }}**.
 
 #### См. также {#see-also}
 
@@ -76,3 +99,4 @@ _Приватная подсеть_ — это [виртуальная сеть 
 * [{#T}](../operations/network-create.md)
 * [{#T}](../operations/subnet-create.md)
 * [{#T}](../operations/create-vpc-connection.md)
+* [{#T}](../operations/create-static-route.md)

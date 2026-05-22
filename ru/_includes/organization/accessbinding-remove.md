@@ -17,7 +17,7 @@
 
       1. Нажмите **{{ ui-key.yacloud.common.save }}**.
 
-  1. Чтобы отозвать все роли, в строке с нужным пользователем, сервисным аккаунтом или группой нажмите ![image](../../_assets/console-icons/ellipsis.svg), выберите ![TrashBin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.resource-acl.button_remove-bindings }}** и подтвердите действие.
+  1. Чтобы отозвать все роли, в строке с нужным пользователем, сервисным аккаунтом или группой нажмите ![image](../../_assets/console-icons/ellipsis.svg), выберите ![TrashBin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud_components.acl.action.revoke-access }}** и подтвердите действие.
 
 - CLI {#cli}
 
@@ -62,6 +62,30 @@
          * `--federation-users` — идентификатор федеративного пользователя.
          * `--service-account-id` — идентификатор сервисного аккаунта.
          * `--subject group` — идентификатор группы.
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-install](../terraform-install.md) %}
+
+  Чтобы отозвать роль у пользователя, сервисного аккаунта или группы пользователей:
+
+  1. Откройте конфигурационный файл {{ TF }} и удалите фрагмент с ресурсом `yandex_organizationmanager_group_iam_binding`, соответствующим роли, которую хотите отозвать.
+
+      ```hcl
+      resource "yandex_organizationmanager_group_iam_binding" "editor" {
+        group_id = "<идентификатор_группы>"
+        role     = "<идентификатор_роли>"
+        members  = [
+          "<тип_субъекта>:<идентификатор_субъекта>",
+        ]
+      }
+      ```
+
+  1. Примените изменения:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+   
+  После этого роль будет отозвана у указанного субъекта. Проверить отсутствие роли можно в [интерфейсе {{ cloud-center }}]({{ link-org-cloud-center }}).
 
 - API {#api}
 

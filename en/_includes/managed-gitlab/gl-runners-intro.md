@@ -1,0 +1,1 @@
+In {{ mgl-name }}, you can create a managed runner that automatically deploys a specified number of {{ compute-name }} [VMs](../../compute/concepts/vm.md) with installed {{ GL }} workers. The managed runner also scales out the worker VMs to accommodate the load.

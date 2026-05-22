@@ -1,5 +1,8 @@
 # Running external agents for load testing
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 
 You can use {{ load-testing-full-name }} for service load testing with external agents. 
 
@@ -49,7 +52,7 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to connect the external agent.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
 
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret, e.g., `secret-loadtest`.
@@ -209,7 +212,8 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
 
     - Management console {#console}
 
-      1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+      1. Open the [management console]({{ link-console-main }}).
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
       1. In the left-hand panel, go to the ![operations](../../_assets/mdb/operations.svg) **{{ ui-key.yacloud.common.operations-key-value }}** tab.
 
       1. Make sure the **Register an agent** operation completed successfully.
@@ -229,7 +233,8 @@ At the [Preview](../../overview/concepts/launch-stages.md) stage, {{ load-testin
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+  1. Open the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
   1. In the left-hand panel, go to the ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}** tab.
   1. Choose the previously created test and view its results. 
 
@@ -243,7 +248,8 @@ To delete the external agent from {{ load-testing-name }}:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+  1. Open the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
   1. In the left-hand panel, go to the ![agents](../../_assets/load-testing/agent.svg) **{{ ui-key.yacloud.load-testing.label_agents-list }}** tab.
   1. Next to the agent to delete, click ![options](../../_assets/options.svg) and select **{{ ui-key.yacloud.common.delete }}**.
   1. Confirm the deletion.

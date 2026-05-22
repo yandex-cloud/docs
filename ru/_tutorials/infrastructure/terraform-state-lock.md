@@ -56,7 +56,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится ваша БД.
-  1. В списке сервисов выберите **{{ ydb-name }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_ydb }}**.
   1. В списке БД выберите `state-lock-db`.
   1. Перейдите на вкладку **Навигация**.
   1. В правом верхнем углу нажмите **Создать** и выберите **Таблица**.
@@ -109,29 +109,37 @@
 
 {% endnote %}
 
+{% note warning %}
+
+Начиная с {{ TF }} версии `1.11`, блокировка состояния через [Document API](../../ydb/docapi/api-ref/) объявлена устаревшей и будет удалена в одной из ближайших минорных  версий. Если вы используете {{ TF }} версии `1.11` и выше, следите за официальными обновлениями в [документации {{ TF }}](https://developer.hashicorp.com/terraform/language/backend/s3).
+
+Для пользователей [OpenTofu](https://opentofu.org/) оба механизма блокировки поддерживаются и не планируются к удалению.    
+
+{% endnote %}   
+
 Чтобы сохранить состояние {{ TF }} в {{ objstorage-name }} и активировать блокировку состояний:
 1. Добавьте в переменные окружения идентификатор ключа и секретный ключ, [полученные ранее](#create-service-account):
 
    {% list tabs group=programming_language %}
-
+   
    - Bash {#bash}
-
-     ```bash
-     export ACCESS_KEY="<идентификатор_ключа>"
-     export SECRET_KEY="<секретный_ключ>"
-     ```
-
+   
+       ```bash
+       export AWS_ACCESS_KEY="<идентификатор_ключа>"
+       export AWS_SECRET_KEY="<секретный_ключ>"
+       ```
+   
    - PowerShell {#powershell}
-
-    ```powershell
-    $Env:AWS_ACCESS_KEY_ID="<идентификатор_ключа>"
-    $Env:AWS_SECRET_ACCESS_KEY="<секретный_ключ>"
-    ```
-
-   {% endlist %}
+   
+       ```powershell
+       $Env:AWS_ACCESS_KEY="<идентификатор_ключа>"
+       $Env:AWS_SECRET_KEY="<секретный_ключ>"
+       ```
+   {% endlist %}  
 
 1. Добавьте настройки провайдера и бэкенда в конфигурационный файл:
 
+   
    ```hcl
    terraform {
      required_providers {
@@ -139,7 +147,7 @@
          source = "yandex-cloud/yandex"
        }
      }
-     required_version = ">= 0.13"
+     required_version = ">= 1.6.3"
 
      backend "s3" {
        endpoints = {
@@ -163,6 +171,8 @@
      zone = "<зона_доступности_по_умолчанию>"
    }
    ```
+
+
 
    Где:
    * `bucket` — имя [бакета](../../storage/concepts/bucket.md).

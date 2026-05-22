@@ -193,7 +193,7 @@
 - Консоль управления {#console}
 
     1. В [консоли  управления]({{ link-console-main }}) перейдите в каталог, который указали в настройках {{ unified-agent-full-name }}.
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_logging }}**.
     1. Выберите лог-группу по умолчанию `default`.
     1. Перейдите на вкладку **{{ ui-key.yacloud.common.logs }}**.
     1. На открывшейся странице отобразятся записи.

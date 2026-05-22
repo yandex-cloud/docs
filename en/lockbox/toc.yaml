@@ -64,7 +64,7 @@ items:
         href: tutorials/data-transfer-direct-to-mch.md
       - name: Deploying a fault-tolerant architecture with preemptible VMs
         href: tutorials/nodejs-cron-restart-vm.md
-      - name: Creating an interactive serverless application using WebSocket
+      - name: Building an interactive serverless application using WebSocket
         href: tutorials/websocket-app.md
       - name: >-
           Automatically copying objects from one {{ objstorage-name }} bucket to
@@ -72,6 +72,8 @@ items:
         href: tutorials/bucket-to-bucket-copying.md
       - name: Secure password transmission to an initialization script
         href: tutorials/secure-password-script.md
+      - name: Using a secret in a PySpark job to connect to {{ mpg-full-name }}
+        href: tutorials/job-pyspark-secret-access.md
   - name: Quotas and limits
     href: concepts/limits.md
   - name: Access management
@@ -124,11 +126,57 @@ items:
             href: cli-ref/secret/set-access-bindings.md
           - name: update
             href: cli-ref/secret/update.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: payload
+            items:
+              - name: Overview
+                href: cli-ref/v0/payload/index.md
+              - name: get
+                href: cli-ref/v0/payload/get.md
+          - name: secret
+            items:
+              - name: Overview
+                href: cli-ref/v0/secret/index.md
+              - name: activate
+                href: cli-ref/v0/secret/activate.md
+              - name: add-access-binding
+                href: cli-ref/v0/secret/add-access-binding.md
+              - name: add-version
+                href: cli-ref/v0/secret/add-version.md
+              - name: cancel-version-destruction
+                href: cli-ref/v0/secret/cancel-version-destruction.md
+              - name: create
+                href: cli-ref/v0/secret/create.md
+              - name: deactivate
+                href: cli-ref/v0/secret/deactivate.md
+              - name: delete
+                href: cli-ref/v0/secret/delete.md
+              - name: get
+                href: cli-ref/v0/secret/get.md
+              - name: list
+                href: cli-ref/v0/secret/list.md
+              - name: list-access-bindings
+                href: cli-ref/v0/secret/list-access-bindings.md
+              - name: list-operations
+                href: cli-ref/v0/secret/list-operations.md
+              - name: list-versions
+                href: cli-ref/v0/secret/list-versions.md
+              - name: remove-access-binding
+                href: cli-ref/v0/secret/remove-access-binding.md
+              - name: schedule-version-destruction
+                href: cli-ref/v0/secret/schedule-version-destruction.md
+              - name: set-access-bindings
+                href: cli-ref/v0/secret/set-access-bindings.md
+              - name: update
+                href: cli-ref/v0/secret/update.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
     items:
-      - name: Authentication with the API
+      - name: API authentication
         href: api-ref/authentication.md
       - name: gRPC
         items:

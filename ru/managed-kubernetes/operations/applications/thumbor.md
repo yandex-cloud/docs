@@ -37,7 +37,8 @@ description: Следуя данной инструкции, вы сможете
 
 ## Установка с помощью {{ marketplace-full-name }} {#marketplace-install}
 
-1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Нажмите на имя нужного кластера {{ k8s }} и выберите вкладку ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}**.
 1. В разделе **{{ ui-key.yacloud.marketplace-v2.label_available-products }}** выберите [Thumbor](/marketplace/products/yc/thumbor) и нажмите кнопку **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Задайте настройки приложения:
@@ -48,10 +49,8 @@ description: Следуя данной инструкции, вы сможете
    * (Опционально) **Ключ безопасности** — укажите ключ безопасности для подписывания URL.
    * **Разрешить URL без подписи (unsafe)** — выберите эту опцию, если вы не указывали ключ безопасности на предыдущем шаге.
    * **Подкаталог в бакете** — укажите имя каталога в бакете (без завершающего символа `/`), в котором находятся изображения.
+   * (Опционально) **Публичный IP-адрес** — выберите эту опцию, чтобы выделить для сервиса публичный IP-адрес. Для обеспечения работы Thumbor будет автоматически создан сервис {{ k8s }} типа `LoadBalancer` и соответствующий ему [балансировщик {{ network-load-balancer-full-name }}](../../../network-load-balancer).
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-
-    Для обеспечения работы Thumbor будет автоматически создан сервис {{ k8s }} типа `LoadBalancer` и соответствующий ему [балансировщик {{ network-load-balancer-full-name }}](../../../network-load-balancer).
-
 1. Дождитесь перехода приложения в статус `Deployed`.
 
 ## Установка с помощью Helm-чарта {#helm-install}
@@ -77,6 +76,7 @@ description: Следуя данной инструкции, вы сможете
        --set allow_unsafe_url='true' \
        --set root_path='<имя_подкаталога_в_бакете>' \
        --set-file saAccessKeyFile='sa-key.json' \
+       --set public_address='true' \
       thumbor ./thumbor
      ```
 
@@ -98,6 +98,7 @@ description: Следуя данной инструкции, вы сможете
        --set security_key='<ключ_безопасности_для_подписывания_URL>' \
        --set root_path='<имя_подкаталога_в_бакете>' \
        --set-file saAccessKeyFile='sa-key.json' \
+       --set public_address='true' \
       thumbor ./thumbor/
      ```
 
@@ -107,7 +108,7 @@ description: Следуя данной инструкции, вы сможете
 
    {% endlist %}
 
-    Для обеспечения работы Thumbor будет автоматически создан сервис {{ k8s }} типа `LoadBalancer` и соответствующий ему [балансировщик {{ network-load-balancer-full-name }}](../../../network-load-balancer).
+    Если в параметр `public_address` передано `true`, то для обеспечения работы Thumbor будет автоматически создан сервис {{ k8s }} типа `LoadBalancer` и соответствующий ему [балансировщик {{ network-load-balancer-name }}](../../../network-load-balancer).
 
 ## Получение доступа к приложению {#app-access}
 
@@ -115,7 +116,8 @@ description: Следуя данной инструкции, вы сможете
 
 - Консоль управления {#console}
 
-  1. Перейдите на [страницу каталога]({{ link-console-main }}) и выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
   1. Узнайте IP-адрес для балансировщика с описанием `cluster <имя_вашего_кластера>, service <пространство_имен>/thumbor`.
   1. В адресной строке браузера откройте ссылку `http://<IP-адрес_балансировщика>/unsafe/<имя_изображения_в_бакете>`.
 

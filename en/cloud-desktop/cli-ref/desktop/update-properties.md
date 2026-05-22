@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/desktops/cli-ref/desktop/update-properties
 editable: false
 ---
 
@@ -26,6 +27,9 @@ Desktop name. ||
 || `--new-name` | `string`
 
 New desktop name. ||
+|| `--description` | `string`
+
+New desktop description. ||
 || `--labels` | `key=value[,key=value...]`
 
 New desktop labels. ||

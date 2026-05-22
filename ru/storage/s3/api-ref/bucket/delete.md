@@ -1,4 +1,4 @@
-# Метод deleteBucket
+# Object Storage API, REST совместимый с Amazon S3: DeleteBucket
 
 Удаляет пустой бакет. Если бакет не пустой, то сначала нужно удалить все находящиеся в ней объекты.
 
@@ -29,5 +29,11 @@ DELETE /{bucket} HTTP/2
 ### Коды ответов {#response-codes}
 
 Перечень возможных ответов смотрите в разделе [{#T}](../response-codes.md).
+
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/bucket.md)
+
+* [{#T}](../../../operations/buckets/delete.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

@@ -69,6 +69,30 @@ apiPlayground:
             New phone number for the user.
             The maximum string length in characters is 50.
           type: string
+        companyName:
+          description: |-
+            **string**
+            New company name for the user.
+            The maximum string length in characters is 256.
+          type: string
+        department:
+          description: |-
+            **string**
+            New department for the user.
+            The maximum string length in characters is 256.
+          type: string
+        jobTitle:
+          description: |-
+            **string**
+            New job title for the user.
+            The maximum string length in characters is 256.
+          type: string
+        employeeId:
+          description: |-
+            **string**
+            New employee ID for the user.
+            The maximum string length in characters is 256.
+          type: string
       additionalProperties: false
     definitions: null
 ---
@@ -106,7 +130,11 @@ The maximum string length in characters is 50. ||
   "givenName": "string",
   "familyName": "string",
   "email": "string",
-  "phoneNumber": "string"
+  "phoneNumber": "string",
+  "companyName": "string",
+  "department": "string",
+  "jobTitle": "string",
+  "employeeId": "string"
 }
 ```
 
@@ -154,6 +182,26 @@ The maximum string length in characters is 254. Value must match the regular exp
 New phone number for the user.
 
 The maximum string length in characters is 50. ||
+|| companyName | **string**
+
+New company name for the user.
+
+The maximum string length in characters is 256. ||
+|| department | **string**
+
+New department for the user.
+
+The maximum string length in characters is 256. ||
+|| jobTitle | **string**
+
+New job title for the user.
+
+The maximum string length in characters is 256. ||
+|| employeeId | **string**
+
+New employee ID for the user.
+
+The maximum string length in characters is 256. ||
 |#
 
 ## Response {#yandex.cloud.operation.Operation}
@@ -191,7 +239,11 @@ The maximum string length in characters is 50. ||
     "phoneNumber": "string",
     "createdAt": "string",
     "updatedAt": "string",
-    "externalId": "string"
+    "externalId": "string",
+    "companyName": "string",
+    "department": "string",
+    "jobTitle": "string",
+    "employeeId": "string"
   }
   // end of the list of possible fields
 }
@@ -369,4 +421,16 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 External identifier for federation with external identity systems.
 This ID can be used to link this user with an account in an external system. ||
+|| companyName | **string**
+
+User's company name. ||
+|| department | **string**
+
+User's department. ||
+|| jobTitle | **string**
+
+User's job title. ||
+|| employeeId | **string**
+
+User's employee ID ||
 |#

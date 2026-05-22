@@ -21,16 +21,34 @@ There are multiple options you can use to get an [IAM token](../../concepts/auth
 
 ## Get an IAM token using the CLI {#via-cli}
 
-{% include [cli-set-sa-profile](../../../_includes/cli-set-sa-profile.md) %}
+{% list tabs group=instructions %}
 
-Now you can get an IAM token for your service account:
+- CLI {#cli}
+
+  {% include [cli-set-sa-profile](../../../_includes/cli-set-sa-profile.md) %}
+
+  Now you can get an IAM token for your service account:
+
+  
+  ```
+  yc iam create-token
+  ```
 
 
-```
-yc iam create-token
-```
 
+  Result:
 
+  ```text
+  t1.9euelZrLop7Uz8up********
+  ```
+
+  The value you get is an IAM token. You can copy it, save it to a file, or write it into a variable:
+
+  ```bash
+  export IAM_TOKEN=`<IAM_token>`
+  ```
+
+{% endlist %}
 
 {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
 
@@ -206,6 +224,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
   import io.jsonwebtoken.Jwts;
   import io.jsonwebtoken.SignatureAlgorithm;
+  import org.bouncycastle.jce.provider.BouncyCastleProvider;
   import org.bouncycastle.util.io.pem.PemObject;
   import org.bouncycastle.util.io.pem.PemReader;
 
@@ -214,11 +233,16 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
   import java.nio.file.Paths;
   import java.security.KeyFactory;
   import java.security.PrivateKey;
+  import java.security.Security;
   import java.security.spec.PKCS8EncodedKeySpec;
   import java.time.Instant;
   import java.util.Date;
 
   public class JavaJwt {
+
+      static {
+          Security.addProvider(new BouncyCastleProvider());
+      }
 
       @JsonIgnoreProperties(ignoreUnknown = true)
       public static class KeyInfo {
@@ -240,6 +264,9 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
           PemObject privateKeyPem;
           try (PemReader reader = new PemReader(new StringReader(privateKeyString))) {
               privateKeyPem = reader.readPemObject();
+              if (privateKeyPem == null) {
+                  throw new IllegalArgumentException("Failed to read private key from PEM");
+              }
           }
 
           KeyFactory keyFactory = KeyFactory.getInstance("RSA");
@@ -488,6 +515,7 @@ On [jwt.io](https://jwt.io) you can view the list of libraries and try generatin
           iat: now,
           exp: now + 3600,
           aud: "https://iam.api.cloud.yandex.net/iam/v1/tokens"
+      }
       
       return jose.JWK.asKey(privateKey, 'pem', { kid: accessKeyId, alg: 'PS256' })
           .then(function (result)
@@ -718,7 +746,7 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
   1. Exchange your JWT for an IAM token:
 
   
-      ```go
+      ```python
       import yandexcloud
 
       from yandex.cloud.iam.v1.iam_token_service_pb2 import (CreateIamTokenRequest)
@@ -823,9 +851,8 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
 
       ```js
       const serviceAccountJson = require('<JSON_file_with_keys>')
-      const {
-          serviceClients, Session, cloudApi, waitForOperation, decodeMessage,
-      } = require('@yandex-cloud/nodejs-sdk');
+      const { Session } = require('@yandex-cloud/nodejs-sdk');
+      const { iamTokenService } = require('@yandex-cloud/nodejs-sdk/iam-v1');
 
       const {
           id: accessKeyId,
@@ -833,27 +860,37 @@ When exchanging the JWT for an IAM token, make sure the following conditions are
           private_key: privateKey
       } = serviceAccountJson
 
-      const {
-          iam: {
-              iam_token_service: {
-                  CreateIamTokenRequest,
-              }
-          }
-      } = cloudApi;
+      const jose = require('node-jose');
 
-      async function createIamToken()
-      {
+      const createJWT = () => {
+          const now = Math.floor(new Date().getTime() / 1000)
+          const payload = {
+              iss: serviceAccountId,
+              iat: now,
+              exp: now + 3600,
+              aud: "https://iam.api.cloud.yandex.net/iam/v1/tokens"
+          }
+          
+          return jose.JWK.asKey(privateKey, 'pem', { kid: accessKeyId, alg: 'PS256' })
+              .then(function (result) {
+                  return jose.JWS.createSign({ format: 'compact' }, result)
+                      .update(JSON.stringify(payload))
+                      .final();
+              });
+      }
+
+      async function createIamToken() {
           const session = new Session({
               serviceAccountJson: {
                   accessKeyId,
                   serviceAccountId,
                   privateKey,
               }
-          })
-          const tokenClient = session.client(serviceClients.IamTokenServiceClient)
-          const jwt = await createJWT()
-          const tokenRequest = CreateIamTokenRequest.fromPartial({ jwt })
-          const { iamToken } = await tokenClient.create(tokenRequest)
+          });
+          const tokenClient = session.client(iamTokenService.IamTokenServiceClient);
+          const jwt = await createJWT();
+          const response = await tokenClient.create({ jwt });
+          const iamToken = response.iamToken;
 
           console.log("Your iam token:")
           console.log(iamToken)

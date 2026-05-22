@@ -56,7 +56,9 @@ Required field. ID of the Workflow. ||
     "schedule": {
       "cron_expression": "string",
       "timezone": "string"
-    }
+    },
+    "is_public": "bool",
+    "execution_url": "string"
   }
 }
 ```
@@ -117,6 +119,12 @@ Express execution mode. ||
 || schedule | **[WorkflowSchedule](#yandex.cloud.serverless.workflows.v1.WorkflowSchedule)**
 
 Workflow schedule settings. ||
+|| is_public | **bool**
+
+Ability of the Workflow to be executed without authentication. ||
+|| execution_url | **string**
+
+Execution URL of the Workflow. ||
 |#
 
 ## WorkflowSpecification {#yandex.cloud.serverless.workflows.v1.WorkflowSpecification}
@@ -151,26 +159,20 @@ Includes only one of the fields `log_group_id`, `folder_id`. ||
 
 Minimum logs level.
 
-See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
+See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/get#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
 - `TRACE`: Trace log level.
-
-  Possible use case: verbose logging of some business logic.
+Possible use case: verbose logging of some business logic.
 - `DEBUG`: Debug log level.
-
-  Possible use case: debugging special cases in application logic.
+Possible use case: debugging special cases in application logic.
 - `INFO`: Info log level.
-
-  Mostly used for information messages.
+Mostly used for information messages.
 - `WARN`: Warn log level.
-
-  May be used to alert about significant events.
+May be used to alert about significant events.
 - `ERROR`: Error log level.
-
-  May be used to alert about errors in infrastructure, logic, etc.
+May be used to alert about errors in infrastructure, logic, etc.
 - `FATAL`: Fatal log level.
-
-  May be used to alert about unrecoverable failures and events. ||
+May be used to alert about unrecoverable failures and events. ||
 |#
 
 ## WorkflowSchedule {#yandex.cloud.serverless.workflows.v1.WorkflowSchedule}

@@ -5,7 +5,6 @@ editable: false
 # Object Storage API, gRPC: BucketService.Get
 
 Returns the specified bucket.
-
 To get the list of all available buckets, make a [List](/docs/storage/api-ref/grpc/Bucket/list#List) request.
 
 ## gRPC request
@@ -26,22 +25,18 @@ To get the list of all available buckets, make a [List](/docs/storage/api-ref/gr
 || name | **string**
 
 Required field. Name of the bucket to return.
-
 To get the bucket name, make a [BucketService.List](/docs/storage/api-ref/grpc/Bucket/list#List) request. ||
 || view | enum **View**
 
 Scope of information about the bucket to return.
-
 Access to scopes is managed via [Identity and Access Management roles](/docs/storage/security),
 bucket [ACL](/docs/storage/concepts/acl) and [policies](/docs/storage/concepts/policy).
 
 - `VIEW_BASIC`: Returns basic information about a bucket.
-
-  The following fields will _not_ be returned: [Bucket.acl](#yandex.cloud.storage.v1.Bucket), [Bucket.cors](#yandex.cloud.storage.v1.Bucket), [Bucket.website_settings](#yandex.cloud.storage.v1.Bucket),
+The following fields will _not_ be returned: [Bucket.acl](#yandex.cloud.storage.v1.Bucket), [Bucket.cors](#yandex.cloud.storage.v1.Bucket), [Bucket.website_settings](#yandex.cloud.storage.v1.Bucket),
 [Bucket.lifecycle_rules](#yandex.cloud.storage.v1.Bucket), [Bucket.tags](#yandex.cloud.storage.v1.Bucket).
 - `VIEW_ACL`: Returns basic information and access control list (ACL) for the bucket.
-
-  The following fields will _not_ be returned: [Bucket.cors](#yandex.cloud.storage.v1.Bucket), [Bucket.website_settings](#yandex.cloud.storage.v1.Bucket), [Bucket.lifecycle_rules](#yandex.cloud.storage.v1.Bucket),
+The following fields will _not_ be returned: [Bucket.cors](#yandex.cloud.storage.v1.Bucket), [Bucket.website_settings](#yandex.cloud.storage.v1.Bucket), [Bucket.lifecycle_rules](#yandex.cloud.storage.v1.Bucket),
 [Bucket.tags](#yandex.cloud.storage.v1.Bucket).
 - `VIEW_FULL`: Returns full information about a bucket. ||
 |#
@@ -175,11 +170,11 @@ bucket [ACL](/docs/storage/concepts/acl) and [policies](/docs/storage/concepts/p
   "object_lock": {
     "status": "ObjectLockStatus",
     "default_retention": {
-      "mode": "Mode",
       // Includes only one of the fields `days`, `years`
       "days": "int64",
-      "years": "int64"
+      "years": "int64",
       // end of the list of possible fields
+      "mode": "Mode"
     }
   },
   "encryption": {
@@ -213,7 +208,6 @@ ID of the bucket. Always equal to `name`, which has priority. ||
 || name | **string**
 
 Name of the bucket.
-
 The name is unique within the platform. For naming limitations and rules, see
 [documentation](/docs/storage/concepts/bucket#naming). ||
 || folder_id | **string**
@@ -235,20 +229,17 @@ For details, see [documentation](/docs/storage/concepts/versioning).
 
 - `VERSIONING_DISABLED`: The bucket is unversioned, i.e. versioning has never been enabled for the bucket, including at its creation.
 Objects that are stored in the bucket have a version ID of `null`.
-
-  To enable versioning, change status to `VERSIONING_ENABLED` via a [BucketService.Update](/docs/storage/api-ref/grpc/Bucket/update#Update) request. Note that this
+To enable versioning, change status to `VERSIONING_ENABLED` via a [BucketService.Update](/docs/storage/api-ref/grpc/Bucket/update#Update) request. Note that this
 action is irreversible, and a bucket with versioning enabled can never return to `VERSIONING_DISABLED` state.
 - `VERSIONING_ENABLED`: Bucket versioning is enabled, i.e. all new objects are versioned and given a unique version ID, and objects that
 already existed at the time versioning was enabled will be versioned and given a unique version ID when modified
 by future requests.
-
-  To suspend versioning, change status to `VERSIONING_SUSPENDED` via a [BucketService.Update](/docs/storage/api-ref/grpc/Bucket/update#Update) request. You cannot
+To suspend versioning, change status to `VERSIONING_SUSPENDED` via a [BucketService.Update](/docs/storage/api-ref/grpc/Bucket/update#Update) request. You cannot
 disable versioning altogether for a bucket that already had it enabled; objects that had version IDs will keep
 them.
 - `VERSIONING_SUSPENDED`: Bucket versioning is suspended, i.e. new objects are not versioned, but objects that already existed at the time
 versioning was suspended are still versioned and keep their version IDs.
-
-  To resume versioning, change status to `VERSIONING_ENABLED` via a [BucketService.Update](/docs/storage/api-ref/grpc/Bucket/update#Update) request. ||
+To resume versioning, change status to `VERSIONING_ENABLED` via a [BucketService.Update](/docs/storage/api-ref/grpc/Bucket/update#Update) request. ||
 || max_size | **int64**
 
 Maximum size of the bucket, in bytes.
@@ -337,47 +328,38 @@ Required field. Permission granted by the grant.
 
 - `PERMISSION_FULL_CONTROL`: Allows grantee the `PERMISSION_WRITE`, `PERMISSION_WRITE_ACP`, `PERMISSION_READ`, and `PERMISSION_READ_ACP`
 on the bucket.
-
-  Maps to `x-amz-grant-full-control` header for [bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of
+Maps to `x-amz-grant-full-control` header for [bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of
 Amazon S3-compatible HTTP API.
 - `PERMISSION_WRITE`: Allows grantee to create new objects in the bucket. For the bucket and object owners of existing objects, also
 allows deletions and overwrites of those objects.
-
-  Maps to `x-amz-grant-write` header for [bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of Amazon
+Maps to `x-amz-grant-write` header for [bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of Amazon
 S3-compatible HTTP API.
 - `PERMISSION_WRITE_ACP`: Allows grantee to write the ACL for the bucket.
-
-  Maps to `x-amz-grant-write-acp` header for [bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of
+Maps to `x-amz-grant-write-acp` header for [bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of
 Amazon S3-compatible HTTP API.
 - `PERMISSION_READ`: Allows grantee to list the objects in the bucket.
-
-  Maps to `x-amz-grant-read` header for [bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of Amazon
+Maps to `x-amz-grant-read` header for [bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of Amazon
 S3-compatible HTTP API.
 - `PERMISSION_READ_ACP`: Allows grantee to read the bucket ACL
-
-  Maps to `x-amz-grant-read-acp` header for [bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of
+Maps to `x-amz-grant-read-acp` header for [bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of
 Amazon S3-compatible HTTP API. ||
 || grant_type | enum **GrantType**
 
 Required field. The grantee type for the grant.
 
 - `GRANT_TYPE_ACCOUNT`: A grantee is an [account on the platform](/docs/iam/concepts/#accounts).
-
-  For this grantee type, you need to specify the user ID in `Bucket.acl.grants.grantee_id` field. To get user ID, see
+For this grantee type, you need to specify the user ID in `Bucket.acl.grants.grantee_id` field. To get user ID, see
 [instruction](/docs/iam/operations/users/get).
-
-  Maps to using `id="*"` value for `x-amz-grant-*` header ([bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput)
+Maps to using `id="*"` value for `x-amz-grant-*` header ([bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput)
 method of Amazon S3-compatible HTTP API).
 - `GRANT_TYPE_ALL_AUTHENTICATED_USERS`: Grantees are all authenticated users, both from your clouds and other users' clouds. Access
 permission to this group allows any account on the platform to access the resource via a signed (authenticated)
 request.
-
-  Maps to using `uri="http://acs.amazonaws.com/groups/global/AuthenticatedUsers"` value for `x-amz-grant-*`
+Maps to using `uri="http://acs.amazonaws.com/groups/global/AuthenticatedUsers"` value for `x-amz-grant-*`
 header ([bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of Amazon S3-compatible HTTP API).
 - `GRANT_TYPE_ALL_USERS`: Grantees are all internet users. Access permission to this group allows anyone in the world access to the
 resource via signed (authenticated) or unsigned (anonymous) requests.
-
-  Maps to using `uri="http://acs.amazonaws.com/groups/global/AllUsers"` value for `x-amz-grant-*` header
+Maps to using `uri="http://acs.amazonaws.com/groups/global/AllUsers"` value for `x-amz-grant-*` header
 ([bucketPutAcl](/docs/storage/s3/api-ref/acl/bucketput) method of Amazon S3-compatible HTTP API). ||
 || grantee_id | **string**
 
@@ -399,7 +381,6 @@ ID of the CORS rule. ||
 || allowed_methods[] | enum **Method**
 
 List of HTTP methods allowed by the CORS rule.
-
 When a client sends a CORS-preflight `options` request with the `Access-Control-Request-Method` header (see
 [S3-compatible API reference](/docs/storage/s3/api-ref/object/options)), the specified method is checked against
 the list of the allowed methods. If there is a match, all the allowed methods are listed in the
@@ -415,18 +396,15 @@ The number of elements must be greater than 0.
 || allowed_headers[] | **string**
 
 List of HTTP headers allowed by the CORS rule.
-
 When a client sends a CORS-preflight `options` request with the `Access-Control-Request-Headers` header (see
 [S3-compatible API reference](/docs/storage/s3/api-ref/object/options)), the specified headers are checked against
 the list of the allowed headers. If there is a match, the specified headers that are allowed are listed in the
 `Access-Control-Allow-Headers` header of the response.
-
 Each string in the list can contain at most one `*` wildcard character that matches 0 or more characters.
 For example, `x-amz-*` value will allow all Amazon S3-compatible headers. ||
 || allowed_origins[] | **string**
 
 List of request origins allowed by the CORS rule.
-
 Each string in the list can contain at most one `*` wildcard character that matches 0 or more characters.
 For example, `http://*.example.com` value will allow requests originating from all subdomains of `example.com`.
 
@@ -447,9 +425,7 @@ object requested, the HTTP method, and the origin. ||
 || index | **string**
 
 Key of the index page object that is returned when a response is made to the root of the website.
-
 Either `index` or `redirect_all_requests` must be specified in order for the bucket to host a static website.
-
 If specified, the index page object must be located in the root of the bucket. ||
 || error | **string**
 
@@ -457,7 +433,6 @@ Key of the error page object that is returned when an error occurs. ||
 || redirect_all_requests | **[Scheme](#yandex.cloud.storage.v1.WebsiteSettings.Scheme)**
 
 Configuration for redirecting all requests sent to the website.
-
 Either `redirect_all_requests` or `index` must be specified in order for the bucket to host a static website.
 If `redirect_all_requests` is specified, it must be the only field in [Bucket.website_settings](#yandex.cloud.storage.v1.Bucket). ||
 || routing_rules[] | **[RoutingRule](#yandex.cloud.storage.v1.WebsiteSettings.RoutingRule)**
@@ -518,7 +493,6 @@ Hostname of the redirect URI. ||
 || http_redirect_code | **string**
 
 HTTP status code of the redirect response.
-
 Default value: `"301"`.
 
 Value must match the regular expression ``` 3(0[1-9]|[1-9][0-9]) ```. ||
@@ -531,12 +505,10 @@ Scheme of the redirect URI.
 || replace_key_prefix_with | **string**
 
 Substitution for the prefix of the object key specified in [Condition.key_prefix_equals](#yandex.cloud.storage.v1.WebsiteSettings.Condition).
-
 At most one of `replace_key_prefix_with` and `replace_key_with` can be specified. ||
 || replace_key_with | **string**
 
 New object key.
-
 At most one of `replace_key_with` and `replace_key_prefix_with` can be specified. ||
 |#
 
@@ -556,33 +528,25 @@ Indicates whether the rule is in effect. ||
 || filter | **[RuleFilter](#yandex.cloud.storage.v1.LifecycleRule.RuleFilter)**
 
 Filter that identifies the objects to which the rule applies.
-
 If not specified, the rule applies to all objects in the bucket. ||
 || expiration | **[Expiration](#yandex.cloud.storage.v1.LifecycleRule.Expiration)**
 
 Expiration rule.
-
 The expiration of an object is described as follows.
-
 For the unversioned bucket ([Bucket.versioning](#yandex.cloud.storage.v1.Bucket) is `VERSIONING_DISABLED`), the object is deleted and cannot be
 recovered.
-
 For the bucket with versioning enabled ([Bucket.versioning](#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`), the current version of the
 object (if it exists and is not a delete marker) is retained as a non-current version, and a delete marker becomes
 the current version of the object.
-
 For the bucket with versioning suspended ([Bucket.versioning](#yandex.cloud.storage.v1.Bucket) is `VERSIONING_SUSPENDED`), the current version of
 the object is retained as a non-current version if it is not a delete marker, or is removed otherwise, and a
 delete marker becomes the current version of the object. ||
 || transitions[] | **[Transition](#yandex.cloud.storage.v1.LifecycleRule.Transition)**
 
 List of transition rules.
-
 The transition of an object is described as follows.
-
 For the unversioned bucket ([Bucket.versioning](#yandex.cloud.storage.v1.Bucket) is `VERSIONING_DISABLED`), the object is transitioned to the
 specified storage class.
-
 For the bucket with versioning enabled ([Bucket.versioning](#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`) or suspended
 (`VERSIONING_SUSPENDED`), the current version of the object is transitioned to the specified storage class. ||
 || abort_incomplete_multipart_upload | **[AfterDays](#yandex.cloud.storage.v1.LifecycleRule.AfterDays)**
@@ -592,20 +556,17 @@ Configuration for aborting incomplete [multipart uploads](/docs/storage/concepts
 
 Expiration rule for non-current versions of objects in a bucket with versioning enabled ([Bucket.versioning](#yandex.cloud.storage.v1.Bucket) is
 `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`).
-
 At expiration, the non-current version of the object is deleted and cannot be recovered. ||
 || noncurrent_transitions[] | **[NoncurrentTransition](#yandex.cloud.storage.v1.LifecycleRule.NoncurrentTransition)**
 
 List of transition rules for non-current versions of objects in a bucket with versioning enabled
 ([Bucket.versioning](#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`).
-
 At transition, the non-current version of the object is transitioned to the specified storage class. ||
 || noncurrent_delete_markers | **[NoncurrentDeleteMarkers](#yandex.cloud.storage.v1.LifecycleRule.NoncurrentDeleteMarkers)**
 
 Expiration rule for non-current delete markers of an objects in a bucket with versioning
 enabled ([Bucket.versioning](#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`).
 Works in the same way as noncurrent_expiration rule, but only for delete markers.
-
 At expiration, the non-current delete marker of the object is deleted and cannot be recovered. ||
 |#
 
@@ -667,33 +628,26 @@ Tags that the object's tag set must have for the rule to apply. ||
 || date | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Specific date of object expiration.
-
 The rule continues to apply even after the date has passed, i.e. any new objects created in the bucket expire
 immediately.
-
 Exactly one of `date`, `days`, and `expired_object_delete_marker` fields can be specified. ||
 || days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Time period, in number of days from the creation or modification of the object, after which an object expires.
-
 Exactly one of `days`, `date`, and `expired_object_delete_marker` fields can be specified. ||
 || expired_object_delete_marker | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Indicates whether a delete marker of an object with no non-current versions (referred to as an expired object
 delete marker) is removed at the object's expiration.
-
 Exactly one of `expired_object_delete_marker`, `date`, and `days` fields can be specified. ||
 |#
 
 ## Transition {#yandex.cloud.storage.v1.LifecycleRule.Transition}
 
 List of transition rules.
-
 The transition of an object is described as follows.
-
 For the unversioned bucket ([Bucket.versioning](#yandex.cloud.storage.v1.Bucket) is `VERSIONING_DISABLED`), the object is transitioned to the
 specified storage class.
-
 For the bucket with versioning enabled ([Bucket.versioning](#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`) or suspended
 (`VERSIONING_SUSPENDED`), the current version of the object is transitioned to the specified storage class.
 
@@ -702,21 +656,17 @@ For the bucket with versioning enabled ([Bucket.versioning](#yandex.cloud.storag
 || date | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
 
 Specific date of object transition.
-
 The rule continues to apply even after the date has passed, i.e. any new objects created in the bucket are
 transitioned immediately.
-
 At most one of `date` and `days` fields can be specified. ||
 || days | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
 
 Time period, in number of days from the creation or modification of the object, after which an object is
 transitioned.
-
 At most one of `days` and `date` fields can be specified. ||
 || storage_class | **string**
 
 Required field. Storage class to which an object is transitioned from standard storage.
-
 The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold
 to standard storage and transitions to or from ice storage are not allowed. ||
 |#
@@ -745,7 +695,6 @@ version expires. ||
 
 List of transition rules for non-current versions of objects in a bucket with versioning enabled
 ([Bucket.versioning](#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`).
-
 At transition, the non-current version of the object is transitioned to the specified storage class.
 
 #|
@@ -757,7 +706,6 @@ version is transitioned. ||
 || storage_class | **string**
 
 Required field. Storage class to which a non-current version of an object is transitioned from standard storage.
-
 The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold
 to standard storage and transitions to or from ice storage are not allowed. ||
 |#
@@ -796,12 +744,6 @@ Default lock configuration for added objects
 
 #|
 ||Field | Description ||
-|| mode | enum **Mode**
-
-Mode
-
-- `MODE_GOVERNANCE`: Mode governance.
-- `MODE_COMPLIANCE`: Mode compliance. ||
 || days | **int64**
 
 Number of days for locking
@@ -812,6 +754,12 @@ Includes only one of the fields `days`, `years`. ||
 Number of years for locking
 
 Includes only one of the fields `days`, `years`. ||
+|| mode | enum **Mode**
+
+Mode
+
+- `MODE_GOVERNANCE`: Mode governance.
+- `MODE_COMPLIANCE`: Mode compliance. ||
 |#
 
 ## Encryption {#yandex.cloud.storage.v1.Encryption}

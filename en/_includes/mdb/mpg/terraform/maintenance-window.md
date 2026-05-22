@@ -4,8 +4,8 @@ To set up the [maintenance window](../../../../managed-postgresql/concepts/maint
 resource "yandex_mdb_postgresql_cluster" "<cluster_name>" {
   ...
   maintenance_window {
-    type = <maintenance_type>
-    day  = <day_of_week>
+    type = "<maintenance_type>"
+    day  = "<day_of_week>"
     hour = <hour>
   }
   ...

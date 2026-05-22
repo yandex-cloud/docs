@@ -1,11 +1,9 @@
 ---
-title: Контроль {{ k8s }}® (KSPM)
-description: В этом разделе собраны пошаговые инструкции по работе с модулем Контроль {{ k8s }}® (KSPM) в {{ sd-name }}.
+title: Контроль {{ k8s }}® ({{ kspm-name }})
+description: В этом разделе собраны пошаговые инструкции по работе с модулем Контроль {{ k8s }}® ({{ kspm-name }}) в {{ sd-name }}.
 ---
 
-# Контроль {{ k8s }}® (KSPM)
-
-{% include [kpsm-requirements](../../../_includes/security-deck/kpsm-requirements.md) %}
+# Контроль {{ k8s }}® ({{ kspm-name }})
 
 * [{#T}](enable-kspm.md).
 * [{#T}](use-kspm.md).

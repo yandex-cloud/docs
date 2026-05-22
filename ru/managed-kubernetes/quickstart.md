@@ -33,7 +33,7 @@ description: В этой инструкции вы создадите класт
 ## Создайте кластер {{ managed-k8s-name }} {#kubernetes-cluster-create}
 
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер {{ managed-k8s-name }}.
-1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.clusters.button_create }}**.
 1. Введите имя кластера {{ managed-k8s-name }}. Оно должно быть уникальным в рамках каталога.
 1. (Опционально) Введите описание кластера {{ managed-k8s-name }}.
@@ -48,6 +48,9 @@ description: В этой инструкции вы создадите класт
    * **{{ ui-key.yacloud.k8s.clusters.create.field_master-type }}** — выберите тип мастера:
      * `{{ ui-key.yacloud.k8s.clusters.create.option_master-type-basic }}` — будет создан один хост-мастер в выбранной зоне доступности. Укажите облачную сеть и выберите в ней подсеть для размещения хоста-мастера.
      * `{{ ui-key.yacloud.k8s.clusters.create.option_master-type-highly-available }}` — в каждой зоне доступности будет создано по одному хосту-мастеру. Укажите облачную сеть и подсеть для каждой зоны доступности.
+
+     {% include [note-vpc-resources](../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
    * Выберите [группы безопасности](operations/connect/security-groups.md) для сетевого трафика кластера {{ managed-k8s-name }}.
 1. В блоке **{{ ui-key.yacloud.k8s.clusters.create.section_allocation }}**:
    * **{{ ui-key.yacloud.k8s.clusters.create.field_cluster-cidr }}** — укажите диапазон IP-адресов, из которого будут выделяться IP-адреса для [подов](concepts/index.md#pod).
@@ -61,7 +64,7 @@ description: В этой инструкции вы создадите класт
 
 Чтобы создать группу узлов {{ managed-k8s-name }}:
 1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан нужный кластер {{ managed-k8s-name }}.
-1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. [Перейдите](../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Выберите кластер {{ managed-k8s-name }}, для которого необходимо создать группу узлов.
 1. На странице кластера {{ managed-k8s-name }} перейдите на вкладку ![nodes-management.svg](../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
 1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
@@ -101,6 +104,9 @@ description: В этой инструкции вы создадите класт
 
    * Выберите [группы безопасности](operations/connect/security-groups.md).
    * Выберите зону доступности и подсеть для размещения узлов группы {{ managed-k8s-name }}.
+
+     {% include [note-vpc-resources](../_includes/managed-kubernetes/note-vpc-resources.md) %}
+
 1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}** укажите данные для доступа к узлам группы {{ managed-k8s-name }} по [SSH](../glossary/ssh-keygen.md):
    * **{{ ui-key.yacloud.compute.instances.create.field_user }}** — укажите имя пользователя.
    * **{{ ui-key.yacloud.compute.instances.create.field_key }}** — вставьте содержимое файла [публичного ключа](operations/node-connect-ssh.md#creating-ssh-keys).

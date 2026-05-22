@@ -1,4 +1,4 @@
-(Опционально) В открывшемся разделе **{{ ui-key.yacloud_org.security.workspaces.WorkspaceOnboardingForm.participantsTitle_1WfGq }}** добавьте пользователей, которым будет доступно создаваемое окружение, и назначьте им роли в этом окружении:
+(Опционально) В открывшемся разделе **{{ ui-key.yacloud_org.security.workspaces.WorkspaceOnboardingForm.accessRightsTitle }}** добавьте пользователей, которым будет доступно создаваемое окружение, и назначьте им роли в этом окружении:
 
 1. Нажмите кнопку ![person-plus](../../_assets/console-icons/person-plus.svg) **{{ ui-key.yacloud_org.security.workspaces.WorkspaceParticipantsForm.action_add-user }}** и в открывшемся окне:
 

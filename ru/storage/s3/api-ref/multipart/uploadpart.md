@@ -3,7 +3,7 @@ title: Метод uploadPart. {{ objstorage-name }} API (S3)
 description: Метод uploadPart в {{ objstorage-name }} API (S3) сохраняет часть объекта. Пользователь самостоятельно нумерует части объекта и передает номера {{ objstorage-name }}. Номер однозначно идентифицирует часть и определяет ее порядок в общей последовательности. Номер — это целое число в промежутке от 1 до 10000 включительно.
 ---
 
-# Метод uploadPart
+# Object Storage API, REST совместимый с Amazon S3: UploadPart
 
 Сохраняет часть объекта.
 
@@ -68,5 +68,11 @@ PUT /{bucket}/{key}?partNumber=PartNumber&uploadId=UploadId HTTP/2
 ----- | ----- | -----
 `NoSuchUpload` | Указанная загрузка не существует. Возможно указан неверный идентификатор загрузки или загрузка была завершена или удалена. | 404 Not Found
 `EntityTooSmall` | Размер части слишком мал.<br/><br/>Загружаемая часть должна быть не менее 5MB. | 400 Bad Request
+
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/multipart.md)
+
+* [Загрузка в бакет составных частей объекта](../../../operations/objects/multipart-upload.md#upload-parts)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

@@ -3,7 +3,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+  1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
   1. На панели слева выберите ![image](../../../_assets/console-icons/list-ul.svg) **{{ ui-key.yacloud.postbox.label_configuration-sets }}** и нажмите кнопку **{{ ui-key.yacloud.postbox.button_create-configuration-set }}**.
   1. В поле **{{ ui-key.yacloud.common.name }}** укажите имя конфигурации `postbox-events-config`.
   1. В блоке **{{ ui-key.yacloud.postbox.label_event-destinations }}** нажмите кнопку **{{ ui-key.yacloud.common.add }}** и в появившейся форме:

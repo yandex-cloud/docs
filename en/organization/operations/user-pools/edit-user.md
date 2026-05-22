@@ -6,6 +6,8 @@ description: Follow this guide to update user data in a {{ org-full-name }} pool
 # Updating user data
 
 
+{% include [organization-deny-user-listing](../../../_includes/organization/organization-deny-user-listing.md) %}
+
 You can only update user data for [local](../../../iam/concepts/users/accounts.md#local) users.
 
 To update local user data:
@@ -23,6 +25,7 @@ To update local user data:
       1. Update the username, [domain](../../concepts/domains.md), and full name.
       1. Add or update the email address.
       1. Expand the **{{ ui-key.yacloud_org.organization.userpools.title_personal-info }}** section and update the user's first name, last name, and phone number.
+      1. Expand the **Organizational information** section, and specify the company name, department, job title, and employee ID of the user.
       1. Click **{{ ui-key.yacloud_org.organization.userpools.action_update-user }}**.
 
 - CLI {#cli}
@@ -90,13 +93,13 @@ To update local user data:
      * `email`: New user email address.
      * `phone_number`: New user phone number.
 
-     For more information about `yandex_organizationmanager_idp_user` properties, see the [relevant provider documentation]({{ tf-provider-resources-link }}/organizationmanager_idp_user).
+     For more information about `yandex_organizationmanager_idp_user` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_user).
 
   1. Apply the changes:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     {{ TF }} will update all the required resources. You can check the changes in [{{ org-full-name }}]({{ link-org-cloud-center }}) or using the [CLI](../../../cli/):
+     {{ TF }} will update all the required resources. You can check the updates in the [{{ cloud-center }} UI]({{ link-org-cloud-center }}) or using this [CLI](../../../cli/) command:
 
      ```bash
      yc organization-manager idp user get <user_ID>

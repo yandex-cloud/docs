@@ -9,7 +9,7 @@
 
       {% include [name-format](../../name-format.md) %}
 
-  1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `backup.editor` [role](../../../backup/security/index.md#backup-editor).
+  1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `backup.user` [role](../../../backup/security/index.md#backup-user).
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 - {{ yandex-cloud }} CLI {#cli}
@@ -48,11 +48,11 @@
       yc resource-manager folder add-access-binding --help
       ```
 
-  1. Assign the `backup.editor` [role](../../../backup/security/index.md#backup-editor) for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to the service account:
+  1. Assign the `backup.user` [role](../../../backup/security/index.md#backup-user) for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to the service account:
 
       ```bash
       yc resource-manager folder add-access-binding <folder_ID> \
-        --role backup.editor \
+        --role backup.user \
         --subject serviceAccount:<service_account_ID>
       ```
 
@@ -63,7 +63,7 @@
       effective_deltas:
         - action: ADD
           access_binding:
-            role_id: backup.editor
+            role_id: backup.user
             subject:
               id: ajehb3tcdfa1********
               type: serviceAccount
@@ -85,9 +85,9 @@
         folder_id   = "<folder_ID>"
       }
 
-      resource "yandex_resourcemanager_folder_iam_member" "backup-editor-role" {
+      resource "yandex_resourcemanager_folder_iam_member" "backup-user-role" {
         folder_id   = "<folder_ID>"
-        role        = "backup.editor"
+        role        = "backup.user"
         member      = "serviceAccount:${yandex_iam_service_account.backup-sa.id}"
       }
       ```
@@ -95,9 +95,9 @@
       Where:
 
       * `yandex_iam_service_account`: [Service account](../../../iam/concepts/users/service-accounts.md) description.
-      * `yandex_resourcemanager_folder_iam_member`: Service account access permissions for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder), where:
+      * `yandex_resourcemanager_folder_iam_member`: Description of the service account's access permissions for the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder), where:
 
-          * `role`: [Role](../../../backup/security/index.md#backup-editor) being assigned.
+          * `role`: [Role](../../../backup/security/index.md#backup-user) being assigned.
           * `member`: Subject the role is assigned to.
 
   1. Create the resources:
@@ -115,7 +115,7 @@
 
   To create a [service account](../../../iam/concepts/users/service-accounts.md), use the [create](../../../iam/api-ref/ServiceAccount/create.md) REST API method for the [ServiceAccount](../../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/Create](../../../iam/api-ref/grpc/ServiceAccount/create.md) gRPC API call.
 
-  To assign the `backup.editor` [role](../../../backup/security/index.md#backup-editor) for a folder to a service account, use the [setAccessBindings](../../../iam/api-ref/ServiceAccount/setAccessBindings.md) method for the [ServiceAccount](../../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
+  To assign the `backup.user` [role](../../../backup/security/index.md#backup-user) for a folder to a service account, use the [setAccessBindings](../../../iam/api-ref/ServiceAccount/setAccessBindings.md) method for the [ServiceAccount](../../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService/SetAccessBindings](../../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
 
 {% endlist %}
 

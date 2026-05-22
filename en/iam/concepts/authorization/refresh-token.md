@@ -2,9 +2,9 @@
 
 A _refresh token_ is a type of credential that allows an OAuth application to automatically obtain a new IAM token after the user's [IAM token](./iam-token.md) expires. A refresh token is issued for a user and sent to an OAuth application, which then authenticates the user in {{ yandex-cloud }}.
 
-An example of an OAuth application supporting refresh tokens is the [{{ yandex-cloud }} CLI](../../../cli/index.yaml). Refresh tokens can only be issued for [federated](../../../organization/concepts/add-federation.md) users in the [{{ org-full-name }} organization](../../../overview/roles-and-resources.md).
+An example of an OAuth application supporting refresh tokens is the [{{ yandex-cloud }} CLI](../../../cli/index.yaml). Refresh tokens can be issued to users with any [account](../users/accounts.md) type.
 
-With the {{ yandex-cloud }} CLI and [API](../../api-ref/RefreshToken/index.md), you can [view](../../operations/refresh-token/list.md) the list of refresh tokens issued for a user and [revoke](../../operations/refresh-token/revoke.md) such tokens.
+{% include [refresh-tokens-control](../../../_includes/iam/refresh-tokens-control.md) %}
 
 ## Refresh token lifetime {#token-lifetime}
 
@@ -16,7 +16,7 @@ Refresh tokens are automatically deleted seven days after their expiration.
 
 ## Enabling the use of refresh tokens in the {{ yandex-cloud }} CLI {#token-enabling}
 
-To use refresh tokens in the {{ yandex-cloud }} CLI, you must enable this option at the {{ org-name }} level. To do this:
+To use refresh tokens in the {{ yandex-cloud }} CLI, you must enable this option at the {{ org-full-name }} level. Proceed as follows:
 
 {% include [enable-refresh-tokens](../../../_includes/organization/enable-refresh-tokens.md) %}
 
@@ -34,7 +34,7 @@ The DPoP key used to verify the user and device sending a request for an IAM tok
 
 To initialize DPoP protection for a federated user's refresh tokens in the {{ yandex-cloud }} CLI:
 
-1. Make sure the use of refresh tokens is [enabled](#token-enabling) in {{ org-name }} at your organization level.
+1. Make sure the use of refresh tokens is [enabled](#token-enabling) in {{ org-full-name }} at your organization level.
 1. Initialize DPoP protection for refresh tokens on the user device:
 
     {% list tabs group=instructions %}

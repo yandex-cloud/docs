@@ -1,4 +1,4 @@
-* `audit-trails.viewer` for one of the resources that defines the [required log collection scope](../../../audit-trails/concepts/trail.md#collecting-area):
+* [audit-trails.viewer](../../../audit-trails/security/index.md#at-viewer) for a resource defining the [required log collection scope](../../../audit-trails/concepts/trail.md#collecting-area):
 
     * [Organization](../../../organization/operations/add-role.md): To collect logs in selected clouds of the organization.
     * [Cloud](../../../resource-manager/operations/cloud/set-access-bindings.md#access-to-sa): To collect logs in selected folders of the cloud.

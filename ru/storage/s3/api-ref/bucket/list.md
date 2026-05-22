@@ -1,4 +1,4 @@
-# Метод listBuckets
+# Object Storage API, REST совместимый с Amazon S3: ListBuckets
 
 Возвращает перечень бакетов, доступных пользователю.
 
@@ -48,5 +48,11 @@ GET / HTTP/2
 `CreationDate` | Время создания бакета в формате `yyyy-mm-ddThh:mm:ss.timezone`.<br/><br/>Путь: `/ListAllMyBucketsResult/Buckets/Bucket/CreationDate`.
 `ListAllMyBucketsResult` | Корневой элемент ответа.<br/><br/>Путь: `/ListAllMyBucketsResult`.
 `Name` | Имя бакета.<br/><br/>Путь: `/ListAllMyBucketsResult/Buckets/Bucket/Name`.
+
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/bucket.md)
+
+* [{#T}](../../../operations/buckets/get-list.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

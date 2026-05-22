@@ -25,7 +25,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../../resource-manager/concepts/resources-hierarchy.md#folder), в котором создан кластер {{ managed-k8s-name }}.
-     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+     1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
      1. Выберите кластер {{ managed-k8s-name }}, для которого необходимо создать группу узлов.
      1. На странице кластера {{ managed-k8s-name }} перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
      1. Нажмите кнопку **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
@@ -47,8 +47,8 @@
         * Укажите размер [диска](../../../compute/concepts/disk.md) узла {{ managed-k8s-name }}.
      1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**:
         * В поле **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** выберите способ назначения адреса:
-          * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}` — чтобы назначить случайный [IP-адрес](../../../vpc/concepts/address.md) из пула адресов {{ yandex-cloud }}.
-          * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}` — чтобы не назначать публичный IP-адрес.
+          * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}` — чтобы назначить узлам случайные [IP-адреса](../../../vpc/concepts/address.md) из пула адресов {{ yandex-cloud }}.
+          * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}` — чтобы не назначать публичные IP-адреса.
         * Укажите расположение узлов {{ managed-k8s-name }} по [зонам доступности](../../../overview/concepts/geo-scope.md) и [сетям](../../../vpc/concepts/network.md#network).
      1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_access }}** укажите данные для доступа на узел {{ managed-k8s-name }}:
         * В поле **{{ ui-key.yacloud.compute.instances.create.field_user }}** введите имя пользователя.
@@ -177,7 +177,7 @@
    - Консоль управления {#console}
 
      1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором создан кластер {{ managed-k8s-name }}.
-     1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+     1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
      1. Выберите кластер {{ managed-k8s-name }}, в котором создана группа узлов.
      1. На странице кластера {{ managed-k8s-name }} перейдите на вкладку **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}**.
      1. На странице одного из узлов {{ managed-k8s-name }} перейдите на вкладку **{{ ui-key.yacloud.k8s.node.overview.label_labels }}**. На вкладке перечислены системные и пользовательские {{ k8s }}-метки узла.

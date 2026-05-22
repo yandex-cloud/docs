@@ -1,0 +1,1 @@
+To resume traffic balancing in a previously disabled availability zone, run this `enable-zones` command:

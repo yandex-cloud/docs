@@ -61,7 +61,8 @@ description: Follow this guide to install Filebeat OSS.
 
 ## Installation from {{ marketplace-full-name }} {#marketplace-install}
 
-1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ managed-k8s-name }}**.
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Click the name of the {{ managed-k8s-name }} cluster you need and select the ![image](../../../_assets/marketplace.svg) **{{ marketplace-short-name }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Filebeat OSS](/marketplace/products/yc/filebeat-oss) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
@@ -69,9 +70,9 @@ description: Follow this guide to install Filebeat OSS.
    * **Application name**: Specify the application name, e.g., `filebeat-oss`.
    * **{{ OS }} username**: Enter the username that Filebeat OSS will use to connect to the {{ mos-name }} cluster.
    * **{{ OS }} connection password**: Enter the user password for the {{ mos-name }} cluster.
-   * **{{ OS }} FQDN**: Enter the URL and port for the {{ mos-name }} cluster host with the data role, e.g., `https://rc1a-7hkolet********.{{ dns-zone }}:9200`. For more information about connecting to a cluster, see [this guide](../../../managed-opensearch/operations/connect.md).
+   * **{{ OS }} FQDN**: Enter the URL and port for the {{ mos-name }} cluster host with the data role, e.g., `https://rc1a-7hkolet********.{{ dns-zone }}:9200`. For more information about connecting to a cluster, see [this guide](../../../managed-opensearch/operations/connect/index.md).
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application status to change to `Deployed`.
 
 ## Installation using a Helm chart {#helm-install}
 
@@ -110,5 +111,5 @@ description: Follow this guide to install Filebeat OSS.
 
 ## See also {#see-also}
 
-* [{{ mos-name }} documentation](../../../managed-opensearch/).
-* [Filebeat documentation](https://www.elastic.co/guide/en/beats/filebeat/master/index.html).
+* [{{ mos-name }} documentation](../../../managed-opensearch/)
+* [Filebeat documentation](https://www.elastic.co/guide/en/beats/filebeat/master/index.html)

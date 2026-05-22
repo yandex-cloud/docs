@@ -34,11 +34,11 @@ Free tier распространяется на сервисы:
 * [{{ dataproc-full-name }}](#dataproc)
 * [{{ yds-full-name }}](#yds)
 * [{{ data-transfer-full-name }}](#transfer)
-* [{{ datalens-full-name }}](#datalens)
 * [{{ iot-full-name }}](#iot)
 * [{{ load-testing-full-name }}](#load-testing)
 * [{{ ydb-full-name }}](#ydb)
 * [{{ message-queue-full-name }}](#message-queue)
+* [{{ monium-name }}](#monium)
 * [{{ monitoring-full-name }}](#monitoring)
 * [{{ objstorage-full-name }}](#objstorage)
 * [{{ yq-full-name }}](#yq)
@@ -139,12 +139,6 @@ Free tier распространяется на сервисы:
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
-## {{ datalens-full-name }} {#datalens}
-
-[{{ datalens-full-name }}](../../datalens/quickstart.md) — это сервис для бизнес-аналитики. Сервис позволяет подключаться к различным источникам данных, строить визуализации, собирать дашборды и делиться полученными результатами.
-
-{% include [not-charged-datalens.md](../../_includes/pricing/price-formula/not-charged-datalens.md) %}
-
 ## {{ iot-full-name }} {#iot}
 
 [{{ iot-full-name }}](../../iot-core/quickstart.md) — это облачный отказоустойчивый MQTT-сервер, позволяющий наладить двустороннюю защищенную связь между устройствами и локальными или облачными ресурсами.
@@ -185,6 +179,16 @@ Free tier распространяется на сервисы:
 
 {% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
 
+## {{ monium-name }} {#monium}
+
+[{{ monium-name }}](../../monium/quickstart.md) — платформа для наблюдения и анализа работы сервисов {{ yandex-cloud }} или вашей инфраструктуры и приложений.
+
+{% include [not-charged-monium.md](../../_includes/pricing/price-formula/not-charged-monium.md) %}
+
+После того, как вы израсходуете нетарифицируемый объем услуг, начнет взиматься плата в соответствии с [тарифами](../../monium/pricing.md).
+
+{% include [if-not-used-amount.md](../../_includes/pricing/price-formula/if-not-used-amount.md) %}
+
 ## {{ monitoring-full-name }} {#monitoring}
 
 [{{ monitoring-full-name }}](../../monitoring/quickstart.md) позволяет собирать и хранить метрики, а также отображать их в виде графиков на дашбордах.
@@ -207,7 +211,7 @@ Free tier распространяется на сервисы:
 
 ## {{ yq-full-name }} {#yq}
 
-[{{ yq-full-name }}](../../query/quickstart/) — интерактивный, полностью управляемый сервис для инженеров данных и аналитиков. Сервис позволяет выполнять аналитические и потоковые запросы реального времени к структурированным или частично структурированным данным с помощью единого диалекта SQL.
+[{{ yq-full-name }}](../../query/quickstart/index.md) — интерактивный, полностью управляемый сервис для инженеров данных и аналитиков. Сервис позволяет выполнять аналитические и потоковые запросы реального времени к структурированным или частично структурированным данным с помощью единого диалекта SQL.
 
 {% include [not-charged-query.md](../../_includes/pricing/price-formula/not-charged-query.md) %}
 

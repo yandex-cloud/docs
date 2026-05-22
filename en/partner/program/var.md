@@ -1,6 +1,5 @@
 # Partner program
 
-
 _The partner program_ is a program where a partner company resells {{ yandex-cloud }} services and earns a partner [bonus](#premium).
 
 Partners pay for the services consumed by their customers. Under the partner program, {{ yandex-cloud }} invoices a partner for the total consumption of services by all its customers. Partners can settle payment invoices in advance (advance payment) or based on the results of consumption (postpayment). They can also use a [billing threshold](../../billing/concepts/billing-threshold.md).
@@ -33,8 +32,10 @@ For the effective conditions, see our [offer](https://yandex.ru/legal/cloud_gran
 You can also get the following:
 
 * With [deal registration](./var-tools.md#deal-reg): Up to 15% on top of your partner bonus for as long as the customer remains linked to you.
-* When [registering a project](./var-tools.md#project-reg): Up to 15% of the customer's consumption growth in the registered cloud or folder as a [rebate](../terms.md#rebate) credited within 12 months.
-* Quarterly rebate for customers’ use of [specialization](../specializations/index.md) services.
+* With [project registration](./var-tools.md#project-reg): Up to 15% of the customer's consumption increment in a registered folder or service outside a folder as a 12-month [rebate](../terms.md#rebate).
+* Quarterly rebate for customers' use of [technology specialization](../specializations/index.md) services.
+
+For more information on how to withdraw commissions you got as rebates, see [this guide](../operations/get-bonus.md).
 
 ### What is not included when calculating a partner bonus {#ignore}
 
@@ -49,24 +50,7 @@ The discount does not apply to:
 
 * Grants credited to subaccounts.
 
-You can view the absolute and relative discounts for a reporting month under **Partner bonus** on the [partner portal]({{ link-cloud-partners }}).
-
-
-### Withdrawing your commission {#bonus}
-
-You can withdraw your commissions credited as rebates through the partner portal:
-
-1. Log in to the [partner portal]({{ link-cloud-partners }}).
-1. In the left-hand panel, select ![icon](../../_assets/console-icons/sack.svg) **Rebate accrual balance**.
-1. Click **Withdraw**.
-1. Specify the amount to withdraw.
-1. Select the withdrawal destination:
-
-   * **Invoice deduction**: The amount will reduce the sum due for the consumption of your customer subaccounts in the current month.
-   * **To bank account**: The amount will be transferred to the bank account specified in the partner agreement.
-
-1. Click **Withdraw**.
-
+You can see the absolute and relative discount amount for the reporting month in the **Partner premium** section of the [partner portal]({{ link-cloud-partners }}).
 
 ## How to quit the program {#end}
 

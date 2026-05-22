@@ -3,21 +3,50 @@ title: '{{ websql-full-name }} release notes'
 description: This section contains the {{ websql-name }} release notes.
 ---
 
-# {{ websql-full-name }} release notes: 2025
+# {{ websql-full-name }} release notes: 2026
+
+## February {#feb-2026}
+
+### Improvements {#improvements-feb-2026}
+
+1. Added a context menu to the query editor for executing the selected query.
+1. Added a modal window to confirm tab synchronization.
+1. Added a button to the query editor for viewing the query history associated with the current database connection.
+
+### Fixed issues {#fixes-feb-2026}
+
+Fixed incorrect behavior when updating the database structure.
+
+## January {#jan-2026}
+
+### New features {#new-features-jan-2026}
+
+Added the ability to drag tabs.
+
+### Improvements {#improvements-jan-2026}
+
+This request history list now displays only the completed request.
+
+### Fixed issues {#fixes-jan-2026}
+
+Fixed the display of the completed request in the editor.
+
+
+{% cut "2025" %}
 
 ## December {#december-2025}
 
 ### New features {#new-features-december-2025}
 
-1. {{ websql-name }} now has tabs: you can open your connections and request editor pages in tabs and switch between them without losing your working context.
+{{ websql-name }} now has tabs: you can open your connections and request editor pages in tabs and switch between them without losing your working context.
 
 ### Improvements {#improvements-december-2025}
 
-1. Added display of {{ PG }} partitions in the connection tree.
+Added display of a {{ PG }} partition in the connection tree.
 
 ### Fixed issues {#fixes-december-2025}
 
-1. Fixed sorting of indexed columns in the **Indexes** section of the connection tree.
+Fixed sorting of indexed columns in the **Indexes** section of the connection tree.
 
 ## November {#november-2025}
 
@@ -179,7 +208,11 @@ Fixed an issue where certain authors were shown as unknown users in the query hi
 
 Fixed the behavior of the **Share query** button where it appeared before running a query.
 
-## 2024 {#2024-2025}
+
+{% endcut %}
+
+
+{% cut "2024" %}
 
 ### November {#november-2024}
 
@@ -335,3 +368,4 @@ Fixed the incorrect display of variables when opening [saved queries](../operati
 
 1. Simplified modal window for [reconnecting](../operations/update-connection.md).
 
+{% endcut %}

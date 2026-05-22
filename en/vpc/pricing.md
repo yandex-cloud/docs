@@ -14,6 +14,7 @@ editable: false
 
 {% include [vat](../_includes/vat.md) %}
 
+
 ## What goes into the cost of using {{ vpc-short-name }} {#rules}
 
 In {{ vpc-short-name }}, you pay for the hourly use of public IP addresses.

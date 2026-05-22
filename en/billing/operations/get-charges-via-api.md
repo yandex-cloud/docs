@@ -52,7 +52,7 @@ Here is how you can get metadata on the following entities within a billing acco
 * Available clouds, services, products (SKUs), label keys, and date ranges: [Metadata/GetUsage](../usage/api-ref/grpc/Metadata/getUsage.md) gRPC API call.
 * Available label keys and values: [Metadata/GetLabel](../usage/api-ref/grpc/Metadata/getLabel.md) gRPC API call.
 * Available folders for the specified clouds: [Metadata/GetCloud](../usage/api-ref/grpc/Metadata/getCloud.md) gRPC API call.
-* Available resource IDs within a date range: [Metadata/GetResourceIDs](../usage/api-ref/grpc/Metadata/getResourceIDs.md) gRPC API call.
+* Available resource IDs within a date range: [Metadata/GetResources](../usage/api-ref/grpc/Metadata/getResources.md) gRPC API call.
 
 For more information, see the [Metadata](../usage/api-ref/grpc/Metadata/index.md) API reference.
 
@@ -68,12 +68,8 @@ Here is a request example to get a report for a billing account for a given peri
   grpcurl -H "authorization: Bearer <IAM_token>" \
     -d '{
       "billing_account_id": "dn276oa9slgm********",
-      "start_date": {
-        "seconds": 1704067200
-      },
-      "end_date": {
-        "seconds": 1706745599
-      },
+      "start_date": "2026-01-01T00:00:00Z",
+      "end_date": "2026-01-31T23:59:59Z",
       "aggregation_period": "MONTH"
     }' \
     billing.api.cloud.yandex.net:443 \
@@ -82,7 +78,7 @@ Here is a request example to get a report for a billing account for a given peri
 
   Where:
 
-  * `<IAM_token>`: IAM token used for authentication.
+  * `<IAM_token>`: [IAM token](../../iam/concepts/authorization/iam-token.md) used for authentication.
   * `billing_account_id`: [Billing account](../concepts/billing-account.md) ID.
   * `start_date`: Start of the period (inclusive).
   * `end_date`: End of the period (inclusive).
@@ -170,7 +166,7 @@ Here is a request example to get a report for a billing account for a given peri
             "expense": {
               "value": "13500.50"
             },
-            "timestamp": "2024-01-01T00:00:00Z"
+            "timestamp": "2026-01-01T00:00:00Z"
           }
         ]
       }
@@ -189,14 +185,10 @@ Here is a request example to get usage details for specific clouds, filtered by 
   grpcurl -H "authorization: Bearer <IAM_token>" \
     -d '{
       "billing_account_id": "dn276oa9slgm********",
-      "start_date": {
-        "seconds": 1704067200
-      },
-      "end_date": {
-        "seconds": 1706745599
-      },
+      "start_date": "2026-01-01T00:00:00Z",
+      "end_date": "2026-01-31T23:59:59Z",
       "cloud_ids": ["b1gvlrnlw2e6********", "b1gia87mbaom********"],
-      "service_ids": ["compute", "storage"],
+      "service_ids": ["<ID_of_service_1>", "<ID_of_service_2>"],
       "aggregation_period": "MONTH"
     }' \
     billing.api.cloud.yandex.net:443 \
@@ -205,15 +197,32 @@ Here is a request example to get usage details for specific clouds, filtered by 
 
   Where:
   
+  * `<IAM_token>`: [IAM token](../../iam/concepts/authorization/iam-token.md) used for authentication.
+  * `billing_account_id`: [Billing account](../concepts/billing-account.md) ID.
+  * `start_date`: Start of the period (inclusive).
+  * `end_date`: End of the period (inclusive).
   * `cloud_ids`: List of cloud IDs for filtering.
-  * `service_ids`: List of service IDs for filtering.
+  * `service_ids`: List of service IDs for filtering. To get them, use the [Service.Get](../../billing/api-ref/Service/list.md) REST API method for the [Billing](../../billing/api-ref/) resource or the [ServiceService.List](../../billing/api-ref/grpc/Service/list.md) gRPC API call.
+     
+    {% cut "Example of a ServiceService.List gRPC API call" %}
 
-  Additional filtering parameters:
+    ```bash
+    grpcurl -H "Authorization: Bearer ${IAM_TOKEN}" billing.api.cloud.yandex.net:443 \
+    
+    yandex.cloud.billing.v1.ServiceService.List
+    ```
+    Where `IAM_TOKEN` is an [IAM token](../../iam/concepts/authorization/iam-token.md) used for authentication.
 
-  * `folder_ids`: List of folder IDs.
-  * `sku_ids`: List of product (SKU) IDs.
-  * `resource_ids`: List of resource IDs.
-  * `labels`: Filtering by resource labels.
+    {% endcut %}
+
+    Additional filtering parameters:
+
+    * `folder_ids`: List of folder IDs.
+    * `sku_ids`: List of product (SKU) IDs.
+    * `resource_ids`: List of resource IDs.
+    * `labels`: Filtering by resource labels.
+  
+  * `aggregation_period`: Data aggregation period (`DAY`, `WEEK`, `MONTH`, `QUARTER`, `YEAR`).
 
   {% cut "Result" %}
 
@@ -297,7 +306,7 @@ Here is a request example to get usage details for specific clouds, filtered by 
             "expense": {
               "value": "4500.00"
             },
-            "timestamp": "2024-01-01T00:00:00Z"
+            "timestamp": "2026-01-01T00:00:00Z"
           }
         ]
       },
@@ -354,7 +363,7 @@ Here is a request example to get usage details for specific clouds, filtered by 
             "expense": {
               "value": "3150.25"
             },
-            "timestamp": "2024-01-01T00:00:00Z"
+            "timestamp": "2026-01-01T00:00:00Z"
           }
         ]
       }
@@ -373,12 +382,8 @@ Here is a request example to get metadata about available clouds, services, and 
   grpcurl -H "authorization: Bearer <IAM_token>" \
     -d '{
       "billing_account_id": "dn276oa9slgm********",
-      "start_date": {
-        "seconds": 1704067200
-      },
-      "end_date": {
-        "seconds": 1706745599
-      }
+      "start_date": "2026-01-01T00:00:00Z",
+      "end_date": "2026-01-31T23:59:59Z"
     }' \
     billing.api.cloud.yandex.net:443 \
     yandex.cloud.billing.usage_records.v1.MetadataService/GetUsage
@@ -445,8 +450,8 @@ Here is a request example to get metadata about available clouds, services, and 
       }
     ],
     "date_range": {
-      "start_date": "2024-01-01T00:00:00Z",
-      "end_date": "2024-01-31T23:59:59Z"
+      "start_date": "2026-01-01T00:00:00Z",
+      "end_date": "2026-01-31T23:59:59Z"
     }
   }
   ```

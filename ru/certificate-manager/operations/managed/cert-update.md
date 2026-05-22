@@ -16,8 +16,8 @@
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в который был добавлен сертификат.
     1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
-    1. Выберите в списке сертификат в статусе `Renewing`, который необходимо обновить.
-    1. В открывшемся окне в блоке **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** будет указана информация для прохождения процедуры проверки прав. Подробнее читайте в разделе [{#T}](../../concepts/challenges.md).
+    1. Выберите сертификат в статусе `Renewing`, который необходимо обновить.
+    1. В блоке **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** будет указана информация для прохождения процедуры проверки прав. Подробнее читайте в разделе [{#T}](../../concepts/challenges.md).
     1. После успешного прохождения проверки прав на домен, статус проверки домена в блоке **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** изменится на `Valid`.
     1. После того, как статус проверки прав всех доменов изменится на `Valid`, сертификат будет выпущен и перейдет в статус `Issued`. 
 

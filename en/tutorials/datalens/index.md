@@ -7,6 +7,7 @@ description: This page presents a list of tutorials for data analysis and visual
 
 ## Analytics {#analysis}
 
+* [{#T}](../serverless/grafana-logs-plugin.md)
 * [{#T}](../analysis/search-events-query.md)
 * [{#T}](../analysis/search-events-bucket.md)
 * [{#T}](../analysis/search-events-logging.md)
@@ -18,7 +19,7 @@ description: This page presents a list of tutorials for data analysis and visual
 
   * [Simple dashboard from a CSV file](data-from-csv-visualization.md)
   * [Public chart with a map of Moscow from a CSV file](data-from-csv-to-public-visualization.md)
-   * [Retail chain's dashboard based on a {{ CH }} DB](data-from-ch-visualization.md)
+  * [Retail chain's dashboard based on a {{ CH }} database](data-from-ch-visualization.md)
   
 * Working with geodata
 

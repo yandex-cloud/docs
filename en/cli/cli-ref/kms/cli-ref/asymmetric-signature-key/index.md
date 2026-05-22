@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/kms/cli-ref/asymmetric-signature-key/
 editable: false
 ---
 

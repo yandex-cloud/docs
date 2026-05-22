@@ -1,12 +1,12 @@
-title: Yandex Object Storage
+title: '{{ objstorage-full-name }}'
 description:
   - >-
-    Yandex Object Storage is a universal, scalable data storage solution. It is
-    equally effective for high-load services requiring reliable and fast access
-    to data as well as for projects that do not need any complex storage
-    infrastructure.
+    {{ objstorage-full-name }} is a universal scalable solution for data
+    storage. It is equally effective for high-load services requiring reliable
+    and fast access to data as well as for projects that do not need any complex
+    storage infrastructure.
   - >-
-    With Object Storage, you can: <ul><li>Store data of any format as <a
+    With {{ objstorage-name }}, you can: <ul><li>Store data of any format as <a
     href="/docs/storage/concepts/object">objects</a> with access by text
     ID.</li> <li>Use different <a
     href="/docs/storage/concepts/storage-class">storage classes</a> for objects
@@ -16,24 +16,26 @@ description:
     terabytes in size.</li> <li>Publish a static <a
     href="/docs/storage/concepts/hosting">website</a>.</li></ul>
   - >-
-    The <a href="/docs/storage/s3/">Yandex Object Storage HTTP API</a> is
+    The <a href="/docs/storage/s3/">{{ objstorage-name }} HTTP API</a> is
     compatible with the Amazon S3 API, which means there are many object storage
     management <a href="/docs/storage/tools/">tools</a> you can use.
   - >-
     The Yandex Cloud infrastructure is <a
-    href="https://storage.yandexcloud.net/yc-compliance/conformance_ru_pdp.pdf">protected</a>
+    href="https://storage.yandexcloud.net/yc-compliance/conformance_en_pdp.pdf">protected</a>
     pursuant to the Russian Federal Law 152-FZ on personal data.
   - >-
     This service is subject to a <a
     href="https://yandex.com/legal/cloud_sla">service level agreement</a>. The
     service level is set out in the document titled <a
-    href="https://yandex.com/legal/cloud_sla_storage">Yandex Object Storage
+    href="https://yandex.com/legal/cloud_sla_storage">{{ objstorage-full-name }}
     Service Level</a>.
 nav:
-  title: Yandex Object Storage
+  title: '{{ objstorage-full-name }}'
 meta:
-  title: Yandex Object Storage
-  description: Yandex Object Storage is a universal, scalable data storage solution.
+  title: '{{ objstorage-full-name }}'
+  description: >-
+    {{ objstorage-full-name }} is a universal scalable solution for data
+    storage.
   keywords:
     - keyword: storage
     - keyword: cloud storage
@@ -63,8 +65,8 @@ links:
     description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
-    description: Configure access permissions to use the service
+    description: Configure access permissions for the service
     href: security/
   - title: Pricing policy
-    description: Service pricing and cost calculations
+    description: Pricing and cost calculations
     href: pricing

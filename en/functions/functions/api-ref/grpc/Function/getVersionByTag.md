@@ -34,7 +34,7 @@ Version tag.
 
 To get the history of version tags make a [FunctionService.ListTagHistory](/docs/functions/functions/api-ref/grpc/Function/listTagHistory#ListTagHistory) request.
 
-Value must match the regular expression ` [a-z][-_0-9a-z]*\|[$]latest `. ||
+Value must match the regular expression ``` [a-z][-_0-9a-z]*|[$]latest ```. ||
 |#
 
 ## Version {#yandex.cloud.serverless.functions.v1.Version}
@@ -254,7 +254,8 @@ It's essential to specify network with subnets in all availability zones. ||
 || subnet_id[] | **string**
 
 Complete list of subnets (from the same network) the version can be attached to.
-It's essential to specify at least one subnet for each availability zones.
+
+Deprecated, it is sufficient to specify only network_id, without the list of subnet_ids.
 
 The string length in characters for each value must be greater than 0. ||
 |#
@@ -310,26 +311,20 @@ Log entries destination. ||
 
 Minimum log entry level.
 
-See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/run#yandex.cloud.logging.v1.LogLevel.Level) for details.
+See [LogLevel.Level](/docs/logging/api-ref/grpc/Export/get#yandex.cloud.logging.v1.LogLevel.Level) for details.
 
 - `TRACE`: Trace log level.
-
-  Possible use case: verbose logging of some business logic.
+Possible use case: verbose logging of some business logic.
 - `DEBUG`: Debug log level.
-
-  Possible use case: debugging special cases in application logic.
+Possible use case: debugging special cases in application logic.
 - `INFO`: Info log level.
-
-  Mostly used for information messages.
+Mostly used for information messages.
 - `WARN`: Warn log level.
-
-  May be used to alert about significant events.
+May be used to alert about significant events.
 - `ERROR`: Error log level.
-
-  May be used to alert about errors in infrastructure, logic, etc.
+May be used to alert about errors in infrastructure, logic, etc.
 - `FATAL`: Fatal log level.
-
-  May be used to alert about unrecoverable failures and events. ||
+May be used to alert about unrecoverable failures and events. ||
 |#
 
 ## StorageMount {#yandex.cloud.serverless.functions.v1.StorageMount}
@@ -428,8 +423,8 @@ The string length in characters must be 1-100. Value must match the regular expr
 
 Mount's mode
 
-- `READ_ONLY`
-- `READ_WRITE` ||
+- `READ_ONLY`: Mount is available for read access only.
+- `READ_WRITE`: Mount is available for both read and write access. ||
 || object_storage | **[ObjectStorage](#yandex.cloud.serverless.functions.v1.Mount.ObjectStorage)**
 
 Object storage mounts

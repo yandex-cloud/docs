@@ -7,7 +7,7 @@ description: Follow this guide to find and fix errors when creating a demo stand
 
 If you encounter problems while [creating](quickstart.md) a {{ sk-hybrid-name }} demo stand, run diagnostics to detect errors:
 
-1. [Connect to the VM over SSH](../compute/operations/vm-connect/ssh.md#vm-connect):
+1. [Connect to the VM over SSH]({{ link-docs }}/compute/operations/vm-connect/ssh#vm-connect):
 
    ```bash
    ssh <username>@<VM_public_IP_address>
@@ -21,7 +21,7 @@ If you encounter problems while [creating](quickstart.md) a {{ sk-hybrid-name }}
    telnet <VM_public_address> 8080 && telnet <VM_public_address> 9080
    ```
 
-   In the command, specify the public IP address of the VM that was created with the [infrastructure](quickstart.md#create-infrastructure). You can learn how to get the IP address of a VM [here](../compute/operations/vm-info/get-info.md#outside-instance).
+   In the command, specify the public IP address of the VM that was created with the [infrastructure](quickstart.md#create-infrastructure). You can learn how to get the IP address of a VM [here]({{ link-docs }}/compute/operations/vm-info/get-info#outside-instance).
 
 1. Check the list of downloaded Docker images:
 
@@ -61,7 +61,7 @@ If you encounter problems while [creating](quickstart.md) a {{ sk-hybrid-name }}
 
 1. Check the list of open network connections and the network configuration:
 
-   1. Install the `netstat` utility:
+   1. Install `netstat`:
 
       ```bash
       sudo apt install net-tools

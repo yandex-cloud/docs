@@ -1,1 +1,3 @@
-The `search-api.auditor` role enables viewing info on the [registered IP addresses](../../search-api/operations/workaround.md#registration) and Yandex Search API [quotas](../../search-api/concepts/limits.md#search-api-quotas), as well as on the relevant [clouds](../../resource-manager/concepts/resources-hierarchy.md#cloud) and [folders](../../resource-manager/concepts/resources-hierarchy.md#folder).
+The `search-api.auditor` role was used by an API that is now deprecated. The role enables viewing Yandex Search API quotas, as well as information on the relevant cloud and folder.
+
+The `search-api.auditor` role should no longer be used.

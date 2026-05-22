@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/audit-trails/cli-ref/
 editable: false
 ---
 
@@ -35,6 +36,10 @@ Syntax:
   - [yc audit-trails trail set-access-bindings](trail/set-access-bindings.md) — Set access bindings for the specified trail and delete all existing access bindings if there were any
 
   - [yc audit-trails trail update](trail/update.md) — Update the specified trail
+
+- [yc audit-trails v0](v0/index.md) — Manage Audit Trails resources
+
+
 
 #### Global Flags
 

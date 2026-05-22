@@ -1,10 +1,11 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartwebsecurity/cli-ref/
 editable: false
 ---
 
 # yc smartwebsecurity
 
-Manage Yandex SmartWebSecurity resources
+Manage SmartWebSecurity resources
 
 #### Command Usage
 
@@ -20,17 +21,29 @@ Aliases:
 
 #### Command Tree
 
-- [yc smartwebsecurity security-profile](security-profile/index.md) — Manage security profiles
+- [yc smartwebsecurity security-profile](security-profile/index.md) — A set of methods for managing SecurityProfile resources.
 
-  - [yc smartwebsecurity security-profile create](security-profile/create.md) — Create a security profile
+  - [yc smartwebsecurity security-profile create](security-profile/create.md) — Creates a security profile in the specified folder using the data specified in the request.
 
-  - [yc smartwebsecurity security-profile delete](security-profile/delete.md) — Delete the specified security profile
+  - [yc smartwebsecurity security-profile delete](security-profile/delete.md) — Deletes the specified security profile.
 
-  - [yc smartwebsecurity security-profile get](security-profile/get.md) — Show information about the specified security profile
+  - [yc smartwebsecurity security-profile get](security-profile/get.md) — Returns the specified SecurityProfile resource.
 
-  - [yc smartwebsecurity security-profile list](security-profile/list.md) — List security profiles
+  - [yc smartwebsecurity security-profile list](security-profile/list.md) — Retrieves the list of SecurityProfile resources in the specified folder.
 
-  - [yc smartwebsecurity security-profile update](security-profile/update.md) — Update the specified security profile
+  - [yc smartwebsecurity security-profile update](security-profile/update.md) — Updates the specified security profile.
+
+- [yc smartwebsecurity v0](v0/index.md) — (legacy command tree) Manage SmartWebSecurity resources
+
+
+
+- [yc smartwebsecurity v1](v1/index.md) — Manage SmartWebSecurity resources
+
+
+
+- [yc smartwebsecurity waf](waf/index.md) — 
+
+
 
 #### Global Flags
 
@@ -38,39 +51,44 @@ Aliases:
 ||Flag | Description ||
 || `--profile` | `string`
 
-Set the custom configuration file. ||
+Set the custom profile. ||
+|| `--region` | `string`
+
+Set the region. ||
 || `--debug` | Debug logging. ||
 || `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
 || `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--pager` | `string`
+
+Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
+|| `--format` | `string`
+
+Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
 || `--retry` | `int`
 
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--cloud-id` | `string`
+|| `--timeout` | `string`
 
-Set the ID of the cloud to use. ||
-|| `--folder-id` | `string`
-
-Set the ID of the folder to use. ||
-|| `--folder-name` | `string`
-
-Set the name of the folder to use (will be resolved to id). ||
-|| `--endpoint` | `string`
-
-Set the Cloud API endpoint (host:port). ||
+Set the timeout. ||
 || `--token` | `string`
 
-Set the OAuth token to use. ||
+Set the IAM token to use. ||
 || `--impersonate-service-account-id` | `string`
 
 Set the ID of the service account to impersonate. ||
 || `--no-browser` | Disable opening browser for authentication. ||
-|| `--format` | `string`
-
-Set the output format: text (default), yaml, json, json-rest. ||
-|| `--jq` | `string`
+|| `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--syntax` | `string`
+
+CLI syntax: this standalone binary only supports 2 (current). Use main yc for syntax 1. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#

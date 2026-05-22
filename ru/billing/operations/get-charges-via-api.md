@@ -52,7 +52,7 @@ description: Следуя данной инструкции, вы сможете
 * Доступных облаках, сервисах, продуктах (SKU), ключах меток и диапазонах дат воспользуйтесь вызовом gRPC API [Metadata/GetUsage](../usage/api-ref/grpc/Metadata/getUsage.md).
 * Доступных ключах и значениях меток воспользуйтесь вызовом gRPC API [Metadata/GetLabel](../usage/api-ref/grpc/Metadata/getLabel.md).
 * Доступных каталогах для указанных облаков воспользуйтесь вызовом gRPC API [Metadata/GetCloud](../usage/api-ref/grpc/Metadata/getCloud.md).
-* Всех доступных идентификаторах ресурсов в диапазоне дат воспользуйтесь вызовом gRPC API [Metadata/GetResourceIDs](../usage/api-ref/grpc/Metadata/getResourceIDs.md).
+* Всех доступных идентификаторах ресурсов в диапазоне дат воспользуйтесь вызовом gRPC API [Metadata/GetResources](../usage/api-ref/grpc/Metadata/getResources.md).
 
 Подробнее см. в справочнике API [Metadata](../usage/api-ref/grpc/Metadata/index.md).
 
@@ -68,12 +68,8 @@ description: Следуя данной инструкции, вы сможете
   grpcurl -H "authorization: Bearer <IAM-токен>" \
     -d '{
       "billing_account_id": "dn276oa9slgm********",
-      "start_date": {
-        "seconds": 1704067200
-      },
-      "end_date": {
-        "seconds": 1706745599
-      },
+      "start_date": "2026-01-01T00:00:00Z",
+      "end_date": "2026-01-31T23:59:59Z",
       "aggregation_period": "MONTH"
     }' \
     billing.api.cloud.yandex.net:443 \
@@ -82,7 +78,7 @@ description: Следуя данной инструкции, вы сможете
 
   Где:
 
-  * `<IAM-токен>` — IAM-токен для аутентификации.
+  * `<IAM-токен>` — [IAM-токен](../../iam/concepts/authorization/iam-token.md) для аутентификации.
   * `billing_account_id` — идентификатор [платежного аккаунта](../concepts/billing-account.md).
   * `start_date` — начало периода (включительно).
   * `end_date` — конец периода (включительно).
@@ -170,7 +166,7 @@ description: Следуя данной инструкции, вы сможете
             "expense": {
               "value": "13500.50"
             },
-            "timestamp": "2024-01-01T00:00:00Z"
+            "timestamp": "2026-01-01T00:00:00Z"
           }
         ]
       }
@@ -189,14 +185,10 @@ description: Следуя данной инструкции, вы сможете
   grpcurl -H "authorization: Bearer <IAM-токен>" \
     -d '{
       "billing_account_id": "dn276oa9slgm********",
-      "start_date": {
-        "seconds": 1704067200
-      },
-      "end_date": {
-        "seconds": 1706745599
-      },
+      "start_date": "2026-01-01T00:00:00Z",
+      "end_date": "2026-01-31T23:59:59Z",
       "cloud_ids": ["b1gvlrnlw2e6********", "b1gia87mbaom********"],
-      "service_ids": ["compute", "storage"],
+      "service_ids": ["<идентификатор_сервиса_1>", "<идентификатор_сервиса_2>"],
       "aggregation_period": "MONTH"
     }' \
     billing.api.cloud.yandex.net:443 \
@@ -205,15 +197,32 @@ description: Следуя данной инструкции, вы сможете
 
   Где:
   
+  * `<IAM-токен>` — [IAM-токен](../../iam/concepts/authorization/iam-token.md) для аутентификации.
+  * `billing_account_id` — идентификатор [платежного аккаунта](../concepts/billing-account.md).
+  * `start_date` — начало периода (включительно).
+  * `end_date` — конец периода (включительно).
   * `cloud_ids` — список идентификаторов облаков для фильтрации.
-  * `service_ids` — список идентификаторов сервисов для фильтрации.
+  * `service_ids` — список идентификаторов сервисов для фильтрации. Для их получения используйте метод REST API [Service.Get](../../billing/api-ref/Service/list.md) для ресурса [Billing](../../billing/api-ref/) или вызов gRPC API [ServiceService.List](../../billing/api-ref/grpc/Service/list.md).
+     
+    {% cut "Пример вызова gRPC API ServiceService.List" %}
 
-  Дополнительные параметры фильтрации:
+    ```bash
+    grpcurl -H "Authorization: Bearer ${IAM_TOKEN}" billing.api.cloud.yandex.net:443 \
+    
+    yandex.cloud.billing.v1.ServiceService.List
+    ```
+    Где `IAM_TOKEN` — [IAM-токен](../../iam/concepts/authorization/iam-token.md) для аутентификации.
 
-  * `folder_ids` — список идентификаторов каталогов.
-  * `sku_ids` — список идентификаторов продуктов (SKU).
-  * `resource_ids` — список идентификаторов ресурсов.
-  * `labels` — фильтрация по меткам ресурсов.
+    {% endcut %}
+
+    Дополнительные параметры фильтрации:
+    
+    * `folder_ids` — список идентификаторов каталогов.
+    * `sku_ids` — список идентификаторов продуктов (SKU).
+    * `resource_ids` — список идентификаторов ресурсов.
+    * `labels` — фильтрация по меткам ресурсов.
+  
+  * `aggregation_period` — период агрегации данных (`DAY`, `WEEK`, `MONTH`, `QUARTER`, `YEAR`).
 
   {% cut "Результат" %}
 
@@ -297,7 +306,7 @@ description: Следуя данной инструкции, вы сможете
             "expense": {
               "value": "4500.00"
             },
-            "timestamp": "2024-01-01T00:00:00Z"
+            "timestamp": "2026-01-01T00:00:00Z"
           }
         ]
       },
@@ -354,7 +363,7 @@ description: Следуя данной инструкции, вы сможете
             "expense": {
               "value": "3150.25"
             },
-            "timestamp": "2024-01-01T00:00:00Z"
+            "timestamp": "2026-01-01T00:00:00Z"
           }
         ]
       }
@@ -373,12 +382,8 @@ description: Следуя данной инструкции, вы сможете
   grpcurl -H "authorization: Bearer <IAM-токен>" \
     -d '{
       "billing_account_id": "dn276oa9slgm********",
-      "start_date": {
-        "seconds": 1704067200
-      },
-      "end_date": {
-        "seconds": 1706745599
-      }
+      "start_date": "2026-01-01T00:00:00Z",
+      "end_date": "2026-01-31T23:59:59Z"
     }' \
     billing.api.cloud.yandex.net:443 \
     yandex.cloud.billing.usage_records.v1.MetadataService/GetUsage
@@ -445,8 +450,8 @@ description: Следуя данной инструкции, вы сможете
       }
     ],
     "date_range": {
-      "start_date": "2024-01-01T00:00:00Z",
-      "end_date": "2024-01-31T23:59:59Z"
+      "start_date": "2026-01-01T00:00:00Z",
+      "end_date": "2026-01-31T23:59:59Z"
     }
   }
   ```

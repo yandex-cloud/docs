@@ -9,7 +9,7 @@ description: In this tutorial, you will learn how to get started with speech rec
 
 1. Install [Docker Engine](https://docs.docker.com/engine/install/) and [Docker Compose](https://docs.docker.com/compose/install/) on your server.
 
-1. [Get authenticated](../../container-registry/operations/authentication) in {{ container-registry-name }}.
+1. [Get authenticated]({{ link-docs }}/container-registry/operations/authentication) in {{ container-registry-name }}.
 
 For the recommended hardware configuration, see [{#T}](../system-requirements.md).
 

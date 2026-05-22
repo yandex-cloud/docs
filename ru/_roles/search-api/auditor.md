@@ -1,1 +1,3 @@
-Роль `search-api.auditor` позволяет просматривать информацию о [зарегистрированных IP-адресах](../../search-api/operations/workaround.md#registration) и [квотах](../../search-api/concepts/limits.md#search-api-quotas) сервиса Yandex Search API, а также об [облаках](../../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталогах](../../resource-manager/concepts/resources-hierarchy.md#folder).
+Роль `search-api.auditor` использовалась для работы с устаревшим API сервиса и позволяет просматривать информацию о квотах сервиса Yandex Search API, а также об облаке и каталоге.
+
+Роль `search-api.auditor` устарела и не должна использоваться.

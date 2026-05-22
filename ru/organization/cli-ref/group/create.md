@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/group/create
 editable: false
 ---
 
@@ -25,6 +26,9 @@ Set the ID of the organization to use. ||
 || `--description` | `string`
 
 Specifies a textual description of the group. ||
+|| `--labels` | `key=value[,key=value...]`
+
+A list of label KEY=VALUE pairs to add. For example, to add two labels named 'foo' and 'bar', both with the value 'baz', use '--labels foo=baz,bar=baz'. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 

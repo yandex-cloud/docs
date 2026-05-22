@@ -6,6 +6,7 @@ description: Следуя данной инструкции, вы сможете
 # Создание кластера {{ PG }}
 
 
+
 [Кластер](../../glossary/cluster.md) {{ PG }} — это один или несколько [хостов базы данных](../concepts/index.md), между которыми можно настроить [репликацию](../concepts/replication.md). Репликация работает по умолчанию в любом кластере из более чем одного хоста: хост-мастер принимает запросы на запись и дублирует изменения в репликах. Транзакция подтверждается, если данные записаны на [диск](../concepts/storage.md) и на хосте-мастере, и на определенном числе реплик, достаточном для формирования кворума.
 
 {% note info %}
@@ -51,7 +52,7 @@ description: Следуя данной инструкции, вы сможете
   1. Выберите окружение, в котором нужно создать кластер (после создания кластера окружение изменить невозможно):
      * `PRODUCTION` — для стабильных версий ваших приложений.
      * `PRESTABLE` — для тестирования. Prestable-окружение аналогично Production-окружению и на него также распространяется SLA, но при этом на нем раньше появляются новые функциональные возможности, улучшения и исправления ошибок. В Prestable-окружении вы можете протестировать совместимость новых версий с вашим приложением.
-  1. Выберите версию СУБД.
+  1. Из выпадающего списка **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите версию СУБД или оставьте версию по умолчанию — `17`.
   1. Выберите класс хостов — он определяет технические характеристики [виртуальных машин](../../compute/concepts/vm.md), на которых будут развернуты хосты БД. Все доступные варианты перечислены в разделе [Классы хостов](../concepts/instance-types.md). При изменении класса хостов для кластера меняются характеристики всех уже созданных хостов.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_disk }}**:
 
@@ -60,6 +61,8 @@ description: Следуя данной инструкции, вы сможете
      
        {% include [storages-step-settings](../../_includes/mdb/settings-storages.md) %}
 
+
+       {% include [local-ssd-steal](../../_includes/mdb/mpg/note-local-ssd-disk.md) %}
 
      * Выберите размер хранилища, который будет использоваться для данных и резервных копий. Подробнее о том, как занимают пространство резервные копии, см. раздел [Резервные копии](../concepts/backup.md).
 
@@ -87,6 +90,8 @@ description: Следуя данной инструкции, вы сможете
       * В поле **{{ ui-key.yacloud.mdb.cluster.field_diskSizeLimit }}** укажите максимальный размер хранилища, который может быть установлен при автоматическом увеличении размера хранилища.
 
       {% include [storage-resize-steps](../../_includes/mdb/mpg/storage-resize-steps.md) %}
+
+      {% include [storage-resize-process](../../_includes/mdb/mpg/storage-resize-process.md) %}
 
       
       {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
@@ -130,7 +135,7 @@ description: Следуя данной инструкции, вы сможете
 
        {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
 
-     * [Группы безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
+     * [Группы безопасности](../../vpc/concepts/security-groups.md) для сетевого трафика кластера. Может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups) для того, чтобы можно было подключаться к кластеру.
 
 
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_host }}** выберите параметры хостов БД, создаваемых вместе с кластером. По умолчанию каждый хост создается в отдельной [подсети](../../vpc/concepts/network.md#subnet). Чтобы выбрать для хоста конкретную подсеть, в строке этого хоста нажмите значок ![image](../../_assets/console-icons/pencil.svg).
@@ -203,8 +208,8 @@ description: Следуя данной инструкции, вы сможете
        --environment <окружение> \
        --network-name <имя_сети> \
        --host zone-id=<зона_доступности>,`
-                `subnet-id=<идентификатор_подсети>,`
-                `assign-public-ip=<разрешить_публичный_доступ_к_хосту> \
+             `subnet-id=<идентификатор_подсети>,`
+             `assign-public-ip=<разрешить_публичный_доступ_к_хосту> \
        --resource-preset <класс_хоста> \
        --user name=<имя_пользователя>,password=<пароль_пользователя> \
        --database name=<имя_БД>,owner=<имя_владельца_БД> \
@@ -212,14 +217,19 @@ description: Следуя данной инструкции, вы сможете
        --disk-type <network-hdd|network-ssd|network-ssd-nonreplicated|local-ssd> \
        --security-group-ids <список_идентификаторов_групп_безопасности> \
        --connection-pooling-mode=<режим_работы_менеджера_подключений> \
-       --deletion-protection
+       --deletion-protection \
+       --performance-diagnostics enabled=<активировать_сбор_статистики>,`
+                                `sessions-sampling-interval=<интервал_сбора_сессий>,`
+                                `statements-sampling-interval=<интервал_сбора_запросов>
      ```
 
-     
+
      Где:
 
      * `environment` — окружение: `prestable` или `production`.
      * `disk-type` — тип диска.
+
+        {% include [local-ssd-steal](../../_includes/mdb/mpg/note-local-ssd-disk.md) %}
 
      
      * `assign-public-ip` — доступ к хосту из интернета: `true` или `false`.
@@ -234,10 +244,17 @@ description: Следуя данной инструкции, вы сможете
        {% include [Ограничения защиты от удаления кластера](../../_includes/mdb/deletion-protection-limits-data.md) %}
 
      
+     * `--performance-diagnostics` — настройки [сбора статистики](./performance-diagnostics.md#activate-stats-collector):
+
+       * `enabled` — значение `true` активирует сбор статистики. Значение по умолчанию — `false`.
+       * `sessions-sampling-interval` — интервал сбора сессий, в секундах. Допустимые значения — от `1` до `86400`.
+       * `statements-sampling-interval` — интервал сбора запросов, в секундах. Допустимые значения — от `60` до `86400`.
+
+
+     
      Идентификатор подсети `subnet-id` необходимо указывать, если в выбранной [зоне доступности](../../overview/concepts/geo-scope.md) создано две и больше подсетей.
 
      {% include [network-cannot-be-changed](../../_includes/mdb/mpg/network-cannot-be-changed.md) %}
-
 
 
      {% include [database-name-limit](../../_includes/mdb/mpg/note-info-db-name-limits.md) %}
@@ -262,6 +279,10 @@ description: Следуя данной инструкции, вы сможете
 
      Также вы можете указать дополнительную опцию `replication-source` в параметре `--host` для того, чтобы [вручную управлять потоками репликации](../concepts/replication.md#replication-manual).
 
+     Чтобы настроить время [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров), передайте параметр `--maintenance-window type=<тип_технического_обслуживания>`, где `type` принимает следующие значения:
+
+     {% include [maintenance-window](../../_includes/mdb/cli/maintenance-window-description.md) %}
+     
      
      Чтобы зашифровать диск [пользовательским ключом KMS](../../kms/concepts/key.md), передайте параметр `--disk-encryption-key-id <идентификатор_ключа_KMS>`. Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
 
@@ -269,12 +290,6 @@ description: Следуя данной инструкции, вы сможете
 
      Чтобы разрешить доступ к кластеру из сервиса [{{ yq-full-name }}](../../query/index.yaml), передайте параметр `--yandexquery-access=true`. Функциональность находится на стадии [Preview](../../overview/concepts/launch-stages.md) и предоставляется по запросу.
 
-
-     {% note info %}
-
-     По умолчанию при создании кластера устанавливается режим [технического обслуживания](../concepts/maintenance.md) `anytime` — в любое время. Вы можете установить конкретное время обслуживания при [изменении настроек кластера](update.md#change-additional-settings).
-
-     {% endnote %}
 
 - {{ TF }} {#tf}
 
@@ -462,7 +477,6 @@ description: Следуя данной инструкции, вы сможете
            "dataLens": <разрешить_доступ_из_{{ datalens-name }}>,
            "webSql": <разрешить_доступ_из_{{ websql-name }}>,
            "serverless": <разрешить_доступ_из_Cloud_Functions>,
-           "dataTransfer": <разрешить_доступ_из_Data_Transfer>,
            "yandexQuery": <разрешить_доступ_из_{{ yq-name }}>
          },
          "performanceDiagnostics": {
@@ -513,7 +527,7 @@ description: Следуя данной инструкции, вы сможете
        "maintenanceWindow": {
          "weeklyMaintenanceWindow": {
            "day": "<день_недели>",
-           "hour": "<час_дня>"
+           "hour": "<порядковый_номер_часового_интервала>"
          }
        }
      }
@@ -552,12 +566,11 @@ description: Следуя данной инструкции, вы сможете
          * `diskEncryptionKeyId` — идентификатор ключа KMS для шифрования диска.
 
        
-       * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
+       * `access` — настройки доступа к кластеру из следующих сервисов {{ yandex-cloud }}:
 
          * `dataLens` — [{{ datalens-full-name }}](../../datalens/index.yaml);
          * `webSql` — [{{ websql-full-name }}](../../websql/index.yaml);
          * `serverless` — [{{ sf-full-name }}](../../functions/index.yaml);
-         * `dataTransfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml);
          * `yandexQuery` — [{{ yq-full-name }}](../../query/index.yaml).
 
          Возможные значения настроек: `true` или `false`.
@@ -593,13 +606,21 @@ description: Следуя данной инструкции, вы сможете
      * `hostSpecs` — настройки хостов кластера в виде массива элементов. Каждый элемент соответствует отдельному хосту и имеет следующую структуру:
 
        * `zoneId` — [зона доступности](../../overview/concepts/geo-scope.md);
-       * `subnetId` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
-       * `assignPublicIp` — разрешение на [подключение](connect.md) к хосту из интернета: `true` или `false`.
 
-     * `maintenanceWindow` — настройки расписания [окна технического обслуживания](../concepts/maintenance.md):
+       
+       * `subnetId` — идентификатор [подсети](../../vpc/concepts/network.md#subnet)
+       * `assignPublicIp` — разрешение на [подключение](connect/index.md) к хосту из интернета: `true` или `false`.
 
-       * `day` — день недели в формате `DDD`, когда должно проходить обслуживание.
-       * `hour` — час дня в формате `HH`, когда должно проходить обслуживание. Допустимые значения: от `1` до `24`.  
+     
+     * `maintenanceWindow` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). Передайте один из двух параметров:
+
+       * `anytime` — техническое обслуживание проводится в любое время.
+       * `weeklyMaintenanceWindow` — техническое обслуживание проводится раз в неделю в указанное время:
+
+         * `day` — день недели: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
+         * `hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
+
+           > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
   1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
 
@@ -649,7 +670,6 @@ description: Следуя данной инструкции, вы сможете
            "data_lens": <разрешить_доступ_из_{{ datalens-name }}>,
            "web_sql": <разрешить_доступ_из_{{ websql-name }}>,
            "serverless": <разрешить_доступ_из_Cloud_Functions>,
-           "data_transfer": <разрешить_доступ_из_Data_Transfer>,
            "yandex_query": <разрешить_доступ_из_{{ yq-name }}>
          },
          "performance_diagnostics": {
@@ -700,7 +720,7 @@ description: Следуя данной инструкции, вы сможете
        "maintenance_window": {
          "weekly_maintenance_window": {
            "day": "<день_недели>",
-           "hour": "<час_дня>"
+           "hour": "<порядковый_номер_часового_интервала>"
          }
        }
      }
@@ -739,12 +759,11 @@ description: Следуя данной инструкции, вы сможете
          * `disk_encryption_key_id` — идентификатор ключа KMS для шифрования диска.
 
        
-       * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
+       * `access` — настройки доступа к кластеру из следующих сервисов {{ yandex-cloud }}:
 
          * `data_lens` — [{{ datalens-full-name }}](../../datalens/index.yaml);
          * `web_sql` — [{{ websql-full-name }}](../../websql/index.yaml);
          * `serverless` — [{{ sf-full-name }}](../../functions/index.yaml);
-         * `data_transfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml);
          * `yandex_query` — [{{ yq-full-name }}](../../query/index.yaml).
 
          Возможные значения настроек: `true` или `false`.
@@ -780,13 +799,21 @@ description: Следуя данной инструкции, вы сможете
      * `host_specs` — настройки хостов кластера в виде массива элементов. Каждый элемент соответствует отдельному хосту и имеет следующую структуру:
 
        * `zone_id` — [зона доступности](../../overview/concepts/geo-scope.md);
-       * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
-       * `assign_public_ip` — разрешение на [подключение](connect.md) к хосту из интернета.
-    
-     * `maintenance_window` — настройки расписания [окна технического обслуживания](../concepts/maintenance.md):
 
-       * `day` — день недели в формате `DDD`, когда должно проходить обслуживание.
-       * `hour` — час дня в формате `HH`, когда должно проходить обслуживание. Допустимые значения: от `1` до `24`.
+       
+       * `subnet_id` — идентификатор [подсети](../../vpc/concepts/network.md#subnet);
+       * `assign_public_ip` — разрешение на [подключение](connect/index.md) к хосту из интернета.
+
+
+     * `maintenance_window` — настройки времени [технического обслуживания](../concepts/maintenance.md) (в т. ч. для выключенных кластеров). Передайте один из двух параметров:
+
+       * `anytime` — техническое обслуживание проводится в любое время.
+       * `weekly_maintenance_window` — техническое обслуживание проводится раз в неделю в указанное время:
+
+         * `day` — день недели: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT` или `SUN`.
+         * `hour` — порядковый номер часового интервала по UTC: от `1` до `24`.
+
+           > Например, `1` соответствует интервалу с `00:00` до `01:00`, `5` — с `04:00` до `05:00`.
 
   1. Воспользуйтесь вызовом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
 
@@ -810,7 +837,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% note warning %}
 
-Если вы указали идентификаторы групп безопасности при создании кластера, для подключения к нему может потребоваться дополнительная [настройка групп безопасности](connect.md#configuring-security-groups).
+Если вы указали идентификаторы групп безопасности при создании кластера, для подключения к нему может потребоваться дополнительная [настройка групп безопасности](connect/index.md#configuring-security-groups).
 
 {% endnote %}
 
@@ -906,7 +933,7 @@ description: Следуя данной инструкции, вы сможете
   
   * С именем `mypg`.
   * В окружении `production`.
-  * В сети `default`.
+  * В сети `{{ network-name }}`.
   * В группе безопасности `{{ security-group }}`.
   * С одним хостом класса `{{ host-class }}` в подсети `b0rcctk2rvtr********`, в зоне доступности `{{ region-id }}-a`.
   * С хранилищем на сетевых SSD-дисках (`{{ disk-type-example }}`) размером 20 ГБ.
@@ -922,7 +949,7 @@ description: Следуя данной инструкции, вы сможете
   {{ yc-mdb-pg }} cluster create \
      --name mypg \
      --environment production \
-     --network-name default \
+     --network-name {{ network-name }} \
      --resource-preset {{ host-class }} \
      --host zone-id={{ region-id }}-a,subnet-id=b0rcctk2rvtr******** \
      --disk-type {{ disk-type-example }} \

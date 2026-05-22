@@ -1,10 +1,10 @@
-Under **Scan settings**:
+Under **{{ ui-key.yacloud_org.dspm.scans.section_scan-settings_title }}**:
 
-1. Select the **Scan method**:
-   * **Full**: Scan all source objects of the supported types. This method ensures high accurracy of sensitive data detection.
-   * **Partial**: Scan only the selected partial data. Accurracy of sensitive data detection is lower, which is good for processing large amounts of data.
+1. Select **{{ ui-key.yacloud_org.dspm.scans.section_scan-settings_method_label }}**:
+   * **{{ ui-key.yacloud_org.dspm.scans.section.scan-method_title_full }}**: Scan all source objects of the supported types. This method ensures high accurracy of sensitive data detection.
+   * **{{ ui-key.yacloud_org.dspm.scans.section.scan-method_title_partial }}**: Scan only the selected partial data. Accuracy of sensitive data detection is lower, which is good for processing large amounts of data.
 
-1. In the **Start** field, select the new scan frequency: `Once`, `Every 7 days`, `Every 30 days`, `Every 90 days`, or set a custom frequency by selecting `Custom number of days`.
-1. In the **Scan name** field, specify the name to identify your new scan. Follow these naming requirements:
+1. In the **{{ ui-key.yacloud_org.dspm.scans.section_scan-settings_schedule_label }}** field, select the frequency for the new scan: `{{ ui-key.yacloud_org.dspm.scans.section_scan-settings_schedule_single }}`, `Every 7 days`, `Every 30 days`, `Every 90 days`, or set your own frequency by selecting `{{ ui-key.yacloud_org.dspm.scans.section_scan-settings_schedule_custom }}`.
+1. In the **{{ ui-key.yacloud_org.dspm.scans.section_scan-settings_job-name_label }}** field, specify the name to find your new scan. Follow these naming requirements:
 
     {% include [name-format](../name-format.md) %}

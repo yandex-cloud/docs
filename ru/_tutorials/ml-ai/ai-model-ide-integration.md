@@ -1,6 +1,6 @@
 Вы можете облегчить процесс разработки в [Visual Studio Code](https://code.visualstudio.com/) с помощью моделей `Qwen3-235B-A22B`, `GPT-OSS-120b` и других. Модели способны генерировать код, конвертировать его в другие языки программирования, помогать с отладкой и поиском ошибок в коде, анализировать данные, писать документацию и другое.
 
-В этом руководстве вы настроите интеграцию моделей в Visual Studio Code с помощью сервиса {{ foundation-models-full-name }} и расширения [{{ ca-full-name }}](https://sourcecraft.dev/portal/code-assistant/) или [Roo Code](https://roocode.com/).
+В этом руководстве вы настроите интеграцию моделей в Visual Studio Code с помощью сервиса {{ ai-studio-full-name }} и расширения [{{ ca-full-name }}](https://sourcecraft.dev/portal/code-assistant/) или [Roo Code](https://roocode.com/).
 
 {% note info %}
 
@@ -15,7 +15,7 @@
 1. [Подключитесь к модели](#connection).
 1. [Протестируйте модель](#test).
 
-В стоимость поддержки инфраструктуры для подключения к модели из редактора кода входит плата за генерацию текста (см. [тарифы {{ foundation-models-full-name }}](../../ai-studio/pricing.md)).
+В стоимость поддержки инфраструктуры для подключения к модели из редактора кода входит плата за генерацию текста (см. [тарифы {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/pricing)).
 
 ## Подготовьте инфраструктуру {#infra}
 
@@ -40,10 +40,10 @@
 - Консоль управления {#console}
 
   1. Перейдите в каталог `aistudio`.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Введите имя сервисного аккаунта, например `ai-model-user`.
-  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте сервисному аккаунту [роль](../../ai-studio/security/index.md#languageModels-user) `{{ roles-yagpt-user }}`.
+  1. Нажмите **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и назначьте сервисному аккаунту [роль]({{ link-docs-ai }}ai-studio/security/index#languageModels-user) `{{ roles-yagpt-user }}`.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
@@ -57,7 +57,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в каталог `aistudio`.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. На панели слева выберите ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. В открывшемся списке выберите сервисный аккаунт `ai-model-user`.
   1. На панели сверху нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** и выберите **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
@@ -89,7 +89,7 @@
      1. В поле **Модель** укажите URI модели в формате `gpt://<идентификатор_каталога>/<идентификатор_модели>/latest`, где:
 
          * `<идентификатор_каталога>` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md) `aistudio`;
-         * `<идентификатор_модели>` — [идентификатор модели](../../ai-studio/concepts/generation/models.md). Например: `qwen3-235b-a22b-fp8` или `gpt-oss-120b`.
+         * `<идентификатор_модели>` — [идентификатор модели]({{ link-docs-ai }}ai-studio/concepts/generation/models). Например: `qwen3-235b-a22b-fp8` или `gpt-oss-120b`.
 
          {% note info %}
 
@@ -108,7 +108,7 @@
      1. В поле **Model** укажите URI модели в формате `gpt://<идентификатор_каталога>/<идентификатор_модели>/latest`, где:
 
          * `<идентификатор_каталога>` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md) `aistudio`;
-         * `<идентификатор_модели>` — [идентификатор модели](../../ai-studio/concepts/generation/models.md). Например: `qwen3-235b-a22b-fp8` или `gpt-oss-120b`.
+         * `<идентификатор_модели>` — [идентификатор модели]({{ link-docs-ai }}ai-studio/concepts/generation/models). Например: `qwen3-235b-a22b-fp8` или `gpt-oss-120b`.
      1. Нажмите **Go!**.
 
      {% endcut %}

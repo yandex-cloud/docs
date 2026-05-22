@@ -1,9 +1,10 @@
 ---
 title: How to update a SAML app in {{ org-full-name }}
-description: Follow this guide to update a a SAML app in {{ org-name }}.
+description: Follow this guide to update a SAML app in {{ org-full-name }}.
 ---
 
 # Updating a SAML app in {{ org-full-name }}
+
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
@@ -25,7 +26,38 @@ To update the [SAML app's basic settings](../../concepts/applications.md#saml):
 
       1. Change the app's description in the **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-description_cjpok }}** field.
       1. Add new [labels](../../../resource-manager/concepts/labels.md) by clicking **{{ ui-key.yacloud.component.label-set.button_add-label }}** in the **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-labels_uT2D2 }}** field. Click ![xmark](../../../_assets/console-icons/xmark.svg) to delete an existing label.
-      1. Click **{{ ui-key.yacloud.common.save }}**.
+    
+  1. Under **{{ ui-key.yacloud_org.organization.apps.OauthAppEditForm.section-service-provider_5d85k }}**:
+
+     1. In the **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-entity-id_snAsX }}** field, enter the unique service provider ID. The value must be the same on the service provider's and {{ org-full-name }} side.
+     1. In the **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-acs-urls_eQcJr }}** field, specify the URL {{ org-full-name }} will send the SAML response to. To provide multiple addresses, click **{{ ui-key.yacloud_org.organization.apps.SamlAppAcsUrlsField.add-acs-url_eMunC }}**. The ACS URL must follow the `https` schema. You can only use an encryption-free protocol for testing purposes on a local host (`http://127.0.0.1` and `http://localhost` values).
+     1. In the **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-sp-logout-url_sLuRl }}** field, specify the address to which the IdP will send the SAML response after the user successfully logs out.
+     1. In the **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.field-signature-mode_ipXQ7 }}** field, specify the SAML response elements that will be digitally signed:
+
+       * `{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.signature-mode-assertions_thJgN }}`: Only the provided user attributes.
+       * `{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.signature-mode-response_x7SKD }}`: Full SAML response.
+       * `{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.signature-mode-response-and-assertions_u2j6T }}`: Full SAML response and, separately, the provided attributes.
+
+  1. Optionally, enable **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.RequestSigningSection.field-request-signing }}** to only accept requests signed with one of the added certificates. Add certificates:
+
+     1. Click **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.EncryptResponseSection.add-cert-action }}**.
+     1. In the window that opens, select the addition method and attach the file or specify the text contents of your certificate.
+     1. Click **{{ ui-key.yacloud.common.add }}**.
+
+     You need to upload the public key certificate obtained from the service provider, which will be used to verify the signature to enable this feature.
+
+  1. Optionally, enable **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.EncryptResponseSection.field-encrypt-response }}** to encrypt the SAML response using the selected certificate:
+
+     1. Select **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.EncryptResponseSection.field-encode-data-algo }}** and **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.EncryptResponseSection.field-encode-key-algo }}**.
+     1. Add a certificate:
+
+        1. Click **{{ ui-key.yacloud_org.organization.apps.SamlAppEditForm.EncryptResponseSection.add-cert-action }}**.
+        1. In the window that opens, select the addition method and attach the file or specify the text contents of your certificate.
+        1. Click **{{ ui-key.yacloud.common.add }}**.
+
+     You need to upload the public key certificate obtained from the service provider, which will be used for encryption.
+
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -104,7 +136,7 @@ To update the [SAML app's basic settings](../../concepts/applications.md#saml):
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     You can check the changes to the resources and their settings in [{{ org-full-name }}]({{ link-org-cloud-center }}).
+     You can check the changes to the resources and their settings in the [{{ cloud-center }} interface]({{ link-org-cloud-center }}).
 
 - API {#api}
 
@@ -149,8 +181,8 @@ To update the service provider configuration in a SAML app:
      Where:
 
      * `--id`: SAML application ID. This is a required setting.
-     * `--sp-entity-id`: Unique service provider ID. The value must be the same on the service provider's and {{ org-name }} side.
-     * `--acs-urls`: URL or comma-separated URLs to which {{ org-name }} will send the SAML response. The ACS URL must follow the `https` schema. You can only use an encryption-free protocol for testing purposes on a local host (`http://127.0.0.1` and `http://localhost` values).
+     * `--sp-entity-id`: Unique service provider ID. The value must be the same on the service provider's and {{ org-full-name }} side.
+     * `--acs-urls`: URL or comma-separated URLs to which {{ org-full-name }} will send the SAML response. The ACS URL must follow the `https` schema. You can only use an encryption-free protocol for testing purposes on a local host (`http://127.0.0.1` and `http://localhost` values).
      * `--signature-mode`: SAML response elements that will be digitally signed. The possible values are:
        * `assertion_only`: Only the provided user attributes.
        * `response_only`: Full SAML response.
@@ -199,8 +231,8 @@ To update the service provider configuration in a SAML app:
 
      Where:
 
-     * `entity_id`: New unique service provider ID. The value must be the same on the service provider's and {{ org-name }} side.
-     * `acs_urls`: New URLs {{ org-name }} will send the SAML response to. The ACS URL must follow the `https` schema. You can only use an encryption-free protocol for testing purposes on a local host (`http://127.0.0.1` and `http://localhost` values).
+     * `entity_id`: New unique service provider ID. The value must be the same on the service provider's and {{ org-full-name }} side.
+     * `acs_urls`: New URLs {{ org-full-name }} will send the SAML response to. The ACS URL must follow the `https` schema. You can only use an encryption-free protocol for testing purposes on a local host (`http://127.0.0.1` and `http://localhost` values).
      * `signature_mode`: New SAML response elements that will be digitally signed. The possible values are:
        * `ASSERTION_ONLY`: Only the provided user attributes.
        * `RESPONSE_ONLY`: Full SAML response.
@@ -212,7 +244,7 @@ To update the service provider configuration in a SAML app:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     You can check the changes to the resources and their settings in [{{ org-full-name }}]({{ link-org-cloud-center }}).
+     You can check the changes to the resources and their settings in the [{{ cloud-center }} interface]({{ link-org-cloud-center }}).
 
 - API {#api}
 
@@ -224,7 +256,7 @@ To update the service provider configuration in a SAML app:
 
 {% include [saml-app-cert-intro-phrase](../../../_includes/organization/saml-app-cert-intro-phrase.md) %}
 
-You can issue any number of new digital signature verification key certificates for the SAML app at any time. To do so:
+You can issue any number of new digital signature verification key certificates for the SAML app at any time. Proceed as follows:
 
 {% list tabs group=instructions %}
 
@@ -328,7 +360,7 @@ You can issue any number of new digital signature verification key certificates 
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     You can check the changes to the resources and their settings in [{{ org-full-name }}]({{ link-org-cloud-center }}).
+     You can check the changes to the resources and their settings in the [{{ cloud-center }} interface]({{ link-org-cloud-center }}).
 
 - API {#api}
 
@@ -338,7 +370,7 @@ You can issue any number of new digital signature verification key certificates 
 
 ## Update user and group attributes {#update-attributes}
 
-To update the attributes {{ org-name }} will transmit to the service provider:
+To update the attributes {{ org-full-name }} will transmit to the service provider:
 
 {% include [saml-app-update-assertions](../../../_includes/organization/saml-app-update-assertions.md) %}
 

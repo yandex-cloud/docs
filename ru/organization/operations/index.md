@@ -32,6 +32,7 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](./user-pools/deactivate-user.md)
 * [{#T}](./user-pools/activate-user.md)
 * [{#T}](./user-pools/user-get-logs.md)
+* [{#T}](./manage-sessions.md)
 * [{#T}](./edit-account.md)
 * [{#T}](./leave-organization.md)
 
@@ -53,6 +54,7 @@ description: Из статьи вы узнаете, как работать с {
 * [{#T}](./federation-group-mapping.md)
 * [{#T}](./renew-yc-certificate.md)
 * [{#T}](./manage-domain-in-federation.md)
+* [{#T}](./delete-federation.md)
 
 ## Управление пулами пользователей {#manage-userpools}
 
@@ -78,6 +80,8 @@ description: Из статьи вы узнаете, как работать с {
 
 * [{#T}](./applications/saml-create.md)
 * [{#T}](./applications/saml-update.md)
+* [{#T}](./applications/saml-set-access-bindings.md)
+* [{#T}](./applications/saml-get.md)
 * [{#T}](./applications/saml-deactivate-remove.md)
 
 ## Управление OIDC-приложениями {#manage-oidc-applications}
@@ -93,6 +97,7 @@ description: Из статьи вы узнаете, как работать с {
 
 * [{#T}](./mfa/create-policy.md)
 * [{#T}](./mfa/add-users.md)
+* [{#T}](./mfa/excluded-audience.md)
 * [{#T}](./mfa/update-policy.md)
 * [{#T}](./mfa/deactivate-reactivate-policy.md)
 * [{#T}](./mfa/delete-policy.md)
@@ -123,6 +128,6 @@ description: Из статьи вы узнаете, как работать с {
 
 * [{#T}](./sync-ad.md)
 
-## Управление тарификацией {{ org-name }} {#manage-billing}
+## Управление тарификацией {{ org-full-name }} {#manage-billing}
 
 * [{#T}](./manage-billing.md)

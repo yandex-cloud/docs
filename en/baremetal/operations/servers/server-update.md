@@ -28,7 +28,20 @@ description: In this tutorial, you will learn how to update your {{ baremetal-fu
 
           {% endnote %}
       
-      * Optionally, change the server's [network settings](../../concepts/network.md) in the **{{ ui-key.yacloud.baremetal.field_subnet-id }}** and **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** fields.
+      * Optionally, change the server's [network settings](../../concepts/network.md) in the **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** section.
+
+          To attach an [additional private subnet](../../concepts/private-network.md#tagged-vlan-subnet) to the server, click **{{ ui-key.yacloud.baremetal.addAdditionalSubnet }}** in the **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** section and, in the field that appears, select an existing additional subnet or create a new one.
+
+          {% include [additional-private-subnet-dhcp-notice](../../../_includes/baremetal/additional-private-subnet-dhcp-notice.md) %}
+
+          To detach an additional subnet from the server, click ![trash-bin](../../../_assets/console-icons/trash-bin.svg) next to this subnet in the **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** section.
+
+          {% note warning %}
+
+          If you have changed the number or composition of additional private subnets attached to the server, [configure](./set-up-tagged-vlan.md) the network interface in its operating system.
+
+          {% endnote %}
+
       * Optionally, in the **{{ ui-key.yacloud.baremetal.servers.BandwidthRow.bandwidthTitle_wvZra }}** field, change the [server's bandwidth](../../concepts/network-restrictions.md#bandwidth-for-pubic-network) package. Available bandwidth packages:
 
           * `{{ ui-key.yacloud.baremetal.servers.BandwidthRow.plan10Tb_2BFQU }}`
@@ -74,84 +87,150 @@ description: In this tutorial, you will learn how to update your {{ baremetal-fu
       * `--description`: New server description. This is an optional setting.
       * `--network-interfaces`: New network settings. This is an optional setting. The possible values are:
         
-        * `private-subnet-id`: ID of the new [private subnet](../../concepts/network.md#private-subnet).
-        * `public-subnet-id`: ID of the new [dedicated public subnet](../../concepts/network.md#public-subnet).
+        * `private-subnet-id`: ID of the new [private subnet](../../concepts/private-network.md#private-subnet).
+        * `public-subnet-id`: ID of the new [dedicated public subnet](../../concepts/public-network.md#public-subnet).
 
       * `--labels`: New server labels. This is an optional setting.
+
+- API {#api}
+
+  To update a server, use the [update](../../api-ref/Server/update.md) REST API method for the [Server](../../api-ref/Server/index.md) resource or the [ServerService/Update](../../api-ref/grpc/Server/update.md) gRPC API call.
 
 {% endlist %}
 
 ## Example {#example}
 
- Update server name, description, and network settings:
+Update server name, description, and network settings:
 
- {% list tabs group=instructions %}
+{% list tabs group=instructions %}
 
- - CLI {#cli}
+- CLI {#cli}
 
-    ```bash
-      yc baremetal server update \
-        --name demo-baremetal-server  \
-        --new-name new-demo-baremetal-server  \
-        --description "Updated BareMetal server" \
-        --network-interfaces private-subnet-id=ly5rljahs3re4gw7bf6l \
-        --network-interfaces public-subnet-id=ly5vr6tugxk75fynutzt
-    ```
+   ```bash
+     yc baremetal server update \
+       --name demo-baremetal-server  \
+       --new-name new-demo-baremetal-server  \
+       --description "Updated BareMetal server" \
+       --network-interfaces private-subnet-id=ly5rljahs3re******** \
+       --network-interfaces public-subnet-id=ly5vr6tugxk7********
+   ```
 
-    Result:
- 
-    ```bash
-    id: ly52dtzdi55r********
-    cloud_id: b1gia87mbaom********
-    folder_id: b1g0ijbfaqsn********
-    name: new-demo-baremetal-server
-    description: Updated BareMetal server
-    zone_id: ru-central1-m
-    hardware_pool_id: ru-central1-m4
-    status: PROVISIONING
-    os_settings:
-      image_id: ly5vhn4lapev********
-      ssh_public_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcM4tRfRHJGrlLMT+YJFr+aOdSQYnYYjAoj********
-      storages:
-        - partitions:
-            - type: EXT3
-              size_gib: "999"
-              mount_point: /
-            - type: EXT4
-              size_gib: "499"
-              mount_point: /root
-          raid:
-            type: RAID0
-            disks:
-              - id: ly5ual3jbnhr********
-                type: HDD
-                size_gib: "1862"
-              - id: ly54qfjw55d4********
-                type: HDD
-                size_gib: "1862"
-        - partitions:
-            - type: EXT3
-              size_gib: "999"
-              mount_point: /boot
-            - type: SWAP
-              size_gib: "9"
-          disk:
-            id: ly5ojffpngul********
-            type: HDD
-            size_gib: "1862"
-    network_interfaces:
-      - id: ly5wbsiklrtd********
-        mac_address: 00:25:90:92:fa:48
-        private_subnet:
-          private_subnet_id: ly5ztavbezrf********
-      - id: ly5ygl4loyy6********
-        mac_address: 00:25:90:92:fa:49
-        public_subnet:
-          public_subnet_id: ly5o6l7pxmk2********
-    configuration_id: ly5lymxdltk3xitpkrmi
-    created_at: "2025-07-06T21:53:46.186130Z"
-    labels:
-      env: test
-    ```
+   Result:
 
- {% endlist %}
+   ```bash
+   id: ly52dtzdi55r********
+   cloud_id: b1gia87mbaom********
+   folder_id: b1g0ijbfaqsn********
+   name: new-demo-baremetal-server
+   description: Updated BareMetal server
+   zone_id: ru-central1-m
+   hardware_pool_id: ru-central1-m4
+   status: PROVISIONING
+   os_settings:
+     image_id: ly5vhn4lapev********
+     ssh_public_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGcM4tRfRHJGrlLMT+YJFr+aOdSQYnYYjAoj********
+     storages:
+       - partitions:
+           - type: EXT3
+             size_gib: "999"
+             mount_point: /
+           - type: EXT4
+             size_gib: "499"
+             mount_point: /root
+         raid:
+           type: RAID0
+           disks:
+             - id: ly5ual3jbnhr********
+               type: HDD
+               size_gib: "1862"
+             - id: ly54qfjw55d4********
+               type: HDD
+               size_gib: "1862"
+       - partitions:
+           - type: EXT3
+             size_gib: "999"
+             mount_point: /boot
+           - type: SWAP
+             size_gib: "9"
+         disk:
+           id: ly5ojffpngul********
+           type: HDD
+           size_gib: "1862"
+   network_interfaces:
+     - id: ly5wbsiklrtd********
+       mac_address: 00:25:90:92:fa:48
+       private_subnet:
+         private_subnet_id: ly5ztavbezrf********
+     - id: ly5ygl4loyy6********
+       mac_address: 00:25:90:92:fa:49
+       public_subnet:
+         public_subnet_id: ly5o6l7pxmk2********
+   configuration_id: ly5lymxdltk3********
+   created_at: "2025-07-06T21:53:46.186130Z"
+   labels:
+     env: test
+   ```
+
+- API {#api}
+
+  ```bash
+  curl -X PATCH \
+    -H "Content-Type: application/json" \
+    -H "Authorization: Bearer <IAM_token>" \
+    -d '{
+      "updateMask": "name,description,networkInterfaces",
+      "name": "new-bm-server-test",
+      "description": "Updated BareMetal server",
+      "networkInterfaces": [
+        {
+          "privateSubnet": {
+            "privateSubnetId": "ly55shvlzvy4********"
+          },
+          "id": "ly5j33j44gtc********",
+          "macAddress": "00:25:90:e9:49:98"
+        },
+        {
+          "publicSubnet": {
+            "publicSubnetId": "ly52yjugkj57********"
+          },
+          "id": "ly5rmqqchyep********",
+          "macAddress": "00:25:90:e9:49:99"
+        }
+      ]
+    }' \
+    "https://baremetal.api.cloud.yandex.net/baremetal/v1alpha/servers/<server_ID>"
+  ```
+
+  Where:
+  * `<IAM_token>`: IAM token used for authentication.
+  * `<server_ID>`: ID of the server you want to update. To find out the ID, follow [this guide](get-info.md).
+  * `updateMask`: List of fields to update, comma-separated. Only the specified fields will be updated. If you specify a field in `updateMask` but provide no value in the query, the field will be reset to its default value.
+  * `name`: New server name. The name must be unique within the folder.
+
+    {% include [name-format](../../../_includes/name-format.md) %}
+
+  * `description`: New server description.
+  * `networkInterfaces[]`: New network settings. This is an optional parameter. The possible values are:
+    * `privateSubnetId`: ID of the new [private subnet](../../concepts/private-network.md#private-subnet).
+    * `publicSubnetId`: ID of the new [dedicated public subnet](../../concepts/public-network.md#public-subnet).
+  
+  Result:
+
+  ```bash
+  {
+    "done": false,
+    "metadata": {
+      "@type": "type.googleapis.com/yandex.cloud.baremetal.v1alpha.UpdateServerMetadata",
+      "serverId": "ly56xpblirh4********"
+    },
+    "id": "ly5k7jdyevbh********",
+    "description": "Server update",
+    "createdAt": "2025-12-07T20:03:43.637004Z",
+    "createdBy": "ajeb9l33h6mu********",
+    "modifiedAt": "2025-12-07T20:03:43.637004Z"
+  }
+  ```
+
+  Follow the status of the operation by the `done` field.
+
+{% endlist %}

@@ -1,14 +1,25 @@
-You cannot change the name of the `NameID` attribute in which the user ID is provided. You can change the ID format for this attribute, unless the attribute's format is explicitly specified in the service provider's SAML request. When the format changes, the attribute value changes automatically. Possible attribute formats and values:
+You can edit format and value of the `NameID` attribute (user ID). The list of possible values for the **{{ ui-key.yacloud_org.organization.apps.AttributeFormDialogNew.field_attribute_value_dgUAv }}** field depends on the format you select. When you change the format, the attribute automatically resets to that format’s default value.
 
-* `urn: oasis: names: tc: SAML: 1.1:nameid-format: emailAddress`: User ID is provided in email address format in the `SubjectClaims.preferred_username` attribute. This is the default format.
+Possible attribute formats and values:
 
-    The uniqueness and invariability of the provided ID is not guaranteed: one organization may have two users with the same `preferred_username` ID. For example: a [federated](../../iam/concepts/users/accounts.md#saml-federation) and a [local](../../iam/concepts/users/accounts.md#local) user can have the same value for this attribute.
+* `{{ ui-key.yacloud_org.organization.apps.NameIdAttributeFormDialog.field_nameId_email_mqNDG }}`: User ID is provided in email address format. Available values:
+    * `SubjectClaims.preferred_username`: Default value when switching to this format.
 
-    If the federated user's `preferred_username` ID is not in email format, the provided ID will be automatically suffixed with `@<identity_federation_ID>` to bring it to that format.
-* `urn: oasis: names: tc: SAML: 2.0:nameid-format: persistent`: User ID is provided in the `SubjectClaims.sub` attribute in the [organization's](../../organization/concepts/organization.md) user [ID](../../organization/operations/users-get.md) format. In this case, the provided value is guaranteed to be unique and invariable.
+        The uniqueness and invariability of the provided ID is not guaranteed: one organization may have two users with the same `preferred_username` ID. For example: a [federated](../../iam/concepts/users/accounts.md#saml-federation) and a [local](../../iam/concepts/users/accounts.md#local) user can have the same value for this attribute.
+
+        If the federated user's `preferred_username` ID is not in email format, the provided ID will be automatically suffixed with `@<identity_federation_ID>` to bring it to that format.
+    * `SubjectClaims.email`: User email address.
+
+* `{{ ui-key.yacloud_org.organization.apps.NameIdAttributeFormDialog.field_nameId_persistent_kZU3P }}`: User ID is provided in the [organization's](../../organization/concepts/organization.md) user [ID](../../organization/operations/users-get.md) format. In this case, the provided value is guaranteed to be unique and invariable. Available values:
+    * `SubjectClaims.sub`: Default value when switching to this format.
+    * `SubjectClaims.external_id`: External user ID.
+    * `SubjectClaims.employee_id`: Employee ID.
+* `urn:oasis:names:tc:SAML:2.0:nameid-format:transient`: User ID is provided in the current user [session](../../organization/concepts/sessions.md) ID. The value of this ID changes depending on session and cannot be used to uniquely identify the user.
+
+    You cannot explicitly specify the `urn:oasis:names:tc:SAML:2.0:nameid-format:transient` format in the `NameID` attribute's settings: the user ID comes in the SAML response in this format only if this format was explicitly requested in the SAML request.
 
 {% note warning %}
 
-If the service provider's SAML request explicitly indicates the expected user's `NameID` value format, then the SAML response will present the value in the format specified in the SAML request. In this case, the format value specified in the {{ org-name }} settings will be ignored.
+If the service provider's SAML request explicitly indicates the expected user's `NameID` value format, then the SAML response will present the value in the format specified in the SAML request. In this case, the format value specified in the {{ org-full-name }} settings will be ignored.
 
 {% endnote %}

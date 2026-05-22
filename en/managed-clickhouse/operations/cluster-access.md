@@ -7,7 +7,7 @@ description: Follow this guide to configure {{ mch-name }} cluster access permis
 
 You can assign a user or service account a [role](../security.md) that grants access to a specific [cluster](../concepts/index.md).
 
-Thus, you can granularly assign different roles for particular clusters to different users and service accounts.
+This way, you can granularly assign different roles for specific clusters to different users and service accounts.
 
 
 ## Getting a list of roles assigned for a cluster {#list-access-bindings}
@@ -34,7 +34,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -52,7 +52,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -107,7 +107,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       * `--role`: [Role](../security.md#roles-list) being assigned, e.g., `managed-clickhouse.editor`.
       * `--subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) you are assigning the role to, in `<subject_type>:<subject_ID>` format.
 
-          For example:
+          Here is an example:
 
           * `serviceAccount:aje6p030************`
           * `userAccount:aje8tj79************`
@@ -121,9 +121,55 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       {{ yc-mdb-ch }} cluster list-access-bindings <cluster_name_or_ID>
       ```
 
+- {{ TF }} {#tf}
+  
+  1. Open the current configuration file with the {{ mch-name }} cluster description.
+  
+      For more on how to create this file, see [{#T}](cluster-create.md).
+  
+  1. Add a resource description:
+    
+      ```hcl
+      resource "yandex_mdb_clickhouse_cluster_iam_binding" "<local_resource_name>" {
+        cluster_id = "<cluster_ID>"
+        role       = "<role>"
+        members    = ["<subject_type>:<subject_ID>"]
+      }
+      ```
+
+      Where:
+
+      * `cluster_id`: Cluster ID.
+      * `role`: [Role](../security.md#roles-list) being assigned, e.g., `managed-clickhouse.editor`.
+      * `members`: List of types and IDs of [subjects](../../iam/concepts/access-control/index.md#subject) the role is assigned to in `<subject_type>:<subject_ID>` format.
+    
+        Here is an example:
+        
+        * `serviceAccount:${yandex_iam_service_account.mch_sa.id}`
+        * `userAccount:ajerq94vab34********`
+        * `system:allAuthenticatedUsers`
+
+        {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+
+  1. Make sure the configuration files are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm updating the resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+      
+      For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster_iam_binding).
+
+  1. To view a list of roles assigned for the cluster, run this [CLI](../../cli/) command:
+    
+      ```bash
+      {{ yc-mdb-ch }} cluster list-access-bindings <cluster_name_or_ID>
+      ```
+
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -154,7 +200,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       Where:
 
       * `access_binding_deltas.roleId`: [Role](../security.md#roles-list) being assigned, e.g., `managed-clickhouse.editor`.
-      * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
+      * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) getting the role.
       * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
 
           {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
@@ -163,7 +209,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -200,7 +246,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
       * `resource_id`: Cluster ID.
       * `access_binding_deltas.roleId`: [Role](../security.md#roles-list) being assigned, e.g., `managed-clickhouse.editor`.
-      * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
+      * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) getting the role.
       * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
 
           {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
@@ -250,13 +296,65 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       * `role`: [Role](../security.md#roles-list) being assigned, e.g., `managed-clickhouse.editor`.
       * `subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) you are assigning the role to, in `<subject_type>:<subject_ID>` format.
 
-          For example:
+          Here is an example:
 
           * `serviceAccount:aje6p030************`
           * `userAccount:aje8tj79************`
           * `system:allAuthenticatedUsers`
 
           {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+
+- {{ TF }} {#tf}
+
+  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  
+      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+
+  1. Add resource descriptions:
+    
+      ```hcl
+      resource "yandex_mdb_clickhouse_cluster_iam_binding" "<resource_1_local_name>" {
+        cluster_id = "<cluster_ID>"
+        role       = "<role_1>"
+        members    = ["<subject_type>:<subject_ID>"]
+      }
+
+      resource "yandex_mdb_clickhouse_cluster_iam_binding" "<resource_2_local_name>" {
+        cluster_id = "<cluster_ID>"
+        role       = "<role_2>"
+        members    = ["<subject_type>:<subject_ID>"]
+      }
+      ```
+
+      Where:
+
+      * `cluster_id`: Cluster ID.
+      * `role`: [Role](../security.md#roles-list) being assigned, e.g., `managed-clickhouse.editor`.
+      * `members`: List of types and IDs of [subjects](../../iam/concepts/access-control/index.md#subject) the role is assigned to in `<subject_type>:<subject_ID>` format.
+    
+        Here is an example:
+        
+        * `serviceAccount:${yandex_iam_service_account.mch_sa.id}`
+        * `userAccount:ajerq94vab34********`
+        * `system:allAuthenticatedUsers`
+
+        {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+
+  1. Make sure the configuration files are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm updating the resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+      
+      For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster_iam_binding).
+
+  1. To view a list of roles assigned for the cluster, run this [CLI](../../cli/) command:
+    
+      ```bash
+      {{ yc-mdb-ch }} cluster list-access-bindings <cluster_name_or_ID>
+      ```
 
 - REST API {#api}
 
@@ -266,7 +364,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
   {% endnote %}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -309,7 +407,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       Where:
 
       * `accessBindings.roleId`: [Role](../security.md#roles-list) being assigned, e.g., `managed-clickhouse.editor`.
-      * `accessBindings.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
+      * `accessBindings.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) getting the role.
       * `accessBindings.subject.type`: Type of subject the role is assigned to.
 
           {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
@@ -324,7 +422,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
   {% endnote %}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -373,7 +471,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
       * `resource_id`: Cluster ID.
       * `accessBindings.roleId`: [Role](../security.md#roles-list) being assigned, e.g., `managed-clickhouse.editor`.
-      * `accessBindings.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
+      * `accessBindings.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) getting the role.
       * `accessBindings.subject.type`: Type of subject the role is assigned to.
 
           {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
@@ -416,17 +514,49 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       * `--role`: [Role](../security.md#roles-list) being revoked, e.g., `managed-clickhouse.editor`.
       * `--subject`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to, in `<subject_type>:<subject_ID>` format.
 
-          For example:
+          Here is an example:
 
           * `serviceAccount:aje6p030************`
           * `userAccount:aje8tj79************`
           * `system:allAuthenticatedUsers`
 
           {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
+ 
+- {{ TF }} {#tf}
+
+  1. Open the current {{ TF }} configuration file describing your infrastructure.
+  
+      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+
+  1. Find the description of the resource with the role you want to revoke and delete this description:
+    
+      ```hcl
+      resource "yandex_mdb_clickhouse_cluster_iam_binding" "<local_resource_name>" {
+        cluster_id = "<cluster_ID>"
+        role       = "<role>"
+        members    = ["<subject_type>:<subject_ID>"]
+      }
+      ```
+
+  1. Make sure the configuration files are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm updating the resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+      
+      For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster_iam_binding).
+
+  1. To view a list of roles assigned for the cluster, run this [CLI](../../cli/) command:
+    
+      ```bash
+      {{ yc-mdb-ch }} cluster list-access-bindings <cluster_name_or_ID>
+      ```
 
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -457,7 +587,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
       Where:
 
       * `access_binding_deltas.roleId`: [Role](../security.md#roles-list) being assigned, e.g., `managed-clickhouse.editor`.
-      * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to.
+      * `access_binding_deltas.subject.id`: ID of the [subject](../../iam/concepts/access-control/index.md#subject) getting the role.
       * `access_binding_deltas.subject.type`: Type of subject the role is assigned to.
 
           {% include [access-control-subject](../../_includes/mdb/access-control-subject.md) %}
@@ -466,7 +596,7 @@ Thus, you can granularly assign different roles for particular clusters to diffe
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -533,7 +663,7 @@ For a service account to be able to view the info of all {{ mch-name }} clusters
   1. Assign the roles for the cluster:
 
       ```bash
-      {{ yc-mdb-ch }} cluster add-access-bindings <cluster_name_or_ID> \
+      {{ yc-mdb-ch }} cluster add-access-binding <cluster_name_or_ID> \
         --access-binding role=managed-clickhouse.editor,subject=serviceAccount:<service_account_ID>
       ```
 
@@ -543,9 +673,39 @@ For a service account to be able to view the info of all {{ mch-name }} clusters
       {{ yc-mdb-ch }} cluster list-access-bindings <cluster_name_or_ID>
       ```
 
+- {{ TF }} {#tf}
+
+  1. Open the current {{ TF }} configuration file describing your infrastructure.
+
+      For more on how to create this file, see [Creating a cluster](cluster-create.md).
+
+  1. Add resource descriptions:
+
+      ```hcl
+      resource "yandex_resourcemanager_folder_iam_member" "mch-viewer-account-iam" {
+        folder_id   = "<folder_ID>"
+        role        = "managed-clickhouse.viewer"
+        member      = "serviceAccount:<service_account_ID>"
+      }
+
+      resource "yandex_mdb_clickhouse_cluster_iam_binding" "mch-cluster-api-editor" {
+        cluster_id = "<cluster_ID>"
+        role       = "managed-clickhouse.editor"
+        members    = ["serviceAccount:<service_account_ID>"]
+      }
+      ```
+
+  1. Make sure the configuration files are correct.
+
+      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+  1. Confirm updating the resources.
+
+      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 - REST API {#api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
       {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -623,7 +783,7 @@ For a service account to be able to view the info of all {{ mch-name }} clusters
 
 - gRPC API {#grpc-api}
 
-  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+  1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
      {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

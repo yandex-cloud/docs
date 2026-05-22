@@ -30,38 +30,38 @@ In case of errors, use our [debugging guide](quickstart-debugging.md).
 
 1. Sign up for {{ yandex-cloud }}. Signing up is different for individuals and legal entities:
 
-   * [How to sign up as an individual](../getting-started/individuals/registration.md)
-   * [How to sign up as a business](../getting-started/legal-entity/registration.md)
+   * [How to sign up as an individual]({{ link-docs }}/getting-started/individuals/registration)
+   * [How to sign up as a business]({{ link-docs }}/getting-started/legal-entity/registration)
 
 1. Go to the [management console]({{ link-console-main }}) and log in to {{ yandex-cloud }}.
 1. Create a folder in the management console. It will contain your resources:
 
    {% include [create-folder](../_includes/create-folder.md) %}
 
-1. [Create a service account](../iam/operations/sa/create.md) named `sk-hybrid-example`.
+1. [Create a service account]({{ link-docs }}/iam/operations/sa/create) named `sk-hybrid-example`.
 
-   The service account allows you to flexibly configure access permissions. For more information about the service account, see [{#T}](../iam/concepts/users/service-accounts.md).
+   With a service account, you can flexibly configure access permissions. For more information, see [Service accounts]({{ link-docs }}/iam/concepts/users/service-accounts).
 
-1. [Assign the following roles to the service account](../iam/operations/sa/assign-role-for-sa.md):
+1. [Assign the following roles to the service account]({{ link-docs }}/iam/operations/sa/assign-role-for-sa):
 
    * `compute.editor`: To create a {{ yandex-cloud }} VM.
-   * `container-registry.images.puller`: To work with Docker images in the [{{ container-registry-full-name }}](../container-registry/index.yaml) registry.
-   * `iam.serviceAccounts.keyAdmin`: To create an [API key](../iam/concepts/authorization/api-key.md) for authorization in {{ billing-name }}.
+   * `container-registry.images.puller`: To work with Docker images in the [{{ container-registry-full-name }}]({{ link-docs }}/container-registry/) registry.
+   * `iam.serviceAccounts.keyAdmin`: To create an [API key]({{ link-docs }}/iam/concepts/authorization/api-key) for authentication in {{ billing-name }}.
 
-1. [Create an API key](../iam/operations/authentication/manage-api-keys.md#create-api-key).
+1. [Create an API key]({{ link-docs }}/iam/operations/authentication/manage-api-keys#create-api-key).
 
    Save the ID and the secret part of the key. You cannot request them later.
 
-1. [Create a registry](../container-registry/operations/registry/registry-create.md) in {{ container-registry-name }}.
+1. [Create a registry]({{ link-docs }}/container-registry/operations/registry/registry-create) in {{ container-registry-name }}.
 1. [Send the registry ID to the {{ speechkit-name }}]({{ link-console-support }}) team. The required containers and images will appear in your registry.
 
 ## Install additional dependencies {#prepare}
 
 On a local machine:
 
-1. [Install the {{ yandex-cloud }} command line interface](../cli/operations/install-cli.md) (CLI).
-1. [Authenticate your service account](../cli/operations/authentication/service-account.md) via the CLI.
-1. [Install {{ TF }}](../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+1. [Install the {{ yandex-cloud }} command line interface]({{ link-docs }}/cli/operations/install-cli) (CLI).
+1. [Authenticate your service account]({{ link-docs }}/cli/operations/authentication/service-account) via the CLI.
+1. [Install {{ TF }}]({{ link-docs }}/tutorials/infrastructure-management/terraform-quickstart#install-terraform).
 
 ## Prepare a repository with the {{ TF }} configuration {#repository}
 
@@ -117,7 +117,7 @@ To set variables for the {{ TF }} configuration, perform the following steps on 
 
 1. (Optional) Add the `NODES_GPU_INTERRUPTIBLE = false` variable.
 
-   The {{ TF }} configuration in the repository assumes creating an [interruptible VM](../compute/concepts/preemptible-vm.md). You can disable interrupting using the `NODES_GPU_INTERRUPTIBLE` variable. Its default value is `true`, and it is specified in the `variables.tf` file in the `yc-speechkit-hybrid-deployment` repository.
+   The {{ TF }} configuration in the repository assumes creating an [interruptible VM]({{ link-docs }}/compute/concepts/preemptible-vm). You can disable interrupting using the `NODES_GPU_INTERRUPTIBLE` variable. Its default value is `true`, and it is specified in the `variables.tf` file in the `yc-speechkit-hybrid-deployment` repository.
 
 ## Create an infrastructure using {{ TF }} {#create-infrastructure}
 
@@ -139,12 +139,12 @@ To create the infrastructure, perform the following steps on the local machine:
 - {{ TF }} {#tf}
 
    1. In the terminal, go to the `yc-speechkit-hybrid-deployment` repository directory.
-   1. [Get](../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) the `sk-hybrid-example` service account authentication credentials You can add the data to environment variables or specify this data in the `main.tf` file under `provider "yandex"`.
-   1. [Configure and initialize the {{ TF }} providers](../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
+   1. [Get]({{ link-docs }}/tutorials/infrastructure-management/terraform-quickstart#get-credentials) the `sk-hybrid-example` service account authentication credentials You can add the data to environment variables or specify this data in the `main.tf` file under `provider "yandex"`.
+   1. [Configure and initialize the {{ TF }} providers]({{ link-docs }}/tutorials/infrastructure-management/terraform-quickstart#configure-provider).
 
       The repository uses the `main.tf` file as a configuration file with provider settings, so there is no need to recreate such a file.
 
-   1. Make sure the {{ TF }} configuration files are correct using this command:
+   1. Validate your {{ TF }} configuration files using this command:
 
       ```bash
       terraform validate
@@ -183,7 +183,7 @@ To work according to the Cloud Billing licensing model, ensure network connectiv
 
    The public address is specified in the `EXTERNAL IP` field.
 
-1. [Connect to the VM over SSH](../compute/operations/vm-connect/ssh.md#vm-connect):
+1. [Connect to the VM over SSH]({{ link-docs }}/compute/operations/vm-connect/ssh#vm-connect):
 
    ```bash
    ssh <username>@<VM_public_IP_address>
@@ -207,7 +207,7 @@ To work according to the Cloud Billing licensing model, ensure network connectiv
 
 To check whether the {{ sk-hybrid-name }} test installation is valid and its performance is fine, use Docker containers with the load testing utility for speech recognition and synthesis. These containers are described in the `node-deploy.tf` file, they were created along with the [infrastructure](#create-infrastructure).
 
-To perform load testing:
+To run a load test:
 
 1. Connect to the VM over SSH.
 1. Make sure ports `8080` and `9080` are open to receive client requests:

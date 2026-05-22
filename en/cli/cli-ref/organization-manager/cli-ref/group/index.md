@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/group/
 editable: false
 ---
 
@@ -20,6 +21,8 @@ Aliases:
 
 - [yc organization-manager group add-access-binding](add-access-binding.md) — Add access binding for the specified group
 
+- [yc organization-manager group add-labels](add-labels.md) — Add labels to specified group
+
 - [yc organization-manager group add-members](add-members.md) — Add members to the specified group
 
 - [yc organization-manager group create](create.md) — Create a group
@@ -39,6 +42,8 @@ Aliases:
 - [yc organization-manager group list-operations](list-operations.md) — List operations for the specified group
 
 - [yc organization-manager group remove-access-binding](remove-access-binding.md) — Remove access binding for the specified group
+
+- [yc organization-manager group remove-labels](remove-labels.md) — Remove labels from specified group
 
 - [yc organization-manager group remove-members](remove-members.md) — Remove members from the specified group
 

@@ -42,6 +42,8 @@ description: Из статьи вы узнаете, как вызвать фун
 
 - HTTPS {#https}
 
+    {% include [call-limited-by-access-policies-notice](../../../_includes/functions/call-limited-by-access-policies-notice.md) %}
+
     Вы можете найти ссылку для вызова функции:
     * в поле **{{ ui-key.yacloud.serverless-functions.item.overview.label_invoke-link }}**. Для этого в [консоли управления]({{ link-console-main }}) [перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}** и нажмите на строку с нужной функцией.
     * в параметре `http_invoke_url`. Для этого выполните команду:

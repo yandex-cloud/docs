@@ -1,6 +1,6 @@
 # Creating an external table from a {{ objstorage-full-name }} bucket table using a configuration file
 
-To [create an external table](../../../managed-greenplum/operations/pxf/create-table.md) from a table in a {{ objstorage-full-name }} bucket, you need to provide a [static access key](../../../iam/concepts/authorization/access-key.md) for the service account in the query. You can do this using the [S3 protocol]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-external-g-s3-protocol.html) and a configuration file stored on the HTTP server.
+To [create an external table](../../../managed-greenplum/operations/pxf/create-table.md) from a table in a {{ objstorage-full-name }} bucket, you need to provide in the query a [static access key](../../../iam/concepts/authorization/access-key.md) for the service account. You can do this using the [S3 protocol]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-external-g-s3-protocol.html) and a configuration file stored on the HTTP server.
 
 To create an external table using a configuration file:
 
@@ -12,18 +12,16 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* {{ GP }} cluster fee: Use of computing resources allocated to hosts and disk space (see [{{ GP }} pricing](../../../managed-greenplum/pricing/index.md)).
-* Fee for a NAT gateway (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* {{ objstorage-name }} bucket fee covering data storage and data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)). 
-* VM fee: Using its computing resources, storage, and, optionally, public IP address (see [{{ compute-name }} pricing](../../../compute/pricing.md)).
-* Fee for public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* {{ mgp-name }} cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ mgp-name }} pricing](../../../managed-greenplum/pricing/index.md)).
+* NAT gateway: hourly use of the gateway and its outgoing traffic (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
+* {{ objstorage-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+* VM instance, which includes the use of computing resources, storage, public IP address, and OS (see [{{ compute-full-name }} pricing](../../../compute/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
 
-Set up the infrastructure:
+Set up your infrastructure:
 
 {% list tabs group=instructions %}
 
@@ -34,8 +32,6 @@ Set up the infrastructure:
     
     1. In the cluster subnet, [set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) and [create a security group](../../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
 
-
-    
     1. [Create a virtual machine on Linux](../../../compute/operations/vm-create/create-linux-vm.md) in the same cloud network as the {{ GP }} cluster.
 
 
@@ -47,6 +43,7 @@ Set up the infrastructure:
 
     
     1. [Create a static access key](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) for the service account.
+
 
 
 - {{ TF }} {#tf}
@@ -73,9 +70,9 @@ Set up the infrastructure:
         * Bucket to contain the `example.csv` file.
         * Virtual machine on [Ubuntu 20.04](/marketplace/products/yc/ubuntu-20-04-lts).
 
-    1. Specify the following in `greenplum-s3-vm.tf`:
+    1. In `greenplum-s3-vm.tf`, specify the following:
 
-        * Password for the user named `user` for access to the {{ GP }} cluster.
+        * Password for `user` for access to the {{ GP }} cluster.
         * Virtual machine image ID.
         * Username and path to the SSH key for virtual machine access.
         * Folder ID for the same service account as specified in the provider settings.
@@ -83,21 +80,21 @@ Set up the infrastructure:
 
     1. In the terminal, navigate to the directory containing the infrastructure plan.
 
-    1. To verify that the config files are correct, run the command below:
+    1. To make sure the configuration files are correct, run this command:
 
        ```bash
        terraform validate
        ```
 
-       {{ TF }} will show any errors found in your configuration files.
+       {{ TF }} will display any configuration errors detected in your files.
 
-    1. Create the infrastructure required to follow the steps provided in this tutorial:
+    1. Create the infrastructure required to follow the steps in this tutorial:
 
        {% include [terraform-apply](../../../_includes/mdb/terraform/apply.md) %}
 
        {% include [explore-resources](../../../_includes/mdb/terraform/explore-resources.md) %}
 
-    1. To retrieve the static key parameters, run the command below in the working directory:
+    1. To retrieve the static key properties, run this command in the working directory:
 
         ```bash
         terraform output -raw access_key > static-key.txt && \
@@ -107,7 +104,6 @@ Set up the infrastructure:
 
         The command saves to a file named `static-key.txt` the static key ID and the static key you are going to need later.
 
-    
     1. Go to the [management console]({{ link-console-main }}) and [set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) for the subnet hosting your cluster.
 
 
@@ -118,10 +114,10 @@ Set up the infrastructure:
 Set up a web server on your virtual machine and create an `s3` configuration file on the web server:
 
 
-1. [Connect](../../../compute/operations/vm-connect/ssh.md) to the virtual machine over SSH.
+1. [Connect](../../../compute/operations/vm-connect/ssh.md) to the VM over SSH.
 
 
-1. Create a folder named `/opt/gp_http_server` and put into it the `s3.config` file with the static key parameters and the other configuration settings for the `s3` protocol:
+1. Create a folder named `/opt/gp_http_server` and put into it the `s3.config` file with the static key properties and other configuration settings for the `s3` protocol:
 
     ```bash
     sudo mkdir /opt/gp_http_server
@@ -173,7 +169,7 @@ Set up a web server on your virtual machine and create an `s3` configuration fil
     sudo systemctl start gp_s3_config_http
     ```
 
-1. To check the state of the web server, run the command below:
+1. To check your web server's state, run this command:
 
     ```bash
     sudo systemctl status gp_s3_config_http
@@ -181,7 +177,7 @@ Set up a web server on your virtual machine and create an `s3` configuration fil
 
 ## Create an external table {#create-ext-table}
 
-1. [Connect to the {{ GP }} cluster](../../../managed-greenplum/operations/connect.md).
+1. [Connect to the {{ GP }} cluster](../../../managed-greenplum/operations/connect/index.md).
 1. Run a query to create an external table referencing the `example.csv` table in the bucket:
 
     ```sql
@@ -221,7 +217,7 @@ Some resources are not free of charge. Delete the resources you no longer need t
 
     
     1. [Delete the VM](../../../compute/operations/vm-control/vm-delete.md).
-    1. If you reserved a public static IP address for the VM, [delete it](../../../vpc/operations/address-delete.md).
+    1. If you reserved a public static IP address for your virtual machine, [delete it](../../../vpc/operations/address-delete.md).
     1. [Delete the bucket in {{ objstorage-name }}](../../../storage/operations/buckets/delete.md).
     1. [Delete the {{ GP }} cluster](../../../managed-greenplum/operations/cluster-delete.md).
     1. [Delete the service account](../../../iam/operations/sa/delete.md).
@@ -231,8 +227,10 @@ Some resources are not free of charge. Delete the resources you no longer need t
     1. [Delete the cloud network](../../../vpc/operations/network-delete.md).
 
 
+
 - {{ TF }} {#tf}
 
     {% include [terraform-clear-out](../../../_includes/mdb/terraform/clear-out.md) %}
+
 
 {% endlist %}

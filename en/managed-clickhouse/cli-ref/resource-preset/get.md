@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-clickhouse/cli-ref/resource-preset/get
 editable: false
 ---
 

@@ -1,4 +1,4 @@
-In this tutorial, you will deploy a [Docker image](../../cloud-registry/concepts/docker-image.md) from a [registry](../../cloud-registry/concepts/registry.md) in {{ cloud-registry-full-name }} and run a container on a {{ compute-full-name }} VM instance.
+In this tutorial, you will deploy a [Docker image](../../cloud-registry/concepts/artifacts/docker.md) from a [registry](../../cloud-registry/concepts/registry.md) in {{ cloud-registry-full-name }} and run a container on a {{ compute-full-name }} VM instance.
 
 To run a Docker image on a VM:
 
@@ -109,14 +109,14 @@ Create a [service account](../../iam/concepts/users/service-accounts.md) you wil
 - Management console {#console}
 
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. At the top of the screen, navigate to the **{{ ui-key.yacloud.iam.folder.switch_service-accounts }}** tab.
+  1. At the top of the screen, navigate to the **Service accounts** tab.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Specify the service account name: `docker-puller`.
+  1. Enter a name for the service account: `docker-puller`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-registry }}**.
   1. Select the previously created registry.
   1. Navigate to the ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
-  1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+  1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. In the window that opens, select the `docker-puller` service account.
   1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select `cloud-registry.artifacts.puller`.
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -538,7 +538,7 @@ Delete the resources you no longer need to avoid [paying](#paid-resources) for t
 1. [Delete](../../compute/operations/vm-control/vm-delete.md) the VM.
 1. [Delete](../../vpc/operations/address-delete.md) the static public IP address if you reserved one.
 1. Delete the [network](../../vpc/operations/network-delete.md) and the [subnets](../../vpc/operations/subnet-delete.md).
-1. Delete the [Docker image](../../cloud-registry/concepts/docker-image.md) from the registry.
+1. Delete the [Docker image](../../cloud-registry/concepts/artifacts/docker.md) from the registry.
 1. Delete the [registry](../../cloud-registry/concepts/registry.md).
 
 

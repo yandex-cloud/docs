@@ -13,7 +13,7 @@ description: In this tutorial, you will learn how to get a cloud ID in {{ yandex
 
   **Getting ID on the dashboard**
 
-  1. In the [management console]({{ link-console-main }}), in the top panel, click ![image](../../../_assets/console-icons/chevron-down.svg) and select the [cloud](../../concepts/resources-hierarchy.md#cloud).
+  1. In the [management console]({{ link-console-main }}), in the top panel, click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) and select the [cloud](../../concepts/resources-hierarchy.md#cloud).
   1. The cloud ID is specified at the top, below the cloud name. To copy the ID, hover over it and click ![image](../../../_assets/console-icons/copy.svg).
 
      {% cut "ID location" %}
@@ -24,7 +24,7 @@ description: In this tutorial, you will learn how to get a cloud ID in {{ yandex
 
   **Getting ID on the {{ ui-key.yacloud.dashboard.DashboardPage.CloudInfoDialog.title_cloud-info-dialog_ddcbY }} tab**
 
-  1. In the [management console]({{ link-console-main }}), in the top panel, click ![image](../../../_assets/console-icons/chevron-down.svg) and select the [cloud](../../concepts/resources-hierarchy.md#cloud).
+  1. In the [management console]({{ link-console-main }}), in the top panel, click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) and select the [cloud](../../concepts/resources-hierarchy.md#cloud).
   1. To the right of the cloud name, click ![image](../../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.common.resource-acl.button_cloud-info }}**.
   1. In the window that opens, you will find the cloud ID in the **{{ ui-key.yacloud.dashboard.DashboardPage.CloudInfoTooltip.cloud-id_rncSU }}** field. To copy the ID, hover over it and click ![image](../../../_assets/console-icons/copy.svg).
 

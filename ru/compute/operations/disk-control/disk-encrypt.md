@@ -202,7 +202,7 @@ description: Следуя данной инструкции, вы сможете
       resource "yandex_compute_disk" "empty-disk" {
         name       = "<имя_зашифрованного_диска>"
         type       = "network-hdd"
-        zone       = "{{ region-id}}-a"
+        zone       = "{{ region-id }}-a"
         size       = 20
         block_size = 4096
         image_id   = yandex_compute_image.image-1.id

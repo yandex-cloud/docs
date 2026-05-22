@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-greenplum/cli-ref/hba-rules/delete
 editable: false
 ---
 

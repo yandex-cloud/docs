@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/boot-image/delete
 editable: false
 ---
 

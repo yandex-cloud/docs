@@ -45,7 +45,7 @@ description: Следуя данной инструкции, вы сможете
       * (Опционально) Включите [программно ускоренную сеть](../../concepts/software-accelerated-network.md).
   1. {% include [network-settings](../../../_includes/compute/create/section-network.md) %}
   1. {% include [section-access](../../../_includes/compute/create/section-access.md) %}
-
+  1. {% include [section-backup](../../../_includes/compute/create/section-backup.md) %} 
   1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя прерываемой ВМ:
 
       {% include [name-format](../../../_includes/name-format.md) %}

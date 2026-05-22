@@ -150,11 +150,11 @@ description: Следуя данной инструкции, вы сможете
          apiVersion: "apps/v1"
          kind:       Deployment
          name:       <имя_приложения>
-     updatePolicy:
-       updateMode: "<режим_работы_VPA>"
+       updatePolicy:
+         updateMode: "<режим_работы_VPA>"
      ```
 
-     Где `updateMode` — режим работы {{ k8s-vpa }}: `Auto` или `Off`.
+     Где `updateMode` — режим работы {{ k8s-vpa }}: `Off`, `Initial`, `Recreate` или `InPlaceOrRecreate`. Подробнее см. в разделе [{#T}](../concepts/autoscale.md#vpa).
 
   1. Создайте {{ k8s-vpa }} для вашего приложения:
 

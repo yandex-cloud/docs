@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cic/cli-ref/private-connection/update
 editable: false
 ---
 
@@ -32,9 +33,6 @@ New description for the privateConnection. ||
 || `--labels` | `key=value[,key=value...]`
 
 New set of labels for the privateConnection as key-value pairs. Existing set of labels will be completely overwritten. ||
-|| `--region` | `string`
-
-Region of the privateConnection. ||
 || `--trunk-id` | `string`
 
 Id of a trunk connection of the privateConnection. ||

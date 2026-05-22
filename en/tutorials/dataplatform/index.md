@@ -109,6 +109,7 @@ description: This page provides a list of tutorials for building a data platform
 ## {{ OS }} {#opensearch}
 
 * [{#T}](opensearch-index-policy.md)
+* [{#T}](opensearch-cold-storage-policy.md)
 * [{#T}](data-transfer-mkf-mos.md)
 * [{#T}](mos-migration-from-standalone.md)
 * [{#T}](opensearch-to-object-storage.md)
@@ -118,6 +119,7 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](postgresql-to-opensearch.md)
 * [{#T}](opensearch-saml-keycloak.md)
 * [{#T}](opensearch-yandex-lemmer.md)
+* [{#T}](opensearch-email-notifications.md)
 
 ## {{ PG }} {#postgresql}
 
@@ -127,6 +129,7 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](mpg-replication-overview.md)
 * [Migrating a database from a third-party {{ PG }} cluster to {{ mpg-name }}](postgresql-data-migration.md)
 * [Migrating a database from {{ mpg-name }}](outbound-replication.md)
+* [{#T}](postgresql-versions.md)
 * [{#T}](rdbms-to-clickhouse.md)
 * [{#T}](mkf-to-mpg.md)
 * [{#T}](data-transfer-mpg.md)
@@ -140,6 +143,8 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](rds-to-mpg.md)
 * [{#T}](postgresql-to-opensearch.md)
 * [{#T}](postgresql-glibc-collation-issues.md)
+* [{#T}](job-pyspark-secret-access.md)
+* [{#T}](conn-man-secret-access.md)
 
 ## {{ VLK }} {#valkey}
 
@@ -175,6 +180,7 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](data-processing-to-data-processing.md)
 * [{#T}](metastore-import.md)
 * [{#T}](s3-data-processing-ch.md)
+* [{#T}](spark-and-datasphere.md)
 
 ### Basic examples of working with jobs {#jobs-basic-tutorials}
 
@@ -211,6 +217,7 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](managed-mysql.md)
 * [{#T}](managed-mysql-to-mysql.md)
 * [{#T}](managed-postgresql.md)
+* [{#T}](postgresql-versions.md)
 * [{#T}](schema-registry-cdc-debezium-kafka.md)
 
 ## {{ msp-full-name }} {#spark}
@@ -220,5 +227,13 @@ description: This page provides a list of tutorials for building a data platform
 * [{#T}](metastore-and-spark.md)
 * [{#T}](airflow-spark-min.md)
 * [{#T}](spark-objstorage-integration.md)
+* [{#T}](spark-and-datasphere.md)
+* [{#T}](job-pyspark-secret-access.md)
+
+
+## {{ myt-full-name }} {#ytsaurus}
+
+* [{#T}](yt-run-spark-job.md)
+
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

@@ -11,6 +11,7 @@ keywords:
 
 {% include notitle [preview](../../_includes/note-preview.md) %}
 
+
 ## Создать кластер {#create-cluster}
 
 {% list tabs group=instructions %}
@@ -18,7 +19,7 @@ keywords:
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором нужно создать кластер {{ SPQR }}.
-    1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
     1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 
@@ -51,7 +52,7 @@ keywords:
         * Для стандартного шардирования задайте в блоке **{{ ui-key.yacloud.spqr.section_infra }}** конфигурацию инфраструктурных хостов.
         * Для расширенного шардирования задайте в блоке **{{ ui-key.yacloud.spqr.section_router }}** конфигурацию хостов-роутеров.
 
-            (Опционально) В блоке **{{ ui-key.yacloud.spqr.section_coordinator }}** включите опцию **{{ ui-key.yacloud.spqr.field_coordinator }}** и задайте конфигурацию хостов-координаторов.
+            (Опционально) В блоке **{{ ui-key.yacloud.spqr.section_coordinator }}** задайте конфигурацию хостов-координаторов.
 
         Чтобы задать конфигурацию вычислительных ресурсов:
 

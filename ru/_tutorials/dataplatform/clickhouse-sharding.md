@@ -112,9 +112,9 @@
 
 ## Создайте таблицы с данными {#create-tables}
 
-Пусть необходимо включить шардирование для [таблицы]({{ ch.docs }}/getting-started/example-datasets/metrica/) `hits_v1`. Текст запроса на создание таблицы зависит от выбранного подхода к шардированию.
+Пусть необходимо включить шардирование для [таблицы]({{ ch.docs }}{{ lang }}/getting-started/example-datasets/metrica) `hits_v1`. Текст запроса на создание таблицы зависит от выбранного подхода к шардированию.
 
-Структура таблицы, которую нужно подставить вместо обозначения `<структура_таблицы>`, приведена [в документации {{ CH }}]({{ ch.docs }}/getting-started/tutorial/#create-tables).
+Структура таблицы, которую нужно подставить вместо обозначения `<структура_таблицы>`, приведена [в документации {{ CH }}]({{ ch.docs }}{{ lang }}/getting-started/example-datasets/star-schema#create-tables).
 
 После включения шардирования любым из способов, вы сможете отправлять `SELECT`- и `INSERT`-запросы к созданной распределенной таблице, и они будут обрабатываться согласно заданной конфигурации.
 
@@ -127,7 +127,7 @@
 Перед работой с распределенной таблицей:
 
 1. [Подключитесь](../../managed-clickhouse/operations/connect/clients.md) к базе `tutorial`.
-1. Создайте таблицу `hits_v1` на движке [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/), которая будет размещена на всех хостах кластера:
+1. Создайте таблицу `hits_v1` на движке [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree), которая будет размещена на всех хостах кластера:
 
    ```sql
    CREATE TABLE tutorial.hits_v1 ON CLUSTER '{cluster}' ( <структура_таблицы> )
@@ -141,7 +141,7 @@
 Чтобы создать распределенную таблицу `hits_v1_distributed` в кластере:
 
 1. [Подключитесь](../../managed-clickhouse/operations/connect/clients.md) к базе `tutorial`.
-1. Создайте таблицу на движке [Distributed]({{ ch.docs }}/engines/table-engines/special/distributed):
+1. Создайте таблицу на движке [Distributed]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed):
 
    ```sql
    CREATE TABLE tutorial.hits_v1_distributed ON CLUSTER '{cluster}' AS tutorial.hits_v1
@@ -150,7 +150,7 @@
 
    Здесь допустимо вместо явного указания структуры таблицы использовать выражение `AS tutorial.hits_v1`, т. к. таблицы `hits_v1_distributed` и `hits_v1` находятся на одних и тех же хостах кластера.
 
-   При создании таблицы на движке [Distributed]({{ ch.docs }}/engines/table-engines/special/distributed) укажите идентификатор кластера `chcluster`. Его можно получить со [списком кластеров в каталоге](../../managed-clickhouse/operations/cluster-list.md#list-clusters).
+   При создании таблицы на движке [Distributed]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed) укажите идентификатор кластера `chcluster`. Его можно получить со [списком кластеров в каталоге](../../managed-clickhouse/operations/cluster-list.md#list-clusters).
 
    {% note tip %}
 
@@ -168,7 +168,7 @@
 Перед работой с распределенной таблицей:
 
 1. [Подключитесь](../../managed-clickhouse/operations/connect/clients.md) к базе `tutorial`.
-1. Создайте таблицу `hits_v1` на движке [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/), которая использует все хосты группы шардов `sgroup` кластера:
+1. Создайте таблицу `hits_v1` на движке [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree), которая использует все хосты группы шардов `sgroup` кластера:
 
    ```sql
    CREATE TABLE tutorial.hits_v1 ON CLUSTER sgroup ( <структура_таблицы> )
@@ -182,7 +182,7 @@
 Чтобы создать распределенную таблицу `tutorial.hits_v1_distributed` в кластере:
 
 1. [Подключитесь](../../managed-clickhouse/operations/connect/clients.md) к базе `tutorial`.
-1. Создайте таблицу на движке [Distributed]({{ ch.docs }}/engines/table-engines/special/distributed):
+1. Создайте таблицу на движке [Distributed]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed):
 
    ```sql
    CREATE TABLE tutorial.hits_v1_distributed ON CLUSTER sgroup AS tutorial.hits_v1
@@ -202,7 +202,7 @@
 Перед работой с распределенной таблицей:
 
 1. [Подключитесь](../../managed-clickhouse/operations/connect/clients.md) к базе `tutorial`.
-1. Создайте таблицу `hits_v1` на движке [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/), которая использует все хосты группы шардов `sgroup_data` кластера:
+1. Создайте таблицу `hits_v1` на движке [ReplicatedMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication), которая использует все хосты группы шардов `sgroup_data` кластера:
 
    ```sql
    CREATE TABLE tutorial.hits_v1 ON CLUSTER sgroup_data ( <структура_таблицы> )
@@ -218,7 +218,7 @@
 Чтобы создать распределенную таблицу `tutorial.hits_v1_distributed` в кластере:
 
 1. [Подключитесь](../../managed-clickhouse/operations/connect/clients.md) к базе `tutorial`.
-1. Создайте таблицу на движке [Distributed]({{ ch.docs }}/engines/table-engines/special/distributed):
+1. Создайте таблицу на движке [Distributed]({{ ch.docs }}{{ lang }}/engines/table-engines/special/distributed):
 
    ```sql
    CREATE TABLE tutorial.hits_v1_distributed ON CLUSTER sgroup ( <структура_таблицы> )

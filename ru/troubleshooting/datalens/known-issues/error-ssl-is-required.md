@@ -13,7 +13,7 @@ db_message": "odyssey: ***********: SSL is required"
 
 ## Решение {#issue-resolution}
 
-Такая ошибка сообщает, что для подключения необходим протокол SSL. Его [необязательно использовать](../../../managed-postgresql/operations/connect.md) при подключении к базе из того же самого облака или каталога, но если вы подключаетесь к внешней базе данных, то использовать доверенный SSL-сертификат на сервере нужно.
+Такая ошибка сообщает, что для подключения необходим протокол SSL. Его [необязательно использовать](../../../managed-postgresql/operations/connect/index.md) при подключении к базе из того же самого облака или каталога, но если вы подключаетесь к внешней базе данных, то использовать доверенный SSL-сертификат на сервере нужно.
 
 При возникновении проблемы с новым подключением к {{ mpg-name }} [включите **{{ ui-key.yacloud.mdb.cluster.overview.label_access-datalens }}**](../../../managed-postgresql/operations/datalens-connect.md#allow-access) в настройках кластера, после чего [настройте подключение в {{ datalens-name }}](../../../datalens/operations/connection/create-postgresql.md).
 

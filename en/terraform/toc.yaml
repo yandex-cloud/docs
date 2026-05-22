@@ -186,12 +186,21 @@ items:
             items:
               - name: Data Sources
                 items:
+                  - name: dns_firewall
+                    href: data-sources/dns_firewall.md
+                    title: ''
                   - name: dns_zone
                     href: data-sources/dns_zone.md
                     title: ''
                 title: ''
               - name: Resources
                 items:
+                  - name: dns_firewall
+                    href: resources/dns_firewall.md
+                    title: ''
+                  - name: dns_firewall_iam_binding
+                    href: resources/dns_firewall_iam_binding.md
+                    title: ''
                   - name: dns_recordset
                     href: resources/dns_recordset.md
                     title: ''
@@ -240,17 +249,8 @@ items:
                   - name: function_trigger
                     href: data-sources/function_trigger.md
                     title: ''
-                  - name: iot_core_broker
-                    href: data-sources/iot_core_broker.md
-                    title: ''
-                  - name: iot_core_registry
-                    href: data-sources/iot_core_registry.md
-                    title: ''
                   - name: logging_group
                     href: data-sources/logging_group.md
-                    title: ''
-                  - name: serverless_container
-                    href: data-sources/serverless_container.md
                     title: ''
                 title: ''
               - name: Resources
@@ -267,20 +267,8 @@ items:
                   - name: function_trigger
                     href: resources/function_trigger.md
                     title: ''
-                  - name: iot_core_broker
-                    href: resources/iot_core_broker.md
-                    title: ''
-                  - name: iot_core_registry
-                    href: resources/iot_core_registry.md
-                    title: ''
                   - name: logging_group
                     href: resources/logging_group.md
-                    title: ''
-                  - name: serverless_container
-                    href: resources/serverless_container.md
-                    title: ''
-                  - name: serverless_container_iam_binding
-                    href: resources/serverless_container_iam_binding.md
                     title: ''
                 title: ''
             title: ''
@@ -288,6 +276,9 @@ items:
             items:
               - name: Data Sources
                 items:
+                  - name: cloudregistry_lifecycle_policy
+                    href: data-sources/cloudregistry_lifecycle_policy.md
+                    title: ''
                   - name: cloudregistry_registry
                     href: data-sources/cloudregistry_registry.md
                     title: ''
@@ -297,6 +288,9 @@ items:
                 title: ''
               - name: Resources
                 items:
+                  - name: cloudregistry_lifecycle_policy
+                    href: resources/cloudregistry_lifecycle_policy.md
+                    title: ''
                   - name: cloudregistry_registry
                     href: resources/cloudregistry_registry.md
                     title: ''
@@ -341,9 +335,6 @@ items:
                     title: ''
                   - name: compute_snapshot_schedule
                     href: data-sources/compute_snapshot_schedule.md
-                    title: ''
-                  - name: loadtesting_agent
-                    href: data-sources/loadtesting_agent.md
                     title: ''
                 title: ''
               - name: Resources
@@ -404,9 +395,6 @@ items:
                     title: ''
                   - name: compute_snapshot_schedule_iam_binding
                     href: resources/compute_snapshot_schedule_iam_binding.md
-                    title: ''
-                  - name: loadtesting_agent
-                    href: resources/loadtesting_agent.md
                     title: ''
                 title: ''
             title: ''
@@ -485,6 +473,21 @@ items:
                     title: ''
                 title: ''
             title: ''
+          - name: DataLens
+            items:
+              - name: Data Sources
+                items:
+                  - name: datalens_connection
+                    href: data-sources/datalens_connection.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: datalens_connection
+                    href: resources/datalens_connection.md
+                    title: ''
+                title: ''
+            title: ''
           - name: DataSphere
             items:
               - name: Data Sources
@@ -509,6 +512,21 @@ items:
                     title: ''
                   - name: datasphere_project_iam_binding
                     href: resources/datasphere_project_iam_binding.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Datacatalog
+            items:
+              - name: Data Sources
+                items:
+                  - name: datacatalog_catalog
+                    href: data-sources/datacatalog_catalog.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: datacatalog_catalog
+                    href: resources/datacatalog_catalog.md
                     title: ''
                 title: ''
             title: ''
@@ -546,6 +564,10 @@ items:
                     title: ''
                   - name: organizationmanager_saml_federation
                     href: data-sources/organizationmanager_saml_federation.md
+                    title: ''
+                  - name: organizationmanager_saml_federation_user_account
+                    href: >-
+                      data-sources/organizationmanager_saml_federation_user_account.md
                     title: ''
                   - name: organizationmanager_user_ssh_key
                     href: data-sources/organizationmanager_user_ssh_key.md
@@ -606,6 +628,10 @@ items:
                   - name: organizationmanager_mfa_enforcement_audience
                     href: resources/organizationmanager_mfa_enforcement_audience.md
                     title: ''
+                  - name: organizationmanager_mfa_enforcement_excluded_audience
+                    href: >-
+                      resources/organizationmanager_mfa_enforcement_excluded_audience.md
+                    title: ''
                   - name: organizationmanager_organization_iam_binding
                     href: resources/organizationmanager_organization_iam_binding.md
                     title: ''
@@ -617,6 +643,10 @@ items:
                     title: ''
                   - name: organizationmanager_saml_federation
                     href: resources/organizationmanager_saml_federation.md
+                    title: ''
+                  - name: organizationmanager_saml_federation_user_account
+                    href: >-
+                      resources/organizationmanager_saml_federation_user_account.md
                     title: ''
                   - name: organizationmanager_user_ssh_key
                     href: resources/organizationmanager_user_ssh_key.md
@@ -650,10 +680,6 @@ items:
                     title: ''
                   - name: iam_workload_identity_oidc_federation
                     href: data-sources/iam_workload_identity_oidc_federation.md
-                    title: ''
-                  - name: organizationmanager_saml_federation_user_account
-                    href: >-
-                      data-sources/organizationmanager_saml_federation_user_account.md
                     title: ''
                 title: ''
               - name: Resources
@@ -695,9 +721,20 @@ items:
                     href: >-
                       resources/iam_workload_identity_oidc_federation_iam_binding.md
                     title: ''
-                  - name: organizationmanager_saml_federation_user_account
-                    href: >-
-                      resources/organizationmanager_saml_federation_user_account.md
+                title: ''
+            title: ''
+          - name: IoT Core Broker
+            items:
+              - name: Data Sources
+                items:
+                  - name: iot_core_broker
+                    href: data-sources/iot_core_broker.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: iot_core_broker
+                    href: resources/iot_core_broker.md
                     title: ''
                 title: ''
             title: ''
@@ -708,11 +745,17 @@ items:
                   - name: iot_core_device
                     href: data-sources/iot_core_device.md
                     title: ''
+                  - name: iot_core_registry
+                    href: data-sources/iot_core_registry.md
+                    title: ''
                 title: ''
               - name: Resources
                 items:
                   - name: iot_core_device
                     href: resources/iot_core_device.md
+                    title: ''
+                  - name: iot_core_registry
+                    href: resources/iot_core_registry.md
                     title: ''
                 title: ''
             title: ''
@@ -773,6 +816,21 @@ items:
                     title: ''
                 title: ''
             title: ''
+          - name: Load Testing
+            items:
+              - name: Data Sources
+                items:
+                  - name: loadtesting_agent
+                    href: data-sources/loadtesting_agent.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: loadtesting_agent
+                    href: resources/loadtesting_agent.md
+                    title: ''
+                title: ''
+            title: ''
           - name: Lockbox
             items:
               - name: Data Sources
@@ -782,6 +840,9 @@ items:
                     title: ''
                   - name: lockbox_secret_version
                     href: data-sources/lockbox_secret_version.md
+                    title: ''
+                  - name: lockbox_secret_version_entry
+                    href: data-sources/lockbox_secret_version_entry.md
                     title: ''
                 title: ''
               - name: Resources
@@ -816,6 +877,9 @@ items:
                   - name: airflow_cluster
                     href: resources/airflow_cluster.md
                     title: ''
+                  - name: airflow_cluster_iam_binding
+                    href: resources/airflow_cluster_iam_binding.md
+                    title: ''
                 title: ''
             title: ''
           - name: Managed Service for Apache Kafka®
@@ -839,6 +903,9 @@ items:
                 items:
                   - name: mdb_kafka_cluster
                     href: resources/mdb_kafka_cluster.md
+                    title: ''
+                  - name: mdb_kafka_cluster_iam_binding
+                    href: resources/mdb_kafka_cluster_iam_binding.md
                     title: ''
                   - name: mdb_kafka_connector
                     href: resources/mdb_kafka_connector.md
@@ -872,6 +939,9 @@ items:
                 items:
                   - name: mdb_clickhouse_cluster
                     href: resources/mdb_clickhouse_cluster.md
+                    title: ''
+                  - name: mdb_clickhouse_cluster_iam_binding
+                    href: resources/mdb_clickhouse_cluster_iam_binding.md
                     title: ''
                   - name: mdb_clickhouse_cluster_v2
                     href: resources/mdb_clickhouse_cluster_v2.md
@@ -921,6 +991,9 @@ items:
                   - name: mdb_greenplum_cluster
                     href: resources/mdb_greenplum_cluster.md
                     title: ''
+                  - name: mdb_greenplum_cluster_iam_binding
+                    href: resources/mdb_greenplum_cluster_iam_binding.md
+                    title: ''
                   - name: mdb_greenplum_cluster_v2
                     href: resources/mdb_greenplum_cluster_v2.md
                     title: ''
@@ -945,6 +1018,9 @@ items:
                   - name: metastore_cluster
                     href: resources/metastore_cluster.md
                     title: ''
+                  - name: metastore_cluster_iam_binding
+                    href: resources/metastore_cluster_iam_binding.md
+                    title: ''
                 title: ''
             title: ''
           - name: Managed Service for MongoDB
@@ -966,6 +1042,9 @@ items:
                   - name: mdb_mongodb_cluster
                     href: resources/mdb_mongodb_cluster.md
                     title: ''
+                  - name: mdb_mongodb_cluster_iam_binding
+                    href: resources/mdb_mongodb_cluster_iam_binding.md
+                    title: ''
                   - name: mdb_mongodb_database
                     href: resources/mdb_mongodb_database.md
                     title: ''
@@ -984,6 +1063,9 @@ items:
                   - name: mdb_mysql_database
                     href: data-sources/mdb_mysql_database.md
                     title: ''
+                  - name: mdb_mysql_database_v2
+                    href: data-sources/mdb_mysql_database_v2.md
+                    title: ''
                   - name: mdb_mysql_user
                     href: data-sources/mdb_mysql_user.md
                     title: ''
@@ -993,11 +1075,17 @@ items:
                   - name: mdb_mysql_cluster
                     href: resources/mdb_mysql_cluster.md
                     title: ''
+                  - name: mdb_mysql_cluster_iam_binding
+                    href: resources/mdb_mysql_cluster_iam_binding.md
+                    title: ''
                   - name: mdb_mysql_cluster_v2
                     href: resources/mdb_mysql_cluster_v2.md
                     title: ''
                   - name: mdb_mysql_database
                     href: resources/mdb_mysql_database.md
+                    title: ''
+                  - name: mdb_mysql_database_v2
+                    href: resources/mdb_mysql_database_v2.md
                     title: ''
                   - name: mdb_mysql_user
                     href: resources/mdb_mysql_user.md
@@ -1016,6 +1104,9 @@ items:
                 items:
                   - name: mdb_opensearch_cluster
                     href: resources/mdb_opensearch_cluster.md
+                    title: ''
+                  - name: mdb_opensearch_cluster_iam_binding
+                    href: resources/mdb_opensearch_cluster_iam_binding.md
                     title: ''
                 title: ''
             title: ''
@@ -1038,6 +1129,9 @@ items:
                   - name: mdb_postgresql_cluster
                     href: resources/mdb_postgresql_cluster.md
                     title: ''
+                  - name: mdb_postgresql_cluster_iam_binding
+                    href: resources/mdb_postgresql_cluster_iam_binding.md
+                    title: ''
                   - name: mdb_postgresql_cluster_v2
                     href: resources/mdb_postgresql_cluster_v2.md
                     title: ''
@@ -1047,15 +1141,18 @@ items:
                   - name: mdb_postgresql_user
                     href: resources/mdb_postgresql_user.md
                     title: ''
+                  - name: mdb_sharded_postgresql_cluster
+                    href: resources/mdb_sharded_postgresql_cluster.md
+                    title: ''
+                  - name: mdb_sharded_postgresql_cluster_iam_binding
+                    href: resources/mdb_sharded_postgresql_cluster_iam_binding.md
+                    title: ''
                 title: ''
             title: ''
           - name: Managed Service for SPQR
             items:
               - name: Resources
                 items:
-                  - name: mdb_sharded_postgresql_cluster
-                    href: resources/mdb_sharded_postgresql_cluster.md
-                    title: ''
                   - name: mdb_sharded_postgresql_database
                     href: resources/mdb_sharded_postgresql_database.md
                     title: ''
@@ -1092,6 +1189,9 @@ items:
                   - name: trino_cluster
                     href: resources/trino_cluster.md
                     title: ''
+                  - name: trino_cluster_iam_binding
+                    href: resources/trino_cluster_iam_binding.md
+                    title: ''
                 title: ''
             title: ''
           - name: Managed Service for ValKey
@@ -1112,6 +1212,9 @@ items:
                 items:
                   - name: mdb_redis_cluster
                     href: resources/mdb_redis_cluster.md
+                    title: ''
+                  - name: mdb_redis_cluster_iam_binding
+                    href: resources/mdb_redis_cluster_iam_binding.md
                     title: ''
                   - name: mdb_redis_cluster_v2
                     href: resources/mdb_redis_cluster_v2.md
@@ -1196,6 +1299,9 @@ items:
                 items:
                   - name: spark_cluster
                     href: resources/spark_cluster.md
+                    title: ''
+                  - name: spark_cluster_iam_binding
+                    href: resources/spark_cluster_iam_binding.md
                     title: ''
                 title: ''
             title: ''
@@ -1322,6 +1428,24 @@ items:
                 items:
                   - name: function_scaling_policy
                     href: resources/function_scaling_policy.md
+                    title: ''
+                title: ''
+            title: ''
+          - name: Serverless Containers
+            items:
+              - name: Data Sources
+                items:
+                  - name: serverless_container
+                    href: data-sources/serverless_container.md
+                    title: ''
+                title: ''
+              - name: Resources
+                items:
+                  - name: serverless_container
+                    href: resources/serverless_container.md
+                    title: ''
+                  - name: serverless_container_iam_binding
+                    href: resources/serverless_container_iam_binding.md
                     title: ''
                 title: ''
             title: ''
@@ -1469,6 +1593,9 @@ items:
                 items:
                   - name: dataproc_cluster
                     href: resources/dataproc_cluster.md
+                    title: ''
+                  - name: dataproc_cluster_iam_binding
+                    href: resources/dataproc_cluster_iam_binding.md
                     title: ''
                 title: ''
             title: ''

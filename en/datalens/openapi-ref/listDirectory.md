@@ -4,12 +4,12 @@ editable: false
 
 # DataLens API: List directory
 
-## HTTP request
-
 Lists entries from the specified directory.
 
+## HTTP request
+
 ```
-POST https://api.datalens.yandex.net/rpc/listDirectory
+POST https://api.datalens.tech/rpc/listDirectory
 ```
 
 ## Body parameters
@@ -44,10 +44,10 @@ Filter entries by creator. ||
 || orderBy | **[OrderBy](#OrderBy)**
 
 Required field. Sorting configuration. ||
-|| filters | **[Filters](#Filters)**
+|| filters | **[Filters](#Filters)** 
 
 Filtering configuration. ||
-|| page | **number**
+|| page | **number** 
 
 Page number for pagination. ||
 || pageSize | **number** 
@@ -92,6 +92,8 @@ Filter entries by name. ||
 ## Response {#200}
 
 **HTTP Code: 200**
+
+Response
 
 **Response schema: application/json**
 
@@ -148,7 +150,7 @@ Filter entries by name. ||
 ||Field | Description ||
 || nextPageToken | **boolean**
 
-Required field. Indicates if there are more pages. ||
+Required field.  Indicates if there are more pages. ||
 || breadCrumbs[] | **[BreadCrumbsItem](#BreadCrumbsItem)**
 
 Required field. Navigation breadcrumbs for the current path. ||
@@ -171,13 +173,13 @@ Required field. Title of the breadcrumb item. ||
 Required field. Path of the breadcrumb item. ||
 || entryId | **string**
 
-Required field. Entry ID of the breadcrumb item. ||
+Required field.  Entry ID of the breadcrumb item. ||
 || isLocked | **boolean**
 
 Required field. Indicates if the item is locked. ||
 || permissions | **[Permissions](#Permissions)**
 
-Required field. Permissions for the breadcrumb item.  ||
+Required field. Permissions for the breadcrumb item. ||
 |#
 
 ## Permissions {#Permissions}
@@ -210,7 +212,7 @@ Required field. Unique identifier of the entry. ||
 Required field. Key identifier of the entry. ||
 || scope | **string**
 
-Required field. Type of the entry (e.g., `dash`, `dataset`, `connection`). ||
+Required field. Type of the entry (e.g., dash, dataset, connection). ||
 || type | **string**
 
 Required field. Specified type of the entry from scope (e.g. type of the connection or visualization type for charts). ||
@@ -234,7 +236,7 @@ Required field. Last updater of the entry. ||
 Required field. Saved version ID. ||
 || publishedId | **string \| null**
 
-Required field. Published version ID. ||
+Required field.  Published version ID. ||
 || hidden | **boolean**
 
 Required field. Indicates if the entry is hidden. ||
@@ -243,13 +245,13 @@ Required field. Indicates if the entry is hidden. ||
 Required field. ID of the workbook the entry belongs to. ||
 || workbookTitle | **string \| null** 
 
-Workbook title. ||
+Workbook name. ||
 || collectionId | **string \| null**
 
 Required field. ID of the collection the entry belongs to. ||
 || collectionTitle | **string \| null** 
 
-Collection title. ||
+Collection name ||
 || isFavorite | **boolean**
 
 Required field. Indicates if the entry is marked as favorite. ||
@@ -258,7 +260,7 @@ Required field. Indicates if the entry is marked as favorite. ||
 Required field. Indicates if the entry is locked. ||
 || permissions | **[Permissions](#Permissions)**
 
-Required field. ermissions for the entry. ||
+Required field. Permissions for the entry. ||
 || name | **string**
 
 Required field. Name of the entry. ||

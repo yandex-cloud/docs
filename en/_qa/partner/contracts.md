@@ -7,18 +7,11 @@ The relationship between a partner and {{ yandex-cloud }} is governed by the [Pa
 You enter into an agreement with a customer yourself.
 
 
-#### Where can I get sample agreements? {#examples-of-contracts}
+#### Where can I get examples of agreements? {#examples-of-contracts}
 
-You can use your own agreement template or the examples we provide you with in the [Partner Kit](../../partner/program/var-tools.md#kit):
+You can use an agreement template of your own or the examples we provide to you in the [Partner Kit](../../partner/program/var-tools.md#kit).
 
-Types of our partners' agreements that you can find in the Partner Kit:
-
-* Simple agreements for providing services without an agent fee. These agreements allow you to include both the cost of using {{ yandex-cloud }} services and that of support and maintenance services for you as a partner company.
-* Commission agreements which, as some experts believe, are more consistent with the subject of agreements for _services to provide access to cloud resources_ in terms of their wording for taxation purposes.
-
-#### What is an agent's tax base: the entire amount paid by a customer under the payment invoice issued or only a partner bonus? {#tax-base}
-
-If you use the Simplified Tax System (Russian: USN) and work under an agency agreement, you must specify an agent fee in a separate line in the agreement with the customer. In this case, you only pay taxes on the amount of the agent fee.
+Thus, in the Partner Kit, you can find commission agreements which, as some believe, are more consistent with the subject of an agreement for _services of access to cloud resources_ in terms of their wording for taxation purposes.
 
 #### How is VAT refunded if I use the Simplified Tax System (USN)? {#VAT}
 
@@ -27,7 +20,7 @@ If your customer pays VAT, you can re-issue invoices from your organization to t
 
 #### How is payment handled in {{ yandex-cloud }} for partners? What will happen if my account balance reaches zero? {#payments}
 
-{{ yandex-cloud }} uses a postpaid billing system. To get started, you should switch to paid consumption mode. Your account or [subaccounts](../../partner/terms.md#sub-account) may start consuming resources without any deposit, right after activation. The amount for consumption across all subaccounts linked to the partner account is debited from the personal partner account.
+{{ yandex-cloud }} uses the postpaid billing model. To get started, you should switch to paid consumption mode. Your account or [subaccounts](../../partner/terms.md#sub-account) may start consuming resources without any deposit, right after activation. The amount for consumption across all subaccounts linked to the partner account is debited from the personal partner account.
 
 At the end of each month, we will email you a service report that will show you the amount (excluding the partner bonus for the past / reporting month).
 

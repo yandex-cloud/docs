@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-postgresql/cli-ref/cluster/restore
 editable: false
 ---
 
@@ -61,7 +62,7 @@ Possible property names:
 || `--yandexquery-access` | Allow access for Yandex Query ||
 || `--postgresql-version` | `string`
 
-Version of PostgreSQL used in the cluster. Values: 16, 15, 14, 13, 12, 11, 10, 14-1c, 13-1c, 12-1c, 11-1c, 10-1c ||
+Version of PostgreSQL used in the cluster. Values: 18, 17, 16, 15, 14, 18-1c, 17-1c, 16-1c, 15-1c, 14-1c ||
 || `--resource-preset` | `string`
 
 ID of the preset for computational resources available to a host (CPU, memory etc.). ||
@@ -93,6 +94,37 @@ A list of host groups to place VMs of cluster on. ||
 || `--disk-encryption-key-id` | `string`
 
 ID of the KMS key for cluster disk encryption. Empty input will remove the use of encryption. ||
+|| `--maintenance-window` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+
+Maintenance window settings
+
+Possible property names:
+
+- `type`: Type of maintenance window, it can be anytime or weekly. A day and hour of window need to be specified with weekly window.
+
+- `hour`: Hour of day in UTC time zone (1-24) for maintenance window if window type is weekly.
+
+- `day`: Day of week for maintenance window if window type is weekly. One of MON, TUE, WED, THU, FRI, SAT, SUN. Values: 'mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun' ||
+|| `--disk-size-autoscaling` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+
+Disk size autoscaling settings
+
+Possible property names:
+
+- `disk-size-limit`: Set disk size limit
+
+- `planned-usage-threshold`: Planned usage threshold
+
+- `emergency-usage-threshold`: Emergency usage threshold ||
+|| `--connection-manager` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+
+Connection Manager cluster integration settings
+
+Possible property names:
+
+- `connections-folder-id`: ID of the folder where connections for the cluster are created
+
+- `secrets-folder-id`: ID of the folder where connection secrets are created. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 

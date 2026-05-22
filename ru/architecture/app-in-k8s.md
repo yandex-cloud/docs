@@ -95,7 +95,7 @@ keywords:
 В соответствии с [рекомендациями](./fault-tolerance.md) по построению отказоустойчивой инфраструктуры кластер создан в конфигурации:
 
 * Высокодоступный кластер {{ managed-k8s-name }} c [мастерами](../managed-kubernetes/concepts/index.md#master) в трех [зонах доступности](../overview/concepts/geo-scope.md).
-* В кластере включен сервис [NodeLocal DNS Cache](../managed-kubernetes/tutorials/node-local-dns.md) для кэширования запросов DNS.
+* В кластере включен сервис [NodeLocal DNS Cache](../managed-kubernetes/tutorials/node-local-dns.md) для кеширования запросов DNS.
 
 В кластере {{ k8s }} развернут вспомогательный сервис {{ alb-name }} [Ingress-контроллер](../application-load-balancer/tools/k8s-ingress-controller/index.md) для управления конфигурацией L7-балансировщика с помощью объектов [Ingress](../managed-kubernetes/alb-ref/ingress.md).
 
@@ -106,6 +106,8 @@ keywords:
 ### L7-балансировщик {#alb}
 
 За балансировку нагрузки на веб-приложение в создаваемой инфраструктуре отвечает управляемый сервис {{ alb-name }}. [L7-балансировщик](../application-load-balancer/concepts/application-load-balancer.md) {{ alb-name }} создается сервисом {{ managed-k8s-name }} динамически с помощью объектов [Ingress](../managed-kubernetes/alb-ref/ingress.md). [Ingress-контроллер](../application-load-balancer/tools/k8s-ingress-controller/index.md) {{ alb-name }} отслеживает изменения объектов Ingress и выполняет соответствующие модификации настроек балансировщика, в том числе его создание и удаление. Ingress входит в [Helm-чарт](https://helm.sh/docs/topics/charts/) установки приложения.
+
+{% include [note-alb](../_includes/managed-kubernetes/note-alb.md) %}
 
 {{ alb-name }} интегрирован с сервисом [{{ certificate-manager-full-name }}](../certificate-manager/index.yaml), который выполняет автоматическое получение сертификатов [Let's Encrypt](https://letsencrypt.org).
 

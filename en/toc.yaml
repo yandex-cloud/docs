@@ -56,8 +56,6 @@ items:
     href: getting-started/free-trial/concepts/quickstart.md
   - name: Cloud Functions
     href: functions/index.yaml
-  - name: '{{ foundation-models-name }}'
-    href: ai-studio/index.yaml
   - name: Identity and Access Management
     href: iam/index.yaml
   - name: IoT Core
@@ -119,8 +117,6 @@ items:
     href: resource-manager/index.yaml
   - name: '{{ yandex-cloud }} tutorials'
     href: tutorials/index.yaml
-  - name: '{{ search-api-name }}'
-    href: search-api/index.yaml
   - name: Security in {{ yandex-cloud }}
     href: security/index.yaml
   - name: Security Deck
@@ -129,18 +125,12 @@ items:
     href: smartcaptcha/index.yaml
   - name: Smart Web Security
     href: smartwebsecurity/index.yaml
-  - name: '{{ speechkit-name }}'
-    href: speechkit/index.yaml
   - name: Object Storage
     href: storage/index.yaml
   - name: '{{ yandex-cloud }} technical support'
     href: support/index.yaml
   - name: Serverless Containers
     href: serverless-containers/index.yaml
-  - name: Translate
-    href: translate/index.yaml
-  - name: Vision
-    href: vision/index.yaml
   - name: Virtual Private Cloud
     href: vpc/index.yaml
   - name: WebSQL

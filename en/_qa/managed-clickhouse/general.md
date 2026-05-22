@@ -7,13 +7,13 @@ With {{ mch-short-name }}, you can:
 - Scale computing power and dedicated storage capacity for your databases as needed.
 - Get database logs.
 
-{{ mch-short-name }} takes over time-consuming administrative tasks in {{ CH }}:
+{{ mch-short-name }} handles the heavy lifting of {{ CH }} infrastructure management:
 - Monitors your resource consumption.
-- Automatically creates DB backups.
+- Performs automated database backups.
 - Ensures [high availability](../../managed-clickhouse/concepts/high-availability.md) through automatic failover to standby replicas.
-- Keeps your DBMS software up to date.
+- Keeps your database software up-to-date.
 
-You work with a {{ mch-short-name }} database cluster just like with your regular local database. Thus, you can manage internal database settings to meet your application requirements.
+You can work with a {{ mch-short-name }} database cluster the same way as with your regular local database. Thus, you can manage internal database settings to meet your application requirements.
 
 #### What is {{ CH }} used for? Which DBMS should I select? {#why-ch}
 
@@ -29,7 +29,7 @@ Furthermore, {{ mch-short-name }} ensures data replication across database hosts
 
 {% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}
 
-#### Not sure whether to use {{ mch-short-name }} or VMs with databases? {#mdb-advantage}
+#### When to use {{ mch-short-name }} and when database VMs? {#mdb-advantage}
 
 {{ yandex-cloud }} offers two ways to work with databases:
 
@@ -55,7 +55,7 @@ Before creating a database cluster in {{ mch-short-name }}, you need to decide o
 
 For more information, see [Getting started](../../managed-clickhouse/quickstart.md).
 
-#### How many database hosts can there be in a cluster? {#how-many-hosts}
+#### How many database hosts can a cluster contain? {#how-many-hosts}
 
 
 The minimum number of hosts in a cluster depends on the following:
@@ -89,13 +89,13 @@ Learn more about connecting to clusters in [this guide](../../managed-clickhouse
 
 #### How many clusters can I create within a single cloud? {#db-limit}
 
-To learn more about MDB technical and organizational limitations, see [Quotas and limits](../../managed-clickhouse/concepts/limits.md).
+To learn more about technical and organizational limitations of MDB, see [Quotas and limits](../../managed-clickhouse/concepts/limits.md).
 
 #### How are database clusters maintained? {#service-window}
 
 Maintenance in {{ mch-short-name }} includes:
 
-- Automatic installation of DBMS updates and patches for database hosts (including for stopped clusters).
+- Automatic installation of DBMS updates and patches for all hosts, even disabled ones.
 - Changes in the host class and storage size.
 - Other {{ mch-short-name }} maintenance activities.
 
@@ -123,7 +123,7 @@ We recommend the latest available LTS version of {{ CH }}. For more information,
 
 When new minor versions are released, the cluster software is automatically updated after a short testing period. 
 
-Owners of affected database clusters get advance notice of upcoming maintenance and database availability. 
+Owners of affected database clusters get advance notice of the upcoming maintenance schedule and database availability. 
 
 #### What happens when a DBMS version becomes deprecated? {#dbms-deprecated}
 
@@ -131,7 +131,7 @@ When a DBMS version becomes deprecated, {{ mch-short-name }} automatically sends
 
 For clusters with a deprecated DBMS version, there is no option to create new hosts or restore from backups. Clusters running a deprecated {{ CH }} version are updated according to the [versioning policy](../../managed-clickhouse/concepts/update-policy.md).
 
-Owners of affected database clusters get advance notice of upcoming maintenance and database availability.
+Owners of affected database clusters get advance notice of the upcoming maintenance schedule and database availability.
 
 #### How do you calculate usage cost for a database host? {#db-cost}
 
@@ -139,7 +139,7 @@ In {{ mch-short-name }}, the usage cost is calculated based on the following:
 
 - Selected host class.
 - Reserved storage capacity for the database host.
-- Size of database cluster backups. You are not charged for storing backups up to your storage size. Additional backup storage is charged according to our [pricing policy](../../managed-clickhouse/pricing.md).
+- Size of database cluster backups. You are not charged for storing backups up to your storage size. Backup storage exceeding this limit is charged according to our [pricing policy](../../managed-clickhouse/pricing.md).
 - Database host uptime in hours. Partial hours are rounded to the nearest whole hour. For the cost per hour of operation for each host class, see our [pricing policy](../../managed-clickhouse/pricing.md).
 
 #### How much does it cost to use my cluster? {#cluster-cost}
@@ -150,11 +150,15 @@ In the [management console]({{ link-console-main }}), navigate to the folder das
 
 You can scale your computing resources and storage size directly in the management console by selecting a different host class for your cluster.
 
-The cluster settings will update within 30 minutes. This window may also be used for other maintenance activities, such as installing updates.
+The cluster settings will update within 30 minutes. This window may also be used for other maintenance activities, such as installing updates.
 
 #### How can I fix the no permission error when attaching a service account to a cluster? {#attach-service-account}
 
 {% include notitle [attach-sa](../../_qa/attach-sa.md) %}
+
+#### What block size is used on the cluster disks? {#block-size}
+
+{% include [disk-block-size](../../_includes/mdb/disk-block-size.md) %}
 
 {% include [fz-152.md](../../_qa/fz-152.md) %}
 

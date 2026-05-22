@@ -96,6 +96,10 @@ resource "yandex_vpc_network" "lab-net" {
 - `to_port` (Number). Maximum port number. Applicable for TCP and UDP protocols.
 - `v4_cidr_blocks` (List Of String). The list of IPv4 CIDR prefixes for this Security group rule.
 - `v6_cidr_blocks` (List Of String). The list of IPv6 CIDR prefixes for this Security group rule. Not supported yet.
+- `timeouts` [Block]. 
+  - `create` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+  - `delete` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+  - `update` (String). A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 
 ## Import
 

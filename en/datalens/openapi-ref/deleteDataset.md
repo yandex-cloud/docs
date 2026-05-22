@@ -6,10 +6,8 @@ editable: false
 
 ## HTTP request
 
-Deletes the specified dataset.
-
 ```
-POST https://api.datalens.yandex.net/rpc/deleteDataset
+POST https://api.datalens.tech/rpc/deleteDataset
 ```
 
 ## Body parameters
@@ -26,12 +24,14 @@ POST https://api.datalens.yandex.net/rpc/deleteDataset
 ||Field | Description ||
 || datasetId | **string**
 
-Required field. ID of the dataset to delete. ||
+Required field.  ||
 |#
 
 ## Response {#200}
 
 **HTTP Code: 200**
+
+Response
 
 **Response schema: application/json**
 

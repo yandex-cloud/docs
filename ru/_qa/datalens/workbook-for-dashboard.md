@@ -1,6 +1,6 @@
 ### На одном подключении было построено несколько дашбордов, {{ datalens-short-name }} предлагает сложить все в один воркбук. Как мне получить по воркбуку на каждый дашборд? {#workbook-for-dashboard}
 
-Разносить объекты по разным [воркбукам](../../datalens/workbooks-collections/index.md) целесообразно в том случае, когда к ним различаются [права доступа](../../datalens/workbooks-collections/security.md).
+Разносить объекты по разным [воркбукам](../../datalens/workbooks-collections/index.md) целесообразно в том случае, когда к ним различаются [права доступа](../../datalens/workbooks-collections/workbooks-operations.md#security).
 
 Чтобы получить по воркбуку на каждый дашборд, воспользуйтесь одним из способов:
 

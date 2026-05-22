@@ -24,16 +24,7 @@ An ARL rule has these settings available:
 
 ## Traffic conditions {#traffic-conditions}
 
-An ARL rule may impose a limit on incoming HTTP requests for all traffic or traffic satisfying certain conditions.
-
-[Conditions](conditions.md) are defined by the following parameters:
-
-* `IP`: IP address, address range, or address region of clients, list of addresses, or [ASNs](https://en.wikipedia.org/wiki/Autonomous_system_(Internet)) subject to the rule.
-* `Request path`: Path or part of the path the request was sent to.
-* `Host`: Domain name the request was sent to.
-* `HTTP method`: Method or set of methods the request belongs to.
-* `HTTP header`: Request header parameters.
-* `Cookie`: String in cookie files.
+An ARL rule can set a limit on incoming HTTP requests for all traffic and traffic satisfying certain [conditions](conditions.md).
 
 ## Request counting {#requests-counting}
 
@@ -69,6 +60,8 @@ You can opt for the following actions:
 * Send over-limit requests for CAPTCHA verification: Requests that exceed the limit will be sent to [{{ captcha-name }}](../../smartcaptcha/). You can configure CAPTCHA through the security profile associated with the ARL profile. This action helps differentiate legitimate users from bots, ensuring requests are not fully blocked and that the application remains available.
 
    Use this action as a softer restriction on pages with registration, login, feedback, search, or similar forms.
+
+To standardize client response pages whenever an individual rule or any rule in the profile triggers, you can create custom [response templates](response-templates.md).
 
 ## See also {#see-also}
 

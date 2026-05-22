@@ -30,10 +30,14 @@ Updates the specified hosts.
 || cluster_id | **string**
 
 Required field. ID of the SPQR cluster to update hosts in.
-To get the SPQR cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/grpc/Cluster/list#List) request. ||
+To get the SPQR cluster ID, use a [ClusterService.List](/docs/managed-spqr/api-ref/grpc/Cluster/list#List) request.
+
+The maximum string length in characters is 50. ||
 || update_host_specs[] | **[UpdateHostSpec](#yandex.cloud.mdb.spqr.v1.UpdateHostSpec)**
 
-New configurations to apply to hosts. ||
+New configurations to apply to hosts.
+
+Must contain exactly 1 element. ||
 |#
 
 ## UpdateHostSpec {#yandex.cloud.mdb.spqr.v1.UpdateHostSpec}

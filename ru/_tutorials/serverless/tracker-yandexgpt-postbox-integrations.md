@@ -1,9 +1,9 @@
-# Настройка рабочего процесса {{ sw-name }} с интеграцией с {{ tracker-full-name }}, {{ foundation-models-full-name }} и {{ postbox-full-name }}
+# Настройка рабочего процесса {{ sw-name }} с интеграцией с {{ tracker-full-name }}, {{ ai-studio-full-name }} и {{ postbox-full-name }}
 
 
 {% include [workflows-preview-note](../../_includes/serverless-integrations/workflows-preview-note.md) %}
 
-В данном руководстве вы создадите [рабочие процессы](../../serverless-integrations/concepts/workflows/workflow.md) {{ sw-full-name }} и настроите их интеграцию с [{{ tracker-full-name }}]({{ link-tracker-cloudless }}), [{{ foundation-models-full-name }}](../../ai-studio/concepts/generation/index.md) и [{{ postbox-full-name }}](../../postbox/index.yaml).
+В данном руководстве вы создадите [рабочие процессы](../../serverless-integrations/concepts/workflows/workflow.md) {{ sw-full-name }} и настроите их интеграцию с [{{ tracker-full-name }}]({{ link-tracker-cloudless }}), [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/generation/index) и [{{ postbox-full-name }}](../../postbox/index.yaml).
 
 Созданные рабочие процессы будут получать информацию о задачах в указанной [очереди]({{ link-tracker-cloudless }}about-tracker#ochered) {{ tracker-name }}, с помощью модели {{ gpt-pro }} анализировать проделанную в этих задачах работу, статусы задач и выставленные оценки. Результаты анализа и краткий отчет о проделанной работе будут сохраняться в комментарии к одной из задач в {{ tracker-name }}, а также дублироваться письмом на заданный адрес электронной почты с помощью сервиса {{ postbox-name }}.
 
@@ -36,7 +36,7 @@
 В стоимость поддержки создаваемой инфраструктуры входят:
 
 * плата за хранение [секрета](../../lockbox/concepts/secret.md) и запросы к нему (см. [тарифы {{ lockbox-name }}](../../lockbox/pricing.md));
-* плата за использование {{ foundation-models-full-name }} (см. [тарифы {{ foundation-models-full-name }}](../../ai-studio/pricing.md));
+* плата за использование {{ ai-studio-full-name }} (см. [тарифы {{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/pricing));
 * плата за использование {{ tracker-full-name }} (см. [тарифы {{ tracker-name }}]({{ link-tracker-cloudless }}pricing));
 * плата за использование {{ postbox-full-name }} (см. [тарифы {{ postbox-name }}](../../postbox/pricing.md)).
 
@@ -47,11 +47,11 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы будете создавать рабочие процессы.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}** и в открывшемся окне:
       1. Введите имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md): `workflow-sa`.
       1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** и выберите [роль](../../iam/concepts/access-control/roles.md) `serverless.workflows.executor`.
-      1. Повторите предыдущее действие, чтобы добавить роли [`postbox.sender`](../../postbox/security/index.md#postbox-sender) и [`ai.languageModels.user`](../../ai-studio/security/index.md#languageModels-user).
+      1. Повторите предыдущее действие, чтобы добавить роли [`postbox.sender`](../../postbox/security/index.md#postbox-sender) и [`ai.languageModels.user`]({{ link-docs-ai }}ai-studio/security/index#languageModels-user).
       1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
 {% endlist %}
@@ -140,7 +140,7 @@
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором ранее создали сервисный аккаунт.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.button_create-secret }}** и в открывшемся окне:
 
       1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета: `tracker-oauth-token`.
@@ -152,7 +152,7 @@
   1. Нажмите на строку с созданным секретом `tracker-oauth-token` и в открывшемся окне:
 
       1. Скопируйте и сохраните значение поля **{{ ui-key.yacloud.lockbox.label_secret-id }}**. Оно понадобится позднее при создании спецификации рабочего процесса.
-      1. Перейдите на вкладку ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+      1. Перейдите на вкладку ![persons](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** и нажмите кнопку **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
       1. В поисковой строке введите имя созданного ранее сервисного аккаунта `workflow-sa` и выберите найденный сервисный аккаунт.
       1. Нажмите кнопку ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** и выберите [роль](../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer`.
       1. Нажмите **{{ ui-key.yacloud.common.save }}**.
@@ -180,7 +180,7 @@
     - Консоль управления {#console}
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы ранее создали сервисный аккаунт и секрет.
-        1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
         1. Нажмите кнопку **{{ ui-key.yacloud.postbox.button_create-identity }}**.
         1. В поле **{{ ui-key.yacloud.postbox.label_address }}** укажите домен, с которого будете отправлять письма. Например: `example.com`.
 
@@ -222,7 +222,7 @@
     - Консоль управления {#console}
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится созданный адрес.
-        1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}** и выберите нужный адрес.
+        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}** и выберите нужный адрес.
         1. Нажмите кнопку **{{ ui-key.yacloud.postbox.button_run-verification }}**. Если TXT-запись создана корректно, статус проверки на странице адреса изменится на `Success`.
 
             Ответы DNS-сервера кешируются, поэтому возможны задержки при обновлении ресурсной записи.
@@ -231,7 +231,7 @@
 
 ## Создайте рабочий процесс {{ sw-name }} {#setup-workflow}
 
-1. Выберите спецификацию, которую вы будете использовать для создания рабочего процесса. Обе приведенные спецификации используют интеграции с {{ tracker-full-name }}, {{ foundation-models-full-name }} и {{ postbox-full-name }}, но по-разному анализируют исходные данные.
+1. Выберите спецификацию, которую вы будете использовать для создания рабочего процесса. Обе приведенные спецификации используют интеграции с {{ tracker-full-name }}, {{ ai-studio-full-name }} и {{ postbox-full-name }}, но по-разному анализируют исходные данные.
 
     {% list tabs %}
 
@@ -517,7 +517,7 @@
     - Консоль управления {#console}
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находятся созданные ранее ресурсы — сервисный аккаунт, секрет и адрес {{ postbox-name }}.
-        1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
         1. На панели слева выберите ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
         1. В правом верхнем углу нажмите кнопку **{{ ui-key.yacloud.serverless-workflows.button_create-workflow }}** и в открывшемся окне:
 
@@ -538,7 +538,7 @@
 - Консоль управления {#console}
 
     1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится созданный рабочий процесс {{ sw-name }}.
-    1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+    1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
     1. На панели слева выберите ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
     1. В строке с рабочим процессом `my-tracker-workflow` нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![TriangleRight](../../_assets/console-icons/triangle-right.svg) **{{ ui-key.yacloud.serverless-workflows.label_run-workflow }}**.
     1. В открывшемся окне нажмите **{{ ui-key.yacloud.common.start }}**. Будет запущен созданный ранее рабочий процесс, его выполнение может занять несколько минут.
@@ -562,7 +562,7 @@
     - Консоль управления {#console}
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находятся созданные ресурсы.
-        1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
         1. На панели слева выберите ![GraphNode](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
         1. В строке с рабочим процессом `my-tracker-workflow` нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![TrashBin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
         1. Подтвердите удаление.
@@ -577,7 +577,7 @@
     - Консоль управления {#console}
 
         1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором находится созданный адрес {{ postbox-name }}.
-        1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
+        1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_postbox }}**.
         1. В строке с нужным адресом {{ postbox-name }} нажмите ![ellipsis](../../_assets/console-icons/ellipsis.svg) и выберите ![TrashBin](../../_assets/console-icons/trash-bin.svg) **{{ ui-key.yacloud.common.delete }}**.
         1. Подтвердите удаление.
 

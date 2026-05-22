@@ -1,6 +1,6 @@
 ---
 title: How to update {{ KF }} cluster settings in {{ mkf-full-name }}
-description: Follow this guide to update {{ KF }} cluster settings.
+description: In this tutorial, you will learn how to update {{ KF }} cluster settings.
 ---
 
 # Updating {{ KF }} cluster settings
@@ -31,7 +31,7 @@ Learn more about other cluster updates:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
     1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, enter a new name and description for the cluster.
     1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -44,7 +44,7 @@ Learn more about other cluster updates:
 
     To change the cluster name and description:
 
-    1. See the description of the CLI command for updating a cluster:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-kf }} cluster update --help
@@ -72,9 +72,9 @@ Learn more about other cluster updates:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        Learn how to create this file in [Creating a cluster](./cluster-create.md).
+        For information about creating this file, see [{#T}](./cluster-create.md).
 
-    1. Edit the `description` parameter in the {{ mkf-name }} cluster description:
+    1. Update the `description` value in the {{ mkf-name }} cluster description:
 
         ```hcl
         resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
@@ -84,11 +84,11 @@ Learn more about other cluster updates:
         }
         ```
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -131,7 +131,7 @@ Learn more about other cluster updates:
 
         You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-    1. Check the [server response](../api-ref/Cluster/update.md#responses) to make sure your request was successful.
+    1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -177,7 +177,7 @@ Learn more about other cluster updates:
         * `name`: New cluster name.
         * `description`: New cluster description.
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -188,7 +188,7 @@ Learn more about other cluster updates:
 You can increase the number of [broker hosts](../concepts/brokers.md) if the following conditions are met:
 
 * The cluster uses {{ KF }} with {{ ZK }}. You cannot change the number of broker hosts in {{ KF }} clusters that use the [{{ kraft-short-name }} protocol](../concepts/kraft.md).
-* The cluster includes at least two broker hosts in different availability zones.
+* The cluster contains at least two broker hosts in different availability zones.
 
 You cannot reduce the number of broker hosts. To comply with cluster [high availability conditions](../concepts/ha-cluster.md), at least three broker hosts are required.
 
@@ -206,7 +206,7 @@ We recommend changing broker host class only when your cluster has no active wor
   To change the class and number of hosts:
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Change the relevant settings:
      * To update the broker host class, select a new [**{{ ui-key.yacloud.mdb.forms.section_resource }}**](../concepts/instance-types.md).
@@ -229,7 +229,7 @@ We recommend changing broker host class only when your cluster has no active wor
      {{ yc-mdb-kf }} cluster get <cluster_name_or_ID>
      ```
 
-  1. See the description of the CLI command for updating a cluster:
+  1. View the description of the CLI command for updating a cluster:
 
      ```bash
      {{ yc-mdb-kf }} cluster update --help
@@ -253,7 +253,7 @@ We recommend changing broker host class only when your cluster has no active wor
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        Learn how to create this file in [Creating a cluster](cluster-create.md).
+        For information about creating this file, see [{#T}](cluster-create.md).
 
     1. In the {{ mkf-name }} cluster description, edit the `brokers_count` parameter value to increase the number of broker hosts:
 
@@ -281,11 +281,11 @@ We recommend changing broker host class only when your cluster has no active wor
         }
         ```
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -345,7 +345,7 @@ We recommend changing broker host class only when your cluster has no active wor
                 * `configSpec.kafka.resources.resourcePresetId`: To change the broker host class.
                 * `configSpec.brokersCount`: To change the number of broker hosts.
 
-            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
+            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
 
         1. Check the [server response](../api-ref/Cluster/update.md#responses) to make sure your request was successful.
 
@@ -418,11 +418,12 @@ We recommend changing broker host class only when your cluster has no active wor
                 * `config_spec.kafka.resources.resource_preset_id`: To change the broker host class.
                 * `config_spec.brokers_count`: To change the number of broker hosts.
 
-            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
+            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
 
         1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
+
 
 ## Changing a {{ ZK }} host class {#change-zookeeper}
 
@@ -431,7 +432,7 @@ We recommend changing broker host class only when your cluster has no active wor
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Select a new [**{{ ui-key.yacloud.kafka.section_zookeeper-resources }}**](../concepts/instance-types.md).
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -451,7 +452,7 @@ We recommend changing broker host class only when your cluster has no active wor
      {{ yc-mdb-kf }} cluster get <cluster_name_or_ID>
      ```
 
-  1. See the description of the CLI command for updating a cluster:
+  1. View the description of the CLI command for updating a cluster:
 
      ```bash
      {{ yc-mdb-kf }} cluster update --help
@@ -470,7 +471,7 @@ We recommend changing broker host class only when your cluster has no active wor
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        Learn how to create this file in [Creating a cluster](cluster-create.md).
+        For information about creating this file, see [{#T}](cluster-create.md).
 
     1. In the {{ mkf-name }} cluster description, edit the `resource_preset_id` parameter value in the `zookeeper.resources` section to specify a new {{ ZK }} [host class](../concepts/instance-types.md):
 
@@ -486,11 +487,11 @@ We recommend changing broker host class only when your cluster has no active wor
          }
         ```
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -548,7 +549,7 @@ We recommend changing broker host class only when your cluster has no active wor
                 Specify the relevant parameters:
                 * `configSpec.zookeeper.resources.resourcePresetId`: To change the {{ ZK }} host class.
 
-            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
+            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
 
         1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -616,11 +617,13 @@ We recommend changing broker host class only when your cluster has no active wor
                 Specify the relevant parameters:
                 * `config_spec.zookeeper.resources.resource_preset_id`: To change the {{ ZK }} host class.
 
-            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
+            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
 
         1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
+
+
 
 ## Changing a {{ kraft-short-name }} host class {#change-kraft}
 
@@ -635,7 +638,7 @@ The {{ kraft-short-name }} host class is only used in clusters with {{ KF }} 3.6
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Select a new [**{{ ui-key.yacloud.kafka.section_kraft-resources }}**](../concepts/instance-types.md).
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -655,7 +658,7 @@ The {{ kraft-short-name }} host class is only used in clusters with {{ KF }} 3.6
      {{ yc-mdb-kf }} cluster get <cluster_name_or_ID>
      ```
 
-  1. See the description of the CLI command for updating a cluster:
+  1. View the description of the CLI command for updating a cluster:
 
      ```bash
      {{ yc-mdb-kf }} cluster update --help
@@ -674,7 +677,7 @@ The {{ kraft-short-name }} host class is only used in clusters with {{ KF }} 3.6
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        Learn how to create this file in [Creating a cluster](cluster-create.md).
+        For information about creating this file, see [{#T}](cluster-create.md).
 
     1. In the {{ mkf-name }} cluster description, edit the `resource_preset_id` parameter value in the `kraft.resources` section to specify a new {{ kraft-short-name }} [host class](../concepts/instance-types.md):
 
@@ -690,11 +693,11 @@ The {{ kraft-short-name }} host class is only used in clusters with {{ KF }} 3.6
          }
         ```
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -752,7 +755,7 @@ The {{ kraft-short-name }} host class is only used in clusters with {{ KF }} 3.6
                 Specify the relevant parameters:
                 * `configSpec.kraft.resources.resourcePresetId`: To change the {{ kraft-short-name }} host class.
 
-            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
+            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
 
         1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -820,11 +823,12 @@ The {{ kraft-short-name }} host class is only used in clusters with {{ KF }} 3.6
                 Specify the relevant parameters:
                 * `config_spec.kraft.resources.resource_preset_id`: To change the {{ kraft-short-name }} host class.
 
-            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
+            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). Earlier, you already obtained the list of available host classes with their IDs.
 
         1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
+
 
 
 ## Changing security group and public access settings {#change-sg-set}
@@ -834,7 +838,7 @@ The {{ kraft-short-name }} host class is only used in clusters with {{ KF }} 3.6
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select the security groups for cluster network traffic.
   1. Enable or disable **Public access** to your cluster.
@@ -846,9 +850,9 @@ The {{ kraft-short-name }} host class is only used in clusters with {{ KF }} 3.6
 
   {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-  To edit the list of [security groups](../concepts/network.md#security-groups) for your cluster:
+  To change the list of [security groups](../concepts/network.md#security-groups) for your cluster:
 
-  1. See the description of the CLI command for updating a cluster:
+  1. View the description of the CLI command for updating a cluster:
 
       ```bash
       {{ yc-mdb-kf }} cluster update --help
@@ -873,7 +877,7 @@ The {{ kraft-short-name }} host class is only used in clusters with {{ KF }} 3.6
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        Learn how to create this file in [Creating a cluster](cluster-create.md).
+        For information about creating this file, see [{#T}](cluster-create.md).
 
     1. Change the values of the `security_group_ids` and `assign_public_ip` parameters in the cluster description:
 
@@ -893,11 +897,11 @@ The {{ kraft-short-name }} host class is only used in clusters with {{ KF }} 3.6
         * `security_group_ids`: List of cluster security group IDs.
         * `assign_public_ip`: Public access to the cluster, `true` or `false`.
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -951,9 +955,9 @@ The {{ kraft-short-name }} host class is only used in clusters with {{ KF }} 3.6
 
         * `assignPublicIp`: Access to broker hosts from the internet, `true` or `false`.
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -1012,7 +1016,7 @@ The {{ kraft-short-name }} host class is only used in clusters with {{ KF }} 3.6
 
         * `assign_public_ip`: Access to broker hosts from the internet, `true` or `false`.
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1030,7 +1034,7 @@ You may need to additionally [configure security groups](connect/index.md#config
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Change additional cluster settings:
 
@@ -1044,15 +1048,15 @@ You may need to additionally [configure security groups](connect/index.md#config
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To change additional cluster settings:
+    To change advanced cluster settings:
 
-    1. See the description of the CLI command for updating a cluster:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-kf }} cluster update --help
         ```
 
-    1. Run the following command with the list of settings to update:
+    1. Run the following command with the list of settings you want to update:
 
         
         ```bash
@@ -1087,16 +1091,16 @@ You may need to additionally [configure security groups](connect/index.md#config
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        Learn how to create this file in [Creating a cluster](cluster-create.md).
+        For information about creating this file, see [{#T}](cluster-create.md).
 
     1. {% include [Maintenance window](../../_includes/mdb/mkf/terraform/maintenance-window.md) %}
 
-    1. To enable cluster protection from accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to your cluster description:
+    1. To activate cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to the cluster description:
 
         ```hcl
         resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
           ...
-          deletion_protection = <protect_cluster_against_deletion>
+          deletion_protection = <protect_cluster_from_deletion>
         }
         ```
 
@@ -1116,11 +1120,11 @@ You may need to additionally [configure security groups](connect/index.md#config
 
         {% include [mkf-schema-registry-alert](../../_includes/mdb/mkf/schema-registry-alert.md) %}
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1160,7 +1164,7 @@ You may need to additionally [configure security groups](connect/index.md#config
                           "hour": "<hour_UTC>"
                         }
                       },
-                      "deletionProtection": <protect_cluster_against_deletion>
+                      "deletionProtection": <protect_cluster_from_deletion>
                     }'
         ```
 
@@ -1183,20 +1187,20 @@ You may need to additionally [configure security groups](connect/index.md#config
         * `configSpec.restApiConfig.enabled`: Set to `true` to enable sending {{ KF }} REST API requests. You will not be able to edit this setting once it is enabled.
 
 
-        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, including those for stopped clusters. Select one of these options:
+        * `maintenanceWindow`: [Maintenance window](../concepts/maintenance.md) settings, applying to both running and stopped clusters. Select one of these options:
 
             * `anytime`: At any time (default).
             * `weeklyMaintenanceWindow`: On schedule:
-                * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                 * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
 
         * `deletionProtection`: To enable (`true`) or disable (`false`) cluster protection from accidental deletion.
 
             Even with cluster deletion protection enabled, one can still delete a user or topic or connect manually and delete the data.
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -1241,7 +1245,7 @@ You may need to additionally [configure security groups](connect/index.md#config
                       "hour": "<hour_UTC>"
                     }
                   },
-                  "deletion_protection": <protect_cluster_against_deletion>
+                  "deletion_protection": <protect_cluster_from_deletion>
                 }' \
             {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.kafka.v1.ClusterService.Update
@@ -1267,14 +1271,14 @@ You may need to additionally [configure security groups](connect/index.md#config
 
             * `anytime`: Any time.
             * `weekly_maintenance_window`: On schedule:
-                * `day`: Day of week in `DDD` format: `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
+                * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                 * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
 
         * `deletion_protection`: To enable (`true`) or disable (`false`) cluster protection from accidental deletion.
 
             Even with cluster deletion protection enabled, one can still delete a user or topic or connect manually and delete the data.
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1287,11 +1291,11 @@ You may need to additionally [configure security groups](connect/index.md#config
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to the relevant folder.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kafka }}**.
   1. In the cluster row, click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings-kafka }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
 
-     For more information, see [{{ KF }} settings](../concepts/settings-list.md).
+     For more information, see [{#T}](../concepts/settings-list.md).
 
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -1329,7 +1333,7 @@ You may need to additionally [configure security groups](connect/index.md#config
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        Learn how to create this file in [Creating a cluster](cluster-create.md).
+        For information about creating this file, see [{#T}](cluster-create.md).
 
     1. In the {{ mkf-name }} cluster description, edit the values of the parameters in the `kafka.kafka_config` section (the example below does not list all possible [settings](../concepts/settings-list.md#cluster-settings)):
 
@@ -1349,11 +1353,11 @@ You may need to additionally [configure security groups](connect/index.md#config
         }
         ```
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1408,9 +1412,9 @@ You may need to additionally [configure security groups](connect/index.md#config
         * `configSpec.kafka.kafkaConfig_2_8.<setting_for_{{ KF }}_2.8_configuration`: Specify a new value for the setting if using {{ KF }} `2.8`.
         * `configSpec.kafka.kafkaConfig_3.<setting_for_{{ KF }}_3.x_configuration`: Specify a new value for the setting if using {{ KF }} `3.x`.
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -1474,7 +1478,7 @@ You may need to additionally [configure security groups](connect/index.md#config
         * `config_spec.kafka.kafka_config_2_8.<setting_for_{{ KF }}_2.8_configuration`: Specify a new value for the setting if using {{ KF }} `2.8`.
         * `config_spec.kafka.kafka_config_3.<setting_for_{{ KF }}_3.x_configuration`: Specify a new value for the setting if using {{ KF }} `3.x`.
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1493,13 +1497,13 @@ You may need to additionally [configure security groups](connect/index.md#config
 
     To move a cluster:
 
-    1. See the description of the CLI command for moving a cluster:
+    1. View the description of the CLI command for moving a cluster:
 
         ```bash
         {{ yc-mdb-kf }} cluster move --help
         ```
 
-    1. Run this command, providing the destination folder:
+    1. Specify the destination folder in the cluster move command:
 
         ```bash
         {{ yc-mdb-kf }} cluster move <cluster_name_or_ID> \
@@ -1512,9 +1516,9 @@ You may need to additionally [configure security groups](connect/index.md#config
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        Learn how to create this file in [Creating a cluster](./cluster-create.md).
+        For information about creating this file, see [{#T}](./cluster-create.md).
 
-    1. In the {{ mkf-name }} cluster description, edit the `folder_id` value. If the argument does not exist, add it:
+    1. In the {{ mkf-name }} cluster description, add or update the `folder_id` argument:
 
         ```hcl
         resource "yandex_mdb_kafka_cluster" "<cluster_name>" {
@@ -1523,11 +1527,11 @@ You may need to additionally [configure security groups](connect/index.md#config
         }
         ```
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1554,9 +1558,9 @@ You may need to additionally [configure security groups](connect/index.md#config
                     }'
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -1583,7 +1587,7 @@ You may need to additionally [configure security groups](connect/index.md#config
             yandex.cloud.mdb.kafka.v1.ClusterService.Move
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 

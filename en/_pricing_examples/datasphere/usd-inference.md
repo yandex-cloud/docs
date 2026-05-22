@@ -1,10 +1,10 @@
 > 72 × 185,760 × 2 = 26,749,440 units for the node
-> 26,749,440 × $0.0000108 = $288.893952
+> 26,749,440 × {{ sku|USD|ai.datasphere.computing.v1|string }} = {% calc [currency=USD] 26 749 440 × {{ sku|USD|ai.datasphere.computing.v1|number }} %}
 >
-> Total: $288.893952, cost of using {{ ml-platform-name }}.
+> Total: {% calc [currency=USD] 26 749 440 × {{ sku|USD|ai.datasphere.computing.v1|number }} %}, cost of using {{ ml-platform-name }}.
 
 Where:
 * 72: Number of units per g1.1 configuration.
 * 185,760 : Node runtime in seconds.
 * 2: Number of instances per node.
-* $0.0000108: Cost per unit.
+* {{ sku|USD|ai.datasphere.computing.v1|string }}: Cost per unit.

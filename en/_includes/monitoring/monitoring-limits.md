@@ -3,7 +3,7 @@
 #|
 || Type of limit | Value ||
 || Number of alerts per cloud
-`monitoring.alerts.count` | 1,000 ||
+`monitoring.alerts.count` | 30,000 ||
 || Number of metrics per service in the folder | 1,000,000 ||
 |#
 

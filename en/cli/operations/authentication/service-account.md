@@ -11,17 +11,23 @@ When performing actions on behalf of a service account, ensure that it has the r
 
 {% endnote %}
 
+{% note warning %}
+
+Creating service accounts and their [keys](../../../iam/concepts/users/service-accounts.md#sa-key) may be prohibited by [access policies](../../../iam/concepts/access-control/access-policies.md) at the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder), [cloud](../../../resource-manager/concepts/resources-hierarchy.md#cloud), or [organization](../../../organization/concepts/organization.md) level.
+
+{% endnote %}
+
 Learn how to get authenticated in the {{ yandex-cloud }} CLI:
 
 * [On behalf of a service account using impersonation](#use-impersonation). Using [impersonation](../../../iam/concepts/access-control/impersonation.md) is the recommended and most secure way to get authenticated in the {{ yandex-cloud }} CLI.
 * [On behalf of a service account using an authorized key](#auth-as-sa). Using an [authorized key](../../../iam/concepts/authorization/key.md) allows you to continually get authenticated in the {{ yandex-cloud }} CLI with the same authorized key you generated. Using a long-lived key is less secure than using impersonation.
 * [As a service account from inside a VM](#vm-auth-as-sa). Using a [service account](../../../iam/concepts/users/service-accounts.md) attached to the {{ compute-full-name }} [VM](../../../compute/concepts/vm.md) is the recommended method of authentication in the {{ yandex-cloud }} CLI when using a VM.
 
-[Service accounts](../../../iam/concepts/users/service-accounts.md) are different from [user accounts](../../../iam/concepts/users/accounts.md#passport) or [federated user accounts](../../../iam/concepts/federations.md). You cannot use service accounts to log in to the [management console]({{ link-console-main }}), but you can use them to manage resources in {{ yandex-cloud }}.
+[Service accounts](../../../iam/concepts/users/service-accounts.md) are different from [Yandex user accounts](../../../iam/concepts/users/accounts.md#passport), [federated user accounts](../../../iam/concepts/federations.md), or [local user accounts](../../../iam/concepts/users/accounts.md#local). You cannot use service accounts to log in to the [management console]({{ link-console-main }}), but you can use them to manage resources in {{ yandex-cloud }}.
 
 ## Getting started {#before-begin}
 
-1. Authenticate in the CLI as a [user](user.md) or a [federated user](federated-user.md).
+1. Authenticate in the CLI as a [Yandex user](user.md), a [federated user](federated-user.md), or a [local user](local-user.md).
 1. If you do not have a service account yet, [create one](../../../iam/operations/sa/create.md) and [configure access permissions for it](../../../iam/operations/sa/assign-role-for-sa.md).
 
 ## Perform actions on behalf of a service account using impersonation {#use-impersonation}

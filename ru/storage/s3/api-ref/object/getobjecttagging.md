@@ -1,4 +1,4 @@
-# Метод getObjectTagging
+# Object Storage API, REST совместимый с Amazon S3: GetObjectTagging
 
 Возвращает [метки](../../../concepts/tags.md) объекта в бакете.
 
@@ -67,5 +67,11 @@ GET /{bucket}/{key}?tagging&versionId={versionId} HTTP/2
 `Tag` | Контейнер для метки.
 `Key` | Ключ метки.<br>Тип: string.
 `Value` | Значение метки.<br>Тип: string.
+
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/object.md)
+
+* [{#T}](../../../operations/objects/tagging.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

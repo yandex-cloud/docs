@@ -31,7 +31,9 @@ Update ip permissions for the specified registry.
 ||Field | Description ||
 || registry_id | **string**
 
-Required field. ID of the registry for which ip permissions are being updated. ||
+Required field. ID of the registry for which ip permissions are being updated.
+
+The maximum string length in characters is 50. ||
 || ip_permission_deltas[] | **[IpPermissionDelta](#yandex.cloud.cloudregistry.v1.IpPermissionDelta)**
 
 Updates to IP permissions. ||
@@ -45,7 +47,6 @@ Updates to IP permissions. ||
 
 Required field. The action that is being performed on an ip permission.
 
-- `IP_PERMISSION_DELTA_ACTION_UNSPECIFIED`
 - `ADD`: Addition of an ip permission.
 - `REMOVE`: Removal of an ip permission. ||
 || ip_permission | **[IpPermission](#yandex.cloud.cloudregistry.v1.IpPermission)**
@@ -59,7 +60,6 @@ Required field. Ip permission. ||
 ||Field | Description ||
 || action | enum **Action**
 
-- `ACTION_UNSPECIFIED`
 - `PULL`
 - `PUSH` ||
 || ip | **string** ||

@@ -11,9 +11,9 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-* Кластер {{ mgp-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mgp-name }}](../../../managed-greenplum/pricing/index.md)).
-* Кластер {{ mpg-name }}: выделенные хостам вычислительные ресурсы, объем хранилища и резервных копий (см. [тарифы {{ mpg-name }}](../../../managed-postgresql/pricing.md)).
-* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-name }}](../../../vpc/pricing.md)).
+* Кластер {{ mgp-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mgp-name }}](../../../managed-greenplum/pricing/index.md)).
+* Кластер {{ mpg-name }}: использование выделенных хостам вычислительных ресурсов, объем хранилища и резервных копий (см. [тарифы {{ mpg-full-name }}](../../../managed-postgresql/pricing.md)).
+* Публичные IP-адреса, если для хостов кластеров включен публичный доступ (см. [тарифы {{ vpc-full-name }}](../../../vpc/pricing.md)).
 
 
 ## Перед началом работы {#before-you-begin}
@@ -36,7 +36,7 @@
     
     1. Если вы используете группы безопасности в кластерах, убедитесь, что они настроены правильно и допускают подключение к кластерам:
 
-        * [{{ mpg-name }}](../../../managed-postgresql/operations/connect.md#configuring-security-groups).
+        * [{{ mpg-name }}](../../../managed-postgresql/operations/connect/index.md#configuring-security-groups).
         * [{{ mgp-name }}](../../../managed-greenplum/operations/connect/index.md#configuring-security-groups).
 
 

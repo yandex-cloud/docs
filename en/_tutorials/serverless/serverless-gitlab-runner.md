@@ -55,7 +55,7 @@ Inside the container, the service starts an HTTP server and a {{ GLR }} process,
 
 The service uses the following environment variables:
 
-Variable              | By default         | Required | Description
+Variable              | Default         | Required | Description
 ----------------------- | -------------------- | ----------- | ---
 `RUNNER_TOKEN`          | —                    | Yes          | {{ GLR }} token (project/group/instance)
 `CI_SERVER_URL`         | `https://gitlab.com` | No         | {{ GL }} CI address
@@ -82,7 +82,7 @@ Variable              | By default         | Required | Description
 
 The infrastructure support cost includes:
 
-* Fee for container invocation count, computing resources allocated to run the application, and outbound traffic (see [{{ serverless-containers-name }} pricing](../../serverless-containers/pricing.md)).
+* Fee for the number of container invocations, computing resources allocated to the application, and outgoing traffic (see [{{ serverless-containers-name }} pricing](../../serverless-containers/pricing.md)).
 * Fee for storing secrets (see [{{ lockbox-name }} pricing](../../lockbox/pricing.md)).
 
 
@@ -105,7 +105,7 @@ Create a [{{ lockbox-full-name }}](../../lockbox/) secret with the runner authen
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you are going to create your infrastructure.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the [secret](../../lockbox/concepts/secret.md) name: `gitlab-runner-token`.
   1. Under **{{ ui-key.yacloud.lockbox.forms.title_secret-data-section }}**:
@@ -178,7 +178,8 @@ Create two service accounts:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Open the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for the service account: `gitlab-runner-caller`.
   1. Click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select `{{ roles-serverless-containers-invoker }}`.
@@ -186,10 +187,11 @@ Create two service accounts:
   1. Similarly, create the `gitlab-runner-lockbox-payload-viewer` service account without assigning a role to it.
   1. Assign a role for the secret to the `gitlab-runner-lockbox-payload-viewer` service account:
 
-      1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+      1. Open the [management console]({{ link-console-main }}).
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
       1. Select the `gitlab-runner-token` secret.
       1. In the left-hand panel, select ![image](../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
-      1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+      1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
       1. Find and select the `gitlab-runner-lockbox-payload-viewer` service account.
       1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** and select `{{ roles-lockbox-payloadviewer }}`.
       1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -235,7 +237,7 @@ Create two service accounts:
 
       * `--name`: Secret name.
       * `--id`: Folder ID.
-      * `--role`: Role being assigned.
+      * `--role`: Role to assign.
       * `--service-account-name`: Service account name.
 
       Result:
@@ -271,7 +273,8 @@ Create an [API key](../../iam/concepts/authorization/api-key.md) for the service
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Open the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Select the `gitlab-runner-caller` service account you created earlier.
   1. In the top panel, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
   1. In the **{{ ui-key.yacloud.iam.folder.service-account.overview.field_key-scope }}** field, select the `yc.serverless.containers.invoke` [scope](../../iam/concepts/authorization/api-key.md#scoped-api-keys).
@@ -324,11 +327,18 @@ In our example, we mount an ephemeral disk at `/mnt` to expand the available spa
 
 {% endnote %}
 
+{% note info %}
+
+Specifying a network in the container settings creates a service subnet from the `198.19.0.0/16` range in each availability zone. These subnets are not displayed in the {{ yandex-cloud }} interface. Keep this in mind when [configuring](../../managed-gitlab/operations/configure-security-group.md) security group rules. For more information, see [Networking](../../serverless-containers/concepts/networking.md).
+
+{% endnote %}
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}** from the list of services.
+  1. Open the [management console]({{ link-console-main }}).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-containers }}**.
   1. Click **{{ ui-key.yacloud.serverless-containers.button_create-container }}**.
   1. Enter a name for the container: `serverless-gitlab-runner`.
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -353,6 +363,7 @@ In our example, we mount an ephemeral disk at `/mnt` to expand the available spa
         1. Under **{{ ui-key.yacloud.serverless-containers.section_parameters }}**:
 
             1. In the **{{ ui-key.yacloud.serverless-containers.label_service-account }}** field, specify `gitlab-runner-lockbox-payload-viewer`.
+            1. Optionally, in the **{{ ui-key.yacloud.vpc.label_network }}** field, specify or [create](../../vpc/operations/network-create.md) a network to host your container.
             1. In the **{{ ui-key.yacloud.serverless-containers.label_timeout }}** field, specify the required value, e.g., `600 {{ ui-key.yacloud.common.units.label_time-sec_many }}`.
 
         1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.title_ephemeral-storage }}**:
@@ -421,7 +432,7 @@ In our example, we mount an ephemeral disk at `/mnt` to expand the available spa
 
       * `--service-account-id`: `gitlab-runner-lockbox-payload-viewer` service account ID.
       * `--execution-timeout`: Timeout, e.g., `600s`.
-      * `--mount`: Ephemeral disk mounting parameters:
+      * `--mount`: Ephemeral disk mount settings:
 
           * `type=ephemeral-disk`: Type of the file system being mounted.
           * `mount-point`: Name of the mount point. The directory the disk will be mounted to will be available at `/mnt`.
@@ -514,7 +525,7 @@ View the available options by running the `gitlab-runner run-single -h` command.
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources you created:
+To stop incurring charges for the resources you created:
 
 1. [Delete](../../serverless-containers/operations/delete.md) the container.
 1. [Delete](../../lockbox/operations/secret-delete.md) the secret.

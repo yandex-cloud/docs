@@ -6,7 +6,7 @@ description: Follow this guide to push a binary artifact to a registry in {{ clo
 # Pushing a binary artifact to a registry
 
 1. {% include [auth-env-vars](../../../_includes/cloud-registry/auth-env-vars.md) %}
-1. To push a [binary artifact](../../concepts/art-binary.md), use a POST [HTTP](https://{{ lang }}.wikipedia.org/wiki/HTTP) request:
+1. To push a [binary artifact](../../concepts/artifacts/binary.md), use a POST [HTTP](https://{{ lang }}.wikipedia.org/wiki/HTTP) request:
 
     ```bash
     curl \
@@ -29,8 +29,8 @@ description: Follow this guide to push a binary artifact to a registry in {{ clo
         openssl dgst -sha256 <file_path> | awk '{print $2}'
         ```
 
-    * `--upload-file`: Local path to the file to upload. Maximum size: 100 MB.
-    * The request URL contains the registry URL, the artifact name and version, as well as the file name in the registry. Here is an example:
+    * `--upload-file`: Local path to the file to upload.
+    * The request URL contains the registry URL, the artifact name and version, as well as the file name in the registry. For example:
 
         ```bash
         https://{{ cloud-registry }}/binaries/cn15fqbr806r********/sample-package/3.5.4/agent-installer.sh

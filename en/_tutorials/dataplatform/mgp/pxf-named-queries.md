@@ -20,12 +20,10 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost for this solution includes:
-
-* {{ GP }} cluster fee: Computing resources allocated to hosts, size of storage and backups (see [{{ mgp-name }} pricing](../../../managed-greenplum/pricing/index.md)).
-* {{ mpg-full-name }} cluster fee: Computing resources allocated to hosts, size of storage and backups (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
-* Fee for hourly usage of NAT gateways and outgoing traffic they handle (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
-* Fee for using public IP addresses (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
+* {{ mgp-name }} cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ mgp-name }} pricing](../../../managed-greenplum/pricing/index.md)).
+* {{ mpg-full-name }} cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../../managed-postgresql/pricing.md)).
+* NAT gateway: Fee for hourly usage of NAT gateways and outgoing traffic they handle (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -36,7 +34,7 @@ Set up your infrastructure:
 
 - Manually {#manual}
 
-    1. [Create](../../../managed-greenplum/operations/cluster-create.md) a {{ GP }} cluster with any suitable configuration.
+    1. [Create](../../../managed-greenplum/operations/cluster-create.md) a {{ GP }} cluster with your preferred configuration.
     
     1. In the {{ GP }} cluster [subnet](../../../vpc/concepts/network.md#subnet), [set up a NAT gateway](../../../vpc/operations/create-nat-gateway.md) and [create a security group](../../../vpc/operations/security-group-create.md) allowing all incoming and outgoing traffic from all addresses.
 
@@ -68,7 +66,7 @@ Set up your infrastructure:
          * `mpg_password`: {{ PG }} database user password.
          * `mpg_version`: {{ PG }} version.
 
-    1. To verify that the config files are correct, run the command below:
+    1. To make sure the configuration files are correct, run this command:
 
          ```bash
          terraform validate
@@ -86,7 +84,7 @@ Set up your infrastructure:
 
 ## Prepare your test data {#prepare-data}
 
-1. [Connect](../../../managed-postgresql/operations/connect.md#bash) to the {{ PG }} database.
+1. [Connect](../../../managed-postgresql/operations/connect/clients.md#bash) to the {{ PG }} database.
 
 1. Create a table named `customers` and populate it with test data:
 
@@ -157,9 +155,9 @@ In the {{ GP }} cluster, [create an external data source](../../../managed-green
 
 To create a named query, add it to the `mdb_toolkit.pxf_named_queries` table:
 
-1. [Connect](../../../managed-greenplum/operations/connect.md) to {{ GP }}.
+1. [Connect](../../../managed-greenplum/operations/connect/index.md) to {{ GP }}.
 
-1. Run this query:
+1. Run this request:
 
    ```sql
    INSERT INTO mdb_toolkit.pxf_named_queries (pxf_profile, name, query) VALUES (
@@ -196,7 +194,7 @@ To create a named query, add it to the `mdb_toolkit.pxf_named_queries` table:
 
 ## Create an external table and get data from it {#create-ext-table}
 
-1. [Connect](../../../managed-greenplum/operations/connect.md) to {{ GP }}.
+1. [Connect](../../../managed-greenplum/operations/connect/index.md) to {{ GP }}.
 
 1. Create an external table named `pxf_named_query`. It will reference the data the named query retrieves from the `customers` and `orders` tables in the {{ PG }} DB:
 

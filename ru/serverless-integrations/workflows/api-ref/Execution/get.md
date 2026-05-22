@@ -48,8 +48,22 @@ Required field. ID of the Workflow execution. ||
     "id": "string",
     "workflowId": "string",
     "input": {
-      // Includes only one of the fields `inputJson`
-      "inputJson": "string"
+      // Includes only one of the fields `inputJson`, `inputValue`
+      "inputJson": "string",
+      "inputValue": {
+        // Includes only one of the fields `nullValue`, `numberValue`, `stringValue`, `boolValue`, `structValue`, `listValue`
+        "nullValue": "string",
+        "numberValue": "string",
+        "stringValue": "string",
+        "boolValue": "boolean",
+        "structValue": "object",
+        "listValue": {
+          "values": [
+            "object"
+          ]
+        }
+        // end of the list of possible fields
+      }
       // end of the list of possible fields
     },
     "result": {
@@ -127,7 +141,45 @@ Duration of the Workflow execution. ||
 
 JSON input data for the Workflow execution.
 
-Includes only one of the fields `inputJson`. ||
+Includes only one of the fields `inputJson`, `inputValue`. ||
+|| inputValue | **[Value](#google.protobuf.Value)**
+
+Input value for the Workflow execution.
+
+Includes only one of the fields `inputJson`, `inputValue`. ||
+|#
+
+## Value {#google.protobuf.Value}
+
+#|
+||Field | Description ||
+|| nullValue | **enum** (NullValue)
+
+Includes only one of the fields `nullValue`, `numberValue`, `stringValue`, `boolValue`, `structValue`, `listValue`.
+
+ ||
+|| numberValue | **string**
+
+Includes only one of the fields `nullValue`, `numberValue`, `stringValue`, `boolValue`, `structValue`, `listValue`. ||
+|| stringValue | **string**
+
+Includes only one of the fields `nullValue`, `numberValue`, `stringValue`, `boolValue`, `structValue`, `listValue`. ||
+|| boolValue | **boolean**
+
+Includes only one of the fields `nullValue`, `numberValue`, `stringValue`, `boolValue`, `structValue`, `listValue`. ||
+|| structValue | **object**
+
+Includes only one of the fields `nullValue`, `numberValue`, `stringValue`, `boolValue`, `structValue`, `listValue`. ||
+|| listValue | **[ListValue](#google.protobuf.ListValue)**
+
+Includes only one of the fields `nullValue`, `numberValue`, `stringValue`, `boolValue`, `structValue`, `listValue`. ||
+|#
+
+## ListValue {#google.protobuf.ListValue}
+
+#|
+||Field | Description ||
+|| values[] | **[Value](#google.protobuf.Value)** ||
 |#
 
 ## ExecutionResult {#yandex.cloud.serverless.workflows.v1.ExecutionResult}

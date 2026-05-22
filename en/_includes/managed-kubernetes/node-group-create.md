@@ -1,6 +1,6 @@
 To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concepts/index.md#node-group):
 1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) where you want to create a [{{ managed-k8s-name }} cluster](../../managed-kubernetes/concepts/index.md#kubernetes-cluster).
-1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
 1. Select the {{ managed-k8s-name }} cluster to create a node group for.
 1. On the {{ managed-k8s-name }} cluster page, go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
 1. Click **{{ ui-key.yacloud.k8s.cluster.node-groups.button_create }}**.
@@ -18,7 +18,7 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
      The following settings will become available:
      * **{{ ui-key.yacloud.k8s.node-groups.create.field_min-size }}**.
      * **{{ ui-key.yacloud.k8s.node-groups.create.field_max-size }}**.
-     * **{{ ui-key.yacloud.k8s.node-groups.create.field_initial-size }}** with which the {{ managed-k8s-name }} group will be created.
+     * **{{ ui-key.yacloud.k8s.node-groups.create.field_initial-size }}** of the new {{ managed-k8s-name }} group.
 
    {% note warning %}
 
@@ -34,7 +34,12 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
    * Select a [platform](../../compute/concepts/vm-platforms.md).
    * Enter the required number of [GPUs](../../compute/concepts/gpus.md) and vCPUs, [guaranteed vCPU performance](../../compute/concepts/performance-levels.md), and the amount of RAM.
    * Optionally, make the VM instance [preemptible](../../compute/concepts/preemptible-vm.md) by checking the relevant box.
-   * Optionally, enable a [software-accelerated network](../../compute/concepts/software-accelerated-network.md).
+
+      
+      {% include [preemtible-vm](note-preemtible-vm.md) %}
+      
+
+   * Optionally, enable a [software accelerated network](../../compute/concepts/software-accelerated-network.md).
 
      {% include [note-software-accelerated-network](note-software-accelerated-network.md) %}
 
@@ -62,16 +67,10 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
    * Specify the {{ managed-k8s-name }} node disk size.
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_network }}**:
    * In the **{{ ui-key.yacloud.k8s.node-groups.create.field_address-type }}** field, select the IP address assignment method:
-     * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}`: Assign a random [IP address](../../vpc/concepts/address.md) from the {{ yandex-cloud }} IP address pool.
-     * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}`: Do not assign a public IP address.
+     * `{{ ui-key.yacloud.k8s.node-groups.create.switch_auto }}` to assign random [IP addresses](../../vpc/concepts/address.md) from the {{ yandex-cloud }} address pool to the nodes.
+     * `{{ ui-key.yacloud.k8s.node-groups.create.switch_none }}` not to assign public IP addresses.
 
-     {% note info %}
-
-     {% include [nodes-internet-access](nodes-internet-access.md) %}
-
-     {% include [nodes-internet-access-additional](nodes-internet-access-additional.md) %}
-
-     {% endnote %}
+     {% include [public-ip](public-ip.md) %}
 
    * Select [security groups](../../vpc/concepts/security-groups.md).
 
@@ -79,6 +78,9 @@ To create a [{{ managed-k8s-name }} node group](../../managed-kubernetes/concept
 
 1. Under **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}**:
    * Select the [availability zone](../../overview/concepts/geo-scope.md) and [subnet](../../vpc/concepts/network.md#subnet) to place the group nodes in.
+
+       {% include [note-vpc-resources](note-vpc-resources.md) %}
+
    * Optionally, you can place nodes of a group with the fixed scaling type across multiple availability zones. To do this, click **{{ ui-key.yacloud.k8s.node-groups.create.label_add-location }}** and specify an additional availability zone and subnet.
 
    {% include [autoscaled-node-group-restriction](autoscaled-node-group-restriction.md) %}

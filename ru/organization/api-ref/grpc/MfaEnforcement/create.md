@@ -34,7 +34,7 @@ Required field. organization id of the MFA enforcement
 The maximum string length in characters is 50. ||
 || acr_id | **string**
 
-Required field. acr id for the MFA enforcement. one of 'any-mfa' or 'phr',
+Required field. acr id for the MFA enforcement. one of 'any-mfa', 'any-except-sms' or 'phr',
 specification https://yandex.cloud/en/docs/organization/concepts/mfa?utm_referrer=https%3A%2F%2Fa.yandex-team.ru%2F#mfa-factors
 
 The maximum string length in characters is 50. ||

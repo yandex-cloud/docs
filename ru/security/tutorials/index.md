@@ -25,6 +25,7 @@ description: Различные практические руководства 
 
 * [{#T}](single-sign-on/oidc-grafana.md)
 * [{#T}](single-sign-on/oidc-1c-enterprise.md)
+* [{#T}](single-sign-on/oidc-cloud-ru.md)
 * [{#T}](single-sign-on/saml-grafana.md)
 * [{#T}](single-sign-on/saml-managed-gitlab.md)
 * [{#T}](single-sign-on/saml-zabbix.md)
@@ -32,6 +33,9 @@ description: Различные практические руководства 
 * [{#T}](single-sign-on/saml-opensearch-self-managed.md)
 * [{#T}](single-sign-on/saml-sonarqube.md)
 * [{#T}](single-sign-on/saml-yandex-360.md)
+* [{#T}](single-sign-on/saml-ya-browser-corporate.md)
+* [{#T}](single-sign-on/saml-cloud-ru.md)
+* [{#T}](single-sign-on/saml-vk-cloud.md)
 
 
 ## Сетевая безопасность {#network-security}
@@ -66,7 +70,7 @@ description: Различные практические руководства 
 * [{#T}](data-encryption-and-key-management/terraform-key.md)
 * [{#T}](data-encryption-and-key-management/terraform-secret.md)
 * [{#T}](data-encryption-and-key-management/vault-secret.md)
-* [{#T}](data-encryption-and-key-management/secure-password-script.md)
+* [{#T}](data-encryption-and-key-management/secure-password-script/index.md)
 * [{#T}](data-encryption-and-key-management/tls-termination/index.md)
 * [{#T}](data-encryption-and-key-management/gitlab-lockbox-integration.md)
 * [{#T}](data-encryption-and-key-management/static-key-in-lockbox/index.md)
@@ -84,7 +88,7 @@ description: Различные практические руководства 
 * [{#T}](audit-logs/logging-functions.md)
 * [{#T}](audit-logs/audit-trails.md)
 * Экспорт аудитных логов в SIEM
-    * [{#T}](audit-logs/maxpatrol.md)
+    * [{#T}](audit-logs/maxpatrol/index.md)
     * [{#T}](audit-logs/export-logs-to-splunk.md)
     * [{#T}](audit-logs/export-logs-to-arcsight.md)
     * [{#T}](audit-logs/audit-trails-events-to-kuma/index.md)
@@ -100,6 +104,7 @@ description: Различные практические руководства 
 * [{#T}](app-security/websocket-app.md)
 * [{#T}](app-security/balancer-with-sws-profile/index.md)
 * [{#T}](app-security/api-gw-sws-integration.md)
+* [{#T}](app-security/traffic-sources-management.md)
 * [{#T}](app-security/website.md)
 * [{#T}](app-security/quickstart-android.md)
 * [{#T}](app-security/invisible-captcha-android.md)

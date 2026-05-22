@@ -15,16 +15,16 @@ items:
     items:
       - name: Overview
         href: workbooks-collections/index.md
-      - name: Creating workbooks and collections
-        href: workbooks-collections/workbooks-collections-create.md
-      - name: Migrating objects to workbooks
+      - name: Operations with workbooks
+        href: workbooks-collections/workbooks-operations.md
+      - name: Operations with collections
+        href: workbooks-collections/collections-operations.md
+      - name: Migrating objects to workbooks from directories
         href: workbooks-collections/migrations.md
       - name: Exporting and importing workbooks
         href: workbooks-collections/export-and-import.md
       - name: Errors and warnings during export and import
         href: workbooks-collections/export-import-notifications.md
-      - name: Configuring access
-        href: workbooks-collections/security.md
   - name: DataLens neuroanalyst
     href: concepts/neuroanalyst.md
   - name: Tutorials
@@ -68,7 +68,7 @@ items:
             href: tutorials/data-from-appmetrica-yc-visualization.md
           - name: 'Bitrix24: direct connection'
             href: tutorials/data-from-bitrix24-visualization.md
-          - name: '{{ tracker-full-name }}: data export and visualization'
+          - name: '{{ tracker-full-name }}: Data export and visualization'
             href: tutorials/data-from-tracker.md
           - name: Analyzing {{ objstorage-name }} logs using {{ datalens-name }}
             href: tutorials/storage-logs-analysis.md
@@ -82,12 +82,11 @@ items:
             href: tutorials/data-from-ch-over-yt.md
           - name: >-
               Streaming {{ postbox-full-name }} events to {{ yds-full-name }}
-              and analyzing them with {{ datalens-full-name }}
+              and analyzing them using {{ datalens-full-name }}
             href: tutorials/events-from-postbox-to-yds.md
           - name: >-
-              Delivering data from {{ forms-full-name }} to {{
-              datalens-full-name }} using {{ sf-full-name }} and {{ yq-full-name
-              }}
+              Delivering {{ forms-full-name }} data to {{ datalens-full-name }}
+              using {{ sf-full-name }} and {{ yq-full-name }}
             items:
               - name: Overview
                 href: tutorials/forms-and-datalens-integration/index.md
@@ -105,6 +104,10 @@ items:
             href: tutorials/data-from-ch-dataset-parametrization.md
           - name: Examples of creating QL charts
             href: tutorials/data-from-ch-to-sql-chart.md
+          - name: Examples of charts created in Editor
+            href: tutorials/create-chart-editor.md
+          - name: Example of using the Activities tab in Editor
+            href: tutorials/create-editor-activities.md
   - name: Connections
     items:
       - name: Overview
@@ -141,6 +144,8 @@ items:
             href: operations/connection/create-mssql-server.md
           - name: Creating an Oracle Database connection
             href: operations/connection/create-oracle.md
+          - name: Creating a {{ SR }} connection
+            href: operations/connection/create-starrocks.md
           - name: Creating a {{ prometheus-name }} connection
             href: operations/connection/create-prometheus.md
           - name: Creating a Snowflake connection
@@ -183,7 +188,7 @@ items:
             href: operations/connection/create-bitrix24.md
           - name: Creating a Yandex Music podcast connection
             href: operations/connection/create-podcasts.md
-          - name: Suggest your partner connector
+          - name: Offering a custom partner connector
             href: operations/marketplace/create-connector-for-partners.md
   - name: Datasets
     items:
@@ -835,6 +840,8 @@ items:
         href: operations/chart/add-description.md
       - name: Opening a chart as a table
         href: operations/chart/open-as-table.md
+      - name: Saving a chart as an image
+        href: operations/chart/save-as-image.md
       - name: Versioning
         href: concepts/chart/versioning.md
       - name: Exporting data from charts
@@ -863,6 +870,8 @@ items:
         href: dashboard/dashboard_parameters.md
       - name: Neuroanalyst on your dashboard
         href: dashboard/insights.md
+      - name: Trend and smoothing lines in dashboard charts
+        href: dashboard/trends-and-smoothing.md
       - name: Markdown
         href: dashboard/markdown.md
       - name: Step-by-step guides
@@ -875,8 +884,10 @@ items:
             href: operations/dashboard/add-selector.md
           - name: Adding text to a dashboard
             href: operations/dashboard/add-text.md
-          - name: Adding a title to a dashboard
+          - name: Adding a header to a dashboard
             href: operations/dashboard/add-title.md
+          - name: Copying widgets on a dashboard
+            href: operations/dashboard/copying-widgets.md
           - name: Adding dashboard info
             href: operations/dashboard/add-description.md
           - name: Adding a message displayed when contacting support
@@ -893,7 +904,7 @@ items:
             href: operations/dashboard/manage-access.md
           - name: Adding parameters to a dashboard
             href: operations/dashboard/add-parameters.md
-          - name: Setting up filtering by charts
+          - name: Setting up cross-chart filtering
             href: operations/dashboard/add-filtration.md
           - name: Dashboard auto-update
             href: operations/dashboard/auto-update.md
@@ -917,6 +928,12 @@ items:
         href: reports/versioning.md
       - name: Neuroanalyst in reports
         href: reports/insights.md
+  - name: Embedding objects
+    items:
+      - name: Public embedding
+        href: security/embedded-objects.md
+      - name: Private embedding
+        href: security/private-embedded-objects.md
   - name: Access management
     items:
       - name: Overview
@@ -933,7 +950,7 @@ items:
         items:
           - name: Access permissions
             href: security/manage-access.md
-          - name: Granting and updating permissions
+          - name: Assigning and changing access permissions
             href: operations/permission/grant.md
           - name: Deleting permissions
             href: operations/permission/revoke.md
@@ -943,12 +960,6 @@ items:
         href: security/row-level-security.md
       - name: Public access
         href: concepts/datalens-public.md
-      - name: Embedding objects
-        items:
-          - name: Public embedding
-            href: security/embedded-objects.md
-          - name: Private embedding
-            href: security/private-embedded-objects.md
   - name: Service settings
     items:
       - name: Overview
@@ -965,16 +976,16 @@ items:
         href: settings/restrictions.md
       - name: Navigation
         href: settings/navigation.md
-  - name: DataLens Gallery
+  - name: Gallery in DataLens
     href: concepts/gallery.md
   - name: Pricing policy
     items:
       - name: Current pricing policy
         href: pricing.md
-      - name: Pricing policy updates as of December 1
-        href: pricing-changes.md
       - name: Archive
         items:
+          - name: Pricing policy updates as of December 1
+            href: pricing-changes.md
           - name: Pricing policy before December 1, 2025
             href: pricing-old.md
           - name: Service plans before December 1, 2025
@@ -987,6 +998,26 @@ items:
         items:
           - name: Overview
             href: openapi-ref/index.md
+          - name: createCollection
+            href: openapi-ref/createCollection.md
+          - name: deleteCollection
+            href: openapi-ref/deleteCollection.md
+          - name: deleteCollections
+            href: openapi-ref/deleteCollections.md
+          - name: getCollectionBreadcrumbs
+            href: openapi-ref/getCollectionBreadcrumbs.md
+          - name: getCollection
+            href: openapi-ref/getCollection.md
+          - name: getCollectionContent
+            href: openapi-ref/getCollectionContent.md
+          - name: getRootCollectionPermissions
+            href: openapi-ref/getRootCollectionPermissions.md
+          - name: moveCollection
+            href: openapi-ref/moveCollection.md
+          - name: moveCollections
+            href: openapi-ref/moveCollections.md
+          - name: updateCollection
+            href: openapi-ref/updateCollection.md
           - name: getConnection
             href: openapi-ref/getConnection.md
           - name: createConnection
@@ -1021,10 +1052,36 @@ items:
             href: openapi-ref/getQlChart.md
           - name: deleteQLChart
             href: openapi-ref/deleteQlChart.md
+          - name: updateQLChart
+            href: openapi-ref/updateQlChart.md
+          - name: createQLChart
+            href: openapi-ref/createQlChart.md
           - name: getWizardChart
             href: openapi-ref/getWizardChart.md
           - name: deleteWizardChart
             href: openapi-ref/deleteWizardChart.md
+          - name: updateWizardChart
+            href: openapi-ref/updateWizardChart.md
+          - name: createWizardChart
+            href: openapi-ref/createWizardChart.md
+          - name: createWorkbook
+            href: openapi-ref/createWorkbook.md
+          - name: deleteWorkbook
+            href: openapi-ref/deleteWorkbook.md
+          - name: deleteWorkbooks
+            href: openapi-ref/deleteWorkbooks.md
+          - name: getWorkbook
+            href: openapi-ref/getWorkbook.md
+          - name: getWorkbooksList
+            href: openapi-ref/getWorkbooksList.md
+          - name: moveWorkbook
+            href: openapi-ref/moveWorkbook.md
+          - name: moveWorkbooks
+            href: openapi-ref/moveWorkbooks.md
+          - name: updateWorkbook
+            href: openapi-ref/updateWorkbook.md
+          - name: getWorkbookEntries
+            href: openapi-ref/getWorkbookEntries.md
           - name: getEditorChart
             href: openapi-ref/getEditorChart.md
           - name: deleteEditorChart
@@ -1033,30 +1090,60 @@ items:
             href: openapi-ref/createEditorChart.md
           - name: updateEditorChart
             href: openapi-ref/updateEditorChart.md
+          - name: createEmbed
+            href: openapi-ref/createEmbed.md
+          - name: listEmbeds
+            href: openapi-ref/listEmbeds.md
+          - name: deleteEmbed
+            href: openapi-ref/deleteEmbed.md
+          - name: updateEmbed
+            href: openapi-ref/updateEmbed.md
           - name: getEntriesPermissions
             href: openapi-ref/getEntriesPermissions.md
+          - name: createEmbeddingSecret
+            href: openapi-ref/createEmbeddingSecret.md
+          - name: listEmbeddingSecrets
+            href: openapi-ref/listEmbeddingSecrets.md
+          - name: deleteEmbeddingSecret
+            href: openapi-ref/deleteEmbeddingSecret.md
+          - name: getEmbeddingSecret
+            href: openapi-ref/getEmbeddingSecret.md
           - name: getAuditEntriesUpdates
             href: openapi-ref/getAuditEntriesUpdates.md
+          - name: updateCollectionAccessBindings
+            href: openapi-ref/updateCollectionAccessBindings.md
+          - name: createFolder
+            href: openapi-ref/createFolder.md
           - name: listDirectory
             href: openapi-ref/listDirectory.md
+          - name: updateWorkbookAccessBindings
+            href: openapi-ref/updateWorkbookAccessBindings.md
   - name: '{{ at-name }} events'
     href: at-ref.md
   - name: Release notes
     items:
-      - name: December 2025
+      - name: April 2026
         href: release-notes/index.md
+      - name: March 2026
+        href: release-notes/2603.md
+      - name: February 2026
+        href: release-notes/2602.md
+      - name: January 2026
+        href: release-notes/2601.md
+      - name: December 2025
+        href: release-notes/2512.md
       - name: November 2025
         href: release-notes/2511.md
-      - name: October 2025
-        href: release-notes/2510.md
-      - name: September 2025
-        href: release-notes/2509.md
-      - name: August 2025
-        href: release-notes/2508.md
-      - name: July 2025
-        href: release-notes/2507.md
       - name: Archive
         items:
+          - name: October 2025
+            href: release-notes/2510.md
+          - name: September 2025
+            href: release-notes/2509.md
+          - name: August 2025
+            href: release-notes/2508.md
+          - name: July 2025
+            href: release-notes/2507.md
           - name: June 2025
             href: release-notes/2506.md
           - name: May 2025
@@ -1202,6 +1289,10 @@ items:
         hidden: true
         href: >-
           troubleshooting/errors/ERR-DS_API-FORMULA-VALIDATION-AGG-INCONSISTENT.md
+      - name: Inconsistent aggregation status among SELECT items
+        hidden: true
+        href: >-
+          troubleshooting/errors/ERR-DS_API-INVALID_QUERY_STRUCTURE-INCONSISTENT_AGGREGATION.md
       - name: Internal server error
         hidden: true
         href: troubleshooting/errors/ERR-DS_API.md
@@ -1341,4 +1432,55 @@ items:
       - name: Accessing a nonexistent object
         hidden: true
         href: troubleshooting/errors/ERR-DS_API-REFERENCED_ENTRY_NOT_FOUND.md
+      - name: Got an unexpected response from an external API
+        hidden: true
+        href: troubleshooting/errors/ERR-AUTH_API-UNEXPECTED_RESPONSE.md
+      - name: Internal Server Error
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-ACTION_NOT_ALLOWED.md
+      - name: Field references an unknown source avatar
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-AVATAR-NOT_FOUND-FIELD_REF.md
+      - name: Source avatar not found
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-AVATAR-NOT_FOUND.md
+      - name: Source avatar title conflicts with another avatar
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-AVATAR-TITLE-CONFLICT.md
+      - name: Invalid connection type value
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-BAD_CONN_TYPE.md
+      - name: Got items with incompatible roles in block
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-BLOCK-ITEM_COMPATIBILITY.md
+      - name: Got more than one block with root placement
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-BLOCK-MULTIPLE_ROOTS.md
+      - name: This API does not support multiple query blocks
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-BLOCK-MULTIPLE_UNSUPPORTED.md
+      - name: Got no blocks with root placement
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-BLOCK-NO_ROOT.md
+      - name: Failed to load description of table columns
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-COLUMN_SCHEMA_FAILED.md
+      - name: Internal server error
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-CONNECTION_CONFIG.md
+      - name: Internal server error
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DASHSQL-PARAMETER.md
+      - name: Internal server error
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DASHSQL.md
+      - name: There are too many fields in the dataset
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DATASET-TOO_MANY_FIELDS.md
+      - name: Dataset version mismatch. Refresh the page to continue
+        hidden: true
+        href: troubleshooting/errors/ERR-DS_API-DATASET_REVISION_MISMATCH.md
+      - name: Pop-up blocking error
+        hidden: true
+        href: troubleshooting/errors/ERR-CLIENT-POPUP_BLOCKED.md
 path: en/datalens/toc.yaml

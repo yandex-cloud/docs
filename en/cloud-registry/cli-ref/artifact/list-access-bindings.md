@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/artifact/list-access-bindings
 editable: false
 ---
 

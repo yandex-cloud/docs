@@ -6,6 +6,7 @@ description: This section contains step-by-step guides for {{ cloud-registry-nam
 # Step-by-step guides for {{ cloud-registry-name }}
 
 * [Creating a registry](registry/create.md)
+* [Creating a lifecycle policy](lifecycle-policy/create.md)
 
 ## Managing artifacts {#artifact}
 

@@ -8,7 +8,7 @@
 
 Регион | Россия | Казахстан
 --- | --- | ---
-Зоны доступности | `ru-central1-a`<br/>`ru-central1-b`<br/>`ru-central1-d` | `kz1-a`
+Зоны доступности | `ru-central1-a`<br/>`ru-central1-b`<br/>`ru-central1-d`<br/>`ru-central1-e` | `kz1-a`
 Консоль управления | [https://console.yandex.cloud](https://console.yandex.cloud) | [https://kz.console.yandex.cloud](https://kz.console.yandex.cloud)
 Оплата ресурсов | [Тарифы для региона Россия](https://yandex.cloud/ru/prices) | [Тарифы для региона Казахстан](https://yandex.cloud/ru-kz/prices)
 Сервис {{ billing-name }} | [https://center.yandex.cloud/billing](https://center.yandex.cloud/billing) | [https://kz.center.yandex.cloud/billing](https://kz.center.yandex.cloud/billing)
@@ -36,3 +36,5 @@
 [Управляемая организация](../../organization/concepts/controlled-org.md) позволяет разместить ресурсы в другом регионе, не регистрируя для этого отдельную организацию. Вместо этого вы можете [подключить](../../organization/operations/add-region.md) регион к основной организации, чтобы управлять ресурсами в разных регионах через единый интерфейс.
 
 Ресурсы в разных регионах изолированы друг от друга. Данные хранятся в тех регионах, в которых созданы использующие их ресурсы.
+
+{% include [kz-region-role](../../_includes/organization/kz-region-role.md) %}

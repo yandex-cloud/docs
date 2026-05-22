@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/baremetal/cli-ref/
 editable: false
 ---
 
@@ -80,6 +81,16 @@ Syntax:
 
   - [yc baremetal private-subnet update](private-subnet/update.md) — Update the specified private subnet
 
+- [yc baremetal public-prefix-pool](public-prefix-pool/index.md) — Manage public prefix pools
+
+  - [yc baremetal public-prefix-pool get](public-prefix-pool/get.md) — Show information about the specified public prefix pool
+
+  - [yc baremetal public-prefix-pool list](public-prefix-pool/list.md) — List public prefix pools
+
+  - [yc baremetal public-prefix-pool list-operations](public-prefix-pool/list-operations.md) — List operations for the specified public prefix pool
+
+  - [yc baremetal public-prefix-pool update](public-prefix-pool/update.md) — Update the specified public prefix pool
+
 - [yc baremetal public-subnet](public-subnet/index.md) — Manage public subnet
 
   - [yc baremetal public-subnet add-labels](public-subnet/add-labels.md) — Add labels to specified public subnet
@@ -125,6 +136,10 @@ Syntax:
   - [yc baremetal server remove-labels](server/remove-labels.md) — Remove labels from specified server
 
   - [yc baremetal server update](server/update.md) — Update the specified server
+
+- [yc baremetal v0](v0/index.md) — Manage  Baremetal resources
+
+
 
 - [yc baremetal vrf](vrf/index.md) — Manage vrf
 

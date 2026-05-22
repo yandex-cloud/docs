@@ -41,6 +41,55 @@ Use a new combination of endpoints to transfer data from {{ ydb-name }} to {{ PG
 
 # {{ data-transfer-name }} release notes
 
+## 2026 {#2026}
+
+### March {#mar26}
+
+#### New features and improvements {#new-features-mar26}
+
+* Supported the nginx data format for the [{{ objstorage-name }}](../operations/endpoint/source/object-storage.md) data source.
+
+* Revised the name format for objects created in a [{{ objstorage-name }}](../operations/endpoint/target/object-storage.md) target: part-<timestamp>-<hash(partID)>.<counter>.<file_type>.
+
+  * <timestamp>: `timestamp` by operation ID.
+  * <hash(partID)>: `UUID` generated based on `partID`.
+  * <counter>: Incrementing counter.
+  * <file_type>: File extension (`csv`, `parquet`, `json`, `proto`, or `nginx`).
+
+* For {{ dt-type-copy }} transfers from [{{ PG }} sources](../operations/endpoint/source/postgresql.md), supported permanent data reads from a parent table provided it is included in the endpoint or transfer table list.
+
+* For {{ ydb-short-name }}, {{ KF }}, and {{ DS }} sources, supported a new data conversion type, `Raw-to-table`, which allows delivering raw data from a message queue.
+
+
+### February {#feb26}
+
+#### New features {#new-features-feb26}
+
+* Significantly improved the speed of [{{ PG }}](../operations/endpoint/source/postgresql.md)-to-[{{ PG }}](../operations/endpoint/target/postgresql.md) data transfers.
+* Improved database schema migration for [{{ PG }}](../operations/endpoint/source/postgresql.md)-to-[{{ PG }}](../operations/endpoint/target/postgresql.md) transfers. Entities are now migrated sequentially based on dependencies between them.
+
+
+* Number of VMs allocated for the copy stage will be limited to 64.
+
+
+#### Fixed issues {#problems-solved-feb26}
+
+* Improved transfer stability for [{{ KF }} sources](../operations/endpoint/source/kafka.md).
+* Fixed sending metric to {{ monitoring-name }} from the [Oracle source](../operations/endpoint/source/oracle.md).
+* Fixed the issue with [{{ PG }}](../operations/endpoint/source/postgresql.md)-to-[{{ PG }}](../operations/endpoint/target/postgresql.md) data transfers, where defining the table list at the transfer level (rather than the endpoint) caused the transfer of the entire schema.
+* Fixed an issue where simultaneous updates to endpoint and transfer settings via the API and {{ TF }} triggered multiple transfer restarts.
+* Fixed the table vacuuming issue for the [{{ ydb-name }} target](../operations/endpoint/target/yandex-database.md).
+* Fixed freezes and duplicate delivery of large data volumes during replications from [{{ ydb-name }}](../operations/endpoint/source/ydb.md).
+* Fixed an issue where deletions failed to propagate to {{ CH }} if columns contained certain types, e.g., UUID.
+
+
+
+### January {#jan26}
+
+ You can now configure [{{ KF }} connections](../operations/endpoint/source/kafka.md) and [{{ yds-name }}](../operations/endpoint/source/data-streams.md) in the [{{ schema-registry-name }}](../../metadata-hub/concepts/schema-registry.md) data source settings.
+
+{% cut "2025" %}{#2025}
+
 - [December 2025](2512.md)
 - [November 2025](2511.md)
 - [October 2025](2510.md)
@@ -53,6 +102,8 @@ Use a new combination of endpoints to transfer data from {{ ydb-name }} to {{ PG
 - [March 2025](2503.md)
 - [February 2025](2502.md)
 - [January 2025](2501.md)
+
+{% endcut %}
 
 {% cut "2024" %}{#2024}
 

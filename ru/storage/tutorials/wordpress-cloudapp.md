@@ -2,4 +2,6 @@
 canonical: '{{ link-docs }}/tutorials/web/wordpress-cloudapp'
 ---
 
-{% include [wordpress-static-website](../../_tutorials/applied/wordpress-cloudapp.md) %}
+# Установка WordPress с помощью {{ cloud-apps-name }}
+
+{% include [wordpress-cloudapp](../../_tutorials/applied/wordpress-cloudapp.md) %}

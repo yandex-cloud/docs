@@ -77,6 +77,30 @@ apiPlayground:
             External identifier for the user.
             The maximum string length in characters is 256.
           type: string
+        companyName:
+          description: |-
+            **string**
+            User's company name.
+            The maximum string length in characters is 256.
+          type: string
+        department:
+          description: |-
+            **string**
+            User's department.
+            The maximum string length in characters is 256.
+          type: string
+        jobTitle:
+          description: |-
+            **string**
+            User's job title.
+            The maximum string length in characters is 256.
+          type: string
+        employeeId:
+          description: |-
+            **string**
+            User's employee ID
+            The maximum string length in characters is 256.
+          type: string
       required:
         - userpoolId
         - username
@@ -160,7 +184,11 @@ POST https://organization-manager.{{ api-host }}/organization-manager/v1/idp/use
   },
   // end of the list of possible fields
   "isActive": "boolean",
-  "externalId": "string"
+  "externalId": "string",
+  "companyName": "string",
+  "department": "string",
+  "jobTitle": "string",
+  "employeeId": "string"
 }
 ```
 
@@ -223,6 +251,26 @@ Whether the user is active. Default is true. ||
 || externalId | **string**
 
 External identifier for the user.
+
+The maximum string length in characters is 256. ||
+|| companyName | **string**
+
+User's company name.
+
+The maximum string length in characters is 256. ||
+|| department | **string**
+
+User's department.
+
+The maximum string length in characters is 256. ||
+|| jobTitle | **string**
+
+User's job title.
+
+The maximum string length in characters is 256. ||
+|| employeeId | **string**
+
+User's employee ID
 
 The maximum string length in characters is 256. ||
 |#
@@ -298,7 +346,11 @@ Required field. Type of the password hash.
     "phoneNumber": "string",
     "createdAt": "string",
     "updatedAt": "string",
-    "externalId": "string"
+    "externalId": "string",
+    "companyName": "string",
+    "department": "string",
+    "jobTitle": "string",
+    "employeeId": "string"
   }
   // end of the list of possible fields
 }
@@ -476,4 +528,16 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 
 External identifier for federation with external identity systems.
 This ID can be used to link this user with an account in an external system. ||
+|| companyName | **string**
+
+User's company name. ||
+|| department | **string**
+
+User's department. ||
+|| jobTitle | **string**
+
+User's job title. ||
+|| employeeId | **string**
+
+User's employee ID ||
 |#

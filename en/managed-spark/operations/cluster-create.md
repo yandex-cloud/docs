@@ -17,7 +17,7 @@ To create a {{ SPRK }} cluster, your {{ yandex-cloud }} account needs the follow
 
 * [managed-spark.admin](../security.md#managed-spark-admin): To create a cluster.
 * [{{ roles-vpc-user }}](../../vpc/security/index.md#vpc-user): To use the cluster [network](../../vpc/concepts/network.md#network).
-* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user): To assign a service account to a cluster.
+* [iam.serviceAccounts.user](../../iam/security/index.md#iam-serviceAccounts-user): To attach a service account to a cluster.
 
 Make sure to assign the `managed-spark.integrationProvider` and `storage.editor` roles to the cluster service account. The cluster will thus get the permissions it needs to work with user resources.
 
@@ -67,7 +67,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
            The package name format and version are defined by the install command: `pip install` for pip packages and `apt install` for deb packages.
         
-        1. **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}**: Maintenance window settings:
+        1. **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}**: [Maintenance](../concepts/maintenance.md) window settings:
 
            {% include [Maintenance window](../../_includes/mdb/console/maintenance-window-description.md) %}
 
@@ -185,7 +185,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
             Specify either a folder ID or a custom log group ID.
 
-    1. To set up a maintenance window (including for disabled clusters), provide the required value in the `--maintenance-window` parameter:
+    1. To set up a [maintenance window](../concepts/maintenance.md) (including for disabled clusters), provide the relevant value in the `--maintenance-window` parameter:
 
         ```bash
         {{ yc-mdb-sp }} cluster create <cluster_name> \
@@ -221,7 +221,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
         {% include [Terraform cluster additional parameters description](../../_includes/mdb/msp/terraform/cluster-parameters-additional.md) %}
 
-    1. Validate your configuration.
+    1. Make sure the settings are correct.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -235,7 +235,7 @@ For more information about assigning roles, see [this {{ iam-full-name }} guide]
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
     
        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
     

@@ -7,6 +7,10 @@ editable: false
 # Правила тарификации для {{ maf-name }}
 
 
+{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
+
+
+
 
 В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса {{ maf-name }}, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы. За потребление других ресурсов {{ yandex-cloud }}, которые вы используете в процессе работы с сервисом, взимается плата в соответствии с их тарифами.
 
@@ -40,6 +44,8 @@ editable: false
 
 ### Пример расчета стоимости кластера {#example}
 
+{% include [prices-difference](../_includes/prices-difference.md) %}
+
 Стоимость использования кластера со следующими параметрами в течение 30 дней:
 
 * **Веб-сервер**: 1 экземпляр конфигурации `standard`: 1 × 100% vCPU, 4 ГБ RAM.
@@ -66,8 +72,6 @@ editable: false
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
-
-{% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
 
 <MDX>

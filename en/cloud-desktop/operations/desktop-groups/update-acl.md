@@ -15,7 +15,7 @@ description: In this tutorial, you will learn how to change access permissions f
   1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_cloud-desktop }}**.
   1. Select the desktop group to update access permissions for.
   1. In the left-hand panel, select ![persons](../../../_assets/console-icons/persons.svg) **{{ ui-key.yacloud.common.label_access-rights }}**.
-  1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+  1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   1. In the **{{ ui-key.yacloud_components.acl.label.title }}** window that opens, grant or revoke permissions as needed.
   1. Click **{{ ui-key.yacloud.common.save }}**.
 
@@ -55,7 +55,7 @@ description: In this tutorial, you will learn how to change access permissions f
 
       Where `--access-binding` contains access permission settings:
 
-      * `role`: [Role](../../security/index.md#roles-list).
+      * `role`: [Role](../../security/index.md#roles-list) to assign.
       * `subject`: Type and ID of the [subject](../../../iam/concepts/access-control/index.md#subject) the role is assigned to.
 
       For example, the following command will assign roles to multiple users and a single service account:

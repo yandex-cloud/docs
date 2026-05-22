@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mongodb/cli-ref/
 editable: false
 ---
 
@@ -131,6 +132,10 @@ Aliases:
   - [yc managed-mongodb user revoke-permission](user/revoke-permission.md) — Revoke a permission from the specified MongoDB user.
 
   - [yc managed-mongodb user update](user/update.md) — Modify attributes of a MongoDB user.
+
+- [yc managed-mongodb v0](v0/index.md) — Manage MongoDB clusters, hosts, databases, backups and users.
+
+
 
 #### Global Flags
 

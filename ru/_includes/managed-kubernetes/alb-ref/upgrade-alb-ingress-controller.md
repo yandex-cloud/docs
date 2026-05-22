@@ -1,14 +1,14 @@
 # Обновить Ingress-контроллер {{ alb-name }} для {{ managed-k8s-name }}
 
-{% include [Gwin](../../application-load-balancer/ingress-to-gwin-tip.md) %}
+{% include [Gwin-with-preset](../../application-load-balancer/ingress-to-gwin-tip-with-preset.md) %}
 
-Версии [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) 0.2.0 и позднее не совместимы с версиями 0.1.x. Из-за этого возникают ограничения, связанные с [группами бэкендов](../../../application-load-balancer/tools/k8s-ingress-controller/principles.md).
+Версии [ALB Ingress Controller](/marketplace/products/yc/alb-ingress-controller) 0.2.0 и позднее не совместимы с версиями 0.1.x. Из-за этого возникают ограничения, связанные с [группами бэкендов]({{ ingress-local-link }}/principles.md).
 
-Один из способов создать группу бэкендов — указать [правила](../../../application-load-balancer/k8s-ref/ingress.md#rule) в ресурсе `Ingress`. В версиях ALB Ingress Controller до 0.2.0 каждая группа бэкендов соответствует связке параметров `host`, `http.paths.path` и `http.paths.pathType`. В версиях 0.2.0 и позднее группа бэкендов соответствует параметру `backend.service` в ресурсе `Ingress`. В этом параметре указывается [сервис {{ k8s }}](../../../managed-kubernetes/concepts/service.md). Подробнее о значении параметров и конфигурации ресурса `Ingress` см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/services-networking/ingress/).
+Один из способов создать группу бэкендов — указать [правила]({{ configuration-local-link }}/ingress.md#rule) в ресурсе `Ingress`. В версиях ALB Ingress Controller до 0.2.0 каждая группа бэкендов соответствует связке параметров `host`, `http.paths.path` и `http.paths.pathType`. В версиях 0.2.0 и позднее группа бэкендов соответствует параметру `backend.service` в ресурсе `Ingress`. В этом параметре указывается [сервис {{ k8s }}](../../../managed-kubernetes/concepts/service.md). Подробнее о значении параметров и конфигурации ресурса `Ingress` см. в [документации {{ k8s }}](https://kubernetes.io/docs/concepts/services-networking/ingress/).
 
 Если вы обновляете ALB Ingress Controller с версии 0.1.x до версии 0.2.0 или позднее, проверьте, применимы ли следующие случаи к вашим группам ресурсов `Ingress` (группы формируются по значению аннотации `ingress.alb.yc.io/group-name` в ресурсах `Ingress`):
 
-* В конфигурациях встречаются одинаковые значения параметров `host`, `http.paths.path` и `http.paths.pathType`, при этом указаны разные сервисы {{ k8s }} в параметрах `backend.service.name`. В этом случае пересоздайте группы бэкендов с помощью объектов [HttpBackendGroup](../../../managed-kubernetes/tutorials/alb-ingress-controller.md#create-ingress-and-apps).
+* В конфигурациях встречаются одинаковые значения параметров `host`, `http.paths.path` и `http.paths.pathType`, при этом указаны разные сервисы {{ k8s }} в параметрах `backend.service.name`. В этом случае пересоздайте группы бэкендов с помощью объектов [HttpBackendGroup]({{ configuration-local-link }}/http-backend-group.md).
 
 * На несколько связок параметров `host`, `http.paths.path` и `http.paths.pathType` приходится один сервис {{ k8s }}. В этом случае проверьте, различаются ли настройки бэкендов в параметре `backend`. Например, одна группа ресурсов `Ingress` может устанавливать соединения по протоколу gRPC, а другая — по протоколу HTTP.
 

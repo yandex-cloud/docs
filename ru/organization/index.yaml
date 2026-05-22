@@ -21,9 +21,10 @@ meta:
     учетными записями пользователей и доступом к корпоративным приложениям по
     протоколам SAML и OpenID Connect (Identity Provider).
   keywords:
-    - keyword: '{{ org-name }}'
     - keyword: '{{ org-full-name }}'
-    - keyword: сервис {{ org-name }}
+    - keyword: Identity Hub
+    - keyword: сервис {{ org-full-name }}
+    - keyword: сервис Identity Hub
     - keyword: '{{ yandex-cloud }} для организаций'
     - keyword: корпоративный доступ в {{ yandex-cloud }}
     - keyword: корпоративное облако

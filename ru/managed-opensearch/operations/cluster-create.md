@@ -10,6 +10,7 @@ keywords:
 # Создание кластера {{ OS }}
 
 
+
 [Кластер](../../glossary/cluster.md) {{ mos-name }} — это группа из нескольких связанных друг с другом хостов {{ OS }} и [Dashboards]({{ os.docs }}/dashboards/index/). Кластер обеспечивает высокую производительность поиска путем распределения задач поиска и индексации по всем хостам кластера с ролью `DATA`. Подробнее о ролях в кластере см. в разделе [Роли хостов](../concepts/host-roles.md).
 
 Доступные типы диска [зависят](../concepts/storage.md) от выбранного [класса хостов](../concepts/instance-types.md).
@@ -28,7 +29,7 @@ keywords:
 
 ## Создать кластер {#create-cluster}
 
-При создании кластера для каждой [группы хостов](../concepts/host-roles.md) указываются отдельные параметры.
+При создании кластера для каждой [группы хостов](../concepts/host-roles.md) указываются отдельные параметры. Для снижения нагрузки на хосты с ролью `DATA` рекомендуется выделять хосты с ролью `MANAGER` в отдельную группу.
 
 {% list tabs group=instructions %}
 
@@ -92,12 +93,6 @@ keywords:
       
       1. Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если вы хотите, чтобы к хостам можно было [подключаться](connect/index.md) через интернет.
 
-          {% note tip %}
-
-          Не рекомендуется включать публичный доступ для хостов с ролью `MANAGER`, т. к. это может быть небезопасно.
-
-          {% endnote %}
-
 
   1. При необходимости задайте конфигурацию [группы хостов](../concepts/host-roles.md#dashboards) `Dashboards` в блоке **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_virtual-node-group }} 2**:
 
@@ -105,7 +100,7 @@ keywords:
       1. Настройте хранилище по аналогии с хостами `{{ OS }}`.
       1. Укажите расположение хостов по зонам доступности и подсетям.
       1. Выберите количество создаваемых хостов.
-        
+
       
       1. Включите опцию **{{ ui-key.yacloud.mdb.hosts.dialog.field_public_ip }}**, если вы хотите, чтобы к хостам можно было [подключаться](connect/index.md) через интернет.
 
@@ -144,6 +139,7 @@ keywords:
 
   1. Укажите параметры кластера в команде создания (в примере приведены не все доступные параметры):
 
+      
       ```bash
       {{ yc-mdb-os }} cluster create \
          --name <имя_кластера> \
@@ -160,7 +156,6 @@ keywords:
          --disk-encryption-key-id <идентификатор_ключа_KMS> \
          --version <версия_{{ OS }}> \
          --read-admin-password \
-         --data-transfer-access=<разрешить_доступ_из_Data_Transfer> \
          --serverless-access=<разрешить_доступ_из_Serverless_Containers> \
          --plugins <{{ OS }}_плагины> \
          --advanced-params <дополнительные_параметры> \
@@ -183,6 +178,7 @@ keywords:
                                 `assign-public-ip=<разрешить_публичный_доступ_к_хостам>
       ```
 
+
       Где:
 
       * `--labels` — [метки {{ yandex-cloud }}](../../resource-manager/concepts/labels.md) в формате `<ключ>=<значение>`. Используются для логического разделения ресурсов.
@@ -191,7 +187,9 @@ keywords:
           * `production` — для стабильных версий ваших приложений.
           * `prestable` — для тестирования. Prestable-окружение аналогично Production-окружению и на него также распространяется SLA, но при этом на нем раньше появляются новые функциональные возможности, улучшения и исправления ошибок. В Prestable-окружении вы можете протестировать совместимость новых версий с вашим приложением.
 
+      
       * `--service-account-name` — имя сервисного аккаунта для [доступа к {{ objstorage-full-name }}](s3-access.md) в качестве репозитория [снапшотов](../../glossary/snapshot.md) {{ OS }}. Подробнее о сервисных аккаунтах см. в [документации {{ iam-full-name }}](../../iam/concepts/users/service-accounts.md).
+
 
       * {% include [Deletion protection](../../_includes/mdb/cli/deletion-protection.md) %}
       
@@ -216,8 +214,10 @@ keywords:
 
           {% include [Superuser](../../_includes/mdb/mos/superuser.md) %}
 
-
+      
       * `--serverless-access` — доступ из [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml): `true` или `false`.
+
+
       * `--plugins` — [плагины {{ OS }}](../concepts/plugins.md), которые нужно установить в кластер.
       * `--advanced-params` — дополнительные параметры кластера. Возможные значения:
 
@@ -226,6 +226,7 @@ keywords:
           * `reindex-remote-whitelist` — список удаленных хостов, из индекса которых нужно скопировать документы для переиндексации. Укажите значение параметра в формате `<адрес_хоста>:<порт>`. Если нужно указать несколько хостов, перечислите значения через запятую. Подробнее см. в [документации {{ OS }}]({{ os.docs }}/im-plugin/reindex-data/#reindex-from-a-remote-cluster).
 
       {% include [cli-for-os-and-dashboards-groups](../../_includes/managed-opensearch/cli-for-os-and-dashboards-groups.md) %}
+
 
 - {{ TF }} {#tf}
 
@@ -294,8 +295,8 @@ keywords:
           }
         }
         maintenance_window {
-          type = <тип_технического_обслуживания>
-          day  = <день_недели>
+          type = "<тип_технического_обслуживания>"
+          day  = "<день_недели>"
           hour = <час_дня>
         }
       }
@@ -315,12 +316,9 @@ keywords:
       Где:
 
       * `environment` — окружение: `PRESTABLE` или `PRODUCTION`.
-
-      
       * `disk_encryption_key_id` — шифрование диска [пользовательским ключом KMS](../../kms/concepts/key.md).
 
           Подробнее о шифровании дисков см. в разделе [Хранилище](../concepts/storage.md#disk-encryption).
-
 
       * `deletion_protection` — защита кластера от непреднамеренного удаления: `true` или `false`.
 
@@ -352,6 +350,7 @@ keywords:
       {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
       {% include [Terraform timeouts](../../_includes/mdb/mos/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -490,11 +489,11 @@ keywords:
                       * `diskTypeId` — [тип диска](../concepts/storage.md).
 
                   * `roles` — список [ролей хостов](../concepts/host-roles.md). Кластер должен содержать хотя бы по одной группе хостов `DATA` и `MANAGER`. Это может быть одна группа, на которую назначены две роли, или несколько групп с разными ролями.
-                  * `hostsCount` — количество хостов в группе. Миниальное число хостов `DATA` — один, хостов `MANAGER` — три.
+                  * `hostsCount` — количество хостов в группе. Минимальное число хостов `DATA` — один, хостов `MANAGER` — три.
                   * `zoneIds` — список зон доступности, где размещаются хосты кластера.
-                  * `subnetIds` — список идентификаторов подсетей.
 
                   
+                  * `subnetIds` — список идентификаторов подсетей.
                   * `assignPublicIp` — разрешение на [подключение](connect/index.md) к хосту из интернета: `true` или `false`.
 
 
@@ -525,9 +524,8 @@ keywords:
           * `dashboardsSpec` — настройки групп хостов `Dashboards`. Содержат параметр `nodeGroups`, структура которого совпадает со структурой `opensearchSpec.nodeGroups`. Исключение — параметр `roles`: у хостов `Dashboards` есть только одна роль `DASHBOARDS`, поэтому ее не нужно указывать.
 
           
-          * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
+          * `access` — настройки доступа к кластеру из следующих сервисов {{ yandex-cloud }}:
 
-              * `dataTransfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml);
               * `serverless` — [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml).
 
               Возможные значения настроек: `true` или `false`.
@@ -538,7 +536,7 @@ keywords:
           * `day` — день недели в формате `DDD`, когда должно проходить обслуживание.
           * `hour` — час в формате `HH`, когда должно проходить обслуживание. Возможные значения: от `1` до `24`. Задается в часовом поясе UTC.
 
-  1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.rest.tool }}:
+  1. Воспользуйтесь методом [Cluster.Create](../api-ref/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.rest.tool }}:
 
       ```bash
       curl \
@@ -637,7 +635,6 @@ keywords:
                   ]
               },
               "access": {
-                  "data_transfer": <разрешить_доступ_из_Data_Transfer>,
                   "serverless": <разрешить_доступ_из_Serverless_Containers>
               }
           },
@@ -689,11 +686,11 @@ keywords:
                       * `disk_type_id` — [тип диска](../concepts/storage.md).
 
                   * `roles` — список [ролей хостов](../concepts/host-roles.md). Кластер должен содержать хотя бы по одной группе хостов `DATA` и `MANAGER`. Это может быть одна группа, на которую назначены две роли, или несколько групп с разными ролями.
-                  * `hosts_count` — количество хостов в группе. Миниальное число хостов `DATA` — один, хостов `MANAGER` — три.
+                  * `hosts_count` — количество хостов в группе. Минимальное число хостов `DATA` — один, хостов `MANAGER` — три.
                   * `zone_ids` — список зон доступности, где размещаются хосты кластера.
-                  * `subnet_ids` — список идентификаторов подсетей.
 
                   
+                  * `subnet_ids` — список идентификаторов подсетей.
                   * `assign_public_ip` — разрешение на [подключение](connect/index.md) к хосту из интернета: `true` или `false`.
 
 
@@ -724,9 +721,8 @@ keywords:
           * `dashboards_spec` — настройки групп хостов `Dashboards`. Содержат параметр `node_groups`, структура которого совпадает со структурой `opensearch_spec.node_groups`. Исключение — параметр `roles`: у хостов `Dashboards` есть только одна роль `DASHBOARDS`, поэтому ее не нужно указывать.
 
           
-          * `access` — настройки доступа кластера к следующим сервисам {{ yandex-cloud }}:
+          * `access` — настройки доступа к кластеру из следующих сервисов {{ yandex-cloud }}:
 
-              * `data_transfer` — [{{ data-transfer-full-name }}](../../data-transfer/index.yaml);
               * `serverless` — [{{ serverless-containers-full-name }}](../../serverless-containers/index.yaml).
 
               Возможные значения настроек: `true` или `false`.
@@ -737,7 +733,7 @@ keywords:
           * `day` — день недели в формате `DDD`, когда должно проходить обслуживание.
           * `hour` — час в формате `HH`, когда должно проходить обслуживание. Возможные значения: от `1` до `24`. Задается в часовом поясе UTC.
 
-  1. Воспользуйтесь вызовом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например, с помощью {{ api-examples.grpc.tool }}:
+  1. Воспользуйтесь вызовом [ClusterService.Create](../api-ref/grpc/Cluster/create.md) и выполните запрос, например с помощью {{ api-examples.grpc.tool }}:
 
       ```bash
       grpcurl \
@@ -839,6 +835,7 @@ keywords:
 
     Создайте кластер {{ mos-name }} с тестовыми характеристиками:
 
+    
     * Имя — `my-os-clstr`.
     * Описание — `My OS cluster`.
     * Метка — `label-key` со значением `label-value`.
@@ -850,7 +847,6 @@ keywords:
     * Время технического обслуживания — каждый понедельник с 13:00 до 14:00.
     * Версия {{ OS }} — `2.12`.
     * Пароль пользователя `admin` — указывается после ввода команды по созданию кластера.
-    * Доступ к {{ data-transfer-name }} — включен.
     * Доступ к {{ serverless-containers-name }} — включен.
     * Подключенный плагин {{ OS }} — analysis-icu.
     * Дополнительный параметр {{ OS }} — `fielddata-cache-size=50%`.
@@ -877,8 +873,10 @@ keywords:
         * подсеть — `{{ network-name }}-{{ region-id }}-a`;
         * публичный адрес — выделен.
 
+
     Выполните команду:
 
+    
     ```bash
     {{ yc-mdb-os }} cluster create \
        --name my-os-clstr \
@@ -894,7 +892,6 @@ keywords:
                     `hour=14 \
        --version 2.12 \
        --read-admin-password \
-       --data-transfer-access=true \
        --serverless-access=true \
        --plugins analysis-icu \
        --advanced-params fielddata-cache-size=50% \
@@ -916,6 +913,8 @@ keywords:
                               `subnet-names={{ network-name }}-{{ region-id }}-a,`
                               `assign-public-ip=true
     ```
+
+
 
 - {{ TF }} {#tf}
 
@@ -1039,7 +1038,9 @@ keywords:
     }
     ```
 
+
 {% endlist %}
 
 
 {% include [connection-manager](../../_includes/mdb/connection-manager.md) %}
+

@@ -17,4 +17,5 @@ This API reference is organized around Cloud Backup resources. Actions are perfo
 || [Policy](Policy/index.md) | A set of methods for managing [policies](/docs/backup/concepts/policy). ||
 || [Provider](Provider/index.md) | A set of methods for managing [backup providers](/docs/backup/concepts/#providers). ||
 || [Resource](Resource/index.md) | A set of methods for managing backup resources: [Compute Cloud instances](/docs/backup/concepts/vm-connection#os). ||
+|| [Setup](Setup/index.md) |  ||
 |#

@@ -1,5 +1,7 @@
 # Updating {{ k8s }}
 
+{% include [preflight-check](../../_includes/managed-kubernetes/preflight-check.md) %}
+
 In {{ managed-k8s-name }}, both automatic and manual updates are available for [clusters](../concepts/index.md#kubernetes-cluster) and [node groups](../concepts/index.md#node-group). You can request a manual update of your {{ managed-k8s-name }} cluster or its nodes to the latest supported [version](../concepts/release-channels-and-updates.md) at any time. Manual updates bypass any pre-configured maintenance windows and maintenance exceptions.
 
 When updating the {{ k8s }} major version, first update the {{ managed-k8s-name }} cluster and then its node group.
@@ -8,7 +10,11 @@ You can edit the update policy of [{{ managed-k8s-name }} clusters](#cluster-aut
 
 For more information, see [{#T}](../concepts/release-channels-and-updates.md).
 
-{% include [preflight-check](../../_includes/managed-kubernetes/preflight-check.md) %}
+{% note tip %}
+
+[Deploy policy](../concepts/node-group/deploy-policy.md) affects node group behavior during [updates](../concepts/release-channels-and-updates.md#node-group). Before an update, make sure the policy is [configured](./node-group/node-group-update.md#configure-deploy-policy) correctly.
+
+{% endnote %}
 
 ## List of available {{ k8s }} versions {#versions-list}
 
@@ -17,14 +23,17 @@ For more information, see [{#T}](../concepts/release-channels-and-updates.md).
 - Management console {#console}
 
   To get a list of available versions for a {{ managed-k8s-name }} cluster:
-  1. Navigate to the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of the {{ managed-k8s-name }} cluster.
   1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
   1. View the list of available versions in the **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** field under **{{ ui-key.yacloud.k8s.clusters.create.section_main-cluster }}**.
 
   To get a list of available versions for a {{ managed-k8s-name }} node group:
-  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-  1. Click the name of the {{ managed-k8s-name }} cluster you need and go to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
+
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. Click the name of your {{ managed-k8s-name }} cluster and open the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
   1. Select the {{ managed-k8s-name }} node group from the list and click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
   1. Get a list of available versions in the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** field.
 
@@ -42,7 +51,7 @@ For more information, see [{#T}](../concepts/release-channels-and-updates.md).
 
 - API {#api}
 
-  To get a list of available versions, use the [list](../../managed-kubernetes/managed-kubernetes/api-ref/Version/list.md) method.
+  To get the list of available versions, use the [list](../managed-kubernetes/api-ref/Version/list.md) REST API method for the [Version](../managed-kubernetes/api-ref/Version) resource or the [VersionService/List](../managed-kubernetes/api-ref/grpc/Version/list.md) gRPC API call.
 
 {% endlist %}
 
@@ -123,7 +132,7 @@ Select auto update mode for your {{ managed-k8s-name }} cluster and set the upda
 
        ```hcl
        resource "yandex_kubernetes_cluster" "<cluster_name>" {
-         name = <cluster_name>
+         name = "<cluster_name>"
          ...
          maintenance_policy {
            auto_upgrade = true
@@ -144,7 +153,7 @@ Select auto update mode for your {{ managed-k8s-name }} cluster and set the upda
 
        ```hcl
        resource "yandex_kubernetes_cluster" "<cluster_name>" {
-         name = <cluster_name>
+         name = "<cluster_name>"
          ...
          maintenance_policy {
            auto_upgrade = true
@@ -185,7 +194,7 @@ Select auto update mode for your {{ managed-k8s-name }} cluster and set the upda
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -195,9 +204,11 @@ Select auto update mode for your {{ managed-k8s-name }} cluster and set the upda
 
 - API {#api}
 
+  {% include [api-parameters-case](../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
   Set up auto updates in the `masterSpec.maintenancePolicy` section when [creating a {{ managed-k8s-name }} cluster](../../managed-kubernetes/managed-kubernetes/api-ref/Cluster/create.md) or [updating its settings](../../managed-kubernetes/managed-kubernetes/api-ref/Cluster/update.md).
 
-  Use the [update](../../managed-kubernetes/managed-kubernetes/api-ref/Cluster/update.md) API method and provide the following in the request:
+  Use the [update](../managed-kubernetes/api-ref/Cluster/update.md) REST API method for the [Cluster](../managed-kubernetes/api-ref/Cluster) resource or the [ClusterService/Update](../managed-kubernetes/api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
   * {{ managed-k8s-name }} cluster ID in the `clusterId` parameter. To find out the {{ managed-k8s-name }} cluster ID, [get a list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md).
   * Auto update settings in the `masterSpec.maintenancePolicy` parameter.
   * List of settings to update in the `updateMask` parameter.
@@ -258,6 +269,8 @@ Select auto update mode for your {{ managed-k8s-name }} cluster and set the upda
 
 {% endlist %}
 
+{% include [update time](../../_includes/managed-kubernetes/note-update-time.md) %}
+
 ### Manually upgrading the cluster version {#cluster-manual-upgrade}
 
 You can upgrade the {{ managed-k8s-name }} cluster version manually. In one step, you can only upgrade your {{ managed-k8s-name }} cluster to the next minor version from the current one. Upgrading to newer versions is done in multiple steps, e.g., 1.19 → 1.20 → 1.21.
@@ -266,7 +279,8 @@ You can upgrade the {{ managed-k8s-name }} cluster version manually. In one step
 
 - Management console {#console}
 
-  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of the {{ managed-k8s-name }} cluster.
   1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
   1. In the **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** field, select the `Upgrade to version <version_number>` option.
@@ -287,14 +301,17 @@ You can upgrade the {{ managed-k8s-name }} cluster version manually. In one step
 
   1. Open the current configuration file with the {{ managed-k8s-name }} cluster description.
 
-     For more information about creating this file, see [{#T}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md).
+     For more on how to create this file, see [{#T}](../../managed-kubernetes/operations/kubernetes-cluster/kubernetes-cluster-create.md).
   1. Change the version in the {{ managed-k8s-name }} cluster description:
 
      ```hcl
      resource "yandex_kubernetes_cluster" "<cluster_name>" {
-       name = <cluster_name>
+       name = "<cluster_name>"
        ...
-       version = "<new_version>"
+       master {
+         version = "<new_version>"
+         ...
+       }
      }
      ```
 
@@ -302,18 +319,21 @@ You can upgrade the {{ managed-k8s-name }} cluster version manually. In one step
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
      {% include [Terraform timeouts](../../_includes/managed-kubernetes/terraform-timeout-cluster.md) %}
 
-  For more information, see [this {{ TF }} provider guide]({{ tf-provider-k8s-cluster}}).
+  For more information, see [this {{ TF }} provider guide]({{ tf-provider-k8s-cluster }}).
 
 - API {#api}
 
-  Use the [update](../../managed-kubernetes/managed-kubernetes/api-ref/Cluster/update.md) API method and provide the following in the request:
-  * {{ managed-k8s-name }} cluster ID in the `clusterId` parameter. To find out the {{ managed-k8s-name }} cluster ID, [get a list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md).
+  {% include [api-parameters-case](../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
+  Use the [update](../managed-kubernetes/api-ref/Cluster/update.md) REST API method for the [Cluster](../managed-kubernetes/api-ref/Cluster) resource or the [ClusterService/Update](../managed-kubernetes/api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
+
+  * {{ managed-k8s-name }} cluster ID in the `clusterId` parameter. To find out the {{ managed-k8s-name }} cluster ID, [get the list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md).
   * Required {{ k8s }} version in the `masterSpec.version.version` parameter.
   * List of settings to update in the `updateMask` parameter.
 
@@ -355,8 +375,8 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
   ```bash
   {{ yc-k8s }} node-group <create_or_update> <node_group_name_or_ID> \
   ...
-    --max-expansion <expanding_group_when_updating> \
-    --max-unavailable <number_of_unavailable_nodes_when_updating> \
+    --max-expansion <expanding_group_during_update> \
+    --max-unavailable <number_of_unavailable_nodes_during_update> \
     --auto-upgrade <auto_update_mode> \
     --auto-repair <recreation_mode> \
     --anytime-maintenance-window \
@@ -415,7 +435,7 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
 
   1. Open the current configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more information about creating this file, see [{#T}](../../managed-kubernetes/operations/node-group/node-group-create.md).
+     For more on how to create this file, see [{#T}](../../managed-kubernetes/operations/node-group/node-group-create.md).
   1. Change auto update settings in the {{ managed-k8s-name }} node group description.
 
      {% note info %}
@@ -428,7 +448,7 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
 
        ```hcl
        resource "yandex_kubernetes_node_group" "<node_group_name>" {
-         name = <node_group_name>
+         name = "<node_group_name>"
          ...
          maintenance_policy {
            auto_upgrade = true
@@ -449,7 +469,7 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
 
        ```hcl
        resource "yandex_kubernetes_node_group" "<node_group_name>" {
-         name = <node_group_name>
+         name = "<node_group_name>"
          ...
          maintenance_policy {
            auto_upgrade = true
@@ -478,10 +498,10 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
 
        ```hcl
        resource "yandex_kubernetes_node_group" "<node_group_name>" {
-         name = <node_group_name>
+         name = "<node_group_name>"
          ...
          deploy_policy {
-           max_expansion   = <expanding_group_when_updating>
+           max_expansion   = <expanding_group_during_update>
            max_unavailable = <number_of_unavailable_nodes_when_updating>
          }
        }
@@ -493,7 +513,6 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
          {% include [note-expansion-group-vm](../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
 
        * `max_unavailable`: Maximum number of unavailable nodes in the group when updating it.
-
 
        {% note info %}
 
@@ -517,7 +536,7 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -527,9 +546,11 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
 
 - API {#api}
 
+  {% include [api-parameters-case](../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
   You can set up auto updates under `maintenancePolicy` when [creating a {{ managed-k8s-name }} node group](../../managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/create.md) or [updating its settings](../../managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/update.md).
 
-  Use the [update](../../managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/update.md) API method and provide the following in the request:
+  Use the [update](../managed-kubernetes/api-ref/NodeGroup/update.md) REST API method for the [NodeGroup](../managed-kubernetes/api-ref/NodeGroup) resource or the [NodeGroupService/Update](../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) gRPC API call, and provide the following in the request:
   * {{ managed-k8s-name }} node group ID in the `nodeGroupId` parameter. To find out the {{ managed-k8s-name }} node group ID, get the [list of groups in the cluster](node-group/node-group-list.md).
   * Auto update settings in the `maintenancePolicy` parameter.
   * List of settings to update in the `updateMask` parameter.
@@ -592,8 +613,8 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
 
   ```json
   "deployPolicy": {
-    "maxUnavailable": "<number_of_unavailable_nodes_when_updating>",
-    "maxExpansion": "<expanding_group_when_updating>"
+    "maxUnavailable": "<number_of_unavailable_nodes_during_update>",
+    "maxExpansion": "<expanding_group_during_update>"
   }
   ```
 
@@ -605,6 +626,8 @@ Select auto update mode for the {{ managed-k8s-name }} node group and set the re
     {% include [note-expansion-group-vm](../../_includes/managed-kubernetes/note-expansion-group-vm.md) %}
 
 {% endlist %}
+
+{% include [update time](../../_includes/managed-kubernetes/note-update-time.md) %}
 
 ### Manually upgrading a node group version {#node-group-manual-upgrade}
 
@@ -620,7 +643,8 @@ Upgrade the {{ managed-k8s-name }} cluster version before updating the node grou
 
 - Management console {#console}
 
-  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of the {{ managed-k8s-name }} cluster.
   1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
   1. Select the {{ managed-k8s-name }} node group from the list.
@@ -644,12 +668,12 @@ Upgrade the {{ managed-k8s-name }} cluster version before updating the node grou
 
   1. Open the current configuration file describing the {{ managed-k8s-name }} node group.
 
-     For more information about creating this file, see [{#T}](../../managed-kubernetes/operations/node-group/node-group-create.md).
+     For more on how to create this file, see [{#T}](../../managed-kubernetes/operations/node-group/node-group-create.md).
   1. Change the version in the {{ managed-k8s-name }} node group description:
 
      ```hcl
      resource "yandex_kubernetes_node_group" "<node_group_name>" {
-       name = <node_group_name>
+       name = "<node_group_name>"
        ...
        version = "<new_version>"
      }
@@ -659,7 +683,7 @@ Upgrade the {{ managed-k8s-name }} cluster version before updating the node grou
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-  1. Confirm updating the resources.
+  1. Confirm resource changes.
 
      {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -669,7 +693,9 @@ Upgrade the {{ managed-k8s-name }} cluster version before updating the node grou
 
 - API {#api}
 
-  Use the [update](../../managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/update.md) API method and provide the following in the request:
+  {% include [api-parameters-case](../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
+  Use the [update](../managed-kubernetes/api-ref/NodeGroup/update.md) REST API method for the [NodeGroup](../managed-kubernetes/api-ref/NodeGroup) resource or the [NodeGroupService/Update](../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) gRPC API call, and provide the following in the request:
   * {{ managed-k8s-name }} node group ID in the `nodeGroupId` parameter. To find out the {{ managed-k8s-name }} node group ID, get the [list of groups in the cluster](node-group/node-group-list.md).
   * Required {{ k8s }} version in the `version.version` parameter.
   * List of settings to update in the `updateMask` parameter.
@@ -695,11 +721,12 @@ The {{ managed-k8s-name }} cluster and node groups will be updated if any of the
 
 - Management console {#console}
 
-  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of the {{ managed-k8s-name }} cluster.
   1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
   1. In the **{{ ui-key.yacloud.k8s.clusters.create.field_master-version }}** field, select `Get the latest improvements and fixes for version...`
-  1. Click **{{ ui-key.yacloud.common.save}}**.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -714,7 +741,9 @@ The {{ managed-k8s-name }} cluster and node groups will be updated if any of the
 
 - API {#api}
 
-  Use the [update](../../managed-kubernetes/managed-kubernetes/api-ref/Cluster/update.md) API method and provide the following in the request:
+  {% include [api-parameters-case](../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
+  Use the [update](../managed-kubernetes/api-ref/Cluster/update.md) REST API method for the [Cluster](../managed-kubernetes/api-ref/Cluster) resource or the [ClusterService/Update](../managed-kubernetes/api-ref/grpc/Cluster/update.md) gRPC API call and provide the following in the request:
   * {{ managed-k8s-name }} cluster ID in the `clusterId` parameter. To find out the {{ managed-k8s-name }} cluster ID, [get the list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md#list).
   * `true` in the `masterSpec.version.version` parameter.
   * List of settings to update in the `updateMask` parameter.
@@ -729,13 +758,14 @@ The {{ managed-k8s-name }} cluster and node groups will be updated if any of the
 
 - Management console {#console}
 
-  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of the {{ managed-k8s-name }} cluster.
   1. Navigate to the **{{ ui-key.yacloud.k8s.cluster.switch_nodes-manager }}** tab.
   1. Select the {{ managed-k8s-name }} node group from the list.
   1. Click **{{ ui-key.yacloud.common.edit }}** in the top-right corner.
   1. In the **{{ ui-key.yacloud.k8s.node-groups.create.field_node-version }}** field, select `Get the latest improvements and fixes for version...`
-  1. Click **{{ ui-key.yacloud.common.save}}**.
+  1. Click **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
@@ -750,7 +780,9 @@ The {{ managed-k8s-name }} cluster and node groups will be updated if any of the
 
 - API {#api}
 
-  Use the [update](../../managed-kubernetes/managed-kubernetes/api-ref/NodeGroup/update.md) API method and provide the following in the request:
+  {% include [api-parameters-case](../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
+  Use the [update](../managed-kubernetes/api-ref/NodeGroup/update.md) REST API method for the [NodeGroup](../managed-kubernetes/api-ref/NodeGroup) resource or the [NodeGroupService/Update](../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) gRPC API call, and provide the following in the request:
   * {{ managed-k8s-name }} node group ID in the `nodeGroupId` parameter. To find out the {{ managed-k8s-name }} node group ID, get the [list of groups in the cluster](node-group/node-group-list.md).
   * `true` in the `version.latestRevision` parameter.
   * List of settings to update in the `updateMask` parameter.
@@ -777,7 +809,8 @@ If your cluster is set to update at any time, the required update will take plac
 
 - Management console {#console}
 
-  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of the {{ managed-k8s-name }} cluster.
   1. Under **Updates**, click **Update now**.
 
@@ -789,7 +822,8 @@ If your cluster is set to update at any time, the required update will take plac
 
 - Management console {#console}
 
-  1. Navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+  1. In the [management console]({{ link-console-main }}), select a folder.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
   1. Click the name of the {{ managed-k8s-name }} cluster.
   1. Under **Updates**, click **Reschedule**.
   1. Select a new update date and click **Reschedule**.
@@ -806,14 +840,22 @@ If your cluster is set to update at any time, the required update will take plac
 
   Where:
 
-  * `--delayed-until`: New date and time for the update, in `YYYY-MM-DDThh:mm:ssZ` format. For example, `2026-01-01T21:00:00Z`. This is a required setting.
+  * `--delayed-until`: New date and time for the update, in `YYYY-MM-DDThh:mm:ssZ` format, e.g., `2026-01-01T21:00:00Z`. This is a required setting.
 
   You can [get the {{ managed-k8s-name }} cluster ID with the list of clusters in the folder](./kubernetes-cluster/kubernetes-cluster-list.md).
 
 - API {#api}
 
-  Use the [rescheduleMaintenance](../managed-kubernetes/api-ref/Cluster/rescheduleMaintenance.md) API method and provide the following in the request:
+  {% include [api-parameters-case](../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
+  Use the [rescheduleMaintenance](../managed-kubernetes/api-ref/Cluster/rescheduleMaintenance.md) REST API method for the [Cluster](../managed-kubernetes/api-ref/Cluster) resource or the [ClusterService/RescheduleMaintenance](../managed-kubernetes/api-ref/grpc/Cluster/rescheduleMaintenance.md) gRPC API call and provide the following in the request:
   * {{ managed-k8s-name }} cluster ID in the `clusterId` parameter. To find out the {{ managed-k8s-name }} cluster ID, [get the list of clusters in the folder](kubernetes-cluster/kubernetes-cluster-list.md#list).
-  * New date and time for the update, `YYYY-MM-DDThh:mm:ssZ`, in `delayedUntil`. For example, `2026-01-01T21:00:00Z`.
+  * New date and time for the update, `YYYY-MM-DDThh:mm:ssZ`, in `delayedUntil`, e.g., `2026-01-01T21:00:00Z`.
 
 {% endlist %}
+
+{% note info %}
+
+The update may start later than specified.  
+
+{% endnote %}

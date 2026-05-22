@@ -10,7 +10,7 @@ description: Follow this guide to create a connector for {{ yds-full-name }}.
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a [connector](../../../concepts/eventrouter/connector.md).
-  1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+  1. [Go](../../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
   1. In the left-hand panel, click ![image](../../../../_assets/console-icons/object-align-center-vertical.svg) **{{ ui-key.yacloud.serverless-event-router.label_service }}**.
   1. Select the [bus](../../../concepts/eventrouter/bus.md) you need.
   1. Navigate to the ![image](../../../../_assets/console-icons/broadcast-signal.svg) **{{ ui-key.yacloud.serverless-event-router.label_connectors }}** tab.
@@ -140,7 +140,7 @@ description: Follow this guide to create a connector for {{ yds-full-name }}.
       * `consumer`: Name of the [dedicated data consumer](../../../../data-streams/concepts/glossary.md#consumers).
       * `service_account_id`: ID of the [service account](../../../../iam/concepts/users/service-accounts.md) that has read permissions for the data stream.
 
-      For more information about `yandex_serverless_eventrouter_connector` properties, see the [{{ TF }} provider documentation]({{ tf-provider-resources-link }}/serverless_eventrouter_connector).
+      For more information about `yandex_serverless_eventrouter_connector` properties, see [this provider guide]({{ tf-provider-resources-link }}/serverless_eventrouter_connector).
 
   1. Create the resources:
 

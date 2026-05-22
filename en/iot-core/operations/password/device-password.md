@@ -74,11 +74,11 @@ You can add a password to an already created device or set it when creating a de
   
   1. In the configuration file, describe the parameters of the resource to create:
 
-     * `yandex_iot_core_registry`: Device properties:
+     * `yandex_iot_core_device`: Device properties:
        * `registry_id`: [ID of the registry](../registry/registry-list.md#registry-list) where the device was created.
        * `name`: [Device name](../device/device-list.md#device-list).
        * `description`: Device description.
-       * `passwords`: List of passwords for authorization with [login and password](../../concepts/authorization.md#log-pass).
+       * `passwords`: List of passwords for authentication with a [username and password](../../concepts/authorization.md#log-pass).
 
       Here is an example of the resource structure in the configuration file:
 
@@ -95,7 +95,7 @@ You can add a password to an already created device or set it when creating a de
       }
       ```
 
-      For more information about the `yandex_iot_core_device` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_device).
+      For more information about `yandex_iot_core_device` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iot_core_device).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -115,7 +115,7 @@ You can add a password to an already created device or set it when creating a de
       terraform plan
       ```
   
-      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+      You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
   1. Apply the changes:
 
       ```bash
@@ -330,7 +330,7 @@ You can add a password to an already created device or set it when creating a de
       }
       ```
 
-      For more information about the `yandex_iot_core_device` resource parameters in {{ TF }}, see the [relevant provider documentation]({{ tf-provider-resources-link }}/iot_core_device).
+      For more information about `yandex_iot_core_device` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/iot_core_device).
   1. In the command line, change to the folder where you edited the configuration file.
   1. Make sure the configuration file is correct using this command:
 
@@ -350,7 +350,7 @@ You can add a password to an already created device or set it when creating a de
       terraform plan
       ```
   
-      You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+      You will see a detailed list of resources. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
   1. Apply the changes:
 
       ```bash

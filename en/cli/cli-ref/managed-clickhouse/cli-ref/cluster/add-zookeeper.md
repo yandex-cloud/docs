@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-clickhouse/cli-ref/cluster/add-zookeeper
 editable: false
 ---
 
@@ -40,10 +41,12 @@ Possible property names:
 
 - `zone-id`: ID of the availability zone where the new host should reside.
 
+- `type`: Type of the host to be created. Supported values: 'zookeeper', 'keeper'.
+
 - `subnet-id`: ID of the subnet that the host should be created in.
 
 - `subnet-name`: Name of the subnet that the host should be created in. ||
-|| `--convert-tables-to-replicated` | Convert tables to replicated. ||
+|| `--convert-tables-to-replicated` | Convert tables to replicated. The option is enabled by default. ||
 |#
 
 #### Global Flags

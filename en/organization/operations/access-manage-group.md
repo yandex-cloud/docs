@@ -1,6 +1,6 @@
 ---
 title: How to set up access to manage a user group in {{ org-full-name }}
-description: Follow this guide to set up access to manage a user group in {{ org-name }}.
+description: Follow this guide to set up access to manage a user group in {{ org-full-name }}.
 ---
 
 # Configuring group management access
@@ -31,7 +31,7 @@ To do this, assign [roles](../../iam/concepts/access-control/roles.md) for the g
   
   1. Navigate to the **{{ ui-key.yacloud_org.entity.group.title_tab-access }}** tab.
 
-  1. Click **{{ ui-key.yacloud.common.resource-acl.button_new-bindings }}**.
+  1. Click **{{ ui-key.yacloud_components.acl.action.assign-roles }}**.
   
   1. Select the user or [service account](../../iam/concepts/users/service-accounts.md) you want to grant access to the group. Use search, if required.
   
@@ -56,7 +56,7 @@ To do this, assign [roles](../../iam/concepts/access-control/roles.md) for the g
         --id <group_ID>
       ```
 
-   1. See the description of the CLI role assignment command:
+   1. View the description of the CLI command for assigning roles:
 
       ```bash
       yc organization-manager group set-access-bindings --help
@@ -103,21 +103,68 @@ To do this, assign [roles](../../iam/concepts/access-control/roles.md) for the g
            --access-binding role=<role>,subject=group:<group_ID>
          ```
 
-      Provide a separate `--access-binding` parameter for each role. Here is an example:
+      Provide a separate `--access-binding` parameter for each role. Example:
 
       ```bash
       yc organization-manager group set-access-bindings \
         --id <group_ID> \
-        --access-binding role=<role1>,service-account-id=<service_account_ID> \
-        --access-binding role=<role2>,service-account-id=<service_account_ID> \
-        --access-binding role=<role3>,service-account-id=<service_account_ID>
+        --access-binding role=<role_1>,service-account-id=<service_account_ID> \
+        --access-binding role=<role_2>,service-account-id=<service_account_ID> \
+        --access-binding role=<role_3>,service-account-id=<service_account_ID>
       ```
+
+- {{ TF }} {#tf}
+
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
+
+  To assign multiple roles for a user group:
+
+  1. Describe the parameters of the roles you assign in the configuration file:
+
+      ```hcl
+      resource "yandex_organizationmanager_group_iam_binding" "role1" {
+        group_id = "<group_ID>"
+        role     = "<role1>"
+        members  = ["<subject_type>:<subject_ID>"]
+      }
+
+      resource "yandex_organizationmanager_group_iam_binding" "role2" {
+        group_id = "<group_ID>"
+        role     = "<role2>"
+        members  = ["<subject_type>:<subject_ID>"]
+      }
+
+      resource "yandex_organizationmanager_group_iam_binding" "role3" {
+        group_id = "<group_ID>"
+        role     = "<role3>"
+        members  = ["<subject_type>:<subject_ID>"]
+      }
+      ```
+
+      Where:
+
+      * `group_id`: [User group ID](group-get-id.md).
+      * `role`: Role you want to assign. For each role, you can only use one `yandex_organizationmanager_group_iam_binding` resource.
+      * `members`: Array of the IDs of users to assign the role to:
+
+        * `userAccount:<user_ID>`: ID of the user Yandex account or local user ID.
+        * `federatedUser:<user_ID>`: Federated user ID.
+        * `serviceAccount:<service_account_ID>`: Service account ID.
+        * `group:<group_ID>`: User group ID.
+
+      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
+
+  1. Create the required resources:
+
+      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
+   
+  After that, the specified user will be assigned multiple roles for the user group. You can check the new roles using the [{{ cloud-center }} UI]({{ link-org-cloud-center }}).
 
 - API {#api}
 
    {% include [set-access-bindings-api](../../_includes/iam/set-access-bindings-api.md) %}
 
-   Use the [setAccessBindings](../api-ref/Group/setAccessBindings.md) method for the [Group](../api-ref/Group/index.md) resource or the [GroupService/SetAccessBindings](../api-ref/grpc/Group/setAccessBindings.md) gRPC API call. In your request, provide an array of objects, each one corresponding to a particular role and containing the following data:
+   Use the [setAccessBindings](../api-ref/Group/setAccessBindings.md) method for the [Group](../api-ref/Group/index.md) resource or the [GroupService/SetAccessBindings](../api-ref/grpc/Group/setAccessBindings.md) gRPC API call. In your request, provide an array of objects, each one matching a particular role and containing the following data:
 
    * Role in the `accessBindings[].roleId` parameter.
    * ID of the subject getting the roles in the `accessBindings[].subject.id` parameter.

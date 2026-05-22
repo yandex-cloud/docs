@@ -4,7 +4,8 @@ Create a [service account](../../../iam/concepts/users/service-accounts.md) to b
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. In the **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_field_name }}** field, specify `sa-backup-to-s3`.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `storage.editor` [role](../../../storage/security/index.md#storage-editor).
@@ -62,12 +63,6 @@ Create a [service account](../../../iam/concepts/users/service-accounts.md) to b
 
 {% note info %}
 
-To work with objects in an [encrypted](../../../storage/concepts/encryption.md) bucket, a user or [service account](../../../iam/concepts/users/service-accounts.md) must have the following [roles for the encryption key](../../../kms/operations/key-access.md) in addition to the `storage.configurer` [role](../../../storage/security/#storage-configurer.md):
-
-* `kms.keys.encrypter`: To read the key, [encrypt](../../../kms/security/index.md#kms-keys-encrypter.md) and upload objects.
-* `kms.keys.decrypter`: To read the key, [decrypt](../../../kms/security/index.md#kms-keys-decrypter.md) and download objects.
-* `kms.keys.encrypterDecrypter`: This role includes the `kms.keys.encrypter` and `kms.keys.decrypter` [permissions](../../../kms/security/index.md#kms-keys-encrypterDecrypter.md).
-
-For more information, see [{{ kms-full-name }} service roles](../../../kms/security/index.md#service-roles).
+{% include [encryption-roles](../../../_includes/storage/encryption-roles.md) %}
 
 {% endnote %}

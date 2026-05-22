@@ -22,6 +22,8 @@ description: Из статьи вы узнаете, что такое храни
 
     Хранилище на локальных SSD-дисках влияет на тарификацию кластера: он тарифицируется, даже если остановлен. Подробнее см. в разделе [Правила тарификации](../pricing.md).
 
+    {% include [local-ssd-steal](../../_includes/mdb/mpg/note-local-ssd-disk.md) %}
+
 * Вы можете добавить любое количество хостов в пределах текущей квоты при использовании следующих типов дисков:
 
     * сетевые HDD-диски (`network-hdd`);
@@ -78,6 +80,8 @@ description: Из статьи вы узнаете, что такое храни
 {% include [storage-resize-steps](../../_includes/mdb/mpg/storage-resize-steps.md) %}
 
 Настроить автоматическое увеличение размера хранилища можно при [создании](../operations/cluster-create.md) или [изменении кластера](../operations/storage-space.md#disk-size-autoscale). Если настроен порог для планового увеличения, настройте расписание окна обслуживания.
+
+{% include [storage-resize-process](../../_includes/mdb/mpg/storage-resize-process.md) %}
 
 {% include [warn-storage-resize](../../_includes/mdb/mpg/warn-storage-resize.md) %}
 

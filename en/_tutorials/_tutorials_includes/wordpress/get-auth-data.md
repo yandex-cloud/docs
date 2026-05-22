@@ -1,4 +1,4 @@
-When creating a VM, an administrator account for the web interface is created automatically. To get authentication credentials:
+When creating a VM, an administrator account for the web interface is created automatically. To get the authentication credentials:
 
 1. Use SSH to connect to the VM you created:
 

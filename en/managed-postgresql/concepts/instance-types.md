@@ -31,7 +31,7 @@ The full list of possible host configurations on each platform is provided below
 
 {% include [instance-types-code](../../_includes/mdb/instance-types-code-c3.md) %}
 
-| Host class name | Number of CPUs | CPU performance | RAM, GB | Disk <br>size, GB |
+| Host class name | Number of vCPUs | CPU performance | RAM, GB | Disk <br>size, GB |
 |-------------------|----------------|------------------------|---------|----------------------|
 | **Intel Broadwell**                                                                          |
 | b1.medium         | 2              | 50%                    | 4       | 10 – 512             |
@@ -154,3 +154,8 @@ The full list of possible host configurations on each platform is provided below
 | m4af-c48-m384     | 48             | 100%                   | 384     | 10 – 16,368           |
 | m4af-c80-m640     | 80             | 100%                   | 640     | 10 – 16,368           |
 
+
+#### See also {#see-also}
+
+* Learn how to [change host class](../operations/update.md#change-resource-preset).
+* Learn which [settings depend on host class and storage size](./settings-list.md#settings-instance-dependent).

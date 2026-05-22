@@ -1,4 +1,4 @@
-# Метод getBucketVersioning
+# Object Storage API, REST совместимый с Amazon S3: GetBucketVersioning
 
 Возвращает состояние опции версионирования бакета.
 
@@ -49,5 +49,11 @@ GET /{bucket}?versioning HTTP/2
 ----- | -----
 `VersioningConfiguration` | Корневой элемент.
 `Status` | Состояние опции версионирования бакета.<br/><br/>Путь:`/VersioningConfiguration/Status`<br/>Тип: Строка<br/>Возможные значения: `Enabled | Suspended`
+
+#### Связанные статьи {#related-articles}
+
+* [{#T}](../../../concepts/bucket.md)
+
+* [{#T}](../../../operations/buckets/versioning.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

@@ -16,16 +16,19 @@ After you create a cluster, you can update its settings:
 * [Version](#change-version)
 * [Security groups](#change-sg)
 * [Fault-tolerant query execution parameters](#change-retry-policy)
+* [Query execution settings](#change-query-params)
 * [Coordinator and worker configuration](#change-configuration)
 * [Additional cluster settings](#change-additional-settings)
 
-## Changing cluster name and description {#change-basic-settings}
+You can also change the [rules for access to cluster objects](../concepts/access-control.md); for more details, see [{#T}](access-control.md).
+
+## Changing the cluster name and description {#change-basic-settings}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}).
+    1. Open the [folder dashboard]({{ link-console-main }}).
     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, change the cluster's name and description.
@@ -39,7 +42,7 @@ After you create a cluster, you can update its settings:
 
     To change the cluster name and description:
 
-    1. See the description of the CLI command for updating a cluster:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-tr }} cluster update --help
@@ -70,7 +73,7 @@ After you create a cluster, you can update its settings:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
         
     1. Edit the `description` parameter in the cluster's description:
       
@@ -88,7 +91,7 @@ After you create a cluster, you can update its settings:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -110,7 +113,7 @@ After you create a cluster, you can update its settings:
 
         Where:
 
-        * `updateMask`: Comma-separated list of parameters to update.
+        * `updateMask`: Comma-separated string of settings to update.
 
             {% note warning %}
 
@@ -164,7 +167,7 @@ After you create a cluster, you can update its settings:
             
             You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
-        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+        * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
 
             {% cut "Format for listing settings" %}
 
@@ -205,7 +208,7 @@ After you create a cluster, you can update its settings:
           < body.json
         ```
 
-    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -215,7 +218,7 @@ After you create a cluster, you can update its settings:
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}).
+    1. Open the [folder dashboard]({{ link-console-main }}).
     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, select a service account or [create a new one](../../iam/operations/sa/create.md#create-sa) with the `managed-trino.integrationProvider` and `storage.editor` roles. The cluster will thus get the permissions it needs to work with user resources. For more information, see [Impersonation](../concepts/impersonation.md).
@@ -234,7 +237,7 @@ After you create a cluster, you can update its settings:
 
     To update a service account:
 
-    1. See the description of the CLI command for updating a cluster:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-tr }} cluster update --help
@@ -255,7 +258,7 @@ After you create a cluster, you can update its settings:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Edit the `service_account_id` parameter in the cluster's description:
       
@@ -273,7 +276,7 @@ After you create a cluster, you can update its settings:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -294,7 +297,7 @@ After you create a cluster, you can update its settings:
 
         Where:
 
-        * `updateMask`: Comma-separated list of parameters to update.
+        * `updateMask`: Comma-separated string of settings to update.
 
             {% note warning %}
 
@@ -346,7 +349,7 @@ After you create a cluster, you can update its settings:
             
             You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
-        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+        * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
 
             {% cut "Format for listing settings" %}
 
@@ -386,7 +389,7 @@ After you create a cluster, you can update its settings:
           < body.json
         ```
 
-    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -396,7 +399,7 @@ After you create a cluster, you can update its settings:
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}).
+    1. Open the [folder dashboard]({{ link-console-main }}).
     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**, select {{ TR }}. You can either upgrade or downgrade the version.
@@ -410,7 +413,7 @@ After you create a cluster, you can update its settings:
 
     To change the {{ TR }} version:
 
-    1. See the description of the CLI command for updating a cluster:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-tr }} cluster update --help
@@ -431,7 +434,7 @@ After you create a cluster, you can update its settings:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
         
     1. Edit the `version` parameter in the cluster's description:
       
@@ -449,7 +452,7 @@ After you create a cluster, you can update its settings:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -472,7 +475,7 @@ After you create a cluster, you can update its settings:
 
         Where:
 
-        * `updateMask`: Comma-separated list of parameters to update.
+        * `updateMask`: Comma-separated string of settings to update.
 
             {% note warning %}
 
@@ -526,7 +529,7 @@ After you create a cluster, you can update its settings:
             
             You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
-        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+        * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
 
             {% cut "Format for listing settings" %}
 
@@ -566,7 +569,7 @@ After you create a cluster, you can update its settings:
           < body.json
         ```
 
-    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -576,7 +579,7 @@ After you create a cluster, you can update its settings:
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}).
+    1. Open the [folder dashboard]({{ link-console-main }}).
     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_network-settings }}**, select security groups for the cluster.
@@ -590,7 +593,7 @@ After you create a cluster, you can update its settings:
 
     To update security groups:
 
-    1. See the description of the CLI command for updating a cluster:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-tr }} cluster update --help
@@ -611,7 +614,7 @@ After you create a cluster, you can update its settings:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Edit the `security_group_ids` parameter in the cluster's description:
       
@@ -629,7 +632,7 @@ After you create a cluster, you can update its settings:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -654,7 +657,7 @@ After you create a cluster, you can update its settings:
 
         Where:
 
-        * `updateMask`: Comma-separated list of parameters to update.
+        * `updateMask`: Comma-separated string of settings to update.
 
             {% note warning %}
 
@@ -710,7 +713,7 @@ After you create a cluster, you can update its settings:
             
             You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
-        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+        * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
 
             {% cut "Format for listing settings" %}
 
@@ -752,7 +755,7 @@ After you create a cluster, you can update its settings:
           < body.json
         ```
 
-    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -762,7 +765,7 @@ After you create a cluster, you can update its settings:
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}).
+    1. Open the [folder dashboard]({{ link-console-main }}).
     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **Retry policy**, update the [fault-tolerant query execution](../concepts/retry-policy.md) parameters:
@@ -783,7 +786,7 @@ After you create a cluster, you can update its settings:
 
     To update [fault-tolerant query execution](../concepts/retry-policy.md) parameters:
 
-    1. See the description of the CLI command for updating a cluster:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-tr }} cluster update --help
@@ -815,13 +818,13 @@ After you create a cluster, you can update its settings:
           
         * `--retry-policy-exchange-manager-additional-properties`: Additional Exchange Manager storage parameters in `<key>=<value>` format. [Learn more about parameters in the {{ TR }} documentation]({{ tr.docs }}/admin/fault-tolerant-execution.html#id1).
 
-        You can get the cluster name and ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.   
+        You can get the cluster name and ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. To enable a [fault-tolerant query execution](../concepts/retry-policy.md) policy, add a `retry_policy` section to the cluster description:
       
@@ -831,7 +834,7 @@ After you create a cluster, you can update its settings:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -863,7 +866,7 @@ After you create a cluster, you can update its settings:
 
         Where:
 
-        * `updateMask`: Comma-separated list of parameters to update.
+        * `updateMask`: Comma-separated string of settings to update.
 
             {% note warning %}
 
@@ -935,7 +938,7 @@ After you create a cluster, you can update its settings:
             
             You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
-        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+        * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
 
             {% cut "Format for listing settings" %}
 
@@ -984,7 +987,184 @@ After you create a cluster, you can update its settings:
           < body.json
         ```
 
-    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+{% endlist %}
+
+## Updating query execution settings {#change-query-params}
+
+{% list tabs group=instructions %}
+
+- CLI {#cli}
+
+    {% include [cli-install](../../_includes/cli-install.md) %}
+
+    {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+    To update the settings of query execution and cluster resource allocation for queries:
+
+    1. View the description of the CLI command for updating a cluster:
+
+        ```bash
+        {{ yc-mdb-tr }} cluster update --help
+        ```
+
+    1. Run the following command to update the settings of query execution and cluster resource allocation for queries:
+
+        ```bash
+        {{ yc-mdb-tr }} cluster update <cluster_name_or_ID> \
+          --query-properties <list_of_settings>
+        ```
+
+        Where:
+
+        * `--query-properties`: Settings of query execution and cluster resource allocation for queries in `<key>=<value>` format.
+
+          {% note warning %}
+
+          All settings not explicitly provided in the list will be reset to their defaults. To avoid it, list both the settings to update and the settings to preserve.
+
+          {% endnote %}
+
+          Learn more about [settings of cluster resource allocation for queries]({{ tr.docs}}/admin/properties-resource-management.html) and [query execution settings]({{ tr.docs}}/admin/properties-query-management.html).
+
+        You can get the cluster name and ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
+
+- {{ TF }} {#tf}
+
+    1. Open the current {{ TF }} configuration file describing your infrastructure.
+
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
+
+    1. Under `query_properties`, update the settings of query execution and cluster resource allocation for queries:
+
+        {% include [Terraform query properties description](../../_includes/managed-trino/terraform/query-properties.md) %}
+
+    1. Make sure the settings are correct.
+
+        {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
+
+    1. Confirm resource changes.
+
+        {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
+- REST API {#api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. Create a file named `body.json` and paste the following code into it:
+
+        ```json
+        {
+          "updateMask": "trino.resourceManagement.query.properties",
+          "trino": {
+            "resourceManagement": {
+              "query": {
+                "properties": {
+                  <query_execution_settings>,
+                  <settings_of_cluster_resource_allocation_for_queries>
+                }
+              }
+            }
+          }
+        }
+        ```
+
+        Where:
+
+        * `updateMask`: Comma-separated string of settings to update. Here, we only specified a single setting that contains all the settings.
+
+        * `resourceManagement.query.properties`: Settings of query execution and cluster resource allocation for queries in `key:value` format.
+
+          {% note warning %}
+
+          All settings not explicitly provided in the object will be reset to their defaults. To avoid it, list both the settings to update and the settings to preserve.
+
+          {% endnote %}
+
+          Learn more about [settings of cluster resource allocation for queries]({{ tr.docs}}/admin/properties-resource-management.html) and [query execution settings]({{ tr.docs}}/admin/properties-query-management.html).
+
+    1. Call the [Cluster.Update](../api-ref/Cluster/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+
+        ```bash
+        curl \
+          --request PATCH \
+          --header "Authorization: Bearer $IAM_TOKEN" \
+          --url 'https://{{ api-host-trino }}/managed-trino/v1/clusters/<cluster_ID>'
+          --data '@body.json'
+        ```
+
+        You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
+
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+
+- gRPC API {#grpc-api}
+
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
+
+        {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
+
+    1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
+
+    1. Create a file named `body.json` and paste the following code into it:
+
+        ```json
+        {
+          "cluster_id": "<cluster_ID>",
+          "update_mask": {
+            "paths": [
+              "trino.resource_management.query.properties"
+            ]
+          },
+          "trino": {
+            "resource_management": {
+              "query": {
+                "properties": {
+                  <query_execution_settings>,
+                  <settings_of_cluster_resource_allocation_for_queries>
+                }
+              }
+            }
+          }
+        }
+        ```
+
+        Where:
+
+        * `cluster_id`: Cluster ID.
+
+            You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
+
+        * `update_mask`: List of settings to update as an array of strings (`paths[]`). Here, we only specified a single setting that contains all the settings.
+
+        * `resource_management.query.properties`: Settings of query execution and cluster resource allocation for queries in `key:value` format.
+
+          {% note warning %}
+
+          All settings not explicitly provided in the object will be reset to their defaults. To avoid it, list both the settings to update and the settings to preserve.
+
+          {% endnote %}
+
+          Learn more about [settings of cluster resource allocation for queries]({{ tr.docs}}/admin/properties-resource-management.html) and [query execution settings]({{ tr.docs}}/admin/properties-query-management.html).
+
+    1. Call the [ClusterService.Update](../api-ref/grpc/Cluster/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+
+        ```bash
+        grpcurl \
+          -format json \
+          -import-path ~/cloudapi/ \
+          -import-path ~/cloudapi/third_party/googleapis/ \
+          -proto ~/cloudapi/yandex/cloud/trino/v1/cluster_service.proto \
+          -rpc-header "Authorization: Bearer $IAM_TOKEN" \
+          -d @ \
+          {{ api-host-trino }}:{{ port-https }} \
+          yandex.cloud.trino.v1.ClusterService.Update \
+          < body.json
+        ```
+
+    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
@@ -994,7 +1174,7 @@ After you create a cluster, you can update its settings:
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}).
+    1. Open the [folder dashboard]({{ link-console-main }}).
     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Change the configuration of the [coordinator](../concepts/index.md#coordinator) and [workers](../concepts/index.md#workers).
@@ -1008,7 +1188,7 @@ After you create a cluster, you can update its settings:
 
     To change the configuration of the [coordinator](../concepts/index.md#coordinator) and [workers](../concepts/index.md#workers):
 
-    1. See the description of the CLI command for updating a cluster:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-tr }} cluster update --help
@@ -1046,7 +1226,7 @@ After you create a cluster, you can update its settings:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Edit the [coordinator](../concepts/index.md#coordinator) and [worker](../concepts/index.md#workers) configuration under `coordinator` and `worker`, respectively:
       
@@ -1096,7 +1276,7 @@ After you create a cluster, you can update its settings:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1137,7 +1317,7 @@ After you create a cluster, you can update its settings:
 
         Where:
 
-        * `updateMask`: Comma-separated list of parameters to update.
+        * `updateMask`: Comma-separated string of settings to update.
 
             {% note warning %}
 
@@ -1226,7 +1406,7 @@ After you create a cluster, you can update its settings:
             
             You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
-        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+        * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
 
             {% cut "Format for listing settings" %}
 
@@ -1283,24 +1463,24 @@ After you create a cluster, you can update its settings:
           < body.json
         ```
 
-    1. View the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 
-## Changing additional cluster settings {#change-additional-settings}
+## Configuring advanced cluster settings {#change-additional-settings}
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-    1. Go to the [folder page]({{ link-console-main }}).
+    1. Open the [folder dashboard]({{ link-console-main }}).
     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
-    1. Change additional cluster settings:
+    1. Configure advanced cluster settings:
         
         * **{{ ui-key.yacloud.mdb.forms.label_deletion-protection }}**: Cluster protection from accidental deletion by a user.
 
-            Even with deletion protection enabled, one can still connect to the cluster manually and delete the data.
+            Even with deletion protection on, one can still connect to the cluster manually and delete the data.
         
         * **{{ ui-key.yacloud.mdb.forms.maintenance-window-type }}**: [Maintenance window](../concepts/maintenance.md) settings.
 
@@ -1327,9 +1507,9 @@ After you create a cluster, you can update its settings:
 
     {% include [default-catalogue](../../_includes/default-catalogue.md) %}
 
-    To change additional cluster settings:
+    To change advanced cluster settings:
 
-    1. See the description of the CLI command for updating a cluster:
+    1. View the description of the CLI command for updating a cluster:
 
         ```bash
         {{ yc-mdb-tr }} cluster update --help
@@ -1354,7 +1534,7 @@ After you create a cluster, you can update its settings:
 
         * `--deletion-protection`: Enables cluster protection against accidental deletion.
           
-            Even with deletion protection enabled, one can still connect to the cluster manually and delete the data.
+            Even with deletion protection on, one can still connect to the cluster manually and delete the data.
         
         * `--maintenance-window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters), where `type` is the maintenance type:
 
@@ -1366,7 +1546,7 @@ After you create a cluster, you can update its settings:
           * `--log-folder-id`: Folder ID. Logs will be written to the default [log group](../../logging/concepts/log-group.md) for this folder.
           * `--log-group-id`: Custom [log group](../../logging/concepts/log-group.md) ID.
 
-            You can specify only one of the parameters: `--log-folder-id` or `--log-group-id`.
+            You can specify either `--log-folder-id` or `--log-group-id` but not both.
 
           * `--log-min-level`: Minimum logging level. Possible values: `TRACE`, `DEBUG`, `INFO` (default), `WARN`, `ERROR`, and `FATAL`.
         
@@ -1382,7 +1562,7 @@ After you create a cluster, you can update its settings:
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        To learn how to create this file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. To enable cluster protection against accidental deletion, add the `deletion_protection = true` parameter:
         
@@ -1396,7 +1576,7 @@ After you create a cluster, you can update its settings:
 
         Where `deletion_protection` is the cluster protection from accidental deletion: `true` or `false`.
 
-        Even with deletion protection enabled, one can still connect to the cluster manually and delete the data.
+        Even with deletion protection on, one can still connect to the cluster manually and delete the data.
 
     1. To change maintenance time (including for disabled clusters), add the `maintenance_window` section to the cluster description:
 
@@ -1416,7 +1596,7 @@ After you create a cluster, you can update its settings:
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -1452,7 +1632,7 @@ After you create a cluster, you can update its settings:
 
         Where:
 
-        * `updateMask`: Comma-separated list of parameters to update.
+        * `updateMask`: Comma-separated string of settings to update.
 
             {% note warning %}
 
@@ -1460,9 +1640,9 @@ After you create a cluster, you can update its settings:
 
             {% endnote %}
 
-        * `deletionProtection`: Cluster protection against accidental deletion, `true` or `false`.
+        * `deletionProtection`: Cluster deletion protection, `true` or `false`.
 
-            Even if it is enabled, one can still connect to the cluster manually and delete it.
+            Even with deletion protection on, one can still connect to the cluster manually and delete it.
 
         * `logging`: Logging parameters:
 
@@ -1470,7 +1650,7 @@ After you create a cluster, you can update its settings:
             * `folderId`: Folder ID. Logs will be written to the default [log group](../../logging/concepts/log-group.md) for this folder.
             * `logGroupId`: Custom [log group](../../logging/concepts/log-group.md) ID.
 
-                You can specify only one of the parameters: `folderId` or `logGroupId`.
+                You can specify either `folderId` or `logGroupId` but not both.
 
             * `minLevel`: Minimum logging level. Possible values: `TRACE`, `DEBUG`, `INFO` (default), `WARN`, `ERROR`, and `FATAL`.
 
@@ -1550,7 +1730,7 @@ After you create a cluster, you can update its settings:
             
             You can get the cluster ID with the [list of clusters](cluster-list.md#list-clusters) in the folder.
 
-        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+        * `update_mask`: List of parameters to update as an array of strings (`paths[]`).
 
             {% cut "Format for listing settings" %}
 
@@ -1573,9 +1753,9 @@ After you create a cluster, you can update its settings:
 
             {% endnote %}
 
-        * `deletion_protection`: Cluster protection against accidental deletion, `true` or `false`.
+        * `deletion_protection`: Cluster deletion protection, `true` or `false`.
 
-            Even with deletion protection enabled, one can still connect to the cluster manually and delete the data.
+            Even with deletion protection on, one can still connect to the cluster manually and delete the data.
 
         * `logging`: Logging parameters:
 
@@ -1583,7 +1763,7 @@ After you create a cluster, you can update its settings:
             * `folder_id`: Folder ID. Logs will be written to the default [log group](../../logging/concepts/log-group.md) for this folder.
             * `log_group_id`: Custom [log group](../../logging/concepts/log-group.md) ID.
 
-                You can specify only one of the parameters: `folderId` or `logGroupId`.
+                You can specify either `folderId` or `logGroupId` but not both.
 
             * `min_level`: Minimum logging level. Possible values: `TRACE`, `DEBUG`, `INFO` (default), `WARN`, `ERROR`, and `FATAL`.
 
@@ -1591,7 +1771,7 @@ After you create a cluster, you can update its settings:
 
         * `maintenance_window`: [Maintenance window](../concepts/maintenance.md) settings (including for disabled clusters). Provide one of these two parameters:
 
-            * `anytime`: Maintenance takes place at any time.
+            * `anytime`: Maintenance can occur at any time.
             * `weekly_maintenance_window`: Maintenance takes place once a week at the specified time:
             
               * `day`: Day of week for the `WEEKLY` type, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.

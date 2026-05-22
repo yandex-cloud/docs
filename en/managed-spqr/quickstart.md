@@ -55,10 +55,11 @@ To get started:
 ## Create a cluster {#cluster-create}
 
 1. In the [management console]({{ link-console-main }}), select the folder where you want to create a {{ SPQR }} cluster.
-1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}**.
+1. [Navigate to](../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-spqr }}** service.
 1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
 1. In the **{{ ui-key.yacloud.mdb.forms.base_field_name }}** field, enter a name for the cluster.
 1. Select the `PRODUCTION` environment.
+
 1. Select the sharding type:
 
     * **{{ ui-key.yacloud.spqr.section_sharding-type-standard }}**: Cluster will consist only of infrastructure hosts.
@@ -86,14 +87,15 @@ To get started:
 
          If you plan to connect to the cluster from the internet, enable **{{ ui-key.yacloud.mdb.forms.host_column_assign_public_ip }}** for the hosts.
 
-1. Optionally, under **{{ ui-key.yacloud.spqr.section_coordinator }}**, enable **{{ ui-key.yacloud.spqr.field_coordinator }}** and specify the coordinator host configuration.
-1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify:
+1. Optionally, under **{{ ui-key.yacloud.spqr.section_coordinator }}**, configure the coordinator hosts.
+
+1. Under **{{ ui-key.yacloud.mdb.forms.section_database }}**, specify parameters of the database in which you can run queries to tables in shards:
 
     * Database name. It must be unique within the folder.
     * Database owner username.
     * Password.
 
-1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, specify the password for the {{ SPQR }} console.
+1. Under **{{ ui-key.yacloud.mdb.forms.section_additional }}**, specify the password for the {{ SPQR }} console, where you can configure sharding rules. Learn more about the {{ SPQR }} console [here](https://docs.pg-sharding.tech/sharding/console/how_to_connect).
 1. Click **{{ ui-key.yacloud.mdb.forms.button_create }}**.
 1. Wait until the cluster is ready to work: its status will change to **Running**, and its state to **Alive**. To check its state, hover over the cluster status in the **{{ ui-key.yacloud.common.availability }}** column.
 
@@ -126,7 +128,7 @@ Make sure the router can connect to shard hosts. For this to work, the shards an
 
 - Linux (Bash)/macOS (Zsh) {#linux-macos}
 
-    1. Get an SSL certificate:
+    1. Obtain an SSL certificate:
 
         ```bash
         mkdir -p ~/.postgresql && \
@@ -147,7 +149,7 @@ Make sure the router can connect to shard hosts. For this to work, the shards an
 
     1. Install the latest version of [{{ PG }} for Windows](https://www.postgresql.org/download/windows/). Install only the _Command Line Tools_.
 
-    1. Get an SSL certificate:
+    1. Obtain an SSL certificate:
 
         ```powershell
         mkdir $HOME\.postgresql; curl.exe -o $HOME\.postgresql\root.crt {{ crt-web-path }}
@@ -225,7 +227,7 @@ If you are using security groups for your cloud network, [configure them](operat
 
     {% note warning %}
 
-    Create key value ranges ​starting with the largest value. Breaking this order will result in the `key range krid2 intersects with key range krid1 in QDB` error. For the range with the largest key value, the right boundary will equal infinity.
+    Create key value ranges starting with the largest value. Breaking this order will result in the `key range krid2 intersects with key range krid1 in QDB` error. For the range with the largest key value, the right boundary will equal infinity.
 
     {% endnote %}
 
@@ -311,7 +313,7 @@ If you are using security groups for your cloud network, [configure them](operat
     SELECT * FROM customers WHERE id = 28;
     ```
 
-    The `SELECT * FROM customers;` query will result in an error because the rows are distributed across different shards. You can only get rows from one shard at a time. To check the distribution of rows across shards, [connect to each shard](../managed-postgresql/operations/connect.md) and view the added entries.
+    The `SELECT * FROM customers;` query will result in an error because the rows are distributed across different shards. You can only get rows from one shard at a time. To check the distribution of rows across shards, [connect to each shard](../managed-postgresql/operations/connect/index.md) and view the added entries.
 
 1. To exit the database, run the `\q` command.
 

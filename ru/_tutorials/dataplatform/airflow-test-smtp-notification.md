@@ -2,7 +2,7 @@
 
 {% include [af-restriction-version](../../_includes/mdb/maf/af-restriction-version.md) %}
 
-Вы может настроить SMTP-сервер для отправки уведомлений по электронной почте с помощью [направленного ациклического графа (DAG)](../../managed-airflow/concepts/index.md#about-the-service). Данные для подключения к БД хранятся в {{ lockbox-name }} и автоматически подставляются в граф.
+Вы может настроить SMTP-сервер для отправки уведомлений по электронной почте с помощью [направленного ациклического графа (DAG)](../../managed-airflow/concepts/index.md#about-the-service). Данные для подключения к БД хранятся в {{ lockbox-full-name }} и автоматически подставляются в граф.
 
 Чтобы реализовать настройку SMTP-сервера для отправки уведомлений по электронной почте:
 
@@ -12,6 +12,18 @@
 1. [Проверьте результат](#check-result).
 
 Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+
+
+## Перед началом работы {#before-you-begin}
+
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+### Необходимые платные ресурсы {#paid-resources}
+
+* Кластер {{ maf-name }}: вычислительные ресурсы компонентов кластера (см. [тарифы {{ maf-name }}](../../managed-airflow/pricing.md)).
+* Бакет {{ objstorage-full-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+* Секрет {{ lockbox-name }}: количество хранимых версий секрета и запросы к ним (см. [тарифы {{ lockbox-name }}](../../lockbox/pricing.md)).
+
 
 ## Подготовьте инфраструктуру {#create-infrastracture}
 
@@ -44,18 +56,7 @@
 
    Заполните поля вручную или загрузите конфигурацию из файла (см. [пример конфигурационного файла](https://{{ s3-storage-host }}/doc-files/managed-airflow/airflow.cfg)).
 
-
-### Необходимые платные ресурсы {#paid-resources}
-
-В стоимость поддержки описываемого решения входят:
-
-* Плата за кластер {{ maf-name }}: использование вычислительных ресурсов, выделенных хостам, и дискового пространства (см. [тарифы {{ maf-name }}](../../managed-airflow/pricing.md)).
-* Плата за использование публичных IP-адресов, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
-* Плата за бакет {{ objstorage-name }}: хранение данных и выполнение операций с ними (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
-* Плата за {{ lockbox-name }}: хранение секретов (см. [тарифы {{ lockbox-name }}](../../lockbox/pricing.md)).
-
-
-## Создайте секрет {{ lockbox-full-name }} {#create-lockbox-secret}
+## Создайте секрет {{ lockbox-name }} {#create-lockbox-secret}
 
 [Создайте секрет {{ lockbox-name }}](../../lockbox/operations/secret-create.md) с именем `airflow/connections/smtp_default` и содержимым `json.dumps(conn)`, где `conn` — подключение к SMTP-серверу.
 

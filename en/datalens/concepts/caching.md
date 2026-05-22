@@ -23,6 +23,7 @@ If [RLS](../security/row-level-security.md) is used, additional filtering is add
 {{ datalens-short-name }} caches the results of queries generated using [selectors](../dashboard/selector.md). To reduce the number of DB queries, use the default values in the selectors.
 
 
+
 ## Caching in public objects {#caching-in-public}
 
 [Public](./datalens-public.md) charts and dashboards benefit from additional caching, so the cache lifetime for them is five minutes or more.

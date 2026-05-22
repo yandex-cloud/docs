@@ -1,6 +1,6 @@
 # Экспортировать расширенную детализацию
 
-Вы можете получать CSV-файл с общей или поресурсной детализацией расходов. Файл можно скачать разово или настроить получение на постоянной основе.
+Вы можете получать CSV-файл с общей или поресурсной детализацией расходов. Файл можно [скачать](#single-time-download) разово или [настроить](#regular-download) получение на постоянной основе.
 
 ## Разовый экспорт {#single-time-download}
 
@@ -11,33 +11,46 @@
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Выберите аккаунт, для которого хотите получить детализацию.
   1. На панели слева выберите ![image](../../_assets/console-icons/square-chart-column.svg) **{{ ui-key.yacloud_billing.billing.account.switch_detail }}**.
-  1. Справа вверху нажмите **Еще** и выберите **{{ ui-key.yacloud_billing.billing.account.detail.button_download-csv }}**.
-  1. Выберите промежуток времени, за который хотите получить детализацию.
-  1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.detail.popup-csv_button_download }}**.
+  1. Справа вверху нажмите **Ещё** и выберите **{{ ui-key.yacloud_org.billing.account.detail.button_download-details }}**.
+  1. В открывшемся окне выберите:
+     * Формат выгрузки — `CSV` или `PDF`.
+     * Промежуток времени, за который хотите получить детализацию.
+     * Язык отображения названий продуктов — `{{ ui-key.yacloud_org.billing.account.exports.locale_value_ru-lang }}` или `{{ ui-key.yacloud_org.billing.account.exports.locale_value_en-lang }}`.
+     * Тип детализации — `{{ ui-key.yacloud_billing.billing.account.exports.label_not-include-resources }}` или `{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}`.
+  1. Нажмите кнопку **{{ ui-key.yacloud_org.billing.account.detail.popup-export_button_download }}**.
 
 {% endlist %}
 
-## Настройка регулярного экспорта {#set-up-regular-download}
+## Регулярный экспорт {#regular-download}
 
 ### Перед началом работы {#before-you-begin}
 
 1. Если у вас еще нет разделения на [каталоги](../../resource-manager/concepts/resources-hierarchy.md#folder), [создайте каталог](../../resource-manager/operations/folder/create.md). В названии каталога укажите имя проекта или клиента, который будет использовать его.
 
 1. [Создайте бакет](../../storage/operations/buckets/create.md) в сервисе {{ objstorage-full-name }}. В этом бакете {{ yandex-cloud }} будет сохранять файлы с детализацией. Вы можете сохранять детализацию в нескольких бакетах.
+   
+    {% note alert %}
+    
+    {% include [billing-partner-bucket-alert](../../_includes/billing-partner-bucket-alert.md) %}
 
-   {% note alert %}
+    {% endnote %}
 
-   Требования к бакету:
- 
-   * Не делайте бакет публичным, иначе любой сможет скачать вашу детализацию по ссылке на бакет.
-   * Не добавляйте [шифрование](../../storage/concepts/encryption.md) бакету.
-   * Не настраивайте [политику доступа](../../storage/concepts/policy.md) для бакета.
+1. (Опционально) Для дополнительной защиты детализации настройте [шифрование бакета](../../storage/operations/buckets/encrypt.md).
+   Чтобы экспортировать детализацию в бакет с шифрованием, необходим сервисный аккаунт, который будет обслуживать экспорт. Для управления этим сервисным аккаунтом платежному аккаунту должна быть назначена роль `iam.serviceAccounts.user`.
 
-   {% endnote %}
+1. Убедитесь, что вашему платежному аккаунту назначены необходимые роли для операций с регулярным экспортом.
+   Создание, прекращение и возобновление регулярных экспортов доступны пользователям с одной из следующих ролей:
+     * `billing.accounts.editor`;
+     * `billing.accounts.accountant`;
+     * `billing.accounts.varWithoutDiscounts`.
+   
+   Просмотр регулярных экспортов доступен пользователям с одной из следующих ролей:
+     * `billing.accounts.viewer`;
+     * `billing.accounts.varWithoutDiscount`.
+  
+  Подробнее см. [Сервисные роли в {{ billing-name }}](../../billing/security/index.md).
 
-1. Проверьте, что у вас есть одна из ролей: `billing.accounts.owner`, `billing.accounts.admin`, `billing.accounts.editor`.
-
-### Получите детализацию расходов {#download-detail}
+### Настроить регулярный экспорт {#set-up-regular-download}
 
 {% list tabs group=instructions %}
 
@@ -45,34 +58,126 @@
 
   1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
   1. Выберите аккаунт, для которого хотите получить детализацию.
-  1. На панели слева выберите **{{ ui-key.yacloud_billing.billing.account.switch_exports }}**.
-  1. Нажмите кнопку **{{ ui-key.yacloud_billing.billing.account.exports.button_create-periodic-export }}**.
-  1. В открывшемся окне **{{ ui-key.yacloud_billing.billing.account.exports.label_create-export-title }}**:
-     * В поле **{{ ui-key.yacloud_org.billing.account.exports.field_bucket }}** укажите имя бакета, где будет храниться CSV-файл с детализацией.
-     * В поле **{{ ui-key.yacloud_org.billing.account.exports.field_prefix }}** укажите название папки для файла. Последний символ должен быть `/`.
-     * В поле **{{ ui-key.yacloud_org.billing.account.exports.field_locale }}** выберите язык отображения названий продуктов – `{{ ui-key.yacloud_org.billing.account.exports.locale_value_ru-lang }}` или `{{ ui-key.yacloud_org.billing.account.exports.locale_value_en-lang }}`.
-     * В поле **{{ ui-key.yacloud_org.billing.account.exports.field_detail-type }}** выберите тип детализации — `{{ ui-key.yacloud_billing.billing.account.exports.label_not-include-resources }}` или `{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}`.
+  1. Перейдите к настройке регулярного экспорта:
+   
+      {% list tabs %}
+
+       - Раздел {{ ui-key.yacloud_billing.billing.account.switch_detail }}
+  
+         1. На панели слева выберите ![image](../../_assets/console-icons/square-chart-column.svg) **{{ ui-key.yacloud_billing.billing.account.switch_detail }}**.
+         1. Справа вверху нажмите **Ещё** и выберите **{{ ui-key.yacloud_org.billing.account.detail.button_create-periodic-export }}**.
+
+      - Раздел {{ ui-key.yacloud_billing.billing.account.switch_exports }}
+
+          1. На панели слева выберите ![image](../../_assets/console-icons/arrow-up-from-square.svg) **{{ ui-key.yacloud_billing.billing.account.switch_exports }}**.
+          1. Нажмите **{{ ui-key.yacloud_billing.billing.account.exports.button_create-periodic-export }}**.
+
+      {% endlist %}
+
+  1. В открывшемся окне укажите:
+     * Имя бакета, где будет храниться CSV-файл с детализацией.
+     * При выборе бакета с шифрованием укажите существующий сервисный аккаунт или создайте новый:
+  
+        {% list tabs %}
+
+          - Существующий аккаунт
+  
+              1. В поле **{{ ui-key.yacloud_org.billing.account.exports.column_service_account }}** укажите сервисный аккаунт.
+              1. При появлении сообщения о недостающих ролях нажмите кнопку **{{ ui-key.yacloud_org.billing.providers.button_ca-roles-update }}** и дождитесь сообщения об их добавлении.
+
+          - Новый аккаунт
+
+              1. В поле **{{ ui-key.yacloud_org.billing.account.exports.column_service_account }}** нажмите **{{ ui-key.yacloud_org.billing.exports.ServiceAccountAddField.addNewServiceAccount  }}**.
+              1. Введите имя сервисного аккаунта.
+              1. Нажмите **{{ ui-key.yacloud_org.common.save }}**.
+          
+          {% endlist %}
+    
+      {% note info %}
+
+       Один сервисный аккаунт может обслуживать несколько регулярных экспортов. При этом на каждый зашифрованный бакет и KMS-ключ необходимо назначать [роли](#before-you-begin) отдельно.
+
+      {% endnote %}
+
+     * Название папки для файла детализации. Последний символ должен быть `/`.
+     * Язык отображения названий продуктов – `{{ ui-key.yacloud_org.billing.account.exports.locale_value_ru-lang }}` или `{{ ui-key.yacloud_org.billing.account.exports.locale_value_en-lang }}`.
+     * Тип детализации — `{{ ui-key.yacloud_billing.billing.account.exports.label_not-include-resources }}` или `{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}`.
 
          {% note tip %}
 
-         Выбирая тип `{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}` для регулярного экспорта детализации, вы сможете просматривать в [поле `resource_id`](#format), в том числе, и ресурсы сервисов {{ datalens-full-name }}, {{ tracker-full-name }} и {{ ml-platform-name }}, например [идентификаторы сообществ {{ ml-platform-name }}](../../datasphere/concepts/community.md).
+         Выбирая тип `{{ ui-key.yacloud_billing.billing.account.exports.label_include-resources }}` для регулярного экспорта детализации, вы сможете просматривать в [поле `resource_id`](#format) ресурсы сервисов {{ datalens-full-name }}, {{ tracker-full-name }} и {{ ml-platform-name }}, например [идентификаторы сообществ {{ ml-platform-name }}](../../datasphere/concepts/community.md).
 
          {% endnote %}
 
-  1. (Опционально) Чтобы экспортировать данные за предыдущий период, активируйте соответствующую опцию. В появившемся поле **Загрузить отчеты начиная с** выберите дату начала загрузки отчетов.
+  1. (Опционально) Чтобы добавить данные за предыдущий период, включите опцию **{{ ui-key.yacloud_org.billing.account.exports.field_period }}**. В появившемся поле **{{ ui-key.yacloud_org.billing.account.exports.field_date }}** выберите дату, с которой вы хотите получить детализацию. Данные доступны с момента создания платежного аккаунта.
+
   1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
 
 {% endlist %}
 
-Каждый день в бакете создается новый файл с детализацией. В имени файла указывается префикс и дата, за которую собрана детализация. Файл перезаписывается каждый час, дополняясь новыми данными.
+{% include [billing-partner-detalization-file-info](../../_includes/billing-partner-detalization-file-info.md) %}
 
-Информация может быть обновлена в любом дневном файле в течение месяца.
+### Прекратить регулярный экспорт {#stop-export}
 
-{% note tip %}
+{% list tabs group=instructions %}
 
-Файлы с детализацией из бакета автоматически не удаляются, но вы можете настроить периодическое удаление файлов. Подробнее читайте в разделе [Жизненный цикл объектов](../../storage/concepts/lifecycles.md) (в терминах {{ objstorage-name }} файлы в бакете называются _объектами_).
+- {{ billing-interface }} {#billing}
 
-{% endnote %}
+  1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+  1. Выберите аккаунт, для которого хотите прекратить регулярный экспорт.
+  1. На панели слева выберите ![image](../../_assets/console-icons/arrow-up-from-square.svg) **{{ ui-key.yacloud_billing.billing.account.switch_exports }}**.
+  1. Напротив регулярного экспорта нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **Удалить**.
+
+{% endlist %}
+
+### Возобновить регулярный экспорт {#recover-export}
+
+Экспорт, который завершился с ошибкой (статус `Failed`), можно возобновить. Устраните ошибку и возобновите выгрузку:
+
+{% list tabs group=instructions %}
+
+- {{ billing-interface }} {#billing}
+
+  1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+  1. Выберите аккаунт, для которого хотите возобновить экспорт.
+  1. На панели слева выберите ![image](../../_assets/console-icons/arrow-up-from-square.svg) **{{ ui-key.yacloud_billing.billing.account.switch_exports }}**.
+  1. Напротив регулярного экспорта нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите **{{ ui-key.yacloud_billing.billing.account.exports.button_resume-export }}**.
+
+{% endlist %}
+
+### Просмотреть регулярные экспорты {#view-export}
+
+Для просмотра доступны все созданные регулярные экспорты и информация о них: бакет, префикс, тип детализации, статус, идентификатор, дата последнего изменения и дата создания.
+
+{% list tabs group=instructions %}
+
+- {{ billing-interface }} {#billing}
+
+  1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+  1. Выберите аккаунт, у которого хотите посмотреть детализацию.
+  1. На панели слева выберите ![image](../../_assets/console-icons/arrow-up-from-square.svg) **{{ ui-key.yacloud_billing.billing.account.switch_exports }}**.
+  1. Выберите файл с детализацией.
+
+{% endlist %}
+
+### Довыгрузка данных в регулярный экспорт {#additional-export}
+
+Чтобы выгрузить данные за прошлые периоды, которых не было в ранее созданном экспорте:
+
+{% list tabs group=instructions %}
+
+- {{ billing-interface }} {#billing}
+
+  1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+  1. Выберите аккаунт, для которого хотите довыгрузить данные в регулярный экспорт.
+  1. На панели слева выберите ![image](../../_assets/console-icons/arrow-up-from-square.svg) **{{ ui-key.yacloud_billing.billing.account.switch_exports }}**.
+  1. Напротив нужного регулярного экспорта нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_org.billing.account.exports.button_force-reexport }}**.
+  1. В поле **{{ ui-key.yacloud_org.billing.account.force-reexport.field_range }}** укажите необходимый диапазон дат и нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. Дождитесь сообщения о применении довыгрузки к регулярному экспорту.
+
+  Данные будут выгружены при следующем обновлении регулярного экспорта.
+
+{% endlist %}
 
 ## Формат файла с детализацией расходов {#format}
 
@@ -115,9 +220,9 @@
 * `cud_credit` — скидка за [резервированное потребление](../concepts/cvos.md) ресурса. Стоимость объема потребления сверх резервированного будет равна сумме значений столбцов `cost` и `credit`. Десятичный разделитель — точка.
 * `misc_credit` — остальные виды скидок, в том числе скидки за потребление ресурсов после окончания действия гранта на знакомство с платформой, но до перехода на платную версию. Десятичный разделитель — точка.
 * `label.user_labels.<имя_метки>` — метки, проставленные ресурсам. Как управлять метками описано в разделе [{#T}](../../resource-manager/operations/manage-labels.md).
-* `locale` — язык каждой строки в выгрузке. От значения поля зависит язык столбца `sku_name`. Возможные значения `en` и `ru`.
+* `locale` — язык каждой строки в выгрузке. От значения поля зависит язык столбца `sku_name`. Возможные значения: `en` и `ru`.
 * `updated_at` — дата и время последнего изменения строки в формате [Unix Timestamp](https://www.unixtimestamp.com).
-* `exported_at` — дата и время добавления строки в файл детализации.
+* `exported_at` — дата и время добавления строки в файл детализации в формате [ISO 8601](https://{{ lang }}.wikipedia.org/wiki/ISO_8601). Например, `2025-03-03T23:41:19Z`.
 
 {% cut "Устаревшие параметры" %}
 
@@ -127,8 +232,8 @@
 {% endcut %}
 
 
-##### См. также
+##### См. также {#see-also}
 
-* [Посмотреть детализацию для облака](check-charges.md)
+* [Посмотреть детализацию для облака](./check-charges.md)
 
 {% include [clickhouse-disclaimer](../../_includes/clickhouse-disclaimer.md) %}

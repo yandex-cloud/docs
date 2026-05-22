@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/vpc/cli-ref/address/
 editable: false
 ---
 
@@ -27,6 +28,8 @@ Aliases:
 - [yc vpc address get](get.md) — Get information about an address.
 
 - [yc vpc address list](list.md) — List addresses in a folder.
+
+- [yc vpc address list-by-subnet](list-by-subnet.md) — List addresses in a subnet.
 
 - [yc vpc address list-operations](list-operations.md) — List operations for an address.
 

@@ -14,7 +14,7 @@
       * Username: `samples_ro`
       * Password: `MsgfcjEhJk`
 
-   1. Enable **Allow subqueries in datasets and queries from charts**.
+   1. Enable **Allow subqueries in datasets, source parameterization, and QL charts**.
    1. Click **Check connection** and make sure you get a green check mark.
    1. Click **Create connection**.
 

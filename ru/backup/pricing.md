@@ -7,6 +7,10 @@ editable: false
 # Правила тарификации для {{ backup-full-name }}
 
 
+{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
+
+
+
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
 {% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
@@ -71,6 +75,8 @@ editable: false
 
 
 ## Пример расчета стоимости {#price-example}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 Пример расчета стоимости {{ backup-name }} за один месяц для следующей конфигурации:
 * к политикам резервного копирования привязана 1 ВМ;

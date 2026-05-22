@@ -5,12 +5,6 @@ description: In this article, you will learn about {{ datalens-full-name }} Neur
 
 # Neuroanalyst in {{ datalens-full-name }}
 
-{% note info %}
-
-This feature is at the Beta testing stage.
-
-{% endnote %}
-
 {{ datalens-full-name }} Neuroanalyst is a group of AI assistants that help you with project analysis, suggest improvements and edits, and streamline creating and editing visualizations.
 
 * [Neuroanalyst for calculated fields](../concepts/calculations/formulas-helper.md): Helps you to create calculated fields.
@@ -22,7 +16,7 @@ This feature is at the Beta testing stage.
 
 ## Data security and processing {#security}
 
-* Neuroanalyst is based on the cloud service called [{{ foundation-models-full-name }}](../../ai-studio).
+* Neuroanalyst is based on the cloud service called [{{ ai-studio-full-name }}](../../ai-studio).
 * Your data and queries stay within the {{ yandex-cloud }} infrastructure.
 * Your data and queries are not logged, nor used for model tuning.
 * The admin can [disable generation of insights for your users](#prohibit) at the dashboard level.

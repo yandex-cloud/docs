@@ -1,5 +1,8 @@
 # Load generators
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 _A load generator_ is a tool that allows you to simulate the load on a service based on a given configuration. The testing tool in {{ load-testing-name }} uses the Pandora and Phantom load generators.
 
 

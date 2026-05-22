@@ -22,14 +22,15 @@ description: Follow this guide to install Agro CD.
 
 ## Installation from {{ marketplace-full-name }} {#marketplace-install}
 
-1. Navigate to the [folder dashboard]({{ link-console-main }}) and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
-1. Click the cluster name and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
+1. In the [management console]({{ link-console-main }}), select a folder.
+1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
+1. Click the name of your cluster and select the ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.k8s.cluster.switch_marketplace }}** tab.
 1. Under **{{ ui-key.yacloud.marketplace-v2.label_available-products }}**, select [Argo CD](/marketplace/products/yc/argo-cd) and click **{{ ui-key.yacloud.marketplace-v2.button_k8s-product-use }}**.
 1. Configure the application:
    * **Namespace**: Create a new [namespace](../../concepts/index.md#namespace), e.g., `argo-cd-space`. If you leave the default namespace, Argo CD may work incorrectly.
    * **Application name**: Specify the application name.
 1. Click **{{ ui-key.yacloud.k8s.cluster.marketplace.button_install }}**.
-1. Wait for the application to change its status to `Deployed`.
+1. Wait for the application status to change to `Deployed`.
 
 ## Installation using a Helm chart {#helm-install}
 
@@ -61,7 +62,7 @@ kubectl --namespace <namespace> get secret argocd-initial-admin-secret \
   --output jsonpath="{.data.password}" | base64 -d
 ```
 
-You will need the password for authorization in Argo CD.
+You will need the password to get authenticated in Argo CD.
 
 ### Opening the application via localhost {#open-via-localhost}
 
@@ -116,7 +117,7 @@ You will need the password for authorization in Argo CD.
    * Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select the folder the {{ managed-k8s-name }} cluster is deployed in.
-      1. Select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
+      1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-balancer }}**.
 
          The **{{ ui-key.yacloud.load-balancer.network-load-balancer.label_list }}** section shows a network load balancer with the `k8s` prefix in its name and the unique {{ k8s }} cluster ID in its description.
 

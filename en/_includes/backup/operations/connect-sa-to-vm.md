@@ -25,7 +25,7 @@
         --service-account-name <service_account_name>
       ```
 
-      Where `--service-account-name`: Name of the service account with the `backup.editor` role.
+      Where `--service-account-name` is the name of a service account with the `backup.user` role or higher.
 
       Result:
 
@@ -45,7 +45,7 @@
 
   {% include [terraform-install](../../terraform-install.md) %}
 
-  1. In the {{ TF }} configuration file, in the section with the description of the `yandex_compute_instance` resource, add the `service_account_id` property and specify the ID of the service account with the `backup.editor` role:
+  1. In the {{ TF }} configuration file, in the section with the description of the `yandex_compute_instance` resource, add the `service_account_id` property and specify the ID of the service account with the `backup.user` role or higher:
 
       ```hcl
       resource "yandex_compute_instance" "vm-1" {
@@ -61,11 +61,11 @@
 
       {{ TF }} will change all required resources. You can check the update in the [management console]({{ link-console-main }}).
 
-  For more information about `yandex_compute_instance` properties, see [this {{ TF }} article]({{ tf-provider-datasources-link }}/compute_instance).
+  For more information about `yandex_compute_instance` properties, see [this provider guide]({{ tf-provider-datasources-link }}/compute_instance).
 
 - API {#api}
 
-  Use the [update](../../../compute/api-ref/Instance/update.md) REST API method for the [Instance](../../../compute/api-ref/Instance/) resource or the [InstanceService/Update](../../../compute/api-ref/grpc/Instance/update.md) gRPC API call. Specify the ID of the service account with the `backup.editor` role in your request.
+  Use the [update](../../../compute/api-ref/Instance/update.md) REST API method for the [Instance](../../../compute/api-ref/Instance/) resource or the [InstanceService/Update](../../../compute/api-ref/grpc/Instance/update.md) gRPC API call. Specify the ID of the service account with the `backup.user` role or higher in your request.
 
 {% endlist %}
 

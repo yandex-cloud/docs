@@ -40,7 +40,9 @@ editable: false
 Required field. ID of the SPQR cluster that subcluster is being added to. ||
 || host_specs[] | **[HostSpec](#yandex.cloud.mdb.spqr.v1.HostSpec)**
 
-Configurations for SPQR hosts that should be created ||
+Configurations for SPQR hosts that should be created
+
+Must contain exactly 1 element. ||
 || resources | **[Resources](#yandex.cloud.mdb.spqr.v1.Resources)**
 
 Required field. Resources allocated to each host. ||
@@ -53,12 +55,16 @@ Required field. Resources allocated to each host. ||
 || zone_id | **string**
 
 ID of the availability zone where the host resides.
-To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/Zone/list#List) request. ||
+To get a list of available zones, use the [yandex.cloud.compute.v1.ZoneService.List](/docs/compute/api-ref/grpc/Zone/list#List) request.
+
+The maximum string length in characters is 50. ||
 || subnet_id | **string**
 
 ID of the subnet that the host should belong to. This subnet should be a part
 of the network that the cluster belongs to.
-The network ID is set in the [Cluster.network_id](/docs/managed-spqr/api-ref/grpc/Cluster/get#yandex.cloud.mdb.spqr.v1.Cluster) field. ||
+The network ID is set in the [Cluster.network_id](/docs/managed-spqr/api-ref/grpc/Cluster/get#yandex.cloud.mdb.spqr.v1.Cluster) field.
+
+The maximum string length in characters is 50. ||
 || assign_public_ip | **bool**
 
 Whether the host should get a public IP address on creation.
@@ -73,7 +79,6 @@ Possible values:
 
 Required field. Type of the host to be deployed.
 
-- `TYPE_UNSPECIFIED`
 - `ROUTER`: A SPQR Router host.
 - `COORDINATOR`: A SPQR Coordinator host.
 - `INFRA`: A SPQR Infra host (router+coordinator)
@@ -83,7 +88,9 @@ Required field. Type of the host to be deployed.
 || shard_name | **string**
 
 Name of the shard that the host belongs to.
-If empty, host doesn't belong to any shard ||
+If empty, host doesn't belong to any shard
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
 || mdb_postgresql | **[MDBPostgreSQL](#yandex.cloud.mdb.spqr.v1.MDBPostgreSQL)** ||
 |#
 
@@ -96,7 +103,7 @@ Configuration for MDB PostgreSQL host
 ||Field | Description ||
 || cluster_id | **string**
 
-Required field.  ||
+Required field. ||
 |#
 
 ## Resources {#yandex.cloud.mdb.spqr.v1.Resources}

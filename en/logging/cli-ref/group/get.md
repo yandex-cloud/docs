@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/logging/cli-ref/group/get
 editable: false
 ---
 

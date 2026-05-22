@@ -7,13 +7,13 @@ With {{ mpg-short-name }}, you can:
 * Scale computing power and dedicated storage capacity for your databases as needed.
 * Get database logs.
 
-{{ mpg-short-name }} takes over time-consuming administrative tasks in {{ PG }}:
+{{ mpg-short-name }} handles the heavy lifting of {{ PG }} infrastructure management:
 * Monitors resource usage.
-* Automatically creates DB backups.
-* Provides fault tolerance through automatic failover to backup replicas.
+* Performs automated database backups.
+* Ensures fault tolerance through automatic failover to standby replicas.
 * Keeps your DBMS software up to date.
 
-You work with a {{ mpg-short-name }} database cluster just like with your regular local database. Thus, you can manage internal database settings to meet your application requirements.
+You can work with a {{ mpg-short-name }} database cluster the same way as with your regular local database. Thus, you can manage internal database settings to meet your application requirements.
 
 #### What is the role of {{ mpg-short-name }} in database management and maintenance? {#services}
 
@@ -25,9 +25,9 @@ Furthermore, {{ mpg-short-name }} ensures data replication across database hosts
 
 {% include [responsibilities-link](../../_includes/mdb/responsibilities-link.md) %}
 
-#### Not sure whether to use {{ mpg-short-name }} or VMs with databases? {#mdb-advantage}
+#### When to use {{ mpg-short-name }} and when database VMs? {#mdb-advantage}
 
-{{ yandex-cloud }} offers two ways to work with databases:
+{{ yandex-cloud }} offers two approaches for working with databases:
 * With {{ mpg-short-name }}, you can use template databases, with no administrative effort required.
 * Alternatively, with {{ compute-full-name }} virtual machines, you can create and customize your own databases. This approach allows you to use any database management system, connect to databases over SSH, and many more.
 
@@ -35,7 +35,7 @@ Furthermore, {{ mpg-short-name }} ensures data replication across database hosts
 
 A _database host_ is a cloud-based isolated database environment with dedicated computing resources and reserved storage capacity.
 
-A _database cluster_ consists of one or more database hosts with configurable replication between them.
+A _database cluster_ consists of one or more database hosts with configurable replication across them.
 
 #### How do I get started with {{ mpg-short-name }}? {#quickstart}
 
@@ -49,7 +49,7 @@ Before creating a database cluster in {{ mpg-short-name }}, you need to decide o
 
 Learn more in [{#T}](../../managed-postgresql/quickstart.md).
 
-#### How many database hosts can there be in a cluster? {#how-many-hosts}
+#### How many database hosts can a cluster contain? {#how-many-hosts}
 
 
 The minimum number of hosts depends on the selected [storage](../../managed-postgresql/concepts/storage.md) type:
@@ -72,13 +72,13 @@ For more information, see [{#T}](../../managed-postgresql/concepts/limits.md).
 
 #### How can I access a running database host? {#db-access}
 
-You can connect to {{ mpg-short-name }} databases using conventional DBMS methods.
+You can connect to {{ mpg-short-name }} databases using native DBMS connection methods.
 
-Learn more about connecting to clusters in [this guide](../../managed-postgresql/operations/connect.md).
+Learn more about connecting to clusters in [this guide](../../managed-postgresql/operations/connect/index.md).
 
 #### How many clusters can I create within a single cloud? {#db-limit}
 
-To learn about MDB quotas and limits, see  [{#T}](../../managed-postgresql/concepts/limits.md).
+To learn about MDB quotas and limits, see [{#T}](../../managed-postgresql/concepts/limits.md).
 
 #### How are database clusters maintained? {#service-window}
 
@@ -92,18 +92,18 @@ Learn more in [{#T}](../../managed-postgresql/concepts/maintenance.md).
 
 #### Which {{ PG }} version does {{ mpg-short-name }} use? {#dbms-version}
 
-{{ mpg-short-name }} supports {{ PG }} versions 14-17, and {{ PG }} versions 14-16 for use with 1C.
+{{ mpg-short-name }} supports {{ PG }} versions 14, 15, 16, 17, and 18, and {{ PG }} versions 14, 15, 16, 17, and 18 for 1C.
 
 
 #### What happens when a new DBMS version is released? {#new-version}
 
-The database software is updated whenever new minor versions are released. Owners of affected database clusters get advance notice of upcoming maintenance and database availability.
+The database software is updated whenever new minor versions are released. Owners of affected database clusters get advance notice of the upcoming maintenance schedule and database availability.
 
 #### What happens when a DBMS version becomes deprecated? {#dbms-deprecated}
 
-One month after a DBMS version becomes deprecated, {{ mpg-short-name }} automatically sends email notifications to the owners of database clusters created with that version.
+Existing clusters based on `Deprecated` versions continue to operate normally. Six months before the end of support, an active notification effort starts about the need to update. From this point on, you cannot create new clusters.
 
-For clusters with a deprecated DBMS version, there is no option to create new hosts or restore from backups. Database clusters are automatically upgraded to the next supported version seven days after notification for minor versions and one month after notification for major versions. Deprecated major versions will be upgraded even if you disabled automatic updates.
+Owners of clusters based on `Deprecated` versions will get a series of official email notifications: the first one 6 months before `EOL`, and then 90, 30, 7, and 1 day before the scheduled forced update.
 
 #### How do you calculate usage cost for a database host? {#db-cost}
 
@@ -111,7 +111,7 @@ In {{ mpg-short-name }}, the usage cost is calculated based on the following:
 
 * Selected host class.
 * Reserved storage capacity for the database host.
-* Size of database cluster backups. You do not pay for backups as long as their size does not exceed the storage capacity. Additional backup storage is charged according to our [pricing policy](../../managed-postgresql/pricing.md).
+* Size of database cluster backups. You do not pay for backups as long as their size does not exceed the storage capacity. Backup storage exceeding this limit is charged according to our [pricing policy](../../managed-postgresql/pricing.md).
 * Database host uptime in hours. Partial hours are rounded to the nearest whole hour. The hourly rates for each host class are listed in [{#T}](../../managed-postgresql/pricing.md).
 
 #### How can I change the computing resources and storage size for a database cluster? {#resources-change}
@@ -130,9 +130,9 @@ Yes, backups are enabled by default. The {{ PG }} backup policies provide full d
 
 By default, backups are retained for seven days.
 
-#### When does a backup run? Is a database cluster available during backups? {#backup-window}
+#### When does a backup run? Can I access my database cluster during backup? {#backup-window}
 
-The backup window, the scheduled time for the database cluster’s full daily backup, is from 01:00 to 05:00 (UTC+3).
+The backup window, i.e., the scheduled time for the full daily backup of a database cluster, is from 01:00 to 05:00 (UTC+3).
 
 Clusters remain fully available during the backup window.
 
@@ -167,6 +167,9 @@ To learn about {{ mpg-short-name }} quotas and limits, see [{#T}](../../managed-
 
 See the list of supported {{ PG }} extensions in [{#T}](../../managed-postgresql/operations/extensions/cluster-extensions.md).
 
+#### Which data center stores the {{ PG }} cluster backups? {#data-center}
+
+
 
 #### Can I get superuser privileges in {{ PG }}? {#superuser}
 
@@ -180,7 +183,7 @@ Yes, you can both copy data from a table to a local file and import data from a 
 
 {{ mpg-name }} clusters support all [VACUUM command](https://www.postgresql.org/docs/current/sql-vacuum.html) options. However, please note the following when using them:
 
-* To run `VACUUM FULL`, the user must have the [`mdb_admin`](../../managed-postgresql/concepts/roles#mdb-admin) role. The VACUUM FULL operation does not affect system tables.
+* To run `VACUUM FULL`, the user must have the [`mdb_admin`](../../managed-postgresql/concepts/roles.md#mdb-admin) role. The VACUUM FULL operation does not affect system tables.
 * In {{ PG }} version 14, the `INDEX_CLEANUP` parameter functionality has been enhanced: it now has the `AUTO` value by default. This means the `VACUUM` command skips index cleaning if it considers it unnecessary. For backward compatibility with older {{ PG }} versions, set `INDEX_CLEANUP` to `ON`.
 
 #### Why is my cluster slow even though the computing resources are not fully utilized? {#throttling}
@@ -189,5 +192,11 @@ Yes, you can both copy data from a table to a local file and import data from a 
 
 To increase the maximum IOPS and bandwidth values and make throttling less likely, expand the storage when [updating your cluster](../../managed-postgresql/operations/update.md#change-disk-size).
 
-If you are using the `network-hdd` storage, consider switching to `network-ssd` or `network-ssd-nonreplicated` by [restoring the cluster](../../managed-postgresql/operations/cluster-backups.md#restore) from a backup.
+For storage using the `network-hdd` disk type, we recommend switching to `network-ssd` or `network-ssd-nonreplicated` via a [cluster restore](../../managed-postgresql/operations/cluster-backups.md#restore) from backup.
 
+
+When using `local-ssd` storage, cluster hosts may experience a minor increase in CPU load due to the services required for disk operation.
+
+#### What block size is used on the cluster disks? {#block-size}
+
+{% include [disk-block-size](../../_includes/mdb/disk-block-size.md) %}

@@ -25,10 +25,10 @@ description: Follow this guide to connect to a node via {{ oslogin }}.
 1. [Enable access via {{ oslogin }}](../../organization/operations/os-login-access.md) at the organization level.
 1. [Enable access to nodes from the internet](./node-group/node-group-update.md#node-internet-access) for the node group containing the node you need to connect to.
 
-1. Make sure the account you are using to connect to the node [has one of these roles](../../iam/operations/roles/grant.md):
+1. Make sure the account you are using to connect to the node [has the required roles](../../iam/operations/roles/grant.md):
 
-    * `compute.osLogin`: To access the node without sudo permissions.
-    * `compute.osAdminLogin`: To access the node with sudo permissions.
+    * `compute.osLogin` [role](../../compute/security/index.md#compute-oslogin) to access the node without sudo permissions, or `compute.osAdminLogin`, for access with sudo permissions.
+    * `resource-manager.auditor` [role](../../resource-manager/security/index.md#resource-manager-auditor) or higher for the folder containing the node.
 
 ## Configure the node {#configure-node}
 
@@ -44,7 +44,8 @@ Set up your cluster node for connection:
 
     - Management console {#console}
 
-        1. Open the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}** section in the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the {{ managed-k8s-name }} cluster whose node you need access to.
+        1. In the [management console]({{ link-console-main }}), select the [folder](../../resource-manager/concepts/resources-hierarchy.md#folder) containing the {{ managed-k8s-name }} cluster whose node you need access to.
+        1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-kubernetes }}**.
         1. Click the name of the {{ managed-k8s-name }} cluster.
         1. Navigate to the **{{ ui-key.yacloud.k8s.nodes.label_node-groups }}** tab.
         1. Select the node group you need.
@@ -85,7 +86,7 @@ Set up your cluster node for connection:
 
       1. Open the current {{ TF }} configuration file describing the {{ managed-k8s-name }} node group.
 
-          For more information about creating this file, see [{#T}](./node-group/node-group-create.md).
+          For more on how to create such a file, see [{#T}](./node-group/node-group-create.md).
 
       1. Add the `instance_template.metadata` property to the node group description, or change it if it already exists.
 
@@ -112,7 +113,7 @@ Set up your cluster node for connection:
 
           {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-      1. Confirm updating the resources.
+      1. Confirm resource changes.
 
           {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
@@ -122,9 +123,11 @@ Set up your cluster node for connection:
 
     - API {#api}
 
+      {% include [api-parameters-case](../../_includes/managed-kubernetes/api-parameters-case.md) %}
+
       1. {% include [get-metadata-via-api](../../_includes/managed-kubernetes/get-metadata-via-api.md) %}
 
-      1. Use the [update](../managed-kubernetes/api-ref/NodeGroup/update.md) API method, providing the following in your request:
+      1. Use the [update](../managed-kubernetes/api-ref/NodeGroup/update.md) REST API method for the [NodeGroup](../managed-kubernetes/api-ref/NodeGroup) resource or the [NodeGroupService/Update](../managed-kubernetes/api-ref/grpc/NodeGroup/update.md) gRPC API call, and provide the following in the request:
 
           * Node group ID in the `nodeGroupId` parameter.
 
@@ -265,7 +268,7 @@ Set up your cluster node for connection:
     Where:
 
     * `<path_to_certificate_file>`: Path to the certificate's `Identity` file you saved earlier, e.g., `/home/user1/.ssh/yc-cloud-id-b1gia87mbaom********-orgusername`.
-    * `<user_login>`: User login as set in their [{{ oslogin }} profile](../../organization/concepts/os-login.md#os-login-profiles). It is also appended to the name of the exported {{ oslogin }} certificate. In the example above, it is `orgusername`.
+    * `<user_login>`: User login as set in their [{{ oslogin }} profile](../../organization/concepts/os-login.md#os-login-profiles). This login is also specified at the end of the name of the exported {{ oslogin }} certificate. In the example above, it is `orgusername`.
 
         {% note info %}
 

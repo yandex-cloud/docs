@@ -2,11 +2,11 @@
 
 [{{ OS }}](https://opensearch.org/) is a highly scalable open-source system of search and analysis tools. {{ OS }} comes with the [{{ OS }} Dashboards](https://docs.opensearch.org/latest/dashboards/) data visualization UI. 
 
-To authenticate your [organization's](../../../organization/concepts/organization.md) users to {{ OS }} via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-name }} and configure it appropriately both in {{ org-name }} and in {{ OS }}.
+For the users of your [organization](../../../organization/concepts/organization.md) to be able to authenticate to {{ OS }} via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-full-name }} and configure it both in {{ org-full-name }} and {{ OS }}.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
-For the users of your organization to be able to access {{ OS }}:
+To give access to {{ OS }} to the users of your organization:
 
 1. [Create an app](#create-app).
 1. [Set up the integration](#setup-integration).
@@ -23,11 +23,12 @@ For the users of your organization to be able to access {{ OS }}:
     1. In the top-right corner, click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.action.applications.components.create-app }}** and in the window that opens:
         1. Select the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.saml-title_kyofk }}** single sign-on method.
         1. In the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-name_1VbM1 }}** field, specify a name for your new app: `opensearch-app`.
+
         1. Optionally, in the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** field, enter a description for the new app.
         1. Optionally, add [labels](../../../resource-manager/concepts/labels.md):
 
             1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-            1. Enter a label in `key: value` format.
+            1. Add a label in `key: value` format.
             1. Press **Enter**.
         1. Click **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
 
@@ -35,7 +36,7 @@ For the users of your organization to be able to access {{ OS }}:
 
 ## Set up the integration {#setup-integration}
 
-To configure {{ OS }} integration with the SAML app you created in {{ org-name }}, complete the configuration both on the {{ OS }} cluster side and in {{ org-name }}.
+To configure {{ OS }} integration with the SAML app you created in {{ org-full-name }}, complete the configuration both on the {{ OS }} cluster side and in {{ org-full-name }}.
 
 1. Get the metadata for the [new app](#create-app):
 
@@ -76,7 +77,7 @@ To configure {{ OS }} integration with the SAML app you created in {{ org-name }
 
          # SAML authentication domain for {{ org-full-name }}
          yandex_saml_auth_domain:
-           order: 1 # What we recommend: 1 or 2
+           order: 1 # What we recommend:one or two
            http_enabled: true
            transport_enabled: false
            http_authenticator:
@@ -122,7 +123,7 @@ To configure {{ OS }} integration with the SAML app you created in {{ org-name }
       
         {% endnote %}
 
-    1. To map {{ org-full-name }} user groups to internal {{ OS }} roles during SAML authentication, edit the `roles_mapping.yml` file for **{{ OS }} Security Plugin**. Add the required [groups](../../../organization/concepts/groups.md) from {{ org-name }} to the `backend_roles` section of the relevant {{ OS }} roles, as shown below.
+    1. To map {{ org-full-name }} user groups to internal {{ OS }} roles during SAML authentication, edit the `roles_mapping.yml` file for **{{ OS }} Security Plugin**. Add the required [groups](../../../organization/concepts/groups.md) from {{ org-full-name }} to the `backend_roles` section of the relevant {{ OS }} roles, as shown below.
 
         ```yaml
         # ...
@@ -133,8 +134,8 @@ To configure {{ OS }} integration with the SAML app you created in {{ org-name }
           reserved: false
           backend_roles:
             - "admin"
-            - "opensearch-users" # group created in {{ org-name }} 
-          description: "Allow full access for opensearch-users group from {{ org-name }}"
+            - "opensearch-users" # group created in {{ org-full-name }} 
+          description: "Allow full access for opensearch-users group from {{ org-full-name }}"
   
         # ... 
         ```
@@ -154,7 +155,7 @@ To configure {{ OS }} integration with the SAML app you created in {{ org-name }
             1. Click the name of the role you need, e.g., `all_access`.
             1. Go to the **Mapped users** tab.
             1. Click **Manage mapping**.
-            1. In the **Backend roles** field, specify the {{ org-name }} [user group](../../../organization/concepts/groups.md) to map with the {{ OS }} role, e.g., `opensearch-users`.
+            1. In the **Backend roles** field, specify the {{ org-full-name }} [user group](../../../organization/concepts/groups.md) to map with the {{ OS }} role, e.g., `opensearch-users`.
             1. Click **Map**.
 
         {% endcut %}
@@ -215,15 +216,15 @@ To configure {{ OS }} integration with the SAML app you created in {{ org-name }
 
 #### Add a user groups attribute {#group-attribute}
 
-To set up automatic user-to-role mapping upon {{ OS }} login, add the user group attribute. Proceed as follows:
+To set up automatic user-to-role mapping upon {{ OS }} login, add the user group attribute. Follow these steps:
 
 {% list tabs group=instructions %}
 
 - {{ cloud-center }} UI {#cloud-center}
 
     1. In the top-right corner, click ![circles-3-plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.organization.apps.AppPageLayout.action_add_group_attribute }}** and in the window that opens.
-    1. In the **{{ ui-key.yacloud_org.attributes.update_dialog.field_attribute_name }}** field, leave `groups`.
-    1. In the **{{ ui-key.yacloud_org.attributes.update_dialog.field_group_attribute_value }}** field, select `{{ ui-key.yacloud_org.field-data.attributes.update_dialog.field_group_assigned }}`.
+    1. In the **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_attribute_name_rPYTn }}** field, leave `groups`.
+    1. In the **{{ ui-key.yacloud_org.organization.apps.GroupAttributeFormDialog.field_group_attribute_value_oxrpu }}** field, select `{{ ui-key.yacloud_org.organization.apps.field_group_assigned_amGdu }}`.
     1. Click **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}
@@ -232,13 +233,9 @@ For more information about configuring attributes, see [Configure user and group
 
 ### Add users {#add-users}
 
-For your organization's users to be able to authenticate in {{ OS }} Dashboards with the {{ org-name }} SAML app, you need to explicitly add these users and groups to that app.
+For your organization's users to be able to authenticate in {{ OS }} Dashboards with the {{ org-full-name }} SAML app, you need to explicitly add these users and groups to that app.
 
-{% note info %}
-
-Users and groups added to a SAML application can be managed by a user with the `organization-manager.samlApplications.userAdmin` [role](../../../organization/security/index.md#organization-manager-samlApplications-userAdmin) or higher.
-
-{% endnote %}
+{% include [saml-manage-users](../../../_includes/organization/saml-manage-users.md) %}
 
 1. Once you set up role mapping in {{ OS }}, [create](../../../organization/operations/create-group.md) the relevant [groups](../../../organization/concepts/groups.md):
 
@@ -255,7 +252,7 @@ Users and groups added to a SAML application can be managed by a user with the `
             1. Navigate to the **{{ ui-key.yacloud_org.entity.group.title_tab-members }}** tab.  
             1. Click **{{ ui-key.yacloud_org.entity.group.action_add-member }}**.
             1. In the window that opens, select the users.
-            1. Click **{{ ui-key.yacloud_org.component.subject-select-dialog.action_apply }}**.
+            1. Click **{{ ui-key.yacloud.common.save }}**.
 
     {% endlist %}
 
@@ -276,13 +273,13 @@ Users and groups added to a SAML application can be managed by a user with the `
 
 ## Make sure your application works correctly {#validate}
 
-To make sure both your SAML app and its integration with {{ OS }} work correctly, authenticate to {{ OS }} Dashboards as one of the users you added to the app. Proceed as follows:
+To make sure both your SAML app and its integration with {{ OS }} work correctly, authenticate to {{ OS }} Dashboards as one of the users you added to the app. Follow these steps:
 
 1. In your browser, navigate to the address of your {{ OS }} Dashboards instance.
 1. If logged in to {{ OS }} Dashboards, log out.
 1. On the {{ OS }} Dashboards authentication page, click **Log in with single sign-on**.
-1. On the {{ yandex-cloud }} authentication page, enter your email address and user password. The user must be a member of a group added to the app.
-1. Make sure you are logged in to {{ OS }} Dashboards.
+1. On the {{ yandex-cloud }} authentication page, enter the email address and user password. The user must be a member of a group added to the app.
+1. Make sure you have successfully authenticated in {{ OS }} Dashboards.
 1. If you have configured role mapping:
      1. Click the user icon in {{ OS }} Dashboards.
      1. Go to **View roles and identities**.

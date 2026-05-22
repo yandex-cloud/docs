@@ -14,7 +14,7 @@ For example, if your service enables users to upload objects to {{ objstorage-na
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket to limit the maximum size for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_general-settings }}** tab.
@@ -72,6 +72,7 @@ For example, if your service enables users to upload objects to {{ objstorage-na
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
+
   To limit the maximum bucket size:
 
   1. Open the {{ TF }} configuration file and add the `max_size` parameter to the bucket description:
@@ -95,37 +96,13 @@ For example, if your service enables users to upload objects to {{ objstorage-na
      * `secret_key`: Secret access key value.
      * `max_size`: Maximum bucket size, in bytes.
 
-     For more information about `yandex_storage_bucket` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/storage_bucket#bucket-max-size).
-
-  1. Check the configuration using this command:
-
-     ```
-     terraform validate
-     ```
-
-     If the configuration is correct, you will get this message:
-
-     ```
-     Success! The configuration is valid.
-     ```
-
-  1. Run this command:
-
-     ```
-     terraform plan
-     ```
-
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them.
+     For more information about the `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket#bucket-max-size).
 
   1. Apply the changes:
 
-     ```
-     terraform apply
-     ```
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  1. Confirm the changes: type `yes` into the terminal and press **Enter**.
-
-     You can check the bucket update using the [management console]({{ link-console-main }}).
+     You can check the update in the [management console]({{ link-console-main }}).
 
 - API {#api}
 

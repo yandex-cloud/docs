@@ -1,0 +1,242 @@
+# Создать виртуальную машину на Linux с подключением к Cloud Backup
+
+Вы можете создавать резервные копии [виртуальных машин](../../compute/concepts/vm.md) Compute Cloud c [поддерживаемыми операционными системами на базе Linux](../concepts/vm-connection.md#linux).
+
+Для корректной работы [агента Cloud Backup](../concepts/agent.md) ВМ должна соответствовать [минимальным требованиям](../concepts/vm-connection.md#requirements).
+
+## Перед началом работы {#before-you-begin}
+
+1. [Создайте](../../iam/operations/sa/create.md) сервисный аккаунт с [ролью](../security/index.md#backup-user) `backup.user` или выше.
+
+    {% note info %}
+
+    При создании ВМ с помощью [консоли управления](https://console.yandex.cloud) использовать сервисный аккаунт не обязательно. При этом пользователю, создающему ВМ, должна быть назначена [роль](../security/index.md#backup-user) `backup.user` или выше на каталог, в котором создается ВМ.
+
+    {% endnote %}
+
+1. [Настройте](../concepts/vm-connection.md#vm-network-access) сетевой доступ для ВМ.
+
+## Создание ВМ {#creating-vm}
+
+{% note info %}
+
+Если для организации дискового пространства защищаемого ресурса вы используете [LVM](https://ru.wikipedia.org/wiki/LVM), ознакомьтесь с [особенностями](../concepts/backup.md#lvm) восстановления ресурсов с LVM в Cloud Backup.
+
+{% endnote %}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления](https://console.yandex.cloud) выберите каталог, в котором нужно создать ВМ.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **Compute Cloud**.
+  1. На панели слева выберите ![image](../../_assets/console-icons/server.svg) **Виртуальные машины** и нажмите кнопку **Создать виртуальную машину**.
+  1. В блоке **Образ загрузочного диска** выберите [операционную систему, поддерживаемую в Cloud Backup](../concepts/vm-connection.md#linux).
+  1. В блоке **Расположение** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+  1. В блоке **Сетевые настройки**:
+
+      1. Выберите подсеть, соответствующую выбранной зоне доступности.
+      1. В поле **Публичный IP-адрес** выберите `Автоматически`.
+      1. Выберите [группу безопасности](../../vpc/concepts/security-groups.md), настроенную для работы с Cloud Backup.
+  1. В блоке **Доступ** выберите вариант **SSH-ключ** и укажите данные для доступа к ВМ:
+  
+      * В поле **Логин** введите имя пользователя.
+      * В поле **SSH-ключ** выберите SSH-ключ, сохраненный в вашем профиле [пользователя организации](../../organization/concepts/membership.md).
+
+      Если в вашем профиле нет сохраненных SSH-ключей, нажмите кнопку **Добавить ключ**, чтобы добавить новый ключ.
+  1. Включите опцию **Резервное копирование** и в поле **Политики резервного копирования** выберите [политику](../concepts/policy.md) резервного копирования, которая будет использоваться Cloud Backup для работы с ВМ.
+     
+     Если у вас нет политики резервного копирования, нажмите кнопку **Создать**, чтобы создать ее.
+     
+     Чтобы создать новую ВМ с подключением к Cloud Backup, вашему аккаунту должна быть назначена [роль](../security/index.md#backup-user) `backup.user` или выше на [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором вы создаете ВМ.
+     
+     {% note info %}
+     
+     Если у вашего аккаунта нет назначенной роли `backup.user` или выше, вы можете подключить ВМ к Cloud Backup с помощью [сервисного аккаунта](../../iam/concepts/users/service-accounts.md), которому назначена такая роль. 
+     
+     Для этого разверните блок **Дополнительно** и в поле **Сервисный аккаунт** выберите подходящий сервисный аккаунт. При необходимости [создайте](../../iam/operations/sa/create.md) новый сервисный аккаунт и [назначьте](../../iam/operations/sa/assign-role-for-sa.md) ему [роль](../security/index.md#backup-user) `backup.user`.
+     
+     {% endnote %}
+     
+     {% note tip %}
+     
+     Установка агента Cloud Backup является ресурсоемкой операцией. Если вы хотите использовать ВМ в минимально возможной конфигурации или, например, ВМ с [уровнем производительности vCPU](../../compute/concepts/performance-levels.md) ниже 100%, рекомендуем на время установки агента Cloud Backup увеличить ресурсы ВМ.
+     
+     {% endnote %}
+     
+     Подробнее читайте в разделе [Подключение виртуальных машин Compute Cloud и серверов Yandex BareMetal к Cloud Backup](../concepts/vm-connection.md).
+  1. В блоке **Общая информация** задайте имя ВМ и описание ВМ. Требования к имени:
+
+      * длина — от 3 до 63 символов;
+      * может содержать строчные буквы латинского алфавита, цифры и дефисы;
+      * первый символ — буква, последний — не дефис.
+
+      {% note info %}
+      
+      Имя виртуальной машины используется для генерации [внутреннего FQDN](../../compute/concepts/network.md#hostname) единожды — при создании ВМ. Если для вас важен внутренний FQDN, учитывайте это и задавайте нужное имя ВМ при создании.
+      
+      {% endnote %}
+
+  1. Укажите другие необходимые параметры ВМ. Подробнее см. [Создать виртуальную машину из публичного образа Linux](../../compute/operations/vm-create/create-linux-vm.md).
+  1. Нажмите кнопку **Создать ВМ**.
+
+  Когда ВМ перейдет в статус `Running`, на нее начнет устанавливаться агент Cloud Backup. Установка займет от 5 до 10 минут.
+
+- CLI {#cli}
+
+  1. Выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder):
+
+      ```bash
+      yc resource-manager folder list
+      ```
+
+      Результат:
+
+      ```text
+      +----------------------+--------------------+------------------+--------+
+      |          ID          |        NAME        |      LABELS      | STATUS |
+      +----------------------+--------------------+------------------+--------+
+      | wasdcjs6be29******** | my-folder          |                  | ACTIVE |
+      | qwertys6be29******** | default            |                  | ACTIVE |
+      +----------------------+--------------------+------------------+--------+
+      ```
+
+  1. Выберите [подсеть](../../vpc/concepts/network.md#subnet):
+
+      ```bash
+      yc vpc subnet list --folder-id <идентификатор_каталога>
+      ```
+
+      Результат:
+
+      ```text
+      +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
+      |          ID          |           NAME            |      NETWORK ID      | ROUTE TABLE ID |       ZONE        |      RANGE      |
+      +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
+      | b0c6n43f9lgh******** | default-ru-central1-d     | enpe3m3fa00u******** |                | ru-central1-d     | [10.***.0.0/24] |
+      | e2l2da8a20b3******** | default-ru-central1-b     | enpe3m3fa00u******** |                | ru-central1-b     | [10.***.0.0/24] |
+      | e9bnlm18l70a******** | default-ru-central1-a     | enpe3m3fa00u******** |                | ru-central1-a     | [10.***.0.0/24] |
+      +----------------------+---------------------------+----------------------+----------------+-------------------+-----------------+
+      ```
+
+  1. [Создайте](../../compute/operations/vm-create/create-linux-vm.md) ВМ:
+
+      ```bash
+      yc compute instance create \
+        --folder-id <идентификатор_каталога> \
+        --name <имя_ВМ> \
+        --zone <зона_доступности> \
+        --network-interface subnet-name=<имя_подсети>,nat-ip-version=ipv4,security-group-ids=<идентификатор_группы_безопасности> \
+        --create-boot-disk image-id=<идентификатор_образа>,size=<размер_загрузочного_диска> \
+        --cores 2 \
+        --core-fraction 100 \
+        --memory 4 \
+        --service-account-name <имя_сервисного_аккаунта> \
+        --ssh-key <путь_к_открытому_SSH-ключу>
+      ```
+
+      Где:
+
+      * `--folder-id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md).
+      * `--name` — имя создаваемой ВМ.
+
+        {% note info %}
+        
+        Имя виртуальной машины используется для генерации [внутреннего FQDN](../../compute/concepts/network.md#hostname) единожды — при создании ВМ. Если для вас важен внутренний FQDN, учитывайте это и задавайте нужное имя ВМ при создании.
+        
+        {% endnote %}
+
+      * `--zone` — [зона доступности](../../overview/concepts/geo-scope.md), которая соответствует выбранной подсети.
+      * `subnet-name` — имя выбранной [подсети](../../vpc/concepts/network.md#subnet).
+      * `security-group-ids` — идентификатор [группы безопасности](../../vpc/concepts/security-groups.md), настроенной для работы с Cloud Backup.
+      * `image-id` — [идентификатор образа](../../compute/concepts/image.md) операционной системы. См. [список поддерживаемых ОС на базе Linux](../concepts/vm-connection.md#linux).
+      * `size` — размер загрузочного диска.
+      * `--cores` — [количество vCPU](../../compute/concepts/vm.md) ВМ.
+      * `--core-fraction` — гарантированная доля vCPU в %.
+      * `--memory` — [объем оперативной памяти](../../compute/concepts/vm.md) ВМ.
+      * `--service-account-name` — имя [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) с ролью `backup.user` или выше.
+      * `--ssh-key` — путь к файлу с [открытым SSH-ключом](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys). Для этого ключа на ВМ будет автоматически создан пользователь `yc-user`.
+
+      В этом примере создается ВМ на базе ОС [Ubuntu 20.04](https://yandex.cloud/ru/marketplace/products/yc/ubuntu-20-04-lts):
+
+      ```bash
+      yc compute instance create \
+        --folder-id wasdcjs6be29******** \
+        --name my-vm \
+        --zone ru-central1-b \
+        --network-interface subnet-name=my-vpc-ru-central1-b,nat-ip-version=ipv4,security-group-ids=abcd3570sbqg******** \
+        --create-boot-disk image-id=fd8ecgtorub9********,size=25 \
+        --cores 2 \
+        --core-fraction 100 \
+        --memory 4 \
+        --service-account-name backup-user \
+        --ssh-key my-key.pub
+      ```
+
+      Результат:
+
+      ```text
+      done (46s)
+      id: abcdho6nspdk********
+      folder_id: wasdcjs6be29********
+      created_at: "2023-10-09T14:57:06Z"
+      name: my-vm
+      ...
+            one_to_one_nat:
+              address: 158.***.**.***
+      ...
+      placement_policy: {}
+      ```
+
+  1. [Подключитесь](../../compute/operations/vm-connect/ssh.md#vm-connect) к ВМ по SSH. Для подключения используйте имя пользователя `yc-user` и публичный IP-адрес ВМ, указанный в выводе результата создания ВМ в секции `one_to_one_nat`.
+  1. Установите агент Cloud Backup:
+
+      **Ubuntu**
+
+      ```bash
+      sudo apt update && \
+      sudo apt install -y jq && \
+      curl https://storage.yandexcloud.net/backup-distributions/agent_installer.sh | sudo bash
+      ```
+
+      Результат:
+
+      ```text
+      ...
+      Agent registered with id D9CA44FC-716A-4B3B-A702-C6**********
+      ```
+
+      **CentOS**
+
+      ```bash
+      sudo yum install epel-release -y && \
+      sudo yum update -y && \
+      sudo yum install jq -y && \
+      curl https://storage.yandexcloud.net/backup-distributions/agent_installer.sh | sudo bash
+      ```
+
+      Результат:
+
+      ```text
+      ...
+      Agent registered with id D9CA44FC-716A-4B3B-A702-C6**********
+      ```
+
+{% endlist %}
+
+{% note info %}
+
+Если через 10 минут агент Cloud Backup не установился, [обратитесь](https://center.yandex.cloud/support) в техническую поддержку для диагностики проблемы.
+
+{% endnote %}
+
+После установки агента Cloud Backup ВМ будет добавлена в сервис **Cloud Backup** на вкладку ![machines](../../_assets/console-icons/server.svg) **Виртуальные машины**, и ее можно будет привязать к [политике резервного копирования](../concepts/policy.md). Если вы выбрали политику при создании ВМ, то ВМ уже привязана к политике, дополнительные действия не требуются.
+
+#### См. также {#see-also}
+
+* [Подключить существующую виртуальную машину на Windows Server к Cloud Backup](connect-vm-windows.md)
+* [Подключить существующую виртуальную машину на Linux к Cloud Backup](connect-vm-linux.md)
+* [Привязать виртуальную машину к политике резервного копирования](policy-vm/update.md#update-vm-list)
+* [Восстановить виртуальную машину или сервер Yandex BareMetal из резервной копии](backup-vm/recover.md)
+* [Удалить резервную копию](backup-vm/delete.md)
+* [Создать политику резервного копирования](policy-vm/create.md)

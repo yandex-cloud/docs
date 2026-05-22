@@ -1,3 +1,8 @@
+---
+title: Сообщения в {{ message-queue-full-name }}
+description: Состояния сообщений, состав полей и пример структуры сообщения в {{ message-queue-name }}.
+---
+
 # Сообщения
 
 Сообщения передаются через очереди и могут содержать в теле обычный текст. Сообщения получают потребители, которые удаляют сообщения из очереди после обработки.
@@ -37,6 +42,6 @@
 ## Примеры использования {#examples}
 
 * [{#T}](../tutorials/autoscale-monitoring.md).
-* [{#T}](../tutorials/video-converting-queue.md).
+* [{#T}](../tutorials/video-converting-queue/index.md).
 * [{#T}](../tutorials/websocket-app.md).
 * [{#T}](../tutorials/serverless-trigger-budget-queue-vm-tg.md).

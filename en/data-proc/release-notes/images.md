@@ -4,6 +4,12 @@ For a complete list of available and deprecated {{ dataproc-name }} images, see 
 
 ## 2.2.x images (beta) {#2-2-x}
 
+### 2.2.10 (beta) {#2-2-10}
+
+* Added `jq` and `yq`.
+* Added the PyYAML library.
+* Added additional metrics for `cpu/mem/diskio/net/processes/kernel` (by default collected from the master; you can enable them for all hosts by adding the `monitoring:all_nodes = True` property).
+
 ### 2.2.9 (beta) {#2-2-9}
 
 * {{ SPRK }} updated to version 3.5.6.
@@ -41,6 +47,12 @@ For a complete list of available and deprecated {{ dataproc-name }} images, see 
     * scikit-learn updated to version 1.5.1.
 
 ## 2.1.x images {#2-1-x}
+
+### 2.1.22 {#2-1-22}
+
+* Added `jq` and `yq`.
+* Added the PyYAML library.
+* Added additional metrics for `cpu/mem/diskio/net/processes/kernel` (by default collected from the master; you can enable them for all hosts by adding the `monitoring:all_nodes = True` property).
 
 ### 2.1.21 {#2-1-21}
 
@@ -188,11 +200,11 @@ For a complete list of available and deprecated {{ dataproc-name }} images, see 
 ### 2.0.48 {#2-0-48}
 
 * Added support for [Apache Spark Thrift Server](https://spark.apache.org/docs/latest/sql-distributed-sql-engine.html). For more information, see [{#T}](../concepts/settings-list.md#spark-thrift-server).
-* Fixed the `YandexMetadataCredentialsProvider does not implement AWSCredentialsProvider` error that could occured on lightweight Apache Spark configurations.
+* Fixed the `YandexMetadataCredentialsProvider does not implement AWSCredentialsProvider` error that could occur on lightweight Apache Spark configurations.
 
 ### 2.0.47 {#2-0-47}
 
-* Fixed TCP connection leaks in the metadata service under high-load cluster conditions. These leaks could prevent IAM token updates, affecting authorization in {{ objstorage-name }} and other services.
+* Fixed a leak of TCP sessions with the metadata service on high-load clusters. The leak could prevent IAM token updates required for authentication in {{ objstorage-name }} and other services.
 * Fixed the `YandexMetadataCredentialsProvider does not implement AWSCredentialsProvider` error that prevented {{ metastore-name }} tables from loading.
 
 ### 2.0.46 {#2-0-46}

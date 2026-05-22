@@ -7,9 +7,9 @@ description: Follow this guide to install and reinstall a {{ baremetal-full-name
 
 {{ baremetal-full-name }} allows you to install and reinstall a server OS from a custom ISO image. This way, you can install [Linux](https://en.wikipedia.org/wiki/Linux) or [Windows](https://en.wikipedia.org/wiki/Microsoft_Windows) operating systems on your server. Note that if the OS you want to install requires a license, you must provide your own license.
 
-When installing or reinstalling an OS from your [custom ISO image](../../concepts/images.md#user-images), you can freely [redistribute](../../concepts/server-advanced-settings.md#storage-management) the available disk space on the server.
+When installing or reinstalling an OS from your [custom ISO image](../../concepts/images.md#user-images), you can freely [redistribute](../../concepts/server-advanced-settings.md#storage-management) the available [disk space](../../concepts/disks/disk-types.md) on the server.
 
-Creating fault-tolerant disk configurations requires experience and understanding of [RAID](https://en.wikipedia.org/wiki/RAID) and/or [LVM](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)) technologies. We recommend using {{ marketplace-short-name }} public OS images instead, resorting to this installation method only if you need customizations beyond {{ marketplace-short-name }} options.
+Creating fault-tolerant disk configurations requires experience and understanding of [RAID](../../concepts/disks/raid.md) and/or [LVM](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)) technologies. We recommend using {{ marketplace-short-name }} public OS images instead, resorting to this installation method only if you need customizations beyond {{ marketplace-short-name }} options.
 
 For example, you might need to install from your own ISO image if the required OS is not available in {{ marketplace-short-name }}, or you need a custom disk partitioning layout, [UEFI](../../concepts/server-advanced-settings.md#install-os-uefi)/SecureBoot mode, root encryption, or other options unavailable through {{ marketplace-short-name }} image deployment.
 
@@ -35,7 +35,7 @@ To create a {{ baremetal-name }} image from your ISO image and deploy it on the 
 
       1. In the [management console]({{ link-console-main }}), select a folder where you want to create your image.
       1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-      1. In the left-hand panel, select ![icon](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.baremetal.label_images }}**.
+      1. In the left-hand panel, select ![icon](../../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.baremetal.label_images_duoXD }}**.
       1. Click **Upload image**.
       1. Specify the image name. The naming requirements are as follows:
 
@@ -47,20 +47,26 @@ To create a {{ baremetal-name }} image from your ISO image and deploy it on the 
 
     - CLI {#cli}
 
-       1. Run this command:
+      1. Run this command:
 
-          ```bash
-          yc baremetal boot-image create \
-            --name <image_name> \
-            --uri "<image_link>"
-          ```
+         ```bash
+         yc baremetal boot-image create \
+           --name <image_name> \
+           --uri "<image_link>"
+         ```
 
-          Where:
-          * `--name`: Image name. Follow these naming requirements:
+         Where:
+         * `--name`: Image name. The naming requirements are as follows:
             
-              {% include [name-format](../../../_includes/name-format.md) %}
+             {% include [name-format](../../../_includes/name-format.md) %}
 
-          * `--uri`: Link to the image file you got from {{ objstorage-name }} in the previous step.
+         * `--uri`: Link to the image file you got from {{ objstorage-name }} in the previous step.
+
+    - API {#api}
+
+      To create an image in {{ baremetal-name }}, use the [create](../../api-ref/Image/create.md) REST API method for the [Image](../../api-ref/Image/index.md) resource or the [ImageService/Create](../../api-ref/grpc/Image/create.md) gRPC API call.
+      
+      {% include [create-baremetal-image-api](../../../_includes/baremetal/create-baremetal-image-api.md) %}
 
     {% endlist %}
 
@@ -72,7 +78,7 @@ To create a {{ baremetal-name }} image from your ISO image and deploy it on the 
 
     {% endnote %}
 
-1. Click the CD icon or select **Media** → **Virtual Media Wizard...** in the top menu of the KVM console window. In the window that opens, do the following:
+1. Click the CD icon or select **Media** → **Virtual Media Wizard...** in the top menu of the KVM console window. In the window that opens:
 
     1. In the **CD/DVD Media1** section, click **Browse** and select the [previously uploaded](../image-upload.md) ISO OS image in the `user-iso` directory.
     1. Click **Connect CD/DVD**.
@@ -156,7 +162,7 @@ To create a `RAID10` fault-tolerant disk array, you need at least four disks or 
 
     1. In the **AVAILABLE DEVICES** section, remove all existing disk partitions and RAID arrays on the server.
 
-        Use the **↑** and **↓** keys to select a partition or RAID, press **Enter**, then choose `DELETE` from the menu that appears and confirm the deletion.
+        Use the **↑** and **↓** keys to select a partition or RAID array, press **Enter**, select `DELETE` from the menu that appears, and confirm the deletion.
 
         To delete all partitions on a disk, select the line containing this disk’s name, press **Enter**, then select `Reformat` and confirm the deletion.
     1. Repeat the previous step for all partitions, disks, and RAID arrays listed under **AVAILABLE DEVICES**.

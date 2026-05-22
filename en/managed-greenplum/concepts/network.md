@@ -1,9 +1,9 @@
 ---
-title: Network and DB clusters in {{ mgp-full-name }}
+title: Network and database clusters in {{ mgp-full-name }}
 description: In this tutorial, you will learn about the basic network interface settings for a {{ GP }} cluster.
 ---
 
-# Network and DB clusters in {{ mgp-name }}
+# Network and database clusters in {{ mgp-name }}
 
 
 When creating a cluster, you can:
@@ -24,7 +24,7 @@ By default, master hosts are available for connection from the VMs located in th
 
 When you create a cluster, {{ mgp-short-name }} automatically assigns its hosts both short and full (FQDN) names. These cannot be changed.
 
-To learn how to get a host FQDN, see [this guide](../operations/connect.md#fqdn).
+To learn how to get a host's FQDN, see [this guide](../operations/connect/fqdn.md#get-fqdn).
 
 
 You can use FQDNs to access master hosts from both inside and outside {{ yandex-cloud }}.
@@ -37,17 +37,17 @@ To enable public access to master hosts from outside {{ yandex-cloud }}, enable 
 
 {% note tip %}
 
-When connecting to a cluster from the same cloud network, [configure security groups](../operations/connect.md#configuring-security-groups) both for the cluster and the connecting host.
+When connecting to a cluster from the same cloud network it resides in, [configure security groups](../operations/connect/index.md#configuring-security-groups) not just for the cluster but also for the host you are connecting from.
 
 {% endnote %}
 
-Specifics of working with security groups:
+Features of using security groups:
 
-* To connect to a cluster, you [need rules](../operations/connect.md#configuring-security-groups) that allow traffic between the cluster and the connecting host, even if they are in the same security group.
+* To connect to a cluster, you [need rules](../operations/connect/index.md#configuring-security-groups) that allow traffic between the cluster and the connecting host, even if they are in the same security group.
 
 * Security group settings affect the ability to connect to the cluster, its performance, and the network connectivity between its hosts.
 
-For more information, see this [{{ vpc-name }} guide](../../vpc/concepts/security-groups.md).
+For more information, see [this {{ vpc-name }} article](../../vpc/concepts/security-groups.md).
 
 
 ## Use cases {#examples}
