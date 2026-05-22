@@ -1,1 +1,1 @@
-Роль `managed-kafka.user` позволяет использовать [кластеры Apache Kafka®](../../managed-kafka/concepts/index.md).
+Роль `managed-kafka.user` позволяет использовать [кластеры {{ KF }}](../../managed-kafka/concepts/index.md).

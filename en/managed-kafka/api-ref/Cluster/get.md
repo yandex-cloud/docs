@@ -99,7 +99,8 @@ The maximum string length in characters is 50. ||
         "offsetsRetentionMinutes": "string",
         "saslEnabledMechanisms": [
           "string"
-        ]
+        ],
+        "transactionalIdExpirationMs": "string"
       },
       "kafkaConfig_3": {
         "compressionType": "string",
@@ -125,7 +126,8 @@ The maximum string length in characters is 50. ||
         "offsetsRetentionMinutes": "string",
         "saslEnabledMechanisms": [
           "string"
-        ]
+        ],
+        "transactionalIdExpirationMs": "string"
       },
       "kafkaConfig_4": {
         "compressionType": "string",
@@ -150,7 +152,8 @@ The maximum string length in characters is 50. ||
         "offsetsRetentionMinutes": "string",
         "saslEnabledMechanisms": [
           "string"
-        ]
+        ],
+        "transactionalIdExpirationMs": "string"
       }
       // end of the list of possible fields
     },
@@ -523,6 +526,9 @@ The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512
 
 - `SASL_MECHANISM_SCRAM_SHA_256`: SHA_256.
 - `SASL_MECHANISM_SCRAM_SHA_512`: SHA_512. ||
+|| transactionalIdExpirationMs | **string** (int64)
+
+Timeout for transactional ids to expire in ms. Default: 604800000 (7 days). ||
 |#
 
 ## KafkaConfig3 {#yandex.cloud.mdb.kafka.v1.KafkaConfig3}
@@ -621,6 +627,9 @@ The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512
 
 - `SASL_MECHANISM_SCRAM_SHA_256`: SHA_256.
 - `SASL_MECHANISM_SCRAM_SHA_512`: SHA_512. ||
+|| transactionalIdExpirationMs | **string** (int64)
+
+Timeout for transactional ids to expire in ms. Default: 604800000 (7 days). ||
 |#
 
 ## KafkaConfig4 {#yandex.cloud.mdb.kafka.v1.KafkaConfig4}
@@ -713,6 +722,9 @@ The list of SASL mechanisms enabled in the Kafka server. Default: [SCRAM_SHA_512
 
 - `SASL_MECHANISM_SCRAM_SHA_256`: SHA_256.
 - `SASL_MECHANISM_SCRAM_SHA_512`: SHA_512. ||
+|| transactionalIdExpirationMs | **string** (int64)
+
+Timeout for transactional ids to expire in ms. Default: 604800000 (7 days). ||
 |#
 
 ## Zookeeper {#yandex.cloud.mdb.kafka.v1.ConfigSpec.Zookeeper}

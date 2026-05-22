@@ -97,3 +97,5 @@ IP-адреса в диапазоне выделенной публичной п
 * [{#T}](./dhcp.md)
 * [{#T}](./mc-lag.md)
 * [{#T}](../operations/reserve-public-subnet.md)
+* [{#T}](../operations/servers/set-up-tagged-vlan.md)
+* [{#T}](../operations/servers/switch-network-type.md)

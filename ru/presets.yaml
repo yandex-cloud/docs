@@ -7458,20 +7458,41 @@ default:
         field_connector-alias: Псевдоним
         field_connector-bootstrap-servers: Бутстрап-серверы
         field_connector-bucket-name: Имя бакета
+        field_connector-catalog-uri: URI каталога
+        field_connector-commit-interval-ms: Интервал коммита, мс
+        field_connector-commit-threads: Потоки коммита
+        field_connector-commit-timeout-ms: Таймаут коммита, мс
         field_connector-compression-type: Механизм сжатия
         field_connector-config-mirror-maker-source-cluster: Кластер-источник
         field_connector-config-mirror-maker-target-cluster: Кластер-приёмник
         field_connector-config-mirror-maker-topics: Топики
+        field_connector-control-topic: Топик управления
+        field_connector-default-commit-branch: Ветка коммитов по умолчанию
+        field_connector-default-id-columns: Список столбцов по умолчанию
+        field_connector-default-partition-by: Партиционирование по умолчанию
         field_connector-endpoint: Эндпоинт
+        field_connector-evolve-schema-enabled: Включить автоматическую эволюцию схемы
         field_connector-file-max-records: Максимальное количество записей на файл
+        field_connector-group-id-prefix: Префикс consumer group
+        field_connector-metastore-connection: Подключение к Metastore
         field_connector-region: Регион
+        field_connector-route-field: Поле маршрутизации
         field_connector-s3-connection: Подключение к S3
         field_connector-sasl-mechanism: SASL механизм
         field_connector-sasl-password: SASL пароль
         field_connector-sasl-username: SASL имя пользователя
+        field_connector-schema-case-insensitive: Регистронезависимое сопоставление имён полей
+        field_connector-schema-force-optional: Сделать все колонки nullable
         field_connector-secret-access-key: Секретный ключ
         field_connector-security-protocol: Протокол безопасности
         field_connector-ssl-truststore-certificates: Сертификат в формате PEM
+        field_connector-static-tables: Таблицы
+        field_connector-table-routing: Маршрутизация таблиц
+        field_connector-table-routing-dynamic: Динамическая
+        field_connector-table-routing-static: Статическая
+        field_connector-topics-source: Источник топиков
+        field_connector-transactional-prefix: Транзакционный префикс
+        field_connector-warehouse: Warehouse
         field_kafka-ui: Kafka UI
         field_rest-api-config: Kafka Rest API
         field_schema-registry: Реестр схем данных
@@ -7499,6 +7520,9 @@ default:
         label_topic-retention-bytes: Максимальный размер раздела, байт
         label_topic-retention-ms: Время жизни сегмента лога, мс
         label_topics: Топики
+        section_iceberg-control-config: Настройки управления
+        section_iceberg-optional-settings: Дополнительные настройки
+        section_iceberg-tables-config: Настройки таблиц
         section_kraft-resources: Класс хоста KRaft
         section_properties: Дополнительные свойства
         section_topic-config: Настройки топика

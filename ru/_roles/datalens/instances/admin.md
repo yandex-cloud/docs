@@ -1,4 +1,4 @@
-Роль `datalens.instances.admin` предоставляет доступ к сервису {{ datalens-name }} в качестве администратора экземпляра {{ datalens-name }}. Администратор получает полные права на все [объекты](../../../datalens/concepts/index.md#component-interrelation) и папки в сервисе {{ datalens-name }}, доступ к настройкам {{ datalens-name }}, а также позволяет просматривать информацию о [каталогах](../../../resource-manager/concepts/resources-hierarchy.md#folder).
+Роль `datalens.instances.admin` предоставляет доступ к сервису {{ datalens-name }} в качестве администратора экземпляра {{ datalens-name }}. Администратор получает полные права на все [объекты](../../../datalens/concepts/index.md#component-interrelation) и папки в {{ datalens-name }}, доступ к настройкам {{ datalens-name }}, а также позволяет просматривать информацию о [каталогах](../../../resource-manager/concepts/resources-hierarchy.md#folder).
 
 Включает разрешения, предоставляемые ролью `datalens.instances.user`.
 

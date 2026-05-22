@@ -1,4 +1,5 @@
-Роль `dataproc.provisioner` предоставляет доступ к API для создания, изменения и удаления объектов кластеров Yandex Data Processing.
+
+Роль `dataproc.provisioner` предоставляет доступ к API для создания, изменения и удаления объектов кластеров {{ dataproc-name }}.
 
 {% cut "Пользователи с этой ролью могут:" %}
 
@@ -16,7 +17,7 @@
 * использовать [последовательный порт](../../compute/operations/vm-info/get-serial-port-output.md) виртуальной машины в режиме чтения и записи;
 * имитировать события обслуживания виртуальной машины;
 * просматривать [метаданные](../../compute/concepts/vm-metadata.md) виртуальной машины;
-* просматривать информацию о статусе настройки доступа по [OS Login](../../organization/concepts/os-login.md) на виртуальных машинах и подключаться к виртуальным машинам через OS Login с помощью SSH-сертификатов или SSH-ключей;
+* просматривать информацию о статусе настройки доступа по [{{ oslogin }}](../../organization/concepts/os-login.md) на виртуальных машинах и подключаться к виртуальным машинам через {{ oslogin }} с помощью SSH-сертификатов или SSH-ключей;
 * просматривать список [групп виртуальных машин](../../compute/concepts/instance-groups/index.md), информацию о них и о назначенных правах доступа к ним, а также использовать, создавать, изменять, запускать, останавливать и удалять группы виртуальных машин;
 * просматривать список [групп размещения виртуальных машин](../../compute/concepts/placement-groups.md), информацию о них и о назначенных правах доступа к ним, а также использовать, создавать, изменять и удалять группы размещения виртуальных машин;
 * просматривать списки ВМ, входящих в группы размещения;
@@ -43,18 +44,18 @@
 * просматривать список групп безопасности и информацию о них, а также использовать группы безопасности;
 * просматривать информацию о [NAT-шлюзах](../../vpc/concepts/gateways.md) и подключать их к таблицам маршрутизации;
 * просматривать информацию об использованных IP-адресах в подсетях;
-* просматривать информацию о [метриках](../../monitoring/concepts/data-model.md#metric) Monitoring и их [метках](../../monitoring/concepts/data-model.md#label), а также выгружать метрики;
-* просматривать список [дашбордов](../../monitoring/concepts/visualization/dashboard.md) и [виджетов](../../monitoring/concepts/visualization/widget.md) Monitoring, а также информацию о них;
-* просматривать историю [уведомлений](../../monitoring/concepts/alerting/notification-channel.md) Monitoring;
+* просматривать информацию о [метриках](../../monitoring/concepts/data-model.md#metric) {{ monitoring-name }} и их [метках](../../monitoring/concepts/data-model.md#label), а также выгружать метрики;
+* просматривать список [дашбордов](../../monitoring/concepts/visualization/dashboard.md) и [виджетов](../../monitoring/concepts/visualization/widget.md) {{ monitoring-name }}, а также информацию о них;
+* просматривать историю [уведомлений](../../monitoring/concepts/alerting/notification-channel.md) {{ monitoring-name }};
 * просматривать информацию о [лог-группах](../../logging/concepts/log-group.md);
 * просматривать информацию о приемниках логов;
-* просматривать информацию о назначенных правах доступа к ресурсам сервиса Cloud Logging;
+* просматривать информацию о назначенных правах доступа к ресурсам сервиса {{ cloud-logging-name }};
 * просматривать информацию о выгрузках логов;
-* просматривать в консоли управления информацию об объеме потребления ресурсов и [квот](../../compute/concepts/limits.md#compute-quotas) Compute Cloud, о [лимитах дисков](../../compute/concepts/limits.md#compute-limits-disks);
-* просматривать информацию о квотах сервисов [Cloud DNS](../../dns/concepts/limits.md#cloud-dns-quotas), 
-[Virtual Private Cloud](../../vpc/concepts/limits.md#vpc-quotas), и [Monitoring](../../monitoring/concepts/limits.md#monitoring-quotas);
-* просматривать списки операций с ресурсами сервиса Compute Cloud и информацию об операциях, а также отменять выполнение этих операций;
-* просматривать информацию об операциях с ресурсами сервиса Virtual Private Cloud;
+* просматривать в консоли управления информацию об объеме потребления ресурсов и [квот](../../compute/concepts/limits.md#compute-quotas) {{ compute-name }}, о [лимитах дисков](../../compute/concepts/limits.md#compute-limits-disks);
+* просматривать информацию о квотах сервисов [{{ dns-name }}](../../dns/concepts/limits.md#cloud-dns-quotas), 
+[{{ vpc-name }}](../../vpc/concepts/limits.md#vpc-quotas), и [{{ monitoring-name }}](../../monitoring/concepts/limits.md#monitoring-quotas);
+* просматривать списки операций с ресурсами сервиса {{ compute-name }} и информацию об операциях, а также отменять выполнение этих операций;
+* просматривать информацию об операциях с ресурсами сервиса {{ vpc-name }};
 * просматривать список [зон доступности](../../overview/concepts/geo-scope.md), информацию о них и о назначенных правах доступа к ним;
 * просматривать информацию об [облаке](../../resource-manager/concepts/resources-hierarchy.md#cloud) и [каталоге](../../resource-manager/concepts/resources-hierarchy.md#folder).
 

@@ -6,7 +6,7 @@ In this tutorial, you will learn how to create a Telegram bot that can:
 * Convert text messages to [speech]({{ link-docs-ai }}/speechkit/tts/index) and [transcribe]({{ link-docs-ai }}/speechkit/stt/index) voice messages using the {{ speechkit-full-name }} [Python SDK](https://pypi.org/project/yandex-speechkit/).
 * [Recognize text]({{ link-docs-ai }}vision/concepts/ocr/index) in images with {{ vision-full-name }}.
 
-Authentication in {{ yandex-cloud }} services is performed using a service account with an [IAM token](../../iam/concepts/authorization/iam-token.md). The IAM token resides in the [handler function](../../functions/operations/function-sa.md) context, where the handler manages user interaction with the bot.
+Authentication in {{ yandex-cloud }} services is performed using a service account with an [IAM token](../../iam/concepts/authorization/iam-token.md). The IAM token resides in the [handler’s](../../functions/operations/function-sa.md) context, where the handler manages user interaction with the bot.
 
 The {{ api-gw-full-name }} [API gateway](../../api-gateway/concepts/index.md) will accept requests from your bot and forward them to the {{ sf-full-name }} [handler function](../../functions/concepts/function.md) for processing.
 
@@ -15,7 +15,7 @@ To create a bot:
 1. [Get your cloud ready](#before-you-begin).
 1. [Set up required resources](#prepare).
 1. [Register your Telegram bot](#bot-register).
-1. [Create a function](#create-function).
+1. [Create a handler function](#create-function).
 1. [Create an API gateway](#create-api-gateway).
 1. [Bind the handler function to the bot](#link-bot).
 1. [Test the bot](#test).
@@ -123,7 +123,7 @@ The cost of Telegram bot support includes:
       @bot.message_handler(commands=['help', 'start'])
       def send_welcome(message):
           bot.reply_to(message,
-                       "The bot can do the following:\n* Recognize text in images.\n* Generate voice messages from text.\n* Convert voice messages to text.")
+                       "The bot can do the following:\n* Recognize text from images.\n* Generate voice messages from text.\n* Convert voice messages to text.")
 
       @bot.message_handler(func=lambda message: True, content_types=['text'])
       def echo_message(message):
@@ -186,7 +186,7 @@ The cost of Telegram bot support includes:
       def synthesize(text, export_path):
           model = model_repository.synthesis_model()
 
-          # Synthesis settings
+          # Speech synthesis settings
           model.voice = 'kirill'
 
           result = model.synthesize(text, raw_format=False)
@@ -195,7 +195,7 @@ The cost of Telegram bot support includes:
 
       {% endcut %}
 
-   1. Create a file named `requirements.txt`. In this file, specify the bot library and the Python SDK library:
+   1. Create a file named `requirements.txt`. In this file, specify the bot library and Python SDK library:
 
       ```text
       pyTelegramBotAPI==4.27
@@ -221,7 +221,7 @@ Register your bot in Telegram and get its token.
 
    In the end, you will get a token. Save it, as you will need it later.
 
-## Create a function {#create-function}
+## Create a handler function {#create-function}
 
 Create a function that will handle user actions in the chat.
 

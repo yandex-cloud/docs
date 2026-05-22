@@ -1,11 +1,12 @@
-The `managed-ytsaurus.admin` role enables managing YTsaurus clusters, as well as getting info on the quotas and service resource operations for Managed Service for YTsaurus.
+
+The `managed-ytsaurus.admin` role enables managing {{ ytsaurus-name }} clusters, as well as getting info on the quotas and service resource operations for {{ myt-name }}.
 
 Users with this role can:
-* View info on YTsaurus clusters, as well as create, modify, run, stop, and delete them.
-* View info on the [quotas](../../managed-ytsaurus/concepts/limits.md#quotas) for Managed Service for YTsaurus.
-* View info on resource operations for Managed Service for YTsaurus.
-* Use the YTsaurus web UI.
+* View info on {{ ytsaurus-name }} clusters, as well as create, modify, run, stop, and delete them.
+* View info on the [quotas](../../managed-ytsaurus/concepts/limits.md#quotas) for {{ myt-name }}.
+* View info on resource operations for {{ myt-name }}.
+* Use the {{ ytsaurus-name }} web UI.
 
 This role includes the `managed-ytsaurus.editor` permissions.
 
-To create YTsaurus clusters, you also need the `vpc.user` role.
+To create {{ ytsaurus-name }} clusters, you also need the `vpc.user` role.

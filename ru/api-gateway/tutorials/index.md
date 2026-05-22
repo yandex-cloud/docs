@@ -21,7 +21,7 @@ description: Различные сценарии использования {{ a
 ## Боты на Serverless {#bots}
 
 * [{#T}](slack-bot-serverless.md)
-* [{#T}](telegram-bot-serverless.md)
+* [{#T}](telegram-bot-serverless/index.md)
 * [{#T}](recognizer-bot.md)
 
 ## ETL на Serverless {#etl}

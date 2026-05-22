@@ -39,7 +39,7 @@ keywords:
         1. Выберите тип шардирования:
 
             * `{{ ui-key.yacloud.spqr.section_sharding-type-standard }}` — кластер будет состоять только из инфраструктурных хостов.
-            * `{{ ui-key.yacloud.spqr.section_sharding-type-advanced }}` — кластер будет состоять только из хостов-роутеров и (опционально) хостов-координаторов.
+            * `{{ ui-key.yacloud.spqr.section_sharding-type-advanced }}` — кластер будет состоять только из хостов-роутеров и хостов-координаторов.
 
     1. В блоке **{{ ui-key.yacloud.mdb.forms.section_network }}** выберите [сеть](../../vpc/operations/network-create.md) и [группы безопасности](../../vpc/concepts/security-groups.md) для кластера.
 
@@ -52,7 +52,7 @@ keywords:
         * Для стандартного шардирования задайте в блоке **{{ ui-key.yacloud.spqr.section_infra }}** конфигурацию инфраструктурных хостов.
         * Для расширенного шардирования задайте в блоке **{{ ui-key.yacloud.spqr.section_router }}** конфигурацию хостов-роутеров.
 
-            (Опционально) В блоке **{{ ui-key.yacloud.spqr.section_coordinator }}** задайте конфигурацию хостов-координаторов.
+            В блоке **{{ ui-key.yacloud.spqr.section_coordinator }}** задайте конфигурацию хостов-координаторов.
 
         Чтобы задать конфигурацию вычислительных ресурсов:
 

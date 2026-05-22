@@ -460,7 +460,13 @@ items:
           - name: Разработка Slack-бота
             href: tutorials/slack-bot-serverless.md
           - name: Разработка Telegram-бота
-            href: tutorials/telegram-bot-serverless.md
+            items:
+              - name: Обзор
+                href: tutorials/telegram-bot-serverless/index.md
+              - name: Консоль управления
+                href: tutorials/telegram-bot-serverless/console.md
+              - name: '{{ TF }}'
+                href: tutorials/telegram-bot-serverless/terraform.md
           - name: Разработка Telegram-бота для распознавания текста и аудио
             href: tutorials/recognizer-bot.md
       - name: ETL на Serverless
