@@ -14,9 +14,8 @@
 
 #|
 || **Действие** {.cell-align-center} | **Блок {{ TF }}** {.cell-align-center} | > ||
-|| ^ | `resource` | `data` ||
-|---|---|---|
-| Создание объекта | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
-| Удаление объекта | ![yes](../../_assets/common/yes.svg) | ![no](../../_assets/common/no.svg) |
-| Чтение атрибутов | ![yes](../../_assets/common/yes.svg) | ![yes](../../_assets/common/yes.svg) |
+|| ^ | `resource` {.cell-align-center} | `data` {.cell-align-center} ||
+|| Создание объекта | ![yes](../../_assets/common/yes.svg) {.cell-align-center} | ![no](../../_assets/common/no.svg) {.cell-align-center} ||
+|| Удаление объекта | ![yes](../../_assets/common/yes.svg) {.cell-align-center} | ![no](../../_assets/common/no.svg) {.cell-align-center} ||
+|| Чтение атрибутов | ![yes](../../_assets/common/yes.svg) {.cell-align-center} | ![yes](../../_assets/common/yes.svg) {.cell-align-center} ||
 |#
