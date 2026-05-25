@@ -50,6 +50,8 @@ GET https://cdn.{{ api-host }}/cdn/v1/resources
 
 ## Query parameters {#yandex.cloud.cdn.v1.ListResourcesRequest}
 
+A request to list resources.
+
 #|
 ||Field | Description ||
 || folderId | **string**

@@ -42,6 +42,8 @@ DELETE https://cdn.{{ api-host }}/cdn/v1/rules/{ruleId}
 
 ## Path parameters
 
+A request to delete a resource rule.
+
 #|
 ||Field | Description ||
 || ruleId | **string** (int64)
@@ -52,6 +54,8 @@ Value must be greater than 0. ||
 |#
 
 ## Query parameters {#yandex.cloud.cdn.v1.DeleteResourceRuleRequest}
+
+A request to delete a resource rule.
 
 #|
 ||Field | Description ||

@@ -16,7 +16,6 @@
 * [Closing documents format in EDM](closing-documents-format.md)
 * [What negative balance limit is set for wire transfers](overdraft-while-transferring.md)
 * [How to change the account owner for a business account](changing-account-owner-for-legal-entities.md)
-* [How to stop money withdrawals from the billing account](analyzing-charges-chart.md)
 * [Payment deadline](deadline-for-paymens.md)
 * [How to get the original copy of the agreement](getting-contract-originals.md)
 * [How to receive receipts for credit/debit card transfers](getting-invoices-when-paying-by-card.md)

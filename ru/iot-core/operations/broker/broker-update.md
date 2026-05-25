@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Изменение брокера
 
+{% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
+
 {% include [note-pp](../../../_includes/iot-core/note-pp.md) %}
 
 Вы можете изменить [имя](broker-update.md#update-name) или [описание](broker-update.md#update-description) брокера, а также [управлять метками брокера](broker-update.md#manage-label).

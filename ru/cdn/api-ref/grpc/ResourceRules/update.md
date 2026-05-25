@@ -206,9 +206,13 @@ Update specified by id resource rule.
       "code": "int64",
       "content": "string"
     }
-  }
+  },
+  "origins_group_id": "google.protobuf.Int64Value",
+  "origin_protocol": "OriginProtocol"
 }
 ```
+
+A request to update a resource rule.
 
 #|
 ||Field | Description ||
@@ -238,7 +242,22 @@ The maximum string length in characters is 50. ||
 Resource rule pattern.
 
 The maximum string length in characters is 100. ||
-|| options | **[ResourceOptions](#yandex.cloud.cdn.v1.ResourceOptions)** ||
+|| options | **[ResourceOptions](#yandex.cloud.cdn.v1.ResourceOptions)**
+
+Resource options. ||
+|| origins_group_id | **[google.protobuf.Int64Value](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/int64-value)**
+
+ID of origins group.
+Set non zero value to override parent origin group, `0` to use parent origin group and `null` to make no changes. ||
+|| origin_protocol | enum **OriginProtocol**
+
+Protocol used for communication with origin.
+Required if enabling origins_group_id.
+
+- `HTTP`: CDN servers will connect to your origin via HTTP.
+- `HTTPS`: CDN servers will connect to your origin via HTTPS.
+- `MATCH`: Connection protocol will be chosen automatically (content on the
+origin source should be available for the CDN both through HTTP and HTTPS). ||
 |#
 
 ## ResourceOptions {#yandex.cloud.cdn.v1.ResourceOptions}
