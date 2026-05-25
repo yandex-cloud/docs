@@ -7,6 +7,14 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.10.0 (25.05.26) {#v-1-10-0}
+
+#### {{ mos-name }} {#v-1-10-0-mos-name}
+
+* Добавлена поддержка ролей `WARM` и `INGEST` для групп хостов.
+
+## Предыдущие релизы {#previous-release}
+
 ### Версия 1.9.0 (21.05.26) {#v-1-9-0}
 
 #### {{ dns-name }} {#v-1-9-0-dns-name}
@@ -24,8 +32,6 @@ description: На странице представлены релизы CLI, а
   * `yc dns inbound-endpoint add-access-binding`;
   * `yc dns inbound-endpoint remove-access-binding`;
   * `yc dns inbound-endpoint list-operations`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.8.1 (20.05.26) {#v-1-8-1}
 

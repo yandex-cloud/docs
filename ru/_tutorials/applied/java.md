@@ -1,5 +1,7 @@
 # Работа с {{ iot-full-name }} на языке Java
 
+{% include [iot-sunset-warning](../../_includes/iot-core/sunset-warning.md) %}
+
 В этом сценарии вы узнаете, как подключиться к {{ iot-full-name }} с помощью библиотеки [Paho](https://www.eclipse.org/paho/clients/java/) на языке программирования Java. Данный сценарий предполагает, что вы имеете навыки разработки с использованием экосистемы Java.
 
 {% note info %}

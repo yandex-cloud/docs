@@ -14,4 +14,5 @@
 * [Пользователь не видит приглашение в организацию или роль `{{ roles-admin }}`](invitation-or-admin-role-not-seen.md)
 * [Появление неизвестного пользователя в организации](unknown-user.md)
 * [Устранение ошибки `Такой логин не подойдет`](invalid-login.md)
+* [Устранение ошибки `Response is invalid in a general way` при авторизации через SAML-провайдер](error-bad-request.md)
 * [Устранение ошибки `Forbidden` при работе от имени сервисного аккаунта](error-forbidden.md)

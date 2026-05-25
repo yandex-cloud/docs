@@ -1,5 +1,7 @@
 # Изменение устройства
 
+{% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
+
 Вы можете изменить [имя](device-update.md#update-name) или [описание](device-update.md#update-description) устройства.
 
 Для обращения к устройству используйте его уникальный идентификатор или имя. Как узнать уникальный идентификатор или имя устройства, читайте в разделе [{#T}](device-list.md).

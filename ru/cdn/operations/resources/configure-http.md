@@ -124,7 +124,7 @@ description: Следуя данной инструкции, вы сможете
           secondary_hostnames = ["cdn-example-1.yandex.ru", "cdn-example-2.yandex.ru"]
           origin_group_id     = yandex_cdn_origin_group.my_group.id
           options {
-            allowed_http_methods = ["GET","PUT"]
+            allowed_http_methods = ["GET","HEAD","OPTIONS"]
           }
 
       }

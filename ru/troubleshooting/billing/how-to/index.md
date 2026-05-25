@@ -16,7 +16,6 @@
 * [Какой формат закрывающих документов в ЭДО](closing-documents-format.md)
 * [Какой лимит отрицательного баланса при оплате банковским переводом](overdraft-while-transferring.md)
 * [Как сменить владельца аккаунта для юридических лиц](changing-account-owner-for-legal-entities.md)
-* [Как остановить списания средств с платежного аккаунта](analyzing-charges-chart.md)
 * [До какой даты вносить оплату](deadline-for-paymens.md)
 * [Как получить оригинал договора](getting-contract-originals.md)
 * [Как получать чеки при совершении платежа с банковской карты](getting-invoices-when-paying-by-card.md)

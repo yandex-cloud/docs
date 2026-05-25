@@ -19,6 +19,8 @@ Get specified by id resource rule.
 }
 ```
 
+A request to get a resource rule.
+
 #|
 ||Field | Description ||
 || resource_id | **string**

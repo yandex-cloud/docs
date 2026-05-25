@@ -1,6 +1,8 @@
 title: Yandex IoT Core
 href: index.yaml
 items:
+  - name: Закрытие сервиса
+    href: sunset.md
   - name: Начало работы
     items:
       - name: Обзор

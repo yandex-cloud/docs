@@ -6,6 +6,13 @@ editable: false
 
 
 
+## 0.205.0 (May 25, 2026)
+##### FEATURES:
+* opensearch: add `WARM` and `INGEST` nodegroups roles support
+##### BUG FIXES:
+* mdb_clickhouse: fix connection_manager known after apply in terraform plan
+* mdb_clickhouse: allow passing variables to shard and hosts properties
+
 ## 0.204.0 (May 18, 2026)
 ##### FEATURES:
 * compute: add `aws_v2_http_endpoint` and `aws_v2_http_token` options to yandex_compute_instance

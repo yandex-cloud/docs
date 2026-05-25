@@ -136,8 +136,6 @@ items:
         href: billing/how-to/getting-contract-originals.md
       - name: Как отвязать банковскую карту от платежного аккаунта
         href: billing/how-to/unpin-card.md
-      - name: Как остановить списания средств с платежного аккаунта
-        href: billing/how-to/analyzing-charges-chart.md
       - name: Как сменить владельца аккаунта для юридических лиц
         href: billing/how-to/changing-account-owner-for-legal-entities.md
   - name: '{{ certificate-manager-name }}'
@@ -189,14 +187,6 @@ items:
     items:
       - name: Все решения для {{ cloud-logging-name }}
         href: cloud-logging/index.md
-      - name: Решения для известных проблем {{ cloud-logging-name }}
-        href: cloud-logging/known-issues/index.md
-        hidden: true
-      - name: >-
-          В детализации по биллинг-аккаунту стало неожиданно отображаться
-          потребление по сервису {{ cloud-logging-name }}
-        href: >-
-          cloud-logging/known-issues/cloud-logging-unexpectedly-charges-in-billing-account-details.md
       - name: Примеры конфигураций и сценариев {{ cloud-logging-name }}
         href: cloud-logging/how-to/index.md
         hidden: true
@@ -573,6 +563,10 @@ items:
         href: iam/known-issues/unknown-user.md
       - name: Устранение ошибки `Такой логин не подойдет`
         href: iam/known-issues/invalid-login.md
+      - name: >-
+          Устранение ошибки `Response is invalid in a general way` при
+          авторизации через SAML-провайдер
+        href: iam/known-issues/error-bad-request.md
       - name: Устранение ошибки `Forbidden` при работе от имени сервисного аккаунта
         href: iam/known-issues/error-forbidden.md
       - name: Примеры конфигураций и сценариев {{ iam-short-name }}
@@ -604,10 +598,6 @@ items:
       - name: Примеры конфигураций и сценариев {{ kms-short-name }}
         href: kms/how-to/index.md
         hidden: true
-      - name: >-
-          Как ограничить доступ к бакету {{ objstorage-name }} диапазоном
-          IP-адресов, принадлежащих {{ cdn-name }}
-        href: kms/how-to/permit-bucket-access-only-to-cdn-networks.md
   - name: '{{ managed-k8s-name }}'
     items:
       - name: Все решения для {{ managed-k8s-name }}
@@ -889,11 +879,6 @@ items:
           nodename nor servname provided, or not known`
         href: >-
           managed-postgresql/known-issues/error-could-not-translate-host-name-to-address-nodename-nor-servname-provided-or-not-known.md
-      - name: >-
-          Устранение ошибки `Unrecognized configuration parameter
-          stats_temp_directory`
-        href: >-
-          managed-postgresql/known-issues/error-unrecognized-configuration-parameter.md
       - name: Устранение ошибки `max_connections сonn_limit is too high`
         href: managed-postgresql/known-issues/conn-limit-is-too-high.md
       - name: Устранение ошибки `Must be superuser to create this extension`

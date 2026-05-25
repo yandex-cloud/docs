@@ -93,13 +93,15 @@ items:
             items:
               - name: До 20 июня 2023 года
                 href: concepts/instance-types-archive/instance-types-20062023.md
+      - name: Высокая доступность кластера
+        href: concepts/high-availability.md
       - name: Сеть в {{ mrd-name }}
         href: concepts/network.md
       - name: Шардирование
         href: concepts/sharding.md
       - name: Резервные копии
         href: concepts/backup.md
-      - name: Репликация и отказоустойчивость
+      - name: Репликация и персистентность
         href: concepts/replication.md
       - name: Поддерживаемые клиенты
         href: concepts/supported-clients.md

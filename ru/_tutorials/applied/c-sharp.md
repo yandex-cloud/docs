@@ -1,5 +1,7 @@
 # Работа с {{ iot-full-name }} на языке C#
 
+{% include [iot-sunset-warning](../../_includes/iot-core/sunset-warning.md) %}
+
 В этом руководстве вы узнаете, как подключиться к {{ iot-full-name }} с помощью библиотеки [Paho](https://www.eclipse.org/paho/clients/dotnet/) на языке программирования С\#. Данное руководство предполагает, что вы имеете навыки разработки с использованием платформы .NET на языке C\#.
 
 {% note info %}

@@ -1,13 +1,13 @@
 ---
 title: '{{ mmg-full-name }} event reference in {{ at-full-name }}'
-description: This page provides a reference for {{ mmg-name }} events tracked in {{ at-name }}.
+description: This page provides a reference for {{ mmg-name }} events monitored in {{ at-name }}.
 ---
 
 # {{ at-full-name }} event reference
 
-{{ at-name }} supports tracking [control plane](../audit-trails/concepts/format.md) and [data plane](../audit-trails/concepts/format-data-plane.md) events for {{ mmg-full-name }}.
+{{ at-name }} supports monitoring of both [control plane](../audit-trails/concepts/format.md) (configuration level) and [data plane](../audit-trails/concepts/format-data-plane.md) (service level) events for {{ mmg-full-name }}.
 
-The general format of the `event_type` field value is as follows:
+The `event_type` format is as follows:
 
 ```text
 {{ at-event-prefix }}.audit.mdb.mongodb.<event_name>

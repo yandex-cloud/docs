@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Создание реестра
 
+{% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}

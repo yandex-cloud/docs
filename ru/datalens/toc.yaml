@@ -950,7 +950,15 @@ items:
             href: concepts/organizations.md
           - name: Переключение между экземплярами {{ datalens-name }}
             href: operations/organizations/change-organization.md
-      - name: Доступ к объектам
+      - name: Доступ к объектам в воркбуках и коллекциях
+        items:
+          - name: Обзор
+            href: security/workbooks-access.md
+          - name: Базовая настройка
+            href: security/workbooks-access-basic.md
+          - name: Продвинутая настройка (общие объекты)
+            href: security/workbooks-access-advanced.md
+      - name: Доступ к объектам в папках
         items:
           - name: Права доступа
             href: security/manage-access.md

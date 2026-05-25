@@ -16,7 +16,7 @@ This section describes the {{ mmg-name }} pricing [policy](#rules) and [current 
 
 
 
-For cost estimation, use [this calculator](https://yandex.cloud/en/prices?state=a147d66e1d1e#calculator) on our website or check out the pricing below.
+To estimate your service costs, use [our calculator](https://yandex.cloud/en/prices?state=a147d66e1d1e#calculator) or check out the pricing below.
 
 
 {% endnote %}
@@ -47,7 +47,7 @@ The minimum billing unit is one minute, e.g., 1.5 minutes of host usage is bille
 
 ### Disk usage {#rules-storage}
 
-You are billed for the following:
+You are charged for the following:
 
 * Storage allocated for database clusters.
 

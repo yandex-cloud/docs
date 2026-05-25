@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Получение информации о брокере
 
+{% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
+
 {% include [note-pp](../../../_includes/iot-core/note-pp.md) %}
 
 Чтобы узнать идентификатор или имя [брокера](../../concepts/index.md#broker), получите список брокеров в каталоге.

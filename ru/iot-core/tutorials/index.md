@@ -1,5 +1,7 @@
 # Все руководства для {{ iot-name }}
 
+{% include [iot-sunset-warning](../../_includes/iot-core/sunset-warning.md) %}
+
 Примеры работы {{ iot-full-name }} с устройством Android на разных языках программирования смотрите на [GitHub](https://github.com/yandex-cloud-examples/?q=iot).
 
 ## Работа с помощью Mosquitto {#mosquitto}

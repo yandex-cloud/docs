@@ -385,21 +385,45 @@ resource "yandex_sws_waf_profile" "default" {
     - `rule_ids` (List Of String). List of rules to exclude.
   - `request_condition` [Block]. Additional condition applied to specific parts of the request to refine when the exclusion is triggered.
     - `body_matcher` [Block]. Matcher for request body.
-      - `body_value` [Block]. List of request body values to match. Up to 20 entries.
-        - `case_sensitive` (Bool). Whether the match is case sensitive.
-        - `value` (String). String value to match against.
+      - `body_value` [Block]. package: yandex.cloud.smartwebsecurity.v1.waf
+filename: yandex/cloud/smartwebsecurity/v1/waf/waf_profile.proto
+
+        - `case_sensitive` (Bool). package: yandex.cloud.smartwebsecurity.v1.waf
+filename: yandex/cloud/smartwebsecurity/v1/waf/waf_profile.proto
+
+        - `value` (String). package: yandex.cloud.smartwebsecurity.v1.waf
+filename: yandex/cloud/smartwebsecurity/v1/waf/waf_profile.proto
+
     - `cookie_matcher` [Block]. Matcher for request cookies.
-      - `cookie_name` [Block]. List of cookie names to match. Up to 20 entries.
-        - `case_sensitive` (Bool). Whether the match is case sensitive.
-        - `value` (String). String value to match against.
+      - `cookie_name` [Block]. package: yandex.cloud.smartwebsecurity.v1.waf
+filename: yandex/cloud/smartwebsecurity/v1/waf/waf_profile.proto
+
+        - `case_sensitive` (Bool). package: yandex.cloud.smartwebsecurity.v1.waf
+filename: yandex/cloud/smartwebsecurity/v1/waf/waf_profile.proto
+
+        - `value` (String). package: yandex.cloud.smartwebsecurity.v1.waf
+filename: yandex/cloud/smartwebsecurity/v1/waf/waf_profile.proto
+
     - `header_matcher` [Block]. Matcher for request headers.
-      - `header_name` [Block]. List of request header names to match. Up to 20 entries.
-        - `case_sensitive` (Bool). Whether the match is case sensitive.
-        - `value` (String). String value to match against.
+      - `header_name` [Block]. package: yandex.cloud.smartwebsecurity.v1.waf
+filename: yandex/cloud/smartwebsecurity/v1/waf/waf_profile.proto
+
+        - `case_sensitive` (Bool). package: yandex.cloud.smartwebsecurity.v1.waf
+filename: yandex/cloud/smartwebsecurity/v1/waf/waf_profile.proto
+
+        - `value` (String). package: yandex.cloud.smartwebsecurity.v1.waf
+filename: yandex/cloud/smartwebsecurity/v1/waf/waf_profile.proto
+
     - `param_matcher` [Block]. Matcher for request query parameters.
-      - `param_name` [Block]. List of request query parameter names to match. Up to 20 entries.
-        - `case_sensitive` (Bool). Whether the match is case sensitive.
-        - `value` (String). String value to match against.
+      - `param_name` [Block]. package: yandex.cloud.smartwebsecurity.v1.waf
+filename: yandex/cloud/smartwebsecurity/v1/waf/waf_profile.proto
+
+        - `case_sensitive` (Bool). package: yandex.cloud.smartwebsecurity.v1.waf
+filename: yandex/cloud/smartwebsecurity/v1/waf/waf_profile.proto
+
+        - `value` (String). package: yandex.cloud.smartwebsecurity.v1.waf
+filename: yandex/cloud/smartwebsecurity/v1/waf/waf_profile.proto
+
 - `rule` [Block]. Settings for each rule in rule set.
   - `is_blocking` (Bool). Determines is it rule blocking or not.
   - `is_enabled` (Bool). Determines is it rule enabled or not.
@@ -409,40 +433,47 @@ resource "yandex_sws_waf_profile" "default" {
   - `is_enabled` (Bool). Determines is it rule set enabled or not.
   - `priority` (Number). Priority of rule set.
   - `core_rule_set` [Block]. Core rule set settings. See [Basic rule set](/docs/smartwebsecurity/concepts/waf#rules-set) for details.
-    - `inbound_anomaly_score` (Number). Anomaly score.
- Enter an integer within the range of 2 and 10000.
- The higher this value, the more likely it is that the request that satisfies the rule is an attack.
- See [Rules](/docs/smartwebsecurity/concepts/waf#anomaly) for more details.
-    - `paranoia_level` (Number). Paranoia level.
- Enter an integer within the range of 1 and 4.
- Paranoia level classifies rules according to their aggression. The higher the paranoia level, the better your protection,
- but also the higher the probability of WAF false positives.
- See [Rules](/docs/smartwebsecurity/concepts/waf#paranoia) for more details.
- NOTE: this option has no effect on enabling or disabling rules.
- it is used only as recommendation for user to enable all rules with paranoia_level <= this value.
-    - `rule_set` [Block]. Rule set.
+    - `inbound_anomaly_score` (Number). Matcher for request headers.
+    - `paranoia_level` (Number). Matcher for request cookies.
+    - `rule_set` [Block]. Matcher for request query parameters.
       - `id` (String). ID of rule set.
       - `name` (**Required**)(String). Name of rule set.
       - `type` (String). Type of rule set.
       - `version` (**Required**)(String). Version of rule set.
   - `ml_rule_set` [Block]. Yandex Machine learning rule set settings.
-    - `rule_groups` [Block]. List of rule groups.
-      - `action` (String). Action to perfome on rule group match.
-      - `id` (String). ID of the rule group.
-      - `inbound_anomaly_score` (Number). Anomaly score.
-      - `is_enabled` (Bool). Determines is it rule group enabled or not.
-    - `rule_set` [Block]. Rule set.
+    - `rule_groups` [Block]. package: yandex.cloud.smartwebsecurity.v1.waf
+filename: yandex/cloud/smartwebsecurity/v1/waf/waf_profile.proto
+
+      - `action` (String). List of rules to exclude.
+      - `id` (String). Set this option true to exclude all rules.
+      - `inbound_anomaly_score` (Number). package: yandex.cloud.smartwebsecurity.v1.waf
+filename: yandex/cloud/smartwebsecurity/v1/waf/waf_profile.proto
+
+      - `is_enabled` (Bool). package: yandex.cloud.smartwebsecurity.v1.waf
+filename: yandex/cloud/smartwebsecurity/v1/waf/waf_profile.proto
+
+    - `rule_set` [Block]. package: yandex.cloud.smartwebsecurity.v1.waf
+filename: yandex/cloud/smartwebsecurity/v1/waf/waf_profile.proto
+
       - `id` (String). ID of rule set.
       - `name` (**Required**)(String). Name of rule set.
       - `type` (String). Type of rule set.
       - `version` (**Required**)(String). Version of rule set.
   - `ya_rule_set` [Block]. Yandex rule set settings.
-    - `rule_group` [Block]. List of rule groups.
-      - `action` (String). Action to perfome on rule group match.
-      - `id` (String). ID of the rule group.
-      - `inbound_anomaly_score` (Number). Anomaly score.
-      - `is_enabled` (Bool). Determines is it rule group enabled or not.
-    - `rule_set` [Block]. Rule set.
+    - `rule_group` [Block]. package: yandex.cloud.smartwebsecurity.v1.waf
+filename: yandex/cloud/smartwebsecurity/v1/waf/waf_profile.proto
+
+      - `action` (String). List of rules to exclude.
+      - `id` (String). Set this option true to exclude all rules.
+      - `inbound_anomaly_score` (Number). package: yandex.cloud.smartwebsecurity.v1.waf
+filename: yandex/cloud/smartwebsecurity/v1/waf/waf_profile.proto
+
+      - `is_enabled` (Bool). package: yandex.cloud.smartwebsecurity.v1.waf
+filename: yandex/cloud/smartwebsecurity/v1/waf/waf_profile.proto
+
+    - `rule_set` [Block]. package: yandex.cloud.smartwebsecurity.v1.waf
+filename: yandex/cloud/smartwebsecurity/v1/waf/waf_profile.proto
+
       - `id` (String). ID of rule set.
       - `name` (**Required**)(String). Name of rule set.
       - `type` (String). Type of rule set.

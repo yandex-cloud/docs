@@ -68,6 +68,8 @@ items:
             href: operations/subnet-create.md
           - name: Заказать выделенную публичную подсеть
             href: operations/reserve-public-subnet.md
+          - name: Удалить выделенную публичную подсеть
+            href: operations/delete-public-subnet.md
           - name: Создать приватное соединение с облачными сетями
             href: operations/create-vpc-connection.md
           - name: Создать статический маршрут
