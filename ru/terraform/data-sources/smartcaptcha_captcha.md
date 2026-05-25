@@ -36,10 +36,10 @@ data "yandex_smartcaptcha_captcha" "by-name" {
 - `created_at` (*Read-Only*) (String). Creation timestamp in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format.
 - `deletion_protection` (Bool). Determines whether captcha is protected from being deleted.
 - `description` (String). Optional description of the captcha.
-- `disallow_data_processing` (Bool). If true, Yandex team won't be able to read internal data.
+- `disallow_data_processing` (Bool). Disables the use of HTTP request data for training and improving the service's ML models.
 - `folder_id` (String). ID of the folder that the captcha belongs to.
 - `id` (String). ID of the Captcha resource to return.
-- `labels` (Map Of String). Resource labels as `key:value` pairs.
+- `labels` (Map Of String). Labels as `` key:value `` pairs. Maximum of 64 per resource.
 - `name` (String). Name of the captcha. The name is unique within the folder. 3-63 characters long.
 - `override_variant` [Block]. List of variants to use in security_rules
   - `challenge_type` (String). Additional task type of the captcha.
@@ -53,102 +53,53 @@ data "yandex_smartcaptcha_captcha" "by-name" {
     - `headers` [Block]. Captcha request headers.
       - `name` (**Required**)(String). Name of header (case insensitive).
       - `value` [Block]. Value of the header.
-        - `exact_match` (String). package: yandex.cloud.smartcaptcha.v1
-filename: yandex/cloud/smartcaptcha/v1/captcha.proto
-
-        - `exact_not_match` (String). package: yandex.cloud.smartcaptcha.v1
-filename: yandex/cloud/smartcaptcha/v1/captcha.proto
-
-        - `pire_regex_match` (String). package: yandex.cloud.smartcaptcha.v1
-filename: yandex/cloud/smartcaptcha/v1/captcha.proto
-
-        - `pire_regex_not_match` (String). package: yandex.cloud.smartcaptcha.v1
-filename: yandex/cloud/smartcaptcha/v1/captcha.proto
-
-        - `prefix_match` (String). package: yandex.cloud.smartcaptcha.v1
-filename: yandex/cloud/smartcaptcha/v1/captcha.proto
-
-        - `prefix_not_match` (String). package: yandex.cloud.smartcaptcha.v1
-filename: yandex/cloud/smartcaptcha/v1/captcha.proto
-
-    - `host` [Block]. Host where captcha placed.
+        - `exact_match` (String). Exact match condition.
+        - `exact_not_match` (String). Exact not match condition.
+        - `pire_regex_match` (String). PIRE regex match condition.
+        - `pire_regex_not_match` (String). PIRE regex not match condition.
+        - `prefix_match` (String). Prefix match condition.
+        - `prefix_not_match` (String). Prefix not match condition.
+    - `host` [Block]. *AND* semantics implied.
+      - `host_matcher` [Block]. Host matcher.
+        - `exact_match` (String). Exact match condition.
+        - `exact_not_match` (String). Exact not match condition.
+        - `pire_regex_match` (String). PIRE regex match condition.
+        - `pire_regex_not_match` (String). PIRE regex not match condition.
+        - `prefix_match` (String). Prefix match condition.
+        - `prefix_not_match` (String). Prefix not match condition.
       - `hosts` [Block]. List of hosts. OR semantics implied.
-        - `exact_match` (String). package: yandex.cloud.smartcaptcha.v1
-filename: yandex/cloud/smartcaptcha/v1/captcha.proto
-
-        - `exact_not_match` (String). package: yandex.cloud.smartcaptcha.v1
-filename: yandex/cloud/smartcaptcha/v1/captcha.proto
-
-        - `pire_regex_match` (String). package: yandex.cloud.smartcaptcha.v1
-filename: yandex/cloud/smartcaptcha/v1/captcha.proto
-
-        - `pire_regex_not_match` (String). package: yandex.cloud.smartcaptcha.v1
-filename: yandex/cloud/smartcaptcha/v1/captcha.proto
-
-        - `prefix_match` (String). package: yandex.cloud.smartcaptcha.v1
-filename: yandex/cloud/smartcaptcha/v1/captcha.proto
-
-        - `prefix_not_match` (String). package: yandex.cloud.smartcaptcha.v1
-filename: yandex/cloud/smartcaptcha/v1/captcha.proto
-
+        - `exact_match` (String). Exact match condition.
+        - `exact_not_match` (String). Exact not match condition.
+        - `pire_regex_match` (String). PIRE regex match condition.
+        - `pire_regex_not_match` (String). PIRE regex not match condition.
+        - `prefix_match` (String). Prefix match condition.
+        - `prefix_not_match` (String). Prefix not match condition.
     - `source_ip` [Block]. The IP address of the requester.
-      - `geo_ip_match` [Block]. package: yandex.cloud.smartcaptcha.v1
-filename: yandex/cloud/smartcaptcha/v1/captcha.proto
-
-        - `locations` (List Of String). ISO 3166-1 alpha 2. OR semantics implied.
-      - `geo_ip_not_match` [Block]. package: yandex.cloud.smartcaptcha.v1
-filename: yandex/cloud/smartcaptcha/v1/captcha.proto
-
-        - `locations` (List Of String). ISO 3166-1 alpha 2. OR semantics implied.
-      - `ip_ranges_match` [Block]. package: yandex.cloud.smartcaptcha.v1
-filename: yandex/cloud/smartcaptcha/v1/captcha.proto
-
-        - `ip_ranges` (List Of String). List of IP ranges. OR semantics implied.
-      - `ip_ranges_not_match` [Block]. package: yandex.cloud.smartcaptcha.v1
-filename: yandex/cloud/smartcaptcha/v1/captcha.proto
-
-        - `ip_ranges` (List Of String). List of IP ranges. OR semantics implied.
+      - `geo_ip_match` [Block]. Geo locations to match with.
+        - `locations` (List Of String). *OR semantics implied. ISO 3166-1 alpha 2
+      - `geo_ip_not_match` [Block]. Geo locations to not match with.
+        - `locations` (List Of String). *OR semantics implied. ISO 3166-1 alpha 2
+      - `ip_ranges_match` [Block]. IP ranges to match with.
+        - `ip_ranges` (List Of String). *OR* semantics implied.
+      - `ip_ranges_not_match` [Block]. IP ranges to not match with.
+        - `ip_ranges` (List Of String). *OR* semantics implied.
     - `uri` [Block]. URI where captcha placed.
       - `path` [Block]. Path of the URI [RFC3986](https://datatracker.ietf.org/doc/html/rfc3986#section-3.3).
-        - `exact_match` (String). package: yandex.cloud.smartcaptcha.v1
-filename: yandex/cloud/smartcaptcha/v1/captcha.proto
-
-        - `exact_not_match` (String). package: yandex.cloud.smartcaptcha.v1
-filename: yandex/cloud/smartcaptcha/v1/captcha.proto
-
-        - `pire_regex_match` (String). package: yandex.cloud.smartcaptcha.v1
-filename: yandex/cloud/smartcaptcha/v1/captcha.proto
-
-        - `pire_regex_not_match` (String). package: yandex.cloud.smartcaptcha.v1
-filename: yandex/cloud/smartcaptcha/v1/captcha.proto
-
-        - `prefix_match` (String). package: yandex.cloud.smartcaptcha.v1
-filename: yandex/cloud/smartcaptcha/v1/captcha.proto
-
-        - `prefix_not_match` (String). package: yandex.cloud.smartcaptcha.v1
-filename: yandex/cloud/smartcaptcha/v1/captcha.proto
-
-      - `queries` [Block]. List of query matchers. AND semantics implied.
+        - `exact_match` (String). Exact match condition.
+        - `exact_not_match` (String). Exact not match condition.
+        - `pire_regex_match` (String). PIRE regex match condition.
+        - `pire_regex_not_match` (String). PIRE regex not match condition.
+        - `prefix_match` (String). Prefix match condition.
+        - `prefix_not_match` (String). Prefix not match condition.
+      - `queries` [Block]. *AND* semantics implied
         - `key` (**Required**)(String). Key of the query parameter.
         - `value` [Block]. Value of the query parameter.
-          - `exact_match` (String). package: yandex.cloud.smartcaptcha.v1
-filename: yandex/cloud/smartcaptcha/v1/captcha.proto
-
-          - `exact_not_match` (String). package: yandex.cloud.smartcaptcha.v1
-filename: yandex/cloud/smartcaptcha/v1/captcha.proto
-
-          - `pire_regex_match` (String). package: yandex.cloud.smartcaptcha.v1
-filename: yandex/cloud/smartcaptcha/v1/captcha.proto
-
-          - `pire_regex_not_match` (String). package: yandex.cloud.smartcaptcha.v1
-filename: yandex/cloud/smartcaptcha/v1/captcha.proto
-
-          - `prefix_match` (String). package: yandex.cloud.smartcaptcha.v1
-filename: yandex/cloud/smartcaptcha/v1/captcha.proto
-
-          - `prefix_not_match` (String). package: yandex.cloud.smartcaptcha.v1
-filename: yandex/cloud/smartcaptcha/v1/captcha.proto
-
+          - `exact_match` (String). Exact match condition.
+          - `exact_not_match` (String). Exact not match condition.
+          - `pire_regex_match` (String). PIRE regex match condition.
+          - `pire_regex_not_match` (String). PIRE regex not match condition.
+          - `prefix_match` (String). Prefix match condition.
+          - `prefix_not_match` (String). Prefix not match condition.
   - `description` (String). Optional description of the rule. 0-512 characters long.
   - `name` (**Required**)(String). Name of the rule. The name is unique within the captcha. 1-50 characters long.
   - `override_variant_uuid` (String). Variant UUID to show in case of match the rule. Keep empty to use defaults.

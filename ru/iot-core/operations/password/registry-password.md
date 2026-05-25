@@ -1,5 +1,7 @@
 # Управление паролями реестра
 
+{% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
+
 Чтобы начать обмен данными и командами между устройствами и реестрами, необходимо [авторизоваться](../../concepts/authorization.md). В данном разделе описано, как управлять паролями реестра для соответствующего способа авторизации.
 
 {% include [pass-priority-note](../../../_includes/iot-core/pass-priority-note.md) %}

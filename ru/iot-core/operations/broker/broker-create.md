@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Создание брокера
 
+{% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
+
 {% include [note-pp](../../../_includes/iot-core/note-pp.md) %}
 
 {% list tabs group=instructions %}

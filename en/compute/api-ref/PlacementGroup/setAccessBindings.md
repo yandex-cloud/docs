@@ -11,7 +11,7 @@ apiPlayground:
             **string**
             Required field. ID of the resource for which access bindings are being set.
             To get the resource ID, use a corresponding List request.
-            The maximum string length in characters is 50.
+            The maximum string length in characters is 64.
           type: string
       required:
         - resourceId
@@ -73,7 +73,7 @@ apiPlayground:
             description: |-
               **string**
               Required field. ID of the [yandex.cloud.iam.v1.Role](/docs/iam/api-ref/Role/get#yandex.cloud.iam.v1.Role) that is assigned to the [subject](#yandex.cloud.access.AccessBinding).
-              The maximum string length in characters is 50.
+              The maximum string length in characters is 64.
             type: string
           subject:
             description: |-
@@ -105,7 +105,7 @@ POST https://compute.{{ api-host }}/compute/v1/placementGroups/{resourceId}:setA
 Required field. ID of the resource for which access bindings are being set.
 To get the resource ID, use a corresponding List request.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 64. ||
 |#
 
 ## Body parameters {#yandex.cloud.access.SetAccessBindingsRequest}
@@ -141,7 +141,7 @@ The maximum number of elements is 1000. ||
 
 Required field. ID of the [yandex.cloud.iam.v1.Role](/docs/iam/api-ref/Role/get#yandex.cloud.iam.v1.Role) that is assigned to the `subject`.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 64. ||
 || subject | **[Subject](#yandex.cloud.access.Subject)**
 
 Required field. Identity for which access binding is being created.
@@ -350,7 +350,7 @@ Required field. Access binding. For more information, see [Access Bindings](/doc
 
 Required field. ID of the [yandex.cloud.iam.v1.Role](/docs/iam/api-ref/Role/get#yandex.cloud.iam.v1.Role) that is assigned to the `subject`.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 64. ||
 || subject | **[Subject](#yandex.cloud.access.Subject2)**
 
 Required field. Identity for which access binding is being created.

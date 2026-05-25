@@ -5,4 +5,6 @@ description: Для выполнения операций через Broker API 
 
 # Аутентификация в Broker API {{ iot-name }}
 
+{% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
+
 {% include notitle [auth](../../../_includes/authentication.md) %}

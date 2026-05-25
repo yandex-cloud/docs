@@ -134,8 +134,6 @@ items:
         href: billing/how-to/getting-contract-originals.md
       - name: How to remove a credit/debit card from the billing account
         href: billing/how-to/unpin-card.md
-      - name: How to stop funds being debited from the billing account
-        href: billing/how-to/analyzing-charges-chart.md
       - name: How to change the owner for a business account
         href: billing/how-to/changing-account-owner-for-legal-entities.md
   - name: '{{ certificate-manager-name }}'
@@ -187,14 +185,6 @@ items:
     items:
       - name: All solutions for {{ cloud-logging-name }}
         href: cloud-logging/index.md
-      - name: Solutions for known {{ cloud-logging-name }} issues
-        href: cloud-logging/known-issues/index.md
-        hidden: true
-      - name: >-
-          {{ cloud-logging-name }} consumption started showing up in the billing
-          account usage details
-        href: >-
-          cloud-logging/known-issues/cloud-logging-unexpectedly-charges-in-billing-account-details.md
       - name: Sample {{ cloud-logging-name }} configurations and use cases
         href: cloud-logging/how-to/index.md
         hidden: true
@@ -583,10 +573,6 @@ items:
       - name: Sample {{ kms-short-name }} configurations and use cases
         href: kms/how-to/index.md
         hidden: true
-      - name: >-
-          How to restrict {{ objstorage-name }} bucket access to a specific {{
-          cdn-name }} IP address range
-        href: kms/how-to/permit-bucket-access-only-to-cdn-networks.md
   - name: '{{ managed-k8s-name }}'
     items:
       - name: All solutions for {{ managed-k8s-name }}
@@ -864,11 +850,6 @@ items:
           nodename nor servname provided, or not known` error
         href: >-
           managed-postgresql/known-issues/error-could-not-translate-host-name-to-address-nodename-nor-servname-provided-or-not-known.md
-      - name: >-
-          Resolving the `Unrecognized configuration parameter
-          stats_temp_directory` error
-        href: >-
-          managed-postgresql/known-issues/error-unrecognized-configuration-parameter.md
       - name: Resolving the `max_connections conn_limit is too high` error
         href: managed-postgresql/known-issues/conn-limit-is-too-high.md
       - name: Resolving the `Must be superuser to create this extension` error

@@ -2,12 +2,12 @@ default:
   policy: keep
   versions:
     tf:
-      latest: '7.0'
-      str: 6.0 or 7.0
+      latest: '8.0'
+      str: 6.0, 7.0, or 8.0
     cli:
-      latest: '7.0'
-      str: 6.0 or 7.0
+      latest: '8.0'
+      str: 6.0, 7.0, or 8.0
     console:
-      latest: '7.0'
-      str: 6.0 and 7.0
+      latest: '8.0'
+      str: 6.0, 7.0, and 8.0
   shell-link: https://www.mongodb.com/try/download/shell

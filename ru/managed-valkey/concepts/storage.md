@@ -36,24 +36,18 @@ description: Из статьи вы узнаете, какие типы диск
 1. [Создайте канал уведомлений](../../monitoring/operations/alert/create-channel.md).
 1. [Создайте алерт](../../monitoring/operations/alert/create-alert.md) со следующими параметрами:
 
-  1. **{{ ui-key.yacloud_monitoring.alert.section_metrics }}** — задайте параметры метрики:
+   * Выражение для метрики — `disk.used_bytes / disk.total_bytes * 100`.
 
-      * Облако.
-      * Каталог.
-      * Сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-redis }}**.
-      * Метка `disk.free_bytes`.
-      * Нужный кластер {{ mrd-short-name }}. Имя и идентификатор кластера можно [получить со списком кластеров в каталоге](../operations/cluster-list.md#list-clusters).
+   * **{{ ui-key.yacloud_monitoring.alert.title_conditions }}** — задайте условия срабатывания алерта:
 
-  1. **{{ ui-key.yacloud_monitoring.alert.title_conditions }}** — задайте условие для заполнения свободного дискового пространства, при котором сработает алерт:
-
-      * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}** — `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.min }}` (минимальное значение метрики за период).
-      * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}** — `{{ ui-key.yacloud_monitoring.alert.title_comparison-lte }}`.
+      * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-type }}** — `{{ ui-key.yacloud_monitoring.alert-template.threshold-type.max }}` (максимальное значение метрики за период).
+      * **{{ ui-key.yacloud_monitoring.monitoring-alerts.threshold-table.trigger-condition }}** — `{{ ui-key.yacloud_monitoring.alert.title_comparison-gte }}`.
       * **{{ ui-key.yacloud_monitoring.alert.status_warn }}** — `90` (90 % от размера хранилища).
       * **{{ ui-key.yacloud_monitoring.alert.status_alarm }}** — `95` (95 % от размера хранилища).
-      * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}** — желаемый период, с которым будет обновляться значение метрики.
-      * **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.time-shift }}** — предпочтительный сдвиг по времени назад в секундах. Позволяет исключить срабатывания алерта, когда в нем указано несколько метрик и они собираются с разным интервалом. Подробнее о задержке вычисления см. в [документации {{ monitoring-full-name }}](../../monitoring/concepts/alerting/alert.md#evaluation-delay).
+      * **{{ ui-key.yacloud_monitoring.alert.label_evaluation-window }}** — период, за который будет вычисляться значение метрики.
+      * **{{ ui-key.yacloud_monitoring.monitoring-alerts.title.time-shift }}** — предпочтительный сдвиг по времени назад в секундах. Позволяет исключить некорректные срабатывания алерта с несколькими метриками, которые собираются с разным интервалом. Подробнее о задержке вычисления в [документации {{ monitoring-full-name }}](../../monitoring/concepts/alerting/alert.md#evaluation-delay).
 
-  1. **Уведомления** — добавьте созданный ранее канал уведомлений.
+   * **Уведомления** — добавьте созданный ранее канал уведомлений.
 
 ### Автоматическое увеличение размера хранилища {#auto-rescale}
 

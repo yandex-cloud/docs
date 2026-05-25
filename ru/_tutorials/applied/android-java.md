@@ -1,5 +1,7 @@
 # Работа с {{ iot-full-name }} с устройства Android на языке Java
 
+{% include [iot-sunset-warning](../../_includes/iot-core/sunset-warning.md) %}
+
 В этом руководстве вы узнаете как подключиться к {{ iot-full-name }} с устройства Android с помощью библиотеки [Paho](https://www.eclipse.org/paho/) и языка программирования Java. Данное руководство предполагает, что вы имеете навыки разработки для операционной системы Android на языке Java в Android Studio.
 
 {% note info %}

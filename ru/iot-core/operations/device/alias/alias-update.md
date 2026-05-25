@@ -1,5 +1,7 @@
 # Изменение алиаса
 
+{% include [iot-sunset-warning](../../../../_includes/iot-core/sunset-warning.md) %}
+
 Алиас привязан к конкретному устройству, поэтому для изменения алиаса вам надо [узнать идентификатор или имя устройства](../device-list.md).
 
 {% list tabs group=instructions %}

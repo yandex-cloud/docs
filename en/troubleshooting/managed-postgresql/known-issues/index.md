@@ -5,7 +5,6 @@
 * [Troubleshooting configuration updates for clusters with `local-ssd` disks](unprocessable-entity-issue-when-enlarging-local-disk.md)
 * [Resolving the issue of cluster storage overflow with WAL logs](cluster-in-readonly-due-to-wal-overflow.md)
 * [Fixing this error: `psql: error: could not translate host name to address: nodename nor servname provided, or not known`](error-could-not-translate-host-name-to-address-nodename-nor-servname-provided-or-not-known.md)
-* [Fixing the `Unrecognized configuration parameter "stats_temp_directory"` error](error-unrecognized-configuration-parameter.md)
 * [Resolving the `max_connections conn_limit is too high` error](conn-limit-is-too-high.md)
 * [Fixing the `Must be superuser to create this extension` error](must-be-superuser-to-create-this-extension.md)
 * [Fixing these errors: `terminating connection due to administrator command` and `ERROR: odyssey: remote server read/write error`](terminating-connection-due-to-administrator-command.md)

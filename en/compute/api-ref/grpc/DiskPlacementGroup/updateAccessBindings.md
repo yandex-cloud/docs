@@ -36,7 +36,7 @@ Updates access bindings for the disk placement group.
 
 Required field. ID of the resource for which access bindings are being updated.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 64. ||
 || access_binding_deltas[] | **[AccessBindingDelta](#yandex.cloud.access.AccessBindingDelta)**
 
 Updates to access bindings.
@@ -67,7 +67,7 @@ Required field. Access binding. For more information, see [Access Bindings](/doc
 
 Required field. ID of the [yandex.cloud.iam.v1.Role](/docs/iam/api-ref/grpc/Role/get#yandex.cloud.iam.v1.Role) that is assigned to the `subject`.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 64. ||
 || subject | **[Subject](#yandex.cloud.access.Subject)**
 
 Required field. Identity for which access binding is being created.
@@ -237,7 +237,7 @@ Required field. Access binding. For more information, see [Access Bindings](/doc
 
 Required field. ID of the [yandex.cloud.iam.v1.Role](/docs/iam/api-ref/grpc/Role/get#yandex.cloud.iam.v1.Role) that is assigned to the `subject`.
 
-The maximum string length in characters is 50. ||
+The maximum string length in characters is 64. ||
 || subject | **[Subject](#yandex.cloud.access.Subject2)**
 
 Required field. Identity for which access binding is being created.

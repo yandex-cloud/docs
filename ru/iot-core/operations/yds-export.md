@@ -5,6 +5,8 @@ description: Следуя данной инструкции, вы сможете
 
 # Экспорт сообщений в {{ yds-name }}
 
+{% include [iot-sunset-warning](../../_includes/iot-core/sunset-warning.md) %}
+
 {% note info %}
 
 {% include [yds-export-topics](../../_includes/iot-core/yds-export-topics.md) %}

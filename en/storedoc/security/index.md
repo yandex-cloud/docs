@@ -1,24 +1,24 @@
 ---
 title: Access management in {{ mmg-full-name }}
-description: Access management in the {{ SD }} database creation and management service. This section describes the resources you can assign a role for, the roles this service has, and the roles required for specific actions.
+description: Access management in the {{ SD }} database service. This section covers resources available for role assignment, available service roles, and permissions required for specific actions.
 ---
 
 # Access management in {{ mmg-name }}
 
 
-In this section, you will learn about the following:
+In this section, you will learn about:
 
-* [Resources you can assign a role for](#resources).
-* [Roles this service has](#roles-list).
+* [Resources available for role assignment](#resources).
+* [Available service roles](#roles-list).
 * [Roles required for specific actions](#required-roles).
 
 {% include [about-access-management](../../_includes/iam/about-access-management.md) %}
 
-To assign a role for a resource, you need the `mdb.admin` role, `managed-mongodb.admin` role, or one of the following roles for that resource:
+To assign roles for resources, you need either the `mdb.admin` role, the `managed-mongodb.admin` role, or one of the following roles on that resource:
 
 {% include [roles-list](../../_includes/iam/roles-list.md) %}
 
-## Resources you can assign a role for {#resources}
+## Resources available for role assignment {#resources}
 
 {% include [basic-resources](../../_includes/iam/basic-resources-for-access-control.md) %}
 
@@ -26,7 +26,7 @@ To assign a role for a resource, you need the `mdb.admin` role, `managed-mongodb
 
 You can also assign a role for an individual cluster in the [management console]({{ link-console-main }}), via the [CLI](../../cli), or [API](../api-ref/authentication.md).
 
-## Roles this service has {#roles-list}
+## Available service roles {#roles-list}
 
 The diagram below shows available service roles and their permission inheritance hierarchy. For example, `{{ roles-editor }}` inherits all `{{ roles-viewer }}` permissions. You can find role descriptions below the diagram.
 

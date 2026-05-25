@@ -1,5 +1,7 @@
 # Изменение реестра
 
+{% include [iot-sunset-warning](../../../_includes/iot-core/sunset-warning.md) %}
+
 Вы можете изменить [имя](registry-update.md#update-name) или [описание](registry-update.md#update-description) реестра, а также [управлять метками реестра](registry-update.md#manage-label).
 
 {% include [registry-get-id-name](../../../_includes/iot-core/registry-get-id-name.md) %}

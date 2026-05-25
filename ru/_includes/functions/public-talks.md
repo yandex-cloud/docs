@@ -51,6 +51,8 @@
 
 ## {{ iot-full-name }} {#iot}
 
+{% include [iot-sunset-warning](../../_includes/iot-core/sunset-warning.md) %}
+
   * Инновации в международном страховании: что будет полезно российскому рынку, 2025 — [Статья](https://yandex.cloud/ru/blog/innovations-in-insurance).
   * Как технологии трансформируют строительную сферу, 2025 — [Статья](https://yandex.cloud/ru/blog/posts/2025/04/technologies-in-construction).
   * Интернет вещей: как цифровые технологии меняют бизнес и повседневную жизнь, 2025 — [Статья](https://yandex.cloud/ru/blog/posts/2025/04/iot-guide).

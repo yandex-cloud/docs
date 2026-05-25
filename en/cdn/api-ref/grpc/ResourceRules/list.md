@@ -18,6 +18,8 @@ List all rules for specified resource.
 }
 ```
 
+A request to list resource rules.
+
 #|
 ||Field | Description ||
 || resource_id | **string**
@@ -227,6 +229,8 @@ The maximum string length in characters is 50. ||
   ]
 }
 ```
+
+A response to list resource rules.
 
 #|
 ||Field | Description ||
