@@ -5015,14 +5015,14 @@ default:
             not_verified: Не проверяется
         controls:
           ControlExceptionForm:
-            allResources_2ax5E: Все ресурсы
+            allResources_2ax5E: Все ресурсы окружения
             ExceptionRulesSection:
               action_select-rules: Выбрать правила
               rules-select_option_all: Все правила
               rules-select_option_selected: Выбранные правила
-              section-title: Исключённые правила
+              section-title: Правила
             label_active-exclusion_fjPgA: Активировать исключение
-            scopeOfControl_aRkwB: Область действия контроля
+            scopeOfControl_aRkwB: Область действия
             section-title_3YcSF: Причина исключения
             selectResources_bD5MC: Выбрать ресурсы
           ControlsExceptionsPage:
@@ -5046,8 +5046,8 @@ default:
             header_caption_cspm_9dTJt: Контроль конфигурации
             info_type_1dxbZ: Тип исключения
           ResourceExceptionForm:
-            title_exclude_uK4FD: Не проверять ресурс
-            title_reportCompliance_re4wo: Ресурс проверен вручную
+            title_exclude_uK4FD: Проверка не требуется
+            title_reportCompliance_re4wo: Проверено вручную
           rule-result:
             controlRule_kr2Bv: Правило контроля
             module_63uuk: Модуль контроля
@@ -5062,9 +5062,9 @@ default:
             field_author_8hf4z: Создано
             field_reason_qN8a7: Причина исключения
             field_rules_vBK4W: Правила
-            field_type_exclude_cigcD: Не проверять ресурс
+            field_type_exclude_cigcD: Проверка не требуется
             field_type_kCG8J: Тип исключения
-            field_type_manual_mbKxp: Ресурс проверен
+            field_type_manual_mbKxp: Проверено вручную
         discovery:
           header_resource_kDJFW: Ресурс
           more_details_button_aPdgv: Больше деталей
@@ -5189,7 +5189,7 @@ default:
           WorkspaceEditPageLayout:
             tabGeneralParams_xc2v2: Основные параметры
             tabResources_vJuSN: Ресурсы
-            tabStandards_wSeaW: Соответствие требованиям
+            tabStandards_wSeaW: Модули контроля
           WorkspaceGeneralParamsForm:
             alert_sink_title_pvDBG: Приёмник алертов
             billing_account_title_sU1Tj: Оплата ресурсов
@@ -5204,7 +5204,7 @@ default:
             generalParamsTitle_xzLoX: Основные параметры
             resourcesTitle_fE6qp: Ресурсы
             saveAndContinue_9xKZY: Сохранить и продолжить
-            standartsTitle_cxvJ8: Соответствие требованиям
+            standartsTitle_cxvJ8: Модули контроля
           WorkspaceOnboardingPageLayout:
             pageTitle_ehdBw: Создание и настройка окружения
           WorkspacePageLayout:
@@ -5332,6 +5332,7 @@ default:
         label_domains-status: Статус проверки
         label_page-id: PageID
         label_provider-type: Провайдер
+        label_show-source-file-before-transcoding: Показывать видео в плеере до окончания обработки
         label_title: Имя
         title_settings: Настройки канала
       common:
@@ -5362,8 +5363,12 @@ default:
         action_create-preset: Создать шаблон
         action_set-as-default: Выбрать шаблоном по умолчанию
         button_open-preset-template-dialog: Посмотреть шаблон в отдельном окне
+        field_logo-enabled: Показывать логотип
+        field_logo-redirect-on-click-url: Ссылка на логотипе
+        field_logo-show-with-controls: Скрывать с интерфейсом плеера
         label_style-preset: Шаблон плеера
         label_title: Имя шаблона
+        section_logo-settings: Настройка логотипа
         section_styles-settings: Настройка стилей
         section_wigets-settings: Настройки виджетов
         title_presets: Шаблоны плеера
@@ -5381,6 +5386,7 @@ default:
         action_create-stream: Создать трансляцию
         action_start-stream: Начать
         action_stop-stream: Завершить
+        field_segment-duration: Режим задержки
         label_auto-publish-streams: Автозапуск трансляции
         label_episode-autoplay: Запускать видео автоматически
         label_episode-hidden: Скрывать элементы управления в плеере
@@ -5397,6 +5403,8 @@ default:
         label_stream-type: Тип потока
         label_type-on-demand: По требованию
         label_type-schedule: По расписанию
+        option_segment-duration-low: Низкая
+        option_segment-duration-standart: Стандартная
         status_finished: Finished
         status_offline: Offline
         status_on-air: On air
@@ -6392,6 +6400,19 @@ default:
             button_reschedule_3SHfY: Перенести
           PlatformField:
             value_platform-tab-gpu_hGyQ8: Есть GPU
+          ScheduleSection:
+            label_cron_kZwc5: Cron
+            label_daily_o3t6f: Каждый день
+            label_monthly_dJYSn: По месяцам
+            label_repeat-type_7fBWj: Создавать снимки
+            label_start-date_pbnDp: Начало действия
+            label_weekly_pB4YE: По дням недели
+            section_schedule_ro4p7: Расписание запуска
+          SnapshotScheduleFormContent:
+            label_empty-retention-policy_voaWW: Хранить все снимки
+            section_general-info_bN9QE: Общая информация
+            section_snapshot-settings: Настройки снимка
+            section_storage-settings_wG5uP: Настройки хранения
           SshViaPrivateKeyDialog:
             connect-via-private-key_6DKKe: Подключиться
         disk-form:
@@ -6620,6 +6641,7 @@ default:
             value_coi-restart-never: Never
             value_coi-restart-on-failure: On-Failure
             value_docker-compose-yaml: Docker-compose
+            value_serial-port-enable: Разрешить
           label_title: Виртуальные машины
           popup-confirm_button_delete: Удалить
           popup-confirm_button_gr-stop: Остановить
@@ -6673,21 +6695,17 @@ default:
             main-pool-info-section_xoPE2: Общая информация о пуле
             resources-section-title_wAFm8: Вычислительные ресурсы ВМ
         section_additional_7yvYG: Дополнительно
+        snapshot-schedule-form-next:
+          active-retention-policy-field:
+            message_store-last-begin_few: Только последние
         snapshots_81jHX: Снимки дисков
         snapshots-schedules:
           action_attach-disk: Добавить диск
           action_detach-disk: Удалить из расписания
           action_detach-schedule: Отвязать от диска
           action_edit-disk-schedules: Настроить расписания снимков
-          label_custom: По cron-выражению
-          label_daily: По дням
-          label_empty-retention-policy: Хранить все снимки
-          label_hourly: По часам
-          label_schedule-policy: Создавать снимки
-          label_start-at: Начиная с
+          button_create-snapshot-schedule: Создать расписание снимков
           label_title: Расписания снимков
-          label_weekly: По неделям
-          message_store-last-begin_many: Только последние
           title_snapshot-schedule-disks: Диски
         snapshots:
           list:
@@ -7150,7 +7168,7 @@ default:
             button_cancel-deletion: Отменить удаление
             popup-edit_button_save: Сохранить
           incident-notifications:
-            button_open-dialog: Добавить
+            button_open-add-notification-dialog: Добавить уведомление
           label_create_cloud: Создать облако
           quotas:
             button_action-request: Повысить
@@ -9762,6 +9780,13 @@ default:
                         columns:
                           title: Поля
                         title: Визиты
+            migration:
+              console:
+                form:
+                  migration:
+                    PostgresMigrationTablesFilter:
+                      include_tables:
+                        title: Список включённых таблиц
             mongo:
               console:
                 form:
@@ -11386,17 +11411,16 @@ default:
     yc_csi-s3:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/csi-s3/csi-s3
-        tag: 0.43.6
+        tag: 0.43.7
     yc_external-secrets:
       helmChart:
         name: >-
-          cr.yandex/yc-marketplace/yandex-cloud/external-secrets/chart/external-secrets
-        tag: 0.10.5
+          cr.yandex/yc-marketplace/yandex-cloud/external-secrets/charts/external-secrets
+        tag: 2.5.0
     yc_externaldns:
       helmChart:
-        name: >-
-          cr.yandex/yc-marketplace/yandex-cloud/external-dns-yc-webhook/charts/external-dns
-        tag: 1.20.0-yc
+        name: cr.yandex/yc-marketplace/yandex-cloud/externaldns/chart/externaldns
+        tag: 0.5.1-b
     yc_falco:
       helmChart:
         name: cr.yandex/yc-marketplace/falco
@@ -11431,7 +11455,7 @@ default:
     yc_gwin:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/gwin/gwin-chart
-        tag: v1.3.1
+        tag: v1.4.0
     yc_istio:
       helmChart:
         name: cr.yandex/yc-marketplace/yandex-cloud/istio/istio

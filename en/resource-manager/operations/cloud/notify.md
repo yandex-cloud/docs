@@ -9,7 +9,7 @@ If you want users to get notifications from services, add them to the list of us
 - Management console {#console}
 
   1. Open the [Service notifications]({{ link-cloud-notifications }}) page for the selected cloud. You can [switch to another cloud](switch-cloud.md), if required.
-  1. Click **{{ ui-key.yacloud.iam.cloud.incident-notifications.button_open-dialog }}**.
+  1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.cloud.incident-notifications.button_open-add-notification-dialog }}**.
   1. In the **{{ ui-key.yacloud_components.notify-subs.label_subscribers-dialog-header }}** window that opens, select:
 
      1. Users you want to subscribe to notifications.

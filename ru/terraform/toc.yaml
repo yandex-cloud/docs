@@ -3,6 +3,8 @@ href: index.yaml
 items:
   - name: Начало работы
     href: quickstart.md
+  - name: Настройка аутентификации {{ TF }}-провайдера {{ yandex-cloud }}
+    href: authentication.md
   - name: Концепции
     items:
       - name: Обзор

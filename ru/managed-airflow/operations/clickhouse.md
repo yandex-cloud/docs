@@ -15,9 +15,9 @@ description: С помощью направленного ациклическо
    * **Пароль** — `admin-password`.
 
    {% note warning %}
-   
+
    Создание базы данных с именем `default` запрещено.
-   
+
    {% endnote %}
 
 1. [Создайте бакет](../../storage/operations/buckets/create.md) {{ objstorage-full-name }}, в котором будет храниться DAG-файл.
@@ -30,7 +30,7 @@ description: С помощью направленного ациклическо
 
 1. Выдайте своему сервисному аккаунту [роль](../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer`.
 
-   {% note info }
+   {% note info %}
 
    Роль `lockbox.payloadViewer` не обязательно выдавать на весь каталог. Достаточно [назначить ее на конкретный секрет {{ lockbox-name }}](../../lockbox/operations/secret-access.md) после [его создания](#create-lockbox-secret).
 

@@ -24,16 +24,16 @@ description: С помощью направленного ациклическо
    1. В блоке **{{ ui-key.yacloud.mdb.forms.section_dependencies }}** добавьте pip-пакет `apache-airflow-providers-postgres`.
 
       {% note warning %}
-      
+
       Установка pip-пакета необходима для кластеров с версией {{ AF }} 3.0 и выше. В кластерах с версией {{ AF }} ниже 3.0 pip-пакет установлен по умолчанию.
-      
+
       {% endnote %}
       
    1. В блоке **{{ ui-key.yacloud.airflow.section_storage }}** выберите созданный ранее бакет {{ objstorage-name }}. Из него будет загружен DAG-файл.
 
 1. Выдайте своему сервисному аккаунту [роль](../../lockbox/security/index.md#lockbox-payloadViewer) `lockbox.payloadViewer`.
 
-   {% note info }
+   {% note info %}
 
    Роль `lockbox.payloadViewer` не обязательно выдавать на весь каталог. Достаточно [назначить ее на конкретный секрет {{ lockbox-name }}](../../lockbox/operations/secret-access.md) после [его создания](#create-lockbox-secret).
 

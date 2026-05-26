@@ -26,16 +26,16 @@ Using a [directed acyclic graph (DAG)](../concepts/index.md#about-the-service), 
    1. Under **{{ ui-key.yacloud.mdb.forms.section_dependencies }}**, add the `apache-airflow-providers-postgres` pip package.
 
       {% note warning %}
-      
+
       You need to install a pip package for clusters with {{ AF }} version 3.0 or higher. This package comes installed by default on clusters with {{ AF }} versions below 3.0.
-      
+
       {% endnote %}
       
    1. Under **{{ ui-key.yacloud.airflow.section_storage }}**, select the {{ objstorage-name }} bucket you created earlier. Your DAG file will be fetched from it.
 
 1. Issue the `lockbox.payloadViewer` [role](../../lockbox/security/index.md#lockbox-payloadViewer) to your service account.
 
-   {% note info }
+   {% note info %}
 
    There is no need to assign the `lockbox.payloadViewer` role for the whole folder. It is enough to [assign it for a specific {{ lockbox-name }}](../../lockbox/operations/secret-access.md) secret once you [create it](#create-lockbox-secret).
 

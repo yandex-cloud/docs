@@ -6,9 +6,9 @@ For more information about setting up [subscription-based](../operations/license
 
 You can also create products for {{ compute-full-name }} to run on [Linux](compute-product.md) by following the relevant guidelines.
 
-## Hosting and naming images {#registry}
+## Hosting and naming Docker images {#registry}
 
-* The product’s [Helm chart](https://helm.sh/docs/topics/charts/) and all Docker images it includes must reside in the publisher [registry](../../container-registry/concepts/registry.md) created in {{ container-registry-full-name }}. To learn how to [create a registry](../../container-registry/operations/registry/registry-create.md) and [push an image](../../container-registry/operations/docker-image/docker-image-push.md), see the relevant guides.
+* The product’s [Helm chart](https://helm.sh/docs/topics/charts/) and all Docker images it includes must reside in the publisher [registry](../../container-registry/concepts/registry.md) created in {{ container-registry-full-name }}. To learn how to [create a registry](../../container-registry/operations/registry/registry-create.md) and [push a Docker image](../../container-registry/operations/docker-image/docker-image-push.md), see the relevant guides.
 
 * The product’s Helm chart name must follow this format:
 
@@ -37,15 +37,35 @@ You can also create products for {{ compute-full-name }} to run on [Linux](compu
    * `<component-name>`: Name of the product component provided as a Docker image.
    * `<tag>`: Docker image tag. Do not use the `latest` tag.
 
-By default, during publication, all the images that come with the product are moved from the publisher's registry to the public `yc-marketplace` registry. The whole product hierarchy defined by the publisher is maintained in the process. To avoid moving images to the `yc-marketplace` registry, use the `private_artifacts` parameter in the [product specification](#manifest).
+By default, during publication, all the Docker images that come with the product are moved from the publisher's registry to the public `yc-marketplace` registry. The whole product hierarchy defined by the publisher is maintained in the process. To avoid moving Docker images to the `yc-marketplace` registry, use the `private_artifacts` parameter in the [product specification](#manifest).
 
-> For example, the `{{ registry }}/{{ tf-cloud-id }}/yandex-cloud/prometheus/pushgateway:1.0` image will be published as `{{ registry }}/yc-marketplace/yandex-cloud/prometheus/pushgateway:1.0`.
+> For example, the `{{ registry }}/{{ tf-cloud-id }}/yandex-cloud/prometheus/pushgateway:1.0` Docker image will be published as `{{ registry }}/yc-marketplace/yandex-cloud/prometheus/pushgateway:1.0`.
 
 For more information on using the registry, see [{#T}](../../container-registry/operations/helm-chart/helm-chart-push.md) and [{#T}](../../container-registry/operations/docker-image/docker-image-push.md).
 
+
 ## Helm chart build features {#special-requirements}
 
-A Helm chart must contain a file named `values.yaml` listing all Docker images as parameters. The names of Docker images in `values.yaml` must start with the `.Values` prefix and refer to images in the publisher registry to ensure error-free publication and subsequent installation of the product in the user’s cluster.
+A Helm chart must contain a file named `values.yaml` listing all Docker images as parameters. The names of Docker images in `values.yaml` must start with the `.Values` prefix and refer to Docker images in the publisher’s registry to ensure error-free publication and subsequent installation of the product in the user’s cluster.
+
+{% note info %}
+
+{{ marketplace-short-name }} installs products for {{ managed-k8s-name }} into clusters using the `atomic` option in Helm.
+
+{% endnote %}
+
+All Docker images must be specified as `values` and listed in the product specification. This is important, as images will be moved during publication. Docker images omitted from the product specification or described only in templates may be unavailable to users if installing the product, e.g., in a cluster with non-standard configuration or no internet access.
+
+You can dynamically construct a Docker image reference in a template, e.g., by changing the tag based on a variable. To implement this, explicitly describe all potential Docker images in `values` and the product specification; then use references to those `values` in your template.
+
+{% note warning %}
+
+The `default` namespace is subject to more stringent security policies that may impact your product's availability. If availability in `default` is not guaranteed, your deployment instructions must direct users to install the product in a different namespace.
+
+{% endnote %}
+
+
+### Pod specification {#pod-spec}
 
 Generic pod specification without parameters:
 
@@ -56,7 +76,7 @@ spec:
   - image: {{ registry }}/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>
 ```
 
-Pod specification with image name replaced with the YAML path variable described in `values.yaml`:
+Pod specification with Docker image name replaced with the YAML path variable described in `values.yaml`:
 
 ```yaml
 # pod spec
@@ -70,6 +90,53 @@ spec:
 images:
   pushgateway: {{ registry }}/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>
 ```
+
+
+### Dependent Helm charts {#dependent-charts}
+
+To include dependent Helm charts in a parent chart, use paths relative to the parent Helm chart root, for example:
+
+```yaml
+# in Chart.yaml
+dependencies:
+  - name: redis
+    version: 23.1.3
+    repository: "file://charts/redis"  ## "oci://..." not allowed.
+  - name: common
+    version: 2.0.0
+    repository: "file://charts/common"
+```
+
+Docker images used by dependent Helm charts must be parameterized in the parent Helm chart's `values.yaml` and described in the product specification. For more information, see [Scope, Dependencies, and Values](https://helm.sh/docs/topics/charts/#scope-dependencies-and-values).
+
+For convenience, you can store Docker images in a non-flat registry structure. Because `<chart>` and `<component-name>` may contain `/`, i.e., have nested directories, the following conditions must be met:
+
+* Helm chart location:`{{ registry }}/<registry-id>/<vendor-name>/<product-name>/<chart>`.
+* Location of Docker images: `{{ registry }}/<registry-id>/<vendor-name>/<product-name>/<component-name>:<tag>`.
+
+
+### Empty key value {#empty-key}
+
+When describing Helm charts in YAML format, you can use empty values for keys in `values` and also allow setting values for the same keys in the product specification.
+
+By default, an empty value is interpreted as an empty string. If you need an object instead of a string, specify an empty value as follows:
+
+```yaml
+key: {}
+```
+
+
+## Updating a Helm chart {#update-helm-chart}
+
+Helm charts are cached on the backend side. To apply changes to a Helm chart, you need to re-upload it with a new tag and update the tag in the product specification.
+
+Unlike Docker, Helm correctly supports SemVer, so: `1.2.3-alpha` < `1.2.3` < `1.2.3+yandex`.
+
+
+## Runtime environment {#runtime-features}
+
+All {{ managed-k8s-name }} clusters, except for deprecated ones, use containerd as the container runtime. The socket is available at `/var/run/containerd/containerd.sock`.
+
 
 ## Product specification {#manifest}
 
@@ -96,13 +163,13 @@ The product specification uses YAML format and contains the following data:
          - name_with_registry: app2.config.image.name
            tag: app2.config.image.tag
          - full: another-whatever-key.subkey.name
-       # This indicates that all specified values apply to this chart.
+       # This indicates that all specified values apply to this Helm chart.
        reuse_values: true
    ```
 
-   The Helm chart must have the `images` field specified. It contains a list of metadata of the images included in the product. The values of image metadata variables are YAML Path format references to variables from `values.yaml`. Entries can be in one of the following formats:
+   The Helm chart must have the `images` field specified. It contains a list of metadata of the Docker images included in the product. The values of Docker image metadata variables are YAML Path format references to variables from `values.yaml`. Entries can be in one of the following formats:
    
-   * Image name, registry address, and tag are described in separate fields:
+   * Docker image name, registry address, and tag are described in separate fields:
 
       ```yaml
       images:
@@ -121,7 +188,7 @@ The product specification uses YAML format and contains the following data:
             tag: "<tag>"
       ```
 
-   * Image name and registry address are described in one field, the tag in a different field:
+   * Docker image name and registry address are described in one field, the tag, in a different field:
 
       ```yaml
       images:
@@ -139,7 +206,7 @@ The product specification uses YAML format and contains the following data:
               tag: "<tag>"
       ```
 
-   * The full path to the image is provided:
+   * The full path to the Docker image is provided:
 
       ```yaml
       images:
@@ -161,7 +228,16 @@ The product specification uses YAML format and contains the following data:
      min_k8s_version: ">=1.18"
    ```
 
-1. `user_values`: Optional parameter. It stands for a list of product variables the user can override while installing or modifying an already installed product via the {{ yandex-cloud }} management console. Each variable is described by the required fields below:
+1. `user_values`: Optional parameter. It stands for a list of product variables the user can override while installing or modifying an already installed product via the {{ yandex-cloud }} management console.
+
+   {% note tip %}
+
+   When declaring values with user input in the product specification, we recommend using the correct types. For example, while you can technically use `string` instead of `networkid`, in the latter case, a selection window will be displayed and user input automatically validated. It is also strongly recommended to set `secret: true` for sensitive values, e.g., to prevent their exposure in logs.
+
+   {% endnote %}
+
+   Each variable is described by the required fields below:
+
    * `name`: YAML Path of the variable from `values.yaml`.
    * `title`: Short name of the variable, either in Russian or English. The value must start with a capital letter.
 
@@ -271,7 +347,7 @@ The product specification uses YAML format and contains the following data:
                 max: <maximum_string_length>
         ```
 
-      * `list_value`. It may contain fields available for the specified list item type. List items can be of any type supported in `user_values`; however, the list can only contain items of the same type.
+      * `list_value`: It may contain fields available for the specified list item type. List items can be of any type supported in `user_values`; however, the list can only contain items of the same type.
 
         ```yaml
         user_values:
@@ -386,7 +462,7 @@ The product specification uses YAML format and contains the following data:
         {% endnote %}
 
         ```
-        {{- define "<chart_name>.access_key_id" -}}
+        {{- define "<Helm_chart_name>.access_key_id" -}}
         not_var{{- if .Values.saAccessKeyFile -}}
         {{- $key := .Values.saAccessKeyFile | fromJson -}}
         {{- $key.access_key.key_id -}}
@@ -395,7 +471,7 @@ The product specification uses YAML format and contains the following data:
         not_var{{- end }}
         not_var{{- end }}
 
-        {{- define "<chart_name>.access_key_secret" -}}
+        {{- define "<Helm_chart_name>.access_key_secret" -}}
         not_var{{- if .Values.saAccessKeyFile -}}
         {{- $key := .Values.saAccessKeyFile | fromJson -}}
         {{- $key.secret -}}
@@ -528,7 +604,7 @@ The product specification uses YAML format and contains the following data:
               required: false
         ```
 
-1. `private_artifacts`: Optional parameter. Use it to avoid moving all the images that come with the product from the publisher's registry to the public `yc-marketplace` registry. The possible values are `true` and `false`; the default one is `false`.
+1. `private_artifacts`: Optional parameter. Use it to avoid moving all the Docker images that come with the product from the publisher's registry to the public `yc-marketplace` registry. The possible values are `true` and `false`; the default one is `false`.
 
    This parameter is set for a product version. To install a version with `private_artifacts = true`, the user will need to utilize {{ yandex-cloud }} [interfaces](../../overview/concepts/interfaces.md). Installation with the `helm install` command will not be available.
 

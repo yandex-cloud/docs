@@ -16,7 +16,7 @@ IAM-токены используются для аутентификации в
 Authorization: Bearer <IAM-токен>
 ```
 
-Для работы с {{ TF }} [добавьте IAM-токен в переменные окружения](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) или укажите его в [конфигурационном файле с настройками провайдера](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider):
+Для работы с {{ TF }} [добавьте IAM-токен в переменные окружения](../../../terraform/authentication.md) или укажите его в [конфигурационном файле с настройками провайдера](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider):
 
 ```hcl
 provider "yandex" {

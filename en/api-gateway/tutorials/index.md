@@ -1,15 +1,15 @@
 ---
 title: '{{ api-gw-full-name }} use cases'
-description: Various {{ api-gw-full-name }} use cases in {{ yandex-cloud }}.
+description: Various use cases for {{ api-gw-full-name }} in {{ yandex-cloud }}.
 ---
 
 # {{ api-gw-name }} tutorials
 
-## Serverless backend {#backend}
+## Serverless-based backend {#backend}
 
 * [{#T}](java-servlet-todo-list.md)
 * [{#T}](api-gw-integration.md)
-* [{#T}](serverless-url-shortener.md)
+* [{#T}](serverless-url-shortener/index.md)
 * [{#T}](movies-database.md)
 * [{#T}](websocket-app.md)
 * [{#T}](api-gw-websocket.md)
@@ -24,11 +24,11 @@ description: Various {{ api-gw-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](telegram-bot-serverless.md)
 * [{#T}](recognizer-bot.md)
 
-## Serverless ETL {#etl}
+## Serverless-based ETL {#etl}
 
 * [{#T}](data-ingestion.md)
 
-## Serverless workflows and automation {#automation}
+## Serverless-based workflows and automation {#automation}
 
 * [{#T}](ci-cd-serverless.md)
 

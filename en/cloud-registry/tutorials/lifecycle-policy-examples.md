@@ -189,9 +189,11 @@ The `keep_by_version` rule has a higher priority than the deletion rule. This me
 * Use `SOFT_DELETE` for key artifacts so you can restore them during the waiting period.
 * Use the `KEEP` rules to explicitly protect artifacts from deletion: the `keep_by_version` and `keep_by_age` rules take precedence over deletion rules and ensure retention of artifacts.
 * Use retention rules together with deletion rules to flexibly manage artifacts.
+* Check the status of your policies on a regular basis using the `yc cloud-registry registry lifecycle-policy list` command.
 
 #### See also {#see-also}
 
 * [{#T}](../operations/lifecycle-policy/create.md)
 * [{#T}](../concepts/lifecycle-policy.md)
 * [{#T}](../concepts/registry.md)
+* [{#T}](../operations/pypi/installation.md)

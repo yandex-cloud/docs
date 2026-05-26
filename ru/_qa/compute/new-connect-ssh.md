@@ -1,4 +1,4 @@
-Если вы устанавливали пароль для пользователя, [настройте](../../compute/operations/serial-console/index.md) серийную консоль ВМ и подключитесь к ней. Мы рекомендуем [подключаться с помощью CLI](../../compute/operations/serial-console/connect-cli.md).
+Если вы устанавливали пароль для пользователя, [настройте](../../compute/concepts/serial-console.md) серийную консоль ВМ и подключитесь к ней. Мы рекомендуем [подключаться](../../compute/operations/serial-console/connect-ssh.md) с помощью {{ yandex-cloud }} CLI.
 
 Если пароля для пользователя нет, [сделайте](../../compute/operations/disk-control/create-snapshot.md) снимок диска ВМ и [создайте](../../compute/operations/vm-create/create-from-snapshots.md) новую ВМ из снимка.
 
