@@ -222,7 +222,7 @@ description: Из статьи вы узнаете, как задать наст
 
             Двойные кавычки в имени схемы не поддерживаются.
 
-        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.collapse_inherit_table.title }}** — выберите для объединения содержимого таблиц. Подробнее см. в разделе [Особенности работы с эндпоинтами](../../../concepts/work-with-endpoints.md#postgresql).
+        * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.collapse_inherit_table.title }}** — выберите для объединения содержимого таблиц. Поведение трансфера будет также зависеть от настройки **Список включенных таблиц**. Подробнее см. в разделе [Особенности работы с эндпоинтами](../../../concepts/work-with-endpoints.md#postgresql).
 
         * **{{ ui-key.yc-data-transfer.data-transfer.console.form.postgres.console.form.postgres.PostgresSourceAdvancedSettings.snapshot_table_sharding_settings.title }}** — при необходимости задайте детальные настройки [параллельного копирования таблиц](../../../../data-transfer/concepts/sharded.md) (если в трансфере заданы параметры параллельного копирования):
 

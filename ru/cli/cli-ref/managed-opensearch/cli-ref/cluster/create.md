@@ -114,7 +114,7 @@ Possible property names:
 
 - `assign-public-ip`: Determines whether a public IP is assigned to the hosts in the group.
 
-- `roles`: Roles to be given to the hosts in the node group. Supported values: 'manager', 'data', 'data+manager' (or 'manager+data') ||
+- `roles`: Roles to be given to the hosts in the node group. Supported values: 'manager', 'data', 'warm', 'ingest', 'data+manager' or 'manager+data', etc. If no node groups have 'ingest' role explicitly set, then all 'data' nodes will implicitly have 'ingest' role. ||
 || `--dashboards-node-group` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
 
 Individual configurations for Dashboards node groups.

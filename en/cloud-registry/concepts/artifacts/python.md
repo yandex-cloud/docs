@@ -14,4 +14,8 @@ Python artifacts are used to distribute libraries, tools, and components you can
 
 #### See also {#see-also}
 
-[Supported artifact types](./index.md#artifacts)
+* [Supported artifact types](./index.md#artifacts)
+* [{#T}](../../operations/pypi/installation.md)
+* [{#T}](../../operations/pypi/pull.md)
+* [{#T}](../../tutorials/lifecycle-policy-examples.md)
+* [{#T}](../registry.md)

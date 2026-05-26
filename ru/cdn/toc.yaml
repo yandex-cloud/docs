@@ -532,18 +532,6 @@ items:
     href: logs-ref.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
-  - name: Справочник аудитных логов
-    items:
-      - name: Overview
-        href: events-ref/index.md
-      - name: Operation
-        items:
-          - name: Overview
-            href: events-ref/Operation/index.md
-          - name: Get
-            href: events-ref/Operation/get.md
-          - name: Cancel
-            href: events-ref/Operation/cancel.md
   - name: История изменений
     href: release-notes.md
   - name: Решение проблем

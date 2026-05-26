@@ -1,10 +1,16 @@
-Укажите имя ВМ и включите авторизацию по метаданным при подключении к серийной консоли:
+Включите авторизацию по метаданным при подключении к серийной консоли:
 
 ```bash
-yc compute instance update \
-  --name <имя_ВМ> \
-  --serial-port-settings ssh-authorization=INSTANCE_METADATA
+yc compute instance update <имя_или_идентификатор_ВМ> \
+  --serial-port-settings ssh-authorization=INSTANCE_METADATA \
+  --metadata enable-oslogin=false,serial-port-enable=1,ssh-keys='<имя_пользователя>:<публичный_SSH-ключ>'
 ```
+
+Где:
+* `<имя_или_идентификатор_ВМ>` — о том, как узнать имя или идентификатор ВМ, читайте в разделе [{#T}](../../compute/operations/vm-info/get-info.md).
+* `--metadata` — [метаданные](../../compute/concepts/vm-metadata.md) виртуальной машины:
+
+    * `ssh-keys` — имя локального пользователя ВМ и содержимое [публичного SSH-ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), с которым этот пользователь сможет подключаться к ВМ по SSH.
 
 Результат:
 
@@ -56,4 +62,10 @@ hardware_generation:
     pci_topology: PCI_TOPOLOGY_V1
 ```
 
+Подробнее о команде `yc compute instance update` читайте в [справочнике CLI](../../cli/cli-ref/compute/cli-ref/instance/update.md).
+
+{% note info %}
+
 {% include [serial-port-settings-default](serial-port-settings-default.md) %}
+
+{% endnote %}

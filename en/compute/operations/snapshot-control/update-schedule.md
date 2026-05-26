@@ -25,11 +25,11 @@ To update basic settings of a [disk snapshot](../../concepts/snapshot.md) [sched
        {% include [name-format](../../../_includes/name-format.md) %}
 
      * **{{ ui-key.yacloud.common.description }}**.
-     * Under **{{ ui-key.yacloud.compute.snapshots-schedules.label_schedule-policy }}**, select the disk snapshot frequency: `{{ ui-key.yacloud.compute.snapshots-schedules.label_hourly }}`, `{{ ui-key.yacloud.compute.snapshots-schedules.label_daily }}`, `{{ ui-key.yacloud.compute.snapshots-schedules.label_weekly }}`, or [`{{ ui-key.yacloud.compute.snapshots-schedules.label_custom }}`](../../concepts/snapshot-schedule.md#cron). The snapshot creation time is specified in [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00).
-     * In the **{{ ui-key.yacloud.compute.snapshots-schedules.label_start-at }}** field, set the start date for your schedule.
+     * Under **{{ ui-key.yacloud.compute.components.ScheduleSection.label_repeat-type_7fBWj }}**, select the disk snapshot frequency: `{{ ui-key.yacloud.compute.components.ScheduleSection.label_daily_o3t6f }}`, `{{ ui-key.yacloud.compute.components.ScheduleSection.label_weekly_pB4YE }}`, `{{ ui-key.yacloud.compute.components.ScheduleSection.label_monthly_dJYSn }}`, or [`{{ ui-key.yacloud.compute.components.ScheduleSection.label_cron_kZwc5 }}`](../../concepts/snapshot-schedule.md#cron). The snapshot creation time is specified in [UTC±00:00](https://{{ lang }}.wikipedia.org/wiki/UTC±00:00).
+     * In the **{{ ui-key.yacloud.compute.components.ScheduleSection.label_start-date_pbnDp }}** field, set the start date for your schedule.
      * Select the disk snapshot retention policy:
-       * **{{ ui-key.yacloud.compute.snapshots-schedules.label_empty-retention-policy }}**: Enable to retain all disk snapshots created by this schedule. 
-       * **{{ ui-key.yacloud.compute.snapshots-schedules.message_store-last-begin_many }}**: Specify the number of the latest disk snapshots to retain or the number of days for which you want to retain the snapshots. Any other disk snapshots created by this schedule will be deleted automatically.
+       * **{{ ui-key.yacloud.compute.components.SnapshotScheduleFormContent.label_empty-retention-policy_voaWW }}**: Enable to retain all disk snapshots created by this schedule. 
+       * **{{ ui-key.yacloud.compute.snapshot-schedule-form-next.active-retention-policy-field.message_store-last-begin_few }}**: Specify the number of the latest disk snapshots to retain or the number of days for which you want to retain the snapshots. Any other disk snapshots created by this schedule will be deleted automatically.
 
        {% note info %}
 

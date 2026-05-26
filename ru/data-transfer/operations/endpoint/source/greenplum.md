@@ -104,6 +104,8 @@ description: Из статьи вы узнаете, как задать наст
 
 ### Расширенные настройки {#additional-settings}
 
+{% list tabs group=instructions %}
+
 - Консоль управления {#console}
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GpSourceAdvancedSettings.strong_consistency.title }}** — при включении {{ data-transfer-name }} выполнит дополнительные действия с источником для обеспечения [консистентности снапшота](#snapshot-consistency).

@@ -67,7 +67,7 @@ To check the image for compliance with some [requirements](#requirements), run t
 ```
 
 To check the VM that you [created](../../compute/operations/image-create/upload.md#create-vm-from-user-image) from the image, run the command:
-
+    
 ```bash
 ./yc-image-cleanup.sh -t
 ```

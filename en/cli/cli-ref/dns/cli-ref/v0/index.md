@@ -47,6 +47,32 @@ Syntax:
 
   - [yc dns v0 firewall update](firewall/update.md) — Modify configuration or attributes of a dns firewall.
 
+- [yc dns v0 inbound-endpoint](inbound-endpoint/index.md) — Manage dns inbound endpoints
+
+  - [yc dns v0 inbound-endpoint add-access-binding](inbound-endpoint/add-access-binding.md) — Add access binding to the specified dns inbound endpoint
+
+  - [yc dns v0 inbound-endpoint add-labels](inbound-endpoint/add-labels.md) — Assign labels to the specified dns inbound endpoint.
+
+  - [yc dns v0 inbound-endpoint create](inbound-endpoint/create.md) — Create a dns inbound endpoint in the specified folder.
+
+  - [yc dns v0 inbound-endpoint delete](inbound-endpoint/delete.md) — Delete a dns inbound endpoint.
+
+  - [yc dns v0 inbound-endpoint get](inbound-endpoint/get.md) — Get information about a dns inbound endpoint.
+
+  - [yc dns v0 inbound-endpoint list](inbound-endpoint/list.md) — List dns inbound endpoints in folder.
+
+  - [yc dns v0 inbound-endpoint list-access-bindings](inbound-endpoint/list-access-bindings.md) — List access bindings of the specified dns inbound endpoint.
+
+  - [yc dns v0 inbound-endpoint list-operations](inbound-endpoint/list-operations.md) — List operations of the specified dns inbound endpoint.
+
+  - [yc dns v0 inbound-endpoint remove-access-binding](inbound-endpoint/remove-access-binding.md) — Remove access binding from the specified dns inbound endpoint
+
+  - [yc dns v0 inbound-endpoint remove-labels](inbound-endpoint/remove-labels.md) — Remove labels from the specified dns inbound endpoint
+
+  - [yc dns v0 inbound-endpoint set-access-bindings](inbound-endpoint/set-access-bindings.md) — Set access bindings to the specified dns inbound endpoint and delete all existing access bindings if there are any.
+
+  - [yc dns v0 inbound-endpoint update](inbound-endpoint/update.md) — Modify configuration or attributes of a dns inbound endpoint.
+
 - [yc dns v0 zone](zone/index.md) — Manage dns zones
 
   - [yc dns v0 zone add-access-binding](zone/add-access-binding.md) — Add access binding to the specified dns zone

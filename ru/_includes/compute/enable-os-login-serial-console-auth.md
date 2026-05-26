@@ -1,10 +1,16 @@
-Включите для ВМ авторизацию по {{ oslogin }} при подключении к серийной консоли, указав имя ВМ:
+Включите авторизацию по {{ oslogin }} при подключении к серийной консоли:
 
 ```bash
-yc compute instance update \
-  --name <имя_ВМ> \
-  --serial-port-settings ssh-authorization=OS_LOGIN
+yc compute instance update <имя_или_идентификатор_ВМ> \
+  --serial-port-settings ssh-authorization=OS_LOGIN \
+  --metadata enable-oslogin=true,serial-port-enable=1,ssh-keys='<имя_пользователя>:<публичный_SSH-ключ>'
 ```
+
+Где:
+* `<имя_или_идентификатор_ВМ>` — о том, как узнать имя или идентификатор ВМ, читайте в разделе [{#T}](../../compute/operations/vm-info/get-info.md).
+* `--metadata` — [метаданные](../../compute/concepts/vm-metadata.md) виртуальной машины:
+
+    * `ssh-keys` — имя локального пользователя ВМ и содержимое [публичного SSH-ключа](../../compute/operations/vm-connect/ssh.md#creating-ssh-keys), с которым этот пользователь сможет подключаться к ВМ по SSH в случае, если доступ по {{ oslogin }} для этой ВМ позднее будет отключен.
 
 Результат:
 
@@ -55,6 +61,8 @@ hardware_generation:
   legacy_features:
     pci_topology: PCI_TOPOLOGY_V1
 ```
+
+Подробнее о команде `yc compute instance update` читайте в [справочнике CLI](../../cli/cli-ref/compute/cli-ref/instance/update.md).
 
 {% note info %}
 

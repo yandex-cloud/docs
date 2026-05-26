@@ -434,8 +434,14 @@ items:
           - name: Developing a custom integration
             href: tutorials/api-gw-integration.md
           - name: URL shortener
-            href: tutorials/serverless-url-shortener.md
-          - name: Building an interactive serverless application using WebSocket
+            items:
+              - name: Overview
+                href: tutorials/serverless-url-shortener/index.md
+              - name: Management console
+                href: tutorials/serverless-url-shortener/console.md
+              - name: '{{ TF }}'
+                href: tutorials/serverless-url-shortener/terraform.md
+          - name: Creating an interactive serverless application using WebSocket
             href: tutorials/websocket-app.md
           - name: Creating a Node.js function using TypeScript
             href: tutorials/nodejs-typescript.md

@@ -67,6 +67,16 @@ items:
             items:
               - name: Setting up PyPI
                 href: operations/pypi/installation.md
+              - name: Creating a Python package
+                href: operations/pypi/create.md
+              - name: Pushing a Python package to a registry
+                href: operations/pypi/push.md
+              - name: Pulling a Python package from a registry
+                href: operations/pypi/pull.md
+              - name: Deleting a Python package from a registry
+                href: operations/pypi/delete.md
+              - name: Examples of working with PyPI registries
+                href: operations/pypi/examples.md
           - name: Binary artifact
             items:
               - name: Pushing a binary artifact to a registry

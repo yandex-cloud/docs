@@ -50,6 +50,10 @@
 
   1. Сохраните идентификатор ключа `access_key_id`, секретный ключ `secret` и токен сессии `session_token`. Повторно получить эти значения будет невозможно.
 
+- API {#api}
+
+    Воспользуйтесь методом REST API [createEphemeral](../../iam/awscompatibility/api-ref/TemporaryAccessKey/createEphemeral.md) для ресурса [TemporaryAccessKey](../../iam/awscompatibility/api-ref/TemporaryAccessKey/index.md) или вызовом gRPC API [TemporaryAccessKeyService/CreateEphemeral](../../iam/awscompatibility/api-ref/grpc/TemporaryAccessKey/createEphemeral.md).
+
 {% endlist %}
 
 

@@ -280,7 +280,7 @@
      1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ, например, `win-test`.
      1. В блоке **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}** укажите данные для доступа на ВМ:
          * Выберите [сервисный аккаунт](../../iam/concepts/index.md#sa) `win-secret-sa`.
-         * Разрешите доступ к [серийной консоли](../../compute/operations/serial-console/index.md).
+         * Разрешите доступ к [серийной консоли](../../compute/concepts/serial-console.md).
      1. В блоке **{{ ui-key.yacloud.common.metadata }}**:
          * В поле **{{ ui-key.yacloud.component.key-values-input.label_key }}** укажите `user-data`.
          * В поле **{{ ui-key.yacloud.component.key-values-input.label_value }}** вставьте содержимое файла `init.ps1`.

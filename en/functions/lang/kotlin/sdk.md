@@ -19,6 +19,8 @@ The [SDK (Software Development Kit)](https://en.wikipedia.org/wiki/Software_deve
 
 The following function gets the folder ID (`folderId`) as an input, gets authorized in the SDK, retrieves a list of all {{ compute-name }} VMs in the specified folder, and restarts those that are stopped. As a result, it returns a message with the number of running instances.
 
+{% note warning %}
+
 Invoke the function using the [{{ yandex-cloud }} CLI](../../concepts/function-invoke.md) or an HTTP request with the `?integration=raw` parameter.
 
 {% endnote %}

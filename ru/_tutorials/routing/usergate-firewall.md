@@ -613,8 +613,8 @@
 
 ### Подготовьте тестовую виртуальную машину {#test-vm-prepare}
 
-1. [Создайте](../../compute/operations/vm-create/create-linux-vm) виртуальную машину из публичного образа Linux в подсети `usergate-subnet-{{ region-id }}-d`. В настройках виртуальной машины включите [серийную консоль](../../compute/operations/serial-console/index.md).
-1. Подключитесь к ВМ с помощью [CLI](../../compute/operations/serial-console/connect-cli.md), выполнив команду:
+1. [Создайте](../../compute/operations/vm-create/create-linux-vm) виртуальную машину из публичного образа Linux в подсети `usergate-subnet-{{ region-id }}-d`. В настройках виртуальной машины включите [серийную консоль](../../compute/concepts/serial-console.md).
+1. [Подключитесь](../../compute/operations/serial-console/connect-ssh.md) к ВМ с помощью {{ yandex-cloud }} CLI, выполнив команду:
 
    ```bash
    yc compute connect-to-serial-port --instance-name <имя_виртуальной_машины>
