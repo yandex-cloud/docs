@@ -62,7 +62,7 @@
      * Если вы выбрали публичный образ на базе Windows:
        * В поле **{{ ui-key.yacloud.common.password }}** задайте пароль пользователя `Administrator`. Пользователь с именем `Administrator` создается автоматически.
      * Нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
-     * Если требуется, разрешите доступ к [серийной консоли](../operations/serial-console/index.md).
+     * Если требуется, разрешите доступ к [серийной консоли](../concepts/serial-console.md).
    * Нажмите кнопку **{{ ui-key.yacloud.compute.groups.create.button_edit }}**.
 1. В блоке **{{ ui-key.yacloud.compute.groups.create.section_deploy }}** укажите:
    * **{{ ui-key.yacloud.compute.groups.create.field_deploy-max-expansion }}** — на какое количество ВМ можно превышать размер группы.

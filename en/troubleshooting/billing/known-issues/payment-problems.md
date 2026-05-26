@@ -18,11 +18,11 @@ In most cases, funds are automatically credited to your account as soon as Yande
 
     1. Make sure the following details are correctly specified in your payment order:
 
-    * Payment amount.
-    * Bank details of the legal entity Yandex Cloud operates under (OOO Yandeks Oblako).
-    * Your company or individual entrepreneur TIN.
-    * Billing account number in the payment details (should look like `LSO-***********-**`).
-    * Agreement number in the payment details (should look like `******/**`).
+       * Payment amount.
+       * Bank details of the legal entity Yandex Cloud operates under (OOO Yandeks Oblako).
+       * Your company or individual entrepreneur TIN.
+       * Billing account number in the payment details (should look like `LSO-***********-**`).
+       * Agreement number in the payment details (should look like `******/**`).
 
 - Credit or debit card
     
@@ -72,15 +72,11 @@ To help our support team resolve your issue quickly, select your payment method 
 
     For security reasons, do not disclose the following information to third parties:
 
-
     * Full card number.
     * Card expiration date.
     * Cardholder's first name and last name.
     * CVC/CVV code.
     * One-time text message passwords.
     * Details of other card transactions.
-
-
-    {% endnote %}
 
 {% endlist %}

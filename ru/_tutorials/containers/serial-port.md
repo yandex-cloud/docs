@@ -1,6 +1,6 @@
 # Настройка вывода информации из Docker-контейнера в серийный порт
 
-Чтобы создать [виртуальную машину](../../compute/concepts/vm.md) из [образа](../../compute/concepts/image.md) [{{ coi }}](../../cos/concepts/index.md) и настроить перенаправление потока вывода приложения в [серийный порт](../../compute/operations/serial-console/index.md#configuration) ВМ:
+Чтобы создать [виртуальную машину](../../compute/concepts/vm.md) из [образа](../../compute/concepts/image.md) [{{ coi }}](../../cos/concepts/index.md) и настроить перенаправление потока вывода приложения в [серийный порт](../../compute/concepts/serial-console.md) ВМ:
 
 1. [Подготовьте облако к работе](#before-you-begin).
 1. [Подготовьте спецификацию ВМ](#prepare-specification-vm).

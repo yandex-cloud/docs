@@ -256,8 +256,6 @@ To output the common **Total** row, enable **Sub-totals** in the settings for th
 
 {% endnote %}
 
-{% endcut %}
-
 #### Adding a linear indicator to a column with a measure {#add-linear-indicator}
 
 1. Under **Measures**, click the icon to the left of the measure name.

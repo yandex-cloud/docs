@@ -1,7 +1,7 @@
-# Public materials about Serverless in {{ yandex-cloud }}
+# Public materials about serverless in {{ yandex-cloud }}
 
   * {{ sw-full-name }} visual constructor: No-code process orchestration, 2025. Read our [article](https://yandex.cloud/ru/blog/posts/2025/03/yandex-workflows).
-  * How we make {{ yandex-cloud }}: Serverless, 2025. Watch our video on [YouTube](https://youtu.be/suaaiq4b4mI) and [Yandex](https://runtime.strm.yandex.ru/player/video/vplvqccrlia7xaxa22nd).
+  * How we make {{ yandex-cloud }}: Serverless, 2025. Watch the video on [YouTube](https://youtu.be/suaaiq4b4mI) and [Yandex](https://runtime.strm.yandex.ru/player/video/vplvqccrlia7xaxa22nd).
   * Serverless technologies for educational and scientific projects, 2025. Watch our video on [YouTube](https://youtu.be/teZweGlLWEU) and [Yandex](https://runtime.strm.yandex.ru/player/video/vplvvp3kcjgjo2puwdxa).
   * Serverless evolution in Russia and {{ yandex-cloud }}, 2023. Watch our video on [YouTube](https://youtu.be/5CSY-3o6g4Q) and [Yandex](https://runtime.strm.yandex.ru/player/video/vplv34ci7pcgmlrxjpeu).
   * Designing, developing, and running serverless applications, 2023. Watch our video on [YouTube](https://youtu.be/8sRBbkbkRPc) and [Yandex](https://runtime.strm.yandex.ru/player/video/vplvljcsecqyrxkcal7m).
@@ -67,7 +67,7 @@
   * <code><b><small>External resource</small></b></code> {{ TF }}: Basics. State storage backends, 2025. Read our [article](https://ru.hexlet.io/courses/terraform-basics/lessons/remote-state/theory_unit).
   * Serverless {{ ydb-short-name }} internals, 2023. Watch our video on [YouTube](https://www.youtube.com/watch?v=aL9NHR0i0Xs) and [Rutube](https://rutube.ru/video/cd00829cf8c814c94d4c422b030df1ec/).
   * How to deploy your Telegram bot (almost) free-of-charge: Quick guide to cloud serverless, 2023. Read our [article](https://www.pvsm.ru/oblachny-e-servisy/384952).
-  * <code><b><small>External resource</small></b></code> Deep dive into serverless: How Yandex Database was born, 2021. Read the [article](https://habr.com/ru/articles/552032/).
+  * <code><b><small>External resource</small></b></code> Immersion in serverless. How Yandex Database was born, 2021. Read the [article](https://habr.com/ru/articles/552032/).
   * <code><b><small>External resource</small></b></code> Serverless alternative to traditional databases, 2021. Read the [article](https://www.osp.ru/os/2021/01/13055826).
 
 ## {{ serverless-containers-full-name }} {#serverless-containers}

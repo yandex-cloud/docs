@@ -5,6 +5,8 @@ description: In this tutorial, you will learn how to mount file systems to a fun
 
 # Mounting external resources to a function file system
 
+{% note info %}
+
 You can mount [buckets](../../storage/concepts/bucket.md) and one ephemeral disk to a {{ sf-full-name }} function. To avoid data access errors, all mount points for ephemeral disks and buckets must be unique.
 
 {% endnote %}

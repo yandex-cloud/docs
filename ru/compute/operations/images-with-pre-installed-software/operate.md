@@ -7,7 +7,7 @@ description: В статье описана работа с виртуально
 
 ## Подключение к виртуальной машине {#ways-to-connect}
 
-Подключение к [виртуальной машине](../../concepts/vm.md) возможно по протоколу [SSH](../../../glossary/ssh-keygen.md) с помощью пары SSH-ключей, [по {{ oslogin }}](../vm-connect/os-login.md) или с помощью [серийной консоли](../serial-console/index.md).
+Подключение к [виртуальной машине](../../concepts/vm.md) возможно по протоколу [SSH](../../../glossary/ssh-keygen.md) с помощью пары SSH-ключей, [по {{ oslogin }}](../vm-connect/os-login.md) или с помощью [серийной консоли](../../concepts/serial-console.md).
 
 ### Подключение по SSH {#connect}
 

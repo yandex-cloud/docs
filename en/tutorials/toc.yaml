@@ -357,7 +357,7 @@ items:
             href: archive/vm-with-backup-policy/terraform.md
       - name: Replicating logs to {{ objstorage-name }} using {{ yds-name }}
         href: archive/replicate-logs-to-storage-via-data-streams.md
-      - name: Replicating logs to {{ objstorage-name }} using Fluent Bit
+      - name: "Replicating logs to {{ objstorage-name }} using Fluent\_Bit"
         href: archive/replicate-logs-to-storage.md
       - name: Using {{ objstorage-name }} in {{ dataproc-name }}
         href: archive/copy-files-from-object-storage.md
@@ -807,7 +807,7 @@ items:
                 href: web/joomla-postgresql/console.md
               - name: '{{ TF }}'
                 href: web/joomla-postgresql/terraform.md
-          - name: Building a 1C-Bitrix website
+          - name: Creating a 1C-Bitrix website
             items:
               - name: Overview
                 href: web/bitrix-website/index.md
@@ -1612,7 +1612,13 @@ items:
           - name: Developing a custom integration in {{ api-gw-name }}
             href: serverless/api-gw-integration.md
           - name: URL shortener
-            href: serverless/serverless-url-shortener.md
+            items:
+              - name: Overview
+                href: serverless/serverless-url-shortener/index.md
+              - name: Management console
+                href: serverless/serverless-url-shortener/console.md
+              - name: '{{ TF }}'
+                href: serverless/serverless-url-shortener/terraform.md
           - name: Developing CRUD APIs for a movie service
             href: serverless/movies-database.md
           - name: Creating an interactive serverless application using WebSocket

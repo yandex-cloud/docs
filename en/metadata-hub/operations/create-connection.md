@@ -1171,8 +1171,6 @@ You can create connections of the following types:
 
 {% endlist %}
 
-{% endlist %}
-
 ### {{ mgp-name }} {#mdb-greenplum}
 
 {% list tabs group=instructions %}

@@ -9,7 +9,7 @@ You cannot get access to applications in the {{ managed-k8s-name }} cluster via 
 
 If you use a load balancer that is associated with a security group, you need to create a rule in this group allowing traffic from the load balancer to {{ managed-k8s-name }} cluster nodes on ports in the range from `30000` to `32767`.
 
-{% note info % }
+{% note info %}
 
 When routing traffic, the load balancer only changes the destination port, while the original IP address of the query remains the same. Therefore, you should specify the `0.0.0.0/0` address range in the allow rule.
 

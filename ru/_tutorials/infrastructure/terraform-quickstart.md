@@ -31,13 +31,19 @@
 
 ## Получите данные для аутентификации {#get-credentials}
 
-{% include [terraform-credentials-sa](../../_tutorials/_tutorials_includes/terraform-credentials-sa.md) %}
+Для аутентификации и управления инфраструктурой {{ yandex-cloud }} вы можете использовать {{ TF }} от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) или пользовательских аккаунтов: [аккаунта на Яндексе](../../iam/concepts/users/accounts.md#passport), [федеративного аккаунта](../../iam/concepts/users/accounts.md#saml-federation) и [локального пользователя](../../iam/concepts/users/accounts.md#local).
 
-{% cut "Управление ресурсами от имени аккаунта на Яндексе или федеративного аккаунта" %}
+{% list tabs group=authentication %}
 
-{% include [terraform-credentials-user](../../_tutorials/_tutorials_includes/terraform-credentials-user.md) %}
+- Сервисный аккаунт {#service-account}
 
-{% endcut %}
+  {% include [authentication-sa](../../_includes/terraform/authentication-sa.md) %}
+
+- Аккаунт на Яндексе, федеративный или локальный пользователь {#yandex-account}
+
+  {% include [authentication-users](../../_includes/terraform/authentication-users.md) %}
+
+{% endlist %}
 
 ## Создайте файл конфигурации {{ TF }} {#configure-terraform}
 

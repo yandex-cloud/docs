@@ -13,7 +13,7 @@ You can load a variable from {{ lockbox-name }} using a [directed acyclic graph 
 
 Issue the `lockbox.payloadViewer` [role](../../lockbox/security/index.md#lockbox-payloadViewer) to your service account.
 
-{% note info }
+{% note info %}
 
 There is no need to assign the `lockbox.payloadViewer` role for the whole folder. It is enough to [assign it for a specific {{ lockbox-name }} secret](../../lockbox/operations/secret-access.md) once you [create it](#create-lockbox-secret).
 

@@ -11,7 +11,7 @@ To allow access to {{ postbox-name }} resources, assign the relevant roles from 
 
 For more information about role inheritance, see [Inheritance of access permissions](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-name }} documentation.
 
-## Roles existing in this service {#roles-list}
+## Roles this service has {#roles-list}
 
 In {{ postbox-name }}, you can manage access using both service and primitive roles.
 

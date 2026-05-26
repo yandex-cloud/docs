@@ -175,9 +175,7 @@ description: Пошаговые инструкции по работе и упр
 
 * [{#T}](serial-console/index.md)
 * [{#T}](serial-console/connect-ssh.md)
-* [{#T}](serial-console/connect-cli.md)
 * [{#T}](serial-console/windows-sac.md)
-* [{#T}](serial-console/disable.md)
 
 ## Создание группы виртуальных машин {#ig-create}
 

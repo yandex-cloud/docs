@@ -82,7 +82,8 @@ description: Follow this guide to add interaction with {{ ai-studio-name }} mode
               * `{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_few_shot_classify_properties_samples_description_samples_json }}` and enter request examples in JSON format under **{{ ui-key.yc-serverless-workflows.dynamic-forms.foundation_models_properties_action_properties_few_shot_classify_properties_samples_properties_samples_json_view_spec_title }}**.
         
           {% endcut %}
-      
+
+      1. Optionally, disable request logging. For more information, see [this {{ ai-studio-name }} guide]({{ link-docs-ai }}ai-studio/operations/disable-logging).
       1. {% include [integrations-step-timeout](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-timeout.md) %}
       1. {% include [integrations-step-retry-policy](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-retry-policy.md) %}
   1. {% include [integrations-step-input-tab](../../../../_includes/serverless-integrations/workflows-constructor/integrations-step-input-tab.md) %}

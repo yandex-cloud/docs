@@ -104,6 +104,8 @@ Connection to the database with explicitly specified network addresses and ports
 
 ### Advanced settings {#additional-settings}
 
+{% list tabs group=instructions %}
+
 - Management console {#console}
 
     * **{{ ui-key.yc-data-transfer.data-transfer.console.form.greenplum.console.form.greenplum.GpSourceAdvancedSettings.strong_consistency.title }}**: When enabled, {{ data-transfer-name }} will apply additional steps to the source to assure [snapshot consistency](#snapshot-consistency).

@@ -291,18 +291,14 @@ items:
             href: operations/filesystem/filesystem-access.md
           - name: Удалить файловое хранилище
             href: operations/filesystem/delete.md
-      - name: Управление серийной консолью
+      - name: Серийная консоль
         items:
-          - name: Начало работы
+          - name: Управлять доступом к серийной консоли
             href: operations/serial-console/index.md
-          - name: Подключиться к серийной консоли по SSH
+          - name: Подключиться к серийной консоли ВМ с ОС Linux
             href: operations/serial-console/connect-ssh.md
-          - name: Подключиться к серийной консоли с помощью CLI
-            href: operations/serial-console/connect-cli.md
-          - name: Запустить командную оболочку в Windows SAC
+          - name: Подключиться к серийной консоли ВМ с ОС Windows
             href: operations/serial-console/windows-sac.md
-          - name: Отключить доступ к серийной консоли
-            href: operations/serial-console/disable.md
       - name: Создание группы виртуальных машин
         items:
           - name: Создать группу ВМ фиксированного размера
@@ -674,6 +670,8 @@ items:
             href: concepts/vm-statuses.md
           - name: Политики обслуживания ВМ
             href: concepts/maintenance-policies.md
+          - name: Серийная консоль
+            href: concepts/serial-console.md
           - name: Сброс паролей на ВМ Windows
             href: concepts/guest-agent.md
       - name: Метаданные виртуальных машин
@@ -2571,18 +2569,6 @@ items:
     href: metrics.md
   - name: Аудитные логи {{ at-name }}
     href: at-ref.md
-  - name: Справочник аудитных логов
-    items:
-      - name: Overview
-        href: events-ref/index.md
-      - name: Operation
-        items:
-          - name: Overview
-            href: events-ref/Operation/index.md
-          - name: Get
-            href: events-ref/Operation/get.md
-          - name: Cancel
-            href: events-ref/Operation/cancel.md
   - name: История изменений
     href: release-notes.md
   - name: Вопросы и ответы
