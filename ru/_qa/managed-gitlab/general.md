@@ -76,3 +76,22 @@ You are not allowed to push code to protected branches on this project.
 
 1. В параметрах системного хука (**Admin area** → **System Hooks**) измените значение **URL** на `http://127.0.0.1:24080/default`.
 1. В настройках {{ GL }}, разрешающих отправлять сообщения в локальную сеть (**Admin area** → **Settings** → **Network** → **Expand outbound requests**, поле ввода для CIDR), добавьте `http://127.0.0.1:24080` в список IP-адресов и доменных имен.
+
+#### Что делать, если при работе воркера возникает ошибка EOF fatal? {#eof-fatal-error}
+
+Полный текст ошибки:
+
+```text
+EOF fatal: early EOF fatal: fetch-pack: invalid index-pack output
+```
+
+Ошибку можно исправить только на раннере, который вручную развернут на ВМ. Для этого примените следующие настройки:
+
+```bash
+sysctl -w net.core.rmem_max=26214400
+sysctl -w net.core.rmem_default=6250000
+sysctl -w net.core.wmem_max=26214400
+sysctl -w net.core.wmem_default=6250000
+sysctl -w net.ipv4.tcp_rmem='4096 6250000 26214400'
+sysctl -w net.ipv4.tcp_wmem='4096 6250000 26214400'
+```

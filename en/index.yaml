@@ -216,9 +216,6 @@ links:
   - title: '{{ src-full-name }}'
     description: Source code development platform
     href: sourcecraft/
-  - title: SpeechSense
-    description: Speech analytics
-    href: speechsense/
   - title: Object Storage
     description: Scalable data storage
     href: storage/

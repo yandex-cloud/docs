@@ -1,9 +1,9 @@
 ---
-title: Monitoring the state of an {{ OS }} cluster and its hosts
-description: Follow this guide to get detailed information about a {{ mos-name }} cluster state.
+title: '{{ OS }} cluster and host state monitoring'
+description: Follow this guide to get detailed information about a {{ mos-name }} cluster's state.
 ---
 
-# Monitoring the state of an {{ OS }} cluster and its hosts
+# {{ OS }} cluster and host state monitoring
 
 {% include [monitoring-introduction](../../_includes/mdb/monitoring-introduction.md) %}
 
@@ -13,39 +13,59 @@ Charts are updated every {{ graph-update }}.
 
 {% include [alerts](../../_includes/mdb/alerts.md) %}
 
-## Monitoring the cluster state {#monitoring-cluster}
+## Cluster state monitoring {#monitoring-cluster}
 
-To view detailed information on the state of a {{ mos-name }} cluster:
+To view detailed information on the health state of a {{ mos-name }} cluster:
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder page.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
-    1. Click the name of your cluster and select the ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** tab.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+    1. Click the cluster name and open the ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.mdb.cluster.switch_monitoring }}** tab.
 
         The page displays the following charts:
 
-        * **Health status**: Cluster health and technical condition:
+        * Under **Cluster state**:
 
-            * `0` (red): Cluster is unhealthy or partially functional. At least one of the [primary shards](../concepts/scalability-and-resilience.md) is not available. If the cluster responds to queries, search results will be incomplete.
-            * `1` (yellow): Cluster is functional. There is no access to at least one of the shard replicas. Search results in the cluster responses are complete, but if more shards become unavailable, the cluster performance will be disrupted.
-            * `2` (green): Cluster is healthy. All cluster shards are available.
+            * **Health status**: Cluster health and technical condition:
 
-        * **Active shards**: Number of active primary shards and the total number of active shards in the cluster.
-        * **Other shards**: Number of inactive shards in each of the following states:
+              * `0` (red): Cluster is unhealthy or partially functional. At least one of the [primary shards](../concepts/scalability-and-resilience.md) is not available. If the cluster responds to queries, search results will be incomplete.
+              * `1` (yellow): Cluster is functional. There is no access to at least one of the shard replicas. The search results in the cluster's responses are full, but the cluster's operation will be disrupted if more unavailable shards appear.
+              * `2` (green): Cluster is healthy. All cluster shards are available.
 
-            * `Delayed unassigned`: Host assignment is delayed.
-            * `Unassigned`: No host is assigned.
-            * `Relocating`: Shards are being moved to another host.
-            * `Initializing`: Shards are initializing.
+            * **Current master**: FQDN of one of the hosts with the `MANAGER` [role](../concepts/host-roles.md#data).
+            * **Nodes**: Total number of hosts in the cluster (excluding `Dashboards` hosts) and the number of hosts with the `DATA` role.
+            * **Pending tasks**: Number of enqueued tasks.
 
-        * **Nodes**: Number of hosts with the `DATA` [role](../concepts/host-roles.md#data).
-        * **Segments**: Number of index segments per host.
-        * **Pending tasks**: Number of enqueued tasks.
-        * **Indexing rate**: Number of indexing operations per second, per host.
-        * **Search rate**: Number of search queries per second, per host.
+        * Under **Indices and load info**:
+
+            * **Top indices by size**: Largest indexes in terms of occupied storage space and their size (in bytes).
+            * **Active shards**: Number of active primary shards and the total number of active shards in the cluster.
+            * **Search rate**: Number of search queries per second, per host.
+            * **Top indices by docs count**: Indexes with the largest document count and the number of documents in them.
+            * **Other shards**: Number of inactive shards in each of the following states:
+
+              * `Delayed unassigned`: Host assignment is delayed.
+              * `Unassigned`: No host is assigned.
+              * `Unassigned Primary`: No host is assigned (primary shards only).
+              * `Relocating`: Shards are being moved to another host.
+              * `Initializing`: Shards are initializing.
+
+            * **Indexing rate**: Indexing speed for each host (operations per second).
+
+        * Under **Indices segments info**:
+
+            * **Total indices segments per host**: Number of index segments for each host.
+
+        * Under **Latest backup info**:
+
+            * **Backup size**: Size of the latest backup:
+
+              * `backup_total_size`: Total size of all indexes in the backup.
+              * `backup_incremental_size`: Size of the indexes included in the backup increment.
+              * `backup_free_space_required`: Storage size required to restore a cluster from a backup.
 
     {% note info %}
 
@@ -60,8 +80,8 @@ To view detailed information on the state of a {{ mos-name }} cluster:
 To view detailed information on the state of individual {{ mos-name }} hosts:
 
 1. In the [management console]({{ link-console-main }}), navigate to the folder page.
-1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
-1. Click the name of your cluster and select the ![image](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
+1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+1. Click the cluster name and open the ![image](../../_assets/console-icons/cube.svg) **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
 1. Select the **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** tab.
 1. Select the host from the drop-down list.
 
@@ -80,35 +100,57 @@ This page displays the charts showing workloads of individual cluster hosts. It 
     * **Thread pool queued**: Number of enqueued requests.
     * **Thread pool rejected**: Number of rejected requests.
 
+    * Under **Disk Metrics Details**:
+
+      * **Disk write latency (percentiles)**: Disk write time, in percentiles.
+      * **Disk write bytes**: Average and maximum disk write rate.
+      * **Disk write operations**: Average and maximum number of write operations per second.
+      * **Disk read latency (percentiles)**: Disk read time, in percentiles.
+      * **Disk read bytes**: Average and maximum disk read rate.
+      * **Disk read operations**: Average and maximum number of read operations per second.
+      * **Disk write throttler latency (percentiles)**: Write delay introduced by exceeding disk quota, percentiles.
+      * **Disk read throttler latency (percentiles)**: Read delay introduced by exceeding disk quota, percentiles.
+      * **Disk used quota**: Disk operation quota usage.
+
 * DATA
 
     * **Process CPU**: Processor core workload generated by the JVM {{ OS }} process.
-    * **Memory usage**: Amount of RAM used, in bytes.
+    * **Memory usage**: Use of RAM, in bytes.
     * **JVM heap percent**: Percentage of the JVM heap memory used.
     * **Disk space usage percent**: Percentage of the disk space used.
-    * **Indexing rate**: Number of indexing operations per second.
-    * **Search queries**: Number of search queries per second.
+    * **Shards count**: Number of index shards.
+    * **Primary shards count**: Number of primary index shards.
     * **Open file descriptors**: Number of open file descriptors.
-    * **Write bytes**: Disk write rate, in bytes per second.
-    * **Read bytes**: Disk read rate, in bytes per second.
+    * **Indexing rate**: Indexing speed (operations per second).
+    * **Search queries**: Number of search queries per second.
     * **Write thread pool**: Requests for indexing, deleting, or updating documents.
-    * **Write operations**: Number of write operations per second.
-    * **Read operations**: Number of read operations per second.
-    * **Query time**: Time spent to run requests.
+    * **Average query time**: Average query execution time.
+    * **Average indexing time**: Average time spent on document indexing.
     * **Thread pool queued**: Number of enqueued requests.
     * **Thread pool rejected**: Number of rejected requests.
-    * **Indexing time**: Time spent to index the documents.
     * **Merging time**: Time spent to merge the documents.
+
+    * Under **Disk Metrics Details**:
+
+      * **Disk write latency (percentiles)**: Disk write time, in percentiles.
+      * **Disk write bytes**: Average and maximum disk write rate.
+      * **Disk write operations**: Average and maximum number of write operations per second.
+      * **Disk read latency (percentiles)**: Disk read time, in percentiles.
+      * **Disk read bytes**: Average and maximum disk read rate.
+      * **Disk read operations**: Average and maximum number of read operations per second.
+      * **Disk write throttler latency (percentiles)**: Write delay introduced by exceeding disk quota, percentiles.
+      * **Disk read throttler latency (percentiles)**: Read delay introduced by exceeding disk quota, percentiles.
+      * **Disk used quota**: Disk operation quota usage.
 
 * DASHBOARDS
 
     * **Is Alive**: Status that shows the host is available.
     * **Requests Total**: Total number of host requests.
     * **Process CPU**: Processor core workload generated by the JVM {{ OS }} process.
-    * **Memory usage**: Amount of RAM used, in bytes.
+    * **Memory usage**: Use of RAM, in bytes.
     * **Disk read/write bytes**: Speed of disk operations, in bytes per second.
     * **Disk IOPS**: Number of disk operations per second.
-    * **Network Packets**: Number of network packets exchanged per second.
+    * **Network Packets**: Network packet exchange rate, in packets per second.
     * **Network bytes**: Speed of network data exchange, in bytes per second.
 
 {% endlist %}
@@ -118,8 +160,8 @@ This page displays the charts showing workloads of individual cluster hosts. It 
 To view detailed information on the state of a {{ mos-name }} host group:
 
 1. In the [management console]({{ link-console-main }}), navigate to the folder page.
-1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
-1. Click the name of your cluster and select the ![image](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
+1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
+1. Click the cluster name and open the ![image](../../_assets/console-icons/copy-transparent.svg) **{{ ui-key.yacloud.opensearch.cluster.node-groups.title_node-groups }}** tab.
 1. Select the **{{ ui-key.yacloud.mdb.cluster.hosts.switch_monitoring }}** tab.
 1. Select the host group from the drop-down list.
 
@@ -132,8 +174,8 @@ This page displays the charts showing workloads of a cluster host group. The lis
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster for which you want to set up alerts.
-  1. [Go to](../../console/operations/select-service.md#select-service) ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the cluster where you want to set up alerts.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) the ![image](../../_assets/console-icons/display-pulse.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_monitoring }}** service.
   1. Under **{{ ui-key.yacloud_monitoring.dashboard.tab.service-dashboards }}**, select:
 
       * **{{ mos-name }}** to configure cluster alerts.
@@ -142,17 +184,17 @@ This page displays the charts showing workloads of a cluster host group. The lis
       * **{{ mos-name }} — Manager** to configure alerts for hosts with the `MANAGER` role.
 
   1. In the chart you need, click ![options](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
-  1. If the chart shows multiple metrics, select the data query to generate a metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. You can learn more about the query language in [this {{ monitoring-full-name }} article](../../monitoring/concepts/querying.md).
-  1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` thresholds to trigger the alert.
+  1. If the chart displays multiple metrics, select the data query for the relevant metric and click **{{ ui-key.yacloud_monitoring.dialog.confirm.button_continue }}**. To learn more about the query language, see [this {{ monitoring-full-name }} article](../../monitoring/concepts/querying.md).
+  1. Set the `{{ ui-key.yacloud_monitoring.alert.status_alarm }}` and `{{ ui-key.yacloud_monitoring.alert.status_warn }}` alert thresholds.
   1. Click **{{ ui-key.yacloud_monitoring.alert.button_create-alert }}**.
 
 {% endlist %}
 
 {% include [other-indicators](../../_includes/mdb/other-indicators.md) %}
 
-Below are the recommended thresholds for some metrics:
+Recommended threshold values for selected metrics:
 
-| Metric                                      |                Internal metric name             |         Formula        |              `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`              |             `{{ ui-key.yacloud_monitoring.alert.status_warn }}`             |
+| Metric                                      |                Designation             |         Formula        |              `{{ ui-key.yacloud_monitoring.alert.status_alarm }}`              |             `{{ ui-key.yacloud_monitoring.alert.status_warn }}`             |
 |----------------------------------------------|:--------------------------------------:|:----------------------:|:---------------------------------:|:---------------------------------:|
 | Cluster status                              |           `opensearch_status`          |     `bottom_last(1)`   |              `equal to 0`            |              `equal to 1`            |
 | Number of unassigned shards                   |     `opensearch_unassigned_shards`     |      `top_last(1)`     |             `greater than 0`            |                                   |
@@ -183,7 +225,7 @@ To check the cluster state and status:
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), navigate to the folder page.
-    1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
     1. In the cluster row, hover over the indicator in the **{{ ui-key.yacloud.common.availability }}** column.
 
 - CLI {#cli}
@@ -204,7 +246,7 @@ To check the cluster state and status:
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -219,13 +261,13 @@ To check the cluster state and status:
 
         You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure your request was successful.
 
         You will see the cluster health and status in the `health` and `status` parameters, respectively.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -248,7 +290,7 @@ To check the cluster state and status:
 
         You can get the cluster ID with the [list of clusters in the folder](#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/get.md#yandex.cloud.mdb.opensearch.v1.Cluster) to make sure your request was successful.
 
         You will see the cluster health and status in the `health` and `status` parameters, respectively.
 

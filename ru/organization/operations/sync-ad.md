@@ -34,7 +34,7 @@ description: Следуя данной инструкции, вы сможете
 
 Если вы устанавливаете агент синхронизации на [виртуальную машину](../../compute/concepts/vm.md) {{ compute-full-name }}, [подключите](../../compute/operations/vm-control/vm-connect-sa.md) к этой виртуальной машине созданный [ранее](#prepare-org) сервисный аккаунт.
 
-Прежде, чем приступать к синхронизации, откройте на сервере, где вы будете запускать агента, следующие [TCP](https://ru.wikipedia.org/wiki/TCP)-порты для входящего и исходящего сетевого трафика:
+Прежде, чем приступать к синхронизации, откройте на сервере, где вы будете запускать агент, следующие сетевые порты для входящего и исходящего сетевого трафика:
 
 * Для обращения к API {{ yandex-cloud }}:
 
@@ -43,6 +43,14 @@ description: Следуя данной инструкции, вы сможете
 * Для обращения к контроллеру домена {{ microsoft-idp.ad-short }}:
 
     {% include [ad-synk-ports](../../_includes/organization/ad-synk-ports.md) %}
+
+Если для аутентификации на стороне {{ microsoft-idp.ad-short }} вы планируете использовать протокол [Kerberos](https://ru.wikipedia.org/wiki/Kerberos), самостоятельно установите на сервер компоненты, необходимые для работы этого протокола, и создайте файл `keytab` с ключами шифрования.
+
+{% note info %}
+
+{% include [ad-synk-kerber-nowin-notice](../../_includes/organization/ad-synk-kerber-nowin-notice.md) %}
+
+{% endnote %}
 
 Чтобы запустить синхронизацию пользователей и групп:
 
@@ -76,11 +84,42 @@ description: Следуя данной инструкции, вы сможете
       ```bash
       nano /etc/yc-identityhub-sync-agent/config.yaml
       ```
-  1. В открывшемся файле задайте конфигурацию агента синхронизации:
+  1. В открывшемся файле задайте конфигурацию агента синхронизации. Конфигурация зависит от типа аутентификации, используемого агентом на стороне {{ microsoft-idp.ad-short }}, и задается в [YAML](https://yaml.org/)-файле в следующем формате:
 
-      {% include [ad-synk-yaml-config](../../_includes/organization/ad-synk-yaml-config.md) %}
+      {% list tabs group=authentication %}
 
-      {% include [ad-synk-yaml-config-legend](../../_includes/organization/ad-synk-yaml-config-legend.md) %}
+      - Аутентификация по логину и паролю {#password}
+
+        {% include [ad-synk-yaml-config](../../_includes/organization/ad-synk-yaml-config.md) %}
+
+        Где:
+
+        {% include [ad-synk-yaml-config-legend-part1](../../_includes/organization/ad-synk-yaml-config-legend-part1.md) %}
+
+        {% include [ad-synk-yaml-config-legend-passw](../../_includes/organization/ad-synk-yaml-config-legend-passw.md) %}
+
+        {% include [ad-synk-yaml-config-legend-part3](../../_includes/organization/ad-synk-yaml-config-legend-part3.md) %}
+
+      - Аутентификация по протоколу Kerberos {#kerberos}
+
+        {% note info %}
+
+        {% include [ad-synk-kerber-nowin-notice](../../_includes/organization/ad-synk-kerber-nowin-notice.md) %}
+
+        {% endnote %}
+
+        {% include [ad-synk-yaml-config-kerberos](../../_includes/organization/ad-synk-yaml-config-kerberos.md) %}
+
+        Где:
+
+        {% include [ad-synk-yaml-config-legend-part1](../../_includes/organization/ad-synk-yaml-config-legend-part1.md) %}
+
+        {% include [ad-synk-yaml-config-legend-kerber](../../_includes/organization/ad-synk-yaml-config-legend-kerber.md) %}
+
+        {% include [ad-synk-yaml-config-legend-part3](../../_includes/organization/ad-synk-yaml-config-legend-part3.md) %}
+
+      {% endlist %}
+
   1. Запустите сервис агента {{ ad-sync-agent }}, чтобы начать процесс синхронизации:
 
       ```bash
@@ -131,7 +170,13 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [ad-synk-yaml-config](../../_includes/organization/ad-synk-yaml-config.md) %}
 
-      {% include [ad-synk-yaml-config-legend](../../_includes/organization/ad-synk-yaml-config-legend.md) %}
+      Где:
+
+      {% include [ad-synk-yaml-config-legend-part1](../../_includes/organization/ad-synk-yaml-config-legend-part1.md) %}
+
+      {% include [ad-synk-yaml-config-legend-passw](../../_includes/organization/ad-synk-yaml-config-legend-passw.md) %}
+
+      {% include [ad-synk-yaml-config-legend-part3](../../_includes/organization/ad-synk-yaml-config-legend-part3.md) %}
 
   1. Запустите службу агента синхронизации:
 

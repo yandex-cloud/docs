@@ -31,6 +31,8 @@ The number of hosts in {{ mch-name }} clusters is limited by the CPU and RAM quo
 
 You can create several hosts in a cluster in one go.
 
+To prevent data loss, the new host automatically inherits the data schema from existing hosts.
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
@@ -50,10 +52,6 @@ You can create several hosts in a cluster in one go.
 
 
   1. Optionally, click **{{ ui-key.yacloud.clickhouse.hosts.dialog.action_add-host-item }}** to add more hosts and specify their parameters.
-     
-  1. Under **{{ ui-key.yacloud.clickhouse.hosts.dialog.title_additional-settings }}**:
-  
-     * **{{ ui-key.yacloud.clickhouse.hosts.dialog.field_copy_schema }}**: If the data schema is the same on all replica hosts in the cluster, enable this option to copy the schema from a random replica to the new hosts.
 
   1. Click **{{ ui-key.yacloud.clickhouse.hosts.dialog.action_submit }}** to create one or multiple hosts.
 
@@ -114,8 +112,6 @@ You can create several hosts in a cluster in one go.
      Where `assign-public-ip` is internet access to the host via a public IP address, `true` or `false`.
 
 
-     To copy the data schema from a random replica to the new host, set the optional `--copy-schema` parameter.
-
      {{ mch-name }} will start creating hosts.
 
      
@@ -149,7 +145,7 @@ You can create several hosts in a cluster in one go.
 
      Where `assign_public_ip` is internet access to the host via a public IP address, `true` or `false`.
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -190,24 +186,19 @@ You can create several hosts in a cluster in one go.
                         { ... },
                         { <similar_settings_for_new_host_N> }
                       ],
-                      "copySchema": <copying_data_schema>
                     }'
         ```
 
 
-        Where:
+        Where `hostSpecs` is the array of settings for the new hosts. Each array element contains the configuration for a single host and has the following structure:
 
-        * `hostSpecs`: Array of settings for the new hosts. Each array element contains the configuration for a single host and has the following structure:
+       * `type`: Host type, which is always `CLICKHOUSE` for {{ CH }} hosts.
+       * `zoneId`: Availability zone.
+       * `subnetId`: Subnet ID.
+       * `shardName`: Shard name.
+       * `assignPublicIp`: Host accessibility from the internet via a public IP address, `true` or `false`.
 
-            * `type`: Host type, which is always `CLICKHOUSE` for {{ CH }} hosts.
-            * `zoneId`: Availability zone.
-            * `subnetId`: Subnet ID.
-            * `shardName`: Shard name.
-            * `assignPublicIp`: Host accessibility from the internet via a public IP address, `true` or `false`.
-
-        * `copySchema`: Sets whether to copy the data schema from a random replica to the new hosts, `true` or `false`.
-
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+       You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -243,26 +234,21 @@ You can create several hosts in a cluster in one go.
                         { ... },
                         { <similar_settings_for_new_host_N> }
                     ],
-                    "copy_schema": <copy_data_schema_or_not>
                 }' \
             {{ api-host-mdb }}:{{ port-https }} \
             yandex.cloud.mdb.clickhouse.v1.ClusterService.AddHosts
         ```
 
 
-        Where:
+        Where `host_specs` is the array of settings for the new hosts. Each array element contains the configuration for a single host and has the following structure:
 
-        * `host_specs`: Array of settings for the new hosts. Each array element contains the configuration for a single host and has the following structure:
+       * `type`: Host type, which is always `CLICKHOUSE` for {{ CH }} hosts.
+       * `zone_id`: Availability zone.
+       * `subnet_id`: Subnet ID.
+       * `shard_name`: Shard name.
+       * `assign_public_ip`: Host accessibility from the internet via a public IP address, `true` or `false`.
 
-            * `type`: Host type, which is always `CLICKHOUSE` for {{ CH }} hosts.
-            * `zone_id`: Availability zone.
-            * `subnet_id`: Subnet ID.
-            * `shard_name`: Shard name.
-            * `assign_public_ip`: Host accessibility from the internet via a public IP address, `true` or `false`.
-
-        * `copy_schema`: Sets whether to copy the data schema from a random replica to the new hosts, `true` or `false`.
-
-        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+       You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/addHosts.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -273,8 +259,6 @@ You can create several hosts in a cluster in one go.
 
 If you cannot [connect](connect/clients.md) to the host you created, check that the cluster [security group](../concepts/network.md#security-groups) is configured correctly for the host subnet.
 
-
-Use the copy schema option only if the schema is the same across all replica hosts of the cluster.
 
 {% endnote %}
 
@@ -339,7 +323,7 @@ You can change public access settings for any host in a {{ mch-name }} cluster.
 
      Where `assign_public_ip` is internet access to the host via a public IP address, `true` or `false`.
 
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -511,7 +495,7 @@ You cannot delete hosts of different types ({{ CH }} and {{ ZK }}) at the same t
      For more on how to create this file, see [Creating a cluster](cluster-create.md).
   
   1. Delete one or multiple `CLICKHOUSE` hosts from the `hosts` section.
-  1. Validate your configuration.
+  1. Make sure the settings are correct.
 
      {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 

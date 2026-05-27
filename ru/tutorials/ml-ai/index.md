@@ -15,7 +15,6 @@ description: Различные сценарии использования ма
 * [{#T}](mlflow-datasphere.md)
 * [{#T}](models-fine-tuning.md)
 
-
 ## Эксплуатация в {{ ml-platform-full-name }} {#datasphere-deployment}
 
 * [{#T}](node-from-model.md)
@@ -23,7 +22,6 @@ description: Различные сценарии использования ма
 * [{#T}](node-from-docker-fast-api.md)
 * [{#T}](grpc-node.md)
 * [{#T}](stable-diffusion.md)
-
 
 ## Аналитика с помощью {{ ml-platform-full-name }} {#datasphere-analytics}
 

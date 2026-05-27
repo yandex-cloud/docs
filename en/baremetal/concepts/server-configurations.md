@@ -8,5 +8,4 @@ For more information on how to lease a stock configuration server, see [{#T}](..
 
 If there are no suitable stock configurations, you can design a [custom one](../operations/servers/custom-server-lease.md) from available parts or [contact us](https://yandex.cloud/en/services/baremetal#contact-form) for a [on-request configuration](server-individual-configurations.md).
 
-If there is free capacity available in the pools of your choice, you can lease servers of the following configurations:
-
+If there is free capacity available in the pools of your choice, you can lease stock configuration servers. The list of stock configurations is available on the [service page](https://yandex.cloud/en/services/baremetal).

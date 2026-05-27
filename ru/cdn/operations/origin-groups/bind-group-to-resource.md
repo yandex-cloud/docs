@@ -143,19 +143,12 @@
 
      Пример структуры конфигурационного файла:
 
-     ```
-     provider "yandex" {
-       token     = "<OAuth-токен>"
-       cloud_id  = "<идентификатор_облака>"
-       folder_id = "<идентификатор_каталога>"
-       zone      = "<зона_доступности_по_умолчанию>"
-     }
-
+     ```hcl
      resource "yandex_cdn_resource" "my_resource" {
-       cname = "<доменное_имя_ресурса>"
-       active = true
+       cname           = "<доменное_имя_ресурса>"
+       active          = true
        origin_protocol = "https"
-	    origin_group_id = <идентификатор_группы_источников>
+       origin_group_id = <идентификатор_группы_источников>
      }
      ```
 

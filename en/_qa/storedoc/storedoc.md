@@ -8,28 +8,23 @@
 - Providing fault tolerance for database clusters.
 - Database usage monitoring and statistics.
 
-
 #### What happens to the cluster if one of its hosts fails? {#node-out}
 
 A database cluster with more than one replica will remain operational during a host failure.
 
 Data loss can only occur if the sole host in the cluster fails.
 
-
 #### Can I deploy a {{ SD }} cluster in multiple availability zones? {#multiple-az}
 
-Yes, a database cluster may include hosts distributed across different availability zones and geographic regions.
-
+Yes. A database cluster may consist of hosts that reside in different availability zones and even different availability regions.
 
 #### What is the backup procedure for {{ SD }} clusters? {#backup}
 
 Backups are created every 24 hours and retained for 7 days after creation. Data can only be restored to the point at which the backup was created.
 
-
 #### How does replication work in {{ SD }}? {#replication}
 
 {{ mmg-short-name }} uses the standard {{ SD }} replication mechanism: if a cluster has more than one active host, a primary server is automatically elected to process write requests.
-
 
 
 #### What limitations apply to {{ SD }} database clusters? {#cluster-limitations}
@@ -69,7 +64,8 @@ Complete error message:
 curl: (35) schannel: next InitializeSecurityContext failed: Unknown error (0x80092012)
 The revocation function was unable to check revocation for the certificate
 ```
-This indicates that the verification of the website’s certificate against the revocation list failed during the connection attempt.
+
+This means that, when connecting to the website, the function was unable to check if its certificate was listed as revoked.
 
 To fix this error:
 
@@ -79,3 +75,9 @@ To fix this error:
   ```powershell
    mkdir $HOME\.mongodb; curl.exe --ssl-no-revoke -o $HOME\.mongodb\root.crt {{ crt-web-path }}
    ```
+
+#### What is the default value of the WriteConcern parameter for write operations? {#write-concern}
+
+By default, `writeConcern: { w: "majority" }` is used for all write operations: the operation is considered successful once it has been confirmed by the majority of replicas.
+
+With queries using `writeConcern: 1`, data on secondary replicas may fall behind. Until the replicas have synchronized with the master, new write operations with `writeConcern: { w: "majority" }` or without specifying the `writeConcern` setting will time out. Write operations with `writeConcern: 1` will run in asynchronous mode, but each operation will increase the data lag on the secondary replicas. Therefore, neither [SLAs](https://yandex.com/legal/cloud_sla_mdb/en/) nor [high availability](../../storedoc/concepts/high-availability.md) are guaranteed for such clusters.

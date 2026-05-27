@@ -5,7 +5,7 @@
   1. В [интерфейсе]({{ link-speechsense-main }}) {{ speechsense-name }} перейдите в нужное пространство.
   1. Выберите созданный [ранее](#create-project) проект.
 
-      На панели проекта вы увидите загруженные звонки и расшифровки. После этого вы сможете [настраивать отчеты](../../../speechsense/operations/data/manage-reports.md).
+      На панели проекта вы увидите загруженные звонки и расшифровки. После этого вы сможете [настраивать отчеты]({{ link-docs-ai }}speechsense/operations/data/manage-reports).
 
 {% endlist %}
 

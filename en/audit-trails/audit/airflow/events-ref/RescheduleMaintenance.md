@@ -121,6 +121,12 @@ editable: false
             "resourcePresetId": "string"
           }
         },
+        "dagProcessor": {
+          "count": "string",
+          "resources": {
+            "resourcePresetId": "string"
+          }
+        },
         "triggerer": {
           "count": "string",
           "resources": {
@@ -146,13 +152,7 @@ editable: false
           "enabled": "boolean"
         },
         "airflowVersion": "string",
-        "pythonVersion": "string",
-        "dagProcessor": {
-          "count": "string",
-          "resources": {
-            "resourcePresetId": "string"
-          }
-        }
+        "pythonVersion": "string"
       },
       "health": "string",
       "status": "string",
@@ -181,11 +181,11 @@ editable: false
       "webserverUrl": "string",
       "serviceAccountId": "string",
       "logging": {
-        "enabled": "boolean",
         // Includes only one of the fields `folderId`, `logGroupId`
         "folderId": "string",
         "logGroupId": "string",
         // end of the list of possible fields
+        "enabled": "boolean",
         "minLevel": "string"
       },
       "maintenanceWindow": {
@@ -383,7 +383,9 @@ A list of messages that carry the error details. ||
 
 #|
 ||Field | Description ||
-|| id | **string** ||
+|| id | **string**
+
+The maximum string length in characters is 50. ||
 || folderId | **string** ||
 || createdAt | **string** (date-time)
 
@@ -443,13 +445,13 @@ The maximum string length in characters is 50. ||
 || airflow | **[AirflowConfig](#yandex.cloud.airflow.v1.AirflowConfig)** ||
 || webserver | **[WebserverConfig](#yandex.cloud.airflow.v1.WebserverConfig)** ||
 || scheduler | **[SchedulerConfig](#yandex.cloud.airflow.v1.SchedulerConfig)** ||
+|| dagProcessor | **[DagProcessorConfig](#yandex.cloud.airflow.v1.DagProcessorConfig)** ||
 || triggerer | **[TriggererConfig](#yandex.cloud.airflow.v1.TriggererConfig)** ||
 || worker | **[WorkerConfig](#yandex.cloud.airflow.v1.WorkerConfig)** ||
 || dependencies | **[Dependencies](#yandex.cloud.airflow.v1.Dependencies)** ||
 || lockbox | **[LockboxConfig](#yandex.cloud.airflow.v1.LockboxConfig)** ||
 || airflowVersion | **string** ||
 || pythonVersion | **string** ||
-|| dagProcessor | **[DagProcessorConfig](#yandex.cloud.airflow.v1.DagProcessorConfig)** ||
 |#
 
 ## AirflowConfig {#yandex.cloud.airflow.v1.AirflowConfig}
@@ -477,6 +479,16 @@ Acceptable values are 1 to 512, inclusive. ||
 |#
 
 ## SchedulerConfig {#yandex.cloud.airflow.v1.SchedulerConfig}
+
+#|
+||Field | Description ||
+|| count | **string** (int64)
+
+Acceptable values are 1 to 512, inclusive. ||
+|| resources | **[Resources](#yandex.cloud.airflow.v1.Resources)** ||
+|#
+
+## DagProcessorConfig {#yandex.cloud.airflow.v1.DagProcessorConfig}
 
 #|
 ||Field | Description ||
@@ -524,16 +536,6 @@ Acceptable values are 1 to 512, inclusive. ||
 || enabled | **boolean** ||
 |#
 
-## DagProcessorConfig {#yandex.cloud.airflow.v1.DagProcessorConfig}
-
-#|
-||Field | Description ||
-|| count | **string** (int64)
-
-Acceptable values are 1 to 512, inclusive. ||
-|| resources | **[Resources](#yandex.cloud.airflow.v1.Resources)** ||
-|#
-
 ## NetworkConfig {#yandex.cloud.airflow.v1.NetworkConfig}
 
 #|
@@ -575,7 +577,6 @@ Includes only one of the fields `s3`, `gitSync`. ||
 
 #|
 ||Field | Description ||
-|| enabled | **boolean** ||
 || folderId | **string**
 
 Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
@@ -586,6 +587,7 @@ Includes only one of the fields `folderId`, `logGroupId`. ||
 Value must match the regular expression ` ([a-zA-Z][-a-zA-Z0-9_.]{0,63})? `.
 
 Includes only one of the fields `folderId`, `logGroupId`. ||
+|| enabled | **boolean** ||
 || minLevel | **enum** (Level)
 
 - `TRACE`

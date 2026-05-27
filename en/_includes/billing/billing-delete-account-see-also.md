@@ -5,4 +5,4 @@
 * [Deleting a cloud](../../resource-manager/operations/cloud/delete.md).
 * [Deleting an organization](../../organization/operations/delete-org.md)
 * [Deleting a {{ ml-platform-name }} community](../../datasphere/operations/community/delete.md)
-* [Deleting a {{ speechsense-name }} space](../../speechsense/operations/space/delete.md).
+* [Deleting a {{ speechsense-name }} space]({{ link-docs-ai }}speechsense/operations/space/delete).

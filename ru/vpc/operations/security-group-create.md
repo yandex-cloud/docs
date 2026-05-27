@@ -94,13 +94,7 @@ description: Следуя данной инструкции, вы сможете
 
      Пример структуры конфигурационного файла:
 
-     ```
-     provider "yandex" {
-       token     = "<OAuth_или_статический_ключ_сервисного_аккаунта>"
-       folder_id = "<идентификатор_каталога>"
-       zone      = "{{ region-id }}-a"
-     }
-
+     ```hcl
      resource "yandex_vpc_security_group" "test-sg" {
        name        = "Test security group"
        description = "Description for security group"

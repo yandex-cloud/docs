@@ -89,11 +89,21 @@ editable: false
   },
   "details": {
     "applicationId": "string",
+    // Includes only one of the fields `applicationName`
     "applicationName": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `templateId`
     "templateId": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `serviceAccountId`
     "serviceAccountId": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `status`
     "status": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `licenseInstanceId`
     "licenseInstanceId": "string"
+    // end of the list of possible fields
   },
   "requestParameters": "object",
   "response": "object"
@@ -265,14 +275,24 @@ A list of messages that carry the error details. ||
 #|
 ||Field | Description ||
 || applicationId | **string** ||
-|| applicationName | **string** ||
-|| templateId | **string** ||
-|| serviceAccountId | **string** ||
+|| applicationName | **string**
+
+Includes only one of the fields `applicationName`. ||
+|| templateId | **string**
+
+Includes only one of the fields `templateId`. ||
+|| serviceAccountId | **string**
+
+Includes only one of the fields `serviceAccountId`. ||
 || status | **enum** (ApplicationStatus)
+
+Includes only one of the fields `status`.
 
 - `DEPLOYING`
 - `DEPLOYED`
 - `FAILED`
 - `DELETING` ||
-|| licenseInstanceId | **string** ||
+|| licenseInstanceId | **string**
+
+Includes only one of the fields `licenseInstanceId`. ||
 |#

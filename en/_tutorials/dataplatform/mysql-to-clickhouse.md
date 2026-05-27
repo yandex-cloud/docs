@@ -5,15 +5,20 @@
 
 To transfer data:
 
+1. [Set up your infrastructure](#prepare-infrastructure).
 1. [Prepare the source cluster](#prepare-source).
-1. [Set up and activate the transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 1. [Query data in {{ CH }}](#working-with-data-ch).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
-## Required paid resources {#paid-resources}
+## Getting started {#before-you-begin}
+
+{% include [before-you-begin](../_tutorials_includes/before-you-begin.md) %}
+
+### Required paid resources {#paid-resources}
 
 * {{ mmy-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mmy-name }} pricing](../../managed-mysql/pricing.md)).
 * {{ mch-name }} cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ mch-name }} pricing](../../managed-clickhouse/pricing.md)).
@@ -21,9 +26,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 * Each transfer, which includes the use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
 
 
-## Getting started {#before-you-begin}
-
-Set up your infrastructure:
+## Set up your infrastructure {#prepare-infrastructure}
 
 {% list tabs group=instructions %}
 
@@ -31,13 +34,13 @@ Set up your infrastructure:
 
     {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
-    1. [Create a {{ mmy-name }} source cluster](../../managed-mysql/operations/cluster-create.md) of any suitable configuration. Enable public access to the cluster during creation so you can connect to it from your local machine. Connections from within the {{ yandex-cloud }} network are enabled by default.
+    1. [Create a {{ mmy-name }} source cluster](../../managed-mysql/operations/cluster-create.md) with your preferred configuration. Enable public access to the cluster during creation so you can connect to it from your local machine. Connections from within the {{ yandex-cloud }} network are enabled by default.
 
     1. [Create a target {{ mch-name }} cluster](../../managed-clickhouse/operations/cluster-create.md) with the following settings:
 
         * Number of {{ CH }} hosts: Minimum of 2 to enable replication within the cluster.
         * Database name: Must be identical to the database name in the source cluster.
-        * To be able to connect to the cluster not only from within the {{ yandex-cloud }} network but also from your local machine, enable public access when creating it.
+        * Enable public access to the cluster during creation so you can connect to it from your local machine. Connections from within the {{ yandex-cloud }} network are enabled by default.
 
     
     1. If using security groups, configure them to allow internet access to your clusters:
@@ -125,7 +128,7 @@ Set up your infrastructure:
         (44, 'User5');
     ```
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate your transfer {#prepare-transfer}
 
 {% list tabs group=instructions %}
 
@@ -152,7 +155,7 @@ Set up your infrastructure:
 
     1. In the `data-transfer-mmy-mch.tf` file, set the `transfer_enabled` variable to `1`.
 
-    1. Validate your {{ TF }} configuration files using this command:
+    1. Make sure the {{ TF }} configuration files are correct using this command:
 
         ```bash
         terraform validate
@@ -168,7 +171,7 @@ Set up your infrastructure:
 
 {% endlist %}
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
 1. Wait for the transfer status to change to **{{ ui-key.yacloud.data-transfer.label_connector-status-RUNNING }}**.
 
@@ -255,7 +258,7 @@ WHERE __data_transfer_delete_time == 0;
 
 {% include [note before delete resources](../../_includes/mdb/note-before-delete-resources.md) %}
 
-To reduce the consumption of resources, delete those you do not need:
+To minimize resource consumption, delete the resources you no longer need:
 
 {% list tabs group=instructions %}
 

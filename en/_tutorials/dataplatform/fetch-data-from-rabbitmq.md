@@ -1,7 +1,7 @@
 # Fetching data from {{ RMQ }} to {{ mch-full-name }}
 
 
-You can supply data from {{ RMQ }} to a {{ mch-name }} cluster in real time. {{ mch-name }} will automatically insert the data routed into particular exchange points of the specified {{ RMQ }} queues into a [{{ RMQ }}]({{ ch.docs }}/engines/table-engines/integrations/rabbitmq/) table.
+You can stream data from {{ RMQ }} to a {{ mch-name }} cluster in real time. {{ mch-name }} will automatically ingest data from exchanges of specified {{ RMQ }}]({{ ch.docs }}/engines/table-engines/integrations/rabbitmq/) queues using its [{{ RMQ }} table engine as an intermediate listener, before inserting it into a permanent storage table.
 
 To set up data delivery from {{ RMQ }} to {{ mch-name }}:
 
@@ -150,12 +150,12 @@ The support cost for this solution includes:
     Add the `clickhouse.config.rabbitmq` block containing {{ RMQ }} username and password to the cluster configuration:
 
     ```hcl
-    resource "yandex_mdb_clickhouse_cluster" "clickhouse-cluster" {
+    resource "yandex_mdb_clickhouse_cluster_v2" "clickhouse-cluster" {
       ...
-      clickhouse {
+      clickhouse = {
         ...
-        config {
-          rabbitmq {
+        config = {
+          rabbitmq = {
             username = "<username>"
             password = "<password>"
           }
@@ -311,7 +311,7 @@ To retrieve all data from the `db1.cars_view` materialized view:
 
 1. [Connect](../../managed-clickhouse/operations/connect/clients.md#clickhouse-client) to the `db1` database on your {{ mch-name }} cluster via `clickhouse-client`.
 
-1. Run this query:
+1. Run this request:
 
     ```sql
     SELECT * FROM db1.cars_view;

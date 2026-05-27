@@ -37,7 +37,6 @@
     }
 
     provider "yandex" {
-      token     = "<IAM-токен>"
       cloud_id  = "<идентификатор_облака>"
       folder_id = "<идентификатор_каталога>"
       zone      = "<зона_доступности_по_умолчанию>"
@@ -73,18 +72,17 @@
     ```hcl
     terraform {
       required_providers {
-          yandex = {
-              source = "yandex-cloud/yandex"
-          }
-          kubernetes = {
-              source = "hashicorp/kubernetes"
-          }
+        yandex = {
+          source = "yandex-cloud/yandex"
+        }
+        kubernetes = {
+          source = "hashicorp/kubernetes"
+        }
       }
       required_version = ">= 0.14.8"
     }
 
     provider "yandex" {
-      token     = "<IAM-токен>"
       cloud_id  = "<идентификатор_облака>"
       folder_id = "<идентификатор_каталога>"
       zone      = "<зона_доступности_по_умолчанию>"

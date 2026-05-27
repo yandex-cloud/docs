@@ -809,10 +809,12 @@ Includes only one of the fields `redisConfig_5_0`, `redisConfig_6_0`, `redisConf
 - `ALLKEYS_RANDOM`
 - `VOLATILE_TTL`
 - `NOEVICTION` ||
-|| timeout | **string** (int64) ||
+|| timeout | **string** (int64)
+
+Value must be greater than 0. ||
 || password | **string**
 
-Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
+The string length in characters must be 8-128. Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
 || databases | **string** (int64)
 
 Value must be greater than 0. ||
@@ -867,10 +869,12 @@ The minimum value is 0. ||
 - `ALLKEYS_RANDOM`
 - `VOLATILE_TTL`
 - `NOEVICTION` ||
-|| timeout | **string** (int64) ||
+|| timeout | **string** (int64)
+
+Value must be greater than 0. ||
 || password | **string**
 
-Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
+The string length in characters must be 8-128. Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
 || databases | **string** (int64)
 
 Value must be greater than 0. ||
@@ -925,10 +929,12 @@ The minimum value is 0. ||
 - `ALLKEYS_RANDOM`
 - `VOLATILE_TTL`
 - `NOEVICTION` ||
-|| timeout | **string** (int64) ||
+|| timeout | **string** (int64)
+
+The minimum value is 0. ||
 || password | **string**
 
-Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
+The string length in characters must be 8-128. Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
 || databases | **string** (int64)
 
 Value must be greater than 0. ||
@@ -986,10 +992,12 @@ The minimum value is 0. ||
 - `ALLKEYS_RANDOM`
 - `VOLATILE_TTL`
 - `NOEVICTION` ||
-|| timeout | **string** (int64) ||
+|| timeout | **string** (int64)
+
+The minimum value is 0. ||
 || password | **string**
 
-Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
+The string length in characters must be 8-128. Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||
 || databases | **string** (int64)
 
 Value must be greater than 0. ||
@@ -1074,7 +1082,9 @@ The minimum value is 0. ||
 - `ALLKEYS_RANDOM`
 - `VOLATILE_TTL`
 - `NOEVICTION` ||
-|| timeout | **string** (int64) ||
+|| timeout | **string** (int64)
+
+The minimum value is 0. ||
 || password | **string**
 
 Value must match the regular expression ` [a-zA-Z0-9@=+?*.,!&#$^<>_-]{8,128} `. ||

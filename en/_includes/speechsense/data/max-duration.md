@@ -1,1 +1,0 @@
-Maximum audio duration is 4 hours.

@@ -89,7 +89,9 @@ editable: false
   },
   "details": {
     "desktopId": "string",
+    // Includes only one of the fields `desktopName`
     "desktopName": "string",
+    // end of the list of possible fields
     "desktopGroupId": "string"
   },
   "requestParameters": "object",
@@ -262,7 +264,9 @@ A list of messages that carry the error details. ||
 #|
 ||Field | Description ||
 || desktopId | **string** ||
-|| desktopName | **string** ||
+|| desktopName | **string**
+
+Includes only one of the fields `desktopName`. ||
 || desktopGroupId | **string**
 
 The maximum string length in characters is 50. ||

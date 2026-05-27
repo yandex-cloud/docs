@@ -5,10 +5,14 @@ description: This section contains the {{ mos-name }} release notes.
 
 # {{ mos-full-name }} release notes
 
+## April 2026 {#apr-2026}
+
+Added seamless [disk type](./concepts/storage.md#storage-type-selection) swap from HDD to `network-ssd`.
+
 ## March 2026 {#mar-2026}
 
 * Added CPU-optimized configurations. You can now select cluster resources with increased CPU to memory ratio.
-* Added separate [roles](./security/index.md) to view and edit (reschedule) [maintenance](./concepts/maintenance.md) without access to the cluster.
+* Added specific [roles](./security/index.md) to view and edit (reschedule) [maintenance](./concepts/maintenance.md) without access to the cluster.
 
 ## February 2026 {#feb-2026}
 

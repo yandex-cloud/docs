@@ -25,7 +25,7 @@ items:
             href: operations/cluster-backups.md
           - name: Managing cluster access
             href: operations/cluster-access.md
-          - name: '{{ MY }} version upgrade'
+          - name: '{{ MY }} version update'
             href: operations/cluster-version-update.md
           - name: Deleting a cluster
             href: operations/cluster-delete.md
@@ -99,6 +99,8 @@ items:
         href: concepts/sql-limits.md
       - name: Comparing {{ MY }} 5.7 and 8.0
         href: concepts/mysql-57-80-comparison.md
+      - name: '{{ MY }} versioning policy'
+        href: concepts/update-policy.md
   - name: Tutorials
     items:
       - name: All tutorials
@@ -122,7 +124,7 @@ items:
           data-transfer-full-name }}
         href: tutorials/mkf-mmy-data-transfer.md
       - name: >-
-          Transferring data to {{ mkf-full-name }} using {{
+          Delivering data to {{ mkf-full-name }} using {{
           data-transfer-full-name }}
         href: tutorials/cdc-data-transfer.md
       - name: Transferring data to {{ mkf-full-name }} using Debezium
@@ -130,11 +132,11 @@ items:
       - name: WordPress website with a {{ MY }} database
         items:
           - name: Overview
-            href: tutorials/wordpress-mysql.md
+            href: tutorials/wordpress-mysql/index.md
           - name: Management console
-            href: tutorials/console.md
+            href: tutorials/wordpress-mysql/console.md
           - name: '{{ TF }}'
-            href: tutorials/terraform.md
+            href: tutorials/wordpress-mysql/terraform.md
       - name: Creating a 1C-Bitrix website
         items:
           - name: Overview

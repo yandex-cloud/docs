@@ -90,7 +90,9 @@ editable: false
   "details": {
     "instanceId": "string",
     "instanceName": "string",
+    // Includes only one of the fields `description`
     "description": "string",
+    // end of the list of possible fields
     "labels": "object",
     "status": "string",
     "runnerId": "string",
@@ -110,8 +112,12 @@ editable: false
       "capacityPerInstance": "string",
       "maxUseCount": "string",
       "maxInstances": "string",
+      // Includes only one of the fields `idleTimeMinutes`
       "idleTimeMinutes": "string",
+      // end of the list of possible fields
+      // Includes only one of the fields `minInstances`
       "minInstances": "string"
+      // end of the list of possible fields
     }
   },
   "requestParameters": "object",
@@ -285,7 +291,9 @@ A list of messages that carry the error details. ||
 ||Field | Description ||
 || instanceId | **string** ||
 || instanceName | **string** ||
-|| description | **string** ||
+|| description | **string**
+
+Includes only one of the fields `description`. ||
 || labels | **object** (map<**string**, **string**>) ||
 || status | **string** ||
 || runnerId | **string** ||
@@ -342,8 +350,12 @@ Value must be greater than 0. ||
 Value must be greater than 0. ||
 || idleTimeMinutes | **string** (int64)
 
-The minimum value is 0. ||
+The minimum value is 0.
+
+Includes only one of the fields `idleTimeMinutes`. ||
 || minInstances | **string** (int64)
 
-The minimum value is 0. ||
+The minimum value is 0.
+
+Includes only one of the fields `minInstances`. ||
 |#

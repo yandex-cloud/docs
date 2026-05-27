@@ -1,1 +1,0 @@
-[Добавьте сервисный аккаунт в пространство](../../../speechsense/operations/space/add-user-to-space.md) с ролью `{{ roles-speechsense-data-editor }}`. Это позволит сервисному аккаунту загружать данные в {{ speechsense-name }}.

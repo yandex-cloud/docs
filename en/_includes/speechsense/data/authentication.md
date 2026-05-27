@@ -1,1 +1,0 @@
-[Authentication](../../../speechsense/api-ref/authentication.md) is performed under a service account using an [IAM token](../../../iam/concepts/authorization/iam-token.md) or [API key](../../../iam/concepts/authorization/api-key.md) with `yc.speech-sense.use` as the specified [scope](../../../iam/concepts/authorization/api-key.md#scoped-api-keys).

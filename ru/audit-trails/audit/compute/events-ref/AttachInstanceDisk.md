@@ -100,15 +100,15 @@ editable: false
         "description": "string",
         "typeId": "string",
         "size": "string",
-        // Includes only one of the fields `imageId`, `snapshotId`
-        "imageId": "string",
-        "snapshotId": "string",
-        // end of the list of possible fields
+        "blockSize": "string",
         "diskPlacementPolicy": {
           "placementGroupId": "string",
           "placementGroupPartition": "string"
         },
-        "blockSize": "string",
+        // Includes only one of the fields `imageId`, `snapshotId`
+        "imageId": "string",
+        "snapshotId": "string",
+        // end of the list of possible fields
         "kmsKeyId": "string"
       },
       "diskId": "string"
@@ -306,16 +306,12 @@ A list of messages that carry the error details. ||
 
 - `READ_ONLY`
 - `READ_WRITE` ||
-|| deviceName | **string**
-
-Value must match the regular expression ` [a-z][a-z0-9-_]{,19} `. ||
+|| deviceName | **string** ||
 || autoDelete | **boolean** ||
 || diskSpec | **[DiskSpec](#yandex.cloud.compute.v1.AttachedDiskSpec.DiskSpec)**
 
 Includes only one of the fields `diskSpec`, `diskId`. ||
 || diskId | **string**
-
-The maximum string length in characters is 50.
 
 Includes only one of the fields `diskSpec`, `diskId`. ||
 |#
@@ -324,33 +320,19 @@ Includes only one of the fields `diskSpec`, `diskId`. ||
 
 #|
 ||Field | Description ||
-|| name | **string**
-
-Value must match the regular expression ``` |[a-z]([-_a-z0-9]{0,61}[a-z0-9])? ```. ||
-|| description | **string**
-
-The maximum string length in characters is 256. ||
-|| typeId | **string**
-
-The maximum string length in characters is 50. ||
-|| size | **string** (int64)
-
-Acceptable values are 4194304 to 4398046511104, inclusive. ||
+|| name | **string** ||
+|| description | **string** ||
+|| typeId | **string** ||
+|| size | **string** (int64) ||
+|| blockSize | **string** (int64) ||
+|| diskPlacementPolicy | **[DiskPlacementPolicy](#yandex.cloud.compute.v1.DiskPlacementPolicy)** ||
 || imageId | **string**
-
-The maximum string length in characters is 50.
 
 Includes only one of the fields `imageId`, `snapshotId`. ||
 || snapshotId | **string**
 
-The maximum string length in characters is 50.
-
 Includes only one of the fields `imageId`, `snapshotId`. ||
-|| diskPlacementPolicy | **[DiskPlacementPolicy](#yandex.cloud.compute.v1.DiskPlacementPolicy)** ||
-|| blockSize | **string** (int64) ||
-|| kmsKeyId | **string**
-
-The maximum string length in characters is 50. ||
+|| kmsKeyId | **string** ||
 |#
 
 ## DiskPlacementPolicy {#yandex.cloud.compute.v1.DiskPlacementPolicy}

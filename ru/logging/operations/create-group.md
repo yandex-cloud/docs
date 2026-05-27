@@ -88,13 +88,6 @@ description: Из статьи вы узнаете, как создать лог
      Пример структуры конфигурационного файла:
 
      ```hcl
-     provider "yandex" {
-       token     = "<OAuth-токен>"
-       cloud_id  = "<идентификатор_облака>"
-       folder_id = "<идентификатор_каталога>"
-       zone      = "{{ region-id }}-a"
-     }
-
      resource "yandex_logging_group" "group1" {
        name             = "<имя_лог-группы>"
        folder_id        = "<идентификатор_каталога>"

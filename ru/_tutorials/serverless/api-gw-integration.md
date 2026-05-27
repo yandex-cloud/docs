@@ -259,14 +259,12 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-
 1. Создайте файл `main.tf` и скопируйте в него конфигурацию {{ TF }}-модуля. Укажите параметры создаваемых ресурсов:
    * `cloud_id` — идентификатор облака.
    * `folder_id` — идентификатор каталога.
-   * `token` — IAM-токен или авторизованный ключ.
    * `database_connector_bucket` — имя бакета с функцией-интеграцией.
 
    ```hcl
    locals {
      cloud_id    = "<идентификатор_облака>"
      folder_id   = "<идентификатор_каталога>"
-     token       = "<IAM-токен_или_авторизованный_ключ>"
      zone        = "{{ region-id }}-d"
    }
 
@@ -297,7 +295,6 @@ git clone https://github.com/yandex-cloud-examples/yc-serverless-apigw-dynamodb-
    }
 
    provider "yandex" {
-     token     = local.token
      cloud_id  = local.cloud_id
      folder_id = local.folder_id
      zone      = local.zone

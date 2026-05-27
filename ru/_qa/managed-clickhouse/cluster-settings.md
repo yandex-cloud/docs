@@ -4,7 +4,9 @@
 
 #### Как дать пользователю права на создание и удаление таблиц или БД? {#create-delete-role}
 
-Включите в настройках кластера опцию [{#T}](../../managed-clickhouse/operations/cluster-users.md#sql-user-management) и выдайте пользователю нужные права [с помощью выражения]({{ ch.docs }}{{ lang }}/sql-reference/statements/grant) `GRANT`.
+[Включите управление пользователями через SQL](../../managed-clickhouse/operations/update.md#SQL-management) и выдайте пользователю нужные права с помощью команды `GRANT`.
+
+Подробнее о команде `GRANT` читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/grant).
 
 #### Как узнать значение настройки internal_replication? {#internal-replication}
 
@@ -22,7 +24,7 @@ would use 14.10 GiB (attempt to allocate chunk of 4219924 bytes), maximum: 14.10
 
 Для [увеличения](../../managed-clickhouse/operations/cluster-users.md#update-settings) максимального объема оперативной памяти используйте параметр [Max memory usage](../../managed-clickhouse/concepts/settings-list.md#setting-max-memory-usage).
 
-Если в кластере включена опция [Управление пользователями через SQL](../../managed-clickhouse/operations/cluster-users.md#sql-user-management), параметр `Max memory usage` можно задать:
+Если в кластере включено [управление пользователями через SQL](../../managed-clickhouse/concepts/user-access-rights.md#sql-user-management), параметр `Max memory usage` можно задать:
 
 * Для сессии текущего пользователя с помощью запроса:
 

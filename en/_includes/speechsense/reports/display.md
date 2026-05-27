@@ -1,1 +1,0 @@
-The report provides quantitative agent performance characteristics. You can view the report in the {{ speechsense-name }} web interface as a chart or table or download it in XLSX format.

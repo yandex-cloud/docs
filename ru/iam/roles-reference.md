@@ -2681,7 +2681,7 @@ description: В статье приведен полный справочник 
 
 {% include [speechsense-data-editor](../_roles/speech-sense/data/editor.md) %}
 
-Подробнее см. [{#T}](../speechsense/security/index.md).
+Подробнее см. [Управление доступом в {{ speechsense-name }}]({{ link-docs-ai }}speechsense/security/).
 
 
 ## {{ translate-full-name }} {#translate-roles}

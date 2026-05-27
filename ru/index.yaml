@@ -222,9 +222,6 @@ links:
   - title: '{{ src-full-name }}'
     description: Платформа для разработки исходного кода
     href: sourcecraft/
-  - title: SpeechSense
-    description: Речевая аналитика
-    href: speechsense/
   - title: Object Storage
     description: Масштабируемое хранилище данных
     href: storage/

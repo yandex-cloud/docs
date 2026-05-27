@@ -79,7 +79,6 @@
       locals {
         cloud_id    = "<идентификатор_облака>"
         folder_id   = "<идентификатор_каталога>"
-        oauth       = "<OAuth>"
         zone        = "{{ region-id }}-a"
 
         sa_name     = "new-buckets-account"
@@ -98,7 +97,6 @@
       }
 
       provider "yandex" {
-        token     = local.oauth
         cloud_id  = local.cloud_id
         folder_id = local.folder_id
         zone      = local.zone
@@ -211,7 +209,6 @@
       locals {
         cloud_id    = "<идентификатор_облака>"
         folder_id   = "<идентификатор_каталога>"
-        oauth       = "<OAuth>"
         zone        = "{{ region-id }}-a"
 
         sa_name     = "new-buckets-account"
@@ -233,7 +230,6 @@
       }
 
       provider "yandex" {
-        token     = local.oauth
         cloud_id  = local.cloud_id
         folder_id = local.folder_id
         zone      = local.zone
@@ -352,16 +348,12 @@
       locals {
         cloud_id    = "<идентификатор_облака>"
         folder_id   = "<идентификатор_каталога>"
-        oauth       = "<OAuth>"
         zone        = "{{ region-id }}-a"
-
         sa_name     = "new-buckets-account"
         sa_desc     = "Аккаунт для управления бакетами {{ objstorage-name }}"
         sa_key_desc = "Статический ключ для ${local.sa_name}"
-
         key_name    = "bucket-key" # Имя ключа KMS.
         key_desc    = "Ключ для шифрования бакетов"
-
         bucket_name = "Имя бакета" # Имя бакета.
       }
 
@@ -374,7 +366,6 @@
       }
 
       provider "yandex" {
-        token     = local.oauth
         cloud_id  = local.cloud_id
         folder_id = local.folder_id
         zone      = local.zone
@@ -494,16 +485,12 @@
       locals {
         cloud_id    = "<идентификатор_облака>"
         folder_id   = "<идентификатор_каталога>"
-        oauth       = "<OAuth>"
         zone        = "{{ region-id }}-a"
-
         sa_name     = "new-buckets-account"
         sa_desc     = "Аккаунт для управления бакетами {{ objstorage-name }}"
         sa_key_desc = "Статический ключ для ${local.sa_name}"
-
         key_name    = "bucket-key"
         key_desc    = "Ключ для шифрования бакетов"
-
         bucket_name = "Имя бакета"
       }
 
@@ -516,7 +503,6 @@
       }
 
       provider "yandex" {
-        token     = local.oauth
         cloud_id  = local.cloud_id
         folder_id = local.folder_id
         zone      = local.zone
