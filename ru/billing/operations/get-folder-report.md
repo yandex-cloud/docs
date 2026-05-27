@@ -89,7 +89,7 @@
 
               1. В поле **{{ ui-key.yacloud_org.billing.account.exports.column_service_account }}** нажмите **{{ ui-key.yacloud_org.billing.exports.ServiceAccountAddField.addNewServiceAccount  }}**.
               1. Введите имя сервисного аккаунта.
-              1. Нажмите **{{ ui-key.yacloud_org.iam.folder.service-account.popup-robot_button_save }}**.
+              1. Нажмите **{{ ui-key.yacloud_org.common.save }}**.
           
           {% endlist %}
     
@@ -160,6 +160,25 @@
 
 {% endlist %}
 
+### Довыгрузка данных в регулярный экспорт {#additional-export}
+
+Чтобы выгрузить данные за прошлые периоды, которых не было в ранее созданном экспорте:
+
+{% list tabs group=instructions %}
+
+- {{ billing-interface }} {#billing}
+
+  1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+  1. Выберите аккаунт, для которого хотите довыгрузить данные в регулярный экспорт.
+  1. На панели слева выберите ![image](../../_assets/console-icons/arrow-up-from-square.svg) **{{ ui-key.yacloud_billing.billing.account.switch_exports }}**.
+  1. Напротив нужного регулярного экспорта нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![image](../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_org.billing.account.exports.button_force-reexport }}**.
+  1. В поле **{{ ui-key.yacloud_org.billing.account.force-reexport.field_range }}** укажите необходимый диапазон дат и нажмите **{{ ui-key.yacloud.common.create }}**.
+  1. Дождитесь сообщения о применении довыгрузки к регулярному экспорту.
+
+  Данные будут выгружены при следующем обновлении регулярного экспорта.
+
+{% endlist %}
+
 ## Формат файла с детализацией расходов {#format}
 
 Выгружаемый файл с детализацией — это таблица в CSV-формате (столбцы разделены запятой). Каждая строка отражает потребление продукта за день для указанного каталога.
@@ -203,7 +222,7 @@
 * `label.user_labels.<имя_метки>` — метки, проставленные ресурсам. Как управлять метками описано в разделе [{#T}](../../resource-manager/operations/manage-labels.md).
 * `locale` — язык каждой строки в выгрузке. От значения поля зависит язык столбца `sku_name`. Возможные значения: `en` и `ru`.
 * `updated_at` — дата и время последнего изменения строки в формате [Unix Timestamp](https://www.unixtimestamp.com).
-* `exported_at` — дата и время добавления строки в файл детализации.
+* `exported_at` — дата и время добавления строки в файл детализации в формате [ISO 8601](https://{{ lang }}.wikipedia.org/wiki/ISO_8601). Например, `2025-03-03T23:41:19Z`.
 
 {% cut "Устаревшие параметры" %}
 

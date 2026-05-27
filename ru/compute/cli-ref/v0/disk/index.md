@@ -1,0 +1,93 @@
+---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/compute/cli-ref/v0/disk/
+editable: false
+---
+
+# yc compute v0 disk
+
+Manage disks
+
+#### Command Usage
+
+Syntax:
+
+`yc compute disk <command>`
+
+Aliases:
+
+- `disks`
+
+#### Command Tree
+
+- [yc compute v0 disk add-access-binding](add-access-binding.md) — Add access binding for the specified disk
+
+- [yc compute v0 disk add-labels](add-labels.md) — Add labels to specified disk
+
+- [yc compute v0 disk create](create.md) — Create a disk
+
+- [yc compute v0 disk delete](delete.md) — Delete the specified disk
+
+- [yc compute v0 disk get](get.md) — Show information about the specified disk
+
+- [yc compute v0 disk list](list.md) — List disks
+
+- [yc compute v0 disk list-access-bindings](list-access-bindings.md) — List access bindings for the specified disk
+
+- [yc compute v0 disk list-operations](list-operations.md) — List operations for the specified disk
+
+- [yc compute v0 disk move](move.md) — Move the specified disk into the folder
+
+- [yc compute v0 disk relocate](relocate.md) — Relocate the specified disk to the zone
+
+- [yc compute v0 disk remove-access-binding](remove-access-binding.md) — Remove access binding for the specified disk
+
+- [yc compute v0 disk remove-labels](remove-labels.md) — Remove labels from specified disk
+
+- [yc compute v0 disk resize](resize.md) — Resize the specified disk
+
+- [yc compute v0 disk set-access-bindings](set-access-bindings.md) — Set access bindings for the specified disk and delete all existing access bindings if there were any
+
+- [yc compute v0 disk update](update.md) — Update the specified disk
+
+#### Global Flags
+
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom configuration file. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
+|| `--token` | `string`
+
+Set the OAuth token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

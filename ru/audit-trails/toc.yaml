@@ -130,6 +130,34 @@ items:
             href: cli-ref/trail/set-access-bindings.md
           - name: update
             href: cli-ref/trail/update.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: trail
+            items:
+              - name: Overview
+                href: cli-ref/v0/trail/index.md
+              - name: add-access-binding
+                href: cli-ref/v0/trail/add-access-binding.md
+              - name: create
+                href: cli-ref/v0/trail/create.md
+              - name: delete
+                href: cli-ref/v0/trail/delete.md
+              - name: get
+                href: cli-ref/v0/trail/get.md
+              - name: list
+                href: cli-ref/v0/trail/list.md
+              - name: list-access-bindings
+                href: cli-ref/v0/trail/list-access-bindings.md
+              - name: list-operations
+                href: cli-ref/v0/trail/list-operations.md
+              - name: remove-access-binding
+                href: cli-ref/v0/trail/remove-access-binding.md
+              - name: set-access-bindings
+                href: cli-ref/v0/trail/set-access-bindings.md
+              - name: update
+                href: cli-ref/v0/trail/update.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API
@@ -212,6 +240,166 @@ items:
     href: concepts/events-data-plane.md
   - name: Справочник аудитных логов (англ.)
     items:
+      - name: accesstransparency
+        items:
+          - name: ComputeNodeAccess
+            href: audit/accesstransparency/events-ref/ComputeNodeAccess.md
+          - name: MDBClusterAccess
+            href: audit/accesstransparency/events-ref/MDBClusterAccess.md
+      - name: ai.assistants.searchindex
+        items:
+          - name: CreateSearchIndex
+            href: audit/ai/assistants/searchindex/events-ref/CreateSearchIndex.md
+          - name: DeleteFilesFromSearchIndex
+            href: >-
+              audit/ai/assistants/searchindex/events-ref/DeleteFilesFromSearchIndex.md
+          - name: DeleteSearchIndex
+            href: audit/ai/assistants/searchindex/events-ref/DeleteSearchIndex.md
+          - name: UploadFilesToSearchIndex
+            href: >-
+              audit/ai/assistants/searchindex/events-ref/UploadFilesToSearchIndex.md
+      - name: ai.assistants
+        items:
+          - name: CreateSearchIndex
+            href: audit/ai/assistants/events-ref/CreateSearchIndex.md
+          - name: DeleteFilesFromSearchIndex
+            href: audit/ai/assistants/events-ref/DeleteFilesFromSearchIndex.md
+          - name: DeleteSearchIndex
+            href: audit/ai/assistants/events-ref/DeleteSearchIndex.md
+          - name: UploadFilesToSearchIndex
+            href: audit/ai/assistants/events-ref/UploadFilesToSearchIndex.md
+      - name: ai.batch_inference
+        items:
+          - name: CancelBatchInference
+            href: audit/ai/batch_inference/events-ref/CancelBatchInference.md
+          - name: DeleteBatchInference
+            href: audit/ai/batch_inference/events-ref/DeleteBatchInference.md
+          - name: StartBatchInference
+            href: audit/ai/batch_inference/events-ref/StartBatchInference.md
+      - name: ai.dedicated_instance
+        items:
+          - name: CreateDedicatedInstance
+            href: audit/ai/dedicated_instance/events-ref/CreateDedicatedInstance.md
+          - name: DeleteDedicatedInstance
+            href: audit/ai/dedicated_instance/events-ref/DeleteDedicatedInstance.md
+          - name: StartDedicatedInstance
+            href: audit/ai/dedicated_instance/events-ref/StartDedicatedInstance.md
+          - name: StopDedicatedInstance
+            href: audit/ai/dedicated_instance/events-ref/StopDedicatedInstance.md
+          - name: UpdateDedicatedInstance
+            href: audit/ai/dedicated_instance/events-ref/UpdateDedicatedInstance.md
+      - name: ai.foundationmodels
+        items:
+          - name: GetTextProcessingResult
+            href: audit/ai/foundationmodels/events-ref/GetTextProcessingResult.md
+          - name: TextProcessing
+            href: audit/ai/foundationmodels/events-ref/TextProcessing.md
+          - name: UpdateDataLogging
+            href: audit/ai/foundationmodels/events-ref/UpdateDataLogging.md
+      - name: ai.guardrails
+        items:
+          - name: BlockContentByClassifier
+            href: audit/ai/guardrails/events-ref/BlockContentByClassifier.md
+          - name: BlockContentByDictionary
+            href: audit/ai/guardrails/events-ref/BlockContentByDictionary.md
+          - name: ChangeDefaultGuardrail
+            href: audit/ai/guardrails/events-ref/ChangeDefaultGuardrail.md
+          - name: CompleteContentCheck
+            href: audit/ai/guardrails/events-ref/CompleteContentCheck.md
+          - name: CreateDictionary
+            href: audit/ai/guardrails/events-ref/CreateDictionary.md
+          - name: CreateGuardrail
+            href: audit/ai/guardrails/events-ref/CreateGuardrail.md
+          - name: DeleteDictionary
+            href: audit/ai/guardrails/events-ref/DeleteDictionary.md
+          - name: DeleteGuardrail
+            href: audit/ai/guardrails/events-ref/DeleteGuardrail.md
+          - name: SetBinding
+            href: audit/ai/guardrails/events-ref/SetBinding.md
+          - name: UnsetBinding
+            href: audit/ai/guardrails/events-ref/UnsetBinding.md
+          - name: UpdateDictionary
+            href: audit/ai/guardrails/events-ref/UpdateDictionary.md
+          - name: UpdateDictionaryItems
+            href: audit/ai/guardrails/events-ref/UpdateDictionaryItems.md
+          - name: UpdateGuardrail
+            href: audit/ai/guardrails/events-ref/UpdateGuardrail.md
+      - name: ai.mcp_hub
+        items:
+          - name: CreateMcpGateway
+            href: audit/ai/mcp_hub/events-ref/CreateMcpGateway.md
+          - name: DeleteMcpGateway
+            href: audit/ai/mcp_hub/events-ref/DeleteMcpGateway.md
+          - name: SetMcpGatewayAccessBindings
+            href: audit/ai/mcp_hub/events-ref/SetMcpGatewayAccessBindings.md
+          - name: UpdateMcpGateway
+            href: audit/ai/mcp_hub/events-ref/UpdateMcpGateway.md
+          - name: UpdateMcpGatewayAccessBindings
+            href: audit/ai/mcp_hub/events-ref/UpdateMcpGatewayAccessBindings.md
+      - name: ai.ocr
+        items:
+          - name: GetRecognition
+            href: audit/ai/ocr/events-ref/GetRecognition.md
+          - name: RecognizeText
+            href: audit/ai/ocr/events-ref/RecognizeText.md
+      - name: ai.responses
+        items:
+          - name: CancelResponse
+            href: audit/ai/responses/events-ref/CancelResponse.md
+          - name: CreateResponse
+            href: audit/ai/responses/events-ref/CreateResponse.md
+          - name: DeleteResponse
+            href: audit/ai/responses/events-ref/DeleteResponse.md
+          - name: FileSearchToolSearch
+            href: audit/ai/responses/events-ref/FileSearchToolSearch.md
+          - name: GetResponse
+            href: audit/ai/responses/events-ref/GetResponse.md
+          - name: McpToolApprovalRequest
+            href: audit/ai/responses/events-ref/McpToolApprovalRequest.md
+          - name: McpToolApprovalResponse
+            href: audit/ai/responses/events-ref/McpToolApprovalResponse.md
+          - name: McpToolCall
+            href: audit/ai/responses/events-ref/McpToolCall.md
+          - name: McpToolList
+            href: audit/ai/responses/events-ref/McpToolList.md
+          - name: WebSearchToolSearch
+            href: audit/ai/responses/events-ref/WebSearchToolSearch.md
+      - name: ai.speechkit.stt
+        items:
+          - name: GetRecognition
+            href: audit/ai/speechkit/stt/events-ref/GetRecognition.md
+          - name: RecognizeSpeechAsync
+            href: audit/ai/speechkit/stt/events-ref/RecognizeSpeechAsync.md
+          - name: RecognizeSpeechStream
+            href: audit/ai/speechkit/stt/events-ref/RecognizeSpeechStream.md
+      - name: ai.speechkit.tts
+        items:
+          - name: UtteranceSynthesis
+            href: audit/ai/speechkit/tts/events-ref/UtteranceSynthesis.md
+      - name: ai.translate
+        items:
+          - name: TranslateText
+            href: audit/ai/translate/events-ref/TranslateText.md
+      - name: ai.tuning
+        items:
+          - name: CancelTuning
+            href: audit/ai/tuning/events-ref/CancelTuning.md
+          - name: StartTuning
+            href: audit/ai/tuning/events-ref/StartTuning.md
+      - name: airflow
+        items:
+          - name: CreateCluster
+            href: audit/airflow/events-ref/CreateCluster.md
+          - name: DeleteCluster
+            href: audit/airflow/events-ref/DeleteCluster.md
+          - name: RescheduleMaintenance
+            href: audit/airflow/events-ref/RescheduleMaintenance.md
+          - name: StartCluster
+            href: audit/airflow/events-ref/StartCluster.md
+          - name: StopCluster
+            href: audit/airflow/events-ref/StopCluster.md
+          - name: UpdateCluster
+            href: audit/airflow/events-ref/UpdateCluster.md
       - name: apploadbalancer
         items:
           - name: AddBackendGroupBackend
@@ -1016,10 +1204,14 @@ items:
         items:
           - name: CreateDnsFirewall
             href: audit/dns/events-ref/CreateDnsFirewall.md
+          - name: CreateDnsInboundEndpoint
+            href: audit/dns/events-ref/CreateDnsInboundEndpoint.md
           - name: CreateDnsZone
             href: audit/dns/events-ref/CreateDnsZone.md
           - name: DeleteDnsFirewall
             href: audit/dns/events-ref/DeleteDnsFirewall.md
+          - name: DeleteDnsInboundEndpoint
+            href: audit/dns/events-ref/DeleteDnsInboundEndpoint.md
           - name: DeleteDnsZone
             href: audit/dns/events-ref/DeleteDnsZone.md
           - name: MoveDnsFirewall
@@ -1030,12 +1222,18 @@ items:
             href: audit/dns/events-ref/ProcessDnsQuery.md
           - name: SetDnsFirewallAccessBindings
             href: audit/dns/events-ref/SetDnsFirewallAccessBindings.md
+          - name: SetDnsInboundEndpointAccessBindings
+            href: audit/dns/events-ref/SetDnsInboundEndpointAccessBindings.md
           - name: SetDnsZoneAccessBindings
             href: audit/dns/events-ref/SetDnsZoneAccessBindings.md
           - name: UpdateDnsFirewall
             href: audit/dns/events-ref/UpdateDnsFirewall.md
           - name: UpdateDnsFirewallAccessBindings
             href: audit/dns/events-ref/UpdateDnsFirewallAccessBindings.md
+          - name: UpdateDnsInboundEndpoint
+            href: audit/dns/events-ref/UpdateDnsInboundEndpoint.md
+          - name: UpdateDnsInboundEndpointAccessBindings
+            href: audit/dns/events-ref/UpdateDnsInboundEndpointAccessBindings.md
           - name: UpdateDnsZone
             href: audit/dns/events-ref/UpdateDnsZone.md
           - name: UpdateDnsZoneAccessBindings
@@ -1383,26 +1581,6 @@ items:
             href: audit/kms/events-ref/UpdateSymmetricKey.md
           - name: UpdateSymmetricKeyAccessBindings
             href: audit/kms/events-ref/UpdateSymmetricKeyAccessBindings.md
-      - name: kspm
-        items:
-          - name: CreateException
-            href: audit/kspm/events-ref/CreateException.md
-          - name: CreateProject
-            href: audit/kspm/events-ref/CreateProject.md
-          - name: DeleteException
-            href: audit/kspm/events-ref/DeleteException.md
-          - name: DeleteProject
-            href: audit/kspm/events-ref/DeleteProject.md
-          - name: EnableProject
-            href: audit/kspm/events-ref/EnableProject.md
-          - name: TriggerAdmissionControl
-            href: audit/kspm/events-ref/TriggerAdmissionControl.md
-          - name: TriggerRuntimeControl
-            href: audit/kspm/events-ref/TriggerRuntimeControl.md
-          - name: UpdateException
-            href: audit/kspm/events-ref/UpdateException.md
-          - name: UpdateProject
-            href: audit/kspm/events-ref/UpdateProject.md
       - name: loadbalancer
         items:
           - name: AddNetworkLoadBalancerListener
@@ -1547,7 +1725,28 @@ items:
             href: audit/logging/events-ref/UpdateSink.md
           - name: UpdateSinkAccessBindings
             href: audit/logging/events-ref/UpdateSinkAccessBindings.md
-      - name: mbd.clickhouse
+      - name: marketplace.licensemanager
+        items:
+          - name: ActivateSubscriptionAutoRenewal
+            href: >-
+              audit/marketplace/licensemanager/events-ref/ActivateSubscriptionAutoRenewal.md
+          - name: CancelSubscriptionAutoRenewal
+            href: >-
+              audit/marketplace/licensemanager/events-ref/CancelSubscriptionAutoRenewal.md
+          - name: CreateLicenseInstance
+            href: >-
+              audit/marketplace/licensemanager/events-ref/CreateLicenseInstance.md
+          - name: DeleteLicenseInstance
+            href: >-
+              audit/marketplace/licensemanager/events-ref/DeleteLicenseInstance.md
+          - name: LockLicenseInstance
+            href: audit/marketplace/licensemanager/events-ref/LockLicenseInstance.md
+          - name: MoveLicenseInstance
+            href: audit/marketplace/licensemanager/events-ref/MoveLicenseInstance.md
+          - name: UnlockLicenseInstance
+            href: >-
+              audit/marketplace/licensemanager/events-ref/UnlockLicenseInstance.md
+      - name: mdb.clickhouse
         items:
           - name: AddClusterHosts
             href: audit/mdb/clickhouse/events-ref/AddClusterHosts.md
@@ -1625,6 +1824,8 @@ items:
             href: audit/mdb/clickhouse/events-ref/RestoreCluster.md
           - name: RevokeUserPermission
             href: audit/mdb/clickhouse/events-ref/RevokeUserPermission.md
+          - name: SetClusterAccessBindings
+            href: audit/mdb/clickhouse/events-ref/SetClusterAccessBindings.md
           - name: SetClusterExtensions
             href: audit/mdb/clickhouse/events-ref/SetClusterExtensions.md
           - name: StartCluster
@@ -1633,6 +1834,8 @@ items:
             href: audit/mdb/clickhouse/events-ref/StopCluster.md
           - name: UpdateCluster
             href: audit/mdb/clickhouse/events-ref/UpdateCluster.md
+          - name: UpdateClusterAccessBindings
+            href: audit/mdb/clickhouse/events-ref/UpdateClusterAccessBindings.md
           - name: UpdateClusterExtension
             href: audit/mdb/clickhouse/events-ref/UpdateClusterExtension.md
           - name: UpdateClusterExternalDictionary
@@ -1649,7 +1852,7 @@ items:
             href: audit/mdb/clickhouse/events-ref/UpdateShardGroup.md
           - name: UpdateUser
             href: audit/mdb/clickhouse/events-ref/UpdateUser.md
-      - name: mbd.greenplum
+      - name: mdb.greenplum
         items:
           - name: BatchUpdateHBARule
             href: audit/mdb/greenplum/events-ref/BatchUpdateHBARule.md
@@ -1699,7 +1902,7 @@ items:
             href: audit/mdb/greenplum/events-ref/UpdateResourceGroup.md
           - name: UpdateUser
             href: audit/mdb/greenplum/events-ref/UpdateUser.md
-      - name: mbd.kafka
+      - name: mdb.kafka
         items:
           - name: AlterConfigAdminApi
             href: audit/mdb/kafka/events-ref/AlterConfigAdminApi.md
@@ -1733,19 +1936,23 @@ items:
             href: audit/mdb/kafka/events-ref/ResumeConnector.md
           - name: RevokeUserPermission
             href: audit/mdb/kafka/events-ref/RevokeUserPermission.md
+          - name: SetClusterAccessBindings
+            href: audit/mdb/kafka/events-ref/SetClusterAccessBindings.md
           - name: StartCluster
             href: audit/mdb/kafka/events-ref/StartCluster.md
           - name: StopCluster
             href: audit/mdb/kafka/events-ref/StopCluster.md
           - name: UpdateCluster
             href: audit/mdb/kafka/events-ref/UpdateCluster.md
+          - name: UpdateClusterAccessBindings
+            href: audit/mdb/kafka/events-ref/UpdateClusterAccessBindings.md
           - name: UpdateConnector
             href: audit/mdb/kafka/events-ref/UpdateConnector.md
           - name: UpdateTopic
             href: audit/mdb/kafka/events-ref/UpdateTopic.md
           - name: UpdateUser
             href: audit/mdb/kafka/events-ref/UpdateUser.md
-      - name: mbd.mongodb
+      - name: mdb.mongodb
         items:
           - name: AddClusterHosts
             href: audit/mdb/mongodb/events-ref/AddClusterHosts.md
@@ -1799,6 +2006,8 @@ items:
             href: audit/mdb/mongodb/events-ref/RestoreCluster.md
           - name: RevokeUserPermission
             href: audit/mdb/mongodb/events-ref/RevokeUserPermission.md
+          - name: SetClusterAccessBindings
+            href: audit/mdb/mongodb/events-ref/SetClusterAccessBindings.md
           - name: StartCluster
             href: audit/mdb/mongodb/events-ref/StartCluster.md
           - name: StepdownHosts
@@ -1807,6 +2016,8 @@ items:
             href: audit/mdb/mongodb/events-ref/StopCluster.md
           - name: UpdateCluster
             href: audit/mdb/mongodb/events-ref/UpdateCluster.md
+          - name: UpdateClusterAccessBindings
+            href: audit/mdb/mongodb/events-ref/UpdateClusterAccessBindings.md
           - name: UpdateClusterHosts
             href: audit/mdb/mongodb/events-ref/UpdateClusterHosts.md
           - name: UpdateUser
@@ -1815,7 +2026,7 @@ items:
             href: audit/mdb/mongodb/events-ref/UserAuthentication.md
           - name: UserLogout
             href: audit/mdb/mongodb/events-ref/UserLogout.md
-      - name: mbd.mysql
+      - name: mdb.mysql
         items:
           - name: AddClusterHosts
             href: audit/mdb/mysql/events-ref/AddClusterHosts.md
@@ -1875,7 +2086,7 @@ items:
             href: audit/mdb/mysql/events-ref/UpdateDatabase.md
           - name: UpdateUser
             href: audit/mdb/mysql/events-ref/UpdateUser.md
-      - name: mbd.opensearch
+      - name: mdb.opensearch
         items:
           - name: AddDashboardsNodeGroup
             href: audit/mdb/opensearch/events-ref/AddDashboardsNodeGroup.md
@@ -1930,7 +2141,7 @@ items:
             href: audit/mdb/opensearch/events-ref/UpdateDashboardsNodeGroup.md
           - name: UpdateOpenSearchNodeGroup
             href: audit/mdb/opensearch/events-ref/UpdateOpenSearchNodeGroup.md
-      - name: mbd.postgresql
+      - name: mdb.postgresql
         items:
           - name: AddClusterHosts
             href: audit/mdb/postgresql/events-ref/AddClusterHosts.md
@@ -1976,6 +2187,8 @@ items:
             href: audit/mdb/postgresql/events-ref/RestoreCluster.md
           - name: RevokeUserPermission
             href: audit/mdb/postgresql/events-ref/RevokeUserPermission.md
+          - name: SetClusterAccessBindings
+            href: audit/mdb/postgresql/events-ref/SetClusterAccessBindings.md
           - name: StartCluster
             href: audit/mdb/postgresql/events-ref/StartCluster.md
           - name: StartClusterFailover
@@ -1984,13 +2197,15 @@ items:
             href: audit/mdb/postgresql/events-ref/StopCluster.md
           - name: UpdateCluster
             href: audit/mdb/postgresql/events-ref/UpdateCluster.md
+          - name: UpdateClusterAccessBindings
+            href: audit/mdb/postgresql/events-ref/UpdateClusterAccessBindings.md
           - name: UpdateClusterHosts
             href: audit/mdb/postgresql/events-ref/UpdateClusterHosts.md
           - name: UpdateDatabase
             href: audit/mdb/postgresql/events-ref/UpdateDatabase.md
           - name: UpdateUser
             href: audit/mdb/postgresql/events-ref/UpdateUser.md
-      - name: mbd.redis
+      - name: mdb.redis
         items:
           - name: AddClusterHosts
             href: audit/mdb/redis/events-ref/AddClusterHosts.md
@@ -2040,7 +2255,7 @@ items:
             href: audit/mdb/redis/events-ref/UpdateClusterHosts.md
           - name: UpdateUser
             href: audit/mdb/redis/events-ref/UpdateUser.md
-      - name: mbd.spqr
+      - name: mdb.spqr
         items:
           - name: AddClusterHosts
             href: audit/mdb/spqr/events-ref/AddClusterHosts.md
@@ -2374,74 +2589,82 @@ items:
           - name: UpdateFolderAccessPolicyBindingParameters
             href: >-
               audit/resourcemanager/events-ref/UpdateFolderAccessPolicyBindingParameters.md
-      - name: securitydeck
+      - name: securitydeck.alerts
+        items:
+          - name: CreateAlert
+            href: audit/securitydeck/alerts/events-ref/CreateAlert.md
+          - name: CreateAlertSink
+            href: audit/securitydeck/alerts/events-ref/CreateAlertSink.md
+          - name: DeleteAlertSink
+            href: audit/securitydeck/alerts/events-ref/DeleteAlertSink.md
+          - name: UpdateAlertSink
+            href: audit/securitydeck/alerts/events-ref/UpdateAlertSink.md
+      - name: securitydeck.cspm
         items:
           - name: AssetFailedRuleCheck
-            href: audit/securitydeck/events-ref/AssetFailedRuleCheck.md
+            href: audit/securitydeck/cspm/events-ref/AssetFailedRuleCheck.md
           - name: AssetPassedRuleCheck
-            href: audit/securitydeck/events-ref/AssetPassedRuleCheck.md
+            href: audit/securitydeck/cspm/events-ref/AssetPassedRuleCheck.md
           - name: AssetRuleCheckCouldNotBeExecuted
-            href: audit/securitydeck/events-ref/AssetRuleCheckCouldNotBeExecuted.md
+            href: >-
+              audit/securitydeck/cspm/events-ref/AssetRuleCheckCouldNotBeExecuted.md
           - name: AssetRuleCheckNoLongerInScope
-            href: audit/securitydeck/events-ref/AssetRuleCheckNoLongerInScope.md
-          - name: CreateAlert
-            href: audit/securitydeck/events-ref/CreateAlert.md
-          - name: CreateAlertSink
-            href: audit/securitydeck/events-ref/CreateAlertSink.md
-          - name: CreateConnector
-            href: audit/securitydeck/events-ref/CreateConnector.md
-          - name: CreateException
-            href: audit/securitydeck/events-ref/CreateException.md
-          - name: CreateProject
-            href: audit/securitydeck/events-ref/CreateProject.md
+            href: >-
+              audit/securitydeck/cspm/events-ref/AssetRuleCheckNoLongerInScope.md
           - name: CreateScanJob
-            href: audit/securitydeck/events-ref/CreateScanJob.md
-          - name: CreateScope
-            href: audit/securitydeck/events-ref/CreateScope.md
+            href: audit/securitydeck/cspm/events-ref/CreateScanJob.md
           - name: CreateScopeFilter
-            href: audit/securitydeck/events-ref/CreateScopeFilter.md
-          - name: CreateWorkspace
-            href: audit/securitydeck/events-ref/CreateWorkspace.md
-          - name: DeleteAlertSink
-            href: audit/securitydeck/events-ref/DeleteAlertSink.md
-          - name: DeleteConnector
-            href: audit/securitydeck/events-ref/DeleteConnector.md
-          - name: DeleteException
-            href: audit/securitydeck/events-ref/DeleteException.md
-          - name: DeleteProject
-            href: audit/securitydeck/events-ref/DeleteProject.md
+            href: audit/securitydeck/cspm/events-ref/CreateScopeFilter.md
           - name: DeleteScanJob
-            href: audit/securitydeck/events-ref/DeleteScanJob.md
-          - name: DeleteScope
-            href: audit/securitydeck/events-ref/DeleteScope.md
+            href: audit/securitydeck/cspm/events-ref/DeleteScanJob.md
           - name: DeleteScopeFilter
-            href: audit/securitydeck/events-ref/DeleteScopeFilter.md
-          - name: DeleteWorkspace
-            href: audit/securitydeck/events-ref/DeleteWorkspace.md
-          - name: EnableProject
-            href: audit/securitydeck/events-ref/EnableProject.md
-          - name: TriggerAdmissionControl
-            href: audit/securitydeck/events-ref/TriggerAdmissionControl.md
-          - name: TriggerRuntimeControl
-            href: audit/securitydeck/events-ref/TriggerRuntimeControl.md
-          - name: TriggerRuntimeProcessInfo
-            href: audit/securitydeck/events-ref/TriggerRuntimeProcessInfo.md
-          - name: UpdateAlertSink
-            href: audit/securitydeck/events-ref/UpdateAlertSink.md
-          - name: UpdateConnector
-            href: audit/securitydeck/events-ref/UpdateConnector.md
-          - name: UpdateException
-            href: audit/securitydeck/events-ref/UpdateException.md
-          - name: UpdateProject
-            href: audit/securitydeck/events-ref/UpdateProject.md
+            href: audit/securitydeck/cspm/events-ref/DeleteScopeFilter.md
           - name: UpdateScanJob
-            href: audit/securitydeck/events-ref/UpdateScanJob.md
-          - name: UpdateScope
-            href: audit/securitydeck/events-ref/UpdateScope.md
+            href: audit/securitydeck/cspm/events-ref/UpdateScanJob.md
           - name: UpdateScopeFilter
-            href: audit/securitydeck/events-ref/UpdateScopeFilter.md
+            href: audit/securitydeck/cspm/events-ref/UpdateScopeFilter.md
+      - name: securitydeck.kspm
+        items:
+          - name: CreateException
+            href: audit/securitydeck/kspm/events-ref/CreateException.md
+          - name: CreateProject
+            href: audit/securitydeck/kspm/events-ref/CreateProject.md
+          - name: DeleteException
+            href: audit/securitydeck/kspm/events-ref/DeleteException.md
+          - name: DeleteProject
+            href: audit/securitydeck/kspm/events-ref/DeleteProject.md
+          - name: EnableProject
+            href: audit/securitydeck/kspm/events-ref/EnableProject.md
+          - name: TriggerAdmissionControl
+            href: audit/securitydeck/kspm/events-ref/TriggerAdmissionControl.md
+          - name: TriggerRuntimeControl
+            href: audit/securitydeck/kspm/events-ref/TriggerRuntimeControl.md
+          - name: TriggerRuntimeProcessInfo
+            href: audit/securitydeck/kspm/events-ref/TriggerRuntimeProcessInfo.md
+          - name: UpdateException
+            href: audit/securitydeck/kspm/events-ref/UpdateException.md
+          - name: UpdateProject
+            href: audit/securitydeck/kspm/events-ref/UpdateProject.md
+      - name: securitydeck.orchestrator
+        items:
+          - name: CreateConnector
+            href: audit/securitydeck/orchestrator/events-ref/CreateConnector.md
+          - name: CreateScope
+            href: audit/securitydeck/orchestrator/events-ref/CreateScope.md
+          - name: CreateWorkspace
+            href: audit/securitydeck/orchestrator/events-ref/CreateWorkspace.md
+          - name: DeleteConnector
+            href: audit/securitydeck/orchestrator/events-ref/DeleteConnector.md
+          - name: DeleteScope
+            href: audit/securitydeck/orchestrator/events-ref/DeleteScope.md
+          - name: DeleteWorkspace
+            href: audit/securitydeck/orchestrator/events-ref/DeleteWorkspace.md
+          - name: UpdateConnector
+            href: audit/securitydeck/orchestrator/events-ref/UpdateConnector.md
+          - name: UpdateScope
+            href: audit/securitydeck/orchestrator/events-ref/UpdateScope.md
           - name: UpdateWorkspace
-            href: audit/securitydeck/events-ref/UpdateWorkspace.md
+            href: audit/securitydeck/orchestrator/events-ref/UpdateWorkspace.md
       - name: serverless
         items:
           - name: AddDomain
@@ -2776,6 +2999,8 @@ items:
             href: audit/video/events-ref/DeleteVideo.md
           - name: DeleteWithReplaceStylePreset
             href: audit/video/events-ref/DeleteWithReplaceStylePreset.md
+          - name: DownloadEpisode
+            href: audit/video/events-ref/DownloadEpisode.md
           - name: EpisodePerformAction
             href: audit/video/events-ref/EpisodePerformAction.md
           - name: SetChannelAccessBindings
@@ -2882,6 +3107,134 @@ items:
             href: audit/vpc/events-ref/UpdateSecurityGroup.md
           - name: UpdateSubnet
             href: audit/vpc/events-ref/UpdateSubnet.md
+      - name: websql
+        items:
+          - name: CreateSavedQuery
+            href: audit/websql/events-ref/CreateSavedQuery.md
+          - name: DeleteExecutedQuery
+            href: audit/websql/events-ref/DeleteExecutedQuery.md
+          - name: DeleteSavedQuery
+            href: audit/websql/events-ref/DeleteSavedQuery.md
+          - name: EditSavedQuery
+            href: audit/websql/events-ref/EditSavedQuery.md
+          - name: Execute
+            href: audit/websql/events-ref/Execute.md
+          - name: GenerateSql
+            href: audit/websql/events-ref/GenerateSql.md
+          - name: GetDatabaseStructure
+            href: audit/websql/events-ref/GetDatabaseStructure.md
+          - name: PublishExecutedQuery
+            href: audit/websql/events-ref/PublishExecutedQuery.md
+          - name: PublishSavedQuery
+            href: audit/websql/events-ref/PublishSavedQuery.md
+          - name: UpdateExecutedQueryAccessBindings
+            href: audit/websql/events-ref/UpdateExecutedQueryAccessBindings.md
+          - name: UpdateSavedQueryAccessBindings
+            href: audit/websql/events-ref/UpdateSavedQueryAccessBindings.md
+      - name: wiki
+        items:
+          - name: AccessRequestCreate
+            href: audit/wiki/events-ref/AccessRequestCreate.md
+          - name: AccessRequestProcess
+            href: audit/wiki/events-ref/AccessRequestProcess.md
+          - name: AttachmentCreate
+            href: audit/wiki/events-ref/AttachmentCreate.md
+          - name: AttachmentDelete
+            href: audit/wiki/events-ref/AttachmentDelete.md
+          - name: AuthorRoleRequestCreate
+            href: audit/wiki/events-ref/AuthorRoleRequestCreate.md
+          - name: AuthorRoleRequestProcess
+            href: audit/wiki/events-ref/AuthorRoleRequestProcess.md
+          - name: BookmarkCreate
+            href: audit/wiki/events-ref/BookmarkCreate.md
+          - name: BookmarkDelete
+            href: audit/wiki/events-ref/BookmarkDelete.md
+          - name: BookmarkTagsCreate
+            href: audit/wiki/events-ref/BookmarkTagsCreate.md
+          - name: BookmarkTagsDelete
+            href: audit/wiki/events-ref/BookmarkTagsDelete.md
+          - name: BookmarkUpdate
+            href: audit/wiki/events-ref/BookmarkUpdate.md
+          - name: ClusterMove
+            href: audit/wiki/events-ref/ClusterMove.md
+          - name: CommentCreate
+            href: audit/wiki/events-ref/CommentCreate.md
+          - name: CommentDelete
+            href: audit/wiki/events-ref/CommentDelete.md
+          - name: CommentUpdate
+            href: audit/wiki/events-ref/CommentUpdate.md
+          - name: DraftCreate
+            href: audit/wiki/events-ref/DraftCreate.md
+          - name: DraftPublish
+            href: audit/wiki/events-ref/DraftPublish.md
+          - name: GridAddColumns
+            href: audit/wiki/events-ref/GridAddColumns.md
+          - name: GridAddRows
+            href: audit/wiki/events-ref/GridAddRows.md
+          - name: GridClone
+            href: audit/wiki/events-ref/GridClone.md
+          - name: GridCreate
+            href: audit/wiki/events-ref/GridCreate.md
+          - name: GridDelete
+            href: audit/wiki/events-ref/GridDelete.md
+          - name: GridImport
+            href: audit/wiki/events-ref/GridImport.md
+          - name: GridMoveColumns
+            href: audit/wiki/events-ref/GridMoveColumns.md
+          - name: GridMoveRows
+            href: audit/wiki/events-ref/GridMoveRows.md
+          - name: GridRemoveColumns
+            href: audit/wiki/events-ref/GridRemoveColumns.md
+          - name: GridRemoveRows
+            href: audit/wiki/events-ref/GridRemoveRows.md
+          - name: GridRollback
+            href: audit/wiki/events-ref/GridRollback.md
+          - name: GridUpdate
+            href: audit/wiki/events-ref/GridUpdate.md
+          - name: GridUpdateCells
+            href: audit/wiki/events-ref/GridUpdateCells.md
+          - name: GridUpdateColumn
+            href: audit/wiki/events-ref/GridUpdateColumn.md
+          - name: GridUpdateRow
+            href: audit/wiki/events-ref/GridUpdateRow.md
+          - name: InviteActivate
+            href: audit/wiki/events-ref/InviteActivate.md
+          - name: InviteDelete
+            href: audit/wiki/events-ref/InviteDelete.md
+          - name: InviteReactivate
+            href: audit/wiki/events-ref/InviteReactivate.md
+          - name: InviteRemoveAccess
+            href: audit/wiki/events-ref/InviteRemoveAccess.md
+          - name: InviteRemoveAllAccesses
+            href: audit/wiki/events-ref/InviteRemoveAllAccesses.md
+          - name: InviteUse
+            href: audit/wiki/events-ref/InviteUse.md
+          - name: PageChangeOrder
+            href: audit/wiki/events-ref/PageChangeOrder.md
+          - name: PageChangeToYFM
+            href: audit/wiki/events-ref/PageChangeToYFM.md
+          - name: PageClone
+            href: audit/wiki/events-ref/PageClone.md
+          - name: PageCreate
+            href: audit/wiki/events-ref/PageCreate.md
+          - name: PageDelete
+            href: audit/wiki/events-ref/PageDelete.md
+          - name: PageImport
+            href: audit/wiki/events-ref/PageImport.md
+          - name: PageRecover
+            href: audit/wiki/events-ref/PageRecover.md
+          - name: PageUpdate
+            href: audit/wiki/events-ref/PageUpdate.md
+          - name: RecoveryTokenDelete
+            href: audit/wiki/events-ref/RecoveryTokenDelete.md
+          - name: SubscriberDelete
+            href: audit/wiki/events-ref/SubscriberDelete.md
+          - name: SubscribersAdd
+            href: audit/wiki/events-ref/SubscribersAdd.md
+          - name: SubscriptionAdd
+            href: audit/wiki/events-ref/SubscriptionAdd.md
+          - name: SubscriptionDelete
+            href: audit/wiki/events-ref/SubscriptionDelete.md
       - name: ydb
         items:
           - name: AlterTopic

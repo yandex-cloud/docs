@@ -1,5 +1,5 @@
 ---
-title: Testing a GPU cluster physical state
+title: Testing GPU cluster physical state
 description: Follow this guide to test InfiniBand connections between cluster GPUs.
 ---
 
@@ -61,3 +61,7 @@ To test the data transfer rate between GPUs on different VMs:
 1. Make sure the output shows non-zero values for these parameters:
    * `BW average[Gb/sec]`: Average transfer rate
    * `MsgRate[Mpps]`: Message frequency
+
+#### See also {#see-also}
+
+* [Questions about GPUs](../../../compute/qa/gpu.md)

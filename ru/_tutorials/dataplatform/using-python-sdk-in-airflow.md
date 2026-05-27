@@ -17,12 +17,9 @@
 
 ## Необходимые платные ресурсы {#paid-resources}
 
-В стоимость поддержки описываемого решения входят:
-
-* Плата за кластер {{ maf-name }}: вычислительные ресурсы компонентов кластера и объем исходящего трафика. (см. [тарифы {{ AF }}](../../managed-airflow/pricing.md)).
-* Плата за использование публичных IP-адресов, если для хостов кластера включен публичный доступ (см. [тарифы {{ vpc-name }}](../../vpc/pricing.md)).
-* Плата за бакет {{ objstorage-name }}: хранение данных и выполнение операций с ними (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
-* Плата за ВМ: использование вычислительных ресурсов, хранилища, операционной системы (для отдельных ОС) и публичного IP-адреса (опционально) (см. [тарифы {{ compute-name }}](../../compute/pricing.md)).
+* Кластер {{ maf-name }}: вычислительные ресурсы компонентов кластера (см. [тарифы {{ maf-name }}](../../managed-airflow/pricing.md)).
+* Бакет {{ objstorage-full-name }}: использование хранилища и выполнение операций с данными (см. [тарифы {{ objstorage-name }}](../../storage/pricing.md)).
+* Виртуальная машина: использование вычислительных ресурсов, хранилища, публичного IP-адреса и операционной системы (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
 
 
 ## Подготовьте инфраструктуру {#create-infrastructure}
@@ -32,7 +29,7 @@
    * `compute.viewer`;
    * `{{ roles.maf.integrationProvider }}`.
 
-1. [Создайте бакет {{ objstorage-full-name }}](../../storage/operations/buckets/create.md) с произвольными настройками.
+1. [Создайте бакет {{ objstorage-name }}](../../storage/operations/buckets/create.md) с произвольными настройками.
 
 1. {% include [aiflow-sa-bucket-acl](../../_includes/managed-airflow/aiflow-sa-bucket-acl.md) %}
 

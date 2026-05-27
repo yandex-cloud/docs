@@ -22,6 +22,7 @@ description: In this article, you will learn how to work with {{ sd-name }} in {
 
 * [{#T}](./dspm/create-data-source.md).
 * [{#T}](./dspm/create-scan.md).
+* [{#T}](./dspm/discovery-mode.md).
 
 ## {{ kspm-full-name }} ({{ kspm-name }}) {#k8s}
 
@@ -33,14 +34,20 @@ description: In this article, you will learn how to work with {{ sd-name }} in {
 ## {{ cspm-full-name }} ({{ cspm-name }}) {#cspm}
 
 * [{#T}](./cspm/view-rules.md).
+* [{#T}](./cspm/check-compliance.md).
 * [{#T}](./cspm/manage-exceptions.md).
+
+## {{ td-full-name }} ({{ td-name }}) {#td}
+
+* [{#T}](./td/view-rules.md).
+* [{#T}](./td/manage-exceptions.md).
 
 ## {{ ciem-full-name }} ({{ ciem-name }}) {#ciem}
 
 * [{#T}](./ciem/view-permissions.md).
 * [{#T}](./ciem/revoke-permissions.md).
 
-## {{ vuln-man-name }} module {#vulnerability-management}
+## {{ vuln-man-name }} {#vulnerability-management}
 
 * [{#T}](./vulnerability-management/enable-vulnerability-management.md).
 * [{#T}](./vulnerability-management/use-vulnerability-management.md).

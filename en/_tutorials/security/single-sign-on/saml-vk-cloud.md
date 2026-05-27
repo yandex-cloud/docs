@@ -2,11 +2,11 @@
 
 [VK Cloud](https://cloud.vk.com/) is a Russian cloud platform offering IaaS and PaaS services, data and AI/ML tools, as well as solutions you need to build a cloud infrastructure. VK Cloud supports [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language)-based user authentication via an identity federation.
 
-For your [organization's](../../../organization/concepts/organization.md) users to be able to authenticate in VK Cloud via SAML SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-full-name }} and configure it both on the {{ yandex-cloud }} and VK Cloud side.
+For the users of your [organization](../../../organization/concepts/organization.md) to be able to authenticate to VK Cloud via SAML SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-full-name }} and configure it both in {{ yandex-cloud }} and VK Cloud.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
-To give your organization's users access to VK Cloud:
+To give access to VK Cloud to the users of your organization:
 
 1. [Create an app](#create-app).
 1. [Set up the integration](#setup-integration).
@@ -29,7 +29,7 @@ To give your organization's users access to VK Cloud:
         1. Optionally, add [labels](../../../resource-manager/concepts/labels.md):
 
             1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-            1. Enter a label in `key: value` format.
+            1. Add a label in `key: value` format.
             1. Press **Enter**.
         1. Click **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
 
@@ -121,11 +121,7 @@ Set user attributes for integration with VK Cloud:
 
 For the users of your organization to be able to authenticate in VK Cloud via a SAML application in {{ org-full-name }}, add them to the application and configure access permissions in VK Cloud.
 
-{% note info %}
-
-Users and groups added to a SAML application can be managed by a user with the `organization-manager.samlApplications.userAdmin` [role](../../../organization/security/index.md#organization-manager-samlApplications-userAdmin) or higher.
-
-{% endnote %}
+{% include [saml-manage-users](../../../_includes/organization/saml-manage-users.md) %}
 
 ### Add users to the {{ org-full-name }} SAML application {#add-app-users}
 
@@ -157,8 +153,8 @@ To define federated users' access permissions in VK Cloud, configure mappings be
 
 To make sure your SAML app and its integration with VK Cloud work correctly, sign in to VK Cloud as one of the users you added to the app.
 
-Proceed as follows:
+Follow these steps:
 
 1. In your browser, open the federated user sign-in URL: `https://cloud.vk.com/v1/federation/saml/<federation_ID>/signin`, where `<federation_ID>` is the federation ID you copied when [creating the federation in VK Cloud](#setup-sp).
 1. Authenticate in {{ yandex-cloud }} under a user account from your organization.
-1. Make sure you have signed in to VK Cloud following authentication.
+1. Make sure you have signed in to VK Cloud following a successful authentication.

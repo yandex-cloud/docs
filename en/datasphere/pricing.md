@@ -68,8 +68,6 @@ The charges for storing Docker images in {{ container-registry-full-name }} are 
 
 {% include [pricing-gb-size](../_includes/pricing-gb-size.md) %}
 
-The monthly prices are based on 720 hours per month.
-
 ## Prices for the Russia region {#prices}
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
@@ -91,6 +89,7 @@ The prices of the configurations are valid for computations in [{{ ds-nb }}](con
 {% include [egress-traffic-pricing](../_includes/egress-traffic-pricing.md) %}
 
 ## Cost calculation examples {#price-example}
+
 
 ### {{ ds-nb }} {#price-example-notebook}
 

@@ -18,8 +18,8 @@ You can set the maintenance window when [creating a cluster](../operations/clust
 
 {% note info %}
 
-Viewing information on maintenance tasks requires the `managed-trino.maintenanceTask.viewer` [role](../security.md#managed-trino-maintenanceTask-viewer) or higher.
+To view maintenance task information, you need the `managed-trino.maintenanceTask.viewer` [role](../security.md#managed-trino-maintenanceTask-viewer) or higher.
 
-Managing maintenance tasks requires the `managed-trino.maintenanceTask.editor` [role](../security.md#managed-trino-maintenanceTask-editor) or higher.
+To manage maintenance tasks, you need the `managed-trino.maintenanceTask.editor` [role](../security.md#managed-trino-maintenanceTask-editor) or higher.
 
 {% endnote %}

@@ -1,5 +1,7 @@
 # Мониторинг состояния географически распределенных устройств
 
+{% include [iot-sunset-warning](../../_includes/iot-core/sunset-warning.md) %}
+
 
 В этом руководстве вы настроите мониторинг состояния устройств (например, вендинговых автоматов), подключенных к сервису [{{ iot-full-name }}](../../iot-core/index.yaml) и расположенных в разных точках города. Вы сможете наблюдать за состоянием автоматов на карте и графиках сервиса [{{ datalens-full-name }}](../../datalens/index.yaml). Датчики будут эмулированы с помощью сервиса [{{ sf-full-name }}](../../functions/index.yaml). Если у вас есть подключенные датчики, используйте их. Для хранения данных будет использован сервис [{{ mpg-full-name }}](../../managed-postgresql/index.yaml).
 
@@ -53,7 +55,7 @@
   1. Нажмите кнопку **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Укажите имя кластера, например `my-pg-database`.
   1. В списке **{{ ui-key.yacloud.mdb.forms.base_field_environment }}** выберите `PRODUCTION`.
-  1. В списке **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите `15`.
+  1. В списке **{{ ui-key.yacloud.mdb.forms.base_field_version }}** выберите `17`.
   1. В блоке **{{ ui-key.yacloud.mdb.forms.section_resource }}** укажите:
 
       * **{{ ui-key.yacloud.mdb.forms.resource_presets_field-generation }}** — `Intel Ice Lake`.

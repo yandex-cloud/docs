@@ -11,20 +11,55 @@ editable: false
 {% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
 
 
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 4
+      sm: 4
+      md: 4
+    children:
+      - type: basic-card
+        title: Калькулятор цен
+        text: Рассчитайте стоимость использования сервиса, исходя из ваших потребностей
+        icon: _assets/icons/calculator.svg
+        urlTitle: Калькулятор цен
+        url: https://yandex.cloud/ru/prices?state=ed8afa6f565c#calculator
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Прайс-лист
+        text: Актуальные тарифы на все наши услуги
+        icon: _assets/icons/circle-ruble.svg
+        urlTitle: Прайс-лист
+        url: https://yandex.cloud/ru/price-list?services=dn2hmdmghr9j2odlvssi
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Акции и free tier
+        text: Гранты, специальные условия и программы поддержки
+        icon: _assets/icons/flame.svg
+        urlTitle: Акции и free tier
+        url: https://yandex.cloud/ru/all-offers
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+:::
+
+
 В этом разделе описаны [правила](#rules), по которым тарифицируется использование сервиса {{ mpg-name }}, и представлены [актуальные цены](#prices) на предоставляемые им ресурсы.
-
-{% note tip %}
-
-
-Чтобы рассчитать стоимость использования сервиса, воспользуйтесь [калькулятором](https://yandex.cloud/ru/prices?state=d6ce84496756#calculator) на сайте {{ yandex-cloud }} или ознакомьтесь с тарифами в этом разделе.
-
-
-
-
-
-{% endnote %}
-
-{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
 
 
 {% include [vat](../_includes/vat.md) %}
@@ -60,7 +95,7 @@ editable: false
     * Хранилище на локальных SSD-дисках (`local-ssd`) можно заказывать только для кластеров с тремя хостами и более:
 
         * для платформ Intel Broadwell и Intel Cascade Lake — с шагом 100 ГБ;
-        * для платформы Intel Ice Lake — с шагом {{ local-ssd-v3-step }}.
+        * для платформ Intel Ice Lake и AMD Zen 4 — с шагом {{ local-ssd-v3-step }}.
 
 
 
@@ -80,7 +115,7 @@ editable: false
 
     * При добавлении хостов увеличивается общий размер хранилища кластера и, соответственно, бесплатный объем резервных копий.
 
-Цена указывается за 1 месяц использования и формируется из расчета 720 часов в месяц. Минимальная единица тарификации — 1 ГБ в минуту (например, стоимость хранения 1 ГБ в течение 1,5 минут равна стоимости хранения в течение 2 минут).
+Минимальная единица тарификации — 1 ГБ в минуту (например, стоимость хранения 1 ГБ в течение 1,5 минут равна стоимости хранения в течение 2 минут).
 
 
 ### Пример расчета стоимости кластера {#example}

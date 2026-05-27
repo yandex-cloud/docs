@@ -7,7 +7,7 @@ description: This section describes the {{ sd-name }} {{ ciem-full-name }} ({{ c
 
 To ensure data and cloud infrastructure [security](../../security/standard/all.md), you need to regularly audit the access permissions of [users](../../overview/roles-and-resources.md#users) and [service accounts](../../iam/concepts/users/accounts.md#sa).
 
-[{{ ciem-full-name }}]({{ link-sd-main }}iam-diagnostics/), or {{ ciem-name }}, provides a centralized [view](../operations/ciem/view-permissions.md) of the full list of access permissions for organization [resources](../../iam/concepts/access-control/resources-with-access-control.md) granted to [subjects](../../iam/concepts/access-control/index.md#subject): users, service accounts, [user groups](../../organization/concepts/groups.md), [system groups](../../iam/concepts/access-control/system-group.md), and [public groups](../../iam/concepts/access-control/public-group.md). The tool also makes it easy to [revoke](../operations/ciem/revoke-permissions.md) excessive access permissions from subjects.
+[{{ ciem-full-name }}]({{ link-sd-main }}iam-diagnostics/), or {{ ciem-name }}, is a tool providing a centralized [view](../operations/ciem/view-permissions.md) of the full list of accesses to the organization's [resources](../../iam/concepts/access-control/resources-with-access-control.md) available to the [subjects](../../iam/concepts/access-control/index.md#subject), i.e., users, service accounts, [user groups](../../organization/concepts/groups.md), [system groups](../../iam/concepts/access-control/system-group.md), and [public groups](../../iam/concepts/access-control/public-group.md). The tool also makes it easy to [revoke](../operations/ciem/revoke-permissions.md) excessive access permissions from subjects.
 
 ## Viewing access permissions {#viewing-permissions}
 
@@ -29,12 +29,6 @@ You can filter the list of access permissions granted to a subject by:
 * ID of the resource the access was granted to.
 * ID of the granted role.
 * Assignment method, `{{ ui-key.yacloud_org.iam-bindings.subject.value_role-source-filter_direct }}` or `{{ ui-key.yacloud_org.iam-bindings.subject.value_role-source-filter_group }}`.
-
-{% note warning %}
-
-Currently, {{ ciem-full-name }} does not display subjects’ access permissions for [{{ datalens-full-name }}](../../datalens/index.yaml) resources and [billing accounts](../../billing/concepts/billing-account.md).
-
-{% endnote %}
 
 ## Revoking access permissions {#revoking-permissions}
 

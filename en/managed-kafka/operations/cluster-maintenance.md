@@ -170,7 +170,7 @@ Maintenance jobs with the **{{ ui-key.yacloud.mdb.maintenance.label_task-status-
             * `NEXT_AVAILABLE_WINDOW`: Next available window.
             * `SPECIFIC_TIME`: Specific date and time.
 
-        * `delayedUntil`: Timestamp in [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) format, such as `2006-01-02T15:04:05Z`.
+        * `delayed_until`: Timestamp in [RFC-3339](https://www.ietf.org/rfc/rfc3339.txt) format, e.g., `2006-01-02T15:04:05Z`.
 
             Do not use this option with the `NEXT_AVAILABLE_WINDOW` reschedule type.
 
@@ -446,7 +446,7 @@ A scheduled maintenance job will be canceled automatically if it falls outside t
                 * `day`: Day of week in `DDD` format, i.e., `MON`, `TUE`, `WED`, `THU`, `FRI`, `SAT`, or `SUN`.
                 * `hour`: Time of day (UTC) in `HH` format, from `1` to `24`.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.mdb.kafka.v1.Cluster) to make sure your request was successful.
 

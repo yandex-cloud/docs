@@ -13,7 +13,7 @@ To deploy your containerized app:
 1. [Configure the security group](#configure-sg).
 1. [Create a {{ compute-name }} VM with {{ MG }}](#create-vm).
 1. [Create a {{ lockbox-name }} secret and version](#secret-create).
-1. [Create a {{ container-registry-name }}](#create-registry).
+1. [Create a registry in {{ container-registry-name }}](#create-registry).
 1. [Push the Docker image to {{ container-registry-name }}](#push-image).
 1. [Create a container in {{ serverless-containers-name }}](#create-container).
 1. [Create an {{ api-gw-name }}](#create-api-gw).
@@ -334,7 +334,7 @@ We recommend using a [VM](../../compute/concepts/vm.md) with basic configuration
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username. Do not use `root` or other OS-reserved usernames. For operations requiring root privileges, use the `sudo` command.
+      * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter the username. Do not use `root` or other reserved usernames. For operations requiring root privileges, use the `sudo` command.
       * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
   1. Under **{{ ui-key.yacloud.compute.instances.create.section_base }}**, specify the VM name: `mongo-vm`.
@@ -416,7 +416,7 @@ The [{{ lockbox-name }} secret](../../lockbox/concepts/secret.md) will store enc
 
   1. Click **{{ ui-key.yacloud.lockbox.forms.button_add-pair }}** and specify the second secret:
 
-      * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, enter `password`.
+      * In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, specify `password`.
       * In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, enter the password to access the database: the `MONGO_INITDB_ROOT_PASSWORD` value from the [Docker container specification](#create-vm).
 
   1. Click **{{ ui-key.yacloud.common.create }}**.
@@ -844,7 +844,7 @@ Follow the link formatted as `d5d63uh1h26g********.********.apigw.yandexcloud.ne
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources you created:
+To stop incurring charges for the resources you created:
 
 1. [Delete](../../api-gateway/operations/api-gw-delete.md) `mongo-express-gw`.
 1. [Delete](../../serverless-containers/operations/delete.md) `mongo-express-container`.

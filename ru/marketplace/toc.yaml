@@ -46,9 +46,9 @@ items:
             expanded: true
             items:
               - name: Создание образа продукта на базе Linux
-                href: operations/create-image.md
+                href: concepts/compute-product.md
               - name: Создание продукта для {{ managed-k8s-name }}
-                href: operations/create-container.md
+                href: concepts/kubernetes-product.md
           - name: Тарификация продуктов на основе метрик издателя
             href: concepts/api-usage.md
           - name: Пробный период
@@ -345,6 +345,8 @@ items:
           - name: >-
               Установка WordPress High Availability с помощью {{ cloud-apps-name
               }}
+            href: tutorials/wordpress-ha-cloudapp.md
+          - name: Установка WordPress с помощью {{ cloud-apps-name }}
             href: tutorials/wordpress-cloudapp.md
           - name: >-
               Использование продуктов {{ marketplace-name }} в {{

@@ -141,6 +141,8 @@ For a node group, you can specify the following settings:
 * [Node group cloud labels](../../resource-manager/concepts/labels.md)
 * [Scaling parameters](./node-group/cluster-autoscaler.md)
 * [Deployment policy](./node-group/deploy-policy.md)
+* [Reserved instance pools](./node-group/reserved-pools.md)
+* [Variables in a node template](./node-group/variables-in-the-template.md)
 * [{#T}](#config)
 * [{#T}](#taints-tolerations)
 * [{#T}](#node-labels)
@@ -326,7 +328,7 @@ For more information, see the [ip-masq-agent page on GitHub](https://github.com/
 
 A [_service_](service.md) is an abstraction that provides network load balancing. Traffic rules are configured for pods grouped by a set of labels.
 
-By default, a service is only available within a specific {{ k8s }} cluster, but it can be public and receive [requests from outside](../operations/create-load-balancer.md#lb-create) the {{ k8s }} cluster.
+By default, a service is only available within a specific {{ k8s }} cluster, but it can be public and receive [requests from outside](../operations/create-load-balancer.md#create-lb) the {{ k8s }} cluster.
 
 ## Namespace {#namespace}
 

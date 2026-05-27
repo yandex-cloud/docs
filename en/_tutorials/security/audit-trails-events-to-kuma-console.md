@@ -223,7 +223,7 @@ Assign to the service accounts the following [roles](../../iam/concepts/access-c
       1. In the [management console]({{ link-console-main }}), go to the folder you want to create an infrastructure in.
       1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
       1. Click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
-      1. In the window that opens, select **{{ ui-key.yacloud_components.acl.label.service-accounts}}**.
+      1. In the window that opens, select **{{ ui-key.yacloud_components.acl.label.service-accounts }}**.
       1. Select the `kuma-trail-sa` service account from the list, use the search if required.
       1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}**; in the window that opens, select the `audit-trails.viewer` [role](../../audit-trails/security/index.md#at-viewer).
 

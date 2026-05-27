@@ -27,15 +27,18 @@ Retrieves the list of Server resources in the specified folder.
 || folder_id | **string**
 
 ID of the folder to list servers in.
+To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request.
 
-To get the folder ID, use a [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
+The maximum string length in characters is 50. Value must match the regular expression ` [a-z][a-z0-9.-]* `. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is greater than `page_size`,
 the service returns a [ListServerResponse.next_page_token](#yandex.cloud.baremetal.v1alpha.ListServerResponse)
 that can be used to get the next page of results in subsequent list requests.
-Default value is 20. ||
+Default value is 20.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results, set `page_token` to the
@@ -50,7 +53,6 @@ Both snake_case and camelCase are supported for fields. ||
 
 A filter expression that filters resources listed in the response.
 The expression consists of one or more conditions united by `AND` operator: `<condition1> [AND <condition2> [<...> AND <conditionN>]]`.
-
 Each condition has the form `<field> <operator> <value>`, where:
 1. `<field>` is the field name. Currently you can use filtering only on the limited number of fields.
 2. `<operator>` is a logical operator, one of `=` (equal), `:` (substring).
@@ -81,13 +83,6 @@ Both snake_case and camelCase are supported for fields. ||
         "ssh_public_key": "string",
         "storages": [
           {
-            "partitions": [
-              {
-                "type": "StoragePartitionType",
-                "size_gib": "int64",
-                "mount_point": "string"
-              }
-            ],
             // Includes only one of the fields `disk`, `raid`
             "disk": {
               "id": "string",
@@ -103,24 +98,58 @@ Both snake_case and camelCase are supported for fields. ||
                   "size_gib": "int64"
                 }
               ]
-            }
+            },
             // end of the list of possible fields
+            "partitions": [
+              {
+                "type": "StoragePartitionType",
+                "size_gib": "int64",
+                "mount_point": "string"
+              }
+            ]
           }
         ]
       },
       "network_interfaces": [
         {
-          "id": "string",
-          "mac_address": "string",
-          "ip_address": "string",
           // Includes only one of the fields `private_subnet`, `public_subnet`
           "private_subnet": {
             "private_subnet_id": "string"
           },
           "public_subnet": {
             "public_subnet_id": "string"
-          }
+          },
           // end of the list of possible fields
+          // Includes only one of the fields `private_interface`, `public_interface`
+          "private_interface": {
+            "native_subnet_id": "string",
+            "ip_address": "string",
+            "mac_limit": "int64",
+            "vlan_subinterfaces": [
+              {
+                "tagged_subnet_id": "string",
+                "ip_address": "string",
+                "mac_limit": "int64"
+              }
+            ]
+          },
+          "public_interface": {
+            // Includes only one of the fields `native_subnet`, `new_native_subnet`
+            "native_subnet": {
+              "subnet_id": "string"
+            },
+            "new_native_subnet": {
+              "addressing_type": "AddressingType"
+            },
+            // end of the list of possible fields
+            "ip_address": "string",
+            "native_subnet_id": "string",
+            "mac_limit": "int64"
+          },
+          // end of the list of possible fields
+          "id": "string",
+          "mac_address": "string",
+          "ip_address": "string"
         }
       ],
       "configuration_id": "string",
@@ -149,7 +178,6 @@ List of Server resources. ||
 Token for getting the next page of the list. If the number of results is greater than
 [ListServerRequest.page_size](#yandex.cloud.baremetal.v1alpha.ListServerRequest), use `next_page_token` as the value
 for the [ListServerRequest.page_token](#yandex.cloud.baremetal.v1alpha.ListServerRequest) parameter in the next list request.
-
 Each subsequent page will have its own `next_page_token` to continue paging through the results. ||
 |#
 
@@ -185,7 +213,6 @@ ID of the hardware pool that the server belongs to. ||
 
 Status of the server.
 
-- `STATUS_UNSPECIFIED`: Unspecified server status.
 - `PROVISIONING`: Server is waiting for to be allocated from the hardware pool.
 - `STOPPING`: Server is being stopped.
 - `STOPPED`: Server has been stopped.
@@ -240,9 +267,6 @@ represent a plain disk or a software RAID of disks.
 
 #|
 ||Field | Description ||
-|| partitions[] | **[StoragePartition](#yandex.cloud.baremetal.v1alpha.StoragePartition)**
-
-Array of partitions created on the storage. ||
 || disk | **[Disk](#yandex.cloud.baremetal.v1alpha.Disk)**
 
 Disk storage.
@@ -257,27 +281,9 @@ RAID storage.
 Includes only one of the fields `disk`, `raid`.
 
 Storage type. ||
-|#
+|| partitions[] | **[StoragePartition](#yandex.cloud.baremetal.v1alpha.StoragePartition)**
 
-## StoragePartition {#yandex.cloud.baremetal.v1alpha.StoragePartition}
-
-#|
-||Field | Description ||
-|| type | enum **StoragePartitionType**
-
-Partition type.
-
-- `STORAGE_PARTITION_TYPE_UNSPECIFIED`: Unspecified storage partition type.
-- `EXT4`: ext4 file system partition type.
-- `SWAP`: Swap partition type.
-- `EXT3`: ext3 file system partition type.
-- `XFS`: XFS file system partition type. ||
-|| size_gib | **int64**
-
-Size of the storage partition in gibibytes (2^30 bytes). ||
-|| mount_point | **string**
-
-Storage mount point. ||
+Array of partitions created on the storage. ||
 |#
 
 ## Disk {#yandex.cloud.baremetal.v1alpha.Disk}
@@ -293,7 +299,6 @@ ID of the disk. ||
 
 Type of the disk drive.
 
-- `DISK_DRIVE_TYPE_UNSPECIFIED`: Unspecified disk drive type.
 - `HDD`: Hard disk drive (magnetic storage).
 - `SSD`: Solid state drive with SATA/SAS interface.
 - `NVME`: Solid state drive with NVMe interface. ||
@@ -312,7 +317,6 @@ RAID storage.
 
 RAID type.
 
-- `RAID_TYPE_UNSPECIFIED`: Unspecified RAID configuration.
 - `RAID0`: RAID0 configuration.
 - `RAID1`: RAID1 configuration.
 - `RAID10`: RAID10 configuration. ||
@@ -321,33 +325,68 @@ RAID type.
 Array of disks in the RAID configuration. ||
 |#
 
+## StoragePartition {#yandex.cloud.baremetal.v1alpha.StoragePartition}
+
+#|
+||Field | Description ||
+|| type | enum **StoragePartitionType**
+
+Partition type.
+
+- `EXT4`: ext4 file system partition type.
+- `SWAP`: Swap partition type.
+- `EXT3`: ext3 file system partition type.
+- `XFS`: XFS file system partition type. ||
+|| size_gib | **int64**
+
+Size of the storage partition in gibibytes (2^30 bytes). ||
+|| mount_point | **string**
+
+Storage mount point. ||
+|#
+
 ## NetworkInterface {#yandex.cloud.baremetal.v1alpha.NetworkInterface}
 
 #|
 ||Field | Description ||
+|| private_subnet | **[PrivateSubnetNetworkInterface](#yandex.cloud.baremetal.v1alpha.PrivateSubnetNetworkInterface)**
+
+@deprecated Private subnet.
+
+Includes only one of the fields `private_subnet`, `public_subnet`.
+
+@deprecated. Use `interface` instead.
+Subnet that the network interface belongs to. ||
+|| public_subnet | **[PublicSubnetNetworkInterface](#yandex.cloud.baremetal.v1alpha.PublicSubnetNetworkInterface)**
+
+@deprecated Public subnet.
+
+Includes only one of the fields `private_subnet`, `public_subnet`.
+
+@deprecated. Use `interface` instead.
+Subnet that the network interface belongs to. ||
+|| private_interface | **[PrivateNetworkInterface](#yandex.cloud.baremetal.v1alpha.PrivateNetworkInterface)**
+
+Private interface.
+
+Includes only one of the fields `private_interface`, `public_interface`. ||
+|| public_interface | **[PublicNetworkInterface](#yandex.cloud.baremetal.v1alpha.PublicNetworkInterface)**
+
+Public interface.
+
+Includes only one of the fields `private_interface`, `public_interface`. ||
 || id | **string**
 
 ID of the network interface. ||
 || mac_address | **string**
 
-MAC address that is assigned to the network interface. ||
+MAC address that is assigned to the network interface.
+Read only field. ||
 || ip_address | **string**
 
-IPv4 address that is assigned to the server for this network interface. ||
-|| private_subnet | **[PrivateSubnetNetworkInterface](#yandex.cloud.baremetal.v1alpha.PrivateSubnetNetworkInterface)**
-
-Private subnet.
-
-Includes only one of the fields `private_subnet`, `public_subnet`.
-
-Subnet that the network interface belongs to. ||
-|| public_subnet | **[PublicSubnetNetworkInterface](#yandex.cloud.baremetal.v1alpha.PublicSubnetNetworkInterface)**
-
-Public subnet.
-
-Includes only one of the fields `private_subnet`, `public_subnet`.
-
-Subnet that the network interface belongs to. ||
+@deprecated. Use `interface.ipaddress` instead.
+IPv4 address that is assigned to the server for this network interface.
+Read only field. ||
 |#
 
 ## PrivateSubnetNetworkInterface {#yandex.cloud.baremetal.v1alpha.PrivateSubnetNetworkInterface}
@@ -366,6 +405,103 @@ ID of the private subnet. ||
 || public_subnet_id | **string**
 
 ID of the public subnet.
-
 A new ephemeral public subnet will be created if not specified. ||
+|#
+
+## PrivateNetworkInterface {#yandex.cloud.baremetal.v1alpha.PrivateNetworkInterface}
+
+#|
+||Field | Description ||
+|| native_subnet_id | **string**
+
+ID of the private subnet which is used as native subnet for interface. ||
+|| ip_address | **string**
+
+IPv4 address that is assigned to the server for this network interface.
+Read only field. ||
+|| mac_limit | **int64**
+
+Limit of MAC addresses in the native subnet.
+Read only field. ||
+|| vlan_subinterfaces[] | **[VLANSubinterface](#yandex.cloud.baremetal.v1alpha.VLANSubinterface)**
+
+Array of VLAN subinterfaces. Additional tagged subnets for the interface. ||
+|#
+
+## VLANSubinterface {#yandex.cloud.baremetal.v1alpha.VLANSubinterface}
+
+#|
+||Field | Description ||
+|| tagged_subnet_id | **string**
+
+ID of the private subnet which is used as tagged subnet for interface. ||
+|| ip_address | **string**
+
+IPv4 address that is assigned to the VLAN subinterface.
+Read only field. ||
+|| mac_limit | **int64**
+
+Limit of MAC addresses in the tagged subnet.
+Read only field. ||
+|#
+
+## PublicNetworkInterface {#yandex.cloud.baremetal.v1alpha.PublicNetworkInterface}
+
+#|
+||Field | Description ||
+|| native_subnet | **[NativeSubnet](#yandex.cloud.baremetal.v1alpha.PublicNetworkInterface.NativeSubnet)**
+
+Use existing native subnet.
+Input only field.
+
+Includes only one of the fields `native_subnet`, `new_native_subnet`.
+
+Native subnet configuration.
+Input only field. ||
+|| new_native_subnet | **[NewNativeSubnet](#yandex.cloud.baremetal.v1alpha.PublicNetworkInterface.NewNativeSubnet)**
+
+Create new native subnet.
+Input only field.
+
+Includes only one of the fields `native_subnet`, `new_native_subnet`.
+
+Native subnet configuration.
+Input only field. ||
+|| ip_address | **string**
+
+IPv4 address that is assigned to the server for this network interface.
+Read only field. ||
+|| native_subnet_id | **string**
+
+ID of the public subnet which is used as native subnet for interface.
+Read only field. ||
+|| mac_limit | **int64**
+
+Limit of MAC addresses in the native subnet.
+Read only field. ||
+|#
+
+## NativeSubnet {#yandex.cloud.baremetal.v1alpha.PublicNetworkInterface.NativeSubnet}
+
+Configuration for using existing native subnet.
+
+#|
+||Field | Description ||
+|| subnet_id | **string**
+
+ID of the existing public subnet. ||
+|#
+
+## NewNativeSubnet {#yandex.cloud.baremetal.v1alpha.PublicNetworkInterface.NewNativeSubnet}
+
+Configuration for creating new native subnet.
+
+#|
+||Field | Description ||
+|| addressing_type | enum **AddressingType**
+
+Addressing type (DHCP \| Static).
+
+- `DHCP`: DHCP addressing.
+- `STATIC`: Static addressing. ||
 |#

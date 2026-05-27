@@ -133,7 +133,7 @@ You can add, copy, or delete widgets in your report. If your widgets overlap, yo
 
    - Text {#text}
 
-     * Enter the text of your link, clarifying caption, etc. The widget supports the [Markdown](../dashboard/markdown.md) markup language.
+     * Enter the text of your link, clarifying caption, etc. The widget supports [Markdown](../dashboard/markdown.md).
        
        You can create a link in the text:
        
@@ -163,7 +163,7 @@ You can add, copy, or delete widgets in your report. If your widgets overlap, yo
 
    - Title {#header}
 
-     * Enter title text.
+     * Enter the header text.
      * Select one of the size presets: `XS`, `S`, `M`, `L`, `XL`. Or click ![icon](../../_assets/console-icons/pencil-to-line.svg) and specify font size in pixels.
      * Optionally, set the text color. You can select one from the palette or specify a custom color.
      * Optionally, set a [background for your widget](#widget-background).
@@ -193,7 +193,7 @@ To insert a copied widget onto a page:
 1. Click the ![image](../../_assets/console-icons/ellipsis.svg) icon next to the widget you want to copy and select ![icon](../../_assets/console-icons/copy.svg) **Copy**. You can copy a widget from a dashboard in edit mode.
 1. Select the report page you want to insert the widget onto.
 1. On the widget panel at the top, click ![icon](../../_assets/console-icons/copy-plus.svg) **Insert**.
-1. Resize the widget and move it to a convenient location on the page.
+1. Resize the widget and drag it where you need on the page.
 1. In the top-right corner, click **Save**.
 
 You cannot copy an [image](../dashboard/markdown.md#image) from a report to a dashboard.
@@ -261,14 +261,12 @@ To configure widget background:
 
 Report settings are valid for all its pages:
 
-1. At the top right, click ![icon](../../_assets/console-icons/gear.svg) **Report settings**.
+1. At the top right, click ![icon](../../_assets/console-icons/gear.svg) **Report settings**. The settings window will open on the right.
 1. Customize the appearance:
 
-   * **Theme**: Select a page design theme, ![icon](../../_assets/console-icons/sun.svg) light or ![icon](../../_assets/console-icons/moon.svg) dark.
+   * **Theme**: Select page theme, ![icon](../../_assets/console-icons/sun.svg) light or ![icon](../../_assets/console-icons/moon.svg) dark.
    * **Contrast**: Select standard (default) or high contrast.
    * **Background color**: Specify a color in hex format or select one from the color palette.
-   
-   
    * **Format**: Select a format (`A4`, `A3`, `16:9 (Full HD)`, `16:9 (2K)`, or `16:9 (4K)`).
 
      {% cut "Displaying the report in specific formats" %}
@@ -276,7 +274,6 @@ Report settings are valid for all its pages:
      ![report-16-9](../../_assets/datalens/report/report-16-9.png)
 
      {% endcut %}
-
 
    * **Orientation**: `Album` or `Portrait`.
    * Optionally, enable the **Display grid** option for easy alignment of widgets in your report.
@@ -300,6 +297,12 @@ Report settings are valid for all its pages:
    * **First page footer**: Repeats the footer on the first page. By default, no footer is displayed on the first page.
    * **Page numbering**: Adds a page number to the footer.
 
+
+1. Other settings:
+
+   * Optionally, enable **Neuroanalyst** to unlock [its insights in reports](./insights.md).
+
+
 ## Configuring pages {#page-settings}
 
 You can use individual settings for each page, different from the general report settings. By default, all pages are subject to [report settings](#report-settings).
@@ -311,13 +314,11 @@ Page settings have a higher priority than the same report settings. If page sett
 {% endnote %}
 
 1. Select the report page you need to configure.
-1. At the top right, click ![icon](../../_assets/console-icons/gear.svg) **Page settings** and configure the settings as needed:
+1. At the top right, click ![icon](../../_assets/console-icons/gear.svg) and pick the settings in the window on the right:
 
-   * **Theme**: Page design theme, ![icon](../../_assets/console-icons/sun.svg) light or ![icon](../../_assets/console-icons/moon.svg) dark.
+   * **Theme**: Page theme, ![icon](../../_assets/console-icons/sun.svg) light or ![icon](../../_assets/console-icons/moon.svg) dark.
    * **Contrast**: Select standard (default) or high contrast.
    * **Background color**: Specify a color in hex format or select one from the color palette.
-
-   
    * **Format**: Select a format (`A4`, `A3`, `16:9 (Full HD)`, `16:9 (2K)`, or `16:9 (4K)`).
 
      {% cut "Displaying the report in specific formats" %}
@@ -326,8 +327,6 @@ Page settings have a higher priority than the same report settings. If page sett
 
      {% endcut %}
 
-
-   * **Format**: `A4` or `A3`.
    * **Orientation**: `Album` or `Portrait`.
 
 1. In the top-right corner, click **Save**.
@@ -385,6 +384,8 @@ To export a report, click **Export**. The report will be exported to a `.pdf` fi
 
 All links created in [text](#text) widgets on report pages will be active in the exported file.
 
+
 ## Banning the use of Neuroanalyst {#report-neuroanalyst-off}
 
 {% include [datalens-report-neuroanalyst-off](../../_includes/datalens/operations/datalens-report-neuroanalyst-off.md) %}
+

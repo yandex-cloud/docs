@@ -1,0 +1,39 @@
+# ISTARTSWITH
+
+
+
+#### Синтаксис {#syntax}
+
+
+```
+ISTARTSWITH( string, substring )
+```
+
+#### Описание {#description}
+Регистронезависимый вариант [STARTSWITH](STARTSWITH.md). Возвращает `TRUE`, если строка `string` начинается на подстроку `substring`.
+
+**Типы аргументов:**
+- `string` — `Логический | Дата | Дата и время | Дробное число | Геоточка | Геополигон | Целое число | Строка | UUID`
+- `substring` — `Строка`
+
+
+**Возвращаемый тип**: `Логический`
+
+#### Примеры {#examples}
+
+```
+ISTARTSWITH("petrov ivan", "Petrov") = TRUE
+```
+
+```
+ISTARTSWITH("Lorem ipsum", "LORE") = TRUE
+```
+
+```
+ISTARTSWITH("Lorem ipsum", "abc") = FALSE
+```
+
+
+#### Поддержка источников данных {#data-source-support}
+
+`ClickHouse 21.8`, `Файлы`, `Google Sheets`, `Microsoft SQL Server 2017 (14.0)`, `MySQL 5.7`, `Oracle Database 12c (12.1)`, `PostgreSQL 9.3`, `Trino`, `Яндекс Документы`, `YDB`.

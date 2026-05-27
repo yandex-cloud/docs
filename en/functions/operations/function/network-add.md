@@ -1,11 +1,11 @@
 ---
-title: How to specify a cloud network where the function will be executed
-description: This guide describes how you can specify a cloud network where the function will be executed.
+title: How to specify a cloud network for running a function
+description: Follow this guide to specify a cloud network for running your function.
 ---
 
-# Specifying a cloud network where the function will be executed
+# Specifying a cloud network for running a function
 
-You can specify a [cloud network](../../../vpc/concepts/network.md#network) where the function will be executed.
+You can specify a [cloud network](../../../vpc/concepts/network.md#network) for running your function.
 
 {% include [network](../../../_includes/functions/network.md) %}
 
@@ -13,11 +13,11 @@ You can specify a [cloud network](../../../vpc/concepts/network.md#network) wher
 
 - Management console {#console}
     
-    1. In the [management console]({{ link-console-main }}), select the folder containing the function.
+    1. In the [management console]({{ link-console-main }}), navigate to the folder containing the function.
     1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
-    1. Select a function.
+    1. Select the function.
     1. Navigate to the **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}** tab.
-    1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, in the **{{ ui-key.yacloud.vpc.label_network }}** field, choose a network for function execution.
+    1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, select a network for running your function in the **{{ ui-key.yacloud.vpc.label_network }}** field.
     1. Click **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
     
 - CLI {#cli}
@@ -26,12 +26,12 @@ You can specify a [cloud network](../../../vpc/concepts/network.md#network) wher
 
     {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-    To specify a cloud network, run the command:
+    To specify a cloud network, run this command:
 
     ```bash
     yc serverless function version create \
       --function-name=<function_name> \
-      --runtime <runtime_environment> \
+      --runtime <runtime> \
       --entrypoint <entry_point> \
       --memory 128m \
       --execution-timeout 5s \
@@ -41,12 +41,12 @@ You can specify a [cloud network](../../../vpc/concepts/network.md#network) wher
     Where:
 
     * `--function-name`: Function name.
-    * `--runtime`: Runtime environment.
+    * `--runtime`: Runtime.
     * `--entrypoint`: Entry point in `<function_file_name>.<handler_name>` format.
     * `--memory`: Amount of RAM.
-    * `--execution-timeout`: Maximum function running time before timeout.
-    * `--source-version-id`: ID of the function version from which you want to copy the code.
-    * `--network-id`: ID of a cloud network where the function will be executed.
+    * `--execution-timeout`: Maximum function execution time before timeout.
+    * `--source-version-id`: ID of the function version whose code you want to copy.
+    * `--network-id`: ID of a cloud network where the function will run.
 
 - API {#api}
 

@@ -1,4 +1,4 @@
-# get method
+# Object Storage API, Amazon S3-compatible REST: GetBucketCors
 
 Returns a CORS configuration for a bucket.
 
@@ -17,7 +17,7 @@ Parameter | Description
 `bucket` | Bucket name.
 
 
-### Request parameters {#request-params}
+### Query parameters {#request-params}
 
 Parameter | Description
 ----- | -----
@@ -42,6 +42,10 @@ For a list of possible responses, see [{#T}](../response-codes.md).
 
 The structure of returned data is the same as the structure of data provided by the [upload](upload.md) method.
 
-{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/cors.md)
 
 * [{#T}](../../../operations/buckets/cors.md)
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

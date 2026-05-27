@@ -40,6 +40,11 @@ description: This section contains step-by-step guides for {{ cloud-registry-nam
 ### Python {#python}
 
 * [Setting up PyPI](pypi/installation.md)
+* [Creating a Python package](pypi/create.md)
+* [Pushing a Python package to a registry](pypi/push.md)
+* [Pulling a Python package from a registry](pypi/pull.md)
+* [Deleting a Python package from a registry](pypi/delete.md)
+* [Examples of working with PyPI registries](pypi/examples.md)
 
 ### Binary {#binary}
 

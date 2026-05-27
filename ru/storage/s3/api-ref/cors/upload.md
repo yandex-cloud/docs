@@ -1,4 +1,4 @@
-# Метод upload
+# Object Storage API, REST совместимый с Amazon S3: PutBucketCors
 
 Загружает конфигурацию CORS для бакета. Если конфигурация существует, то заменяет ее.
 

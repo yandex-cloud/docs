@@ -13,6 +13,19 @@ In the [registry](../registry.md), any binary artifact is defined by the `<artif
 https://{{ cloud-registry }}/binaries/cn15fqbr806r********/sample-package/3.5.4/agent-installer.sh
 ```
 
+{% note info %}
+
+The binary artifact version must follow the [SemVer](https://semver.org/lang/ru/) format: it must consist of three non-negative integers separated by dots (`major.minor.patch`). You can optionally append a plus sign (`+`) followed by dot-separated version IDs.
+
+Examples of versions:
+
+* `1.0.0`
+* `1.2.3+first`
+* `4.5.6+first.second`
+* `7.8.9+first-----with-long-idf`
+
+{% endnote %}
+
 You can [push](../../operations/binary/push.md) and [pull](../../operations/binary/pull.md) a binary artifact using [HTTP](https://{{ lang }}.wikipedia.org/wiki/HTTP) requests with [IAM token](../../../iam/concepts/authorization/iam-token.md) authentication.
 
 You can delete a binary artifact from the [management console]({{ link-console-main }}). You cannot overwrite the existing version of a binary artifact.

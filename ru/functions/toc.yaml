@@ -109,6 +109,8 @@ items:
                 href: operations/function/mount-bucket.md
               - name: Смонтировать эфемерный диск
                 href: operations/function/mount-ephemeral-disk.md
+          - name: Задать количество одновременных вызовов экземпляра функции
+            href: operations/function/concurrency.md
           - name: Управлять тегами
             items:
               - name: Добавить тег
@@ -432,7 +434,13 @@ items:
           - name: Разработка пользовательской интеграции
             href: tutorials/api-gw-integration.md
           - name: Сокращатель ссылок
-            href: tutorials/serverless-url-shortener.md
+            items:
+              - name: Обзор
+                href: tutorials/serverless-url-shortener/index.md
+              - name: Консоль управления
+                href: tutorials/serverless-url-shortener/console.md
+              - name: '{{ TF }}'
+                href: tutorials/serverless-url-shortener/terraform.md
           - name: >-
               Создание интерактивного serverless-приложения с использованием
               WebSocket
@@ -452,7 +460,13 @@ items:
           - name: Разработка Slack-бота
             href: tutorials/slack-bot-serverless.md
           - name: Разработка Telegram-бота
-            href: tutorials/telegram-bot-serverless.md
+            items:
+              - name: Обзор
+                href: tutorials/telegram-bot-serverless/index.md
+              - name: Консоль управления
+                href: tutorials/telegram-bot-serverless/console.md
+              - name: '{{ TF }}'
+                href: tutorials/telegram-bot-serverless/terraform.md
           - name: Разработка Telegram-бота для распознавания текста и аудио
             href: tutorials/recognizer-bot.md
       - name: ETL на Serverless

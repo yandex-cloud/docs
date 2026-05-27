@@ -1,10 +1,12 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kubernetes/cli-ref/marketplace/helm-release/install
 editable: false
 ---
 
 # yc managed-kubernetes marketplace helm-release install
 
 Install a Helm Release from Yandex Cloud Marketplace on the cluster.
+
 Use --value to pass scalar values in KEY=VALUE format.
 For complex types such as lists or objects, provide a YAML-encoded string as the value.
 Use --value-from-file to read the value from a file — especially convenient for multi-line YAML.
@@ -58,9 +60,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||

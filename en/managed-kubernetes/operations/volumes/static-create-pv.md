@@ -248,17 +248,23 @@ In the **{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}** management co
 
 ## How to delete a volume {#delete-volume}
 
-Disks are not deleted automatically from {{ compute-name }} when you delete a `PersistentVolume`. To delete a volume completely:
-1. Delete the `PersistentVolumeClaim`:
+Before deleting a volume, you must delete the pod that is using it. Disks in {{ compute-name }} are automatically deleted when you delete a `PersistentVolume` only if that `PersistentVolume` uses the `persistentVolumeReclaimPolicy: Delete` policy. To delete a volume completely:
+1. Delete the pod:
 
    ```bash
-   kubectl delete pvc <PersistentVolumeClaim_ID>
+   kubectl delete pod <pod_name>
    ```
 
-1. Delete the `PersistentVolume`:
+1. Delete the `PersistentVolumeClaim` object:
 
    ```bash
-   kubectl delete pv <PersistentVolume_ID>
+   kubectl delete pvc <PersistentVolumeClaim_name>
+   ```
+
+1. Delete the `PersistentVolume` object:
+
+   ```bash
+   kubectl delete pv <PersistentVolume_name>
    ```
 
 1. In {{ compute-name }}, [delete the disk](../../../compute/operations/disk-control/delete.md) associated with the `PersistentVolume`.

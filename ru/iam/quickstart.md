@@ -82,4 +82,5 @@
 * Узнайте, [как начать работать с сервисом {{ org-full-name }}](../organization/quickstart.md).
 * Узнайте, [как происходит аутентификация в {{ yandex-cloud }}](concepts/authorization/index.md#authentication).
 * [Научитесь работать с сервисными аккаунтами](quickstart-sa.md).
+* Используйте [чеклист безопасности аутентификации и авторизации](../security/domains/iam-checklist.md).
 * Посмотрите [ответы на часто задаваемые вопросы](qa/index.md).

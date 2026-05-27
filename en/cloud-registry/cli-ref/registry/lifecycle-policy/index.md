@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloud-registry/cli-ref/registry/lifecycle-policy/
 editable: false
 ---
 
@@ -26,6 +27,8 @@ Aliases:
 
 - [yc cloud-registry registry lifecycle-policy delete](delete.md) — Deletes the specified lifecycle policy
 
+- [yc cloud-registry registry lifecycle-policy dry-run](dry-run.md) — Simulate the lifecycle policy execution and show the number of artifacts to be deleted
+
 - [yc cloud-registry registry lifecycle-policy get](get.md) — Get information about a lifecycle policy.
 
 - [yc cloud-registry registry lifecycle-policy list](list.md) — List lifecycle policies.
@@ -47,9 +50,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||

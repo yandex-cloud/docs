@@ -1,5 +1,7 @@
 # Создание алиаса в {{ iot-name }}
 
+{% include [iot-sunset-warning](../../../../_includes/iot-core/sunset-warning.md) %}
+
 Алиас привязан к конкретному устройству, поэтому для создания алиаса вам надо [узнать идентификатор или имя устройства](../device-list.md).
 
 {% include [monitoring-topic](../../../../_includes/iot-core/monitoring-topic.md) %}

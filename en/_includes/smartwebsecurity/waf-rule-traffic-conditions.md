@@ -3,7 +3,6 @@ Under **{{ ui-key.yacloud.smart-web-security.waf.title_exclusion-rule-condition-
 * `On condition`: Rule will apply to the traffic defined in the **{{ ui-key.yacloud.smart-web-security.overview.column_rule-conditions }}** field:
     * `{{ ui-key.yacloud.component.condition-column.condition_name-ip-range }}`: IP address, IP address range, or IP address region.
     * `{{ ui-key.yacloud.component.condition-column.condition_name-header }}`: HTTP header string.
-    * `{{ ui-key.yacloud.component.condition-column.condition_name-body }}`: HTTP body string.
     * `{{ ui-key.yacloud.component.condition-column.condition_name-requestUri }}`: Request path.
     * `{{ ui-key.yacloud.component.condition-column.condition_name-host }}`: Domain receiving the request.
     * `{{ ui-key.yacloud.component.condition-column.condition_name-httpMethod }}`: Request method.

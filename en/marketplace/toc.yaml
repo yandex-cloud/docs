@@ -46,9 +46,9 @@ items:
             expanded: true
             items:
               - name: Creating a Linux-based product image
-                href: operations/create-image.md
+                href: concepts/compute-product.md
               - name: Creating a product for {{ managed-k8s-name }}
-                href: operations/create-container.md
+                href: concepts/kubernetes-product.md
           - name: Billing of products based on publisher metrics
             href: concepts/api-usage.md
           - name: Trial period
@@ -339,6 +339,8 @@ items:
           - name: Installing Ghost CMS High Availability using {{ cloud-apps-name }}
             href: tutorials/ghost-cms-cloudapp.md
           - name: Installing WordPress High Availability using {{ cloud-apps-name }}
+            href: tutorials/wordpress-ha-cloudapp.md
+          - name: Installing WordPress using {{ cloud-apps-name }}
             href: tutorials/wordpress-cloudapp.md
           - name: Using {{ marketplace-name }} products in {{ managed-k8s-name }}
             items:

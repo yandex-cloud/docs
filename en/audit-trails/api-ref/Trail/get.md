@@ -24,7 +24,6 @@ apiPlayground:
 # Audit Trails API, REST: Trail.Get
 
 Returns the specified trail.
-
 To get the list of all available trails, make a [List](/docs/audit-trails/api-ref/Trail/list#List) request.
 
 ## HTTP request
@@ -40,7 +39,6 @@ GET https://audittrails.{{ api-host }}/audit-trails/v1/trails/{trailId}
 || trailId | **string**
 
 Required field. ID of the trail to return.
-
 To get a trail ID make a [List](/docs/audit-trails/api-ref/Trail/list#List) request.
 
 The maximum string length in characters is 50. ||
@@ -152,7 +150,6 @@ The maximum string length in characters is 50. ||
     },
     "dataEventsFilters": [
       {
-        "service": "string",
         // Includes only one of the fields `includedEvents`, `excludedEvents`
         "includedEvents": {
           "eventTypes": [
@@ -170,6 +167,7 @@ The maximum string length in characters is 50. ||
           "includeNonrecursiveQueries": "boolean"
         },
         // end of the list of possible fields
+        "service": "string",
         "resourceScopes": [
           {
             "id": "string",
@@ -228,7 +226,7 @@ The maximum string length in characters is 1024. ||
 
 Custom labels of the trail as `key:value` pairs. Maximum 64 per key
 
-No more than 64 per resource. The maximum string length in characters for each value is 63. Each value must match the regular expression ` [-_0-9a-z]* `. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. ||
+The maximum string length in characters for each value is 63. The maximum string length in characters for each key is 63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
 || destination | **[Destination](#yandex.cloud.audittrails.v1.Trail.Destination)**
 
 Required field. Destination configuration of the trail ||
@@ -269,7 +267,6 @@ Describes which groups of events will be sent and which resources will be monito
 || objectStorage | **[ObjectStorage](#yandex.cloud.audittrails.v1.Trail.ObjectStorage)**
 
 Configuration for event delivery to Object Storage
-
 Uploaded objects will have prefix &lt;trail_id&gt;/ by default
 
 Includes only one of the fields `objectStorage`, `cloudLogging`, `dataStream`, `eventrouter`. ||
@@ -508,9 +505,6 @@ Policy for gathering data events
 
 #|
 ||Field | Description ||
-|| service | **string**
-
-Required field. Name of the service whose events will be delivered ||
 || includedEvents | **[EventTypes](#yandex.cloud.audittrails.v1.Trail.EventTypes)**
 
 Explicitly included events of specified service
@@ -528,6 +522,9 @@ Includes only one of the fields `includedEvents`, `excludedEvents`. ||
 Filter is allowed only if service = dns
 
 Includes only one of the fields `dnsFilter`. ||
+|| service | **string**
+
+Required field. Name of the service whose events will be delivered ||
 || resourceScopes[] | **[Resource](#yandex.cloud.audittrails.v1.Trail.Resource)**
 
 A list of resources which will be monitored by the trail

@@ -1,7 +1,10 @@
 # Creating and configuring a regression dashboard
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
+
 Follow this guide to create a [regression](../concepts/load-test-regressions.md) dashboard and configure metric chart widgets.
-If you do not have any completed [load tests](../concepts/index.md) yet, create one and run it several times in a row. You can find examples of load test scenarios in **Tutorials**. 
+If you do not have any completed [load tests](../concepts/index.md) yet, create one and run it several times in a row. You can find examples of load test scenarios in **our tutorials**. 
 
 
 
@@ -16,7 +19,8 @@ To create and configure a regression dashboard:
 
 ## Create a dashboard {#create-dashboard}
 
-1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+1. In the [management console]({{ link-console-main }}), open the folder where you want to create your dashboard.
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
 1. In the left-hand panel, select ![image](../../_assets/load-testing/regressions.svg) **{{ ui-key.yacloud.load-testing.label_regressions-title }}**.
 1. Create your first dashboard by clicking **{{ ui-key.yacloud.load-testing.button_create-regression-dashboard }}**.
 1. In the dialog that opens, give your dashboard a name and, optionally, add a description. Click **{{ ui-key.yc-ui-datasphere.common.apply }}**.
@@ -111,9 +115,9 @@ You can always add, delete, or edit data on the dashboard by switching to edit m
 You can also switch to edit mode from the list of dashboards on the ![image](../../_assets/load-testing/regressions.svg) **{{ ui-key.yacloud.load-testing.label_regressions-title }}** page. To do this, in the list of dashboards, click ![image](../../_assets/options.svg) next to the dashboard you need and select **{{ ui-key.yc-ui-datasphere.common.edit }}**.
 
 In edit mode, you can:
-- Edit an element by clicking ![image](../../_assets/load-testing/edit-pen.svg).
-- Copy an element by clicking ![image](../../_assets/load-testing/edit-copy.svg).
-- Delete an element by clicking ![image](../../_assets/load-testing/edit-cross.svg).
+- Edit an element by clicking ![image](../../_assets/load-testing/edit-pen.svg)
+- Copy an element by clicking ![image](../../_assets/load-testing/edit-copy.svg)
+- Delete an element by clicking ![image](../../_assets/load-testing/edit-cross.svg)
 
 ## Add or delete a dashboard {#add-delete}
 

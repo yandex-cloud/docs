@@ -5,7 +5,7 @@ description: High availability is the ability of a system to continue to operate
 
 # High availability of a {{ mmy-name }} cluster
 
-This article describes the cluster settings referred to in the [service level agreement (SLA)](https://yandex.com/legal/cloud_sla_mdb/en/), as well as other settings and parameters affecting [high availability of a {{ mmy-name }} cluster](../../architecture/fault-tolerance.md#mdb-ha).
+This article describes the cluster settings referred to in the [service level agreement (SLA)](https://yandex.ru/legal/cloud_sla_mdb/), as well as other settings and parameters affecting [high availability of a {{ mmy-name }} cluster](../../architecture/fault-tolerance.md#mdb-ha).
 
 ## Number and placement of cluster hosts {#host-configuration}
 

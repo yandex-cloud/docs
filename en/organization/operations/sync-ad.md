@@ -86,7 +86,7 @@ To start syncing users and groups:
       ```bash
       sudo systemctl start yc-identityhub-sync-agent
       ```
-  1. To make sure syncing is in progress, look up the agent's log file. Here is an example:
+  1. To make sure syncing is in progress, look up the agent's log file. For example:
 
       ```bash
       sudo cat /etc/yc-identityhub-sync-agent/identity_hub.log
@@ -153,6 +153,84 @@ To start syncing users and groups:
       ```
 
       This will stop user and group syncing.
+
+{% endlist %}
+
+## Test the agent configuration changes {#dry-run}
+
+{{ ad-sync-agent }} agents can be [dry run](../concepts/ad-sync.md#dry-run). Use this mode to try out the changes you make to the agent's configuration before applying them.
+
+To dry-run an agent:
+
+{% list tabs group=operating_system %}
+
+- Linux {#linux}
+
+  1. In the Linux terminal, stop the synchronization agent service:
+
+      ```bash
+      sudo systemctl stop yc-identityhub-sync-agent
+      ```
+  1. Make the changes you want to test to the agent configuration.
+  1. In the `dry_run` section of the agent configuration file, enable dry run mode:
+
+      ```yml
+      ...
+      dry_run:
+        enabled: true
+      ...
+      ```
+  1. In the Linux terminal, run the agent executable manually and wait for it to complete:
+
+      ```bash
+      ./yc-identityhub-sync-agent \
+        --config /etc/yc-identityhub-sync-agent/config.yaml
+      ```
+
+      {% include [ad-synk-dry-run-output](../../_includes/organization/ad-synk-dry-run-output.md) %}
+
+  1. Review the log file. If there are no unexpected changes and the operations contain no errors, the changes made to the agent configuration are correct, and you can run the agent in production:
+
+      1. Disable dry run mode by setting the field value to `enabled: false` in the `dry_run` section of the configuration file.
+      1. In the Linux terminal, run {{ ad-sync-agent }} to start syncing:
+
+          ```bash
+          sudo systemctl start yc-identityhub-sync-agent
+          ```
+
+- Windows {#windows}
+
+  1. In the PowerShell terminal, stop the sync agent service:
+
+      ```powershell
+      Stop-Service yc-identityhub-sync-agent
+      ```
+  1. Make the changes you want to test to the agent configuration.
+  1. In the `dry_run` section of the agent configuration file, enable dry run mode:
+
+      ```yml
+      ...
+      dry_run:
+        enabled: true
+      ...
+      ```
+  1. In the PowerShell terminal, run the agent executable manually and wait for it to complete:
+
+      ```powershell
+      ./yc-identityhub-sync-agent.exe \
+        --config C:\ProgramData\YcIdentityHubSyncAgent\config.yaml
+      ```
+
+      {% include [ad-synk-dry-run-output](../../_includes/organization/ad-synk-dry-run-output.md) %}
+
+  1. Review the log file. If there are no unexpected changes and the operations contain no errors, the changes made to the agent configuration are correct, and you can run the agent in production:
+
+      1. Disable dry run mode by setting the field value to `enabled: false` in the `dry_run` section of the configuration file.
+      1. In the PowerShell terminal, run {{ ad-sync-agent }} to start syncing:
+
+          ```powershell
+          Start-Service yc-identityhub-sync-agent
+          ```
 
 {% endlist %}
 

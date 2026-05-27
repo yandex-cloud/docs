@@ -3,4 +3,5 @@
 || YandexGPT Pro | {{ sku|RUB|speechsense.analysis.assistant.v1|string }} ||
 || YandexGPT Lite | {% calc [currency=RUB] {{ sku|RUB|speechsense.analysis.assistant.v1|number }} / 6 %} ||
 || Qwen3 235B | {% calc [currency=RUB] {{ sku|RUB|speechsense.analysis.assistant.v1|number }} * 2 %} ||
+|| DeepSeek V3.2 | {% calc [currency=RUB] {{ sku|RUB|speechsense.analysis.assistant.v1|number }} * 2 %} ||
 |#

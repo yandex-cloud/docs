@@ -137,7 +137,8 @@ Updates the specified transfer.
             "exclude_columns": [
               "string"
             ]
-          }
+          },
+          "skip_utc_conversion": "bool"
         },
         "sharder_transformer": {
           // Includes only one of the fields `columns`, `random`
@@ -235,6 +236,7 @@ the new value replaces the old one instead of being appended to the old one. ||
 || labels | **object** (map<**string**, **string**>)
 
 Transfer labels as `key:value` pairs.
+
 For details about the concept, see [documentation]({{ api-url-prefix
 }}/resource-manager/concepts/labels). ||
 || regular_snapshot | **[RegularSnapshot](#yandex.cloud.datatransfer.v1.RegularSnapshot)** ||
@@ -596,6 +598,9 @@ List of included and excluded tables ||
 || columns | **[ColumnsFilter](#yandex.cloud.datatransfer.v1.ColumnsFilter)**
 
 List of included and excluded columns ||
+|| skip_utc_conversion | **bool**
+
+When true, time values keep their original timezone, otherwise time values converts (normalizes) to UTC. ||
 |#
 
 ## SharderTransformer {#yandex.cloud.datatransfer.v1.SharderTransformer}

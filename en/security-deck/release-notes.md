@@ -5,12 +5,19 @@ description: This section contains the {{ sd-name }} release notes.
 
 # {{ sd-full-name }} release notes
 
+## March 2026 {#march-2026}
+* Released [Vulnerability Management (VM)](./concepts/vulnerability-management.md). This module is in [Preview](../overview/concepts/launch-stages.md) and available only upon request.
+* [DSPM](./concepts/dspm.md) now supports preliminary [analysis of data](./concepts/dspm.md#discovery-mode) stored in {{ objstorage-name }} buckets within a workspace.
+* You can now [group](./operations/alerts/view.md#search) alerts by type and filter them by new attributes.
+* In [KSPM](./concepts/kspm.md), you can now specify objects in [exceptions](./operations/kspm/manage-exceptions.md) using search by namespace.
+* In [CSPM](./concepts/cspm.md), added new rules for checking infrastructure for compliance with security standards. The new rules control the [assignment](./rules-reference/cspm.md#check-privileged-roles) of privileged roles, DDoS [protection](./rules-reference/cspm.md#appsec-ddos-protection-l3) at the network level, service account [access](./rules-reference/cspm.md#access) to {{ k8s }}® clusters, and redundant service account roles at the [organization](./rules-reference/cspm.md#sa-privileges-org-roles) and [service](./rules-reference/cspm.md#sa-privileges-service-roles) levels. 
+
 ## February 2026 {#february-2026}
 
-* The modules [{{ dspm-name }}](./concepts/dspm.md), [{{ cspm-name }}](./concepts/cspm.md), [{{ kspm-name }}](./concepts/kspm.md), and the [AI assistant](concepts/ai-assistant.md)are now available at the [Preview](../overview/concepts/launch-stages.md) stage.
-* Starting February 2, 2025, [{{ kspm-name }}](./concepts/kspm.md) is subject to the [pricing policy](pricing.md#kspm-rules).
-* [{{ cspm-name }}](./concepts/cspm.md) now supports new [security standards](./concepts/cspm.md#standards), namely, PCI DSS (Payment Card Industry Data Security Standard) and FSTEC requirements for protection of personal data (Order No. 21).
-* New rules for compliance with all supported security standards were implemented in [{{ cspm-name }}](./concepts/cspm.md).
+* [{{ dspm-name }}](./concepts/dspm.md), [{{ cspm-name }}](./concepts/cspm.md), [{{ kspm-name }}](./concepts/kspm.md), and the [AI assistant](concepts/ai-assistant.md) are now in [Preview](../overview/concepts/launch-stages.md).
+* As of February 2, 2025, [{{ kspm-name }}](./concepts/kspm.md) is charged according to the [pricing policy](pricing.md#kspm-rules).
+* Supported new [security standards](./concepts/cspm.md#standards) in [{{ cspm-name }}](./concepts/cspm.md): PCI DSS (Payment Card Industry Data Security Standard) and requirements of the FSTEC of Russia (Order No. 21) aimed at protection of personal data. 
+* In [{{ cspm-name }}](./concepts/cspm.md), implemented new compliance rules for all supported security standards.
 
 ## January 2026 {#january-2026}
 

@@ -42,62 +42,62 @@ description: Описаны коды ответов и ошибок в {{ objsto
 || 400 | `BadDigest` | Хэш переданных в заголовке `Content-MD5` не совпадает с вычисленным на стороне {{ objstorage-name }}. ||
 || 400 | `CloudTotalAliveSizeQuotaExceed` | После загрузки объекта будет превышена соответствующая [квота](../../concepts/limits.md). [Запросите повышение квоты]({{ link-console-quotas }}) или удалите ненужные объекты, а после этого загрузите объект заново. ||
 || 400 | `CredentialsNotSupported` | Учетные данные не поддерживаются. ||
-|| 400 | `EntityTooSmall` | Загружаемый объект меньше минимально допустимого размера. ||
-|| 400 | `EntityTooLarge` | Загружаемый объект больше максимально допустимого. ||
-|| 400 | `ExpiredToken` | Срок действия предоставленного токена истек. ||
+|| 400 | `EntityTooSmall` | Загружаемый объект меньше [минимально допустимого](../../concepts/limits.md#storage-limits) размера. ||
+|| 400 | `EntityTooLarge` | Загружаемый объект больше [максимально допустимого](../../concepts/limits.md#storage-limits) размера. ||
+|| 400 | `ExpiredToken` | [Срок действия](../../../iam/concepts/authorization/iam-token.md#lifetime) предоставленного токена истек. ||
 || 400 | `IncompleteBody` | Размер отправленных данных меньше, чем указано в заголовке `Content-Length`. ||
 || 400 | `IncorrectNumberOfFilesInPostRequest` | Метод POST требует передачи строго одного файла. ||
 || 400 | `InlineDataTooLarge` | Данные запроса превышают максимально допустимый размер. ||
 || 400 | `InvalidDigest` | Хэш, переданный в заголовке Content-MD5, не верен. ||
 || 400 | `InvalidArgument` | Недопустимый аргумент. ||
-|| 400 | `InvalidBucketName` | Недопустимое имя бакета. ||
+|| 400 | `InvalidBucketName` | Недопустимое [имя](../../concepts/bucket.md#naming) бакета. ||
 || 400 | `InvalidPart` | Одна и более частей составной загрузки не найдены. Проверьте корректность перечня. Возможно отсутствующие части не были загружены. ||
 || 400 | `InvalidPartOrder` | Перечень частей составной загрузки указан некорректно. Части должны быть отсортированы по возрастанию номера. ||
 || 400 | `InvalidRequest` | Используйте AWS4-HMAC-SHA256. ||
+|| 400 | `InvalidStorageClass` | Некорректный [класс хранилища](../../concepts/storage-class.md). ||
 || 400 | `BucketMaxSizeExceeded` | Попытка превысить максимальный размер бакета.<br/><br/>Описание ошибки в ответе: "You have attempted to exceed the max size configured for the bucket." ||
-|| 400 | `InvalidStorageClass` | Некорректный класс хранилища. ||
 || 400 | `InvalidTargetBucketForLogging` | Бакет не существует или вы не владелец бакета или недостаточно прав у группы доставки логов.
 
 
 ||
-|| 400 | `InvalidToken` | Токен неправильно сформирован или некорректен по другой причине. ||
+|| 400 | `InvalidToken` | [Токен](../../../iam/concepts/authorization/iam-token.md) неправильно сформирован или некорректен по другой причине. ||
 || 400 | `InvalidURI` | Не получилось разобрать переданный URI. ||
-|| 400 | `KeyTooLongError` | Ключ слишком длинный. ||
+|| 400 | `KeyTooLongError` | [Ключ](../../concepts/object.md#key) слишком длинный. ||
 || 400 | `MalformedACLError` | Предоставленный XML документ неправильно сформирован или не соответствует схеме. ||
 || 400 | `MalformedPOSTRequest` | Тело запроса не соответствует формату `multipart/form-data`. ||
 || 400 | `MalformedXML` | Предоставленный XML документ неправильно сформирован или не соответствует схеме. ||
 || 400 | `MaxMessageLengthExceeded` | Превышена допустимая длина запроса. ||
-|| 400 | `MaxPostPreDataLengthExceededError` | Заголовок HTTP-сообщения превысил допустимый размер. ||
-|| 400 | `MetadataTooLarge` | Размер заголовков метаданных превысил допустимый размер. ||
+|| 400 | `MaxPostPreDataLengthExceededError` | Заголовок HTTP-сообщения превысил [допустимый размер](../../concepts/limits.md#storage-limits). ||
+|| 400 | `MetadataTooLarge` | Размер заголовков метаданных превысил [допустимый размер](../../concepts/limits.md#storage-limits). ||
 || 400 | `MissingRequestBodyError` | Пустое тело запроса.<br/><br/>Возникает в случае отправки пустого XML документа. ||
 || 400 | `MissingSecurityHeader` | Отсутствует необходимый заголовок. ||
-|| 400 | `NoLoggingStatusForKey` | Отсутствует статус логирования ключа.
+|| 400 | `NoLoggingStatusForKey` | Отсутствует [статус логирования](../../concepts/server-logs.md#key-format) ключа.
 
 
 ||
 || 400 | `RequestIsNotMultiPartContent` | Запрос должен содержать данные типа `multipart/form-data`. ||
 || 400 | `RequestTimeout` | Таймаут на чтение/запись. ||
-|| 400 | `TokenRefreshRequired` | Обновите токен. ||
+|| 400 | `TokenRefreshRequired` | Обновите [токен](../../../iam/concepts/authorization/iam-token.md). ||
 || 400 | `TooManyBuckets` | После создания бакета будет превышена соответствующая [квота](../../concepts/limits.md). [Запросите повышение квоты]({{ link-console-quotas }}) или удалите ненужные бакеты, а после этого создайте бакет заново. ||
 || 400 | `UnexpectedContent` | В запросе не должно быть контента. ||
-|| 400 | `UnresolvableGrantByEmailAddress` | Не зарегистрированный e-mail. ||
+|| 400 | `UnresolvableGrantByEmailAddress` | Незарегистрированный e-mail. ||
 || 400 | `UserKeyMustBeSpecified` | Запрос должен содержать указанный в описании ошибки заголовок. ||
 || 403 | `AccessDenied` | Доступ запрещен. ||
-|| 403 | `AccountProblem` | Проблема с аккаунтом, не позволяющая завершиться операции успешно.<br/><br/>Обратитесь в службу поддержки {{ yandex-cloud }}. ||
-|| 403 | `InvalidAccessKeyId` | Неизвестный ключ. ||
+|| 403 | `AccountProblem` | Проблема с аккаунтом, не позволяющая операции завершиться успешно.<br/><br/>Обратитесь в службу поддержки {{ yandex-cloud }}. ||
+|| 403 | `InvalidAccessKeyId` | Неизвестный [ключ](../../../iam/concepts/authorization/access-key.md). ||
 || 403 | `InvalidObjectState` | Запрос не может быть выполнен для текущего состояния объекта. ||
 || 403 | `InvalidPayer` | Доступ к объекту заблокирован. ||
-|| 403 | `InvalidSecurity` | Предоставленные секретные ключи не валидны. ||
+|| 403 | `InvalidSecurity` | Предоставленные [секретные ключи](../../../iam/concepts/authorization/access-key.md) не валидны. ||
 || 403 | `NotSignedUp` | Для аккаунта не разрешено использование {{ objstorage-name }}. ||
 || 403 | `RequestTimeTooSkewed` | Слишком большая разница между временем отправки запроса и временем на сервере. ||
 || 403 | `SignatureDoesNotMatch` | Предоставленная подпись запроса не соответствует вычисленной {{ objstorage-name }}. ||
 || 404 | `NoSuchBucket` | Указанного бакета не существует. ||
 || 404 | `NoSuchKey` | Указанный ключ не существует. ||
 || 404 | `NoSuchUpload` | Указанной составной загрузки не существует.<br/><br/>Ошибка возникает в следующих случаях:<br/>- Указан неправильный идентификатор загрузки.<br/>- Загрузка прервана.<br/>- Загрузка завершена. ||
-|| 404 | `NoSuchTagSet` | Указанному бакету не назначены метки. ||
+|| 404 | `NoSuchTagSet` | Указанному бакету не назначены [метки](../../concepts/tags.md). ||
 || 405 | `MethodNotAllowed` | HTTP-метод не применим к заданному ресурсу. ||
-|| 409 | `BucketAlreadyExists` | Бакет с таким названием уже существует, выберите другие имя. ||
-|| 409 | `BucketNotEmpty` | Бакет, который вы удаляете, не пустой. ||
+|| 409 | `BucketAlreadyExists` | Бакет с таким названием уже существует, выберите другое имя. ||
+|| 409 | `BucketNotEmpty` | Бакет, который вы удаляете, не пустой. [Удалите](../../operations/objects/delete.md) загруженные в него объекты. ||
 || 409 | `InvalidBucketState` | Запрос не может быть выполнен для текущего состояния бакета. ||
 || 409 | `OperationAborted` | Конфликтующие условные операции. ||
 || 411 | `MissingContentLength` | Добавьте `Content-Length` в заголовки. ||

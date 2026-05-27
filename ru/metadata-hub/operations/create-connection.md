@@ -1174,8 +1174,6 @@ description: Пошаговые инструкции по работе с {{ con
 
 {% endlist %}
 
-{% endlist %}
-
 ### {{ mgp-name }} {#mdb-greenplum}
 
 {% list tabs group=instructions %}

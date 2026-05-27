@@ -78,7 +78,7 @@
 
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы планируете создавать инфраструктуру.
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-  1. На панели слева выберите ![icon](../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.baremetal.label_images }}**.
+  1. На панели слева выберите ![icon](../../_assets/console-icons/layers.svg) **{{ ui-key.yacloud.baremetal.label_images_duoXD }}**.
   1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_load-image }}**.
   1. Введите имя для образа OPNsense. Требования к имени:
 
@@ -119,12 +119,17 @@
       Для этого в фильтре в правой части окна в блоке **{{ ui-key.yacloud_components.baremetal.poolFilter }}** выберите пул серверов `{{ region-id }}-m4`.
 
       Для тестирования предлагаемого решения будет достаточно конфигурации с минимальными аппаратными характеристиками. Чтобы выбрать подходящую вам конфигурацию сервера, нажмите на блок с именем этой конфигурации в центральной части экрана.
+
+      {% include [server-lease-save-with-assembling-tip](../../_includes/baremetal/instruction-steps/server-lease-save-with-assembling-tip.md) %}
+
   1. В открывшемся окне с настройками конфигурации сервера:
 
       1. {% include [server-lease-step5](../../_includes/baremetal/instruction-steps/server-lease-step5.md) %}
       1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-product }}** выберите `{{ ui-key.yacloud.baremetal.field_choose-no-os }}`.
-      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}** в поле **{{ ui-key.yacloud.baremetal.field_subnet-id }}** выберите созданную ранее подсеть `opnsense-private-subnet-m4`.
-      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}** в поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
+      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}**:
+          1. В поле **{{ ui-key.yacloud.baremetal.field_subnet-id }}** выберите созданную ранее подсеть `subnet-m3`.
+          1. В поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
+
       1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-info }}** в поле **{{ ui-key.yacloud.baremetal.field_name }}** задайте имя сервера: `opnsense-master`.
       1. {% include [server-lease-step13](../../_includes/baremetal/instruction-steps/server-lease-step13.md) %}
   1. Аналогичным способом арендуйте еще один сервер с именем `opnsense-backup` в пуле серверов `{{ region-id }}-m4`.
@@ -420,7 +425,7 @@
 
     1. Узнайте MAC-адрес подключенного к приватной подсети сетевого интерфейса сервера `jump-server`.
 
-        MAC-адрес нужного сетевого интерфейса сервера {{ baremetal-name }} вы можете [посмотреть](../../baremetal/operations/servers/get-info.md) на странице с информацией о сервере `jump-server` в блоке **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}**.
+        MAC-адрес нужного сетевого интерфейса сервера {{ baremetal-name }} вы можете [посмотреть](../../baremetal/operations/servers/get-info.md) на странице с информацией о сервере `jump-server` в блоке **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}**.
 
         Сохраните полученный MAC-адрес — он потребуется на следующем шаге.
     1. Определите имя подключенного к приватной подсети сетевого интерфейса сервера `jump-server` в графической оболочке SystemRescue:

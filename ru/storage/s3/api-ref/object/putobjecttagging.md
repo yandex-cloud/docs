@@ -1,4 +1,4 @@
-# Метод putObjectTagging
+# Object Storage API, REST совместимый с Amazon S3: PutObjectTagging
 
 Добавляет [метки](../../../concepts/tags.md) объекту в бакете. При этом перезаписываются все имеющиеся у объекта метки.
 

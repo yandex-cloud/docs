@@ -1,6 +1,6 @@
 # Servers
 
-A {{ baremetal-name }} server is a physical server connected to the [network](./network.md) via two or more 1 Gbps, 10 Gbps, or 25 Gbps [network interfaces](#network-interfaces). Its hardware and network resources are physically isolated and can be accessed only by their renter.
+A {{ baremetal-name }} server is a physical server connected to the [network](./network.md) via two or more 1 Gbps, 10 Gbps, or 25 Gbps [network interfaces](#network-interfaces). Its hardware and network resources are physically isolated and can be accessed only by their lessee.
 
 The server can be provided to the user in one of the [stock configurations](./server-configurations.md), a [custom configuration](./server-custom-configurations.md) built as per the user's [specification](../operations/servers/custom-server-lease.md), or an [on-request configuration](./server-individual-configurations.md) with individual hardware characteristics.
 
@@ -10,7 +10,7 @@ The server can be provided to the user in one of the [stock configurations](./se
 
 ## Renting servers {#server-lease}
 
-You can rent a stock configuration server for one day, one month, three months, six months, or one year. You can view the configurations available for rent in each [pool](#server-pools) when ordering a server in the [management console]({{ link-console-main }}). 
+You can rent a stock configuration server for one day, one month, three months, six months, or one year. You can view the configurations available for rent in each [pool](#server-pools) when ordering a server in the [management console]({{ link-console-main }}).
 
 You can rent a [custom-configured](./server-custom-configurations.md) server for one month, six months, or one year.
 
@@ -30,7 +30,7 @@ Pools are infrastructurally separate data center modules servers physically resi
 
 ## Redundant power supply for servers {#server-power-supply}
 
-When renting a sever, you can select your configurations based on redundant power supply type:
+When leasing a sever, you can select your configurations based on redundant power supply type:
 
 * Servers with one power supply unit (`1 PSU`).
 * Servers with two or more power supply units (`2+ PSU`).
@@ -71,19 +71,22 @@ A server can have one of the following statuses:
 * `QUARANTINING`: Server is being [quarantined](#quarantine).
 * `QUARANTINED`: Server is quarantined. Users cannot access quarantined servers over the network or through a KVM console.
 * `RETURNING_FROM_QUARANTINE`: Server is returning from quarantine, with access being restored over the network and through a KVM console.
+* `DELETING`: Server deletion is in progress. It may take several hours to completely delete the server and wipe all disks.
 * `ERROR`: Error has occurred, the KVM console is unavailable. Contact [support]({{ link-console-support }}).
 
 ## Quarantine {#quarantine}
 
-Quarantine: A transition state before server rent is fully terminated. In this state, the server is still listed in the user's directory. Users cannot access quarantined servers over the network or through a KVM console, but the server retains all user data and settings. The quarantine period is 72 hours. Following this period, the settings and data get completely deleted from the server, and the server itself gets removed from the user's directory.
+Quarantine: A transition state before server lease is fully terminated. In this state, the server is still listed in the user's directory. Users cannot access quarantined servers over the network or through a KVM console, but the server retains all user data and settings. The quarantine period is 72 hours. Following this period, the settings and data get completely deleted from the server, and the server itself gets removed from the user's directory.
 
-At any time during the quarantine period, you can restore the server for further use. To restore the server, contact [support]({{ link-console-support }}).
+At any time during the quarantine period, you can restore the server for further use. For more information, see [support]({{ link-console-support }}).
 
 {% note info %}
 
-A quarantined server does consume the server number [quota](./limits.md) but is [free of charge](../pricing.md).
+Servers with the `QUARANTINING`, `QUARANTINED`, `RETURNING_FROM_QUARANTINE`, or `DELETING` status are counted towards the [total quota](./limits.md) for the number of servers.
 
-If a server is not restored for further use during the quarantine period, its quarantine time will be included into the paid rent period. 
+Servers with the `QUARANTINING`, `QUARANTINED`, `RETURNING_FROM_QUARANTINE`, or `DELETING` status are not billable.
+
+If a server is restored for further use during the quarantine period, its quarantine time will be included into the paid rent period. 
 
 {% endnote %}
 

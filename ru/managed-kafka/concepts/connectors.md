@@ -41,6 +41,12 @@
 
 Подробнее о том, как S3 Sink выполняет перенос данных, в [документации коннектора](https://github.com/aiven/s3-connector-for-apache-kafka).
 
+### Iceberg Sink {#iceberg-sink}
+
+Коннектор **Iceberg Sink** используется для передачи данных из топиков {{ KF }} в таблицы {{ IBRG }}.
+
+Подробнее о том, как Iceberg Sink выполняет перенос данных, в [документации коннектора](https://iceberg.apache.org/docs/nightly/kafka-connect/).
+
 
 ## Примеры использования {#examples}
 

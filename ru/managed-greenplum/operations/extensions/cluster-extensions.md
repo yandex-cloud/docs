@@ -1,10 +1,10 @@
-# Управление расширениями {{ GP }}
+# Управление расширениями в {{ mgp-name}}
 
-{{ mgp-short-name }} поддерживает следующие расширения {{ GP }} и {{ PG }}:
+{{ mgp-name }} поддерживает следующие расширения {{ GP }} и {{ PG }}:
 
 #|
 || **Расширение** | **Версия** ||
-|| [btree_gin]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-modules-btree_gin.html)
+|| [btree_gin]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-modules-btree_gin.html)
 Добавляет возможность создавать индексы GIN для столбцов, подходящих для индексирования B-tree.
 | 1.0 ||
 || [citext]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-modules-citext.html)
@@ -26,13 +26,10 @@
 Содержит функции для определения степени подобия и расстояния между двумя произвольными строками.
 | 1.0 ||
 || [gp_array_agg]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-modules-gp_array_agg.html)
-Добавляет параллельную реализацию агрегатной функции `array_agg` для {{ GP }}.
+Добавляет параллельную реализацию агрегатной функции `array_agg`.
 | 1.0.0 ||
 || [gp_internal_tools]({{ gp.docs.broadcom }}/7/greenplum-database/admin_guide-managing-monitor.html#creating-the-session_level_memory_consumption-view)
-Содержит различные внутренние утилиты для {{ GP }}.
-| 1.0.0 ||
-|| [gp_legacy_string_agg]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-modules-gp_legacy_string_agg.html)
-Добавляет функцию `string_agg` с одним аргументом, которая присутствовала в {{ GP }} версии `5`.
+Содержит различные внутренние утилиты.
 | 1.0.0 ||
 || [gp_percentile_agg]({{ gp.docs.broadcom }}/6/greenplum-database/ref_guide-modules-gp_percentile_agg.html)
 Добавляет агрегатную функцию для вычисления процентилей.
@@ -77,13 +74,13 @@
 || [pg_trgm]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-modules-pg_trgm.html)
 Добавляет функции и операторы для определения сходства текста, а также операторы индексации для поиска похожих строк.
 | 1.1 ||
-|| [plperl]({{ gp.docs.broadcom }}/5/greenplum-database/ref_guide-extensions-pl_perl.html)
+|| [plperl]({{ gp.docs.broadcom }}/7/greenplum-database/analytics-pl_perl.html)
 Включает поддержку процедурного языка PL/Perl.
 | 1.0 ||
-|| [plpgsql]({{ gp.docs.broadcom }}/5/greenplum-database/ref_guide-extensions-pl_sql.html)
+|| [plpgsql]({{ gp.docs.broadcom }}/7/greenplum-database/analytics-pl_sql.html)
 Включает поддержку процедурного языка PL/pgSQL.
 | 1.0 ||
-|| [postgis]({{ gp.docs.broadcom }}/5/greenplum-database/ref_guide-extensions-postGIS.html)
+|| [postgis]({{ gp.docs.broadcom }}/7/greenplum-database/analytics-postGIS.html)
 Добавляет возможности хранения и обработки объектов геоинформационных систем (ГИС) в базах данных {{ PG }}.
 | 2.1.5 ||
 || [postgres_fdw]({{ gp.docs.broadcom }}/7/greenplum-database/ref_guide-modules-postgres_fdw.html)
@@ -114,7 +111,7 @@
 | 1.0 ||
 || [{{ YZ }}](./yezzey.md). Расширение от {{ yandex-cloud }}
 
-Позволяет перемещать [таблицы AO и AOCO](../../concepts/tables.md) из хранилища кластера в холодное хранилище и наоборот. Чтобы использовать это расширение, включите [гибридное хранилище](../../concepts/hybrid-storage.md) в кластере {{ GP }}.
+Позволяет перемещать [таблицы AO и AOCO](../../concepts/tables.md) из хранилища кластера в холодное хранилище и наоборот. Чтобы использовать это расширение, включите [гибридное хранилище](../../concepts/hybrid-storage.md) в кластере {{ mgp-name }}.
 | 1.8 ||
 || [xml2]({{ pg.docs.org }}/current/xml2.html)
 Добавляет функции для выполнения запросов XPath и преобразований XSLT.

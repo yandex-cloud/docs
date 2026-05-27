@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/ydb/cli-ref/
 editable: false
 ---
 
@@ -76,6 +77,10 @@ Syntax:
 
   - [yc ydb storage-type list](storage-type/list.md) — List YDB storage types.
 
+- [yc ydb v0](v0/index.md) — Manage YDB databases.
+
+
+
 #### Global Flags
 
 #|
@@ -91,9 +96,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||

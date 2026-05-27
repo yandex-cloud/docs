@@ -1,6 +1,6 @@
 ---
-title: How to update a Let's Encrypt certificate in {{ certificate-manager-full-name }}
-description: Follow this guide to update a Let's Encrypt certificate.
+title: How to edit a Let's Encrypt certificate in {{ certificate-manager-full-name }}
+description: Follow this guide to edit a Let's Encrypt certificate.
 ---
 
 # Editing a Let's Encrypt certificate
@@ -11,9 +11,9 @@ After issuing a [Let's Encrypt certificate](../../concepts/managed-certificate.m
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the certificate was added to.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
-  1. Select the certificate you need to modify.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you added the certificate to.
+  1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+  1. Select the certificate you need to edit.
   1. Click ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.certificate-manager.overview.action_edit-meta }}**.
   1. Change the name or description of the certificate.
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -78,9 +78,9 @@ After issuing a [Let's Encrypt certificate](../../concepts/managed-certificate.m
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. Open the {{ TF }} configuration file and edit the fragment with the certificate description:
+  1. Open the {{ TF }} configuration file and edit the fragment describing the certificate:
 
-     {% cut "Sample certificate description" %}
+     {% cut "Certificate description example" %}
 
      ```hcl
      ...
@@ -102,7 +102,7 @@ After issuing a [Let's Encrypt certificate](../../concepts/managed-certificate.m
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check the certificate's update and configuration using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
+  You can check the edited certificate and its settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
   ```bash
   yc certificate-manager certificate get <certificate_name>

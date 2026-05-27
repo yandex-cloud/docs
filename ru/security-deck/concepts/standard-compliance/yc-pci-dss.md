@@ -1,9 +1,9 @@
 ---
-title: Стандарт PCI DSS в {{ yandex-cloud }}
-description: В этом разделе приведен набор правил, который помогает автоматизировать соответствие требованиям стандарта безопасности данных индустрии платежных карт (PCI DSS) в ресурсах {{ yandex-cloud }}.
+title: Требования стандарта PCI DSS
+description: В этом разделе приведен набор правил, который помогает автоматизировать соответствие требованиям стандарта безопасности данных индустрии платежных карт (PCI DSS).
 ---
 
-# Стандарт PCI DSS в {{ yandex-cloud }}
+# Требования стандарта PCI DSS
 
 {% include [note-preview](../../../_includes/note-preview.md) %}
 
@@ -42,7 +42,6 @@ description: В этом разделе приведен набор правил
 || 3.5 | Обеспечение нечитаемости PAN при хранении |
 [cspm.data.object-storage-encryption](../../rules-reference/cspm.md#object-storage-encryption)
 [cspm.crypto.managed-vm-kms](../../rules-reference/cspm.md#managed-vm-kms)
-[cspm.crypto.data.application-encryption](../../rules-reference/cspm.md#application-encryption)
 ||
 || 3.6, 3.7 | Защита и управление криптографическими ключами |
 [cspm.crypto.sa-key-rotation](../../rules-reference/cspm.md#sa-key-rotation)
@@ -51,7 +50,6 @@ description: В этом разделе приведен набор правил
 [cspm.crypto.keys-deletion-protection](../../rules-reference/cspm.md#keys-deletion-protection)
 [cspm.crypto.secrets-lockbox](../../rules-reference/cspm.md#secrets-lockbox)
 [cspm.crypto.secrets-serverless](../../rules-reference/cspm.md#secrets-serverless)
-[cspm.crypto.secrets-coi](../../rules-reference/cspm.md#secrets-coi)
 ||
 || **4. Защита данных держателей карт с использованием надежной криптографии при передаче по открытым, общедоступным сетям** {.cell-align-center} | > | > ||
 || 4.2 | Защита PAN надежной криптографией при передаче |
@@ -60,15 +58,13 @@ description: В этом разделе приведен набор правил
 [cspm.appsec.api-gateway-https](../../rules-reference/cspm.md#api-gateway-https)
 ||
 || **5. Защита всех систем и сетей от вредоносного ПО** {.cell-align-center} | > | > ||
-|| 5.2, 5.3 | Предотвращение, обнаружение и устранение вредоносного ПО; поддержка механизмов в активном состоянии | [cspm.appsec.upload-policy](../../rules-reference/cspm.md#upload-policy) ||
+|| 5.2, 5.3 | Предотвращение, обнаружение и устранение вредоносного ПО; поддержка механизмов в активном состоянии | [cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry) ||
 || 5.4 | Защита пользователей от фишинговых атак | [cspm.appsec.use-smartcaptcha](../../rules-reference/cspm.md#use-smartcaptcha) ||
 || **6. Разработка и поддержка безопасных систем и программного обеспечения** {.cell-align-center} | > | > ||
 || 6.3 | Выявление и устранение уязвимостей безопасности |
-[cspm.active.ip-vulnerability-scan](../../rules-reference/cspm.md#ip-vulnerability-scan)
-[cspm.appsec.upload-policy](../../rules-reference/cspm.md#upload-policy)
+[cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry)
 [cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry)
 [cspm.appsec.periodic-scan](../../rules-reference/cspm.md#periodic-scan)
-[cspm.k8s.version-update](../../rules-reference/cspm.md#version-update)
 ||
 || 6.4 | Защита общедоступных веб-приложений от атак |
 [cspm.appsec.use-sws](../../rules-reference/cspm.md#use-sws)
@@ -101,16 +97,13 @@ description: В этом разделе приведен набор правил
 [cspm.o11y.audit-trails](../../rules-reference/cspm.md#audit-trails)
 [cspm.o11y.audit-trails-no-errors](../../rules-reference/cspm.md#o11y-audit-trails-no-errors)
 [cspm.o11y.data-plane-events](../../rules-reference/cspm.md#data-plane-events)
-[cspm.k8s.audit-logs](../../rules-reference/cspm.md#audit-logs)
 ||
 || **11. Регулярное тестирование безопасности систем и сетей** {.cell-align-center} | > | > ||
 || 11.3 | Регулярное выявление, приоритизация и устранение внешних и внутренних уязвимостей |
-[cspm.active.ip-vulnerability-scan](../../rules-reference/cspm.md#ip-vulnerability-scan)
-[cspm.appsec.upload-policy](../../rules-reference/cspm.md#upload-policy)
+[cspm.appsec.secure-registry](../../rules-reference/cspm.md#secure-registry)
 ||
 || **12. Поддержка информационной безопасности с помощью организационных политик и программ** {.cell-align-center} | > | > ||
 || 12.10 | Реагирование на инциденты |
 [cspm.backup.compute-disks](../../rules-reference/cspm.md#compute-disks)
-[cspm.k8s.backup](../../rules-reference/cspm.md#backup)
 ||
 |#

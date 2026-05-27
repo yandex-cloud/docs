@@ -1,0 +1,328 @@
+1. [Подготовьте облако к работе](#before-you-begin).
+1. [Создайте сервисный аккаунт](#create-account).
+1. [Создайте ключ {{ kms-short-name }}](#create-key).
+1. [Создайте секрет](#create-secret).
+1. [Создайте ВМ](#create-vm).
+1. [Авторизуйтесь в ОС Windows](#login-windows).
+
+Если созданные ресурсы вам больше не нужны, [удалите их](#clear-out).
+
+
+## Подготовьте облако к работе {#before-you-begin}
+
+{% include [before-you-begin](../../_tutorials/_tutorials_includes/before-you-begin.md) %}
+
+
+### Необходимые платные ресурсы {#paid-resources}
+
+{% include [paid-resources](../../_tutorials/_tutorials_includes/secure-password-script/paid-resources.md) %}
+
+
+## Создайте сервисный аккаунт {#create-account}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором хотите создать сервисный аккаунт.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
+  1. Введите имя сервисного аккаунта, например, `win-secret-sa`.
+  1. Нажмите кнопку **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
+
+- CLI {#cli}
+
+  {% include [default-catalogue](../../_includes/default-catalogue.md) %}
+
+  Выполните команду для создания сервисного аккаунта, указав имя `win-secret-sa`:
+
+  ```bash
+  yc iam service-account create --name win-secret-sa
+  ```
+
+  Где `name` — имя сервисного аккаунта.
+
+  Результат:
+
+  ```text
+  id: ajehr0to1g8b********
+  folder_id: b1gv87ssvu49********
+  created_at: "2024-03-15T09:03:11.665153755Z"
+  name: win-secret-sa
+  ```
+
+- API {#api}
+
+  Чтобы создать сервисный аккаунт, воспользуйтесь вызовом gRPC API [ServiceAccountService/Create](../../iam/api-ref/grpc/ServiceAccount/create.md) или методом [create](../../iam/api-ref/ServiceAccount/create.md) для ресурса `ServiceAccount` REST API.
+
+{% endlist %}
+  
+## Создайте ключ {{ kms-short-name }} {#create-key}
+
+1. Создайте [ключ шифрования](../../kms/concepts/key.md):
+
+   {% list tabs group=instructions %}
+
+   - Консоль управления {#console}
+
+     1. В [консоли управления]({{ link-console-main }}) выберите [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ключевая пара.
+     1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_kms }}**.
+     1. На панели слева выберите ![image](../../_assets/console-icons/key.svg) **{{ ui-key.yacloud.kms.switch_symmetric-keys }}**.
+     1. Нажмите **{{ ui-key.yacloud.kms.symmetric-keys.button_empty-create }}** и задайте атрибуты ключа:
+         * **{{ ui-key.yacloud.common.name }}** — `win-secret-key`.
+         * **{{ ui-key.yacloud.kms.symmetric-key.form.field_algorithm }}** — `AES-256`.
+         * Для остальных параметров оставьте значения по умолчанию.
+     1. Нажмите **{{ ui-key.yacloud.common.create }}**.
+
+     Вместе с ключом создается его первая версия: кликните по ключу в списке, чтобы открыть страницу с его атрибутами.
+
+   - CLI {#cli}
+
+     Выполните команду:
+
+     ```bash
+     yc kms symmetric-key create \
+       --name win-secret-key \
+       --default-algorithm aes-256
+     ```
+
+     Где:
+
+     * `--name` — имя ключа.
+     * `--default-algorithm` — алгоритм шифрования: `aes-128`, `aes-192` или `aes-256`.
+
+   - API {#api}
+
+     Воспользуйтесь методом REST API [create](../../kms/api-ref/SymmetricKey/create.md) для ресурса [SymmetricKey](../../kms/api-ref/SymmetricKey/index.md) или вызовом gRPC API [SymmetricKeyService/Create](../../kms/api-ref/grpc/SymmetricKey/create.md).
+
+   {% endlist %}
+
+1. Назначьте сервисному аккаунту `win-secret-sa` [роль](../../iam/concepts/access-control/roles.md) `kms.keys.encrypterDecrypter`:
+
+   {% list tabs group=instructions %}
+
+   - Консоль управления {#console}
+
+     1. На странице ключа перейдите на вкладку **{{ ui-key.yacloud.common.label_access-rights }}**.
+     1. На странице **Права доступа к сервисному аккаунту** найдите аккаунт `win-secret-sa` в списке и нажмите значок ![image](../../_assets/options.svg).
+     1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
+     1. В открывшемся диалоге нажмите кнопку **Добавить роль** и выберите роль `kms.keys.encrypterDecrypter`.
+
+   - CLI {#cli}
+
+     Выполните команду:
+
+     ```bash
+     yc resource-manager folder add-access-binding <идентификатор_каталога> \
+       --role kms.keys.encrypterDecrypter \
+       --subject serviceAccount:<идентификатор_сервисного_аккаунта>
+     ```
+
+   - API {#api}
+
+     Чтобы назначить сервисному аккаунту роль на каталог, воспользуйтесь методом REST API [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md).
+
+   {% endlist %}
+
+## Создайте секрет {#create-secret}
+
+Создайте секрет в сервисе {{ lockbox-name }} и сохраните в нем логины и пароли пользователей, для которых будут созданы учетные записи в ОС Windows.
+
+{% include [userpass-warn](../../_tutorials/_tutorials_includes/secure-password-script/userpass-warn.md) %}
+
+{% list tabs group=instructions %}
+
+- Консоль управления {#console}
+
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+  1. Нажмите кнопку **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
+  1. В поле **{{ ui-key.yacloud.common.name }}** введите имя секрета: `win-secret`.
+  1. В поле **{{ ui-key.yacloud.lockbox.forms.title_kms-key }}** укажите ключ `win-secret-key`.
+  1. В блоке **{{ ui-key.yacloud.lockbox.label_version-dialog-title }}**:
+      * В поле **{{ ui-key.yacloud.lockbox.forms.label_key }}** введите логин администратора `Administrator`.
+      * В поле **{{ ui-key.yacloud.lockbox.forms.label_value }}** введите пароль для администратора.
+  1. При желании добавьте еще пользователей. Для этого нажмите кнопку **{{ ui-key.yacloud.lockbox.forms.button_add-pair }}** и введите логин и пароль для следующего пользователя.
+  1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
+
+- CLI {#cli}
+
+  1. Выполните команду:
+
+      ```bash
+      yc lockbox secret create \
+        --name win-secret \
+        --kms-key-id <идентификатор_ключа> \
+        --payload "[{'key': 'Administrator', 'text_value': '<пароль_администратора>'},{'key': 'user1', 'text_value': '<пароль_пользователя>'}]" \
+        --cloud-id <идентификатор_облака> \
+        --folder-id <идентификатор_каталога>
+      ```
+
+      Где:
+
+      * `--name` — имя секрета. Обязательный параметр.
+      * `--kms-key-id` — идентификатор ключа {{ kms-short-name }}.
+      * `--description` — описание секрета. Необязательный параметр.
+      * `--payload` — содержимое секрета в виде массива формата YAML или JSON.
+      * `--cloud-id` — [идентификатор облака](../../resource-manager/operations/cloud/get-id.md), в котором будет создан секрет.
+      * `--folder-id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором будет создан секрет.
+
+- API {#api}
+
+  Чтобы создать секрет, воспользуйтесь методом REST API [create](../../lockbox/api-ref/Secret/create.md) для ресурса [Secret](../../lockbox/api-ref/Secret/index.md) или вызовом gRPC API [SecretService/Create](../../lockbox/api-ref/grpc/Secret/create.md).
+
+{% endlist %}
+
+1. Назначьте сервисному аккаунту `win-secret-sa` [роль](../../iam/concepts/access-control/roles.md) `lockbox.payloadViewer`:
+
+   {% list tabs group=instructions %}
+
+   - Консоль управления {#console}
+
+     1. На странице секрета перейдите на вкладку **{{ ui-key.yacloud.common.label_access-rights }}**.
+     1. Перейдите на вкладку **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}**.
+     1. Найдите аккаунт `win-secret-sa` в списке и нажмите значок ![image](../../_assets/options.svg).
+     1. Нажмите кнопку **{{ ui-key.yacloud_components.acl.action.edit-roles }}**.
+     1. В открывшемся диалоге нажмите кнопку **Добавить роль** и выберите роль `lockbox.payloadViewer`.
+
+   - CLI {#cli}
+
+     Выполните команду:
+
+     ```bash
+     yc resource-manager folder add-access-binding <идентификатор_каталога> \
+       --role lockbox.payloadViewer \
+       --subject serviceAccount:<идентификатор_сервисного_аккаунта>
+     ```
+
+   - API {#api}
+
+   Чтобы назначить сервисному аккаунту роль на каталог, воспользуйтесь методом REST API [setAccessBindings](../../iam/api-ref/ServiceAccount/setAccessBindings.md) для ресурса [ServiceAccount](../../iam/api-ref/ServiceAccount/index.md) или вызовом gRPC API [ServiceAccountService/SetAccessBindings](../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md).
+
+   {% endlist %}
+
+## Создайте ВМ {#create-vm}
+
+Создайте ВМ с ОС Windows и учетными записями администратора и пользователей.
+
+1. Создайте файл `init.ps1` и сохраните в него код:
+
+    ```text
+    #ps1
+
+    # logging
+    Start-Transcript -Path "$ENV:SystemDrive\provision2.txt" -IncludeInvocationHeader -Force
+    "Bootstrap script started" | Write-Host
+
+    # SECRET'S ID:
+    $SecretID = "<secret_id>"
+
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+    $SecretURL = "https://payload.lockbox.{{ api-host }}/lockbox/v1/secrets/$SecretID/payload"
+
+    "Secret ID is $SecretID"
+    "Payload URL is $SecretURL"
+
+    $YCToken = (Invoke-RestMethod -Headers @{'Metadata-Flavor'='Google'} -Uri "http://169.254.169.254/computeMetadata/v1/instance/service-accounts/default/token").access_token
+    if (!$YCToken) {
+        throw "Service Account doesn't connected to VM. Please, add Service account with roles lockbox.payloadViewer and kms.keys.encrypterDecrypter to VM and try again."
+    }
+
+    # Creating parameters for REST-invokations
+    $Headers = @{
+        Authorization="Bearer $YCToken"
+    }
+
+    $Params = @{
+        Uri = $SecretURL
+        Method = "GET"
+        Headers = $Headers
+    }
+
+    # Getting secret via REST invoke
+    $Secret = Invoke-RestMethod @Params
+    $SecretAdministratorPlainTextPassword = $Secret.entries[0].textValue
+
+    # inserting value's from terraform
+    if (-not [string]::IsNullOrEmpty($SecretAdministratorPlainTextPassword)) {
+        "Set local administrator password" | Write-Host
+        $SecretAdministratorPassword = $SecretAdministratorPlainTextPassword | ConvertTo-SecureString -AsPlainText -Force
+        # S-1-5-21domain-500 is a well-known SID for Administrator
+        # https://docs.microsoft.com/en-us/troubleshoot/windows-server/identity/security-identifiers-in-windows
+        $Administrator = Get-LocalUser | Where-Object -Property "SID" -like "S-1-5-21-*-500"
+        $Administrator | Set-LocalUser -Password $SecretAdministratorPassword
+    }
+
+    # Creating new users if any
+    if($Secret.entries.count -gt 1) {
+        foreach($User in $Secret.entries[1..($Secret.entries.count-1)]){
+            $SecretUserPassword = $User.textValue | ConvertTo-SecureString -AsPlainText -Force
+            New-LocalUser -Name $User.key -Password $SecretUserPassword -FullName $User.key
+            Add-LocalGroupMember -Group Users -Member $User.key
+            Add-LocalGroupMember -Group "Remote Desktop Users" -Member $User.key
+        }
+    }
+
+    "Bootstrap script ended" | Write-Host
+    ```
+
+1. В файле `init.ps1` замените `<secret_id>` на реальный идентификатор секрета, в котором вы сохранили учетные записи пользователей.
+
+1. Создайте ВМ:
+
+   {% list tabs group=instructions %}
+
+   - Консоль управления {#console}
+
+     1. В [консоли управления]({{ link-console-main }}) откройте [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором будет создана ВМ.
+     1. Справа сверху нажмите кнопку **{{ ui-key.yacloud.iam.folder.dashboard.button_add }}** и выберите `{{ ui-key.yacloud.iam.folder.dashboard.value_compute }}`.
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_image }}** выберите [образ](../../compute/concepts/image.md) с ОС Windows.
+     1. В блоке **{{ ui-key.yacloud.k8s.node-groups.create.section_allocation-policy }}** выберите [зону доступности](../../overview/concepts/geo-scope.md), в которой будет находиться ВМ.
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.section_base }}** задайте имя ВМ, например, `win-test`.
+     1. В блоке **{{ ui-key.yacloud.compute.instances.create.field_access-advanced }}** укажите данные для доступа на ВМ:
+         * Выберите [сервисный аккаунт](../../iam/concepts/index.md#sa) `win-secret-sa`.
+         * Разрешите доступ к [серийной консоли](../../compute/concepts/serial-console.md).
+     1. В блоке **{{ ui-key.yacloud.common.metadata }}**:
+         * В поле **{{ ui-key.yacloud.component.key-values-input.label_key }}** укажите `user-data`.
+         * В поле **{{ ui-key.yacloud.component.key-values-input.label_value }}** вставьте содержимое файла `init.ps1`.
+     1. Нажмите кнопку **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
+
+   - CLI {#cli}
+
+     Выполните команду:
+
+     ```bash
+     yc compute instance create \
+       --name win-test \
+       --hostname windows10 \
+       --zone {{ region-id }}-a \
+       --create-boot-disk image-id=<идентификатор_образа> \
+       --cores 2 \
+       --core-fraction 100 \
+       --memory 4 \
+       --metadata-from-file user-data=init.ps1  \
+       --network-interface subnet-name=<имя_подсети>,nat-ip-version=ipv4 \
+       --service-account-name win-secret-sa \
+       --platform standard-v3
+     ```
+
+     Где:
+
+     * `image_id` — идентификатор образа с ОС Windows.
+     * `subnet_name` — имя подсети, в которой вы хотите разместить ВМ.
+
+     {% include [cli-metadata-variables-substitution-notice](../../_includes/compute/create/cli-metadata-variables-substitution-notice.md) %}
+
+   {% endlist %}
+
+
+## Авторизуйтесь в ОС Windows {#login-windows}
+
+{% include [login-windows](../../_tutorials/_tutorials_includes/secure-password-script/login-windows.md) %}
+
+
+## Как удалить созданные ресурсы {#clear-out}
+
+Чтобы перестать платить за созданные ресурсы:
+* [Удалите](../../compute/operations/vm-control/vm-delete.md) ВМ.
+* [Удалите](../../lockbox/operations/secret-delete.md) секрет.
+* [Удалите](../../kms/operations/key.md#delete) ключ.

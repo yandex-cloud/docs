@@ -9,18 +9,116 @@ keywords:
 
 This section presents settings for connection to the {{ mtr-name }} cluster using [command line tools](#cli-tools), from [graphical IDEs](#connection-ide) and [WebSQL](#websql). To learn how to connect from your application code, see [Connection string examples](#connection-strings).
 
+You can connect to a {{ mtr-name }} cluster with disabled [private access](../concepts/network.md#private-endpoint) only from the network the cluster resides in.
+
 {% note info %}
 
 If the connection requires a port, use port `{{ port-https }}`.
 
 {% endnote %}
 
+## Configuring security groups {#configuring-security-groups}
+
+{% include [trino-security-groups](../../_includes/managed-trino/security-groups.md) %}
+
+To connect to a {{ TR }} cluster from a {{ yandex-cloud }} VM, configure a security group for the VM you will use for connection. VM rule examples:
+
+* For incoming traffic:
+
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-ssh }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
+
+    This rule allows inbound connections to the VM over SSH.
+
+* For outbound traffic:
+
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-destination }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-destination-cidr }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-cidr-blocks }}**: `0.0.0.0/0`.
+
+    This rule allows all outgoing traffic, which enables you to both connect to the cluster and install any required utilities on your VM.
+
+### Security groups for {{ mgp-full-name }} {#security-groups-for-greenplum}
+
+To access the {{ GP }} cluster, the {{ TR }} connector uses the GPFDIST protocol:
+
+* {{ TR }} coordinators and workers send queries to the {{ GP }} master over TCP port {{ port-mgp }}.
+* {{ GP }} segments forward data to {{ TR }} workers over the GPFDIST TCP port in the 30078–30085 range.
+
+Data transmitted between the {{ GP }} and {{ TR }} clusters over the GPFDIST protocol is unencrypted. To secure your connection, configure security groups [in {{ mgp-name }}](#configuring-security-groups-greenplum) and, optionally, [in {{ mtr-name }}](#configuring-security-groups-trino).
+
+#### {{ mgp-name }} side setup {#configuring-security-groups-greenplum}
+
+{% list tabs group=traffic %}
+
+- Incoming traffic {#incoming}
+
+    * Rule for internal {{ GP }} cluster traffic:
+
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`.
+
+    * Rule for connections from a {{ TR }} cluster:
+
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mgp }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: Specify the {{ TR }} cluster security group.
+
+- Outgoing traffic {#outgoing}
+
+    * Rule for internal {{ GP }} cluster traffic:
+
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-any }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_any }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.value_sg-rule-sg-type-self }}`.
+
+    * Rule for connections to a {{ TR }} cluster:
+
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `30078-30085`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
+        * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: Specify the {{ TR }} cluster security group.
+
+{% endlist %}
+
+#### {{ mtr-name }} side setup {#configuring-security-groups-trino}
+
+To configure security group rules in {{ TR }}, invert the {{ GP }} rule settings. Setting up rules for a {{ TR }} cluster is optional, but this provides added security for your cluster.
+
+{% list tabs group=traffic %}
+
+- Incoming traffic {#incoming}
+
+    Rule for receiving data from {{ GP }} segments:
+
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `30078-30085`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: Specify the {{ GP }} cluster security group.
+
+- Outgoing traffic {#outgoing}
+
+    Rule for connections to a {{ GP }} master:
+
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-port-range }}**: `{{ port-mgp }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-protocol }}**: `{{ ui-key.yacloud.common.label_tcp }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-source }}**: `{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}`.
+    * **{{ ui-key.yacloud.vpc.network.security-groups.forms.field_sg-rule-sg-type }}**: Specify the {{ GP }} cluster security group.
+
+{% endlist %}
+
 ## Command line tools {#cli-tools}
 
 ### {{ TR }} CLI {#trino-cli}
 
 {% include [trino-cli-connect](../../_includes/managed-trino/trino-cli-connect.md) %}
-
 
 ## Connecting from graphical IDEs {#connection-ide}
 
@@ -43,6 +141,9 @@ Before connecting:
      1. Enter a name for the data source.
      1. Specify the connection settings on the **General** tab:
         * **Host**: `c-<cluster_ID>.trino.yandexcloud.net`.
+
+            {% include [private-endpoint](../../_includes/managed-trino/private-endpoint.md) %}
+
         * **Port**: `{{ port-https }}`.
         * **User**: `iam`.
         * **Password**: Previously created IAM token.
@@ -51,12 +152,15 @@ Before connecting:
 
 - DBeaver {#dbeaver}
 
-  1. Create a new database connection:
+  1. Create a new DB connection:
      1. In the **Database** menu, select **New connection**.
      1. Select **{{ TR }}** from the list.
      1. Click **Next**.
      1. Specify the connection settings on the **Main** tab:
         * **Host**: `c-<cluster_ID>.trino.yandexcloud.net`.
+
+            {% include [private-endpoint](../../_includes/managed-trino/private-endpoint.md) %}
+
         * **Port**: `{{ port-https }}`.
         * Under **Authentication**, specify:
             * Username: `iam`.
@@ -71,7 +175,7 @@ Before connecting:
 1. Open the [folder dashboard]({{ link-console-main }}).
 1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-trino }}**.
 1. Open your {{ mtr-name }} cluster.
-1. Go to **{{ ui-key.yacloud.mdb.cluster.switch_explore-websql }}**.
+1. Navigate to **{{ ui-key.yacloud.mdb.cluster.switch_explore-websql }}**.
 1. Click **{{ ui-key.yacloud.mdb.cluster.websql-connections.action_go-to-websql }}**.
 1. In the SQL query editor that opens, run the following query:
 
@@ -129,7 +233,9 @@ Before connecting:
           get_version()
       ```
 
-     You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+     {% include [private-endpoint](../../_includes/managed-trino/private-endpoint.md) %}
 
   1. Connecting:
 
@@ -274,7 +380,9 @@ Before connecting:
 
       ```
 
-      You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+      You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+      {% include [private-endpoint](../../_includes/managed-trino/private-endpoint.md) %}
 
   1. Building and connecting:
 
@@ -324,7 +432,9 @@ Before connecting:
     get_version();
     ```
 
-    You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+    You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+
+    {% include [private-endpoint](../../_includes/managed-trino/private-endpoint.md) %}
 
 {% endlist %}
 

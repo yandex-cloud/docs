@@ -11,7 +11,7 @@ To allow access to {{ sd-name }} resources, assign relevant roles from the list 
 
 For more information about role inheritance, see [Inheritance of access permissions](../../resource-manager/concepts/resources-hierarchy.md#access-rights-inheritance) in the {{ resmgr-name }} documentation.
 
-## Available service roles {#roles-list}
+## Roles this service has {#roles-list}
 
 {% include [roles-security-deck-general](../../_mermaid/roles/security-deck-general.md) %}
 

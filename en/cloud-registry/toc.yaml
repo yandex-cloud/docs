@@ -67,6 +67,16 @@ items:
             items:
               - name: Setting up PyPI
                 href: operations/pypi/installation.md
+              - name: Creating a Python package
+                href: operations/pypi/create.md
+              - name: Pushing a Python package to a registry
+                href: operations/pypi/push.md
+              - name: Pulling a Python package from a registry
+                href: operations/pypi/pull.md
+              - name: Deleting a Python package from a registry
+                href: operations/pypi/delete.md
+              - name: Examples of working with PyPI registries
+                href: operations/pypi/examples.md
           - name: Binary artifact
             items:
               - name: Pushing a binary artifact to a registry
@@ -125,6 +135,8 @@ items:
             href: cli-ref/artifact/delete.md
           - name: get
             href: cli-ref/artifact/get.md
+          - name: get-by-path
+            href: cli-ref/artifact/get-by-path.md
           - name: list-access-bindings
             href: cli-ref/artifact/list-access-bindings.md
           - name: remove-access-binding
@@ -159,6 +171,8 @@ items:
                 href: cli-ref/registry/lifecycle-policy/create.md
               - name: delete
                 href: cli-ref/registry/lifecycle-policy/delete.md
+              - name: dry-run
+                href: cli-ref/registry/lifecycle-policy/dry-run.md
               - name: get
                 href: cli-ref/registry/lifecycle-policy/get.md
               - name: list
@@ -183,6 +197,82 @@ items:
             href: cli-ref/registry/set-ip-permissions.md
           - name: update
             href: cli-ref/registry/update.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: artifact
+            items:
+              - name: Overview
+                href: cli-ref/v0/artifact/index.md
+              - name: add-access-binding
+                href: cli-ref/v0/artifact/add-access-binding.md
+              - name: delete
+                href: cli-ref/v0/artifact/delete.md
+              - name: get
+                href: cli-ref/v0/artifact/get.md
+              - name: get-by-path
+                href: cli-ref/v0/artifact/get-by-path.md
+              - name: list-access-bindings
+                href: cli-ref/v0/artifact/list-access-bindings.md
+              - name: remove-access-binding
+                href: cli-ref/v0/artifact/remove-access-binding.md
+              - name: set-access-bindings
+                href: cli-ref/v0/artifact/set-access-bindings.md
+          - name: configure-docker
+            href: cli-ref/v0/configure-docker.md
+          - name: registry
+            items:
+              - name: Overview
+                href: cli-ref/v0/registry/index.md
+              - name: add-access-binding
+                href: cli-ref/v0/registry/add-access-binding.md
+              - name: add-ip-permissions
+                href: cli-ref/v0/registry/add-ip-permissions.md
+              - name: create
+                href: cli-ref/v0/registry/create.md
+              - name: delete
+                href: cli-ref/v0/registry/delete.md
+              - name: force-delete
+                href: cli-ref/v0/registry/force-delete.md
+              - name: get
+                href: cli-ref/v0/registry/get.md
+              - name: lifecycle-policy
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/registry/lifecycle-policy/index.md
+                  - name: change-state
+                    href: cli-ref/v0/registry/lifecycle-policy/change-state.md
+                  - name: create
+                    href: cli-ref/v0/registry/lifecycle-policy/create.md
+                  - name: delete
+                    href: cli-ref/v0/registry/lifecycle-policy/delete.md
+                  - name: dry-run
+                    href: cli-ref/v0/registry/lifecycle-policy/dry-run.md
+                  - name: get
+                    href: cli-ref/v0/registry/lifecycle-policy/get.md
+                  - name: list
+                    href: cli-ref/v0/registry/lifecycle-policy/list.md
+                  - name: update
+                    href: cli-ref/v0/registry/lifecycle-policy/update.md
+              - name: list
+                href: cli-ref/v0/registry/list.md
+              - name: list-access-bindings
+                href: cli-ref/v0/registry/list-access-bindings.md
+              - name: list-artifacts
+                href: cli-ref/v0/registry/list-artifacts.md
+              - name: list-ip-permissions
+                href: cli-ref/v0/registry/list-ip-permissions.md
+              - name: remove-access-binding
+                href: cli-ref/v0/registry/remove-access-binding.md
+              - name: remove-ip-permissions
+                href: cli-ref/v0/registry/remove-ip-permissions.md
+              - name: set-access-bindings
+                href: cli-ref/v0/registry/set-access-bindings.md
+              - name: set-ip-permissions
+                href: cli-ref/v0/registry/set-ip-permissions.md
+              - name: update
+                href: cli-ref/v0/registry/update.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference

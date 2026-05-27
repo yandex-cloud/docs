@@ -12,6 +12,10 @@ Yes. You can connect to {{ CH }} cluster hosts:
 
 SSH connections are not supported.
 
+#### Can I specify a custom port for inter-server communication when running distributed queries? {#connect-port}
+
+{{ mch-short-name }} uses the native/TLS protocol on port 9440 for inter-server communication when running distributed queries. There is no option to change the protocol or port.
+
 #### Why cannot I connect to a host from the internet? {#fail-connection}
 
 Most likely, no public access is enabled for your cluster, so you can only connect to it from a VM in {{ yandex-cloud }}. You can only request public access when [creating a new host](../../managed-clickhouse/concepts/network.md#public-access-to-a-host) in your cluster.

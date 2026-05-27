@@ -91,14 +91,14 @@ The infrastructure support costs include:
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the folder where you want to create a function.
+  1. In the [management console]({{ link-console-main }}), select the folder where you want to create your function.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
   1. Create a function:
      1. Click **{{ ui-key.yacloud.serverless-functions.list.button_create }}**.
      1. In the window that opens, enter `function-restart-vms` as the function name.
      1. Click **{{ ui-key.yacloud.common.create }}**.
   1. Create a [function version](../../functions/concepts/function.md#version):
-     1. Select `nodejs18` as the runtime environment, disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+     1. Select `nodejs22` as the runtime environment, disable **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}**, and click **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
      1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** field, select `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
      1. In the **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}** field, click **Attach file** and select the `function-js.zip` archive you created earlier.
      1. Specify the entry point: `index.handler`.
@@ -138,7 +138,7 @@ The infrastructure support costs include:
        --function-name function-restart-vms \
        --memory=128m \
        --execution-timeout=3s \
-       --runtime=nodejs18 \
+       --runtime=nodejs22 \
        --entrypoint=index.handler \
        --service-account-id=<service_account_ID> \
        --environment FOLDER_ID=<folder_ID>,INSTANCE_ID=<VM_ID> \
@@ -149,7 +149,7 @@ The infrastructure support costs include:
      Where:
      * `--function-name`: Name of the function whose version you are creating.
      * `--memory`: Amount of RAM.
-     * `--execution-timeout`: Maximum function running time before timeout.
+     * `--execution-timeout`: Maximum function runtime before timeout.
      * `--runtime`: Runtime environment.
      * `--entrypoint`: Entry point.
      * `--service-account-id`: [ID](../../iam/operations/sa/get-id.md) of the service account with permissions to invoke the function.
@@ -180,7 +180,7 @@ The infrastructure support costs include:
      resource "yandex_function" "function-restart-vms" {
        name               = "function-restart-vms"
        user_hash          = "first function"
-       runtime            = "nodejs18"
+       runtime            = "nodejs22"
        entrypoint         = "index.handler"
        memory             = "128"
        execution_timeout  = "3"
@@ -198,7 +198,7 @@ The infrastructure support costs include:
 
      Where:
      * `name`: Function name.
-     * `user_hash`: Any string to identify the function version.
+     * `user_hash`: User-defined string that identifies the function version.
      * `runtime`: Function [runtime environment](../../functions/concepts/runtime/index.md).
      * `entrypoint`: Entry point.
      * `memory`: Amount of memory allocated for the function, in MB.
@@ -212,16 +212,16 @@ The infrastructure support costs include:
 
      For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
   1. Make sure the configuration files are correct.
-     1. In the command line, navigate to the directory where you created the configuration file.
-     1. Run a check using this command:
+     1. In the terminal, navigate to the directory where you created your configuration file.
+     1. Run a check using the following command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
+     If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors.
   1. Deploy the cloud resources.
-     1. If the configuration does not contain any errors, run this command:
+     1. If the configuration is correct, run this command:
 
         ```bash
         terraform apply
@@ -268,7 +268,7 @@ The infrastructure support costs include:
   1. In the left-hand panel, select ![image](../../_assets/console-icons/gear-play.svg) **{{ ui-key.yacloud.serverless-functions.switch_list-triggers }}**.
   1. Click **{{ ui-key.yacloud.serverless-functions.triggers.list.button_create }}**.
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_base }}**:
-     * Enter a name for the trigger: `timer`.
+     * Enter the trigger name: `timer`.
      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_type }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_timer }}`.
      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_invoke }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.label_function }}`.
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_timer }}**, enter `* * ? * * *` or select `{{ ui-key.yacloud.common.button_cron-1min }}`.
@@ -333,16 +333,16 @@ The infrastructure support costs include:
 
      For more information about resource parameters in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/function_trigger).
   1. Make sure the configuration files are correct.
-     1. In the command line, navigate to the directory where you created the configuration file.
-     1. Run a check using this command:
+     1. In the terminal, navigate to the directory where you created your configuration file.
+     1. Run a check using the following command:
 
         ```bash
         terraform plan
         ```
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
+     If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors.
   1. Deploy the cloud resources.
-     1. If the configuration does not contain any errors, run this command:
+     1. If the configuration is correct, run this command:
 
         ```bash
         terraform apply

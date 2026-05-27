@@ -3,7 +3,7 @@ title: uploadPart method. {{ objstorage-name }} API (S3)
 description: The `uploadPart` method in the {{ objstorage-name }} API (S3) saves a part of the object. Users number object parts themselves and transmit these numbers to {{ objstorage-name }}. The number uniquely identifies the part and determines its position in the general sequence. The number is an integer from 1 to 10,000 inclusive.
 ---
 
-# uploadPart method
+# Object Storage API, Amazon S3-compatible REST: UploadPart
 
 Saves a part of an object.
 
@@ -31,7 +31,7 @@ Parameter | Description
 `key` | Object key.
 
 
-### Request parameters {#request-parameters}
+### Query parameters {#request-parameters}
 
 Parameter | Description
 ----- | -----
@@ -68,5 +68,11 @@ Error | Description | HTTP code
 ----- | ----- | -----
 `NoSuchUpload` | The specified upload does not exist. This may happen if you specify a wrong upload ID or the upload was completed or deleted. | 404 Not Found
 `EntityTooSmall` | The part is too small.<br/><br/>The part to upload must be at least 5 MB. | 400 Bad Request
+
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/multipart.md)
+
+* [Uploading the component parts of an object into a bucket](../../../operations/objects/multipart-upload.md#upload-parts)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

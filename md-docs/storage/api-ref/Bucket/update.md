@@ -1,0 +1,894 @@
+# Object Storage API, REST: Bucket.Update
+
+Updates the specified bucket.
+In most cases, `storage.editor` role (see [documentation](../../security/index.md#storage-editor)) should be enough
+to update a bucket, subject to its [policy](../../concepts/policy.md).
+
+## HTTP request
+
+```
+PATCH https://storage.api.cloud.yandex.net/storage/v1/buckets/{name}
+```
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Required field. Name of the bucket to update.
+The name cannot be updated.
+To get the bucket name, make a [BucketService.List](list.md#List) request. ||
+|#
+
+## Body parameters {#yandex.cloud.storage.v1.UpdateBucketRequest}
+
+```json
+{
+  "updateMask": "string",
+  "anonymousAccessFlags": {
+    "read": "boolean",
+    "list": "boolean",
+    "configRead": "boolean"
+  },
+  "defaultStorageClass": "string",
+  "maxSize": "string",
+  "cors": [
+    {
+      "id": "string",
+      "allowedMethods": [
+        "string"
+      ],
+      "allowedHeaders": [
+        "string"
+      ],
+      "allowedOrigins": [
+        "string"
+      ],
+      "exposeHeaders": [
+        "string"
+      ],
+      "maxAgeSeconds": "string"
+    }
+  ],
+  "websiteSettings": {
+    "index": "string",
+    "error": "string",
+    "redirectAllRequests": {
+      "protocol": "string",
+      "hostname": "string"
+    },
+    "routingRules": [
+      {
+        "condition": {
+          "httpErrorCodeReturnedEquals": "string",
+          "keyPrefixEquals": "string"
+        },
+        "redirect": {
+          "hostname": "string",
+          "httpRedirectCode": "string",
+          "protocol": "string",
+          "replaceKeyPrefixWith": "string",
+          "replaceKeyWith": "string"
+        }
+      }
+    ]
+  },
+  "versioning": "string",
+  "lifecycleRules": [
+    {
+      "id": "string",
+      "enabled": "boolean",
+      "filter": {
+        "prefix": "string",
+        "objectSizeGreaterThan": "string",
+        "objectSizeLessThan": "string",
+        "tag": {
+          "key": "string",
+          "value": "string"
+        },
+        "andOperator": {
+          "prefix": "string",
+          "objectSizeGreaterThan": "string",
+          "objectSizeLessThan": "string",
+          "tag": [
+            {
+              "key": "string",
+              "value": "string"
+            }
+          ]
+        }
+      },
+      "expiration": {
+        "date": "string",
+        "days": "string",
+        "expiredObjectDeleteMarker": "boolean"
+      },
+      "transitions": [
+        {
+          "date": "string",
+          "days": "string",
+          "storageClass": "string"
+        }
+      ],
+      "abortIncompleteMultipartUpload": {
+        "daysAfterExpiration": "string"
+      },
+      "noncurrentExpiration": {
+        "noncurrentDays": "string"
+      },
+      "noncurrentTransitions": [
+        {
+          "noncurrentDays": "string",
+          "storageClass": "string"
+        }
+      ],
+      "noncurrentDeleteMarkers": {
+        "noncurrentDays": "string"
+      }
+    }
+  ],
+  "policy": "object",
+  "acl": {
+    "grants": [
+      {
+        "permission": "string",
+        "grantType": "string",
+        "granteeId": "string"
+      }
+    ]
+  },
+  "tags": [
+    {
+      "key": "string",
+      "value": "string"
+    }
+  ],
+  "objectLock": {
+    "status": "string",
+    "defaultRetention": {
+      // Includes only one of the fields `days`, `years`
+      "days": "string",
+      "years": "string",
+      // end of the list of possible fields
+      "mode": "string"
+    }
+  },
+  "encryption": {
+    "rules": [
+      {
+        "kmsMasterKeyId": "string",
+        "sseAlgorithm": "string"
+      }
+    ]
+  },
+  "allowedPrivateEndpoints": {
+    "enabled": "boolean",
+    "privateEndpoints": [
+      "string"
+    ],
+    "forceCloudConsoleAccess": "boolean"
+  },
+  "disabledStatickeyAuth": "boolean"
+}
+```
+
+#|
+||Field | Description ||
+|| updateMask | **string** (field-mask)
+
+Required field. A comma-separated names off ALL fields to be updated.
+Only the specified fields will be changed. The others will be left untouched.
+If the field is specified in `` updateMask `` and no value for that field was sent in the request,
+the field's value will be reset to the default. The default value for most fields is null or 0.
+
+If `` updateMask `` is not sent in the request, all fields' values will be updated.
+Fields specified in the request will be updated to provided values.
+The rest of the fields will be reset to the default. ||
+|| anonymousAccessFlags | **[AnonymousAccessFlags](#yandex.cloud.storage.v1.AnonymousAccessFlags)**
+
+Flags for configuring public (anonymous) access to the bucket's content and settings.
+For details, see [documentation](../../concepts/bucket.md#bucket-access). ||
+|| defaultStorageClass | **string**
+
+Default storage class for objects in the bucket. Supported classes are standard storage (`STANDARD`), cold storage
+(`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms), and ice storage (`ICE` and `GLACIER` are synonyms).
+For details, see [documentation](../../concepts/storage-class.md). ||
+|| maxSize | **string** (int64)
+
+Maximum size of the bucket, in bytes.
+For details, see [documentation](../../operations/buckets/limit-max-volume.md). ||
+|| cors[] | **[CorsRule](#yandex.cloud.storage.v1.CorsRule)**
+
+List of rules for cross-domain requests to objects in the bucket (cross-origin resource sharing, CORS).
+For details, see [documentation](../../concepts/cors.md). ||
+|| websiteSettings | **[WebsiteSettings](#yandex.cloud.storage.v1.WebsiteSettings)**
+
+Configuration for hosting a static website in the bucket.
+For details, see [documentation](../../concepts/hosting.md). ||
+|| versioning | **enum** (Versioning)
+
+Bucket versioning status.
+For details, see [documentation](../../concepts/versioning.md).
+
+- `VERSIONING_DISABLED`: The bucket is unversioned, i.e. versioning has never been enabled for the bucket, including at its creation.
+Objects that are stored in the bucket have a version ID of `null`.
+To enable versioning, change status to `VERSIONING_ENABLED` via a [BucketService.Update](#Update) request. Note that this
+action is irreversible, and a bucket with versioning enabled can never return to `VERSIONING_DISABLED` state.
+- `VERSIONING_ENABLED`: Bucket versioning is enabled, i.e. all new objects are versioned and given a unique version ID, and objects that
+already existed at the time versioning was enabled will be versioned and given a unique version ID when modified
+by future requests.
+To suspend versioning, change status to `VERSIONING_SUSPENDED` via a [BucketService.Update](#Update) request. You cannot
+disable versioning altogether for a bucket that already had it enabled; objects that had version IDs will keep
+them.
+- `VERSIONING_SUSPENDED`: Bucket versioning is suspended, i.e. new objects are not versioned, but objects that already existed at the time
+versioning was suspended are still versioned and keep their version IDs.
+To resume versioning, change status to `VERSIONING_ENABLED` via a [BucketService.Update](#Update) request. ||
+|| lifecycleRules[] | **[LifecycleRule](#yandex.cloud.storage.v1.LifecycleRule)**
+
+List of object lifecycle rules for the bucket.
+For details, see [documentation](../../concepts/lifecycles.md). ||
+|| policy | **object**
+
+Bucket policies that set permissions for actions with the bucket, its objects, and groups of objects.
+For details, see [documentation](../../concepts/policy.md). ||
+|| acl | **[ACL](#yandex.cloud.storage.v1.ACL)**
+
+Access control list (ACL) of the bucket.
+For details, see [documentation](../../concepts/acl.md). ||
+|| tags[] | **[Tag](#yandex.cloud.storage.v1.Tag)**
+
+List of tags for the bucket.
+For details, see [documentation](../../../resource-manager/concepts/labels.md). ||
+|| objectLock | **[ObjectLock](#yandex.cloud.storage.v1.ObjectLock)**
+
+Configuration for object lock on the bucket.
+For details about the concept, see [documentation](../../concepts/object-lock.md). ||
+|| encryption | **[Encryption](#yandex.cloud.storage.v1.Encryption)**
+
+Configuration for bucket's encryption.
+For details, see [documentation](../../concepts/encryption.md) ||
+|| allowedPrivateEndpoints | **[BucketAllowedPrivateEndpoints](#yandex.cloud.storage.v1.BucketAllowedPrivateEndpoints)**
+
+requires permission s3:PutBucketAllowedPrivateEndpoints ||
+|| disabledStatickeyAuth | **boolean**
+
+An option to disable static key auth for a bucket.
+requires permission s3:UpdateBucketStaticKeyAuthSettings ||
+|#
+
+## AnonymousAccessFlags {#yandex.cloud.storage.v1.AnonymousAccessFlags}
+
+#|
+||Field | Description ||
+|| read | **boolean**
+
+Specifies whether public (anonymous) access to read objects in the bucket is enabled. ||
+|| list | **boolean**
+
+Specifies whether public (anonymous) access to the list of objects in the bucket is enabled. ||
+|| configRead | **boolean**
+
+Specifies whether public (anonymous) access to read [CORS](../../concepts/cors.md),
+[static website hosting](../../concepts/hosting.md), and
+[object lifecycles](../../concepts/lifecycles.md) settings of the bucket is enabled. ||
+|#
+
+## CorsRule {#yandex.cloud.storage.v1.CorsRule}
+
+A CORS rule resource.
+For details about the concept, see [documentation](../../concepts/cors.md).
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the CORS rule. ||
+|| allowedMethods[] | **enum** (Method)
+
+List of HTTP methods allowed by the CORS rule.
+When a client sends a CORS-preflight `options` request with the `Access-Control-Request-Method` header (see
+[S3-compatible API reference](../../s3/api-ref/object/options.md)), the specified method is checked against
+the list of the allowed methods. If there is a match, all the allowed methods are listed in the
+`Access-Control-Allow-Methods` header of the response.
+
+The number of elements must be greater than 0.
+
+- `METHOD_GET`: HTTP `GET` method.
+- `METHOD_HEAD`: HTTP `HEAD` method.
+- `METHOD_POST`: HTTP `POST` method.
+- `METHOD_PUT`: HTTP `PUT` method.
+- `METHOD_DELETE`: HTTP `DELETE` method. ||
+|| allowedHeaders[] | **string**
+
+List of HTTP headers allowed by the CORS rule.
+When a client sends a CORS-preflight `options` request with the `Access-Control-Request-Headers` header (see
+[S3-compatible API reference](../../s3/api-ref/object/options.md)), the specified headers are checked against
+the list of the allowed headers. If there is a match, the specified headers that are allowed are listed in the
+`Access-Control-Allow-Headers` header of the response.
+Each string in the list can contain at most one `*` wildcard character that matches 0 or more characters.
+For example, `x-amz-*` value will allow all Amazon S3-compatible headers. ||
+|| allowedOrigins[] | **string**
+
+List of request origins allowed by the CORS rule.
+Each string in the list can contain at most one `*` wildcard character that matches 0 or more characters.
+For example, `http://*.example.com` value will allow requests originating from all subdomains of `example.com`.
+
+The number of elements must be greater than 0. ||
+|| exposeHeaders[] | **string**
+
+List of headers contained in responses to CORS requests that can be accessed by applications. ||
+|| maxAgeSeconds | **string** (int64)
+
+Time in seconds that a client can cache the response to a CORS-preflight request as identified by the
+object requested, the HTTP method, and the origin. ||
+|#
+
+## WebsiteSettings {#yandex.cloud.storage.v1.WebsiteSettings}
+
+#|
+||Field | Description ||
+|| index | **string**
+
+Key of the index page object that is returned when a response is made to the root of the website.
+Either `index` or `redirectAllRequests` must be specified in order for the bucket to host a static website.
+If specified, the index page object must be located in the root of the bucket. ||
+|| error | **string**
+
+Key of the error page object that is returned when an error occurs. ||
+|| redirectAllRequests | **[Scheme](#yandex.cloud.storage.v1.WebsiteSettings.Scheme)**
+
+Configuration for redirecting all requests sent to the website.
+Either `redirectAllRequests` or `index` must be specified in order for the bucket to host a static website.
+If `redirectAllRequests` is specified, it must be the only field in [Bucket.websiteSettings](list.md#yandex.cloud.storage.v1.Bucket). ||
+|| routingRules[] | **[RoutingRule](#yandex.cloud.storage.v1.WebsiteSettings.RoutingRule)**
+
+List of redirect rules. ||
+|#
+
+## Scheme {#yandex.cloud.storage.v1.WebsiteSettings.Scheme}
+
+A configuration resource for redirecting all requests sent to the website.
+
+#|
+||Field | Description ||
+|| protocol | **enum** (Protocol)
+
+Scheme of the redirect URI.
+
+- `PROTOCOL_HTTP`: `http` scheme.
+- `PROTOCOL_HTTPS`: `https` scheme. ||
+|| hostname | **string**
+
+Hostname of the redirect URI. ||
+|#
+
+## RoutingRule {#yandex.cloud.storage.v1.WebsiteSettings.RoutingRule}
+
+List of redirect rules.
+
+#|
+||Field | Description ||
+|| condition | **[Condition](#yandex.cloud.storage.v1.WebsiteSettings.Condition)**
+
+Redirect condition. ||
+|| redirect | **[Redirect](#yandex.cloud.storage.v1.WebsiteSettings.Redirect)**
+
+Redirect instructions. ||
+|#
+
+## Condition {#yandex.cloud.storage.v1.WebsiteSettings.Condition}
+
+#|
+||Field | Description ||
+|| httpErrorCodeReturnedEquals | **string**
+
+HTTP status code (number only) that must match for the redirect to apply. ||
+|| keyPrefixEquals | **string**
+
+Prefix of the object key from which requests are redirected. ||
+|#
+
+## Redirect {#yandex.cloud.storage.v1.WebsiteSettings.Redirect}
+
+#|
+||Field | Description ||
+|| hostname | **string**
+
+Hostname of the redirect URI. ||
+|| httpRedirectCode | **string**
+
+HTTP status code of the redirect response.
+Default value: `"301"`.
+
+Value must match the regular expression ``` 3(0[1-9]|[1-9][0-9]) ```. ||
+|| protocol | **enum** (Protocol)
+
+Scheme of the redirect URI.
+
+- `PROTOCOL_HTTP`: `http` scheme.
+- `PROTOCOL_HTTPS`: `https` scheme. ||
+|| replaceKeyPrefixWith | **string**
+
+Substitution for the prefix of the object key specified in [Condition.keyPrefixEquals](#yandex.cloud.storage.v1.WebsiteSettings.Condition).
+At most one of `replaceKeyPrefixWith` and `replaceKeyWith` can be specified. ||
+|| replaceKeyWith | **string**
+
+New object key.
+At most one of `replaceKeyWith` and `replaceKeyPrefixWith` can be specified. ||
+|#
+
+## LifecycleRule {#yandex.cloud.storage.v1.LifecycleRule}
+
+An object lifecycle rule resource for the bucket.
+For details about the concept, see [documentation](../../concepts/lifecycles.md).
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the rule. Provided by the client or generated at creation time. ||
+|| enabled | **boolean**
+
+Indicates whether the rule is in effect. ||
+|| filter | **[RuleFilter](#yandex.cloud.storage.v1.LifecycleRule.RuleFilter)**
+
+Filter that identifies the objects to which the rule applies.
+If not specified, the rule applies to all objects in the bucket. ||
+|| expiration | **[Expiration](#yandex.cloud.storage.v1.LifecycleRule.Expiration)**
+
+Expiration rule.
+The expiration of an object is described as follows.
+For the unversioned bucket ([Bucket.versioning](list.md#yandex.cloud.storage.v1.Bucket) is `VERSIONING_DISABLED`), the object is deleted and cannot be
+recovered.
+For the bucket with versioning enabled ([Bucket.versioning](list.md#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`), the current version of the
+object (if it exists and is not a delete marker) is retained as a non-current version, and a delete marker becomes
+the current version of the object.
+For the bucket with versioning suspended ([Bucket.versioning](list.md#yandex.cloud.storage.v1.Bucket) is `VERSIONING_SUSPENDED`), the current version of
+the object is retained as a non-current version if it is not a delete marker, or is removed otherwise, and a
+delete marker becomes the current version of the object. ||
+|| transitions[] | **[Transition](#yandex.cloud.storage.v1.LifecycleRule.Transition)**
+
+List of transition rules.
+The transition of an object is described as follows.
+For the unversioned bucket ([Bucket.versioning](list.md#yandex.cloud.storage.v1.Bucket) is `VERSIONING_DISABLED`), the object is transitioned to the
+specified storage class.
+For the bucket with versioning enabled ([Bucket.versioning](list.md#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`) or suspended
+(`VERSIONING_SUSPENDED`), the current version of the object is transitioned to the specified storage class. ||
+|| abortIncompleteMultipartUpload | **[AfterDays](#yandex.cloud.storage.v1.LifecycleRule.AfterDays)**
+
+Configuration for aborting incomplete [multipart uploads](../../concepts/multipart.md). ||
+|| noncurrentExpiration | **[NoncurrentExpiration](#yandex.cloud.storage.v1.LifecycleRule.NoncurrentExpiration)**
+
+Expiration rule for non-current versions of objects in a bucket with versioning enabled ([Bucket.versioning](list.md#yandex.cloud.storage.v1.Bucket) is
+`VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`).
+At expiration, the non-current version of the object is deleted and cannot be recovered. ||
+|| noncurrentTransitions[] | **[NoncurrentTransition](#yandex.cloud.storage.v1.LifecycleRule.NoncurrentTransition)**
+
+List of transition rules for non-current versions of objects in a bucket with versioning enabled
+([Bucket.versioning](list.md#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`).
+At transition, the non-current version of the object is transitioned to the specified storage class. ||
+|| noncurrentDeleteMarkers | **[NoncurrentDeleteMarkers](#yandex.cloud.storage.v1.LifecycleRule.NoncurrentDeleteMarkers)**
+
+Expiration rule for non-current delete markers of an objects in a bucket with versioning
+enabled ([Bucket.versioning](list.md#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`).
+Works in the same way as noncurrent_expiration rule, but only for delete markers.
+At expiration, the non-current delete marker of the object is deleted and cannot be recovered. ||
+|#
+
+## RuleFilter {#yandex.cloud.storage.v1.LifecycleRule.RuleFilter}
+
+#|
+||Field | Description ||
+|| prefix | **string**
+
+Key prefix that the object must have in order for the rule to apply. ||
+|| objectSizeGreaterThan | **string** (int64)
+
+Size that the object must be greater. ||
+|| objectSizeLessThan | **string** (int64)
+
+Size that the object must be less t. ||
+|| tag | **[Tag](#yandex.cloud.storage.v1.Tag)**
+
+Tags that the object's tag set must have for the rule to apply. ||
+|| andOperator | **[And](#yandex.cloud.storage.v1.LifecycleRule.RuleFilter.And)**
+
+Apply a logical AND to all of the predicates configured inside the And operator. ||
+|#
+
+## Tag {#yandex.cloud.storage.v1.Tag}
+
+#|
+||Field | Description ||
+|| key | **string**
+
+Key of the bucket tag. ||
+|| value | **string**
+
+Value of the bucket tag. ||
+|#
+
+## And {#yandex.cloud.storage.v1.LifecycleRule.RuleFilter.And}
+
+#|
+||Field | Description ||
+|| prefix | **string**
+
+Key prefix that the object must have in order for the rule to apply. ||
+|| objectSizeGreaterThan | **string** (int64)
+
+Size that the object must be greater. ||
+|| objectSizeLessThan | **string** (int64)
+
+Size that the object must be less than. ||
+|| tag[] | **[Tag](#yandex.cloud.storage.v1.Tag)**
+
+Tags that the object's tag set must have for the rule to apply. ||
+|#
+
+## Expiration {#yandex.cloud.storage.v1.LifecycleRule.Expiration}
+
+#|
+||Field | Description ||
+|| date | **string** (date-time)
+
+Specific date of object expiration.
+The rule continues to apply even after the date has passed, i.e. any new objects created in the bucket expire
+immediately.
+Exactly one of `date`, `days`, and `expiredObjectDeleteMarker` fields can be specified.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| days | **string** (int64)
+
+Time period, in number of days from the creation or modification of the object, after which an object expires.
+Exactly one of `days`, `date`, and `expiredObjectDeleteMarker` fields can be specified. ||
+|| expiredObjectDeleteMarker | **boolean**
+
+Indicates whether a delete marker of an object with no non-current versions (referred to as an expired object
+delete marker) is removed at the object's expiration.
+Exactly one of `expiredObjectDeleteMarker`, `date`, and `days` fields can be specified. ||
+|#
+
+## Transition {#yandex.cloud.storage.v1.LifecycleRule.Transition}
+
+List of transition rules.
+The transition of an object is described as follows.
+For the unversioned bucket ([Bucket.versioning](list.md#yandex.cloud.storage.v1.Bucket) is `VERSIONING_DISABLED`), the object is transitioned to the
+specified storage class.
+For the bucket with versioning enabled ([Bucket.versioning](list.md#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`) or suspended
+(`VERSIONING_SUSPENDED`), the current version of the object is transitioned to the specified storage class.
+
+#|
+||Field | Description ||
+|| date | **string** (date-time)
+
+Specific date of object transition.
+The rule continues to apply even after the date has passed, i.e. any new objects created in the bucket are
+transitioned immediately.
+At most one of `date` and `days` fields can be specified.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| days | **string** (int64)
+
+Time period, in number of days from the creation or modification of the object, after which an object is
+transitioned.
+At most one of `days` and `date` fields can be specified. ||
+|| storageClass | **string**
+
+Required field. Storage class to which an object is transitioned from standard storage.
+The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold
+to standard storage and transitions to or from ice storage are not allowed. ||
+|#
+
+## AfterDays {#yandex.cloud.storage.v1.LifecycleRule.AfterDays}
+
+#|
+||Field | Description ||
+|| daysAfterExpiration | **string** (int64)
+
+Time period, in number of days from the start of the multipart upload, after which the incomplete upload is
+aborted. ||
+|#
+
+## NoncurrentExpiration {#yandex.cloud.storage.v1.LifecycleRule.NoncurrentExpiration}
+
+#|
+||Field | Description ||
+|| noncurrentDays | **string** (int64)
+
+Time period, in number of days since the version of an object was classified as non-current, after which the
+version expires. ||
+|#
+
+## NoncurrentTransition {#yandex.cloud.storage.v1.LifecycleRule.NoncurrentTransition}
+
+List of transition rules for non-current versions of objects in a bucket with versioning enabled
+([Bucket.versioning](list.md#yandex.cloud.storage.v1.Bucket) is `VERSIONING_ENABLED`) or suspended (`VERSIONING_SUSPENDED`).
+At transition, the non-current version of the object is transitioned to the specified storage class.
+
+#|
+||Field | Description ||
+|| noncurrentDays | **string** (int64)
+
+Time period, in number of days since the version of an object was classified as non-current, after which the
+version is transitioned. ||
+|| storageClass | **string**
+
+Required field. Storage class to which a non-current version of an object is transitioned from standard storage.
+The only supported class is cold storage (`COLD`, `STANDARD_IA`, `NEARLINE` all synonyms). Transitions from cold
+to standard storage and transitions to or from ice storage are not allowed. ||
+|#
+
+## NoncurrentDeleteMarkers {#yandex.cloud.storage.v1.LifecycleRule.NoncurrentDeleteMarkers}
+
+#|
+||Field | Description ||
+|| noncurrentDays | **string** (int64)
+
+Time period, in number of days since the version of a delete marker was classified as non-current, after which
+the delete marker expires. ||
+|#
+
+## ACL {#yandex.cloud.storage.v1.ACL}
+
+#|
+||Field | Description ||
+|| grants[] | **[Grant](#yandex.cloud.storage.v1.ACL.Grant)**
+
+List of permissions granted and the grantees. ||
+|#
+
+## Grant {#yandex.cloud.storage.v1.ACL.Grant}
+
+A grant resource, used to specify the permission granted and the grantee.
+
+#|
+||Field | Description ||
+|| permission | **enum** (Permission)
+
+Required field. Permission granted by the grant.
+
+- `PERMISSION_FULL_CONTROL`: Allows grantee the `PERMISSION_WRITE`, `PERMISSION_WRITE_ACP`, `PERMISSION_READ`, and `PERMISSION_READ_ACP`
+on the bucket.
+Maps to `x-amz-grant-full-control` header for [bucketPutAcl](../../s3/api-ref/acl/bucketput.md) method of
+Amazon S3-compatible HTTP API.
+- `PERMISSION_WRITE`: Allows grantee to create new objects in the bucket. For the bucket and object owners of existing objects, also
+allows deletions and overwrites of those objects.
+Maps to `x-amz-grant-write` header for [bucketPutAcl](../../s3/api-ref/acl/bucketput.md) method of Amazon
+S3-compatible HTTP API.
+- `PERMISSION_WRITE_ACP`: Allows grantee to write the ACL for the bucket.
+Maps to `x-amz-grant-write-acp` header for [bucketPutAcl](../../s3/api-ref/acl/bucketput.md) method of
+Amazon S3-compatible HTTP API.
+- `PERMISSION_READ`: Allows grantee to list the objects in the bucket.
+Maps to `x-amz-grant-read` header for [bucketPutAcl](../../s3/api-ref/acl/bucketput.md) method of Amazon
+S3-compatible HTTP API.
+- `PERMISSION_READ_ACP`: Allows grantee to read the bucket ACL
+Maps to `x-amz-grant-read-acp` header for [bucketPutAcl](../../s3/api-ref/acl/bucketput.md) method of
+Amazon S3-compatible HTTP API. ||
+|| grantType | **enum** (GrantType)
+
+Required field. The grantee type for the grant.
+
+- `GRANT_TYPE_ACCOUNT`: A grantee is an [account on the platform](../../../iam/concepts/index.md#accounts).
+For this grantee type, you need to specify the user ID in `Bucket.acl.grants.granteeId` field. To get user ID, see
+[instruction](../../../organization/operations/users-get.md).
+Maps to using `id="*"` value for `x-amz-grant-*` header ([bucketPutAcl](../../s3/api-ref/acl/bucketput.md)
+method of Amazon S3-compatible HTTP API).
+- `GRANT_TYPE_ALL_AUTHENTICATED_USERS`: Grantees are all authenticated users, both from your clouds and other users' clouds. Access
+permission to this group allows any account on the platform to access the resource via a signed (authenticated)
+request.
+Maps to using `uri="http://acs.amazonaws.com/groups/global/AuthenticatedUsers"` value for `x-amz-grant-*`
+header ([bucketPutAcl](../../s3/api-ref/acl/bucketput.md) method of Amazon S3-compatible HTTP API).
+- `GRANT_TYPE_ALL_USERS`: Grantees are all internet users. Access permission to this group allows anyone in the world access to the
+resource via signed (authenticated) or unsigned (anonymous) requests.
+Maps to using `uri="http://acs.amazonaws.com/groups/global/AllUsers"` value for `x-amz-grant-*` header
+([bucketPutAcl](../../s3/api-ref/acl/bucketput.md) method of Amazon S3-compatible HTTP API). ||
+|| granteeId | **string**
+
+ID of the account who is a grantee. Required when the `grantType` is `GRANT_TYPE_ACCOUNT`.
+
+The maximum string length in characters is 50. ||
+|#
+
+## ObjectLock {#yandex.cloud.storage.v1.ObjectLock}
+
+A resource for Object Lock configuration of a bucket.
+For details about the concept, see [documentation](../../concepts/object-lock.md).
+
+#|
+||Field | Description ||
+|| status | **enum** (ObjectLockStatus)
+
+Status
+
+- `OBJECT_LOCK_STATUS_DISABLED`: Object lock status disabled.
+- `OBJECT_LOCK_STATUS_ENABLED`: Object lock status enabled. ||
+|| defaultRetention | **[DefaultRetention](#yandex.cloud.storage.v1.ObjectLock.DefaultRetention)**
+
+Default retention ||
+|#
+
+## DefaultRetention {#yandex.cloud.storage.v1.ObjectLock.DefaultRetention}
+
+Default lock configuration for added objects
+
+#|
+||Field | Description ||
+|| days | **string** (int64)
+
+Number of days for locking
+
+Includes only one of the fields `days`, `years`. ||
+|| years | **string** (int64)
+
+Number of years for locking
+
+Includes only one of the fields `days`, `years`. ||
+|| mode | **enum** (Mode)
+
+Mode
+
+- `MODE_GOVERNANCE`: Mode governance.
+- `MODE_COMPLIANCE`: Mode compliance. ||
+|#
+
+## Encryption {#yandex.cloud.storage.v1.Encryption}
+
+#|
+||Field | Description ||
+|| rules[] | **[EncryptionRule](#yandex.cloud.storage.v1.Encryption.EncryptionRule)**
+
+Rules ||
+|#
+
+## EncryptionRule {#yandex.cloud.storage.v1.Encryption.EncryptionRule}
+
+#|
+||Field | Description ||
+|| kmsMasterKeyId | **string**
+
+KMS master key ID ||
+|| sseAlgorithm | **string**
+
+SSE algorithm ||
+|#
+
+## BucketAllowedPrivateEndpoints {#yandex.cloud.storage.v1.BucketAllowedPrivateEndpoints}
+
+#|
+||Field | Description ||
+|| enabled | **boolean**
+
+if true, private endpoints white list check is enabled
+even if private_endpoints list is empty ||
+|| privateEndpoints[] | **string**
+
+white list of private endpoints bucket accessible from ||
+|| forceCloudConsoleAccess | **boolean**
+
+if true, cloud console will be able to access a bucket
+regardless of private_endpoints list ||
+|#
+
+## Response {#yandex.cloud.operation.Operation}
+
+**HTTP Code: 200 - OK**
+
+```json
+{
+  "id": "string",
+  "description": "string",
+  "createdAt": "string",
+  "createdBy": "string",
+  "modifiedAt": "string",
+  "done": "boolean",
+  "metadata": "object",
+  // Includes only one of the fields `error`, `response`
+  "error": {
+    "code": "integer",
+    "message": "string",
+    "details": [
+      "object"
+    ]
+  },
+  "response": "object"
+  // end of the list of possible fields
+}
+```
+
+An Operation resource. For more information, see [Operation](../../../api-design-guide/concepts/operation.md).
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the operation. ||
+|| description | **string**
+
+Description of the operation. 0-256 characters long. ||
+|| createdAt | **string** (date-time)
+
+Creation timestamp.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| createdBy | **string**
+
+ID of the user or service account who initiated the operation. ||
+|| modifiedAt | **string** (date-time)
+
+The time when the Operation resource was last modified.
+
+String in [RFC3339](https://www.ietf.org/rfc/rfc3339.txt) text format. The range of possible values is from
+`0001-01-01T00:00:00Z` to `9999-12-31T23:59:59.999999999Z`, i.e. from 0 to 9 digits for fractions of a second.
+
+To work with values in this field, use the APIs described in the
+[Protocol Buffers reference](https://developers.google.com/protocol-buffers/docs/reference/overview).
+In some languages, built-in datetime utilities do not support nanosecond precision (9 digits). ||
+|| done | **boolean**
+
+If the value is `false`, it means the operation is still in progress.
+If `true`, the operation is completed, and either `error` or `response` is available. ||
+|| metadata | **object**
+
+Service-specific metadata associated with the operation.
+It typically contains the ID of the target resource that the operation is performed on.
+Any method that returns a long-running operation should document the metadata type, if any. ||
+|| error | **[Status](#google.rpc.Status)**
+
+The error result of the operation in case of failure or cancellation.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|| response | **object**
+
+The normal response of the operation in case of success.
+If the original method returns no data on success, such as Delete,
+the response is [google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty).
+If the original method is the standard Create/Update,
+the response should be the target resource of the operation.
+Any method that returns a long-running operation should document the response type, if any.
+
+Includes only one of the fields `error`, `response`.
+
+The operation result.
+If `done == false` and there was no failure detected, neither `error` nor `response` is set.
+If `done == false` and there was a failure detected, `error` is set.
+If `done == true`, exactly one of `error` or `response` is set. ||
+|#
+
+## Status {#google.rpc.Status}
+
+The error result of the operation in case of failure or cancellation.
+
+#|
+||Field | Description ||
+|| code | **integer** (int32)
+
+Error code. An enum value of [google.rpc.Code](https://github.com/googleapis/googleapis/blob/master/google/rpc/code.proto). ||
+|| message | **string**
+
+An error message. ||
+|| details[] | **object**
+
+A list of messages that carry the error details. ||
+|#

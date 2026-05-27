@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/
 editable: false
 ---
 
@@ -136,6 +137,10 @@ Aliases:
 
   - [yc application-load-balancer target-group update](target-group/update.md) — Update the specified target group
 
+- [yc application-load-balancer v0](v0/index.md) — Manage Yandex Application Load Balancer resources
+
+
+
 - [yc application-load-balancer virtual-host](virtual-host/index.md) — Manage http router virtual host
 
   - [yc application-load-balancer virtual-host append-grpc-route](virtual-host/append-grpc-route.md) — Appends grpc route to the specified virtual host of the http router
@@ -183,9 +188,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||

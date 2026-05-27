@@ -1,4 +1,5 @@
-The `dataproc.provisioner` role grants access to the API to create, update, and delete Yandex Data Processing cluster objects.
+
+The `dataproc.provisioner` role grants access to the API to create, update, and delete {{ dataproc-name }} cluster objects.
 
 {% cut "Users with this role can:" %}
 
@@ -16,7 +17,7 @@ The `dataproc.provisioner` role grants access to the API to create, update, and 
 * Use the instance [serial port](../../compute/operations/vm-info/get-serial-port-output.md) for reading and writing.
 * Simulate instance maintenance events.
 * View instance [metadata](../../compute/concepts/vm-metadata.md).
-* View information on the status of configuring access via [OS Login](../../organization/concepts/os-login.md) on instances and connect to instances via OS Login using SSH certificates or SSH keys.
+* View information on the status of configuring access via [{{ oslogin }}](../../organization/concepts/os-login.md) on instances and connect to instances via {{ oslogin }} using SSH certificates or SSH keys.
 * View the list of [instance groups](../../compute/concepts/instance-groups/index.md), information on instance groups and on granted access permissions for them, as well as use, create, modify, start, stop, and delete instance groups.
 * View the list of [instance placement groups](../../compute/concepts/placement-groups.md), information on instance placement groups and on granted access permissions for them, as well as use, modify, and delete instance placement groups.
 * View lists of instances in placement groups.
@@ -43,17 +44,17 @@ The `dataproc.provisioner` role grants access to the API to create, update, and 
 * View the list of security groups and info on them, as well as use them.
 * View information on [NAT gateways](../../vpc/concepts/gateways.md) and connect them to route tables.
 * View information on the IP addresses used in subnets.
-* View info on Monitoring [metrics](../../monitoring/concepts/data-model.md#metric) and their [labels](../../monitoring/concepts/data-model.md#label), as well as download metrics.
-* View the list of Monitoring [dashboards](../../monitoring/concepts/visualization/dashboard.md) and [widgets](../../monitoring/concepts/visualization/widget.md), as well as the info on those.
-* View the Monitoring [notification](../../monitoring/concepts/alerting/notification-channel.md) history.
+* View info on {{ monitoring-name }} [metrics](../../monitoring/concepts/data-model.md#metric) and their [labels](../../monitoring/concepts/data-model.md#label), as well as download metrics.
+* View the list of {{ monitoring-name }} [dashboards](../../monitoring/concepts/visualization/dashboard.md) and [widgets](../../monitoring/concepts/visualization/widget.md), as well as the info on those.
+* View the {{ monitoring-name }} [notification](../../monitoring/concepts/alerting/notification-channel.md) history.
 * View info on [log groups](../../logging/concepts/log-group.md).
 * View info on log sinks.
-* View info on granted access permissions for Cloud Logging resources.
+* View info on granted access permissions for {{ cloud-logging-name }} resources.
 * View info on log exports.
-* View information on Compute Cloud resource and [quota](../../compute/concepts/limits.md#compute-quotas) consumption and [disk limits](../../compute/concepts/limits.md#compute-limits-disks) in the management console.
-* View info on the [Cloud DNS](../../dns/concepts/limits.md#cloud-dns-quotas), [Virtual Private Cloud](../../vpc/concepts/limits.md#vpc-quotas), and [Monitoring](../../monitoring/concepts/limits.md#monitoring-quotas) quotas.
-* View lists of resource operations for Compute Cloud and information on operations, as well as abort such operations.
-* View information on resource operations for Virtual Private Cloud.
+* View information on {{ compute-name }} resource and [quota](../../compute/concepts/limits.md#compute-quotas) consumption and [disk limits](../../compute/concepts/limits.md#compute-limits-disks) in the management console.
+* View info on the [{{ dns-name }}](../../dns/concepts/limits.md#cloud-dns-quotas), [{{ vpc-name }}](../../vpc/concepts/limits.md#vpc-quotas), and [{{ monitoring-name }}](../../monitoring/concepts/limits.md#monitoring-quotas) quotas.
+* View lists of resource operations for {{ compute-name }} and information on operations, as well as abort such operations.
+* View information on resource operations for {{ vpc-name }}.
 * View the list of [availability zones](../../overview/concepts/geo-scope.md), information on availability zones and on granted access permissions for them.
 * View info on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 

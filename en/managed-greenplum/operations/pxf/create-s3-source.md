@@ -13,13 +13,30 @@ To get started, [create a static access key](../../../iam/operations/authenticat
     To create an external S3 data source:
 
     1. Open the [folder dashboard]({{ link-console-main }}).
-    1. [Navigate to](../../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}** service.
+    1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-greenplum }}**.
     1. Open the page of the {{ GP }} cluster in question.
     1. In the left-hand panel, select ![image](../../../_assets/console-icons/arrow-right-arrow-left.svg) **{{ ui-key.yacloud.greenplum.label_pxf }}**.
     1. Click **{{ ui-key.yacloud.greenplum.cluster.pxf.action_create-datasource }}**.
     1. Select the `{{ ui-key.yacloud.greenplum.cluster.pxf.value_s3 }}` connection type.
     1. Enter a source name.
-    1. Configure at least one [optional setting](../../concepts/settings-list.md#s3-settings).
+    1. Configure at least one [optional setting](../../concepts/settings-list.md#s3-settings):
+
+        * Specify the static access key ID in the **Access Key** field, and its contents, in the **Secret Key** field.
+        
+                    
+          [Learn more about static access keys](../../../iam/concepts/authorization/access-key.md).
+          
+        
+        * Select **Fast Upload** to enable fast upload of large files to S3 storage.
+    
+            This option is enabled by default.
+               
+            When using fast upload, PXF generates files in RAM (if out of RAM, it writes them to disk). If fast upload is disabled, PXF generates files on disk.
+        
+        * In the **Endpoint** field, enter the S3 storage address.
+            
+            The default value is `{{ s3-storage-host }}` for {{ objstorage-name }}.
+
     1. Click **{{ ui-key.yacloud.common.create }}**.
 
 - CLI {#cli}
@@ -53,16 +70,16 @@ To get started, [create a static access key](../../../iam/operations/authenticat
         * `access-key`, `secret-key`: [ID and contents of the static access key](../../../iam/concepts/authorization/access-key.md).
         * `endpoint`: S3 storage address. The value for {{ objstorage-name }} is `{{ s3-storage-host }}`. This is the default value.
         * `fast-upload`: Fast upload of large files to S3 storage. The possible values are:
-            * `true`: PXF generates files on the disk before sending them to S3 storage. This is the default value.
-            * `false`: PXF generates files in RAM (if out of RAM, it writes them to disk).
+            * `true`: Default value. PXF generates files in RAM (if out of RAM, it writes them to disk).
+            * `false`: PXF generates files on disk.
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
-    1. Use the [PXFDatasource.Create](../../api-ref/PXFDatasource/create.md) method and send the following request, e.g., via {{ api-examples.rest.tool }}:
+    1. Call the [PXFDatasource.Create](../../api-ref/PXFDatasource/create.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -90,8 +107,8 @@ To get started, [create a static access key](../../../iam/operations/authenticat
 
             * `accessKey`, `secretKey`: [ID and contents of the static access key](../../../iam/concepts/authorization/access-key.md).
             * `fastUpload`: Fast upload of large files to S3 storage. The possible values are:
-                * `true`: PXF generates files on the disk before sending them to S3 storage. This is the default value.
-                * `false`: PXF generates files in RAM (if out of RAM, it writes them to disk).
+                * `true`: Default value. PXF generates files in RAM (if out of RAM, it writes them to disk).
+                * `false`: PXF generates files on disk.
 
             * `endpoint`: S3 storage address. The value for {{ objstorage-name }} is `{{ s3-storage-host }}`. This is the default value.
 
@@ -101,13 +118,13 @@ To get started, [create a static access key](../../../iam/operations/authenticat
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it in an environment variable:
+    1. [Get an IAM token for API authentication](../../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Use the [PXFDatasourceService.Create](../../api-ref/grpc/PXFDatasource/create.md) call and send the following request, e.g., via {{ api-examples.grpc.tool }}:
+    1. Call the [PXFDatasourceService.Create](../../api-ref/grpc/PXFDatasource/create.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -139,15 +156,17 @@ To get started, [create a static access key](../../../iam/operations/authenticat
 
             * `access_key`, `secret_key`: [ID and contents of the static access key](../../../iam/concepts/authorization/access-key.md).
             * `fast_upload`: Fast upload of large files to S3 storage. The possible values are:
-                * `true`: PXF generates files on the disk before sending them to S3 storage. This is the default value.
-                * `false`: PXF generates files in RAM (if out of RAM, it writes them to disk).
+                * `true`: Default value. PXF generates files in RAM (if out of RAM, it writes them to disk).
+                * `false`: PXF generates files on disk.
 
             * `endpoint`: S3 storage address. The value for {{ objstorage-name }} is `{{ s3-storage-host }}`. This is the default value.
 
         You can get the cluster ID with the [list of clusters in the folder](../cluster-list.md#list-clusters).
 
-    1. View the [server response](../../api-ref/grpc/PXFDatasource/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../../api-ref/grpc/PXFDatasource/create.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
+
+After you create an external data source, [create an external table](create-table.md).
 
 {% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}

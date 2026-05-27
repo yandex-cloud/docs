@@ -59,7 +59,7 @@ The infrastructure support cost includes a fee for continuously running VMs and 
          * **{{ ui-key.yacloud.component.compute.resources.field_gpus }}**: `1`.
    1. Under **{{ ui-key.yacloud.compute.instances.create.section_access }}**, select **{{ ui-key.yacloud.compute.instance.access-method.label_oslogin-control-ssh-option-title }}** and specify the VM access credentials:
 
-         * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `ubuntu`. Do not use `root` or other names reserved for the OS purposes. To perform operations requiring root privileges, use the `sudo` command.
+         * In the **{{ ui-key.yacloud.compute.instances.create.field_user }}** field, enter a username, e.g., `ubuntu`. Do not use `root` or other names reserved for the OS purposes. For operations requiring root privileges, use the `sudo` command.
          * {% include [access-ssh-key](../../_includes/compute/create/access-ssh-key.md) %}
 
    1. Click **{{ ui-key.yacloud.compute.instances.create.button_create }}**.
@@ -167,3 +167,7 @@ The infrastructure support cost includes a fee for continuously running VMs and 
 ## How to delete the resources you created {#clear-out}
 
 To stop paying for the resources you created, [delete](../../compute/operations/vm-control/vm-delete.md) the VM instance you created in {{ compute-name }}.
+
+#### See also {#see-also}
+
+* [Questions about GPUs](../../compute/qa/gpu.md)

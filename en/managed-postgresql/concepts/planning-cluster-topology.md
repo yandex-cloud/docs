@@ -48,7 +48,7 @@ Disadvantages:
 
 ### Two-host cluster {#two-hosts-cluster}
 
-A two-host cluster meets the high availability criteria and is subject to the [SLA](https://yandex.ru/legal/cloud_sla_mdb/). This option is sutable for medium-sized applications in a production environment.
+A two-host cluster meets the high availability criteria and is subject to the [SLA](https://yandex.ru/legal/cloud_sla_mdb/). This option is suitable for medium-sized applications in a production environment.
 
 Compared to a single-host cluster, a cluster with two hosts offers the following advantages:
 
@@ -81,7 +81,7 @@ Compared to two-host clusters, a cluster with three or more hosts offers the fol
 
 * [{#T}](../tutorials/1c-postgresql.md)
 
-### Cluster availability under different topologies {#cluster-availability}
+### Cluster availability under different topologies {#cluster-availability-diff-topology}
 
 The number of hosts listed in the tables includes the master host and replica hosts subject to automatic replication. Replica hosts with [specified replication sources](./replication.md#replication-manual) are not counted.
 

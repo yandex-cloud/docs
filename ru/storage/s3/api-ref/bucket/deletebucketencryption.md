@@ -1,4 +1,4 @@
-# Метод deleteBucketEncryption
+# Object Storage API, REST совместимый с Amazon S3: DeleteBucketEncryption
 
 Убирает шифрование бакета. Подробнее о шифровании бакета читайте в разделе [{#T}](../../../concepts/encryption.md).
 

@@ -42,7 +42,7 @@ Create a [service account](../../iam/concepts/users/service-accounts.md) named `
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a service account.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
   1. Enter a name for the service account: `s3-copy-fn`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the `storage.uploader`, `storage.viewer`, and `{{ roles-lockbox-payloadviewer }}` roles.
@@ -166,8 +166,8 @@ Create a [service account](../../iam/concepts/users/service-accounts.md) named `
 
   1. Make sure the configuration files are correct.
 
-      1. In the command line, navigate to the directory you created the configuration file in.
-      1. Run a check using this command:
+      1. In the terminal, navigate to the directory where you created your configuration file.
+      1. Run a check using the following command:
 
           ```bash
           terraform plan
@@ -177,7 +177,7 @@ Create a [service account](../../iam/concepts/users/service-accounts.md) named `
 
   1. Deploy the cloud resources.
 
-      1. If the configuration does not contain any errors, run this command:
+      1. If the configuration is correct, run this command:
 
           ```bash
           terraform apply
@@ -210,7 +210,7 @@ Create a [static access key](../../iam/concepts/authorization/access-key.md) for
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select your service account folder.
-  1.  [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}** service.
+  1.  [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and then, the `s3-copy-fn` service account.
   1. In the top panel, click **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}**.
   1. Select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_service-account-key }}**.
@@ -254,18 +254,18 @@ Create a [static access key](../../iam/concepts/authorization/access-key.md) for
 
   1. Make sure the configuration files are correct.
 
-      1. In the command line, navigate to the directory you created the configuration file in.
-      1. Run a check using this command:
+      1. In the terminal, navigate to the directory where you created your configuration file.
+      1. Run a check using the following command:
 
           ```bash
           terraform plan
           ```
 
-      If the configuration description is correct, the terminal will display a list of the resources and their settings. {{ TF }} will show any errors in the configuration.
+      If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors.
 
   1. Deploy the cloud resources.
 
-      1. If the configuration does not contain any errors, run this command:
+      1. If the configuration is correct, run this command:
 
           ```bash
           terraform apply
@@ -298,7 +298,7 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store your 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a secret.
-  1.  [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}** service.
+  1.  [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
   1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, specify the secret name: `s3-static-key`.
 
@@ -382,18 +382,18 @@ Create a {{ lockbox-name }} [secret](../../lockbox/quickstart.md) to store your 
 
   1. Make sure the configuration files are correct.
 
-      1. In the command line, navigate to the directory you created the configuration file in.
-      1. Run a check using this command:
+      1. In the terminal, navigate to the directory where you created your configuration file.
+      1. Run a check using the following command:
 
           ```bash
           terraform plan
           ```
 
-      If the configuration description is correct, the terminal will display a list of the resources and their settings. {{ TF }} will show any errors in the configuration.
+      If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors.
 
   1. Deploy the cloud resources.
 
-      1. If the configuration does not contain any errors, run this command:
+      1. If the configuration is correct, run this command:
 
           ```bash
           terraform apply
@@ -417,7 +417,7 @@ Create two buckets: a main one to store files and a backup one to copy the main 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create buckets.
-  1.  [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Create the main bucket:
 
       1. Click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
@@ -476,18 +476,18 @@ Create two buckets: a main one to store files and a backup one to copy the main 
 
   1. Make sure the configuration files are correct.
 
-      1. In the command line, navigate to the directory you created the configuration file in.
-      1. Run a check using this command:
+      1. In the terminal, navigate to the directory where you created your configuration file.
+      1. Run a check using the following command:
 
           ```bash
           terraform plan
           ```
 
-      If the configuration description is correct, the terminal will display a list of the resources and their settings. {{ TF }} will show any errors in the configuration. 
+      If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors. 
 
   1. Deploy the cloud resources.
 
-      1. If the configuration does not contain any errors, run this command:
+      1. If the configuration is correct, run this command:
 
           ```bash
           terraform apply
@@ -544,13 +544,13 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
       1. Specify the entry point: `handler.sh`.
       1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
 
-          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `600`
-          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`
-          * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `s3-copy-fn`
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `600`.
+          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
+          * **{{ ui-key.yacloud.forms.label_service-account-select }}**: `s3-copy-fn`.
           * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
 
-              * `S3_ENDPOINT`: `https://{{ s3-storage-host }}`
-              * `DST_BUCKET`: Name of the backup bucket to copy files to
+              * `S3_ENDPOINT`: `https://{{ s3-storage-host }}`.
+              * `DST_BUCKET`: Name of the backup bucket to copy files to.
 
           * **{{ ui-key.yacloud.serverless-functions.item.editor.label_lockbox-secret }}**:
 
@@ -658,16 +658,16 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
           DST_BUCKET  = "<backup_bucket_name>"
           S3_ENDPOINT = "https://{{ s3-storage-host }}"
         }
-        secrets = {
-          id = "<secret_ID>"
-          version_id = "<secret_version_ID>"
-          key = "key_id"
+        secrets {
+          id                   = "<secret_ID>"
+          version_id           = "<secret_version_ID>"
+          key                  = "key_id"
           environment_variable = "AWS_ACCESS_KEY_ID"
         }
-        secrets = {
-          id = "<secret_ID>"
-          version_id = "<secret_version_ID>"
-          key = "secret"
+        secrets {
+          id                   = "<secret_ID>"
+          version_id           = "<secret_version_ID>"
+          key                  = "secret"
           environment_variable = "AWS_SECRET_ACCESS_KEY"
         }
         content {
@@ -679,7 +679,7 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
       Where:
 
       * `name`: Function name.
-      * `user_hash`: Any string to identify the function version.
+      * `user_hash`: User-defined string that identifies the function version.
       * `runtime`: Function [runtime environment](../../functions/concepts/runtime/index.md).
       * `entrypoint`: Entry point.
       * `memory`: Amount of memory allocated for the function, in MB.
@@ -691,26 +691,26 @@ Create a function that will copy a new [object](../../storage/concepts/object.md
 
       For more information about `yandex_function` properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
-  1. Make sure the configuration files are correct.
+  1. Validate your configuration files.
 
-      1. In the command line, navigate to the directory you created the configuration file in.
-      1. Run a check using this command:
+      1. In the terminal, navigate to the directory where you created your configuration file.
+      1. Run a check using the following command:
 
           ```bash
           terraform plan
           ```
 
-      If the configuration description is correct, the terminal will display a list of the resources and their settings. {{ TF }} will show any errors in the configuration.
+      If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors.
 
   1. Deploy the cloud resources.
 
-      1. If the configuration does not contain any errors, run this command:
+      1. If the configuration is correct, run this command:
 
           ```bash
           terraform apply
           ```
 
-      1. Confirm creating the function by typing `yes` in the terminal and pressing **Enter**.
+      1. To confirm the function creation, type `yes` in the terminal and press **Enter**.
 
 - API {#api}
 
@@ -742,7 +742,7 @@ Create a trigger for {{ objstorage-name }} that will invoke `copy-function` when
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_storage }}**:
 
       * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_bucket }}** field, select the main bucket.
-      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_event-types }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.value_event-type-create-object}}`.
+      * In the **{{ ui-key.yacloud.serverless-functions.triggers.form.field_event-types }}** field, select `{{ ui-key.yacloud.serverless-functions.triggers.form.value_event-type-create-object }}`.
 
   1. Under **{{ ui-key.yacloud.serverless-functions.triggers.form.section_function }}**:
 
@@ -826,18 +826,18 @@ Create a trigger for {{ objstorage-name }} that will invoke `copy-function` when
 
   1. Make sure the configuration files are correct.
 
-      1. In the command line, navigate to the directory you created the configuration file in.
-      1. Run a check using this command:
+      1. In the terminal, navigate to the directory where you created your configuration file.
+      1. Run a check using the following command:
 
           ```bash
           terraform plan
           ```
 
-      If the configuration description is correct, the terminal will display a list of the resources and their settings. {{ TF }} will show any errors in the configuration.
+      If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors.
 
   1. Deploy the cloud resources.
 
-      1. If the configuration does not contain any errors, run this command:
+      1. If the configuration is correct, run this command:
 
           ```bash
           terraform apply
@@ -859,7 +859,7 @@ Create a trigger for {{ objstorage-name }} that will invoke `copy-function` when
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder containing your main bucket.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Click the name of the main bucket.
   1. In the top-right corner, click **{{ ui-key.yacloud.storage.bucket.button_upload }}**.
   1. In the window that opens, select the required files and click **Open**.

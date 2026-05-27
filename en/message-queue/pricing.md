@@ -7,10 +7,6 @@ editable: false
 # {{ message-queue-name }} pricing policy
 
 
-{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
-
-
-
 
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
@@ -30,6 +26,7 @@ editable: false
 
 ## Prices for the Russia region {#prices}
 
+
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
 
 
@@ -41,6 +38,7 @@ editable: false
     currency="USD"
   />
 </MDX>
+
 
 
 

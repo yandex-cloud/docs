@@ -5,15 +5,16 @@ description: Из этой инструкции вы узнаете, как уп
 
 # Управление выгрузкой метаданных объектов (S3 Inventory) в бакете
 
-В {{ objstorage-name }} вы можете [выгрузить метаданные объектов](../../concepts/s3-inventory.md) (S3 Inventory) из бакетов для дальнейшего анализа и каталогизации.
 
-{% include [s3-inventory-pricing](../../../_includes/storage/s3-inventory-pricing.md) %}
+В {{ objstorage-name }} вы можете [выгрузить метаданные объектов](../../concepts/s3-inventory.md) (S3 Inventory) из бакетов для дальнейшего анализа и каталогизации.
 
 ## Создать конфигурацию выгрузки {#create-inventory}
 
 {% list tabs group=instructions %}
 
 - {{ yandex-cloud }} CLI {#cli}
+
+  {% include [s3-inventory-cli-version.md](../../../_includes/storage/s3-inventory-cli-version.md) %}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -178,6 +179,8 @@ description: Из этой инструкции вы узнаете, как уп
 
 - {{ yandex-cloud }} CLI {#cli}
 
+  {% include [s3-inventory-cli-version.md](../../../_includes/storage/s3-inventory-cli-version.md) %}
+
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
   {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
@@ -234,6 +237,8 @@ description: Из этой инструкции вы узнаете, как уп
 {% list tabs group=instructions %}
 
 - {{ yandex-cloud }} CLI {#cli}
+
+  {% include [s3-inventory-cli-version.md](../../../_includes/storage/s3-inventory-cli-version.md) %}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 
@@ -292,6 +297,8 @@ description: Из этой инструкции вы узнаете, как уп
 {% list tabs group=instructions %}
 
 - {{ yandex-cloud }} CLI {#cli}
+
+  {% include [s3-inventory-cli-version.md](../../../_includes/storage/s3-inventory-cli-version.md) %}
 
   {% include [cli-install](../../../_includes/cli-install.md) %}
 

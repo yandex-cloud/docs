@@ -10,6 +10,7 @@ keywords:
 # Creating an {{ OS }} cluster
 
 
+
 A {{ mos-name }} cluster is a group of multiple interlinked {{ OS }} and [Dashboards]({{ os.docs }}/dashboards/index/) hosts. A cluster provides high search performance by distributing search and indexing tasks across all cluster hosts with the `DATA` role. To learn more about roles in the cluster, see [Host roles](../concepts/host-roles.md).
 
 The available disk types [depend](../concepts/storage.md) on the selected [host class](../concepts/instance-types.md).
@@ -37,7 +38,7 @@ When creating a cluster, you need to specify individual parameters for each [hos
   To create a {{ mos-name }} cluster:
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a cluster.
-  1. [Navigate to](../../console/operations/select-service.md#select-service) the **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}** service.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-opensearch }}**.
   1. Click **{{ ui-key.yacloud.mdb.clusters.button_create }}**.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_base }}**:
 

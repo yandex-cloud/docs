@@ -32,6 +32,7 @@ description: Различные сценарии использования ма
 * [{#T}](yq-clickhouse.md)
 * [{#T}](yq-postgre.md)
 * [{#T}](yq-federative-queries.md)
+* [{#T}](../dataplatform/spark-and-datasphere.md)
 
 ## Разработка с помощью {{ mgl-full-name }} {#gitlab-development}
 

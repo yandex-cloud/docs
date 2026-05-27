@@ -17,7 +17,7 @@ description: Как использовать расширение try_convert в
 
 Подробнее о расширении см. в [документации try_convert](https://github.com/open-gpdb/gpdb/tree/OPENGPDB_STABLE/contrib/try_convert).
 
-## Установить расширение try_convert в кластер {{ GP }} {#extension-install}
+## Установить расширение try_convert в кластер {{ mgp-name }} {#extension-install}
 
 1. [Подключитесь](../connect/index.md) к базе данных от имени владельца или пользователя, имеющего в базе данных разрешение `CREATE`, и выполните команду:
 
@@ -50,3 +50,5 @@ description: Как использовать расширение try_convert в
     ```
 
     Будет возвращено значение `1234`.
+
+{% include [greenplum-trademark](../../../_includes/mdb/mgp/trademark.md) %}

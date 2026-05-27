@@ -1,0 +1,117 @@
+---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/v0/load-balancer/add-stream-listener
+editable: false
+---
+
+# yc application-load-balancer v0 load-balancer add-stream-listener
+
+Adds a Stream listener to the specified application load balancer.
+
+#### Command Usage
+
+Syntax:
+
+`yc application-load-balancer load-balancer add-stream-listener <LOAD-BALANCER-NAME>|<LOAD-BALANCER-ID> [Flags...] [Global Flags...]`
+
+#### Flags
+
+#|
+||Flag | Description ||
+|| `--id` | `string`
+
+ID of the Application load balancer. ||
+|| `--name` | `string`
+
+Name of the Application load balancer. ||
+|| `--listener-name` | `string`
+
+Name of the listener to add/update to the application load balancer. ||
+|| `--enable-tls` | Enable TLS for the specified listener. ||
+|| `--certificate-id` | `value[,value]`
+
+Certificate ID for the specified listener. ||
+|| `--require-client-certificate` | Require client certificate for the specified listener. ||
+|| `--client-certificates-trusted-ca-file` | `string`
+
+Trusted CA filename (PEM) for the specified listener. ||
+|| `--external-ipv4-endpoint` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+
+External IPv4 endpoint settings for the specified listener.
+
+Possible property names:
+
+- `port`: Listener's port.
+
+- `address`: Use allocated address for the listener. ||
+|| `--internal-ipv4-endpoint` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+
+Internal IPv4 endpoint settings for the specified listener.
+
+Possible property names:
+
+- `port`: Port for the new listener.
+
+- `subnet-id`: Subnet for internal endpoint. ||
+|| `--external-ipv6-endpoint` | `PROPERTY=VALUE[,PROPERTY=VALUE...]`
+
+External IPv6 endpoint settings for the specified listener.
+
+Possible property names:
+
+- `port`: Port for the listener.
+
+- `address`: Use allocated address for the listener. ||
+|| `--backend-group-id` | `string`
+
+Backend group id for new listener. ||
+|| `--backend-group-name` | `string`
+
+Backend group name for new listener. ||
+|| `--idle-timeout` | `duration`
+
+Idle timeout for the stream. ||
+|| `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
+|#
+
+#### Global Flags
+
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom configuration file. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
+|| `--token` | `string`
+
+Set the OAuth token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

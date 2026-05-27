@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-clickhouse/cli-ref/user/create
 editable: false
 ---
 
@@ -62,8 +63,7 @@ User-specific settings. Acceptable keys:
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#connect_timeout).
 
 - `connect_timeout_with_failover`: The timeout in milliseconds for connecting to a remote server for a Distributed table engine.
-
-  Applies only if the cluster uses sharding and replication. If unsuccessful, several attempts are made to connect to various replicas.
+Applies only if the cluster uses sharding and replication. If unsuccessful, several attempts are made to connect to various replicas.
 
   Default value: **1000** (1 second).
 
@@ -95,21 +95,18 @@ is not less that specified in **min_execution_speed** parameter.
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#timeout_before_checking_execution_speed).
 
 - `insert_quorum`: Enables or disables the quorum writes. If the value is less than **2**, then the quorum writes is disabled, otherwise it is enabled.
-
-  When used, write quorum guarantees that ClickHouse has written data to the quorum of **insert_quorum** replicas with no errors
+When used, write quorum guarantees that ClickHouse has written data to the quorum of **insert_quorum** replicas with no errors
 until the **insert_quorum_timeout** expires. All replicas in the quorum are in the consistent state, meaning that they contain
 linearized data from the previous **INSERT** queries. Employ write quorum, if you need the guarantees that the written data
 would not be lost in case of one or more replicas failure.
-
-  You can use **select_sequential_consistency** setting to read the data written with write quorum.
+You can use **select_sequential_consistency** setting to read the data written with write quorum.
 
   Default value: **0**.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#insert_quorum).
 
 - `insert_quorum_timeout`: Quorum write timeout in milliseconds.
-
-  If the write quorum is enabled in the cluster, this timeout expires and some data is not written to the **insert_quorum** replicas,
+If the write quorum is enabled in the cluster, this timeout expires and some data is not written to the **insert_quorum** replicas,
 then ClickHouse will abort the execution of **INSERT** query and return an error. In this case, the client must send the query again
 to write the data block into the same or another replica.
 
@@ -160,8 +157,7 @@ This setting can be used when doing **SELECT** query from a distributed table th
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#distributed_product_mode).
 
 - `distributed_aggregation_memory_efficient`: Enables of disables memory saving mode when doing distributed aggregation.
-
-  When ClickHouse works with a distributed query, external aggregation is done on remote servers.
+When ClickHouse works with a distributed query, external aggregation is done on remote servers.
 Enable this setting to achieve a smaller memory footprint on the server that sourced such a distributed query.
 
   Default value: **true**.
@@ -181,16 +177,14 @@ Enable this setting to achieve a smaller memory footprint on the server that sou
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#distributed_ddl_output_mode).
 
 - `skip_unavailable_shards`: Enables or disables silent skipping of unavailable shards.
-
-  A shard is considered unavailable if all its replicas are also unavailable.
+A shard is considered unavailable if all its replicas are also unavailable.
 
   Default value: **false**.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#skip_unavailable_shards).
 
 - `use_hedged_requests`: Enables or disables hedged requests logic for remote queries.
-
-  It allows to establish many connections with different replicas for query. New connection is enabled in case existent connection(s) with replica(s)
+It allows to establish many connections with different replicas for query. New connection is enabled in case existent connection(s) with replica(s)
 were not established within **hedged_connection_timeout** or no data was received within **receive_data_timeout**. Query uses the first connection
 which send non empty progress packet, other connections are cancelled.
 
@@ -217,22 +211,18 @@ which send non empty progress packet, other connections are cancelled.
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#prefer_localhost_replica).
 
 - `compile_expressions`: Enable or disable expression compilation to native code.
-
-  If you execute a lot of queries that contain identical expressions, then enable this setting.
+If you execute a lot of queries that contain identical expressions, then enable this setting.
 As a result, such queries may be executed faster due to use of compiled expressions.
-
-  Use this setting in combination with **min_count_to_compile_expression** setting.
+Use this setting in combination with **min_count_to_compile_expression** setting.
 
   Default value: **true** for versions 25.5 and higher, **false** for versions 25.4 and lower.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#compile_expressions).
 
 - `min_count_to_compile_expression`: How many identical expressions ClickHouse has to encounter before they are compiled.
-
-  For the **0** value compilation is synchronous: a query waits for expression compilation process to complete prior to continuing execution.
+For the **0** value compilation is synchronous: a query waits for expression compilation process to complete prior to continuing execution.
 It is recommended to set this value only for testing purposes.
-
-  For all other values, compilation is asynchronous: the compilation process executes in a separate thread.
+For all other values, compilation is asynchronous: the compilation process executes in a separate thread.
 When a compiled expression is ready, it will be used by ClickHouse for eligible queries, including the ones that are currently running.
 
   Default value: **3**.
@@ -240,11 +230,9 @@ When a compiled expression is ready, it will be used by ClickHouse for eligible 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#min_count_to_compile_expression).
 
 - `max_block_size`: Sets the recommended maximum number of rows to include in a single block when loading data from tables.
-
-  Blocks the size of **max_block_size** are not always loaded from the table: if ClickHouse determines that less data needs to be retrieved,
+Blocks the size of **max_block_size** are not always loaded from the table: if ClickHouse determines that less data needs to be retrieved,
 a smaller block is processed.
-
-  The block size should not be too small to avoid noticeable costs when processing each block. It should also not be too large to ensure that
+The block size should not be too small to avoid noticeable costs when processing each block. It should also not be too large to ensure that
 queries with a **LIMIT** clause execute quickly after processing the first block. When setting **max_block_size**, the goal should be to avoid
 consuming too much memory when extracting a large number of columns in multiple threads and to preserve at least some cache locality.
 
@@ -267,8 +255,7 @@ will be squashed together into the bigger blocks. If set to **0**, block squashi
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#min_insert_block_size_bytes).
 
 - `max_insert_block_size`: The size of blocks (in a count of rows) to form for insertion into a table.
-
-  This setting only applies in cases when the server forms the blocks. For example, for an **INSERT** via the HTTP interface, the server parses
+This setting only applies in cases when the server forms the blocks. For example, for an **INSERT** via the HTTP interface, the server parses
 the data format and forms blocks of the specified size. But when using clickhouse-client, the client parses the data itself, and
 the **max_insert_block_size** setting on the server does not affect the size of the inserted blocks. The setting also does not have a purpose
 when using **INSERT SELECT**, since data is inserted using the same blocks that are formed after **SELECT**.
@@ -285,8 +272,7 @@ If the number of partitions is more than **max_partitions_per_insert_block**, Cl
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/query-complexity#settings-max_partitions_per_insert_block).
 
 - `min_bytes_to_use_direct_io`: Limits the minimum number of bytes to enable unbuffered direct reads from disk (Direct I/O). If set to **0**, Direct I/O is disabled.
-
-  By default, ClickHouse does not read data directly from disk, but relies on the filesystem and its cache instead. Such reading strategy
+By default, ClickHouse does not read data directly from disk, but relies on the filesystem and its cache instead. Such reading strategy
 is effective when the data volume is small. If the amount of the data to read is huge, it is more effective to read directly from the disk,
 bypassing the filesystem cache.
 
@@ -295,27 +281,23 @@ bypassing the filesystem cache.
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#min_bytes_to_use_direct_io).
 
 - `use_uncompressed_cache`: Determines whether to use the cache of uncompressed blocks, or not.
-
-  Using this cache can significantly reduce latency and increase the throughput when a huge amount of small queries is to be processed.
+Using this cache can significantly reduce latency and increase the throughput when a huge amount of small queries is to be processed.
 Enable this setting for the users who instantiates small queries frequently.
-
-  This setting has effect only for tables of the MergeTree family.
+This setting has effect only for tables of the MergeTree family.
 
   Default value: **false**.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#use_uncompressed_cache).
 
 - `merge_tree_max_rows_to_use_cache`: Limits the maximum size in rows of the request that can use the cache of uncompressed data. The cache is not used for requests larger than the specified value.
-
-  Use this setting in combination with **use_uncompressed_cache** setting.
+Use this setting in combination with **use_uncompressed_cache** setting.
 
   Default value: **1048576**.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#merge_tree_max_rows_to_use_cache).
 
 - `merge_tree_max_bytes_to_use_cache`: Limits the maximum size in bytes of the request that can use the cache of uncompressed data. The cache is not used for requests larger than the specified value.
-
-  Use this setting in combination with **use_uncompressed_cache** setting.
+Use this setting in combination with **use_uncompressed_cache** setting.
 
   Default value: **2013265920** (1920 MiB).
 
@@ -323,8 +305,7 @@ Enable this setting for the users who instantiates small queries frequently.
 
 - `merge_tree_min_rows_for_concurrent_read`: Limits the minimum number of rows to be read from a file to enable concurrent read.
 If the number of rows to be read exceeds this value, then ClickHouse will try to use a few threads to read from a file concurrently.
-
-  This setting has effect only for tables of the MergeTree family.
+This setting has effect only for tables of the MergeTree family.
 
   Default value: **163840**.
 
@@ -332,8 +313,7 @@ If the number of rows to be read exceeds this value, then ClickHouse will try to
 
 - `merge_tree_min_bytes_for_concurrent_read`: Limits the number of bytes to be read from a file to enable concurrent read.
 If the number of bytes to be read exceeds this value, then ClickHouse will try to use a few threads to read from a file concurrently.
-
-  This setting has effect only for tables of the MergeTree family.
+This setting has effect only for tables of the MergeTree family.
 
   Default value: **251658240** (240 MiB).
 
@@ -341,14 +321,28 @@ If the number of bytes to be read exceeds this value, then ClickHouse will try t
 
 - `max_bytes_before_external_group_by`: Sets the threshold of RAM consumption (in bytes) after that the temporary data, collected during the **GROUP BY** operation,
 should be flushed to disk to limit the RAM consumption. If set to **0**, **GROUP BY** in the external memory is disabled.
-
-  By default, aggregation is done by employing hash table that resides in RAM. A query can result in aggregation of huge data
+By default, aggregation is done by employing hash table that resides in RAM. A query can result in aggregation of huge data
 volumes that can lead to memory exhaustion and abortion of the query (see the **max_memory_usage** setting). For such queries,
 you can use this setting to force ClickHouse to do flushing and complete aggregation successfully.
 
   Default value: **0**.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_bytes_before_external_group_by).
+
+- `max_bytes_ratio_before_external_group_by`: The ratio of available memory that is allowed for GROUP BY. Once reached, external memory is used for aggregation.
+For example, if set to 0.6, GROUP BY will allow using 60%!o(MISSING)f the available memory (to server/user/merges) at the beginning of the execution, after that, it will start using external aggregation.
+
+  Default value: **0** for versions 24.12 and lower, **0.5** for versions 25.1 and higher.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_bytes_ratio_before_external_group_by).
+
+- `max_bytes_ratio_before_external_sort`: The ratio of available memory that is allowed for ORDER BY. Once reached, external sort is used.
+For example, if set to 0.6, ORDER BY will allow using 60%!o(MISSING)f available memory (to server/user/merges) at the beginning of the execution, after that, it will start using external sort.
+Note, that max_bytes_before_external_sort is still respected, spilling to disk will be done only if the sorting block is bigger then max_bytes_before_external_sort.
+
+  Default value: **0** for versions 24.12 and lower, **0.5** for versions 25.1 and higher.
+
+  For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_bytes_ratio_before_external_sort).
 
 - `max_bytes_before_external_sort`: Sets the threshold of RAM consumption (in bytes) after that the temporary data, collected during the **ORDER BY** operation,
 should be flushed to disk to limit the RAM consumption. If set to **0**, **ORDER BY** in the external memory is disabled.
@@ -376,8 +370,7 @@ should be flushed to disk to limit the RAM consumption. If set to **0**, **ORDER
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#deduplicate_blocks_in_dependent_materialized_views).
 
 - `local_filesystem_read_method`: Method of reading data from local filesystem.
-
-  The LOCAL_FILESYSTEM_READ_METHOD_IO_URING is experimental and does not work for Log, TinyLog, StripeLog, File, Set and Join, and
+The LOCAL_FILESYSTEM_READ_METHOD_IO_URING is experimental and does not work for Log, TinyLog, StripeLog, File, Set and Join, and
 other tables with append-able files in presence of concurrent reads and writes.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#local_filesystem_read_method).
@@ -392,8 +385,7 @@ other tables with append-able files in presence of concurrent reads and writes.
 * **0** - priorities are not used.
 * **1** - the highest priority.
 * and so on. The higher the number, the lower a query's priority.
-
-  If ClickHouse is working with the high-priority queries, and a low-priority query enters, then the low-priority query
+If ClickHouse is working with the high-priority queries, and a low-priority query enters, then the low-priority query
 is paused until higher-priority queries are completed.
 
   Default value: **0**.
@@ -401,8 +393,7 @@ is paused until higher-priority queries are completed.
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#priority).
 
 - `max_threads`: Limits the maximum number of threads to process the request. If set to **0**, the number of threads is calculated automatically based on the number of available CPU cores.
-
-  The setting applies to threads that perform the same stages of the query processing pipeline in parallel. It does not take threads that read data from remote servers into account.
+The setting applies to threads that perform the same stages of the query processing pipeline in parallel. It does not take threads that read data from remote servers into account.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_threads).
 
@@ -413,10 +404,8 @@ is paused until higher-priority queries are completed.
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_insert_threads).
 
 - `max_memory_usage`: Limits the maximum memory usage (in bytes) for processing of a single user's query on a single server. **0** means unlimited.
-
-  This limitation is enforced for any user's single query on a single server.
-
-  If you use **max_bytes_before_external_group_by** or **max_bytes_before_external_sort** setting, then it is recommended to set
+This limitation is enforced for any user's single query on a single server.
+If you use **max_bytes_before_external_group_by** or **max_bytes_before_external_sort** setting, then it is recommended to set
 their values twice as low as **max_memory_usage** setting value.
 
   Default value: **0**.
@@ -424,8 +413,7 @@ their values twice as low as **max_memory_usage** setting value.
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_memory_usage).
 
 - `max_memory_usage_for_user`: Limits the maximum memory usage (in bytes) for processing of user's queries on a single server. **0** means unlimited.
-
-  This limitation is enforced for all queries that belong to one user and run simultaneously on a single server.
+This limitation is enforced for all queries that belong to one user and run simultaneously on a single server.
 
   Default value: **0**.
 
@@ -482,16 +470,14 @@ This value is used to compute the overcommit ratio for the user. **0** means ski
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_concurrent_queries_for_user).
 
 - `force_index_by_date`: Disables query execution if the index cannot be used by date.
-
-  This setting has effect only for tables of the MergeTree family.
+This setting has effect only for tables of the MergeTree family.
 
   Default value: **false**.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#force_index_by_date).
 
 - `force_primary_key`: Disables query execution if indexing by the primary key cannot be used.
-
-  This setting has effect only for tables of the MergeTree family.
+This setting has effect only for tables of the MergeTree family.
 
   Default value: **false**.
 
@@ -549,8 +535,7 @@ This setting lets you to limit RAM consumption when sorting
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#sort_overflow_mode).
 
 - `max_result_rows`: Limits the number of rows in the result. **0** means unlimited.
-
-  This limitation is also checked for subqueries and parts of distributed queries that run on remote servers.
+This limitation is also checked for subqueries and parts of distributed queries that run on remote servers.
 
   Default value: **0**.
 
@@ -606,8 +591,7 @@ This setting lets you to limit RAM consumption when sorting
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#transfer_overflow_mode).
 
 - `max_execution_time`: Limits the maximum query execution time in milliseconds. **0** means unlimited.
-
-  The timeout is checked and the query can stop only in designated places during data processing.
+The timeout is checked and the query can stop only in designated places during data processing.
 
   Default value: **0**.
 
@@ -677,16 +661,14 @@ If the query generates more than the specified number of temporary columns in me
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_temporary_non_const_columns).
 
 - `max_query_size`: Limits the size of the part of a query that can be transferred to RAM for parsing with the SQL parser, in bytes.
-
-  Data in the **VALUES** clause of **INSERT** queries is processed by a separate stream parser (that consumes O(1) RAM) and not affected by this restriction.
+Data in the **VALUES** clause of **INSERT** queries is processed by a separate stream parser (that consumes O(1) RAM) and not affected by this restriction.
 
   Default value: **262144** (256 KiB).
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_query_size).
 
 - `max_ast_depth`: Limits the maximum depth of query syntax tree.
-
-  Executing a big and complex query may result in building a syntax tree of enormous depth.
+Executing a big and complex query may result in building a syntax tree of enormous depth.
 By using this setting, you can prohibit execution of over-sized or non-optimized queries for huge tables.
 
   Default value: **1000**.
@@ -694,8 +676,7 @@ By using this setting, you can prohibit execution of over-sized or non-optimized
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_ast_depth).
 
 - `max_ast_elements`: Limits the maximum size of query syntax tree in number of nodes.
-
-  Executing a big and complex query may result in building a syntax tree of enormous size.
+Executing a big and complex query may result in building a syntax tree of enormous size.
 By using this setting, you can prohibit execution of over-sized or non-optimized queries for huge tables.
 
   Default value: **50000**.
@@ -703,8 +684,7 @@ By using this setting, you can prohibit execution of over-sized or non-optimized
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#max_ast_elements).
 
 - `max_expanded_ast_elements`: Limits the maximum size of query syntax tree in number of nodes after expansion of aliases and the asterisk values.
-
-  Executing a big and complex query may result in building a syntax tree of enormous size.
+Executing a big and complex query may result in building a syntax tree of enormous size.
 By using this setting, you can prohibit execution of over-sized or non-optimized queries for huge tables.
 
   Default value: **500000**.
@@ -732,14 +712,11 @@ If the execution speed is lower, an exception is thrown. **0** means unlimited.
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#min_execution_speed_bytes).
 
 - `input_format_values_interpret_expressions`: Enables or disables SQL parser if the fast stream parser cannot parse the data.
-
-  Enable this setting, if the data that you want to insert into a table contains SQL expressions.
-
-  For example, the stream parser is unable to parse a value that contains **now()** expression; therefore an **INSERT** query for this value
+Enable this setting, if the data that you want to insert into a table contains SQL expressions.
+For example, the stream parser is unable to parse a value that contains **now()** expression; therefore an **INSERT** query for this value
 will fail and no data will be inserted into a table. With enabled SQL parser, this expression is parsed correctly: the **now()** expression
 will be parsed as SQL function, interpreted, and the current date and time will be inserted into the table as a result.
-
-  This setting has effect only if you use [Values](https://clickhouse.com/docs/en/interfaces/formats/#data-format-values) format when inserting data.
+This setting has effect only if you use [Values](https://clickhouse.com/docs/en/interfaces/formats/#data-format-values) format when inserting data.
 
   Default value: **true**.
 
@@ -764,8 +741,7 @@ will be parsed as SQL function, interpreted, and the current date and time will 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#input_format_with_names_use_header).
 
 - `output_format_json_quote_64bit_integers`: Enables or disables quoting of 64-bit integers in JSON output format.
-
-  If this setting is enabled, then 64-bit integers (**UInt64** and **Int64**) will be quoted when written to JSON output
+If this setting is enabled, then 64-bit integers (**UInt64** and **Int64**) will be quoted when written to JSON output
 in order to maintain compatibility with the most of the JavaScript engines. Otherwise, such integers will not be quoted.
 
   Default value: **false** for versions 25.8 and higher, **true** for versions 25.7 and lower.
@@ -791,15 +767,12 @@ in order to maintain compatibility with the most of the JavaScript engines. Othe
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/formats#date_time_output_format).
 
 - `low_cardinality_allow_in_native_format`: Allows or restricts using the LowCardinality data type with the Native format.
-
-  LowCardinality columns (aka sparse columns) store data in more effective way, compared to regular columns, by using hash tables.
+LowCardinality columns (aka sparse columns) store data in more effective way, compared to regular columns, by using hash tables.
 If data to insert suits this storage format, ClickHouse will place them into LowCardinality column.
-
-  If you use a third-party ClickHouse client that can't work with LowCardinality columns, then this client will not be able to correctly interpret
+If you use a third-party ClickHouse client that can't work with LowCardinality columns, then this client will not be able to correctly interpret
 the result of the query that asks for data stored in LowCardinality column. Disable this setting to convert LowCardinality column to regular column
 when creating the result, so such clients will be able to process the result.
-
-  Official ClickHouse client works with LowCardinality columns out-of-the-box.
+Official ClickHouse client works with LowCardinality columns out-of-the-box.
 
   Default value: **true**.
 
@@ -870,13 +843,10 @@ when creating the result, so such clients will be able to process the result.
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#http_send_timeout).
 
 - `enable_http_compression`: Enables or disables data compression in HTTP responses.
-
-  By default, ClickHouse stores data compressed. When executing a query, its result is uncompressed.
+By default, ClickHouse stores data compressed. When executing a query, its result is uncompressed.
 Use this setting to command ClickHouse to compress the result when sending it via HTTP.
-
-  Enable this setting and add the **Accept-Encoding: &lt;compression method&gt;** HTTP header in a HTTP request to force compression of HTTP response from ClickHouse.
-
-  ClickHouse support the following compression methods: **gzip**, **br** and **deflate**.
+Enable this setting and add the **Accept-Encoding: &lt;compression method&gt;** HTTP header in a HTTP request to force compression of HTTP response from ClickHouse.
+ClickHouse support the following compression methods: **gzip**, **br** and **deflate**.
 
   Default value: **false**.
 
@@ -1042,8 +1012,7 @@ This setting has effect only when **log_queries** setting is enabled.
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#query_cache_tag).
 
 - `query_cache_share_between_users`: If turned on, the result of **SELECT** queries cached in the query cache can be read by other users.
-
-  It is not recommended to enable this setting due to security reasons.
+It is not recommended to enable this setting due to security reasons.
 
   Default value: **false**.
 
@@ -1081,8 +1050,7 @@ Otherwise, the empty cells are filled with the default value of the correspondin
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#join_use_nulls).
 
 - `transform_null_in`: Enables equality of **NULL** values for **IN** operator.
-
-  By default, **NULL** values can't be compared because **NULL** means undefined value. Thus, comparison **expr = NULL** must always return false.
+By default, **NULL** values can't be compared because **NULL** means undefined value. Thus, comparison **expr = NULL** must always return false.
 With this setting enabled **NULL = NULL** returns true for **IN** operator.
 
   Default value: **false**.
@@ -1090,8 +1058,7 @@ With this setting enabled **NULL = NULL** returns true for **IN** operator.
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/settings/settings#transform_null_in).
 
 - `insert_null_as_default`: Enables or disables the insertion of default values instead of **NULL** into columns with not nullable data type.
-
-  If column type is not nullable and this setting is disabled, then inserting NULL causes an exception.
+If column type is not nullable and this setting is disabled, then inserting NULL causes an exception.
 If column type is nullable, then NULL values are inserted as is, regardless of this setting.
 
   Default value: **true**.
@@ -1241,9 +1208,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||

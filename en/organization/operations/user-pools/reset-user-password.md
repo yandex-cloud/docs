@@ -60,6 +60,12 @@ To reset a [local](../../../iam/concepts/users/accounts.md#local) user password,
 
 The user must change this password on their first login to {{ yandex-cloud }}.
 
+{% note info %}
+
+If a [password policy](../../concepts/password-policy.md) is configured for a user pool, it will not apply to automatically generated passwords.
+
+{% endnote %}
+
 ## Setting a password {#set}
 
 {% list tabs group=instructions %}

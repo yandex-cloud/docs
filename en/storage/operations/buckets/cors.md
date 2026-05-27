@@ -7,12 +7,13 @@ description: Follow this guide to configure cross-origin resource sharing (CORS)
 
 {{ objstorage-name }} enables managing [CORS configurations](../../concepts/cors.md) in buckets.
 
+
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you want to configure CORS for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_cors }}** tab.
@@ -50,7 +51,7 @@ description: Follow this guide to configure cross-origin resource sharing (CORS)
       * `--cors`: CORS parameters:
         * `allowed-methods`: List of methods. The possible values are `method-get`, `method-put`, `method-post`, `method-delete`, and `method-head`. This is a required setting.
         * `allowed-origins`: List of websites allowed to send CORS requests to the bucket. This is a required setting.
-        * `allowed-headers`: List of allowed headers. This is an optional parameter.
+        * `allowed-headers`: List of allowed headers. This is an optional setting.
         * `expose-headers`: List of headers that can be exposed to browser JavaScript apps. This is an optional setting.
         * `max-age-seconds`: Time it takes the browser to cashe the result of an object request, in seconds. This is an optional setting.
 
@@ -118,7 +119,8 @@ description: Follow this guide to configure cross-origin resource sharing (CORS)
 
   {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
 
-  1. In the configuration file, describe the properties of resources you want to create:
+
+  1. In the configuration file, describe the resources you want to create:
 
      ```hcl
      provider "yandex" {
@@ -177,28 +179,13 @@ description: Follow this guide to configure cross-origin resource sharing (CORS)
      * `max_age_seconds`: Time it takes the browser to cashe the result of an object request, in seconds. This is an optional setting.
      * `server_side_encryption_configuration`: Bucket's server-side encryption configuration. This is an optional setting.
 
-     For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-link }}).
+     For more information about the `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket).
 
-  1. Make sure the configuration files are correct.
-     1. In the command line, navigate to the directory where you created the configuration file.
-     1. Run a check using this command:
+  1. Apply the changes:
 
-        ```bash
-        terraform plan
-        ```
+     {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     If the configuration description is correct, the terminal will display a list of the resources being created and their settings. If the configuration contains any errors, {{ TF }} will point them out.
-
-  1. Deploy the cloud resources.
-     1. If the configuration does not contain any errors, run this command:
-
-        ```bash
-        terraform apply
-        ```
-
-     1. Confirm creating the resources.
-
-     This will create all the resources you need in the specified folder. You can check the new resources and their settings using the [management console]({{ link-console-main }}).
+     You can check the update using the [management console]({{ link-console-main }}).
 
 - API {#api}
 

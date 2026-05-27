@@ -55,7 +55,7 @@ If you are not using your custom geobase, [remove it](#disconnect).
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
   1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
   1. In the **Geobase uri** field, enter a link to the geobase archive in {{ objstorage-full-name }}.
@@ -83,29 +83,30 @@ If you are not using your custom geobase, [remove it](#disconnect).
 
         You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        Learn how to create this file in [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. In the {{ mch-name }} cluster settings, add the `geobase_uri` parameter with the link to the archive containing the geobase being added in {{ objstorage-full-name }}:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
           ...
-          clickhouse {
-            config {
+          clickhouse = {
+            config = {
               geobase_uri = "<link_to_geobase_archive_in_Object_Storage>"
               ...
             }
           ...
           }
-        ...
+          ...
         }
         ```
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -116,6 +117,7 @@ If you are not using your custom geobase, [remove it](#disconnect).
     For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -147,15 +149,15 @@ If you are not using your custom geobase, [remove it](#disconnect).
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings you want to update.
+        * `updateMask`: Comma-separated string of settings to update.
 
             Here, we only specified a single setting, `configSpec.clickhouse.config.geobaseUri`.
 
         * `configSpec.clickhouse.config.geobaseUri`: Link to the geobase archive in {{ objstorage-name }}.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -196,13 +198,13 @@ If you are not using your custom geobase, [remove it](#disconnect).
 
         Where:
 
-        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
             Here, we only specified a single setting, `config_spec.clickhouse.config.geobase_uri`.
 
         * `config_spec.clickhouse.config.geobase_uri`: Link to the geobase archive in {{ objstorage-name }}.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -215,7 +217,7 @@ If you are not using your custom geobase, [remove it](#disconnect).
 - Management console {#console}
 
     1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-    1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+    1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
     1. Select your cluster and click **{{ ui-key.yacloud.mdb.clusters.button_action-edit }}** in the top panel.
     1. Under **{{ ui-key.yacloud.mdb.forms.section_settings }}**, click **{{ ui-key.yacloud.mdb.forms.button_configure-settings }}**.
     1. Delete the value in the **Geobase uri** field.
@@ -274,15 +276,15 @@ If you are not using your custom geobase, [remove it](#disconnect).
 
         Where:
 
-        * `updateMask`: Comma-separated string of settings you want to update.
+        * `updateMask`: Comma-separated string of settings to update.
 
             Here, we only specified a single setting, `configSpec.clickhouse.config.geobaseUri`.
 
         * `configSpec.clickhouse.config.geobaseUri`: Link to the geobase archive in {{ objstorage-name }}. Set an empty value for this parameter.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/Cluster/update.md#yandex.cloud.operation.operation) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
@@ -324,15 +326,15 @@ If you are not using your custom geobase, [remove it](#disconnect).
 
         Where:
 
-        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
             Here, we only specified a single setting, `config_spec.clickhouse.config.geobase_uri`.
 
         * `config_spec.clickhouse.config.geobase_uri`: Link to the geobase archive in {{ objstorage-name }}. Set an empty value for this parameter.
 
-        You can get the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
-    1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
+    1. Check the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
 {% endlist %}
 

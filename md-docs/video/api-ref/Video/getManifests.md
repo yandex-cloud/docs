@@ -1,0 +1,72 @@
+# Video API, REST: Video.GetManifests
+
+Retrieves the manifest URLs for a specific video.
+Manifests are used by video players to access the video content with adaptive bitrate streaming.
+Supports different manifest types (HLS, DASH) and configuration parameters.
+
+Manifests and its url MUST not be cached.
+The player MUST request a fresh manifest every time playback starts.
+
+## HTTP request
+
+```
+GET https://video.api.cloud.yandex.net/video/v1/videos/{videoId}:getManifests
+```
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| videoId | **string**
+
+Required field. ID of the video for which to retrieve manifest URLs.
+
+The maximum string length in characters is 50. ||
+|#
+
+## Response {#yandex.cloud.video.v1.GetVideoManifestsResponse}
+
+**HTTP Code: 200 - OK**
+
+```json
+{
+  "manifests": [
+    {
+      "url": "string",
+      "type": "string"
+    }
+  ]
+}
+```
+
+#|
+||Field | Description ||
+|| manifests[] | **[Manifest](#yandex.cloud.video.v1.Manifest)**
+
+List of manifests available for the video.
+Different manifests may represent different streaming formats (e.g., HLS, DASH) ||
+|#
+
+## Manifest {#yandex.cloud.video.v1.Manifest}
+
+Represents a streaming manifest file that defines how video content is delivered.
+Manifests contain information about available video qualities, audio tracks,
+and other metadata needed by video players to stream content efficiently.
+
+Manifests and its url MUST not be cached.
+The player MUST request a fresh manifest every time playback starts.
+
+#|
+||Field | Description ||
+|| url | **string**
+
+URL where the manifest file can be accessed. ||
+|| type | **enum** (ManifestType)
+
+Format of the manifest file.
+
+- `DASH`: Dynamic Adaptive Streaming over HTTP (DASH) format.
+@see https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP
+- `HLS`: HTTP Live Streaming (HLS) format.
+@see https://en.wikipedia.org/wiki/HTTP_Live_Streaming ||
+|#

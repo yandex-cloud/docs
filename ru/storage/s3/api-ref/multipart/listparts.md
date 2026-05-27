@@ -1,4 +1,4 @@
-# Метод listParts
+# Object Storage API, REST совместимый с Amazon S3: ListParts
 
 Возвращает список уже загруженных частей для указанной составной загрузки.
 

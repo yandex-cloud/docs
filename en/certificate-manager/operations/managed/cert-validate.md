@@ -1,22 +1,22 @@
 ---
 title: How to check domain rights in {{ certificate-manager-full-name }}
-description: This guide describes how you can check domain rights.
+description: Follow this guide to check your domain rights.
 ---
 
 # Checking domain rights
 
-To [check domain rights](../../concepts/challenges.md):
+To pass a [domain rights check](../../concepts/challenges.md):
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to which you added the [certificate](../../concepts/managed-certificate.md).
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you added the [certificate](../../concepts/managed-certificate.md) to.
+  1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
   1. Select and click the certificate you need checked.
   1. Under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}**, you will see the details required to pass the domain rights check.
-  1. As soon as the domain rights check is passed, the check status under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** will change to `Valid`.
-  1. After the check status for all the domains changes to `Valid`, the certificate will be issued and its status will change to `Issued`.
+  1. As soon as you pass the domain rights check, its status under **{{ ui-key.yacloud.certificate-manager.overview.section_challenges }}** will change to `Valid`.
+  1. After the check status for all the domains changes to `Valid`, a certificate will be issued and its status will change to `Issued`.
 
 - CLI {#cli}
 
@@ -40,7 +40,7 @@ To [check domain rights](../../concepts/challenges.md):
 
      Where:
      * `--id`: [Certificate](../../concepts/managed-certificate.md) ID.
-     * `--full`: Show a list of active domain rights checks.
+     * `--full`: Show the list of active domain rights checks.
 
      Result:
 
@@ -66,8 +66,8 @@ To [check domain rights](../../concepts/challenges.md):
             content: 3LiH-nrTC7GdMbRgVqttEvdTODeNeaD0TtXteWgtAH8.ZHCju15sJiKBwT8G5FTl7UtfmJWp1gKNYYP********
      ```
 
-  1. You can find the info you will need to pass the rights check under `http_challenge`.
-  1. As soon as the domain rights check is passed, the check status will change to `Valid`:
+  1. You can find the information you need to pass the rights check under `http_challenge`.
+  1. As soon as you pass the domain rights check, its status will change to `Valid`:
 
      ```bash
      yc certificate-manager certificate get \
@@ -85,7 +85,7 @@ To [check domain rights](../../concepts/challenges.md):
      ...
      ```
 
-  1. After the check status for all the domains changes to `Valid`, the certificate will be issued and its status will change to `Issued`:
+  1. After the check status for all the domains changes to `Valid`, a certificate will be issued and its status will change to `Issued`:
 
      ```bash
      yc certificate-manager certificate get \
@@ -109,7 +109,7 @@ To [check domain rights](../../concepts/challenges.md):
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  With {{ TF }}, you can create a [DNS record](../../../dns/concepts/resource-record.md) required to check your rights to a domain. Proceed as follows:
+  With {{ TF }}, you can create a [DNS record](../../../dns/concepts/resource-record.md) required to check your domain rights. Follow these steps:
   1. In the {{ TF }} configuration file, describe the resources you want to create:
 
      ```hcl
@@ -145,21 +145,22 @@ To [check domain rights](../../concepts/challenges.md):
      ```
 
      Where:
-     * `yandex_cm_certificate` resource parameters:
+     * `yandex_cm_certificate` resource properties:
        * `domains`: Domain you need to create a certificate for.
-       * `challenge_type`: Domain owner verification method. The possible values are:
-         * `DNS_CNAME`: Create a DNS record in [CNAME](../../../dns/concepts/resource-record.md#cname-cname) format with the specified value. This method is recommended for automatic certificate renewal.
+       * `challenge_type`: Domain owner check method. The possible values are:
+         * `DNS_CNAME`: Create a DNS record in [CNAME](../../../dns/concepts/resource-record.md#cname-cname) format with the specified value. We recommend this method for automatic certificate renewal.
          * `DNS_TXT`: Create a DNS record in [TXT](../../../dns/concepts/resource-record.md#txt) format with the specified value.
-     * `yandex_dns_recordset` resource parameters:
-       * `zone_id`: ID of the DNS zone the owner verification record will be in.
+     * `yandex_dns_recordset` resource properties:
+       * `zone_id`: ID of the DNS zone to add the owner verification record to.
        * `name`: Record name.
        * `type`: DNS record type.
        * `data`: Record value.
        * `ttl`: Record time to live (TTL) in seconds before updating the record value.
-     * `yandex_dns_recordset` data source parameters:
-       * `depends_on`: Indicates dependence on another {{ TF }} resource.
+       * `description`: Record set description. This is an optional setting.
+     * `yandex_dns_recordset` data source properties:
+       * `depends_on`: Indicates the dependence on another {{ TF }} resource.
        * `certificate_id`: Certificate ID.
-       * `wait_validation`: Certificate validation wait flag. If `true`, the operation will not be completed until the certificate is in `VALIDATING` status. The default value is `false`.
+       * `wait_validation`: Certificate validation wait flag. If `true`, the operation will not be completed until the certificate is `VALIDATING`. The default value is `false`.
 
      For more information about resource parameters, see [this {{ TF }} provider guide]({{ tf-provider-link }}).
   1. Create the resources:
@@ -174,7 +175,7 @@ To [check domain rights](../../concepts/challenges.md):
 
 - API {#api}
 
-  To get the information required to pass the domain rights check, use the [get](../../api-ref/Certificate/get.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/Get](../../api-ref/grpc/Certificate/get.md) gRPC API call with the `view=FULL` flag.
+  To get the information required to pass a domain rights check, use the [get](../../api-ref/Certificate/get.md) REST API method for the [Certificate](../../api-ref/Certificate/) resource or the [CertificateService/Get](../../api-ref/grpc/Certificate/get.md) gRPC API call with the `view=FULL` flag.
 
 {% endlist %}
 

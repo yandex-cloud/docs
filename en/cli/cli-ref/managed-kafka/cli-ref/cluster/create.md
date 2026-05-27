@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-kafka/cli-ref/cluster/create
 editable: false
 ---
 
@@ -131,6 +132,9 @@ Allows to set Kafka cluster configuration property "replica.fetch.max.bytes". Bu
 || `--offsets-retention-minutes` | `int`
 
 Allows to set Kafka cluster configuration property "offsets.retention.minutes". Offset storage time after a consumer group loses all its consumers. Default value: 10080. ||
+|| `--transactional-id-expiration-ms` | `int`
+
+Allows to set Kafka cluster configuration property "transactional.id.expiration.ms". Default value: 604800000. ||
 || `--ssl-cipher-suites` | `value[,value]`
 
 Allows to set Kafka cluster configuration property "ssl.cipher.suites". List of all valid cipher suites for this cluster, separated by comma. ||
@@ -177,9 +181,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||

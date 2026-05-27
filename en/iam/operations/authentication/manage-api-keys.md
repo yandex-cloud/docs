@@ -9,6 +9,31 @@ An [API key](../../concepts/authorization/api-key.md) is a secret key used for s
 
 If you do not have a service account yet, [create one](../sa/create.md) and [assign roles to it](../sa/assign-role-for-sa.md).
 
+## Viewing a list of API keys {#list-api-keys}
+
+{% list tabs group=instructions %}
+
+- Management console {#console}
+
+  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder the service account belongs to.
+  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}** and then select the required service account.
+  1. Under **{{ ui-key.yacloud.iam.folder.service-account.overview.section_api_keys }}**, you will see a list of all available API keys.
+
+- CLI {#cli}
+
+  {% include [cli-install](../../../_includes/cli-install.md) %}
+
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
+
+  {% include [list-api-keys](../../../_includes/iam/list-api-keys.md) %}
+
+- API {#api}
+
+  Use the [List](../../api-ref/ApiKey/list.md) REST API method for the [ApiKey](../../api-ref/ApiKey/index.md) resource or the [ApiKeyService/List](../../api-ref/grpc/ApiKey/list.md) gRPC API call.
+
+{% endlist %}
+
 ## Creating an API key {#create-api-key}
 
 {% include [access-control-sa-apikey-notice](../../../_includes/iam/access-control-sa-apikey-notice.md) %}
@@ -127,7 +152,7 @@ To create a service account API key:
 
       For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_api_key).
 
-  1. Create the resources:
+  1. Create the required resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -174,9 +199,18 @@ To create a service account API key:
 
 To learn how to transmit a key in a request, read the [guides for the respective services](../../concepts/authorization/api-key.md#supported-services) supporting this authentication method.
 
-### Viewing available scopes for an API key {#available-scopes}
+## Viewing available scopes for an API key {#available-scopes}
 
 {% list tabs group=instructions %}
+
+- Management console
+
+  1. In the [management console]({{ link-console-main }}), click ![image](../../../_assets/console-icons/layout-side-content-left.svg) or ![image](../../../_assets/console-icons/chevron-down.svg) in the top panel and select the folder the service account belongs to.
+   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+   1. In the left-hand panel, select ![FaceRobot](../../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
+   1. In the list that opens, select the service account you want to view scopes for.
+   1. In the ![flag](../../../_assets/console-icons/flag.svg) **{{ ui-key.yacloud.common.overview }}** tab, locate the API key under **{{ ui-key.yacloud.iam.folder.service-account.overview.section_api_keys }}**.
+   1. In its info row, you will find all available scopes of the API key in the **{{ ui-key.yacloud.iam.folder.service-account.overview.column_key_scope }}** column.
 
 - CLI {#cli}
 
@@ -197,8 +231,13 @@ To learn how to transmit a key in a request, read the [guides for the respective
   - yc.ai.speechkitTts.execute
   - yc.ai.translate.execute
   - yc.ai.vision.execute
+  - yc.logging.write
   - yc.monitoring.manage
   - yc.monitoring.read
+  - yc.monium.logs.write
+  - yc.monium.metrics.write
+  - yc.monium.traces.write
+  - yc.monium.telemetry.write
   - yc.postbox.send
   - yc.search-api.execute
   - yc.serverless.containers.invoke
@@ -295,93 +334,76 @@ To delete a service account API key:
 
 - CLI {#cli}
 
-    {% include [cli-install](../../../_includes/cli-install.md) %}
+  {% include [cli-install](../../../_includes/cli-install.md) %}
 
-    1. Get a list of API keys for a specific service account by entering the service account name:
+  {% include [default-catalogue](../../../_includes/default-catalogue.md) %}
 
-        ```bash
-        yc iam api-key list \
-          --service-account-name <service_account_name>
-        ```
+  1. {% include [list-api-keys](../../../_includes/iam/list-api-keys.md) %}
+  1. Delete the API key by specifying its ID:
 
-        Result:
-
-        ```text
-        +----------------------+---------------------+
-        |          ID          |     CREATED AT      |
-        +----------------------+---------------------+
-        | ajenhvftf77r******** | 2022-03-13 21:15:40 |
-        | ajeq610sgh05******** | 2022-03-13 21:14:43 |
-        +----------------------+---------------------+
-        ```
-
-        The folder specified in the CLI profile is used by default to search for the service account. You can specify a different folder using the `--folder-name` or `--folder-id` parameter.
-
-    1. Delete the API key by specifying its ID:
-
-        ```bash
-        yc iam api-key delete <API_key_ID>
-        ```
+      ```bash
+      yc iam api-key delete <API_key_ID>
+      ```
 
 - {{ TF }} {#tf}
 
-    {% include [terraform-install](../../../_includes/terraform-install.md) %}
+  {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-    1. Open the {{ TF }} configuration file and delete the section with the API key description.
+  1. Open the {{ TF }} configuration file and delete the section with the API key description.
 
-        Example API key description in the {{ TF }} configuration:
+      Example API key description in the {{ TF }} configuration:
 
-        ```hcl
-        resource "yandex_iam_service_account_api_key" "sa-api-key" {
-          service_account_id = "<service_account_ID>"
-          description        = "<key_description>"
-          pgp_key            = "<PGP_key>"
-        }
-        ```
+      ```hcl
+      resource "yandex_iam_service_account_api_key" "sa-api-key" {
+        service_account_id = "<service_account_ID>"
+        description        = "<key_description>"
+        pgp_key            = "<PGP_key>"
+      }
+      ```
 
-        For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_api_key).
+      For more information about the resources you can create with {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/iam_service_account_api_key).
 
-    1. Make sure the configuration files are correct.
+  1. Validate your configuration files.
 
-        1. In the command line, navigate to the directory where you created the configuration file.
-        1. Run a check using this command:
+      1. In the terminal, navigate to the directory where you created your configuration file.
+      1. Run a check using the following command:
 
-            ```bash
-            terraform plan
-            ```
+          ```bash
+          terraform plan
+          ```
 
-        If the configuration description is correct, the terminal will display a list of the resources being created and their settings. {{ TF }} will show any errors in the configuration.
+      If your configuration is correct, the terminal will display a list of the resources to be created and their settings. Otherwise, {{ TF }} will show any detected errors.
 
-    1. Deploy the cloud resources.
+  1. Deploy the cloud resources.
 
-        1. If the configuration does not contain any errors, run this command:
+      1. If the configuration is correct, run this command:
 
-            ```bash
-            terraform apply
-            ```
+          ```bash
+          terraform apply
+          ```
 
-        1. Confirm creating and deleting the resources by typing `yes` in the terminal and clicking **Enter**.
+      1. Confirm creating and deleting the resources by typing `yes` in the terminal and clicking **Enter**.
 
-        This will create or delete all the resources you need in the specified folder. You can check the new resources and their settings or make sure the resources were deleted using the [management console]({{ link-console-main }}) and this CLI command:
+      This will create or delete all the resources you need in the specified folder. You can check the new resources and their settings or make sure the resources were deleted using the [management console]({{ link-console-main }}) and this CLI command:
 
-        ```bash
-        yc iam api-key list --service-account-id <service_account_ID>
-        ```
+      ```bash
+      yc iam api-key list --service-account-id <service_account_ID>
+      ```
 
 - API {#api}
 
   Use the [delete](../../api-ref/ApiKey/delete.md) REST API method for the [ApiKey](../../api-ref/ApiKey/index.md) resource:
 
-    ```bash
-    export APIKEY_ID=<API_key_ID>
-    export IAM_TOKEN=<IAM_token>
-    curl \
-        --request DELETE \
-        --header "Authorization: Bearer $IAM_TOKEN" \
-        https://iam.{{ api-host }}/iam/v1/apiKeys/$APIKEY_ID
-    ```
+  ```bash
+  export APIKEY_ID=<API_key_ID>
+  export IAM_TOKEN=<IAM_token>
+  curl \
+      --request DELETE \
+      --header "Authorization: Bearer $IAM_TOKEN" \
+      https://iam.{{ api-host }}/iam/v1/apiKeys/$APIKEY_ID
+  ```
 
-   You can also delete the API key using the [ApiKeyService/Delete](../../api-ref/grpc/ApiKey/delete.md) gRPC API call.
+  You can also delete the API key using the [ApiKeyService/Delete](../../api-ref/grpc/ApiKey/delete.md) gRPC API call.
 
 {% endlist %}
 

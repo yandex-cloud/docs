@@ -14,6 +14,7 @@ description: Следуя данной инструкции, вы сможете
   1. Откройте [главную страницу]({{ link-video-main }}) {{ video-name }}.
   1. Выберите канал.
   1. На панели справа выберите **{{ ui-key.yacloud_video.channels.title_settings }}**.
+  1. Включите опцию **{{ ui-key.yacloud_video.channels.label_show-source-file-before-transcoding }}**, чтобы плеер начинал воспроизведение сразу после загрузки видео, не дожидаясь завершения обработки. Видео и метаданные в этом случае берутся из исходного файла без транскодирования. Функция работает только в браузерах, которые поддерживают формат исходного файла.
   1. В разделе **{{ ui-key.yacloud_video.channels.label_advertisement }}** укажите настройки для показа рекламы всех видео на канале.
   1. В разделе **{{ ui-key.yacloud_video.channels.label_allowed-domains }}** добавьте адреса сайтов, на которых можно показывать видео с этого канала. На других сайтах видео не будут показываться.
      1. Включите **{{ ui-key.yacloud_video.channels.label_domains-status }}**.
@@ -46,7 +47,7 @@ description: Следуя данной инструкции, вы сможете
 
 1. [Добавьте](#add-page-id) `Page ID` в настройки канала {{ video-name }}.
 1. Дождитесь прохождения модерации, когда статус видеоресурса в РСЯ изменится на **Работает. Нет статистики**.
-1. [Настройте](https://yandex.ru/support2/partner/ru/video/create-instream) показ рекламных блоков для ваших видео. 
+1. [Настройте](https://yandex.ru/support2/partner/ru/video/create-instream) показ рекламных блоков для ваших видео.
 1. [Включите](../video/update.md) рекламу отдельно для каждого видео.
 1. [Посмотрите статистику](https://yandex.ru/support2/partner/ru/statistics/working-with-reports) по рекламе и ознакомьтесь с [технологиями повышения эффективности](https://yandex.ru/support2/partner/ru/efficiency/site-quality) рекламы.
 

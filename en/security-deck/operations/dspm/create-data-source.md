@@ -5,16 +5,18 @@ description: Follow this guide to create data sources from {{ objstorage-full-na
 
 # Creating a {{ dspm-name }} data source
 
-A [data source](../../concepts/dspm.md#data-source) contains information about the storages to scan and additional settings. The available storages are {{ objstorage-full-name }} [buckets](../../../storage/concepts/bucket.md) and [Yandex Disk]({{ link-yandex }}/support/yandex-360/business/disk/web/{{ lang }}/index.html) in {{ yandex-360 }}. You cannot use both [{{ objstorage-name }}](../../../storage/) and [{{ yandex-360 }}]({{ link-yandex }}/support/yandex-360/business/admin/{{ lang }}/) storage in the same data source.
+A [data source](../../concepts/dspm.md#data-source) contains information about the storages to scan and additional settings. The available storages are {{ objstorage-full-name }} [buckets](../../../storage/concepts/bucket.md) and [disks]({{ link-yandex }}/support/yandex-360/business/disk/web/{{ lang }}/index.html) in {{ yandex-360 }}. You cannot use both [{{ objstorage-name }}](../../../storage/) and [{{ yandex-360 }}]({{ link-yandex }}/support/yandex-360/business/admin/{{ lang }}/) storage in the same data source.
 
-Before you start using {{ dspm-name }}, [set up](../../quickstart-overview.md#configure-sd) the default folder to store {{ sd-name }} data.
+## Getting started {#before-begin}
 
+{% include [dspm-before-begin-section](../../../_includes/security-deck/dspm-before-begin-section.md) %}
 
 ## Creating a data source for {{ objstorage-name }} {#object-storage}
 
+
 {% list tabs group=instructions %}
 
-- {{ sd-name }} UI {#cloud-sd}
+- {{ sd-name }} UI {#console}
 
   1. Go to [{{ sd-full-name }}]({{ link-sd-main }}).
   1. In the left-hand panel, select ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}** and go to the **{{ ui-key.yacloud_org.security-center.dspm.title_data-sources }}** tab.
@@ -22,7 +24,7 @@ Before you start using {{ dspm-name }}, [set up](../../quickstart-overview.md#co
   1. Add the resources you want to scan to the data source:
       * To add individual buckets, click ![circle-plus](../../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_org.dspm.scan-resource-group.button_select_bucket }}** and select one or more buckets from available folders.
 
-          You can filter buckets by access settings (`{{ ui-key.yacloud_org.storage.value_private-bucket }}` or `{{ ui-key.yacloud_org.storage.value_public-bucket }}`) and by bucket name as needed.
+          You can filter buckets by access settings (`{{ ui-key.yacloud.storage.buckets.value_private-bucket }}` or `{{ ui-key.yacloud.storage.buckets.value_public-bucket }}`) and by bucket name as needed.
 
       * To add [clouds](../../../resource-manager/concepts/resources-hierarchy.md#cloud) or [folders](../../../resource-manager/concepts/resources-hierarchy.md#folder) to your data source, click ![circle-plus](../../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_org.dspm.scan-resource-group.button_select_cloud_catalog }}** and select all or some of the available clouds and/or folders.
 
@@ -55,7 +57,7 @@ Before you start using {{ dspm-name }}, [set up](../../quickstart-overview.md#co
 
 {% list tabs group=instructions %}
 
-- {{ sd-name }} UI {#cloud-sd}
+- {{ sd-name }} UI {#console}
 
   1. Go to [{{ sd-full-name }}]({{ link-sd-main }}).
   1. In the left-hand panel, select ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}** and go to the **{{ ui-key.yacloud_org.security-center.dspm.title_data-sources }}** tab.

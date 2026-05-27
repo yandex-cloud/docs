@@ -13,6 +13,7 @@ description: Различные сценарии использования {{ m
 * [{#T}](./cdc-data-transfer.md)
 * [{#T}](./cdc-debezium.md)
 * [{#T}](./data-transfer-ydb.md)
+* [{#T}](./ydb-to-postgresql.md)
 * [{#T}](./mpg-to-yds.md)
 * [{#T}](./mkf-to-mpg.md)
 * [{#T}](./object-storage-to-postgresql.md)

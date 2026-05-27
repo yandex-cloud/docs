@@ -53,7 +53,7 @@ items:
             href: operations/applications/crossplane.md
           - name: Installing External Secrets Operator
             href: operations/applications/external-secrets-operator.md
-          - name: Installing ExternalDNS with a plugin for {{ dns-name }}
+          - name: Installing ExternalDNS with Webhook {{ dns-name }}
             href: operations/applications/externaldns.md
           - name: Installing Falco
             href: operations/applications/falco.md
@@ -137,9 +137,6 @@ items:
             href: operations/kubernetes-cluster/kubernetes-cluster-create.md
           - name: Updating a {{ k8s }} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-update.md
-          - name: Creating a namespace in a {{ k8s }} cluster
-            href: >-
-              operations/kubernetes-cluster/kubernetes-cluster-namespace-create.md
           - name: Managing access to a {{ k8s }} cluster
             href: operations/kubernetes-cluster/kubernetes-cluster-access.md
           - name: >-
@@ -162,6 +159,8 @@ items:
             href: operations/node-group/node-group-list.md
           - name: Creating a node group
             href: operations/node-group/node-group-create.md
+          - name: Creating a group with nodes from a reserved instance pool
+            href: operations/node-group/node-group-create-in-instance-pool.md
           - name: Connecting to a node over SSH
             href: operations/node-connect-ssh.md
           - name: Connecting to a node via {{ oslogin }}
@@ -190,6 +189,21 @@ items:
         items:
           - name: Connecting to the terminal of a running container
             href: operations/kubernetes-console/pod-terminal.md
+          - name: Managing pod allocation to nodes
+            href: operations/kubernetes-console/nodes.md
+          - name: Managing workloads
+            href: operations/kubernetes-console/workloads.md
+          - name: Managing storages
+            href: operations/kubernetes-console/storage.md
+          - name: Managing Service and Ingress resources
+            href: operations/kubernetes-console/network.md
+          - name: Managing ConfigMap and Secret resources
+            href: operations/kubernetes-console/configuration.md
+          - name: Managing {{ k8s }} service accounts
+            href: operations/kubernetes-console/access.md
+          - name: Managing namespaces
+            href: >-
+              operations/kubernetes-cluster/kubernetes-cluster-namespace-create.md
   - name: Tutorials
     items:
       - name: All tutorials
@@ -258,7 +272,7 @@ items:
               Scanning {{ container-registry-name }} for vulnerabilities during
               continuous deployment of applications using {{ GL }}
             href: tutorials/cr-scanner-with-k8s-and-gitlab.md
-          - name: Building a CI/CD pipeline in {{ GL }} with serverless products
+          - name: Building a CI/CD pipeline in {{ GL }} using serverless products
             href: tutorials/ci-cd-serverless.md
       - name: Working with DNS
         items:
@@ -358,6 +372,10 @@ items:
             href: concepts/node-group/allocatable-resources.md
           - name: Node groups with GPUs
             href: concepts/node-group/node-group-gpu.md
+          - name: Reserved instance pools for node groups
+            href: concepts/node-group/reserved-pools.md
+          - name: Variables in a node template
+            href: concepts/node-group/variables-in-the-template.md
       - name: Networking in {{ managed-k8s-name }}
         href: concepts/network.md
       - name: Network settings and cluster policies
@@ -480,6 +498,110 @@ items:
             href: cli-ref/resource-preset/get.md
           - name: list
             href: cli-ref/resource-preset/list.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: cluster
+            items:
+              - name: Overview
+                href: cli-ref/v0/cluster/index.md
+              - name: add-access-binding
+                href: cli-ref/v0/cluster/add-access-binding.md
+              - name: add-labels
+                href: cli-ref/v0/cluster/add-labels.md
+              - name: create
+                href: cli-ref/v0/cluster/create.md
+              - name: delete
+                href: cli-ref/v0/cluster/delete.md
+              - name: get
+                href: cli-ref/v0/cluster/get.md
+              - name: get-credentials
+                href: cli-ref/v0/cluster/get-credentials.md
+              - name: list
+                href: cli-ref/v0/cluster/list.md
+              - name: list-access-bindings
+                href: cli-ref/v0/cluster/list-access-bindings.md
+              - name: list-node-groups
+                href: cli-ref/v0/cluster/list-node-groups.md
+              - name: list-nodes
+                href: cli-ref/v0/cluster/list-nodes.md
+              - name: list-operations
+                href: cli-ref/v0/cluster/list-operations.md
+              - name: remove-access-binding
+                href: cli-ref/v0/cluster/remove-access-binding.md
+              - name: remove-labels
+                href: cli-ref/v0/cluster/remove-labels.md
+              - name: reschedule-maintenance
+                href: cli-ref/v0/cluster/reschedule-maintenance.md
+              - name: set-access-bindings
+                href: cli-ref/v0/cluster/set-access-bindings.md
+              - name: start
+                href: cli-ref/v0/cluster/start.md
+              - name: stop
+                href: cli-ref/v0/cluster/stop.md
+              - name: update
+                href: cli-ref/v0/cluster/update.md
+          - name: create-token
+            href: cli-ref/v0/create-token.md
+          - name: list-versions
+            href: cli-ref/v0/list-versions.md
+          - name: marketplace
+            items:
+              - name: Overview
+                href: cli-ref/v0/marketplace/index.md
+              - name: helm-release
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/marketplace/helm-release/index.md
+                  - name: get
+                    href: cli-ref/v0/marketplace/helm-release/get.md
+                  - name: install
+                    href: cli-ref/v0/marketplace/helm-release/install.md
+                  - name: list
+                    href: cli-ref/v0/marketplace/helm-release/list.md
+                  - name: uninstall
+                    href: cli-ref/v0/marketplace/helm-release/uninstall.md
+                  - name: update
+                    href: cli-ref/v0/marketplace/helm-release/update.md
+          - name: node-group
+            items:
+              - name: Overview
+                href: cli-ref/v0/node-group/index.md
+              - name: add-labels
+                href: cli-ref/v0/node-group/add-labels.md
+              - name: add-metadata
+                href: cli-ref/v0/node-group/add-metadata.md
+              - name: add-node-labels
+                href: cli-ref/v0/node-group/add-node-labels.md
+              - name: create
+                href: cli-ref/v0/node-group/create.md
+              - name: delete
+                href: cli-ref/v0/node-group/delete.md
+              - name: get
+                href: cli-ref/v0/node-group/get.md
+              - name: list
+                href: cli-ref/v0/node-group/list.md
+              - name: list-nodes
+                href: cli-ref/v0/node-group/list-nodes.md
+              - name: list-operations
+                href: cli-ref/v0/node-group/list-operations.md
+              - name: remove-labels
+                href: cli-ref/v0/node-group/remove-labels.md
+              - name: remove-metadata
+                href: cli-ref/v0/node-group/remove-metadata.md
+              - name: remove-node-labels
+                href: cli-ref/v0/node-group/remove-node-labels.md
+              - name: update
+                href: cli-ref/v0/node-group/update.md
+          - name: resource-preset
+            items:
+              - name: Overview
+                href: cli-ref/v0/resource-preset/index.md
+              - name: get
+                href: cli-ref/v0/resource-preset/get.md
+              - name: list
+                href: cli-ref/v0/resource-preset/list.md
   - name: '{{ TF }} reference'
     href: tf-ref.md
   - name: API reference
@@ -704,66 +826,90 @@ items:
             href: alb-ref/ingress-gwin-migration.md
           - name: Migrating applications from NGINX Ingress to Gwin
             href: alb-ref/nginx-gwin-migration.md
+          - name: Attachment mechanism for Gwin integration with {{ alb-name }}
+            href: alb-ref/gwin-alb-attachment.md
           - name: Resource configuration
             items:
               - name: Gateway
                 href: gwin-ref/gateway.md
+              - name: GatewayPolicy
+                href: gwin-ref/gatewaypolicy.md
               - name: GRPCRoute
                 href: gwin-ref/grpcroute.md
-              - name: Ingress
-                href: gwin-ref/ingress.md
               - name: HTTPRoute
                 href: gwin-ref/httproute.md
+              - name: Ingress
+                href: gwin-ref/ingress.md
+              - name: IngressBackendGroup
+                href: gwin-ref/ingressbackendgroup.md
               - name: IngressPolicy
                 href: gwin-ref/ingresspolicy.md
               - name: RoutePolicy
                 href: gwin-ref/routepolicy.md
-              - name: IngressBackendGroup
-                href: gwin-ref/ingressbackendgroup.md
               - name: Service
                 href: gwin-ref/service.md
               - name: ServicePolicy
                 href: gwin-ref/servicepolicy.md
               - name: TLSRoute
                 href: gwin-ref/tlsroute.md
-              - name: YCStorageBucket
-                href: gwin-ref/ycstoragebucket.md
               - name: YCCertificate
                 href: gwin-ref/yccertificate.md
-              - name: GatewayPolicy
-                href: gwin-ref/gatewaypolicy.md
+              - name: YCStorageBucket
+                href: gwin-ref/ycstoragebucket.md
       - name: Ingress controller
         items:
-          - name: Ingress
-            href: alb-ref/ingress.md
-          - name: HttpBackendGroup
-            href: alb-ref/http-backend-group.md
-          - name: GrpcBackendGroup
-            href: alb-ref/grpc-backend-group.md
-          - name: IngressClass
-            href: alb-ref/ingress-class.md
-          - name: Ingress service
-            href: alb-ref/service-for-ingress.md
+          - name: Overview
+            href: alb-ref/ingress-controller/index.md
+          - name: How it works
+            href: alb-ref/ingress-controller/principles.md
+          - name: Installing an ingress controller
+            href: operations/applications/alb-ingress-controller.md
+          - name: Upgrading an ingress controller
+            href: operations/applications/upgrade-alb-ingress-controller.md
+          - name: Resource configuration
+            items:
+              - name: Ingress
+                href: alb-ref/ingress.md
+              - name: HttpBackendGroup
+                href: alb-ref/http-backend-group.md
+              - name: GrpcBackendGroup
+                href: alb-ref/grpc-backend-group.md
+              - name: IngressClass
+                href: alb-ref/ingress-class.md
+              - name: Ingress service
+                href: alb-ref/service-for-ingress.md
       - name: Gateway API
         items:
-          - name: Gateway
-            href: alb-ref/gateway.md
-          - name: GatewayPolicy
-            href: alb-ref/gateway-policy.md
-          - name: YCCertificate
-            href: alb-ref/yc-certificate.md
-          - name: HTTPRoute
-            href: alb-ref/http-route.md
-          - name: GRPCRoute
-            href: alb-ref/grpc-route.md
-          - name: RoutePolicy
-            href: alb-ref/route-policy.md
-          - name: YCStorageBucket
-            href: alb-ref/yc-storage-bucket.md
-          - name: TLSRoute
-            href: alb-ref/tls-route.md
-          - name: Gateway API service
-            href: alb-ref/service-for-gateway.md
+          - name: Overview
+            href: alb-ref/gateway-api/index.md
+          - name: Installing the Gateway API
+            href: operations/applications/gateway-api.md
+          - name: Resource configuration
+            items:
+              - name: Gateway
+                href: alb-ref/gateway.md
+              - name: GatewayPolicy
+                href: alb-ref/gateway-policy.md
+              - name: HTTPRoute
+                href: alb-ref/http-route.md
+              - name: GRPCRoute
+                href: alb-ref/grpc-route.md
+              - name: RoutePolicy
+                href: alb-ref/route-policy.md
+              - name: TLSRoute
+                href: alb-ref/tls-route.md
+              - name: Gateway API service
+                href: alb-ref/service-for-gateway.md
+              - name: YCCertificate
+                href: alb-ref/yc-certificate.md
+              - name: YCStorageBucket
+                href: alb-ref/yc-storage-bucket.md
+      - name: Configuring security groups
+        href: alb-ref/security-groups.md
+      - name: Working with service accounts
+        href: alb-ref/service-account.md
+      - name: Creating and updating resources via ingress controller configurations
+        href: alb-ref/k8s-ingress-controller-apply.md
   - name: '{{ network-load-balancer-name }} tools'
     items:
       - name: Overview

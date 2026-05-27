@@ -2,20 +2,20 @@
 title: Как получить информацию о зоне DNS в {{ dns-full-name }}
 ---
 
-# Получить информации о зоне DNS
+# Получить информацию о зоне DNS
 
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) перейдите в [каталог](../../resource-manager/concepts/resources-hierarchy.md#folder), в котором находится [зона DNS](../concepts/dns-zone.md).
-  1. Выберите сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_dns }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/compass.svg) **{{ ui-key.yacloud.dns.label_zones-list }}**.
   1. Выберите нужную зону DNS.
   1. Перейдите на вкладку **{{ ui-key.yacloud.common.overview }}**
   1. На странице **{{ ui-key.yacloud.common.overview }}** отобразится подробная информация о зоне DNS.
 
-- CLI
+- CLI {#cli}
 
   {% include [cli-install](../../_includes/cli-install.md) %}
 

@@ -1,4 +1,4 @@
-# Метод deleteBucketTagging
+# Object Storage API, REST совместимый с Amazon S3: DeleteBucketTagging
 
 Удаляет [метки](../../../concepts/tags.md) бакета.
 

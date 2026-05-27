@@ -1,20 +1,21 @@
 # Loading data from {{ objstorage-full-name }} to {{ mgp-full-name }} using {{ data-transfer-full-name }}
 
-You can migrate data from {{ objstorage-name }} to the {{ GP }} table in {{ mgp-name }} using {{ data-transfer-name }}. To do this:
+You can migrate data from {{ objstorage-full-name }} to the {{ GP }} table in {{ mgp-name }} using {{ data-transfer-full-name }}. Follow these steps:
 
 1. [Prepare your test data](#prepare-data).
 1. [Create a database in the target cluster](#prepare-data).
-1. [Set up and activate the transfer](#prepare-transfer).
-1. [Test your transfer](#verify-transfer).
+1. [Prepare and activate the transfer](#prepare-transfer).
+1. [Test the transfer](#verify-transfer).
 
 If you no longer need the resources you created, [delete them](#clear-out).
 
 
 ## Required paid resources {#paid-resources}
 
-* {{ objstorage-name }} bucket: Use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
-* {{ mgp-name }} cluster, which includes computing resources allocated to hosts, storage and backup size (see [{{ mgp-name }} pricing](../../managed-greenplum/pricing/index.md)).
-* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
+* {{ objstorage-name }} bucket: use of storage, data operations (see [{{ objstorage-name }} pricing](../../storage/pricing.md)).
+* {{ mgp-name }} cluster, which includes the use of computing resources allocated to hosts, storage and backup size (see [{{ mgp-name }} pricing](../../managed-greenplum/pricing/index.md)).
+* Each transfer: use of computing resources and the number of transferred data rows (see [{{ data-transfer-name }} pricing](../../data-transfer/pricing.md)).
+* Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-full-name }} pricing](../../vpc/pricing.md)).
 
 
 ## Getting started {#before-you-begin}
@@ -34,7 +35,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
             {% include [public-access](../../_includes/mdb/note-public-access.md) %}
 
         
-        1. If using security groups, make sure they are [configured correctly](../../managed-greenplum/operations/connect/index.md#configuring-security-groups) and allow connections to your cluster.
+        1. If you are using security groups in a cluster, make sure they are [configured correctly](../../managed-greenplum/operations/connect/index.md#configuring-security-groups) and allow connections to it.
 
 
         1. [Create an {{ objstorage-name }} bucket](../../storage/operations/buckets/create.md).
@@ -123,7 +124,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
     CREATE DATABASE db1;
     ```
 
-## Set up and activate the transfer {#prepare-transfer}
+## Prepare and activate the transfer {#prepare-transfer}
 
 1. [Create a source endpoint](../../data-transfer/operations/endpoint/source/object-storage.md#objstorage-name) of the `{{ objstorage-name }}` type with the following settings:
 
@@ -189,7 +190,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
     {% endlist %}
 
-## Test your transfer {#verify-transfer}
+## Test the transfer {#verify-transfer}
 
 Make sure the transfer works correctly by testing copying and replication.
 
@@ -197,7 +198,7 @@ Make sure the transfer works correctly by testing copying and replication.
 
 1. [Connect](../../managed-greenplum/operations/connect/index.md) to the `db1` database in the {{ GP }} target cluster.
 
-1. Run this query:
+1. Run this request:
 
     ```sql
     SELECT * FROM public.table1;
@@ -225,7 +226,7 @@ Make sure the transfer works correctly by testing copying and replication.
 
     1. [Connect](../../managed-greenplum/operations/connect/index.md) to the `db1` database in the {{ GP }} target cluster.
 
-    1. Run this query:
+    1. Run this request:
 
         ```sql
         SELECT * FROM public.table1;
@@ -255,7 +256,7 @@ To reduce the consumption of resources, delete those you do not need:
 1. [Delete the source endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 1. [Delete the target endpoint](../../data-transfer/operations/endpoint/index.md#delete).
 1. [Delete the objects](../../storage/operations/objects/delete.md) from the bucket.
-1. Delete the other resources depending on how you created them:
+1. Delete the rest of the resources depending on how you created them:
 
     {% list tabs group=instructions %}
 

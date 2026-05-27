@@ -11,8 +11,8 @@ description: Следуя данной инструкции, вы сможете
 
   Чтобы удалить [правило](../concepts/security-groups.md#security-groups-structure) из [группы безопасности](../concepts/security-groups.md):
 
-  1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, где требуется изменить группу безопасности.
-  1. В списке сервисов выберите **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. В [консоли управления]({{ link-console-main }}) выберите каталог, где требуется изменить группу безопасности.
+  1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. На панели слева выберите ![image](../../_assets/console-icons/shield.svg) **{{ ui-key.yacloud.vpc.label_security-groups }}**.
   1. Нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке группы, в которой требуется удалить правило, и выберите **{{ ui-key.yacloud.common.edit }}**.
   1. В блоке **{{ ui-key.yacloud.vpc.network.security-groups.forms.label_section-rules }}** нажмите значок ![image](../../_assets/console-icons/ellipsis.svg) в строке правила, которое требуется удалить.
@@ -171,3 +171,4 @@ description: Следуя данной инструкции, вы сможете
   {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
 {% endlist %}
+

@@ -13,9 +13,9 @@ description: Follow this guide to create a user pool in {{ org-full-name }}.
   1. Log in to [{{ org-full-name }}]({{ link-org-cloud-center }}).
   1. In the left-hand panel, select ![userpool](../../../_assets/organization/userpool.svg) **{{ ui-key.yacloud_org.pages.userpools }}**.  
   1. In the top-right corner of the page, click ![Circles3Plus](../../../_assets/console-icons/circles-3-plus.svg) **{{ ui-key.yacloud_org.organization.userpools.action_create-userpool }}**.
-  1. Enter a name and description for the [user pool](../../concepts/user-pools.md).
+  1. Specify a name and description for the [user pool](../../concepts/user-pools.md).
 
-      The name must be unique within the organization and aligned with the naming requirements:
+      The name must be unique within the organization and follow these naming requirements:
 
       {% include [group-name-format](../../../_includes/organization/group-name-format.md) %}
 
@@ -25,6 +25,7 @@ description: Follow this guide to create a user pool in {{ org-full-name }}.
      1. Enter a label in `key: value` format.
      1. Press **Enter**.
   1. Optionally, in the **{{ ui-key.yacloud_org.form.userpool.caption.settings-data }}** field, select the user settings available for editing on the [My account](../../concepts/my-account.md) portal. By default, password management is allowed.
+  1. In the **{{ ui-key.yacloud_org.form.userpool.caption.session-lifetime }}** field, specify a time period for user [sessions](../../concepts/sessions.md) to remain active before requiring reauthentication in {{ org-full-name }}.
   1. Click **{{ ui-key.yacloud_org.form.userpool.create.action.create }}**.
 
 - CLI {#cli}
@@ -103,7 +104,7 @@ description: Follow this guide to create a user pool in {{ org-full-name }}.
        * `allow_edit_self_login`: Editing username.
        * `allow_edit_self_password`: Editing password.
 
-     For more information about `yandex_organizationmanager_idp_userpool` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_userpool).
+     For more information about the `yandex_organizationmanager_idp_userpool` properties, see [this provider guide]({{ tf-provider-resources-link }}/organizationmanager_idp_userpool).
 
   1. Create the resources:
 

@@ -14,3 +14,4 @@ description: This section contains step-by-step guides for {{ postbox-name }}.
 * [{#T}](bind-configuration.md)
 * [{#T}](restrict-senders.md)
 * [{#T}](logs-write.md)
+* [{#T}](messages.md)

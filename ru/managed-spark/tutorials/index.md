@@ -13,3 +13,4 @@ description: Различные сценарии использования {{ m
 * [{#T}](airflow-spark-min.md)
 * [{#T}](job-pyspark-secret-access.md)
 * [{#T}](airflow-automation.md)
+* [{#T}](spark-and-datasphere.md)

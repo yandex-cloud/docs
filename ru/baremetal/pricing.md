@@ -6,9 +6,54 @@ editable: false
 
 # Правила тарификации для {{ baremetal-full-name }}
 
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 12
+      sm: 4
+    children:
+      - type: basic-card
+        title: Калькулятор цен
+        text: Рассчитайте стоимость использования сервиса, исходя из ваших потребностей
+        icon: _assets/icons/calculator.svg
+        urlTitle: Калькулятор цен
+        url: https://yandex.cloud/ru/prices?state=19a1a419e01b#calculator
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Прайс-лист
+        text: Актуальные тарифы на все наши услуги
+        icon: _assets/icons/circle-ruble.svg
+        urlTitle: Прайс-лист
+        url: https://yandex.cloud/ru/price-list?services=dn2jfbheag6vvls7oplt
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Акции и free tier
+        text: Гранты, специальные условия и программы поддержки
+        icon: _assets/icons/flame.svg
+        urlTitle: Акции и free tier
+        url: https://yandex.cloud/ru/all-offers
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+:::
 
 
-{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 
 
 {% include [vat](../_includes/vat.md) %}
@@ -16,8 +61,6 @@ editable: false
 В сервисе {{ baremetal-name }} оплачивается срок аренды сервера [определенной конфигурации](concepts/server-configurations.md). Арендованный сервер тарифицируется в течение всего периода аренды, независимо от того, включен он или выключен.
 
 Доступное количество серверов определенной конфигурации указано в [калькуляторе](https://yandex.cloud/ru/prices) на сайте {{ yandex-cloud }} и в [консоли управления]({{ link-console-main }}) при выборе сервера.
-
-Цены за месяц использования формируются из расчета 720 часов в месяц.
 
 ## Цены для региона Россия {#prices}
 
@@ -124,6 +167,11 @@ editable: false
       '{{ pc|baremetal.server.ba-i217-s-1-10g.3_month }}',
       '{{ pc|baremetal.server.ba-i217-s-1-10g.6_month }}',
       '{{ pc|baremetal.server.ba-i217-s-1-10g.12_month }}',
+      '{{ pc|baremetal.server.ba_i218_s.1_day }}',
+      '{{ pc|baremetal.server.ba_i218_s.1_month }}',
+      '{{ pc|baremetal.server.ba_i218_s.3_month }}',
+      '{{ pc|baremetal.server.ba_i218_s.6_month }}',
+      '{{ pc|baremetal.server.ba_i218_s.12_month }}',
       '{{ pc|baremetal.server.ba_i311_s.1_day }}',
       '{{ pc|baremetal.server.ba_i311_s.1_month }}',
       '{{ pc|baremetal.server.ba_i311_s.3_month }}',
@@ -258,7 +306,12 @@ editable: false
       '{{ pc|baremetal.server.la_i113_s.1_month }}',
       '{{ pc|baremetal.server.la_i113_s.3_month }}',
       '{{ pc|baremetal.server.la_i113_s.6_month }}',
-      '{{ pc|baremetal.server.la_i113_s.12_month }}'
+      '{{ pc|baremetal.server.la_i113_s.12_month }}',
+      '{{ pc|baremetal.server.la_i114_s.1_day }}',
+      '{{ pc|baremetal.server.la_i114_s.1_month }}',
+      '{{ pc|baremetal.server.la_i114_s.3_month }}',
+      '{{ pc|baremetal.server.la_i114_s.6_month }}',
+      '{{ pc|baremetal.server.la_i114_s.12_month }}'
     ]}
     installationCode="ru"
     currency="RUB"
@@ -291,6 +344,18 @@ editable: false
       '{{ pc|baremetal.component.bms_1029p_body.3_month }}',
       '{{ pc|baremetal.component.bms_1029p_body.6_month }}',
       '{{ pc|baremetal.component.bms_1029p_body.12_month }}',
+      '{{ pc|baremetal.component.bms_6017r_1p_body.1_month }}',
+      '{{ pc|baremetal.component.bms_6017r_1p_body.3_month }}',
+      '{{ pc|baremetal.component.bms_6017r_1p_body.6_month }}',
+      '{{ pc|baremetal.component.bms_6017r_1p_body.12_month }}',
+      '{{ pc|baremetal.component.bms_6017r_2p_body.1_month }}',
+      '{{ pc|baremetal.component.bms_6017r_2p_body.3_month }}',
+      '{{ pc|baremetal.component.bms_6017r_2p_body.6_month }}',
+      '{{ pc|baremetal.component.bms_6017r_2p_body.12_month }}',
+      '{{ pc|baremetal.component.bms_6018r_body.1_month }}',
+      '{{ pc|baremetal.component.bms_6018r_body.3_month }}',
+      '{{ pc|baremetal.component.bms_6018r_body.6_month }}',
+      '{{ pc|baremetal.component.bms_6018r_body.12_month }}',
       '{{ pc|baremetal.component.bms-cpu-9374f.1-month }}',
       '{{ pc|baremetal.component.bms-cpu-9374f.6-month }}',
       '{{ pc|baremetal.component.bms-cpu-9374f.12-month }}',
@@ -324,6 +389,14 @@ editable: false
       '{{ pc|baremetal.server.bms_cpu_ie5_2660.1_month }}',
       '{{ pc|baremetal.server.bms_cpu_ie5_2660.6_month }}',
       '{{ pc|baremetal.server.bms_cpu_ie5_2660.12_month }}',
+      '{{ pc|baremetal.component.bms_cpu_ie5_2660v4.1_month }}',
+      '{{ pc|baremetal.component.bms_cpu_ie5_2660v4.3_month }}',
+      '{{ pc|baremetal.component.bms_cpu_ie5_2660v4.6_month }}',
+      '{{ pc|baremetal.component.bms_cpu_ie5_2660v4.12_month }}',
+      '{{ pc|baremetal.component.bms_cpu_ie5_2683v4.1_month }}',
+      '{{ pc|baremetal.component.bms_cpu_ie5_2683v4.3_month }}',
+      '{{ pc|baremetal.component.bms_cpu_ie5_2683v4.6_month }}',
+      '{{ pc|baremetal.component.bms_cpu_ie5_2683v4.12_month }}',
       '{{ pc|baremetal.component.bms_cpu_i6230.1_month }}',
       '{{ pc|baremetal.component.bms_cpu_i6230.3_month }}',
       '{{ pc|baremetal.component.bms_cpu_i6230.6_month }}',
@@ -419,6 +492,22 @@ editable: false
       '{{ pc|baremetal.server.bms_ram3_256.1_month }}',
       '{{ pc|baremetal.server.bms_ram3_256.6_month }}',
       '{{ pc|baremetal.server.bms_ram3_256.12_month }}',
+      '{{ pc|baremetal.component.bms_ram3_512.1_month }}',
+      '{{ pc|baremetal.component.bms_ram3_512.3_month }}',
+      '{{ pc|baremetal.component.bms_ram3_512.6_month }}',
+      '{{ pc|baremetal.component.bms_ram3_512.12_month }}',
+      '{{ pc|baremetal.component.bms_ram4_16.1_month }}',
+      '{{ pc|baremetal.component.bms_ram4_16.3_month }}',
+      '{{ pc|baremetal.component.bms_ram4_16.6_month }}',
+      '{{ pc|baremetal.component.bms_ram4_16.12_month }}',
+      '{{ pc|baremetal.component.bms_ram4_32.1_month }}',
+      '{{ pc|baremetal.component.bms_ram4_32.3_month }}',
+      '{{ pc|baremetal.component.bms_ram4_32.6_month }}',
+      '{{ pc|baremetal.component.bms_ram4_32.12_month }}',
+      '{{ pc|baremetal.component.bms_ram4_64.1_month }}',
+      '{{ pc|baremetal.component.bms_ram4_64.3_month }}',
+      '{{ pc|baremetal.component.bms_ram4_64.6_month }}',
+      '{{ pc|baremetal.component.bms_ram4_64.12_month }}',
       '{{ pc|baremetal.component.bms-ram4-1024.1-month }}',
       '{{ pc|baremetal.component.bms-ram4-1024.6-month }}',
       '{{ pc|baremetal.component.bms-ram4-1024.12-month }}',

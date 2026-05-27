@@ -244,6 +244,10 @@ The computing resources consumed by [agents](../../load-testing/concepts/agent.m
 
 {% include [mpg-limits.md](../../_includes/mdb/mpg-limits.md) %}
 
+### {{ mspqr-full-name}} {#mspqr}
+
+{% include [managed-spqr-limits.md](../../_includes/managed-spqr/limits.md) %}
+
 
 ### {{ mtr-full-name }} {#mtr}
 

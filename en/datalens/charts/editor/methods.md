@@ -21,6 +21,7 @@ The supported methods include:
 * [Editor.resolveOperation(args)](#resolve-oper)
 * [Editor.resolveRelative(arg)](#resolve-relative)
 * [Editor.setChartsInsights(args)](#set-insights)
+* [Editor.setRawData(data)](#set-raw-data)
 * [Editor.updateActionParams()](#update-action-params)
 * [Editor.updateParams(params)](#update-params)
 * [Editor.wrapFn(conf)](#wrap)
@@ -1568,6 +1569,57 @@ Where:
 #### Chart examples {#set-insights-charts-example}
 
 [Example of a chart with notifications](https://datalens.yandex/nvkfwnekf9xy9#Editor.%20setChartsInsights(args)) 
+
+## Editor.setRawData(data) {#set-raw-data}
+
+Specifies structured chart data. It is used for the following two tasks:
+
+* Exporting advanced chart data to CSV, XLSX, and Markdown. Without calling this method, export is unavailable for advanced charts.
+* Using Neuroanalyst. If set, Neuroanalyst will use this data instead of parsing the chart's HTML markup.
+
+#### Supported chart types {#set-raw-data-charts}
+
+[Advanced chart](./widgets/advanced.md)
+
+#### Arguments {#set-raw-data-args}
+
+`data` (_array_): Array with data. Supported formats are:
+
+* Array of objects: `[{x: 1, y: 2}, ...]`
+* Array of arrays (matrix): `[["header1", "header2"], [1, 2], ...]`
+* Array of primitives: `[1, 2, 3]`
+
+#### Returned result {#set-raw-data-result}
+
+No.
+
+#### Example {#set-raw-data-example}
+
+{% list tabs %}
+
+- Prepare tab
+
+  [Prepare](./tabs.md#prepare) tab contents:
+
+  ```js
+  const data = [
+      {x: 1, y: 10},
+      {x: 2, y: 20},
+      {x: 3, y: 30},
+  ];
+
+  Editor.setRawData(data);
+
+  module.exports = {
+      render: Editor.wrapFn({
+          fn: function() {
+              return 'Hello world';
+          },
+      }),
+  };
+  ```
+
+{% endlist %}
 
 ## Editor.updateActionParams() {#update-action-params}
 

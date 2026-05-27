@@ -51,7 +51,7 @@ To attach a service account to a {{ mch-name }} cluster, [assign](../../iam/oper
 
 {% note info %}
 
-You cannot use {{ ZK }} hosts in clusters with {{ CK }} support. To learn more, see [Replication](../concepts/replication.md).
+You cannot use {{ ZK }} hosts in clusters with {{ CK }} support. For more information, see [Coordination services](../concepts/coordination-system.md).
 
 {% endnote %}
 
@@ -68,7 +68,7 @@ You can also [change the host class for an individual shard](shards.md#shard-upd
 
 The host class affects the RAM amount {{ CH }} can use. For more information, see [Memory management](../concepts/memory-management.md).
 
-The minimum number of cores per {{ ZK }} host depends on the total number of cores on {{ CH }} hosts. To learn more, see [Replication](../concepts/replication.md#zk).
+The minimum number of cores per {{ ZK }} host depends on the total number of cores on {{ CH }} hosts. For more information, see [Coordination services](../concepts/coordination-system.md#zk).
 
 {% list tabs group=instructions %}
 
@@ -122,6 +122,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
   1. To change the class of a {{ ZK }} host, provide the value you need in the `--zookeeper-resource-preset` parameter.
 
+
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
@@ -131,16 +132,16 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
     1. In the {{ mch-name }} cluster description, change the `resource_preset_id` value in the `clickhouse.resources` and `zookeeper.resources` sections for {{ CH }} and {{ ZK }} hosts, respectively:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
           ...
-          clickhouse {
-            resources {
+          clickhouse = {
+            resources = {
               resource_preset_id = "<{{ CH }}_host_class>"
               ...
             }
           }
-          zookeeper {
-            resources {
+          zookeeper = {
+            resources = {
               resource_preset_id = "<{{ ZK }}_host_class>"
               ...
             }
@@ -159,6 +160,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
     For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -311,7 +313,7 @@ The minimum number of cores per {{ ZK }} host depends on the total number of c
 
 {% note info %}
 
-You cannot use {{ ZK }} hosts in clusters with {{ CK }} support. To learn more, see [Replication](../concepts/replication.md).
+You cannot use {{ ZK }} hosts in clusters with {{ CK }} support. For more information, see [Coordination services](../concepts/coordination-system.md).
 
 {% endnote %}
 
@@ -372,6 +374,7 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
 
   1. To change the disk type and increase the storage size for your {{ ZK }} hosts, provide the appropriate values in the `--zookeeper-disk-size` parameter.
 
+
 - {{ TF }} {#tf}
 
   To change the [disk type](../concepts/storage.md) and increase the storage size, do the following:
@@ -383,17 +386,17 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
     1. In the {{ mch-name }} cluster description, change the `disk_size` and `disk_type_id` values in the `clickhouse.resources` and `zookeeper.resources` sections for {{ CH }} and {{ ZK }} hosts, respectively:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
           ...
-          clickhouse {
-            resources {
+          clickhouse = {
+            resources = {
               disk_size = <storage_size_in_GB>
               disk_type_id = "<disk_type>"
               ...
             }
           }
-          zookeeper {
-            resources {
+          zookeeper = {
+            resources = {
               disk_size = <storage_size_in_GB>
               disk_type_id = "<disk_type>"
               ...
@@ -413,6 +416,7 @@ To change the disk type to `local-ssd`, contact [support]({{ link-console-suppor
     For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -546,7 +550,11 @@ You can turn on the {{ CK }} or {{ ZK }} [coordination service](#enable-coordina
 
 ### Turning on the coordination service {#enable-coordination}
 
+{% note warning %}
+
 {% include [note-pricing-zk-ck](../../_includes/mdb/mch/note-pricing-zk-ck.md) %}
+
+{% endnote %}
 
 {% list tabs group=instructions %}
 
@@ -555,7 +563,7 @@ You can turn on the {{ CK }} or {{ ZK }} [coordination service](#enable-coordina
   1. In the [management console]({{ link-console-main }}), navigate to the folder dashboard and select **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the cluster name and navigate to the **{{ ui-key.yacloud.mdb.cluster.hosts.label_title }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.hosts.button_create-coordinator }}** in the top-right corner of the page.
-  1. Under **{{ ui-key.yacloud.clickhouse.AddCoordinatorHost.title_main-settings_68Grp }}**, select the [coordination service](../concepts/replication.md).
+  1. Under **{{ ui-key.yacloud.clickhouse.AddCoordinatorHost.title_main-settings_68Grp }}**, select the [coordination service](../concepts/coordination-system.md).
   1. Configure the following settings depending on the service you selected:
       
       * For the **{{ ui-key.yacloud.clickhouse.cluster.value_coordination-service-zookeeper }}** coordination service:
@@ -680,6 +688,7 @@ You cannot disable settings for user or database management via SQL once they ar
            --admin-password "<admin_password>"
         ```
 
+
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
@@ -701,6 +710,7 @@ You cannot disable settings for user or database management via SQL once they ar
     For more information, see [this {{ TF }} provider guide]({{ tf-provider-mch }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -881,7 +891,7 @@ You cannot disable settings for user or database management via SQL once they ar
     
     * `--metrika-access`: Enables [data import from AppMetrica to your cluster](https://appmetrica.yandex.com/docs/common/cloud/about.html). The default value is `false`.
 
-    * `--serverless-access`: Enables access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md). The default value is `false`. For details on setting up access, see [{{ sf-name }} this guide](../../functions/operations/database-connection.md).
+    * `--serverless-access`: Enables access to the cluster from [{{ sf-full-name }}](../../functions/concepts/index.md). The default value is `false`. For more information on setting up access, see [this {{ sf-name }} guide](../../functions/operations/database-connection.md).
 
 
     * `--websql-access`: Enables [SQL queries](web-sql-query.md) against cluster databases from the {{ yandex-cloud }} management console using {{ websql-full-name }}. The default value is `false`.
@@ -903,6 +913,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
     You can get the cluster ID and name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
@@ -912,9 +923,9 @@ You cannot disable settings for user or database management via SQL once they ar
     1. To change the backup start time, add the `backup_window_start` section to the {{ mch-name }} cluster description:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
           ...
-          backup_window_start {
+          backup_window_start = {
             hours   = <backup_start_hour>
             minutes = <backup_start_minute>
           }
@@ -924,11 +935,10 @@ You cannot disable settings for user or database management via SQL once they ar
 
     1. To enable cluster access from other services and allow [running SQL queries from the management console](web-sql-query.md) using {{ websql-full-name }}, edit the values of the appropriate fields in the `access` section:
 
-        
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
           ...
-          access {
+          access = {
             data_lens    = <access_from_{{ datalens-name }}>
             metrika      = <access_from_Metrica_and_AppMetrica>
             serverless   = <access_from_Cloud_Functions>
@@ -939,16 +949,11 @@ You cannot disable settings for user or database management via SQL once they ar
         }
         ```
 
-
         Where:
 
         * `data_lens`: Access from {{ datalens-name }}, `true` or `false`.
-
-        
         * `metrika`: Access from Yandex Metrica and AppMetrica, `true` or `false`.
         * `serverless`: Access from {{ sf-name }}, `true` or `false`.
-
-
         * `yandex_query`: Access from {{ yq-full-name }}, `true` or `false`.
         * `web_sql`: Running SQL queries from the management console, `true` or `false`.
 
@@ -957,7 +962,7 @@ You cannot disable settings for user or database management via SQL once they ar
     1. To activate cluster protection against accidental deletion by a user of your cloud, add the `deletion_protection` field set to `true` to the cluster description:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
           ...
           deletion_protection = <cluster_deletion_protection>
         }
@@ -976,6 +981,7 @@ You cannot disable settings for user or database management via SQL once they ar
     For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -1064,7 +1070,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
                 {% include [deletion-protection-limits-db](../../_includes/mdb/deletion-protection-limits-db.md) %}
 
-        1. Run this query:
+        1. Run this request:
 
             ```bash
             curl \
@@ -1175,7 +1181,7 @@ You cannot disable settings for user or database management via SQL once they ar
 
             You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-        1. Run this query:
+        1. Run this request:
 
             ```bash
             grpcurl \
@@ -1252,6 +1258,7 @@ The following resources will be created for each database user:
 
         You can get the cluster ID from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
@@ -1261,7 +1268,7 @@ The following resources will be created for each database user:
     1. In the {{ mch-name }} cluster description, add or update the `folder_id` argument:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
           ...
           folder_id = "<destination_folder_ID>"
         }
@@ -1278,6 +1285,7 @@ The following resources will be created for each database user:
     For more information, see [this {{ TF }} provider guide]({{ tf-provider-mch }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -1379,7 +1387,7 @@ The following resources will be created for each database user:
     1. Edit the `security_group_ids` value in the cluster description:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
           ...
           security_group_ids = [ <list_of_cluster_security_group_IDs> ]
         }
@@ -1396,6 +1404,7 @@ The following resources will be created for each database user:
     For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 

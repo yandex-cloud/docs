@@ -7,9 +7,6 @@ editable: false
 # {{ dataproc-name }} pricing policy
 
 
-{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
-
-
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -47,6 +44,8 @@ The storage capacity allocated to each host in the cluster is billed as part of 
 Log collection and storage are billed according to the [{{ cloud-logging-full-name }} pricing policy](../logging/pricing.md).
 
 ### Example cost calculation for standard hosts {#price-example}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 Hourly cost for a cluster consisting of two subclusters with the following specifications:
 
@@ -86,8 +85,6 @@ The cost is calculated as follows:
 ## Prices for the Russia region {#prices} 
 
 {% include [pricing-diff-regions](../_includes/pricing-diff-regions.md) %}
-
-{% include [pricing-month-term](../_includes/mdb/pricing-month-term.md) %}
 
 
 

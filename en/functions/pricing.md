@@ -7,9 +7,6 @@ editable: false
 # {{ sf-name }} pricing policy
 
 
-{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
-
-
 
 
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
@@ -46,6 +43,8 @@ Price per month = {{ sku|USD|serverless.functions.compute.v1|pricingRate.10|stri
 
 
 ### Cost calculation example {#price-example}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 {% include [prices-example](../_includes/functions/prices-example.md) %}
 

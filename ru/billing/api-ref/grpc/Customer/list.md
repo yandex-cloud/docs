@@ -24,18 +24,24 @@ Retrieves the list of customers associated with the specified reseller.
 ||Field | Description ||
 || reseller_id | **string**
 
-Required field. ID of the reseller. ||
+Required field. ID of the reseller.
+
+The maximum string length in characters is 50. ||
 || page_size | **int64**
 
 The maximum number of results per page to return. If the number of available
 results is larger than `page_size`,
 the service returns a [ListCustomersResponse.next_page_token](#yandex.cloud.billing.v1.ListCustomersResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || page_token | **string**
 
 Page token. To get the next page of results,
 set `page_token` to the [ListCustomersResponse.next_page_token](#yandex.cloud.billing.v1.ListCustomersResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## ListCustomersResponse {#yandex.cloud.billing.v1.ListCustomersResponse}

@@ -1,6 +1,6 @@
 ---
 title: Access management in {{ metadata-hub-full-name }}
-description: Access management in {{ metadata-hub-full-name }}. This section describes the resources for which you can assign a role, the roles existing in this service, and the roles required for specific actions.
+description: Access management in {{ metadata-hub-full-name }}. This section describes the resources you can assign a role for, the roles this service has, and the roles required for specific actions.
 ---
 
 # Access management in {{ metadata-hub-name }}

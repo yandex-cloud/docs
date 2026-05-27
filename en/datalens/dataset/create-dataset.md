@@ -18,6 +18,7 @@ In this section, you will learn how to work with a dataset:
 * [Disabling data export](#data-export-disable)
 * [Configuring access](#access)
 * [Deleting a dataset](#delete)
+* [Undoing and redoing changes to a dataset](#undo-redo)
 
 ## Creating a dataset {#create}
 
@@ -216,7 +217,7 @@ You can add fields to a dataset from data source tables or create [calculated fi
 
 ### Duplicating fields {#dublicate-fields}
 
-You can duplicate any dataset field, including the calculated field you previously created. Proceed as follows:
+You can duplicate any dataset field, including the calculated field you previously created. Follow these steps:
 
 1. On the right side of the field row, click ![image](../../_assets/console-icons/ellipsis.svg) (the icon appears when you hover over the row) and select **Duplicate**. In the list on the left, you will see a new field with the same type and settings as the original one.
 1. Optionally, rename the duplicated field, change its type or formula.
@@ -326,7 +327,7 @@ Parameters added at the dataset level are available in all charts created based 
 
    * **Name**: Sets the parameter name.
    * **Type**: Parameter [data type](./data-types.md).
-   * **Default value**. This is a required value. It is used when no parameter value is set in the dashboard, chart URL, or chart settings.
+   * **Default value**. This is a required value. It is used when no parameter value is set on the dashboard, chart URL, or chart settings.
 
    
    * **Allow use in source settings**. Enable the option if you plan to use the parameter to access the [dataset source](./parametrization.md).
@@ -413,3 +414,18 @@ To delete a dataset:
 #### See also {#see-also}
 
 * [{#T}](./settings.md)
+
+## Undoing and redoing changes to a dataset {#undo-redo}
+
+When editing a dataset, you can now undo or redo any change introduced within the current [version](./versioning.md):
+
+* To undo changes, click ![image](../../_assets/console-icons/arrow-uturn-ccw-left.svg) in the top-right corner of the screen or press **Ctrl** (**Cmd**) + **Z**.
+* To redo changes, click ![image](../../_assets/console-icons/arrow-uturn-cw-right.svg) or press **Ctrl** (**Cmd**) + **Shift** + **Z**.
+
+You undo and redo changes that result in [creating a new version](./versioning.md#version-create).
+
+Unsaved changes in the current version are reset:
+
+* When refreshing the page.
+* When saving a dataset.
+* When switching to another version.

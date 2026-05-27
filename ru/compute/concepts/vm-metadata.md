@@ -36,7 +36,7 @@ _Метаданные виртуальной машины_ — это метаи
 
 ## Примеры использования {#examples}
 
-* [{#T}](../tutorials/secure-password-script.md)
+* [{#T}](../tutorials/secure-password-script/index.md)
 * [{#T}](../../tutorials/security/gitlab-lockbox-integration.md)
 
 #### См. также {#see-also}

@@ -7,9 +7,6 @@ editable: false
 # {{ mgl-full-name }} pricing policy
 
 
-{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
-
-
 
 
 {% note tip %}
@@ -57,6 +54,8 @@ You pay for the following:
 The price covers one month of use. The minimum billing unit is 1 GB per hour, e.g., storing 1 GB for 1.5 hours is billed as for 2 hours.
 
 ### Example of instance cost calculation {#example}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 The cost of using an instance with the following properties for 30 days:
 

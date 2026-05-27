@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-clickhouse/cli-ref/cluster/update
 editable: false
 ---
 
@@ -90,6 +91,10 @@ Limit for cache for data on Yandex Object Storage. ||
 Auto backups retain period in days. ||
 || `--enable-sql-database-management` | Whether database management through SQL commands is enabled. ||
 || `--enable-sql-user-management` | Whether user management through SQL commands is enabled. ||
+|| `--performance-diagnostics-enabled` | Whether to use Performance Diagnostics service in cluster. ||
+|| `--performance-diagnostics-processes-refresh-interval` | `duration`
+
+Time interval to collect data from system.processes table. ||
 || `--admin-password` | `string`
 
 Password for entity. Usage of --read-admin-password is more secure ||
@@ -140,9 +145,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||

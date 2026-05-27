@@ -4,6 +4,8 @@ editable: false
 
 # Cloud CDN API, gRPC: RawLogsService.Update
 
+Update configuration of raw log export.
+
 ## gRPC request
 
 **rpc Update ([UpdateRawLogsRequest](#yandex.cloud.cdn.v1.UpdateRawLogsRequest)) returns ([operation.Operation](#yandex.cloud.operation.Operation))**

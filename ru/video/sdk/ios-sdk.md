@@ -5,9 +5,9 @@ description: Следуя данной инструкции, вы сможете
 
 # SDK видеоплеера для iOS
 
-Вы можете добавить [видеоплеер](../concepts/player.md) с контентом из {{ video-name }} в ваше мобильное приложение для iOS. Для этого воспользуйтесь SDK видеоплеера для iOS.
+С помощью [SDK](https://github.com/yandex-cloud/cloud-video-player-ios-sdk/) вы можете встроить в ваше iOS-приложение [видеоплеер](../concepts/player.md) для воспроизведения контента из {{ video-name }}.
 
-Чтобы использовать SDK, вам понадобится установленная и настроенная среда разработки [Xcode](https://developer.apple.com/xcode/) версии 15.3 или выше с языком программирования [Swift](https://www.swift.org/install/macos/) версии 5.8 или выше.
+Для работы с SDK нужна среда разработки [Xcode](https://developer.apple.com/xcode/) версии 16.4 или выше и [Swift](https://www.swift.org/install/macos/) версии 5.8 или выше.
 
 ## Подключение библиотеки SDK видеоплеера {#add-library}
 
@@ -18,11 +18,11 @@ description: Следуя данной инструкции, вы сможете
   1. В окне Xcode навигатора проектов (**Project Navigator**) выберите свой проект. 
   1. На верхней панели нажмите **File** и выберите **Add Package Dependencies...**
   1. В строке поиска ![image](../../_assets/console-icons/magnifier.svg) введите `https://github.com/yandex-cloud/cloud-video-player-ios-sdk/` и выберите пакет `cloud-video-player-ios-sdk`.
-  1. В поле **Dependency Rule** выберите **Up to Next Major Version** и укажите версию `0.1.0-beta`.
+  1. В поле **Dependency Rule** выберите **Up to Next Major Version** и укажите версию `0.1.6`.
   1. В поле **Add to Project** выберите проект, к которому вы хотите подключить библиотеки, и нажмите **Add Package**.
   1. Во всплывающем окне укажите, к какому таргету в проекте подключить библиотеки, и нажмите **Add Package**.
       
-      Пакет содержит следующие библиотеки:
+      Пакет содержит библиотеки:
       * `CloudVideoPlayer` — основная библиотека SDK видеоплеера для iOS.
       * `CloudVideoPlayerUI` — дополнительная библиотека с набором интерфейсных элементов (оболочка видеоплеера).
 
@@ -36,7 +36,7 @@ description: Следуя данной инструкции, вы сможете
       dependencies: [
         .package(
           url: "https://github.com/yandex-cloud/cloud-video-player-ios-sdk/",
-          from: "0.1.0-beta"
+          from: "0.1.6"
         )
       ],
       ```
@@ -61,7 +61,6 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-
 ## Импорт библиотек {#import-library}
 
 Чтобы импортировать библиотеки, добавьте в файл с кодом следующие строки:
@@ -81,10 +80,10 @@ import CloudVideoPlayerUI
     import CloudVideoPlayer
     ```
 
-1. Создайте объекты `Environment` и `YaPlayer`:
+1. Создайте объекты `Configuration`, `Environment` и `YaPlayer`:
 
     ```swift
-    let environment = Environment(from: From(raw: "you-app-bundle"))
+    let environment = Environment(configuration: Configuration(from: From(raw: "your-app-bundle")))
 
     class ViewController: UIViewController {
       let player = environment.player()
@@ -111,8 +110,10 @@ import CloudVideoPlayerUI
 1. Запустите воспроизведение:
 
     ```swift
-    player.set(source: ContentId(rawValue: "https://runtime.video.cloud.yandex.net/player/..."))
-    player.play()
+    if let source = ContentIdEndpoint(url: URL(string: "https://runtime.video.cloud.yandex.net/player/...")!) {
+      player.set(source: source)
+      player.play()
+    }
     ```
 
 {% include [video-content-id-desc](../../_includes/video/video-content-id-desc.md) %}
@@ -122,7 +123,7 @@ import CloudVideoPlayerUI
 ```swift
 import CloudVideoPlayer
 
-let environment = Environment(from: From(raw: "you-app-bundle"))
+let environment = Environment(configuration: Configuration(from: From(raw: "your-app-bundle")))
 
 class ViewController: UIViewController {
 
@@ -139,8 +140,10 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     surface.attach(player: player)
 
-    player.set(source: ContentId(rawValue: "https://runtime.video.cloud.yandex.net/player/..."))
-    player.play()
+    if let source = ContentIdEndpoint(url: URL(string: "https://runtime.video.cloud.yandex.net/player/...")!) {
+      player.set(source: source)
+      player.play()
+    }
   }
 }
 ```
@@ -164,7 +167,7 @@ class ViewController: UIViewController {
 
     override func loadView() {
       super.loadView()
-      self.view.addSubview(surface)
+      self.view.addSubview(videoView)
       videoView.frame = UIScreen.main.bounds
     }
 
@@ -183,7 +186,7 @@ let videoView = VideoView()
 
 override func loadView() {
   super.loadView()
-  self.view.addSubview(surface)
+  self.view.addSubview(videoView)
   videoView.frame = UIScreen.main.bounds
 }
 
@@ -194,3 +197,130 @@ override func viewDidLoad() {
 ```
 
 {% endcut %}
+
+### Воспроизведение в SwiftUI {#swiftui}
+
+Чтобы встроить плеер в SwiftUI, оберните `VideoView` из `CloudVideoPlayerUI` в `UIViewRepresentable` и подключите к нему экземпляр `YaPlayer`, созданный через `Environment`.
+
+1. Импортируйте библиотеки в файле:
+
+    ```swift
+    import SwiftUI
+    import CloudVideoPlayer
+    import CloudVideoPlayerUI
+    ```
+
+1. Создайте объекты `Environment` и `YaPlayer`:
+
+    ```swift
+    let environment = Environment(configuration: Configuration(from: From(raw: "your-app-bundle")))
+
+    final class PlayerViewModel: ObservableObject {
+      let player: YaPlayer = environment.player()
+
+      init() {
+        guard
+          let url = URL(string: "https://runtime.video.cloud.yandex.net/player/..."),
+          let source = ContentIdEndpoint(url: url)
+        else {
+          return
+        }
+        player.set(source: source)
+        player.play()
+      }
+    }
+    ```
+
+1. Создайте тип `UIViewRepresentable`, который создает `VideoView` и вызывает `attach(player:)`:
+
+    ```swift
+    struct VideoViewRepresentable: UIViewRepresentable {
+      let player: YaPlayer
+
+      func makeUIView(context: Context) -> VideoView {
+        let view = VideoView()
+        view.attach(player: player)
+        return view
+      }
+
+      func updateUIView(_ uiView: VideoView, context: Context) {
+        uiView.attach(player: player)
+      }
+    }
+    ```
+
+1. Добавьте обертку в иерархию SwiftUI:
+
+    ```swift
+    struct ContentView: View {
+      @StateObject private var viewModel = PlayerViewModel()
+
+      var body: some View {
+        VideoViewRepresentable(player: viewModel.player)
+          .aspectRatio(16 / 9, contentMode: .fit)
+          .frame(maxHeight: .infinity, alignment: .top)
+      }
+    }
+    ```
+
+{% include [video-content-id-desc](../../_includes/video/video-content-id-desc.md) %}
+
+{% cut "Полный код воспроизведения в SwiftUI" %}
+
+```swift
+import SwiftUI
+import CloudVideoPlayer
+import CloudVideoPlayerUI
+
+let environment = Environment(configuration: Configuration(from: From(raw: "your-app-bundle")))
+
+final class PlayerViewModel: ObservableObject {
+  let player: YaPlayer = environment.player()
+
+  init() {
+    guard
+      let url = URL(string: "https://runtime.video.cloud.yandex.net/player/..."),
+      let source = ContentIdEndpoint(url: url)
+    else {
+      return
+    }
+    player.set(source: source)
+    player.play()
+  }
+}
+
+struct VideoViewRepresentable: UIViewRepresentable {
+  let player: YaPlayer
+
+  func makeUIView(context: Context) -> VideoView {
+    let view = VideoView()
+    view.attach(player: player)
+    return view
+  }
+
+  func updateUIView(_ uiView: VideoView, context: Context) {
+    uiView.attach(player: player)
+  }
+}
+
+struct ContentView: View {
+  @StateObject private var viewModel = PlayerViewModel()
+
+  var body: some View {
+    VideoViewRepresentable(player: viewModel.player)
+      .aspectRatio(16 / 9, contentMode: .fit)
+      .frame(maxHeight: .infinity, alignment: .top)
+  }
+}
+```
+
+{% include [video-content-id-desc](../../_includes/video/video-content-id-desc.md) %}
+
+{% endcut %}
+
+#### См. также {#see-also}
+
+Справочники по библиотекам SDK:
+
+* [CloudVideoPlayer](./CloudVideoPlayerSDK/Environment.md) — основная библиотека с объектами `Environment`, `YaPlayer`, `VideoSurface` и настройками воспроизведения.
+* [CloudVideoPlayerUI](./CloudVideoPlayerSDKUI/VideoView.md) — дополнительная библиотека интерфейсных элементов с готовой оболочкой плеера `VideoView`.

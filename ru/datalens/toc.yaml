@@ -45,7 +45,7 @@ items:
             href: tutorials/data-from-csv-geo-visualization.md
           - name: >-
               Анализ продаж и локаций пиццерий на данных из БД {{ CH }} и
-              Marketplace
+              Галереи {{ datalens-short-name }}
             href: tutorials/data-from-ch-to-geolayers-visualization.md
           - name: >-
               Геокодинг с помощью API Яндекс Карт для визуализации в {{
@@ -144,6 +144,8 @@ items:
             href: operations/connection/create-mssql-server.md
           - name: Создание подключения к Oracle Database
             href: operations/connection/create-oracle.md
+          - name: Создание подключения к {{ SR }}
+            href: operations/connection/create-starrocks.md
           - name: Создание подключения к {{ prometheus-name }}
             href: operations/connection/create-prometheus.md
           - name: Создание подключения к Snowflake
@@ -204,6 +206,8 @@ items:
         href: dataset/add-description.md
       - name: Параметризация источников
         href: dataset/parametrization.md
+      - name: Инвалидация кешей
+        href: dataset/cache-invalidation.md
       - name: Типы данных
         href: dataset/data-types.md
       - name: Соответствие типов данных
@@ -888,6 +892,8 @@ items:
             href: operations/dashboard/copying-widgets.md
           - name: Добавление информации о дашборде
             href: operations/dashboard/add-description.md
+          - name: Добавление рассылки для дашборда
+            href: operations/dashboard/add-maillists.md
           - name: Добавление сообщения при обращении в поддержку
             href: operations/dashboard/add-support-message.md
           - name: Добавление сообщения при ошибке доступа
@@ -944,7 +950,15 @@ items:
             href: concepts/organizations.md
           - name: Переключение между экземплярами {{ datalens-name }}
             href: operations/organizations/change-organization.md
-      - name: Доступ к объектам
+      - name: Доступ к объектам в воркбуках и коллекциях
+        items:
+          - name: Обзор
+            href: security/workbooks-access.md
+          - name: Базовая настройка
+            href: security/workbooks-access-basic.md
+          - name: Продвинутая настройка (общие объекты)
+            href: security/workbooks-access-advanced.md
+      - name: Доступ к объектам в папках
         items:
           - name: Права доступа
             href: security/manage-access.md
@@ -1120,8 +1134,10 @@ items:
     href: at-ref.md
   - name: История изменений
     items:
-      - name: Март 2026
+      - name: Апрель 2026
         href: release-notes/index.md
+      - name: Март 2026
+        href: release-notes/2603.md
       - name: Февраль 2026
         href: release-notes/2602.md
       - name: Январь 2026
@@ -1130,10 +1146,10 @@ items:
         href: release-notes/2512.md
       - name: Ноябрь 2025
         href: release-notes/2511.md
-      - name: Октябрь 2025
-        href: release-notes/2510.md
       - name: Архив
         items:
+          - name: Октябрь 2025
+            href: release-notes/2510.md
           - name: Сентябрь 2025
             href: release-notes/2509.md
           - name: Август 2025

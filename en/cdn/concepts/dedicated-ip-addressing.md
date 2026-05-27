@@ -5,6 +5,8 @@ description: This section describes dedicated IP addressing of CDN resources, wh
 
 # Dedicated IP addressing of CDN resources
 
+{% include [dedicated-ip-condition.md](../../_includes/cdn/dedicated-ip-condition.md) %}
+
 By default, multiple customers may share a single public IP address.
 
 On request, you can [get](../operations/resources/dedicated-ip-addressing.md) a dedicated public IP address that will be used exclusively for your [CDN resources](resource.md) in {{ cdn-full-name }}. Content delivery will continue through all [points of presence](points-of-presence.md).

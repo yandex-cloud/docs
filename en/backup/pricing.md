@@ -7,9 +7,6 @@ editable: false
 # {{ backup-full-name }} pricing policy
 
 
-{% include [pricing-increase-2026-05](../_includes/pricing-increase-2026-05.md) %}
-
-
 
 {% include [without-use-calculator](../_includes/pricing/without-use-calculator.md) %}
 
@@ -76,6 +73,8 @@ It is equally likely that backups may be smaller in size than the resource unit'
 
 
 ## Cost calculation example {#price-example}
+
+{% include [prices-difference](../_includes/prices-difference.md) %}
 
 Let’s calculate the cost of {{ backup-name }} for one month for the following configuration:
 * One VM is linked to backup policies.

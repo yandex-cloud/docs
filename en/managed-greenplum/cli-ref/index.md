@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-greenplum/cli-ref/
 editable: false
 ---
 
@@ -128,6 +129,10 @@ Aliases:
 
   - [yc managed-greenplum users update](users/update.md) — Update user for specified Greenplum cluster
 
+- [yc managed-greenplum v0](v0/index.md) — Manage Greenplum clusters and hosts.
+
+  - [yc managed-greenplum v0 connect](v0/connect.md) — Connect to Greenplum cluster with iam-auth
+
 #### Global Flags
 
 #|
@@ -143,9 +148,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||

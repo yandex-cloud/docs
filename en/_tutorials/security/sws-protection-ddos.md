@@ -46,7 +46,7 @@ To create a security profile:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the protected resources are in.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/profiles.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.action_empty }}** and select **{{ ui-key.yacloud.smart-web-security.title_default-template }}**.
   1. Enter a name for the profile, e.g., `anti-ddos`.
@@ -98,7 +98,7 @@ To test your security profile, use information from monitoring charts and logs.
 
 - Management console {#console}
 
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
   1. Select **{{ ui-key.yacloud.common.monitoring }}**.
   1. Examine the data displayed on the charts:
      * **Denied by Security Profile RPS**: Number of incoming requests per second the security profile has checked and blocked.
@@ -116,7 +116,7 @@ For detailed description of charts, see [{#T}](../../smartwebsecurity/operations
 - Management console {#console}
 
   1. Make sure you have configured [logging](../../smartwebsecurity/operations/configure-logging.md) for the L7 load balancer.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_application-load-balancer }}**.
   1. Select the load balancer with an associated security profile.
   1. Select **{{ ui-key.yacloud.common.logs }}**.
   1. Select the number of messages per page and the period, e.g., `1 hour`.
@@ -148,8 +148,8 @@ To protect your service against load bursts, set a request limit in the [ARL (Ad
 
 - Management console {#console}
 
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
-  1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+  1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/arl.svg) **{{ ui-key.yacloud.smart-web-security.arl.label_profiles }}**.
   1. Click **{{ ui-key.yacloud.smart-web-security.arl.label_create-profile }}**.
   1. Enter a name for the profile, e.g., `anti-ddos-arl`.
   1. Click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}** and specify:
@@ -173,7 +173,7 @@ To protect your service against load bursts, set a request limit in the [ARL (Ad
 
 - Management console {#console}
 
-   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
+   1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_smartwebsecurity }}**.
    1. In the left-hand panel, select ![image](../../_assets/smartwebsecurity/profiles.svg) **{{ ui-key.yacloud.smart-web-security.title_profiles }}**.
    1. Select the `anti-ddos` security profile.
    1. Click ![plus-sign](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.smart-web-security.form.button_add-rule }}**.
@@ -219,7 +219,7 @@ To protect your service against load bursts, set a request limit in the [ARL (Ad
 
       If your service operates only in certain regions, select the `IP does not belong to the region` condition. In the list, specify the target region, e.g., `RU`. Traffic from other regions will be blocked.
 
-      You can check the region of an IP address at [ipinfo.io](https://ipinfo.io/) or with an [ASN provider](https://en.wikipedia.org/wiki/Autonomous_system_(Internet)).
+      You can look up the region based on IP address at [ipinfo.io](https://ipinfo.io/) or using [provider ASN](https://en.wikipedia.org/wiki/Autonomous_system_(Internet)).
 
       {% endnote %}
 

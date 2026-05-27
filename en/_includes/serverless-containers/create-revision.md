@@ -30,7 +30,6 @@
     --image <Docker_image_URL> \
     --cores 1 \
     --memory 1GB \
-    --concurrency 1 \
     --execution-timeout 30s \
     --service-account-id <service_account_ID> \
     --command '<command_1>','<command_2>' \
@@ -41,14 +40,10 @@
   Where:
   * `--cores`: Number of cores available to the container.
   * `--memory`: Required memory. The default value is 128 MB.
-  * `--concurrency`: Maximum number of concurrent requests to a single container instance. May be in the range between 1 (default) and 16. If the number of requests to a container exceeds the `concurrency` value, {{ serverless-containers-name }} scales the container up by running its additional instances.
-
-      {% include [quota-containers-requests](quota-containers-requests.md) %}
-
-   * `--execution-timeout`: Timeout. The default value is 3 seconds.
-   * `--service-account-id`: [ID of the service account](../../iam/operations/sa/get-id.md) with permissions to download a Docker image.
-   * `--command`: Commands the container will run when started. Separate them by commas. It matches the `ENTRYPOINT` instruction in the Dockerfile.
-   * `--args`: Arguments matching the `CMD` instruction in the Dockerfile. Specify them in `key = value` format separated by commas. If you do not specify this parameter, the default `CMD` value from the Docker image will be used.
+  * `--execution-timeout`: Timeout. The default value is 3 seconds.
+  * `--service-account-id`: [ID of the service account](../../iam/operations/sa/get-id.md) with permissions to download a Docker image.
+  * `--command`: Commands the container will run when started. Separate them by commas. It matches the `ENTRYPOINT` instruction in the Dockerfile.
+  * `--args`: Arguments matching the `CMD` instruction in the Dockerfile. Specify them in `key = value` format separated by commas. If you do not specify this parameter, the default `CMD` value from the Docker image will be used.
 
   Result:
 
@@ -83,7 +78,6 @@
        name               = "<container_name>"
        cores              = "<number_of_cores>"
        memory             = "<memory_size>"
-       concurrency        = "<concurrent_requests>"
        service_account_id = "<service_account_ID>"
        image {
          url      = "<Docker_image_URL>"
@@ -96,19 +90,15 @@
 
      Where:
 
-    * `cores`: Number of cores available to the container.
-    * `memory`: Required memory. The default value is 128 MB.
-    * `concurrency`: Maximum number of concurrent requests to a single container instance. May be in the range between 1 (default) and 16. If the number of requests to a container exceeds the `concurrency` value, {{ serverless-containers-name }} scales the container up by running its additional instances.
-
-        {% include [quota-containers-requests](quota-containers-requests.md) %}
-
+     * `cores`: Number of cores available to the container.
+     * `memory`: Required memory. The default value is 128 MB.
      * `command`: Commands the container will run when started. Separate them by commas. It matches the `ENTRYPOINT` instruction in the Dockerfile.
      * `args`: Arguments matching the `CMD` instruction in the Dockerfile. Specify them in `key = value` format separated by commas. If you do not specify this parameter, the default CMD value from the Docker image will be used.
      * `work_dir`: Allows you to change the working directory of a container. It matches the `WORKDIR` instruction in the Dockerfile. We recommend setting absolute paths to folders.
 
-     For more information about the `yandex_serverless_container` settings, see this [{{ TF }} guide]({{ tf-provider-resources-link }}/serverless_container).
+     For more information about the `yandex_serverless_container` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/serverless_container).
 
-  1. Create the resources:
+  1. Create the required resources:
 
      {% include [terraform-validate-plan-apply](../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 

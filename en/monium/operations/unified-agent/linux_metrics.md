@@ -74,8 +74,6 @@ To configure {{ unified-agent-full-name }} to collect system metrics from a {{ y
           - /etc/yandex/unified_agent/conf.d/*.yml
        ```
 
-       Where `$FOLDER_ID` is the ID of the folder to which you want to write metrics.
-
    1. Install {{ unified-agent-short-name }} on your VM by running the following command in your home directory:
 
       ```bash
@@ -85,10 +83,12 @@ To configure {{ unified-agent-full-name }} to collect system metrics from a {{ y
       -v `pwd`/config.yml:/etc/yandex/unified_agent/config.yml \
       -v /proc:/ua_proc \
       -e PROC_DIRECTORY=/ua_proc \
-      -e FOLDER_ID=a1bs81qpemb4******** \
+      -e FOLDER_ID=<folder_ID> \
       {{ registry }}/yc/unified-agent
       ```
 
+       Where `<folder_ID>` is the [ID of the folder](../../../resource-manager/operations/folder/get-id.md) you want to write metrics to.
+       
        You can find more ways to install the agent in [{#T}](../../concepts/data-collection/unified-agent/installation.md).
 
 1. Make sure {{ monitoring-full-name }} receives the metrics:

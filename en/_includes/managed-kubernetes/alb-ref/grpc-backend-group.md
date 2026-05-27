@@ -1,10 +1,10 @@
 # GrpcBackendGroup resource fields
 
-`GrpcBackendGroup` enables you to group backends, i.e., {{ k8s }} services processing gRPC traffic. The [{{ alb-name }} Ingress controller](../../../application-load-balancer/tools/k8s-ingress-controller/index.md) uses these resources to create [backend groups](../../../application-load-balancer/concepts/backend-group.md).
+`GrpcBackendGroup` enables you to group backends, i.e., {{ k8s }} services processing gRPC traffic. The [{{ alb-name }} Ingress controller]({{ ingress-local-link }}/index.md) uses these resources to create [backend groups](../../../application-load-balancer/concepts/backend-group.md).
 
-{% include [Gwin](../../application-load-balancer/ingress-to-gwin-tip.md) %}
+{% include [Gwin-with-preset](../../application-load-balancer/ingress-to-gwin-tip-with-preset.md) %}
 
-You need to add a reference to `GrpcBackendGroup` to the [`Ingress` resource](../../../application-load-balancer/k8s-ref/ingress.md). This `Ingress` resource must have the `ingress.alb.yc.io/protocol: grpc` annotation.
+You need to add a reference to `GrpcBackendGroup` to the [`Ingress` resource]({{ configuration-local-link }}/ingress.md). This `Ingress` resource must have the `ingress.alb.yc.io/protocol: grpc` annotation.
 
 {% cut "Example" %}
 
@@ -98,7 +98,7 @@ Where:
 
     Resource name. For more information about the format, see [this {{ k8s }} guide](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names).
   
-    You must specify this name in the `spec.rules.http.paths.backend.resource.name` field of the `Ingress` resource (see [this configuration](../../../application-load-balancer/k8s-ref/ingress.md)).
+    You must specify this name in the `spec.rules.http.paths.backend.resource.name` field of the `Ingress` resource (see [this configuration]({{ configuration-local-link }}/ingress.md)).
 
     Do not mistake this name for the {{ alb-name }} backend group name.
 
@@ -126,7 +126,7 @@ Where:
 
       Reference to the [{{ k8s }} service](../../../managed-kubernetes/concepts/index.md#service) to process requests as a backend.
 
-      The referred `Service` resource must be described per the [standard configuration](../../../application-load-balancer/k8s-ref/service-for-ingress.md).
+      The referred `Service` resource must be described per the [standard configuration]({{ configuration-local-link }}/service-for-ingress.md).
 
       {% include [k8s-ingress-controller-service-backend](../../application-load-balancer/k8s-ingress-controller-service-backend.md) %}
         
@@ -150,7 +150,7 @@ Where:
 
       By default, the {{ alb-name }} Ingress controller receives L7 load balancer health check requests on TCP port `10501`. Then it checks [kube-proxy](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/) pods on each cluster node. Given that kube-proxy is healthy, the process is as follows: if an application does not respond in a particular pod, {{ k8s }} redirects traffic to a different pod or node.
       
-      You can use `healthChecks` settings to [customize application health checks](../../../managed-kubernetes/tutorials/custom-health-checks.md).
+      You can use `healthChecks` settings to [customize application health checks]({{ tutorial-local-link }}/custom-health-checks.md).
 
       * `grpc` (`GrpcBackend`)
 
@@ -162,7 +162,7 @@ Where:
 
       * `port` (`int32`)
 
-        Cluster node port for checking application availability. This port should match the `spec.ports.nodePort` value of the `NodePort` [Service](../../../application-load-balancer/k8s-ref/service-for-ingress.md) resource.
+        Cluster node port for checking application availability. This port should match the `spec.ports.nodePort` value of the `NodePort` [Service]({{ configuration-local-link }}/service-for-ingress.md) resource.
 
         The application will be available for health checks at `http://<node_IP_address>:<port>/<path>`.
 
@@ -184,4 +184,4 @@ Where:
 
         You can specify values between `1s` and `60s`. `interval` must exceed `timeout` by at least one second.
 
-      {% include [alb-custom-hc-enabling](../../../_includes/managed-kubernetes/alb-custom-hc-enabling.md) %}
+      {% include [alb-custom-hc-enabling](../alb-custom-hc-enabling-with-preset.md) %}

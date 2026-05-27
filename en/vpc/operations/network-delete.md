@@ -17,8 +17,8 @@ You cannot restore a network after it is deleted.
 - Management console {#console}
 
   To delete a [cloud network](../concepts/network.md#network):
-  1. In the [management console]({{ link-console-main }}), go to the folder where you need to delete a cloud network.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder where you need to delete a cloud network.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the network you need and select **{{ ui-key.yacloud.common.delete }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.common.delete }}**.
 
@@ -92,7 +92,7 @@ You cannot restore a network after it is deleted.
      terraform validate
      ```
      
-     If the configuration is correct, you will get this message:
+     If the configuration is valid, you will get this message:
      
      ```
      Success! The configuration is valid.
@@ -104,9 +104,9 @@ You cannot restore a network after it is deleted.
      terraform plan
      ```
   
-     You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will point them out.
+     You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration.
 
-  1. Apply the changes:
+  1. Apply the configuration changes:
 
      ```
      terraform apply
@@ -129,3 +129,4 @@ You cannot restore a network after it is deleted.
    {% include [get-catalog-id](../../_includes/get-catalog-id.md) %}
 
 {% endlist %}
+

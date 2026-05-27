@@ -23,19 +23,6 @@ description: Следуя данной инструкции, вы настрои
       password = <IAM-токен>
       ```
 
-    - OAuth-токен {#oauth-token}
-
-      ```text
-      [distutils]
-      index-servers =
-          cloud-registry
-
-      [cloud-registry]
-      repository = https://{{ cloud-registry }}/pypi/<идентификатор_реестра>/legacy/
-      username = oauth
-      password = <OAuth-токен>
-      ```
-
     - API-ключ {#api-key}
 
       ```text

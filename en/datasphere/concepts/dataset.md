@@ -1,5 +1,7 @@
 # Datasets in {{ ml-platform-name }}
 
+{% include [stop-create-dataset](../../_includes/datasphere/stop-create-datasets.md) %}
+
 A _dataset in {{ ml-platform-name }}_ is a way to store information that provides quick access to large amounts of data. Datasets can store up to 4 TB of data, giving faster access to data than to the main project storage.
 
 {% note tip %}

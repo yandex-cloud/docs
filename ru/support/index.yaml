@@ -5,9 +5,9 @@ description:
     href="https://yandex.ru/legal/cloud_technicalregulations">Регламентом
     технического обслуживания</a> на русском и английском языках.
   - >-
-    <a href="{{ link-console-support }}">Yandex Cloud Center </a> является
-    главной точкой входа для решения проблем и ответов на вопросы о
-    функционировании сервисов. 
+    <a href="https://center.yandex.cloud/support">Yandex Cloud Center </a>
+    является главной точкой входа для решения проблем и ответов на вопросы о
+    функционировании сервисов.
   - >-
     Этот документ рассказывает о работе с Cloud Center для получения технической
     поддержки, описывает уровни технической поддержки и  действующие тарифные
@@ -26,22 +26,120 @@ meta:
     - keyword: Как получить помощь в {{ yandex-cloud }}
     - keyword: Решение проблем {{ yandex-cloud }}
     - keyword: Проблема в {{ yandex-cloud }}
-links:
-  - title: Порядок оказания технической поддержки
-    description: Как обратиться в службу технической поддержки
-    href: overview
-  - title: Поддержка в {{ support-center-name }}
-    description: Решение проблем в {{ support-center-name }}
-    href: support-center
-  - title: Оповещения от поддержки Yandex Cloud
-    description: О каких событиях и каким образом оповещает вас техническая поддержка
-    href: notify
-  - title: Запросы данных
-    description: Какие данные можно запросить у технической поддержки
-    href: request
-  - title: Правила тарификации
-    description: Цены и правила расчета стоимости услуг технической поддержки
-    href: pricing
-  - title: Вопросы и ответы
-    description: Ответы на частые вопросы про техническую поддержку
-    href: qa
+blocks:
+  - type: content
+    title: Описание технической поддержки Yandex Cloud
+    colSizes:
+      all: 12
+      lg: 12
+      md: 12
+      sm: 12
+      xl: 12
+  - type: content
+    text: >-
+      Техническая поддержка Yandex Cloud предоставляется в соответствии с
+      [Регламентом технического
+      обслуживания](https://yandex.ru/legal/cloud_technicalregulations) на
+      русском и английском языках.
+    textWidth: l
+    colSizes:
+      all: 12
+      lg: 12
+      md: 12
+      sm: 12
+      xl: 12
+  - type: content
+    text: >-
+      [Yandex Cloud Center](https://center.yandex.cloud/support) является
+      главной точкой входа для решения проблем и ответов на вопросы о
+      функционировании сервисов. Этот документ рассказывает о работе с Cloud
+      Center для получения технической поддержки, описывает уровни технической
+      поддержки и действующие тарифные планы.
+    indent:
+      top: m
+    textWidth: l
+    colSizes:
+      all: 12
+      lg: 12
+      md: 12
+      sm: 12
+      xl: 12
+  - type: card-layout-block
+    animated: false
+    indent:
+      top: m
+    colSizes:
+      all: 12
+      lg: 4
+      md: 6
+      sm: 12
+      xl: 4
+    children:
+      - type: basic-card
+        title: Порядок оказания технической поддержки
+        text: >-
+          Узнайте, с какими запросами можно обратиться в службу технической
+          поддержки
+        urlTitle: Порядок оказания технической поддержки
+        url: overview
+        icon: assets/console-icons/trapezoid-left-line-horizontal.svg
+        animated: false
+      - type: basic-card
+        title: Поддержка в Cloud Center
+        text: Найдите решение самостоятельно или создайте обращение
+        urlTitle: Поддержка в Cloud Center
+        url: cloud-center
+        icon: assets/console-icons/layout-header-side-content.svg
+        animated: false
+      - type: basic-card
+        title: Оповещения от поддержки Yandex Cloud
+        text: >-
+          Узнайте, о каких событиях и каким образом оповещает вас техническая
+          поддержка
+        urlTitle: Оповещения от поддержки Yandex Cloud
+        url: notify
+        icon: assets/console-icons/bell.svg
+        animated: false
+      - type: basic-card
+        title: Чат в Telegram
+        text: Начните общение с технической поддержкой Yandex Cloud в Telegram
+        urlTitle: Поддержка Yandex Cloud в Telegram
+        url: tg-chat
+        icon: assets/console-icons/logo-telegram.svg
+        animated: false
+      - type: basic-card
+        title: Запросы данных
+        text: Посмотрите, какие данные можно запросить у технической поддержки
+        urlTitle: Запросы данных
+        url: request
+        icon: assets/console-icons/database-magnifier.svg
+        animated: false
+      - type: basic-card
+        title: Копирование ошибок из консоли браузера
+        text: Узнайте, как скопировать сообщение из консоли ошибок
+        urlTitle: Копирование ошибок из консоли браузера
+        url: browser-console
+        icon: assets/console-icons/copy.svg
+        animated: false
+      - type: basic-card
+        title: Сохранение взаимодействия браузера и сервера в HAR-файл
+        text: Узнайте, как сохранить HAR-файл
+        urlTitle: Сохранение взаимодействия браузера и сервера в HAR-файл
+        url: create-har
+        icon: assets/console-icons/file-zipper.svg
+        animated: false
+      - type: basic-card
+        title: Правила тарификации
+        text: Изучите цены и тарифы технической поддержки
+        urlTitle: Правила тарификации
+        url: pricing
+        icon: assets/console-icons/calculator.svg
+        animated: false
+      - type: basic-card
+        title: Вопросы и ответы
+        text: Узнайте ответы на часто задаваемые вопросы
+        urlTitle: Вопросы и ответы
+        icon: assets/console-icons/circle-question.svg
+        url: qa
+        animated: false
+links: []

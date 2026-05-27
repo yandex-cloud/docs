@@ -256,7 +256,7 @@ For [tree chart](../../visualization-ref/tree-chart.md), [table](../../visualiza
 To set up colors:
 
 1. In the top-right corner of the **Colors** section, click ![image](../../../_assets/console-icons/gear.svg) (the icon is displayed when you hover over the section).
-1. Specify the setting parameters:
+1. Specify the configuration:
 
    {% note info %}
 
@@ -268,7 +268,7 @@ To set up colors:
 
    - For a dimension {#measure}
 
-     1. Set the color in one of the following ways:
+     1. Set a color in one of the following ways:
 
         * Select a color palette from the preset options or one [created](../../operations/chart/create-palette.md) by the user. You can set a color for each dimension from the preset options of the current color palette. To revert to the default colors for the current palette, click **AUTO**.
 
@@ -325,7 +325,7 @@ You can [create color palettes](../../operations/chart/create-palette.md) and us
 
 This setting is only available for [line](../../visualization-ref/line-chart.md) (including as part of a [combined](../../visualization-ref/combined-chart.md) chart) and [scatter](../../visualization-ref/scatter-chart.md) charts in the [wizard](../chart/dataset-based-charts.md) and in [QL charts](../chart/ql-charts.md).
 
-In a line chart, the setting allows you to set line shape and size, as well as line cap and/or junction style for a dimension or the [Measure Names](./measure-values.md) field. To configure line shapes and sizes:
+In a line chart, the setting allows you to set line shape and size, as well as line cap and junction style for a dimension or the [Measure Names](./measure-values.md) field. To configure line shapes and sizes:
 
 1. In the top-right corner of the **Forms** section, click ![image](../../../_assets/console-icons/gear.svg) (the icon appears when you hover over the section).
 1. On the **Lines** tab, specify the following for each value:
@@ -441,16 +441,15 @@ You can [create color palettes](../../operations/chart/create-palette.md) and us
 
 ## Undoing and redoing changes in charts {#undo-redo}
 
-When editing a chart in the wizard or a [QL chart](./ql-charts.md), you can now undo/redo any change introduced within the current version:
+When editing a chart in the wizard or a [QL chart](./ql-charts.md), you can now undo/redo any change introduced within the current [version](./versioning.md):
 
 * To undo changes, click ![image](../../../_assets/console-icons/arrow-uturn-ccw-left.svg) in the top-right corner of the screen or press **Ctrl** (**Cmd**) + **Z**.
 * To redo changes, click ![image](../../../_assets/console-icons/arrow-uturn-cw-right.svg) or press **Ctrl** (**Cmd**) + **Shift** + **Z**.
 
-Unsaved changes in the current version are reset:
+You undo and redo changes that result in [creating a new version](./versioning.md#version-create).
 
+Unsaved changes in the current version are reset:
 
 * When refreshing the page.
 * When saving a chart.
-* When switching to another [version](./versioning.md).
-
-
+* When switching to another version.

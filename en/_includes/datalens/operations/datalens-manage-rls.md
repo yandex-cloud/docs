@@ -20,7 +20,7 @@
       ```
 
 
-   1. Save the dataset.
+  1. Save the dataset.
 
 - In the source
 
@@ -42,26 +42,26 @@
 
   Let's create a dashboard based on sales data by four regions (West, East, North, and South). Regional managers should only have access to their own data, while the company's CEO, to all data.
 
-  1\. Define {{ datalens-short-name }} user IDs.
-  2\. In the source, create a table named `MANAGER_ID`, where the region is mapped to the user ID. If a single ID is associated with multiple regions, add all unique pairs:
+  1. Define {{ datalens-short-name }} user IDs.
+  1. In the source, create a table named `MANAGER_ID`, where the region is mapped to the user ID. If a single ID is associated with multiple regions, add all unique pairs:
 
-    | REGION | MANAGER_NAME | MANAGER_ID        |
-    |--------|--------------|-------------------|
-    | West  | Arkady      | 19287318273912873 |
-    | East | Vasily      | 92877912837318927 |
-    | North  | Olga        | 02993284928374346 |
-    | South     | Dmitry      | 10836293849237642 |
-    | West  | Maxim       | 71726123712891283 |
-    | East | Maxim       | 71726123712891283 |
-    | North  | Maxim       | 71726123712891283 |
-    | South     | Maxim       | 71726123712891283 |
+     | REGION | MANAGER_NAME | MANAGER_ID        |
+     |--------|--------------|-------------------|
+     | West  | Arkady      | 19287318273912873 |
+     | East | Vasily      | 92877912837318927 |
+     | North  | Olga        | 02993284928374346 |
+     | South     | Dmitry      | 10836293849237642 |
+     | West  | Maxim       | 71726123712891283 |
+     | East | Maxim       | 71726123712891283 |
+     | North  | Maxim       | 71726123712891283 |
+     | South     | Maxim       | 71726123712891283 |
 
-  3\. Open the dataset and add the new table: on the **Sources** tab, drag the table to the workspace.
-  4\. Make sure the `JOIN` is based on the `REGION` field.
+  1. Open the dataset and add the new table: on the **Sources** tab, drag the table to the workspace.
+  1. Make sure the `JOIN` is based on the `REGION` field.
 
      ![image](../../../_assets/datalens/security/rls-join.png =403x205)
 
-  5\. Based on the `MANAGER_ID` field, customize RLS and add `userid:userid`.
+  1. Based on the `MANAGER_ID` field, customize RLS and add `userid:userid`.
 
      ![image](../../../_assets/datalens/security/rls-userid.png =364x187)
 

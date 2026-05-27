@@ -21,14 +21,13 @@ To use the API:
 
 {% list tabs group=auth_keys %}
 
-- IAM token authentication {#iam-token}
+
+- Authentication with an IAM token {#iam-token}
 
   1. [Create a service account](../../iam/operations/sa/create.md).
   1. [Assign to the service account the roles](../../iam/operations/sa/assign-role-for-sa.md) required for your project, e.g., [storage.editor](../security/index.md#storage-editor) for a bucket (to work with a particular bucket) or a folder (to work with all buckets in this folder). For more information about roles, see [Access management with {{ iam-full-name }}](../security/index.md).
-
-            
+      
       {% include [encryption-roles](../../_includes/storage/encryption-roles.md) %}
-
 
   1. Get an IAM token for the created service account. For more information, see [{#T}](../../iam/operations/iam-token/create-for-sa.md).
 
@@ -73,9 +72,11 @@ The set of headers is request-specific and described in the documentation for th
 
 {% list tabs group=auth_keys %}
 
-- IAM token authentication {#iam-token}
+
+- Authentication with an IAM token {#iam-token}
 
   If authenticating with the API via an IAM token, you do not have to additionally sign HTTP requests.
+
 
 - Static key authentication {#static-key}
 

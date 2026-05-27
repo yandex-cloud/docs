@@ -50,13 +50,13 @@ links:
     description: Use ready-made scenarios for working with artifacts
     href: tutorials/docker-cloud-registry
   - title: Concepts
-    description: Learn more about the service's concepts and resources
+    description: Learn about the concepts and resources of the service
     href: concepts/
   - title: Quotas and limits
     description: Technical and organizational limitations
     href: concepts/limits
   - title: Access management
-    description: Configure access permissions to use this service
+    description: Configure access permissions for the service
     href: security/
   - title: Pricing policy
     description: Service pricing and cost calculation

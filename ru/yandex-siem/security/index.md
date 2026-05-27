@@ -23,18 +23,17 @@ description: Управление доступом в сервисе для мо
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
+{% include [siem](../../_mermaid/roles/siem.md) %}
+
 ### Сервисные роли {#service-roles}
 
-#### ycem.editor {#ycem-editor}
+#### ycem.inspector {#ycem-inspector}
 
-Роль `ycem.editor` предоставляет полный доступ к функциональности {{ yandex-siem-full-name }}:
+{% include [ycem-inspector](../../_roles/ycem/inspector.md) %}
 
-* Просмотр расследований и результатов запросов.
-* Создание, редактирование и удаление расследований.
-* Создание и выполнение запросов.
-* Работа с шаблонами.
-* Управление правами доступа.
-* Настройка инстанса {{ yandex-siem-full-name }}.
+#### ycem.executor {#ycem-executor}
+
+{% include [ycem-executor](../../_roles/ycem/executor.md) %}
 
 ### Примитивные роли {#primitive-roles}
 

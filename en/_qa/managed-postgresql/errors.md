@@ -115,15 +115,21 @@ Solution:
 * We recommend that you enable public access for all cluster hosts. This will prevent connection errors during automatic master failover.
 * For custom DNS servers, configure DNS forwarding for the `mdb.yandexcloud.net` zone.
 
-#### Why cannot I stop a cluster? {#stop-cluster}
+#### Why do I get an error when stopping the cluster? {#stop-cluster-error}
 
-Error message:
+Error variations:
 
 ```text
 ERROR: rpc error: code = FailedPrecondition desc = Cluster has no backups
 ```
 
-You cannot [stop](../../managed-postgresql/operations/cluster-stop.md#stop-cluster) a cluster if it does not have any backups. To stop such a cluster, first [create a backup](../../managed-postgresql/operations/cluster-backups.md#create-backup) for it.
+```text
+cluster has no backups. If you want to stop the cluster, make a backup
+```
+
+The error occurs because you can [stop](../../managed-postgresql/operations/cluster-stop.md#stop-cluster) a {{ mpg-name }} cluster only if there is at least one backup of the cluster.
+
+Solution: Wait until an automatic backup is created or [create one manually](../../managed-postgresql/operations/cluster-backups.md#create-backup).
 
 #### Why do I get a `max_connections is less than sum of users connection limit` error when modifying a cluster? {#max-connections-error}
 

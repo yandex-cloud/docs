@@ -5,7 +5,11 @@ description: Следуя данной инструкции, вы сможете
 
 # Настройка кеширования ресурса
 
-Чтобы настроить параметры [кеширования](../../concepts/caching.md) для [ресурса](../../concepts/resource.md):
+В настройках [CDN-ресурса](../../concepts/resource.md) вы можете включить [кеширование контента](../../concepts/caching.md) — временное хранение копий файлов из [источников](../../concepts/origins.md) на [CDN-серверах](../../concepts/points-of-presence.md).
+
+{% include [cdn-content-caching-prgrph](../../../_includes/cdn/cdn-content-caching-prgrph.md) %}
+
+Чтобы настроить параметры кеширования для ресурса:
 
 {% list tabs group=instructions %}
 

@@ -51,6 +51,8 @@
 
 ## {{ iot-full-name }} {#iot}
 
+{% include [iot-sunset-warning](../../_includes/iot-core/sunset-warning.md) %}
+
   * Инновации в международном страховании: что будет полезно российскому рынку, 2025 — [Статья](https://yandex.cloud/ru/blog/innovations-in-insurance).
   * Как технологии трансформируют строительную сферу, 2025 — [Статья](https://yandex.cloud/ru/blog/posts/2025/04/technologies-in-construction).
   * Интернет вещей: как цифровые технологии меняют бизнес и повседневную жизнь, 2025 — [Статья](https://yandex.cloud/ru/blog/posts/2025/04/iot-guide).
@@ -82,6 +84,7 @@
 
 ## {{ si-full-name }} {#serverless-integrations}
 
+  * No-code и low-code-разработка без кода и программирования, 2026 — [Статья](https://yandex.cloud/ru/blog/lowcode-nocode).
   * Создание надежных рабочих процессов с {{ sw-full-name }}, 2025 — Видео на [YouTube](https://youtube.com/live/pdH6cHRzJtc) и [Яндекс](https://runtime.strm.yandex.ru/player/episode/vpleszm5yapipi4cqmkk).
   * Визуальный конструктор {{ sw-full-name }}: оркестрация процессов без написания кода, 2025 — [Статья](https://yandex.cloud/ru/blog/posts/2025/03/yandex-workflows).
   * Бессерверные интеграции: LowCode и LowOps на практике, 2024 — Видео на [YouTube](https://youtu.be/BLlmaHx_Mu0) и [Яндекс](https://runtime.strm.yandex.ru/player/video/vplv5rf75k4fz5cc763n).    

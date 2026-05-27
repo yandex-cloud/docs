@@ -12,11 +12,7 @@
 
 Если вы подготовили программное обеспечение, которое может быть полезно другим, [предложите](../../../marketplace/operations/create-product.md) его в {{ marketplace-full-name }}.
 
-{% note warning %}
-
-Образы с [UEFI/EFI](https://ru.wikipedia.org/wiki/Extensible_Firmware_Interface)-загрузчиком не совместимы с {{ compute-name }}. Чтобы загрузиться с дисков объемом более 2 ТБ с разметкой [GUID Partition Table (GPT)](https://ru.wikipedia.org/wiki/Таблица_разделов_GUID), используйте загрузчик [GRUB 2](https://www.gnu.org/software/grub/manual/grub/html_node/BIOS-installation.html).
-
-{% endnote %}
+{% include [image-uefi-gen2-tip](../../../_includes/compute/image-uefi-gen2-tip.md) %}
 
 ## Настройте ОС в соответствии с требованиями {#requirements}
 
@@ -126,7 +122,7 @@
 
 ### Настройте серийную консоль {#serial-console}
 
-[Серийная консоль](../serial-console/index.md) — это способ получить доступ к ВМ вне зависимости от состояния [сети](../../../vpc/concepts/network.md#network) или ОС. Используйте серийную консоль, например, для устранения неисправностей ВМ или при возникновении проблем с доступом через [SSH](../../../glossary/ssh-keygen.md). Подробнее см. в разделе [{#T}](../serial-console/index.md).
+[Серийная консоль](../../concepts/serial-console.md) — это способ получить доступ к ВМ вне зависимости от состояния [сети](../../../vpc/concepts/network.md#network) или ОС. Используйте серийную консоль, например, для устранения неисправностей ВМ или при возникновении проблем с доступом через [SSH](../../../glossary/ssh-keygen.md). Подробнее см. в разделе [{#T}](../../concepts/serial-console.md).
 
 Чтобы к ВМ можно было подключаться с помощью серийной консоли, настройте для образа терминал `ttyS0` (порт COM1) в качестве системной консоли:
 1. В файле с настройками GRUB `/etc/default/grub` добавьте в значение параметра `GRUB_CMDLINE_LINUX` опцию `console=ttyS0`. Строка с этим параметром должна иметь такой вид:
@@ -169,7 +165,7 @@
 
 1. Перезапустите ОС.
 
-После [создания ВМ из образа](upload.md#create-vm-from-user-image) ее нужно будет дополнительно [настроить для работы с серийной консолью](../serial-console/index.md). 
+После [создания ВМ из образа](upload.md#create-vm-from-user-image) ее нужно будет дополнительно [настроить для работы с серийной консолью](../../concepts/serial-console.md).
 
 ## Отключите проверку облачной платформы при создании образа в Amazon EC2 {#ec2}
 

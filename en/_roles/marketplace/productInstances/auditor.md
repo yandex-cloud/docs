@@ -1,0 +1,1 @@
+The `marketplace.productInstances.auditor` role enables viewing info on installed Marketplace [products](../../../marketplace/concepts/product.md) and [access permissions](../../../iam/concepts/access-control/index.md) granted for them, as well as viewing [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) metadata.

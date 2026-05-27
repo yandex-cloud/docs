@@ -11,6 +11,7 @@ apiPlayground:
           description: |-
             **string**
             Required field. ID of the reseller.
+            The maximum string length in characters is 50.
           type: string
         pageSize:
           description: |-
@@ -19,6 +20,7 @@ apiPlayground:
             results is larger than `pageSize`,
             the service returns a [ListCustomersResponse.nextPageToken](#yandex.cloud.billing.v1.ListCustomersResponse)
             that can be used to get the next page of results in subsequent list requests.
+            The maximum value is 1000.
           type: string
           format: int64
         pageToken:
@@ -27,6 +29,7 @@ apiPlayground:
             Page token. To get the next page of results,
             set `pageToken` to the [ListCustomersResponse.nextPageToken](#yandex.cloud.billing.v1.ListCustomersResponse)
             returned by a previous list request.
+            The maximum string length in characters is 100.
           type: string
       required:
         - resellerId
@@ -51,18 +54,24 @@ GET https://billing.{{ api-host }}/billing/v1/customers
 ||Field | Description ||
 || resellerId | **string**
 
-Required field. ID of the reseller. ||
+Required field. ID of the reseller.
+
+The maximum string length in characters is 50. ||
 || pageSize | **string** (int64)
 
 The maximum number of results per page to return. If the number of available
 results is larger than `pageSize`,
 the service returns a [ListCustomersResponse.nextPageToken](#yandex.cloud.billing.v1.ListCustomersResponse)
-that can be used to get the next page of results in subsequent list requests. ||
+that can be used to get the next page of results in subsequent list requests.
+
+The maximum value is 1000. ||
 || pageToken | **string**
 
 Page token. To get the next page of results,
 set `pageToken` to the [ListCustomersResponse.nextPageToken](#yandex.cloud.billing.v1.ListCustomersResponse)
-returned by a previous list request. ||
+returned by a previous list request.
+
+The maximum string length in characters is 100. ||
 |#
 
 ## Response {#yandex.cloud.billing.v1.ListCustomersResponse}

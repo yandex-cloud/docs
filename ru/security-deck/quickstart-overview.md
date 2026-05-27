@@ -60,7 +60,7 @@ description: В данном разделе описано, как начать 
 
 {% include [about-dspm](../_includes/security-deck/about-dspm.md) %}
 
-Чтобы начать работать с модулем {{ dspm-name }}, воспользуйтесь инструкциями по [созданию источника данных](./operations/dspm/create-data-source.md) и [созданию сканирования](./operations/dspm/create-scan.md) информации в бакете.
+Чтобы начать работать с модулем {{ dspm-name }}, [активируйте](#create-workspace) его в настройках текущего [окружения](./concepts/workspace.md) {{ sd-name }} и воспользуйтесь инструкциями по [анализу данных](./operations/dspm/discovery-mode.md), [созданию источника данных](./operations/dspm/create-data-source.md) и [созданию сканирования](./operations/dspm/create-scan.md) информации.
 
 Подробнее см. в разделе [{#T}](./concepts/dspm.md).
 
@@ -114,3 +114,4 @@ description: В данном разделе описано, как начать 
 * Узнайте, [как сканировать данные в бакетах на наличие чувствительной информации](./operations/dspm/create-scan.md) в {{ sd-name }}.
 * Узнайте, [как просмотреть список доступов субъекта](./operations/ciem/view-permissions.md) в {{ sd-name }}.
 * Узнайте о [необходимых правах доступа](./security/index.md) для работы с {{ sd-name }}.
+

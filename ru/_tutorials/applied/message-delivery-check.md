@@ -1,5 +1,7 @@
 # Тестирование доставки сообщения
 
+{% include [iot-sunset-warning](../../_includes/iot-core/sunset-warning.md) %}
+
 При отправке сообщения полезно убедиться, что оно было доставлено. Сообщение может не достигнуть MQTT-сервера, например, если [отправлять сообщение](../../iot-core/operations/publish.md):
 
 * В несуществующий [топик устройства](../../iot-core/concepts/topic/devices-topic.md).

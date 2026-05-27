@@ -2,7 +2,7 @@
 
 {% include [assistants-do-not-use](../../_includes/ai-studio/ai-assistant-disclaimer.md) %}
 
-Language models can maintain conversation context and perform knowledge base search using {{ ml-sdk-full-name }}, [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation), and [{{ assistant-api }}]({{ link-docs-ai }}concepts/assistant/index).
+Language models can maintain conversation context and perform knowledge base search using {{ ml-sdk-full-name }}, [RAG](https://en.wikipedia.org/wiki/Retrieval-augmented_generation), and [{{ assistant-api }}]({{ link-docs-ai }}ai-studio/responses/index).
 
 In this tutorial, you will create a wine sales chat assistant based on the {{ yagpt-name }} 5 model. The assistant relies on [function calling]({{ link-docs-ai }}ai-studio/concepts/generation/function-call) and RAG to access the database of wines and regions as well as the price list indicating wines in stock. You will configure the assistant in a {{ ml-platform-full-name }} notebook and interact with it via Telegram.
 
@@ -55,9 +55,9 @@ You need to create a [service account](../../iam/concepts/users/service-accounts
 - Management console {#console}
 
   1. Navigate to `data-folder`.
-  1. On the left-hand panel, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**, or find it using the search bar on the dashboard.
+  1. On the left-hand panel, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.dashboard.DashboardPage.ServicesSection.title_ur39b }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**, or find it using the search bar on the dashboard.
   1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-  1. Enter a name for the service account, e.g., `gpt-user`.
+  1. Specify the service account name, e.g., `gpt-user`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and assign the `{{ roles-yagpt-user }}` role to this service account.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -86,7 +86,7 @@ To enable the service account to access the model, create an [API key](../../iam
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to `data-folder`.
-  1. On the left-hand panel, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.iam.folder.dashboard.label_products }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**, or find it using the search bar on the dashboard.
+  1. On the left-hand panel, click ![image](../../_assets/console-icons/dots-9.svg) **{{ ui-key.yacloud.dashboard.DashboardPage.ServicesSection.title_ur39b }}** and select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**, or find it using the search bar on the dashboard.
   1. In the left-hand panel, select ![FaceRobot](../../_assets/console-icons/face-robot.svg) **{{ ui-key.yacloud.iam.label_service-accounts }}**.
   1. In the list that opens, select the `gpt-user` service account.
   1. In the top panel, click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_api_key }}**.
@@ -132,7 +132,7 @@ The notebook code connects to the model, provides it with the relevant functions
 1. Run the notebook cells one by one. Do not run cells in the **Deleting unused resources** section until you finish using the bot.
 1. The last cell under **Creating a wine assistant in Telegram** will get your bot ready to run.
 
-## Test the bot {#test-bot}
+## Test your bot {#test-bot}
 
 1. Open the chat with your bot using the link you got [earlier](#create-bot).
 1. Click **START**.

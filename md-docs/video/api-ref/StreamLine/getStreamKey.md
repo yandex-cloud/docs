@@ -1,0 +1,41 @@
+# Video API, REST: StreamLine.GetStreamKey
+
+Retrieves the unique stream key for a push-type stream line.
+This key is used to authenticate when pushing video streams to the platform.
+
+## HTTP request
+
+```
+GET https://video.api.cloud.yandex.net/video/v1/streamLines/{streamLineId}:getStreamKey
+```
+
+## Path parameters
+
+#|
+||Field | Description ||
+|| streamLineId | **string**
+
+Required field. ID of the stream line for which to retrieve the stream key.
+The stream line must be a push-type input (RTMP push or SRT push).
+
+The maximum string length in characters is 50. ||
+|#
+
+## Response {#yandex.cloud.video.v1.PushStreamKey}
+
+**HTTP Code: 200 - OK**
+
+```json
+{
+  "key": "string"
+}
+```
+
+Represents the stream key used for pushing video streams.
+
+#|
+||Field | Description ||
+|| key | **string**
+
+The unique stream key. ||
+|#

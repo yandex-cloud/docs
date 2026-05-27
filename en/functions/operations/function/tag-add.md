@@ -1,6 +1,6 @@
 # Adding a function version tag
 
-Once a new version is created, it gets the default [tag](../../concepts/function.md#): `$latest`.
+A newly created version gets the `$latest` [tag](../../concepts/function.md#) by default.
 
 {% list tabs group=instructions %}
 
@@ -64,15 +64,15 @@ Once a new version is created, it gets the default [tag](../../concepts/function
         }
         ``` 
 
-        For more information about `yandex_function` properties, see [this {{ TF }} article]({{ tf-provider-resources-link }}/function).
+        For more information about `yandex_function` resource properties, see [this provider guide]({{ tf-provider-resources-link }}/function).
 
-    1. Check the configuration using this command:
+    1. Validate your configuration using this command:
         
        ```
        terraform validate
        ```
 
-       If the configuration is correct, you will get this message:
+       If the configuration is valid, you will get this message:
         
        ```
        Success! The configuration is valid.
@@ -84,9 +84,9 @@ Once a new version is created, it gets the default [tag](../../concepts/function
        terraform plan
        ```
         
-       You will see a detailed list of resources. No changes will be made at this step. If the configuration contains any errors, {{ TF }} will show them. 
+       You will see a list of resources and their properties. No changes will be made at this step. {{ TF }} will show any errors in the configuration. 
          
-    1. Apply the changes:
+    1. Apply the configuration changes:
 
        ```
        terraform apply

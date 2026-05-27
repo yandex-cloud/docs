@@ -64,7 +64,7 @@ Field | Description
 --- | ---
 `event_id` | **string**<br>Event ID
 `event_source` | **string**<br>Name of the event source service.
-`event_type` | **string**<br>Event types, which is determined by the event source service. For more information, see [{#T}](../../audit-trails/concepts/events-data-plane.md).
+`event_type` | **string**<br>Event type which is determined by the event source service. For more information, see [{#T}](../../audit-trails/concepts/events-data-plane.md).
 `event_time` | **string**<br>Event time.
 `authentication` ^1^ | **object**<br>Event subject's authentication data.
 `authentication.authenticated` | **boolean**<br>Authentication result. The possible values are:<ul><li>`true`: Authentication successful.</li><li>`false`: Authentication failed.</li>
@@ -105,6 +105,9 @@ Field | Description
 
 {% note info %}
 
-If the action was performed by one of the {{ yandex-cloud }} infrastructure services or a support employee, the `remote address` field will be set to `cloud.yandex`, and the `user agent` field to `Yandex Cloud`.
+If the action was performed by one of the {{ yandex-cloud }} infrastructure services or a support employee, the following fields will be be set to the following special values:
+
+* `remote_address`: `cloud.yandex`
+* `user_agent`: `Yandex Cloud`
 
 {% endnote %}

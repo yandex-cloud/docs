@@ -1,7 +1,7 @@
 To set up the [maintenance window](../../../../managed-clickhouse/concepts/maintenance.md) that will also apply to stopped clusters, add the `maintenance_window` section to the cluster description:
 
 ```hcl
-resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
   ...
   maintenance_window {
     type = "<maintenance_type>"

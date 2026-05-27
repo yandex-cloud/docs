@@ -1,17 +1,99 @@
 ---
-title: '{{ org-sync-agent-name }} releases'
-description: This page presents a list of sync agent releases and the updates of each.
+title: List of {{ org-sync-agent-name }} releases
+description: This page presents sync agent releases and their updates.
 ---
 
 # {{ org-sync-agent-name }} releases
 
 ## Current version {#latest-release}
 
+### Version 0.45.0 (27/04/26) {#version0.45.0}
+
+#### Changes to {{ org-sync-agent-name }} {#changes-version0.45.0}
+
+* Fixed issues with premature termination of `dry-run` when using `use_session_api: true`.
+* Fixed agent freezes when stopping the `password writeback` process.
+* Added support for the `name` attribute.
+
+{% cut "Checksums" %}
+
+#|
+|| **Platform** | **Checksum (SHA-256)** ||
+|| `linux/amd64` | `87406dd51e1bf278ce14cf4cc0ae36bb0dfafe520d360986fe3f099a57ec2d3d` ||
+|| `linux/arm64` | `509c5c9c54b68b878577add6eeb07d4700c1ffdbb368c8f553f3a1181657b8f4` ||
+|| `darwin/amd64` | `2c34aa6d2b8b6ab5b04c448422566ef2e1d669b20c3cf186216770bf490d6a7a` ||
+|| `darwin/arm64` | `9332e029c27cdfdfffa412bc4583b2201761b8d75750735f288a51617f1e4e1f` ||
+|| `windows/amd64` | `4d326909988e6067a030f64c0903d49945a59483a97484dfcc1a8725b3adf4e1` ||
+|| `windows/arm64` | `ba241239f511f800a44080927dd4b33fa390706f552b7d551ede519aa58be23c` ||
+|#
+
+{% endcut %}
+
+### Version 0.44.0 (20/04/26) {#version0.44.0}
+
+#### Changes to {{ org-sync-agent-name }} {#changes-version0.44.0}
+
+* Fixed an error that caused freezing when synchronization completed.
+
+{% cut "Checksums" %}
+
+#|
+|| **Platform** | **Checksum (SHA-256)** ||
+|| `linux/amd64` | `6748905e77906357a4163d61dcb4e089e2965dcac79def759fd44372b19f3286` ||
+|| `linux/arm64` | `35d2fbc56f8c823332c0837d45e6700822732ed569f4f1ede1355143c0bc266c` ||
+|| `darwin/amd64` | `d3a9277277662c13b9f9415637638140d08912e31c66ac4e26567524cd2fa2be` ||
+|| `darwin/arm64` | `d3723b0ef1292f1d7abd119f2f9cd1bf32c2daaec0fced512fc62196a940a356` ||
+|| `windows/amd64` | `d2b8245f86bc32a3696c6bce30496e80370f21267471be8f7258e90d66a209ce` ||
+|| `windows/arm64` | `be2da0582f2600c2607536b8f9af6e8f8931041201ebc2c83c5e8afa77e35ad0` ||
+|#
+
+{% endcut %}
+
+### Version 0.43.0 (16/04/26) {#version0.43.0}
+
+#### Changes to {{ org-sync-agent-name }} {#changes-version0.43.0}
+
+* Added `dry-run` mode to view changes without applying them.
+* Users without a password now get a generated one when created.
+
+{% cut "Checksums" %}
+
+#|
+|| **Platform** | **Checksum (SHA-256)** ||
+|| `linux/amd64` | `d346d19a99660320cdb01ab4d42028de0f979e940b511a439d95b4774e5e07a8` ||
+|| `linux/arm64` | `c170be5d07d3b4cfc49b3132a6bf78cf41acb8f998e238ab3de488e613fe3f05` ||
+|| `darwin/amd64` | `4f7387234fc60145e65ff72c4486261360600e800f6000cff9c0813b020e7e0f` ||
+|| `darwin/arm64` | `f9579051f9d84afd4088bd13b111e6a2cb1c4bd468be27a478b73e142d19f2cb` ||
+|| `windows/amd64` | `49a0f39603c4f72d00b20efdbf2ca182394e528066a5f105170e53af4256c788` ||
+|| `windows/arm64` | `436ca30f586afeafef2856097e462b62ae6736947be89978d84f580d8b8de6ca` ||
+|#
+
+{% endcut %}
+
+### Version 0.42.0 (09/04/26) {#version0.42.0}
+
+#### Changes to {{ org-sync-agent-name }} {#changes-version0.42.0}
+
+* Added the `objectSid` property for matching in the `EmployeeId` field.
+
+{% cut "Checksums" %}
+
+| Platform   | Checksum (sha-256) |
+|-------------|-----------------------------|
+| `linux/amd64` | `6225fc50b5bbca21a6fdd76cd0f77cd781d8076ede647dc4ba98cca7e1e155bf` |
+| `linux/arm64` | `f4daf49e3d550d1b0440a1b5520e6421c6a0a54f13401d7782165d9fb348ec38` |
+| `darwin/amd64` | `222eabfa71abcd22799014985fb549597e78a026741e6ddc0a325b50ef3c3bb3` |
+| `darwin/arm64` | `e342b4f27f8a7e500aaa50e0c9b49969a59e3481ce459d76ce6bbff2bedeebe7` |
+| `windows/amd64` | `f0500c2d927a8f2effdb1d5368e87fee42f5d185d58251637050b60de9d5535c` |
+| `windows/arm64` | `48a1e396058ff6ce757fda9e0d1c65e34d64232c317067a0c9b161f6e90c55a9` |
+
+{% endcut %}
+
 ### Version 0.41.0 (13/03/26) {#version0.41.0}
 
 #### Changes to {{ org-sync-agent-name }} {#changes-version0.41.0}
 
-* During full synchronization, the list of group members covered by the filter is obtained via LDAP.
+* During full synchronization, the list of group members that fall under the filter is obtained via LDAP.
 
 {% cut "Checksums" %}
 

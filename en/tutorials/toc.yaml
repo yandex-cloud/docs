@@ -143,7 +143,7 @@ items:
             href: security/search-events-audit-logs/examples.md
           - name: Configuring {{ yq-name }}
             href: security/search-events-audit-logs/query.md
-      - name: Adding an HTML page to work with {{ captcha-name }}
+      - name: Adding an HTML page for {{ captcha-name }}
         href: security/mobile-app/website.md
       - name: Creating an L7 load balancer with a security profile
         items:
@@ -190,13 +190,13 @@ items:
                 href: security/keycloak.md
       - name: '{{ captcha-name }} use cases'
         items:
-          - name: CAPTCHA in Android apps
+          - name: CAPTCHA on Android
             href: security/mobile-app/android/quickstart-android.md
-          - name: Invisible CAPTCHA in Android apps
+          - name: Invisible CAPTCHA on Android
             href: security/mobile-app/android/invisible-captcha-android.md
-          - name: CAPTCHA in an Android app on Flutter
+          - name: CAPTCHA in a Flutter Android app
             href: security/mobile-app/android/quickstart-android-flutter.md
-          - name: CAPTCHA in iOS apps
+          - name: CAPTCHA on iOS
             href: security/mobile-app/ios/quickstart-ios.md
       - name: Data encryption
         items:
@@ -244,6 +244,8 @@ items:
             href: security/single-sign-on/saml-zabbix.md
           - name: '{{ yandex-360 }}'
             href: security/single-sign-on/saml-yandex-360.md
+          - name: Yandex Browser for organizations
+            href: security/single-sign-on/saml-ya-browser-corporate.md
           - name: '{{ mos-name }}'
             href: security/single-sign-on/saml-opensearch.md
           - name: '{{ OS }}'
@@ -258,6 +260,8 @@ items:
             href: security/single-sign-on/saml-ovpn.md
           - name: MWS
             href: security/single-sign-on/oidc-mws.md
+          - name: Harbor
+            href: security/single-sign-on/oidc-harbor.md
           - name: Cloud.ru
             items:
               - name: SAML
@@ -270,6 +274,12 @@ items:
                 href: security/single-sign-on/vk-cloud/saml-vk-cloud.md
           - name: Sentry
             href: security/single-sign-on/saml-sentry.md
+          - name: Jenkins
+            items:
+              - name: SAML
+                href: security/single-sign-on/jenkins/saml-jenkins.md
+              - name: OpenID Connect
+                href: security/single-sign-on/jenkins/oidc-jenkins.md
           - name: Using OAuth2 Proxy for applications not supporting SSO
             href: security/single-sign-on/oidc-nginx-oauth2-proxy.md
       - name: Uploading audit logs to {{ mos-name }}
@@ -347,7 +357,7 @@ items:
             href: archive/vm-with-backup-policy/terraform.md
       - name: Replicating logs to {{ objstorage-name }} using {{ yds-name }}
         href: archive/replicate-logs-to-storage-via-data-streams.md
-      - name: Replicating logs to {{ objstorage-name }} using Fluent Bit
+      - name: "Replicating logs to {{ objstorage-name }} using Fluent\_Bit"
         href: archive/replicate-logs-to-storage.md
       - name: Using {{ objstorage-name }} in {{ dataproc-name }}
         href: archive/copy-files-from-object-storage.md
@@ -413,6 +423,8 @@ items:
         href: dev/self-hosted-worker-sourcecraft.md
       - name: Comparing load test results
         href: testing/loadtesting-results-compare.md
+      - name: Load testing migration to k6
+        href: testing/loadtesting-migration-to-k6.md
       - name: >-
           AI-powered review of GitHub pull requests with {{ sw-full-name }} and
           GitHub Actions
@@ -488,8 +500,8 @@ items:
           - name: Deploying a fault-tolerant architecture with preemptible VMs
             href: infrastructure/nodejs-cron-restart-vm.md
           - name: >-
-              Creating triggers that invoke a function to stop a VM and send a
-              Telegram notification
+              Creating triggers that invoke functions to stop VMs and send
+              Telegram notifications
             href: infrastructure-management/serverless-trigger-budget-queue-vm-tg.md
       - name: Tools
         items:
@@ -749,6 +761,36 @@ items:
                 href: applied/cdn-hosting/console.md
               - name: '{{ TF }}'
                 href: applied/cdn-hosting/terraform.md
+          - name: WordPress website
+            items:
+              - name: Overview
+                href: web/wordpress-overview.md
+              - name: >-
+                  WordPress High Availability website using {{ cloud-apps-name
+                  }}
+                href: web/wordpress-ha-cloudapp.md
+              - name: WordPress website using {{ cloud-apps-name }}
+                href: web/wordpress-cloudapp.md
+              - name: WordPress website using {{ marketplace-short-name }}
+                items:
+                  - name: Overview
+                    href: web/wordpress/index.md
+                  - name: Management console
+                    href: web/wordpress/console.md
+                  - name: '{{ TF }}'
+                    href: web/wordpress/terraform.md
+              - name: WordPress website on a {{ MY }} database
+                items:
+                  - name: Overview
+                    href: web/wordpress-mysql/index.md
+                  - name: Management console
+                    href: web/wordpress-mysql/console.md
+                  - name: '{{ TF }}'
+                    href: web/wordpress-mysql/terraform.md
+              - name: >-
+                  Migrating a WordPress website from a third-party hosting
+                  provider to {{ yandex-cloud }}
+                href: web/wordpress-transfer.md
           - name: Website based on LAMP or LEMP stack
             items:
               - name: Overview
@@ -765,29 +807,7 @@ items:
                 href: web/joomla-postgresql/console.md
               - name: '{{ TF }}'
                 href: web/joomla-postgresql/terraform.md
-          - name: Creating a WordPress website
-            items:
-              - name: Overview
-                href: web/wordpress/index.md
-              - name: Management console
-                href: web/wordpress/console.md
-              - name: '{{ TF }}'
-                href: web/wordpress/terraform.md
-          - name: Creating a WordPress website using {{ cloud-apps-name }}
-            href: web/wordpress-cloudapp.md
-          - name: WordPress website with a {{ MY }} database
-            items:
-              - name: Overview
-                href: web/wordpress-mysql/index.md
-              - name: Management console
-                href: web/wordpress-mysql/console.md
-              - name: '{{ TF }}'
-                href: web/wordpress-mysql/terraform.md
-          - name: >-
-              Transferring a WordPress website from a different hosting provider
-              to {{ yandex-cloud }}
-            href: web/wordpress-transfer.md
-          - name: Building a 1C-Bitrix website
+          - name: Creating a 1C-Bitrix website
             items:
               - name: Overview
                 href: web/bitrix-website/index.md
@@ -857,7 +877,7 @@ items:
             href: iot/java.md
           - name: Monitoring the status of geographically distributed devices
             href: iot/datalens.md
-          - name: Sensor reading monitoring and event notifications
+          - name: Monitoring sensor readings and event notifications
             href: iot/monitoring.md
           - name: Testing message delivery
             href: iot/message-delivery-check.md
@@ -1201,6 +1221,8 @@ items:
         href: dataplatform/opensearch-saml-keycloak.md
       - name: Using the yandex-lemmer plugin in {{ mos-name }}
         href: dataplatform/opensearch-yandex-lemmer.md
+      - name: Sending email notifications in {{ mos-name }}
+        href: dataplatform/opensearch-email-notifications.md
       - name: Creating a {{ PG }} cluster for 1C:Enterprise
         href: dataplatform/1c-postgresql.md
       - name: Searching for the {{ mpg-name }} cluster performance issues
@@ -1357,6 +1379,8 @@ items:
         href: dataplatform/airflow-spark-min.md
       - name: Using {{ objstorage-full-name }} in {{ msp-full-name }}
         href: dataplatform/spark-objstorage-integration.md
+      - name: '{{ msp-full-name }} integration with {{ ml-platform-name }}'
+        href: dataplatform/spark-and-datasphere.md
       - name: >-
           Using a {{ lockbox-name }} secret in a PySpark job to connect to {{
           mpg-full-name }}
@@ -1549,7 +1573,7 @@ items:
                 href: datalens/data-from-appmetrica-yc-visualization.md
               - name: 'Bitrix24: direct connection'
                 href: datalens/data-from-bitrix24-visualization.md
-              - name: '{{ tracker-name }}: data export and visualization'
+              - name: '{{ tracker-name }}: Data export and visualization'
                 href: datalens/data-from-tracker.md
               - name: Analyzing {{ objstorage-name }} logs using {{ datalens-name }}
                 href: datalens/storage-logs-analysis.md
@@ -1588,7 +1612,13 @@ items:
           - name: Developing a custom integration in {{ api-gw-name }}
             href: serverless/api-gw-integration.md
           - name: URL shortener
-            href: serverless/serverless-url-shortener.md
+            items:
+              - name: Overview
+                href: serverless/serverless-url-shortener/index.md
+              - name: Management console
+                href: serverless/serverless-url-shortener/console.md
+              - name: '{{ TF }}'
+                href: serverless/serverless-url-shortener/terraform.md
           - name: Developing CRUD APIs for a movie service
             href: serverless/movies-database.md
           - name: Creating an interactive serverless application using WebSocket
@@ -1604,8 +1634,8 @@ items:
               function
             href: serverless/connect-from-cf.md
           - name: >-
-              Connecting to a {{ ydb-short-name }} database from a {{ sf-name }}
-              Node.js function
+              Connecting to a {{ ydb-short-name }} database from a Node.js
+              function in {{ sf-name }}
             href: serverless/connect-from-cf-nodejs.md
           - name: >-
               Setting up a {{ mpg-full-name }} connection from a container in {{
@@ -1636,8 +1666,8 @@ items:
           - name: Developing a Telegram bot
             href: serverless/telegram-bot-serverless.md
           - name: >-
-              Developing a Telegram bot for text recognition in images, audio
-              synthesis and recognition
+              Creating a Telegram bot for text recognition in images, speech
+              synthesis, and audio recognition
             href: serverless/recognizer-bot.md
       - name: Serverless-based ETL
         items:
@@ -1658,7 +1688,7 @@ items:
               Streaming {{ postbox-name }} events to {{ yds-name }} and
               analyzing them using {{ datalens-name }}
             href: serverless/events-from-postbox-to-yds.md
-          - name: '{{ tracker-name }}: data export and visualization'
+          - name: '{{ tracker-name }}: Data export and visualization'
             href: serverless/data-from-tracker.md
           - name: >-
               Delivering {{ forms-full-name }} data to {{ datalens-full-name }}
@@ -1688,7 +1718,7 @@ items:
               Automatically copying objects from one {{ objstorage-name }}
               bucket to another
             href: serverless/bucket-to-bucket-copying.md
-          - name: Running computations on a schedule in {{ ml-platform-name }}
+          - name: Running scheduled computations in {{ ml-platform-name }}
             href: serverless/regular-launch.md
           - name: >-
               Recognizing audio files from {{ objstorage-name }} on a regular
@@ -1738,7 +1768,7 @@ items:
         items:
           - name: Monitoring the status of geographically distributed devices
             href: serverless/datalens.md
-          - name: Sensor reading monitoring and event notifications
+          - name: Monitoring sensor readings and event notifications
             href: serverless/monitoring.md
           - name: Emulating multiple IoT devices
             href: serverless/iot-emulation.md
@@ -1800,7 +1830,7 @@ items:
             href: ml-ai/data-processing-integration.md
           - name: Classification of images in video frames
             href: ml-ai/video-recognition.md
-          - name: Running computations on a schedule in {{ ml-platform-name }}
+          - name: Running scheduled computations in {{ ml-platform-name }}
             href: ml-ai/regular-launch.md
           - name: Running computations in {{ ml-platform-name }} using the API
             href: ml-ai/batch-code-execution.md
@@ -1838,6 +1868,8 @@ items:
             href: ml-ai/yq-postgre.md
           - name: Federated data queries
             href: ml-ai/yq-federative-queries.md
+          - name: Using the service {{ msp-name }}
+            href: dataplatform/spark-and-datasphere.md
       - name: Development with {{ mgl-full-name }}
         items:
           - name: Managing the MLOps lifecycle with ML Registry

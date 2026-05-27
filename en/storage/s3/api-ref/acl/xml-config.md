@@ -36,9 +36,13 @@ Element | Description
 `AccessControlList` | Access control list. It cannot contain more than 100 access permissions.<br/><br/>Path: `/AccessControlPolicy/AccessControlList`.
 `Grant` | Access description.<br/><br/>Path: `/AccessControlPolicy/AccessControlList/Grant`.
 `Grantee` | Type of permission grantee. The possible values for `type` include:<ul><li>`CanonicalUser`: For a user, [service account](../../../../iam/concepts/users/service-accounts.md), or [user group](../../../../organization/concepts/groups.md).</li><li>`Group`: For a [public group](../../../concepts/acl.md#public-groups).</li></ul>Path: `/AccessControlPolicy/AccessControlList/Grant/Grantee`.
-`ID` | ID of a user, [service account](../../../../iam/concepts/users/service-accounts.md), or [user group](../../../../organization/concepts/groups.md). It is used with the `CanonicalUser` type of permission grantee.<br/><br/>A response to the `bucketGetAcl` request contains the ID of the folder containing the bucket.<br/><br/>Paths: `/AccessControlPolicy/Owner/ID`, `/AccessControlPolicy/AccessControlList/Grant/Grantee/ID`.
+`ID` | ID of a user, [service account](../../../../iam/concepts/users/service-accounts.md), or [user group](../../../../organization/concepts/groups.md). It is used with the `CanonicalUser` permission grantee type.<br/><br/>A response to a `bucketGetAcl` request contains the ID of the folder where the bucket is located.<br/><br/>Paths: `/AccessControlPolicy/Owner/ID`, `/AccessControlPolicy/AccessControlList/Grant/Grantee/ID`.
 `DisplayName` | Username. It is ignored for the `objectPutAcl` and `bucketPutAcl` requests.<br/><br/>Paths: `/AccessControlPolicy/Owner/DisplayName`, `/AccessControlPolicy/AccessControlList/Grant/Grantee/DisplayName`.
 `URI` | Public group ID. It is used with the `Group` type of permission grantee. The possible values are:<ul><li>`http://acs.amazonaws.com/groups/global/AllUsers`: All internet users.</li><li>`http://acs.amazonaws.com/groups/global/AuthenticatedUsers`: All authenticated {{ yandex-cloud }} users.</li></ul>Path: `/AccessControlPolicy/AccessControlList/Grant/Grantee/URI`.
 `Permission` | User permissions.<br/><br/>You can specify the following permissions: `READ`, `WRITE`, and `FULL_CONTROL`. When granting permissions for an object, you can also specify `READ_ACP` and `WRITE_ACP`. Learn more in [Access control lists (ACLs)](../../../concepts/acl.md).<br/><br/>Path: `/AccessControlPolicy/AccessControlList/Grant/Grantee/DisplayName`.
+
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/acl.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

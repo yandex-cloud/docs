@@ -1,6 +1,6 @@
 # Изменение настроек {{ CH }} на уровне сервера
 
-Вы можете задать [настройки {{ CH }} на уровне сервера](https://clickhouse.com/docs/en/operations/server-configuration-parameters/settings), чтобы настроить поведение баз данных или отдельных таблиц в кластере {{ mch-name }}. Указать настройки можно несколькими способами:
+Вы можете задать [настройки {{ CH }} на уровне сервера]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings), чтобы настроить поведение баз данных или отдельных таблиц в кластере {{ mch-name }}. Указать настройки можно несколькими способами:
 
   * С помощью [интерфейсов {{ yandex-cloud }}](#yandex-cloud-interfaces). Так можно задать только настройки {{ CH }}, доступные в {{ yandex-cloud }}.
   * С помощью [SQL-запросов](#sql-queries). Так задаются настройки для таблиц MergeTree. Вы можете:
@@ -15,7 +15,7 @@
 
 {% note info %}
 
-Значение настройки [Max server memory usage]({{ ch.docs }}/operations/server-configuration-parameters/settings/#max_server_memory_usage) нельзя изменять напрямую. {{ mch-name }} выставляет для нее значение автоматически в зависимости от объема оперативной памяти хостов {{ CH }}. Чтобы изменить значение настройки, [измените класс хостов {{ CH }}](#change-resource-preset). Подробнее см. в разделе [Управление памятью](../concepts/memory-management.md).
+Значение настройки [Max server memory usage]({{ ch.docs }}{{ lang }}/operations/server-configuration-parameters/settings#max_server_memory_usage) нельзя изменять напрямую. {{ mch-name }} выставляет для нее значение автоматически в зависимости от объема оперативной памяти хостов {{ CH }}. Чтобы изменить значение настройки, [измените класс хостов {{ CH }}](#change-resource-preset). Подробнее см. в разделе [Управление памятью](../concepts/memory-management.md).
 
 {% endnote %}
 
@@ -59,6 +59,7 @@
          --set <имя_параметра_1>=<значение_1>,...
       ```
 
+
 - {{ TF }} {#tf}
 
    Чтобы задать настройки {{ CH }}:
@@ -70,47 +71,46 @@
    1. В описании кластера {{ mch-name }}, в блоке `clickhouse.config`, измените значения параметров:
 
       ```hcl
-      resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+      resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
         ...
-        clickhouse {
+        clickhouse = {
           ...
 
-          config {
+          config = {
             # Общие настройки СУБД
             ...
 
-            merge_tree {
+            merge_tree = {
               # Настройки движка MergeTree
               ...
             }
 
-            kafka {
+            kafka = {
               # Общие настройки получения данных из Apache Kafka
               ...
             }
 
-            kafka_topic {
-              # Настройки отдельного топика Apache Kafka
-              ...
-            }
-
-            rabbit_mq {
+            rabbit_mq = {
               # Настройки получения данных из {{ RMQ }}
               username = "<имя_пользователя>"
               password = "<пароль>"
             }
 
-            compression {
-              # Настройки сжатия данных
-              method              = "<метод_сжатия>"
-              min_part_size       = <размер_куска_данных>
-              min_part_size_ratio = <отношение_размеров>
-            }
+            compression = [
+              {
+                # Настройки сжатия данных
+                method              = "<метод_сжатия>"
+                min_part_size       = <размер_куска_данных>
+                min_part_size_ratio = <отношение_размеров>
+              }
+            ]
 
-            graphite_rollup {
-              # Настройки движка GraphiteMergeTree для прореживания, агрегирования и усреднения (rollup) данных Graphite.
-              ...
-            }
+            graphite_rollup = [
+              {
+                # Настройки движка GraphiteMergeTree для прореживания, агрегирования и усреднения (rollup) данных Graphite.
+                ...
+              }
+            ]
           }
           ...
         }
@@ -119,6 +119,7 @@
       ```
 
       Где:
+
       * `method` — метод сжатия: `LZ4` или `ZSTD`.
       * `min_part_size` — минимальный размер куска данных таблицы в байтах.
       * `min_part_size_ratio` — отношение размера наименьшего куска данных в таблице к полному размеру таблицы.
@@ -134,6 +135,7 @@
    Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_cluster).
 
    {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -273,7 +275,7 @@
             <название_настройки> = <значение_настройки>;
          ```
 
-         Пример запроса для настроек [merge_with_ttl_timeout](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#merge_with_ttl_timeout) и [merge_with_recompression_ttl_timeout](https://clickhouse.com/docs/en/operations/settings/merge-tree-settings#merge_with_recompression_ttl_timeout):
+         Пример запроса для настроек [merge_with_ttl_timeout]({{ ch.docs }}{{ lang }}/operations/settings/merge-tree-settings#merge_with_ttl_timeout) и [merge_with_recompression_ttl_timeout]({{ ch.docs }}{{ lang }}/operations/settings/merge-tree-settings#merge_with_recompression_ttl_timeout):
 
          ```sql
          CREATE TABLE <имя_таблицы>
@@ -287,7 +289,7 @@
             merge_with_recompression_ttl_timeout = 15000;
          ```
 
-      Подробнее о создании таблиц MergeTree см. в [документации {{ CH }}](https://clickhouse.com/docs/en/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-creating-a-table).
+      Подробнее о создании таблиц MergeTree см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree#table_engine-mergetree-creating-a-table).
 
    {% endlist %}
 

@@ -163,6 +163,7 @@ description: Следуя данной инструкции, вы сможете
 
   {{ mch-short-name }} запустит операцию создания базы данных.
 
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -196,13 +197,13 @@ description: Следуя данной инструкции, вы сможете
 
         ```hcl
 
-        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
           name = "<имя_кластера>"
           ...
         }
 
         resource "yandex_mdb_clickhouse_database" "<имя_БД>" {
-          cluster_id = yandex_mdb_clickhouse_cluster.<имя_кластера>.id
+          cluster_id = yandex_mdb_clickhouse_cluster_v2.<имя_кластера>.id
           name       = "<имя_БД>"
         }
         ```
@@ -216,6 +217,7 @@ description: Следуя данной инструкции, вы сможете
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_database).
+
 
 - REST API {#api}
 
@@ -305,7 +307,7 @@ description: Следуя данной инструкции, вы сможете
 
       {% include [db-name-limits](../../_includes/mdb/mch/note-info-db-name-limits.md) %}
 
-  Подробнее о создании баз данных см. в [документации {{ CH }}]({{ ch.docs }}/sql-reference/statements/create/database/).
+  Подробнее о создании баз данных см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/database).
 
 {% endlist %}
 
@@ -335,6 +337,7 @@ description: Следуя данной инструкции, вы сможете
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -352,6 +355,7 @@ description: Следуя данной инструкции, вы сможете
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_database).
+
 
 - REST API {#api}
 
@@ -409,7 +413,7 @@ description: Следуя данной инструкции, вы сможете
       DROP DATABASE <имя_БД>;
       ```
 
-  Подробнее об удалении объектов см. в [документации {{ CH }}]({{ ch.docs }}/sql-reference/statements/drop/).
+  Подробнее об удалении объектов см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/drop).
 
 {% endlist %}
 

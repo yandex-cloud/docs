@@ -17,11 +17,9 @@
       1. В поле **{{ ui-key.yacloud.compute.images.popup-upload_field_url }}** вставьте ссылку на файл с образом, полученную ранее в {{ objstorage-name }}.
       1. В поле **{{ ui-key.yacloud.compute.hardware-generation_1iEpT }}** выберите поколение оборудования, на котором будут работать виртуальные машины, создаваемые из вашего образа. Подробнее о доступных вариантах читайте в разделе [{#T}](../../compute/concepts/hardware-generations.md).
 
-          {% note alert %}
+          {% include [image-uefi-gen2-tip](./image-uefi-gen2-tip.md) %}
 
-          Если вы выбираете поколение `Gen 2`, убедитесь, что загрузчик операционной системы создаваемого образа поддерживает режим загрузки [UEFI](https://ru.wikipedia.org/wiki/Extensible_Firmware_Interface) и таблицу разделов [GPT](https://ru.wikipedia.org/wiki/Таблица_разделов_GUID). В противном случае, виртуальные машины не смогут запустить операционную систему.
-
-          {% endnote %}
+          {% include [gen2-uefi-support-alert](./gen2-uefi-support-alert.md) %}
 
       1. Чтобы включить [оптимизацию](../../compute/concepts/image.md#images-optimized-for-deployment) образа для развертывания, включите опцию **{{ ui-key.yacloud.compute.images.popup-upload_field_pooled }}**.
       1. Нажмите кнопку **{{ ui-key.yacloud.common.button_upload }}**.
@@ -81,6 +79,10 @@
     --source-uri "https://{{ s3-storage-host }}/mybucket/cosmic-server-cloudimg-amd64.vmdk"
   ```
 
+  {% include [image-uefi-gen2-tip](./image-uefi-gen2-tip.md) %}
+
+  {% include [gen2-uefi-support-alert](./gen2-uefi-support-alert.md) %}
+
   Если вы хотите создать образ с закрепленным поколением оборудования виртуальной машины `Gen 2`:
 
   ```bash
@@ -134,6 +136,10 @@
           Необязательный параметр. По умолчанию оптимизация выключена.
       * `hardware_generation` — настройка [поколения оборудования](../../compute/concepts/hardware-generations.md) виртуальной машины:
 
+          {% include [image-uefi-gen2-tip](./image-uefi-gen2-tip.md) %}
+
+          {% include [gen2-uefi-support-alert](./gen2-uefi-support-alert.md) %}
+
           * `generation2_features` — параметр, привязывающий к создаваемому образу поколение оборудования `Gen 2`. Необязательный параметр. Использование этого параметра делает невозможным использование параметра `legacy_features`.
           * `legacy_features` — параметр, позволяющий привязать к создаваемому образу поколение оборудования `Gen 1.2`. Использование этого параметра делает невозможным использование параметра `generation2_features`.
 
@@ -156,6 +162,10 @@
 - API {#api}
 
   Создайте новый образ с помощью метода REST API [create](../../compute/api-ref/Image/create.md) для ресурса [Image](../../compute/api-ref/Image/index.md) или вызова gRPC API [ImageService/Create](../../compute/api-ref/grpc/Image/create.md). В запросе укажите ссылку на образ, полученную в {{ objstorage-name }}.
+
+  {% include [image-uefi-gen2-tip](./image-uefi-gen2-tip.md) %}
+
+  {% include [gen2-uefi-support-alert](./gen2-uefi-support-alert.md) %}
 
   По умолчанию создается образ с привязанным [поколением оборудования](../../compute/concepts/hardware-generations.md) `Gen 1.1`.
 

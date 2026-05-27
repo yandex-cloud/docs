@@ -7,7 +7,7 @@ Users with this role can:
 * View info on database backups, as well as create and delete them and use them to restore databases.
 * View info on granted access permissions to backups and modify such permissions.
 * View the list of schema objects, such as tables, indexes, and folders, and info on those, as well as create, modify, and delete such objects.
-* View info on the [quotas](../../ydb/concepts/limits.md#ydb-quotas) for Managed Service for YDB.
+* View info on the [quotas](../../ydb/concepts/limits.md#ydb-quotas) for {{ ydb-name }}.
 * View info on the relevant [cloud](../../resource-manager/concepts/resources-hierarchy.md#cloud) and [folder](../../resource-manager/concepts/resources-hierarchy.md#folder).
 
 This role includes the `ydb.editor` permissions.

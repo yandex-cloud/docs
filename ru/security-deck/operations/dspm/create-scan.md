@@ -7,14 +7,15 @@ description: Следуя данной инструкции, вы узнаете
 
 [Модуль контроля данных](../../concepts/dspm.md) ({{ dspm-full-name }}) находит чувствительную информацию в хранилищах с помощью сканирования [источников данных](../../concepts/dspm.md#data-source) — [бакетов](../../../storage/concepts/bucket.md) {{ objstorage-full-name }} и [Яндекс Дисков]({{ link-yandex }}/support/yandex-360/business/disk/web/{{ lang }}/index.html) в {{ yandex-360 }}.
 
-Прежде чем начать работать с {{ dspm-name }}, [настройте](../../quickstart-overview.md#configure-sd) каталог по умолчанию для хранения данных сервиса {{ sd-name }}.
+## Перед началом работы {#before-begin}
 
+{% include [dspm-before-begin-section](../../../_includes/security-deck/dspm-before-begin-section.md) %}
 
 ## Создать сканирование для {{ objstorage-name }} {#object-storage}
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ sd-name }} {#cloud-sd}
+- Интерфейс {{ sd-name }} {#console}
 
   1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
   1. На панели слева выберите ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}** и перейдите на вкладку **{{ ui-key.yacloud_org.security-center.dspm.title_scan-jobs }}**.
@@ -29,7 +30,7 @@ description: Следуя данной инструкции, вы узнаете
 
       {% endnote %}
 
-  1. В блоке **{{ ui-key.yacloud_org.dspm.scans.section_access_title }}** выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), от имени которого будет выполняться сканирование. При необходимости нажмите **{{ ui-key.yacloud_org.iam.folder.service-accounts.dialog_select-service-account_create-new-action }}**, чтобы создать новый сервисный аккаунт.
+  1. В блоке **{{ ui-key.yacloud_org.dspm.scans.section_access_title }}** выберите [сервисный аккаунт](../../../iam/concepts/users/service-accounts.md), от имени которого будет выполняться сканирование. При необходимости нажмите **{{ ui-key.yacloud_components.security.dspm.dialog_select-service-account_create-new-action }}**, чтобы создать новый сервисный аккаунт.
 
       {% include [sa-scan-roles-warning](../../../_includes/security-deck/sa-scan-roles-warning.md) %}
 
@@ -53,7 +54,7 @@ description: Следуя данной инструкции, вы узнаете
 
 {% list tabs group=instructions %}
 
-- Интерфейс {{ sd-name }} {#cloud-sd}
+- Интерфейс {{ sd-name }} {#console}
 
   1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
   1. На панели слева выберите ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}** и перейдите на вкладку **{{ ui-key.yacloud_org.security-center.dspm.title_scan-jobs }}**.

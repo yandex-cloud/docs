@@ -88,6 +88,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
 
+
   Чтобы создать объект в существующем бакете:
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать.
@@ -135,9 +136,9 @@ description: Следуя данной инструкции, вы сможете
 
      * `source` — относительный или абсолютный путь к файлу, который нужно загрузить в бакет.
 
-     Более подробную информацию о ресурсах, которые вы можете создать с помощью {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_object).
+      Более подробную информацию о параметрах ресурса `yandex_storage_object` в {{ TF }}, см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_object).
 
-1. Создайте ресурсы:
+  1. Создайте ресурсы:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -146,6 +147,8 @@ description: Следуя данной инструкции, вы сможете
 - API {#api}
 
   Чтобы загрузить объект, воспользуйтесь методом S3 API [upload](../../s3/api-ref/object/upload.md).
+
+  Подробнее читайте на странице [{#T}](../../s3/s3-api-quickstart.md).
 
 {% endlist %}
 

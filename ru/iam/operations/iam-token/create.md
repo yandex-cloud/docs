@@ -11,10 +11,7 @@ description: Следуя данной инструкции, вы сможете
 
 # Получение IAM-токена для аккаунта на Яндексе
 
-IAM-токен для аккаунта на Яндексе можно получить двумя способами:
-
-* [С помощью CLI](#via-cli) (рекомендуется) — наиболее безопасный способ. Для получения IAM-токена необходимо установить [YC CLI](../../../cli/).
-* [С помощью OAuth-токена](#exchange-token) — наиболее простой способ. Получите [OAuth-токен](../../concepts/authorization/oauth-token.md), который есть у каждого аккаунта на Яндексе, и обменяйте его на IAM-токен, используя любой удобный HTTP-клиент, например cURL или PowerShell.
+IAM-токен для аккаунта на Яндексе можно получить [с помощью CLI](#via-cli). Для этого необходимо установить [YC CLI](../../../cli/).
 
 {% note info %}
 
@@ -55,18 +52,9 @@ IAM-токен для аккаунта на Яндексе можно получ
 {% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
 
 
-### Пример использования IAM-токена, полученного с помощью CLI {#use-cli}
+## Пример использования IAM-токена, полученного с помощью CLI {#use-cli}
 
 {% include [token-examples](../../../_includes/iam/iam-token-usage-examples.md) %}
-
-
-## Получить и обменять OAuth-токен на IAM-токен {#exchange-token}
-
-{% include [owner-warning](../../../_includes/iam/owner-warning.md) %}
-
-{% include [create-iam-token-api-steps](../../../_includes/iam/create-iam-token-api-steps.md) %}
-
-{% include [iam-token-usage](../../../_includes/iam-token-usage.md) %}
 
 
 #### См. также {#see-also}

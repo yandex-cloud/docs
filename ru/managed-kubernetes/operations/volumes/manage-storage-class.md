@@ -102,6 +102,7 @@ volumeBindingMode: WaitForFirstConsumer
 parameters: # Параметры класса хранилищ.
   type: <тип_диска>
   csi.storage.k8s.io/fstype: <тип_файловой_системы>
+  blockSize: "<размер_блока_создаваемого_диска>"
 allowVolumeExpansion: <включение_механизма_увеличения_размера_тома>
 reclaimPolicy: <политика_переиспользования>
 ```
@@ -109,7 +110,8 @@ reclaimPolicy: <политика_переиспользования>
 Допустимые значения параметров:
 * `parameters`:
   * `type` — `network-hdd`, `network-ssd`, `network-ssd-nonreplicated` или `network-ssd-io-m3`.
-  * `csi.storage.k8s.io/fstype` — `ext2`, `ext3` или `ext4`.
+  * `csi.storage.k8s.io/fstype` — `ext2`, `ext3`, `ext4` или `btrfs`.
+  * `blockSize` — `4096`, `8192`, `16384`, `32768`, `65536`, `131072`. По умолчанию размер блоков всех создаваемых дисков равен 4096 байт. Подробнее в разделе [создание пустого диска с блоком большого размера](../../../compute/operations/disk-create/empty-disk-blocksize.md).
 * `reclaimPolicy` — `Retain` или `Delete`.
 * `allowVolumeExpansion` — `true` или `false`.
 

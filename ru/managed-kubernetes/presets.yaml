@@ -43,6 +43,7 @@ default:
   gateway-local-link2: ../../managed-kubernetes/alb-ref/gateway-api
   configuration-local-link: ../../../managed-kubernetes/alb-ref
   configuration-local-link2: ../../managed-kubernetes/alb-ref
+  configuration-gwin-local-link: ../../managed-kubernetes/gwin-ref
   tutorial-local-link: ../../../managed-kubernetes/tutorials
   tutorial-local-link2: ../../managed-kubernetes/tutorials
   gateway-install-local-link: ../../../managed-kubernetes/operations/applications/gateway-api.md

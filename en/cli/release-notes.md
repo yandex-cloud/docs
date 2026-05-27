@@ -1,11 +1,184 @@
 ---
-title: CLI releases
-description: This page presents a list of CLI releases and the updates of each.
+title: List of CLI releases
+description: This page presents CLI releases and their updates.
 ---
 
 # CLI releases
 
 ## Current version {#latest-release}
+
+### Version 1.6.0 (27/04/26) {#v-1-6-0}
+
+#### {{ cloud-registry-name }} {#v-1-6-0-cloud-registry-name}
+
+* Added the `yc cloud-registry registry lifecycle-policy dry-run` command to simulate the execution of a lifecycle policy.
+
+#### {{ iam-name }} {#v-1-6-0-iam-name}
+
+* Added the `MASKED KEY` field to the output of the `yc iam api-key list` command, containing the last six characters of the key's secret part.
+
+## Previous releases {#previous-release}
+
+### Version 1.5.0 (23/04/26) {#v-1-5-0}
+
+#### Changes to the CLI system commands {#v-1-5-0-yc}
+
+CLI commands now support versioning. It is implemented on a per-service basis as a tree of child commands with a version number, e.g., `yc compute v0`.
+
+#### {{ interconnect-name }} {#v-1-5-0-cic-name}
+
+* Removed the `--region` parameter from these commands:
+  * `yc cic private-connection create`
+  * `yc cic private-connection update`
+  * `yc cic trunk-connection update`
+
+* Removed the `--point_of_presence_id` parameter from the `yc cic trunk-connection update` command.
+
+* Removed the `cloud-bgp-asn` parameter value from these commands:
+  * `yc cic private-connection create`
+  * `yc cic private-connection update`
+
+
+#### {{ cr-name }} {#v-1-5-0-cr-name}
+
+* Removed the `--region` parameter from these commands:
+  * `yc cloudrouter routing-instance create`
+  * `yc cloudrouter routing-instance update`
+
+#### {{ mkf-name }} {#v-1-5-0-mkf-name}
+
+* Added the `--transactional-id-expiration-ms` parameter to these commands:
+  * `yc kafka cluster create`
+  * `yc kafka cluster update`
+
+### Version 1.4.0 (20/04/26) {#v-1-4-0}
+
+#### {{ cloud-registry-name }} {#v-1-4-0-cloud-registry-name}
+
+* Added the `yc cloud-registry artifact get-by-path` command for retrieving an artifact by its registry path.
+
+* Added the following commands for managing registry scan policies in {{ cloud-registry-name }}:
+  * `yc cloud-registry registry scan-policy get`
+  * `yc cloud-registry registry scan-policy get-by-registry`
+  * `yc cloud-registry registry scan-policy create`
+  * `yc cloud-registry registry scan-policy upd`
+
+### Version 1.3.0 (16/04/26) {#v-1-3-0}
+
+#### {{ mos-name }} {#v-1-3-0-mos-name}
+
+* Added plugin management commands:
+  * `yc managed-opensearch plugins add`
+  * `yc managed-opensearch plugins delete`
+
+#### {{ alb-name }} {#v-1-3-0-alb-name}
+
+* Added the `--preserve-http1-header-casing` parameter to the following commands to preserve the case of HTTP/1 headers for a specific handler:
+  * `yc application-load-balancer add-listener`
+  * `yc application-load-balancer add-http-listener`
+  * `yc application-load-balancer update-listener`
+  * `yc application-load-balancer update-http-listener`
+  * `yc application-load-balancer add-sni`
+  * `yc application-load-balancer add-http-sni`
+  * `yc application-load-balancer update-sni`
+  * `yc application-load-balancer update-http-sni`
+
+#### {{ quota-manager-name }} {#v-1-3-0-quota-manager-name}
+
+* Changed the output method to paginated loading in the `yc quota-manager quota-request list` command.
+
+#### {{ org-full-name }} {#v-1-3-0-org-name}
+
+* Changed the output method to paginated loading in the `yc organization-manager idp user list`, `yc organization-manager idp userpool list`, and `yc organization-manager idp userpool domain list` commands.
+* Added the `--password-blacklist-check-common` parameter to restrict the use of leaked passwords by the users to the following commands:
+  * `yc organization-manager idp userpool create`
+  * `yc organization-manager idp userpool update`
+
+#### {{ mmy-name }} {#v-1-3-0-mmy-name}
+
+* Added support for MySQL version 8.4 to the `yc managed-mysql cluster create` command.
+
+#### {{ dns-name }} {#v-1-3-0-Cloud DNS}
+
+* Added commands to work with DNS Firewall:
+  * `yc dns firewall get`
+  * `yc dns firewall list`
+  * `yc dns firewall create`
+  * `yc dns firewall move`
+  * `yc dns firewall update`
+  * `yc dns firewall delete`
+  * `yc dns firewall add-labels`
+  * `yc dns firewall remove-labels`
+  * `yc dns firewall list-access-bindings`
+  * `yc dns firewall set-access-bindings`
+  * `yc dns firewall add-access-binding`
+  * `yc dns firewall remove-access-binding`
+  * `yc dns firewall list-operations`
+
+#### {{ interconnect-name }} {#v-1-3-0-cic-name}
+
+* Deleted the `yc cic trunk-connection create` command.
+
+#### {{ mch-name }} {#v-1-3-0-mch-name}
+
+* Added the `--include-patterns` and `--exclude-patterns` parameters to the `yc managed-clickhouse cluster restore` command for partial cluster recovery.
+
+### Version 1.2.0 (13/04/26) {#v-1-2-0}
+
+#### {{ mkf-name }} {#v-1-2-0-mkf-name}
+
+* Added management commands for the Iceberg Sink connector:
+  * `yc managed-kafka connector-iceberg-sink create`
+  * `yc managed-kafka connector-iceberg-sink update`
+
+#### {{ org-full-name }} {#v-1-2-0-org-name}
+
+* Added the following organization group label management commands:
+  * `yc organization-manager group add-labels`
+  * `yc organization-manager group remove-labels`
+* Added the `--labels` parameter to the `yc organization-manager group create` and `yc organization-manager group update` commands for organization group label management.
+
+#### {{ vpc-name }} {#v-1-2-0-vpc-name}
+
+* Removed the CIDR block length check in the `yc vpc security-group` command.
+
+#### {{ mch-name }} {#v-1-2-0-mch}
+
+* The `--convert-tables-to-replicated` parameter in the `yc managed-clickhouse cluster add-zookeeper` command is enabled by default. 
+
+#### {{ mmy-name }} {#v-1-2-0-mmy}
+
+* Added a new `--daemon` proxy mode for `yc managed-mysql connect`.
+
+### Version 1.1.0 (06/04/26) {#v-1-1-0}
+
+#### {{ sf-name }} {#v-1-1-0-sf-name}
+
+* Added the `--start-workflow-id`, `--start-workflow-name`, `--start-workflow-service-account-id`, and `--start-workflow-service-account-name` parameters to the `yc serverless trigger create` create command for running {{ sw-name }} on a trigger event:
+  * `yc serverless trigger create timer`
+  * `yc serverless trigger create message-queue`
+  * `yc serverless trigger create object-storage`
+  * `yc serverless trigger create conteiner-registry`
+  * `yc serverless trigger create logging`
+  * `yc serverless trigger create billing-budget`
+  * `yc serverless trigger create yds`
+  * `yc serverless trigger create mail`
+
+#### Managed database services {#v-1-1-0-managed-db}
+
+Added the `idle_session_timeout` configuration parameter.
+
+#### {{ managed-k8s-name }} {#v-1-1-0-managed-k8s-name}
+
+* Added the `--value` and `--value-from-file` parameters for providing Helm Release values to the `yc managed-kubernetes marketplace helm-release install` and `yc managed-kubernetes marketplace helm-release update` commands; the `--values` parameter is marked as deprecated:
+  * `yc managed-kubernetes marketplace helm-release install --value --value-from-file`
+  * `yc managed-kubernetes marketplace helm-release update --value --value-from-file`
+
+* Added the `--name` and `--namespace` parameters to the `yc managed-kubernetes marketplace helm-release install` command: `yc managed-kubernetes marketplace helm-release install --name --namespace`.
+
+* Added examples of providing complex values (lists, objects) via `--value` and `--value-from-file` to the `yc managed-kubernetes marketplace helm-release install` and `yc managed-kubernetes marketplace helm-release update` commands:
+  * `yc managed-kubernetes marketplace helm-release install`
+  * `yc managed-kubernetes marketplace helm-release update`
 
 ### Version 1.0.0 (02/04/26) {#version1.0.0}
 
@@ -52,8 +225,6 @@ Migrated the `yc smartcaptcha` commands to the new syntax. To use the old syntax
 Added the `--warehouse-bucket` and `--warehouse-path` parameters for configuring the {{ objstorage-name }} bucket intended as a Hive Metastore data storage (`warehouse`):
 * `yc managed-metastore cluster create --warehouse-bucket --warehouse-path`
 * `yc managed-metastore cluster update --warehouse-bucket --warehouse-path`
-
-## Previous releases {#previous-release}
 
 ### Version 0.204.0 (30/03/26) {#version0.204.0}
 
@@ -292,7 +463,7 @@ Added autoscaling and maintenance window settings for the `create` and `restore`
   * `yc managed-redis cluster restore --maintenance-window --disk-size-autoscaling`
 
 ##### {{ managed-k8s-name }}
-Added the `--reserved-instance-pool-id` and `--variables` parameters to the NodeGroup management methods, allowing you to specify VM reserve pools and custom variables, respectively:
+Added the `--reserved-instance-pool-id` and `--variables` parameters to the NodeGroup management methods for reserved instance pools and custom variables, respectively:
   * `yc managed-kubernetes node-group create`
   * `yc managed-kubernetes node-group update`
 
@@ -609,21 +780,21 @@ Added the `--whitelist` and `--blacklist` parameters to the `yc managed-mongodb 
 
 ##### {{ org-full-name }}
 
-* Added commands for authorization policy management at the organization level:
+* Added commands for access policy management at the organization level:
   * `yc organization-manager organization list-access-policy-bindings`
   * `yc organization-manager organization bind-access-policy`
   * `yc organization-manager organization unbind-access-policy`
 
 ##### {{ resmgr-name }}
 
-* Added commands for authorization policy management at the cloud level:
+* Added commands for access policy management at the cloud level:
   * `yc resource-manager cloud list-access-policy-bindings`
   * `yc resource-manager cloud bind-access-policy`
   * `yc resource-manager cloud unbind-access-policy`
 
 ##### {{ resmgr-name }}
 
-* Added commands for authorization policy management at the folder level:
+* Added commands for access policy management at the folder level:
   * `yc resource-manager folder list-access-policy-bindings`
   * `yc resource-manager folder bind-access-policy`
   * `yc resource-manager folder unbind-access-policy`
@@ -1327,7 +1498,7 @@ Added the `--kafka-ui-enabled` flag to the `yc managed-kafka cluster create` and
 
 ##### {{ dataproc-name }}
 
-In the `yc dataproc cluster create` and `yc dataproc cluster update` commands, added parameters for specifying a service account to manage the VM group where the cluster hosts reside.
+In the `yc dataproc cluster create` and `yc dataproc cluster update` commands, added parameters for specifying a service account to manage the VM group the cluster hosts reside on:
 * `--autoscaling-service-account-id`
 * `--autoscaling-service-account-name`
 
@@ -1650,7 +1821,7 @@ Fixed the `--log-enabled` flag support for {{ cloud-logging-name }} in the `yc m
 
 * Added support for the `--user generate-password` argument in the `yc managed-clickhouse cluster create` command to automatically generate a password using {{ connection-manager-full-name }}.
 
-* The `yc managed-clickhouse cluster create` and `yc managed-clickhouse cluster restore` commands now support the `--shard` parameter you can use to specify one or more shards. Example: `yc managed-clickhouse cluster create ... --shard name=shard1,weight=100 --shard name=shard2,weight=200 ...`
+* The `yc managed-clickhouse cluster create` and `yc managed-clickhouse cluster restore` commands now support the `--shard` parameter you can use to specify one or more shards. Example: `yc managed-clickhouse cluster create ... --shard name=shard1,weight=100 --shard name=shard2,weight=200 ...`.
 
 * Added support for the `--shard` repeatable composite parameter in the `yc managed-clickhouse shard add` command.
   * The command will create as many shards as there are `--shard` parameters.
@@ -2709,7 +2880,7 @@ Added the `yc serverless network` command group to manage networks used in serve
 
 ##### {{ objstorage-name }}
 
-* Added the `AND` (`andOperation`) operator support to the `yc storage bucket update` command for the `--lifecycle-rules/` and `--lifecycle-rules-from-file` parameters to merge conditions in the object filter.
+* Added support for the `AND` (`andOperation`) logical operator to the `yc storage bucket update` command for the `--lifecycle-rules/` and `--lifecycle-rules-from-file` parameters to allow merging object filter conditions.
 * Added the `--encryption key-id=<key_ID>` parameter to the `yc storage bucket update` command to modify the encryption key currently in use and the `--remove-encryption` parameter which disables bucket encryption.
 
 ##### Managed database services {#managed-db}

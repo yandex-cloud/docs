@@ -54,11 +54,11 @@ Create a {{ lockbox-full-name }} [secret](../../lockbox/concepts/secret.md) to s
 - Management console {#console}
 
    1. In the [management console]({{ link-console-main }}), select the folder where you are going to create your infrastructure.
-   1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
+   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_lockbox }}**.
    1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
    1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret: `github/pat-for-workflows`.
    1. In the **{{ ui-key.yacloud.lockbox.forms.title_secret-type }}** field, select `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}`.
-   1. In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, enter `token`.
+   1. In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, specify `token`.
    1. In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, enter the `personal access token (classic)` access token previously obtained on GitHub.
    1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -110,16 +110,16 @@ Create two [service accounts](../../iam/concepts/users/service-accounts.md):
 * `workflow-sa`: This one will be used to run the {{ sw-name }} [workflow](../../serverless-integrations/concepts/workflows/workflow.md).
 * `github-worker`: This one will be used to execute the workflow on a request from the GitHub Actions script.
 
-1. Create a service account named `workflow-sa` and assign the and [`{{ roles-lockbox-payloadviewer }}`](../../lockbox/security/index.md#lockbox-payloadViewer) and [`ai.languageModels.user`]({{ link-docs-ai }}ai-studio/security/index#languageModels-user) [roles](../../iam/concepts/access-control/roles.md) to it.
+1. Create a service account named `workflow-sa` and assign the [`{{ roles-lockbox-payloadviewer }}`](../../lockbox/security/index.md#lockbox-payloadViewer) and [`ai.languageModels.user`]({{ link-docs-ai }}ai-studio/security/index#languageModels-user) [roles](../../iam/concepts/access-control/roles.md) to it.
 
     {% list tabs group=instructions %}
 
     - Management console {#console}
 
         1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-        1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+        1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
         1. Click **{{ ui-key.yacloud.iam.folder.service-accounts.button_add }}**.
-        1. Specify the service account name: `workflow-sa`.
+        1. Enter a name for the service account: `workflow-sa`.
         1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.component.acl.update-dialog.button_add-role }}** and select the [`{{ roles-lockbox-payloadviewer }}`](../../lockbox/security/index.md#lockbox-payloadViewer) and [`ai.languageModels.user`]({{ link-docs-ai }}ai-studio/security/index#languageModels-user) roles.
         1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
 
@@ -191,8 +191,8 @@ Create an [authorized key](../../iam/concepts/authorization/key.md) for the `git
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you are deploying your infrastructure.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
-  1. In the list that opens, select the `github-worker` service account.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
+  1. In the list that opens, select `github-worker`.
   1. In the top panel, click ![plus](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.button_create-key-popup }}** and select `{{ ui-key.yacloud.iam.folder.service-account.overview.button_create_key }}`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_create }}**.
   1. In the window that opens, click **{{ ui-key.yacloud.iam.folder.service-account.overview.action_download-keys-file }}** and then click **{{ ui-key.yacloud.iam.folder.service-account.overview.popup-key_button_close }}**.
@@ -229,7 +229,7 @@ Create a {{ sw-name }} [workflow](../../serverless-integrations/concepts/workflo
 
     **yawl-spec.yaml**
 
-    ```yml
+    ```yaml
     yawl: '0.1'
     start: GetDiff
     steps:
@@ -295,7 +295,7 @@ Create a {{ sw-name }} [workflow](../../serverless-integrations/concepts/workflo
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), go to the folder you want to create an infrastructure in.
-      1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
+      1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-integrations }}**.
       1. In the left-hand panel, click ![image](../../_assets/console-icons/graph-node.svg) **{{ ui-key.yacloud.serverless-workflows.label_service }}**.
       1. In the top-right corner, click **{{ ui-key.yacloud.serverless-workflows.button_create-workflow }}**.
       1. Choose the `{{ ui-key.yacloud.serverless-workflows.spec-editor-type_label_text-editor }}` method.
@@ -408,7 +408,7 @@ To test the script, create a new pull request in your GitHub repository. When cr
 
 ## Delete the resources you created {#clear-out}
 
-To stop paying for the resources you created:
+To stop incurring charges for the resources you created:
 
 1. [Delete](../../lockbox/operations/secret-delete.md) the {{ lockbox-name }} secret.
 1. [Delete](../../serverless-integrations/operations/workflows/workflow/delete.md) the {{ sw-name }} workflow.

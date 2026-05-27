@@ -1,5 +1,6 @@
 # Развертывание веб-приложения на серверах {{ baremetal-full-name }} с L7-балансировщиком и защитой {{ sws-full-name }}
 
+
 В этом руководстве вы развернете веб-приложение на [серверах](../../baremetal/concepts/servers.md) {{ baremetal-full-name }}. Для обеспечения равномерного распределения нагрузки на хосты с приложением вы настроите [L7-балансировщик](../../application-load-balancer/concepts/application-load-balancer.md) {{ alb-full-name }}. Создаваемое веб-приложение будет защищено от ботов, [DDoS](../../glossary/ddos.md)- и веб-атак в помощью [профиля безопасности](../../smartwebsecurity/concepts/profiles.md) {{ sws-full-name }}. [Приватное соединение](../../interconnect/concepts/priv-con.md) между [облачной сетью](../../vpc/concepts/network.md#network) {{ vpc-full-name }} и [приватной сетью](../../baremetal/concepts/private-network.md) {{ baremetal-full-name }} обеспечивается с помощью [Routing Instance](../../cloud-router/concepts/routing-instance.md) {{ interconnect-full-name }}.
 
 Схема решения:
@@ -184,7 +185,7 @@
   1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создаете инфраструктуру.
   1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
   1. Создайте виртуальный сегмент сети:
-        1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks }}** и нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-network }}**.
+        1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks_kHgng }}** и нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-network }}**.
         1. В поле **{{ ui-key.yacloud.baremetal.field_name }}** задайте имя VRF: `my-vrf`.
         1. Нажмите кнопку **{{ ui-key.yacloud.baremetal.label_create-network }}**.
   1. Создайте приватную подсеть:
@@ -219,6 +220,9 @@
       Для этого в фильтре в правой части окна в блоке **{{ ui-key.yacloud_components.baremetal.poolFilter }}** выберите пул серверов `{{ region-id }}-m4`.
 
       Чтобы выбрать подходящую вам конфигурацию сервера, нажмите на блок с именем этой конфигурации в центральной части экрана.
+
+      {% include [server-lease-save-with-assembling-tip](../../_includes/baremetal/instruction-steps/server-lease-save-with-assembling-tip.md) %}
+
   1. В открывшемся окне с настройками конфигурации сервера:
 
       1. В поле **{{ ui-key.yacloud.baremetal.field_server-lease-duration }}** выберите период, на который вы заказываете аренду — `1 день`.
@@ -226,8 +230,10 @@
           {% include [server-lease-step6-period](../../_includes/baremetal/instruction-steps/server-lease-step6-period.md) %}
 
       1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-product }}** выберите образ `Debian 11`.
-      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}** в поле **{{ ui-key.yacloud.baremetal.field_subnet-id }}** выберите созданную ранее подсеть `subnet-m4`.
-      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}** в поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
+      1. В блоке **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}**:
+          1. В поле **{{ ui-key.yacloud.baremetal.field_subnet-id }}** выберите созданную ранее подсеть `subnet-m3`.
+          1. В поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}** выберите `{{ ui-key.yacloud.baremetal.label_public-ip-ephemeral }}`.
+
       1. В блоке **{{ ui-key.yacloud.baremetal.title_server-access }}**:
 
           {% include [server-lease-access](../../_includes/baremetal/server-lease-access.md) %}
@@ -259,7 +265,7 @@
     ssh root@<публичный_IP-адрес_сервера>
     ```
 
-    Публичный IP-адрес сервера можно узнать в [консоли управления]({{ link-console-main }}) на странице **{{ ui-key.yacloud.common.overview }}** с информацией о сервере {{ baremetal-name }}. Нужный адрес указан в блоке **{{ ui-key.yacloud.baremetal.title_section-server-public-network }}** в поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}**.
+    Публичный IP-адрес сервера можно узнать в [консоли управления]({{ link-console-main }}) на странице **{{ ui-key.yacloud.common.overview }}** с информацией о сервере {{ baremetal-name }}. Нужный адрес указан в блоке **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** в поле **{{ ui-key.yacloud.baremetal.field_needed-public-ip }}**.
 
     Все последующие действия этого шага выполняются в терминале сервера.
 1. Подготовьте рабочую директорию:
@@ -438,7 +444,7 @@
     ping <приватный_IP-адрес_сервера> -s 1024 -c 3
     ```
 
-    Приватный IP-адрес сервера можно узнать в [консоли управления]({{ link-console-main }}) на странице **{{ ui-key.yacloud.common.overview }}** с информацией о сервере {{ baremetal-name }}. Нужный адрес указан в блоке **{{ ui-key.yacloud.baremetal.title_section-server-private-network }}** в поле **{{ ui-key.yacloud.baremetal.field_server-private-ip }}**.
+    Приватный IP-адрес сервера можно узнать в [консоли управления]({{ link-console-main }}) на странице **{{ ui-key.yacloud.common.overview }}** с информацией о сервере {{ baremetal-name }}. Нужный адрес указан в блоке **{{ ui-key.yacloud.baremetal.title_section-network-interfaces }}** в поле **{{ ui-key.yacloud.baremetal.field_server-private-ip }}**.
 
     Результат:
 
@@ -669,7 +675,7 @@
     
       1. В [консоли управления]({{ link-console-main }}) выберите каталог, в котором вы создали инфраструктуру.
       1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_baremetal }}**.
-      1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks }}** и выберите виртуальный сегмент сети `my-vrf`.
+      1. На панели слева выберите ![icon](../../_assets/console-icons/vector-square.svg) **{{ ui-key.yacloud.baremetal.label_networks_kHgng }}** и выберите виртуальный сегмент сети `my-vrf`.
       1. В блоке **{{ ui-key.yacloud.baremetal.title_vrf-interconnect-section }}** нажмите ![image](../../_assets/console-icons/ellipsis.svg) и выберите ![CircleXmark](../../_assets/console-icons/circle-xmark.svg) **{{ ui-key.yacloud.baremetal.action_delete-external-connection }}**.
       1. В открывшемся окне подтвердите удаление.
 

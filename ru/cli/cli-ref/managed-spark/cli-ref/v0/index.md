@@ -1,0 +1,101 @@
+---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-spark/cli-ref/v0/
+editable: false
+---
+
+# yc managed-spark v0
+
+Manage Spark clusters.
+
+#### Command Usage
+
+Syntax:
+
+`yc managed-spark v0 <group>`
+
+#### Command Tree
+
+- [yc managed-spark v0 cluster](cluster/index.md) — Manage Spark clusters
+
+  - [yc managed-spark v0 cluster add-access-binding](cluster/add-access-binding.md) — Add access binding for the specified Spark cluster
+
+  - [yc managed-spark v0 cluster create](cluster/create.md) — Create Spark cluster
+
+  - [yc managed-spark v0 cluster delete](cluster/delete.md) — Delete the specified Spark cluster
+
+  - [yc managed-spark v0 cluster get](cluster/get.md) — Show information about the specified Spark cluster
+
+  - [yc managed-spark v0 cluster list](cluster/list.md) — List Spark clusters
+
+  - [yc managed-spark v0 cluster list-access-bindings](cluster/list-access-bindings.md) — List access bindings for the specified Spark cluster
+
+  - [yc managed-spark v0 cluster list-operations](cluster/list-operations.md) — List operations for the specified Spark cluster
+
+  - [yc managed-spark v0 cluster remove-access-binding](cluster/remove-access-binding.md) — Remove access binding for the specified Spark cluster
+
+  - [yc managed-spark v0 cluster set-access-bindings](cluster/set-access-bindings.md) — Set access bindings for the specified Spark cluster and delete all existing access bindings if there were any
+
+  - [yc managed-spark v0 cluster start](cluster/start.md) — Start the specified Spark cluster
+
+  - [yc managed-spark v0 cluster stop](cluster/stop.md) — Stop the specified Spark cluster
+
+  - [yc managed-spark v0 cluster update](cluster/update.md) — Update the specified Spark cluster
+
+- [yc managed-spark v0 job](job/index.md) — Manage Spark jobs.
+
+  - [yc managed-spark v0 job cancel](job/cancel.md) — Cancel Spark job.
+
+  - [yc managed-spark v0 job create-pyspark](job/create-pyspark.md) — Create PySpark job.
+
+  - [yc managed-spark v0 job create-spark](job/create-spark.md) — Create Spark job.
+
+  - [yc managed-spark v0 job create-spark-connect](job/create-spark-connect.md) — Create Spark Connect job.
+
+  - [yc managed-spark v0 job get](job/get.md) — Get information about a Spark job.
+
+  - [yc managed-spark v0 job list](job/list.md) — List Spark jobs for a cluster.
+
+  - [yc managed-spark v0 job log](job/log.md) — List logs for Spark job.
+
+#### Global Flags
+
+#|
+||Flag | Description ||
+|| `--profile` | `string`
+
+Set the custom configuration file. ||
+|| `--debug` | Debug logging. ||
+|| `--debug-grpc` | Debug gRPC logging. Very verbose, used for debugging connection problems. ||
+|| `--no-user-output` | Disable printing user intended output to stderr. ||
+|| `--retry` | `int`
+
+Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
+Pass 0 to disable retries. Pass any negative value for infinite retries.
+Even infinite retries are capped with 2 minutes timeout. ||
+|| `--cloud-id` | `string`
+
+Set the ID of the cloud to use. ||
+|| `--folder-id` | `string`
+
+Set the ID of the folder to use. ||
+|| `--folder-name` | `string`
+
+Set the name of the folder to use (will be resolved to id). ||
+|| `--endpoint` | `string`
+
+Set the Cloud API endpoint (host:port). ||
+|| `--token` | `string`
+
+Set the OAuth token to use. ||
+|| `--impersonate-service-account-id` | `string`
+
+Set the ID of the service account to impersonate. ||
+|| `--no-browser` | Disable opening browser for authentication. ||
+|| `--format` | `string`
+
+Set the output format: text (default), yaml, json, json-rest. ||
+|| `--jq` | `string`
+
+Query to select values from the response using jq syntax ||
+|| `-h`, `--help` | Display help for the command. ||
+|#

@@ -49,7 +49,7 @@ items:
             href: operations/applications/crossplane.md
           - name: Установка External Secrets Operator
             href: operations/applications/external-secrets-operator.md
-          - name: Установка ExternalDNS c плагином для {{ dns-name }}
+          - name: Установка ExternalDNS c Webhook {{ dns-name }}
             href: operations/applications/externaldns.md
           - name: Установка Falco
             href: operations/applications/falco.md
@@ -504,6 +504,110 @@ items:
             href: cli-ref/resource-preset/get.md
           - name: list
             href: cli-ref/resource-preset/list.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: cluster
+            items:
+              - name: Overview
+                href: cli-ref/v0/cluster/index.md
+              - name: add-access-binding
+                href: cli-ref/v0/cluster/add-access-binding.md
+              - name: add-labels
+                href: cli-ref/v0/cluster/add-labels.md
+              - name: create
+                href: cli-ref/v0/cluster/create.md
+              - name: delete
+                href: cli-ref/v0/cluster/delete.md
+              - name: get
+                href: cli-ref/v0/cluster/get.md
+              - name: get-credentials
+                href: cli-ref/v0/cluster/get-credentials.md
+              - name: list
+                href: cli-ref/v0/cluster/list.md
+              - name: list-access-bindings
+                href: cli-ref/v0/cluster/list-access-bindings.md
+              - name: list-node-groups
+                href: cli-ref/v0/cluster/list-node-groups.md
+              - name: list-nodes
+                href: cli-ref/v0/cluster/list-nodes.md
+              - name: list-operations
+                href: cli-ref/v0/cluster/list-operations.md
+              - name: remove-access-binding
+                href: cli-ref/v0/cluster/remove-access-binding.md
+              - name: remove-labels
+                href: cli-ref/v0/cluster/remove-labels.md
+              - name: reschedule-maintenance
+                href: cli-ref/v0/cluster/reschedule-maintenance.md
+              - name: set-access-bindings
+                href: cli-ref/v0/cluster/set-access-bindings.md
+              - name: start
+                href: cli-ref/v0/cluster/start.md
+              - name: stop
+                href: cli-ref/v0/cluster/stop.md
+              - name: update
+                href: cli-ref/v0/cluster/update.md
+          - name: create-token
+            href: cli-ref/v0/create-token.md
+          - name: list-versions
+            href: cli-ref/v0/list-versions.md
+          - name: marketplace
+            items:
+              - name: Overview
+                href: cli-ref/v0/marketplace/index.md
+              - name: helm-release
+                items:
+                  - name: Overview
+                    href: cli-ref/v0/marketplace/helm-release/index.md
+                  - name: get
+                    href: cli-ref/v0/marketplace/helm-release/get.md
+                  - name: install
+                    href: cli-ref/v0/marketplace/helm-release/install.md
+                  - name: list
+                    href: cli-ref/v0/marketplace/helm-release/list.md
+                  - name: uninstall
+                    href: cli-ref/v0/marketplace/helm-release/uninstall.md
+                  - name: update
+                    href: cli-ref/v0/marketplace/helm-release/update.md
+          - name: node-group
+            items:
+              - name: Overview
+                href: cli-ref/v0/node-group/index.md
+              - name: add-labels
+                href: cli-ref/v0/node-group/add-labels.md
+              - name: add-metadata
+                href: cli-ref/v0/node-group/add-metadata.md
+              - name: add-node-labels
+                href: cli-ref/v0/node-group/add-node-labels.md
+              - name: create
+                href: cli-ref/v0/node-group/create.md
+              - name: delete
+                href: cli-ref/v0/node-group/delete.md
+              - name: get
+                href: cli-ref/v0/node-group/get.md
+              - name: list
+                href: cli-ref/v0/node-group/list.md
+              - name: list-nodes
+                href: cli-ref/v0/node-group/list-nodes.md
+              - name: list-operations
+                href: cli-ref/v0/node-group/list-operations.md
+              - name: remove-labels
+                href: cli-ref/v0/node-group/remove-labels.md
+              - name: remove-metadata
+                href: cli-ref/v0/node-group/remove-metadata.md
+              - name: remove-node-labels
+                href: cli-ref/v0/node-group/remove-node-labels.md
+              - name: update
+                href: cli-ref/v0/node-group/update.md
+          - name: resource-preset
+            items:
+              - name: Overview
+                href: cli-ref/v0/resource-preset/index.md
+              - name: get
+                href: cli-ref/v0/resource-preset/get.md
+              - name: list
+                href: cli-ref/v0/resource-preset/list.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API
@@ -728,34 +832,36 @@ items:
             href: alb-ref/ingress-gwin-migration.md
           - name: Миграция приложений с Ingress NGINX на Gwin
             href: alb-ref/nginx-gwin-migration.md
+          - name: Механизм Attachment для интеграции Gwin с {{ alb-name }}
+            href: alb-ref/gwin-alb-attachment.md
           - name: Конфигурация ресурсов (англ.)
             items:
               - name: Gateway
                 href: gwin-ref/gateway.md
+              - name: GatewayPolicy
+                href: gwin-ref/gatewaypolicy.md
               - name: GRPCRoute
                 href: gwin-ref/grpcroute.md
-              - name: Ingress
-                href: gwin-ref/ingress.md
               - name: HTTPRoute
                 href: gwin-ref/httproute.md
+              - name: Ingress
+                href: gwin-ref/ingress.md
+              - name: IngressBackendGroup
+                href: gwin-ref/ingressbackendgroup.md
               - name: IngressPolicy
                 href: gwin-ref/ingresspolicy.md
               - name: RoutePolicy
                 href: gwin-ref/routepolicy.md
-              - name: IngressBackendGroup
-                href: gwin-ref/ingressbackendgroup.md
               - name: Service
                 href: gwin-ref/service.md
               - name: ServicePolicy
                 href: gwin-ref/servicepolicy.md
               - name: TLSRoute
                 href: gwin-ref/tlsroute.md
-              - name: YCStorageBucket
-                href: gwin-ref/ycstoragebucket.md
               - name: YCCertificate
                 href: gwin-ref/yccertificate.md
-              - name: GatewayPolicy
-                href: gwin-ref/gatewaypolicy.md
+              - name: YCStorageBucket
+                href: gwin-ref/ycstoragebucket.md
       - name: Ingress-контроллер
         items:
           - name: Обзор

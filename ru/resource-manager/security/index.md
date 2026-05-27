@@ -22,7 +22,7 @@ description: Управление доступом в сервисе, позво
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](../../_assets/resource-manager/security/service-roles-hierarchy.svg)
+{% include [resource-manager](../../_mermaid/roles/resource-manager.md) %}
 
 ### Сервисные роли {#service-roles}
 

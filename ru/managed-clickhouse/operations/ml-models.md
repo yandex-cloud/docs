@@ -4,7 +4,7 @@
 
 Чтобы применить модель, подключите ее к кластеру и вызовите в SQL-запросе с помощью встроенной функции `catboostEvaluate()`. В результате выполнения такого запроса вы получите предсказания модели для каждой строки входных данных.
 
-Подробнее о функции `catboostEvaluate()` читайте в [документации {{ CH }}]({{ ch.docs }}/sql-reference/functions/other-functions/#catboostevaluatepath_to_model-feature_1-feature_2--feature_n).
+Подробнее о функции `catboostEvaluate()` читайте в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/functions/other-functions#catboostevaluatepath_to_model-feature_1-feature_2--feature_n).
 
 ## Перед подключением модели {#prereq}
 
@@ -209,6 +209,7 @@
 
     Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -218,7 +219,7 @@
     1. Добавьте к описанию кластера {{ mch-name }} блок `ml_model` с описанием подключаемой модели машинного обучения:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
           ...
           ml_model {
             name = "<имя_модели>"
@@ -239,6 +240,7 @@
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -370,6 +372,7 @@
 
     Имя модели можно запросить со [списком моделей в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -379,7 +382,7 @@
     1. Измените в описании кластера {{ mch-name }} значение параметра `uri` в блоке `ml_model`:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
         ...
           ml_model {
             name = "<имя_модели>"
@@ -400,6 +403,7 @@
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 
@@ -514,6 +518,7 @@
 
     Имя модели можно запросить со [списком моделей в кластере](#list), имя кластера — со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -533,6 +538,7 @@
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
 
     {% include [Terraform timeouts](../../_includes/mdb/mch/terraform/timeouts.md) %}
+
 
 - REST API {#api}
 

@@ -29,6 +29,8 @@ description: Следуя данной инструкции, вы сможете
 
 ## Хостинг статического сайта {#hosting}
 
+{% include [static-site-all-redirection-exception](../../../_includes/storage/static-site-all-redirection-exception.md) %}
+
 {% list tabs group=instructions %}
 
 - Консоль управления {#console}
@@ -52,6 +54,7 @@ description: Следуя данной инструкции, вы сможете
   Перед началом работы, получите [статические ключи доступа](../../../iam/operations/authentication/manage-access-keys.md#create-access-key) — секретный ключ и идентификатор ключа, используемые для аутентификации в {{ objstorage-short-name }}.
 
   {% include [terraform-iamtoken-note](../../../_includes/storage/terraform-iamtoken-note.md) %}
+
 
   1. Опишите в конфигурационном файле параметры ресурсов, которые необходимо создать:
 
@@ -107,28 +110,13 @@ description: Следуя данной инструкции, вы сможете
 
        * `error_document` — абсолютный путь к файлу, который будет отображаться пользователю при ошибках 4xx. Необязательный параметр.
 
-  1. Проверьте корректность конфигурационных файлов.
+        {% include [static-site-error-index](../../../_includes/storage/static-site-error-index.md) %}
 
-     1. В командной строке перейдите в папку, где вы создали конфигурационный файл.
-     1. Выполните проверку с помощью команды:
+  1. Создайте ресурсы:
 
-        ```
-        terraform plan
-        ```
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-     Если конфигурация описана верно, в терминале отобразится список создаваемых ресурсов и их параметров. Если в конфигурации есть ошибки, {{ TF }} на них укажет. 
-
-  1. Разверните облачные ресурсы.
-
-     1. Если в конфигурации нет ошибок, выполните команду:
-
-     ```
-     terraform apply
-     ```
-   
-     1. Подтвердите создание ресурсов.
-
-     После этого в указанном каталоге будут созданы все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
+  {{ TF }} создаст все требуемые ресурсы. Проверить появление ресурсов и их настройки можно в [консоли управления]({{ link-console-main }}).
 
 - API {#api}
 
@@ -137,6 +125,10 @@ description: Следуя данной инструкции, вы сможете
 {% endlist %}
 
 ## Переадресация всех запросов {#redirects}
+
+{% include [redirects](../../../_includes/storage/redirects.md) %}
+
+{% include [static-site-all-redirection-exception](../../../_includes/storage/static-site-all-redirection-exception.md) %}
 
 {% list tabs group=instructions %}
 
@@ -210,6 +202,7 @@ description: Следуя данной инструкции, вы сможете
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
+
   Чтобы настроить переадресацию всех запросов:
 
   1. Откройте файл конфигурации {{ TF }} и добавьте параметр `redirect_all_requests_to` в описание ресурса `yandex_storage_bucket`:
@@ -246,33 +239,9 @@ description: Следуя данной инструкции, вы сможете
 
      Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
 
-  1. Проверьте конфигурацию командой:
+  1. Создайте ресурсы:
 
-     ```bash
-     terraform validate
-     ```
-     
-     Если конфигурация является корректной, появится сообщение:
-     
-     ```bash
-     Success! The configuration is valid.
-     ```
-
-  1. Выполните команду:
-
-     ```bash
-     terraform plan
-     ```
-  
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
-
-  1. Примените изменения конфигурации:
-
-     ```bash
-     terraform apply
-     ```
-     
-  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
      Проверить настройку переадресации запросов можно в [консоли управления]({{ link-console-main }}).
 
@@ -403,6 +372,7 @@ description: Следуя данной инструкции, вы сможете
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
 
+
   Чтобы настроить условную переадресацию запросов:
 
   1. Откройте файл конфигурации {{ TF }} и добавьте параметр `routing_rules` в описание бакета:
@@ -455,37 +425,12 @@ description: Следуя данной инструкции, вы сможете
        * `routing_rules` — правила переадресации запросов в формате JSON. В полях `Condition` и `Redirect` каждого правила должно быть как минимум по одной паре <q>ключ — значение</q>. Подробнее о поддерживаемых полях см. в [схеме данных](../../s3/api-ref/hosting/upload.md#request-scheme) соответствующего метода [API](../../../glossary/rest-api.md) (вкладка **Для условной переадресации запросов**).
 
      Более подробную информацию о параметрах ресурса `yandex_storage_bucket` в {{ TF }} см. в [документации провайдера]({{ tf-provider-resources-link }}/storage_bucket#static-website-hosting).
+  1. Создайте ресурсы:
 
-  1. Проверьте конфигурацию командой:
-
-     ```bash
-     terraform validate
-     ```
-     
-     Если конфигурация является корректной, появится сообщение:
-     
-     ```bash
-     Success! The configuration is valid.
-     ```
-
-  1. Выполните команду:
-
-     ```bash
-     terraform plan
-     ```
-  
-     В терминале будет выведен список ресурсов с параметрами. На этом этапе изменения не будут внесены. Если в конфигурации есть ошибки, {{ TF }} на них укажет.
-
-  1. Примените изменения конфигурации:
-
-     ```bash
-     terraform apply
-     ```
-     
-  1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
+      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
      Проверить настройку условной переадресации запросов можно в [консоли управления]({{ link-console-main }}).
-        
+
 - API {#api}
 
   Чтобы настроить условную переадресацию запросов к бакету, воспользуйтесь методом REST API [update](../../api-ref/Bucket/update.md) для ресурса [Bucket](../../api-ref/Bucket/index.md), вызовом gRPC API [BucketService/Update](../../api-ref/grpc/Bucket/update.md) или методом S3 API [upload](../../s3/api-ref/hosting/upload.md).
@@ -494,8 +439,9 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [redirect-https](../../../_includes/storage/redirect-https.md) %}
 
-#### См. также {#see-also}
+### См. также {#see-also}
 
+* [{#T}](../../qa.md#qa-mime-type)
 * [{#T}](own-domain.md)
 * [{#T}](multiple-domains/index.md)
 * [{#T}](certificate.md)

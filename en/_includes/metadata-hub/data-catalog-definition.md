@@ -10,4 +10,7 @@ You can use {{ data-catalog-name }} to:
 * Find data owners, including passive ownership through subscription.
 * Build a schema for data consumer.
 
-Being integrated with [{{ websql-full-name }}](../../websql/index.yaml), {{ data-catalog-name }} allows you to send SQL queries to databases in clusters acting as data sources for {{ data-catalog-name }}.
+{{ data-catalog-name }} is integrated with:
+
+  * [{{ websql-full-name }}](../../websql/index.yaml): Enables you to send SQL queries to databases in clusters acting as data sources for {{ data-catalog-name }}.
+  * [{{ datalens-name }}](../../datalens/index.yaml): Allows you to configure analytical data ingestion and view links between datasets.

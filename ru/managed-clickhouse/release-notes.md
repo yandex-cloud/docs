@@ -24,6 +24,11 @@ index: 1
 
 # История изменений в {{ mch-full-name }}
 
+## Апрель 2026 {#apr-2026}
+
+* В конфигурацию кластера добавлен объект `performance_diagnostics` для настройки сбора диагностических данных.
+* Исправлено критическое несоответствие в перечислении [классов хостов](concepts/instance-types.md).
+
 ## Март 2026 {#mar-2026}
 
 * Добавлена возможность использования самоподписанных сертификатов. Для включения функции обратитесь в техническую поддержку.
@@ -57,7 +62,7 @@ index: 1
 
 * Сервис координации {{ CK }} теперь доступен всем пользователям {{ mch-name }} и используется по умолчанию в новых кластерах. Также добавлена возможность создавать в кластере отдельные хосты с {{ CK }}. Подробнее о {{ CK }} см. в разделе [Репликация](concepts/replication.md#ck).
 * Добавлена роль `managed-clickhouse.restorer`, позволяющая восстанавливать кластеры из резервных копий. Подробнее см. в разделе [Управление доступом](security.md#managed-clickhouse-restorer).
-* Удалена настройка СУБД **Kafka topics**, позволявшая задавать параметры аутентификации на уровне топиков для [интеграции с {{ KF }}]({{ ch.docs }}/engines/table-engines/integrations/kafka/).
+* Удалена настройка СУБД **Kafka topics**, позволявшая задавать параметры аутентификации на уровне топиков для [интеграции с {{ KF }}]({{ ch.docs }}{{ lang }}/engines/table-engines/integrations/kafka).
 * Доступны новые версии {{ CH }}: [25.8](https://clickhouse.com/blog/clickhouse-release-25-08), [25.9](https://clickhouse.com/blog/clickhouse-release-25-09) и [25.10](https://clickhouse.com/blog/clickhouse-release-25-10).
 
 ## Октябрь 2025 {#oct-2025}
@@ -108,44 +113,44 @@ index: 1
 
 ## Июль 2024 {#jul-2024}
 
-* Доступна новая версия {{ CH }} [24.6](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-246-2024-07-01).
+* Доступна новая версия {{ CH }} [24.6]({{ ch.docs }}{{ lang }}/whats-new/changelog#-clickhouse-release-246-2024-07-01).
 * Добавлена возможность автоматического преобразования нереплицируемых таблиц в [реплицируемые](./concepts/replication.md#replicated-tables) при [добавлении хостов {{ ZK }}](./operations/zk-hosts.md). Функциональность значительно упрощает процесс перехода к отказоустойчивой конфигурации для однохостовых кластеров.
 * Добавлена возможность ручного удаления [резервных копий](./concepts/backup.md).
 
 ## Июнь 2024 {#jun-2024}
 
-Доступна новая версия {{ CH }} [24.5](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-245-2024-05-30).
+Доступна новая версия {{ CH }} [24.5]({{ ch.docs }}{{ lang }}/whats-new/changelog#-clickhouse-release-245-2024-05-30).
 
 ## Май 2024 {#may-2024}
 
-Доступна новая версия {{ CH }} [24.4](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-244-2024-04-30).
+Доступна новая версия {{ CH }} [24.4]({{ ch.docs }}{{ lang }}/whats-new/changelog#-clickhouse-release-244-2024-04-30).
 
 ## Апрель 2024 {#apr-2024}
 
-Доступна новая версия {{ CH }} [24.3 LTS](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-243-lts-2024-03-27).
+Доступна новая версия {{ CH }} [24.3 LTS]({{ ch.docs }}{{ lang }}/whats-new/changelog#-clickhouse-release-243-lts-2024-03-27).
 
 ## Март 2024 {#mar-2024}
 
-* Доступна новая версия {{ CH }} [24.2](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-242-2024-02-29).
+* Доступна новая версия {{ CH }} [24.2]({{ ch.docs }}{{ lang }}/whats-new/changelog#-clickhouse-release-242-2024-02-29).
 * Добавлена возможность создавать или удалять несколько хостов в рамках одной операции. Это поможет ускорить процесс добавления или удаления большого количества хостов в кластере.
 * [Лимит](./concepts/limits.md#mch-limits) на размер сетевых дисков `network-ssd-nonreplicated` увеличен в 2 раза — с 8 до 16 ТБ. Это позволит расширять кластер без добавления дополнительных шардов.
 
 ## Февраль 2024 {#feb-2024}
 
-* Доступны новые версии {{ CH }}: [23.9](https://clickhouse.com/docs/en/whats-new/changelog/2023#239), [23.10](https://clickhouse.com/docs/en/whats-new/changelog/2023#2310), [23.11](https://clickhouse.com/docs/en/whats-new/changelog/2023#2311), [23.12](https://clickhouse.com/docs/en/whats-new/changelog/2023#2312) и [24.1](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-241-2024-01-30).
+* Доступны новые версии {{ CH }}: [23.9]({{ ch.docs }}{{ lang }}/whats-new/changelog/2023#239), [23.10]({{ ch.docs }}{{ lang }}/whats-new/changelog/2023#2310), [23.11]({{ ch.docs }}{{ lang }}/whats-new/changelog/2023#2311), [23.12]({{ ch.docs }}{{ lang }}/whats-new/changelog/2023#2312) и [24.1]({{ ch.docs }}{{ lang }}/whats-new/changelog#-clickhouse-release-241-2024-01-30).
 * Добавлена возможность [перезапускать хосты](./operations/hosts.md#restart) кластера. В большинстве случаев пользователям не нужно перезапускать хосты — это инструмент экстренного устранения проблем, связанных с утечками памяти или зависанием внутренних процессов СУБД.
 
 ## II квартал 2023 {#q2-2023}
 
-Доступны новые версии {{ CH }}: [23.4](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-234-2023-04-26) и [23.5](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-235-2023-06-08).
+Доступны новые версии {{ CH }}: [23.4]({{ ch.docs }}{{ lang }}/whats-new/changelog#-clickhouse-release-234-2023-04-26) и [23.5]({{ ch.docs }}{{ lang }}/whats-new/changelog#-clickhouse-release-235-2023-06-08).
 
 ## I квартал 2023 {#q1-2023}
 
-Доступна новая версия {{ CH }} [23.3](https://clickhouse.com/docs/en/whats-new/changelog#-clickhouse-release-233-lts-2023-03-30).
+Доступна новая версия {{ CH }} [23.3]({{ ch.docs }}{{ lang }}/whats-new/changelog#-clickhouse-release-233-lts-2023-03-30).
 
 ## IV квартал 2022 {#q4-2022}
 
-* Доступны новые версии {{ CH }}: [22.10](https://clickhouse.com/docs/en/whats-new/changelog/2022/#-clickhouse-release-2210-2022-10-25) и [22.11](https://clickhouse.com/docs/en/whats-new/changelog/2022/#-clickhouse-release-2211-2022-11-17).
+* Доступны новые версии {{ CH }}: [22.10]({{ ch.docs }}{{ lang }}/whats-new/changelog/2022#-clickhouse-release-2210-2022-10-25) и [22.11]({{ ch.docs }}{{ lang }}/whats-new/changelog/2022#-clickhouse-release-2211-2022-11-17).
 * Добавлена возможность создавать хосты {{ ZK }} с хранилищем на [нереплицируемых SSD-дисках](concepts/storage.md).
 * Добавлена возможность настроить хосты {{ ZK }} при восстановлении кластера из резервной копии.
 * Добавлена возможность настроить гибридное хранилище при восстановлении кластера из резервной копии.
@@ -174,7 +179,7 @@ index: 1
 
 ## II квартал 2022 {#q2-2022}
 
-* Доступна новая версия {{ CH }} 22.5 ([список изменений](https://clickhouse.com/docs/en/whats-new/changelog/2022/#-clickhouse-release-225-2022-05-19)).
+* Доступна новая версия {{ CH }} 22.5 ([список изменений]({{ ch.docs }}{{ lang }}/whats-new/changelog/2022#-clickhouse-release-225-2022-05-19)).
 * Добавлена поддержка запроса `SYSTEM UNFREEZE`. Запрос полностью удаляет резервную копию кластера из облачного хранилища, включая данные таблиц, которые могут занимать место в хранилище после удаления. Подробнее см. на [GitHub](https://github.com/ClickHouse/ClickHouse/pull/36424).
 * Сокращено время восстановления кластера из резервной копии.
 * Исправлена ошибка, в результате которой при редактировании списка подключений к топикам {{ KF }} могли удаляться уже настроенные пароли доступа к топикам.

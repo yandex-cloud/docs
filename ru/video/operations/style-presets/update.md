@@ -24,6 +24,13 @@ description: Следуя данной инструкции, вы сможете
      * Измените цветовую схему.
      * Настройте размеры элементов.
      * Задайте другие визуальные параметры.
+  
+  1. В блоке **{{ ui-key.yacloud_video.presets.section_logo-settings }}**:
+     1. Включите опцию **{{ ui-key.yacloud_video.presets.field_logo-enabled }}**, чтобы отображать ваш логотип поверх видео.
+     1. Загрузите изображение с логотипом не более 2 МБ в формате JPG, PNG или GIF.
+     1. Включите опцию **{{ ui-key.yacloud_video.presets.field_logo-show-with-controls }}**, чтобы логотип исчезал вместе с элементами управления плеера, когда пользователь не взаимодействует с видео.
+     1. В поле **{{ ui-key.yacloud_video.presets.field_logo-redirect-on-click-url }}** добавьте URL, который будет открываться при нажатии на логотип.
+  
   1. (Опционально) Чтобы посмотреть, как будут выглядеть видео и плейлисты с выбранным шаблоном в отдельном окне, нажмите **{{ ui-key.yacloud_video.presets.button_open-preset-template-dialog }}**.
   1. Нажмите **{{ ui-key.yacloud_video.common.action_accept }}**.
 

@@ -55,10 +55,14 @@ apiPlayground:
           items:
             $ref: '#/definitions/Permission'
         settings:
-          description: '**[UserSettings](#yandex.cloud.mdb.clickhouse.v1.UserSettings)**'
+          description: |-
+            **[UserSettings](#yandex.cloud.mdb.clickhouse.v1.UserSettings)**
+            New user settings.
           $ref: '#/definitions/UserSettings'
         quotas:
-          description: '**[UserQuota](#yandex.cloud.mdb.clickhouse.v1.UserQuota)**'
+          description: |-
+            **[UserQuota](#yandex.cloud.mdb.clickhouse.v1.UserQuota)**
+            New user quotas.
           type: array
           items:
             $ref: '#/definitions/UserQuota'
@@ -2042,8 +2046,12 @@ The string length in characters must be 8-128. ||
 || permissions[] | **[Permission](#yandex.cloud.mdb.clickhouse.v1.Permission)**
 
 New set of permissions for the user. ||
-|| settings | **[UserSettings](#yandex.cloud.mdb.clickhouse.v1.UserSettings)** ||
-|| quotas[] | **[UserQuota](#yandex.cloud.mdb.clickhouse.v1.UserQuota)** ||
+|| settings | **[UserSettings](#yandex.cloud.mdb.clickhouse.v1.UserSettings)**
+
+New user settings. ||
+|| quotas[] | **[UserQuota](#yandex.cloud.mdb.clickhouse.v1.UserQuota)**
+
+New user quotas. ||
 || generatePassword | **boolean**
 
 Generate password using Connection Manager. ||

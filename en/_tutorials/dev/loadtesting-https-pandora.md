@@ -1,5 +1,7 @@
 # Step-load HTTPS testing with Pandora
 
+{% include [loadtesting-sunset-warning](../../_includes/load-testing/sunset-warning.md) %}
+
 
 You can use {{ load-testing-name }} to run step-load tests of a service over HTTPS using the [Pandora](../../load-testing/concepts/load-generator.md#pandora) [load generator](../../load-testing/concepts/load-generator.md).
 
@@ -74,12 +76,13 @@ For a service whose subnet and security group is different from the agent's ones
 
    The `Host` parameter indicates the IP address of the test target. The `Connection: Close` parameter specifies whether to close the connection after each request. This mode is heavier on the application and load generator. If you do not need to close the connections, select `Keep-Alive`.
 
-   There are also two requests tagged `index` and `get_test`. The load generator will repeat them within a given [load profile](../../load-testing/concepts/load-profile.md).
+   There are also two requests tagged `index` and `get_test`. The load generator will repeat them alternately within a given [load profile](../../load-testing/concepts/load-profile.md).
 1. Save the test data to a file named `data.uri`.
 
 ## Create and run a test {#run-test}
 
-1. In the [management console]({{ link-console-main }}), select **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
+1. Open the [management console]({{ link-console-main }}).
+1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_load-testing }}**.
 1. In the left-hand panel, select ![image](../../_assets/load-testing/test.svg) **{{ ui-key.yacloud.load-testing.label_tests-list }}**. Click **{{ ui-key.yacloud.load-testing.button_create-test }}**.
 1. In the **{{ ui-key.yacloud.load-testing.label_agents-list }}** parameter, select `agent-008`.
 1. Under **{{ ui-key.yacloud.load-testing.test-data-section }}**, click **Select files** and select the `data.uri` file you saved earlier.
@@ -208,7 +211,7 @@ To see the testing progress, select the new test and go to the **{{ ui-key.yaclo
 
 ## How to delete the resources you created {#clear-out}
 
-Some resources are not free of charge. To avoid paying for them, delete the resources you no longer need:
+Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them:
 
 1. [Delete the agent](../../compute/operations/vm-control/vm-delete.md).
 1. [Delete the route table](../../vpc/operations/delete-route-table.md).

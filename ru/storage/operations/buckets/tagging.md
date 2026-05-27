@@ -110,6 +110,7 @@ description: Следуя данной инструкции, вы сможете
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
+
   1. Откройте файл конфигурации {{ TF }} и добавьте блок `tags` во фрагмент с описанием бакета:
 
       ```hcl
@@ -407,6 +408,7 @@ description: Следуя данной инструкции, вы сможете
   {% include [terraform-role](../../../_includes/storage/terraform-role.md) %}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
 
   1. Откройте файл конфигурации {{ TF }} и удалите блок `tags` из фрагмента с описанием бакета.
 

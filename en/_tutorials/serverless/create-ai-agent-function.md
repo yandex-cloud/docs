@@ -819,7 +819,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
      1. Specify the entry point: `index.handler`.
      1. Under **{{ ui-key.yacloud.serverless-functions.item.editor.label_title-params }}**, specify:
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_timeout }}**: `5 minutes`.
-         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`
+         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}**: `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
          * **{{ ui-key.yacloud.forms.label_service-account-select }}**: Select the `function-sa` service account.
          * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
              * `FOLDER_ID`: [ID of the folder](../../resource-manager/operations/folder/get-id.md) you are creating the infrastructure in.
@@ -879,13 +879,13 @@ If you no longer need the resources you created, [delete them](#clear-out).
       * `--environment`: Environment variables:
 
           * `FOLDER_ID`: [ID](../../resource-manager/operations/folder/get-id.md) of the folder you saved earlier when creating the service account.
-          * `MODEL_NAME`: URI of the {{ foundation-models-full-name }} text generation [model]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation).
+          * `MODEL_NAME`: URI of the {{ ai-studio-full-name }} text generation [model]({{ link-docs-ai }}ai-studio/concepts/generation/models#generation).
 
                  Example: `gpt://<folder_ID>/yandexgpt/latest`.
                 
                  Specify the ID of the folder you are creating the infrastructure in.
 
-          * `BASE_URL`: {{ foundation-models-full-name }} URL, `https://{{ api-host-llm }}/v1`.
+          * `BASE_URL`: {{ ai-studio-full-name }} URL, `https://{{ api-host-llm }}/v1`.
 
       Result:
 
@@ -1009,7 +1009,7 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## How to delete the resources you created {#clear-out}
 
-To stop paying for the resources you created:
+To stop incurring charges for the resources you created:
 1. [Delete the function](../../functions/operations/function/function-delete.md).
 1. [Delete the secret](../../lockbox/operations/secret-delete.md).
 1. If you logged data to a log group, [delete it](../../logging/operations/delete-group.md).

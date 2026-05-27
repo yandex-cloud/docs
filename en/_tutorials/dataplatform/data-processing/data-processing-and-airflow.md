@@ -25,13 +25,11 @@ If you no longer need the resources you created, [delete them](#clear-out).
 
 ## Required paid resources {#paid-resources}
 
-The support cost includes:
-
-* {{ maf-name }} cluster fee: computing resources of the cluster components (see [{{ AF }} pricing](../../../managed-airflow/pricing.md)).
-* Fee for the {{ metastore-name }} cluster computing resources (see [{{ metadata-hub-full-name }} pricing](../../../metadata-hub/pricing.md#metastore)).
-* Fee for a NAT gateway (see [{{ vpc-name }} pricing](../../../vpc/pricing.md)).
-* {{ objstorage-name }} bucket fee: storing data and performing operations with it (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
-* {{ dataproc-name }} cluster fee: using VM computing resources and {{ compute-name }} network disks, and {{ cloud-logging-name }} for log management (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
+* {{ maf-name }} cluster: computing resources of cluster components (see [{{ maf-name }} pricing](../../../managed-airflow/pricing.md)).
+* {{ metastore-name }} cluster: computing resources of cluster components (see [{{ metadata-hub-full-name }} pricing](../../../metadata-hub/pricing.md#metastore)).
+* NAT gateway: hourly use of the gateway and its outgoing traffic (see [{{ vpc-full-name }} pricing](../../../vpc/pricing.md)).
+* {{ objstorage-full-name }} buckets: use of storage, data operations (see [{{ objstorage-name }} pricing](../../../storage/pricing.md)).
+* {{ dataproc-name }} cluster: use of computing resources with a {{ dataproc-name }} markup, use of network drives, retrieval and storage of logs, volume of outgoing traffic (see [{{ dataproc-name }} pricing](../../../data-proc/pricing.md)).
 
 
 ## Set up your infrastructure {#infra}
@@ -157,7 +155,7 @@ The example below illustrates two scenarios. Select the one you find most releva
 
 * Simplified setup
 
-   Set up the infrastructure:
+   Set up your infrastructure:
 
    1. [Create a service account](../../../iam/operations/sa/create.md) named `my-editor` with the following roles:
 

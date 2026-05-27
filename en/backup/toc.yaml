@@ -34,11 +34,11 @@ items:
             href: operations/refresh-connection.md
           - name: Reconnecting a Linux VM with {{ oslogin }} to {{ backup-name }}
             href: operations/refresh-connection-oslogin-linux.md
-          - name: Updating or restoring a {{ backup-name }} agent
+          - name: Updating or recovering the {{ backup-name }} agent
             href: operations/update-backup-agent.md
           - name: Viewing a VM connection status
             href: operations/get-connection-status.md
-          - name: Viewing a backup log
+          - name: Viewing the backup log
             href: operations/get-journal.md
           - name: Deleting a VM from {{ backup-name }}
             href: operations/delete-vm.md
@@ -94,13 +94,15 @@ items:
         href: operations/limit-agent-memory-usage.md
       - name: Viewing backup statistics
         href: operations/get-stats.md
+      - name: Setting up {{ monium-name }} alerts
+        href: operations/configure-alerts.md
   - name: Tutorials
     items:
       - name: All tutorials
         href: tutorials/index.md
       - name: Connecting a {{ baremetal-name }} server to {{ backup-name }}
         href: tutorials/backup-baremetal.md
-      - name: Linking a backup policy to a VM automatically
+      - name: Associating a backup policy with a VM automatically
         items:
           - name: Overview
             href: tutorials/vm-with-backup-policy/index.md
@@ -186,6 +188,80 @@ items:
             href: cli-ref/provider/index.md
           - name: activate
             href: cli-ref/provider/activate.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: agent
+            items:
+              - name: Overview
+                href: cli-ref/v0/agent/index.md
+              - name: debug-info
+                href: cli-ref/v0/agent/debug-info.md
+              - name: install
+                href: cli-ref/v0/agent/install.md
+              - name: reinstall
+                href: cli-ref/v0/agent/reinstall.md
+          - name: backup
+            items:
+              - name: Overview
+                href: cli-ref/v0/backup/index.md
+              - name: batch-delete
+                href: cli-ref/v0/backup/batch-delete.md
+              - name: delete
+                href: cli-ref/v0/backup/delete.md
+              - name: get
+                href: cli-ref/v0/backup/get.md
+              - name: list
+                href: cli-ref/v0/backup/list.md
+              - name: list-archives
+                href: cli-ref/v0/backup/list-archives.md
+              - name: recover
+                href: cli-ref/v0/backup/recover.md
+          - name: policy
+            items:
+              - name: Overview
+                href: cli-ref/v0/policy/index.md
+              - name: apply
+                href: cli-ref/v0/policy/apply.md
+              - name: create
+                href: cli-ref/v0/policy/create.md
+              - name: delete
+                href: cli-ref/v0/policy/delete.md
+              - name: execute
+                href: cli-ref/v0/policy/execute.md
+              - name: get
+                href: cli-ref/v0/policy/get.md
+              - name: list
+                href: cli-ref/v0/policy/list.md
+              - name: list-applications
+                href: cli-ref/v0/policy/list-applications.md
+              - name: revoke
+                href: cli-ref/v0/policy/revoke.md
+              - name: update
+                href: cli-ref/v0/policy/update.md
+          - name: provider
+            items:
+              - name: Overview
+                href: cli-ref/v0/provider/index.md
+              - name: activate
+                href: cli-ref/v0/provider/activate.md
+          - name: vm
+            items:
+              - name: Overview
+                href: cli-ref/v0/vm/index.md
+              - name: delete
+                href: cli-ref/v0/vm/delete.md
+              - name: get
+                href: cli-ref/v0/vm/get.md
+              - name: list
+                href: cli-ref/v0/vm/list.md
+              - name: list-applicable-policies
+                href: cli-ref/v0/vm/list-applicable-policies.md
+              - name: list-policies
+                href: cli-ref/v0/vm/list-policies.md
+              - name: list-tasks
+                href: cli-ref/v0/vm/list-tasks.md
       - name: vm
         items:
           - name: Overview

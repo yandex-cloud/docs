@@ -20,15 +20,42 @@ Updates the specified server.
   "description": "string",
   "network_interfaces": [
     {
-      "id": "string",
       // Includes only one of the fields `private_subnet`, `public_subnet`
       "private_subnet": {
         "private_subnet_id": "string"
       },
       "public_subnet": {
         "public_subnet_id": "string"
-      }
+      },
       // end of the list of possible fields
+      // Includes only one of the fields `private_interface`, `public_interface`
+      "private_interface": {
+        "native_subnet_id": "string",
+        "ip_address": "string",
+        "mac_limit": "int64",
+        "vlan_subinterfaces": [
+          {
+            "tagged_subnet_id": "string",
+            "ip_address": "string",
+            "mac_limit": "int64"
+          }
+        ]
+      },
+      "public_interface": {
+        // Includes only one of the fields `native_subnet`, `new_native_subnet`
+        "native_subnet": {
+          "subnet_id": "string"
+        },
+        "new_native_subnet": {
+          "addressing_type": "AddressingType"
+        },
+        // end of the list of possible fields
+        "ip_address": "string",
+        "native_subnet_id": "string",
+        "mac_limit": "int64"
+      },
+      // end of the list of possible fields
+      "id": "string"
     }
   ],
   "labels": "map<string, string>"
@@ -40,50 +67,76 @@ Updates the specified server.
 || server_id | **string**
 
 ID of the server to update.
+To get the server ID, use a [ServerService.List](/docs/baremetal/api-ref/grpc/Server/list#List) request.
 
-To get the server ID, use a [ServerService.List](/docs/baremetal/api-ref/grpc/Server/list#List) request. ||
+Value must match the regular expression ` [a-z][a-z0-9]* `. ||
 || update_mask | **[google.protobuf.FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)**
 
 Field mask that specifies which fields of the Server resource are going to be updated. ||
 || name | **string**
 
 Name of the server.
-The name must be unique within the folder. ||
+The name must be unique within the folder.
+
+The string length in characters must be 2-63. Value must match the regular expression ` [a-z]([-a-z0-9]*[a-z0-9])? `. ||
 || description | **string**
 
-Description of the server. ||
+Description of the server.
+
+The maximum string length in characters is 1024. ||
 || network_interfaces[] | **[NetworkInterfaceSpec](#yandex.cloud.baremetal.v1alpha.NetworkInterfaceSpec)**
 
 Network configuration for the server. Specifies how the network interface is configured
 to interact with other servers on the internal network and on the internet.
 Currently up to 2 network interfaces are supported: required private network interface and
-optional public network interface. ||
+optional public network interface.
+
+The number of elements must be in the range 1-2. ||
 || labels | **object** (map<**string**, **string**>)
 
-Resource labels as `key:value` pairs. ||
+Resource labels as `key:value` pairs.
+
+The maximum string length in characters for each value is 63. The string length in characters for each key must be 1-63. Each key must match the regular expression ` [a-z][-_0-9a-z]* `. Each value must match the regular expression ` [-_0-9a-z]* `. No more than 64 per resource. ||
 |#
 
 ## NetworkInterfaceSpec {#yandex.cloud.baremetal.v1alpha.NetworkInterfaceSpec}
 
+(-- api-linter: yc::1704::file-separation=disabled
+Required for backward compatibility with old clients. --)
+
 #|
 ||Field | Description ||
-|| id | **string**
-
-ID of the network interface. Should not be specified when creating a server. ||
 || private_subnet | **[PrivateSubnetNetworkInterface](#yandex.cloud.baremetal.v1alpha.PrivateSubnetNetworkInterface)**
 
-Private subnet.
+@deprecated Private subnet.
 
 Includes only one of the fields `private_subnet`, `public_subnet`.
 
-Subnet that the network interface belongs to. ||
+@deprecated. Use `interface` instead.
+Subnet specific interface params. ||
 || public_subnet | **[PublicSubnetNetworkInterface](#yandex.cloud.baremetal.v1alpha.PublicSubnetNetworkInterface)**
 
-Public subnet.
+@deprecated Public subnet.
 
 Includes only one of the fields `private_subnet`, `public_subnet`.
 
-Subnet that the network interface belongs to. ||
+@deprecated. Use `interface` instead.
+Subnet specific interface params. ||
+|| private_interface | **[PrivateNetworkInterface](#yandex.cloud.baremetal.v1alpha.PrivateNetworkInterface)**
+
+Private interface.
+
+Includes only one of the fields `private_interface`, `public_interface`. ||
+|| public_interface | **[PublicNetworkInterface](#yandex.cloud.baremetal.v1alpha.PublicNetworkInterface)**
+
+Public interface.
+
+Includes only one of the fields `private_interface`, `public_interface`. ||
+|| id | **string**
+
+ID of the network interface. Should not be specified when creating a server.
+
+The maximum string length in characters is 20. Value must match the regular expression ` ([a-z][a-z0-9]*)? `. ||
 |#
 
 ## PrivateSubnetNetworkInterface {#yandex.cloud.baremetal.v1alpha.PrivateSubnetNetworkInterface}
@@ -102,8 +155,105 @@ ID of the private subnet. ||
 || public_subnet_id | **string**
 
 ID of the public subnet.
-
 A new ephemeral public subnet will be created if not specified. ||
+|#
+
+## PrivateNetworkInterface {#yandex.cloud.baremetal.v1alpha.PrivateNetworkInterface}
+
+#|
+||Field | Description ||
+|| native_subnet_id | **string**
+
+ID of the private subnet which is used as native subnet for interface. ||
+|| ip_address | **string**
+
+IPv4 address that is assigned to the server for this network interface.
+Read only field. ||
+|| mac_limit | **int64**
+
+Limit of MAC addresses in the native subnet.
+Read only field. ||
+|| vlan_subinterfaces[] | **[VLANSubinterface](#yandex.cloud.baremetal.v1alpha.VLANSubinterface)**
+
+Array of VLAN subinterfaces. Additional tagged subnets for the interface. ||
+|#
+
+## VLANSubinterface {#yandex.cloud.baremetal.v1alpha.VLANSubinterface}
+
+#|
+||Field | Description ||
+|| tagged_subnet_id | **string**
+
+ID of the private subnet which is used as tagged subnet for interface. ||
+|| ip_address | **string**
+
+IPv4 address that is assigned to the VLAN subinterface.
+Read only field. ||
+|| mac_limit | **int64**
+
+Limit of MAC addresses in the tagged subnet.
+Read only field. ||
+|#
+
+## PublicNetworkInterface {#yandex.cloud.baremetal.v1alpha.PublicNetworkInterface}
+
+#|
+||Field | Description ||
+|| native_subnet | **[NativeSubnet](#yandex.cloud.baremetal.v1alpha.PublicNetworkInterface.NativeSubnet)**
+
+Use existing native subnet.
+Input only field.
+
+Includes only one of the fields `native_subnet`, `new_native_subnet`.
+
+Native subnet configuration.
+Input only field. ||
+|| new_native_subnet | **[NewNativeSubnet](#yandex.cloud.baremetal.v1alpha.PublicNetworkInterface.NewNativeSubnet)**
+
+Create new native subnet.
+Input only field.
+
+Includes only one of the fields `native_subnet`, `new_native_subnet`.
+
+Native subnet configuration.
+Input only field. ||
+|| ip_address | **string**
+
+IPv4 address that is assigned to the server for this network interface.
+Read only field. ||
+|| native_subnet_id | **string**
+
+ID of the public subnet which is used as native subnet for interface.
+Read only field. ||
+|| mac_limit | **int64**
+
+Limit of MAC addresses in the native subnet.
+Read only field. ||
+|#
+
+## NativeSubnet {#yandex.cloud.baremetal.v1alpha.PublicNetworkInterface.NativeSubnet}
+
+Configuration for using existing native subnet.
+
+#|
+||Field | Description ||
+|| subnet_id | **string**
+
+ID of the existing public subnet. ||
+|#
+
+## NewNativeSubnet {#yandex.cloud.baremetal.v1alpha.PublicNetworkInterface.NewNativeSubnet}
+
+Configuration for creating new native subnet.
+
+#|
+||Field | Description ||
+|| addressing_type | enum **AddressingType**
+
+Addressing type (DHCP \| Static).
+
+- `DHCP`: DHCP addressing.
+- `STATIC`: Static addressing. ||
 |#
 
 ## operation.Operation {#yandex.cloud.operation.Operation}
@@ -116,78 +266,10 @@ A new ephemeral public subnet will be created if not specified. ||
   "created_by": "string",
   "modified_at": "google.protobuf.Timestamp",
   "done": "bool",
-  "metadata": {
-    "server_id": "string"
-  },
+  "metadata": "google.protobuf.Any",
   // Includes only one of the fields `error`, `response`
   "error": "google.rpc.Status",
-  "response": {
-    "id": "string",
-    "cloud_id": "string",
-    "folder_id": "string",
-    "name": "string",
-    "description": "string",
-    "zone_id": "string",
-    "hardware_pool_id": "string",
-    "status": "Status",
-    "os_settings": {
-      "image_id": "string",
-      "ssh_public_key": "string",
-      "storages": [
-        {
-          "partitions": [
-            {
-              "type": "StoragePartitionType",
-              "size_gib": "int64",
-              "mount_point": "string"
-            }
-          ],
-          // Includes only one of the fields `disk`, `raid`
-          "disk": {
-            "id": "string",
-            "type": "DiskDriveType",
-            "size_gib": "int64"
-          },
-          "raid": {
-            "type": "RaidType",
-            "disks": [
-              {
-                "id": "string",
-                "type": "DiskDriveType",
-                "size_gib": "int64"
-              }
-            ]
-          }
-          // end of the list of possible fields
-        }
-      ]
-    },
-    "network_interfaces": [
-      {
-        "id": "string",
-        "mac_address": "string",
-        "ip_address": "string",
-        // Includes only one of the fields `private_subnet`, `public_subnet`
-        "private_subnet": {
-          "private_subnet_id": "string"
-        },
-        "public_subnet": {
-          "public_subnet_id": "string"
-        }
-        // end of the list of possible fields
-      }
-    ],
-    "configuration_id": "string",
-    "disks": [
-      {
-        "id": "string",
-        "type": "DiskDriveType",
-        "size_gib": "int64"
-      }
-    ],
-    "created_at": "google.protobuf.Timestamp",
-    "labels": "map<string, string>"
-  }
+  "response": "google.protobuf.Any"
   // end of the list of possible fields
 }
 ```
@@ -215,7 +297,7 @@ The time when the Operation resource was last modified. ||
 
 If the value is `false`, it means the operation is still in progress.
 If `true`, the operation is completed, and either `error` or `response` is available. ||
-|| metadata | **[UpdateServerMetadata](#yandex.cloud.baremetal.v1alpha.UpdateServerMetadata)**
+|| metadata | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 Service-specific metadata associated with the operation.
 It typically contains the ID of the target resource that the operation is performed on.
@@ -230,7 +312,7 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|| response | **[Server](#yandex.cloud.baremetal.v1alpha.Server)**
+|| response | **[google.protobuf.Any](https://developers.google.com/protocol-buffers/docs/proto3#any)**
 
 The normal response of the operation in case of success.
 If the original method returns no data on success, such as Delete,
@@ -245,230 +327,4 @@ The operation result.
 If `done == false` and there was no failure detected, neither `error` nor `response` is set.
 If `done == false` and there was a failure detected, `error` is set.
 If `done == true`, exactly one of `error` or `response` is set. ||
-|#
-
-## UpdateServerMetadata {#yandex.cloud.baremetal.v1alpha.UpdateServerMetadata}
-
-#|
-||Field | Description ||
-|| server_id | **string**
-
-ID of the Server resource that is being updated. ||
-|#
-
-## Server {#yandex.cloud.baremetal.v1alpha.Server}
-
-A Server resource.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the server. ||
-|| cloud_id | **string**
-
-ID of the cloud that the server belongs to. ||
-|| folder_id | **string**
-
-ID of the folder that the server belongs to. ||
-|| name | **string**
-
-Name of the server.
-The name is unique within the folder. ||
-|| description | **string**
-
-Description of the server. ||
-|| zone_id | **string**
-
-ID of the availability zone where the server is resides. ||
-|| hardware_pool_id | **string**
-
-ID of the hardware pool that the server belongs to. ||
-|| status | enum **Status**
-
-Status of the server.
-
-- `STATUS_UNSPECIFIED`: Unspecified server status.
-- `PROVISIONING`: Server is waiting for to be allocated from the hardware pool.
-- `STOPPING`: Server is being stopped.
-- `STOPPED`: Server has been stopped.
-- `STARTING`: Server is being started.
-- `RESTARTING`: Server is being restarted.
-- `ERROR`: Server encountered a problem and cannot operate.
-- `DELETING`: Server is being deleted.
-- `REINSTALLING`: Server operating system is being reinstalled.
-- `UPDATING`: Server is being updated.
-- `QUARANTINED`: Server has been quarantined
-- `RUNNING`: Server is running normaly ||
-|| os_settings | **[OsSettings](#yandex.cloud.baremetal.v1alpha.OsSettings)**
-
-Operating system specific settings of the server. Optional, will be empty if the server is
-provisioned without an operating system. ||
-|| network_interfaces[] | **[NetworkInterface](#yandex.cloud.baremetal.v1alpha.NetworkInterface)**
-
-Array of network interfaces that are attached to the instance. ||
-|| configuration_id | **string**
-
-ID of the configuration that was used to create the server. ||
-|| disks[] | **[Disk](#yandex.cloud.baremetal.v1alpha.Disk)**
-
-Array of disks that are attached to the server. ||
-|| created_at | **[google.protobuf.Timestamp](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#timestamp)**
-
-Creation timestamp. ||
-|| labels | **object** (map<**string**, **string**>)
-
-Resource labels as `key:value` pairs. ||
-|#
-
-## OsSettings {#yandex.cloud.baremetal.v1alpha.OsSettings}
-
-#|
-||Field | Description ||
-|| image_id | **string**
-
-ID of the image that the server was created from. ||
-|| ssh_public_key | **string**
-
-Public SSH key of the server. ||
-|| storages[] | **[Storage](#yandex.cloud.baremetal.v1alpha.Storage)**
-
-List of storages. ||
-|#
-
-## Storage {#yandex.cloud.baremetal.v1alpha.Storage}
-
-Storage, a OS-level storage entity used for creating partitions. For example, this could
-represent a plain disk or a software RAID of disks.
-
-#|
-||Field | Description ||
-|| partitions[] | **[StoragePartition](#yandex.cloud.baremetal.v1alpha.StoragePartition)**
-
-Array of partitions created on the storage. ||
-|| disk | **[Disk](#yandex.cloud.baremetal.v1alpha.Disk)**
-
-Disk storage.
-
-Includes only one of the fields `disk`, `raid`.
-
-Storage type. ||
-|| raid | **[Raid](#yandex.cloud.baremetal.v1alpha.Raid)**
-
-RAID storage.
-
-Includes only one of the fields `disk`, `raid`.
-
-Storage type. ||
-|#
-
-## StoragePartition {#yandex.cloud.baremetal.v1alpha.StoragePartition}
-
-#|
-||Field | Description ||
-|| type | enum **StoragePartitionType**
-
-Partition type.
-
-- `STORAGE_PARTITION_TYPE_UNSPECIFIED`: Unspecified storage partition type.
-- `EXT4`: ext4 file system partition type.
-- `SWAP`: Swap partition type.
-- `EXT3`: ext3 file system partition type.
-- `XFS`: XFS file system partition type. ||
-|| size_gib | **int64**
-
-Size of the storage partition in gibibytes (2^30 bytes). ||
-|| mount_point | **string**
-
-Storage mount point. ||
-|#
-
-## Disk {#yandex.cloud.baremetal.v1alpha.Disk}
-
-Disk.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the disk. ||
-|| type | enum **DiskDriveType**
-
-Type of the disk drive.
-
-- `DISK_DRIVE_TYPE_UNSPECIFIED`: Unspecified disk drive type.
-- `HDD`: Hard disk drive (magnetic storage).
-- `SSD`: Solid state drive with SATA/SAS interface.
-- `NVME`: Solid state drive with NVMe interface. ||
-|| size_gib | **int64**
-
-Size of the disk in gibibytes (2^30 bytes). ||
-|#
-
-## Raid {#yandex.cloud.baremetal.v1alpha.Raid}
-
-RAID storage.
-
-#|
-||Field | Description ||
-|| type | enum **RaidType**
-
-RAID type.
-
-- `RAID_TYPE_UNSPECIFIED`: Unspecified RAID configuration.
-- `RAID0`: RAID0 configuration.
-- `RAID1`: RAID1 configuration.
-- `RAID10`: RAID10 configuration. ||
-|| disks[] | **[Disk](#yandex.cloud.baremetal.v1alpha.Disk)**
-
-Array of disks in the RAID configuration. ||
-|#
-
-## NetworkInterface {#yandex.cloud.baremetal.v1alpha.NetworkInterface}
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the network interface. ||
-|| mac_address | **string**
-
-MAC address that is assigned to the network interface. ||
-|| ip_address | **string**
-
-IPv4 address that is assigned to the server for this network interface. ||
-|| private_subnet | **[PrivateSubnetNetworkInterface](#yandex.cloud.baremetal.v1alpha.PrivateSubnetNetworkInterface2)**
-
-Private subnet.
-
-Includes only one of the fields `private_subnet`, `public_subnet`.
-
-Subnet that the network interface belongs to. ||
-|| public_subnet | **[PublicSubnetNetworkInterface](#yandex.cloud.baremetal.v1alpha.PublicSubnetNetworkInterface2)**
-
-Public subnet.
-
-Includes only one of the fields `private_subnet`, `public_subnet`.
-
-Subnet that the network interface belongs to. ||
-|#
-
-## PrivateSubnetNetworkInterface {#yandex.cloud.baremetal.v1alpha.PrivateSubnetNetworkInterface2}
-
-#|
-||Field | Description ||
-|| private_subnet_id | **string**
-
-ID of the private subnet. ||
-|#
-
-## PublicSubnetNetworkInterface {#yandex.cloud.baremetal.v1alpha.PublicSubnetNetworkInterface2}
-
-#|
-||Field | Description ||
-|| public_subnet_id | **string**
-
-ID of the public subnet.
-
-A new ephemeral public subnet will be created if not specified. ||
 |#

@@ -1,7 +1,7 @@
 # How to create a Telegram bot with AI agent support using {{ sw-full-name }}
 
 
-With serverless technologies, you can create a Telegram bot with [text generation model]({{ link-docs-ai }}ai-studio/concepts/generation/models) support based on [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/).
+With serverless technologies, you can create a Telegram bot with [text generation model]({{ link-docs-ai }}ai-studio/concepts/generation/models) support based on [{{ ai-studio-full-name }}]({{ link-docs-ai }}ai-studio/concepts/index).
 
 In this tutorial, you will create a bot which provides movie recommendations based on user preferences. You will do this by creating an AI agent, arranging for data storage in [{{ objstorage-full-name }}](../../storage/) and [{{ lockbox-full-name }}](../../lockbox/), setting up bot logic in [{{ sw-full-name }}](../../serverless-integrations/), and a webhook to start using a link.
 
@@ -65,7 +65,7 @@ Create a [secret](../../lockbox/concepts/secret.md) to store the token for acces
   1. Click **{{ ui-key.yacloud.lockbox.button_create-secret }}**.
   1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the secret.
   1. Select the `{{ ui-key.yacloud.lockbox.forms.title_secret-type-custom }}` secret type.
-  1. In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, enter `token`.
+  1. In the **{{ ui-key.yacloud.lockbox.forms.label_key }}** field, specify `token`.
   1. In the **{{ ui-key.yacloud.lockbox.forms.label_value }}** field, specify the bot’s token you got when [creating](#create-bot) it.
   1. Click **{{ ui-key.yacloud.common.create }}**.
 
@@ -333,16 +333,16 @@ Create a [text agent]({{ link-docs-ai }}ai-studio/concepts/agents/text-agents) i
 - Management console {#console}
 
   1. Open the [{{ ai-studio-name }} interface]({{ link-console-ai }}).
-  1. Click **{{ ui-key.yacloud.yagpt.YaGPT.Overview3.action-card_create-ai-agent_ahZQH }}** → **{{ ui-key.yacloud.yagpt.YaGPT.CreateAgentCard.create-agent_button-text_n2qCs }}**.
-  1. In the **{{ ui-key.yacloud.yagpt.YaGPT.name_hTzhB }}** field, enter a name for the agent, e.g., `Cinephile agent`.
-  1. In the **{{ ui-key.yacloud.yagpt.YaGPT.agent_instruction_9oe6q }}** field, enter an instruction for the agent:
+  1. Click **Create AI agent** → **Create agent**.
+  1. In the **{{ ui-key.yacloud.common.name }}** field, enter a name for the agent, e.g., `Cinephile agent`.
+  1. In the **Instructions** field, enter an instruction for the agent:
 
       ```
       You are a movie selection consultant
       
       You goal is to help the user find a movie to watch based on their preferences.
       On first request, ask them to name some of their favorite movies (one per line).
-      Use this information to make recommendations, ask clarifying questions.
+      Use this information to make recommendations and ask clarifying questions.
       
       History of previous conversations: not_var{{ backstory }}
       ```
@@ -422,7 +422,7 @@ steps:
                 message: \(.input.message.text)
                 variables:
                   backstory: >-
-                    History of previous conversations (JSON array of objects):
+                    History of previous conversations (JSON array of objects)
                     {role,message}): "\(.history)"
                 output: '\({reply: .Result})'
                 next: send_reply
@@ -474,7 +474,7 @@ Where:
   1. In the code editor, paste the text of the previously prepared YaWL workflow specification.
   1. Expand **{{ ui-key.yacloud.serverless-workflows.label_additional-parameters }}**:
 
-      1. Enter a name for the workflow. Follow these naming requirements:
+      1. Enter a name for the workflow. The naming requirements are as follows:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
@@ -503,7 +503,7 @@ Where:
       Where:
 
       * `--yaml-spec`: Path to the file with the workflow YaWL specification prepared earlier, e.g., `./yawl-spec.yaml`.
-      * `--name`: Workflow name. Follow these naming requirements:
+      * `--name`: Workflow name. The naming requirements are as follows:
 
           {% include [name-format](../../_includes/name-format.md) %}
 
@@ -712,7 +712,7 @@ Also, you can:
 
 ## How to delete the resources you created {#clear-out}
 
-Delete the resources you no longer need to avoid [paying](#paid-resources) for them:
+To avoid [incurring charges](#paid-resources) for resources you no longer need, delete them.
 
 1. [Delete](../../serverless-integrations/operations/workflows/workflow/delete.md) the workflow.
 1. [Delete](../../storage/operations/buckets/delete.md) the bucket.

@@ -191,8 +191,11 @@ apiPlayground:
             description: |-
               **enum** (GroupRole)
               Roles of the hosts in the group.
-              - `DATA`
-              - `MANAGER`
+              - `DATA`: Data nodes store indices data.
+              - `MANAGER`: Manager nodes perform cluster coordination.
+              - `WARM`: Warm nodes provide access to searchable snapshots and store search cache.
+              - `INGEST`: Ingest nodes provides indexed data processing.
+              If no node groups have INGEST role explicitly set, then all DATA nodes will implicitly have INGEST role.
             type: array
             items:
               type: string
@@ -200,6 +203,8 @@ apiPlayground:
                 - GROUP_ROLE_UNSPECIFIED
                 - DATA
                 - MANAGER
+                - WARM
+                - INGEST
           diskSizeAutoscaling:
             description: |-
               **[DiskSizeAutoscaling](#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)**
@@ -217,7 +222,7 @@ apiPlayground:
               Default value: **1024**.
               Change of the setting is applied with restart.
               For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/index-settings/#dynamic-cluster-level-index-settings).
-              Acceptable values are 1 to 2147483647, inclusive.
+              Acceptable values are 32 to 32768, inclusive.
             type: string
             format: int64
           fielddataCacheSize:
@@ -288,6 +293,7 @@ apiPlayground:
           opensearchConfig_2:
             description: |-
               **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig2)**
+              OpenSearch server configuration settings.
               Includes only one of the fields `opensearchConfig_2`.
             $ref: '#/definitions/OpenSearchConfig2'
           keystoreSettings:
@@ -431,6 +437,49 @@ apiPlayground:
               The minimum value is 7.
             type: string
             format: int64
+      AuditLog:
+        type: object
+        properties:
+          complianceEnabled:
+            description: |-
+              **boolean**
+              Enable compliance audit logging.
+            type: boolean
+          logRequestBody:
+            description: |-
+              **boolean**
+              Log request body in audit logs.
+            type: boolean
+          logSearchQueries:
+            description: |-
+              **boolean**
+              Log search queries in audit logs.
+            type: boolean
+          logDataModifications:
+            description: |-
+              **boolean**
+              Log data modifications in audit logs.
+            type: boolean
+          logIndexMetadataAccess:
+            description: |-
+              **boolean**
+              Log index metadata access in audit logs.
+            type: boolean
+          logMonitoringChecks:
+            description: |-
+              **boolean**
+              Log monitoring checks in audit logs.
+            type: boolean
+          logIndexMaintenance:
+            description: |-
+              **boolean**
+              Log index maintenance operations in audit logs.
+            type: boolean
+          logBackupOperations:
+            description: |-
+              **boolean**
+              Log backup operations in audit logs.
+            type: boolean
       ConfigCreateSpec:
         type: object
         properties:
@@ -462,8 +511,13 @@ apiPlayground:
           snapshotManagement:
             description: |-
               **[SnapshotManagement](#yandex.cloud.mdb.opensearch.v1.SnapshotManagement)**
-              Snapshot management configuration
+              Snapshot management configuration.
             $ref: '#/definitions/SnapshotManagement'
+          auditLog:
+            description: |-
+              **[AuditLog](#yandex.cloud.mdb.opensearch.v1.AuditLog)**
+              Audit log settings.
+            $ref: '#/definitions/AuditLog'
         required:
           - adminPassword
       AnytimeMaintenanceWindow:
@@ -637,6 +691,16 @@ POST https://{{ api-host-mdb }}/managed-opensearch/v1/clusters
         // end of the list of possible fields
       },
       "snapshotMaxAgeDays": "string"
+    },
+    "auditLog": {
+      "complianceEnabled": "boolean",
+      "logRequestBody": "boolean",
+      "logSearchQueries": "boolean",
+      "logDataModifications": "boolean",
+      "logIndexMetadataAccess": "boolean",
+      "logMonitoringChecks": "boolean",
+      "logIndexMaintenance": "boolean",
+      "logBackupOperations": "boolean"
     }
   },
   "networkId": "string",
@@ -735,7 +799,10 @@ Dashboards configuration. ||
 Access policy for external services. ||
 || snapshotManagement | **[SnapshotManagement](#yandex.cloud.mdb.opensearch.v1.SnapshotManagement)**
 
-Snapshot management configuration ||
+Snapshot management configuration. ||
+|| auditLog | **[AuditLog](#yandex.cloud.mdb.opensearch.v1.AuditLog)**
+
+Audit log settings. ||
 |#
 
 ## OpenSearchCreateSpec {#yandex.cloud.mdb.opensearch.v1.OpenSearchCreateSpec}
@@ -751,6 +818,8 @@ Names of the cluster plugins. ||
 
 OpenSearch type host groups of the cluster. ||
 || opensearchConfig_2 | **[OpenSearchConfig2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfig2)**
+
+OpenSearch server configuration settings.
 
 Includes only one of the fields `opensearchConfig_2`. ||
 || keystoreSettings[] | **[KeystoreSetting](#yandex.cloud.mdb.opensearch.v1.KeystoreSetting)**
@@ -794,8 +863,11 @@ Determines whether a public IP is assigned to the hosts in the group. ||
 
 Roles of the hosts in the group.
 
-- `DATA`
-- `MANAGER` ||
+- `DATA`: Data nodes store indices data.
+- `MANAGER`: Manager nodes perform cluster coordination.
+- `WARM`: Warm nodes provide access to searchable snapshots and store search cache.
+- `INGEST`: Ingest nodes provides indexed data processing.
+If no node groups have INGEST role explicitly set, then all DATA nodes will implicitly have INGEST role. ||
 || diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling)**
 
 Disk size autoscaling settings ||
@@ -853,7 +925,7 @@ Change of the setting is applied with restart.
 
 For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/index-settings/#dynamic-cluster-level-index-settings).
 
-Acceptable values are 1 to 2147483647, inclusive. ||
+Acceptable values are 32 to 32768, inclusive. ||
 || fielddataCacheSize | **string**
 
 The maximum size of the field data cache.
@@ -1064,6 +1136,38 @@ The minute of the hour at which the backup should be created.
 Acceptable values are 0 to 59, inclusive. ||
 |#
 
+## AuditLog {#yandex.cloud.mdb.opensearch.v1.AuditLog}
+
+Audit log settings.
+
+#|
+||Field | Description ||
+|| complianceEnabled | **boolean**
+
+Enable compliance audit logging. ||
+|| logRequestBody | **boolean**
+
+Log request body in audit logs. ||
+|| logSearchQueries | **boolean**
+
+Log search queries in audit logs. ||
+|| logDataModifications | **boolean**
+
+Log data modifications in audit logs. ||
+|| logIndexMetadataAccess | **boolean**
+
+Log index metadata access in audit logs. ||
+|| logMonitoringChecks | **boolean**
+
+Log monitoring checks in audit logs. ||
+|| logIndexMaintenance | **boolean**
+
+Log index maintenance operations in audit logs. ||
+|| logBackupOperations | **boolean**
+
+Log backup operations in audit logs. ||
+|#
+
 ## MaintenanceWindow {#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow}
 
 An OpenSearch cluster maintenance window. Should be defined by either one of the two options.
@@ -1269,7 +1373,17 @@ Acceptable values are 1 to 24, inclusive. ||
         },
         "snapshotMaxAgeDays": "string"
       },
-      "fullVersion": "string"
+      "fullVersion": "string",
+      "auditLog": {
+        "complianceEnabled": "boolean",
+        "logRequestBody": "boolean",
+        "logSearchQueries": "boolean",
+        "logDataModifications": "boolean",
+        "logIndexMetadataAccess": "boolean",
+        "logMonitoringChecks": "boolean",
+        "logIndexMaintenance": "boolean",
+        "logBackupOperations": "boolean"
+      }
     },
     "networkId": "string",
     "health": "string",
@@ -1566,10 +1680,13 @@ Dashboards configuration. ||
 Access policy for external services. ||
 || snapshotManagement | **[SnapshotManagement](#yandex.cloud.mdb.opensearch.v1.SnapshotManagement2)**
 
-Snapshot management configuration ||
+Snapshot management configuration. ||
 || fullVersion | **string**
 
-Full version ||
+Full version. ||
+|| auditLog | **[AuditLog](#yandex.cloud.mdb.opensearch.v1.AuditLog2)**
+
+Audit log settings. ||
 |#
 
 ## OpenSearch {#yandex.cloud.mdb.opensearch.v1.OpenSearch}
@@ -1585,6 +1702,8 @@ Names of the cluster plugins. ||
 
 Host groups of the OpenSearch type. ||
 || opensearchConfigSet_2 | **[OpenSearchConfigSet2](#yandex.cloud.mdb.opensearch.v1.config.OpenSearchConfigSet2)**
+
+OpenSearch server configuration settings.
 
 Includes only one of the fields `opensearchConfigSet_2`. ||
 || keystoreSettings[] | **string**
@@ -1620,8 +1739,11 @@ Determines whether a public IP is assigned to the hosts in the group. ||
 
 Roles of the host group.
 
-- `DATA`
-- `MANAGER` ||
+- `DATA`: Data nodes store indices data.
+- `MANAGER`: Manager nodes perform cluster coordination.
+- `WARM`: Warm nodes provide access to searchable snapshots and store search cache.
+- `INGEST`: Ingest nodes provides indexed data processing.
+If no node groups have INGEST role explicitly set, then all DATA nodes will implicitly have INGEST role. ||
 || diskSizeAutoscaling | **[DiskSizeAutoscaling](#yandex.cloud.mdb.opensearch.v1.DiskSizeAutoscaling2)**
 
 Disk size autoscaling settings ||
@@ -1694,7 +1816,7 @@ Change of the setting is applied with restart.
 
 For details, see [OpenSearch documentation](https://docs.opensearch.org/latest/install-and-configure/configuring-opensearch/index-settings/#dynamic-cluster-level-index-settings).
 
-Acceptable values are 1 to 2147483647, inclusive. ||
+Acceptable values are 32 to 32768, inclusive. ||
 || fielddataCacheSize | **string**
 
 The maximum size of the field data cache.
@@ -1883,6 +2005,38 @@ Acceptable values are 0 to 23, inclusive. ||
 The minute of the hour at which the backup should be created.
 
 Acceptable values are 0 to 59, inclusive. ||
+|#
+
+## AuditLog {#yandex.cloud.mdb.opensearch.v1.AuditLog2}
+
+Audit log settings.
+
+#|
+||Field | Description ||
+|| complianceEnabled | **boolean**
+
+Enable compliance audit logging. ||
+|| logRequestBody | **boolean**
+
+Log request body in audit logs. ||
+|| logSearchQueries | **boolean**
+
+Log search queries in audit logs. ||
+|| logDataModifications | **boolean**
+
+Log data modifications in audit logs. ||
+|| logIndexMetadataAccess | **boolean**
+
+Log index metadata access in audit logs. ||
+|| logMonitoringChecks | **boolean**
+
+Log monitoring checks in audit logs. ||
+|| logIndexMaintenance | **boolean**
+
+Log index maintenance operations in audit logs. ||
+|| logBackupOperations | **boolean**
+
+Log backup operations in audit logs. ||
 |#
 
 ## MaintenanceWindow {#yandex.cloud.mdb.opensearch.v1.MaintenanceWindow2}

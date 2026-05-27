@@ -234,6 +234,30 @@ apiPlayground:
               Acceptable values are 0 to 2147483647, inclusive.
             type: string
             format: int64
+      UserConnectionManager:
+        type: object
+        properties:
+          connectionId:
+            description: |-
+              **string**
+              ID of the Connection Manager connection corresponding to the user.
+              Ignored if specified in update requests.
+            type: string
+          connectionFolderId:
+            description: |-
+              **string**
+              ID of the folder where connection for the user is created.
+              Optional. Defaults to the cluster's ClusterConnectionManager.connections_folder_id if not specified,
+              or the cluster's folder if ClusterConnectionManager.connections_folder_id is not specified.
+            type: string
+          secretFolderId:
+            description: |-
+              **string**
+              A Connection Manager setting for a user's connection created by MDB integration.
+              ID of the folder where secret for the user's connection is created.
+              Optional. Defaults to the cluster's ClusterConnectionManager.secrets_folder_id if not specified,
+              or the cluster's ClusterConnectionManager.connections_folder_id, or the cluster's folder.
+            type: string
       UserSpec:
         type: object
         properties:
@@ -326,6 +350,11 @@ apiPlayground:
               - AUTH_METHOD_UNSPECIFIED
               - AUTH_METHOD_PASSWORD
               - AUTH_METHOD_IAM
+          userConnectionManager:
+            description: |-
+              **[UserConnectionManager](#yandex.cloud.mdb.v1.UserConnectionManager)**
+              Connection Manager Connection and settings associated with user
+            $ref: '#/definitions/UserConnectionManager'
         required:
           - name
           - password
@@ -393,7 +422,12 @@ The maximum string length in characters is 50. ||
     "deletionProtection": "boolean",
     "userPasswordEncryption": "string",
     "generatePassword": "boolean",
-    "authMethod": "string"
+    "authMethod": "string",
+    "userConnectionManager": {
+      "connectionId": "string",
+      "connectionFolderId": "string",
+      "secretFolderId": "string"
+    }
   }
 }
 ```
@@ -470,6 +504,9 @@ Auth method for user
 
 - `AUTH_METHOD_PASSWORD`: Standard authentication mode with password
 - `AUTH_METHOD_IAM`: Alternative authentication mode with IAM token ||
+|| userConnectionManager | **[UserConnectionManager](#yandex.cloud.mdb.v1.UserConnectionManager)**
+
+Connection Manager Connection and settings associated with user ||
 |#
 
 ## Permission {#yandex.cloud.mdb.postgresql.v1.Permission}
@@ -644,6 +681,29 @@ The default value is PG_AUDIT_SETTINGS_LOG_UNSPECIFIED. In this case, the parame
 - `PG_AUDIT_SETTINGS_LOG_MISC_SET`: Miscellaneous `SET` commands, e.g., `SET ROLE`, are logged. ||
 |#
 
+## UserConnectionManager {#yandex.cloud.mdb.v1.UserConnectionManager}
+
+A message representing Connection Manager integration details and settings for a user in a cluster.
+
+#|
+||Field | Description ||
+|| connectionId | **string**
+
+ID of the Connection Manager connection corresponding to the user.
+Ignored if specified in update requests. ||
+|| connectionFolderId | **string**
+
+ID of the folder where connection for the user is created.
+Optional. Defaults to the cluster's ClusterConnectionManager.connections_folder_id if not specified,
+or the cluster's folder if ClusterConnectionManager.connections_folder_id is not specified. ||
+|| secretFolderId | **string**
+
+A Connection Manager setting for a user's connection created by MDB integration.
+ID of the folder where secret for the user's connection is created.
+Optional. Defaults to the cluster's ClusterConnectionManager.secrets_folder_id if not specified,
+or the cluster's ClusterConnectionManager.connections_folder_id, or the cluster's folder. ||
+|#
+
 ## Response {#yandex.cloud.operation.Operation}
 
 **HTTP Code: 200 - OK**
@@ -705,6 +765,11 @@ The default value is PG_AUDIT_SETTINGS_LOG_UNSPECIFIED. In this case, the parame
     "userPasswordEncryption": "string",
     "connectionManager": {
       "connectionId": "string"
+    },
+    "userConnectionManager": {
+      "connectionId": "string",
+      "connectionFolderId": "string",
+      "secretFolderId": "string"
     },
     "authMethod": "string"
   }
@@ -866,6 +931,9 @@ The default is `` password_encryption `` setting for cluster.
 || connectionManager | **[ConnectionManager](#yandex.cloud.mdb.postgresql.v1.ConnectionManager)**
 
 Connection Manager Connection and settings associated with user. Read only field. ||
+|| userConnectionManager | **[UserConnectionManager](#yandex.cloud.mdb.v1.UserConnectionManager2)**
+
+Connection Manager Connection and settings associated with user ||
 || authMethod | **enum** (AuthMethod)
 
 Auth method for user
@@ -1053,4 +1121,27 @@ The default value is PG_AUDIT_SETTINGS_LOG_UNSPECIFIED. In this case, the parame
 || connectionId | **string**
 
 ID of Connection Manager Connection ||
+|#
+
+## UserConnectionManager {#yandex.cloud.mdb.v1.UserConnectionManager2}
+
+A message representing Connection Manager integration details and settings for a user in a cluster.
+
+#|
+||Field | Description ||
+|| connectionId | **string**
+
+ID of the Connection Manager connection corresponding to the user.
+Ignored if specified in update requests. ||
+|| connectionFolderId | **string**
+
+ID of the folder where connection for the user is created.
+Optional. Defaults to the cluster's ClusterConnectionManager.connections_folder_id if not specified,
+or the cluster's folder if ClusterConnectionManager.connections_folder_id is not specified. ||
+|| secretFolderId | **string**
+
+A Connection Manager setting for a user's connection created by MDB integration.
+ID of the folder where secret for the user's connection is created.
+Optional. Defaults to the cluster's ClusterConnectionManager.secrets_folder_id if not specified,
+or the cluster's ClusterConnectionManager.connections_folder_id, or the cluster's folder. ||
 |#

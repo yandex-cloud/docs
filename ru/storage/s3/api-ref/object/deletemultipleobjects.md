@@ -1,4 +1,4 @@
-# Метод deleteMultipleObjects
+# Object Storage API, REST совместимый с Amazon S3: DeleteObjects
 
 Удаляет объекты по списку ключей, переданному в запросе.
 
@@ -67,8 +67,8 @@ POST /{bucket}?delete HTTP/2
 `Delete` | Содержит тело ответа.<br/><br/>Путь: `/Delete`.
 `Quiet` | `<Quiet>true</Quiet>` устанавливает <q>тихий</q> режим.<br/><br/>{{ objstorage-name }} запишет в ответ только ошибки удаления. Если ошибок нет, запрос не возвращает тело ответа. Если на момент запроса указанный в нем объект не существует, вернется результат `Deleted`.<br/><br/>Если не указан, то значение по умолчанию — `false`.<br/><br/>Путь: `/Delete/Quiet`.
 `Object` | Содержит параметры удаления объекта.<br/><br/>Путь: `/Delete/Object`.
-`Key` | Ключ объекта.<br/><br/>Путь: `/Delete/Object/Key`.
-
+`Key` | [Ключ объекта](../../../concepts/object.md#key).<br/><br/>Путь: `/Delete/Object/Key`.
+`VersionId` | Идентификатор [версии объекта](../../../concepts/versioning.md). Например, для удаления сразу нескольких версий объекта.<br/><br/>Путь: `/Delete/Object/VersionId`.
 
 
 ## Ответ {#response}

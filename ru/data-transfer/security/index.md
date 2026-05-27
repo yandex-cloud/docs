@@ -26,7 +26,7 @@ description: Управление доступом в сервисе по пер
 
 {% include [roles-intro](../../_includes/roles-intro.md) %}
 
-![image](../../_assets/data-transfer/security/service-roles-hierarchy.svg)
+{% include [data-transfer](../../_mermaid/roles/data-transfer.md) %}
 
 ### Сервисные роли {#service-roles}
 
@@ -75,22 +75,22 @@ description: Управление доступом в сервисе по пер
 | Получить мета-данные о трансферах и эндпоинтах                              | `data-transfer.viewer`       |
 | Получить информацию о квотах сервиса {{ data-transfer-name }}               | `data-transfer.viewer`       |
 | Получить информацию о трансферах и эндпоинтах                               | `data-transfer.viewer`       |
-| Создать эндпоинт в {{ yandex-cloud }}                                       | `data-transfer.editor` |
-| Изменить эндпоинт в {{ yandex-cloud }}                                      | `data-transfer.editor` |
-| Удалить эндпоинт в {{ yandex-cloud }}                                       | `data-transfer.editor` |
+| Создать эндпоинт в {{ yandex-cloud }}                                       | `data-transfer.privateAdmin` |
+| Изменить эндпоинт в {{ yandex-cloud }}                                      | `data-transfer.privateAdmin` |
+| Удалить эндпоинт в {{ yandex-cloud }}                                       | `data-transfer.privateAdmin` |
 | Создать трансфер с передачей данных в {{ yandex-cloud }}                    | `data-transfer.privateAdmin` |
 | Изменить трансфер с передачей данных в {{ yandex-cloud }}                   | `data-transfer.privateAdmin` |
 | Активировать трансфер с передачей данных в {{ yandex-cloud }}               | `data-transfer.privateAdmin` |
 | Деактивировать трансфер с передачей данных в {{ yandex-cloud }}             | `data-transfer.privateAdmin` |
-| Удалить трансфер с передачей данных в {{ yandex-cloud }}                    | `data-transfer.editor` |
-| Создать эндпоинт в {{ yandex-cloud }} или за его пределами                  | `data-transfer.editor`        |
-| Изменить эндпоинт в {{ yandex-cloud }} или за его пределами                 | `data-transfer.editor`        |
-| Удалить эндпоинт в {{ yandex-cloud }} или за его пределами                  | `data-transfer.editor`        |
+| Удалить трансфер с передачей данных в {{ yandex-cloud }}                    | `data-transfer.privateAdmin` |
+| Создать эндпоинт в {{ yandex-cloud }} или за его пределами                  | `data-transfer.admin`        |
+| Изменить эндпоинт в {{ yandex-cloud }} или за его пределами                 | `data-transfer.admin`        |
+| Удалить эндпоинт в {{ yandex-cloud }} или за его пределами                  | `data-transfer.admin`        |
 | Создать трансфер с передачей данных в {{ yandex-cloud }} или через интернет | `data-transfer.admin`        |
 | Изменить трансфер с передачей данных в {{ yandex-cloud }} или через интернет | `data-transfer.admin`       |
 | Активировать трансфер с передачей данных в {{ yandex-cloud }} или через интернет | `data-transfer.admin`   |
 | Деактивировать трансфер с передачей данных в {{ yandex-cloud }} или через интернет | `data-transfer.admin` |
-| Удалить трансфер с передачей данных в {{ yandex-cloud }} или через интернет | `data-transfer.editor`        |
+| Удалить трансфер с передачей данных в {{ yandex-cloud }} или через интернет | `data-transfer.admin`        |
 
 ## Что дальше {#whats-next}
 

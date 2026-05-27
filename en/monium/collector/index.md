@@ -1,4 +1,4 @@
-# Collecting telemetry
+# Delivering telemetry
 
 {{ monium-name }} automatically receives telemetry data from {{ yandex-cloud }} resources. You can also send telemetry data in [OpenTelemetry](https://opentelemetry.io/) format to {{ monium-name }} from any sources: other clouds, your own infrastructure, or applications.
 
@@ -33,7 +33,7 @@ To transmit telemetry to {{ monium-name }}:
 
    * **Project**: Provided as the `x-monium-project` header. 
    
-      By default, when you create a cloud and folder, two projects are created: `cloud__<cloud_ID>` and `folder__<folder_ID>`. You can also create your own projects to collect telemetry.
+      By default, by creating a cloud and a folder you create these two projects: `cloud__<cloud_ID>` and `folder__<folder_ID>`. You can also create your own projects to collect telemetry.
    
    * **Cluster**: Provided in `OTEL_RESOURCE_ATTRIBUTES` with the `cluster` or `deployment.name` key. This is an optional property. The default value is `default`.
    * **Service**: Provided in `OTEL_RESOURCE_ATTRIBUTES` with the `service` or `service.name` key.
@@ -57,6 +57,6 @@ The agent is installed next to the application on a server, VM, or in a containe
 
 Learn more about the setup:
 
-* [{{ unified-agent-short-name }}](../concepts/data-collection/unified-agent/index.md): Agent by Yandex.
+* [{{ unified-agent-short-name }}](../concepts/data-collection/unified-agent/index.md): Agent by Yandex (currently works with metrics only).
 * [OTel Collector](../collector/opentelemetry.md): OpenTelemetry ecosystem agent.
-* [Fluent Bit](fluentbit.md): A lightweight agent for log processing and forwarding other types of telemetry.
+* [Fluent Bit](fluentbit.md): Lightweight agent for log processing and sending other types of telemetry.

@@ -1,4 +1,4 @@
-# Метод bucketGetAcl
+# Object Storage API, REST совместимый с Amazon S3: GetBucketAcl
 
 Возвращает список управления доступом для бакета.
 

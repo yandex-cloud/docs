@@ -43,6 +43,36 @@ index: 1
 
 ## 2026 год {#2026}
 
+### Апрель {#apr26}
+
+#### Новые возможности и улучшения {#new-features-apr26}
+
+* Поддержан перенос нетабличных объектов [{{ GP }}](../operations/endpoint/source/greenplum.md) (функции, последовательности, индексы).
+
+* Поддержано сжатие на уровне формата данных для Parquet при записи в приемник [{{ objstorage-name }}](../operations/endpoint/target/object-storage.md).
+
+
+* Поддержана запись из [{{ yds-short-name }}](../operations/endpoint/source/data-streams.md) в [{{ OS }}](../operations/endpoint/target/opensearch.md).
+
+
+### Март {#mar26}
+
+#### Новые возможности и улучшения {#new-features-mar26}
+
+* Поддержан формат данных nginx для источника данных [{{ objstorage-name }}](../operations/endpoint/source/object-storage.md).
+
+* Изменен формат имени создаваемого объекта в приемнике [{{ objstorage-name }}](../operations/endpoint/target/object-storage.md): part-<таймстамп>-<хеш(partID)>.<счетчик>.<тип_файла>.
+
+  * таймстамп — `timestamp` по идентификатору операции;
+  * хеш(partID) — `UUID`, сгенерированный на основе `partID`;
+  * счетчик — инкрементируемый счетчик;
+  * тип_файла — расширение файла (`csv`, `parquet`, `json`, `proto` и `nginx`).
+
+* Для трансферов типа {{ dt-type-copy }} из источников [{{ PG }}](../operations/endpoint/source/postgresql.md) всегда поддержано чтение данных из родительской таблицы, если она присутствует в списке таблиц на эндпоинте или трансфере.
+
+* Для источников {{ ydb-short-name }}, {{ KF }} и {{ DS }} поддержан новый тип конвертации данных `Raw-to-table`, позволяет поставлять сырые данные из очереди сообщений.
+
+
 ### Февраль {#feb26}
 
 #### Новые возможности {#new-features-feb26}

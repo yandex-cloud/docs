@@ -25,6 +25,8 @@ items:
         href: operations/restrict-senders.md
       - name: Writing logs
         href: operations/logs-write.md
+      - name: Viewing information about sent emails
+        href: operations/messages.md
   - name: Concepts
     items:
       - name: Overview

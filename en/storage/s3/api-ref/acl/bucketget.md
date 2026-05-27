@@ -1,4 +1,4 @@
-# bucketGetAcl method
+# Object Storage API, Amazon S3-compatible REST: GetBucketAcl
 
 Returns an access control list for a bucket.
 
@@ -16,7 +16,7 @@ Parameter | Description
 ----- | -----
 `bucket` | Bucket name.
 
-### Request parameters {#request-params}
+### Query parameters {#request-params}
 
 Parameter | Description
 ----- | -----
@@ -40,5 +40,11 @@ The structure of the returned data is described in [ACL XML schema](xml-config.m
 ### Response codes {#response-codes}
 
 For a list of possible responses, see [{#T}](../response-codes.md).
+
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/acl.md)
+
+* [{#T}](../../../operations/buckets/edit-acl.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

@@ -39,7 +39,7 @@ description: Из статьи вы узнаете, как управлять п
 * Существующие пользователи и настройки пользователей, созданные с помощью стандартных интерфейсов {{ yandex-cloud }}, будут сохранены.
 * Управление пользователями осуществляется с помощью учетной записи `admin`. Пароль для нее задается при выборе опции **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}**.
 
-Подробнее об управлении пользователями через SQL см. в [документации {{ CH }}]({{ ch.docs }}/operations/access-rights).
+Подробнее об управлении пользователями через SQL см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/operations/access-rights).
 
 ## Получить список пользователей {#list-users}
 
@@ -208,6 +208,7 @@ description: Из статьи вы узнаете, как управлять п
 
   См. также: [пример создания пользователя с правами «только чтение»](#example-create-readonly-user).
 
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -246,13 +247,13 @@ description: Из статьи вы узнаете, как управлять п
 
         ```hcl
 
-        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
           name = "<имя_кластера>"
           ...
         }
 
         resource "yandex_mdb_clickhouse_user" "<имя_пользователя>" {
-          cluster_id = yandex_mdb_clickhouse_cluster.<имя_кластера>.id
+          cluster_id = yandex_mdb_clickhouse_cluster_v2.<имя_кластера>.id
           name       = "<имя_пользователя>"
           ...
         }
@@ -267,6 +268,7 @@ description: Из статьи вы узнаете, как управлять п
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
+
 
 - REST API {#api}
 
@@ -422,7 +424,7 @@ description: Из статьи вы узнаете, как управлять п
 
       {% include [sql-user-name-and-password-limits](../../_includes/mdb/mch/note-sql-info-user-name-and-pass-limits.md) %}
 
-  Подробнее о создании пользователей см. в [документации {{ CH }}]({{ ch.docs }}/sql-reference/statements/create/user/).
+  Подробнее о создании пользователей см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/user).
 
 {% endlist %}
 
@@ -481,6 +483,7 @@ description: Из статьи вы узнаете, как управлять п
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -523,6 +526,7 @@ description: Из статьи вы узнаете, как управлять п
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
+
 
 - REST API {#api}
 
@@ -671,6 +675,7 @@ description: Из статьи вы узнаете, как управлять п
 
     {% endnote %}
 
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -680,7 +685,7 @@ description: Из статьи вы узнаете, как управлять п
     1. Измените значение поля `admin_password`:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<имя_кластера>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<имя_кластера>" {
           ...
           admin_password = "<пароль_пользователя_admin>"
           ...
@@ -698,6 +703,7 @@ description: Из статьи вы узнаете, как управлять п
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-mch }}).
+
 
 - REST API {#api}
 
@@ -867,6 +873,7 @@ description: Из статьи вы узнаете, как управлять п
 
      С помощью этой команды невозможно удалить сделанную настройку, допустимо только явно присвоить ей значение по умолчанию (оно указано для [каждой настройки](#clickhouse-settings)).
 
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -937,6 +944,7 @@ description: Из статьи вы узнаете, как управлять п
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
+
 
 - REST API {#api}
 
@@ -1068,19 +1076,19 @@ description: Из статьи вы узнаете, как управлять п
 - SQL {#sql}
 
   1. [Подключитесь](connect/clients.md) к кластеру, используя [учетную запись `admin`](#sql-user-management).
-  1. Чтобы изменить набор привилегий и ролей пользователя, используйте запросы [GRANT]({{ ch.docs }}/sql-reference/statements/grant/) и [REVOKE]({{ ch.docs }}/sql-reference/statements/revoke/). Например, выдайте пользователю права на чтение всех объектов в определенной базе данных:
+  1. Чтобы изменить набор привилегий и ролей пользователя, используйте запросы [GRANT]({{ ch.docs }}{{ lang }}/sql-reference/statements/grant) и [REVOKE]({{ ch.docs }}{{ lang }}/sql-reference/statements/revoke). Например, выдайте пользователю права на чтение всех объектов в определенной базе данных:
 
       ```sql
       GRANT SELECT ON <имя_базы_данных>.* TO <имя_пользователя>;
       ```
 
-  1. Чтобы изменить [настройки квот](../concepts/settings-list.md#quota-settings) для пользователя, используйте запросы [CREATE QUOTA]({{ ch.docs }}/sql-reference/statements/create/quota/#create-quota-statement), [ALTER QUOTA]({{ ch.docs }}/sql-reference/statements/alter/quota/#alter-quota-statement) и [DROP QUOTA]({{ ch.docs }}/sql-reference/statements/drop/#drop-quota-statement). Например, ограничьте суммарное количество запросов пользователя за период 15 месяцев:
+  1. Чтобы изменить [настройки квот](../concepts/settings-list.md#quota-settings) для пользователя, используйте запросы [CREATE QUOTA]({{ ch.docs }}{{ lang }}/sql-reference/statements/create/quota#create-quota-statement), [ALTER QUOTA]({{ ch.docs }}{{ lang }}/sql-reference/statements/alter/quota#alter-quota-statement) и [DROP QUOTA]({{ ch.docs }}{{ lang }}/sql-reference/statements/drop#drop-quota-statement). Например, ограничьте суммарное количество запросов пользователя за период 15 месяцев:
 
       ```sql
       CREATE QUOTA <название_квоты> FOR INTERVAL 15 MONTH MAX QUERIES 100 TO <имя_пользователя>;
       ```
 
-  1. Чтобы изменить учетную запись пользователя, используйте запрос [ALTER USER]({{ ch.docs }}/sql-reference/statements/alter/user/). Например для изменения [настроек {{ CH }}](../concepts/settings-list.md#dbms-user-settings) выполните следующую команду, перечислив настройки подлежащие изменению:
+  1. Чтобы изменить учетную запись пользователя, используйте запрос [ALTER USER]({{ ch.docs }}{{ lang }}/sql-reference/statements/alter/user). Например для изменения [настроек {{ CH }}](../concepts/settings-list.md#dbms-user-settings) выполните следующую команду, перечислив настройки подлежащие изменению:
 
       ```sql
       ALTER USER <имя_пользователя> SETTINGS <список_настроек_{{ CH }}>;
@@ -1114,6 +1122,7 @@ description: Из статьи вы узнаете, как управлять п
 
   Имя кластера можно запросить со [списком кластеров в каталоге](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -1131,6 +1140,7 @@ description: Из статьи вы узнаете, как управлять п
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     Подробнее см. в [документации провайдера {{ TF }}]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
+
 
 - REST API {#api}
 
@@ -1189,7 +1199,7 @@ description: Из статьи вы узнаете, как управлять п
       DROP USER <имя_пользователя>;
       ```
 
-  Подробнее об удалении объектов см. в [документации {{ CH }}]({{ ch.docs }}/sql-reference/statements/drop/).
+  Подробнее об удалении объектов см. в [документации {{ CH }}]({{ ch.docs }}{{ lang }}/sql-reference/statements/drop).
 
 {% endlist %}
 
@@ -1241,6 +1251,7 @@ description: Из статьи вы узнаете, как управлять п
        DB::Exception: Cannot modify 'readonly' setting in readonly mode.
        ```
 
+
 - {{ TF }} {#tf}
 
     1. Откройте актуальный конфигурационный файл {{ TF }} с планом инфраструктуры.
@@ -1270,6 +1281,7 @@ description: Из статьи вы узнаете, как управлять п
     1. Подтвердите изменение ресурсов.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
+
 
 - REST API {#api}
 

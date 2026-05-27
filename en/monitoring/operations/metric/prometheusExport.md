@@ -7,7 +7,7 @@ Here is an example of setting up {{ monitoring-name }} metric collection in {{ p
 1. Select a service from the following list:
    * `application-load-balancer`: {{ alb-name }}.
    * `audit-trails`: {{ at-name }}.
-   * `cdn`: {{ cdn-name }}.
+   * `yccdn`: {{ cdn-name }}.
    * `certificate-manager`: {{ certificate-manager-name }}.
    * `compute`: {{ compute-name }}.
    * `container-registry`: {{ container-registry-name }}.

@@ -10,7 +10,7 @@ items:
         href: operations/index.md
       - name: Working with documents
         items:
-          - name: Understanding your payment invoice
+          - name: Understanding your invoice
             href: operations/spell-out-bill.md
           - name: Downloading reporting documents
             href: operations/download-reporting-docs.md
@@ -128,7 +128,7 @@ items:
             items:
               - name: Payment procedure
                 href: payment/payment-methods-business.md
-              - name: Payment invoice
+              - name: Invoice
                 href: concepts/bill.md
           - name: Reporting documents
             items:
@@ -278,18 +278,23 @@ items:
                   - name: GetLabelKeyUsageReport
                     href: >-
                       usage/api-ref/grpc/ConsumptionCore/getLabelKeyUsageReport.md
+                  - name: GetServiceInstanceUsageReport
+                    href: >-
+                      usage/api-ref/grpc/ConsumptionCore/getServiceInstanceUsageReport.md
               - name: Metadata
                 items:
                   - name: Overview
                     href: usage/api-ref/grpc/Metadata/index.md
                   - name: GetUsage
                     href: usage/api-ref/grpc/Metadata/getUsage.md
+                  - name: GetServiceInstance
+                    href: usage/api-ref/grpc/Metadata/getServiceInstance.md
                   - name: GetLabel
                     href: usage/api-ref/grpc/Metadata/getLabel.md
                   - name: GetCloud
                     href: usage/api-ref/grpc/Metadata/getCloud.md
-                  - name: GetResourceIDs
-                    href: usage/api-ref/grpc/Metadata/getResourceIDs.md
+                  - name: GetResources
+                    href: usage/api-ref/grpc/Metadata/getResources.md
       - name: REST
         items:
           - name: Billing

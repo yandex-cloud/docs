@@ -5,7 +5,6 @@ editable: false
 # BareMetal API, gRPC: PrivateCloudConnectionService.Get
 
 Returns the specific Private cloud connection resource.
-
 To get the list of available Private cloud connection resources, make a [List](/docs/baremetal/api-ref/grpc/PrivateCloudConnection/list#List) request.
 
 ## gRPC request
@@ -25,8 +24,9 @@ To get the list of available Private cloud connection resources, make a [List](/
 || private_cloud_connection_id | **string**
 
 ID of the Private cloud connection resource to return.
+To get the server ID, use a [PrivateCloudConnectionService.List](/docs/baremetal/api-ref/grpc/PrivateCloudConnection/list#List) request.
 
-To get the server ID, use a [PrivateCloudConnectionService.List](/docs/baremetal/api-ref/grpc/PrivateCloudConnection/list#List) request. ||
+The maximum string length in characters is 20. Value must match the regular expression ` [a-z][a-z0-9.-]* `. ||
 |#
 
 ## PrivateCloudConnection {#yandex.cloud.baremetal.v1alpha.PrivateCloudConnection}
@@ -67,7 +67,6 @@ ID of VRF that is connected to routing Instance. ||
 
 Status of the private cloud connection.
 
-- `STATUS_UNSPECIFIED`: Unspecified private cloud connection status.
 - `CREATING`: Private cloud connection is waiting for network resources to be allocated.
 - `READY`: Private cloud connection is ready to use.
 - `ERROR`: Private cloud connection encountered a problem and cannot operate.

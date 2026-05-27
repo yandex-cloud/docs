@@ -89,7 +89,7 @@ output "network_id" {
 - `status` (*Read-Only*) (String). Status of the cluster.
 - `subnet_id` (**Required**)(String). The ID of the subnet, to which the hosts belongs. The subnet must be a part of the network to which the cluster belongs.
 - `user_name` (**Required**)(String). Greenplum cluster admin user name.
-- `version` (**Required**)(String). Version of the Greenplum cluster. (`6.28`)
+- `version` (**Required**)(String). Version of the Greenplum cluster.
 - `zone` (**Required**)(String). The [availability zone](https://yandex.cloud/docs/overview/concepts/geo-scope) where resource is located. If it is not provided, the default provider zone will be used.
 - `background_activities` [Block]. Background activities settings.
   - `analyze_and_vacuum` [Block]. Block to configure 'ANALYZE' and 'VACUUM' daily operations.

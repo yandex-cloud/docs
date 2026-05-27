@@ -57,6 +57,26 @@ items:
             href: cli-ref/cluster/start.md
           - name: stop
             href: cli-ref/cluster/stop.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: cluster
+            items:
+              - name: Overview
+                href: cli-ref/v0/cluster/index.md
+              - name: delete
+                href: cli-ref/v0/cluster/delete.md
+              - name: get
+                href: cli-ref/v0/cluster/get.md
+              - name: get-configuration
+                href: cli-ref/v0/cluster/get-configuration.md
+              - name: list
+                href: cli-ref/v0/cluster/list.md
+              - name: start
+                href: cli-ref/v0/cluster/start.md
+              - name: stop
+                href: cli-ref/v0/cluster/stop.md
   - name: Справочник {{ TF }}
     href: tf-ref.md
   - name: Справочник API

@@ -4,5 +4,5 @@
 
 Where:
 
-* {% calc [currency=USD] 8 × {{ sku|USD|alb.balancer.active|number }} %}: Cost of using a load balancer per hour.
-* 720: Number of hours per month.
+* {% calc [currency=USD] 8 × {{ sku|USD|alb.balancer.active|number }} %}, cost of using a load balancer per hour.
+* 720: Number of hours per month, fixed for simpler calculations.

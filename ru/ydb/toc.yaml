@@ -72,6 +72,10 @@ items:
           помощью {{ data-transfer-full-name }}
         href: tutorials/ydb-to-clickhouse.md
       - name: >-
+          Загрузка данных из {{ ydb-short-name }} в {{ mpg-full-name }} с
+          помощью {{ data-transfer-full-name }}
+        href: tutorials/ydb-to-postgresql.md
+      - name: >-
           Миграция данных из {{ mos-full-name }} в {{ ydb-short-name }} с
           помощью {{ data-transfer-full-name }}
         href: tutorials/opensearch-to-ydb.md
@@ -122,7 +126,13 @@ items:
           WebSocket
         href: tutorials/websocket-app.md
       - name: Сокращатель ссылок
-        href: tutorials/serverless-url-shortener.md
+        items:
+          - name: Обзор
+            href: tutorials/serverless-url-shortener/index.md
+          - name: Консоль управления
+            href: tutorials/serverless-url-shortener/console.md
+          - name: '{{ TF }}'
+            href: tutorials/serverless-url-shortener/terraform.md
       - name: Загрузка аудитных логов в MaxPatrol SIEM
         items:
           - name: Обзор
@@ -247,6 +257,80 @@ items:
             href: cli-ref/storage-type/get.md
           - name: list
             href: cli-ref/storage-type/list.md
+      - name: v0
+        items:
+          - name: Overview
+            href: cli-ref/v0/index.md
+          - name: backup
+            items:
+              - name: Overview
+                href: cli-ref/v0/backup/index.md
+              - name: add-access-binding
+                href: cli-ref/v0/backup/add-access-binding.md
+              - name: delete
+                href: cli-ref/v0/backup/delete.md
+              - name: get
+                href: cli-ref/v0/backup/get.md
+              - name: list
+                href: cli-ref/v0/backup/list.md
+              - name: list-access-bindings
+                href: cli-ref/v0/backup/list-access-bindings.md
+              - name: remove-access-binding
+                href: cli-ref/v0/backup/remove-access-binding.md
+              - name: set-access-bindings
+                href: cli-ref/v0/backup/set-access-bindings.md
+          - name: database
+            items:
+              - name: Overview
+                href: cli-ref/v0/database/index.md
+              - name: add-access-binding
+                href: cli-ref/v0/database/add-access-binding.md
+              - name: add-labels
+                href: cli-ref/v0/database/add-labels.md
+              - name: backup
+                href: cli-ref/v0/database/backup.md
+              - name: create
+                href: cli-ref/v0/database/create.md
+              - name: delete
+                href: cli-ref/v0/database/delete.md
+              - name: get
+                href: cli-ref/v0/database/get.md
+              - name: list
+                href: cli-ref/v0/database/list.md
+              - name: list-access-bindings
+                href: cli-ref/v0/database/list-access-bindings.md
+              - name: move
+                href: cli-ref/v0/database/move.md
+              - name: remove-access-binding
+                href: cli-ref/v0/database/remove-access-binding.md
+              - name: remove-labels
+                href: cli-ref/v0/database/remove-labels.md
+              - name: restore
+                href: cli-ref/v0/database/restore.md
+              - name: set-access-bindings
+                href: cli-ref/v0/database/set-access-bindings.md
+              - name: start
+                href: cli-ref/v0/database/start.md
+              - name: stop
+                href: cli-ref/v0/database/stop.md
+              - name: update
+                href: cli-ref/v0/database/update.md
+          - name: resource-preset
+            items:
+              - name: Overview
+                href: cli-ref/v0/resource-preset/index.md
+              - name: get
+                href: cli-ref/v0/resource-preset/get.md
+              - name: list
+                href: cli-ref/v0/resource-preset/list.md
+          - name: storage-type
+            items:
+              - name: Overview
+                href: cli-ref/v0/storage-type/index.md
+              - name: get
+                href: cli-ref/v0/storage-type/get.md
+              - name: list
+                href: cli-ref/v0/storage-type/list.md
   - name: Document API, совместимый с Amazon DynamoDB
     items:
       - name: Инструменты

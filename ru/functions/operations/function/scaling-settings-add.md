@@ -28,96 +28,44 @@ description: Следуя данной инструкции, вы сможете
     1. В [консоли управления]({{ link-console-main }}) перейдите в каталог, в котором находится функция.
     1. [Перейдите](../../../console/operations/select-service.md#select-service) в сервис **{{ ui-key.yacloud.iam.folder.dashboard.label_serverless-functions }}**.
     1. Выберите функцию.
-    1. Чтобы задать:
-        * любую настройку масштабирования, кроме количества вызовов, одновременно обрабатываемых одним экземпляром функции (`concurrency`):
-            1. В блоке **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-history }}** наведите курсор на тег версии функции (например, ![image](../../../_assets/console-icons/gear.svg) `$latest`), для которой хотите добавить настройки масштабирования.
-            1. Во всплывающем окне нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
-            1. В открывшемся окне укажите:
-                * **zone_instances_limit** — количество экземпляров функции в зоне доступности.
-                * **zone_requests_limit** — количество одновременно выполняемых вызовов функции в зоне доступности.
-                * **provisioned_instances_count** — количество подготовленных экземпляров.
-            1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
-        * [количество вызовов, одновременно обрабатываемых одним экземпляром функции](../../concepts/function.md#concurrency) (`concurrency`):
-            1. Перейдите на вкладку **{{ ui-key.yacloud.serverless-functions.item.switch_editor }}**.
-            1. В блоке **Дополнительные настройки** в разделе **Одновременные вызовы экземпляра функции** активируйте переключатель **Включить** и укажите количество одновременных вызовов экземпляра функции.
-            1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
+    1. В блоке **{{ ui-key.yacloud.serverless-functions.item.overview.label_title-history }}** наведите курсор на тег версии функции (например, ![image](../../../_assets/console-icons/gear.svg) `$latest`), для которой хотите добавить настройки масштабирования.
+    1. Во всплывающем окне нажмите кнопку **{{ ui-key.yacloud.common.add }}**.
+    1. В открывшемся окне укажите:
+        * **zone_instances_limit** — количество экземпляров функции в зоне доступности.
+        * **zone_requests_limit** — количество одновременно выполняемых вызовов функции в зоне доступности.
+        * **provisioned_instances_count** — количество подготовленных экземпляров.
+    1. Нажмите кнопку **{{ ui-key.yacloud.common.save }}**.
 
 - CLI {#cli}
 
-    Чтобы задать:
+    Чтобы задать настройки масштабирования, выполните команду:
 
-    * любую настройку масштабирования, кроме количества вызовов, одновременно обрабатываемых одним экземпляром функции (`concurrency`), выполните команду:
+    ```bash
+    yc serverless function set-scaling-policy \
+      --id=<идентификатор_функции> \
+      --tag=\$latest \
+      --zone-instances-limit=1 \
+      --zone-requests-limit=2 \
+      --provisioned-instances-count=3
+    ```
 
-        ```bash
-        yc serverless function set-scaling-policy \
-          --id=<идентификатор_функции> \
-          --tag=\$latest \
-          --zone-instances-limit=1 \
-          --zone-requests-limit=2 \
-          --provisioned-instances-count=3
-        ```
+    Где:
 
-        Где:
+    * `--id` — идентификатор функции. Чтобы узнать его, [получите](./function-list.md) список функций.
+    * `--tag` —  [тег](../../concepts/function.md#tag) версии функции.
+    * `--zone-instances-limit` — количество экземпляров функции.
+    * `--zone-requests-limit` — количество выполняемых вызовов.
+    * `--provisioned-instances-count` — количество подготовленных экземпляров.
 
-        * `--id` — идентификатор функции. Чтобы узнать его, [получите](./function-list.md) список функций.
-        * `--tag` —  [тег](../../concepts/function.md#tag) версии функции.
-        * `--zone-instances-limit` — количество экземпляров функции.
-        * `--zone-requests-limit` — количество выполняемых вызовов.
-        * `--provisioned-instances-count` — количество подготовленных экземпляров.
+    Результат:
 
-        Результат:
-
-        ```bash
-        function_id: d4eokpuol55h********
-        tag: $latest
-        zone_instances_limit: "1"
-        zone_requests_limit: "2"
-        provisioned_instances_count: "3"
-        ```
-
-    * [количество вызовов, одновременно обрабатываемых одним экземпляром функции](../../concepts/function.md#concurrency) (`concurrency`), выполните команду:
-
-        ```bash
-        yc serverless function version create \
-        --function-name=<имя_функции> \
-        --runtime <среда_выполнения> \
-        --entrypoint <точка_входа> \
-        --memory 128m \
-        --concurrency 2 \
-        --execution-timeout 3s \
-        --source-path <путь_к_ZIP-архиву>
-        ```
-
-        Где:
-
-        * `--function-name` — имя функции, версию которой вы хотите создать.
-        * `--runtime` — [среда выполнения](../../concepts/index.md) функции.
-        * `--entrypoint` — точка входа, указывается в формате `<имя_файла_без_расширения>.<имя_обработчика>`.
-        * `--memory` — объем RAM.
-        * `--concurrency` — максимальное количество вызовов, одновременно обрабатываемых одним экземпляром функции.
-        * `--execution-timeout` — максимальное время выполнения функции до таймаута.
-        * `--source-path` — ZIP-архив с кодом функции и необходимыми зависимостями.
-
-        Результат:
-
-        ```bash
-        done (1s)
-        id: d4evvn8obisa********
-        function_id: d4elpv8pft63********
-        created_at: "2020-08-01T19:09:19.531Z"
-        runtime: nodejs18
-        entrypoint: index.handler
-        resources:
-        memory: "134217728"
-        execution_timeout: 3s
-        image_size: "4096"
-        status: ACTIVE
-        tags:
-        - $latest
-        log_options:
-        folder_id: b1g681qpemb4********
-        concurrency: "2"
-        ```
+    ```bash
+    function_id: d4eokpuol55h********
+    tag: $latest
+    zone_instances_limit: "1"
+    zone_requests_limit: "2"
+    provisioned_instances_count: "3"
+    ```
 
 - {{ TF }} {#tf}
 
@@ -135,7 +83,6 @@ description: Следуя данной инструкции, вы сможете
          * `runtime` — [среда выполнения](../../concepts/runtime/index.md) функции.
          * `entrypoint` — точка входа, указывается в формате `<имя_файла_без_расширения>.<имя_обработчика>`.
          * `memory` — объем памяти в мегабайтах, отведенный для выполнения функции.
-         * `concurrency` — [максимальное количество вызовов, одновременно обрабатываемых одним экземпляром функции](../../concepts/function.md#concurrency).
          * `execution_timeout` — максимальное время выполнения функции до таймаута.
          * `service_account_id` — идентификатор сервисного аккаунта, от имени которого будет запускаться функция.
          * `content` — исходный код функции.
@@ -162,7 +109,6 @@ description: Следуя данной инструкции, вы сможете
             runtime            = "<среда_выполнения>"
             entrypoint         = "<точка_входа>"
             memory             = "128"
-            concurrency        = "2"
             execution_timeout  = "10"
             service_account_id = "<идентификатор_сервисного_аккаунта>"
             content {
@@ -180,7 +126,7 @@ description: Следуя данной инструкции, вы сможете
         }
         ```
 
-        Подробнее о параметрах ресурсов см. [yandex_function]({{ tf-provider-resources-link }}/function) и [yandex_function_scaling_policy]({{ tf-provider-resources-link }}/function_scaling_policy).
+        Подробнее о параметрах ресурсов см. [yandex_function_scaling_policy]({{ tf-provider-resources-link }}/function_scaling_policy).
 
     1. Проверьте конфигурацию командой:
         
@@ -209,19 +155,16 @@ description: Следуя данной инструкции, вы сможете
        ```
     1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
 
-    Проверить добавление настроек масштабирования можно в [консоли управления]({{ link-console-main }}) или с помощью команд [CLI](../../../cli/quickstart.md):
+    Проверить добавление настроек масштабирования можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
     
     ```
     yc serverless function list-scaling-policies <имя_или_идентификатор_функции>
-
-    yc serverless function version get <идентификатор_версии>
     ```
 
 - API {#api}
 
-    Чтобы задать любую настройку масштабирования, кроме количества вызовов, обрабатываемых одним экземпляром функции (`concurrency`), воспользуйтесь методом REST API [setScalingPolicy](../../functions/api-ref/Function/setScalingPolicy.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/SetScalingPolicy](../../functions/api-ref/grpc/Function/setScalingPolicy.md).
+    Чтобы задать настройки масштабирования, воспользуйтесь методом REST API [setScalingPolicy](../../functions/api-ref/Function/setScalingPolicy.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызовом gRPC API [FunctionService/SetScalingPolicy](../../functions/api-ref/grpc/Function/setScalingPolicy.md).
 
-    Чтобы задать количества вызовов, обрабатываемых одним экземпляром функции (`concurrency`), создайте версию функции с помощью метода REST API [createVersion](../../functions/api-ref/Function/createVersion.md) для ресурса [Function](../../functions/api-ref/Function/index.md) или вызова gRPC API [FunctionService/CreateVersion](../../functions/api-ref/grpc/Function/createVersion.md). В тело запроса добавьте поле `concurrency`.
 
 
 {% endlist %}

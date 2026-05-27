@@ -16,11 +16,6 @@ To add dashboard info, do the following:
 1. Click ![image](../../../_assets/console-icons/circle-info.svg) at the top of the screen.
 1. Enter the information and click **Save**.
 
-   {% cut "Adding dashboard info" %}
-
-   ![add-description](../../../_assets/datalens/dashboard/add-description.png)
-   
-   {% endcut %}
 
 1. In the top-right corner, click **Save**.
 

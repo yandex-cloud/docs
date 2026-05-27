@@ -1,6 +1,6 @@
 # Adding a Let's Encrypt® certificate
 
-You can use a [certificate](../../concepts/managed-certificate.md) from {{ certificate-manager-name }} in the [specified](../../concepts/services.md) {{ yandex-cloud }} services only.
+You can only use a [certificate](../../concepts/managed-certificate.md) from {{ certificate-manager-name }} in the [specific](../../concepts/services.md) {{ yandex-cloud }} services.
 
 ## Adding a new certificate {#add-certificate}
 
@@ -8,15 +8,15 @@ You can use a [certificate](../../concepts/managed-certificate.md) from {{ certi
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to add a certificate to.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) to add your certificate to.
+  1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
   1. Click **{{ ui-key.yacloud.certificate-manager.button_empty-action }}**.
   1. In the menu that opens, select **{{ ui-key.yacloud.certificate-manager.action_request }}**.
   1. In the window that opens, enter a name for your certificate in the **{{ ui-key.yacloud.certificate-manager.metadata.field_name }}** field.
-  1. (Optional) In the **Description** field, enter a description for the certificate.
+  1. Optionally, in the **Description** field, describe the certificate.
   1. In the **{{ ui-key.yacloud.certificate-manager.request.field_domains }}** field, list the domains to issue a certificate for.
 
-     Domain names may contain a mask, e.g., `*.example.com`. If so, select `DNS` as the type of domain rights check. For more information, see [Check rights for domain](../../concepts/challenges.md#dns).
+     Domain names may contain a mask, e.g., `*.example.com`. If so, select `DNS` as the type of domain rights check. For more information, see [Domain rights check](../../concepts/challenges.md#dns).
   1. Select the [type of domain rights check](../../concepts/challenges.md): `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_dns }}` or `{{ ui-key.yacloud.certificate-manager.request.challenge-type_label_http }}`.
   1. Click **{{ ui-key.yacloud.certificate-manager.request.button_request }}**.
 
@@ -60,7 +60,7 @@ You can use a [certificate](../../concepts/managed-certificate.md) from {{ certi
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
-  1. In the {{ TF }} configuration file, specify your new resource settings:
+  1. In the {{ TF }} configuration file, describe the resource you want to create:
 
      ```hcl
      resource "yandex_cm_certificate" "le-certificate" {
@@ -76,16 +76,16 @@ You can use a [certificate](../../concepts/managed-certificate.md) from {{ certi
      Where:
      * `domains`: List of domains you need to create a certificate for.
      * `challenge_type`: [Type of domain rights check](../../concepts/challenges.md) the domain owner should [pass](cert-validate.md). The possible values are:
-       * `DNS_CNAME`: Create a [DNS record](../../../dns/concepts/resource-record.md) in [CNAME](../../../dns/concepts/resource-record.md#cname-cname) format with the specified value. This method is recommended for automatic certificate renewal.
+       * `DNS_CNAME`: Create a [DNS record](../../../dns/concepts/resource-record.md) in [CNAME](../../../dns/concepts/resource-record.md#cname-cname) format with the specified value. We recommend this method for automatic certificate renewal.
        * `DNS_TXT`: Create a DNS record in [TXT](../../../dns/concepts/resource-record.md#txt) format with the specified value.
        * `HTTP`: Place the specified value in the specified URL.
 
-     For more information about `yandex_cm_certificate` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/cm_certificate).
+     For more information about the `yandex_cm_certificate` properties, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/cm_certificate).
   1. Create the resources:
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  A certificate will then be created in the specified [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder). You can check the new certificate and its settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
+  This will create a certificate in the specified [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder). You can check the new certificate and its settings using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
   ```bash
   yc certificate-manager certificate get <certificate_name>
@@ -97,7 +97,7 @@ You can use a [certificate](../../concepts/managed-certificate.md) from {{ certi
 
 {% endlist %}
 
-A new certificate with the `Validating` status will appear in the certificate list. This status means that a request for a Let's Encrypt® certificate has been created. You need to [get your domain rights confirmed](cert-validate.md) for the request to be processed.
+A new certificate with the `Validating` status will appear in the certificate list. This status means that a request for issuing a Let's Encrypt® certificate has been created. You need to [pass your domain rights checks](cert-validate.md) for the request to be processed.
 
 {% note info %}
 
@@ -105,17 +105,17 @@ A new certificate with the `Validating` status will appear in the certificate li
 
 {% endnote %}
 
-## Viewing certificate issue status {#view-statuses}
+## Viewing the certificate issue status {#view-statuses}
 
 You can view the certificate issue status and possible issue errors in the [management console]({{ link-console-main }}):
 
-1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
 1. Select the certificate from the list.
    
-   The certificate's current issue stage will be shown next to the **{{ ui-key.yacloud.certificate-manager.overview.general_label_validation }}** field.
-1. To view the stage description and outcome, click ![receipt](../../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.certificate-manager.overview.button_validation_show-logs }}**.
+   You can find the certificate's current issue status next to the **{{ ui-key.yacloud.certificate-manager.overview.general_label_validation }}** field.
+1. To view the status description and outcome, click ![receipt](../../../_assets/console-icons/receipt.svg) **{{ ui-key.yacloud.certificate-manager.overview.button_validation_show-logs }}**.
 
-   For more information about certificate issue stages, see [Let's Encrypt certificate](../../concepts/managed-certificate.md#issue-statuses).
+   For more information about the certificate issue statuses, see [Let's Encrypt certificate](../../concepts/managed-certificate.md#issue-statuses).
 
 #### See also {#see-also}
 

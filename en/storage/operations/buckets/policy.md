@@ -76,7 +76,7 @@ To apply or update a bucket policy:
         {% include [conditions-combining-or](../../../_includes/storage/conditions-combining-or.md) %}
 
   1. Add other rules and configure them as needed.
-  1. Optionally, to allow access to the bucket through the management console, click **{{ ui-key.yacloud.storage.bucket.policy.button_add-console-rule }}**. For more information, see [{#T}](../../concepts/policy.md#console-access).
+  1. Optionally, to allow access to the bucket through the management console, click **{{ ui-key.yacloud.storage.bucket.policy.button_add-console-rule }}**. For more details, see [{#T}](../../concepts/policy.md#console-access).
   1. Click **{{ ui-key.yacloud.common.save }}** and confirm deletion.
 
 - {{ yandex-cloud }} CLI {#cli}
@@ -229,6 +229,7 @@ To apply or update a bucket policy:
 
   {% include [iam-auth-note](../../../_includes/storage/iam-auth-note.md) %}
 
+
   To edit a bucket policy, you can use these resources:
   * [yandex_storage_bucket_policy](#tf-storage-bucket-policy)
   * [yandex_storage_bucket](#tf-storage-bucket) (obsolete)
@@ -270,7 +271,7 @@ To apply or update a bucket policy:
 
      {% include [s3-policy-tf-params](../../../_includes/storage/s3-policy-tf-params.md) %}
 
-     For more information about `yandex_storage_bucket_policy` properties, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket_policy).
+     For more information about the `yandex_storage_bucket_policy` properties, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket_policy).
 
   1. Apply the changes:
 
@@ -315,7 +316,7 @@ To apply or update a bucket policy:
 
      {% include [s3-policy-tf-params](../../../_includes/storage/s3-policy-tf-params.md) %}
 
-     For more information about `yandex_storage_bucket` properties, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket).
+     For more information about the `yandex_storage_bucket` properties, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket).
 
   1. Apply the changes:
 
@@ -428,6 +429,7 @@ To delete a bucket policy:
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
   {% include [iam-auth-note](../../../_includes/storage/iam-auth-note.md) %}
+
 
   You can use the `yandex_storage_bucket_policy` and `yandex_storage_bucket` resources to specify the policy (this method is deprecated).
 

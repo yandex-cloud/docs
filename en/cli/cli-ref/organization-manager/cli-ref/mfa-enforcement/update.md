@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/organization-manager/cli-ref/mfa-enforcement/update
 editable: false
 ---
 
@@ -16,10 +17,11 @@ Syntax:
 
 #|
 ||Flag | Description ||
-|| `--acr-id` | `string`
+|| `--acr-id` | `any-mfa`
 
 Supported values:
- any-mfa - any MFA factors
+any-mfa - any MFA factors
+`any-except-sms` - any MFA factors except SMS
 phr - phishing-resistant MFA factors ||
 || `--ttl` | `duration`
 
@@ -66,9 +68,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||

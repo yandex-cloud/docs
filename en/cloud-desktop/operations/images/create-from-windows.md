@@ -28,139 +28,167 @@ To create an image in {{ cloud-desktop-name }}:
 
 ## Prerequisites {#prerequisites}
 
-To work in {{ cloud-desktop-name }}, you need to install and configure a Windows image through the QEMU virtualization system.
+To use an image with a Windows OS in {{ cloud-desktop-name }}, you will create and configure it using the [QEMU](https://www.qemu.org/) virtualizer.
 
-To configure an image you will need:
+To configure an image, you will need:
 
 * Computer with x86-64 CPU.
-
 * Linux OS When using other operating systems:
-  * For macOS, you can use `hvf` as a QEMU accelerator.
-  * For Windows, to work with QEMU:
-    * Enable virtualization in BIOS/UEFI.
-    * Enable Hyper-V. For server OSes, install Virtual Machine Platform.
-    * Use the `whpx` accelerator.
 
-* Windows installation image (ISO file).
-
+    * For macOS, you can use `hvf` as a QEMU accelerator.
+    * For Windows, to work with QEMU:
+        * Enable virtualization in BIOS/UEFI.
+        * Enable Hyper-V. For server OSes, install Virtual Machine Platform.
+        * Use the `whpx` accelerator.
+* Windows installation image ([ISO](https://en.wikipedia.org/wiki/Optical_disc_image) file).
 * [Windows VirtIO drivers](https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso).
+
+{% note warning %}
+
+Make sure the OS in the image you are creating supports remote desktop connections over [Remote Desktop Protocol](https://{{ lang }}.wikipedia.org/wiki/Remote_Desktop_Protocol) (RDP).
+
+{% endnote %}
 
 ## Installing and configuring a Windows image {#windows-installation}
 
-1. On your computer, create a boot disk by running the following command:
+1. Create a file for the boot disk image on your computer by running this command:
 
     ```bash
     qemu-img create -f qcow2 image.qcow2 20480M
     ```
-    
+
     Where:
-    * `image.qcow2`: Boot disk name.
+    * `image.qcow2`: Name of the boot disk image file.
     * `20480M`: OS boot disk size in the image, MB.
-    
-      {% note info %}
 
-      We recommend that you specify a size of at least `16384M`. Otherwise, your boot disk may have not enough space when installing or later configuring the OS.
+        {% note info %}
 
-      {% endnote %}
+        We recommend that you specify a size of at least `16384M`. Otherwise, your boot disk may not have enough space when installing or later configuring the OS.
 
-1. Start a VM to install and configure Windows:
+        {% endnote %}
+
+1. Start a VM to install and configure Windows by running this command:
 
     ```bash
-    qemu-kvm -cpu "qemu64,hv-relaxed,hv-vapic,hv-spinlocks=0x1fff,hv-time" -name win-image -device "virtio-net,netdev=user.0" -netdev user,id=user.0 -drive "file=image.qcow2,if=virtio,cache=writeback,discard=ignore,format=qcow2" -drive "file=windows.iso,media=cdrom" -drive "file=virtio-win.iso,media=cdrom" -parallel none -smp "cpus=2" -boot "once=d" -machine "type=q35,accel=kvm" -vnc "0.0.0.0:85" -m "4096M" -nic "none" -device qemu-xhci -device usb-tablet
+    qemu-kvm \
+      -cpu "qemu64,hv-relaxed,hv-vapic,hv-spinlocks=0x1fff,hv-time" \
+      -name win-image \
+      -device "virtio-net,netdev=user.0" \
+      -netdev user,id=user.0 \
+      -drive "file=image.qcow2,if=virtio,cache=writeback,discard=ignore,format=qcow2" \
+      -drive "file=windows.iso,media=cdrom" \
+      -drive "file=virtio-win.iso,media=cdrom" \
+      -parallel none -smp "cpus=2" \
+      -boot "once=d" \
+      -machine "type=q35,accel=kvm" \
+      -m "4096M" \
+      -nic "none" \
+      -device qemu-xhci \
+      -device usb-tablet \
+      -vnc "0.0.0.0:85"
     ```
+
+    Where:
+
+    * `file=image.qcow2`: Path to the boot disk image file you created earlier.
+    * `file=windows.iso`: Path to the ISO file with the Windows installation image.
+    * `file=virtio-win.iso`: Path to the ISO file with `Windows VirtIO` drivers.
+    * `-vnc "0.0.0.0:85"`: Optional parameter. Use it if your QEMU build does not support graphical VM control. 
+
     {% note info %}
 
-    If configuring your image on macOS, replace `type=q35,accel=kvm` with `type=q35,accel=hvf`; if on Windows, with `type=q35,accel=whpx`.
+    If configuring your image on macOS, replace `type=q35,accel=kvm` with `type=q35,accel=hvf`; for Windows, use `type=q35,accel=whpx`.
 
-    If you need to specify the full path to the QEMU startup file, please keep in mind that the file name may differ across operating systems and QEMU builds. The most common file names are `qemu-x86_64`, `qemu-system-x86_64`, `qemu-system-x86_64w`, `qemu-gtk`, and `qemu`.
+    If you need to specify the full path to the QEMU startup file, please keep in mind that the file name may vary across operating systems and QEMU builds. The most common file names are `qemu-x86_64`, `qemu-system-x86_64`, `qemu-system-x86_64w`, `qemu-gtk`, and `qemu`.
 
     {% endnote %}
 
-    If your QEMU build does not support graphical VM control, you can connect to your VM over VNC using local port `tcp/5985` (`localhost:5985`). To connect, use a VNC client of your choice, e.g., RealVNC, Remmina, or ultraVNC. In macOS, you can use its pre-installed VNC client, **Screen Sharing**.
+    If your QEMU build does not support graphical VM control, you can connect to your VM over [VNC](https://en.wikipedia.org/wiki/VNC) using local port `tcp/5985` (`localhost:5985`). To connect, use a VNC client of your choice, e.g., `RealVNC`, `Remmina`, or `ultraVNC`. In macOS, you can use its pre-installed VNC client, **Screen Sharing**.
 
-1. Install Windows from an ISO image.
+1. Follow the on-screen instructions to install Windows from the ISO.
 
-   When installing Windows, in the OS drive selection menu, select **Load driver** to load the `virtio-storage` driver (`viostor`). 
+    When prompted to select a storage for OS installation, select **Load driver** to install the `virtio-storage` driver.
 
-1. Once the installation is complete, log in and install the VirtIO drivers from the `virtio-win-guest-tools.exe` file located on the VirtIO drive.
+    {% note tip %}
 
-1. Make sure your system has **Remote desktop connection** (RDP) installed.
+    The driver is located in the `viostor` directory on the virtual CD-ROM where the ISO file with `Windows VirtIO` drivers is mounted. In the `viostor` directory, select a subdirectory that corresponds to your OS version.
 
-1. Configure Windows to best suit the needs of your users.
+    {% endnote %}
+
+1. Once the OS installation is complete, log in and install the required hardware drivers by running `virtio-win-guest-tools.exe` from the root of the mounted CD with `Windows VirtIO` drivers.
+1. Make sure your OS has **Remote desktop connection** (RDP) installed and running.
+1. Configure Windows and install software to best suit the needs of your users.
 
 ## Configuring an image to work in {{ yandex-cloud }} {#windows-cloud}
 
 1. Run `cmd` as an administrator.
-
 1. Activate `serial console` for the OS bootloader.
 
-     ```cmd
-     bcdedit /ems "{current}" on
-     bcdedit /emssettings EMSPORT:2 EMSBAUDRATE:115200
-     ```
-
+    ```cmd
+    bcdedit /ems "{current}" on
+    bcdedit /emssettings EMSPORT:2 EMSBAUDRATE:115200
+    ```
 1. Disable power saving settings:
 
-     ```cmd
-     powercfg -setactive "8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c"
-     powercfg -change -monitor-timeout-ac 0
-     powercfg -change -standby-timeout-ac 0
-     powercfg -change -hibernate-timeout-ac 0
-     ```
-
+    ```cmd
+    powercfg -setactive "8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c"
+    powercfg -change -monitor-timeout-ac 0
+    powercfg -change -standby-timeout-ac 0
+    powercfg -change -hibernate-timeout-ac 0
+    ```
 1. Run `PowerShell` as an administrator.
-  
 1. For virtualized hardware clocks, set the time format to UTC:
 
-     ```powershell
-     #ps1
-     Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\TimeZoneInformation" -Name "RealTimeIsUniversal" -Value 1 -Type DWord -Force
-     ```
-
+    ```powershell
+    #ps1
+    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Control\TimeZoneInformation" -Name "RealTimeIsUniversal" -Value 1 -Type DWord -Force
+    ```
 1. Disable automatic local IPv4 addressing (APIPA) for network interfaces that got no IP address assigned:
 
-     ```powershell
-     #ps1
-     Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters" -Name "IPAutoconfigurationEnabled" -Value 0 -Type DWord -Force
-     ```
-
+    ```powershell
+    #ps1
+    Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters" -Name "IPAutoconfigurationEnabled" -Value 0 -Type DWord -Force
+    ```
 1. Allow OS shutdown if there are no active user sessions:
 
-     ```powershell
-     #ps1
-     Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "ShutdownWithoutLogon" -Value 1
-     ```
-
+    ```powershell
+    #ps1
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" -Name "ShutdownWithoutLogon" -Value 1
+    ```
 1. Set the minimum OS shutdown warning display time when there are active user processes:
 
-     ```powershell
-     #ps1
-     Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows" -Name "ShutdownWarningDialogTimeout" -Value 1
-     ```
-
+    ```powershell
+    #ps1
+    Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows" -Name "ShutdownWarningDialogTimeout" -Value 1
+    ```
 1. Disable automatic disk optimization (defragmentation/TRIM):
 
-     ```powershell
-     #ps1
-     Get-ScheduledTask -TaskName "ScheduledDefrag" | Disable-ScheduledTask
-     ```
-
+    ```powershell
+    #ps1
+    Get-ScheduledTask -TaskName "ScheduledDefrag" | Disable-ScheduledTask
+    ```
 1. Allow ICMPv4 traffic (if Windows Firewall is not disabled):
 
-     ```powershell
-     #ps1
-     Get-NetFirewallRule -Name "vm-monitoring-icmpv4" | Enable-NetFirewallRule
-     ```
+    ```powershell
+    #ps1
+    Get-NetFirewallRule -Name "vm-monitoring-icmpv4" | Enable-NetFirewallRule
+    ```
+1. Optionally, enable RDP connections requiring user authentication:
 
-1. Enable RDP connections requiring user authentication:
+    {% note info %}
 
-     ```powershell
-     #ps1
-     Get-CimInstance -ClassName Win32_TSGeneralSetting -Namespace root\cimv2\terminalservices | Invoke-CimMethod -MethodName SetUserAuthenticationRequired -Arguments @{ UserAuthenticationRequired = 1 }
-     Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server" -Name "fDenyTSConnections" -Value 0
-     Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
-     ```
+    The commands below enable connections to a built-in RDP server in a Windows OS. If the RDP server is unavailable in your OS, the command will return an error.
 
+    In Russian versions of Windows, the `Remote Desktop` firewall rule group may have a localized name. If the command with the `-DisplayGroup "Remote Desktop"` parameter fails, specify the localized group name.
+
+    {% endnote %}
+
+    ```powershell
+    #ps1
+    Get-CimInstance -ClassName Win32_TSGeneralSetting -Namespace root\cimv2\terminalservices | Invoke-CimMethod -MethodName SetUserAuthenticationRequired -Arguments @{ UserAuthenticationRequired = 1 }
+    Set-ItemProperty -Path "HKLM:\System\CurrentControlSet\Control\Terminal Server" -Name "fDenyTSConnections" -Value 0
+    Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+    ```
 
 ## Installing the cloud agent {#agent-install}
 
@@ -168,7 +196,7 @@ To configure an image you will need:
 1. Install the cloud agent:
 
     ```powershell
-    Invoke-WebRequest 'https://storage.yandexcloud.net/yandexcloud-vdi-agent/install.ps1' -OutFile "$($Env:temp)\install.ps1"
+    Invoke-WebRequest 'https://{{ s3-storage-host }}/yandexcloud-vdi-agent/install.ps1' -OutFile "$($Env:temp)\install.ps1"
     cd $($Env:temp)
     Powershell.exe -ExecutionPolicy Bypass -File .\install.ps1
     mkdir "C:\Program Files\Yandex.Cloud\Cloud Desktop\"
@@ -208,17 +236,37 @@ To configure an image you will need:
         -Protocol "TCP" `
         -Program "$ServicePath"
     ```
-
 1. Create a task for the VM to run correctly after it is first started:
 
     ```powershell
     & mkdir "C:\Scripts"
     & schtasks /Create /TN "SetNetSettings" /RU System /SC ONSTART /RL HIGHEST /TR "Powershell -NoProfile -ExecutionPolicy Bypass -File \`"C:\Scripts\StartupSettings.ps1`"" | Out-Null
     ```
-
-1. In the `C:\Scripts` directory, create a file named `StartupSettings.ps1` with the contents as follows:
+1. In the `C:\Scripts` folder, create a file named `StartupSettings.ps1` with the following contents:
   
     ```powershell
+    # Find the default gateway to route metadata service to it
+    $output = Get-WmiObject -Class Win32_IP4RouteTable | Where-Object { $_.Destination -eq '0.0.0.0' -and $_.Mask -eq '0.0.0.0' } | Sort-Object Metric1 | Select-Object -ExpandProperty NextHop
+
+    if (-not $output) {
+        # Practically unreachable
+        Write-Error "Default gateway was not found!"
+        exit
+    }
+
+    # If a route for the metadata address already exists, we will replace it
+    $routeToRemove = Get-WmiObject -Class Win32_IP4RouteTable | Where-Object { $_.Destination -eq '169.254.169.254' } | Select-Object -ExpandProperty Destination
+
+    if ($routeToRemove) {
+        Write-Output "Route for 169.254.169.254 already exists"
+        $routeToRemove | ForEach-Object {
+          route delete $routeToRemove
+        }
+        Write-Output "Deleted old route for metadata address"
+    }
+
+    route -p add 169.254.169.254 mask 255.255.255.255 $output metric 1
+
     # Getting IPv6 Net Adapter
     $IPv6Adapter = Get-NetAdapter | where {$_.Linklayeraddress -like "D0-1D*"}
 
@@ -230,7 +278,7 @@ To configure an image you will need:
     }
 
     if(!$(Get-Service -DisplayName "Yandex Desktop Agent") -or !$(Get-Item -Path "C:\Program Files\Yandex.Cloud\Cloud Desktop\desktopagent.exe" -ErrorAction SilentlyContinue)) {
-        Invoke-WebRequest 'https://storage.yandexcloud.net/yandexcloud-vdi-agent/install.ps1' -OutFile "$($Env:temp)\install.ps1"
+        Invoke-WebRequest 'https://{{ s3-storage-host }}/yandexcloud-vdi-agent/install.ps1' -OutFile "$($Env:temp)\install.ps1"
         cd $($Env:temp)
         Powershell.exe -ExecutionPolicy Bypass -File .\install.ps1
         mkdir "C:\Program Files\Yandex.Cloud\Cloud Desktop\"
@@ -312,14 +360,32 @@ To configure an image you will need:
         foreach($RAWDisk in $RAWDisks) { 
             $outNull = Initialize-Disk -Number $RAWDisk.Number -PartitionStyle GPT -PassThru | New-Partition -AssignDriveLetter -UseMaximumSize | Format-Volume -FileSystem NTFS -NewFileSystemLabel "UserData" -Confirm:$false
         } 
+    }  
+
+
+    if ($LASTEXITCODE -eq 0) {
+        Write-Output "Successfully create route for metadata service"
+    } else {
+        Write-Error "Error on creating route for metadata service! Exit code: $LASTEXITCODE"
     }
     ```
+
+    The above script contains settings for startup and operation of the {{ cloud-desktop-name }} cloud agent’s system service as well as settings of the network route to the [metadata service](../../../compute/concepts/vm-metadata.md) available from inside the VM.
+
+    {% note warning %}
+
+    The metadata service is available at `http://169.254.169.254`.
+    
+    Do not restrict network access to this address from your OS. {{ cloud-desktop-name }} requires access to VM metadata to work correctly.
+
+    {% endnote %}
+
 
 ## Installing Cloudbase-Init {#cloudbase-init}
 
 You can install [Cloudbase-Init](https://cloudbase.it/cloudbase-init/) to the image you prepared. When using an image in {{ cloud-desktop-name }}, this service automatically expands the file system and OS boot partition to the boot disk's actual size.
 
-To install Cloudbase-Init, run these PowerShell commands:
+To install Cloudbase-Init, run the following commands in PowerShell as an administrator:
 
 ```powershell
 # Install Cloudbase-Init
@@ -359,7 +425,7 @@ $outScript | Out-File -FilePath "C:\Program Files\Cloudbase Solutions\Cloudbase-
 
 After you are done with configuration, we recommend you to [generalize your image](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/sysprep--generalize--a-windows-installation) with the help of the `Sysrep` utility. This will prepare Windows for cloning and for later use on other computers. 
 
-To generalize the image, run PowerShell as an administrator and run the following commands:
+To generalize the image, start PowerShell as an administrator and run the following commands:
 
 ```powershell
 # Global vars
@@ -367,7 +433,7 @@ $WorkDirectory = "C:\sysprep"
 
 # Download the unattend.xml file for Sysprep
 New-Item -Path $WorkDirectory -ItemType Directory
-Start-BitsTransfer https://storage.yandexcloud.net/cloudbase/sysprepunattend-cloudbase-init.xml -Destination $WorkDirectory\unattend.xml
+Start-BitsTransfer https://{{ s3-storage-host }}/cloudbase/sysprepunattend-cloudbase-init.xml -Destination $WorkDirectory\unattend.xml
 
 # Start Sysprep
 & $env:SystemRoot\System32\Sysprep\Sysprep.exe /oobe /generalize /quiet /quit /unattend:"$WorkDirectory\unattend.xml"
@@ -390,30 +456,31 @@ while (-not (Test-Path 'C:\Windows\System32\Sysprep\Sysprep_succeeded.tag') ) {
 Stop-Computer -Force
 ```
 
-Turn off the VM. The result will be a disk image file named `image.qcow2` in QCOW2 format.
-
+Upon completion, the script’s final command will stop the VM and save the VM boot image locally to the previously created `image.qcow2` file, in [QCOW2](https://en.wikipedia.org/wiki/Qcow) format.
 
 ## Adding an image to {{ compute-name }} {#image-to-compute}
 
-1. [Upload the image](../../../storage/operations/objects/upload.md) to {{ objstorage-name }}.
-1. [Copy a link](../../../storage/operations/objects/link-for-download.md) to the uploaded image.
-1. [Import the image](../../../compute/operations/image-create/upload.md) to {{ compute-name }}.
-   
-    If using the [YC CLI](../../../cli/quickstart.md), you can import the image by running the following command:
+1. [Upload the image](../../../storage/operations/objects/upload.md) to {{ objstorage-full-name }}.
+1. [Get a link](../../../storage/operations/objects/link-for-download.md) to the uploaded image.
+1. [Import the image](../../../compute/operations/image-create/upload.md) to {{ compute-full-name }}.
 
-    ```bash
-    yc compute image create --name <image name> --description <image description> --os-type windows --source-uri <link to image in Object Storage>
-    ```
+    If using the [{{ yandex-cloud }} CLI](../../../cli/quickstart.md), you can import the image by running the following command and specifying the link you got earlier:
 
-1. Check the image you added:
-   1. [Create a VM](../../../compute/operations/vm-create/create-from-user-image.md) from the image.
+    {% list tabs group=instructions %}
 
-      When you start a VM in the cloud from an image for the first time, it may take longer than a normal OS boot. If the VM is unavailable over the network for more than 20 minutes, reboot the VM and try to reconnect.
+    - {{ yandex-cloud }} CLI {#cli}
 
-   1. Connect to the VM over RDP.
+      ```bash
+      yc compute image create \
+        --name <image_name> \
+        --description <image_description> \
+        --os-type windows \
+        --source-uri "<link_to_image_in_Object_Storage>"
+      ```
 
+    {% endlist %}
 
-## Adding an image to {{ cloud-desktop-name }} {##image-to-desktop}
+## Adding an image to {{ cloud-desktop-name }} {#image-to-desktop}
 
 {% list tabs group=instructions %}
 
@@ -425,7 +492,7 @@ Turn off the VM. The result will be a disk image file named `image.qcow2` in QCO
   1. Click **{{ ui-key.yacloud.vdi.button_add-image }}**.
   1. In the **{{ ui-key.yacloud.vdi.label_image-source }}** field, select `{{ ui-key.yacloud.iam.folder.dashboard.label_compute }}`.
   1. In the **{{ ui-key.yacloud.vdi.label_image }}** field, select the image you added earlier.
-  1. Specify the image name.
+  1. Specify a name for the new image.
   1. Click **{{ ui-key.yacloud.common.add }}**.
 
 {% endlist %}
@@ -436,5 +503,6 @@ Once the image is created, you can use it as a boot disk image for desktop group
 
 If you are not using Cloudbase-Init and you want to resize the boot disk in a desktop group:
 
-1. Increase the boot disk file system size on your desktop, e.g., using the `diskmgmt.msc` utility.
-1. [Create a new {{ cloud-desktop-name }} image](create-from-desktop.md) from that desktop.
+1. Increase the boot disk file system size on your desktop, e.g., using the `diskmgmt.msc` snap-in.
+1. [Create](create-from-desktop.md) a new {{ cloud-desktop-name }} image from that desktop.
+1. Use the new image as a boot disk image for desktop groups.

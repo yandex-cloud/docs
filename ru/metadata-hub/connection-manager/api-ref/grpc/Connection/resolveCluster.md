@@ -35,6 +35,18 @@ ID of the connection to resolve cluster topology for. ||
 
 ```json
 {
+  // Includes only one of the fields `lockbox_secret`
+  "lockbox_secret": {
+    "id": "string",
+    "version": "string",
+    "newest_version": "string"
+  },
+  // end of the list of possible fields
+  // Includes only one of the fields `lockbox_secret_spec`
+  "lockbox_secret_spec": {
+    "folder_id": "string"
+  },
+  // end of the list of possible fields
   "id": "string",
   "folder_id": "string",
   "created_at": "google.protobuf.Timestamp",
@@ -47,6 +59,14 @@ ID of the connection to resolve cluster topology for. ||
     // Includes only one of the fields `postgresql`, `mysql`, `mongodb`, `clickhouse`, `kafka`, `redis`, `opensearch`, `trino`, `valkey`, `greenplum`, `storedoc`
     "postgresql": {
       "cluster": {
+        "tls_params": {
+          // Includes only one of the fields `disabled`, `tls`
+          "disabled": "google.protobuf.Empty",
+          "tls": {
+            "ca_certificate": "string"
+          }
+          // end of the list of possible fields
+        },
         "hosts": [
           {
             "host": "string",
@@ -55,15 +75,7 @@ ID of the connection to resolve cluster topology for. ||
             "replica_type": "ReplicaType",
             "health": "Health"
           }
-        ],
-        "tls_params": {
-          // Includes only one of the fields `disabled`, `tls`
-          "disabled": "google.protobuf.Empty",
-          "tls": {
-            "ca_certificate": "string"
-          }
-          // end of the list of possible fields
-        }
+        ]
       },
       "managed_cluster_id": "string",
       "auth": {
@@ -71,9 +83,11 @@ ID of the connection to resolve cluster topology for. ||
         "user_password": {
           "user": "string",
           "password": {
+            // Includes only one of the fields `lockbox_secret_key`
+            "lockbox_secret_key": "string",
+            // end of the list of possible fields
             "raw": "string",
             "password_generation_options": {
-              "cookie": "string",
               // Includes only one of the fields `lockbox_password_generation_options`
               "lockbox_password_generation_options": {
                 "length": "int64",
@@ -83,12 +97,10 @@ ID of the connection to resolve cluster topology for. ||
                 "include_punctuation": "google.protobuf.BoolValue",
                 "included_punctuation": "string",
                 "excluded_punctuation": "string"
-              }
+              },
               // end of the list of possible fields
-            },
-            // Includes only one of the fields `lockbox_secret_key`
-            "lockbox_secret_key": "string"
-            // end of the list of possible fields
+              "cookie": "string"
+            }
           }
         }
         // end of the list of possible fields
@@ -99,14 +111,6 @@ ID of the connection to resolve cluster topology for. ||
     },
     "mysql": {
       "cluster": {
-        "hosts": [
-          {
-            "host": "string",
-            "port": "int64",
-            "role": "Role",
-            "health": "Health"
-          }
-        ],
         "tls_params": {
           // Includes only one of the fields `disabled`, `tls`
           "disabled": "google.protobuf.Empty",
@@ -114,7 +118,15 @@ ID of the connection to resolve cluster topology for. ||
             "ca_certificate": "string"
           }
           // end of the list of possible fields
-        }
+        },
+        "hosts": [
+          {
+            "host": "string",
+            "port": "int64",
+            "role": "Role",
+            "health": "Health"
+          }
+        ]
       },
       "managed_cluster_id": "string",
       "auth": {
@@ -122,9 +134,11 @@ ID of the connection to resolve cluster topology for. ||
         "user_password": {
           "user": "string",
           "password": {
+            // Includes only one of the fields `lockbox_secret_key`
+            "lockbox_secret_key": "string",
+            // end of the list of possible fields
             "raw": "string",
             "password_generation_options": {
-              "cookie": "string",
               // Includes only one of the fields `lockbox_password_generation_options`
               "lockbox_password_generation_options": {
                 "length": "int64",
@@ -134,12 +148,10 @@ ID of the connection to resolve cluster topology for. ||
                 "include_punctuation": "google.protobuf.BoolValue",
                 "included_punctuation": "string",
                 "excluded_punctuation": "string"
-              }
+              },
               // end of the list of possible fields
-            },
-            // Includes only one of the fields `lockbox_secret_key`
-            "lockbox_secret_key": "string"
-            // end of the list of possible fields
+              "cookie": "string"
+            }
           }
         }
         // end of the list of possible fields
@@ -174,9 +186,11 @@ ID of the connection to resolve cluster topology for. ||
         "user_password": {
           "user": "string",
           "password": {
+            // Includes only one of the fields `lockbox_secret_key`
+            "lockbox_secret_key": "string",
+            // end of the list of possible fields
             "raw": "string",
             "password_generation_options": {
-              "cookie": "string",
               // Includes only one of the fields `lockbox_password_generation_options`
               "lockbox_password_generation_options": {
                 "length": "int64",
@@ -186,12 +200,10 @@ ID of the connection to resolve cluster topology for. ||
                 "include_punctuation": "google.protobuf.BoolValue",
                 "included_punctuation": "string",
                 "excluded_punctuation": "string"
-              }
+              },
               // end of the list of possible fields
-            },
-            // Includes only one of the fields `lockbox_secret_key`
-            "lockbox_secret_key": "string"
-            // end of the list of possible fields
+              "cookie": "string"
+            }
           }
         },
         // end of the list of possible fields
@@ -235,9 +247,11 @@ ID of the connection to resolve cluster topology for. ||
         "user_password": {
           "user": "string",
           "password": {
+            // Includes only one of the fields `lockbox_secret_key`
+            "lockbox_secret_key": "string",
+            // end of the list of possible fields
             "raw": "string",
             "password_generation_options": {
-              "cookie": "string",
               // Includes only one of the fields `lockbox_password_generation_options`
               "lockbox_password_generation_options": {
                 "length": "int64",
@@ -247,12 +261,10 @@ ID of the connection to resolve cluster topology for. ||
                 "include_punctuation": "google.protobuf.BoolValue",
                 "included_punctuation": "string",
                 "excluded_punctuation": "string"
-              }
+              },
               // end of the list of possible fields
-            },
-            // Includes only one of the fields `lockbox_secret_key`
-            "lockbox_secret_key": "string"
-            // end of the list of possible fields
+              "cookie": "string"
+            }
           }
         }
         // end of the list of possible fields
@@ -285,9 +297,11 @@ ID of the connection to resolve cluster topology for. ||
         "sasl": {
           "user": "string",
           "password": {
+            // Includes only one of the fields `lockbox_secret_key`
+            "lockbox_secret_key": "string",
+            // end of the list of possible fields
             "raw": "string",
             "password_generation_options": {
-              "cookie": "string",
               // Includes only one of the fields `lockbox_password_generation_options`
               "lockbox_password_generation_options": {
                 "length": "int64",
@@ -297,12 +311,10 @@ ID of the connection to resolve cluster topology for. ||
                 "include_punctuation": "google.protobuf.BoolValue",
                 "included_punctuation": "string",
                 "excluded_punctuation": "string"
-              }
+              },
               // end of the list of possible fields
-            },
-            // Includes only one of the fields `lockbox_secret_key`
-            "lockbox_secret_key": "string"
-            // end of the list of possible fields
+              "cookie": "string"
+            }
           },
           "supported_mechanisms": [
             "Mechanism"
@@ -338,9 +350,11 @@ ID of the connection to resolve cluster topology for. ||
         "user_password": {
           "user": "string",
           "password": {
+            // Includes only one of the fields `lockbox_secret_key`
+            "lockbox_secret_key": "string",
+            // end of the list of possible fields
             "raw": "string",
             "password_generation_options": {
-              "cookie": "string",
               // Includes only one of the fields `lockbox_password_generation_options`
               "lockbox_password_generation_options": {
                 "length": "int64",
@@ -350,12 +364,10 @@ ID of the connection to resolve cluster topology for. ||
                 "include_punctuation": "google.protobuf.BoolValue",
                 "included_punctuation": "string",
                 "excluded_punctuation": "string"
-              }
+              },
               // end of the list of possible fields
-            },
-            // Includes only one of the fields `lockbox_secret_key`
-            "lockbox_secret_key": "string"
-            // end of the list of possible fields
+              "cookie": "string"
+            }
           }
         }
         // end of the list of possible fields
@@ -391,9 +403,11 @@ ID of the connection to resolve cluster topology for. ||
         "user_password": {
           "user": "string",
           "password": {
+            // Includes only one of the fields `lockbox_secret_key`
+            "lockbox_secret_key": "string",
+            // end of the list of possible fields
             "raw": "string",
             "password_generation_options": {
-              "cookie": "string",
               // Includes only one of the fields `lockbox_password_generation_options`
               "lockbox_password_generation_options": {
                 "length": "int64",
@@ -403,12 +417,10 @@ ID of the connection to resolve cluster topology for. ||
                 "include_punctuation": "google.protobuf.BoolValue",
                 "included_punctuation": "string",
                 "excluded_punctuation": "string"
-              }
+              },
               // end of the list of possible fields
-            },
-            // Includes only one of the fields `lockbox_secret_key`
-            "lockbox_secret_key": "string"
-            // end of the list of possible fields
+              "cookie": "string"
+            }
           }
         }
         // end of the list of possible fields
@@ -434,9 +446,11 @@ ID of the connection to resolve cluster topology for. ||
         "user_password": {
           "user": "string",
           "password": {
+            // Includes only one of the fields `lockbox_secret_key`
+            "lockbox_secret_key": "string",
+            // end of the list of possible fields
             "raw": "string",
             "password_generation_options": {
-              "cookie": "string",
               // Includes only one of the fields `lockbox_password_generation_options`
               "lockbox_password_generation_options": {
                 "length": "int64",
@@ -446,12 +460,10 @@ ID of the connection to resolve cluster topology for. ||
                 "include_punctuation": "google.protobuf.BoolValue",
                 "included_punctuation": "string",
                 "excluded_punctuation": "string"
-              }
+              },
               // end of the list of possible fields
-            },
-            // Includes only one of the fields `lockbox_secret_key`
-            "lockbox_secret_key": "string"
-            // end of the list of possible fields
+              "cookie": "string"
+            }
           }
         }
         // end of the list of possible fields
@@ -484,9 +496,11 @@ ID of the connection to resolve cluster topology for. ||
         "user_password": {
           "user": "string",
           "password": {
+            // Includes only one of the fields `lockbox_secret_key`
+            "lockbox_secret_key": "string",
+            // end of the list of possible fields
             "raw": "string",
             "password_generation_options": {
-              "cookie": "string",
               // Includes only one of the fields `lockbox_password_generation_options`
               "lockbox_password_generation_options": {
                 "length": "int64",
@@ -496,12 +510,10 @@ ID of the connection to resolve cluster topology for. ||
                 "include_punctuation": "google.protobuf.BoolValue",
                 "included_punctuation": "string",
                 "excluded_punctuation": "string"
-              }
+              },
               // end of the list of possible fields
-            },
-            // Includes only one of the fields `lockbox_secret_key`
-            "lockbox_secret_key": "string"
-            // end of the list of possible fields
+              "cookie": "string"
+            }
           }
         }
         // end of the list of possible fields
@@ -535,9 +547,11 @@ ID of the connection to resolve cluster topology for. ||
         "user_password": {
           "user": "string",
           "password": {
+            // Includes only one of the fields `lockbox_secret_key`
+            "lockbox_secret_key": "string",
+            // end of the list of possible fields
             "raw": "string",
             "password_generation_options": {
-              "cookie": "string",
               // Includes only one of the fields `lockbox_password_generation_options`
               "lockbox_password_generation_options": {
                 "length": "int64",
@@ -547,12 +561,10 @@ ID of the connection to resolve cluster topology for. ||
                 "include_punctuation": "google.protobuf.BoolValue",
                 "included_punctuation": "string",
                 "excluded_punctuation": "string"
-              }
+              },
               // end of the list of possible fields
-            },
-            // Includes only one of the fields `lockbox_secret_key`
-            "lockbox_secret_key": "string"
-            // end of the list of possible fields
+              "cookie": "string"
+            }
           }
         }
         // end of the list of possible fields
@@ -587,9 +599,11 @@ ID of the connection to resolve cluster topology for. ||
         "user_password": {
           "user": "string",
           "password": {
+            // Includes only one of the fields `lockbox_secret_key`
+            "lockbox_secret_key": "string",
+            // end of the list of possible fields
             "raw": "string",
             "password_generation_options": {
-              "cookie": "string",
               // Includes only one of the fields `lockbox_password_generation_options`
               "lockbox_password_generation_options": {
                 "length": "int64",
@@ -599,12 +613,10 @@ ID of the connection to resolve cluster topology for. ||
                 "include_punctuation": "google.protobuf.BoolValue",
                 "included_punctuation": "string",
                 "excluded_punctuation": "string"
-              }
+              },
               // end of the list of possible fields
-            },
-            // Includes only one of the fields `lockbox_secret_key`
-            "lockbox_secret_key": "string"
-            // end of the list of possible fields
+              "cookie": "string"
+            }
           }
         },
         // end of the list of possible fields
@@ -616,18 +628,6 @@ ID of the connection to resolve cluster topology for. ||
     }
     // end of the list of possible fields
   },
-  // Includes only one of the fields `lockbox_secret`
-  "lockbox_secret": {
-    "id": "string",
-    "version": "string",
-    "newest_version": "string"
-  },
-  // end of the list of possible fields
-  // Includes only one of the fields `lockbox_secret_spec`
-  "lockbox_secret_spec": {
-    "folder_id": "string"
-  },
-  // end of the list of possible fields
   "is_managed": "bool",
   "can_use": "google.protobuf.BoolValue"
 }
@@ -637,6 +637,20 @@ A Connection resource represents a configured connection to a database or servic
 
 #|
 ||Field | Description ||
+|| lockbox_secret | **[LockboxSecret](#yandex.cloud.connectionmanager.v1.LockboxSecret)**
+
+Reference to the Lockbox secret containing connection credentials.
+
+Includes only one of the fields `lockbox_secret`.
+
+Secret configuration for authentication. ||
+|| lockbox_secret_spec | **[LockboxSecretSpec](#yandex.cloud.connectionmanager.v1.LockboxSecretSpec)**
+
+Specification for creating a new Lockbox secret.
+
+Includes only one of the fields `lockbox_secret_spec`.
+
+Secret specification for creating a new secret. ||
 || id | **string**
 
 ID of the connection. Generated at creation time. ||
@@ -664,26 +678,40 @@ ID of the subject which created the connection. ||
 || params | **[ConnectionParams](#yandex.cloud.connectionmanager.v1.ConnectionParams)**
 
 Connection parameters specific to the database or service type. ||
-|| lockbox_secret | **[LockboxSecret](#yandex.cloud.connectionmanager.v1.LockboxSecret)**
-
-Reference to the Lockbox secret containing connection credentials.
-
-Includes only one of the fields `lockbox_secret`.
-
-Secret configuration for authentication. ||
-|| lockbox_secret_spec | **[LockboxSecretSpec](#yandex.cloud.connectionmanager.v1.LockboxSecretSpec)**
-
-Specification for creating a new Lockbox secret.
-
-Includes only one of the fields `lockbox_secret_spec`.
-
-Secret specification for creating a new secret. ||
 || is_managed | **bool**
 
 Whether this connection is managed by the system (e.g. an MDB cluster). ||
 || can_use | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
 
 Whether the current user can use this connection. Filled only when `with_can_use` has been requested in ListConnectionRequest. ||
+|#
+
+## LockboxSecret {#yandex.cloud.connectionmanager.v1.LockboxSecret}
+
+Reference to a Lockbox secret.
+
+#|
+||Field | Description ||
+|| id | **string**
+
+ID of the Lockbox secret. ||
+|| version | **string**
+
+Lockbox secret version. ||
+|| newest_version | **string**
+
+The newest available version of the Lockbox secret. ||
+|#
+
+## LockboxSecretSpec {#yandex.cloud.connectionmanager.v1.LockboxSecretSpec}
+
+Specification for creating a new Lockbox secret.
+
+#|
+||Field | Description ||
+|| folder_id | **string**
+
+ID of the folder where the Lockbox secret will be created. If omitted, the secret will be created in the connection's folder. ||
 |#
 
 ## ConnectionParams {#yandex.cloud.connectionmanager.v1.ConnectionParams}
@@ -791,8 +819,27 @@ mutually exclusive with "cluster". ||
 
 #|
 ||Field | Description ||
-|| hosts[] | **[Host](#yandex.cloud.connectionmanager.v1.PostgreSQLCluster.Host)** ||
 || tls_params | **[TLSParams](#yandex.cloud.connectionmanager.v1.TLSParams)** ||
+|| hosts[] | **[Host](#yandex.cloud.connectionmanager.v1.PostgreSQLCluster.Host)** ||
+|#
+
+## TLSParams {#yandex.cloud.connectionmanager.v1.TLSParams}
+
+#|
+||Field | Description ||
+|| disabled | **[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)**
+
+Includes only one of the fields `disabled`, `tls`. ||
+|| tls | **[TLSConfig](#yandex.cloud.connectionmanager.v1.TLSConfig)**
+
+Includes only one of the fields `disabled`, `tls`. ||
+|#
+
+## TLSConfig {#yandex.cloud.connectionmanager.v1.TLSConfig}
+
+#|
+||Field | Description ||
+|| ca_certificate | **string** ||
 |#
 
 ## Host {#yandex.cloud.connectionmanager.v1.PostgreSQLCluster.Host}
@@ -818,25 +865,6 @@ mutually exclusive with "cluster". ||
 - `READONLY` ||
 |#
 
-## TLSParams {#yandex.cloud.connectionmanager.v1.TLSParams}
-
-#|
-||Field | Description ||
-|| disabled | **[google.protobuf.Empty](https://developers.google.com/protocol-buffers/docs/reference/google.protobuf#google.protobuf.Empty)**
-
-Includes only one of the fields `disabled`, `tls`. ||
-|| tls | **[TLSConfig](#yandex.cloud.connectionmanager.v1.TLSConfig)**
-
-Includes only one of the fields `disabled`, `tls`. ||
-|#
-
-## TLSConfig {#yandex.cloud.connectionmanager.v1.TLSConfig}
-
-#|
-||Field | Description ||
-|| ca_certificate | **string** ||
-|#
-
 ## PostgreSQLAuth {#yandex.cloud.connectionmanager.v1.PostgreSQLAuth}
 
 #|
@@ -858,6 +886,11 @@ Includes only one of the fields `user_password`. ||
 
 #|
 ||Field | Description ||
+|| lockbox_secret_key | **string**
+
+Read-only. Do not fill this field in create/update requests.
+
+Includes only one of the fields `lockbox_secret_key`. ||
 || raw | **string**
 
 When creating/updating Password, the field "raw" is mutually exclusive
@@ -870,17 +903,15 @@ When creating/updating Password, the field "password_generation_options"
 is mutually exclusive with "raw". In order to switch to the
 "password_generation_options" you have to explicitly clear the "raw"
 field. ||
-|| lockbox_secret_key | **string**
-
-Read-only. Do not fill this field in create/update requests.
-
-Includes only one of the fields `lockbox_secret_key`. ||
 |#
 
 ## PasswordGenerationOptions {#yandex.cloud.connectionmanager.v1.PasswordGenerationOptions}
 
 #|
 ||Field | Description ||
+|| lockbox_password_generation_options | **[LockboxPasswordGenerationOptions](#yandex.cloud.connectionmanager.v1.LockboxPasswordGenerationOptions)**
+
+Includes only one of the fields `lockbox_password_generation_options`. ||
 || cookie | **string**
 
 Cookie is an arbitrary non-sensitive string that is saved with the
@@ -888,9 +919,6 @@ password. When updating PasswordGenerationOptions, if the cookie passed
 in the update request differs from the cookie in the current
 PasswordGenerationOptions, the password will be re-generated. If the
 same cookie is passed, the password will not change. ||
-|| lockbox_password_generation_options | **[LockboxPasswordGenerationOptions](#yandex.cloud.connectionmanager.v1.LockboxPasswordGenerationOptions)**
-
-Includes only one of the fields `lockbox_password_generation_options`. ||
 |#
 
 ## LockboxPasswordGenerationOptions {#yandex.cloud.connectionmanager.v1.LockboxPasswordGenerationOptions}
@@ -943,8 +971,8 @@ mutually exclusive with "cluster". ||
 
 #|
 ||Field | Description ||
-|| hosts[] | **[Host](#yandex.cloud.connectionmanager.v1.MySQLCluster.Host)** ||
 || tls_params | **[TLSParams](#yandex.cloud.connectionmanager.v1.TLSParams)** ||
+|| hosts[] | **[Host](#yandex.cloud.connectionmanager.v1.MySQLCluster.Host)** ||
 |#
 
 ## Host {#yandex.cloud.connectionmanager.v1.MySQLCluster.Host}
@@ -1452,32 +1480,4 @@ exclusive with "cluster". ||
 
 Includes only one of the fields `user_password`. ||
 || auth_source | **string** ||
-|#
-
-## LockboxSecret {#yandex.cloud.connectionmanager.v1.LockboxSecret}
-
-Reference to a Lockbox secret.
-
-#|
-||Field | Description ||
-|| id | **string**
-
-ID of the Lockbox secret. ||
-|| version | **string**
-
-Lockbox secret version. ||
-|| newest_version | **string**
-
-The newest available version of the Lockbox secret. ||
-|#
-
-## LockboxSecretSpec {#yandex.cloud.connectionmanager.v1.LockboxSecretSpec}
-
-Specification for creating a new Lockbox secret.
-
-#|
-||Field | Description ||
-|| folder_id | **string**
-
-ID of the folder where the Lockbox secret will be created. If omitted, the secret will be created in the connection's folder. ||
 |#

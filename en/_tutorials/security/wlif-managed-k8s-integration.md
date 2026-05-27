@@ -213,7 +213,7 @@ The infrastructure support cost includes:
       1. In the [management console]({{ link-console-main }}), select the folder where you created the service account.
       1. Navigate to the **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** tab.
       1. Click **{{ ui-key.yacloud.common.resource-acl.button_configure-access }}**.
-      1. In the window that opens, select **{{ ui-key.yacloud_components.acl.label.service-accounts}}**.
+      1. In the window that opens, select **{{ ui-key.yacloud_components.acl.label.service-accounts }}**.
       1. Select the service account you created earlier.
       1. Click ![image](../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud_components.acl.button.add-role }}** and select the `{{ roles-lockbox-payloadviewer }}` [role](../../lockbox/security/index.md#lockbox-payloadViewer).
       1. Click **{{ ui-key.yacloud_components.acl.action.apply }}**.
@@ -304,8 +304,7 @@ The infrastructure support cost includes:
   1. In the [management console]({{ link-console-main }}), select the folder the service account was created in.
   1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_iam }}**.
   1. In the list of service accounts, select `sa-lockbox`.
-  1. Navigate to the **{{ ui-key.yacloud.iam.label_federations }}** tab.
-  1. Click **{{ ui-key.yacloud.iam.connected-federation.action_connect-federation }}**.
+  1. In the top panel, click ![image](../../_assets/console-icons/cpus.svg) **{{ ui-key.yacloud.iam.folder.service-account.overview.action_connect-federation }}**.
   1. In the **{{ ui-key.yacloud.iam.connected-federation.field_federation }}** field, select the federation you created earlier.
   1. In the **{{ ui-key.yacloud.iam.connected-federation.field_subject }}** field, specify the ID of the previously created {{ k8s }} service account in `system:serviceaccount:<namespace>:<{{ k8s }}_service_account_name>` format, where:
       * `namespace`: {{ k8s }} service account's `Namespace` field value, e.g., `default`.

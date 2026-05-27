@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-clickhouse/cli-ref/cluster/update-config
 editable: false
 ---
 
@@ -30,19 +31,16 @@ Set a parameter for a ClickHouse cluster. Can be specified multiple times. Accep
 - `background_pool_size`: Sets the number of threads performing background merges and mutations for MergeTree-engine tables.
 
   Default value: **16**.
-
-  Change of the setting is applied with restart on value decrease and without restart on value increase.
+Change of the setting is applied with restart on value decrease and without restart on value increase.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_pool_size).
 
 - `background_merges_mutations_concurrency_ratio`: Sets a ratio between the number of threads and the number of background merges and mutations that can be executed concurrently.
-
-  For example, if the ratio equals to **2** and **background_pool_size** is set to **16** then ClickHouse can execute **32** background merges concurrently.
+For example, if the ratio equals to **2** and **background_pool_size** is set to **16** then ClickHouse can execute **32** background merges concurrently.
 This is possible, because background operations could be suspended and postponed. This is needed to give small merges more execution priority.
 
   Default value: **2**.
-
-  Change of the setting is applied with restart on value decrease and without restart on value increase.
+Change of the setting is applied with restart on value decrease and without restart on value increase.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_merges_mutations_concurrency_ratio).
 
@@ -50,64 +48,56 @@ This is possible, because background operations could be suspended and postponed
 for replicated tables, Kafka streaming, and DNS cache updates.
 
   Default value: **512**.
-
-  Change of the setting is applied with restart on value decrease and without restart on value increase.
+Change of the setting is applied with restart on value decrease and without restart on value increase.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_schedule_pool_size).
 
 - `background_fetches_pool_size`: The maximum number of threads that will be used for fetching data parts from another replica for MergeTree-engine tables in a background.
 
   Default value: **32** for versions 25.1 and higher, **16** for versions 24.12 and lower.
-
-  Change of the setting is applied with restart.
+Change of the setting is applied with restart.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_fetches_pool_size).
 
 - `background_move_pool_size`: The maximum number of threads that will be used for moving data parts to another disk or volume for MergeTree-engine tables in a background.
 
   Default value: **8**.
-
-  Change of the setting is applied with restart on value decrease and without restart on value increase.
+Change of the setting is applied with restart on value decrease and without restart on value increase.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_move_pool_size).
 
 - `background_distributed_schedule_pool_size`: The maximum number of threads that will be used for executing distributed sends.
 
   Default value: **16**.
-
-  Change of the setting is applied with restart on value decrease and without restart on value increase.
+Change of the setting is applied with restart on value decrease and without restart on value increase.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_distributed_schedule_pool_size).
 
 - `background_buffer_flush_schedule_pool_size`: The maximum number of threads that will be used for performing flush operations for Buffer-engine tables in the background.
 
   Default value: **16**.
-
-  Change of the setting is applied with restart on value decrease and without restart on value increase.
+Change of the setting is applied with restart on value decrease and without restart on value increase.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_buffer_flush_schedule_pool_size).
 
 - `background_message_broker_schedule_pool_size`: The maximum number of threads that will be used for executing background operations for message streaming.
 
   Default value: **16**.
-
-  Change of the setting is applied with restart on value decrease and without restart on value increase.
+Change of the setting is applied with restart on value decrease and without restart on value increase.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_message_broker_schedule_pool_size).
 
 - `background_common_pool_size`: The maximum number of threads that will be used for performing a variety of operations (mostly garbage collection) for MergeTree-engine tables in a background.
 
   Default value: **8**.
-
-  Change of the setting is applied with restart on value decrease and without restart on value increase.
+Change of the setting is applied with restart on value decrease and without restart on value increase.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#background_common_pool_size).
 
 - `dictionaries_lazy_load`: Lazy loading of dictionaries. If enabled, then each dictionary is loaded on the first use. Otherwise, the server loads all dictionaries at startup.
 
   Default value: **true** for versions 25.1 and higher, **false** for versions 24.12 and lower.
-
-  Change of the setting is applied with restart.
+Change of the setting is applied with restart.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#dictionaries_lazy_load).
 
@@ -125,8 +115,7 @@ automatic removal of query_log data based on size is disabled.
 - `query_thread_log_enabled`: Enables or disables query_thread_log system table.
 
   Default value: **true**.
-
-  Change of the setting is applied with restart.
+Change of the setting is applied with restart.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/system-tables/query_thread_log).
 
@@ -153,8 +142,7 @@ automatic removal of part_log data based on time is disabled.
 - `metric_log_enabled`: Enables or disables metric_log system table.
 
   Default value: **false** for versions 25.1 and higher, **true** for versions 24.12 and lower.
-
-  Change of the setting is applied with restart.
+Change of the setting is applied with restart.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/system-tables/metric_log).
 
@@ -171,8 +159,7 @@ automatic removal of metric_log data based on time is disabled.
 - `trace_log_enabled`: Enables or disables trace_log system table.
 
   Default value: **true** for versions 25.2 and higher, **false** for versions 25.1 and lower.
-
-  Change of the setting is applied with restart.
+Change of the setting is applied with restart.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/system-tables/trace_log).
 
@@ -189,8 +176,7 @@ automatic removal of trace_log data based on time is disabled.
 - `text_log_enabled`: Enables or disables text_log system table.
 
   Default value: **false**.
-
-  Change of the setting is applied with restart.
+Change of the setting is applied with restart.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/system-tables/text_log).
 
@@ -207,14 +193,12 @@ automatic removal of text_log data based on time is disabled.
 - `text_log_level`: Logging level for text_log system table.
 
   Default value: **TRACE**.
-
-  Change of the setting is applied with restart.
+Change of the setting is applied with restart.
 
 - `opentelemetry_span_log_enabled`: Enables or disables opentelemetry_span_log system table.
 
   Default value: **false**.
-
-  Change of the setting is applied with restart.
+Change of the setting is applied with restart.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/system-tables/opentelemetry_span_log).
 
@@ -231,8 +215,7 @@ automatic removal of opentelemetry_span_log data based on time is disabled.
 - `query_views_log_enabled`: Enables or disables query_views_log system table.
 
   Default value: **false**.
-
-  Change of the setting is applied with restart.
+Change of the setting is applied with restart.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/system-tables/query_views_log).
 
@@ -249,8 +232,7 @@ automatic removal of query_views_log data based on time is disabled.
 - `asynchronous_metric_log_enabled`: Enables or disables asynchronous_metric_log system table.
 
   Default value: **false**.
-
-  Change of the setting is applied with restart.
+Change of the setting is applied with restart.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/system-tables/asynchronous_metric_log).
 
@@ -267,8 +249,7 @@ automatic removal of asynchronous_metric_log data based on time is disabled.
 - `session_log_enabled`: Enables or disables session_log system table.
 
   Default value: **true** for versions 25.3 and higher, **false** for versions 25.2 and lower.
-
-  Change of the setting is applied with restart.
+Change of the setting is applied with restart.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/system-tables/session_log).
 
@@ -285,8 +266,7 @@ automatic removal of session_log data based on time is disabled.
 - `zookeeper_log_enabled`: Enables or disables zookeeper_log system table.
 
   Default value: **false**.
-
-  Change of the setting is applied with restart.
+Change of the setting is applied with restart.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/system-tables/zookeeper_log).
 
@@ -303,8 +283,7 @@ automatic removal of zookeeper_log data based on time is disabled.
 - `asynchronous_insert_log_enabled`: Enables or disables asynchronous_insert_log system table.
 
   Default value: **false**.
-
-  Change of the setting is applied with restart.
+Change of the setting is applied with restart.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/system-tables/asynchronous_insert_log).
 
@@ -321,8 +300,7 @@ automatic removal of asynchronous_insert_log data based on time is disabled.
 - `processors_profile_log_enabled`: Enables or disables processors_profile_log system table.
 
   Default value: **true** for versions 25.2 and higher, **false** for versions 25.1 and lower.
-
-  Change of the setting is applied with restart.
+Change of the setting is applied with restart.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/system-tables/processors_profile_log).
 
@@ -339,8 +317,7 @@ automatic removal of processors_profile_log data based on time is disabled.
 - `error_log_enabled`: Enables or disables error_log system table.
 
   Default value: **false**.
-
-  Change of the setting is applied with restart.
+Change of the setting is applied with restart.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/system-tables/error_log).
 
@@ -357,8 +334,7 @@ automatic removal of error_log data based on time is disabled.
 - `query_metric_log_enabled`: Enables or disables query_metric_log system table.
 
   Default value: **false**.
-
-  Change of the setting is applied with restart.
+Change of the setting is applied with restart.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/system-tables/query_metric_log).
 
@@ -385,8 +361,7 @@ If set to true, then this query requires **GRANT SELECT ON information_schema.&l
 - `max_connections`: Maximum number of inbound connections.
 
   Default value: **4096**.
-
-  Change of the setting is applied with restart.
+Change of the setting is applied with restart.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#max_connections).
 
@@ -411,8 +386,7 @@ If set to true, then this query requires **GRANT SELECT ON information_schema.&l
 - `keep_alive_timeout`: The number of seconds that ClickHouse waits for incoming requests for HTTP protocol before closing the connection.
 
   Default value: **3** for versions 25.10 and higher, **30** for versions 25.9 and lower.
-
-  Change of the setting is applied with restart.
+Change of the setting is applied with restart.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#keep_alive_timeout).
 
@@ -427,26 +401,22 @@ If set to true, then this query requires **GRANT SELECT ON information_schema.&l
 - `timezone`: The server's time zone to be used in DateTime fields conversions. Specified as an IANA identifier.
 
   Default value: **Europe/Moscow**.
-
-  Change of the setting is applied with restart.
+Change of the setting is applied with restart.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#timezone).
 
 - `geobase_enabled`: Enables or disables geobase.
 
   Default value: **false** for versions 25.8 and higher, **true** for versions 25.7 and lower.
-
-  Change of the setting is applied with restart.
+Change of the setting is applied with restart.
 
 - `geobase_uri`: Address of the archive with the user geobase in Object Storage.
-
-  Change of the setting is applied with restart.
+Change of the setting is applied with restart.
 
 - `default_database`: The default database.
 
   Default value: **default**.
-
-  Change of the setting is applied with restart.
+Change of the setting is applied with restart.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#default_database).
 
@@ -454,8 +424,7 @@ If set to true, then this query requires **GRANT SELECT ON information_schema.&l
 the allocating stack trace. **0** means disabled memory profiler.
 
   Default value: **0**.
-
-  Change of the setting is applied with restart.
+Change of the setting is applied with restart.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#total_memory_profiler_step).
 
@@ -463,56 +432,49 @@ the allocating stack trace. **0** means disabled memory profiler.
 with trace_type equal to a MemorySample with the specified probability.
 
   Default value: **0**.
-
-  Change of the setting is applied with restart.
+Change of the setting is applied with restart.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#total_memory_tracker_sample_probability).
 
 - `async_insert_threads`: Maximum number of threads to parse and insert data in background. If set to **0**, asynchronous mode is disabled.
 
   Default value: **16**.
-
-  Change of the setting is applied with restart.
+Change of the setting is applied with restart.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#async_insert_threads).
 
 - `backup_threads`: The maximum number of threads to execute **BACKUP** requests.
 
   Default value: **16**.
-
-  Change of the setting is applied with restart.
+Change of the setting is applied with restart.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#backup_threads).
 
 - `restore_threads`: The maximum number of threads to execute **RESTORE** requests.
 
   Default value: **16**.
-
-  Change of the setting is applied with restart.
+Change of the setting is applied with restart.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#restore_threads).
 
 - `vector_similarity_index_cache_size`: Size of cache for vector similarity indexes, in bytes. **0** means disabled.
 
   Default value: **5368709120** (5 GiB).
-
-  Change of the setting is applied with restart.
+Change of the setting is applied with restart.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#vector_similarity_index_cache_size).
 
 - `vector_similarity_index_cache_max_entries`: Size of cache for vector similarity indexes, in entries. **0** means disabled.
 
   Default value: **10000000**.
-
-  Change of the setting is applied with restart.
+Change of the setting is applied with restart.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#vector_similarity_index_cache_max_entries).
 
 - `max_build_vector_similarity_index_thread_pool_size`: The maximum number of threads to use for building vector indexes. **0** means unlimited.
 
   Default value: **16**.
-
-  Change of the setting is applied with restart.
+Change of the setting is applied with restart.
 
   For details, see [ClickHouse documentation](https://clickhouse.com/docs/operations/server-configuration-parameters/settings#max_build_vector_similarity_index_thread_pool_size).
 
@@ -907,9 +869,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||

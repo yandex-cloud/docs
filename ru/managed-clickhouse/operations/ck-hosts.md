@@ -14,7 +14,7 @@ description: Следуя данной инструкции, вы сможете
 * [преобразовать нереплицируемые таблицы в реплицируемые](#replicated-tables);
 * [удалить хост {{ CK }}](#delete-host).
 
-Подробнее о работе хостов {{ CK }} читайте в разделе [{#T}](../concepts/replication.md#ck).
+Подробнее о работе хостов {{ CK }} читайте в разделе [{#T}](../concepts/coordination-system.md#ck).
 
 ## Получить список хостов в кластере {#list-hosts}
 
@@ -57,7 +57,7 @@ description: Следуя данной инструкции, вы сможете
 
 ## Преобразовать нереплицируемые таблицы в реплицируемые {#replicated-tables}
 
-Чтобы автоматически преобразовать нереплицируемые таблицы на движке семейства [MergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/mergetree/) в [реплицируемые](../concepts/replication.md#replicated-tables) на движке [ReplicatedMergeTree]({{ ch.docs }}/engines/table-engines/mergetree-family/replication/), при [включении сервиса координации](update.md#enable-coordination) включите настройку **{{ ui-key.yacloud.clickhouse.field_convert_tables_to_replicated }}**.
+Чтобы автоматически преобразовать нереплицируемые таблицы на движке семейства [MergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/mergetree) в [реплицируемые](../concepts/replication.md#replicated-tables) на движке [ReplicatedMergeTree]({{ ch.docs }}{{ lang }}/engines/table-engines/mergetree-family/replication), при [включении сервиса координации](update.md#enable-coordination) включите настройку **{{ ui-key.yacloud.clickhouse.field_convert_tables_to_replicated }}**.
 
 ## Удалить хост {{ CK }} {#delete-host}
 

@@ -30,6 +30,8 @@ description: Следуя данной инструкции, вы узнаете
      * `{{ ui-key.yacloud_org.dspm.scan.results_resource-name }}` — имя ресурса, в котором были найдены данные;
      * `{{ ui-key.yacloud_org.dspm.scan.scan-issue_object-path }}` — путь до файла, в котором были найдены данные.
 
+     Информацию о найденных чувствительных данных также можно получить, выбрав ![alerts](../../../_assets/security-deck/alerts.svg) **{{ ui-key.yacloud_org.security-center.label_alerts }}** на панели слева.
+
 {% endlist %}
 
 ## Скачать результаты сканирования {#download}
@@ -52,8 +54,8 @@ description: Следуя данной инструкции, вы узнаете
 
      Вы также можете перейти на страницу сканирования, нажать **{{ ui-key.yacloud_org.common.more }}** ![image](../../../_assets/console-icons/chevron-down.svg) и выбрать ![image](../../../_assets/console-icons/arrow-shape-down-to-line.svg) **{{ ui-key.yacloud_org.dspm.scan.action_download-results }}**.
 
-  1. В поле **{{ ui-key.yacloud_org.dspm.scan.header_scan-result_sensitive-data }}** укажите, как отображать имена, контактные данные и другую личную информацию.
-  1. Нажмите **{{ ui-key.yacloud_org.dspm.scan.action_button_apply }}**.
+  1. В поле **{{ ui-key.yacloud_components.security.dspm.header_scan_result_sensitive_data }}** укажите, как отображать имена, контактные данные и другую личную информацию.
+  1. Нажмите **{{ ui-key.yacloud_components.security.dspm.action_button_apply }}**.
 
 {% endlist %}
 
@@ -77,13 +79,13 @@ description: Следуя данной инструкции, вы узнаете
      * В поле **{{ ui-key.yacloud_org.security.dspm.field_bucket-path_5qRqM }}** задайте [префикс](../../../storage/concepts/object.md#folder) объекта, в который будут сохранены результаты.
      * В поле **{{ ui-key.yacloud_org.security.dspm.field_file-name_kWRPK }}** задайте имя файла, в который будут сохранены результаты. Файлу будет автоматически присвоено расширение `.csv`.
      * В поле **{{ ui-key.yacloud_org.security.dspm.field_service-account_rTeXv }}** выберите сервисный аккаунт, которому назначены [роли](../../../iam/concepts/access-control/roles.md) `storage.uploader` на выбранный бакет и `kms.keys.encrypter` на [ключ шифрования](../../../kms/concepts/key.md), если бакет [зашифрован](../../../storage/concepts/encryption.md).
-     * Нажмите кнопку **{{ ui-key.yacloud_org.dspm.scan.action_button_export }}**, чтобы экспортировать результаты с проверкой параметров.
+     * Нажмите кнопку **{{ ui-key.yacloud_components.security.dspm.action_export_with_validation }}**, чтобы экспортировать результаты с проверкой параметров.
 
        Если у выбранного сервисного аккаунта окажется недостаточно прав для выполнения операции, на вкладке **{{ ui-key.yacloud_org.security.dspm.tab_issues_title_hLQN2 }}** отобразится информация об этом.
 
-       Разверните блок с информацией об отсутствующих ролях, выберите сервисный аккаунт и нажмите ![list-check](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud_org.security.dspm.ScanForm.table_action_assign_roles_bw4am }}**, чтобы предоставить этому сервисному аккаунту недостающие права. Затем повторно нажмите кнопку **{{ ui-key.yacloud_org.dspm.scan.action_button_export }}**.
+       Разверните блок с информацией об отсутствующих ролях, выберите сервисный аккаунт и нажмите ![list-check](../../../_assets/console-icons/list-check.svg) **{{ ui-key.yacloud_org.security.dspm.ScanForm.table_action_assign_roles_bw4am }}**, чтобы предоставить этому сервисному аккаунту недостающие права. Затем повторно нажмите кнопку **{{ ui-key.yacloud_components.security.dspm.action_export_with_validation }}**.
 
-     Вы также можете экспортировать результаты без проверки параметров, нажав кнопку **{{ ui-key.yacloud_org.security.dspm.ScanExportDialog.action_button_export_without_validation_pFWLZ }}**. Если у выбранного сервисного аккаунта окажется недостаточно прав для выполнения операции, вы увидите ошибку.
+     Вы также можете экспортировать результаты без проверки параметров, нажав кнопку **{{ ui-key.yacloud_components.security.dspm.action_button_export_without_validation }}**. Если у выбранного сервисного аккаунта окажется недостаточно прав для выполнения операции, вы увидите ошибку.
 
 {% endlist %}
 
@@ -96,6 +98,8 @@ description: Следуя данной инструкции, вы узнаете
   1. Перейдите в сервис [{{ sd-full-name }}]({{ link-sd-main }}).
   1. На панели слева выберите ![Database-Magnifier](../../../_assets/console-icons/database-magnifier.svg) **{{ ui-key.yacloud_org.security-center.label_dspm }}** и перейдите на вкладку **{{ ui-key.yacloud_org.security-center.dspm.title_scans }}**.
   1. Выберите сканирование и перейдите на вкладку **{{ ui-key.yacloud_org.security-center.dspm.scan-issues-title }}**.
+
+     Информацию об ошибках сканирования также можно получить, выбрав ![alerts](../../../_assets/security-deck/alerts.svg) **{{ ui-key.yacloud_org.security-center.label_alerts }}** на панели слева.
 
   Подробнее про ошибки сканирования см. на странице [{#T}](../../diagnostics/dspm-diagnostics.md).
 

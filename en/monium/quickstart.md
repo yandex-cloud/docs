@@ -4,9 +4,11 @@
 
 Follow this guide to send telemetry data from your app or demo app via [OTel Collector](https://opentelemetry.io/docs/) and view it in {{ monium-name }}.
 
-To get started with {{ yandex-cloud }} metrics, refer to [{#T}](metrics/quickstart.md).
+To get started with {{ yandex-cloud }} resource telemetry, check these sections:
+* [{{ yandex-cloud }} resource metrics](metrics/quickstart.md)
+* [{{ yandex-cloud }} resource logs](logs/quickstart-resources.md)
 
-To get started with app telemetry in {{ monium-name }}:
+To get started with app telemetry:
 
 1. [Get your cloud ready](#before-begin).
 1. [Create a service account and API key](#create-ca-key).
@@ -51,7 +53,7 @@ In {{ monium-name }}, telemetry has this hierarchy: project → cluster → serv
      
      * `MONIUM_PROJECT`: {{ monium-name }} project name.
 
-       By default, when you create a cloud and folder, two projects are created: `cloud__<cloud_ID>` and `folder__<folder_ID>`. You can also [create other projects](collector/project.md#project-create).
+       By default, by creating a cloud and a folder you create these two projects: `cloud__<cloud_ID>` and `folder__<folder_ID>`. You can also [create other projects](collector/project.md#project-create).
      
        To test {{ monium-name }}, you can specify a project folder, e.g., `folder__{{ folder-id-example }}`.
        
@@ -116,7 +118,7 @@ In {{ monium-name }}, telemetry has this hierarchy: project → cluster → serv
 
 {% endlist %}
 
-## {{ monium-name }} connection settings and data distribution {#monium-connect}
+## Specify the {{ monium-name }} connection settings if telemetry is already configured {#monium-connect}
 
 If your application is already configured to send telemetry, specify these settings:
 
@@ -125,7 +127,11 @@ If your application is already configured to send telemetry, specify these setti
 * In the header: `x-monium-project=folder__<folder_ID>` parameter.
 * In `OTEL_RESOURCE_ATTRIBUTES`: `cluster` or `deployment.name` and `service` or `service.name`.
 
+{% cut "Attribute priority when writing data" %}
+
 {% include [shard-distribution](../_includes/monium/shard-distribution.md) %}
+
+{% endcut %}
 
 ## View the data in {{ monium-name }} {#view-telemetry}
 

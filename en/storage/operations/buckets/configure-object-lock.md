@@ -52,6 +52,7 @@ To enable object locks:
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
+
   1. Open the {{ TF }} configuration file and add the `object_lock_configuration` section to the bucket description:
 
       ```hcl
@@ -70,7 +71,7 @@ To enable object locks:
 
       For more information about the bucket parameters you can specify using {{ TF }}, see [this {{ TF }} provider article]({{ tf-provider-resources-link }}/storage_bucket).
 
-  1. Create the resources:
+  1. Create the required resources:
 
       {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
@@ -109,7 +110,7 @@ To set up default object locks:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select a folder.
-  1. [Go to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Navigate to](../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. Select the bucket you want to configure default locks for.
   1. In the left-hand panel, select ![image](../../../_assets/console-icons/persons-lock.svg) **{{ ui-key.yacloud.storage.bucket.switch_security }}**.
   1. Select the **{{ ui-key.yacloud.storage.bucket.switch_object-lock }}** tab.
@@ -179,6 +180,7 @@ To set up default object locks:
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
 
+
   1. Open the {{ TF }} configuration file and add the default lock settings to the `object_lock_configuration` section:
 
       ```
@@ -197,6 +199,8 @@ To set up default object locks:
       * `rule`: Object lock rule. It contains the `default_retention` parameter with retention settings:
         * `mode`: Lock type. It can be either `GOVERNANCE` or `COMPLIANCE`. This is an optional setting.
         * `years` or `days`: Object lock duration (retention period). Provide it as a number. This is an optional setting.
+
+     For more information about the `yandex_storage_bucket` properties in {{ TF }}, see [this provider guide]({{ tf-provider-resources-link }}/storage_bucket).
 
   1. Apply the changes:
 
@@ -265,6 +269,7 @@ To disable object locks:
 - {{ TF }} {#tf}
 
   {% include [terraform-install](../../../_includes/terraform-install.md) %}
+
 
   1. Open the {{ TF }} configuration file and delete the `object_lock_configuration` section:
 

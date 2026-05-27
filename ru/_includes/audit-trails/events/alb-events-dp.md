@@ -1,4 +1,4 @@
 Имя события | Описание
 --- | ---
-`LoadbalancerHTTPAccessLog` | Логирование HTTP-запросов
-`LoadbalancerTCPAccessLog` | Логирование TCP-запросов
+`LoadBalancerHTTPAccessLog` | Логирование HTTP-запросов
+`LoadBalancerTCPAccessLog` | Логирование TCP-запросов

@@ -38,5 +38,5 @@ For all our partners, we provide appropriate resources for trying out our new se
 * One-month grant worth ₽5,000 for trying out {{ yandex-cloud }} services.
 * Grant worth ₽10,000 for the [Cloud engineer](https://practicum.yandex.ru/ycloud/) course in Yandex Practicum (for two engineers).
 
-Our {{ yandex-cloud }} Professional [tier](../../partner/specializations/index.md) partners can receive a 12-month grant worth ₽150,000 for creating and maintaining a demo setup.
+Our partners with **{{ yandex-cloud }} Professional** [status](../../partner/specializations/index.md) can receive a 12-month grant worth ₽150,000 for creating and maintaining a demo setup.
 

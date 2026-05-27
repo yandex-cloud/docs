@@ -1,6 +1,6 @@
 ---
 title: '{{ msp-full-name }} use cases'
-description: Various {{ msp-full-name }} use cases in {{ yandex-cloud }}.
+description: Various use cases for {{ msp-full-name }} in {{ yandex-cloud }}.
 ---
 
 # {{ msp-full-name }} tutorials
@@ -13,3 +13,4 @@ description: Various {{ msp-full-name }} use cases in {{ yandex-cloud }}.
 * [{#T}](airflow-spark-min.md)
 * [{#T}](job-pyspark-secret-access.md)
 * [{#T}](airflow-automation.md)
+* [{#T}](spark-and-datasphere.md)

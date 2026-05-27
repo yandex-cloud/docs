@@ -41,9 +41,9 @@ To create a bucket:
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you want to create a bucket.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
   1. At the top right, click **{{ ui-key.yacloud.storage.buckets.button_create }}**.
-  1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter the bucket name: `object-bucket`.
+  1. In the **{{ ui-key.yacloud.storage.bucket.settings.field_name }}** field, enter a name for the bucket.
   1. Click **{{ ui-key.yacloud.storage.buckets.create.button_create }}**.
 
   Similarly, create a bucket named `logs-bucket`.
@@ -59,8 +59,8 @@ To get information on queries to objects, enable [logging actions on the bucket]
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder where you created the bucket.
-  1. From the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-  1. Select `object-bucket`.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+  1. Select the bucket.
   1. [Enable logging](../../storage/operations/buckets/enable-logging.md#enable):
 
       1. In the left-hand panel, select ![image](../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.

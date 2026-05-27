@@ -238,6 +238,14 @@ items:
             href: security/wlif-managed-k8s-integration.md
       - name: Настройка единого входа в приложения (SSO)
         items:
+          - name: 1С:Предприятие
+            href: security/single-sign-on/oidc-1c-enterprise.md
+          - name: Cloud.ru
+            items:
+              - name: SAML
+                href: security/single-sign-on/cloud-ru/saml-cloud-ru.md
+              - name: OpenID Connect
+                href: security/single-sign-on/cloud-ru/oidc-cloud-ru.md
           - name: Grafana Cloud
             items:
               - name: SAML
@@ -246,38 +254,42 @@ items:
                 href: security/single-sign-on/grafana/oidc-grafana.md
           - name: Grafana OSS
             href: security/single-sign-on/oidc-grafana-oss.md
-          - name: 1С:Предприятие
-            href: security/single-sign-on/oidc-1c-enterprise.md
-          - name: Zabbix
-            href: security/single-sign-on/saml-zabbix.md
-          - name: '{{ yandex-360 }}'
-            href: security/single-sign-on/saml-yandex-360.md
-          - name: '{{ mos-name }}'
-            href: security/single-sign-on/saml-opensearch.md
-          - name: '{{ OS }}'
-            href: security/single-sign-on/saml-opensearch-self-managed.md
-          - name: '{{ mgl-name }}'
-            href: security/single-sign-on/saml-managed-gitlab.md
-          - name: Selectel
-            href: security/single-sign-on/saml-selectel.md
-          - name: SonarQube
-            href: security/single-sign-on/saml-sonarqube.md
-          - name: OpenVPN Access Server
-            href: security/single-sign-on/saml-ovpn.md
-          - name: MWS
-            href: security/single-sign-on/oidc-mws.md
-          - name: Cloud.ru
+          - name: Harbor
+            href: security/single-sign-on/oidc-harbor.md
+          - name: Jenkins
             items:
               - name: SAML
-                href: security/single-sign-on/cloud-ru/saml-cloud-ru.md
+                href: security/single-sign-on/jenkins/saml-jenkins.md
               - name: OpenID Connect
-                href: security/single-sign-on/cloud-ru/oidc-cloud-ru.md
+                href: security/single-sign-on/jenkins/oidc-jenkins.md
+          - name: '{{ mgl-name }}'
+            href: security/single-sign-on/saml-managed-gitlab.md
+          - name: '{{ mos-name }}'
+            href: security/single-sign-on/saml-opensearch.md
+          - name: MWS
+            href: security/single-sign-on/oidc-mws.md
+          - name: '{{ OS }}'
+            href: security/single-sign-on/saml-opensearch-self-managed.md
+          - name: OpenVPN Access Server
+            href: security/single-sign-on/saml-ovpn.md
+          - name: Selectel
+            href: security/single-sign-on/saml-selectel.md
+          - name: Sentry
+            href: security/single-sign-on/saml-sentry.md
+          - name: SonarQube
+            href: security/single-sign-on/saml-sonarqube.md
           - name: VK Cloud
             items:
               - name: SAML
                 href: security/single-sign-on/vk-cloud/saml-vk-cloud.md
-          - name: Sentry
-            href: security/single-sign-on/saml-sentry.md
+          - name: Zabbix
+            href: security/single-sign-on/saml-zabbix.md
+          - name: Пассворк
+            href: security/single-sign-on/saml-passwork.md
+          - name: '{{ yandex-360 }}'
+            href: security/single-sign-on/saml-yandex-360.md
+          - name: Яндекс Браузер для организаций
+            href: security/single-sign-on/saml-ya-browser-corporate.md
           - name: Использование OAuth2 Proxy для приложений, не поддерживающих SSO
             href: security/single-sign-on/oidc-nginx-oauth2-proxy.md
       - name: Загрузка аудитных логов в {{ mos-name }}
@@ -779,6 +791,34 @@ items:
                 href: applied/cdn-hosting/console.md
               - name: '{{ TF }}'
                 href: applied/cdn-hosting/terraform.md
+          - name: Сайт на WordPress
+            items:
+              - name: Обзор
+                href: web/wordpress-overview.md
+              - name: >-
+                  Сайт на WordPress High Availability с помощью {{
+                  cloud-apps-name }}
+                href: web/wordpress-ha-cloudapp.md
+              - name: Сайт на WordPress с помощью {{ cloud-apps-name }}
+                href: web/wordpress-cloudapp.md
+              - name: Сайт на WordPress с помощью {{ marketplace-short-name }}
+                items:
+                  - name: Обзор
+                    href: web/wordpress/index.md
+                  - name: Консоль управления
+                    href: web/wordpress/console.md
+                  - name: '{{ TF }}'
+                    href: web/wordpress/terraform.md
+              - name: Сайт на WordPress с БД {{ MY }}
+                items:
+                  - name: Обзор
+                    href: web/wordpress-mysql/index.md
+                  - name: Консоль управления
+                    href: web/wordpress-mysql/console.md
+                  - name: '{{ TF }}'
+                    href: web/wordpress-mysql/terraform.md
+              - name: Перенос WordPress-сайта с хостинга в {{ yandex-cloud }}
+                href: web/wordpress-transfer.md
           - name: Сайт на LAMP- или LEMP-стеке
             items:
               - name: Обзор
@@ -795,26 +835,6 @@ items:
                 href: web/joomla-postgresql/console.md
               - name: '{{ TF }}'
                 href: web/joomla-postgresql/terraform.md
-          - name: Создание сайта на WordPress
-            items:
-              - name: Обзор
-                href: web/wordpress/index.md
-              - name: Консоль управления
-                href: web/wordpress/console.md
-              - name: '{{ TF }}'
-                href: web/wordpress/terraform.md
-          - name: Создание сайта на WordPress с помощью {{ cloud-apps-name }}
-            href: web/wordpress-cloudapp.md
-          - name: Сайт на WordPress с БД {{ MY }}
-            items:
-              - name: Обзор
-                href: web/wordpress-mysql/index.md
-              - name: Консоль управления
-                href: web/wordpress-mysql/console.md
-              - name: '{{ TF }}'
-                href: web/wordpress-mysql/terraform.md
-          - name: Перенос WordPress сайта с хостинга в {{ yandex-cloud }}
-            href: web/wordpress-transfer.md
           - name: Создание сайта на базе «1С-Битрикс»
             items:
               - name: Обзор
@@ -1257,6 +1277,10 @@ items:
           Поставка данных из {{ mpg-name }} в {{ ydb-name }} с помощью {{
           data-transfer-name }}
         href: dataplatform/mpg-ydb-replication.md
+      - name: >-
+          Загрузка данных из {{ ydb-name }} в {{ mpg-name }} с помощью {{
+          data-transfer-name }}
+        href: dataplatform/ydb-to-postgresql.md
       - name: Миграция БД из {{ mpg-name }} в {{ objstorage-name }}
         href: dataplatform/mpg-to-objstorage.md
       - name: >-
@@ -1383,6 +1407,8 @@ items:
         href: dataplatform/airflow-spark-min.md
       - name: Использование {{ objstorage-full-name }} в {{ msp-full-name }}
         href: dataplatform/spark-objstorage-integration.md
+      - name: Интеграция {{ msp-full-name }} и {{ ml-platform-name }}
+        href: dataplatform/spark-and-datasphere.md
       - name: >-
           Использование секрета {{ lockbox-name }} в PySpark-задании для
           подключения к {{ mpg-full-name }}
@@ -1394,7 +1420,13 @@ items:
       - name: Все руководства
         href: windows/index.md
       - name: Безопасная передача пароля в скрипт инициализации
-        href: windows/secure-password-script.md
+        items:
+          - name: Обзор
+            href: windows/secure-password-script/index.md
+          - name: Консоль управления, CLI, API
+            href: windows/secure-password-script/console.md
+          - name: '{{ TF }}'
+            href: windows/secure-password-script/terraform.md
       - name: Развертывание Active Directory
         href: windows/active-directory.md
       - name: Развертывание Microsoft Exchange
@@ -1628,7 +1660,13 @@ items:
           - name: Разработка пользовательской интеграции в {{ api-gw-name }}
             href: serverless/api-gw-integration.md
           - name: Сокращатель ссылок
-            href: serverless/serverless-url-shortener.md
+            items:
+              - name: Обзор
+                href: serverless/serverless-url-shortener/index.md
+              - name: Консоль управления
+                href: serverless/serverless-url-shortener/console.md
+              - name: '{{ TF }}'
+                href: serverless/serverless-url-shortener/terraform.md
           - name: Разработка CRUD API для сервиса фильмов
             href: serverless/movies-database.md
           - name: >-
@@ -1676,7 +1714,13 @@ items:
           - name: Разработка Slack-бота
             href: serverless/slack-bot-serverless.md
           - name: Разработка Telegram-бота
-            href: serverless/telegram-bot-serverless.md
+            items:
+              - name: Обзор
+                href: serverless/telegram-bot-serverless/index.md
+              - name: Консоль управления
+                href: serverless/telegram-bot-serverless/console.md
+              - name: '{{ TF }}'
+                href: serverless/telegram-bot-serverless/terraform.md
           - name: >-
               Разработка Telegram-бота для распознавания текста на изображениях,
               синтеза и распознавания аудио
@@ -1884,6 +1928,8 @@ items:
             href: ml-ai/yq-postgre.md
           - name: Федеративные запросы к данным
             href: ml-ai/yq-federative-queries.md
+          - name: Использование сервиса {{ msp-name }}
+            href: dataplatform/spark-and-datasphere.md
       - name: Разработка с помощью {{ mgl-full-name }}
         items:
           - name: Управление жизненным циклом MLOps с помощью ML Registry

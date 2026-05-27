@@ -19,8 +19,8 @@ You can move cloud resources between folders within a single [cloud](../../resou
 
   To move a [NAT gateway](../concepts/gateways.md) to a different folder:
 
-  1. In the [management console]({{ link-console-main }}), go to the folder where the NAT gateway is located.
-  1. In the list of services, select **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. In the [management console]({{ link-console-main }}), select the folder containing the NAT gateway.
+  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/arrows-opposite-to-dots.svg) **{{ ui-key.yacloud.vpc.switch_gateways }}**.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) in the row of the NAT gateway to move and select **{{ ui-key.yacloud.common.move }}**.
   1. Select the destination folder from the drop-down list.
@@ -128,4 +128,5 @@ Move a NAT gateway from a different folder. Specify the NAT gateway ID and the s
 
 * [{#T}](network-move.md)
 * [{#T}](subnet-move.md)
+
 

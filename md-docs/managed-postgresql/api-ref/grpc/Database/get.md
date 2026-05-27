@@ -1,0 +1,102 @@
+# Managed Service for PostgreSQL API, gRPC: DatabaseService.Get
+
+Returns the specified PostgreSQL Database resource.
+
+To get the list of available PostgreSQL Database resources, make a [List](list.md#List) request.
+
+## gRPC request
+
+**rpc Get ([GetDatabaseRequest](#yandex.cloud.mdb.postgresql.v1.GetDatabaseRequest)) returns ([Database](#yandex.cloud.mdb.postgresql.v1.Database))**
+
+## GetDatabaseRequest {#yandex.cloud.mdb.postgresql.v1.GetDatabaseRequest}
+
+```json
+{
+  "cluster_id": "string",
+  "database_name": "string"
+}
+```
+
+#|
+||Field | Description ||
+|| cluster_id | **string**
+
+Required field. ID of the PostgreSQL cluster that the database belongs to.
+To get the cluster ID use a [ClusterService.List](../Cluster/list.md#List) request.
+
+The maximum string length in characters is 50. ||
+|| database_name | **string**
+
+Required field. Name of the PostgreSQL Database resource to return.
+To get the name of the database use a [DatabaseService.List](list.md#List) request.
+
+The maximum string length in characters is 63. Value must match the regular expression ` [a-zA-Z0-9_-]* `. ||
+|#
+
+## Database {#yandex.cloud.mdb.postgresql.v1.Database}
+
+```json
+{
+  "name": "string",
+  "cluster_id": "string",
+  "owner": "string",
+  "lc_collate": "string",
+  "lc_ctype": "string",
+  "extensions": [
+    {
+      "name": "string",
+      "version": "string"
+    }
+  ],
+  "template_db": "string",
+  "deletion_protection": "google.protobuf.BoolValue"
+}
+```
+
+A PostgreSQL Database resource. For more information, see
+the [Developer's Guide](../../../concepts/index.md).
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Name of the database. ||
+|| cluster_id | **string**
+
+ID of the PostgreSQL cluster that the database belongs to. ||
+|| owner | **string**
+
+Name of the user assigned as the owner of the database. ||
+|| lc_collate | **string**
+
+POSIX locale for string sorting order.
+Can only be set at creation time. ||
+|| lc_ctype | **string**
+
+POSIX locale for character classification.
+Can only be set at creation time. ||
+|| extensions[] | **[Extension](#yandex.cloud.mdb.postgresql.v1.Extension)**
+
+PostgreSQL extensions enabled for the database. ||
+|| template_db | **string**
+
+Name of the database template. ||
+|| deletion_protection | **[google.protobuf.BoolValue](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/bool-value)**
+
+Deletion Protection inhibits deletion of the database
+
+Default value: `unspecified` (inherits cluster's deletion_protection) ||
+|#
+
+## Extension {#yandex.cloud.mdb.postgresql.v1.Extension}
+
+#|
+||Field | Description ||
+|| name | **string**
+
+Name of the extension, e.g. `pg_trgm` or `pg_btree`.
+Extensions supported by Managed Service for PostgreSQL are [listed in the Developer's Guide](../../../operations/extensions/cluster-extensions.md). ||
+|| version | **string**
+
+Version of the extension. The setting is deprecated and has no effect. ||
+|#

@@ -15,9 +15,9 @@ With a [directed acyclic graph (DAG)](../concepts/index.md#about-the-service), y
    * **Password**: `admin-password`
 
    {% note warning %}
-   
+
    You cannot create a database named `default`.
-   
+
    {% endnote %}
 
 1. [Create](../../storage/operations/buckets/create.md) a {{ objstorage-full-name }} bucket to store the DAG file in.
@@ -30,7 +30,7 @@ With a [directed acyclic graph (DAG)](../concepts/index.md#about-the-service), y
 
 1. Issue the `lockbox.payloadViewer` [role](../../lockbox/security/index.md#lockbox-payloadViewer) to your service account.
 
-   {% note info }
+   {% note info %}
 
    There is no need to assign the `lockbox.payloadViewer` role for the whole folder. It is enough to [assign it for a specific {{ lockbox-name }} secret](../../lockbox/operations/secret-access.md) once you [create it](#create-lockbox-secret).
 
@@ -112,7 +112,7 @@ To check the result in the {{ AF }} web interface:
 
 - {{ AF }} version 3.0 or higher {#version-3}
 
-  1. In the **DAGs** section, click `clickhouse`.
+  1. In the **DAGs** section, click the `clickhouse` graph.
   1. Go to **Tasks**.
   1. Select **query_clickhouse**.
   1. Go to **Tasks Instances**.
@@ -121,3 +121,8 @@ To check the result in the {{ AF }} web interface:
   1. Make sure the logs contain the `query result: [(1,)]` line. This means the query was successful.
 
 {% endlist %}
+
+## Troubleshooting {#troubleshooting}
+
+* [{#T}](../qa/index.md#airflow-clickhouse-ssl)
+* [{#T}](../qa/index.md#airflow-clickhouse-plugin)

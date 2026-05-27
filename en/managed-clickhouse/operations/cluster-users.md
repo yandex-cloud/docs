@@ -7,8 +7,8 @@ description: In this guide, you will learn how to manage {{ mch-name }} cluster 
 
 {{ mch-name }} provides two methods for managing users and their individual settings:
 
-* Using the native {{ yandex-cloud }} interfaces, such as the management console, CLI, {{ TF }}, or API . Select this method to create, edit, and delete users and custom user settings using the {{ mch-full-name }} features.
-* Using SQL queries to the cluster. Select this method to use your own solutions to create and manage users or if you are using [RBAC](https://en.wikipedia.org/wiki/Role-based_access_control).
+* Native {{ yandex-cloud }} interfaces, such as the management console, CLI, {{ TF }}, or API. Select this method to create, edit, and delete users and custom user settings using the {{ mch-full-name }} features.
+* Using SQL queries against the cluster. Select this method to use your own solutions to create and manage users or if you are using [RBAC](https://en.wikipedia.org/wiki/Role-based_access_control).
 
 {% note warning %}
 
@@ -18,7 +18,7 @@ In a {{ mch-name }} cluster, you can only employ one user management method at a
 
 {% note info %}
 
-Creating a new {{ CH }} cluster automatically creates [service users](../concepts/service-users.md) to administer and monitor the service.
+Creating a {{ CH }} cluster automatically creates [service users](../concepts/service-users.md) to administer and monitor the service.
 
 {% endnote %}
 
@@ -35,7 +35,7 @@ You cannot disable **User management via SQL** once it is enabled.
 
 In a cluster with **User management via SQL** enabled:
 
-* User management via the native {{ yandex-cloud }} interfaces, such as the management console, CLI, API, and {{ TF }}, is unavailable.
+* User management via the native {{ yandex-cloud }} interfaces, such as the management console, CLI, {{ TF }}, and API, is unavailable.
 * The existing users as well as user settings created with the native {{ yandex-cloud }} interfaces will remain unchanged.
 * Users are managed by the `admin` account. You set the `admin` password when selecting the **{{ ui-key.yacloud.mdb.forms.database_field_sql-user-management }}** option.
 
@@ -48,8 +48,8 @@ For more information about managing users via SQL, see [this {{ CH }} article]({
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
 
 - CLI {#cli}
 
@@ -68,11 +68,11 @@ For more information about managing users via SQL, see [this {{ CH }} article]({
 
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Call the [User.List](../api-ref/User/list.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
+    1. Call the [User.List](../api-ref/User/list.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -87,13 +87,13 @@ For more information about managing users via SQL, see [this {{ CH }} article]({
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Call the [UserService.List](../api-ref/grpc/User/list.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
+    1. Call the [UserService.List](../api-ref/grpc/User/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -109,7 +109,7 @@ For more information about managing users via SQL, see [this {{ CH }} article]({
             yandex.cloud.mdb.clickhouse.v1.UserService.List
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/User/list.md#yandex.cloud.mdb.clickhouse.v1.ListUsersResponse) to make sure your request was successful.
 
@@ -131,10 +131,10 @@ For more information about managing users via SQL, see [this {{ CH }} article]({
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
-  1. Specify the database user’s name.
+  1. Specify the database user name.
 
       {% include [user-name](../../_includes/mdb/mch/note-info-user-name-and-pass-limits.md) %}
 
@@ -148,7 +148,7 @@ For more information about managing users via SQL, see [this {{ CH }} article]({
       To view the password, navigate to the cluster page, select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the new user. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
 
 
-  1. Select one or more databases the user must have access to:
+  1. Select which databases the user should have access to:
      1. Click ![image](../../_assets/console-icons/plus.svg) and select a database from the drop-down list.
      1. Repeat the previous step until you select all the required databases.
      1. To delete a database added by mistake, click ![image](../../_assets/console-icons/xmark.svg) to the right of the database name.
@@ -185,7 +185,7 @@ For more information about managing users via SQL, see [this {{ CH }} article]({
   * `--password`: User password. The password must be from 8 to 128 characters long.
 
       
-      You can also generate a password using {{ connection-manager-name }}. Do it by specifying `--generate-password` instead of `--password=<password>`.
+      You can also generate a password using {{ connection-manager-name }}. To do this, specify `--generate-password` instead of `--password=<password>`.
 
       To view the password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the new user. This will open the page of the {{ lockbox-name }} secret containing the password. To view passwords, you need the `lockbox.payloadViewer` role.
 
@@ -204,15 +204,16 @@ For more information about managing users via SQL, see [this {{ CH }} article]({
      ...
   ```
 
-  You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can get the cluster name from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
   See also the [example of creating a user with read-only access permissions](#example-create-readonly-user).
+
 
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Add the `yandex_mdb_clickhouse_user` resource:
 
@@ -246,19 +247,19 @@ For more information about managing users via SQL, see [this {{ CH }} article]({
 
         ```hcl
 
-        resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
           name = "<cluster_name>"
           ...
         }
 
         resource "yandex_mdb_clickhouse_user" "<username>" {
-          cluster_id = yandex_mdb_clickhouse_cluster.<cluster_name>.id
+          cluster_id = yandex_mdb_clickhouse_cluster_v2.<cluster_name>.id
           name       = "<username>"
           ...
         }
         ```
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -268,9 +269,10 @@ For more information about managing users via SQL, see [this {{ CH }} article]({
 
     For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
 
+
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -309,7 +311,7 @@ For more information about managing users via SQL, see [this {{ CH }} article]({
             }
             ```
 
-            Where `userSpec` is the array of the new users' settings. Each array element contains the configuration for a single user and has the following structure:
+            Where `userSpec` is the array of the new users' settings. Each array element contains settings for a single user and has the following structure:
 
             {% include [rest-user-specs](../../_includes/mdb/mch/api/rest-user-specs.md) %}
 
@@ -319,7 +321,7 @@ For more information about managing users via SQL, see [this {{ CH }} article]({
 
             * `quotas`: Array of [quota settings](../concepts/settings-list.md#quota-settings). Each array element contains settings for a single quota.
 
-        1. Run this query:
+        1. Run this request:
 
             ```bash
             curl \
@@ -330,7 +332,7 @@ For more information about managing users via SQL, see [this {{ CH }} article]({
               --data '@body.json'
             ```
 
-            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/User/create.md#responses) to make sure your request was successful.
 
@@ -338,7 +340,7 @@ For more information about managing users via SQL, see [this {{ CH }} article]({
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -380,7 +382,7 @@ For more information about managing users via SQL, see [this {{ CH }} article]({
             }
             ```
 
-            Where `user_spec` is the array of the new users' settings. Each array element contains the configuration for a single user and has the following structure:
+            Where `user_spec` is the array of the new users' settings. Each array element contains settings for a single user and has the following structure:
 
             {% include [grpc-user-specs](../../_includes/mdb/mch/api/grpc-user-specs.md) %}
 
@@ -390,9 +392,9 @@ For more information about managing users via SQL, see [this {{ CH }} article]({
 
             * `quotas`: Array of [quota settings](../concepts/settings-list.md#quota-settings). Each array element contains settings for a single quota.
 
-            You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+            You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
-        1. Run this query:
+        1. Run this request:
 
             ```bash
             grpcurl \
@@ -435,8 +437,8 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-password }}**.
 
   
@@ -472,24 +474,25 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
   The password must be from 8 to 128 characters long.
 
   
-  You can also generate a new password using {{ connection-manager-name }}. Do it by specifying `--generate-password` instead of `--password=<new_password>`.
+  You can also generate a new password using {{ connection-manager-name }}. To do this, specify `--generate-password` instead of `--password=<new_password>`.
 
   To view the new password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. The new password version is marked as **{{ ui-key.yacloud.lockbox.label_version-current }}**.
 
   To view passwords, you need the `lockbox.payloadViewer` role.
 
 
-  You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+  You can get the cluster name from the [list of clusters in your folder](cluster-list.md#list-clusters).
+
 
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Locate the `yandex_mdb_clickhouse_user` resource for the user in question.
 
-    1. Change the `password` field value:
+    1. Edit the `password` field value:
 
         ```hcl
         resource "yandex_mdb_clickhouse_user" "<username>" {
@@ -503,7 +506,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
         The password must be from 8 to 128 characters long.
 
         
-        You can also generate a new password using {{ connection-manager-name }}. Do it by specifying `generate_password = true` instead of `password = "<new_password>"`.
+        You can also generate a new password using {{ connection-manager-name }}. To do this, specify `generate_password = true` instead of `password = "<new_password>"`.
 
         To view the new password, select your cluster in the [management console]({{ link-console-main }}), navigate to the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab, and click **{{ ui-key.yacloud.mdb.cluster.users.label_go-to-password }}** for the relevant user. This will open the page of the {{ lockbox-name }} secret containing the password. The new password version is marked as **{{ ui-key.yacloud.lockbox.label_version-current }}**.
 
@@ -524,13 +527,14 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 
     For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
 
+
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Call the [User.Update](../api-ref/User/update.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
+    1. Call the [User.Update](../api-ref/User/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -548,7 +552,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 
         Where:
 
-        * `updateMask`: Comma-separated list of settings you want to update.
+        * `updateMask`: Comma-separated string of settings you want to update.
 
             Here, we only specified a single setting, `password`.
 
@@ -569,19 +573,19 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
            To view passwords, you need the `lockbox.payloadViewer` role.
 
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can get the username with the [list of users in the cluster](#list-users).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can get the username with the [list of users in the cluster](#list-users).
 
     1. View the [server response](../api-ref/User/update.md#responses) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Call the [UserService.Update](../api-ref/grpc/User/update.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
+    1. Call the [UserService.Update](../api-ref/grpc/User/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -635,7 +639,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
            To view passwords, you need the `lockbox.payloadViewer` role.
 
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can get the username with the [list of users in the cluster](#list-users).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can get the username with the [list of users in the cluster](#list-users).
 
     1. View the [server response](../api-ref/grpc/User/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -671,16 +675,17 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 
     {% endnote %}
 
+
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Edit the `admin_password` field value:
 
         ```hcl
-        resource "yandex_mdb_clickhouse_cluster" "<cluster_name>" {
+        resource "yandex_mdb_clickhouse_cluster_v2" "<cluster_name>" {
           ...
           admin_password = "<admin_password>"
           ...
@@ -689,19 +694,20 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 
         {% include [password-limits](../../_includes/mdb/mch/note-info-password-limits.md) %}
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
-    1. Confirm updating the resources.
+    1. Confirm resource changes.
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
     For more information, see [this {{ TF }} provider guide]({{ tf-provider-mch }}).
 
+
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -725,7 +731,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 
         Where:
 
-        * `updateMask`: Comma-separated list of settings you want to update.
+        * `updateMask`: Comma-separated string of settings to update.
 
             Here, we only specified a single setting, `configSpec.adminPassword`.
 
@@ -733,13 +739,13 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 
             The password must be from 8 to 128 characters long.
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/Cluster/update.md#responses) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -773,7 +779,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 
         Where:
 
-        * `update_mask`: List of settings you want to update as an array of strings (`paths[]`).
+        * `update_mask`: List of settings to update as an array of strings (`paths[]`).
 
             Here, we only specified a single setting, `config_spec.admin_password`.
 
@@ -781,7 +787,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 
             The password must be from 8 to 128 characters long.
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters).
 
     1. View the [server response](../api-ref/grpc/Cluster/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -794,10 +800,10 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.cluster.users.button_action-update }}**.
-  1. Configure user permissions to access specific databases:
+  1. Configure user access to specific databases:
      1. To grant access to the required databases:
         1. Click ![image](../../_assets/console-icons/plus.svg) and select a database from the drop-down list.
         1. Repeat the previous step until you select all the required databases.
@@ -824,11 +830,11 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
         --permissions=<database_list>
      ```
 
-     You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster name from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
      This command grants the user access to the listed databases.
 
-     To revoke access to a specific database, remove its name from the list, and run the command with the updated list.
+     To revoke access to a database, remove its name from the list, and run the command with the updated list.
 
   1. To change user [quota settings](../concepts/settings-list.md#quota-settings), run the following command, specifying each quota in a separate `--quota` parameter:
 
@@ -844,7 +850,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
        ...
      ```
 
-     You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
+     You can get the cluster name from the [list of clusters in your folder](cluster-list.md#list-clusters).
 
      This command overwrites all existing user quota settings with the new ones you provided.
      Before running the command, make sure you included the settings for new and changed quotas as well as the settings for existing quotas that have not changed.
@@ -867,15 +873,16 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 
      You cannot use this command to delete an existing setting. You can only explicitly set it to its default value (specified for [each setting](#clickhouse-settings)).
 
+
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Locate the `yandex_mdb_clickhouse_user` resource for the user in question.
 
-    1. To set up user access permissions for specific databases, add a `permission` section for each database you need:
+    1. To configure user access to specific databases, add a `permission` section for each database you need:
 
         ```hcl
         resource "yandex_mdb_clickhouse_user" "<username>" {
@@ -928,7 +935,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
         }
         ```
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -938,13 +945,14 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 
     For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
 
+
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Call the [User.Update](../api-ref/User/update.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
+    1. Call the [User.Update](../api-ref/User/update.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         {% include [note-updatemask](../../_includes/note-api-updatemask.md) %}
 
@@ -992,19 +1000,19 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 
             {% endnote %}
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can get the username with the [list of users in the cluster](#list-users).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can get the username with the [list of users in the cluster](#list-users).
 
     1. View the [server response](../api-ref/User/update.md#responses) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Call the [UserService.Update](../api-ref/grpc/User/update.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
+    1. Call the [UserService.Update](../api-ref/grpc/User/update.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         {% include [note-grpc-updatemask](../../_includes/note-grpc-api-updatemask.md) %}
 
@@ -1061,7 +1069,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 
             {% endnote %}
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can get the username with the [list of users in the cluster](#list-users).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can get the username with the [list of users in the cluster](#list-users).
 
     1. View the [server response](../api-ref/grpc/User/update.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1095,8 +1103,8 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
-  1. Click the cluster name and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. Click the name of your cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) and select **{{ ui-key.yacloud.mdb.clusters.button_action-delete }}**.
 
 - CLI {#cli}
@@ -1114,15 +1122,16 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 
   You can get the cluster name with the [list of clusters in the folder](cluster-list.md#list-clusters).
 
+
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
-    1. Delete the `yandex_mdb_clickhouse_user` resource with the user description.
+    1. Delete the `yandex_mdb_clickhouse_user` resource with the target user’s description.
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -1132,13 +1141,14 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 
     For more information, see [this {{ TF }} provider guide]({{ tf-provider-resources-link }}/mdb_clickhouse_user).
 
+
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
-    1. Call the [User.Delete](../api-ref/User/delete.md) method, for instance, via the following {{ api-examples.rest.tool }} request:
+    1. Call the [User.Delete](../api-ref/User/delete.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
         ```bash
         curl \
@@ -1147,19 +1157,19 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
             --url 'https://{{ api-host-mdb }}/managed-clickhouse/v1/clusters/<cluster_ID>/users/<username>'
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can get the username with the [list of users in the cluster](#list-users).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can get the username with the [list of users in the cluster](#list-users).
 
     1. View the [server response](../api-ref/User/delete.md#responses) to make sure your request was successful.
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
     1. {% include [grpc-api-setup-repo](../../_includes/mdb/grpc-api-setup-repo.md) %}
 
-    1. Call the [UserService.Delete](../api-ref/grpc/User/delete.md) method, for instance, via the following {{ api-examples.grpc.tool }} request:
+    1. Call the [UserService.Delete](../api-ref/grpc/User/delete.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
         ```bash
         grpcurl \
@@ -1176,7 +1186,7 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
             yandex.cloud.mdb.clickhouse.v1.UserService.Delete
         ```
 
-        You can get the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can get the username with the [list of users in the cluster](#list-users).
+        You can request the cluster ID with the [list of clusters in the folder](./cluster-list.md#list-clusters). You can get the username with the [list of users in the cluster](#list-users).
 
     1. View the [server response](../api-ref/grpc/User/delete.md#yandex.cloud.operation.Operation) to make sure your request was successful.
 
@@ -1198,15 +1208,15 @@ We recommend using the {{ yandex-cloud }} interfaces listed below. Do not use SQ
 ### Creating a read-only user {#example-create-readonly-user}
 
 Let's say you need to add a new user named `ro-user` with the `Passw0rd` password to the existing `mych` cluster with the `{{ cluster-id }}` ID, and:
-* The user has access to the `db1` database in the cluster.
-* The access is read-only, with no option to change any settings.
+* The user should have access to the `db1` database in the cluster.
+* The access should be read-only, with no option to change any settings.
 
 {% list tabs group=instructions %}
 
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), select the folder the cluster is in.
-  1. [Go to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
+  1. [Navigate to](../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_managed-clickhouse }}**.
   1. Click the `mych` cluster and select the **{{ ui-key.yacloud.clickhouse.cluster.switch_users }}** tab.
   1. Click **{{ ui-key.yacloud.mdb.cluster.users.action_add-user }}**.
   1. Enter `ro-user` as the database user name and `Passw0rd` as the password.
@@ -1241,11 +1251,12 @@ Let's say you need to add a new user named `ro-user` with the `Passw0rd` passwor
        DB::Exception: Cannot modify 'readonly' setting in readonly mode.
        ```
 
+
 - {{ TF }} {#tf}
 
     1. Open the current {{ TF }} configuration file describing your infrastructure.
 
-        For information on how to create such a file, see [Creating a cluster](cluster-create.md).
+        For more on how to create this file, see [Creating a cluster](cluster-create.md).
 
     1. Add the `yandex_mdb_clickhouse_user` resource:
 
@@ -1263,7 +1274,7 @@ Let's say you need to add a new user named `ro-user` with the `Passw0rd` passwor
         }
         ```
 
-    1. Make sure the settings are correct.
+    1. Validate your configuration.
 
         {% include [terraform-validate](../../_includes/mdb/terraform/validate.md) %}
 
@@ -1271,9 +1282,10 @@ Let's say you need to add a new user named `ro-user` with the `Passw0rd` passwor
 
         {% include [terraform-apply](../../_includes/mdb/terraform/apply.md) %}
 
+
 - REST API {#api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 
@@ -1303,7 +1315,7 @@ Let's say you need to add a new user named `ro-user` with the `Passw0rd` passwor
 
 - gRPC API {#grpc-api}
 
-    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and place it in an environment variable:
+    1. [Get an IAM token for API authentication](../api-ref/authentication.md) and put it into an environment variable:
 
         {% include [api-auth-token](../../_includes/mdb/api-auth-token.md) %}
 

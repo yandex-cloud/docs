@@ -4,6 +4,12 @@ For a complete list of available and deprecated {{ dataproc-name }} images, see 
 
 ## 2.2.x images (beta) {#2-2-x}
 
+### 2.2.10 (beta) {#2-2-10}
+
+* Added `jq` and `yq`.
+* Added the PyYAML library.
+* Added additional metrics for `cpu/mem/diskio/net/processes/kernel` (by default collected from the master; you can enable them for all hosts by adding the `monitoring:all_nodes = True` property).
+
 ### 2.2.9 (beta) {#2-2-9}
 
 * {{ SPRK }} updated to version 3.5.6.
@@ -41,6 +47,12 @@ For a complete list of available and deprecated {{ dataproc-name }} images, see 
     * scikit-learn updated to version 1.5.1.
 
 ## 2.1.x images {#2-1-x}
+
+### 2.1.22 {#2-1-22}
+
+* Added `jq` and `yq`.
+* Added the PyYAML library.
+* Added additional metrics for `cpu/mem/diskio/net/processes/kernel` (by default collected from the master; you can enable them for all hosts by adding the `monitoring:all_nodes = True` property).
 
 ### 2.1.21 {#2-1-21}
 

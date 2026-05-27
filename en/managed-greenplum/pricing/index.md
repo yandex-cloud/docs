@@ -7,9 +7,6 @@ editable: false
 # {{ mgp-name }} pricing policy
 
 
-{% include [pricing-increase-2026-05](../../_includes/pricing-increase-2026-05.md) %}
-
-
 In this section, you can find the {{ mgp-name }} pricing [policy](#rules) and [effective prices](#prices) for its resources.
 
 
@@ -75,7 +72,7 @@ You pay for the following:
   * You can only order local SSD storage (`local-ssd`) for clusters with two master hosts:
 
     * For Intel Cascade Lake: In increments of 100 GB.
-    * For Intel Ice Lake: In increments of {{ local-ssd-v3-step }}.
+    * For Intel Ice Lake and AMD Zen 4: In increments of {{ local-ssd-v3-step }}.
 
 
 
@@ -94,6 +91,8 @@ You pay for the following:
 The price covers one month of use based on 720 hours per month. The minimum billing unit is 1 GB per minute; e.g., storing 1 GB for 1.5 minutes is billed as 2 minutes.
 
 ### Cluster cost calculation example {#example}
+
+{% include [prices-difference](../../_includes/prices-difference.md) %}
 
 Let's calculate the cost of using a cluster with the following properties for 30 days:
 

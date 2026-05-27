@@ -98,7 +98,7 @@
      1. В открывшемся окне введите имя функции `function-restart-vms`.
      1. Нажмите кнопку **{{ ui-key.yacloud.common.create }}**.
   1. Создайте [версию функции](../../functions/concepts/function.md#version):
-     1. Выберите среду выполнения `nodejs18`, отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
+     1. Выберите среду выполнения `nodejs22`, отключите опцию **{{ ui-key.yacloud.serverless-functions.item.editor.label_with-template }}** и нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_action-continue }}**.
      1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_code-source }}** выберите `{{ ui-key.yacloud.serverless-functions.item.editor.value_method-zip-file }}`.
      1. В поле **{{ ui-key.yacloud.serverless-functions.item.editor.field_file }}** нажмите кнопку **Прикрепить файл** и выберите архив `function-js.zip`, который создали ранее.
      1. Укажите точку входа `index.handler`.
@@ -107,7 +107,7 @@
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_resources-memory }}** — `128 {{ ui-key.yacloud.common.units.label_megabyte }}`.
         * **{{ ui-key.yacloud.forms.label_service-account-select }}** — выберите созданный ранее сервисный аккаунт с правами на вызов функции.
         * **{{ ui-key.yacloud.serverless-functions.item.editor.field_environment-variables }}**:
-          * `FOLDER_ID` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором вы хотите запускать остановленные ВМ.
+          * `FOLDER_ID` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором вы хотите запускать остановленную ВМ.
           * `INSTANCE_ID` — [идентификатор ВМ](../../compute/operations/vm-info/get-info.md#outside-instance), которую вы хотите запускать при прерывании.
         * Если вы не хотите сохранять логи и платить за использование сервиса {{ cloud-logging-name }}, в блоке **{{ ui-key.yacloud.logging.label_title }}**, в поле **{{ ui-key.yacloud.logging.label_destination }}**, выберите `{{ ui-key.yacloud.serverless-functions.item.editor.option_queues-unset }}`, чтобы отключить логирование.
      1. Нажмите кнопку **{{ ui-key.yacloud.serverless-functions.item.editor.button_deploy-version }}**.
@@ -138,7 +138,7 @@
        --function-name function-restart-vms \
        --memory=128m \
        --execution-timeout=3s \
-       --runtime=nodejs18 \
+       --runtime=nodejs22 \
        --entrypoint=index.handler \
        --service-account-id=<идентификатор_сервисного_аккаунта> \
        --environment FOLDER_ID=<идентификатор_каталога>,INSTANCE_ID=<идентификатор_ВМ> \
@@ -154,7 +154,7 @@
      * `--entrypoint` — точка входа.
      * `--service-account-id` — [идентификатор](../../iam/operations/sa/get-id.md) сервисного аккаунта с правами на вызов функции.
      * `--environment` — переменные окружения:
-       * `FOLDER_ID` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором вы хотите запускать остановленные ВМ.
+       * `FOLDER_ID` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором вы хотите запускать остановленную ВМ.
        * `INSTANCE_ID` — [идентификатор ВМ](../../compute/operations/vm-info/get-info.md#outside-instance), которую вы хотите запускать при прерывании.
      * `--source-path` — путь к созданному ранее ZIP-архиву `function-js.zip`.
      * (опционально) `--no-logging` — укажите этот флаг, если вы не хотите сохранять логи и платить за использование сервиса {{ cloud-logging-name }}.
@@ -180,7 +180,7 @@
      resource "yandex_function" "function-restart-vms" {
        name               = "function-restart-vms"
        user_hash          = "first function"
-       runtime            = "nodejs18"
+       runtime            = "nodejs22"
        entrypoint         = "index.handler"
        memory             = "128"
        execution_timeout  = "3"
@@ -206,7 +206,7 @@
      * `service_account_id` — [идентификатор](../../iam/operations/sa/get-id.md) сервисного аккаунта с правами на вызов функции.
      * `folder_id` — [идентификатор каталога](../../resource-manager/operations/folder/get-id.md), в котором вы создаете функцию.
      * `environment` — переменные окружения:
-       * `FOLDER_ID` — идентификатор каталога, в котором вы хотите запускать остановленные ВМ.
+       * `FOLDER_ID` — идентификатор каталога, в котором вы хотите запускать остановленную ВМ.
        * `INSTANCE_ID` — [идентификатор ВМ](../../compute/operations/vm-info/get-info.md#outside-instance), которую вы хотите запускать при прерывании.
      * `zip_filename` — путь к созданному ранее ZIP-архиву `function-js.zip`.
 

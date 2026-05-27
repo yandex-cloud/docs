@@ -139,7 +139,8 @@ Creates a transfer in the specified folder.
             "exclude_columns": [
               "string"
             ]
-          }
+          },
+          "skip_utc_conversion": "bool"
         },
         "sharder_transformer": {
           // Includes only one of the fields `columns`, `random`
@@ -229,6 +230,7 @@ Description of the transfer. ||
 || folder_id | **string**
 
 ID of the folder to create the transfer in.
+
 To get the folder ID, make a
 [yandex.cloud.resourcemanager.v1.FolderService.List](/docs/resource-manager/api-ref/grpc/Folder/list#List) request. ||
 || runtime | **[Runtime](#yandex.cloud.datatransfer.v1.Runtime)** ||
@@ -243,6 +245,7 @@ The transfer name. Must be unique within the folder. ||
 || labels | **object** (map<**string**, **string**>)
 
 Transfer labels as `key:value` pairs.
+
 For details about the concept, see [documentation]({{ api-url-prefix
 }}/resource-manager/concepts/labels). ||
 || regular_snapshot | **[RegularSnapshot](#yandex.cloud.datatransfer.v1.RegularSnapshot)** ||
@@ -604,6 +607,9 @@ List of included and excluded tables ||
 || columns | **[ColumnsFilter](#yandex.cloud.datatransfer.v1.ColumnsFilter)**
 
 List of included and excluded columns ||
+|| skip_utc_conversion | **bool**
+
+When true, time values keep their original timezone, otherwise time values converts (normalizes) to UTC. ||
 |#
 
 ## SharderTransformer {#yandex.cloud.datatransfer.v1.SharderTransformer}

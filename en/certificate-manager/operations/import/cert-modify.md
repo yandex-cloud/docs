@@ -11,9 +11,9 @@ After adding a [custom certificate](../../concepts/imported-certificate.md) to {
 
 - Management console {#console}
 
-  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) the certificate was added to.
-  1. [Go](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
-  1. Select the certificate you need to modify.
+  1. In the [management console]({{ link-console-main }}), select the [folder](../../../resource-manager/concepts/resources-hierarchy.md#folder) you added the certificate to.
+  1. [Navigate](../../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_certificate-manager }}**.
+  1. Select the certificate you need to edit.
   1. Click ![pencil](../../../_assets/console-icons/pencil.svg) **{{ ui-key.yacloud.certificate-manager.overview.action_edit-meta }}**.
   1. Change the name or description of the certificate.
   1. Click **{{ ui-key.yacloud.common.save }}**.
@@ -78,7 +78,7 @@ After adding a [custom certificate](../../concepts/imported-certificate.md) to {
 
   1. Open the {{ TF }} configuration file and change the certificate name or description:
 
-     {% cut "Sample certificate description in the {{ TF }} configuration" %}
+     {% cut "Example of a certificate description in the {{ TF }} configuration" %}
 
      ```hcl
      ...
@@ -108,7 +108,7 @@ After adding a [custom certificate](../../concepts/imported-certificate.md) to {
 
      {% include [terraform-validate-plan-apply](../../../_tutorials/_tutorials_includes/terraform-validate-plan-apply.md) %}
 
-  You can check the certificate update using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
+  You can check the edited certificate using the [management console]({{ link-console-main }}) or this [CLI](../../../cli/) command:
 
   ```bash
   yc certificate-manager certificate get <certificate_name>

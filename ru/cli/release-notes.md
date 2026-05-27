@@ -7,6 +7,237 @@ description: На странице представлены релизы CLI, а
 
 ## Текущая версия {#latest-release}
 
+### Версия 1.10.0 (25.05.26) {#v-1-10-0}
+
+#### {{ mos-name }} {#v-1-10-0-mos-name}
+
+* Добавлена поддержка ролей `WARM` и `INGEST` для групп хостов.
+
+## Предыдущие релизы {#previous-release}
+
+### Версия 1.9.0 (21.05.26) {#v-1-9-0}
+
+#### {{ dns-name }} {#v-1-9-0-dns-name}
+
+* Добавлена группа команд `yc dns inbound-endpoint` для управления inbound endpoint:
+  * `yc dns inbound-endpoint get`;
+  * `yc dns inbound-endpoint list`;
+  * `yc dns inbound-endpoint create`;
+  * `yc dns inbound-endpoint update`;
+  * `yc dns inbound-endpoint delete`;
+  * `yc dns inbound-endpoint add-labels`;
+  * `yc dns inbound-endpoint remove-labels`;
+  * `yc dns inbound-endpoint list-access-bindings`;
+  * `yc dns inbound-endpoint set-access-bindings`;
+  * `yc dns inbound-endpoint add-access-binding`;
+  * `yc dns inbound-endpoint remove-access-binding`;
+  * `yc dns inbound-endpoint list-operations`.
+
+### Версия 1.8.1 (20.05.26) {#v-1-8-1}
+
+#### {{ sws-name }} {#v-1-8-1-sws-name}
+
+* Добавлена группа команд `yc sws waf waf-profile` для управления WAF-профилями (create, get, list, update, delete) в syntax-2 CLI:
+  * `yc sws waf waf-profile create`;
+  * `yc sws waf waf-profile get`;
+  * `yc sws waf waf-profile list`;
+  * `yc sws waf waf-profile update`;
+  * `yc sws waf waf-profile delete`.
+
+#### {{ mrd-name }} {#v-1-8-1-mrd-name}
+
+* Добавлен параметр `failover-type` для команды `start-failover`%
+  * `yc redis cluster start-failover`.
+
+#### {{ mpg-name }} {#v-1-8-1-managed-postgresql}
+
+* Добавлены параметры для настройки `folder-id` для создания соединений и их секретов в интеграции Connection Manager для {{ mpg-name }}:
+  * `yc managed-postgresql cluster create`;
+  * `yc managed-postgresql cluster restore`;
+  * `yc managed-postgresql cluster update`;
+  * `yc managed-postgresql user create`.
+
+* При детальном выводе одного пользователя удалено устаревшее поле `connection_manager` и добавлено заменяющее его u`ser_connection_manager`:
+  * `yc managed-postgresql user get`;
+  * `yc managed-postgresql user list`;
+  * `yc managed-postgresql user create`.
+
+* Прекращена поддержка устаревших версий {{ PG }} (13, 13-1c):
+  * `yc managed-postgresql cluster update`;
+  * `yc managed-postgresql cluster create`.
+
+### Версия 1.8.0 (18.05.26) {#v-1-8-0}
+
+#### Изменения в системных командах CLI {#v-1-8-0-yc}
+
+* В `yc` добавлены деревья команд версий `v0` и `v1` на уровне сервиса. В поддереве `v1` используется новый интерфейс CLI. Деревья `v1` доступны для сервисов `yc cic`, `yc cloudrouter`, `yc smartcaptcha` и `yc smartwebsecurity`.
+* Флаг `--syntax` удален и больше не поддерживается. Для выбора интерфейса используйте версии `v0` и `v1`, а также настройку в конфигурации `services.<service>.version`.
+
+#### {{ mgp-name }} {#v-1-8-0-mgp-name}
+
+* Добавлен флаг `--port` для указания конкретного порта запуска прокси для {{ mgp-name }}:
+  * `yc managed-greenplum connect`.
+
+#### {{ mpg-name }} {#v-1-8-0-mpg-name}
+
+* Добавлен флаг `--port` для указания конкретного порта запуска прокси для {{ mpg-name }}:
+  * `yc managed-postgresql connect`.
+
+#### {{ interconnect-name }} {#v-1-8-0-cic-name}
+
+* Добавлены поля `name`, `url`, `pop_ids` в вывод следующих команд:
+  * `yc cic partner get`;
+  * `yc cic partner list`.
+
+#### {{ sf-name }} {#v-1-8-0-sf-name}
+
+* В команде `yc serverless function version create` параметры `--subnet-id` и `--subnet-name` помечены как **DEPRECATED**. Для указания доступа к сети используйте только `--network-id` или `--network-name`.
+
+#### {{ serverless-containers-name }} {#v-1-8-0-serverless-containers-name}
+
+* Параметр `--subnets` помечен как **DEPRECATED**, для указания доступа к сети используйте только `--network-id` или `--network-name`:
+  * `yc serverless container revision deploy`.
+
+### Версия 1.7.0 (12.05.26) {#v-1-7-0}
+
+#### {{ baremetal-name }} {#v-1-7-0-baremetal-name}
+
+Добавлены параметры `--network-interface-id` и `--configuration-network-interface-id` в команды:
+* `yc baremetal server create`;
+* `yc baremetal server update`.
+
+#### {{ dns-name }} {#v-1-7-0-dns-name}
+
+Исправлено описание команд:
+* `yc dns zone create`;
+* `yc dns firewall create`.
+
+#### {{ cr-name }} {#v-1-7-0-cloudrouter-name}
+
+Команды сервиса `yc cloudrouter` доступны в новом синтаксисе. Для вызова используйте `yc --syntax=2 cloudrouter ...` либо задайте `default-syntax: 2` или `services.cloudrouter.syntax: 2` в профиле:
+  * `yc cloudrouter routing-instance add-private-connection`;
+  * `yc cloudrouter routing-instance create`;
+  * `yc cloudrouter routing-instance delete`;
+  * `yc cloudrouter routing-instance get`;
+  * `yc cloudrouter routing-instance get-by-cic-private-connection-id`;
+  * `yc cloudrouter routing-instance get-by-vpc-network-id`;
+  * `yc cloudrouter routing-instance list`;
+  * `yc cloudrouter routing-instance list-operations`;
+  * `yc cloudrouter routing-instance move`;
+  * `yc cloudrouter routing-instance move-prefix`;
+  * `yc cloudrouter routing-instance remove-prefixes`;
+  * `yc cloudrouter routing-instance remove-private-connection`;
+  * `yc cloudrouter routing-instance update`;
+  * `yc cloudrouter routing-instance update-networks`;
+  * `yc cloudrouter routing-instance update-prefix-mask`;
+  * `yc cloudrouter routing-instance upsert-prefixes`.
+
+#### {{ mgp-name }} {#v-1-7-0-mgp-name}
+
+В команде `yc managed-greenplum cluster create` удалена зависимость от версии {{ GP }}.
+
+#### {{ alb-name }} {#v-1-7-0-alb-name}
+
+Добавлен параметр `--external-address` в команды:
+  * `yc application-load-balancer target-group create`;
+  * `yc application-load-balancer target-group update`;
+  * `yc application-load-balancer target-group add-targets`.
+
+#### {{ mch-name }} {#v-1-7-0-mch-name}
+
+Добавлены параметры `--performance-diagnostics-enabled` и `--performance-diagnostics-processes-refresh-interval` в команды:
+  * `yc managed-clickhouse cluster create`;
+  * `yc managed-clickhouse cluster update`;
+  * `yc managed-clickhouse cluster restore`.
+
+#### {{ interconnect-name }} {#v-1-7-0-cic-name}
+
+* Добавлен параметр `--trunk-connection-id` в команды:
+  * `yc cic get`;
+  * `yc cic listoperations`.
+
+* Удален параметр `--private-connection-id` в командах:
+  * `yc cic get`;
+  * `yc cic listoperations`.
+
+* Удалено поле `cloud_bgp_asn` параметра `--ipv4-peering` в командах:
+  * `yc cic private-connection create`;
+  * `yc cic private-connection update`.
+
+* В вывод команд `yc cic point-of-presence get` и `yc cic point-of-presence list` добавлены поля `name`, `address` и `connection points` с дополнительной информацией о точках присутствия.
+
+* Изменен вывод команд:
+  * `yc cic get`;
+  * `yc cic list`.
+
+* Команды сервиса `yc cic` доступны в новом синтаксисе. Для вызова используйте `yc --syntax=2 cic ...` либо задайте `default-syntax: 2` или `services.cic.syntax: 2` в профиле:
+  * `yc cic partner get`;
+  * `yc cic partner list`;
+  * `yc cic point-of-presence get`;
+  * `yc cic point-of-presence list`;
+  * `yc cic private-connection create`;
+  * `yc cic private-connection delete`;
+  * `yc cic private-connection get`;
+  * `yc cic private-connection list`;
+  * `yc cic private-connection list-operations`;
+  * `yc cic private-connection move`;
+  * `yc cic private-connection remove-static-route`;
+  * `yc cic private-connection update`;
+  * `yc cic private-connection upsert-static-route`;
+  * `yc cic public-connection get`;
+  * `yc cic public-connection list`;
+  * `yc cic public-connection move`;
+  * `yc cic trunk-connection delete`;
+  * `yc cic trunk-connection get`;
+  * `yc cic trunk-connection list`;
+  * `yc cic trunk-connection list-operations`;
+  * `yc cic trunk-connection list-private-connections`;
+  * `yc cic trunk-connection list-public-connections`;
+  * `yc cic trunk-connection move`;
+  * `yc cic trunk-connection update`.
+
+### Версия 1.6.0 (27.04.26) {#v-1-6-0}
+
+#### {{ cloud-registry-name }} {#v-1-6-0-cloud-registry-name}
+
+Добавлена команда `yc cloud-registry registry lifecycle-policy dry-run` для симуляции выполнения политики жизненного цикла.
+
+#### {{ iam-name }} {#v-1-6-0-iam-name}
+
+В вывод команды `yc iam api-key list` добавлено поле `MASKED KEY`, содержащее последние 6 символов секретной части ключа.
+
+### Версия 1.5.0 (23.04.26) {#v-1-5-0}
+
+#### Изменения в системных командах CLI {#v-1-5-0-yc}
+
+* В командах CLI появилось версионирование. Оно реализовано посервисно в виде дерева дочерних команд c номером версии, например `yc compute v0`.
+
+#### {{ interconnect-name }} {#v-1-5-0-cic-name}
+
+* Удален параметр `--region` в командах:
+  * `yc cic private-connection create`;
+  * `yc cic private-connection update`;
+  * `yc cic trunk-connection update`.
+
+* Удален параметр `--point_of_presence_id` в команде `yc cic trunk-connection update`.
+
+* Удалено значение `cloud-bgp-asn` параметра `--ipv4-peering` в командах:
+  * `yc cic private-connection create`;
+  * `yc cic private-connection update`.
+
+
+#### {{ cr-name }} {#v-1-5-0-cr-name}
+
+* Удален параметр `--region` в командах:
+  * `yc cloudrouter routing-instance create`;
+  * `yc cloudrouter routing-instance update`.
+
+#### {{ mkf-name }} {#v-1-5-0-mkf-name}
+
+* Добавлен параметр `--transactional-id-expiration-ms` в команды:
+  * `yc kafka cluster create`;
+  * `yc kafka cluster update`.
+
 ### Версия 1.4.0 (20.04.26) {#v-1-4-0}
 
 #### {{ cloud-registry-name }} {#v-1-4-0-cloud-registry-name}
@@ -18,8 +249,6 @@ description: На странице представлены релизы CLI, а
   * `yc cloud-registry registry scan-policy get-by-registry`;
   * `yc cloud-registry registry scan-policy create`;
   * `yc cloud-registry registry scan-policy upd`.
-
-## Предыдущие релизы {#previous-release}
 
 ### Версия 1.3.0 (16.04.26) {#v-1-3-0}
 
@@ -1738,7 +1967,7 @@ yc managed-clickhouse cluster add-zookeeper --host type=<host_type>
 Исправлено сообщение об ошибке, которое появлялось после успешного окончания операции перезапуска кластера OpenSearch или смены мастера.
 
 ##### {{ mpg-name }}
-Добавлены команды для управления пользователями в ресурсных группах в {{ GP }}:
+Добавлены команды для управления пользователями в ресурсных группах {{ GP }}:
   * `yc managed-greenplum user create`;
   * `yc managed-greenplum user get`;
   * `yc managed-greenplum user list`;

@@ -6,9 +6,42 @@ editable: false
 
 # {{ baremetal-full-name }} pricing policy
 
+::: page-constructor
+blocks:
+  - type: card-layout-block
+    animated: false
+    colSizes:
+      all: 12
+      sm: 4
+    children:
+      - type: basic-card
+        title: Price calculator
+        text: Calculate the cost of the service based on your needs
+        icon: _assets/icons/calculator.svg
+        urlTitle: Price calculator
+        url: https://yandex.cloud/en/prices?state=d1451a543898#calculator
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+      - type: basic-card
+        title: Price list
+        text: Current prices of all our services
+        icon: _assets/icons/circle-ruble.svg
+        urlTitle: Price list
+        url: https://yandex.cloud/en/price-list?services=dn2jfbheag6vvls7oplt
+        size: s
+        border: shadow
+        centered: true
+        indent:
+          top: '0'
+          bottom: '0'
+:::
 
 
-{% include [link-to-price-list](../_includes/pricing/link-to-price-list.md) %}
+
 
 {% include [currency-choice](../_includes/pricing/currency-choice.md) %}
 
@@ -17,8 +50,6 @@ editable: false
 In {{ baremetal-name }}, you pay for renting a server of a [certain configuration](concepts/server-configurations.md). A rented server is billable for the entire rent period, whether it is on or off.
 
 You can look up how many servers of particular configurations are available in the [calculator](https://yandex.cloud/en/prices) on the {{ yandex-cloud }} website and in the [management console]({{ link-console-main }}) when selecting a server.
-
-The monthly prices are based on 720 hours per month.
 
 ## Prices for the Russia region {#prices}
 
@@ -30,10 +61,10 @@ All prices are per month.
 
 The cost may depend on the [rent period](../baremetal/concepts/servers.md#server-lease).
 
-The payment procedure depends on the payment method:
+The debiting procedure depends on the payment method:
 
-* If a bank card is linked to the billing account, charges are debited **daily** regardless of the rent period. The total monthly amount equals the cost of the selected rent period.
-* For businesses paying by invoice, the invoice is issued **once a month** regardless of the rent period.
+* If there is a credit/debit card linked to the billing account, money is debited **daily** regardless of the rent period. The month's total equals the cost of the selected rent period.
+* For businesses operating on an invoicing basis, the invoice is generated **once a month** regardless of the rent period.
 
 
 
@@ -126,6 +157,11 @@ The payment procedure depends on the payment method:
       '{{ pc|baremetal.server.ba-i217-s-1-10g.3_month }}',
       '{{ pc|baremetal.server.ba-i217-s-1-10g.6_month }}',
       '{{ pc|baremetal.server.ba-i217-s-1-10g.12_month }}',
+      '{{ pc|baremetal.server.ba_i218_s.1_day }}',
+      '{{ pc|baremetal.server.ba_i218_s.1_month }}',
+      '{{ pc|baremetal.server.ba_i218_s.3_month }}',
+      '{{ pc|baremetal.server.ba_i218_s.6_month }}',
+      '{{ pc|baremetal.server.ba_i218_s.12_month }}',
       '{{ pc|baremetal.server.ba_i311_s.1_day }}',
       '{{ pc|baremetal.server.ba_i311_s.1_month }}',
       '{{ pc|baremetal.server.ba_i311_s.3_month }}',
@@ -260,7 +296,12 @@ The payment procedure depends on the payment method:
       '{{ pc|baremetal.server.la_i113_s.1_month }}',
       '{{ pc|baremetal.server.la_i113_s.3_month }}',
       '{{ pc|baremetal.server.la_i113_s.6_month }}',
-      '{{ pc|baremetal.server.la_i113_s.12_month }}'
+      '{{ pc|baremetal.server.la_i113_s.12_month }}',
+      '{{ pc|baremetal.server.la_i114_s.1_day }}',
+      '{{ pc|baremetal.server.la_i114_s.1_month }}',
+      '{{ pc|baremetal.server.la_i114_s.3_month }}',
+      '{{ pc|baremetal.server.la_i114_s.6_month }}',
+      '{{ pc|baremetal.server.la_i114_s.12_month }}'
     ]}
     installationCode="ru"
     currency="USD"
@@ -289,6 +330,22 @@ The final cost of a custom configuration depends on the server components you se
       '{{ pc|baremetal.server.bms_1027r_body.1_month }}',
       '{{ pc|baremetal.server.bms_1027r_body.6_month }}',
       '{{ pc|baremetal.server.bms_1027r_body.12_month }}',
+      '{{ pc|baremetal.component.bms_1029p_body.1_month }}',
+      '{{ pc|baremetal.component.bms_1029p_body.3_month }}',
+      '{{ pc|baremetal.component.bms_1029p_body.6_month }}',
+      '{{ pc|baremetal.component.bms_1029p_body.12_month }}',
+      '{{ pc|baremetal.component.bms_6017r_1p_body.1_month }}',
+      '{{ pc|baremetal.component.bms_6017r_1p_body.3_month }}',
+      '{{ pc|baremetal.component.bms_6017r_1p_body.6_month }}',
+      '{{ pc|baremetal.component.bms_6017r_1p_body.12_month }}',
+      '{{ pc|baremetal.component.bms_6017r_2p_body.1_month }}',
+      '{{ pc|baremetal.component.bms_6017r_2p_body.3_month }}',
+      '{{ pc|baremetal.component.bms_6017r_2p_body.6_month }}',
+      '{{ pc|baremetal.component.bms_6017r_2p_body.12_month }}',
+      '{{ pc|baremetal.component.bms_6018r_body.1_month }}',
+      '{{ pc|baremetal.component.bms_6018r_body.3_month }}',
+      '{{ pc|baremetal.component.bms_6018r_body.6_month }}',
+      '{{ pc|baremetal.component.bms_6018r_body.12_month }}',
       '{{ pc|baremetal.component.bms-cpu-9374f.1-month }}',
       '{{ pc|baremetal.component.bms-cpu-9374f.6-month }}',
       '{{ pc|baremetal.component.bms-cpu-9374f.12-month }}',
@@ -322,6 +379,22 @@ The final cost of a custom configuration depends on the server components you se
       '{{ pc|baremetal.server.bms_cpu_ie5_2660.1_month }}',
       '{{ pc|baremetal.server.bms_cpu_ie5_2660.6_month }}',
       '{{ pc|baremetal.server.bms_cpu_ie5_2660.12_month }}',
+      '{{ pc|baremetal.component.bms_cpu_ie5_2660v4.1_month }}',
+      '{{ pc|baremetal.component.bms_cpu_ie5_2660v4.3_month }}',
+      '{{ pc|baremetal.component.bms_cpu_ie5_2660v4.6_month }}',
+      '{{ pc|baremetal.component.bms_cpu_ie5_2660v4.12_month }}',
+      '{{ pc|baremetal.component.bms_cpu_ie5_2683v4.1_month }}',
+      '{{ pc|baremetal.component.bms_cpu_ie5_2683v4.3_month }}',
+      '{{ pc|baremetal.component.bms_cpu_ie5_2683v4.6_month }}',
+      '{{ pc|baremetal.component.bms_cpu_ie5_2683v4.12_month }}',
+      '{{ pc|baremetal.component.bms_cpu_i6230.1_month }}',
+      '{{ pc|baremetal.component.bms_cpu_i6230.3_month }}',
+      '{{ pc|baremetal.component.bms_cpu_i6230.6_month }}',
+      '{{ pc|baremetal.component.bms_cpu_i6230.12_month }}',
+      '{{ pc|baremetal.component.bms_cpu_i6230r.1_month }}',
+      '{{ pc|baremetal.component.bms_cpu_i6230r.3_month }}',
+      '{{ pc|baremetal.component.bms_cpu_i6230r.6_month }}',
+      '{{ pc|baremetal.component.bms_cpu_i6230r.12_month }}',
       '{{ pc|baremetal.component.bms-disk-h10t.1-month }}',
       '{{ pc|baremetal.component.bms-disk-h10t.6-month }}',
       '{{ pc|baremetal.component.bms-disk-h10t.12-month }}',
@@ -409,6 +482,22 @@ The final cost of a custom configuration depends on the server components you se
       '{{ pc|baremetal.server.bms_ram3_256.1_month }}',
       '{{ pc|baremetal.server.bms_ram3_256.6_month }}',
       '{{ pc|baremetal.server.bms_ram3_256.12_month }}',
+      '{{ pc|baremetal.component.bms_ram3_512.1_month }}',
+      '{{ pc|baremetal.component.bms_ram3_512.3_month }}',
+      '{{ pc|baremetal.component.bms_ram3_512.6_month }}',
+      '{{ pc|baremetal.component.bms_ram3_512.12_month }}',
+      '{{ pc|baremetal.component.bms_ram4_16.1_month }}',
+      '{{ pc|baremetal.component.bms_ram4_16.3_month }}',
+      '{{ pc|baremetal.component.bms_ram4_16.6_month }}',
+      '{{ pc|baremetal.component.bms_ram4_16.12_month }}',
+      '{{ pc|baremetal.component.bms_ram4_32.1_month }}',
+      '{{ pc|baremetal.component.bms_ram4_32.3_month }}',
+      '{{ pc|baremetal.component.bms_ram4_32.6_month }}',
+      '{{ pc|baremetal.component.bms_ram4_32.12_month }}',
+      '{{ pc|baremetal.component.bms_ram4_64.1_month }}',
+      '{{ pc|baremetal.component.bms_ram4_64.3_month }}',
+      '{{ pc|baremetal.component.bms_ram4_64.6_month }}',
+      '{{ pc|baremetal.component.bms_ram4_64.12_month }}',
       '{{ pc|baremetal.component.bms-ram4-1024.1-month }}',
       '{{ pc|baremetal.component.bms-ram4-1024.6-month }}',
       '{{ pc|baremetal.component.bms-ram4-1024.12-month }}',
@@ -620,7 +709,7 @@ To request a bandwidth package of 100 TB, contact [support]({{ link-console-supp
 </MDX>
 
 
-### PI prefix announcement (BYOIP) {#byoip}
+### Announcing a PI prefix (BYOIP) {#byoip}
 
 
 

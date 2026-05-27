@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mysql/cli-ref/
 editable: false
 ---
 
@@ -116,6 +117,10 @@ Aliases:
 
   - [yc managed-mysql user update](user/update.md) — Update the specified MySQL user
 
+- [yc managed-mysql v0](v0/index.md) — Manage MySQL clusters, hosts, databases, backups and users.
+
+  - [yc managed-mysql v0 connect](v0/connect.md) — Connect to MySQL cluster with iam-auth
+
 #### Global Flags
 
 #|
@@ -131,9 +136,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||

@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/application-load-balancer/cli-ref/target-group/update
 editable: false
 ---
 
@@ -43,7 +44,9 @@ Possible property names:
 
 - `ip-address`: IP Address.
 
-- `private-ip-address`: Private IPv4 address. ||
+- `private-ip-address`: Private IPv4 address.
+
+- `external-address`: External address. ||
 || `--clear-targets` | Remove all targets. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
@@ -63,9 +66,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||

@@ -76,7 +76,6 @@ editable: false
 
 
 
- 
 
 
 ## Цены для региона Россия {#prices}

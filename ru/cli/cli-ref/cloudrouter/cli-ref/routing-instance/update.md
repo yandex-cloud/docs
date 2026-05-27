@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/cloudrouter/cli-ref/routing-instance/update
 editable: false
 ---
 
@@ -32,9 +33,6 @@ New description for the routing-instance. ||
 || `--labels` | `key=value[,key=value...]`
 
 New set of labels for the routing-instance as key-value pairs. Existing set of labels will be completely overwritten. ||
-|| `--region` | `string`
-
-Region of the routing-instance. ||
 |#
 
 #### Global Flags
@@ -52,9 +50,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||

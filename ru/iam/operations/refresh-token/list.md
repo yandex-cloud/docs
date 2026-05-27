@@ -7,7 +7,7 @@ description: Следуя данной инструкции, вы сможете
 
 {% include [cli-install](../../../_includes/iam/refresh-tokens-add-note.md) %}
 
-Чтобы получить список [refresh-токенов](../../concepts/authorization/refresh-token.md) федеративного пользователя:
+Чтобы получить список [refresh-токенов](../../concepts/authorization/refresh-token.md) федеративного или локального пользователя:
 
 {% list tabs group=instructions %}
 
@@ -79,4 +79,4 @@ description: Следуя данной инструкции, вы сможете
 
 {% endlist %}
 
-Посмотреть список своих refresh-токенов также можно через портал [Мой аккаунт](../../../organization/concepts/my-account.md).
+Посмотреть список своих refresh-токенов также можно через портал [Мой аккаунт](../../../organization/concepts/my-account.md). Это доступно всем видам пользователей, в том числе пользователям с аккаунтом на Яндексе.

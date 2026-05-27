@@ -19,6 +19,9 @@ A network load balancer can be used together with the following resources and se
 * [Instance groups ({{ ig-name }})](./scenarios.md#nlb-ig). The instance group tracks the number of VMs in the group and changes the composition of the balancer's target group as needed.
 * [Clusters ({{ managed-k8s-name }})](./scenarios.md#nlb-mk8s). The master node of the {{ k8s }} cluster tracks the number of VMs in the cluster node groups and changes the composition of the balancer's target group as needed.
 
+The image below shows an example of using a network load balancer in conjunction with a set of VMs:
+
+![NLB-Overview](../../_assets/network-load-balancer/nlb-vm.svg)
 
 A load balancer’s incoming traffic is distributed in a certain way among VMs located downstream of the load balancer.
 
@@ -37,4 +40,4 @@ To prevent unintended deletion of a network load balancer, enable deletion prote
 A network load balancer can be deployed in {{ yandex-cloud }} using the following tools:
 * [Cloud console]({{ link-console-main }})
 * [CLI](../../cli/quickstart.md)
-* [Terraform]({{ tf-provider-resources-link }}/lb_network_load_balancer)
+* [{{ TF }}]({{ tf-provider-resources-link }}/lb_network_load_balancer)

@@ -15,7 +15,7 @@
   * **{{ ui-key.yacloud.common.resource-acl.label_access-bindings }}** приводится информация о [правах доступа](../../iam/concepts/access-control/index.md) к ВМ.
   * **{{ ui-key.yacloud.common.operations-key-value }}** приводится список операций с ВМ и подключенными к ней ресурсами, например дисками.
   * **{{ ui-key.yacloud.common.monitoring }}** приводится информация о потреблении ресурсов на ВМ. Эту информацию можно получить только в консоли управления или изнутри ВМ.
-  * **{{ ui-key.yacloud.compute.instance.switch_console }}** предоставлен доступ к [серийной консоли](../../compute/operations/serial-console/index.md), если при [создании](../../compute/operations/index.md#vm-create) ВМ вы разрешили к ней доступ.
+  * **{{ ui-key.yacloud.compute.instance.switch_console }}** предоставлен доступ к [серийной консоли](../../compute/concepts/serial-console.md), если при [создании](../../compute/operations/index.md#vm-create) ВМ вы разрешили к ней доступ.
   * **{{ ui-key.yacloud.compute.instance.switch_service-console }}** приводится информация, которую ВМ выводит в последовательный порт. Чтобы получить эту информацию через API или CLI, воспользуйтесь инструкцией [{#T}](../../compute/operations/vm-info/get-serial-port-output.md).
 
 - CLI {#cli}

@@ -3,6 +3,8 @@ href: index.yaml
 items:
   - name: Начало работы
     href: quickstart.md
+  - name: Настройка аутентификации {{ TF }}-провайдера {{ yandex-cloud }}
+    href: authentication.md
   - name: Концепции
     items:
       - name: Обзор
@@ -186,12 +188,21 @@ items:
             items:
               - name: Data Sources
                 items:
+                  - name: dns_firewall
+                    href: data-sources/dns_firewall.md
+                    title: ''
                   - name: dns_zone
                     href: data-sources/dns_zone.md
                     title: ''
                 title: ''
               - name: Resources
                 items:
+                  - name: dns_firewall
+                    href: resources/dns_firewall.md
+                    title: ''
+                  - name: dns_firewall_iam_binding
+                    href: resources/dns_firewall_iam_binding.md
+                    title: ''
                   - name: dns_recordset
                     href: resources/dns_recordset.md
                     title: ''
@@ -618,6 +629,10 @@ items:
                     title: ''
                   - name: organizationmanager_mfa_enforcement_audience
                     href: resources/organizationmanager_mfa_enforcement_audience.md
+                    title: ''
+                  - name: organizationmanager_mfa_enforcement_excluded_audience
+                    href: >-
+                      resources/organizationmanager_mfa_enforcement_excluded_audience.md
                     title: ''
                   - name: organizationmanager_organization_iam_binding
                     href: resources/organizationmanager_organization_iam_binding.md

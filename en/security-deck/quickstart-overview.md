@@ -49,6 +49,7 @@ To create your first {{ sd-name }} workspace:
 * [{{ kspm-full-name }} ({{ kspm-name }})](#kspm)
 * [{{ ciem-full-name }} ({{ ciem-name }})](#ciem)
 * [{{ cspm-full-name }} ({{ cspm-name }})](#cspm)
+* [{{ td-full-name }} ({{ td-name }})](#td)
 * [{{ vuln-man-name }}](#vulnerability-management)
 * [{{ atr-name }}](#access-transparency)
 * [Compliance Portal](#compliance)
@@ -59,7 +60,7 @@ To use any of the modules, navigate to the [{{ sd-name }} interface]({{ link-sd-
 
 {% include [about-dspm](../_includes/security-deck/about-dspm.md) %}
 
-To get started with the {{ dspm-name }} module, follow the guides on how to [create a data source](./operations/dspm/create-data-source.md) and a [scan](./operations/dspm/create-scan.md) for bucket information.
+To get started with {{ dspm-name }}, [activate](#create-workspace) it in the current {{ sd-name }} [workspace](./concepts/workspace.md) settings and follow the guides on how to [analyze data](./operations/dspm/discovery-mode.md), [create a data source](./operations/dspm/create-data-source.md), and [create a scan](./operations/dspm/create-scan.md) for the information.
 
 For more information, see [{#T}](./concepts/dspm.md).
 
@@ -69,7 +70,7 @@ For more information, see [{#T}](./concepts/dspm.md).
 
 ### {{ ciem-full-name }} ({{ ciem-name }}) {#ciem}
 
-{{ sd-name }} [{{ ciem-full-name }}]({{ link-sd-main }}iam-diagnostics/) provides a centralized [view](./operations/ciem/view-permissions.md) of the full list of accesses to the organization's [resources](../iam/concepts/access-control/resources-with-access-control.md) available to [subjects](../iam/concepts/access-control/index.md#subject): [users](../overview/roles-and-resources.md#users), [service accounts](../iam/concepts/users/service-accounts.md), [user groups](../organization/concepts/groups.md), [system groups](../iam/concepts/access-control/system-group.md), and [public groups](../iam/concepts/access-control/public-group.md). The tool also makes it easy to [revoke](./operations/ciem/revoke-permissions.md) excessive access permissions from subjects. To learn more, see [{#T}](./concepts/ciem.md).
+{{ sd-name }} [{{ ciem-full-name }}]({{ link-sd-main }}iam-diagnostics/) is a tool providing a centralized [view](./operations/ciem/view-permissions.md) of the full list of accesses to the organization's [resources](../iam/concepts/access-control/resources-with-access-control.md) available to [subjects](../iam/concepts/access-control/index.md#subject), i.e., [users](../overview/roles-and-resources.md#users), [service accounts](../iam/concepts/users/service-accounts.md), [user groups](../organization/concepts/groups.md), [system groups](../iam/concepts/access-control/system-group.md), and [public groups](../iam/concepts/access-control/public-group.md). The tool also makes it easy to [revoke](./operations/ciem/revoke-permissions.md) excessive access permissions from subjects. To learn more, see [{#T}](./concepts/ciem.md).
 
 To get started with the {{ ciem-name }} module, follow the guides for [viewing](./operations/ciem/view-permissions.md) and [revoking](./operations/ciem/revoke-permissions.md) accesses.
 
@@ -77,9 +78,13 @@ To get started with the {{ ciem-name }} module, follow the guides for [viewing](
 
 {% include [cspm-basic-intro](../_includes/security-deck/cspm-basic-intro.md) %}
 
-### Managing vulnerabilities {#vulnerability-management}
+### {{ td-full-name }} ({{ td-name }}) {#td}
 
-[{{ vuln-man-name }}]({{ link-sd-main }}vulnerability-management/) enables you to centrally manage container image vulnerability scanning and view resource scan results within your workspace. The module supports scanning images from {{ container-registry-name }} and {{ cloud-registry-name }}, as well as images run in {{ managed-k8s-name }} clusters.
+{% include [td-basic-intro](../_includes/security-deck/td-basic-intro.md) %}
+
+### {{ vuln-man-name }} {#vulnerability-management}
+
+[{{ vuln-man-name }}]({{ link-sd-main }}vulnerability-management/) enables you to centrally manage container image vulnerability scanning and view resource scan results within your workspace. This module supports scanning images from {{ container-registry-name }} and {{ cloud-registry-name }}, and those running in {{ managed-k8s-name }} clusters.
 
 Scanning can start automatically when the image is pushed to the registry, on a schedule, or when the image is used in a {{ k8s }} cluster. The module is integrated with {{ kspm-name }} to detect active images and inform you which vulnerable images are used in the monitored workspace.
 
@@ -101,3 +106,4 @@ For more information, see [{#T}](./concepts/access-transparency.md).
 * Learn [how to scan buckets for sensitive information](./operations/dspm/create-scan.md) in {{ sd-name }}.
 * Learn [how to view a subject's access list](./operations/ciem/view-permissions.md) in {{ sd-name }}.
 * Learn about the [required access permissions](./security/index.md) to work with {{ sd-name }}.
+

@@ -2,11 +2,11 @@
 
 [Selectel](https://selectel.ru/) is a cloud infrastructure and data center provider offering dedicated servers, cloud platforms, and data storage services. Selectel supports SAML authentication to provide secure SSO for your organization's users.
 
-To authenticate your [organization's](../../../organization/concepts/organization.md) users in Selectel via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-full-name }} and configure it appropriately both in {{ org-full-name }} and Selectel.
+For the users of your [organization](../../../organization/concepts/organization.md) to be able to authenticate to Selectel via [SAML](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) SSO, create a [SAML app](../../../organization/concepts/applications.md#saml) in {{ org-full-name }} and configure it both in {{ org-full-name }} and Selectel.
 
 {% include [saml-app-admin-role](../../../_includes/organization/saml-app-admin-role.md) %}
 
-For the users of your organization to be able to access Selectel:
+To give access to Selectel to the users of your organization:
 
 1. [Create an app](#create-app).
 1. [Set up the integration](#setup-integration).
@@ -26,7 +26,7 @@ For the users of your organization to be able to access Selectel:
         1. Optionally, in the **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.field-description_kzkNB }}** field, enter a description for the new app.
         1. Optionally, add [labels](../../../resource-manager/concepts/labels.md):
             1. Click **{{ ui-key.yacloud.component.label-set.button_add-label }}**.
-            1. Enter a label in `key: value` format.
+            1. Add a label in `key: value` format.
             1. Press **Enter**.
         1. Click **{{ ui-key.yacloud_org.organization.apps.AppCreateForm.create-app-submit_myxPn }}**.
 
@@ -44,7 +44,7 @@ An [account owner](https://docs.selectel.ru/access-control/user-types/#account-o
 
 {% endnote %}
 
-To set up SAML authentication in Selectel, create and configure an [identity federation](https://docs.selectel.ru/access-control/federations/about-federations/). Proceed as follows:
+To set up SAML authentication in Selectel, create and configure an [identity federation](https://docs.selectel.ru/access-control/federations/about-federations/). Follow these steps:
 
 1. Log in to your Selectel account and select **Account** in the top panel.
 1. In the left-hand panel, under **Access management**, select **Federations**.
@@ -104,11 +104,7 @@ For your organization's users to be able to authenticate in Selectel with {{ org
 
 #### Add users to the SAML application {#add-users-idp}
 
-{% note info %}
-
-Users and groups added to a SAML application can be managed by a user with the `organization-manager.samlApplications.userAdmin` [role](../../../organization/security/index.md#organization-manager-samlApplications-userAdmin) or higher.
-
-{% endnote %}
+{% include [saml-manage-users](../../../_includes/organization/saml-manage-users.md) %}
 
 {% list tabs group=instructions %}
 
@@ -141,7 +137,7 @@ Then add the user to your Selectel account:
     1. Under **External ID**, enter the ID you copied.
     1. In the **Email** field, enter the user email address to receive instructions for completing the authentication.
     1. Optionally, provide a user description.
-1. Under **Access settings**, configure the user permission. Proceed as follows:
+1. Under **Access settings**, configure the user permission. Follow these steps:
     1. Select the access scope: **Account** or **Projects**. For the **Projects** access scope, select the projects in the **Project** field.
     1. Assign a role to the user. To assign the `member` role or higher to the user, your account balance must be at least ₽100.
     1. Optionally, click **Add permission** to add another permission.
@@ -151,7 +147,7 @@ Then add the user to your Selectel account:
 
 ## Make sure your application works correctly {#validate}
 
-To make sure both your SAML app and Selectel integration work correctly, authenticate to Selectel as one of the users you added to the application. Proceed as follows:
+To make sure both your SAML app and Selectel integration work correctly, authenticate to Selectel as one of the users you added to the application. Follow these steps:
 
 1. Open the email notifying of granted access to a Selectel account. The email contains the federation ID and an SSO authentication link.
 1. Click the link in the email to open the authentication page.

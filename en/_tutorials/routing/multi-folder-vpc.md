@@ -186,7 +186,7 @@ In `net-folder`, create the `shared-net` network and three subnets with the foll
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), navigate to `net-folder`.
-     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+     1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. Click **{{ ui-key.yacloud.vpc.networks.button_create }}**.
      1. Specify the network name: `shared-net`.
      1. Disable the [{{ ui-key.yacloud.vpc.networks.create.field_is-default }}](../../vpc/operations/subnet-create.md) option to create subnets manually.
@@ -245,7 +245,7 @@ In `net-folder`, create the `shared-net` network and three subnets with the foll
    - Management console {#console}
 
      1. In the [management console]({{ link-console-main }}), navigate to `net-folder`.
-     1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+     1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
      1. Click `shared-net`.
      1. Click ![image](../../_assets/console-icons/nodes-right.svg) **{{ ui-key.yacloud.vpc.network.overview.button_create_subnetwork }}**.
      1. Specify the subnet name: `subnet-a`, `subnet-b`, or `subnet-d`.
@@ -340,7 +340,7 @@ In `net-folder`, create the `shared-net` network and three subnets with the foll
 - Management console {#console}
 
   1. In the [management console]({{ link-console-main }}), navigate to `net-folder`.
-  1. [Go](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
+  1. [Navigate](../../console/operations/select-service.md#select-service) to **{{ ui-key.yacloud.iam.folder.dashboard.label_vpc }}**.
   1. Click `shared-net`.
   1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to `subnet-b` and select **{{ ui-key.yacloud.common.move }}**.
   1. Select `dev-folder` from the drop-sown list.

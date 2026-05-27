@@ -87,6 +87,8 @@ description: Следуя данной инструкции, вы научите
 
   После запуска запрос переходит в статус **{{ ui-key.yacloud_org.security.siem.cell-result-running_4S3Mi }}**. По завершении результаты отображаются в таблице и на гистограмме.
 
+  {% include [queries-max-results](../../../_includes/ycdr/queries-max-results.md) %}
+
 {% endlist %}
 
 ## Остановка выполняющегося запроса {#stop-query}

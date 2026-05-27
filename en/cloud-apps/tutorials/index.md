@@ -5,5 +5,6 @@ description: Various use cases for {{ cloud-apps-name }} products in {{ yandex-c
 
 # {{ cloud-apps-name }} tutorials
 
+* [{#T}](wordpress-ha-cloudapp.md)
 * [{#T}](wordpress-cloudapp.md)
 * [{#T}](ghost-cms-cloudapp.md)

@@ -1,4 +1,4 @@
-# Метод getMeta
+# Object Storage API, REST совместимый с Amazon S3: HeadBucket
 
 Возвращает метаданные бакета или ошибку.
 
@@ -41,6 +41,8 @@ HEAD /{bucket} HTTP/2
 
 * [{#T}](../../../concepts/bucket.md)
 
+
 * [{#T}](../../../operations/buckets/get-info.md)
+
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

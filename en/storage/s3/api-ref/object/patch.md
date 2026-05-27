@@ -1,4 +1,4 @@
-# patch method
+# Object Storage API, Amazon S3-compatible REST: patch
 
 [Partially updates and appends object data](../../../concepts/object-patch.md) in {{ objstorage-full-name }}.
 
@@ -29,10 +29,10 @@ Use [common headers](../common-request-headers.md) in your request, as well as t
 
 Header | Description
 ----- | -----
-`Content-Range` | This is a required parameter.<br/>It takes the `bytes {<start_byte>}-{<end_byte>}/*` value.<br/>Range boundaries are included. The maximum range length is 5 GB.<br/>The `Content-Length` [header](../common-request-headers.md) must be equal to the `Content-Range` length.<br/>To append data to an object, specify the end byte value larger than the object size.<br/>The start byte value cannot exceed the object size.<br/>The header format complies with [RFC 9110](https://www.rfc-editor.org/rfc/rfc9110#name-content-range) with the following exceptions:<ul><li>The `complete-length` header parameter is ignored.</li><li>The `last-pos` header parameter is optional.</li></ul>
-`X-Yc-S3-Patch-Append-Part-Size` | This is an optional parameter.<br/>It takes the `{size_of_new_part}` value.<br/>It defines the size (in bytes) of new parts of an object [uploaded in parts](../multipart.md), if appending to the end of the object.<br/>If the object's last part has reached the specified size, the next append will be saved as a new part.<br/>The default value is 25 MB.
-`If-Match` | This is an optional parameter.<br/>It defines the condition for partial object update.<br/>If `ETag` of an object matches the one specified in the header, the object is updated.<br/>If the condition is not met, {{ objstorage-name }} returns the 412 `Precondition Failed` error.<br/>You can use it with the `If-Unmodified-Since` header.
-`If-Unmodified-Since` | This is an optional parameter.<br/>It defines the condition for partial object update.<br/>The objest is updated if it has not been modified since the specified time.<br/>If the condition is not met, {{ objstorage-name }} returns the 412 `Precondition Failed` error.<br/>You can use it with the `If-Match` header.
+`Content-Range` | Required parameter.<br/>Value: `bytes {<start_byte>}-{<end_byte>}/*`.<br/>Range boundaries are included. The maximum range length is 5 GB.<br/>The `Content-Length` [header](../common-request-headers.md) must be equal to the length of `Content-Range`.<br/>To append data to an object, specify the end byte value larger than the object size.<br/>The start byte value cannot exceed the object size.<br/>The header format complies with [RFC 9110](https://www.rfc-editor.org/rfc/rfc9110#name-content-range) specification with the following exceptions:<ul><li>The `complete-length` header parameter is ignored.</li><li>The `last-pos` header parameter is optional.</li></ul>
+`X-Yc-S3-Patch-Append-Part-Size` | Optional parameter.<br/>Value: `{size_of_the_new_part}`.<br/>The size of new parts of an object [uploaded in parts](../multipart.md), if appending to the end of the object. In bytes.<br/>If the object's last part has reached the specified size, the next append will be saved as a new part.<br/>The default value is 25 MB.
+`If-Match` | Optional parameter.<br/>A condition for partial update of the object.<br/>If the `ETag` of the object equals the value specified in the header, the operation is executed.<br/>If the condition is not met, {{ objstorage-name }} returns the 412 `Precondition Failed` error.<br/>This parameter can be used together with the `If-Unmodified-Since` header.
+`If-Unmodified-Since` | Optional parameter.<br/>A condition for partial update of the object. <br/>The operation is executed if the object has not been changed since the specified time.<br/>If the condition is not met, {{ objstorage-name }} will return the 412 `Precondition Failed` error.<br/>You can use it together with the `If-Match` header.
 
 ## Response {#response}
 
@@ -71,5 +71,11 @@ Tag | Description
 `Object` | Parent tag for update results.
 `LastModified` | Date and time when the object was last modified. In case of the partial object update, the tag does not change.
 `ETag` | ETag of the updated object. For more details, see [common headers](../common-response-headers.md).
+
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/object.md)
+
+* [{#T}](../../../concepts/object-patch.md)
 
 {% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

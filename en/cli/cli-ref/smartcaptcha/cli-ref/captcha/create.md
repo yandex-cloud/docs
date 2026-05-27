@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/smartcaptcha/cli-ref/captcha/create
 editable: false
 ---
 
@@ -26,135 +27,51 @@ Usage example:
 1. Generate template: yc compute instance create --example-json > request.json
 2. Edit the template: vim request.json
 3. Run with template: yc compute instance create -r request.json ||
-|| `--example-yaml` | Generates a YAML template of the request.
+|| `-e`, `--example-yaml` | Generates a YAML template of the request.
 The template can be customized and used as input for the command.
 Usage example:
 
 1. Generate template: yc compute instance create --example-yaml > request.yaml
 2. Edit the template: vim request.yaml
 3. Run with template: yc compute instance create -r request.yaml ||
-|| `--allowed-sites` | `[]string`
-
-List of allowed host names, see documentation. ||
-|| `--challenge-type` | `enum`
-
-Additional task type of the captcha. Possible Values: 'image-text', 'silhouettes', 'kaleidoscope' ||
-|| `--complexity` | `enum`
-
-Complexity of the captcha. Possible Values: 'easy', 'medium', 'hard', 'force-hard' ||
-|| `--deletion-protection` | Determines whether captcha is protected from being deleted. ||
-|| `--description` | `string`
-
-Optional description of the captcha. ||
-|| `--disallow-data-processing` | If true, Yandex team won't be able to read internal data. ||
 || `--folder-id` | `string`
 
 ID of the folder to create a captcha in. ||
-|| `--labels` | `map<string><string>`
-
-Resource labels as 'key:value' pairs. ||
 || `--name` | `string`
 
 Name of the captcha. The name must be unique within the folder. ||
-|| `--override-variants` | `shorthand/json`
+|| `--allowed-sites` | `[]string`
 
-List of variants to use in security_rules
+List of allowed host names, see documentation. ||
+|| `--complexity` | `enum`
 
-{% cut "Description" %}
+Complexity of the captcha. Possible Values: 'easy', 'medium', 'hard', 'force-hard' ||
+|| `--style-json` | `string`
 
-> - challenge-type (structure)\
-Additional task type of the captcha.
-> - complexity (structure)\
-Complexity of the captcha.
-> - description (string)\
-Optional description of the rule. 0-512 characters long.
-> - pre-check-type (structure)\
-Basic check type of the captcha.
-> - uuid (string)\
-Unique identifier of the variant.
-
-{% endcut %}
-
-{% cut "Shorthand Syntax" %}
-
-```hcl
-[
-  {
-    challenge-type = IMAGE_TEXT|SILHOUETTES|KALEIDOSCOPE,
-    complexity = EASY|MEDIUM|HARD|FORCE_HARD,
-    description = string,
-    pre-check-type = CHECKBOX|SLIDER,
-    uuid = string
-  }, ...
-]
-```
-
-{% endcut %}
-
-{% cut "JSON Syntax" %}
-
-```json
-[
-  {
-    "challenge-type": "IMAGE_TEXT|SILHOUETTES|KALEIDOSCOPE",
-    "complexity": "EASY|MEDIUM|HARD|FORCE_HARD",
-    "description": "string",
-    "pre-check-type": "CHECKBOX|SLIDER",
-    "uuid": "string"
-  }, ...
-]
-```
-
-{% endcut %} ||
+JSON with variables to define the captcha appearance. For more details see generated JSON in cloud console. ||
+|| `--turn-off-hostname-check` | Turn off host name check, see documentation. ||
 || `--pre-check-type` | `enum`
 
 Basic check type of the captcha. Possible Values: 'checkbox', 'slider' ||
+|| `--challenge-type` | `enum`
+
+Additional task type of the captcha. Possible Values: 'image-text', 'silhouettes', 'kaleidoscope' ||
 || `--security-rules` | `shorthand/json`
 
 List of security rules.
 
 {% cut "Description" %}
 
+> - name (string)\
+Name of the rule. The name is unique within the captcha. 1-50 characters long.
+> - priority (integer)\
+Priority of the rule. Lower value means higher priority.
+> - description (string)\
+Optional description of the rule. 0-512 characters long.
 > - condition (structure)\
 The condition for matching the rule.
->> - headers ([]structure)\
-Captcha request headers.
->>> - name (string)\
-Name of header (case insensitive).
->>> - value (structure)\
-Value of the header.
->>>> - match (oneof)\
-Oneof match field
->>>>> - exact-match (string)\
-Exact match condition.
->>>>> - exact-not-match (string)\
-Exact not match condition.
->>>>> - prefix-match (string)\
-Prefix match condition.
->>>>> - prefix-not-match (string)\
-Prefix not match condition.
->>>>> - pire-regex-match (string)\
-PIRE regex match condition.
->>>>> - pire-regex-not-match (string)\
-PIRE regex not match condition.
 >> - host (structure)\
 *AND* semantics implied.
->>> - host-matcher (structure)\
-Host matcher.
->>>> - match (oneof)\
-Oneof match field
->>>>> - exact-match (string)\
-Exact match condition.
->>>>> - exact-not-match (string)\
-Exact not match condition.
->>>>> - prefix-match (string)\
-Prefix match condition.
->>>>> - prefix-not-match (string)\
-Prefix not match condition.
->>>>> - pire-regex-match (string)\
-PIRE regex match condition.
->>>>> - pire-regex-not-match (string)\
-PIRE regex not match condition.
 >>> - hosts ([]structure)\
 List of hosts. OR semantics implied.
 >>>> - match (oneof)\
@@ -171,24 +88,22 @@ Prefix not match condition.
 PIRE regex match condition.
 >>>>> - pire-regex-not-match (string)\
 PIRE regex not match condition.
->> - source-ip (structure)\
-The IP address of the requester.
->>> - geo-ip-match (structure)\
-Geo locations to match with.
->>>> - locations ([]string)\
-*OR semantics implied. ISO 3166-1 alpha 2
->>> - geo-ip-not-match (structure)\
-Geo locations to not match with.
->>>> - locations ([]string)\
-*OR semantics implied. ISO 3166-1 alpha 2
->>> - ip-ranges-match (structure)\
-IP ranges to match with.
->>>> - ip-ranges ([]string)\
-*OR* semantics implied.
->>> - ip-ranges-not-match (structure)\
-IP ranges to not match with.
->>>> - ip-ranges ([]string)\
-*OR* semantics implied.
+>>> - host-matcher (structure)\
+Host matcher.
+>>>> - match (oneof)\
+Oneof match field
+>>>>> - exact-match (string)\
+Exact match condition.
+>>>>> - exact-not-match (string)\
+Exact not match condition.
+>>>>> - prefix-match (string)\
+Prefix match condition.
+>>>>> - prefix-not-match (string)\
+Prefix not match condition.
+>>>>> - pire-regex-match (string)\
+PIRE regex match condition.
+>>>>> - pire-regex-not-match (string)\
+PIRE regex not match condition.
 >> - uri (structure)\
 URI where captcha placed.
 >>> - path (structure)\
@@ -227,14 +142,46 @@ Prefix not match condition.
 PIRE regex match condition.
 >>>>>> - pire-regex-not-match (string)\
 PIRE regex not match condition.
-> - description (string)\
-Optional description of the rule. 0-512 characters long.
-> - name (string)\
-Name of the rule. The name is unique within the captcha. 1-50 characters long.
+>> - headers ([]structure)\
+Captcha request headers.
+>>> - name (string)\
+Name of header (case insensitive).
+>>> - value (structure)\
+Value of the header.
+>>>> - match (oneof)\
+Oneof match field
+>>>>> - exact-match (string)\
+Exact match condition.
+>>>>> - exact-not-match (string)\
+Exact not match condition.
+>>>>> - prefix-match (string)\
+Prefix match condition.
+>>>>> - prefix-not-match (string)\
+Prefix not match condition.
+>>>>> - pire-regex-match (string)\
+PIRE regex match condition.
+>>>>> - pire-regex-not-match (string)\
+PIRE regex not match condition.
+>> - source-ip (structure)\
+The IP address of the requester.
+>>> - ip-ranges-match (structure)\
+IP ranges to match with.
+>>>> - ip-ranges ([]string)\
+*OR* semantics implied.
+>>> - ip-ranges-not-match (structure)\
+IP ranges to not match with.
+>>>> - ip-ranges ([]string)\
+*OR* semantics implied.
+>>> - geo-ip-match (structure)\
+Geo locations to match with.
+>>>> - locations ([]string)\
+*OR semantics implied. ISO 3166-1 alpha 2
+>>> - geo-ip-not-match (structure)\
+Geo locations to not match with.
+>>>> - locations ([]string)\
+*OR semantics implied. ISO 3166-1 alpha 2
 > - override-variant-uuid (string)\
 Variant UUID to show in case of match the rule. Keep empty to use defaults.
-> - priority (integer)\
-Priority of the rule. Lower value means higher priority.
 
 {% endcut %}
 
@@ -404,10 +351,64 @@ Priority of the rule. Lower value means higher priority.
 ```
 
 {% endcut %} ||
-|| `--style-json` | `string`
+|| `--deletion-protection` | Determines whether captcha is protected from being deleted. ||
+|| `--override-variants` | `shorthand/json`
 
-JSON with variables to define the captcha appearance. For more details see generated JSON in cloud console. ||
-|| `--turn-off-hostname-check` | Turn off host name check, see documentation. ||
+List of variants to use in security_rules
+
+{% cut "Description" %}
+
+> - uuid (string)\
+Unique identifier of the variant.
+> - description (string)\
+Optional description of the rule. 0-512 characters long.
+> - complexity (structure)\
+Complexity of the captcha.
+> - pre-check-type (structure)\
+Basic check type of the captcha.
+> - challenge-type (structure)\
+Additional task type of the captcha.
+
+{% endcut %}
+
+{% cut "Shorthand Syntax" %}
+
+```hcl
+[
+  {
+    challenge-type = IMAGE_TEXT|SILHOUETTES|KALEIDOSCOPE,
+    complexity = EASY|MEDIUM|HARD|FORCE_HARD,
+    description = string,
+    pre-check-type = CHECKBOX|SLIDER,
+    uuid = string
+  }, ...
+]
+```
+
+{% endcut %}
+
+{% cut "JSON Syntax" %}
+
+```json
+[
+  {
+    "challenge-type": "IMAGE_TEXT|SILHOUETTES|KALEIDOSCOPE",
+    "complexity": "EASY|MEDIUM|HARD|FORCE_HARD",
+    "description": "string",
+    "pre-check-type": "CHECKBOX|SLIDER",
+    "uuid": "string"
+  }, ...
+]
+```
+
+{% endcut %} ||
+|| `--disallow-data-processing` | If true, Yandex team won't be able to read internal data. ||
+|| `--description` | `string`
+
+Optional description of the captcha. ||
+|| `--labels` | `map<string><string>`
+
+Resource labels as 'key:value' pairs. ||
 || `--async` | Display information about the operation in progress, without waiting for the operation to complete. ||
 |#
 
@@ -427,6 +428,7 @@ Set the region. ||
 || `--pager` | `string`
 
 Set the custom pager. ||
+|| `--no-pager` | Do not pipe help output through a pager. ||
 || `--format` | `string`
 
 Set the output format: text, yaml, json, table, summary \|\| summary[name, instance.id, instance.disks[0].size]. ||
@@ -448,8 +450,13 @@ Set the ID of the service account to impersonate. ||
 || `--query` | `string`
 
 Query to select values from the response using jq syntax ||
+|| `--print-metadata` | Print operation metadata along with result. ||
 || `--syntax` | `string`
 
 CLI syntax: this standalone binary only supports 2 (current). Use main yc for syntax 1. ||
+|| `--cli-auto-prompt` | `string[="on"]`
+
+Enable interactive auto-prompt mode. Values: on, partial, off. Bare --cli-auto-prompt is equivalent to --cli-auto-prompt=on. ||
+|| `--no-cli-auto-prompt` | Disable interactive auto-prompt mode (overrides --cli-auto-prompt, env and profile). ||
 || `-h`, `--help` | Display help for the command. ||
 |#

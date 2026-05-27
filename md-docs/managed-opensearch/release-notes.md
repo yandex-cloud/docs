@@ -1,0 +1,57 @@
+# История изменений в Yandex Managed Service for OpenSearch
+
+## Март 2026 {#mar-2026}
+
+* Добавлены CPU-оптимизированные конфигурации. Теперь можно выбирать ресурсы кластера с повышенным соотношением CPU к памяти.
+* Добавлены отдельные [роли](security/index.md) для просмотра и редактирования (переноса) [технического обслуживания](concepts/maintenance.md) без доступа к кластеру.
+
+## Февраль 2026 {#feb-2026}
+
+Доступна новая версия OpenSearch [3.5](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-3.5.0.md).
+
+## Декабрь 2025 {#dec-2025}
+
+* Добавлены [детальные метрики](operations/monitoring.md#hosts) использования дисков в хостах кластера.
+* Добавлена детализация выполнения [операций над кластером](operations/cluster-list.md#list-operations).
+* В [обновленных](operations/cluster-version-update.md) версиях OpenSearch [3.3.2](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-3.3.2.md) и [3.4.0](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-3.4.0.md) улучшена производительность запросов с агрегацией и исправлен ряд ошибок, в том числе [ошибка NPE при выполнении bulk-запросов](https://github.com/opensearch-project/k-NN/issues/2852).
+
+## Ноябрь 2025 {#nov-2025}
+
+Добавлена роль `managed-opensearch.restorer`, позволяющая восстанавливать кластеры из резервных копий. Подробнее см. в разделе [Управление доступом](security/index.md#managed-opensearch-restorer).
+
+## Октябрь 2025 {#oct-2025}
+
+Добавлены новые [классы хостов](concepts/instance-types.md) на платформах AMD Zen 4 и AMD Zen 4 HighFreq.
+
+
+## Июль 2025 {#jul-2025}
+
+Добавлена возможность [шифрования дисков хранилища](concepts/storage.md#disk-encryption) пользовательским ключом KMS при создании кластера и восстановлении его из резервной копии.
+
+
+## Апрель 2025 {#apr-2025}
+
+* Реализована новая схема балансировки шардов. Помимо балансировки по количеству шардов и primary‑шардов, она обеспечивает балансировку по количеству свободного места и справляется с балансировкой primary‑шардов лучше стандартной.
+* Добавлена возможность указывать группу хостов для чтения/записи через параметр `X‑Yandex‑OpenSearch‑NodeGroup` в Header запроса.
+
+## Октябрь 2024 {#oct-2024}
+
+* Добавлена поддержка [плагина](concepts/plugins.md#yandex-lemmer) `yandex-lemmer` для точного поиска на русском языке.
+* Доступна новая версия OpenSearch [2.17.0](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-2.17.0.md).
+* В [настройках внешних источников аутентификации](operations/saml-authentication.md#configuration-sso) добавлена опция **Таймаут сессии** — срок жизни сессии. Укажите его, если провайдер идентификации не установил свой таймаут.
+
+## Сентябрь 2024 {#sep-2024}
+
+Добавлено автоматическое увеличение размера диска. В [настройках кластера](operations/update.md) пользователь может задать порог заполненности дискового хранилища и максимальное значение размера диска. При достижении порогового значения размер диска будет автоматически увеличиваться фиксированными шагами до максимального значения. Настройку можно задать для незамедлительного увеличения размера диска или для увеличения в ближайшее окно обслуживания.
+
+## Апрель 2024 {#apr-2024}
+
+Доступна новая версия OpenSearch [2.12.0](https://github.com/opensearch-project/opensearch-build/blob/main/release-notes/opensearch-release-notes-2.12.0.md).
+
+## Февраль 2024 {#feb-2024}
+
+Добавлена возможность управления кластерами OpenSearch с помощью [команд CLI](../cli/cli-ref/managed-opensearch/cli-ref/index.md) и [Terraform](tf-ref.md).
+
+## III квартал 2023 {#q3-2023}
+
+Добавлена возможность [резервирования](../billing/concepts/cvos.md) определенного объема ресурсов. Получить скидку до 22% могут все пользователи платформы с 1 августа 2023 года. Стоимость ресурсов не изменится на протяжении всего срока действия предложения.

@@ -89,6 +89,8 @@ items:
         href: backlog.md
       - name: Система контроля версий
         href: vcs.md
+      - name: CI/CD
+        href: ci-cd.md
       - name: Спринт
         href: sprints.md
   - name: Сети и доставка контента

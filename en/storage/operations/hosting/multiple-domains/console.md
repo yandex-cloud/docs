@@ -147,7 +147,7 @@ Set up a static website for the bucket and link it to your main `example.com` do
           {% endnote %}
 
           1. In the [management console]({{ link-console-main }}), select a folder.
-          1. [Go to](../../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+          1. [Navigate to](../../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
           1. Select the bucket you want to use your own domain for.
           1. In the left-hand panel, select ![image](../../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}** and go to the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
           1. In **{{ ui-key.yacloud.storage.bucket.website.switch_hosting }}**, under **{{ ui-key.yacloud.storage.bucket.website.title_connected-domains }}**, click **{{ ui-key.yacloud.component.dns-integration.button_add-domain }}**.
@@ -230,9 +230,9 @@ For the bucket with the additional `example2.com` domain name:
     - Management console {#console}
 
       1. In the [management console]({{ link-console-main }}), select a folder.
-      1. [Go to](../../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
-      1. Select the bucket you want to redirect all requests for.
-      1. In the left-hand panel, select ![image](../../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
+      1. [Navigate to](../../../../console/operations/select-service.md#select-service) **{{ ui-key.yacloud.iam.folder.dashboard.label_storage }}**.
+      1. Select the bucket to set up a redirect of all requests for.
+      1. In the left-hand panel, select ![image](../../../../_assets/console-icons/wrench.svg) **{{ ui-key.yacloud.storage.bucket.switch_settings }}**.
       1. Select the **{{ ui-key.yacloud.storage.bucket.switch_website }}** tab.
       1. Under **{{ ui-key.yacloud.storage.bucket.website.switch_redirect }}**, specify:
           * **{{ ui-key.yacloud.storage.bucket.website.field_hostname }}**: Domain name to which all requests will be redirected, e.g., `example.com`.
@@ -247,7 +247,7 @@ For the bucket with the additional `example2.com` domain name:
           yc storage bucket update --help
           ```
      
-      1. Create a redirect configuration file in JSON format. Here is an example:
+      1. Create a redirect configuration file in JSON format. For example:
      
           ```json
           {

@@ -1,4 +1,5 @@
 ---
+canonical: https://yandex.cloud/en/docs/cli/cli-ref/managed-mongodb/cli-ref/
 editable: false
 ---
 
@@ -132,6 +133,10 @@ Aliases:
 
   - [yc managed-mongodb user update](user/update.md) — Modify attributes of a MongoDB user.
 
+- [yc managed-mongodb v0](v0/index.md) — Manage MongoDB clusters, hosts, databases, backups and users.
+
+
+
 #### Global Flags
 
 #|
@@ -147,9 +152,6 @@ Set the custom configuration file. ||
 Enable gRPC retries. By default, retries are enabled with maximum 5 attempts.
 Pass 0 to disable retries. Pass any negative value for infinite retries.
 Even infinite retries are capped with 2 minutes timeout. ||
-|| `--syntax` | `string`
-
-CLI syntax: 1 (legacy) or 2 (current). Omit to use default-syntax in the profile or the product default. ||
 || `--cloud-id` | `string`
 
 Set the ID of the cloud to use. ||

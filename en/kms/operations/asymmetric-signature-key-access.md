@@ -92,10 +92,11 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
    1. In the {{ TF }} configuration file, describe the resources you want to create:
 
        ```hcl
-       resource "yandex_kms_asymmetric_signature_key" "key-viewers" {
-         asymmetric_signaturen_key_id  = "<key_pair_ID>"
-         role                          = "<role_1>"
-         members                       = ["<subject_type>:<subject_ID>"]
+       resource "yandex_kms_asymmetric_signature_key_iam_member" "key-viewers" {
+         asymmetric_signature_key_id  = "<key_pair_ID>"
+
+         role   = "<role_1>"
+         member = "<subject_type>:<subject_ID>"
        }
        ```
 
@@ -103,7 +104,7 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
 
        * `asymmetric_signaturen_key_id `: ID of the digital signature key pair.
        * `role`: [Role](../security/index.md#roles-list) to assign.
-       * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+       * `member`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
        For more information about `yandex_kms_asymmetric_signature_key` resource properties, see this [provider guide]({{ tf-provider-resources-link }}/kms_asymmetric_signature_key).
 
@@ -229,25 +230,27 @@ You can grant access to an asymmetric [digital signature key pair](../concepts/a
 
        ```hcl
        # Role 1
-       resource "yandex_kms_asymmetric_signature_key" "key-viewers" {
-         asymmetric_signaturen_key_id = "<key_pair_ID>"
-         role                         = "<role_1>"
-         members                      = ["<subject_type>:<subject_ID>"]
+       resource "yandex_kms_asymmetric_signature_key_iam_member" "key-viewers" {
+         asymmetric_signature_key_id = "<key_pair_ID>"
+
+         role   = "<role_1>"
+         member = "<subject_type>:<subject_ID>"
        }
 
        # Role 2
-       resource "yandex_kms_asymmetric_signature_key" "key-editors" {
-         asymmetric_signaturen_key_id = "<key_pair_ID>"
-         role                         = "<role_2>"
-         members                      = ["<subject_type>:<subject_ID>"]
+       resource "yandex_kms_asymmetric_signature_key_iam_member" "key-editors" {
+         asymmetric_signature_key_id = "<key_pair_ID>"
+         
+         role   = "<role_2>"
+         member = "<subject_type>:<subject_ID>"
        }
        ```
 
        Where:
 
-       * `asymmetric_signaturen_key_id`: ID of the digital signature key pair.
+       * `asymmetric_signature_key_id`: ID of the digital signature key pair.
        * `role`: [Role](../security/index.md#roles-list) to assign.
-       * `members`: Types and IDs of [entities](../../iam/concepts/access-control/index.md#subject) getting the role. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
+       * `member`: Type and ID of the [subject](../../iam/concepts/access-control/index.md#subject) the role is assigned to. Specify it as `userAccount:<user_ID>` or `serviceAccount:<service_account_ID>`.
 
        For more information about `yandex_kms_asymmetric_signature_key` resource properties, see this [provider guide]({{ tf-provider-resources-link }}/kms_asymmetric_signature_key).
 

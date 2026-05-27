@@ -14,7 +14,7 @@
 
     The default value is `false`. Changing this setting will restart {{ CH }} servers on the cluster hosts.
 
-    For more information, see [this {{ CH }} guide](https://clickhouse.com/docs/en/operations/system-tables/asynchronous_insert_log).
+    For more information, see [this {{ CH }} guide]({{ ch.docs }}/operations/system-tables/asynchronous_insert_log).
 
 * **Asynchronous insert log retention size**{#setting-asynchronous-insert-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-api }}
 
@@ -191,14 +191,22 @@
 
     For more information, see [this {{ CH }} guide]({{ ch.docs }}/integrations/jdbc/jdbc-with-clickhouse).
 
-* **Kafka**{#setting-kafka} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
+* **Kafka**{#setting-kafka} {{ tag-con }} {{ tag-cli }} {{ tag-api }} {{ tag-tf }}
 
     Global authentication settings for [integration with {{ KF }}]({{ ch.docs }}/engines/table-engines/integrations/kafka/):
 
     * **Auto offset reset**: Initial position from which a [consumer](../../managed-kafka/concepts/producers-consumers.md) starts reading messages. Starting from there, as the consumer reads incoming messages, it commits offsets for new ones. By default, no value is set (equivalent to `latest`). For more information, see [this Confluent guide](https://docs.confluent.io/platform/current/clients/consumer.html#offset-management).
+    * **Batch size**: Maximum total size of all messages in a batch (MessageSet), including protocol overhead.
+    
+      The possible values range from `1` to `2147483647` bytes. The default value is `1000000`.
+
     * **Debug**: Context for debugging purposes. By default, the value is not set. You can only specify one value for this setting. For the list of possible values, see the `librdkafka` library page on [GitHub](https://github.com/confluentinc/librdkafka/blob/master/CONFIGURATION.md).
     * **Enable ssl certificate verification**: Sets whether to verify SSL certificates. The default value is `false`.
     * **Max poll interval ms**: Maximum interval, in milliseconds, between polls to get messages for high-level consumers. If exceeded, the user is removed from the group and a rebalance starts. No value is set by default (equivalent to `300000`, 5 minutes).
+    * **Message max bytes**: Maximum size per message for {{ KF }} protocol requests.
+      
+      The possible values range from `1000` to `1000000000` bytes. The default value is `1000000`.
+    
     * **Sasl mechanism**: SASL authentication:
       * `GSSAPI` (default): Authentication [using Kerberos](https://kafka.apache.org/42/security/authentication-using-sasl/#authentication-using-saslkerberos).
       * `PLAIN`: Authentication [using an unencrypted username-password pair](https://kafka.apache.org/42/security/authentication-using-sasl/#authentication-using-saslplain).
@@ -314,7 +322,7 @@
 
         For more information, see [this {{ CH }} guide]({{ ch.docs }}/operations/settings/merge-tree-settings/#inactive-parts-to-delay-insert).
 
-    * **Inactive parts to throw insert**: Number of inactive table data parts, exceeding which will trigger {{ CH }} to throw the `Too many inactive parts ...` exception.
+    * **Inactive parts to throw insert**: Number of inactive table data parts, exceeding which will trigger {{ CH }} to throw the `Too many inactive parts ...` exception.
 
         This setting is disabled by default (`0`). Changing this setting will restart {{ CH }} servers on the cluster hosts.
 
@@ -484,7 +492,7 @@
 
     Sets whether to log metric values from the `system.metrics` and `system.events` tables to the `system.metric_log` table.
 
-    Default value is `true`. Changing this setting will restart {{ CH }} servers on the cluster hosts.
+    The default value is `true`. Changing this setting will restart {{ CH }} servers on the cluster hosts.
 
 * **Metric log retention size**{#setting-metric-log-retention-size} {{ tag-con }} {{ tag-cli }} {{ tag-tf }}
 

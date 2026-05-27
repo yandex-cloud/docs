@@ -33,9 +33,9 @@ You can also get the following:
 
 * With [deal registration](./var-tools.md#deal-reg): Up to 15% on top of your partner bonus for as long as the customer remains linked to you.
 * With [project registration](./var-tools.md#project-reg): Up to 15% of the customer's consumption increment in a registered folder or service outside a folder as a 12-month [rebate](../terms.md#rebate).
-* Quarterly rebate for customers’ use of [specialization](../specializations/index.md) services.
+* Quarterly rebate for customers' use of [technology specialization](../specializations/index.md) services.
 
-For more information on how to withdraw rewards accrued in the form of rebates, see [this guide](../operations/get-bonus.md).
+For more information on how to withdraw commissions you got as rebates, see [this guide](../operations/get-bonus.md).
 
 ### What is not included when calculating a partner bonus {#ignore}
 
@@ -50,7 +50,7 @@ The discount does not apply to:
 
 * Grants credited to subaccounts.
 
-You can see the absolute and relative discount amount for the reporting month in the **Partner bonus** section of the [partner portal]({{ link-cloud-partners }}).
+You can see the absolute and relative discount amount for the reporting month in the **Partner premium** section of the [partner portal]({{ link-cloud-partners }}).
 
 ## How to quit the program {#end}
 

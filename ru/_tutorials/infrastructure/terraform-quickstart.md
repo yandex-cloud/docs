@@ -22,8 +22,8 @@
 ### Необходимые платные ресурсы {#paid-resources}
 
 В стоимость поддержки инфраструктуры, разворачиваемой через {{ TF }} в этом руководстве, входят:
-* Плата за постоянно запущенные [виртуальные машины](../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md)).
-* Плата за использование динамических [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
+* плата за постоянно запущенные [виртуальные машины](../../compute/concepts/vm.md) (см. [тарифы {{ compute-full-name }}](../../compute/pricing.md));
+* плата за использование динамических [публичных IP-адресов](../../vpc/concepts/address.md#public-addresses) (см. [тарифы {{ vpc-full-name }}](../../vpc/pricing.md)).
 
 ## Установите {{ TF }} {#install-terraform}
 
@@ -31,13 +31,19 @@
 
 ## Получите данные для аутентификации {#get-credentials}
 
-{% include [terraform-credentials-sa](../../_tutorials/_tutorials_includes/terraform-credentials-sa.md) %}
+Для аутентификации и управления инфраструктурой {{ yandex-cloud }} вы можете использовать {{ TF }} от имени [сервисного аккаунта](../../iam/concepts/users/service-accounts.md) или пользовательских аккаунтов: [аккаунта на Яндексе](../../iam/concepts/users/accounts.md#passport), [федеративного аккаунта](../../iam/concepts/users/accounts.md#saml-federation) и [локального пользователя](../../iam/concepts/users/accounts.md#local).
 
-{% cut "Управление ресурсами от имени аккаунта на Яндексе или федеративного аккаунта" %}
+{% list tabs group=authentication %}
 
-{% include [terraform-credentials-user](../../_tutorials/_tutorials_includes/terraform-credentials-user.md) %}
+- Сервисный аккаунт {#service-account}
 
-{% endcut %}
+  {% include [authentication-sa](../../_includes/terraform/authentication-sa.md) %}
+
+- Аккаунт на Яндексе, федеративный или локальный пользователь {#yandex-account}
+
+  {% include [authentication-users](../../_includes/terraform/authentication-users.md) %}
+
+{% endlist %}
 
 ## Создайте файл конфигурации {{ TF }} {#configure-terraform}
 
@@ -82,7 +88,7 @@ terraform {
 }
 
 provider "yandex" {
-  zone = "<зона доступности по умолчанию>"
+  zone = "<зона_доступности_по_умолчанию>"
 }
 
 resource "yandex_compute_instance" "vm-1" {
@@ -132,7 +138,7 @@ resource "yandex_compute_instance" "vm-1" {
 
 Проверить удаление ресурсов можно в [консоли управления]({{ link-console-main }}).
 
-## См. также {#see-also}
+#### См. также {#see-also}
 
 * [Загрузка состояний {{ TF }} в {{ objstorage-name }}](../../tutorials/infrastructure-management/terraform-state-storage.md).
 * [Блокировка состояний {{ TF }} с помощью {{ ydb-name }}](../../tutorials/infrastructure-management/terraform-state-lock.md).

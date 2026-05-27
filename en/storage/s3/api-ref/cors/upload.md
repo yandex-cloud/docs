@@ -1,4 +1,4 @@
-# upload method
+# Object Storage API, Amazon S3-compatible REST: PutBucketCors
 
 Uploads a CORS configuration for a bucket. It replaces any existing configuration.
 
@@ -19,7 +19,7 @@ Parameter | Description
 `bucket` | Bucket name.
 
 
-### Request parameters {#request-params}
+### Query parameters {#request-params}
 
 Parameter | Description
 ----- | -----
@@ -34,7 +34,7 @@ The `Content-MD5` header is required.
 
 ### Data schema {#request-scheme}
 
-A CORS configuration is provided as an XML document. For the schema description, see [{#T}](xml-config.md)
+A CORS configuration is provided as an XML document. For the schema description, see [{#T}](../../../concepts/cors.md)
 
 ## Response {#response}
 
@@ -46,6 +46,10 @@ Responses can only contain [common headers](../common-response-headers.md).
 
 For a list of possible responses, see [{#T}](../response-codes.md).
 
-{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/cors.md)
 
 * [{#T}](../../../operations/buckets/cors.md)
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

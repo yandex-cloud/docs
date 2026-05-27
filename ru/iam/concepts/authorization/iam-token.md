@@ -1,14 +1,12 @@
 # IAM-токен
 
-IAM-токен — уникальная последовательность символов, которая выдается пользователю после прохождения аутентификации. Это предпочтительный способ аутентификации как для пользователей, так и для программ (с помощью [сервисных аккаунтов](../users/service-accounts.md)). Получить IAM-токен можно с помощью [CLI](../../../cli/) или [API](../../../overview/api.md).
+IAM-токен — уникальная последовательность символов, которая выдается пользователю после прохождения аутентификации. Это предпочтительный способ аутентификации как для пользователей, так и для программ (с помощью [сервисных аккаунтов](../users/service-accounts.md)). IAM-токен выдается для [аккаунтов на Яндексе](../../operations/iam-token/create.md), [сервисных аккаунтов](../../operations/iam-token/create-for-sa.md), [федеративных](../../operations/iam-token/create-for-federation.md) и [локальных](../../operations/iam-token/create-for-local.md) аккаунтов.
 
-Аутентификацию с помощью IAM-токена поддерживается для большинства операций, кроме операций в отдельных сервисах или API, где предполагается использование других типов учетных данных.
+Аутентификация с помощью IAM-токена поддерживается для большинства операций, кроме операций в отдельных сервисах или API, где предполагается использование других типов учетных данных.
 
 ## Использование токена {#use}
 
-IAM-токены используются в сервисах {{ yandex-cloud }} для аутентификации. IAM-токен выдается для [аккаунтов на Яндексе](../../operations/iam-token/create.md), [сервисных аккаунтов](../../operations/iam-token/create-for-sa.md), [федеративных](../../operations/iam-token/create-for-federation.md) и [локальных](../../operations/iam-token/create-for-local.md) аккаунтов.
-
-Также IAM-токены используются для аутентификации клиентов [Docker](../../../container-registry/operations/authentication.md) и [Helm](../../../container-registry/operations/helm-chart/helm-chart-push.md) в {{ container-registry-full-name }}.
+IAM-токены используются для аутентификации в сервисах {{ yandex-cloud }} и клиентов [Docker](../../../container-registry/operations/authentication.md) и [Helm](../../../container-registry/operations/helm-chart/helm-chart-push.md) в {{ container-registry-full-name }}.
 
 Если вы работаете через консоль управления или интерфейс командной строки (CLI), то получение и использование токена будет незаметным.
 
@@ -18,7 +16,7 @@ IAM-токены используются в сервисах {{ yandex-cloud }}
 Authorization: Bearer <IAM-токен>
 ```
 
-Для работы с {{ TF }} [добавьте IAM-токен в переменные окружения](../../../tutorials/infrastructure-management/terraform-quickstart.md#get-credentials) или укажите его в [конфигурационном файле с настройками провайдера](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider):
+Для работы с {{ TF }} [добавьте IAM-токен в переменные окружения](../../../terraform/authentication.md) или укажите его в [конфигурационном файле с настройками провайдера](../../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider):
 
 ```hcl
 provider "yandex" {

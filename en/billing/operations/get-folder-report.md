@@ -89,7 +89,7 @@ You can get a CSV file with your general or per-resource spending details. You c
 
               1. In the **{{ ui-key.yacloud_org.billing.account.exports.column_service_account }}** field, click **{{ ui-key.yacloud_org.billing.exports.ServiceAccountAddField.addNewServiceAccount  }}**.
               1. Enter a name for the service account.
-              1. Click **{{ ui-key.yacloud_org.iam.folder.service-account.popup-robot_button_save }}**.
+              1. Click **{{ ui-key.yacloud_org.common.save }}**.
 
           {% endlist %}
 
@@ -157,6 +157,25 @@ You can view all your regular exports and their info: bucket, prefix, type of de
   1. Select the account you want to view details for.
   1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-up-from-square.svg) **{{ ui-key.yacloud_billing.billing.account.switch_exports }}**.
   1. Select the details file.
+
+{% endlist %}
+
+### Uploading additional data to a regular export {#additional-export}
+
+To upload data for past periods not included in a previously created export, do the following:
+
+{% list tabs group=instructions %}
+
+- {{ billing-interface }} {#billing}
+
+  1. {% include [move-to-billing-step](../_includes/move-to-billing-step.md) %}
+  1. Select the account for which you want to upload additional data to a regular export.
+  1. In the left-hand panel, select ![image](../../_assets/console-icons/arrow-up-from-square.svg) **{{ ui-key.yacloud_billing.billing.account.switch_exports }}**.
+  1. Click ![image](../../_assets/console-icons/ellipsis.svg) next to the regular export and select ![image](../../_assets/console-icons/circle-plus.svg) **{{ ui-key.yacloud_org.billing.account.exports.button_force-reexport }}**.
+  1. In the **{{ ui-key.yacloud_org.billing.account.force-reexport.field_range }}** field, specify the date range and click **{{ ui-key.yacloud.common.create }}**.
+  1. Wait until you see the message confirming that the additional upload has been applied to the regular export.
+
+  The data will be uploaded the next time the regular export is updated.
 
 {% endlist %}
 

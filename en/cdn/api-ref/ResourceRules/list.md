@@ -32,6 +32,8 @@ GET https://cdn.{{ api-host }}/cdn/v1/rules
 
 ## Query parameters {#yandex.cloud.cdn.v1.ListResourceRulesRequest}
 
+A request to list resource rules.
+
 #|
 ||Field | Description ||
 || resourceId | **string**
@@ -244,6 +246,8 @@ The maximum string length in characters is 50. ||
 }
 ```
 
+A response to list resource rules.
+
 #|
 ||Field | Description ||
 || rules[] | **[Rule](#yandex.cloud.cdn.v1.Rule)**
@@ -335,7 +339,7 @@ Possible values: `error`, `http_403`, `http_404`, `http_429`, `http_500`, `http_
 || allowedHttpMethods | **[StringsListOption](#yandex.cloud.cdn.v1.ResourceOptions.StringsListOption)**
 
 HTTP methods for your CDN content. By default the following methods
-are allowed: GET, HEAD, POST, PUT, PATCH, DELETE, OPTIONS.
+are allowed: GET, HEAD, OPTIONS.
 In case some methods are not allowed to the user, they will get the 405
 (Method Not Allowed) response. If the method is not supported,
 the user gets the 501 (Not Implemented) response. ||

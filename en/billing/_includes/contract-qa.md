@@ -1,3 +1,3 @@
-In {{ yandex-cloud }}, all services are provided under an agreement you enter into by accepting an offer when creating your [billing account](../concepts/billing-account.md). The agreement does not need to be signed by both parties.
+In {{ yandex-cloud }}, all services are subject to an agreement. You enter this agreement by accepting the offer when creating your [billing account](../../billing/concepts/billing-account.md) or by direct bilateral signing.
 
 For more information, see [{#T}](../concepts/contract.md).

@@ -49,7 +49,7 @@ Make sure you can connect to the source cluster’s hosts from the internet.
     db.auth("user1")
     ```
 
-1. Fill in `collection1` in `db1` with random values. 200,000 entries will be added to the collection:
+1. Populate `collection1` in `db1` with 200,000 random entries:
   
     ```javascript
     use db1

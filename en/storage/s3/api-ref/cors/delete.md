@@ -1,4 +1,4 @@
-# delete method
+# Object Storage API, Amazon S3-compatible REST: DeleteBucketCors
 
 Deletes a CORS configuration for a bucket.
 
@@ -16,7 +16,7 @@ Parameter | Description
 ----- | -----
 `bucket` | Bucket name.
 
-### Request parameters {#parameters}
+### Query parameters {#parameters}
 
 Parameter | Description
 ----- | -----
@@ -39,6 +39,10 @@ For a list of possible responses, see [{#T}](../response-codes.md).
 
 If the CORS configuration does not exist, {{ objstorage-name }} will return the `204 No Content` code.
 
-{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}
+#### Related articles {#related-articles}
+
+* [{#T}](../../../concepts/cors.md)
 
 * [{#T}](../../../operations/buckets/cors.md)
+
+{% include [the-s3-api-see-also-include](../../../../_includes/storage/the-s3-api-see-also-include.md) %}

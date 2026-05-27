@@ -8,7 +8,4 @@ Event name | Description
 `RestoreBackup` | Restoring a database from a backup
 `StartDatabase` | Starting a database
 `StopDatabase` | Stopping a database
-`AlterTopic` | Updating a [topic]({{ ydb.docs }}/concepts/glossary#topic)
-`CreateTopic` | Creating a topic
-`DeleteTopic` | Deleting a topic
 `UpdateDatabase` | Updating a database

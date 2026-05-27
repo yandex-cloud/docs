@@ -51,6 +51,7 @@ description: This page features a list of {{ objstorage-name }} tutorials.
 * [{#T}](./dp-mch-data-exchange.md)
 * [{#T}](./data-transfer-direct-to-mch.md)
 * [{#T}](./gatsby-static-website.md)
+* [{#T}](./wordpress-ha-cloudapp.md)
 * [{#T}](./wordpress-cloudapp.md)
 * [{#T}](./ghost-cms-cloudapp.md)
 * [{#T}](./objs-mmy-migration.md)

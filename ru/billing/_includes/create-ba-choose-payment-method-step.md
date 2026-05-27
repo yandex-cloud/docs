@@ -1,3 +1,3 @@
-В поле **{{ ui-key.yacloud_billing_account.create-account-wizard.field_payment-type }}** выберите `{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_card }}` или `{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_invoice }}`.
+В поле **{{ ui-key.yacloud_billing_account.create-account.section_payment_method }}** выберите `{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_card }}` или `{{ ui-key.yacloud_billing.billing.account.create-new.payment-type_label_invoice }}`.
 
 Вы сможете [изменить способ оплаты](../../billing/operations/change-payment-method.md) в любой момент после создания платежного аккаунта.
