@@ -89,7 +89,9 @@ editable: false
   },
   "details": {
     "dnsZoneId": "string",
+    // Includes only one of the fields `dnsZoneName`
     "dnsZoneName": "string",
+    // end of the list of possible fields
     "accessBindings": [
       {
         "roleId": "string",
@@ -280,7 +282,9 @@ A list of messages that carry the error details. ||
 #|
 ||Field | Description ||
 || dnsZoneId | **string** ||
-|| dnsZoneName | **string** ||
+|| dnsZoneName | **string**
+
+Includes only one of the fields `dnsZoneName`. ||
 || accessBindings[] | **[AccessBinding](#yandex.cloud.audit.AccessBinding)** ||
 || accessBindingDeltas[] | **[AccessBindingDelta](#yandex.cloud.audit.AccessBindingDelta)** ||
 |#

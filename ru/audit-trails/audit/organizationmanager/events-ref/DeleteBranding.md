@@ -170,7 +170,15 @@ editable: false
     "features": {
       "hideYandexIdButton": "boolean",
       "hideSsoButton": "boolean",
-      "adjustedLogoHeight": "string"
+      "adjustedLogoHeight": "string",
+      "autoRedirectFederationId": "string",
+      "customSsoLoginButtons": [
+        {
+          "displayText": "string",
+          "federationId": "string"
+        }
+      ],
+      "hideLoginInput": "boolean"
     }
   },
   "requestParameters": "object",
@@ -419,4 +427,15 @@ The number of elements must be greater than 0. ||
 || hideYandexIdButton | **boolean** ||
 || hideSsoButton | **boolean** ||
 || adjustedLogoHeight | **string** (int64) ||
+|| autoRedirectFederationId | **string** ||
+|| customSsoLoginButtons[] | **[CustomSsoLoginButton](#yandex.cloud.audit.organizationmanager.idp.branding.CustomSsoLoginButton)** ||
+|| hideLoginInput | **boolean** ||
+|#
+
+## CustomSsoLoginButton {#yandex.cloud.audit.organizationmanager.idp.branding.CustomSsoLoginButton}
+
+#|
+||Field | Description ||
+|| displayText | **string** ||
+|| federationId | **string** ||
 |#

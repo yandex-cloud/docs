@@ -136,7 +136,7 @@ In some languages, built-in datetime utilities do not support nanosecond precisi
 || error | **[Status](#google.rpc.Status)**
 
 The error result of the operation in case of failure or cancellation. ||
-|| details | **[AccessBindingClusterEventDetails](#yandex.cloud.audit.mdb.kafka.AccessBindingClusterEventDetails)** ||
+|| details | **[EventDetails](#yandex.cloud.audit.mdb.kafka.UpdateClusterAccessBindings.EventDetails)** ||
 || requestParameters | **object** ||
 || response | **object** ||
 |#
@@ -267,16 +267,12 @@ An error message. ||
 A list of messages that carry the error details. ||
 |#
 
-## AccessBindingClusterEventDetails {#yandex.cloud.audit.mdb.kafka.AccessBindingClusterEventDetails}
+## EventDetails {#yandex.cloud.audit.mdb.kafka.UpdateClusterAccessBindings.EventDetails}
 
 #|
 ||Field | Description ||
-|| clusterId | **string**
-
-The maximum string length in characters is 50. ||
-|| clusterName | **string**
-
-The maximum string length in characters is 63. ||
+|| clusterId | **string** ||
+|| clusterName | **string** ||
 || accessBindingDeltas[] | **[AccessBindingDelta](#yandex.cloud.audit.AccessBindingDelta)** ||
 |#
 

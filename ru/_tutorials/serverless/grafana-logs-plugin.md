@@ -129,7 +129,7 @@
 - {{ TF }} {#tf}
 
   
-  Если у вас еще нет {{ TF }}, [установите его и настройте провайдер {{ yandex-cloud }}](../../tutorials/infrastructure-management/terraform-quickstart.md#install-terraform).
+  {% include [terraform-install](../../_includes/terraform-install.md) %}
 
 
   1. Опишите в конфигурационном файле параметры сервисного аккаунта:
@@ -364,7 +364,6 @@
 
      ```hcl
      provider "yandex" {
-       token     = "<OAuth-токен>"
        cloud_id  = "<идентификатор_облака>"
        folder_id = "<идентификатор_каталога>"
        zone      = "{{ region-id }}-a"

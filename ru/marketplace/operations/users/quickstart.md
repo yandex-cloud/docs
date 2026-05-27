@@ -25,7 +25,7 @@ description: Следуя данной инструкции, вы сможете
 - Консоль управления {#console}
 
   1. В [консоли управления]({{ link-console-main }}) выберите нужный каталог.
-  1. В верхней части экрана нажмите на панель **{{ ui-key.yacloud.marketplace-v2.label_service-short-description }} {{ ui-key.yacloud.marketplace-v2.label_service-name }}**.
+  1. В верхней части экрана нажмите ![image](../../../_assets/console-icons/shopping-cart.svg) **{{ ui-key.yacloud.marketplace-v2.label_service-name }}**.
   1. В поле **{{ ui-key.yacloud.marketplace-v2.label_product-filter-search-placeholder }}** введите название продукта, который вы хотите установить, или воспользуйтесь фильтрами поиска по категории, [типу продукта](../../concepts/users/products-types.md) или типу тарификации. Можно также использовать сортировку.
   1. Нажмите на карточку выбранного продукта {{ marketplace-name }}, изучите описание продукта, примеры использования и другую информацию.
   1. Чтобы установить продукт, следуйте инструкции на карточке.

@@ -1,1 +1,0 @@
-The maximum line size in dialog metadata is 1,024 bytes.

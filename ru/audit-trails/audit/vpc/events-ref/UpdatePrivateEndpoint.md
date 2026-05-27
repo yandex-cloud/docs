@@ -89,7 +89,9 @@ editable: false
   },
   "details": {
     "privateEndpointId": "string",
+    // Includes only one of the fields `privateEndpointName`
     "privateEndpointName": "string",
+    // end of the list of possible fields
     "address": {
       "subnetId": "string",
       "address": "string",
@@ -99,7 +101,9 @@ editable: false
       "privateDnsRecordsEnabled": "boolean"
     },
     "labels": "object",
+    // Includes only one of the fields `description`
     "description": "string"
+    // end of the list of possible fields
   },
   "requestParameters": "object",
   "response": "object"
@@ -271,11 +275,15 @@ A list of messages that carry the error details. ||
 #|
 ||Field | Description ||
 || privateEndpointId | **string** ||
-|| privateEndpointName | **string** ||
+|| privateEndpointName | **string**
+
+Includes only one of the fields `privateEndpointName`. ||
 || address | **[EndpointAddress](#yandex.cloud.vpc.v1.privatelink.PrivateEndpoint.EndpointAddress)** ||
 || dnsOptions | **[DnsOptions](#yandex.cloud.vpc.v1.privatelink.PrivateEndpoint.DnsOptions)** ||
 || labels | **object** (map<**string**, **string**>) ||
-|| description | **string** ||
+|| description | **string**
+
+Includes only one of the fields `description`. ||
 |#
 
 ## EndpointAddress {#yandex.cloud.vpc.v1.privatelink.PrivateEndpoint.EndpointAddress}

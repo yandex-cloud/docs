@@ -89,7 +89,9 @@ editable: false
   },
   "details": {
     "imageId": "string",
+    // Includes only one of the fields `imageName`
     "imageName": "string"
+    // end of the list of possible fields
   },
   "requestParameters": "object",
   "response": "object"
@@ -261,5 +263,7 @@ A list of messages that carry the error details. ||
 #|
 ||Field | Description ||
 || imageId | **string** ||
-|| imageName | **string** ||
+|| imageName | **string**
+
+Includes only one of the fields `imageName`. ||
 |#

@@ -1,6 +1,6 @@
 ---
 title: 'WordPress website with a MySQL database: Instructions'
-description: 'Using these step-by-step instructions, you will learn how to quickly create a Wordpress website on a MySQL database in your cloud. Three simple steps to deploy a Wordpress website: create a VM, specify the CMS Wordpress settings, and configure DNS.'
+description: 'Follow this step-by-step guide to learn how to quickly create a WordPress website with a MySQL database in the cloud. Three simple steps to deploy a Wordpress website: create a VM, specify the CMS Wordpress settings, and configure DNS.'
 keywords:
   - creating a wordpress website
   - wordpress website
@@ -11,3 +11,6 @@ keywords:
 ---
 
 {% include [wordpress-mysql](../../../_tutorials/applied/wordpress-mysql.md) %}
+
+* [Management console](console.md): Create your infrastructure step by step in the {{ yandex-cloud }} management console.
+* [{{ TF }}](terraform.md): Streamline creating and managing your resources with the _infrastructure as code_ (IaC) approach. Download a {{ TF }} configuration example and deploy your infrastructure using the [{{ yandex-cloud }} {{ TF }} provider]({{ tf-docs-link }}).

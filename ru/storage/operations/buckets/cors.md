@@ -127,8 +127,7 @@ description: Следуя данной инструкции, вы сможете
        cloud_id  = "<идентификатор_облака>"
        folder_id = "<идентификатор_каталога>"
        zone      = "<зона_доступности>"
-       token     = "<OAuth-токен>"
-       }
+     }
 
      resource "yandex_iam_service_account" "sa" {
        name = "<имя_сервисного_аккаунта>"

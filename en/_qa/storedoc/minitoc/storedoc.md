@@ -16,4 +16,6 @@
 
 * [Can I connect to cluster hosts over SSH or get superuser privileges on them?](#connect-ssh)
 
-* [What should I do if I get a revocation check error when obtaining an SSL certificate via PowerShell?](#get-ssl-error)
+* [What should I do if I get a revocation check error when using PowerShell to obtain an SSL certificate?](#get-ssl-error)
+
+* [What `WriteConcern` value is used by default for write operations?](#write-concern)

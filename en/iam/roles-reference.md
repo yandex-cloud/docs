@@ -2675,7 +2675,7 @@ Learn more in [Access management in {{ speechkit-name }}]({{ link-docs-ai }}spee
 
 {% include [speechsense-data-editor](../_roles/speech-sense/data/editor.md) %}
 
-For more information, see [{#T}](../speechsense/security/index.md).
+For more information, see [Access management in {{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/security/).
 
 
 ## {{ translate-full-name }} {#translate-roles}

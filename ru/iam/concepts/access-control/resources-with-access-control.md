@@ -26,7 +26,7 @@ description: Из статьи вы узнаете, на какие ресурс
 * [{{ wiki-full-name }}]({{ link-wiki-cloudless }}/page-management/access-setup);
 * [{{ forms-full-name }}]({{ link-forms-cloudless }}/access);
 * [{{ ml-platform-full-name }}](../../../datasphere/security/index.md);
-* [{{ speechsense-full-name }}](../../../speechsense/security/index.md).
+* [{{ speechsense-full-name }}]({{ link-docs-ai }}speechsense/security/).
 
 ## Гранулярное назначение ролей {#granular-assignment}
 

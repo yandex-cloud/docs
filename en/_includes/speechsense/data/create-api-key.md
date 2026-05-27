@@ -1,1 +1,0 @@
-To authenticate with the {{ yandex-cloud }} API, create for your service account an [API key](../../../iam/operations/authentication/manage-api-keys.md#create-api-key) with `yc.speech-sense.use` as the specified [scope](../../../iam/concepts/authorization/api-key.md#scoped-api-keys) or an [IAM token](../../../iam/operations/iam-token/create-for-sa.md).

@@ -5,4 +5,4 @@
 * [Удалить облако](../../resource-manager/operations/cloud/delete.md)
 * [Удалить организацию](../../organization/operations/delete-org.md)
 * [Удалить сообщество {{ ml-platform-name }}](../../datasphere/operations/community/delete.md)
-* [Удалить пространство {{ speechsense-name }}](../../speechsense/operations/space/delete.md)
+* [Удалить пространство {{ speechsense-name }}]({{ link-docs-ai }}speechsense/operations/space/delete)

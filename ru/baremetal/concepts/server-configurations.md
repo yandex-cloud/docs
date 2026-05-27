@@ -22,9 +22,4 @@
     * к [приватным](./private-network.md#private-subnet) подсетям (`PRIVATE`);
     * к [публичным](./public-network.md) подсетям (`PUBLIC`).
 
-В {{ baremetal-full-name }} вы можете арендовать серверы следующих конфигураций при наличии свободных мощностей в нужных пулах:
-
-
-<MDX>
-  <Calculator services={["baremetal"]} regionConfig={{"ru":{"available": true},"animated":false,"title":{"text":"Рассчитать стоимость"}}} />
-</MDX>
+В {{ baremetal-full-name }} вы можете арендовать серверы готовых конфигураций при наличии свободных мощностей в нужных пулах. Список готовых конфигураций доступен на [странице сервиса](https://yandex.cloud/ru/services/baremetal).

@@ -25,13 +25,13 @@ dry_run:
 
 # Active Directory replication API client settings
 drsr:
-  host: "<IP-адрес_контроллера_домена>"
+  host: "<адрес_контроллера_домена>"
   username: "username"
   password: "password"
 
 # LDAP client settings
 ldap:
-  host: "ldaps://<IP-адрес_контроллера_домена>:636"
+  host: "ldaps://<адрес_контроллера_домена>:636"
   username: "<имя_пользователя_Active_Directory>"
   password: "<пароль_пользователя_Active_Directory>"
   certificate_path: "<путь_к_сертификату>"
@@ -45,6 +45,8 @@ logger:
     filename: "<путь_к_файлу_с_логами>"
     maxsize: 30
     maxbackups: 10
+  cloud_logger:
+    log_group_id: <идентификатор_лог-группы>
 
 # Sync settings
 sync_settings:

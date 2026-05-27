@@ -1,6 +1,6 @@
 # Working with an AI assistant in {{ speechsense-name }}
 
-You can use an [AI assistant](../../../speechsense/concepts/assistants.md) to retrieve information from a dialog by connecting it to audio conversations and chats. This tutorial explains how to connect an agent to chats and uses a conversation between a travel agency and a customer as an example.
+You can use an [AI assistant]({{ link-docs-ai }}speechsense/concepts/assistants.md) to retrieve information from a dialog by connecting it to audio conversations and chats. This tutorial explains how to connect an agent to chats and uses a conversation between a travel agency and a customer as an example.
 
 To retrieve information you need from a chat using an AI assistant:
 
@@ -23,8 +23,7 @@ The user must [have](../../../billing/security/index.md#set-role) the `billing.a
 
 ### Required paid resources {#paid-resources}
 
-* {{ speechsense-name }}: Number of characters in each text conversation (see [{{ speechsense-name }} pricing](../../../speechsense/pricing.md)).
-* AI assistant: Text generation (see [{{ ai-studio-full-name }} pricing]({{ link-docs-ai }}ai-studio/pricing)). You start paying for the assistant as soon as you activate it.
+* {{ speechsense-name }}: Number of characters in each text conversation (see [{{ speechsense-name }} pricing]({{ link-docs-ai }}speechsense/pricing)).
 
 ## Set up your infrastructure {#infrastructure-prepare}
 
@@ -73,9 +72,9 @@ The user must [have](../../../billing/security/index.md#set-role) the `billing.a
 
     1. Open the {{ speechsense-name }} [home page]({{ link-speechsense-main }}).
     1. Click **{{ ui-key.yc-ui-talkanalytics.spaces.create-space }}**.
-    1. Enter a name for the [space](../../../speechsense/concepts/resources-hierarchy.md#space).
+    1. Enter a name for the [space]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space).
     1. Click **{{ ui-key.yc-ui-talkanalytics.common.create }}**.
-    1. [Link a billing account](../../../speechsense/operations/space/link-ba.md) to the space to pay for {{ speechsense-name }}.
+    1. [Link a billing account]({{ link-docs-ai }}speechsense/operations/space/link-ba) к пространству для оплаты {{ speechsense-name }} to the space to pay for {{ speechsense-name }}.
 
 {% endlist %}
 
@@ -334,7 +333,7 @@ Below the dialog line, you will see a line indicating the `Guided Tours` subject
 
 - REST API {#api}
 
-    Call the [Assistants.List](../../../speechsense/api-ref/Assistants/list.md) method and run the following request, e.g., via {{ api-examples.rest.tool }}:
+    Call the [Assistants.List]({{ link-docs-ai }}speechsense/api-ref/Assistants/list) method and run the following request, e.g., via {{ api-examples.rest.tool }}:
 
     ```bash
     curl \
@@ -379,7 +378,7 @@ Below the dialog line, you will see a line indicating the `Guided Tours` subject
 
 - gRPC API {#grpc-api}
 
-    Call the [AssistantsService.List](../../../speechsense/api-ref/grpc/Assistants/list.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+    Call the [AssistantsService.List]({{link-docs-ai }}/speechsense/api-ref/grpc/Assistants/list) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
     ```bash
     grpcurl \
@@ -437,7 +436,7 @@ Save the values of these fields:
 
 - REST API {#api}
 
-    Call the [Talk.Get](../../../speechsense/api-ref/Talk/get.md) method, e.g., via the following {{ api-examples.rest.tool }} request:
+    Call the [Talk.Get]({{ link-docs-ai }}speechsense/api-ref/Talk/get) method, e.g., via the following {{ api-examples.rest.tool }} request:
 
     ```bash
     curl \
@@ -495,7 +494,7 @@ Save the values of these fields:
 
 - gRPC API {#grpc-api}
 
-    Call the [TalkService.Get](../../../speechsense/api-ref/grpc/Talk/get.md) method, e.g., via the following {{ api-examples.grpc.tool }} request:
+    Call the [TalkService.Get]({{ link-docs-ai }}speechsense/api-ref/grpc/Talk/get) method, e.g., via the following {{ api-examples.grpc.tool }} request:
 
     ```bash
     grpcurl \
@@ -559,4 +558,4 @@ Save the values of these fields:
 
 ## Delete resources {#clear-out}
 
-Some resources are not free of charge. To stop paying for them, [delete the {{ speechsense-name }} project](../../../speechsense/operations/project/delete.md) if you no longer need it. The AI assistant will be deleted when you delete the project.
+Some resources are not free of charge. To stop paying for them, [delete the {{ speechsense-name }} project]({{ link-docs-ai }}speechsense/operations/project/delete) if you no longer need it. The AI assistant will be deleted when you delete the project.

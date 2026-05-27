@@ -354,9 +354,7 @@ A list of messages that carry the error details. ||
 ||Field | Description ||
 || fqdn | **string** ||
 || dnsZoneId | **string** ||
-|| ttl | **string** (int64)
-
-Acceptable values are 0 to 86400, inclusive. ||
+|| ttl | **string** (int64) ||
 || ptr | **boolean** ||
 |#
 

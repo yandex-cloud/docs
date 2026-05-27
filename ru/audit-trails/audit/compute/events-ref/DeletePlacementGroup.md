@@ -284,7 +284,5 @@ Includes only one of the fields `spreadPlacementStrategy`, `partitionPlacementSt
 
 #|
 ||Field | Description ||
-|| partitions | **string** (int64)
-
-Acceptable values are 2 to 5, inclusive. ||
+|| partitions | **string** (int64) ||
 |#

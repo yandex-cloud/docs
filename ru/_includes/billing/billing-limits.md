@@ -10,7 +10,7 @@
 `billing.datalensBindings.count` | 5 ||
 || Количество [сообществ {{ ml-platform-short-name }}](../../datasphere/concepts/community.md), привязанных к одному платежному аккаунту 
 `billing.datasphereCommunityBindings.count` | 100 ||
-|| Количество [экземпляров {{ speechsense-name }}](../../speechsense/quickstart.md), привязанных к одному платежному аккаунту 
+|| Количество [экземпляров {{ speechsense-name }}]({{ link-docs-ai }}speechsense/quickstart), привязанных к одному платежному аккаунту 
 `billing.speechsenseSpaceBindings.count` | 100 ||
 || Количество [экземпляров {{ tracker-name }}]({{ link-tracker-cloudless }}), привязанных к одному платежному аккаунту 
 `billing.trackerBindings.count` | 5 ||

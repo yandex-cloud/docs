@@ -8,7 +8,7 @@ You can migrate data from a third-party _source cluster_ to a {{ mpg-name }} _ta
 
     * Eliminate the need for an intermediate VM or public internet access to your {{ mpg-name }} target cluster.
     * Migrate the entire database with zero downtime.
-    * Migrate from older {{ PG }} versions to newer ones, e.g., upgrading the cluster’s {{ PG }} version from 15 to 16.
+    * Migrate from older {{ PG }} versions to newer ones, e.g., upgrading the cluster's {{ PG }} version from 15 to 17.
 
     To use this method, enable public access to the source cluster.
 
@@ -343,7 +343,7 @@ If you no longer need the resources you created, [delete them](#clear-out-backup
 
 * {{ mpg-name }} cluster: computing resources allocated to hosts, storage and backup size (see [{{ mpg-name }} pricing](../../managed-postgresql/pricing.md)).
 * Public IP addresses if public access is enabled for cluster hosts (see [{{ vpc-name }} pricing](../../vpc/pricing.md)).
-* VM instance: use of computing resources, storage, public IP address, and OS (see [{{ compute-name }} pricing](../../compute/pricing.md)).
+* VM instance, which includes the use of computing resources, storage, public IP address, and OS (see [{{ compute-name }} pricing](../../compute/pricing.md)).
 
 
 ### Getting started {#before-you-begin-backup}

@@ -286,12 +286,8 @@ A list of messages that carry the error details. ||
 
 - `READ_ONLY`
 - `READ_WRITE` ||
-|| deviceName | **string**
-
-Value must match the regular expression ` [a-z][a-z0-9-_]{,19} `. ||
-|| filesystemId | **string**
-
-The maximum string length in characters is 50. ||
+|| deviceName | **string** ||
+|| filesystemId | **string** ||
 |#
 
 ## AttachedFilesystem {#yandex.cloud.compute.v1.AttachedFilesystem}
