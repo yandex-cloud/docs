@@ -8,12 +8,11 @@
             
      Пример конфигурационного файла для стандартной очереди:
 
-     ```
+     ```hcl
      provider "yandex" {
-         token     = "<статический_ключ_сервисного_аккаунта>"
-         folder_id = "<идентификатор_каталога>"
-         zone      = "{{ region-id }}-a"
-       }
+       folder_id = "<идентификатор_каталога>"
+       zone      = "{{ region-id }}-a"
+     }
 
      resource "yandex_message_queue" "example_queue" {
        name                        = "mq-terraform-example"
@@ -27,12 +26,11 @@
 
      Пример конфигурационного файла для очереди FIFO:
 
-     ```
+     ```hcl
      provider "yandex" {
-         token     = "<статический_ключ_сервисного_аккаунта>"
-         folder_id = "<идентификатор_каталога>"
-         zone      = "{{ region-id }}-a"
-       }
+       folder_id = "<идентификатор_каталога>"
+       zone      = "{{ region-id }}-a"
+     }
 
      resource "yandex_message_queue" "example-fifo-queue" {
        name                        = "mq-terraform-example.fifo"
@@ -47,12 +45,11 @@
 
      Пример конфигурационного файла для очереди с политикой перенаправления недоставленных сообщений в DLQ с именем `mq_terraform_deadletter_example`:
 
-     ```
+     ```hcl
      provider "yandex" {
-         token     = "<статический_ключ_сервисного_аккаунта>"
-         folder_id = "<идентификатор_каталога>"
-         zone      = "{{ region-id }}-a"
-       }
+       folder_id = "<идентификатор_каталога>"
+       zone      = "{{ region-id }}-a"
+     }
 
      resource "yandex_message_queue" "example_fifo_queue" {
        name                        = "mq-terraform-example"

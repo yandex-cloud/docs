@@ -13,7 +13,7 @@
        * [Clouds](../../resource-manager/concepts/resources-hierarchy.md#cloud)
        * {{ org-full-name }} [organizations](../../organization/concepts/organization.md)
        * {{ ml-platform-full-name }} [communities](../../datasphere/concepts/community.md) 
-       * {{ speechsense-full-name }} [spaces](../../speechsense/concepts/resources-hierarchy.md#space)
+       * {{ speechsense-full-name }} [spaces]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space)
        * [{{ datalens-full-name }}](../../datalens/) instances
        * [{{ video-full-name }}](../../video/) spaces 
      * You still have resources purchased under the [CVoS](../../billing/concepts/cvos.md).

@@ -10,7 +10,7 @@
 
      {% include [datalens-speechsense-connection-roles-note](./datalens-speechsense-connection-roles-note.md) %}
 
-     1. Скопируйте идентификатор нужного [проекта](../../../speechsense/concepts/resources-hierarchy.md#project) {{ speechsense-name }} и вставьте в поле **ID проекта**.
+     1. Скопируйте идентификатор нужного [проекта]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#project) {{ speechsense-name }} и вставьте в поле **ID проекта**.
      1. Оставьте опцию **Автоматически создать датасет, чарты и дашборд** включенной, если хотите получить готовый дашборд, датасет и стандартный набор чартов.
 
         ![image](../../../_assets/datalens/operations/connection/connection-speechsense.png)
@@ -28,7 +28,7 @@
 
      {% include [datalens-speechsense-connection-roles-sa-note](./datalens-speechsense-connection-roles-sa-note.md) %}
  
-     1. Скопируйте идентификатор нужного [проекта](../../../speechsense/concepts/resources-hierarchy.md#project) {{ speechsense-name }} и вставьте в поле **ID проекта**.
+     1. Скопируйте идентификатор нужного [проекта]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#project) {{ speechsense-name }} и вставьте в поле **ID проекта**.
      1. Выберите облако и каталог в нем.
      1. Выберите существующий сервисный аккаунт или создайте новый.      
      1. Оставьте опцию **Автоматически создать датасет, чарты и дашборд** включенной, если хотите получить готовый дашборд, датасет и стандартный набор чартов.

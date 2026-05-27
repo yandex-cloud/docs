@@ -1247,6 +1247,8 @@ items:
         href: dataplatform/opensearch-yandex-lemmer.md
       - name: Отправка оповещений по электронной почте в {{ mos-name }}
         href: dataplatform/opensearch-email-notifications.md
+      - name: Подключение MCP-клиента к кластеру {{ OS }}
+        href: dataplatform/mos-mcp.md
       - name: Создание кластера {{ PG }} для «1С:Предприятия»
         href: dataplatform/1c-postgresql.md
       - name: Поиск проблем с производительностью кластера {{ mpg-name }}

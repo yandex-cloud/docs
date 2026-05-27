@@ -24,12 +24,12 @@ description: Следуя данной инструкции, вы сможете
 
     ```bash
     yc serverless function version create \
-    --function-name=<имя_функции> \
-    --runtime <среда_выполнения> \
-    --entrypoint <точка_входа> \
-    --concurrency 2 \
-    --execution-timeout 3s \
-    --source-path <путь_к_ZIP-архиву>
+      --function-name=<имя_функции> \
+      --runtime <среда_выполнения> \
+      --entrypoint <точка_входа> \
+      --concurrency 2 \
+      --execution-timeout 3s \
+      --source-path <путь_к_ZIP-архиву>
     ```
 
     Где:
@@ -86,25 +86,19 @@ description: Следуя данной инструкции, вы сможете
 
         Пример структуры конфигурационного файла:
 
-        ```
-        provider "yandex" {
-            token     = "<OAuth-токен_или_статический_ключ_сервисного_аккаунта>"
-            folder_id = "<идентификатор_каталога>"
-            zone      = "{{ region-id }}-a"
-        }
-
+        ```hcl
         resource "yandex_function" "test-function" {
-            name               = "<имя_функции>"
-            user_hash          = "<хеш>"
-            runtime            = "<среда_выполнения>"
-            entrypoint         = "<точка_входа>"
-            memory             = "128"
-            concurrency        = "2"
-            execution_timeout  = "10"
-            service_account_id = "<идентификатор_сервисного_аккаунта>"
-            content {
-                zip_filename = "<путь_к_ZIP-архиву>"
-            }
+          name               = "<имя_функции>"
+          user_hash          = "<хеш>"
+          runtime            = "<среда_выполнения>"
+          entrypoint         = "<точка_входа>"
+          memory             = "128"
+          concurrency        = "2"
+          execution_timeout  = "10"
+          service_account_id = "<идентификатор_сервисного_аккаунта>"
+          content {
+            zip_filename = "<путь_к_ZIP-архиву>"
+          }
         }
         ```
 
@@ -112,19 +106,19 @@ description: Следуя данной инструкции, вы сможете
 
     1. Проверьте конфигурацию командой:
         
-       ```
+       ```bash
        terraform validate
        ```
 
        Если конфигурация является корректной, появится сообщение:
         
-       ```
+       ```text
        Success! The configuration is valid.
        ```
 
     1. Выполните команду:
 
-       ```
+       ```bash
        terraform plan
        ```
 
@@ -132,14 +126,14 @@ description: Следуя данной инструкции, вы сможете
 
     1. Примените изменения конфигурации:
 
-       ```
+       ```bash
        terraform apply
        ```
     1. Подтвердите изменения: введите в терминал слово `yes` и нажмите **Enter**.
 
     Проверить добавление параметра `concurrency` можно в [консоли управления]({{ link-console-main }}) или с помощью команды [CLI](../../../cli/quickstart.md):
     
-    ```
+    ```bash
     yc serverless function version get <идентификатор_версии>
     ```
 

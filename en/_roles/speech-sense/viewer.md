@@ -1,3 +1,5 @@
-The `speech-sense.viewer` role enables you to view [project](../../speechsense/concepts/resources-hierarchy.md#project) or [space](../../speechsense/concepts/resources-hierarchy.md#space) characteristics, the list of their members, [connections](../../speechsense/concepts/resources-hierarchy.md#connection), and dashboards.
+
+The `speech-sense.viewer` role enables you to view [project]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#project) or [space]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space) characteristics, the list of their members, [connections]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#connection), and dashboards.
 
 This role includes the `speech-sense.auditor` permissions.
+

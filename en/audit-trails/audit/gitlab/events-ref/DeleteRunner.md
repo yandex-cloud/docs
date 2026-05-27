@@ -90,7 +90,9 @@ editable: false
   "details": {
     "instanceId": "string",
     "instanceName": "string",
+    // Includes only one of the fields `description`
     "description": "string",
+    // end of the list of possible fields
     "labels": "object",
     "runnerId": "string",
     "runnerName": "string",
@@ -267,7 +269,9 @@ A list of messages that carry the error details. ||
 ||Field | Description ||
 || instanceId | **string** ||
 || instanceName | **string** ||
-|| description | **string** ||
+|| description | **string**
+
+Includes only one of the fields `description`. ||
 || labels | **object** (map<**string**, **string**>) ||
 || runnerId | **string** ||
 || runnerName | **string** ||

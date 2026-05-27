@@ -622,11 +622,7 @@ default:
   roles-resource-manager-editor: resource-manager.editor
   roles-serverless-containers-invoker: serverless-containers.containerInvoker
   roles-speechkit-stt: ai.speechkit-stt.user
-  roles-speechsense-admin: Admin
   roles-speechsense-data-editor: Data editor
-  roles-speechsense-data-viewer: Data viewer
-  roles-speechsense-editor: Editor
-  roles-speechsense-viewer: Viewer
   roles-viewer: viewer
   roles-vpc-admin: vpc.admin
   roles-vpc-private-admin: vpc.privateAdmin
@@ -797,7 +793,6 @@ default:
   speechkit-name: SpeechKit
   speechkit-short-name: SpeechKit
   speechkit-slug: speechkit
-  speechsense-endpoint: api.speechsense.yandexcloud.net:443
   speechsense-full-name: Yandex SpeechSense
   speechsense-name: SpeechSense
   SPQR: Sharded PostgreSQL
@@ -2272,37 +2267,6 @@ default:
         vcpu:
           v2|number: 7.85
           v2|string: "7,85\_₸"
-  sku|KZT|speechsense:
-    analysis:
-      assistant:
-        v1|number: 0.7625
-        v1|string: "0,7625\_₸"
-      audio|number: 0.0505
-      audio|pricingRate:
-        30000000|number: 0.0254
-        6000000|number: 0.0305
-      text:
-        v2|number: 7.015
-        v2|pricingRate:
-          100000|number: 5.185
-          100000|string: "5,185\_₸"
-          1000000|string: "2,135\_₸"
-          2500000|string: "1,525\_₸"
-          500000|number: 3.05
-          500000|string: "3,05\_₸"
-        v2|string: "7,015\_₸"
-      v1|number: 0.1165
-      v1|pricingRate:
-        150000000|number: 0.0254
-        30000000|number: 0.0505
-        6000000|number: 0.086
-        60000000|number: 0.0355
-    reinit:
-      assistant:
-        v1|number: 0.7625
-        v1|string: "0,7625\_₸"
-      tag:
-        v1|string: "0,06\_₸"
   sku|KZT|storage:
     api:
       get:
@@ -2852,37 +2816,6 @@ default:
         vcpu:
           v2|number: 1.57
           v2|string: "1,57\_₽"
-  sku|RUB|speechsense:
-    analysis:
-      assistant:
-        v1|number: 0.1525
-        v1|string: "0,1525\_₽"
-      audio|number: 0.0101
-      audio|pricingRate:
-        30000000|number: 0.00508
-        6000000|number: 0.0061
-      text:
-        v2|number: 1.403
-        v2|pricingRate:
-          100000|number: 1.037
-          100000|string: "1,037\_₽"
-          1000000|string: "0,427\_₽"
-          2500000|string: "0,305\_₽"
-          500000|number: 0.61
-          500000|string: "0,61\_₽"
-        v2|string: "1,403\_₽"
-      v1|number: 0.0233
-      v1|pricingRate:
-        150000000|number: 0.00508
-        30000000|number: 0.0101
-        6000000|number: 0.0172
-        60000000|number: 0.0071
-    reinit:
-      assistant:
-        v1|number: 0.1525
-        v1|string: "0,1525\_₽"
-      tag:
-        v1|string: "0,012\_₽"
   sku|RUB|storage:
     api:
       get:
@@ -3414,37 +3347,6 @@ default:
         vcpu:
           v2|number: 0.0128688504
           v2|string: "0,0128688504\_$"
-  sku|USD|speechsense:
-    analysis:
-      assistant:
-        v1|number: 0.0012499998
-        v1|string: "0,0012499998\_$"
-      audio|number: 0.0000827869
-      audio|pricingRate:
-        30000000|number: 0.0000416393
-        6000000|number: 0.00005
-      text:
-        v2|number: 0.0114999982
-        v2|pricingRate:
-          100000|number: 0.0084999986
-          100000|string: "0,0084999986\_$"
-          1000000|string: "0,0034999994\_$"
-          2500000|string: "0,0024999996\_$"
-          500000|number: 0.0049999992
-          500000|string: "0,0049999992\_$"
-        v2|string: "0,0114999982\_$"
-      v1|number: 0.0001909836
-      v1|pricingRate:
-        150000000|number: 0.0000416393
-        30000000|number: 0.0000827869
-        6000000|number: 0.0001409836
-        60000000|number: 0.0000581967
-    reinit:
-      assistant:
-        v1|number: 0.0012499998
-        v1|string: "0,0012499998\_$"
-      tag:
-        v1|string: "0,0000983606\_$"
   sku|USD|storage:
     api:
       get:
@@ -4010,6 +3912,7 @@ default:
         button_add-label: Добавить метку
       marketplace:
         label_product-ids: Идентификаторы продукта
+        label_subscriptions: Варианты тарификации
         product-pricing-type_byol: BYOL
         product-pricing-type_free: Free
         product-pricing-type_license: Subscription
@@ -6035,8 +5938,6 @@ default:
             action_add-clickhouse-hosts: Создать хосты ClickHouse
             action_add-host-item: Создать хост
             action_submit: Создать хосты
-            field_copy_schema: Копировать схему данных
-            title_additional-settings: Дополнительные настройки
         PerformanceDiagnostics:
           ClusterDiagnosticsTabs:
             label_query-groups_w3anM: Группы запросов
@@ -7810,6 +7711,7 @@ default:
         action_move: Переместить
         action_purchase-license: Купить подписку
         action_specify-vm: Привязать виртуальную машину
+        action_to-pay-license: Оплатить
         button_continue: Далее
         button_disallow-analytics-scanning: Запретить Marketplace собирать статистику
         button_k8s-product-use: Перейти к установке
@@ -10975,57 +10877,22 @@ default:
         transfer-selected-projects: Перенести выбранные проекты
     yc-ui-talkanalytics:
       assistants:
-        all-dialogs-key-value: Все диалоги
         applying: Использование
         assistants: Ассистенты
-        create-assistant-key-value: Создать ассистента
-        filtered-dialogs-key-value: Выбранные диалоги
-        generate-prompt-key-value: Улучшить инструкцию
         prompt: Инструкция
-        result-key-value: Результат
-        templates: Шаблоны
-        testing-key-value: Тестирование
       common:
         add: Добавить
-        add-filter: Добавить фильтр
-        apply: Применить
-        bind: Привязать
         create: Создать
-        customize: Настроить
-        delete-key-value: Удалить
-        duplicate: Дублировать
-        edit: Редактировать
         more: Еще
-        'no': Нет
-        period: Период
-        save: Сохранить
-        search: Найти
-        settings: Настройки
-        show-more: Показать ещё
-        update: Обновить
-        'yes': Да
       connections:
         add-key: Добавить ключ
-        additional:
-          separators:
-            finish-key-value: Конец диалога
-            start-key-value: Начало диалога
-          slice-length: Длина отрезка
-          split:
-            title: Разбивать диалоги на отрезки
-          title: Дополнительно
         column:
-          description: Описание
           name: Название в системе
         connection: Подключение
-        connection-name: Название подключения
         connections: Подключения
         create-connection-key-value: Создать подключение
-        edit-connection-key-value: Редактировать подключение
         fields:
-          client: Клиент
           metadata: Общие метаданные
-          operator: Оператор
         template:
           amo-crm:
             name: AmoCRM
@@ -11035,140 +10902,20 @@ default:
             name: Пустая форма
         type:
           chat-key-value: Чат
-          one-channel-key-value: Одноканальное аудио
           two-channel-key-value: Двухканальное аудио
       dialogs:
-        all-participants: Все участники
         bot: Бот
-        classifier:
-          appreciation-key-value: Благодарность
-        classifiers: Теги
         client: Клиент
-        client-tags: Теги клиента
-        common-metadata: Общие метаданные
-        dialog: Диалог
         dialogs: Диалоги
-        direction-key-value: Направление
-        direction:
-          incoming: Входящий
-          outgoing: Исходящий
-        exact-match-by-key-phrases: Точное совпадение ключевых фраз
-        open-dialog: Перейти в диалог
         operator: Оператор
-        search:
-          dictionary:
-            title: Словарный
-          neuro:
-            title: Смысловой
-          text:
-            title: Текстовый
-        speech-statistics: Статистики речи
-        system-meta:
-          talk:
-            statistics:
-              simultaneous_silence:
-                ratio-key-value: Доля тишины в диалоге
-      dictionaries:
-        add-dictionary: Добавить словарь
-        create-dictionary-key-value: Создать словарь
-        dictionaries: Словари
-      neuro-tags:
-        apply-inverted:
-          theme: Не содержат тему
-        apply:
-          theme: Cодержат тему
-        confidence-key-value: Вероятность
-        gpt-criteria: Критерии YandexGPT
-        reasons-key-value: Причины
-        refresh-suggestions: Обновить список
-        results-key-value: Итоги
-        test-tag: Протестировать тег
-        testing-dataset: Тестирование тега
-        themes-key-value: Темы
       projects:
         add-connection: Добавить подключение
         add-participant: Добавить участника
         create-project: Создать проект
-        dialogs: Диалоги
-        projects: Проекты
-        sumarization: Анализ от YandexGPT
-      reinit:
-        action:
-          cancel:
-            title: Отменить пересчет
-        tab:
-          title: Задачи на пересчет
-      reports:
-        add-parameter: Добавить параметр
-        barchart: График
-        comparison-key-value: Сравнение
-        create-report: Создать отчет
-        datalens-key-value: Дашборд в DataLens
-        details-key-value: Детализация
-        generate-report: Создать отчет
-        grouping-field: Группировать по
-        parameter:
-          description: Название параметра в отчете
-          filter: Параметры оценки
-          weight: Вес
-        rating-key-value: Форма оценки
-        reports: Отчеты
-        save-report-key-value: Сохранить отчет
-        table-key-value: Таблица
       spaces:
         create-space: Создать пространство
-        error:
-          billing:
-            title: Пространство не привязано к платёжному аккаунту
-        gpt-learning:
-          title: Обучение YandexGPT
-      statements:
-        call_reasons: Причины звонка
-        call_results: Итоги
-        client_keywords: Ключевые слова клиента
-        common_question: Общий вопрос
-        operator_keywords: Ключевые слова оператора
-        problems: Проблемы
-        summary: Суммаризация
-        theme: Тема
-      tags:
-        binding-events-key-value: Ограничения
-        binding-events:
-          classifier: Сработал основной тег
-          dialog-start-key-value: Начало диалога
-          silence-key-value: Длинная пауза
-        change-channel: Изменить канал
-        channel:
-          client: Клиент
-          operator: Оператор
-          operator-and-client: Оператор и клиент
-        conditions: Условия срабатывания
-        create-dependent-tag: Создать зависимый тег
-        create-tag-key-value: Создать тег
-        exact-match-key-value: Точное совпадение
-        exceptions: Исключения
-        exceptions-keywords: Слова-исключения
-        important-tag-key-value: Важный тег
-        key-phrases-key-value: Ключевые фразы
-        new-channel: Новый канал
-        reinit: Пересчитать
-        restrict-search-area-key-value: Ограничить область поиска
-        search-area-key-value: Направление поиска
-        search-area:
-          after-key-value: Вперед
-        tag-using-key-value: Использование
-        tags: Теги
-        tags-type:
-          dictionary-key-value: Словарный
-          neuro-key-value: Смысловой
-          neuro-pro-key-value: Смысловой Pro
-        words-between-key-value: Дистанция между словами
       team:
         add-from-organization-key-value: Добавить из организации
-        invite-new-key-value: Пригласить нового пользователя
-        team: Команда
-      upload-audio:
-        upload-audio-key-value: Добавление диалогов
     yql:
       yq-audit-trails:
         audit-trails-type-toggle:

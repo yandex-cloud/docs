@@ -5,7 +5,7 @@
 {% include [workflows-preview-note](../../../_includes/serverless-integrations/workflows-preview-note.md) %}
 
 
-You can configure automatic loading of dialog files and their metadata from the {{ objstorage-name }} bucket to [{{ speechsense-name }}](../../../speechsense/concepts/resources-hierarchy.md#space) space. Supported formats are:
+You can configure automatic loading of dialog files and their metadata from the {{ objstorage-name }} bucket to [{{ speechsense-name }} space]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#space). Supported formats are:
 
   * `MP3`, `WAV`, and `OggOpus`: For audio files.
   * `JSON`: For chat conversations.
@@ -28,7 +28,7 @@ On the diagram:
     1. Logging the file metadata and unique identifier in {{ speechsense-name }} space once the file is successfully uploaded.
 1. {{ websql-name }} provides access to the metadata DB. One database user is used for browsing, and another one for uploading files.
 
-You can set up automatic data upload for several [{{ speechsense-name }}](../../../speechsense/concepts/resources-hierarchy.md#connection) connections at once.
+You can set up automatic data upload for several [{{ speechsense-name }}]({{ link-docs-ai }}speechsense/concepts/resources-hierarchy#connection) connections at once.
 
 To automate uploading data to {{ speechsense-name }}, follow these steps:
 
@@ -75,7 +75,7 @@ Create two service accounts:
   1. Name the [service account](../../../iam/concepts/users/service-accounts.md): `deploy-sa`.
   1. Click ![image](../../../_assets/console-icons/plus.svg) **{{ ui-key.yacloud.iam.folder.service-account.label_add-role }}** and select the following roles: [functions.admin](../../../functions/security/index.md#functions-admin), [storage.editor](../../../storage/security/index.md#storage-editor), [iam.editor](../../../iam/roles-reference.md#iam-editor), [mdb.admin](../../../iam/roles-reference.md#mdb-admin), and `serverless.workflows.admin`.
   1. Click **{{ ui-key.yacloud.iam.folder.service-account.popup-robot_button_add }}**.
-  1. Repeat the above steps and create a service account named `speechsense-sa` with the following roles: [storage.viewer](../../../storage/security/index.md#storage-viewer), [functions.functionInvoker](../../../functions/security/index.md#functions-functionInvoker), [functions.mdbProxiesUser](../../../functions/security/index.md#functions-mdbProxiesUser), [lockbox.payloadViewer](../../../lockbox/security/index.md#lockbox-payloadviewer), and `serverless.workflows.executor`.
+  1. Repeat the above steps and create a service account named `speechsense-sa` with the following roles: [storage.viewer](../../../storage/security/index.md#storage-viewer), [functions.functionInvoker](../../../functions/security/index.md#functions-functionInvoker), [functions.mdbProxiesUser](../../../functions/security/index.md#functions-mdbProxiesUser), [lockbox.payloadViewer](../../../lockbox/security/index.md#lockbox-payloadViewer), and `serverless.workflows.executor`.
 
 - {{ yandex-cloud }} CLI {#cli}
 
@@ -116,15 +116,17 @@ Create two service accounts:
 
       If you will be creating a {{ lockbox-name }} secret through the {{ yandex-cloud }} CLI under the `deploy-sa` service account, also assign the [lockbox.editor](../../../lockbox/security/index.md#lockbox-editor) role to that account.
 
-  1. Repeat the above steps and create a service account named `speechsense-sa` with the following roles: [storage.viewer](../../../storage/security/index.md#storage-viewer), [functions.functionInvoker](../../../functions/security/index.md#functions-functionInvoker), [functions.mdbProxiesUser](../../../functions/security/index.md#functions-mdbProxiesUser), [lockbox.payloadViewer](../../../lockbox/security/index.md#lockbox-payloadviewer), and `serverless.workflows.executor`.
+  1. Repeat the above steps and create a service account named `speechsense-sa` with the following roles: [storage.viewer](../../../storage/security/index.md#storage-viewer), [functions.functionInvoker](../../../functions/security/index.md#functions-functionInvoker), [functions.mdbProxiesUser](../../../functions/security/index.md#functions-mdbProxiesUser), [lockbox.payloadViewer](../../../lockbox/security/index.md#lockbox-payloadViewer), and `serverless.workflows.executor`.
 
 - API {#api}
 
+  
   To create a service account, use the [create](../../../iam/api-ref/ServiceAccount/create.md) method for the [ServiceAccount](../../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService.Create](../../../iam/api-ref/grpc/ServiceAccount/create.md) gRPC API call.
 
   To assign the [functions.admin](../../../functions/security/index.md#functions-admin), [storage.editor](../../../storage/security/index.md#storage-editor), [iam.editor](../../../iam/roles-reference.md#iam-editor), [mdb.admin](../../../iam/roles-reference.md#mdb-admin), and `serverless.workflows.admin` roles to the `deploy-sa` service account, use the [setAccessBindings](../../../iam/api-ref/ServiceAccount/setAccessBindings.md) method for the [ServiceAccount](../../../iam/api-ref/ServiceAccount/index.md) resource or the [ServiceAccountService.SetAccessBindings](../../../iam/api-ref/grpc/ServiceAccount/setAccessBindings.md) gRPC API call.
 
-  In the same way, assign the following roles to the `speechsense-sa` service account: [storage.viewer](../../../storage/security/index.md#storage-viewer), [functions.functionInvoker](../../../functions/security/index.md#functions-functionInvoker), [functions.mdbProxiesUser](../../../functions/security/index.md#functions-mdbProxiesUser), [lockbox.payloadViewer](../../../lockbox/security/index.md#lockbox-payloadviewer), and `serverless.workflows.executor`.
+  In the same way, assign the following roles to the `speechsense-sa` service account: [storage.viewer](../../../storage/security/index.md#storage-viewer), [functions.functionInvoker](../../../functions/security/index.md#functions-functionInvoker), [functions.mdbProxiesUser](../../../functions/security/index.md#functions-mdbProxiesUser), [lockbox.payloadViewer](../../../lockbox/security/index.md#lockbox-payloadViewer), and `serverless.workflows.executor`.
+
 
 {% endlist %}
 
@@ -173,7 +175,9 @@ Create an API key for the `speechsense-sa` service account.
 
 - API {#api}
 
+  
   Create an API key using the [create](../../../iam/api-ref/ApiKey/create.md) REST API method for the [ApiKey](../../../iam/api-ref/ApiKey/index.md) resource:
+
 
   ```bash
   export SERVICEACCOUNT_ID=<service_account_ID>
@@ -188,10 +192,12 @@ Create an API key for the `speechsense-sa` service account.
 
   Where:
 
+  
   * `SERVICEACCOUNT_ID`: Service account [ID](../../../iam/operations/sa/get-id.md).
   * `IAM_TOKEN`: [IAM token](../../../iam/concepts/authorization/iam-token.md).
 
   You can also create an API key using the [ApiKeyService.Create](../../../iam/api-ref/grpc/ApiKey/create.md) gRPC API call.
+
 
 {% endlist %}      
 
@@ -220,7 +226,7 @@ Add the `speechsense-sa` service account to the {{ speechsense-name }} space.
   1. Go to your [new space](#create-space).
   1. Click ![image](../../../_assets/console-icons/person-plus.svg) **{{ ui-key.yc-ui-talkanalytics.projects.add-participant }}** → ![image](../../../_assets/console-icons/persons.svg) **{{ ui-key.yc-ui-talkanalytics.team.add-from-organization-key-value }}**.
   1. Copy the ID of the `speechsense-sa` service account you [created earlier](#create-sa) and paste it to the search bar.
-  1. Select the `speechsense-sa` service account and specify the [{{ roles-speechsense-data-editor }}](../../../speechsense/security/index.md#speechsense-data-editor) role. This role will allow `speechsense-sa` to upload data to {{ speechsense-name }}.
+  1. Select the `speechsense-sa` service account and specify the [{{ roles-speechsense-data-editor }}]({{ link-docs-ai }}speechsense/security/#speechsense-data-editor) role. This role will allow `speechsense-sa` to upload data to {{ speechsense-name }}.
   1. Click **{{ ui-key.yc-ui-talkanalytics.common.add }}**.
 
 {% endlist %}
@@ -369,7 +375,9 @@ Depending on the type of files to be uploaded to {{ speechsense-name }}, create 
 
     {% endlist %}
 
+    
     In the command line, enter the [folder ID](../../../resource-manager/operations/folder/get-id.md), `speechsense-sa` as the name of the service account that will call functions and run the workflow, and [bucket name](../../../storage/concepts/bucket.md#naming).
+
 
     The script execution time is about 10-15 minutes.
 
@@ -435,6 +443,7 @@ Depending on the type of files to be uploaded to {{ speechsense-name }}, create 
 
 - API {#api}
 
+  
   To create a secret, use the [create](../../../lockbox/api-ref/Secret/create.md) REST API method for the [Secret](../../../lockbox/api-ref/Secret/index.md) resource or the [SecretService.Create](../../../lockbox/api-ref/grpc/Secret/create.md) gRPC API call.
 
 {% endlist %}
@@ -741,6 +750,7 @@ To check that the files were successfully uploaded into {{ speechsense-name }}:
 ## Delete resources {#clear-out}
 
 Some resources are not free of charge. Delete the resources you no longer need to avoid paying for them.
+
 
 1. [Delete](../../../storage/operations/buckets/delete.md) objects from the {{ objstorage-name }} bucket and the bucket itself.
 1. [Delete](../../../managed-postgresql/operations/cluster-delete.md) the {{ mpg-name }} cluster.

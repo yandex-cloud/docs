@@ -5,9 +5,15 @@ description: This section contains the {{ mmy-name }} release notes.
 
 # {{ mmy-full-name }} release notes
 
+## April 2026 {#apr-2026}
+
+* Users with the `mdb.admin` [role](./security/index.md#mdb-admin) can now [view the list](./operations/cluster-users.md#list-users) of users they created via the `mysql.v_user`, `mysql.v_db`, and `mysql.v_procs_priv` views.
+* Added protection against accidental database deletion, similar to cluster deletion protection.
+* After a [maintenance operation](./concepts/maintenance.md), the priority host automatically becomes the master again. This switching is performed when replication delay is under 10 seconds. If needed, the system waits for up to 30 minutes.
+
 ## March 2026 {#mar-2026}
 
-* Added separate [roles](./security/index.md) enabling you to view and edit (reschedule) maintenance without cluster access.
+* Added specific [roles](./security/index.md) to view and edit (reschedule) [maintenance](./concepts/maintenance.md) without access to the cluster.
 
 ## February 2026 {#feb-2026}
 

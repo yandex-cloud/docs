@@ -1334,6 +1334,8 @@ items:
             href: audit/iam/events-ref/CreateTemporaryAccessKey.md
           - name: CreateUserCredential
             href: audit/iam/events-ref/CreateUserCredential.md
+          - name: CreateYcSsprToken
+            href: audit/iam/events-ref/CreateYcSsprToken.md
           - name: DeleteAccessKey
             href: audit/iam/events-ref/DeleteAccessKey.md
           - name: DeleteApiKey
@@ -1364,6 +1366,8 @@ items:
             href: audit/iam/events-ref/EnableService.md
           - name: GenerateSshCertificate
             href: audit/iam/events-ref/GenerateSshCertificate.md
+          - name: ReactivateServiceAccount
+            href: audit/iam/events-ref/ReactivateServiceAccount.md
           - name: RevokeIamToken
             href: audit/iam/events-ref/RevokeIamToken.md
           - name: RevokeLeakedCredential
@@ -1376,6 +1380,8 @@ items:
             href: audit/iam/events-ref/SetFederationAccessBindings.md
           - name: SetServiceAccountAccessBindings
             href: audit/iam/events-ref/SetServiceAccountAccessBindings.md
+          - name: SuspendServiceAccount
+            href: audit/iam/events-ref/SuspendServiceAccount.md
           - name: UpdateAccessKey
             href: audit/iam/events-ref/UpdateAccessKey.md
           - name: UpdateApiKey
@@ -2072,6 +2078,8 @@ items:
             href: audit/mdb/mysql/events-ref/RestoreCluster.md
           - name: RevokeUserPermission
             href: audit/mdb/mysql/events-ref/RevokeUserPermission.md
+          - name: SetClusterAccessBindings
+            href: audit/mdb/mysql/events-ref/SetClusterAccessBindings.md
           - name: StartCluster
             href: audit/mdb/mysql/events-ref/StartCluster.md
           - name: StartClusterFailover
@@ -2080,6 +2088,8 @@ items:
             href: audit/mdb/mysql/events-ref/StopCluster.md
           - name: UpdateCluster
             href: audit/mdb/mysql/events-ref/UpdateCluster.md
+          - name: UpdateClusterAccessBindings
+            href: audit/mdb/mysql/events-ref/UpdateClusterAccessBindings.md
           - name: UpdateClusterHosts
             href: audit/mdb/mysql/events-ref/UpdateClusterHosts.md
           - name: UpdateDatabase
@@ -2281,6 +2291,8 @@ items:
             href: audit/mdb/spqr/events-ref/DeleteDatabase.md
           - name: DeleteUser
             href: audit/mdb/spqr/events-ref/DeleteUser.md
+          - name: MoveCluster
+            href: audit/mdb/spqr/events-ref/MoveCluster.md
           - name: RescheduleMaintenance
             href: audit/mdb/spqr/events-ref/RescheduleMaintenance.md
           - name: RestoreCluster
@@ -2319,6 +2331,9 @@ items:
             href: audit/organizationmanager/events-ref/AddFederatedUserAccounts.md
           - name: AddFederationDomain
             href: audit/organizationmanager/events-ref/AddFederationDomain.md
+          - name: AddOAuthFederatedUserAccounts
+            href: >-
+              audit/organizationmanager/events-ref/AddOAuthFederatedUserAccounts.md
           - name: AddUserBlock
             href: audit/organizationmanager/events-ref/AddUserBlock.md
           - name: AddUserpoolDomain
@@ -2435,6 +2450,8 @@ items:
             href: audit/organizationmanager/events-ref/RemoveUserBlock.md
           - name: ResendInvitation
             href: audit/organizationmanager/events-ref/ResendInvitation.md
+          - name: ResetOwnPassword
+            href: audit/organizationmanager/events-ref/ResetOwnPassword.md
           - name: SetApplicationAccessBindings
             href: >-
               audit/organizationmanager/events-ref/SetApplicationAccessBindings.md
@@ -3155,6 +3172,12 @@ items:
             href: audit/wiki/events-ref/BookmarkTagsDelete.md
           - name: BookmarkUpdate
             href: audit/wiki/events-ref/BookmarkUpdate.md
+          - name: ChangeOrganizationDomain
+            href: audit/wiki/events-ref/ChangeOrganizationDomain.md
+          - name: ChangeOrganizationMetrika
+            href: audit/wiki/events-ref/ChangeOrganizationMetrika.md
+          - name: ChangeOrganizationSettings
+            href: audit/wiki/events-ref/ChangeOrganizationSettings.md
           - name: ClusterMove
             href: audit/wiki/events-ref/ClusterMove.md
           - name: CommentCreate

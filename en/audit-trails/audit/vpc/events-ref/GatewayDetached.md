@@ -89,14 +89,24 @@ editable: false
   },
   "details": {
     "gatewayId": "string",
+    // Includes only one of the fields `gatewayName`
     "gatewayName": "string",
+    // end of the list of possible fields
     "subnetId": "string",
+    // Includes only one of the fields `subnetName`
     "subnetName": "string",
+    // end of the list of possible fields
     "networkId": "string",
+    // Includes only one of the fields `networkName`
     "networkName": "string",
+    // end of the list of possible fields
     "routeTableId": "string",
+    // Includes only one of the fields `routeTableName`
     "routeTableName": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `description`
     "description": "string",
+    // end of the list of possible fields
     "labels": "object"
   },
   "requestParameters": "object",
@@ -269,13 +279,23 @@ A list of messages that carry the error details. ||
 #|
 ||Field | Description ||
 || gatewayId | **string** ||
-|| gatewayName | **string** ||
+|| gatewayName | **string**
+
+Includes only one of the fields `gatewayName`. ||
 || subnetId | **string** ||
-|| subnetName | **string** ||
+|| subnetName | **string**
+
+Includes only one of the fields `subnetName`. ||
 || networkId | **string** ||
-|| networkName | **string** ||
+|| networkName | **string**
+
+Includes only one of the fields `networkName`. ||
 || routeTableId | **string** ||
-|| routeTableName | **string** ||
-|| description | **string** ||
+|| routeTableName | **string**
+
+Includes only one of the fields `routeTableName`. ||
+|| description | **string**
+
+Includes only one of the fields `description`. ||
 || labels | **object** (map<**string**, **string**>) ||
 |#

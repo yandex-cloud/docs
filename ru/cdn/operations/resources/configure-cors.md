@@ -105,33 +105,16 @@ description: Следуя данной инструкции, вы сможете
   1. Опишите в конфигурационном файле параметры создаваемого CDN-ресурса:
 
       ```hcl
-      terraform {
-        required_providers {
-          yandex = {
-            source  = "yandex-cloud/yandex"
-            version = "0.69.0"
-          }
-        }
-      }
-
-      provider "yandex" {
-        token     = "<OAuth-токен>"
-        cloud_id  = "<идентификатор_облака>"
-        folder_id = "<идентификатор_каталога>"
-        zone      = "<зона_доступности>"
-      }
-
       resource "yandex_cdn_resource" "my_resource" {
-          cname               = "cdn1.yandex-example.ru"
-          active              = false
-          origin_protocol     = "https"
-          secondary_hostnames = ["cdn-example-1.yandex.ru", "cdn-example-2.yandex.ru"]
-          origin_group_id     = yandex_cdn_origin_group.my_group.id
-          options {
-            allowed_http_methods = ["GET","PUT"]
-            cors                 = ["*"]
-          }
-
+        cname               = "cdn1.yandex-example.ru"
+        active              = false
+        origin_protocol     = "https"
+        secondary_hostnames = ["cdn-example-1.yandex.ru", "cdn-example-2.yandex.ru"]
+        origin_group_id     = yandex_cdn_origin_group.my_group.id
+        options {
+          allowed_http_methods = ["GET","PUT"]
+          cors                 = ["*"]
+        }
       }
       ```
 

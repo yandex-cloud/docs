@@ -18,6 +18,12 @@ description: Следуя данной инструкции, вы сможете
   1. На панели слева выберите ![brush](../../_assets/console-icons/brush.svg) **{{ ui-key.yacloud_org.pages.organization-branding }}**.
   1. В блоке **{{ ui-key.yacloud_org.organization.branding.AuthBrandingForm.styleSection.title }}** настройте по отдельности темную и светлую цветовые темы:
 
+     {% note info %}
+     
+     Встроенный редактор позволяет подготовить логотип или фавиконку к загрузке: обрезать лишний фон, изменить масштаб и выстроить композицию.
+     
+     {% endnote %}
+
      1. **{{ ui-key.yacloud_org.organization.branding.AuthBrandingThemeBlock.backgroundName }}** — выберите изображение, которое будет использоваться в качестве фона страницы (до 3840×2160 px, до 4 МБ).
      1. **{{ ui-key.yacloud_org.organization.branding.AuthBrandingThemeBlock.logoName }}** — выберите изображение, которое будет отображаться в верхней части формы (от 1920×1920 px, до 512 КБ).
      1. **{{ ui-key.yacloud_org.organization.branding.AuthBrandingThemeBlock.faviconName }}** — выберите изображение, которое будет отображаться во вкладке браузера рядом с названием сайта (до 512×512 px, до 512 КБ).

@@ -263,14 +263,6 @@
 {% endlist %}
 
 
-### Получите OAuth-токен {#get-oauth-token}
-
-Получите [OAuth-токен](../../iam/concepts/authorization/oauth-token.md):
-
-1. [Перейдите](../../console/operations/select-service.md#select-service) в сервис [{{ yandex-oauth }}]({{ link-cloud-oauth }}). Перед выдачей токена сервис может запросить доступ к данным.
-1. Сохраните полученный токен, он понадобится для загрузки кода.
-
-
 ### Загрузите код бэкенда в {{ sf-name }} {#deploy-backend}
 
 Используйте {{ TF }} для автоматизации действий. Перед использованием [проинициализируйте его](../../tutorials/infrastructure-management/terraform-quickstart.md#configure-provider).
@@ -295,10 +287,10 @@
 
       {% endnote %}
 
-  1. После успешной инициализации создайте ресурсы, передав значение OAuth-токена для аутентификации в {{ yandex-cloud }}:
+  1. После успешной инициализации создайте ресурсы и передайте значение IAM-токена для аутентификации в {{ yandex-cloud }}:
 
       ```bash
-      terraform apply -var-file ./variables.json -var yc-token=<OAuth-токен>
+      terraform apply -var-file ./variables.json -var yc-token="$(yc iam create-token)"
       ```
 
       {{ TF }} автоматически создаст или обновит требуемые ресурсы.

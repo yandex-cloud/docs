@@ -88,8 +88,12 @@ editable: false
     ]
   },
   "details": {
+    // Includes only one of the fields `dnsFirewallId`
     "dnsFirewallId": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `dnsFirewallName`
     "dnsFirewallName": "string",
+    // end of the list of possible fields
     "accessBindings": [
       {
         "roleId": "string",
@@ -279,8 +283,12 @@ A list of messages that carry the error details. ||
 
 #|
 ||Field | Description ||
-|| dnsFirewallId | **string** ||
-|| dnsFirewallName | **string** ||
+|| dnsFirewallId | **string**
+
+Includes only one of the fields `dnsFirewallId`. ||
+|| dnsFirewallName | **string**
+
+Includes only one of the fields `dnsFirewallName`. ||
 || accessBindings[] | **[AccessBinding](#yandex.cloud.audit.AccessBinding)** ||
 || accessBindingDeltas[] | **[AccessBindingDelta](#yandex.cloud.audit.AccessBindingDelta)** ||
 |#

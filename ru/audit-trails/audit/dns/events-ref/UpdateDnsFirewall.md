@@ -89,11 +89,19 @@ editable: false
   },
   "details": {
     "dnsFirewallId": "string",
+    // Includes only one of the fields `dnsFirewallName`
     "dnsFirewallName": "string",
+    // end of the list of possible fields
+    // Includes only one of the fields `description`
     "description": "string",
+    // end of the list of possible fields
     "labels": "object",
+    // Includes only one of the fields `deletionProtection`
     "deletionProtection": "boolean",
+    // end of the list of possible fields
+    // Includes only one of the fields `enabled`
     "enabled": "boolean",
+    // end of the list of possible fields
     "resourceConfig": {
       "type": "string",
       "resourceIds": [
@@ -278,11 +286,19 @@ A list of messages that carry the error details. ||
 #|
 ||Field | Description ||
 || dnsFirewallId | **string** ||
-|| dnsFirewallName | **string** ||
-|| description | **string** ||
+|| dnsFirewallName | **string**
+
+Includes only one of the fields `dnsFirewallName`. ||
+|| description | **string**
+
+Includes only one of the fields `description`. ||
 || labels | **object** (map<**string**, **string**>) ||
-|| deletionProtection | **boolean** ||
-|| enabled | **boolean** ||
+|| deletionProtection | **boolean**
+
+Includes only one of the fields `deletionProtection`. ||
+|| enabled | **boolean**
+
+Includes only one of the fields `enabled`. ||
 || resourceConfig | **[ResourceConfig](#yandex.cloud.dns.v1.DnsFirewall.ResourceConfig)** ||
 || whitelistFqdns[] | **string** ||
 || blacklistFqdns[] | **string** ||
