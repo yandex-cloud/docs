@@ -37,37 +37,37 @@
 1. Сохраните следующий код в файл с названием `index.js`:
 
    ```javascript
-      import { Session } from '@yandex-cloud/nodejs-sdk';
-      import { instanceService, instance } from '@yandex-cloud/nodejs-sdk/compute-v1';
+   import { Session } from '@yandex-cloud/nodejs-sdk';
+   import { instanceService, instance } from '@yandex-cloud/nodejs-sdk/compute-v1';
 
-      const FOLDER_ID = process.env.FOLDER_ID;
-      const INSTANCE_ID = process.env.INSTANCE_ID;
+   const FOLDER_ID = process.env.FOLDER_ID;
+   const INSTANCE_ID = process.env.INSTANCE_ID;
 
-      export const handler = async function (event, context) {
-        const session = new Session({ iamToken: context.token.access_token });
-        const instanceClient = session.client(instanceService.InstanceServiceClient);
+   export const handler = async function (event, context) {
+     const session = new Session({ iamToken: context.token.access_token });
+     const instanceClient = session.client(instanceService.InstanceServiceClient);
 
-        const list = await instanceClient.list(instanceService.ListInstancesRequest.fromPartial({
-          folderId: FOLDER_ID,
-        }));
+     const list = await instanceClient.list(instanceService.ListInstancesRequest.fromPartial({
+       folderId: FOLDER_ID,
+     }));
 
-        const state = await instanceClient.get(instanceService.GetInstanceRequest.fromPartial({
-          instanceId: INSTANCE_ID,
-        }));
+     const state = await instanceClient.get(instanceService.GetInstanceRequest.fromPartial({
+       instanceId: INSTANCE_ID,
+     }));
 
-        var status = state.status;
+     var status = state.status;
 
-        if (status == 4) {
-          await instanceClient.start(instanceService.StartInstanceRequest.fromPartial({
-            instanceId: INSTANCE_ID,
-          }));
-        }
+     if (status == 4) {
+       await instanceClient.start(instanceService.StartInstanceRequest.fromPartial({
+         instanceId: INSTANCE_ID,
+       }));
+     }
 
-        return {
-          statusCode: 200,
-          body: { status },
-        };
-      };
+     return {
+       statusCode: 200,
+       body: { status },
+     };
+   };
    ```
 
 1. Сохраните следующий код в файл с названием `package.json`:
